@@ -1,0 +1,63 @@
+body {
+	background: #f1f4f6;
+	font-family: "Lucida Grande", "Lucida Sans", sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	margin: 0 !important;
+}
+
+#header h1 a {
+	background: url(../img/logo.gif) no-repeat top left;
+	color: #6e6d6e;
+	margin-left: 30px;
+	margin-bottom: 20px;
+	padding: 24px 0 0 15px;
+}
+
+#content_wrap {
+	float: left;
+	width: 100%;
+	background: #fff;
+	border: 1px solid #ddd;
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-topleft: 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 25px;
+	position: relative;
+}
+
+#tab_content.home {
+	margin: 0;
+}
+
+#content.home, #content.login {
+	width: 909px;
+}
+
+#content.home #page_head, #content.login #page_head {
+	width: 870px;
+}
+
+#header a {	color: #6e6d6e; }
+#header a:hover { color: #989698; }
+
+#user_info {
+	float: right;
+	color: #6e6d6e;
+	width: 180px;
+	height: 50px;
+	text-align: left;
+}
+
+

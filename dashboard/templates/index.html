@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block headercss %}
+{% endblock %}
+{% block pageclass %}home{% endblock %}
+
+{% block title %} - Cloud Computing{% endblock %}
+
+{% block content %}
+  <div id="page_head">
+    <h2>Welcome to the Openstack Dashboard</h2>
+    <p>Lorem ipsum oblique praesent theophrastus ut eos. No altera eirmod
+       graecis ius. Pri mucius salutandi at, usu admodum neglegentur ad.
+       In qui propriae fabellas comprehensam.
+       {% if not request.user.is_authenticated %}
+       <a id="lnk_register" href="{% url registration_register %}">Register</a>
+       {% endif %}
+    </p>
+  </div>
+
+  {% if request.user.is_authenticated %}
+  <div id="projects" class="block">
+    <h3>Your Projects</h3>
+    <ul>
+      {% for project in projects %}
+      <li class="project {% cycle 'odd' 'even' %}">
+        <a id="lnk_project_{{ project.projectname }}" href="{% url nova_project project.projectname %}">
+          {{ project.projectname|capfirst }}
+          <span class="data">{{ project.description|capfirst }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% else %}
+  <div id="home_login" class="block">
+    <h3>Sign In</h3>
+    <form action="{% url auth_login %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+        {% if form.errors %}
+        <p class="error">Your username and password didn't match. Please try again.</p>
+        {% endif %}
+        <label for="username">Username:</label><input id="username" type="text" name="username" />
+        <label for="password">Password:</label><input id="password" type="password" name="password" />
+        <input type="hidden" name="next" value="/" />
+        <div class="button">
+          <input id="home_login_btn" type="submit" value="Sign In">
+          <span id="forgot_password">or <a id="forgot_password_link" href="{% url auth_password_reset %}">Forgot Password?</a></span>
+        </div>
+      </fieldset>
+    </form>
+ </div>
+  {% endif %}
+{% endblock %}
+

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %} - Forbidden{% endblock %}
+
+{% block content %}
+  <div id="right_content">
+    <div id="page_head">
+      <h2 id="page_heading">Forbidden</h2>
+      <p id="page_description">You do not have the required privileges to access this content.  If you believe this message to be in error,
+      please contact your project manager.</p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block sidebar %}
+  <div id="sidebar">
+    <ul id="navigation">
+      {% block nav_home %}
+      <li><h3><a href="/">Home</a></h3></li>
+      {% endblock %}
+
+      {% block nav_projects %}
+      <li><h3><a href="/">Projects</a></h3></li>
+      {% endblock %}
+
+      {% block nav_forum %}
+      <li><h3><a href="/forum">Forums</a></h3></li>
+      {% endblock %}
+
+      {% block nav_kb %}
+      <li><h3><a href="/kb/show/Start/">Knowledge Base</a></h3></li>
+      {% endblock %}
+    </ul>
+  </div> <!-- end sidebar -->
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block region %}{% endblock %}
+
+{% block title %}Account Activation{% endblock %}
+
+{% block content %}
+{% if account %}
+  <div id="page_head">
+    <h2>Activation successful</h2>
+  </div>
+
+  <div class="ui-state-highlight ui-corner-all success">
+    <span class="close ui-icon ui-icon-circle-close" style="display:none;"></span>
+    <p>
+      <span class="ui-icon ui-icon-check"></span>
+      Your account has been successfully activated.
+    </p>
+  </div>
+  <p>
+    You may now <a id="lnk_login" href="{% url auth_login %}">log in</a> to your account.
+  </p>
+{% else %}
+  <div id="page_head">
+    <h2>Activation failed</h2>
+  </div>
+
+  <p>
+    We are unable to activate your account at this time. It is possible that the activation
+    period for your account has expired. Please register your account again, or contact the
+    site administrator for help resolving this issue.
+  </p>
+{% endif %}
+{% endblock %}
+

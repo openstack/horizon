@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>OpenStack Dashboard{% block title %}{% endblock %}{% block subtitle %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/media/dashboard/css/new_dash.css"/>
+    <link rel="stylesheet" type="text/css" href="/media/dashboard/css/cupertino/jquery-ui-1.7.2.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="/media/dashboard/css/openstack.css"/>
+    {% block headercss %}{% endblock %}
+    <!--[if IE 7]><link rel="stylesheet" href="/media/dashboard/css/ie7.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <script type="text/javascript" src="/media/dashboard/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/media/dashboard/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/media/dashboard/js/dashboard.js"></script>
+
+    {% block headerjs %}{% endblock %}
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <h1><a href="/">OpenStack<span> Cloud Computing</span></a></h1>
+        {% if user.is_authenticated %}
+          <div id="user_info">
+              <span class="user">Signed in as <strong>{{ request.user.username }}</strong>.</a></span>
+            <ul>
+                <li><a id="lnk_logout" href="{% url auth_logout %}">Sign Out</a></li>
+              <li><a id="lnk_change_password" href="{% url auth_password_change %}">Change Password</a></li>
+            </ul>
+          </div>
+        {% else %}
+          <div id="user_info">
+            <a id="lnk_login" href="/accounts/login">Sign In</a>
+          </div>
+        {% endif %}
+      </div>
+
+      <div id="content_wrap">
+        {% block sidebar %}{% endblock %}
+        {% block region %}{% endblock %}
+        {% block forum_breadcrumbs %}{% endblock %}
+        <div id="content" class="{% block pageclass %}{% endblock %}">
+          {% block rootcontent %}{% endblock %}
+        </div><!-- end content -->
+      </div>
+
+      <div id="footer">
+        <div id="foot">
+          <div class="c7">
+            <div class="ft_sitemap">
+              <div class="sub"><a href="{% url index %}">Dashboard</a>
+                <ul>
+                  <li><a href="{% url index %}">Home</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+       <div class="clr"></div>
+      </div>
+      {% block footerjs %}{% endblock %}
+    </div>
+  </body>
+</html>

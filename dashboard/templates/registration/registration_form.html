@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block region %}{% endblock %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div id="page_head">
+  <h1>Create Your Account</h1>
+  <p id="page_description">Create your new account by providing the information blow.</p>
+</div>
+
+<div id="home_login" class="block reset">
+  <h3>Register</h3>
+  <form action="" method="post">
+    <fieldset>
+      {% csrf_token %}
+      {{ form.username.errors }}
+      <label for="id_username">Username:</label> {{ form.username }}
+      {{ form.email.errors }}
+      <label for="id_email">E-mail address:</label> {{ form.email }}
+      {{ form.password1.errors }}
+      <label for="id_password1">Password:</label> {{ form.password1 }}
+      {{ form.password2.errors }}
+      <label for="id_password2">Confirm Password:</label> {{ form.password2 }}
+      <input id="btn_reset_password" type="submit" value="Reset Password" />
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

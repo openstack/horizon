@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block region %}{% endblock %}
+
+{% block headerjs %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block pageclass %}login{% endblock %}
+
+{% block content %}
+<div id="page_head">
+  <h2>Sign in to your Nebula Dashboard</h2>
+</div>
+
+<div id="home_login" class="block">
+  <h3>Sign In</h3>
+
+  <form action="{% url auth_login %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+      {% if form.errors %}
+      <p class="error">Your username and password didn't match. Please try again.</p>
+      {% endif %}
+      <input type="hidden" name="next" value="{{ next }}" />
+      {{ form.username.label_tag }}{{ form.username }}
+      {{ form.password.label_tag }}{{ form.password }}
+      <div class="button">
+        <input type="submit" value="Sign In">
+        <span id="forgot_password">or <a href="{% url auth_password_reset %}">Forgot Password?</a></span>
+      </div>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

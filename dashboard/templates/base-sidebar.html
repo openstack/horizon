@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+  <div id="sidebar">
+    <ul id="navigation">
+      {% block nav_home %}
+      <li><h3><a href="/">Home</a></h3></li>
+      {% endblock %}
+
+      {% block nav_projects %}
+      <li><h3><a href="/">Projects</a></h3></li>
+      {% endblock %}
+   </ul>
+  </div> <!-- end sidebar -->
+{% endblock %}
