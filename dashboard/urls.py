@@ -43,10 +43,15 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('django.views.generic.simple',
-   url(r'^denied/$',
+    # TODO(devcamcar): Move permission denied template into django-nova.
+    url(r'^denied/$',
         'direct_to_template',
         {'template': 'permission_denied.html'},
         name='dashboard_permission_denied'),
+    url(r'^unavailable/$',
+        'direct_to_template',
+        {'template': 'django_nova/unavailable.html'},
+        name='nova_unavailable'),
 )
 
 urlpatterns += patterns('',
