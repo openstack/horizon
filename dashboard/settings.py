@@ -1,4 +1,4 @@
-import datetime
+import boto
 import logging
 import os
 import sys
@@ -78,6 +78,11 @@ LANGUAGE_CODE = 'en-us'
 USE_I18N = False
 
 ACCOUNT_ACTIVATION_DAYS = 7
+
+# NOTE(devcamcar): Prevent boto from retrying and stalling the connection.
+if not boto.config.has_section('Boto'):
+    boto.config.add_section('Boto')
+boto.config.set('Boto', 'num_retries', '0')
 
 try:
     from local.local_settings import *
