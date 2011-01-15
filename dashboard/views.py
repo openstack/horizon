@@ -24,12 +24,15 @@ from django import template
 from django.shortcuts import render_to_response
 from django.views.decorators.vary import vary_on_cookie
 from django_nova.shortcuts import get_projects
+from django_nova.exceptions import handle_nova_error
 
 
 @vary_on_cookie
+@handle_nova_error
 def index(request):
     projects = None
     page_type = "home"
+
     if request.user.is_authenticated():
         projects = get_projects(user=request.user)
 
