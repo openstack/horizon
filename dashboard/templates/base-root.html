@@ -4,9 +4,8 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <title>OpenStack Dashboard{% block title %}{% endblock %}{% block subtitle %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="/media/dashboard/css/new_dash.css"/>
-    <link rel="stylesheet" type="text/css" href="/media/dashboard/css/cupertino/jquery-ui-1.7.2.custom.css"/>
     <link rel="stylesheet" type="text/css" href="/media/dashboard/css/openstack.css"/>
+    <link rel="stylesheet" type="text/css" href="/media/dashboard/css/cupertino/jquery-ui-1.7.2.custom.css"/>
     {% block headercss %}{% endblock %}
     <!--[if IE 7]><link rel="stylesheet" href="/media/dashboard/css/ie7.css" type="text/css" media="screen, projection"><![endif]-->
 
@@ -24,7 +23,7 @@
           <div id="user_info">
               <span class="user">Signed in as <strong>{{ request.user.username }}</strong>.</a></span>
             <ul>
-                <li><a id="lnk_logout" href="{% url auth_logout %}">Sign Out</a></li>
+              <li><a id="lnk_logout" href="{% url auth_logout %}">Sign Out</a></li>
               <li><a id="lnk_change_password" href="{% url auth_password_change %}">Change Password</a></li>
             </ul>
           </div>
@@ -45,17 +44,15 @@
       </div>
 
       <div id="footer">
-        <div id="foot">
-          <div class="c7">
-            <div class="ft_sitemap">
-              <div class="sub"><a href="{% url index %}">Dashboard</a>
-                <ul>
-                  <li><a href="{% url index %}">Home</a></li>
-                </ul>
-              </div>
-            </div>
+        <div class="sitemap">
+          <div class="sub">
+            <a href="{% url index %}">Dashboard</a>
+            <ul>
+              <li><a href="{% url index %}">Home</a></li>
+            </ul>
           </div>
-       <div class="clr"></div>
+        </div>
+        <div class="clr"></div>
       </div>
       {% block footerjs %}{% endblock %}
     </div>
