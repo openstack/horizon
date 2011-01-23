@@ -50,7 +50,7 @@ urlpatterns += patterns('django.views.generic.simple',
         name='dashboard_permission_denied'),
     url(r'^unavailable/$',
         'direct_to_template',
-        {'template': 'django_nova/unavailable.html'},
+        {'template': 'unavailable.html'},
         name='nova_unavailable'),
 )
 
