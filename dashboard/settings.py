@@ -11,7 +11,8 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SITE_ID = 1
-SITE_NAME = 'openstack-dashboard'
+SITE_BRANDING = 'OpenStack'
+SITE_NAME = 'openstack'
 
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/'
