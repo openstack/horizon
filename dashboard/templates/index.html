@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load django_nova_tags %}
+{% load_site_branding %}
 
 {% block headercss %}
 {% endblock %}
@@ -8,7 +10,7 @@
 
 {% block content %}
   <div id="page_head">
-    <h2>Welcome to the Openstack Dashboard</h2>
+    <h2>Welcome to the {{ site_branding }} Dashboard</h2>
     <p>Lorem ipsum oblique praesent theophrastus ut eos. No altera eirmod
        graecis ius. Pri mucius salutandi at, usu admodum neglegentur ad.
        In qui propriae fabellas comprehensam.

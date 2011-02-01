@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% load django_nova_tags %}
+{% load_site_branding %}
+
 {% block region %}{% endblock %}
 
 {% block headerjs %}
@@ -11,7 +14,7 @@
 
 {% block content %}
 <div id="page_head">
-  <h2>Sign in to the OpenStack Dashboard</h2>
+  <h2>Sign in to the {{ site_branding }} Dashboard</h2>
 </div>
 
 <div id="home_login" class="block">
