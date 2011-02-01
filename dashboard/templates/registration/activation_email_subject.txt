@@ -1,1 +1,1 @@
-{% load django_nova_tags %}{% load_site_branding %}Welcome to the {{ site_branding }} Dashboard!
+{% load django_nova_tags %}Welcome to the {% site_branding %} Dashboard!

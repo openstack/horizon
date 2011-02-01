@@ -1,11 +1,10 @@
 {% load django_nova_tags %}
-{% load_site_branding %}
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <title>{{ site_branding }} Dashboard{% block title %}{% endblock %}{% block subtitle %}{% endblock %}</title>
+    <title>{% site_branding %} Dashboard{% block title %}{% endblock %}{% block subtitle %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="/media/dashboard/css/openstack.css"/>
     <link rel="stylesheet" type="text/css" href="/media/dashboard/css/cupertino/jquery-ui-1.7.2.custom.css"/>
     {% block headercss %}{% endblock %}
@@ -20,7 +19,7 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <h1><a href="/">{{ site_branding }}<span> Cloud Computing</span></a></h1>
+        <h1><a href="/">{% site_branding %}<span> Cloud Computing</span></a></h1>
         {% if user.is_authenticated %}
           <div id="user_info">
               <span class="user">Signed in as <strong>{{ request.user.username }}</strong>.</a></span>
