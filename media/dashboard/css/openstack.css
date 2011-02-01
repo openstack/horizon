@@ -1,3 +1,5 @@
+/* @override http://looce.com:8080/media/dashboard/css/openstack.css */
+
 @import url("reset.css");
 
 /*==================
@@ -121,6 +123,7 @@ p .ui-icon {
 	float: left;
 	width: 309px;
 }
+
 /* Home Page */
 
 
@@ -129,12 +132,14 @@ p .ui-icon {
 	float: left;
 }
 
+#content.home {
+	width: 910px;
+}
 .block {
 	background-color: #dff2ff;
 	border: 1px solid #b1e7ff;
 	width: 445px;
 	float: left;
-
 }
 
 .block h3 {
@@ -208,7 +213,7 @@ span.data {
 	width: 396px;
 }
 
-#home_login input[type="submit"] {
+#home_login input[type="submit"], #lnk_register {
 	float: right;
 	height: 31px;
 	background: url(/media/dashboard/img/login_btn.png) top left repeat-x;
@@ -225,11 +230,19 @@ span.data {
 	-border-radius: 3px;
 }
 
-#home_login input[type="submit"]:hover {
+#lnk_register {
+	float: none;
+	padding: 8px 30px;
+	font-size: 14px;
+	text-decoration: none;
+	margin-left: 39px;
+}
+
+#home_login input[type="submit"]:hover, #lnk_register:hover {
 	background-position: center left;
 }
 
-#home_login input[type="submit"]:active {
+#home_login input[type="submit"]:active, #lnk_register:active {
 	background-position: bottom left;
 }
 
@@ -254,6 +267,29 @@ span.data {
 	font-size: 12px;
 }
 
+.home_block {
+	width: 388px;
+	float: left;
+	margin-left: 25px;
+	padding: 25px;
+	background: #f5f5f5;
+	margin-bottom: 25px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+}
+
+.home_block ul {
+	margin-left: 33px;
+	list-style: disc;
+	color: #999;
+	margin-top: 13px;
+}
+
+.home_block ul li {
+	margin-bottom: 5px;
+}
 
 /* User Roles Manager */
 
@@ -374,16 +410,6 @@ span#project_name {
 	width: 297px;
 	margin-bottom: 11px;
 }
-
-.dash_block form select, .dash_block form textarea, .dash_block form input[type="text"] {
-	width: 265px;
-}
-
-.dash_block form input[type="submit"] {
-	float: right;
-	margin-right: 16px;
-}
-
 
 /* Tables */
 
@@ -537,7 +563,7 @@ div.image_detail, div.instance_detail {
 	font-size: 10px;
 	margin-left: -45px;
 	color: #579aff;
-	margin-top: -30px;
+	margin-top: -25px;
 }
 
 #edit_image_link:hover {
@@ -722,9 +748,15 @@ div.image_detail, div.instance_detail {
 }
 
 /* forms */
-.dash_block input[type="text"] {
+.dash_block form textarea, .dash_block form input[type="text"] {
 	padding: 5px;
-	width: 264px;
+	width: 250px;
+}
+.dash_block form select { width: 264px;}
+.dash_block form input[type="submit"] {
+	float: right;
+	margin-right: 23px;
+	margin-top: 15px;
 }
 
 .dash_block input.create, .dash_block input.attach {
@@ -747,4 +779,8 @@ div.image_detail, div.instance_detail {
 	margin-left: -21px;
 	padding: 5px;
 	margin-bottom: 5px;
+}
+
+form.edit_instance input[type="submit"], form.edit_image input[type="submit"] {
+  margin-right: 4px;
 }

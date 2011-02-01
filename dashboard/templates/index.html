@@ -47,11 +47,10 @@
     </div>
     {% if not request.user.is_authenticated %}
       <div class="home_block">
-        <h3>Get started.</h3>
-        <h2><a id="lnk_register" href="{% url registration_register %}">Register</a></h2>
+        <h3>Don't have an account? <a id="lnk_register" href="{% url registration_register %}">Register</a></h3>
       </div>
     {% endif %}
-    <div class="block">
+    <div class="home_block">
       <h3>OpenStack Resources</h3>
       <ul>
         <li><a href="http://openstack.org" target="_blank">OpenStack.org</a></li>
