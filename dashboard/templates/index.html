@@ -9,7 +9,8 @@
 {% block content %}
   <div id="page_head">
     <h2>Welcome to the OpenStack Dashboard</h2>
-    <p>Through the OpenStack Dashboard you can manage your cloud through a crisp, clean, and easy to use interface. To get started register or sign in below.</p>
+    <p>Through the OpenStack Dashboard you can manage your cloud through a crisp, clean, and easy to use interface.
+      {% if not request.user.is_authenticated%}To get started <a href="{% url registration_register %}">register</a> or sign in below.{% endif %}</p>
   </div>
 
   {% if request.user.is_authenticated %}
@@ -26,6 +27,16 @@
       {% endfor %}
     </ul>
   </div>
+  
+  <div class="home_block">
+    <h3>OpenStack Resources</h3>
+    <ul>
+      <li><a href="http://openstack.org" target="_blank">OpenStack.org</a></li>
+      <li><a href="https://launchpad.net/openstack-dashboard" target="_blank">OpenStack Dashboard Launchpad Repository</a></li>
+      <li><a href="https://launchpad.net/django-nova" target="_blank">Django-Nova Launchpad Repository</a></li>
+    </ul>
+  </div>
+  
   {% else %}
     <div id="home_login" class="block">
       <h3>Sign In</h3>
