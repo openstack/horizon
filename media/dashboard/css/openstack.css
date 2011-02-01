@@ -100,7 +100,7 @@ p .ui-icon {
   ==================*/
 
 #content_wrap {
-	background: #fff;
+  background: #fff url(../img/sidebar_bg.gif) top left repeat-y;
 	float: left;
 	width: 960px;
 	position: relative;
@@ -375,16 +375,6 @@ span#project_name {
 	margin-bottom: 11px;
 }
 
-.dash_block form select, .dash_block form textarea, .dash_block form input[type="text"] {
-	width: 265px;
-}
-
-.dash_block form input[type="submit"] {
-	float: right;
-	margin-right: 16px;
-}
-
-
 /* Tables */
 
 #content table {
@@ -537,7 +527,7 @@ div.image_detail, div.instance_detail {
 	font-size: 10px;
 	margin-left: -45px;
 	color: #579aff;
-	margin-top: -30px;
+	margin-top: -25px;
 }
 
 #edit_image_link:hover {
@@ -722,9 +712,15 @@ div.image_detail, div.instance_detail {
 }
 
 /* forms */
-.dash_block input[type="text"] {
+.dash_block form textarea, .dash_block form input[type="text"] {
 	padding: 5px;
-	width: 264px;
+	width: 250px;
+}
+.dash_block form select { width: 264px;}
+.dash_block form input[type="submit"] {
+	float: right;
+	margin-right: 23px;
+	margin-top: 15px;
 }
 
 .dash_block input.create, .dash_block input.attach {
@@ -747,4 +743,8 @@ div.image_detail, div.instance_detail {
 	margin-left: -21px;
 	padding: 5px;
 	margin-bottom: 5px;
+}
+
+form.edit_instance input[type="submit"], form.edit_image input[type="submit"] {
+  margin-right: 4px;
 }
