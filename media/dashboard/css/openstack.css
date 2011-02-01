@@ -100,7 +100,7 @@ p .ui-icon {
   ==================*/
 
 #content_wrap {
-  background: #fff url(../img/sidebar_bg.gif) top left repeat-y;
+	background: #fff;
 	float: left;
 	width: 960px;
 	position: relative;
