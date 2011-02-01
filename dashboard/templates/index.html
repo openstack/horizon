@@ -10,12 +10,10 @@
 {% block content %}
   <div id="page_head">
     <h2>Welcome to the {% site_branding %} Dashboard</h2>
-    <p>Lorem ipsum oblique praesent theophrastus ut eos. No altera eirmod
-       graecis ius. Pri mucius salutandi at, usu admodum neglegentur ad.
-       In qui propriae fabellas comprehensam.
-       {% if not request.user.is_authenticated %}
-       <a id="lnk_register" href="{% url registration_register %}">Register</a>
-       {% endif %}
+    <p>Through the {% site_branding %} Dashboard you can manage your cloud
+      through a crisp, clean, and easy to use interface.
+      {% if not request.user.is_authenticated%}To get started
+      <a href="{% url registration_register %}">register</a> or sign in below.{% endif %}
     </p>
   </div>
 
@@ -33,25 +31,48 @@
       {% endfor %}
     </ul>
   </div>
+
+  <div class="home_block">
+    <h3>OpenStack Resources</h3>
+    <ul>
+      <li><a href="http://openstack.org" target="_blank">OpenStack.org</a></li>
+      <li><a href="https://launchpad.net/openstack-dashboard" target="_blank">OpenStack Dashboard Launchpad Repository</a></li>
+      <li><a href="https://launchpad.net/django-nova" target="_blank">Django-Nova Launchpad Repository</a></li>
+    </ul>
+  </div>
+
   {% else %}
-  <div id="home_login" class="block">
-    <h3>Sign In</h3>
-    <form action="{% url auth_login %}" method="post">
-      {% csrf_token %}
-      <fieldset>
-        {% if form.errors %}
-        <p class="error">Your username and password didn't match. Please try again.</p>
-        {% endif %}
-        <label for="username">Username:</label><input id="username" type="text" name="username" />
-        <label for="password">Password:</label><input id="password" type="password" name="password" />
-        <input type="hidden" name="next" value="/" />
-        <div class="button">
-          <input id="home_login_btn" type="submit" value="Sign In">
-          <span id="forgot_password"><a id="forgot_password_link" href="{% url auth_password_reset %}">Forgot Password?</a></span>
-        </div>
-      </fieldset>
-    </form>
- </div>
+    <div id="home_login" class="block">
+      <h3>Sign In</h3>
+      <form action="{% url auth_login %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+          {% if form.errors %}
+          <p class="error">Your username and password didn't match. Please try again.</p>
+          {% endif %}
+          <label for="username">Username:</label><input id="username" type="text" name="username" />
+          <label for="password">Password:</label><input id="password" type="password" name="password" />
+          <input type="hidden" name="next" value="/" />
+          <div class="button">
+            <input id="home_login_btn" type="submit" value="Sign In">
+            <span id="forgot_password"><a id="forgot_password_link" href="{% url auth_password_reset %}">Forgot Password?</a></span>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    {% if not request.user.is_authenticated %}
+      <div class="home_block">
+        <h3>Don't have an account? <a id="lnk_register" href="{% url registration_register %}">Register</a></h3>
+      </div>
+    {% endif %}
+    <div class="home_block">
+      <h3>OpenStack Resources</h3>
+      <ul>
+        <li><a href="http://openstack.org" target="_blank">OpenStack.org</a></li>
+        <li><a href="https://launchpad.net/openstack-dashboard" target="_blank">OpenStack Dashboard Launchpad Repository</a></li>
+        <li><a href="https://launchpad.net/django-nova" target="_blank">Django-Nova Launchpad Repository</a></li>
+      </ul>
+    </div>
   {% endif %}
 {% endblock %}
 
