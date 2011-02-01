@@ -1,1 +1,1 @@
-Welcome to the OpenStack Dashboard!
+{% load django_nova_tags %}Welcome to the {% site_branding %} Dashboard!

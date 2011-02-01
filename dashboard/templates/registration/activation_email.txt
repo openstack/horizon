@@ -1,21 +1,21 @@
-{% autoescape off %}
-Welcome to the OpenStack Dashboard!
+{% autoescape off %}{% load django_nova_tags %}
+Welcome to the {% site_branding %} Dashboard!
 
 
-This message contains information about how to activate your OpenStack Dashboard account.
+This message contains information about how to activate your {% site_branding %} Dashboard account.
 
 
-The OpenStack Dashboard is a web based management system that enables to easily manage your OpenStack projects and instances.
+The {% site_branding %} Dashboard is a web based management system that enables to easily manage your {% site_branding %} projects and instances.
 
 
-PLEASE NOTE: Before you can access your Dashboard account, you must first be connected to your OpenStack OpenVPN account.  You should receive another message soon with instructions on how to connect to your VPN.
+PLEASE NOTE: Before you can access your Dashboard account, you must first be connected to your {% site_branding %} OpenVPN account.  You should receive another message soon with instructions on how to connect to your VPN.
 
 
-When you're ready, connect to your OpenStack OpenVPN and visit the following link to activate your account:
+When you're ready, connect to your {% site_branding %} OpenVPN and visit the following link to activate your account:
 
     http://{{ site.domain }}/accounts/activate/{{ activation_key }}
 
-Please note that this activation invitation will expire in {{ expiration_days }} days.  After that time, you will need to re-register your OpenStack Dashboard account.
+Please note that this activation invitation will expire in {{ expiration_days }} days.  After that time, you will need to re-register your {% site_branding %} Dashboard account.
 
-The OpenStack Team
+The {% site_branding %} Team
 {% endautoescape %}

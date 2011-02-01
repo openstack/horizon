@@ -1,5 +1,6 @@
 {% extends "admin/base_site.html" %}
 {% load i18n %}
+{% load django_nova_tags %}
 
 {% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% load adminmedia %}{% admin_media_prefix %}css/dashboard.css" />{% endblock %}
 
@@ -14,8 +15,8 @@
 {% if app_list %}
 
     <div class="module">
-      <table summary="Models available in the OpenStack application.">
-        <caption><a href="{% url admin_projects %}" class="section">OpenStack</a></caption>
+      <table summary="Models available in the {% site_branding %} application.">
+        <caption><a href="{% url admin_projects %}" class="section">{% site_branding %}</a></caption>
         <tbody>
           <tr>
             <th scope="row"><a href="{% url admin_projects %}">Projects</a></th>
