@@ -1,3 +1,4 @@
-.dashboard-venv
-local/dashboard_openstack.sqlite3
-local/local_settings.py
+django-nova/src/django_nova.egg-info
+openstack-dashboard/.dashboard-venv
+openstack-dashboard/local/dashboard_openstack.sqlite3
+openstack-dashboard/local/local_settings.py

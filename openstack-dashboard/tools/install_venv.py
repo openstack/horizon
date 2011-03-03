@@ -32,6 +32,7 @@ VENV = os.path.join(ROOT, '.dashboard-venv')
 WITH_VENV = os.path.join(ROOT, 'tools', 'with_venv.sh')
 PIP_REQUIRES = os.path.join(ROOT, 'tools', 'pip-requires')
 
+
 def die(message, *args):
   print >>sys.stderr, message % args
   sys.exit(1)
@@ -97,21 +98,11 @@ def install_dependencies(venv=VENV):
   f.write("%s\n" % ROOT)
 
 
-def install_django_nova(path):
+def install_django_nova():
     print 'Installing django_nova in development mode...'
+    path = os.path.join(ROOT, '..', 'django-nova')
     run_command([WITH_VENV, 'python', 'setup.py', 'develop'], cwd=path)
 
-def print_usage():
-    usage = """
- OpenStack Dashboard development uses virtualenv to track and manage Python
- dependencies while in development and testing.
-
- It uses the OpenStack django_nova module.  For more information on how to
- obtian the django_nova module, please refer to the README file.
-
-    usage: python install_venv.py <path to django_nova checkout>
-    """
-    print usage
 
 def print_summary():
   summary = """
@@ -125,15 +116,12 @@ def print_summary():
   print summary
 
 
-def main(argv):
-  if len(argv) != 2:
-      print_usage()
-      sys.exit(1)
+def main():
   check_dependencies()
   create_virtualenv()
   install_dependencies()
-  install_django_nova(argv[1])
+  install_django_nova()
   print_summary()
 
 if __name__ == '__main__':
-  main(sys.argv)
+  main()

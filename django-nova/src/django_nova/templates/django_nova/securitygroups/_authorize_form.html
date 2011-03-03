@@ -1,0 +1,5 @@
+{% for field in authorize_form %}
+  {{ field.label_tag }}
+  {% if field.errors %}{{ field.errors }}{% endif %}
+  {{ field }}
+{% endfor %}              
