@@ -22,3 +22,8 @@ NOVA_SECRET_KEY = 'admin'
 NOVA_ADMIN_USER = 'admin'
 NOVA_PROJECT = 'admin'
 
+# Configure these for your outgoing email host
+# EMAIL_HOST = 'smtp.my-company.com'
+# EMAIL_PORT = 25
+## EMAIL_HOST_USER = 'djangomail'
+## EMAIL_HOST_PASSWORD = 'top-secret!'
