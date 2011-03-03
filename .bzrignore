@@ -1,0 +1,3 @@
+.dashboard-venv
+local/dashboard_openstack.sqlite3
+local/local_settings.py
