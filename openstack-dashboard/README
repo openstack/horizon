@@ -1,0 +1,37 @@
+OpenStack Dashboard
+-------------------
+
+The OpenStack Dashboard is a reference implementation of a Django site that
+uses the Django-Nova project to provide web based interactions with the
+OpenStack Nova cloud controller.
+
+
+Getting Started
+---------------
+
+For local development, first create a virtualenv for local development.
+A tool is included to create one for you:
+
+  $ python tools/install_venv.py
+
+
+Now that the virtualenv is created, you need to configure your local
+environment.  To do this, create a local_settings.py file in the local/
+directory.  There is a local_settings.py.example file there that may be used
+as a template.
+
+Finally, issue the django syncdb command:
+
+  $ tools/with_venv.sh dashboard/manage.py syncdb
+
+If after you have specified the admin user the script appears to hang, it
+probably means the installation of Nova being referred to in local_settings.py
+is unavailable.
+
+
+If all is well you should now able to run the server locally:
+
+  $ tools/with_venv.sh dashboard/manage.py runserver
+
+
+

@@ -15,6 +15,12 @@ DATABASES = {
 
 CACHE_BACKEND = 'dummy://'
 
+# Configure these for your outgoing email host
+# EMAIL_HOST = 'smtp.my-company.com'
+# EMAIL_PORT = 25
+# EMAIL_HOST_USER = 'djangomail'
+# EMAIL_HOST_PASSWORD = 'top-secret!'
+
 NOVA_DEFAULT_ENDPOINT = 'http://localhost:8773/services/Cloud'
 NOVA_DEFAULT_REGION = 'nova'
 NOVA_ACCESS_KEY = 'admin'
