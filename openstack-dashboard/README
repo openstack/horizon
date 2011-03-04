@@ -5,24 +5,12 @@ The OpenStack Dashboard is a reference implementation of a Django site that
 uses the Django-Nova project to provide web based interactions with the
 OpenStack Nova cloud controller.
 
-For more information about the Django-Nova project, please visit:
-
-  http://launchpad.net/django-nova
-
 
 Getting Started
 ---------------
 
-The first step is to obtain a local copy of the django-nova project:
-
-  $ mkdir django-nova
-  $ cd django-nova
-  $ bzr init-repo .
-  $ bzr branch lp:django-nova/trunk
-
-
-Next we will create the virtualenv for local development. A tool is included to
-create one for you:
+For local development, first create a virtualenv for local development.
+A tool is included to create one for you:
 
   $ python tools/install_venv.py
 

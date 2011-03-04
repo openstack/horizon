@@ -1,0 +1,14 @@
+OpenStack Dashboard
+-------------------
+
+The OpenStack Dashboard is a Django based reference implementation of a web
+based managent interface for OpenStack Nova.
+
+It is based on django-nova, which is designed to be a generic Django module
+that can be re-used in other sites.
+
+For more information about how to get started with the OpenStack Dashboard,
+view the README file in the openstack-dashboard folder.
+
+For more information about working directly with django-nova, see the
+README file in the django-nova folder.
