@@ -96,7 +96,9 @@ def credentials_post_save(sender, instance, created, *args, **kwargs):
         subject = render_to_string('credentials/credentials_email_subject.txt')
         body = render_to_string('credentials/credentials_email.txt', context)
 
-        message = mail.EmailMessage(subject=subject, body=body, to=[user.email])
+        message = mail.EmailMessage(subject=subject.strip(),
+                                    body=body,
+                                    to=[user.email])
         message.send(fail_silently=False)
 post_save.connect(credentials_post_save,
                   CredentialsAuthorization,
