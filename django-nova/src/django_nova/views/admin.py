@@ -107,10 +107,35 @@ def project_view(request, project_name):
     nova = get_nova_admin_connection()
     project = nova.get_project(project_name)
     users = nova.get_project_members(project_name)
+    
     try:
         manager = auth_models.User.objects.get(username=project.projectManagerId)
     except auth_models.User.DoesNotExist:
         manager = None
+    
+    if request.method == 'POST':
+        form = forms.ProjectForm(request.POST)
+        if form.is_valid():
+            try:
+                nova.modify_project(form.cleaned_data["projectname"],
+                                    form.cleaned_data["manager"],
+                                    form.cleaned_data["description"])
+                messages.success(request,
+                                 'Successfully modified the project %s.' %
+                                 project_name)
+            except boto.exception.EC2ResponseError, e:
+                messages.error(request,
+                               'Unable modify the project %s: %s - %s' %
+                               (project_name, e.code, e.error_message))
+            
+                                
+            return redirect('admin_project', request.POST["projectname"])
+    else:
+        form = forms.ProjectForm(initial={'projectname': project.projectname,
+                                          'description': project.description,
+                                          'manager': manager
+                                         })
+
 
     for user in users:
         project_role = [str(role.role) for role in nova.get_user_roles(user.memberId, project_name)]
@@ -122,9 +147,7 @@ def project_view(request, project_name):
     return render_to_response('admin/django_nova/project/edit_project.html', {
         'project' : project,
         'users' : users,
-        'projectname': project.projectname,
-        'manager': manager,
-        'description': project.description,
+        'form': form,
     }, context_instance = template.RequestContext(request))
 
 

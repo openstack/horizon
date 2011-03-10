@@ -26,7 +26,8 @@
 <div id="content-main">
     {% block object-tools %}
     {% endblock %}
-    <form action="#" method="post" enctype="multipart/form-data">
+    
+    <form action="." method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="module aligned {{ fieldset.classes }}">
             {% for field in form.visible_fields %}
@@ -39,24 +40,12 @@
             {% for field in form.hidden_fields %}
             {{ field }}
             {% endfor %}
-            <div class="form-row">
-              <label for="project_name">Project Name</label>
-              <span id="project_name" style="display: block; padding-top: 5px; padding-left: 5px; float: left;"><em>{{projectname}}</em></span>
-            </div>
-            <div class="form-row">
-              <label for="project_description">Description</label>
-              <span id="project_description" style="display: block; padding-top: 5px; padding-left: 5px; float: left;"><em>{{description}}</em></span>
-            </div>
-            <div class="form-row">
-              <label for="project_manager">Project Manager</label>
-              <span id="project_manager" style="display: block; padding-top: 5px; padding-left: 5px; float: left;"><em>{{manager}}</em></span>
-            </div>
         </fieldset>
         <div class="submit-row">
           <p class="deletelink-box">
             <a href="{% url delete_project project.projectname %}" class="deletelink">Delete Project</a>
           </p>
-          {# <input type="submit" value="Save" class="default" /> #}
+          <input type="submit" value="Save" class="default" />
         </div>
 
     </form>
