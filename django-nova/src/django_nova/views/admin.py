@@ -122,11 +122,11 @@ def project_view(request, project_name):
                                     form.cleaned_data["description"])
                 messages.success(request,
                                  'Successfully modified the project %s.' %
-                                 project_id)
+                                 project_name)
             except boto.exception.EC2ResponseError, e:
                 messages.error(request,
                                'Unable modify the project %s: %s - %s' %
-                               (project_id, e.code, e.error_message))
+                               (project_name, e.code, e.error_message))
             
                                 
             return redirect('admin_project', request.POST["projectname"])
