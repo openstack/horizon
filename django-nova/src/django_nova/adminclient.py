@@ -466,6 +466,13 @@ class NovaAdminClient(object):
                   'Operation': operation}
         return self.apiconn.get_status('ModifyProjectMember', params)
 
+    def modify_project(self, projectname, manager_user=None, description=None):
+        """Modifies an existing project."""
+        params = {'Name': projectname,
+                  'ManagerUser': manager_user,
+                  'Description': description}
+        return self.apiconn.get_status('ModifyProject', params)
+
     def get_zip(self, user, project):
         """
         Returns the content of a zip file containing novarc and access credentials.
