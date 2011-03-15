@@ -21,11 +21,11 @@ Base classes for view based unit tests.
 """
 
 import mox
+import nova_adminclient as adminclient
 
 from django import test
 from django.conf import settings
 from django.contrib.auth import models as auth_models
-from django_nova import adminclient
 from django_nova import manager
 from django_nova import shortcuts
 
