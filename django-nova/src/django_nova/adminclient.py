@@ -25,25 +25,25 @@ import boto.exception
 import httplib
 import re
 import string
-
 from boto.ec2.regioninfo import RegionInfo
 
 
-DEFAULT_CLC_URL = 'http://127.0.0.1:8773'
-DEFAULT_REGION = 'nova'
+DEFAULT_CLC_URL='http://127.0.0.1:8773'
+DEFAULT_REGION='nova'
+DEFAULT_ACCESS_KEY='admin'
+DEFAULT_SECRET_KEY='admin'
 
 
 class UserInfo(object):
     """
-    Information about a Nova user, as parsed through SAX.
+    Information about a Nova user, as parsed through SAX
+    fields include:
+        username
+        accesskey
+        secretkey
 
-    **Fields Include**
-
-    * username
-    * accesskey
-    * secretkey
-    * file (optional) containing zip of X509 cert & rc file
-
+    and an optional field containing a zip with X509 cert & rc
+        file
     """
 
     def __init__(self, connection=None, username=None, endpoint=None):
@@ -71,13 +71,9 @@ class UserInfo(object):
 class UserRole(object):
     """
     Information about a Nova user's role, as parsed through SAX.
-
-    **Fields include**
-
-    * role
-
+    Fields include:
+        role
     """
-
     def __init__(self, connection=None):
         self.connection = connection
         self.role = None
@@ -97,15 +93,12 @@ class UserRole(object):
 
 class ProjectInfo(object):
     """
-    Information about a Nova project, as parsed through SAX.
-
-    **Fields include**
-
-    * projectname
-    * description
-    * projectManagerId
-    * memberIds
-
+    Information about a Nova project, as parsed through SAX
+    Fields include:
+        projectname
+        description
+        projectManagerId
+        memberIds
     """
 
     def __init__(self, connection=None):
@@ -137,11 +130,8 @@ class ProjectInfo(object):
 class ProjectMember(object):
     """
     Information about a Nova project member, as parsed through SAX.
-
-    **Fields include**
-
-    * memberId
-
+    Fields include:
+        memberId
     """
 
     def __init__(self, connection=None):
@@ -163,15 +153,10 @@ class ProjectMember(object):
 
 class HostInfo(object):
     """
-    Information about a Nova Host, as parsed through SAX.
-
-    **Fields Include**
-
-    * Hostname
-    * Compute service status
-    * Volume service status
-    * Instance count
-    * Volume count
+    Information about a Nova Host, as parsed through SAX:
+        Hostname
+        Compute Service Status
+        Volume Service Status
     """
 
     def __init__(self, connection=None):
@@ -198,16 +183,14 @@ class HostInfo(object):
 class Vpn(object):
     """
     Information about a Vpn, as parsed through SAX
-
-    **Fields Include**
-
-    * instance_id
-    * project_id
-    * public_ip
-    * public_port
-    * created_at
-    * internal_ip
-    * state
+    fields include:
+        instance_id
+        project_id
+        public_ip
+        public_port
+        created_at
+        internal_ip
+        state
     """
 
     def __init__(self, connection=None):
@@ -222,8 +205,20 @@ class Vpn(object):
         return None
 
     def endElement(self, name, value, connection):
-        fixed_name = string.lower(re.sub(r'([A-Z])', r'_\1', name))
-        setattr(self, fixed_name, value)
+        if name == 'instanceId':
+            self.instance_id = str(value)
+        elif name == 'projectId':
+            self.project_id = str(value)
+        elif name == 'publicIp':
+            self.public_ip = str(value)
+        elif name == 'publicPort':
+            self.public_port = str(value)
+        elif name == 'createdAt':
+            self.created_at = str(value)
+        elif name == 'internalIp':
+            self.internal_ip = str(value)
+        else:
+            setattr(self, name, str(value))
 
 
 class InstanceType(object):
@@ -265,15 +260,25 @@ class InstanceType(object):
             setattr(self, name, str(value))
 
 
-class NovaAdminClient(object):
+class StatusResponse(object):
+    def __init__(self, connection=None):
+        self.connection = connection
+        self.status = None
 
-    def __init__(
-            self,
-            clc_url=DEFAULT_CLC_URL,
-            region=DEFAULT_REGION,
-            access_key=None,
-            secret_key=None,
-            **kwargs):
+    def __repr__(self):
+        return 'Status:%s' % self.status
+
+    def startElement(self, name, attrs, connection):
+        return None
+
+    def endElement(self, name, value, connection):
+        setattr(self, name, str(value))
+
+
+class NovaAdminClient(object):
+    def __init__(self, clc_url=DEFAULT_CLC_URL, region=DEFAULT_REGION,
+                 access_key=DEFAULT_ACCESS_KEY, secret_key=DEFAULT_SECRET_KEY,
+                 **kwargs):
         parts = self.split_clc_url(clc_url)
 
         self.clc_url = clc_url
@@ -293,7 +298,9 @@ class NovaAdminClient(object):
 
     def connection_for(self, username, project, clc_url=None, region=None,
                        **kwargs):
-        """Returns a boto ec2 connection for the given username."""
+        """
+        Returns a boto ec2 connection for the given username.
+        """
         if not clc_url:
             clc_url = self.clc_url
         if not region:
@@ -312,25 +319,22 @@ class NovaAdminClient(object):
                                 **kwargs)
 
     def split_clc_url(self, clc_url):
-        """Splits a cloud controller endpoint url."""
+        """
+        Splits a cloud controller endpoint url.
+        """
         parts = httplib.urlsplit(clc_url)
         is_secure = parts.scheme == 'https'
         ip, port = parts.netloc.split(':')
         return {'ip': ip, 'port': int(port), 'is_secure': is_secure}
 
     def get_users(self):
-        """Grabs the list of all users."""
+        """ grabs the list of all users """
         return self.apiconn.get_list('DescribeUsers', {}, [('item', UserInfo)])
 
     def get_user(self, name):
-        """Grab a single user by name."""
-
-    def get_user(self, name):
-        """Grab a single user by name."""
+        """ grab a single user by name """
         try:
-            user = self.apiconn.get_object('DescribeUser',
-                                           {'Name': name},
-                                           UserInfo)
+            user = self.apiconn.get_object('DescribeUser', {'Name': name}, UserInfo)
         except boto.exception.BotoServerError, e:
             if e.status == 400 and e.error_code == 'NotFound':
                 return None
@@ -339,20 +343,18 @@ class NovaAdminClient(object):
         if user.username != None:
             return user
 
+
     def has_user(self, username):
-        """Determine if user exists."""
+        """ determine if user exists """
         return self.get_user(username) != None
 
     def create_user(self, username):
-        """Creates a new user, returning the userinfo object with
-        access/secret."""
-        return self.apiconn.get_object('RegisterUser', {'Name': username},
-                                       UserInfo)
+        """ creates a new user, returning the userinfo object with access/secret """
+        return self.apiconn.get_object('RegisterUser', {'Name': username}, UserInfo)
 
     def delete_user(self, username):
-        """Deletes a user."""
-        return self.apiconn.get_object('DeregisterUser', {'Name': username},
-                                       UserInfo)
+        """ deletes a user """
+        return self.apiconn.get_object('DeregisterUser', {'Name': username}, UserInfo)
 
     def get_roles(self, project_roles=True):
         """Returns a list of available roles."""
@@ -362,12 +364,10 @@ class NovaAdminClient(object):
 
     def get_user_roles(self, user, project=None):
         """Returns a list of roles for the given user.
-
-        Omitting project will return any global roles that the user has.
-        Specifying project will return only project specific roles.
-
+           Omitting project will return any global roles that the user has.
+           Specifying project will return only project specific roles.
         """
-        params = {'User': user}
+        params = {'User':user}
         if project:
             params['Project'] = project
         return self.apiconn.get_list('DescribeUserRoles',
@@ -375,19 +375,24 @@ class NovaAdminClient(object):
                                      [('item', UserRole)])
 
     def add_user_role(self, user, role, project=None):
-        """Add a role to a user either globally or for a specific project."""
+        """
+        Add a role to a user either globally or for a specific project.
+        """
         return self.modify_user_role(user, role, project=project,
                                      operation='add')
 
     def remove_user_role(self, user, role, project=None):
-        """Remove a role from a user either globally or for a specific
-        project."""
+        """
+        Remove a role from a user either globally or for a specific project.
+        """
         return self.modify_user_role(user, role, project=project,
                                      operation='remove')
 
     def modify_user_role(self, user, role, project=None, operation='add',
                          **kwargs):
-        """Add or remove a role for a user and project."""
+        """
+        Add or remove a role for a user and project.
+        """
         params = {'User': user,
                   'Role': role,
                   'Project': project,
@@ -395,7 +400,9 @@ class NovaAdminClient(object):
         return self.apiconn.get_status('ModifyUserRole', params)
 
     def get_projects(self, user=None):
-        """Returns a list of all projects."""
+        """
+        Returns a list of all projects.
+        """
         if user:
             params = {'User': user}
         else:
@@ -405,7 +412,9 @@ class NovaAdminClient(object):
                                      [('item', ProjectInfo)])
 
     def get_project(self, name):
-        """Returns a single project with the specified name."""
+        """
+        Returns a single project with the specified name.
+        """
         project = self.apiconn.get_object('DescribeProject',
                                           {'Name': name},
                                           ProjectInfo)
@@ -415,12 +424,51 @@ class NovaAdminClient(object):
 
     def create_project(self, projectname, manager_user, description=None,
                        member_users=None):
-        """Creates a new project."""
+        """
+        Creates a new project.
+        """
         params = {'Name': projectname,
                   'ManagerUser': manager_user,
                   'Description': description,
                   'MemberUsers': member_users}
         return self.apiconn.get_object('RegisterProject', params, ProjectInfo)
+
+    def delete_project(self, projectname):
+        """
+        Permanently deletes the specified project.
+        """
+        return self.apiconn.get_object('DeregisterProject',
+                                       {'Name': projectname},
+                                       ProjectInfo)
+
+    def get_project_members(self, name):
+        """
+        Returns a list of members of a project.
+        """
+        return self.apiconn.get_list('DescribeProjectMembers',
+                                     {'Name': name},
+                                     [('item', ProjectMember)])
+
+    def add_project_member(self, user, project):
+        """
+        Adds a user to a project.
+        """
+        return self.modify_project_member(user, project, operation='add')
+
+    def remove_project_member(self, user, project):
+        """
+        Removes a user from a project.
+        """
+        return self.modify_project_member(user, project, operation='remove')
+
+    def modify_project_member(self, user, project, operation='add'):
+        """
+        Adds or removes a user from a project.
+        """
+        params = {'User': user,
+                  'Project': project,
+                  'Operation': operation}
+        return self.apiconn.get_status('ModifyProjectMember', params)
 
     def modify_project(self, projectname, manager_user=None, description=None):
         """Modifies an existing project."""
@@ -429,36 +477,10 @@ class NovaAdminClient(object):
                   'Description': description}
         return self.apiconn.get_status('ModifyProject', params)
 
-    def delete_project(self, projectname):
-        """Permanently deletes the specified project."""
-        return self.apiconn.get_object('DeregisterProject',
-                                       {'Name': projectname},
-                                       ProjectInfo)
-
-    def get_project_members(self, name):
-        """Returns a list of members of a project."""
-        return self.apiconn.get_list('DescribeProjectMembers',
-                                     {'Name': name},
-                                     [('item', ProjectMember)])
-
-    def add_project_member(self, user, project):
-        """Adds a user to a project."""
-        return self.modify_project_member(user, project, operation='add')
-
-    def remove_project_member(self, user, project):
-        """Removes a user from a project."""
-        return self.modify_project_member(user, project, operation='remove')
-
-    def modify_project_member(self, user, project, operation='add'):
-        """Adds or removes a user from a project."""
-        params = {'User': user,
-                  'Project': project,
-                  'Operation': operation}
-        return self.apiconn.get_status('ModifyProjectMember', params)
-
     def get_zip(self, user, project):
-        """Returns the content of a zip file containing novarc and access
-        credentials."""
+        """
+        Returns the content of a zip file containing novarc and access credentials.
+        """
         params = {'Name': user, 'Project': project}
         zip = self.apiconn.get_object('GenerateX509ForUser', params, UserInfo)
         return zip.file
@@ -480,3 +502,8 @@ class NovaAdminClient(object):
         """Grabs the list of all users."""
         return self.apiconn.get_list('DescribeInstanceTypes', {},
                                      [('item', InstanceType)])
+
+    def disable_project_credentials(self, project):
+        """Revoke project credentials and kill the cloudpipe/vpn instance"""
+        return self.apiconn.get_object('DisableProjectCredentials',
+                                       {'Project': project}, StatusResponse)
