@@ -107,12 +107,12 @@ def project_view(request, project_name):
     nova = get_nova_admin_connection()
     project = nova.get_project(project_name)
     users = nova.get_project_members(project_name)
-    
+
     try:
         manager = auth_models.User.objects.get(username=project.projectManagerId)
     except auth_models.User.DoesNotExist:
         manager = None
-    
+
     if request.method == 'POST':
         form = forms.ProjectForm(request.POST)
         if form.is_valid():
@@ -127,8 +127,8 @@ def project_view(request, project_name):
                 messages.error(request,
                                'Unable modify the project %s: %s - %s' %
                                (project_name, e.code, e.error_message))
-            
-                                
+
+
             return redirect('admin_project', request.POST["projectname"])
     else:
         form = forms.ProjectForm(initial={'projectname': project.projectname,
@@ -219,14 +219,16 @@ def remove_global_roles(username):
 @staff_member_required
 def project_user(request, project_name, project_user):
     nova = get_nova_admin_connection()
+    project = nova.get_project(project_name)
     userroles = nova.get_user_roles(project_user, project_name)
+
     try:
         modeluser = auth_models.User.objects.get(username = project_user)
     except auth_models.User.DoesNotExist:
         modeluser = None
 
     if request.method == 'POST':
-        form = forms.ProjectUserForm(request.POST)
+        form = forms.ProjectUserForm(project, request.user, request.POST)
         if form.is_valid():
             username = project_user
 
@@ -240,12 +242,11 @@ def project_user(request, project_name, project_user):
             return redirect('admin_project', project_name)
     else:
         roles = [str(role.role) for role in userroles]
-        form = forms.ProjectUserForm({
-            'role': roles,
-            'user': modeluser,
-        })
+        form = forms.ProjectUserForm(project,
+                                     request.user,
+                                     {'role': roles,
+                                      'user': modeluser})
 
-    project = nova.get_project(project_name)
 
     return render_to_response('admin/django_nova/project/project_user.html', {
         'form' : form,
