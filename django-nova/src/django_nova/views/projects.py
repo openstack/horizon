@@ -73,6 +73,7 @@ def edit_user(request, project_id, username):
     nova = get_nova_admin_connection()
     project = get_project_or_404(request, project_id)
     user = nova.get_user(username)
+    userroles = nova.get_user_roles(username, project_id)
 
     if project.projectManagerId != request.user.username:
         return redirect('login')
@@ -84,7 +85,11 @@ def edit_user(request, project_id, username):
 
             return redirect('nova_project_manage',  project_id)
     else:
-        form = nova_forms.ProjectUserForm(project, user)
+        roles = [str(role.role) for role in userroles]
+        form = nova_forms.ProjectUserForm(project,
+                                          user,
+                                          {'role': roles,
+                                           'user': user})
 
     return render_to_response('django_nova/projects/edit_user.html', {
         'form' : form,
