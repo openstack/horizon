@@ -123,8 +123,6 @@ class ImageViewTests(BaseProjectViewTests):
 
         self.project.get_images().AndReturn([self.ami])
         self.project.get_image(TEST_IMAGE_ID).AndReturn(self.ami)
-        shortcuts.get_user_image_permissions(mox.IgnoreArg(),
-                                             TEST_PROJECT).AndReturn(True)
         forms.get_key_pair_choices(self.project).AndReturn(
             self.create_key_pair_choices([TEST_KEY]))
         forms.get_instance_type_choices().AndReturn(
@@ -142,15 +140,12 @@ class ImageViewTests(BaseProjectViewTests):
 
     def test_remove_form(self):
         self.mox.StubOutWithMock(self.project, 'get_image')
-        self.project.get_image(TEST_IMAGE_ID).AndReturn(self.ami)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('nova_images_remove',
                                       args=[TEST_PROJECT, TEST_IMAGE_ID]))
-        self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'django_nova/images/detail_list.html')
-        self.assertEqual(res.context['ami'].id, TEST_IMAGE_ID)
-
+        self.assertRedirectsNoFollow(res, reverse('nova_images',
+                                                  args=[TEST_PROJECT]))
         self.mox.VerifyAll()
 
     def test_remove(self):
@@ -161,7 +156,7 @@ class ImageViewTests(BaseProjectViewTests):
         res = self.client.post(reverse('nova_images_remove',
                                        args=[TEST_PROJECT, TEST_IMAGE_ID]))
         self.assertRedirectsNoFollow(res, reverse('nova_images',
-                                                       args=[TEST_PROJECT]))
+                                                  args=[TEST_PROJECT]))
 
         self.mox.VerifyAll()
 
