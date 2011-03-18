@@ -196,7 +196,7 @@ class CreateVolumeForm(forms.Form):
 class AttachVolumeForm(ProjectFormBase):
     volume = forms.ChoiceField()
     instance = forms.ChoiceField()
-    device = forms.CharField(initial='/dev/vdb')
+    device = forms.CharField(initial='/dev/vdc')
 
     def __init__(self, project, *args, **kwargs):
         super(AttachVolumeForm, self).__init__(project, *args, **kwargs)
