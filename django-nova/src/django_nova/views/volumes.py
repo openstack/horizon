@@ -117,7 +117,7 @@ def attach(request, project_id):
             else:
                 messages.success(request,
                                  'Volume %s is scheduled to be attached.  If '
-                                 'it doesn\'t become attached in five '
+                                 'it doesn\'t become attached in two '
                                  'minutes,  please try again (you may need to '
                                  'specify a different device).' %
                                  form.cleaned_data['volume'])
