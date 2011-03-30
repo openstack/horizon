@@ -195,7 +195,7 @@ span.data {
 
 #home_login fieldset {
 	width: 400px;
-	padding: 20px;
+    padding: 20px 20px 46px 20px;
 }
 
 #home_login label {
