@@ -62,7 +62,8 @@
     </div>
     {% if not request.user.is_authenticated %}
       <div class="home_block">
-        <h3>Don't have an account? <a id="lnk_register" href="{% url registration_register %}">Register</a></h3>
+        <h3>Don't have an account?</h3><br/>
+        <a id="lnk_register" href="{% url registration_register %}">Register</a>
       </div>
     {% endif %}
     <div class="home_block">
@@ -75,4 +76,3 @@
     </div>
   {% endif %}
 {% endblock %}
-
