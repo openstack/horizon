@@ -113,8 +113,6 @@ def detail(request, project_id, image_id):
     images = project.get_images()
 
     ami = project.get_image(image_id)
-    can_modify = shortcuts.get_user_image_permissions(request.user.username,
-                                                      project_id)
 
     if not ami:
         raise http.Http404()
@@ -122,10 +120,8 @@ def detail(request, project_id, image_id):
         'form': forms.LaunchInstanceForm(project),
         'region': project.region,
         'project': project,
-        'images': images,
         'image_lists': _image_lists(images, project_id),
         'ami': ami,
-        'can_modify': can_modify,
     }, context_instance = template.RequestContext(request))
 
 
@@ -145,17 +141,7 @@ def remove(request, project_id, image_id):
                              'Image %s has been successfully deregistered.' %
                              image_id)
 
-        return redirect('nova_images', project_id)
-    else:
-        ami = project.get_image(image_id)
-
-    #FIXME - is the code below used? if we reach here should we
-    #just redirect? (anthony)
-    return render_to_response('django_nova/images/detail_list.html', {
-        'region': project.region,
-        'project': project,
-        'ami': ami,
-    }, context_instance = template.RequestContext(request))
+    return redirect('nova_images', project_id)
 
 
 @login_required

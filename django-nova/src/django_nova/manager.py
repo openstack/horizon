@@ -91,9 +91,9 @@ class ProjectManager(object):
                                groups='all'):
         conn = self.get_nova_connection()
         return conn.modify_image_attribute(image_id,
-                                           attribute='launchPermission',
-                                           operation='remove',
-                                           groups='all',)
+                                           attribute=attribute,
+                                           operation=operation,
+                                           groups=groups,)
 
 
     @wrap_nova_error

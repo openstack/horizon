@@ -33,15 +33,16 @@
           <fieldset class="module aligned {{ fieldset.classes }}">
             <h3 id="edit_{{ user.username }}">Edit Roles for User:  {{ user.username }}</h3>
             <div class="form-row">
-              <label>User</label>
+              <h4 class="label">User</h4>
               <span id="user_name">{{ user.username }}</span>
             </div>
             <input type="hidden" name="username" value="{{ user.id }}" id="username" />
-
+            
+            <label for="id_role_from">Roles</label>
               {% for field in form.visible_fields %}
                   <div class="form-row">
                       {{ field.errors }}
-                      {{ field.label_tag }}{{ field }}
+                      {{ field }}
                       {% if field.field.help_text %}<p class="help">{{ field.field.help_text|safe }}</p>{% endif %}
                   </div>
               {% endfor %}

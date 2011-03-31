@@ -1,4 +1,4 @@
-    <h3 class="image_list_heading"> {{ heading }} </h3> 
+    <h3 class="image_list_heading"> {{ heading }} </h3>
     {% if images %}
     <table id="image_launch">
       <tr>
@@ -54,13 +54,13 @@
                 {% endif %}
 
                 <a id="launch_{{ image.id }}" class="launch" href="{% url nova_images_launch project.projectname image.id %}" title="Click to launch image">Launch</a>
-                {% if can_modify or user.username == ami.ownerId %}
+                {% if user.username == ami.ownerId %}
                   <a id="edit_image_link" href="{% url nova_images_update project.projectname ami.id %}">Edit Image</a>
                 {% endif %}
 
               </div>
 
-              {% if can_modify or user.username == ami.ownerId %}
+              {% if user.username == ami.ownerId %}
                 <span class="image_privacy">
                   <form id="privacy_{{ ami.id }}" action="{% url nova_images_privacy project.projectname ami.id %}" method="post" accept-charset="utf-8">
                     {% csrf_token %}

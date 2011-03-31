@@ -116,7 +116,10 @@ def attach(request, project_id):
                                'Unable to attach volume: %s' % e.message)
             else:
                 messages.success(request,
-                                 'Volume %s has been successfully attached.' %
+                                 'Volume %s is scheduled to be attached.  If '
+                                 'it doesn\'t become attached in two '
+                                 'minutes,  please try again (you may need to '
+                                 'specify a different device).' %
                                  form.cleaned_data['volume'])
         else:
             volumes = project.get_volumes()
