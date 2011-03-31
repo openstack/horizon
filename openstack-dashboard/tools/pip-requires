@@ -3,4 +3,4 @@ nose==1.0.0
 Django==1.2.3
 django-nose==0.1.2
 django-registration==0.7
-nova_adminclient==0.1
+nova-adminclient
