@@ -19,8 +19,8 @@
 Manage connections to Nova's admin API.
 """
 
+import nova_adminclient as adminclient
 from django.conf import settings
-from django_nova import adminclient
 
 
 def get_nova_admin_connection():

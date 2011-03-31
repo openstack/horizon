@@ -15,7 +15,8 @@ setup(
     author_email = 'devin.carlen@gmail.com',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
-    install_requires = ['setuptools', 'boto==1.9b', 'mox>=0.5.0'],
+    install_requires = ['setuptools', 'boto==1.9b', 'mox>=0.5.0',
+                        'nova-adminclient'],
     classifiers = [
         'Development Status :: 4 - Beta',
         'Framework :: Django',
