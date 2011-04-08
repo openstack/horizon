@@ -65,9 +65,11 @@
     });
   }
 
+  var counter = 0;
+  
   function onInstancesUpdated(response, status, xhr) {
     $('#spinner').hide();
-
+    
     switch(xhr.status) {
       case 200:
         initInstanceForms();
@@ -78,13 +80,18 @@
         break;
 
       default:
-        $('#connection_error').dialog({
-          dialogClass: 'alert',
-          modal: true,
-          closeOnEscape: true,
-          buttons:{ "Close": function() { $(this).dialog("close"); } },
-        });
-        $('#connection_error').dialog('open');
+        if (counter >= 1) {
+          $('#connection_error').dialog({
+            dialogClass: 'alert',
+            modal: true,
+            closeOnEscape: true,
+            buttons:{ "Close": function() { $(this).dialog("close"); } },
+          });
+          $('#connection_error').dialog('open');
+          counter = 0;
+        } else {
+          counter++;
+        }
         break;
     }
   }
