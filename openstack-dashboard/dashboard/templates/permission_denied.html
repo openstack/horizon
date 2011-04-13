@@ -1,11 +1,26 @@
-{% extends "dashboard/base.html" %}
+{% extends "base.html" %}
 
 {% block title %} - Permission Denied{% endblock %}
-{% block pageclass %}denied{% endblock %}
 
 {% block content %}
-  <div id="page_head">
-    <h2 id="page_heading">Permission Denied</h2>
-    <p id="page_description">You do not have permission to view the requested page.</p>
+  <div id="right_content">
+    <div id="page_head">
+      <h2 id="page_heading">Permission Denied</h2>
+      <p id="page_description">You do not have permission to view the requested page.</p>
+    </div>
   </div>
+{% endblock %}
+
+{% block sidebar %}
+  <div id="sidebar">
+    <ul id="navigation">
+      {% block nav_home %}
+      <li><h3><a href="/">Home</a></h3></li>
+      {% endblock %}
+
+      {% block nav_projects %}
+      <li><h3><a href="/">Projects</a></h3></li>
+      {% endblock %}
+    </ul>
+  </div> <!-- end sidebar -->
 {% endblock %}
