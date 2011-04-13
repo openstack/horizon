@@ -1,0 +1,38 @@
+OpenStack Django-Nova-Syspanel
+------------------------------
+
+The Django-Nova-Syspanel package provides a django app that interacts
+with the OpenStack Nova cloud controller to view the health of a
+running OpenStack installation.
+
+This is packaged, and intended to be used inside of, OpenStack
+Dashboard, which is located at
+
+    http://launchpad.net/openstack-dashboard
+
+Development against this application is best done inside this reference
+implementation, though in practice any django app can install this
+application.
+
+
+Getting Started
+---------------
+
+Django-Nova-Syspanel uses Buildout (http://www.buildout.org/) to
+manage local development.  To configure your local Buildout
+environment:
+
+  $ python bootstrap.py
+  $ bin/buildout
+
+This will install all the dependencies of django-nova-syspanel and
+provide some useful scripts in the bin/ directory:
+
+  bin/python provides a python shell for the current buildout.
+  bin/django provides django functions for the current buildout.
+
+
+You should now be able to run unit tests as follows:
+
+  $ bin/django test
+

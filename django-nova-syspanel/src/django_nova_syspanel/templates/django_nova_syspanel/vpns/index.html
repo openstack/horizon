@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block headerjs %}
+
+  <link rel="stylesheet" href="/media/systempanel/css/flexigrid.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <script src="/media/systempanel/js/flexigrid.pack.js" type="text/javascript" charset="utf-8"></script>
+
+  <script type="text/javascript" charset="utf-8">
+
+    $(function(){
+      $("table").flexigrid({
+        height: "auto"
+      });
+    })
+  </script>
+{% endblock %}
+
+
+{% block breadcrumb %}{{ block.super }}<li><a href="{% url syspanel_vpns %}">VPNs</a></li>{% endblock %}
+
+{% block content %}
+  <div id="page_description">
+    <h2 class="page_heading">Manage VPNs</h2>
+		<p>View all projects VPN status. Schedule launch, termination, and reboot.
+		Send credentials.</p>
+  </div>
+  <div class="message">
+    {% if status == "success" %}
+      <div class="success">{{message}}</div>
+    {% endif %}
+
+    {% if status == "error" %}
+      <div class="error">{{message}}</div>
+    {% endif %}
+  </div>
+  <table>
+    <tr>
+      <th>Project</th>
+      <th>Instance Id</th>
+      <th>Created</th>
+      <th>IP</th>
+      <th>Public</th>
+      <th>State</th>
+      <th>Operations</th>
+    </tr>
+    {% for vpn in vpns %}
+      <tr id="{{vpn.instance_id}}" class="even">
+        <td class="odd">{{vpn.project_id}}</td>
+        {% if vpn.instance_id %}
+          <td>{{vpn.instance_id}}</td>
+        {% else %}
+          <td>N/A</td>
+        {% endif %}
+
+        {% if vpn.created_at %}
+          <td class="odd">{{vpn.created_at}}</td>
+        {% else %}
+          <td class="odd">N/A</td>
+        {% endif %}
+
+        {% if vpn.internal_ip %}
+          <td>{{vpn.internal_ip}}</td>
+        {% else %}
+          <td>N/A</td>
+        {% endif %}
+
+        {% if vpn.public_ip %}
+          <td class="odd">{{vpn.public_ip}}:{{vpn.public_port}}</td>
+        {% else %}
+          <td class="odd">N/A</td>
+        {% endif %}
+        
+				{% ifnotequal vpn.state "pending" %}
+				  {% ifequal vpn.state "running" %}
+						<td>{{vpn.state}}</td>
+					{% else %}
+						<td class="down">{{vpn.state}}</td>
+					{% endifequal %}
+        {% else %}
+					<td>&nbsp;</td>
+        {% endifnotequal %}
+        
+        <td>
+					{% if vpn.instance_id %}
+            <a href="{% url syspanel_vpn_terminate vpn.project_id %}">Terminate</a> |
+            <a href="{% url syspanel_vpn_restart vpn.project_id %}">Restart</a> |
+            <a href="{% url syspanel_vpn_console vpn.project_id %}">Console Log</a> | 
+            <a href="{% url syspanel_vpn_send_credentials vpn.project_id %}">Resend Credentials</a> | 
+					{% else %}
+            <a href="{% url syspanel_vpn_launch vpn.project_id %}">Launch</a> | 
+            <a href="{% url syspanel_vpn_send_credentials vpn.project_id %}">Resend Credentials</a> | 
+          {% endif %}
+        </td>
+      </tr>
+      
+    {% endfor %}
+
+</table>
+{% endblock %}

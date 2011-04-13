@@ -104,6 +104,12 @@ def install_django_nova():
     run_command([WITH_VENV, 'python', 'setup.py', 'develop'], cwd=path)
 
 
+def install_django_nova_syspanel():
+    print 'Installing django_nova_syspanel in development mode...'
+    path = os.path.join(ROOT, '..', 'django-nova-syspanel')
+    run_command([WITH_VENV, 'python', 'setup.py', 'develop'], cwd=path)
+
+
 def print_summary():
   summary = """
  OpenStack Dashboard development environment setup is complete.
@@ -121,6 +127,7 @@ def main():
   create_virtualenv()
   install_dependencies()
   install_django_nova()
+  install_django_nova_syspanel()
   print_summary()
 
 if __name__ == '__main__':

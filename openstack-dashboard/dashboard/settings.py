@@ -65,6 +65,7 @@ INSTALLED_APPS = (
     'django.contrib.syndication',
     'django_nose',
     'django_nova',
+    'django_nova_syspanel',
     'registration',
 )
 

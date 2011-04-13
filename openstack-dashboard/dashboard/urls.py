@@ -40,6 +40,7 @@ urlpatterns = patterns('',
     url(r'^admin/project/', include('django_nova.urls.admin_project')),
     url(r'^admin/roles/', include('django_nova.urls.admin_roles')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^syspanel/', include('django_nova_syspanel.urls')),
 )
 
 urlpatterns += patterns('django.views.generic.simple',

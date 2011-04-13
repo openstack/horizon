@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block headerjs %}
+
+  <link rel="stylesheet" href="/media/systempanel/css/flexigrid.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <script src="/media/systempanel/js/flexigrid.pack.js" type="text/javascript" charset="utf-8"></script>
+
+  <script type="text/javascript" charset="utf-8">
+
+    $(function(){
+      $("table").flexigrid({
+        height: "auto"
+      });
+    })
+  </script>
+{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}<li><a href="{% url syspanel_instances %}">Instances</a></li>{% endblock %}
+
+{% block content %}
+  <div id="page_description">
+    <h2 class="page_heading">Manage Instances</h2>
+		<p>View all running instances other than VPNs. Schedule instances for
+		reboot or termination. Download logs.</p>
+  </div>
+  <div class="message">
+    {% if status == "success" %}
+      <div class="success">{{message}}</div>
+    {% endif %}
+
+    {% if status == "error" %}
+      <div class="error">{{message}}</div>
+    {% endif %}
+  </div>
+	<div class="refresh">
+		<a href="{% url syspanel_instances %}">Refresh List</a>
+	</div>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>User</th>
+      <th>Node</th>
+      <th>Created</th>
+      <th>Image</th>
+      <th>IP</th>
+      <th>Public IP</th>
+      <th>Volumes</th>
+      <th>State</th>
+      <th>Operations</th>
+    </tr>
+    {% for instance in instances %}
+      <tr id="{{instance.id}}" class="even">
+        <td class="odd">{{instance.id}}</td>
+        <td>{{instance.owner_id}}</td>
+        <td class="odd">{{instance.host_name}}</td>
+        <td>{{instance.launch_time}}</td>
+        <td class="odd" title="bucket/image.manifest.xml">{{instance.image_id}}</td>
+        <td>{{instance.public_dns_name}}</td>
+        <td class="odd">{{instance.private_ip_address}}</td>
+        <td><a href="volume_list.html#vol-12324">vol-12324</a></td>
+        <td class="odd">{{instance.state}}</td>
+        <td>
+          <a href="{% url syspanel_instance_terminate instance.id %}">Terminate</a> |
+					<a href="{% url syspanel_instance_restart instance.id %}">Restart</a> |
+          <a href="{% url syspanel_instance_console instance.id %}">Nova Log</a> |
+          <a href="logs_console.txt">Console Log</a>
+        </td>
+      </tr>
+      
+    {% endfor %}
+
+</table>
+{% endblock %}
