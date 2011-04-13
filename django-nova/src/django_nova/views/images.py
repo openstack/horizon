@@ -33,7 +33,7 @@ from django_nova import exceptions
 from django_nova import forms
 from django_nova import shortcuts
 from django_nova.exceptions import handle_nova_error
-
+from django_nova.urls import project
 
 def _image_lists(images, project_id):
     def image_is_project(i):

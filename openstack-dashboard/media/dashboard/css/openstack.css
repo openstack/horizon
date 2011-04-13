@@ -603,7 +603,7 @@ div.image_detail, div.instance_detail {
 	margin: -25px 0 0 0px !important;
 }
 
-.image_detail .delete input, #user_edit .deletelink, #update_profile input[type="reset"], .image_detail .image_privacy input, .instance_detail .form-terminate input[type="submit"], .cancel a {
+.image_detail .delete input, #user_edit .deletelink, #update_profile input[type="reset"], .image_detail .image_privacy input, .instance_detail .form-terminate input[type="submit"], .cancel a, #image_launch .image_detail a#close_detail {
   background: none;
   border: none;
   color: #FF8885;
@@ -614,6 +614,16 @@ div.image_detail, div.instance_detail {
 
 .image_detail .delete input:hover, .image_detail input.private:hover, #user_edit .deletelink:hover, #update_profile input[type="reset"]:hover, .instance_detail .form-terminate input[type="submit"]:hover, .cancel a:hover {
   color: red;
+}
+
+#location .data {
+	width: 180px;
+}
+
+#close_detail {
+	float: left;
+	margin-top: -4px !important;
+	margin-right: 10px;
 }
 
 .cancel {
