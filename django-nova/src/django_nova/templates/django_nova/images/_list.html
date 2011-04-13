@@ -21,7 +21,7 @@
                   <span class="data">{{ ami.description }}</span>
                 </div>
 
-                <div class="image_detail_item">
+                <div id="location" class="image_detail_item">
                   <span class="label">Location: </span>
                   <span class="data">{{ ami.location }}</span>
                 </div>
@@ -59,7 +59,8 @@
                 {% endif %}
 
               </div>
-
+              <a id="close_detail" href="{% url nova_images project.projectname %}">[x] close</a>
+              
               {% if user.username == ami.ownerId %}
                 <span class="image_privacy">
                   <form id="privacy_{{ ami.id }}" action="{% url nova_images_privacy project.projectname ami.id %}" method="post" accept-charset="utf-8">
@@ -78,7 +79,7 @@
                     <input type="submit" value="Remove Image" />
                   </form>
                 </span>
-              {% endif %}
+              {% endif %}              
             </div>
           </td>
         {% else %}
