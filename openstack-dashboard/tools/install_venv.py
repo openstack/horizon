@@ -93,7 +93,8 @@ def install_dependencies(venv=VENV):
               redirect_output=False)
 
   # Tell the virtual env how to "import dashboard"
-  pthfile = os.path.join(venv, "lib", "python2.6", "site-packages", "dashboard.pth")
+  py = 'python%d.%d' % (sys.version_info[0], sys.version_info[1])
+  pthfile = os.path.join(venv, "lib", py, "site-packages", "dashboard.pth")
   f = open(pthfile, 'w')
   f.write("%s\n" % ROOT)
 
