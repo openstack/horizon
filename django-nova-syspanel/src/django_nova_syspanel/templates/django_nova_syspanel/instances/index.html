@@ -57,7 +57,7 @@
         <td class="odd" title="bucket/image.manifest.xml">{{instance.image_id}}</td>
         <td>{{instance.public_dns_name}}</td>
         <td class="odd">{{instance.private_ip_address}}</td>
-        <td><a href="volume_list.html#vol-12324">vol-12324</a></td>
+				<td>{% for d in instance.disks %}{{ d.id }}@{{ d.path }} {% endfor %}</td>
         <td class="odd">{{instance.state}}</td>
         <td>
           <a href="{% url syspanel_instance_terminate instance.id %}">Terminate</a> |

@@ -11,6 +11,9 @@ def _reservations_to_instances(reservation_list):
             i2 = r.__dict__.copy()
             i2.update(i.__dict__)
             i2['host_name'] = i2['key_name'].split(', ')[1][:-1]
+            i2['disks'] = []
+            for point, drive in i.block_device_mapping.iteritems():
+                i2['disks'].append({'path': point, 'id': drive.volume_id})
             rv.append(i2)
     return rv
 
