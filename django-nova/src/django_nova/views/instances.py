@@ -30,6 +30,7 @@ from django_nova import forms as nova_forms
 from django_nova import shortcuts
 from django_nova.exceptions import handle_nova_error
 
+import boto.ec2.ec2object
 
 @login_required
 @handle_nova_error
@@ -147,6 +148,14 @@ def console(request, project_id, instance_id):
 
     return response
 
+@login_required
+@handle_nova_error
+def vnc(request, project_id, instance_id):
+    project = shortcuts.get_project_or_404(request, project_id)
+    conn = project.get_nova_connection()
+    params = { 'InstanceId' : instance_id }
+    vnc = conn.get_object('GetVncConsole',params,boto.ec2.ec2object.EC2Object)
+    return http.HttpResponseRedirect(vnc.url)
 
 @login_required
 @handle_nova_error
