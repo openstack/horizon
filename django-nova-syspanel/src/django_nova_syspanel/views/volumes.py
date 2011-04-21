@@ -1,0 +1,55 @@
+from boto.exception import EC2ResponseError
+from django import template
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render_to_response
+from django_nova_syspanel.models import *
+
+
+@login_required
+def index(request):
+    nova = get_nova_admin_connection()
+    conn = nova.connection_for('admin', 'admin')
+    volumes = conn.get_all_volumes()
+
+    for volume in volumes:
+        statusstr = str(volume.status)[:-1]
+        instance = statusstr.split(', ')[-2]
+        device = statusstr.split(', ')[-1]
+        status = statusstr.split(' ')[0]
+
+        volume.device = device
+        volume.instance = instance
+        volume.status_str = status
+
+    return render_to_response('django_nova_syspanel/volumes/index.html',{
+        'volumes': volumes,
+    }, context_instance = template.RequestContext(request))
+
+
+@login_required
+def delete(request, volume_id):
+    nova = get_nova_admin_connection()
+    conn = nova.connection_for('admin', 'admin')
+    try:
+        conn.delete_volume(volume_id)
+    except EC2ResponseError, e:
+        messages.error(request, 'Unable to delete volume %s: %s' % \
+                                (volume_id, e.error_message))
+    else:
+        messages.success(request,
+                         'Volume %s has been successfully deleted.' %
+                         volume_id)
+
+    volumes = conn.get_all_volumes()
+    for volume in volumes:
+        statusstr = str(volume.status)[:-1]
+        instance = statusstr.split(', ')[-2]
+        device = statusstr.split(', ')[-1]
+        status = statusstr.split(' ')[0]
+
+        volume.device = device
+        volume.instance = instance
+        volume.status_str = status
+    return redirect('syspanel_volumes')
+
