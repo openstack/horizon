@@ -28,6 +28,22 @@ def index(request):
 
 
 @login_required
+def detach(request, volume_id):
+    nova = get_nova_admin_connection()
+    conn = nova.connection_for('admin', 'admin')
+    try:
+        conn.detach_volume(volume_id)
+    except EC2ResponseError, e:
+        messages.error(request, 'Unable to detach volume %s: %s' % \
+                                (volume_id, e.error_message))
+    else:
+        messages.success(request,
+                         'Volume %s has been scheduled to be detached.' %
+                         volume_id)
+    return redirect('syspanel_volumes')
+
+
+@login_required
 def delete(request, volume_id):
     nova = get_nova_admin_connection()
     conn = nova.connection_for('admin', 'admin')
@@ -40,16 +56,5 @@ def delete(request, volume_id):
         messages.success(request,
                          'Volume %s has been successfully deleted.' %
                          volume_id)
-
-    volumes = conn.get_all_volumes()
-    for volume in volumes:
-        statusstr = str(volume.status)[:-1]
-        instance = statusstr.split(', ')[-2]
-        device = statusstr.split(', ')[-1]
-        status = statusstr.split(' ')[0]
-
-        volume.device = device
-        volume.instance = instance
-        volume.status_str = status
     return redirect('syspanel_volumes')
 

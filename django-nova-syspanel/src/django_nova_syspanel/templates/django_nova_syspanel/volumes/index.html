@@ -20,7 +20,7 @@
 {% block content %}
   <div id="page_description">
     <h2 class="page_heading">Manage Volumes</h2>
-		<p>View all volumes. See size, status, and mount point. Destroy volumes.</p>
+		<p>View all volumes. See size, status, and mount point. Detach and destroy volumes.</p>
   </div>
 
   <table>
@@ -44,7 +44,12 @@
           {% endif %}
 	      </td>
         <td>{{volume.attach_data.device}}</td>
-        <td class="odd"><a href="{% url syspanel_delete_volume volume.id %}">Destroy</a></td>
+				<td class="odd">
+					{% if volume.attach_data.status == None %}
+						<a href="{% url syspanel_delete_volume volume.id %}">Destroy</a></td>
+					{% else %}
+						<a href="{% url syspanel_detach_volume volume.id %}">Detach</a></td>
+					{% endif %}
       </tr>
       
     {% endfor %}
