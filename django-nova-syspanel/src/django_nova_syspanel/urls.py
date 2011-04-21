@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     
     url(r'^volumes/$', 'django_nova_syspanel.views.volumes.index', name='syspanel_volumes'),
     url(r'^volumes/(?P<volume_id>[^/]+)/delete$', 'django_nova_syspanel.views.volumes.delete', name='syspanel_delete_volume'),
+    url(r'^volumes/(?P<volume_id>[^/]+)/detach$', 'django_nova_syspanel.views.volumes.detach', name='syspanel_detach_volume'),
     
     url(r'^security/$', 'django_nova_syspanel.views.security.index', name='syspanel_security'),
     url(r'^security/disable_project_credentials/$', 'django_nova_syspanel.views.security.disable_project_credentials', name='syspanel_security_disable_project_credentials'),
