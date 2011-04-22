@@ -90,7 +90,6 @@ def launch(request, project_id, image_id):
                                'Unable to launch: %s' % e.message)
             except exceptions.NovaUnauthorizedError, e:
                 messages.error(request, 'Permission Denied')
-                return redirect('dashboard_permission_denied')
             else:
                 for instance in reservation.instances:
                     messages.success(request,
