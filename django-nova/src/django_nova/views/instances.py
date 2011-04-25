@@ -190,6 +190,8 @@ def update(request, project_id, instance_id):
                 messages.error(request,
                                'Unable to update instance %s: %s' %
                                (instance_id, e.message,))
+            except exceptions.NovaUnauthorizedError, e:
+               messages.error(request, 'Permission Denied')
             else:
                 messages.success(request,
                                  'Instance %s has been updated.' % instance_id)
