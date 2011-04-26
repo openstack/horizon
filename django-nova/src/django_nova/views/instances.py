@@ -129,6 +129,8 @@ def terminate(request, project_id):
             messages.error(request,
                            'Unable to terminate %s: %s' %
                            (instance_id, e.message,))
+        except exceptions.NovaUnauthorizedError, e:
+            messages.error(request, 'Permission Denied')
         else:
             messages.success(request,
                              'Instance %s has been terminated.' % instance_id)
