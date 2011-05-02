@@ -1,5 +1,6 @@
 from django import http
 from django import template
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django_nova_syspanel.models import get_nova_admin_connection
@@ -17,7 +18,7 @@ def index(request):
 @login_required
 def console(request, project_id):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for(nova.access, project_id)
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, project_id)
     vpn = [x for x in nova.get_vpns() if x.project_id == project_id][0]
     console = conn.get_console_output(vpn.instance_id)
     response = http.HttpResponse(mimetype='text/plain')
@@ -29,7 +30,7 @@ def console(request, project_id):
 @login_required
 def restart(request, project_id):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for(nova.access, project_id)
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, project_id)
     vpn = [x for x in nova.get_vpns() if x.project_id == project_id][0]
     conn.reboot_instances([vpn.instance_id])
     return redirect('django_nova_syspanel/vpns')
@@ -38,7 +39,7 @@ def restart(request, project_id):
 @login_required
 def terminate(request, project_id):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for(nova.access, project_id)
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, project_id)
     vpn = [x for x in nova.get_vpns() if x.project_id == project_id][0]
     conn.terminate_instances([vpn.instance_id])
     return redirect('django_nova_syspanel/vpns')

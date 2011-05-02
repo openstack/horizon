@@ -1,4 +1,5 @@
 from django import template
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
@@ -23,7 +24,7 @@ def disable_project_credentials(request):
         form = DisableProject(request.POST)
         if form.is_valid():
             name = form.cleaned_data['project_name']
-            conn = nova.connection_for(nova.access, name)
+            conn = nova.connection_for(settings.NOVA_ADMIN_USER, name)
             vpn = [x for x in nova.get_vpns() if x.project_id == name]
             if vpn:
                 # NOTE(todd): Check, because it could already be shut-off
@@ -89,7 +90,8 @@ def disable_public_ips(request):
 def disable_vpn(request):
     if request.method == "POST":
         nova = get_nova_admin_connection()
-        conn = nova.connection_for("admin", "admin")
+        conn = nova.connection_for(settings.NOVA_ADMIN_USER,
+                                   settings.NOVA_PROJECT)
         try:
             collector = []
             for vpn in nova.get_vpns():

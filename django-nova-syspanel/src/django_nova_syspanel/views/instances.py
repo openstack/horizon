@@ -1,5 +1,6 @@
 from django import template
 from django import http
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django_nova_syspanel.models import *
@@ -20,7 +21,7 @@ def _reservations_to_instances(reservation_list):
 @login_required
 def index(request):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for("admin", "admin")
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, settings.NOVA_PROJECT)
     reservations = conn.get_all_instances()    
     instances = _reservations_to_instances(reservations)
     return render_to_response('django_nova_syspanel/instances/index.html',{
@@ -30,7 +31,7 @@ def index(request):
 @login_required
 def terminate(request, instance_id):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for("admin", "admin")
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, settings.NOVA_PROJECT)
     reservations = conn.get_all_instances()
     instances = _reservations_to_instances(reservations)
     try:
@@ -54,7 +55,7 @@ def terminate(request, instance_id):
 @login_required
 def console(request, instance_id):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for("admin", "admin")
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, settings.NOVA_PROJECT)
     console = conn.get_console_output(instance_id)
     response = http.HttpResponse(mimetype='text/plain')
     response.write(console.output)
@@ -65,7 +66,7 @@ def console(request, instance_id):
 @login_required
 def restart(request, instance_id):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for("admin", "admin")
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, settings.NOVA_PROJECT)
     try:
         conn.reboot_instances([instance_id])
         message = "Instance %s has been scheduled for reboot." % \
