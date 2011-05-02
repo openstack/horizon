@@ -69,10 +69,6 @@ class VolumeInfo(object):
     """Foo"""
 
     def __init__(self, connection=None, username=None, endpoint=None):
-        print "VOLUME"
-        print "=================================="
-        print "=================================="
-        print "=================================="
         self.connection = connection
         self.username = username
         self.endpoint = endpoint
@@ -103,9 +99,7 @@ class VolumeInfo(object):
         elif name == 'displayDescription':
             self.display_description = str(value)
         else:
-            print "*** UNKNOWN *** %s ***" % name
             setattr(self, name, str(value))
-        print repr(self)
 
 class ProjectManager(object):
     def __init__(self, username, project, region):
