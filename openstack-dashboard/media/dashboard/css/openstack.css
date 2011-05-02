@@ -498,7 +498,7 @@ h3.image_list_heading {
     margin-bottom: 10px;
 }
 
-#instances table, #image_launch {
+#instances table, #users table, #image_launch {
 	clear: both;
 }
 
