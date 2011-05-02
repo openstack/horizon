@@ -1,5 +1,6 @@
 from boto.exception import EC2ResponseError
 from django import template
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
@@ -9,7 +10,7 @@ from django_nova_syspanel.models import *
 @login_required
 def index(request):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for('admin', 'admin')
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, settings.NOVA_PROJECT)
     volumes = conn.get_all_volumes()
 
     for volume in volumes:
@@ -30,7 +31,7 @@ def index(request):
 @login_required
 def detach(request, volume_id):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for('admin', 'admin')
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, settings.NOVA_PROJECT)
     try:
         conn.detach_volume(volume_id)
     except EC2ResponseError, e:
@@ -46,7 +47,7 @@ def detach(request, volume_id):
 @login_required
 def delete(request, volume_id):
     nova = get_nova_admin_connection()
-    conn = nova.connection_for('admin', 'admin')
+    conn = nova.connection_for(settings.NOVA_ADMIN_USER, settings.NOVA_PROJECT)
     try:
         conn.delete_volume(volume_id)
     except EC2ResponseError, e:
