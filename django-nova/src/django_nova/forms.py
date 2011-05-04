@@ -48,7 +48,7 @@ def get_instance_type_choices():
     return rv
 
 def get_instance_choices(project):
-    choices = [(i.id, i.id + " ("+i.displayName+")") 
+    choices = [(i.id, "%s (%s)" % (i.id, i.displayName)
                for i in project.get_instances()]
     if not len(choices):
         choices = [('', 'none available')]
