@@ -27,9 +27,9 @@ from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import models as auth_models
 from django.shortcuts import redirect, render_to_response
-from django_nova import forms
-from django_nova import models
-from django_nova.connection import get_nova_admin_connection
+from django_openstack import forms
+from django_openstack import models
+from django_openstack.connection import get_nova_admin_connection
 
 
 @staff_member_required
@@ -47,7 +47,7 @@ def project_sendcredentials(request, project_id):
         if len(request.POST.getlist('users')) < 1:
             msg = "Please select a user to send credentials to."
 
-            return render_to_response('admin/django_nova/project/send_credentials.html', {
+            return render_to_response('admin/django_openstack/project/send_credentials.html', {
                 'project' : project,
                 'form' : form,
                 'users' : users,
@@ -57,14 +57,14 @@ def project_sendcredentials(request, project_id):
             for username in request.POST.getlist('users'):
                 models.CredentialsAuthorization.authorize(username, project_id)
             msg = "Credentials were successfully sent."
-            return render_to_response('admin/django_nova/project/send_credentials.html', {
+            return render_to_response('admin/django_openstack/project/send_credentials.html', {
                 'project' : project,
                 'form' : form,
                 'users' : users,
                 'success': msg,
             }, context_instance = template.RequestContext(request))
 
-    return render_to_response('admin/django_nova/project/send_credentials.html', {
+    return render_to_response('admin/django_openstack/project/send_credentials.html', {
         'project' : project,
         'form' : form,
         'users' : users,
@@ -97,7 +97,7 @@ def projects_list(request):
     nova = get_nova_admin_connection()
     projects = nova.get_projects()
 
-    return render_to_response('admin/django_nova/project/project_list.html', {
+    return render_to_response('admin/django_openstack/project/project_list.html', {
         'projects' : projects
     }, context_instance = template.RequestContext(request))
 
@@ -144,7 +144,7 @@ def project_view(request, project_name):
         user.project_roles = ", ".join(project_role)
         user.global_roles = ", ".join(global_role)
 
-    return render_to_response('admin/django_nova/project/edit_project.html', {
+    return render_to_response('admin/django_openstack/project/edit_project.html', {
         'project' : project,
         'users' : users,
         'form': form,
@@ -166,7 +166,7 @@ def add_project(request):
     else:
         form = forms.ProjectForm()
 
-    return render_to_response('admin/django_nova/project/add_project.html', {
+    return render_to_response('admin/django_openstack/project/add_project.html', {
         'form' : form,
     }, context_instance = template.RequestContext(request))
 
@@ -181,7 +181,7 @@ def delete_project(request, project_name):
 
     project = nova.get_project(project_name)
 
-    return render_to_response('admin/django_nova/project/delete_project.html', {
+    return render_to_response('admin/django_openstack/project/delete_project.html', {
         'project' : project,
     }, context_instance = template.RequestContext(request))
 
@@ -248,7 +248,7 @@ def project_user(request, project_name, project_user):
                                       'user': modeluser})
 
 
-    return render_to_response('admin/django_nova/project/project_user.html', {
+    return render_to_response('admin/django_openstack/project/project_user.html', {
         'form' : form,
         'project' : project,
         'user': modeluser,
@@ -275,7 +275,7 @@ def add_project_user(request, project_name):
 
     project = nova.get_project(project_name)
 
-    return render_to_response('admin/django_nova/project/add_project_user.html', {
+    return render_to_response('admin/django_openstack/project/add_project_user.html', {
         'form' : form,
         'project' : project,
     }, context_instance = template.RequestContext(request))
@@ -292,7 +292,7 @@ def delete_project_user(request, project_name, project_user):
     project = nova.get_project(project_name)
     user = nova.get_user(project_user)
 
-    return render_to_response('admin/django_nova/project/delete_project_user.html', {
+    return render_to_response('admin/django_openstack/project/delete_project_user.html', {
         'user' : user,
         'project' : project,
     }, context_instance = template.RequestContext(request))
@@ -309,7 +309,7 @@ def users_list(request):
         roles = []
         user.roles = ", ".join(roles)
 
-    return render_to_response('admin/django_nova/project/user_list.html', {
+    return render_to_response('admin/django_openstack/project/user_list.html', {
         'users' : users
     }, context_instance = template.RequestContext(request))
 
@@ -343,7 +343,7 @@ def user_roles(request, user_id):
             'role': roles,
         })
 
-    return render_to_response('admin/django_nova/project/global_edit_user.html', {
+    return render_to_response('admin/django_openstack/project/global_edit_user.html', {
         'form' : form,
         'user' : modeluser,
     }, context_instance = template.RequestContext(request))

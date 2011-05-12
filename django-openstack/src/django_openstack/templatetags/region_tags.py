@@ -20,7 +20,7 @@ Template tags for gathering contextual region data.
 """
 
 from django import template
-from django_nova.shortcuts import get_current_region, get_all_regions
+from django_openstack.shortcuts import get_current_region, get_all_regions
 
 
 register = template.Library()

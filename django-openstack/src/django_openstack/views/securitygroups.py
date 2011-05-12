@@ -25,10 +25,10 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
-from django_nova import exceptions
-from django_nova import forms
-from django_nova.exceptions import handle_nova_error
-from django_nova.shortcuts import get_project_or_404
+from django_openstack import exceptions
+from django_openstack import forms
+from django_openstack.exceptions import handle_nova_error
+from django_openstack.shortcuts import get_project_or_404
 
 
 @login_required
@@ -37,7 +37,7 @@ def index(request, project_id):
     project = get_project_or_404(request, project_id)
     securitygroups = project.get_security_groups()
 
-    return render_to_response('django_nova/securitygroups/index.html', {
+    return render_to_response('django_openstack/securitygroups/index.html', {
         'create_form': forms.CreateSecurityGroupForm(project),
         'project': project,
         'securitygroups': securitygroups,
@@ -53,7 +53,7 @@ def detail(request, project_id, group_name):
     if not securitygroup:
         raise http.Http404
 
-    return render_to_response('django_nova/securitygroups/detail.html', {
+    return render_to_response('django_openstack/securitygroups/detail.html', {
         'authorize_form': forms.AuthorizeSecurityGroupRuleForm(),
         'project': project,
         'securitygroup': securitygroup,
@@ -83,7 +83,7 @@ def add(request, project_id):
         else:
             securitygroups = project.get_security_groups()
 
-            return render_to_response('django_nova/securitygroups/index.html', {
+            return render_to_response('django_openstack/securitygroups/index.html', {
                 'create_form': form,
                 'project': project,
                 'securitygroups': securitygroups,
@@ -124,7 +124,7 @@ def authorize(request, project_id, group_name):
             if not securitygroup:
                 raise http.Http404
 
-            return render_to_response('django_nova/securitygroups/detail.html', {
+            return render_to_response('django_openstack/securitygroups/detail.html', {
                 'authorize_form': form,
                 'project': project,
                 'securitygroup': securitygroup,

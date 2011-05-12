@@ -29,11 +29,11 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
-from django_nova import exceptions
-from django_nova import forms
-from django_nova import shortcuts
-from django_nova.exceptions import handle_nova_error
-from django_nova.urls import project
+from django_openstack import exceptions
+from django_openstack import forms
+from django_openstack import shortcuts
+from django_openstack.exceptions import handle_nova_error
+from django_openstack.urls import project
 
 def _image_lists(images, project_id):
     def image_is_project(i):
@@ -57,7 +57,7 @@ def index(request, project_id):
     project = shortcuts.get_project_or_404(request, project_id)
     images = project.get_images()
 
-    return render_to_response('django_nova/images/index.html', {
+    return render_to_response('django_openstack/images/index.html', {
         'form': forms.LaunchInstanceForm(project),
         'region': project.region,
         'project': project,
@@ -100,7 +100,7 @@ def launch(request, project_id, image_id):
 
     ami = project.get_image(image_id)
 
-    return render_to_response('django_nova/images/launch.html', {
+    return render_to_response('django_openstack/images/launch.html', {
         'form': form,
         'region': project.region,
         'project': project,
@@ -118,7 +118,7 @@ def detail(request, project_id, image_id):
 
     if not ami:
         raise http.Http404()
-    return render_to_response('django_nova/images/index.html', {
+    return render_to_response('django_openstack/images/index.html', {
         'form': forms.LaunchInstanceForm(project),
         'region': project.region,
         'project': project,
@@ -200,7 +200,7 @@ def update(request, project_id, image_id):
         # one of the render_to_response blocks go away.
         else:
             form = forms.UpdateImageForm(ami)
-            return render_to_response('django_nova/images/edit.html', {
+            return render_to_response('django_openstack/images/edit.html', {
                 'form': form,
                 'region': project.region,
                 'project': project,
@@ -208,7 +208,7 @@ def update(request, project_id, image_id):
             }, context_instance = template.RequestContext(request))
     else:
         form = forms.UpdateImageForm(ami)
-        return render_to_response('django_nova/images/edit.html', {
+        return render_to_response('django_openstack/images/edit.html', {
             'form': form,
             'region': project.region,
             'project': project,

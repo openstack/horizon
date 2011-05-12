@@ -25,10 +25,10 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
-from django_nova import exceptions
-from django_nova import forms as nova_forms
-from django_nova import shortcuts
-from django_nova.exceptions import handle_nova_error
+from django_openstack import exceptions
+from django_openstack import forms as nova_forms
+from django_openstack import shortcuts
+from django_openstack.exceptions import handle_nova_error
 
 import boto.ec2.ec2object
 
@@ -38,7 +38,7 @@ def index(request, project_id):
     project = shortcuts.get_project_or_404(request, project_id)
     instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
 
-    return render_to_response('django_nova/instances/index.html', {
+    return render_to_response('django_openstack/instances/index.html', {
         'region': project.region,
         'project': project,
         'instances': instances,
@@ -56,7 +56,7 @@ def detail(request, project_id, instance_id):
     if not instance:
         raise http.Http404()
 
-    return render_to_response('django_nova/instances/index.html', {
+    return render_to_response('django_openstack/instances/index.html', {
         'region': project.region,
         'project': project,
         'selected_instance': instance,
@@ -75,7 +75,7 @@ def performance(request, project_id, instance_id):
     if not instance:
         raise http.Http404()
 
-    return render_to_response('django_nova/instances/performance.html', {
+    return render_to_response('django_openstack/instances/performance.html', {
         'region': project.region,
         'project': project,
         'instance': instance,
@@ -92,7 +92,7 @@ def refresh(request, project_id):
     project = shortcuts.get_project_or_404(request, project_id)
     instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
 
-    return render_to_response('django_nova/instances/_instances_list.html', {
+    return render_to_response('django_openstack/instances/_instances_list.html', {
         'project': project,
         'instances': instances,
     }, context_instance = template.RequestContext(request))
@@ -108,7 +108,7 @@ def refresh_detail(request, project_id, instance_id):
     instance = project.get_instance(instance_id)
     instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
 
-    return render_to_response('django_nova/instances/_instances_list.html', {
+    return render_to_response('django_openstack/instances/_instances_list.html', {
         'project': project,
         'selected_instance': instance,
         'instances': instances,
@@ -199,7 +199,7 @@ def update(request, project_id, instance_id):
                                  'Instance %s has been updated.' % instance_id)
             return redirect('nova_instances', project_id)
         else:
-            return render_to_response('django_nova/instances/edit.html', {
+            return render_to_response('django_openstack/instances/edit.html', {
                 'region': project.region,
                 'project': project,
                 'instance': instance,
@@ -207,7 +207,7 @@ def update(request, project_id, instance_id):
             }, context_instance = template.RequestContext(request))
 
     else:
-        return render_to_response('django_nova/instances/edit.html', {
+        return render_to_response('django_openstack/instances/edit.html', {
             'region': project.region,
             'project': project,
             'instance': instance,

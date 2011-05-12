@@ -15,18 +15,23 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+
 """
-URL patterns for managing Nova user roles through the Django admin interface.
+Template tags for working with django_openstack.
 """
 
-from django.conf.urls.defaults import *
+from django import template
+from django.conf import settings
 
 
-urlpatterns = patterns('',
-    url(r'^(?P<user_id>[^/]+)/$',
-        'django_openstack.views.admin.user_roles',
-        name='admin_user_roles'),
-    url(r'^$',
-        'django_openstack.views.admin.users_list',
-        name='admin_users_list'),
-)
+register = template.Library()
+
+
+class SiteBrandingNode(template.Node):
+    def render(self, context):
+        return settings.SITE_BRANDING
+
+@register.tag
+def site_branding(parser, token):
+    return SiteBrandingNode()
+

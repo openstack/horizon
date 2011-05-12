@@ -17,7 +17,7 @@
 #    under the License.
 
 """
-URL patterns for testing django-nova views.
+URL patterns for testing django-openstack views.
 """
 
 from django.conf.urls.defaults import *
@@ -25,12 +25,12 @@ from django.conf.urls.defaults import *
 
 
 urlpatterns = patterns('',
-    url(r'^projects/', include('django_nova.urls.project')),
-    url(r'^region/', include('django_nova.urls.region')),
-    url(r'^admin/projects/', include('django_nova.urls.admin_project')),
-    url(r'^admin/roles/', include('django_nova.urls.admin_roles')),
+    url(r'^projects/', include('django_openstack.urls.project')),
+    url(r'^region/', include('django_openstack.urls.region')),
+    url(r'^admin/projects/', include('django_openstack.urls.admin_project')),
+    url(r'^admin/roles/', include('django_openstack.urls.admin_roles')),
     url(r'^credentials/download/(?P<auth_token>\w+)/$',
-        'django_nova.views.credentials.authorize_credentials',
+        'django_openstack.views.credentials.authorize_credentials',
         name='nova_credentials_authorize'),
 )
 

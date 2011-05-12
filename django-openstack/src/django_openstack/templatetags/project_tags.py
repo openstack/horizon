@@ -21,7 +21,7 @@ Template tags for gathering contextual region data.
 """
 
 from django import template
-from django_nova.shortcuts import get_projects
+from django_openstack.shortcuts import get_projects
 
 
 register = template.Library()

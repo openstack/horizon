@@ -24,7 +24,7 @@ style system for configuring first time users.
 from django import http
 from django.conf import settings
 from django.shortcuts import render_to_response
-from django_nova import models
+from django_openstack import models
 
 
 def authorize_credentials(request, auth_token):
@@ -34,7 +34,7 @@ def authorize_credentials(request, auth_token):
 
     # NOTE(devcamcar): If nothing returned, then token was bad or has expired.
     if not credentials:
-        return render_to_response('django_nova/credentials/expired.html')
+        return render_to_response('django_openstack/credentials/expired.html')
 
     response = http.HttpResponse(mimetype='application/zip')
     response['Content-Disposition'] = \

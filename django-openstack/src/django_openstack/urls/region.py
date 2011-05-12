@@ -24,6 +24,6 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     url(r'^change/$',
-        'django_nova.views.regions.change',
+        'django_openstack.views.regions.change',
         name='region_change'),
 )

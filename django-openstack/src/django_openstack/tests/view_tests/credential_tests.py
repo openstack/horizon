@@ -36,7 +36,7 @@ class CredentialViewTests(BaseViewTests):
                                        .AndReturn(None)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('openstack_credentials_authorize',
+        res = self.client.get(reverse('nova_credentials_authorize',
                                       args=[auth_token]))
         self.assertTemplateUsed(res, 'django_openstack/credentials/expired.html')
 
@@ -59,7 +59,7 @@ class CredentialViewTests(BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('openstack_credentials_authorize',
+        res = self.client.get(reverse('nova_credentials_authorize',
                                       args=[auth_token]))
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res['Content-Disposition'],
