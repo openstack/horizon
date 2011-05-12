@@ -23,8 +23,8 @@ Unit tests for credential views.
 import mox
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django_nova import models
-from django_nova.tests.view_tests.base import BaseViewTests
+from django_openstack import models
+from django_openstack.tests.view_tests.base import BaseViewTests
 
 
 class CredentialViewTests(BaseViewTests):
@@ -36,9 +36,9 @@ class CredentialViewTests(BaseViewTests):
                                        .AndReturn(None)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('nova_credentials_authorize',
+        res = self.client.get(reverse('openstack_credentials_authorize',
                                       args=[auth_token]))
-        self.assertTemplateUsed(res, 'django_nova/credentials/expired.html')
+        self.assertTemplateUsed(res, 'django_openstack/credentials/expired.html')
 
         self.mox.VerifyAll()
 
@@ -59,7 +59,7 @@ class CredentialViewTests(BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('nova_credentials_authorize',
+        res = self.client.get(reverse('openstack_credentials_authorize',
                                       args=[auth_token]))
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res['Content-Disposition'],

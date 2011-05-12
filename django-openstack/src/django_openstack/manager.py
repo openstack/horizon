@@ -24,8 +24,8 @@ import boto.ec2.volume
 import boto.exception
 import boto.s3
 from django.conf import settings
-from django_nova.connection import get_nova_admin_connection
-from django_nova.exceptions import wrap_nova_error
+from django_openstack.connection import get_nova_admin_connection
+from django_openstack.exceptions import wrap_nova_error
 
 
 class ProjectManager(object):
@@ -35,12 +35,12 @@ class ProjectManager(object):
         self.projectManagerId = project.projectManagerId
         self.region = region
 
-    def get_nova_connection(self):
+    def get_openstack_connection(self):
         """
         Returns a boto connection for a user's project.
         """
-        nova = get_nova_admin_connection()
-        return nova.connection_for(self.username,
+        openstack = get_nova_admin_connection()
+        return openstack.connection_for(self.username,
                                    self.projectname,
                                    clc_url=self.region['endpoint'],
                                    region=self.region['name'])
@@ -50,16 +50,16 @@ class ProjectManager(object):
         Returns a buffer of a zip file containing signed credentials
         for the project's Nova user.
         """
-        nova = get_nova_admin_connection()
-        return nova.get_zip(self.username, self.projectname)
+        openstack = get_nova_admin_connection()
+        return openstack.get_zip(self.username, self.projectname)
 
     def get_images(self, image_ids=None):
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         images = conn.get_all_images(image_ids=image_ids)
         sorted_images = [i for i in images if i.ownerId == self.username] + \
                         [i for i in images if i.ownerId != self.username]
 
-        return [i for i in sorted_images if i.type == 'machine' and i.location.split('/')[0] != 'nova']
+        return [i for i in sorted_images if i.type == 'machine' and i.location.split('/')[0] != 'openstack']
 
     def get_image(self, image_id):
         try:
@@ -73,12 +73,12 @@ class ProjectManager(object):
         Removes the image's listing but leaves the image
         and manifest in the object store in tact.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.deregister_image(image_id)
 
     @wrap_nova_error
     def update_image(self, image_id, display_name=None, description=None):
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         params = {
                     'ImageId': image_id,
                     'DisplayName': display_name,
@@ -89,7 +89,7 @@ class ProjectManager(object):
     @wrap_nova_error
     def modify_image_attribute(self, image_id, attribute=None, operation=None,
                                groups='all'):
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.modify_image_attribute(image_id,
                                            attribute=attribute,
                                            operation=operation,
@@ -101,7 +101,7 @@ class ProjectManager(object):
         """
         Runs instances of the specified image id.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.run_instances(image_id, **kwargs)
 
     def get_instance_count(self):
@@ -118,7 +118,7 @@ class ProjectManager(object):
         """
         Returns all instances in this project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         reservations = conn.get_all_instances()
         instances = []
         for reservation in reservations:
@@ -131,8 +131,8 @@ class ProjectManager(object):
         """
         Returns detail about the specified instance.
         """
-        conn = self.get_nova_connection()
-        # TODO: Refactor this once nova's describe_instances filters by instance_id.
+        conn = self.get_openstack_connection()
+        # TODO: Refactor this once openstack's describe_instances filters by instance_id.
         reservations = conn.get_all_instances()
         for reservation in reservations:
             for instance in reservation.instances:
@@ -142,7 +142,7 @@ class ProjectManager(object):
 
     @wrap_nova_error
     def update_instance(self, instance_id, updates):
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         params = {'InstanceId': instance_id, 'DisplayName': updates['nickname'],
                   'DisplayDescription': updates['description']}
         return conn.get_object('UpdateInstance', params,
@@ -176,7 +176,7 @@ class ProjectManager(object):
     @wrap_nova_error
     def terminate_instance(self, instance_id):
         """ Terminates the specified instance within this project. """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         conn.terminate_instances([instance_id])
 
     @wrap_nova_error
@@ -184,7 +184,7 @@ class ProjectManager(object):
         """
         Returns all security groups associated with this project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         groups = []
 
         for g in conn.get_all_security_groups():
@@ -199,7 +199,7 @@ class ProjectManager(object):
         """
         Returns the specified security group for this project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
 
         try:
             return conn.get_all_security_groups(groupnames=name.encode('ASCII'))[0]
@@ -218,7 +218,7 @@ class ProjectManager(object):
         """
         Creates a new security group in this project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.create_security_group(name, description)
 
     @wrap_nova_error
@@ -226,7 +226,7 @@ class ProjectManager(object):
         """
         Deletes a security group from the project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.delete_security_group(name = name)
 
     @wrap_nova_error
@@ -234,7 +234,7 @@ class ProjectManager(object):
         """
         Authorizes a rule for the specified security group.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.authorize_security_group (
             group_name = group_name,
             ip_protocol = ip_protocol,
@@ -248,7 +248,7 @@ class ProjectManager(object):
         """
         Revokes a rule for the specified security group.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.revoke_security_group (
             group_name = group_name,
             ip_protocol = ip_protocol,
@@ -262,7 +262,7 @@ class ProjectManager(object):
         """
         Returns all key pairs associated with this project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         keys = []
 
         for k in conn.get_all_key_pairs():
@@ -277,7 +277,7 @@ class ProjectManager(object):
         """
         Returns the specified security group for this project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
 
         try:
             return conn.get_all_key_pairs(keynames=name.encode('ASCII'))[0]
@@ -296,7 +296,7 @@ class ProjectManager(object):
         """
         Creates a new key pair for this project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.create_key_pair(name)
 
     @wrap_nova_error
@@ -304,7 +304,7 @@ class ProjectManager(object):
         """
         Deletes a new key pair from this project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         conn.delete_key_pair(name)
 
     @wrap_nova_error
@@ -312,29 +312,29 @@ class ProjectManager(object):
         """
         Returns all volumes in this project.
         """
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.get_all_volumes()
 
     @wrap_nova_error
     def create_volume(self, size, display_name=None, display_description=None,
                       snapshot=None):
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         params = {'Size': size, 'DisplayName': display_name,
                   'DisplayDescription': display_description}
         return conn.get_object('CreateVolume', params, boto.ec2.volume.Volume)
 
     @wrap_nova_error
     def delete_volume(self, volume_id):
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.delete_volume(volume_id)
 
     @wrap_nova_error
     def attach_volume(self, volume_id, instance_id, device):
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.attach_volume(volume_id, instance_id, device)
 
     @wrap_nova_error
     def detach_volume(self, volume_id):
-        conn = self.get_nova_connection()
+        conn = self.get_openstack_connection()
         return conn.detach_volume(volume_id)
 

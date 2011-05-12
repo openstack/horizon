@@ -5,11 +5,11 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name = "django-nova",
-    version = "0.1",
-    url = 'https://launchpad.net/django-nova/',
+    name = "django-openstack",
+    version = "0.2",
+    url = 'https://launchpad.net/django-openstack/',
     license = 'Apache 2.0',
-    description = "A Django interface for OpenStack Nova.",
+    description = "A Django interface for OpenStack.",
     long_description = read('README'),
     author = 'Devin Carlen',
     author_email = 'devin.carlen@gmail.com',

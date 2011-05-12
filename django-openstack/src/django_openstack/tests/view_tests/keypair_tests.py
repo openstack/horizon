@@ -24,8 +24,8 @@ import boto.ec2.keypair
 import mox
 
 from django.core.urlresolvers import reverse
-from django_nova.tests.view_tests.base import (BaseProjectViewTests,
-                                              TEST_PROJECT)
+from django_openstack.tests.view_tests.base import (BaseProjectViewTests,
+                                                    TEST_PROJECT)
 
 
 TEST_KEY = 'test_key'
@@ -41,7 +41,7 @@ class KeyPairViewTests(BaseProjectViewTests):
         response = self.client.get(reverse('nova_keypairs',
                                            args=[TEST_PROJECT]))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'django_nova/keypairs/index.html')
+        self.assertTemplateUsed(response, 'django_openstack/keypairs/index.html')
         self.assertEqual(len(response.context['keypairs']), 0)
 
         self.mox.VerifyAll()

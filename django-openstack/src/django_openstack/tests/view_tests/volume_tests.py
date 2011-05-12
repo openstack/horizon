@@ -24,9 +24,9 @@ import boto.ec2.volume
 import mox
 
 from django.core.urlresolvers import reverse
-from django_nova import forms
-from django_nova.tests.view_tests.base import (BaseProjectViewTests,
-                                               TEST_PROJECT)
+from django_openstack import forms
+from django_openstack.tests.view_tests.base import (BaseProjectViewTests,
+                                                    TEST_PROJECT)
 
 
 TEST_VOLUME = 'vol-0000001'
@@ -55,7 +55,7 @@ class VolumeTests(BaseProjectViewTests):
         response = self.client.get(reverse('nova_volumes',
                                            args=[TEST_PROJECT]))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'django_nova/volumes/index.html')
+        self.assertTemplateUsed(response, 'django_openstack/volumes/index.html')
         self.assertEqual(len(response.context['volumes']), 0)
 
         self.mox.VerifyAll()

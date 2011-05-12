@@ -30,7 +30,7 @@ from django.core import mail
 from django.db import models
 from django.db.models.signals import post_save
 from django.template.loader import render_to_string
-from django_nova.connection import get_nova_admin_connection
+from django_openstack.connection import get_nova_admin_connection
 
 
 SHA1_RE=re.compile('^[a-f0-9]{40}$')
@@ -102,7 +102,7 @@ def credentials_post_save(sender, instance, created, *args, **kwargs):
         message.send(fail_silently=False)
 post_save.connect(credentials_post_save,
                   CredentialsAuthorization,
-                  dispatch_uid='django_nova.CredentialsAuthorization.post_save')
+                  dispatch_uid='django_openstack.CredentialsAuthorization.post_save')
 
 
 def user_post_save(sender, instance, created, *args, **kwargs):
@@ -120,4 +120,4 @@ def user_post_save(sender, instance, created, *args, **kwargs):
             nova.create_user(instance.username)
 post_save.connect(user_post_save,
                   auth_models.User,
-                  dispatch_uid='django_nova.User.post_save')
+                  dispatch_uid='django_openstack.User.post_save')
