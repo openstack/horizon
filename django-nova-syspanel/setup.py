@@ -15,6 +15,7 @@ setup(
     author_email = 'xtoddx@gmail.com',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
+    package_data = {'django_nova_syspanel': ['templates/django_nova_syspanel/*.html','templates/django_nova_syspanel/*/*.html',]},
     install_requires = ['setuptools', 'boto==1.9b', 'mox>=0.5.0'],
     classifiers = [
         'Development Status :: 4 - Beta',

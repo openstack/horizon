@@ -15,6 +15,8 @@ setup(
     author_email = 'devin.carlen@gmail.com',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
+    package_data = {'': ['templates/django_nova/*.html','templates/django_nova/*/*.html',
+                         'templates/admin/*.html','templates/admin/*/*.html',]},
     install_requires = ['setuptools', 'boto==1.9b', 'mox>=0.5.0',
                         'nova-adminclient'],
     classifiers = [
