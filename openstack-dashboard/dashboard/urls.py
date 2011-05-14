@@ -35,16 +35,16 @@ urlpatterns = patterns('',
         { 'form_class': reg_forms.RegistrationFormUniqueEmail },
         name='registration_register'),
     url(r'^accounts/', include('registration.urls')),
-    url(r'^project/', include('django_nova.urls.project')),
-    url(r'^region/', include('django_nova.urls.region')),
-    url(r'^admin/project/', include('django_nova.urls.admin_project')),
-    url(r'^admin/roles/', include('django_nova.urls.admin_roles')),
+    url(r'^project/', include('django_openstack.urls.project')),
+    url(r'^region/', include('django_openstack.urls.region')),
+    url(r'^admin/project/', include('django_openstack.urls.admin_project')),
+    url(r'^admin/roles/', include('django_openstack.urls.admin_roles')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^syspanel/', include('django_nova_syspanel.urls')),
 )
 
 urlpatterns += patterns('django.views.generic.simple',
-    # TODO(devcamcar): Move permission denied template into django-nova.
+    # TODO(devcamcar): Move permission denied template into django-openstack.
     url(r'^denied/$',
         'direct_to_template',
         {'template': 'permission_denied.html'},

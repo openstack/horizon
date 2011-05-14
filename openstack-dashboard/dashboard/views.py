@@ -23,8 +23,8 @@ Views for home page.
 from django import template
 from django.shortcuts import render_to_response
 from django.views.decorators.vary import vary_on_cookie
-from django_nova.shortcuts import get_projects
-from django_nova.exceptions import handle_nova_error
+from django_openstack.shortcuts import get_projects
+from django_openstack.exceptions import handle_nova_error
 
 
 @vary_on_cookie
