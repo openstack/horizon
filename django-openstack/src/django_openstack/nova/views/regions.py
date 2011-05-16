@@ -23,7 +23,7 @@ Views for managing Nova regions.
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
-from django_openstack.shortcuts import set_current_region
+from django_openstack.nova.shortcuts import set_current_region
 
 
 @login_required

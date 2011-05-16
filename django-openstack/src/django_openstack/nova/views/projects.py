@@ -28,7 +28,7 @@ from django.shortcuts import redirect, render_to_response
 from django_openstack.connection import get_nova_admin_connection
 from django_openstack.exceptions import handle_nova_error
 from django_openstack.nova import forms as nova_forms
-from django_openstack.shortcuts import get_project_or_404
+from django_openstack.nova.shortcuts import get_project_or_404
 
 
 @login_required

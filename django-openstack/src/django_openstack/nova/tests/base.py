@@ -27,7 +27,7 @@ from django import test
 from django.conf import settings
 from django.contrib.auth import models as auth_models
 from django_openstack.nova import manager
-from django_openstack import shortcuts
+from django_openstack.nova import shortcuts
 
 
 TEST_PROJECT = 'test'

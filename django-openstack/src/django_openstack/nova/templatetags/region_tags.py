@@ -20,8 +20,7 @@ Template tags for gathering contextual region data.
 """
 
 from django import template
-from django_openstack.shortcuts import get_current_region, get_all_regions
-
+from django_openstack.nova import shortcuts
 
 register = template.Library()
 
@@ -29,8 +28,9 @@ register = template.Library()
 class RegionsNode(template.Node):
     def render(self, context):
         # Store region info in template context.
-        context['current_region'] = get_current_region(context['request'])
-        context['regions'] = get_all_regions()
+        context['current_region'] = \
+                shortcuts.get_current_region(context['request'])
+        context['regions'] = shortcuts.get_all_regions()
         return ''
 
 
