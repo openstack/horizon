@@ -25,9 +25,9 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
-from django_openstack import exceptions
-from django_openstack.exceptions import handle_nova_error
+from django_openstack.nova import exceptions
 from django_openstack.nova import forms
+from django_openstack.nova.exceptions import handle_nova_error
 from django_openstack.nova.shortcuts import get_project_or_404
 
 

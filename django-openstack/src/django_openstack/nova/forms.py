@@ -25,7 +25,7 @@ import re
 from django import forms
 from django.contrib.auth import models as auth_models
 from django_openstack.connection import get_nova_admin_connection
-from django_openstack.exceptions import wrap_nova_error
+from django_openstack.nova.exceptions import wrap_nova_error
 
 
 # TODO: Store this in settings.

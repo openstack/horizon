@@ -25,8 +25,8 @@ from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
 from django_openstack.connection import get_nova_admin_connection
-from django_openstack.exceptions import wrap_nova_error
 from django_openstack.nova import manager
+from django_openstack.nova.exceptions import wrap_nova_error
 
 
 @wrap_nova_error
