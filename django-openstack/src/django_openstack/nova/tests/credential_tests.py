@@ -24,7 +24,7 @@ import mox
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django_openstack import models
-from django_openstack.nova.tests.view_tests.base import BaseViewTests
+from django_openstack.nova.tests.base import BaseViewTests
 
 
 class CredentialViewTests(BaseViewTests):

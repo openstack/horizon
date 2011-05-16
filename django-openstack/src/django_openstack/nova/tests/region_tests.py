@@ -21,7 +21,7 @@ Unit tests for region views.
 """
 
 from django.core.urlresolvers import reverse
-from django_openstack.nova.tests.view_tests.base import BaseViewTests
+from django_openstack.nova.tests.base import BaseViewTests
 from django_openstack import shortcuts
 
 
