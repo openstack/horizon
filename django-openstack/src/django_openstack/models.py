@@ -30,7 +30,7 @@ from django.core import mail
 from django.db import models
 from django.db.models.signals import post_save
 from django.template.loader import render_to_string
-from django_openstack.connection import get_nova_admin_connection
+from django_openstack.core.connection import get_nova_admin_connection
 
 
 SHA1_RE=re.compile('^[a-f0-9]{40}$')

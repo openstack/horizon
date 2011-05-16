@@ -28,7 +28,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import models as auth_models
 from django.shortcuts import redirect, render_to_response
 from django_openstack import models
-from django_openstack.connection import get_nova_admin_connection
+from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova import forms
 
 
