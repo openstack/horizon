@@ -25,8 +25,8 @@ import mox
 
 from django.core.urlresolvers import reverse
 from django_openstack import forms
-from django_openstack.tests.view_tests.base import (BaseProjectViewTests,
-                                                    TEST_PROJECT)
+from django_openstack.nova.tests.view_tests.base import (BaseProjectViewTests,
+                                                         TEST_PROJECT)
 
 
 TEST_VOLUME = 'vol-0000001'

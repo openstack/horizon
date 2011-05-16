@@ -15,18 +15,29 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+
 """
-URL patterns for managing Nova user roles through the Django admin interface.
+Unit tests for region views.
 """
 
-from django.conf.urls.defaults import *
+from django.core.urlresolvers import reverse
+from django_openstack.nova.tests.view_tests.base import BaseViewTests
+from django_openstack import shortcuts
 
 
-urlpatterns = patterns('',
-    url(r'^(?P<user_id>[^/]+)/$',
-        'django_openstack.views.admin.user_roles',
-        name='admin_user_roles'),
-    url(r'^$',
-        'django_openstack.views.admin.users_list',
-        name='admin_users_list'),
-)
+TEST_REGION = 'one'
+
+
+class RegionViewTests(BaseViewTests):
+    def test_change(self):
+        self.authenticateTestUser()
+        session = self.client.session
+        session['region'] = 'two'
+        session.save()
+
+        data = {'redirect_url': '/',
+                'region': TEST_REGION}
+        res = self.client.post(reverse('region_change'), data)
+        self.assertEqual(self.client.session['region'], TEST_REGION)
+        self.assertRedirectsNoFollow(res, '/')
+

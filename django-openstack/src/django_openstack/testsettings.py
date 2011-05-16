@@ -8,8 +8,9 @@ DATABASE_NAME = '/tmp/django-openstack.db'
 INSTALLED_APPS = ['django.contrib.auth',
                   'django.contrib.contenttypes',
                   'django.contrib.sessions',
-                  'django_openstack']
-ROOT_URLCONF = 'django_openstack.tests.urls'
+                  'django_openstack',
+                  'django_openstack.nova']
+ROOT_URLCONF = 'django_openstack.testurls'
 TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'tests', 'templates')
 )

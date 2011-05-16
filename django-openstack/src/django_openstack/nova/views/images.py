@@ -33,7 +33,7 @@ from django_openstack import exceptions
 from django_openstack import forms
 from django_openstack import shortcuts
 from django_openstack.exceptions import handle_nova_error
-from django_openstack.urls import project
+#from django_openstack.urls import project
 
 def _image_lists(images, project_id):
     def image_is_project(i):

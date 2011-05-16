@@ -1,1 +1,1 @@
-from view_tests import *
+from django_openstack.nova.tests import *

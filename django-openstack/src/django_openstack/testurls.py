@@ -15,15 +15,22 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+
 """
-URL patterns for managing Nova regions.
+URL patterns for testing django-openstack views.
 """
 
+from django.conf.urls.defaults import *
 from django.conf.urls.defaults import *
 
 
 urlpatterns = patterns('',
-    url(r'^change/$',
-        'django_openstack.views.regions.change',
-        name='region_change'),
+    url(r'^projects/', include('django_openstack.nova.urls.project')),
+    url(r'^region/', include('django_openstack.nova.urls.region')),
+    url(r'^admin/projects/', include('django_openstack.nova.urls.admin_project')),
+    url(r'^admin/roles/', include('django_openstack.nova.urls.admin_roles')),
+    url(r'^credentials/download/(?P<auth_token>\w+)/$',
+        'django_openstack.nova.views.credentials.authorize_credentials',
+        name='nova_credentials_authorize'),
 )
+
