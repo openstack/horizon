@@ -25,7 +25,7 @@
       {% if form.errors %}
       <p class="error">Your username and password didn't match. Please try again.</p>
       {% endif %}
-      <input type="hidden" name="next" value="{{ next }}" />
+      <input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}{% url index %}{% endif %}" />
       {{ form.username.label_tag }}{{ form.username }}
       {{ form.password.label_tag }}{{ form.password }}
       <div class="button">
