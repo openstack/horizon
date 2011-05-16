@@ -25,7 +25,7 @@ import boto.ec2.instance
 import mox
 
 from django.core.urlresolvers import reverse
-from django_openstack import forms
+from django_openstack.nova import forms
 from django_openstack import shortcuts
 from django_openstack.nova.tests.base import (BaseProjectViewTests,
                                               TEST_PROJECT)

@@ -26,11 +26,12 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django_openstack import exceptions
-from django_openstack import forms as nova_forms
 from django_openstack import shortcuts
 from django_openstack.exceptions import handle_nova_error
+from django_openstack.nova import forms as nova_forms
 
 import boto.ec2.ec2object
+
 
 @login_required
 @handle_nova_error
