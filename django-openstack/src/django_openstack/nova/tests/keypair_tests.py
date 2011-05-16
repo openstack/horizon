@@ -41,7 +41,7 @@ class KeyPairViewTests(BaseProjectViewTests):
         response = self.client.get(reverse('nova_keypairs',
                                            args=[TEST_PROJECT]))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'django_openstack/keypairs/index.html')
+        self.assertTemplateUsed(response, 'django_openstack/nova/keypairs/index.html')
         self.assertEqual(len(response.context['keypairs']), 0)
 
         self.mox.VerifyAll()

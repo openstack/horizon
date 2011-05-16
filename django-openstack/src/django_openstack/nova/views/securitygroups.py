@@ -37,7 +37,7 @@ def index(request, project_id):
     project = get_project_or_404(request, project_id)
     securitygroups = project.get_security_groups()
 
-    return render_to_response('django_openstack/securitygroups/index.html', {
+    return render_to_response('django_openstack/nova/securitygroups/index.html', {
         'create_form': forms.CreateSecurityGroupForm(project),
         'project': project,
         'securitygroups': securitygroups,
@@ -53,7 +53,7 @@ def detail(request, project_id, group_name):
     if not securitygroup:
         raise http.Http404
 
-    return render_to_response('django_openstack/securitygroups/detail.html', {
+    return render_to_response('django_openstack/nova/securitygroups/detail.html', {
         'authorize_form': forms.AuthorizeSecurityGroupRuleForm(),
         'project': project,
         'securitygroup': securitygroup,
@@ -83,7 +83,7 @@ def add(request, project_id):
         else:
             securitygroups = project.get_security_groups()
 
-            return render_to_response('django_openstack/securitygroups/index.html', {
+            return render_to_response('django_openstack/nova/securitygroups/index.html', {
                 'create_form': form,
                 'project': project,
                 'securitygroups': securitygroups,
@@ -124,7 +124,7 @@ def authorize(request, project_id, group_name):
             if not securitygroup:
                 raise http.Http404
 
-            return render_to_response('django_openstack/securitygroups/detail.html', {
+            return render_to_response('django_openstack/nova/securitygroups/detail.html', {
                 'authorize_form': form,
                 'project': project,
                 'securitygroup': securitygroup,

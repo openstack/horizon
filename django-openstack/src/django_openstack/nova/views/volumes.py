@@ -36,7 +36,7 @@ def index(request, project_id):
     project = shortcuts.get_project_or_404(request, project_id)
     volumes = project.get_volumes()
 
-    return render_to_response('django_openstack/volumes/index.html', {
+    return render_to_response('django_openstack/nova/volumes/index.html', {
         'create_form': forms.CreateVolumeForm(),
         'attach_form': forms.AttachVolumeForm(project),
         'region': project.region,
@@ -67,7 +67,7 @@ def add(request, project_id):
         else:
             volumes = project.get_volumes()
 
-            return render_to_response('django_openstack/volumes/index.html', {
+            return render_to_response('django_openstack/nova/volumes/index.html', {
                 'create_form': form,
                 'attach_form': forms.AttachVolumeForm(project),
                 'region': project.region,
@@ -124,7 +124,7 @@ def attach(request, project_id):
         else:
             volumes = project.get_volumes()
 
-            return render_to_response('django_openstack/volumes/index.html', {
+            return render_to_response('django_openstack/nova/volumes/index.html', {
                 'create_form': forms.CreateVolumeForm(),
                 'attach_form': form,
                 'region': project.region,

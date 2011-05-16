@@ -57,7 +57,7 @@ class ImageViewTests(BaseProjectViewTests):
 
         res = self.client.get(reverse('nova_images', args=[TEST_PROJECT]))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'django_openstack/images/index.html')
+        self.assertTemplateUsed(res, 'django_openstack/nova/images/index.html')
         self.assertEqual(len(res.context['image_lists']), 3)
 
         self.mox.VerifyAll()
@@ -76,7 +76,7 @@ class ImageViewTests(BaseProjectViewTests):
         args = [TEST_PROJECT, TEST_IMAGE_ID]
         res = self.client.get(reverse('nova_images_launch', args=args))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'django_openstack/images/launch.html')
+        self.assertTemplateUsed(res, 'django_openstack/nova/images/launch.html')
         self.assertEqual(res.context['ami'].id, TEST_IMAGE_ID)
 
         self.mox.VerifyAll()
@@ -134,7 +134,7 @@ class ImageViewTests(BaseProjectViewTests):
         res = self.client.get(reverse('nova_images_detail',
                                       args=[TEST_PROJECT, TEST_IMAGE_ID]))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'django_openstack/images/index.html')
+        self.assertTemplateUsed(res, 'django_openstack/nova/images/index.html')
         self.assertEqual(res.context['ami'].id, TEST_IMAGE_ID)
 
         self.mox.VerifyAll()
@@ -203,7 +203,7 @@ class ImageViewTests(BaseProjectViewTests):
         args = [TEST_PROJECT, TEST_IMAGE_ID]
         res = self.client.get(reverse('nova_images_update', args=args))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'django_openstack/images/edit.html')
+        self.assertTemplateUsed(res, 'django_openstack/nova/images/edit.html')
         self.assertEqual(res.context['ami'].id, TEST_IMAGE_ID)
 
         self.mox.VerifyAll()

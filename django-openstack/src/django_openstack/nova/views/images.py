@@ -57,7 +57,7 @@ def index(request, project_id):
     project = shortcuts.get_project_or_404(request, project_id)
     images = project.get_images()
 
-    return render_to_response('django_openstack/images/index.html', {
+    return render_to_response('django_openstack/nova/images/index.html', {
         'form': forms.LaunchInstanceForm(project),
         'region': project.region,
         'project': project,
@@ -100,7 +100,7 @@ def launch(request, project_id, image_id):
 
     ami = project.get_image(image_id)
 
-    return render_to_response('django_openstack/images/launch.html', {
+    return render_to_response('django_openstack/nova/images/launch.html', {
         'form': form,
         'region': project.region,
         'project': project,
@@ -118,7 +118,7 @@ def detail(request, project_id, image_id):
 
     if not ami:
         raise http.Http404()
-    return render_to_response('django_openstack/images/index.html', {
+    return render_to_response('django_openstack/nova/images/index.html', {
         'form': forms.LaunchInstanceForm(project),
         'region': project.region,
         'project': project,
@@ -208,7 +208,7 @@ def update(request, project_id, image_id):
             }, context_instance = template.RequestContext(request))
     else:
         form = forms.UpdateImageForm(ami)
-        return render_to_response('django_openstack/images/edit.html', {
+        return render_to_response('django_openstack/nova/images/edit.html', {
             'form': form,
             'region': project.region,
             'project': project,

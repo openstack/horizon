@@ -37,7 +37,7 @@ def index(request, project_id, download_key=None):
     project = shortcuts.get_project_or_404(request, project_id)
     keypairs = project.get_key_pairs()
 
-    return render_to_response('django_openstack/keypairs/index.html', {
+    return render_to_response('django_openstack/nova/keypairs/index.html', {
         'create_form': forms.CreateKeyPairForm(project),
         'region': project.region,
         'project': project,
@@ -75,7 +75,7 @@ def add(request, project_id):
         else:
             keypairs = project.get_key_pairs()
 
-            return render_to_response('django_openstack/keypairs/index.html', {
+            return render_to_response('django_openstack/nova/keypairs/index.html', {
                 'create_form': form,
                 'region': project.region,
                 'project': project,
