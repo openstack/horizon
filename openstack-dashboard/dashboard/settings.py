@@ -13,6 +13,7 @@ TEMPLATE_DEBUG = DEBUG
 SITE_ID = 1
 SITE_BRANDING = 'OpenStack'
 SITE_NAME = 'openstack'
+ENABLE_VNC = True
 
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/'
