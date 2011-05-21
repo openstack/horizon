@@ -22,6 +22,7 @@ Views for managing Nova instances.
 
 from django import http
 from django import template
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
@@ -53,7 +54,7 @@ def detail(request, project_id, instance_id):
     project = shortcuts.get_project_or_404(request, project_id)
     instance = project.get_instance(instance_id)
     instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
-
+    
     if not instance:
         raise http.Http404()
 
@@ -63,6 +64,7 @@ def detail(request, project_id, instance_id):
         'selected_instance': instance,
         'instances': instances,
         'update_form': nova_forms.UpdateInstanceForm(instance),
+        'enable_vnc': settings.ENABLE_VNC,
         'detail' : True,
     }, context_instance = template.RequestContext(request))
 

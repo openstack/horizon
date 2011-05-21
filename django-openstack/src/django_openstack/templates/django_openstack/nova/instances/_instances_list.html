@@ -54,10 +54,10 @@
                 <div id="last" class="column">
                   {% if instance.state == "running" %}
                   <a href="{% url nova_instances_console project.projectname instance.id %}" id="console_{{instance.id}}" class="console" target="_blank">Show Console</a>
-<a href="{% url nova_instances_vnc project.projectname instance.id %}" id="vnc_{{instance.id}}" class="console" target="_blank">VNC</a>{% endif %}
-                   <a id="edit_instance_link" href="{% url nova_instance_update project.projectname instance.id %}">Edit Instance</a>
-
-
+                  {% if enable_vnc %}
+                    <a href="{% url nova_instances_vnc project.projectname instance.id %}" id="vnc_{{instance.id}}" class="console" target="_blank">VNC</a>{% endif %}
+                  {% endif %}
+                  <a id="edit_instance_link" href="{% url nova_instance_update project.projectname instance.id %}">Edit Instance</a>
                  </div>
 
                  <span class="delete">
