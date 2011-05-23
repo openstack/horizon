@@ -38,7 +38,8 @@ def die(message, *args):
     sys.exit(1)
 
 
-def run_command(cmd, redirect_output=True, check_exit_code=True, cwd=ROOT):
+def run_command(cmd, redirect_output=True, check_exit_code=True, cwd=ROOT,
+                die_message=None):
     """
     Runs a command in an out-of-process shell, returning the
     output of that command.  Working directory is ROOT.
@@ -51,7 +52,10 @@ def run_command(cmd, redirect_output=True, check_exit_code=True, cwd=ROOT):
     proc = subprocess.Popen(cmd, cwd=cwd, stdout=stdout)
     output = proc.communicate()[0]
     if check_exit_code and proc.returncode != 0:
-        die('Command "%s" failed.\n%s', ' '.join(cmd), output)
+        if die_message is None:
+            die('Command "%s" failed.\n%s', ' '.join(cmd), output)
+        else:
+            die(die_message)
     return output
 
 
@@ -70,11 +74,20 @@ def check_dependencies():
         # Try installing it via easy_install...
         if HAS_EASY_INSTALL:
             print 'Installing virtualenv via easy_install...',
+            run_command(['easy_install', 'virtualenv'],
+                        die_message='easy_install failed to install virtualenv'
+                                    '\ndevelopment requires virtualenv, please'
+                                    ' install it using your favorite tool')
             if not run_command(['which', 'virtualenv']):
-                die('ERROR: virtualenv not found.\n\nevelopment requires'
-                    ' virtualenv, please install it using your favorite'
-                    ' package management tool')
+                die('ERROR: virtualenv not found in path.\n\ndevelopment '
+                    ' requires virtualenv, please install it using your'
+                    ' favorite package management tool and ensure'
+                    ' virtualenv is in your path')
             print 'virtualenv installation done.'
+        else:
+            die('easy_install not found.\n\nInstall easy_install'
+                ' (python-setuptools in ubuntu) or virtualenv by hand,'
+                ' then rerun.')
     print 'dependency check done.'
 
 
