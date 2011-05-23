@@ -64,6 +64,7 @@ HAS_VIRTUALENV = bool(run_command(['which', 'virtualenv'],
 def check_dependencies():
     """Make sure virtualenv is in the path."""
 
+    print 'checking dependencies...'
     if not HAS_VIRTUALENV:
         print 'not found.'
         # Try installing it via easy_install...
@@ -73,8 +74,8 @@ def check_dependencies():
                 die('ERROR: virtualenv not found.\n\nevelopment requires'
                     ' virtualenv, please install it using your favorite'
                     ' package management tool')
-            print 'done.'
-    print 'done.'
+            print 'virtualenv installation done.'
+    print 'dependency check done.'
 
 
 def create_virtualenv(venv=VENV):
