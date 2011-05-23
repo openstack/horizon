@@ -65,7 +65,9 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'django.contrib.syndication',
     'django_nose',
-    'django_nova',
+    'django_openstack',
+    'django_openstack.nova',
+    'django_openstack.templatetags',
     'django_nova_syspanel',
     'registration',
 )

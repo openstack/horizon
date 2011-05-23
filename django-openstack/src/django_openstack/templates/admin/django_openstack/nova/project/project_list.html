@@ -1,0 +1,42 @@
+{% extends "admin/django_openstack/nova/project/base_projects.html" %}
+{% block extrahead %}
+    {{ block.super }}
+{% endblock %}
+{% block innercontent %}
+    <ul class="object-tools">
+        <li>
+            <a class="addlink" href="{% url add_project %}">Add Project</a>
+        </li>
+    </ul>
+    <table cellspacing="0" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Project Manager</th>
+                <th>Send Credentials</th>
+                <th>Start VPN</th>
+            </tr>
+        </thead>
+        {% for project in projects %}
+            <tr class="{% cycle 'row1' 'row2' %}">
+                <td>
+                    <a href="{%url admin_project project.projectname %}">{{project.projectname}}</a>
+                </td>
+                <td>
+                    {{project.description}}
+                </td>
+                <td>
+                    {{project.projectManagerId}}
+                </td>
+                <td>
+                  <a href="{% url admin_project_sendcredentials project.projectname %}">Send Credentials</a>
+                </td>
+                <td>
+                  <a href="{% url admin_project_start_vpn project.projectname %}">Start VPN</a>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

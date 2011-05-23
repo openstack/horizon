@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd django-nova
+cd django-openstack
 python bootstrap.py
 bin/buildout
 bin/test
