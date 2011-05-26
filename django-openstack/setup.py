@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name = "django-openstack",
-    version = "0.2",
+    version = "0.3",
     url = 'https://launchpad.net/django-openstack/',
     license = 'Apache 2.0',
     description = "A Django interface for OpenStack.",

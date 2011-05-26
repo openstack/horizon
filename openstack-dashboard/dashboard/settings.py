@@ -78,7 +78,7 @@ AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-TIME_ZONE = 'PST+08PDT,M3.2.0,M11.1.0'
+TIME_ZONE = None
 LANGUAGE_CODE = 'en-us'
 USE_I18N = False
 
