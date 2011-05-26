@@ -9,6 +9,7 @@ INSTALLED_APPS = ['django.contrib.auth',
                   'django.contrib.contenttypes',
                   'django.contrib.sessions',
                   'django_openstack',
+                  'django_openstack.templatetags',
                   'django_openstack.nova']
 ROOT_URLCONF = 'django_openstack.testurls'
 TEMPLATE_DIRS = (
@@ -16,6 +17,7 @@ TEMPLATE_DIRS = (
 )
 SITE_BRANDING = 'OpenStack'
 SITE_NAME = 'openstack'
+ENABLE_VNC = True
 NOVA_DEFAULT_ENDPOINT = 'none'
 NOVA_DEFAULT_REGION = 'test'
 NOVA_ACCESS_KEY = 'test'
