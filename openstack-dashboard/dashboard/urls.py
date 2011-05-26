@@ -23,7 +23,7 @@ URL patterns for the OpenStack Dashboard.
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
-from django.views.generic import TemplateView
+from django.views import generic as generic_views
 from registration import forms as reg_forms
 
 
@@ -47,10 +47,10 @@ urlpatterns = patterns('',
 urlpatterns += patterns('',
     # TODO(devcamcar): Move permission denied template into django-openstack.
     url(r'^denied/$',
-        TemplateView.as_view(template_name='permission_denied.html'),
+        generic_views.TemplateView.as_view(template_name='permission_denied.html'),
         {'name':'dashboard_permission_denied'}),
     url(r'^unavailable/$',
-        TemplateView.as_view(template_name='unavailable.html'),
+        generic_views.TemplateView.as_view(template_name='unavailable.html'),
         {'name':'nova_unavailable'}),
 )
 
