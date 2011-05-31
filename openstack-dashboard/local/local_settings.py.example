@@ -33,3 +33,30 @@ NOVA_PROJECT = 'admin'
 # EMAIL_PORT = 25
 ## EMAIL_HOST_USER = 'djangomail'
 ## EMAIL_HOST_PASSWORD = 'top-secret!'
+
+# Uncomment the following segment to silence verbose logging
+# django.db and boto DEBUG logging is extremely verbose.
+#LOGGING = {
+#        'version': 1,
+#        # set to True will disable all logging except that specified, unless nothing is specified
+#        # except that django.db.backends will still log, even when set to True
+#        # so disable explicitly
+#        'disable_existing_loggers': False,
+#        'handlers': {
+#            'null': {
+#                'level': 'DEBUG',
+#               'class': 'django.utils.log.NullHandler',
+#                },
+#            },
+#        'loggers': {
+#            # Silence DB logging output, even when running with DEBUG=True
+#            'django.db.backends': {
+#                'handlers': ['null'],
+#               'propagate': False,
+#                },
+#            'boto': {
+#                'handlers': ['null'],
+#                'propagate': False,
+#                },
+#            },
+#        }
