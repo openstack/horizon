@@ -145,7 +145,7 @@ def terminate(request, project_id):
 @handle_nova_error
 def console(request, project_id, instance_id):
     project = shortcuts.get_project_or_404(request, project_id)
-    conn = project.get_nova_connection()
+    conn = project.get_openstack_connection()
     console = conn.get_console_output(instance_id)
     response = http.HttpResponse(mimetype='text/plain')
     response.write(console.output)
@@ -157,7 +157,7 @@ def console(request, project_id, instance_id):
 @handle_nova_error
 def vnc(request, project_id, instance_id):
     project = shortcuts.get_project_or_404(request, project_id)
-    conn = project.get_nova_connection()
+    conn = project.get_openstack_connection()
     params = { 'InstanceId' : instance_id }
     vnc = conn.get_object('GetVncConsole',params,boto.ec2.ec2object.EC2Object)
     return http.HttpResponseRedirect(vnc.url)
