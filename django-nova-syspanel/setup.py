@@ -1,5 +1,5 @@
 import os
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, findall
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
@@ -15,7 +15,9 @@ setup(
     author_email = 'xtoddx@gmail.com',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
-    package_data = {'django_nova_syspanel': ['templates/django_nova_syspanel/*.html','templates/django_nova_syspanel/*/*.html',]},
+    package_data = {'django_nova_syspanel':
+                        [s[len('src/django_nova_syspanel/'):] for s in
+                         findall('src/django_nova_syspanel/templates')]},
     install_requires = ['setuptools', 'boto==1.9b', 'mox>=0.5.0'],
     classifiers = [
         'Development Status :: 4 - Beta',
