@@ -20,7 +20,6 @@
 Unit tests for credential views.
 """
 
-import mox
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django_openstack import models
@@ -38,7 +37,8 @@ class CredentialViewTests(BaseViewTests):
 
         res = self.client.get(reverse('nova_credentials_authorize',
                                       args=[auth_token]))
-        self.assertTemplateUsed(res, 'django_openstack/nova/credentials/expired.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/nova/credentials/expired.html')
 
         self.mox.VerifyAll()
 

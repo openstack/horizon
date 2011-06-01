@@ -35,7 +35,8 @@ def get_project_or_404(request, project_id):
     Returns a project or 404s if it doesn't exist.
     """
 
-    # Ensure that a connection is never attempted for a user that is unauthenticated.
+    # Ensure that a connection is never attempted for a
+    # user that is unauthenticated.
     if not request.user.is_authenticated:
         raise PermissionDenied('User not authenticated')
 
@@ -76,7 +77,8 @@ def get_all_regions():
 
     if not regions:
         nova = get_nova_admin_connection()
-        conn = nova.connection_for(settings.NOVA_ADMIN_USER, settings.NOVA_PROJECT)
+        conn = nova.connection_for(settings.NOVA_ADMIN_USER,
+                                   settings.NOVA_PROJECT)
         results = conn.get_all_regions()
         regions = [{'name': r.name, 'endpoint': r.endpoint} for r in results]
         cache.set('regions', regions, 60 * 60 * 24)
@@ -115,17 +117,18 @@ def get_user_image_permissions(username, project_name):
     nova = get_nova_admin_connection()
     user_has_modify_permissions = False
 
-    # checks global roles, if user is a sysadmin they can modify image attribtues.
+    # checks global roles, if user is a sysadmin they can
+    # modify image attribtues.
     if not user_has_modify_permissions:
         for role in nova.get_user_roles(username):
             if role.role == "sysadmin":
                 user_has_modify_permissions = True
 
-    # checks project roles, if user is a sysadmin they can modify image attribtues.
+    # checks project roles, if user is a sysadmin they can
+    # modify image attribtues.
     if not user_has_modify_permissions:
         for role in nova.get_user_roles(username, project_name):
             if role.role == "sysadmin":
                 user_has_modify_permissions = True
 
     return user_has_modify_permissions
-

@@ -31,7 +31,7 @@ class SiteBrandingNode(template.Node):
     def render(self, context):
         return settings.SITE_BRANDING
 
+
 @register.tag
 def site_branding(parser, token):
     return SiteBrandingNode()
-

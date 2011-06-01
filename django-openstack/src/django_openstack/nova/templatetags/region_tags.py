@@ -37,4 +37,3 @@ class RegionsNode(template.Node):
 @register.tag
 def load_regions(parser, token):
     return RegionsNode()
-

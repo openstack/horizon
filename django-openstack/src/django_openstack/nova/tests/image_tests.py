@@ -76,7 +76,8 @@ class ImageViewTests(BaseProjectViewTests):
         args = [TEST_PROJECT, TEST_IMAGE_ID]
         res = self.client.get(reverse('nova_images_launch', args=args))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'django_openstack/nova/images/launch.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/nova/images/launch.html')
         self.assertEqual(res.context['ami'].id, TEST_IMAGE_ID)
 
         self.mox.VerifyAll()
@@ -213,7 +214,8 @@ class ImageViewTests(BaseProjectViewTests):
         self.mox.StubOutWithMock(self.project, 'update_image')
 
         self.project.get_image(TEST_IMAGE_ID).AndReturn(self.ami)
-        self.project.update_image(TEST_IMAGE_ID, 'test', 'test').AndReturn(True)
+        self.project.update_image(TEST_IMAGE_ID, 'test', 'test') \
+                .AndReturn(True)
 
         self.mox.ReplayAll()
 

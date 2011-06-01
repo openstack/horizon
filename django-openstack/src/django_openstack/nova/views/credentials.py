@@ -34,7 +34,8 @@ def authorize_credentials(request, auth_token):
 
     # NOTE(devcamcar): If nothing returned, then token was bad or has expired.
     if not credentials:
-        return render_to_response('django_openstack/nova/credentials/expired.html')
+        return render_to_response(
+                'django_openstack/nova/credentials/expired.html')
 
     response = http.HttpResponse(mimetype='application/zip')
     response['Content-Disposition'] = \
@@ -43,4 +44,3 @@ def authorize_credentials(request, auth_token):
     response.write(credentials.get_zip())
 
     return response
-

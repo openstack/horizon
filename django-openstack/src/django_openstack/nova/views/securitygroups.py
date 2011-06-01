@@ -37,11 +37,12 @@ def index(request, project_id):
     project = get_project_or_404(request, project_id)
     securitygroups = project.get_security_groups()
 
-    return render_to_response('django_openstack/nova/securitygroups/index.html', {
-        'create_form': forms.CreateSecurityGroupForm(project),
-        'project': project,
-        'securitygroups': securitygroups,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/securitygroups/index.html',
+        {'create_form': forms.CreateSecurityGroupForm(project),
+         'project': project,
+         'securitygroups': securitygroups},
+        context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -53,11 +54,12 @@ def detail(request, project_id, group_name):
     if not securitygroup:
         raise http.Http404
 
-    return render_to_response('django_openstack/nova/securitygroups/detail.html', {
-        'authorize_form': forms.AuthorizeSecurityGroupRuleForm(),
-        'project': project,
-        'securitygroup': securitygroup,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/securitygroups/detail.html',
+        {'authorize_form': forms.AuthorizeSecurityGroupRuleForm(),
+         'project': project,
+         'securitygroup': securitygroup},
+        context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -73,8 +75,9 @@ def add(request, project_id):
                     form.cleaned_data['name'],
                     form.cleaned_data['description'])
             except exceptions.NovaApiError, e:
-                messages.error(request,
-                               'Unable to create security group: %s' % e.message)
+                messages.error(
+                    request,
+                    'Unable to create security group: %s' % e.message)
             else:
                 messages.success(
                     request,
@@ -83,11 +86,12 @@ def add(request, project_id):
         else:
             securitygroups = project.get_security_groups()
 
-            return render_to_response('django_openstack/nova/securitygroups/index.html', {
-                'create_form': form,
-                'project': project,
-                'securitygroups': securitygroups,
-            }, context_instance = template.RequestContext(request))
+            return render_to_response(
+                'django_openstack/nova/securitygroups/index.html',
+                {'create_form': form,
+                 'project': project,
+                 'securitygroups': securitygroups},
+                context_instance=template.RequestContext(request))
 
     return redirect('nova_securitygroups', project_id)
 
@@ -102,10 +106,10 @@ def authorize(request, project_id, group_name):
         if form.is_valid():
             try:
                 project.authorize_security_group(
-                    group_name = group_name,
-                    ip_protocol = form.cleaned_data['protocol'],
-                    from_port = form.cleaned_data['from_port'],
-                    to_port = form.cleaned_data['to_port'])
+                    group_name=group_name,
+                    ip_protocol=form.cleaned_data['protocol'],
+                    from_port=form.cleaned_data['from_port'],
+                    to_port=form.cleaned_data['to_port'])
             except exceptions.NovaApiError, e:
                 messages.error(request,
                                'Unable to authorize: %s' % e.message)
@@ -124,11 +128,12 @@ def authorize(request, project_id, group_name):
             if not securitygroup:
                 raise http.Http404
 
-            return render_to_response('django_openstack/nova/securitygroups/detail.html', {
-                'authorize_form': form,
-                'project': project,
-                'securitygroup': securitygroup,
-            }, context_instance = template.RequestContext(request))
+            return render_to_response(
+                'django_openstack/nova/securitygroups/detail.html',
+                {'authorize_form': form,
+                 'project': project,
+                 'securitygroup': securitygroup},
+                context_instance=template.RequestContext(request))
 
     return redirect('nova_securitygroups_detail', project_id, group_name)
 
@@ -141,10 +146,10 @@ def revoke(request, project_id, group_name):
     if request.method == 'POST':
         try:
             project.revoke_security_group(
-                group_name = group_name,
-                ip_protocol = request.POST['protocol'],
-                from_port = request.POST['from_port'],
-                to_port = request.POST['to_port'])
+                group_name=group_name,
+                ip_protocol=request.POST['protocol'],
+                from_port=request.POST['from_port'],
+                to_port=request.POST['to_port'])
         except exceptions.NovaApiError, e:
             messages.error(request, 'Unable to revoke: %s' % e.message)
         else:

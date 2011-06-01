@@ -36,13 +36,14 @@ def index(request, project_id):
     project = shortcuts.get_project_or_404(request, project_id)
     volumes = project.get_volumes()
 
-    return render_to_response('django_openstack/nova/volumes/index.html', {
-        'create_form': forms.CreateVolumeForm(),
-        'attach_form': forms.AttachVolumeForm(project),
-        'region': project.region,
-        'project': project,
-        'volumes': volumes,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/volumes/index.html',
+        {'create_form': forms.CreateVolumeForm(),
+         'attach_form': forms.AttachVolumeForm(project),
+         'region': project.region,
+         'project': project,
+         'volumes': volumes},
+        context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -54,26 +55,29 @@ def add(request, project_id):
         form = forms.CreateVolumeForm(request.POST)
         if form.is_valid():
             try:
-                volume = project.create_volume(form.cleaned_data['size'],
-                                               form.cleaned_data['nickname'],
-                                               form.cleaned_data['description'])
+                volume = project.create_volume(
+                    form.cleaned_data['size'],
+                    form.cleaned_data['nickname'],
+                    form.cleaned_data['description'])
             except exceptions.NovaApiError, e:
                 messages.error(request,
                                'Unable to create volume: %s' % e.message)
             else:
-                messages.success(request,
-                                 'Volume %s %s has been successfully created.' %
-                                 (volume.id, volume.displayName))
+                messages.success(
+                    request,
+                    'Volume %s %s has been successfully created.' %
+                    (volume.id, volume.displayName))
         else:
             volumes = project.get_volumes()
 
-            return render_to_response('django_openstack/nova/volumes/index.html', {
-                'create_form': form,
-                'attach_form': forms.AttachVolumeForm(project),
-                'region': project.region,
-                'project': project,
-                'volumes': volumes,
-            }, context_instance = template.RequestContext(request))
+            return render_to_response(
+                'django_openstack/nova/volumes/index.html',
+                {'create_form': form,
+                 'attach_form': forms.AttachVolumeForm(project),
+                 'region': project.region,
+                 'project': project,
+                 'volumes': volumes},
+                context_instance=template.RequestContext(request))
 
     return redirect('nova_volumes', project_id)
 
@@ -124,13 +128,14 @@ def attach(request, project_id):
         else:
             volumes = project.get_volumes()
 
-            return render_to_response('django_openstack/nova/volumes/index.html', {
-                'create_form': forms.CreateVolumeForm(),
-                'attach_form': form,
-                'region': project.region,
-                'project': project,
-                'volumes': volumes,
-            }, context_instance = template.RequestContext(request))
+            return render_to_response(
+                'django_openstack/nova/volumes/index.html',
+                {'create_form': forms.CreateVolumeForm(),
+                 'attach_form': form,
+                 'region': project.region,
+                 'project': project,
+                 'volumes': volumes},
+                context_instance=template.RequestContext(request))
 
     return redirect('nova_volumes', project_id)
 
