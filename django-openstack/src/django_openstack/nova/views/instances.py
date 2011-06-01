@@ -26,12 +26,15 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django_openstack import log as logging
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms as nova_forms
 from django_openstack.nova import shortcuts
 from django_openstack.nova.exceptions import handle_nova_error
 
 import boto.ec2.ec2object
+
+LOG = logging.getLogger(__name__)
 
 
 @login_required
@@ -132,11 +135,18 @@ def terminate(request, project_id):
             messages.error(request,
                            'Unable to terminate %s: %s' %
                            (instance_id, e.message,))
+            LOG.error('Unable to terminate instance "%s" on project "%s"' %
+                      (instance_id, project_id))
         except exceptions.NovaUnauthorizedError, e:
             messages.error(request, 'Permission Denied')
+            LOG.error('User "%s" denied permission to terminate instance'
+                      ' "%s" on project "%s"' %
+                      (str(request.user), instance_id, project_id))
         else:
             messages.success(request,
                              'Instance %s has been terminated.' % instance_id)
+            LOG.info('Instance "%s" terminated on project "%s"' %
+                     (instance_id, project_id))
 
     return redirect('nova_instances', project_id)
 
@@ -153,6 +163,7 @@ def console(request, project_id, instance_id):
 
     return response
 
+
 @login_required
 @handle_nova_error
 def vnc(request, project_id, instance_id):
@@ -161,6 +172,7 @@ def vnc(request, project_id, instance_id):
     params = { 'InstanceId' : instance_id }
     vnc = conn.get_object('GetVncConsole',params,boto.ec2.ec2object.EC2Object)
     return http.HttpResponseRedirect(vnc.url)
+
 
 @login_required
 @handle_nova_error
@@ -195,11 +207,19 @@ def update(request, project_id, instance_id):
                 messages.error(request,
                                'Unable to update instance %s: %s' %
                                (instance_id, e.message,))
+                LOG.error('Unable to update instance "%s" on project "%s".'
+                          ' Exception message: "%s"' %
+                          (instance_id, project_id, e.message))
             except exceptions.NovaUnauthorizedError, e:
-               messages.error(request, 'Permission Denied')
+                messages.error(request, 'Permission Denied')
+                LOG.error('User "%s" denied permission to update instance'
+                          ' "%s" on project "%s"' %
+                          (str(request.user), instance_id, project_id))
             else:
                 messages.success(request,
                                  'Instance %s has been updated.' % instance_id)
+                LOG.info('Instance "%s" updated on project "%s"' %
+                         (instance_id, project_id))
             return redirect('nova_instances', project_id)
         else:
             return render_to_response('django_openstack/nova/instances/edit.html', {
