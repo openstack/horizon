@@ -22,9 +22,9 @@ users database.
 
 from django.core.management.base import NoArgsCommand
 from django.contrib.auth.models import User
+from django_openstack import log as logging
 from django_openstack.core.connection import get_nova_admin_connection
 
-from django_openstack import log as logging
 
 LOG = logging.getLogger(__name__)
 

@@ -23,6 +23,9 @@ Better wrappers for errors from Nova's admin api.
 import boto.exception
 from django.shortcuts import redirect
 from django.core import exceptions as core_exceptions
+from django_openstack import log as logging
+
+LOG = logging.getLogger(__name__)
 
 
 class NovaServerError(Exception):
@@ -86,10 +89,20 @@ def handle_nova_error(func):
     Decorator for handling nova errors in a generalized way.
     """
     def decorator(*args, **kwargs):
+        # TODO:  OK?  __module__ is broken anyway 
+        #        because getLogger will prepend django_openstack again...
+        LOG = logging.getLogger(func.__module__)
         try:
             return func(*args, **kwargs)
-        except NovaUnavailableError:
+        except NovaUnavailableError, e:
+            LOG.critical('Unhandled NovaUnavailableError: "%s"' % str(e))
             return redirect('nova_unavailable')
+        except NovaApiError, e:
+            LOG.critical('Unhandled NovaApiError: "%s"' % str(e))
+            raise e
+        except NovaServerError, e:
+            LOG.critical('Unhandled Nova Exception: "%s"' % str(e))
+            raise e
     return decorator
     
 
