@@ -18,7 +18,7 @@ ENABLE_VNC = True
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/'
 
-MEDIA_ROOT =  os.path.join(ROOT_PATH, '..', 'media')
+MEDIA_ROOT = os.path.join(ROOT_PATH, '..', 'media')
 MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = '/media/admin/'
 

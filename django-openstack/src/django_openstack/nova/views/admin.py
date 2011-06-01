@@ -47,28 +47,31 @@ def project_sendcredentials(request, project_id):
         if len(request.POST.getlist('users')) < 1:
             msg = "Please select a user to send credentials to."
 
-            return render_to_response('admin/django_openstack/nova/project/send_credentials.html', {
-                'project' : project,
-                'form' : form,
-                'users' : users,
-                'error': msg,
-            }, context_instance = template.RequestContext(request))
+            return render_to_response(
+                'admin/django_openstack/nova/project/send_credentials.html',
+                {'project': project,
+                 'form': form,
+                 'users': users,
+                 'error': msg},
+                context_instance=template.RequestContext(request))
         else:
             for username in request.POST.getlist('users'):
                 models.CredentialsAuthorization.authorize(username, project_id)
             msg = "Credentials were successfully sent."
-            return render_to_response('admin/django_openstack/nova/project/send_credentials.html', {
-                'project' : project,
-                'form' : form,
-                'users' : users,
-                'success': msg,
-            }, context_instance = template.RequestContext(request))
+            return render_to_response(
+                'admin/django_openstack/nova/project/send_credentials.html',
+                {'project': project,
+                 'form': form,
+                 'users': users,
+                 'success': msg},
+                context_instance=template.RequestContext(request))
 
-    return render_to_response('admin/django_openstack/nova/project/send_credentials.html', {
-        'project' : project,
-        'form' : form,
-        'users' : users,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'admin/django_openstack/nova/project/send_credentials.html',
+        {'project': project,
+         'form': form,
+         'users': users},
+        context_instance=template.RequestContext(request))
 
 
 @staff_member_required
@@ -97,9 +100,10 @@ def projects_list(request):
     nova = get_nova_admin_connection()
     projects = nova.get_projects()
 
-    return render_to_response('admin/django_openstack/nova/project/project_list.html', {
-        'projects' : projects
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'admin/django_openstack/nova/project/project_list.html',
+        {'projects': projects},
+        context_instance=template.RequestContext(request))
 
 
 @staff_member_required
@@ -109,7 +113,8 @@ def project_view(request, project_name):
     users = nova.get_project_members(project_name)
 
     try:
-        manager = auth_models.User.objects.get(username=project.projectManagerId)
+        manager = auth_models.User.objects.get(
+                username=project.projectManagerId)
     except auth_models.User.DoesNotExist:
         manager = None
 
@@ -128,7 +133,6 @@ def project_view(request, project_name):
                                'Unable modify the project %s: %s - %s' %
                                (project_name, e.code, e.error_message))
 
-
             return redirect('admin_project', request.POST["projectname"])
     else:
         form = forms.ProjectForm(initial={'projectname': project.projectname,
@@ -136,19 +140,21 @@ def project_view(request, project_name):
                                           'manager': manager
                                          })
 
-
     for user in users:
-        project_role = [str(role.role) for role in nova.get_user_roles(user.memberId, project_name)]
-        global_role = [str(role.role) for role in nova.get_user_roles(user.memberId, project=False)]
+        project_role = [str(role.role) for role in
+                nova.get_user_roles(user.memberId, project_name)]
+        global_role = [str(role.role) for role in
+                nova.get_user_roles(user.memberId, project=False)]
 
         user.project_roles = ", ".join(project_role)
         user.global_roles = ", ".join(global_role)
 
-    return render_to_response('admin/django_openstack/nova/project/edit_project.html', {
-        'project' : project,
-        'users' : users,
-        'form': form,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'admin/django_openstack/nova/project/edit_project.html',
+        {'project': project,
+         'users': users,
+         'form': form},
+        context_instance=template.RequestContext(request))
 
 
 @staff_member_required
@@ -166,9 +172,10 @@ def add_project(request):
     else:
         form = forms.ProjectForm()
 
-    return render_to_response('admin/django_openstack/nova/project/add_project.html', {
-        'form' : form,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'admin/django_openstack/nova/project/add_project.html',
+        {'form': form},
+        context_instance=template.RequestContext(request))
 
 
 @staff_member_required
@@ -181,9 +188,11 @@ def delete_project(request, project_name):
 
     project = nova.get_project(project_name)
 
-    return render_to_response('admin/django_openstack/nova/project/delete_project.html', {
-        'project' : project,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'admin/django_openstack/nova/project/delete_project.html',
+        {'project': project},
+        context_instance=template.RequestContext(request))
+
 
 def remove_project_roles(username, project):
     nova = get_nova_admin_connection()
@@ -197,6 +206,7 @@ def remove_project_roles(username, project):
             nova.remove_user_role(username, "sysadmin", project)
         if role == "netadmin":
             nova.remove_user_role(username, "netadmin", project)
+
 
 def remove_global_roles(username):
     nova = get_nova_admin_connection()
@@ -223,7 +233,7 @@ def project_user(request, project_name, project_user):
     userroles = nova.get_user_roles(project_user, project_name)
 
     try:
-        modeluser = auth_models.User.objects.get(username = project_user)
+        modeluser = auth_models.User.objects.get(username=project_user)
     except auth_models.User.DoesNotExist:
         modeluser = None
 
@@ -232,7 +242,8 @@ def project_user(request, project_name, project_user):
         if form.is_valid():
             username = project_user
 
-            # hacky work around to interface correctly with multiple select form
+            # hacky work around to interface correctly with
+            # multiple select form
             remove_project_roles(username, project_name)
 
             roleform = request.POST.getlist("role")
@@ -247,12 +258,12 @@ def project_user(request, project_name, project_user):
                                      {'role': roles,
                                       'user': modeluser})
 
-
-    return render_to_response('admin/django_openstack/nova/project/project_user.html', {
-        'form' : form,
-        'project' : project,
-        'user': modeluser,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'admin/django_openstack/nova/project/project_user.html',
+        {'form': form,
+         'project': project,
+         'user': modeluser},
+        context_instance=template.RequestContext(request))
 
 
 @staff_member_required
@@ -275,10 +286,11 @@ def add_project_user(request, project_name):
 
     project = nova.get_project(project_name)
 
-    return render_to_response('admin/django_openstack/nova/project/add_project_user.html', {
-        'form' : form,
-        'project' : project,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'admin/django_openstack/nova/project/add_project_user.html',
+        {'form': form,
+         'project': project},
+        context_instance=template.RequestContext(request))
 
 
 @staff_member_required
@@ -292,10 +304,11 @@ def delete_project_user(request, project_name, project_user):
     project = nova.get_project(project_name)
     user = nova.get_user(project_user)
 
-    return render_to_response('admin/django_openstack/nova/project/delete_project_user.html', {
-        'user' : user,
-        'project' : project,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'admin/django_openstack/nova/project/delete_project_user.html',
+        {'user': user,
+         'project': project},
+        context_instance=template.RequestContext(request))
 
 
 @staff_member_required
@@ -305,13 +318,15 @@ def users_list(request):
 
     for user in users:
         # NOTE(devcamcar): Temporarily disabled for performance reasons.
-        #roles = [str(role.role) for role in nova.get_user_roles(user.username)]
+        #roles = [str(role.role) for role in
+        #         nova.get_user_roles(user.username)]
         roles = []
         user.roles = ", ".join(roles)
 
-    return render_to_response('admin/django_openstack/nova/project/user_list.html', {
-        'users' : users
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'admin/django_openstack/nova/project/user_list.html',
+        {'users': users},
+        context_instance=template.RequestContext(request))
 
 
 @staff_member_required
@@ -328,7 +343,8 @@ def user_roles(request, user_id):
         if form.is_valid():
             username = user_id
 
-            # hacky work around to interface correctly with multiple select form
+            # hacky work around to interface correctly with
+            # multiple select form
             remove_global_roles(username)
 
             roleform = request.POST.getlist("role")
@@ -343,8 +359,8 @@ def user_roles(request, user_id):
             'role': roles,
         })
 
-    return render_to_response('admin/django_openstack/nova/project/global_edit_user.html', {
-        'form' : form,
-        'user' : modeluser,
-    }, context_instance = template.RequestContext(request))
-
+    return render_to_response(
+        'admin/django_openstack/nova/project/global_edit_user.html',
+        {'form': form,
+         'user': modeluser},
+        context_instance=template.RequestContext(request))

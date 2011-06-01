@@ -43,7 +43,8 @@ def index(request, project_id, download_key=None):
         'project': project,
         'keypairs': keypairs,
         'download_key': download_key
-    }, context_instance = template.RequestContext(request))
+    }, context_instance=template.RequestContext(request))
+
 
 @login_required
 @handle_nova_error
@@ -75,14 +76,16 @@ def add(request, project_id):
         else:
             keypairs = project.get_key_pairs()
 
-            return render_to_response('django_openstack/nova/keypairs/index.html', {
-                'create_form': form,
-                'region': project.region,
-                'project': project,
-                'keypairs': keypairs,
-            }, context_instance = template.RequestContext(request))
+            return render_to_response(
+                'django_openstack/nova/keypairs/index.html',
+                {'create_form': form,
+                 'region': project.region,
+                 'project': project,
+                 'keypairs': keypairs},
+                context_instance=template.RequestContext(request))
 
     return redirect('nova_keypairs', project_id)
+
 
 @login_required
 @handle_nova_error
@@ -96,13 +99,14 @@ def delete(request, project_id):
             project.delete_key_pair(key_name)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           'Unable to delete key: %s' %  e.message)
+                           'Unable to delete key: %s' % e.message)
         else:
             messages.success(request,
                              'Key %s has been successfully deleted.' % \
                              key_name)
 
     return redirect('nova_keypairs', project_id)
+
 
 @login_required
 @handle_nova_error

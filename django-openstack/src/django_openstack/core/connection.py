@@ -27,12 +27,8 @@ def get_nova_admin_connection():
     """
     Returns a Nova administration connection.
     """
-    return adminclient.NovaAdminClient (
+    return adminclient.NovaAdminClient(
         clc_url=settings.NOVA_DEFAULT_ENDPOINT,
         region=settings.NOVA_DEFAULT_REGION,
         access_key=settings.NOVA_ACCESS_KEY,
-        secret_key=settings.NOVA_SECRET_KEY
-    )
-
-
-
+        secret_key=settings.NOVA_SECRET_KEY)

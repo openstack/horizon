@@ -62,7 +62,7 @@ def index(request, project_id):
         'region': project.region,
         'project': project,
         'image_lists': _image_lists(images, project_id),
-    }, context_instance = template.RequestContext(request))
+    }, context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -105,7 +105,7 @@ def launch(request, project_id, image_id):
         'region': project.region,
         'project': project,
         'ami': ami,
-    }, context_instance = template.RequestContext(request))
+    }, context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -124,7 +124,7 @@ def detail(request, project_id, image_id):
         'project': project,
         'image_lists': _image_lists(images, project_id),
         'ami': ami,
-    }, context_instance = template.RequestContext(request))
+    }, context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -205,7 +205,7 @@ def update(request, project_id, image_id):
                 'region': project.region,
                 'project': project,
                 'ami': ami,
-            }, context_instance = template.RequestContext(request))
+            }, context_instance=template.RequestContext(request))
     else:
         form = forms.UpdateImageForm(ami)
         return render_to_response('django_openstack/nova/images/edit.html', {
@@ -213,5 +213,4 @@ def update(request, project_id, image_id):
             'region': project.region,
             'project': project,
             'ami': ami,
-        }, context_instance = template.RequestContext(request))
-
+        }, context_instance=template.RequestContext(request))

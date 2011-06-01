@@ -55,7 +55,8 @@ class VolumeTests(BaseProjectViewTests):
         response = self.client.get(reverse('nova_volumes',
                                            args=[TEST_PROJECT]))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'django_openstack/nova/volumes/index.html')
+        self.assertTemplateUsed(response,
+                'django_openstack/nova/volumes/index.html')
         self.assertEqual(len(response.context['volumes']), 0)
 
         self.mox.VerifyAll()
