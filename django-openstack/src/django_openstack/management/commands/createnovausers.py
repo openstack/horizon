@@ -24,9 +24,9 @@ from django.core.management.base import NoArgsCommand
 from django.contrib.auth.models import User
 from django_openstack.core.connection import get_nova_admin_connection
 
-from django_openstack import utils
+from django_openstack import log as logging
 
-logger = utils.getLogger(__name__)
+LOG = logging.getLogger(__name__)
 
 class Command(NoArgsCommand):
     help = 'Creates nova users for all users in the django auth database.'
@@ -36,6 +36,5 @@ class Command(NoArgsCommand):
         users = User.objects.all()
         for user in users:
             if not nova.has_user(user.username):
-                logger.info('creating user %s... ' % user.username)
+                LOG.info('creating user %s... in nova' % user.username)
                 nova.create_user(user.username)
-                logger.info('ok\n')
