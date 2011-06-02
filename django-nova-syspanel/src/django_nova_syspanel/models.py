@@ -3,6 +3,7 @@ import boto
 import boto.exception
 import boto.s3
 from boto.ec2.volume import Volume
+from xml.dom import minidom
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -10,7 +11,8 @@ from django.core.exceptions import PermissionDenied
 from django.db.models.signals import post_save
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from xml.dom import minidom
+from django.utils.translation import ugettext as _
+
 from nova_adminclient import NovaAdminClient
 
 project_permissions = ('admin',)
@@ -18,8 +20,8 @@ project_permissions = ('admin',)
 class NovaResponseError(Exception):
     def __init__(self, ec2error):
         if ec2error.reason == 'Forbidden':
-            self.code = 'Forbidden'
-            self.message = 'Forbidden'
+            self.code = _('Forbidden')
+            self.message = _('Forbidden')
             return
 
         dom = minidom.parseString(ec2error.body)
@@ -33,7 +35,7 @@ class NovaResponseError(Exception):
         try:
             self.message = err.getElementsByTagName('Message')[0].childNodes[0].data
         except IndexError:
-            self.message = 'An unexpected error occurred.  Please try your request again.'
+            self.message = _('An unexpected error occurred.  Please try your request again.')
 
         dom.unlink()
 

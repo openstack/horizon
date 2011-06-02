@@ -24,6 +24,8 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
+
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms
 from django_openstack.nova import shortcuts
@@ -61,11 +63,11 @@ def add(request, project_id):
                     form.cleaned_data['description'])
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to create volume: %s' % e.message)
+                               _('Unable to create volume: %s') % e.message)
             else:
                 messages.success(
                     request,
-                    'Volume %s %s has been successfully created.' %
+                    _('Volume %s %s has been successfully created.') %
                     (volume.id, volume.displayName))
         else:
             volumes = project.get_volumes()
@@ -92,10 +94,10 @@ def delete(request, project_id, volume_id):
             project.delete_volume(volume_id)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           'Unable to delete volume: %s' % e.message)
+                           _('Unable to delete volume: %s') % e.message)
         else:
             messages.success(request,
-                             'Volume %s has been successfully deleted.'
+                             _('Volume %s has been successfully deleted.')
                              % volume_id)
 
     return redirect('nova_volumes', project_id)
@@ -117,13 +119,13 @@ def attach(request, project_id):
                 )
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to attach volume: %s' % e.message)
+                               _('Unable to attach volume: %s') % e.message)
             else:
                 messages.success(request,
-                                 'Volume %s is scheduled to be attached.  If '
+                                 _('Volume %s is scheduled to be attached.  If '
                                  'it doesn\'t become attached in two '
                                  'minutes,  please try again (you may need to '
-                                 'specify a different device).' %
+                                 'specify a different device).') %
                                  form.cleaned_data['volume'])
         else:
             volumes = project.get_volumes()
@@ -150,10 +152,10 @@ def detach(request, project_id, volume_id):
             project.detach_volume(volume_id)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           'Unable to detach volume: %s' % e.message)
+                           _('Unable to detach volume: %s') % e.message)
         else:
             messages.success(request,
-                             'Volume %s has been successfully detached.' %
+                             _('Volume %s has been successfully detached.') %
                              volume_id)
 
     return redirect('nova_volumes', project_id)

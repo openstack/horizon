@@ -25,6 +25,8 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
+
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms
 from django_openstack.nova.exceptions import handle_nova_error
@@ -77,11 +79,11 @@ def add(request, project_id):
             except exceptions.NovaApiError, e:
                 messages.error(
                     request,
-                    'Unable to create security group: %s' % e.message)
+                    _('Unable to create security group: %s') % e.message)
             else:
                 messages.success(
                     request,
-                    'Security Group %s has been succesfully created.' % \
+                    _('Security Group %s has been succesfully created.') % \
                     form.cleaned_data['name'])
         else:
             securitygroups = project.get_security_groups()
@@ -112,12 +114,11 @@ def authorize(request, project_id, group_name):
                     to_port=form.cleaned_data['to_port'])
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to authorize: %s' % e.message)
+                               _('Unable to authorize: %s') % e.message)
             else:
                 messages.success(
                     request,
-                    'Security Group %s: Access to %s ports %d - %d'
-                    ' has been authorized.' %
+                    _('Security Group %s: Access to %s ports %d - %d has been authorized.') %
                         (group_name,
                          form.cleaned_data['protocol'],
                          form.cleaned_data['from_port'],
@@ -151,12 +152,11 @@ def revoke(request, project_id, group_name):
                 from_port=request.POST['from_port'],
                 to_port=request.POST['to_port'])
         except exceptions.NovaApiError, e:
-            messages.error(request, 'Unable to revoke: %s' % e.message)
+            messages.error(request, _('Unable to revoke: %s') % e.message)
         else:
             messages.success(
                 request,
-                'Security Group %s: Access to %s ports %s - %s '
-                'has been revoked.' %
+                _('Security Group %s: Access to %s ports %s - %s has been revoked.') %
                    (group_name,
                     request.POST['protocol'],
                     request.POST['from_port'],
@@ -176,10 +176,10 @@ def delete(request, project_id, group_name):
         except exceptions.NovaApiError, e:
             messages.error(
                 request,
-                'Unable to delete security group: %s' % e.message)
+                _('Unable to delete security group: %s') % e.message)
         else:
             messages.success(request,
-                             'Security Group %s was successfully deleted.' %
+                             _('Security Group %s was successfully deleted.') %
                              group_name)
 
     return redirect('nova_securitygroups', project_id)

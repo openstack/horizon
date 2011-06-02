@@ -26,6 +26,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
+
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms as nova_forms
 from django_openstack.nova import shortcuts
@@ -137,13 +139,13 @@ def terminate(request, project_id):
             project.terminate_instance(instance_id)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           'Unable to terminate %s: %s' %
+                           _('Unable to terminate %s: %s') %
                            (instance_id, e.message,))
         except exceptions.NovaUnauthorizedError, e:
             messages.error(request, 'Permission Denied')
         else:
             messages.success(request,
-                             'Instance %s has been terminated.' % instance_id)
+                             _('Instance %s has been terminated.') % instance_id)
 
     return redirect('nova_instances', project_id)
 
@@ -204,13 +206,13 @@ def update(request, project_id, instance_id):
                 project.update_instance(instance_id, form.cleaned_data)
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to update instance %s: %s' %
+                               _('Unable to update instance %s: %s') %
                                (instance_id, e.message,))
             except exceptions.NovaUnauthorizedError, e:
                 messages.error(request, 'Permission Denied')
             else:
                 messages.success(request,
-                                 'Instance %s has been updated.' % instance_id)
+                                 _('Instance %s has been updated.') % instance_id)
             return redirect('nova_instances', project_id)
         else:
             return render_to_response(

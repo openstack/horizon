@@ -25,6 +25,8 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
+
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms
 from django_openstack.nova import shortcuts
@@ -59,7 +61,7 @@ def add(request, project_id):
                 keypair = project.create_key_pair(form.cleaned_data['name'])
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to create key: %s' % e.message)
+                               _('Unable to create key: %s') % e.message)
             else:
                 if request.POST['js'] == '1':
                     request.session['key.%s' % keypair.name] = keypair.material
@@ -99,10 +101,10 @@ def delete(request, project_id):
             project.delete_key_pair(key_name)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           'Unable to delete key: %s' % e.message)
+                           _('Unable to delete key: %s') % e.message)
         else:
             messages.success(request,
-                             'Key %s has been successfully deleted.' % \
+                             _('Key %s has been successfully deleted.') % \
                              key_name)
 
     return redirect('nova_keypairs', project_id)

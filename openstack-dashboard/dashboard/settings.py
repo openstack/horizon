@@ -80,7 +80,7 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 TIME_ZONE = None
 LANGUAGE_CODE = 'en-us'
-USE_I18N = False
+USE_I18N = True
 
 ACCOUNT_ACTIVATION_DAYS = 7
 

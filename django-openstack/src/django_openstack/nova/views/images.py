@@ -29,6 +29,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
+
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms
 from django_openstack.nova import shortcuts
@@ -87,13 +89,13 @@ def launch(request, project_id, image_id):
                 )
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to launch: %s' % e.message)
+                               _('Unable to launch: %s') % e.message)
             except exceptions.NovaUnauthorizedError, e:
                 messages.error(request, 'Permission Denied')
             else:
                 for instance in reservation.instances:
                     messages.success(request,
-                                     'Instance %s launched.' % instance.id)
+                                     _('Instance %s launched.') % instance.id)
             return redirect('nova_instances', project_id)
     else:
         form = forms.LaunchInstanceForm(project)
@@ -137,10 +139,10 @@ def remove(request, project_id, image_id):
             project.deregister_image(image_id)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           'Unable to deregister image: %s' % e.message)
+                           _('Unable to deregister image: %s') % e.message)
         else:
             messages.success(request,
-                             'Image %s has been successfully deregistered.' %
+                             _('Image %s has been successfully deregistered.') %
                              image_id)
 
     return redirect('nova_images', project_id)
@@ -161,7 +163,7 @@ def privacy(request, project_id, image_id):
                                                operation='remove')
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to make image private: %s' % e.message)
+                               _('Unable to make image private: %s') % e.message)
         else:
             try:
                 project.modify_image_attribute(image_id,
@@ -169,7 +171,7 @@ def privacy(request, project_id, image_id):
                                                operation='add')
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to make image public: %s' % e.message)
+                               _('Unable to make image public: %s') % e.message)
 
     return redirect('nova_images_detail', project_id, image_id)
 
@@ -189,10 +191,10 @@ def update(request, project_id, image_id):
                                      form.cleaned_data['description'])
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to update image: %s' % e.message)
+                               _('Unable to update image: %s') % e.message)
             else:
                 messages.success(request,
-                                 'Image %s has been updated.' % image_id)
+                                 _('Image %s has been updated.') % image_id)
 
             return redirect('nova_images_detail', project_id, image_id)
 

@@ -21,12 +21,15 @@ Views for managing Nova through the Django admin interface.
 """
 
 import boto.exception
+
 from django import http
 from django import template
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import models as auth_models
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
+
 from django_openstack import models
 from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova import forms
@@ -85,11 +88,11 @@ def project_start_vpn(request, project_id):
     try:
         nova.start_vpn(project_id)
         messages.success(request,
-                         'Successfully started VPN for project %s.' %
+                         _('Successfully started VPN for project %s.') %
                          project_id)
     except boto.exception.EC2ResponseError, e:
         messages.error(request,
-                       'Unable to start VPN for the project %s: %s - %s' %
+                       _('Unable to start VPN for the project %s: %s - %s') %
                        (project_id, e.code, e.error_message))
 
     return redirect('admin_projects')
@@ -126,11 +129,11 @@ def project_view(request, project_name):
                                     form.cleaned_data["manager"],
                                     form.cleaned_data["description"])
                 messages.success(request,
-                                 'Successfully modified the project %s.' %
+                                 _('Successfully modified the project %s.') %
                                  project_name)
             except boto.exception.EC2ResponseError, e:
                 messages.error(request,
-                               'Unable modify the project %s: %s - %s' %
+                               _('Unable modify the project %s: %s - %s') %
                                (project_name, e.code, e.error_message))
 
             return redirect('admin_project', request.POST["projectname"])
