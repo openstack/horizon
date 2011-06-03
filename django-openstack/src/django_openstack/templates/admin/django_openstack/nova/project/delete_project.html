@@ -9,8 +9,8 @@
     <div id="content-main">
         <div class="module filtered" id="changelist">
             <div id="toolbartable">
-              <h1>Delete Project</h1>
-              <p>Do you really want to delete this project?</p>
+              <h1>{% trans "Delete Project" %}</h1>
+              <p>{% trans "Do you really want to delete this project?<" %}/p>
               <ul>
                 <li><a href="{% url admin_project project.projectname %}">{{project.projectname}}</a></li>
               </ul>

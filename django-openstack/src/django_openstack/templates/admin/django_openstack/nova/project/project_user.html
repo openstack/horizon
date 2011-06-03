@@ -64,7 +64,7 @@
         <div class="submit-row">
           {% if project.projectManagerId != user.username %}
             <p class="deletelink-box">
-              <a href="{% url admin_project_delete_user project.projectname user.username %}" class="deletelink">Remove User From Project</a>
+              <a href="{% url admin_project_delete_user project.projectname user.username %}" class="deletelink">{% trans "Remove User From Project" %}</a>
             </p>
           {% endif %}
 
