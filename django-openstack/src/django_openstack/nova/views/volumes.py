@@ -31,7 +31,7 @@ from django_openstack.nova import shortcuts
 from django_openstack.nova.exceptions import handle_nova_error
 
 
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('django_openstack')
 
 
 @login_required

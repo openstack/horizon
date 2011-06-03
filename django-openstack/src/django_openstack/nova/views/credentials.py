@@ -28,7 +28,7 @@ from django_openstack import log as logging
 from django_openstack import models
 
 
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('django_openstack.nova')
 
 
 def authorize_credentials(request, auth_token):

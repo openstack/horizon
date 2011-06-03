@@ -32,7 +32,7 @@ from django_openstack.nova.exceptions import handle_nova_error
 from django_openstack.nova.shortcuts import get_project_or_404
 
 
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('django_openstack.nova')
 
 
 @login_required
@@ -91,7 +91,7 @@ def add(request, project_id):
                     'Security Group %s has been succesfully created.' % \
                     form.cleaned_data['name'])
                 LOG.info('Security Group "%s" created on project "%s"' %
-                         (form.cleaned_data['name'], projecdt_id))
+                         (form.cleaned_data['name'], project_id))
         else:
             securitygroups = project.get_security_groups()
 

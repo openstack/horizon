@@ -35,7 +35,7 @@ from django_openstack.nova.exceptions import handle_nova_error
 import boto.ec2.ec2object
 
 
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('django_openstack.nova')
 
 
 @login_required
@@ -143,8 +143,8 @@ def terminate(request, project_id):
             messages.error(request,
                            'Unable to terminate %s: %s' %
                            (instance_id, e.message,))
-            LOG.error('Unable to terminate instance "%s" on project "%s"' %
-                      (instance_id, project_id))
+            LOG.error('Unable to terminate instance "%s" on project "%s".'
+                      ' Exception:"%s"' % (instance_id, project_id, e.message))
         except exceptions.NovaUnauthorizedError, e:
             messages.error(request, 'Permission Denied')
             LOG.error('User "%s" denied permission to terminate instance'

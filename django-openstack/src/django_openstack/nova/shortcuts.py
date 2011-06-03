@@ -24,12 +24,10 @@ from django.conf import settings
 from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
-from django_openstack import log as logging
 from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova import manager
 from django_openstack.nova.exceptions import wrap_nova_error
 
-LOG = logging.getLogger(__name__)
 
 @wrap_nova_error
 def get_project_or_404(request, project_id):

@@ -33,7 +33,8 @@ from django.template.loader import render_to_string
 from django_openstack import log as logging
 from django_openstack.core.connection import get_nova_admin_connection
 
-LOG = logging.getLogger(__name__)
+
+LOG = logging.getLogger('django_openstack')
 
 
 SHA1_RE = re.compile('^[a-f0-9]{40}$')

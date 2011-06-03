@@ -27,14 +27,13 @@ from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import models as auth_models
 from django.shortcuts import redirect, render_to_response
+from django_openstack import log as logging
 from django_openstack import models
 from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova import forms
 
-from django_openstack import log as logging
 
-
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('django_openstack.nova')
 
 
 @staff_member_required
@@ -97,11 +96,10 @@ def project_start_vpn(request, project_id):
         LOG.info('Successfully started VPN for project %s.' %
                     project_id)
     except boto.exception.EC2ResponseError, e:
-        messages.error(request,
-                       'Unable to start VPN for the project %s: %s - %s' %
-                       (project_id, e.code, e.error_message))
-        LOG.error('Unable to start VPN for the project %s: %s - %s' %
-                       (project_id, e.code, e.error_message))
+        msg = 'Unable to start VPN for the project %s: %s - %s'.format(
+                project_id, e.code, e.error_message)
+        messages.error(request, msg)
+        LOG.error(msg)
 
     return redirect('admin_projects')
 
@@ -136,17 +134,14 @@ def project_view(request, project_name):
                 nova.modify_project(form.cleaned_data["projectname"],
                                     form.cleaned_data["manager"],
                                     form.cleaned_data["description"])
-                messages.success(request,
-                                 'Successfully modified the project %s.' %
-                                 project_name)
-                LOG.info('Successfully modified the project %s.' %
-                                 project_name)
+                msg = 'Successfully modified the project %s.' % project_name
+                messages.success(request, msg)
+                LOG.info(msg)
             except boto.exception.EC2ResponseError, e:
-                messages.error(request,
-                               'Unable to modify the project %s: %s - %s' %
-                               (project_name, e.code, e.error_message))
-                LOG.error('Unable to modify the project %s: %s - %s' %
-                               (project_name, e.code, e.error_message))
+                msg = 'Unable to modify the project %s: %s - %s'.format(
+                      project_name, e.code, e.error_message)
+                messages.error(request, msg)
+                LOG.error(msg)
 
             return redirect('admin_project', request.POST["projectname"])
     else:

@@ -27,7 +27,7 @@ from django_openstack import log as logging
 from django_openstack.nova.shortcuts import set_current_region
 
 
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('django_openstack.nova')
 
 
 @login_required
