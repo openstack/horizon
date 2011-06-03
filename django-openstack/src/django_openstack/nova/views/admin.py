@@ -88,12 +88,14 @@ def project_start_vpn(request, project_id):
     try:
         nova.start_vpn(project_id)
         messages.success(request,
-                         _('Successfully started VPN for project %s.') %
-                         project_id)
+                         _('Successfully started VPN for project %(proj)s.') %
+                         {'proj': project_id})
     except boto.exception.EC2ResponseError, e:
         messages.error(request,
-                       _('Unable to start VPN for the project %s: %s - %s') %
-                       (project_id, e.code, e.error_message))
+                       _('Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s') %
+                       {'proj': project_id, 
+                        'code': e.code, 
+                        'msg': e.error_message})
 
     return redirect('admin_projects')
 
@@ -129,12 +131,14 @@ def project_view(request, project_name):
                                     form.cleaned_data["manager"],
                                     form.cleaned_data["description"])
                 messages.success(request,
-                                 _('Successfully modified the project %s.') %
-                                 project_name)
+                                 _('Successfully modified the project %(proj)s.') %
+                                  {'proj': project_name})
             except boto.exception.EC2ResponseError, e:
                 messages.error(request,
-                               _('Unable modify the project %s: %s - %s') %
-                               (project_name, e.code, e.error_message))
+                              _('Unable modify the project %(proj)s: %(code)s - %(msg)s') %
+                                {'proj': project_name, 
+                                 'code': e.code, 
+                                 'msg': e.error_message})
 
             return redirect('admin_project', request.POST["projectname"])
     else:

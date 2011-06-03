@@ -53,8 +53,8 @@ def delete(request, volume_id):
     try:
         conn.delete_volume(volume_id)
     except EC2ResponseError, e:
-        messages.error(request, _('Unable to delete volume %s: %s') % \
-                                (volume_id, e.error_message))
+        messages.error(request, _('Unable to delete volume %(vol)s: %(msg)s') % \
+                                 {'vol': volume_id, 'msg': e.error_message})
     else:
         messages.success(request,
                          _('Volume %s has been successfully deleted.') %

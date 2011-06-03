@@ -118,11 +118,11 @@ def authorize(request, project_id, group_name):
             else:
                 messages.success(
                     request,
-                    _('Security Group %s: Access to %s ports %d - %d has been authorized.') %
-                        (group_name,
-                         form.cleaned_data['protocol'],
-                         form.cleaned_data['from_port'],
-                         form.cleaned_data['to_port']))
+                    _('Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has been authorized.') %
+                    {'grp': group_name,
+                     'proto': form.cleaned_data['protocol'],
+                     'fr': form.cleaned_data['from_port'],
+                     'to': form.cleaned_data['to_port']})
         else:
             securitygroup = project.get_security_group(group_name)
 
@@ -156,11 +156,11 @@ def revoke(request, project_id, group_name):
         else:
             messages.success(
                 request,
-                _('Security Group %s: Access to %s ports %s - %s has been revoked.') %
-                   (group_name,
-                    request.POST['protocol'],
-                    request.POST['from_port'],
-                    request.POST['to_port']))
+                _('Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has been revoked.') %
+                    {'grp': group_name,
+                     'proto': form.cleaned_data['protocol'],
+                     'fr': form.cleaned_data['from_port'],
+                     'to': form.cleaned_data['to_port']})
 
     return redirect('nova_securitygroups_detail', project_id, group_name)
 

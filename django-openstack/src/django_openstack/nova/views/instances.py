@@ -139,13 +139,14 @@ def terminate(request, project_id):
             project.terminate_instance(instance_id)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           _('Unable to terminate %s: %s') %
-                           (instance_id, e.message,))
+                           _('Unable to terminate %(inst)s: %(msg)s') %
+                           {'inst': instance_id, 'msg': e.message,})
         except exceptions.NovaUnauthorizedError, e:
             messages.error(request, 'Permission Denied')
         else:
             messages.success(request,
-                             _('Instance %s has been terminated.') % instance_id)
+                             _('Instance %(inst)s has been terminated.') % 
+                             {'inst': instance_id} )
 
     return redirect('nova_instances', project_id)
 
@@ -206,13 +207,14 @@ def update(request, project_id, instance_id):
                 project.update_instance(instance_id, form.cleaned_data)
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               _('Unable to update instance %s: %s') %
-                               (instance_id, e.message,))
+                          _('Unable to update instance %(inst)s: %(msg)s') %
+                           {'inst': instance_id, 'msg': e.message,})
             except exceptions.NovaUnauthorizedError, e:
                 messages.error(request, 'Permission Denied')
             else:
                 messages.success(request,
-                                 _('Instance %s has been updated.') % instance_id)
+                                 _('Instance %(inst)s has been updated.') % 
+                                  {'inst': instance_id})
             return redirect('nova_instances', project_id)
         else:
             return render_to_response(

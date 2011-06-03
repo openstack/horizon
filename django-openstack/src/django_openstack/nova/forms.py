@@ -45,7 +45,7 @@ def get_instance_type_choices():
     instance_types = nova.get_instance_types()
     rv = []
     for t in instance_types:
-        rv.append((t.name, _("%s (%sMB memory, %s cpu, %sGB space)") % \
+        rv.append((t.name, "%s (%sMB memory, %s cpu, %sGB space)" % \
                       (t.name, t.memory_mb, t.vcpus, t.disk_gb)))
     return rv
 

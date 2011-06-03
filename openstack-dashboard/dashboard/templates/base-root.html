@@ -22,7 +22,7 @@
         <h1><a href="/">{% site_branding %}<span> Cloud Computing</span></a></h1>
         {% if user.is_authenticated %}
           <div id="user_info">
-              <span class="user">{% blocktrans %}Signed in as <strong>{{ request.user.username }}</strong>.{% endblocktrans %}</span>
+              <span class="user">{% trans "Signed in as" %} <strong>{{ request.user.username }}</strong>.</span>
             <ul>
               <li><a id="lnk_logout" href="{% url auth_logout %}">{% trans "Sign Out"%}</a></li>
               <li><a id="lnk_change_password" href="{% url auth_password_change %}">{% trans "Change Password"%}</a></li>

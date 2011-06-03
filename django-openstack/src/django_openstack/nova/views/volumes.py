@@ -67,8 +67,8 @@ def add(request, project_id):
             else:
                 messages.success(
                     request,
-                    _('Volume %s %s has been successfully created.') %
-                    (volume.id, volume.displayName))
+                    _('Volume %(id)s %(name)s has been successfully created.') %
+                    {'id': volume.id, 'name': volume.displayName})
         else:
             volumes = project.get_volumes()
 
