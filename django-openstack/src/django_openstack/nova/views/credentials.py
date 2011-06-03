@@ -27,6 +27,7 @@ from django.shortcuts import render_to_response
 from django_openstack import log as logging
 from django_openstack import models
 
+
 LOG = logging.getLogger(__name__)
 
 

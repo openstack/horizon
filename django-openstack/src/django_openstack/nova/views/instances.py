@@ -34,6 +34,7 @@ from django_openstack.nova.exceptions import handle_nova_error
 
 import boto.ec2.ec2object
 
+
 LOG = logging.getLogger(__name__)
 
 

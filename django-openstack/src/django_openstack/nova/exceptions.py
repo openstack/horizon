@@ -90,8 +90,4 @@ def handle_nova_error(func):
             return func(*args, **kwargs)
         except NovaUnavailableError:
             return redirect('nova_unavailable')
-        except NovaApiError, e:
-            raise e
-        except NovaServerError, e:
-            raise e
     return decorator

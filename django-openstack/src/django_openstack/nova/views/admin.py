@@ -33,6 +33,7 @@ from django_openstack.nova import forms
 
 from django_openstack import log as logging
 
+
 LOG = logging.getLogger(__name__)
 
 
