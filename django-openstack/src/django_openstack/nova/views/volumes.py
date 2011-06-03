@@ -73,7 +73,7 @@ def add(request, project_id):
                                  (volume.id, volume.displayName))
                 LOG.info('Volume id "%s" name "%s" of size "%d" created on'
                          ' project "%s"' % 
-                         (volume.id, volume.displayname, volume.size, project_id))
+                         (volume.id, volume.displayName, volume.size, project_id))
         else:
             volumes = project.get_volumes()
 

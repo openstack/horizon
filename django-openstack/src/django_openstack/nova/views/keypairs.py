@@ -56,7 +56,6 @@ def add(request, project_id):
         form = forms.CreateKeyPairForm(project, request.POST)
 
         if form.is_valid():
-            import pdb; pdb.set_trace()
             try:
                 keypair = project.create_key_pair(form.cleaned_data['name'])
             except exceptions.NovaApiError, e:
