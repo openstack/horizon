@@ -154,7 +154,8 @@ def attach(request, project_id):
                 'attach_form': form,
                 'region': project.region,
                 'project': project,
-                'volumes': volumes}, context_instance = template.RequestContext(request))
+                'volumes': volumes
+            }, context_instance = template.RequestContext(request))
 
     return redirect('nova_volumes', project_id)
 
