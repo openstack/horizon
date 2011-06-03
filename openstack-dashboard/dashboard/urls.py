@@ -31,6 +31,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.index', name='index'),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^accounts/register/$',
         'registration.views.register',
         {'form_class': reg_forms.RegistrationFormUniqueEmail},

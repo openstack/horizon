@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load django_openstack_tags %}
+{% load django_openstack_tags i18n %}
 
 {% block headercss %}
 {% endblock %}
@@ -34,6 +34,15 @@
   </div>
 
   <div class="home_block">
+    <form action="/i18n/setlang/" method="post"> {% csrf_token %}
+      <select name="language">
+      {% get_language_info_list for LANGUAGES as languages %}
+      {% for language in languages %}
+        <option value="{{ language.code }}">{{ language.name_local }} ({{ language.code }})</option>
+      {% endfor %}
+      </select>
+      <input type="submit" value="Go" />
+    </form>
     <h3>OpenStack Resources</h3>
     <ul>
       <li><a href="http://openstack.org" target="_blank">OpenStack.org</a></li>

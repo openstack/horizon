@@ -1,6 +1,7 @@
 {% extends "django_openstack/nova/images/base.html" %}
+{% load i18n %}
 
-{% block title %} - Launch an Image" %}{% endblock %}
+{% block title %} - {% trans "Launch an Image" %}{% endblock %}
 
 {% block headerjs %}
 <script type="text/javascript" src="/media/django_openstack/js/jquery.form.js"></script>
