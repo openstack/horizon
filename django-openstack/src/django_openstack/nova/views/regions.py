@@ -23,7 +23,11 @@ Views for managing Nova regions.
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
+from django_openstack import log as logging
 from django_openstack.nova.shortcuts import set_current_region
+
+
+LOG = logging.getLogger('django_openstack.nova')
 
 
 @login_required
@@ -32,5 +36,6 @@ def change(request):
     redirect_url = request.POST['redirect_url']
     set_current_region(request, region)
     messages.success(request, 'You are now using the region "%s".' % region)
+    LOG.info('User "%s" changed to region "%s"' % (str(request.user), region))
 
     return redirect(redirect_url)

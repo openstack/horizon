@@ -33,6 +33,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
+    'dashboard.middleware.DashboardLogUnhandledExceptionsMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
