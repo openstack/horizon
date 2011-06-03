@@ -26,10 +26,12 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django_openstack.core.connection import get_nova_admin_connection
+from django_openstack import log as logging
 from django_openstack.nova import forms as nova_forms
 from django_openstack.nova.exceptions import handle_nova_error
 from django_openstack.nova.shortcuts import get_project_or_404
 
+LOG = logging.getLogger(__name__)
 
 @login_required
 @handle_nova_error
@@ -82,6 +84,8 @@ def edit_user(request, project_id, username):
         form = nova_forms.ProjectUserForm(project, user, request.POST)
         if form.is_valid():
             form.save()
+            LOG.info('Roles for user "%s" on project "%s" changed to "%s' %
+                     (str(user), project_id, ",".join(form.cleaned_data['role'])))
 
             return redirect('nova_project_manage',  project_id)
     else:

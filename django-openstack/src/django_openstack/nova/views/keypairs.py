@@ -25,11 +25,13 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django_openstack import log as logging
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms
 from django_openstack.nova import shortcuts
 from django_openstack.nova.exceptions import handle_nova_error
 
+LOG = logging.getLogger(__name__)
 
 @login_required
 @handle_nova_error
@@ -54,12 +56,18 @@ def add(request, project_id):
         form = forms.CreateKeyPairForm(project, request.POST)
 
         if form.is_valid():
+            import pdb; pdb.set_trace()
             try:
                 keypair = project.create_key_pair(form.cleaned_data['name'])
             except exceptions.NovaApiError, e:
                 messages.error(request,
                                'Unable to create key: %s' % e.message)
+                LOG.error('Unable to create key for user "%s" on project "%s".'
+                          ' Exception: "%s"' %
+                          (str(request.user), project_id, e.message))
             else:
+                LOG.info('Keypair "%s" for project "%s" created successfully' % 
+                        (keypair.name, project_id))
                 if request.POST['js'] == '1':
                     request.session['key.%s' % keypair.name] = keypair.material
                     return index(request,
@@ -97,10 +105,13 @@ def delete(request, project_id):
         except exceptions.NovaApiError, e:
             messages.error(request,
                            'Unable to delete key: %s' %  e.message)
+            LOG.error('Unable to delete key "%s".  Exception: "%s"' % 
+                      (key_name, e.message_))
         else:
             messages.success(request,
                              'Key %s has been successfully deleted.' % \
                              key_name)
+            LOG.info('Key "%s" successfully deleted' % key_name)
 
     return redirect('nova_keypairs', project_id)
 
