@@ -23,9 +23,6 @@ Better wrappers for errors from Nova's admin api.
 import boto.exception
 from django.shortcuts import redirect
 from django.core import exceptions as core_exceptions
-from django_openstack import log as logging
-
-LOG = logging.getLogger(__name__)
 
 
 class NovaServerError(Exception):
@@ -91,7 +88,7 @@ def handle_nova_error(func):
     def decorator(*args, **kwargs):
         try:
             return func(*args, **kwargs)
-        except NovaUnavailableError, e:
+        except NovaUnavailableError:
             return redirect('nova_unavailable')
         except NovaApiError, e:
             raise e

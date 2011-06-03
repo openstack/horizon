@@ -64,16 +64,17 @@ def add(request, project_id):
                 messages.error(request,
                                'Unable to create volume: %s' % e.message)
                 LOG.error('User "%s" unable to create volume of size %d'
-                          ' on project "%s"' % (str(request.user), 
-                                                int(form.cleaned_data['size']), 
+                          ' on project "%s"' % (str(request.user),
+                                                int(form.cleaned_data['size']),
                                                 project_id))
             else:
                 messages.success(request,
                                  'Volume %s %s has been successfully created.' %
                                  (volume.id, volume.displayName))
                 LOG.info('Volume id "%s" name "%s" of size "%d" created on'
-                         ' project "%s"' % 
-                         (volume.id, volume.displayName, volume.size, project_id))
+                         ' project "%s"' %
+                         (volume.id, volume.displayName, volume.size,
+                          project_id))
         else:
             volumes = project.get_volumes()
 
@@ -106,7 +107,7 @@ def delete(request, project_id, volume_id):
             messages.success(request,
                              'Volume %s has been successfully deleted.'
                              % volume_id)
-            LOG.info('Volume "%s" deleted on project "%s' % 
+            LOG.info('Volume "%s" deleted on project "%s' %
                      (volume_id, project_id))
 
     return redirect('nova_volumes', project_id)
@@ -153,8 +154,7 @@ def attach(request, project_id):
                 'attach_form': form,
                 'region': project.region,
                 'project': project,
-                'volumes': volumes,
-            }, context_instance = template.RequestContext(request))
+                'volumes': volumes}, context_instance = template.RequestContext(request))
 
     return redirect('nova_volumes', project_id)
 

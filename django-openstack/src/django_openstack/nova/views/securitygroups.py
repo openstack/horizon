@@ -33,6 +33,7 @@ from django_openstack.nova.shortcuts import get_project_or_404
 
 LOG = logging.getLogger(__name__)
 
+
 @login_required
 @handle_nova_error
 def index(request, project_id):
@@ -118,7 +119,7 @@ def authorize(request, project_id, group_name):
                                'Unable to authorize: %s' % e.message)
                 LOG.error('Unable to authorize access for protocol "%s" for'
                           ' ports %d-%d on group "%s" in project "%s".'
-                          ' Exception: "%s"' % 
+                          ' Exception: "%s"' %
                           (form.cleaned_data['protocol'],
                            form.cleaned_data['from_port'],
                            form.cleaned_data['to_port'],
@@ -132,8 +133,8 @@ def authorize(request, project_id, group_name):
                          form.cleaned_data['protocol'],
                          form.cleaned_data['from_port'],
                          form.cleaned_data['to_port']))
-                LOG.info('Access to group "%s" in project "%s" granted for "%s"'
-                         ' ports %d-%d' % 
+                LOG.info('Access to group "%s" in project "%s" granted'
+                         ' for "%s" ports %d-%d' %
                          (group_name, project_id,
                           form.cleaned_data['protocol'],
                           form.cleaned_data['from_port'],
@@ -173,7 +174,7 @@ def revoke(request, project_id, group_name):
                       (group_name, project_id, request.POST['protocol'],
                        request.POST['from_port'], request.POST['to_port'],
                        e.message))
-                       
+
         else:
             messages.success(
                 request,
@@ -184,7 +185,7 @@ def revoke(request, project_id, group_name):
                     request.POST['from_port'],
                     request.POST['to_port']))
             LOG.info('Access to group "%s" granted on project "%s" for'
-                     ' "%s" ports %d-%d' % 
+                     ' "%s" ports %d-%d' %
                      (group_name, project_id, request.POST['protocol'],
                       request.POST['from_port'], request.POST['to_port']))
 
@@ -209,7 +210,7 @@ def delete(request, project_id, group_name):
             messages.success(request,
                              'Security Group %s was successfully deleted.' %
                              group_name)
-            LOG.info('Security group "%s" deleted from project "%s"' % 
+            LOG.info('Security group "%s" deleted from project "%s"' %
                      (group_name, project_id))
 
     return redirect('nova_securitygroups', project_id)

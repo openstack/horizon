@@ -33,6 +33,7 @@ from django_openstack.nova.shortcuts import get_project_or_404
 
 LOG = logging.getLogger(__name__)
 
+
 @login_required
 @handle_nova_error
 def detail(request, project_id):
@@ -85,7 +86,8 @@ def edit_user(request, project_id, username):
         if form.is_valid():
             form.save()
             LOG.info('Roles for user "%s" on project "%s" changed to "%s' %
-                     (str(user), project_id, ",".join(form.cleaned_data['role'])))
+                     (str(user), project_id, 
+                      ",".join(form.cleaned_data['role'])))
 
             return redirect('nova_project_manage',  project_id)
     else:

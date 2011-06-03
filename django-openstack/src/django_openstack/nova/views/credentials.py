@@ -37,7 +37,8 @@ def authorize_credentials(request, auth_token):
 
     # NOTE(devcamcar): If nothing returned, then token was bad or has expired.
     if not credentials:
-        LOG.info("Credentials token bad or expired for user %s" % str(request.user))
+        LOG.info("Credentials token bad or expired for user %s" %
+                 str(request.user))
         return render_to_response('django_openstack/nova/credentials/expired.html')
 
     response = http.HttpResponse(mimetype='application/zip')
@@ -47,4 +48,3 @@ def authorize_credentials(request, auth_token):
     response.write(credentials.get_zip())
 
     return response
-

@@ -126,12 +126,6 @@ def launch(request, project_id, image_id):
 @login_required
 @handle_nova_error
 def detail(request, project_id, image_id):
-    # TODO: This situation is bad.  get_project_or_404 is wrapped by
-    # wrap_nova_error which takes in exceptions and recasts them as Nova errors
-    # which are then not caught by project.  None of the exceptions cast by
-    # wrap_nova_error are handled by handle_nova_error (currently just logged),
-    # so the exception goes all the way up to django and HTTP 500 gets thrown.
-    # May need more work than I can do within scope of logging project
     project = shortcuts.get_project_or_404(request, project_id)
     images = project.get_images()
 

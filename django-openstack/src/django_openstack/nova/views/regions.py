@@ -28,6 +28,7 @@ from django_openstack.nova.shortcuts import set_current_region
 
 LOG = logging.getLogger(__name__)
 
+
 @login_required
 def change(request):
     region = request.POST['region']
