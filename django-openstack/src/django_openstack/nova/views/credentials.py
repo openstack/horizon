@@ -39,7 +39,8 @@ def authorize_credentials(request, auth_token):
     if not credentials:
         LOG.info("Credentials token bad or expired for user %s" %
                  str(request.user))
-        return render_to_response('django_openstack/nova/credentials/expired.html')
+        return render_to_response(
+                'django_openstack/nova/credentials/expired.html')
 
     response = http.HttpResponse(mimetype='application/zip')
     response['Content-Disposition'] = \

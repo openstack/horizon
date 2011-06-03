@@ -24,6 +24,7 @@ from django.core.management.base import NoArgsCommand
 from django.contrib.auth.models import User
 from django_nova.connection import get_nova_admin_connection
 
+
 class Command(NoArgsCommand):
     help = 'Creates nova users for all users in the django auth database.'
 

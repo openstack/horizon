@@ -39,4 +39,4 @@ def index(request):
     return render_to_response('index.html', {
         'projects': projects,
         'page_type': page_type,
-    }, context_instance = template.RequestContext(request))
+    }, context_instance=template.RequestContext(request))

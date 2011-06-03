@@ -87,4 +87,3 @@ class BaseProjectViewTests(BaseViewTests):
     def create_available_volume_choices(self, volumes):
         return [(v.id, '%s %s - %dGB' % (v.id, v.displayName, v.size)) \
                 for v in volumes]
-

@@ -36,7 +36,7 @@ from django_openstack.core.connection import get_nova_admin_connection
 LOG = logging.getLogger(__name__)
 
 
-SHA1_RE=re.compile('^[a-f0-9]{40}$')
+SHA1_RE = re.compile('^[a-f0-9]{40}$')
 
 
 class CredentialsAuthorization(models.Model):
@@ -68,10 +68,11 @@ class CredentialsAuthorization(models.Model):
     @staticmethod
     def create_auth_token(username):
         salt = sha.new(str(random.random())).hexdigest()[:5]
-        return sha.new(salt+username).hexdigest()
+        return sha.new(salt + username).hexdigest()
 
     def auth_token_expired(self):
-        expiration_date = datetime.timedelta(days=int(settings.CREDENTIAL_AUTHORIZATION_DAYS))
+        expiration_date = datetime.timedelta(
+                days=int(settings.CREDENTIAL_AUTHORIZATION_DAYS))
 
         return self.auth_date + expiration_date <= datetime.datetime.now()
 

@@ -39,10 +39,11 @@ LOG = logging.getLogger(__name__)
 def detail(request, project_id):
     project = get_project_or_404(request, project_id)
 
-    return render_to_response('django_openstack/nova/projects/index.html', {
-        'project': project,
-        'instance_count': project.get_instance_count(),
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/projects/index.html',
+        {'project': project,
+         'instance_count': project.get_instance_count()},
+        context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -57,17 +58,19 @@ def manage(request, project_id):
     members = nova.get_project_members(project_id)
 
     for member in members:
-        project_role = [str(role.role) for role in nova.get_user_roles(member.memberId, project_id)]
-        global_role = [str(role.role) for role in nova.get_user_roles(member.memberId, project=False)]
+        project_role = [str(role.role) for role in
+                        nova.get_user_roles(member.memberId, project_id)]
+        global_role = [str(role.role) for role in
+                       nova.get_user_roles(member.memberId, project=False)]
 
         member.project_roles = ", ".join(project_role)
         member.global_roles = ", ".join(global_role)
 
-
-    return render_to_response('django_openstack/nova/projects/manage.html', {
-        'project': project,
-        'members': members,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/projects/manage.html',
+        {'project': project,
+         'members': members},
+        context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -97,11 +100,12 @@ def edit_user(request, project_id, username):
                                           {'role': roles,
                                            'user': user})
 
-    return render_to_response('django_openstack/nova/projects/edit_user.html', {
-        'form' : form,
-        'project': project,
-        'user' : user,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/projects/edit_user.html',
+        {'form': form,
+         'project': project,
+         'user': user},
+        context_instance=template.RequestContext(request))
 
 
 @login_required

@@ -47,12 +47,14 @@ def get_instance_type_choices():
                       (t.name, t.memory_mb, t.vcpus, t.disk_gb)))
     return rv
 
+
 def get_instance_choices(project):
     choices = [(i.id, "%s (%s)" % (i.id, i.displayName))
                for i in project.get_instances()]
     if not len(choices):
         choices = [('', 'none available')]
     return choices
+
 
 def get_key_pair_choices(project):
     choices = [(k.name, k.name) for k in project.get_key_pairs()]
@@ -66,12 +68,14 @@ def get_key_pair_choices(project):
 #        choices = [('', 'none available')]
 #    return choices
 
+
 def get_available_volume_choices(project):
-    choices = [(v.id, '%s %s - %dGB' % (v.id, v.displayName, v.size)) for v in \
-               project.get_volumes() if v.status != "in-use"]
+    choices = [(v.id, '%s %s - %dGB' % (v.id, v.displayName, v.size))
+               for v in project.get_volumes() if v.status != 'in-use']
     if not len(choices):
         choices = [('', 'none available')]
     return choices
+
 
 def get_protocols():
     return (
@@ -79,17 +83,20 @@ def get_protocols():
         ('udp', 'udp'),
     )
 
+
 @wrap_nova_error
 def get_roles(project_roles=True):
     nova = get_nova_admin_connection()
     roles = nova.get_roles(project_roles=project_roles)
     return [(role.role, role.role) for role in roles]
 
+
 @wrap_nova_error
 def get_members(project):
     nova = get_nova_admin_connection()
     members = nova.get_project_members(project)
     return [str(user.memberId) for user in members]
+
 
 @wrap_nova_error
 def set_project_roles(projectname, username, roles):
@@ -99,6 +106,7 @@ def set_project_roles(projectname, username, roles):
 
     for role in roles:
         nova.add_user_role(username, str(role), projectname)
+
 
 def _remove_roles(project, username):
     nova = get_nova_admin_connection()
@@ -127,19 +135,21 @@ class LaunchInstanceForm(forms.Form):
     count = forms.ChoiceField(choices=[(x, x) for x in range(1, 6)])
     size = forms.ChoiceField()
     key_name = forms.ChoiceField()
-    #security_group = forms.ChoiceField()
-    user_data = forms.CharField(required=False, widget=forms.widgets.Textarea(attrs={'rows': 4}))
+    user_data = forms.CharField(required=False,
+                                widget=forms.widgets.Textarea(
+                                    attrs={'rows': 4}))
 
     def __init__(self, project, *args, **kwargs):
         forms.Form.__init__(self, *args, **kwargs)
-        #self.fields['security_group'].choices = get_security_group_choices(project)
         self.fields['key_name'].choices = get_key_pair_choices(project)
         self.fields['size'].choices = get_instance_type_choices()
 
 
 class UpdateInstanceForm(forms.Form):
     nickname = forms.CharField(required=False, label="Name")
-    description = forms.CharField(required=False, widget=forms.Textarea, max_length=70)
+    description = forms.CharField(required=False,
+                                  widget=forms.Textarea,
+                                  max_length=70)
 
     def __init__(self, instance, *args, **kwargs):
         forms.Form.__init__(self, *args, **kwargs)
@@ -149,7 +159,9 @@ class UpdateInstanceForm(forms.Form):
 
 class UpdateImageForm(forms.Form):
     nickname = forms.CharField(required=False, label="Name")
-    description = forms.CharField(required=False, widget=forms.Textarea, max_length=70)
+    description = forms.CharField(required=False,
+                                  widget=forms.Textarea,
+                                  max_length=70)
 
     def __init__(self, image, *args, **kwargs):
         forms.Form.__init__(self, *args, **kwargs)
@@ -164,7 +176,8 @@ class CreateKeyPairForm(ProjectFormBase):
         name = self.cleaned_data['name']
 
         if self.project.has_key_pair(name):
-            raise forms.ValidationError('A key named %s already exists.' % name)
+            raise forms.ValidationError(
+                    'A key named %s already exists.' % name)
 
         return name
 
@@ -177,7 +190,8 @@ class CreateSecurityGroupForm(ProjectFormBase):
         name = self.cleaned_data['name']
 
         if self.project.has_security_group(name):
-            raise forms.ValidationError('A security group named %s already exists.' % name)
+            raise forms.ValidationError(
+                    'A security group named %s already exists.' % name)
 
         return name
 
@@ -189,7 +203,9 @@ class AuthorizeSecurityGroupRuleForm(forms.Form):
 
 
 class CreateVolumeForm(forms.Form):
-    size = forms.IntegerField(label='Size (in GB)', min_value=1, max_value=MAX_VOLUME_SIZE)
+    size = forms.IntegerField(label='Size (in GB)',
+                              min_value=1,
+                              max_value=MAX_VOLUME_SIZE)
     nickname = forms.CharField()
     description = forms.CharField()
 
@@ -259,5 +275,5 @@ class SendCredentialsForm(forms.Form):
         query_list = kwargs.pop('query_list')
         super(SendCredentialsForm, self).__init__(*args, **kwargs)
 
-        self.fields['users'].choices = [(choices, choices) for choices in query_list]
-
+        self.fields['users'].choices = \
+            [(choices, choices) for choices in query_list]

@@ -41,14 +41,15 @@ LOG = logging.getLogger(__name__)
 @handle_nova_error
 def index(request, project_id):
     project = shortcuts.get_project_or_404(request, project_id)
-    instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
+    instances = sorted(project.get_instances(),
+                       key=lambda k: k.public_dns_name)
 
     return render_to_response('django_openstack/nova/instances/index.html', {
         'region': project.region,
         'project': project,
         'instances': instances,
-        'detail' : False,
-    }, context_instance = template.RequestContext(request))
+        'detail': False,
+    }, context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -56,8 +57,9 @@ def index(request, project_id):
 def detail(request, project_id, instance_id):
     project = shortcuts.get_project_or_404(request, project_id)
     instance = project.get_instance(instance_id)
-    instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
-    
+    instances = sorted(project.get_instances(),
+                       key=lambda k: k.public_dns_name)
+
     if not instance:
         raise http.Http404()
 
@@ -68,8 +70,8 @@ def detail(request, project_id, instance_id):
         'instances': instances,
         'update_form': nova_forms.UpdateInstanceForm(instance),
         'enable_vnc': settings.ENABLE_VNC,
-        'detail' : True,
-    }, context_instance = template.RequestContext(request))
+        'detail': True,
+    }, context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -81,12 +83,13 @@ def performance(request, project_id, instance_id):
     if not instance:
         raise http.Http404()
 
-    return render_to_response('django_openstack/nova/instances/performance.html', {
-        'region': project.region,
-        'project': project,
-        'instance': instance,
-        'update_form': nova_forms.UpdateInstanceForm(instance),
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/instances/performance.html',
+        {'region': project.region,
+         'project': project,
+         'instance': instance,
+         'update_form': nova_forms.UpdateInstanceForm(instance)},
+        context_instance=template.RequestContext(request))
 
 
 # TODO(devcamcar): Wrap this in an @ajax decorator.
@@ -96,12 +99,14 @@ def refresh(request, project_id):
         return http.HttpResponseForbidden()
 
     project = shortcuts.get_project_or_404(request, project_id)
-    instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
+    instances = sorted(project.get_instances(),
+                       key=lambda k: k.public_dns_name)
 
-    return render_to_response('django_openstack/nova/instances/_instances_list.html', {
-        'project': project,
-        'instances': instances,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/instances/_instances_list.html',
+        {'project': project,
+         'instances': instances},
+        context_instance=template.RequestContext(request))
 
 
 @handle_nova_error
@@ -112,13 +117,15 @@ def refresh_detail(request, project_id, instance_id):
 
     project = shortcuts.get_project_or_404(request, project_id)
     instance = project.get_instance(instance_id)
-    instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
+    instances = sorted(project.get_instances(),
+                       key=lambda k: k.public_dns_name)
 
-    return render_to_response('django_openstack/nova/instances/_instances_list.html', {
-        'project': project,
-        'selected_instance': instance,
-        'instances': instances,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/instances/_instances_list.html',
+        {'project': project,
+         'selected_instance': instance,
+         'instances': instances},
+        context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -169,8 +176,10 @@ def console(request, project_id, instance_id):
 def vnc(request, project_id, instance_id):
     project = shortcuts.get_project_or_404(request, project_id)
     conn = project.get_openstack_connection()
-    params = { 'InstanceId' : instance_id }
-    vnc = conn.get_object('GetVncConsole',params,boto.ec2.ec2object.EC2Object)
+    params = {'InstanceId': instance_id}
+    vnc = conn.get_object('GetVncConsole',
+                          params,
+                          boto.ec2.ec2object.EC2Object)
     return http.HttpResponseRedirect(vnc.url)
 
 
@@ -222,18 +231,19 @@ def update(request, project_id, instance_id):
                          (instance_id, project_id))
             return redirect('nova_instances', project_id)
         else:
-            return render_to_response('django_openstack/nova/instances/edit.html', {
-                'region': project.region,
-                'project': project,
-                'instance': instance,
-                'update_form': form,
-            }, context_instance = template.RequestContext(request))
+            return render_to_response(
+                'django_openstack/nova/instances/edit.html',
+                {'region': project.region,
+                 'project': project,
+                 'instance': instance,
+                 'update_form': form},
+                context_instance=template.RequestContext(request))
 
     else:
-        return render_to_response('django_openstack/nova/instances/edit.html', {
-            'region': project.region,
-            'project': project,
-            'instance': instance,
-            'update_form': nova_forms.UpdateInstanceForm(instance),
-        }, context_instance = template.RequestContext(request))
-
+        return render_to_response(
+            'django_openstack/nova/instances/edit.html',
+            {'region': project.region,
+             'project': project,
+             'instance': instance,
+             'update_form': nova_forms.UpdateInstanceForm(instance)},
+            context_instance=template.RequestContext(request))

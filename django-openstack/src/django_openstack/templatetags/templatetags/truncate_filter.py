@@ -23,9 +23,10 @@ from django import template
 
 register = template.Library()
 
+
 @register.filter("truncate")
 def truncate(value, size):
     if len(value) > size and size > 3:
-        return value[0:(size-3)] + '...'
+        return value[0:(size - 3)] + '...'
     else:
         return value[0:size]

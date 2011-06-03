@@ -40,29 +40,30 @@ class InstanceViewTests(BaseProjectViewTests):
 
         res = self.client.get(reverse('nova_instances', args=[TEST_PROJECT]))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'django_openstack/nova/instances/index.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/nova/instances/index.html')
         self.assertEqual(len(res.context['instances']), 0)
 
         self.mox.VerifyAll()
 
     def test_detail(self):
-       instance = boto.ec2.instance.Instance()
-       instance.id = TEST_INSTANCE_ID
-       instance.displayName = instance.id
-       instance.displayDescription = instance.id
+        instance = boto.ec2.instance.Instance()
+        instance.id = TEST_INSTANCE_ID
+        instance.displayName = instance.id
+        instance.displayDescription = instance.id
 
-       self.mox.StubOutWithMock(self.project, 'get_instance')
-       self.project.get_instance(instance.id).AndReturn(instance)
-       self.mox.StubOutWithMock(self.project, 'get_instances')
-       self.project.get_instances().AndReturn([instance])
+        self.mox.StubOutWithMock(self.project, 'get_instance')
+        self.project.get_instance(instance.id).AndReturn(instance)
+        self.mox.StubOutWithMock(self.project, 'get_instances')
+        self.project.get_instances().AndReturn([instance])
 
-       self.mox.ReplayAll()
+        self.mox.ReplayAll()
 
-       res = self.client.get(reverse('nova_instances_detail',
+        res = self.client.get(reverse('nova_instances_detail',
                                      args=[TEST_PROJECT, TEST_INSTANCE_ID]))
-       self.assertEqual(res.status_code, 200)
-       self.assertTemplateUsed(res, 'django_openstack/nova/instances/index.html')
-       self.assertEqual(res.context['selected_instance'].id, instance.id)
+        self.assertEqual(res.status_code, 200)
+        self.assertTemplateUsed(res,
+                'django_openstack/nova/instances/index.html')
+        self.assertEqual(res.context['selected_instance'].id, instance.id)
 
-       self.mox.VerifyAll()
-
+        self.mox.VerifyAll()

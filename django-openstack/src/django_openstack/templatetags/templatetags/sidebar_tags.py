@@ -41,6 +41,8 @@ def sidebar_select(parser, token):
     try:
         tag_name, selected = token.split_contents()
     except ValueError:
-        raise template.TemplateSyntaxError, "%r tag requires exactly one argument" % token.contents.split()[0]
-    return SidebarSelectNode(str(selected))
+        msg = '%r tag requires exactly one argument' % \
+              token.contents.split()[0]
+        raise template.TemplateSyntaxError, msg
 
+    return SidebarSelectNode(str(selected))
