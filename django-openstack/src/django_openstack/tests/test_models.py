@@ -1,6 +1,7 @@
 from django import test
 from django.conf import settings
 from django_openstack import models as nova_models
+from nova_adminclient import NovaAdminClient
 
 import datetime
 import hashlib
@@ -40,16 +41,6 @@ class CredentialsAuthorizationTests(test.TestCase):
     def tearDown(self):
         self.mox.UnsetStubs()
 
-    def test_create_auth_token(self):
-        rand_state = random.getstate()
-        expected_salt = hashlib.sha1(str(random.random())).hexdigest()[:5]
-        expected_token = hashlib.sha1(expected_salt + TEST_USER).hexdigest()
-
-        random.setstate(rand_state)
-        auth_token = \
-            nova_models.CredentialsAuthorization.create_auth_token(TEST_USER)
-        self.assertEqual(expected_token, auth_token)
-
     def test_get_by_token(self):
         TEST_MISSING_AUTH_TOKEN = 'notAToken'
 
@@ -76,6 +67,39 @@ class CredentialsAuthorizationTests(test.TestCase):
 
         self.assertTrue(cred is None)
 
+    def test_authorize(self):
+        TEST_USER2 = TEST_USER + '2'
+        TEST_AUTH_TOKEN_2 = hashlib.sha1('token2').hexdigest()
+
+        cred_class = nova_models.CredentialsAuthorization
+        self.mox.StubOutWithMock(cred_class, 'create_auth_token')
+        cred_class.create_auth_token(TEST_USER2).AndReturn(
+                TEST_AUTH_TOKEN_2)
+
+        self.mox.ReplayAll()
+
+        cred = cred_class.authorize(TEST_USER2, TEST_PROJECT)
+
+        self.mox.VerifyAll()
+
+        self.assertTrue(cred is not None)
+        self.assertTrue(cred.username == TEST_USER2)
+        self.assertTrue(cred.project == TEST_PROJECT)
+        self.assertTrue(cred.auth_token == TEST_AUTH_TOKEN_2)
+        self.assertFalse(cred.auth_token_expired())
+
+        cred = cred_class.get_by_token(TEST_AUTH_TOKEN_2)
+        self.assertTrue(cred is not None)
+
+    def test_create_auth_token(self):
+        rand_state = random.getstate()
+        expected_salt = hashlib.sha1(str(random.random())).hexdigest()[:5]
+        expected_token = hashlib.sha1(expected_salt + TEST_USER).hexdigest()
+
+        random.setstate(rand_state)
+        auth_token = \
+            nova_models.CredentialsAuthorization.create_auth_token(TEST_USER)
+        self.assertEqual(expected_token, auth_token)
 
     def test_auth_token_expired(self):
         '''
@@ -83,14 +107,13 @@ class CredentialsAuthorizationTests(test.TestCase):
         '''
         cred = \
             nova_models.CredentialsAuthorization.get_by_token(TEST_AUTH_TOKEN)
-        self.assertTrue(cred is not None)
 
         cred.auth_date = datetime.datetime.now() - AUTH_EXPIRATION_LENGTH \
                                                  - HOUR
         self.assertTrue(cred.auth_token_expired())
 
         cred.auth_date = datetime.datetime.now()
-        
+
         self.assertFalse(cred.auth_token_expired())
 
         # testing with time is tricky. Mock out "right now" test to avoid
@@ -101,7 +124,39 @@ class CredentialsAuthorizationTests(test.TestCase):
         datetime_mox = self.mox.CreateMockAnything()
         self.mox.StubOutWithMock(datetime_mox, 'datetime')
         datetime_mox.datetime.now.AndReturn(time)
+
         cred.datetime = datetime_mox
-        cred.datetime.datetime.AndReturn(datetime_mox)
+
+        self.mox.ReplayAll()
 
         self.assertTrue(cred.auth_token_expired())
+
+        self.mox.VerifyAll()
+
+    def test_get_download_url(self):
+        cred = \
+            nova_models.CredentialsAuthorization.get_by_token(TEST_AUTH_TOKEN)
+        
+        expected_url = settings.CREDENTIAL_DOWNLOAD_URL + TEST_AUTH_TOKEN
+        self.assertEqual(expected_url, cred.get_download_url())
+
+    def test_get_zip(self):
+        cred = \
+            nova_models.CredentialsAuthorization.get_by_token(TEST_AUTH_TOKEN)
+
+        admin_mock = self.mox.CreateMock(NovaAdminClient)
+        admin_mock.get_zip(TEST_USER, TEST_PROJECT)
+
+        self.mox.StubOutWithMock(cred, 'get_nova_admin_connection')
+        cred.get_nova_admin_connection.AndReturn(admin_mock)
+
+        self.mox.ReplayAll()
+        
+        cred.get_zip()
+
+        self.mox.VerifyAll()
+
+        cred = \
+            nova_models.Credentialsauthorization.get_by_token(TEST_AUTH_TOKEN)
+
+        self.assertTrue(cred is None)
