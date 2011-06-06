@@ -34,6 +34,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'dashboard.middleware.DashboardLogUnhandledExceptionsMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

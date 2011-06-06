@@ -25,11 +25,14 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
-
+from django_openstack import log as logging
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms
 from django_openstack.nova import shortcuts
 from django_openstack.nova.exceptions import handle_nova_error
+
+
+LOG = logging.getLogger('django_openstack')
 
 
 @login_required
@@ -64,11 +67,19 @@ def add(request, project_id):
             except exceptions.NovaApiError, e:
                 messages.error(request,
                                _('Unable to create volume: %s') % e.message)
+                LOG.error('User "%s" unable to create volume of size %d'
+                          ' on project "%s"' % (str(request.user),
+                                                int(form.cleaned_data['size']),
+                                                project_id))
             else:
                 messages.success(
                     request,
                     _('Volume %(id)s %(name)s has been successfully created.') %
                     {'id': volume.id, 'name': volume.displayName})
+                LOG.info('Volume id "%s" name "%s" of size "%d" created on'
+                         ' project "%s"' %
+                         (volume.id, volume.displayName, volume.size,
+                          project_id))
         else:
             volumes = project.get_volumes()
 
@@ -95,10 +106,15 @@ def delete(request, project_id, volume_id):
         except exceptions.NovaApiError, e:
             messages.error(request,
                            _('Unable to delete volume: %s') % e.message)
+            LOG.error('Unable to delete volume "%s" on project "%s".'
+                      ' Exception: "%s"' %
+                      (volume_id, project_id, e.message))
         else:
             messages.success(request,
                              _('Volume %s has been successfully deleted.')
                              % volume_id)
+            LOG.info('Volume "%s" deleted on project "%s' %
+                     (volume_id, project_id))
 
     return redirect('nova_volumes', project_id)
 
@@ -120,6 +136,10 @@ def attach(request, project_id):
             except exceptions.NovaApiError, e:
                 messages.error(request,
                                _('Unable to attach volume: %s') % e.message)
+                LOG.error('Unable to attach volume "%s" to instance "%s" as'
+                          ' device "%s"' % (form.cleaned_data['volume'],
+                                            form.cleaned_data['instance'],
+                                            form.cleaned_data['device']))
             else:
                 messages.success(request,
                                  _('Volume %s is scheduled to be attached.  If '
@@ -127,6 +147,10 @@ def attach(request, project_id):
                                  'minutes,  please try again (you may need to '
                                  'specify a different device).') %
                                  form.cleaned_data['volume'])
+                LOG.info('Volume "%s" attached to instance "%s" as device'
+                          ' "%s"' % (form.cleaned_data['volume'],
+                                     form.cleaned_data['instance'],
+                                     form.cleaned_data['device']))
         else:
             volumes = project.get_volumes()
 
@@ -153,7 +177,10 @@ def detach(request, project_id, volume_id):
         except exceptions.NovaApiError, e:
             messages.error(request,
                            _('Unable to detach volume: %s') % e.message)
+            LOG.error('Unable to detach volume "%s" on project "%s"' %
+                      (volume_id, project_id))
         else:
+            LOG.info('Volume "%s" successfully detached' % volume_id)
             messages.success(request,
                              _('Volume %s has been successfully detached.') %
                              volume_id)

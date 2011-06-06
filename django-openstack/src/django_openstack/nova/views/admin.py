@@ -29,10 +29,13 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import models as auth_models
 from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
-
+from django_openstack import log as logging
 from django_openstack import models
 from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova import forms
+
+
+LOG = logging.getLogger('django_openstack.nova')
 
 
 @staff_member_required
@@ -44,6 +47,7 @@ def project_sendcredentials(request, project_id):
     form = forms.SendCredentialsForm(query_list=users)
 
     if project == None:
+        LOG.error("Project id %s not found" % project_id)
         raise http.Http404()
 
     if request.method == 'POST':
@@ -83,19 +87,21 @@ def project_start_vpn(request, project_id):
     project = nova.get_project(project_id)
 
     if project == None:
+        LOG.error("Project id %s does not exist" % project_id)
         raise http.Http404()
 
     try:
         nova.start_vpn(project_id)
         messages.success(request,
-                         _('Successfully started VPN for project %(proj)s.') %
+        LOG.info( _('Successfully started VPN for project %(proj)s.') %
                          {'proj': project_id})
     except boto.exception.EC2ResponseError, e:
-        messages.error(request,
-                       _('Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s') %
+        msg = _('Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s') %
                        {'proj': project_id, 
                         'code': e.code, 
                         'msg': e.error_message})
+        messages.error(request, msg)
+        LOG.error(msg)
 
     return redirect('admin_projects')
 
@@ -130,15 +136,17 @@ def project_view(request, project_name):
                 nova.modify_project(form.cleaned_data["projectname"],
                                     form.cleaned_data["manager"],
                                     form.cleaned_data["description"])
-                messages.success(request,
-                                 _('Successfully modified the project %(proj)s.') %
-                                  {'proj': project_name})
+                msg = _('Successfully modified the project %(proj)s.') %
+                        {'proj': project_name})
+                messages.success(request, msg)
+                LOG.info(msg)
             except boto.exception.EC2ResponseError, e:
-                messages.error(request,
-                              _('Unable modify the project %(proj)s: %(code)s - %(msg)s') %
-                                {'proj': project_name, 
-                                 'code': e.code, 
-                                 'msg': e.error_message})
+                msg = _('Unable modify the project %(proj)s: %(code)s - %(msg)s') %
+                        {'proj': project_name, 
+                        'code': e.code, 
+                        'msg': e.error_message})
+                messages.error(request, msg)
+                LOG.error(msg)
 
             return redirect('admin_project', request.POST["projectname"])
     else:
@@ -175,6 +183,8 @@ def add_project(request):
             nova.create_project(form.cleaned_data['projectname'],
                                 manager.username,
                                 form.cleaned_data['description'])
+            LOG.info('Project "%s" created' %
+                        form.cleaned_data['projectname'])
             return redirect('admin_project', request.POST['projectname'])
     else:
         form = forms.ProjectForm()
@@ -191,6 +201,7 @@ def delete_project(request, project_name):
 
     if request.method == 'POST':
         nova.delete_project(project_name)
+        LOG.info('Project "%s" deleted' % project_name)
         return redirect('admin_projects')
 
     project = nova.get_project(project_name)
@@ -214,6 +225,9 @@ def remove_project_roles(username, project):
         if role == "netadmin":
             nova.remove_user_role(username, "netadmin", project)
 
+    LOG.info('Removed roles "%s" from user "%s" on project "%s"' %
+                (",".join(roles), username, project))
+
 
 def remove_global_roles(username):
     nova = get_nova_admin_connection()
@@ -231,6 +245,9 @@ def remove_global_roles(username):
             nova.remove_user_role(username, "cloudadmin")
         if role == "itsec":
             nova.remove_user_role(username, "itsec")
+
+    LOG.info('Removed global roles "%s" from user "%s"' %
+             (",".join(roles), username))
 
 
 @staff_member_required
@@ -257,6 +274,10 @@ def project_user(request, project_name, project_user):
             for role in roleform:
                 nova.add_user_role(username, str(role), project_name)
 
+            LOG.info('Added roles "%s" to user "%s" on project "%s"' %
+                        ",".join(str(role) for role in roleform),
+                        username, project_name)
+
             return redirect('admin_project', project_name)
     else:
         roles = [str(role.role) for role in userroles]
@@ -281,11 +302,16 @@ def add_project_user(request, project_name):
         form = forms.AddProjectUserForm(request.POST, project=project_name)
         if form.is_valid():
             username = form.cleaned_data["username"].username
+            roleform = request.POST.getlist("role")
+
             nova.add_project_member(username, project_name,)
 
-            roleform = request.POST.getlist("role")
             for role in roleform:
                 nova.add_user_role(username, str(role), project_name)
+
+            LOG.info('Added user "%s" to project "%s" with roles "%s"' %
+                        (username, project_name,
+                        ",".join(str(role) for role in roleform)))
 
             return redirect('admin_project', project_name)
     else:
@@ -357,6 +383,9 @@ def user_roles(request, user_id):
             roleform = request.POST.getlist("role")
             for role in roleform:
                 nova.add_user_role(username, str(role))
+
+            LOG.info('Added user "%s" to global roles "%s"' %
+                     (username, ",".join(str(role) for role in roleform)))
 
             return redirect('admin_user_roles', user_id)
     else:

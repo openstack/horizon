@@ -24,7 +24,11 @@ style system for configuring first time users.
 from django import http
 from django.conf import settings
 from django.shortcuts import render_to_response
+from django_openstack import log as logging
 from django_openstack import models
+
+
+LOG = logging.getLogger('django_openstack.nova')
 
 
 def authorize_credentials(request, auth_token):
@@ -34,6 +38,8 @@ def authorize_credentials(request, auth_token):
 
     # NOTE(devcamcar): If nothing returned, then token was bad or has expired.
     if not credentials:
+        LOG.info("Credentials token bad or expired for user %s" %
+                 str(request.user))
         return render_to_response(
                 'django_openstack/nova/credentials/expired.html')
 
