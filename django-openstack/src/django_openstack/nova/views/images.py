@@ -91,10 +91,10 @@ def launch(request, project_id, image_id):
                 )
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                LOG.error(_('User "%(usr)s" unable to launch image "%(img)s" '
-                          ' on project "%(proj)s". Exception message: "%(msg)s"') %
-                          {'usr': str(request.user), 'img': image_id, 
-                           'proj': project_id, 'msg': e.message})
+                               _('Unable to launch: %s') % e.message)
+                LOG.error('User "%s" unable to launch image "%s" '
+                          ' on project "%s". Exception message: "%s"' %
+                          (str(request.user), image_id, project_id, e.message))
             except exceptions.NovaUnauthorizedError, e:
                 messages.error(request, 'Permission Denied')
                 LOG.error('User "%s" permission denied creating image "%s"'

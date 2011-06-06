@@ -93,8 +93,9 @@ def project_start_vpn(request, project_id):
     try:
         nova.start_vpn(project_id)
         messages.success(request,
-        LOG.info( _('Successfully started VPN for project %(proj)s.') %
+                       _('Successfully started VPN for project %(proj)s.') %
                          {'proj': project_id})
+        LOG.info('Successfully started VPN for project %s.' % project_id)
     except boto.exception.EC2ResponseError, e:
         msg = _('Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s') %
                        {'proj': project_id, 
