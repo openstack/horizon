@@ -1,6 +1,7 @@
 from django import test
 from django.conf import settings
 from django_openstack import models as nova_models
+from django_openstack.core import connection
 from nova_adminclient import NovaAdminClient
 
 import datetime
@@ -146,8 +147,8 @@ class CredentialsAuthorizationTests(test.TestCase):
 
         admin_mock = self.mox.CreateMock(NovaAdminClient)
 
-        self.mox.StubOutWithMock(cred, 'get_nova_admin_connection_internal')
-        cred.get_nova_admin_connection_internal().AndReturn(admin_mock)
+        self.mox.StubOutWithMock(connection, 'get_nova_admin_connection')
+        connection.get_nova_admin_connection().AndReturn(admin_mock)
 
         admin_mock.get_zip(TEST_USER, TEST_PROJECT)
 

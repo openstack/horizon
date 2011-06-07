@@ -31,7 +31,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.template.loader import render_to_string
 from django_openstack import log as logging
-from django_openstack.core.connection import get_nova_admin_connection 
+from django_openstack.core import connection
 
 
 LOG = logging.getLogger('django_openstack')
@@ -48,13 +48,6 @@ class CredentialsAuthorization(models.Model):
 
     def __str__(self):
         return '%s/%s:%s' % (self.username, self.project, self.auth_token)
-
-    def get_nova_admin_connection_internal(self):
-        '''
-        Wrap get_nova_admin_connection in a bound method so that it can be 
-        overridden and mocked during tests
-        '''
-        return get_nova_admin_connection()
 
     @classmethod
     def get_by_token(cls, token):
@@ -88,7 +81,7 @@ class CredentialsAuthorization(models.Model):
         return settings.CREDENTIAL_DOWNLOAD_URL + self.auth_token
 
     def get_zip(self):
-        nova = self.get_nova_admin_connection_internal()
+        nova = connection.get_nova_admin_connection()
         self.delete()
         return nova.get_zip(self.username, self.project)
 
@@ -131,7 +124,7 @@ def user_post_save(sender, instance, created, *args, **kwargs):
         return
 
     if created:
-        nova = get_nova_admin_connection()
+        nova = connection.get_nova_admin_connection()
         if not nova.has_user(instance.username):
             nova.create_user(instance.username)
             LOG.info('User "%s" created in Nova' % instance.username)
