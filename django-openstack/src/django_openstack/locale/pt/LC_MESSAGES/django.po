@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-07 10:22+0900\n"
+"POT-Creation-Date: 2011-06-07 14:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -262,9 +262,10 @@ msgid "Send Credentials"
 msgstr ""
 
 #: templates/admin/django_openstack/nova/project/send_credentials.html:47
+#, python-format
 msgid ""
-"Select which users you would like to send credentials to from the "
-"'{{ project.projectname }}' project."
+"\"Select which users you would like to send credentials to from the "
+"'%(proj)s' project.\""
 msgstr ""
 
 #: templates/admin/django_openstack/nova/project/send_credentials.html:49
@@ -279,7 +280,7 @@ msgstr ""
 msgid "The link you clicked has expired."
 msgstr ""
 
-#: templates/django_openstack/nova/credentials/expired.html:11
+#: templates/django_openstack/nova/credentials/expired.html:12
 #, python-format
 msgid ""
 "This credentials download link you have reached\n"
@@ -450,8 +451,8 @@ msgstr ""
 #: templates/django_openstack/nova/projects/index.html:14
 #, python-format
 msgid ""
-"Welcome to the <span>%(project.projectname|capfirst)s</span> Overview.  From "
-"here you can manage your instances, images, keys, and security groups."
+"Welcome to the <span>%(proj)s</span> Overview.  From here you can manage "
+"your instances, images, keys, and security groups."
 msgstr ""
 
 #: templates/django_openstack/nova/projects/index.html:15

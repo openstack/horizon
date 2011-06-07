@@ -11,7 +11,7 @@
   {% include "django_openstack/_messages.html" %}
 
   <div id="welcome">
-    <p>{%blocktrans%}Welcome to the <span>{{ project.projectname|capfirst }}</span> Overview.  From here you can manage your instances, images, keys, and security groups.{%endblocktrans%}</p>
+    <p>{%blocktrans with proj=project.projectname|capfirst%}Welcome to the <span>{{proj}}</span> Overview.  From here you can manage your instances, images, keys, and security groups.{%endblocktrans%}</p>
     <p>{% trans 'To get started using the command line management tools, you can <a target="_blank" href="http://open.eucalyptus.com/wiki/Euca2oolsGuide_v1.1">download euca2ools</a> and use them with your x509 credentials.' %}</p>
   </div>
 
