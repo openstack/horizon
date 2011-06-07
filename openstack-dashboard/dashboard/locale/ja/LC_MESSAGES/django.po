@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-03 15:17+0900\n"
+"POT-Creation-Date: 2011-06-07 09:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:85
+#: settings.py:86
 msgid "English"
 msgstr ""
 
-#: settings.py:86
+#: settings.py:87
 msgid "British English"
 msgstr ""
 
-#: settings.py:87
+#: settings.py:88
 msgid "Spanish"
 msgstr ""
 
-#: settings.py:88
+#: settings.py:89
 msgid "French"
 msgstr ""
 
-#: settings.py:89
+#: settings.py:90
 msgid "Japanese"
 msgstr ""
 
-#: settings.py:90
+#: settings.py:91
 msgid "Portuguese"
 msgstr ""
 
-#: settings.py:91
+#: settings.py:92
 msgid "Simplified Chinese"
 msgstr ""
 
-#: settings.py:92
+#: settings.py:93
 msgid "Traditional Chinese"
 msgstr ""
 

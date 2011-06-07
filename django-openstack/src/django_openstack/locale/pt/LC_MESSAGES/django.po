@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-03 16:06+0900\n"
+"POT-Creation-Date: 2011-06-07 09:40+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,188 +49,188 @@ msgstr ""
 msgid "Project %s does not exist."
 msgstr ""
 
-#: nova/views/admin.py:91
+#: nova/views/admin.py:96
 #, python-format
 msgid "Successfully started VPN for project %(proj)s."
 msgstr ""
 
-#: nova/views/admin.py:95
+#: nova/views/admin.py:100
 #, python-format
 msgid "Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s"
 msgstr ""
 
-#: nova/views/admin.py:134
+#: nova/views/admin.py:140
 #, python-format
 msgid "Successfully modified the project %(proj)s."
 msgstr ""
 
-#: nova/views/admin.py:138
+#: nova/views/admin.py:145
 #, python-format
 msgid "Unable modify the project %(proj)s: %(code)s - %(msg)s"
 msgstr ""
 
-#: nova/views/images.py:92
+#: nova/views/images.py:94
 #, python-format
 msgid "Unable to launch: %s"
 msgstr ""
 
-#: nova/views/images.py:98
+#: nova/views/images.py:106
 #, python-format
 msgid "Instance %s launched."
 msgstr ""
 
-#: nova/views/images.py:142
+#: nova/views/images.py:157
 #, python-format
 msgid "Unable to deregister image: %s"
 msgstr ""
 
-#: nova/views/images.py:145
+#: nova/views/images.py:163
 #, python-format
 msgid "Image %s has been successfully deregistered."
 msgstr ""
 
-#: nova/views/images.py:166
+#: nova/views/images.py:188
 #, python-format
 msgid "Unable to make image private: %s"
 msgstr ""
 
-#: nova/views/images.py:174
+#: nova/views/images.py:201
 #, python-format
 msgid "Unable to make image public: %s"
 msgstr ""
 
-#: nova/views/images.py:194
+#: nova/views/images.py:226
 #, python-format
 msgid "Unable to update image: %s"
 msgstr ""
 
-#: nova/views/images.py:197
+#: nova/views/images.py:229
 #, python-format
 msgid "Image %s has been updated."
 msgstr ""
 
-#: nova/views/instances.py:142
+#: nova/views/instances.py:145
 #, python-format
 msgid "Unable to terminate %(inst)s: %(msg)s"
 msgstr ""
 
-#: nova/views/instances.py:148
+#: nova/views/instances.py:156
 #, python-format
 msgid "Instance %(inst)s has been terminated."
 msgstr ""
 
-#: nova/views/instances.py:210
+#: nova/views/instances.py:220
 #, python-format
 msgid "Unable to update instance %(inst)s: %(msg)s"
 msgstr ""
 
-#: nova/views/instances.py:216
+#: nova/views/instances.py:232
 #, python-format
 msgid "Instance %(inst)s has been updated."
 msgstr ""
 
-#: nova/views/keypairs.py:64
+#: nova/views/keypairs.py:67
 #, python-format
 msgid "Unable to create key: %s"
 msgstr ""
 
-#: nova/views/keypairs.py:104
+#: nova/views/keypairs.py:112
 #, python-format
 msgid "Unable to delete key: %s"
 msgstr ""
 
-#: nova/views/keypairs.py:107
+#: nova/views/keypairs.py:117
 #, python-format
 msgid "Key %s has been successfully deleted."
 msgstr ""
 
-#: nova/views/regions.py:36
+#: nova/views/regions.py:39
 #, python-format
 msgid "You are now using the region \"%s\"."
 msgstr ""
 
-#: nova/views/securitygroups.py:82
+#: nova/views/securitygroups.py:85
 #, python-format
 msgid "Unable to create security group: %s"
 msgstr ""
 
-#: nova/views/securitygroups.py:86
+#: nova/views/securitygroups.py:92
 #, python-format
 msgid "Security Group %s has been succesfully created."
 msgstr ""
 
-#: nova/views/securitygroups.py:117
+#: nova/views/securitygroups.py:125
 #, python-format
 msgid "Unable to authorize: %s"
 msgstr ""
 
-#: nova/views/securitygroups.py:121
+#: nova/views/securitygroups.py:136
 #, python-format
 msgid ""
 "Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has been "
 "authorized."
 msgstr ""
 
-#: nova/views/securitygroups.py:155
+#: nova/views/securitygroups.py:177
 #, python-format
 msgid "Unable to revoke: %s"
 msgstr ""
 
-#: nova/views/securitygroups.py:159
+#: nova/views/securitygroups.py:186
 #, python-format
 msgid ""
 "Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has been "
 "revoked."
 msgstr ""
 
-#: nova/views/securitygroups.py:179
+#: nova/views/securitygroups.py:210
 #, python-format
 msgid "Unable to delete security group: %s"
 msgstr ""
 
-#: nova/views/securitygroups.py:182
+#: nova/views/securitygroups.py:215
 #, python-format
 msgid "Security Group %s was successfully deleted."
 msgstr ""
 
-#: nova/views/volumes.py:66
+#: nova/views/volumes.py:69
 #, python-format
 msgid "Unable to create volume: %s"
 msgstr ""
 
-#: nova/views/volumes.py:70
+#: nova/views/volumes.py:77
 #, python-format
 msgid "Volume %(id)s %(name)s has been successfully created."
 msgstr ""
 
-#: nova/views/volumes.py:97
+#: nova/views/volumes.py:108
 #, python-format
 msgid "Unable to delete volume: %s"
 msgstr ""
 
-#: nova/views/volumes.py:100
+#: nova/views/volumes.py:114
 #, python-format
 msgid "Volume %s has been successfully deleted."
 msgstr ""
 
-#: nova/views/volumes.py:122
+#: nova/views/volumes.py:138
 #, python-format
 msgid "Unable to attach volume: %s"
 msgstr ""
 
-#: nova/views/volumes.py:125
+#: nova/views/volumes.py:145
 #, python-format
 msgid ""
 "Volume %s is scheduled to be attached.  If it doesn't become attached in two "
 "minutes,  please try again (you may need to specify a different device)."
 msgstr ""
 
-#: nova/views/volumes.py:155
+#: nova/views/volumes.py:179
 #, python-format
 msgid "Unable to detach volume: %s"
 msgstr ""
 
-#: nova/views/volumes.py:158
+#: nova/views/volumes.py:185
 #, python-format
 msgid "Volume %s has been successfully detached."
 msgstr ""
