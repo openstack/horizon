@@ -97,7 +97,7 @@ def project_start_vpn(request, project_id):
                          {'proj': project_id})
         LOG.info('Successfully started VPN for project %s.' % project_id)
     except boto.exception.EC2ResponseError, e:
-        msg = _('Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s') %
+        msg = _('Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s' %
                        {'proj': project_id, 
                         'code': e.code, 
                         'msg': e.error_message})
@@ -137,12 +137,12 @@ def project_view(request, project_name):
                 nova.modify_project(form.cleaned_data["projectname"],
                                     form.cleaned_data["manager"],
                                     form.cleaned_data["description"])
-                msg = _('Successfully modified the project %(proj)s.') %
+                msg = _('Successfully modified the project %(proj)s.' %
                         {'proj': project_name})
                 messages.success(request, msg)
                 LOG.info(msg)
             except boto.exception.EC2ResponseError, e:
-                msg = _('Unable modify the project %(proj)s: %(code)s - %(msg)s') %
+                msg = _('Unable modify the project %(proj)s: %(code)s - %(msg)s' %
                         {'proj': project_name, 
                         'code': e.code, 
                         'msg': e.error_message})

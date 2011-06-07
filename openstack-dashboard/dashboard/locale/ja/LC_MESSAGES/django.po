@@ -99,7 +99,9 @@ msgid ""
 "    <h2>Welcome to the %(brand)s Dashboard</h2>\n"
 "    <p>Through the %(brand)s Dashboard you can manage your cloud\n"
 "      through a crisp, clean, and easy to use interface. "
-msgstr ""
+msgstr "\n<h2>ようこそ%(brand)sダッシュボードへ</h2>\n"
+"    <p>%(brand)sダッシュボードを通して、あなたのクラウドを管理することができます\n"
+"     と、清潔で、パリッとした簡単なインターフェイスを使用します。 "
 
 #: templates/index.html:40 templates/index.html.py:87
 msgid "OpenStack Dashboard Wiki"
