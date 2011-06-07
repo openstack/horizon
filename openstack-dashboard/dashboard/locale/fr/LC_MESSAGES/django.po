@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-07 09:41+0900\n"
+"POT-Creation-Date: 2011-06-07 13:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,13 +92,16 @@ msgstr ""
 msgid "Sign In"
 msgstr ""
 
-#: templates/index.html:12
+#: templates/index.html:13
+#, python-format
+msgid "<h2>Welcome to the %(site_brand)s Dashboard</h2>"
+msgstr ""
+
+#: templates/index.html:14
 #, python-format
 msgid ""
-"\n"
-"    <h2>Welcome to the %(brand)s Dashboard</h2>\n"
-"    <p>Through the %(brand)s Dashboard you can manage your cloud\n"
-"      through a crisp, clean, and easy to use interface. "
+"Through the %(site_brand)s Dashboard you can manage your cloud\n"
+"      through a crisp, clean, and easy to use interface."
 msgstr ""
 
 #: templates/index.html:40 templates/index.html.py:87
@@ -117,12 +120,8 @@ msgstr ""
 msgid "Forgot Password?"
 msgstr ""
 
-#: templates/permission_denied.html:4
+#: templates/permission_denied.html:4 templates/permission_denied.html.py:9
 msgid "Permission Denied"
-msgstr ""
-
-#: templates/permission_denied.html:9
-msgid "Permission Denie"
 msgstr ""
 
 #: templates/permission_denied.html:10
