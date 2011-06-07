@@ -136,7 +136,7 @@ class CredentialsAuthorizationTests(test.TestCase):
     def test_get_download_url(self):
         cred = \
             nova_models.CredentialsAuthorization.get_by_token(TEST_AUTH_TOKEN)
-        
+
         expected_url = settings.CREDENTIAL_DOWNLOAD_URL + TEST_AUTH_TOKEN
         self.assertEqual(expected_url, cred.get_download_url())
 
@@ -145,18 +145,19 @@ class CredentialsAuthorizationTests(test.TestCase):
             nova_models.CredentialsAuthorization.get_by_token(TEST_AUTH_TOKEN)
 
         admin_mock = self.mox.CreateMock(NovaAdminClient)
+
+        self.mox.StubOutWithMock(cred, 'get_nova_admin_connection_internal')
+        cred.get_nova_admin_connection_internal().AndReturn(admin_mock)
+
         admin_mock.get_zip(TEST_USER, TEST_PROJECT)
 
-        self.mox.StubOutWithMock(cred, 'get_nova_admin_connection')
-        cred.get_nova_admin_connection.AndReturn(admin_mock)
-
         self.mox.ReplayAll()
-        
+
         cred.get_zip()
 
         self.mox.VerifyAll()
 
         cred = \
-            nova_models.Credentialsauthorization.get_by_token(TEST_AUTH_TOKEN)
+            nova_models.CredentialsAuthorization.get_by_token(TEST_AUTH_TOKEN)
 
         self.assertTrue(cred is None)
