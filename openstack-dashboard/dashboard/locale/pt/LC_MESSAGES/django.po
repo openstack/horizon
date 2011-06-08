@@ -1,12 +1,12 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translations of Dashboard for OpenStack User Interface.
+# Copyright 2011 Midokura KK
+# This file is distributed under the same license as the Dashboard for OpenStack.
+# FIRST AUTHOR Jeffrey Wilcox, 2011.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-06-07 13:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
