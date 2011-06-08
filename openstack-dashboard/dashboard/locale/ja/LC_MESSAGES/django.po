@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-07 13:26+0900\n"
+"POT-Creation-Date: 2011-06-08 13:59+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Takeshi Nakajima <tnakaji@midokura.jp>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,7 +74,8 @@ msgstr "内部サーバーエラー"
 msgid ""
 "An unexpected error occurred while processing your request.  Please try your "
 "request again."
-msgstr "リクエストの処理中に予期しないエラーが発生しました。もう一度お試しください。"
+msgstr ""
+"リクエストの処理中に予期しないエラーが発生しました。もう一度お試しください。"
 
 #: templates/base-root.html:25
 msgid "Signed in as"
@@ -95,14 +96,15 @@ msgstr "サインイン"
 #: templates/index.html:13
 #, python-format
 msgid "<h2>Welcome to the %(site_brand)s Dashboard</h2>"
-msgstr "<h2>%(site_brand)sのダッシュポードにようこそ。</h2>\n"
+msgstr "<h2>%(site_brand)sのダッシュポードにようこそ。</h2>"
 
 #: templates/index.html:14
 #, python-format
 msgid ""
 "Through the %(site_brand)s Dashboard you can manage your cloud\n"
 "      through a crisp, clean, and easy to use interface."
-msgstr "この使いやすい%(site_brand)sのダッシュポードであなたの\n"
+msgstr ""
+"この使いやすい%(site_brand)sのダッシュポードであなたの\n"
 "  クラウドインフラを構築することができます。"
 
 #: templates/index.html:40 templates/index.html.py:87
@@ -115,7 +117,9 @@ msgstr "OpenStack Dashboard Launchpadのリポジトリー"
 
 #: templates/index.html:65
 msgid "Your username and password didn't match. Please try again."
-msgstr "あなたのユーザー名とパスワードが一致しませんでした。もう一度やり直してください。"
+msgstr ""
+"あなたのユーザー名とパスワードが一致しませんでした。もう一度やり直してくださ"
+"い。"
 
 #: templates/index.html:72
 msgid "Forgot Password?"

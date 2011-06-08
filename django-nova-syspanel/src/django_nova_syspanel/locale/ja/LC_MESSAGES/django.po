@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-07 16:58+0900\n"
+"POT-Creation-Date: 2011-06-08 14:02+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Takeshi Nakajima <tnakaji@midokura.jp>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: models.py:23 models.py:24
+#: models.py:24 models.py:25
 msgid "Forbidden"
 msgstr "アクセスを許可されていません。"
 
-#: models.py:38
+#: models.py:39
 msgid "An unexpected error occurred.  Please try your request again."
 msgstr ""
 "予期しないエラーが発生しました。もう一度リクエストを試してみてください。"
@@ -104,7 +104,8 @@ msgid ""
 "    `nova-manage user revoke USERNAME`, and the restart all VPNs for "
 "projects\n"
 "    they are a member of. "
-msgstr "\n"
+msgstr ""
+"\n"
 " ユーザーの認証情報が漏洩していた場合には、USERNAMEを取り消すことができる"
 "nova-manage userを利用し、\n"
 "    参加している全てのVPNを再起動してください。"
@@ -115,9 +116,10 @@ msgid ""
 "\n"
 "    The VPN for %(project)s is currently offline.  You can turn it back on\n"
 "    using "
-msgstr "\n"
-"    現在、%(project)sのVPNはオフラインになっています。あなたが使用していたもの"
-"を元に戻すことができます"
+msgstr ""
+"\n"
+"    現在、%(project)sのVPNはオフラインになっています。あなたが使用していたも"
+"のを元に戻すことができます"
 
 #: templates/django_nova_syspanel/security/index.html:7
 msgid "Security"
@@ -199,68 +201,68 @@ msgstr "ボリュームを管理する。"
 msgid "Manage VPNs"
 msgstr "VPNを管理する。"
 
-#: views/instances.py:41
+#: views/instances.py:44
 #, python-format
 msgid "Instance %s has been scheduled for termination."
 msgstr "インスタンス%sは終了処理されます。"
 
-#: views/instances.py:45
+#: views/instances.py:48
 #, python-format
 msgid "There were issues trying to terminate instance %s.  Please try again."
 msgstr ""
 "インスタンス%sの終了処理中に問題が生じています。もう一度やり直してください。"
 
-#: views/instances.py:74
+#: views/instances.py:79
 #, python-format
 msgid "Instance %s has been scheduled for reboot."
 msgstr "インスタンス%sは再起動されます。"
 
-#: views/instances.py:78
+#: views/instances.py:83
 #, python-format
 msgid "There were issues trying to reboot instance %s.  Please try again."
 msgstr ""
 "インスタンス%sの再起動中に問題が生じています。もう一度やり直してください。"
 
-#: views/security.py:40
+#: views/security.py:41
 #, python-format
 msgid "Unable to disable project %(name)s: %(code)s - %(msg)s"
 msgstr "プロジェクト%(name)sを無効にすることができません。: %(code)s - %(msg)s"
 
-#: views/security.py:45
+#: views/security.py:46
 #, python-format
 msgid "Project %s has been successfully disabled."
 msgstr "プロジェクト%sが無効になりました。"
 
-#: views/security.py:51
+#: views/security.py:52
 msgid "Invalid form data"
 msgstr "無効なフォームデータ"
 
-#: views/security.py:66
+#: views/security.py:68
 #, python-format
 msgid "Unable to block IPs range %(cidr)s: %(code)s %(msg)s"
 msgstr ""
 "IPアドレス範囲%(cidr)sをブロックすることができません。: %(code)s %(msg)s"
 
-#: views/security.py:72
+#: views/security.py:74
 #, python-format
 msgid "IPs range %shas been successfully blocked"
 msgstr "IPアドレス範囲%sは、正常にブロックされました。"
 
-#: views/security.py:86
+#: views/security.py:88
 #, python-format
 msgid "Unable to shut off public IPs: %(code)s - %(msg)s"
 msgstr "パブリックIPアドレスを遮断することができません。: %(code)s - %(msg)s"
 
-#: views/security.py:89
+#: views/security.py:91
 msgid "Public IPs have been turned off."
 msgstr "パブリックIPアドレスがオフになっています。"
 
-#: views/security.py:111
+#: views/security.py:114
 #, python-format
 msgid "Unable to shut off all VPNs: %(code)s - %(msg)s"
 msgstr "全てのVPNを遮断することができません。: %(code)s - %(msg)s"
 
-#: views/security.py:114
+#: views/security.py:118
 msgid "VPNs have been successfully turned off."
 msgstr "VPNは正常にオフになりました。"
 
@@ -269,12 +271,12 @@ msgstr "VPNは正常にオフになりました。"
 msgid "Volume %s has been scheduled to be detached."
 msgstr "ボリューム%s取り外されます。"
 
-#: views/volumes.py:56
+#: views/volumes.py:57
 #, python-format
 msgid "Unable to delete volume %(vol)s: %(msg)s"
 msgstr "ボリューム%(vol)sを削除することができません。%(msg)s"
 
-#: views/volumes.py:60
+#: views/volumes.py:61
 #, python-format
 msgid "Volume %s has been successfully deleted."
 msgstr "ボリューム%sが正常に削除されました。"

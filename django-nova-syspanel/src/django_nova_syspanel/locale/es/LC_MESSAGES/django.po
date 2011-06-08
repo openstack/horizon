@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-07 16:58+0900\n"
+"POT-Creation-Date: 2011-06-08 14:02+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: models.py:23 models.py:24
+#: models.py:24 models.py:25
 msgid "Forbidden"
 msgstr ""
 
-#: models.py:38
+#: models.py:39
 msgid "An unexpected error occurred.  Please try your request again."
 msgstr ""
 
@@ -162,65 +162,65 @@ msgstr ""
 msgid "Manage VPNs"
 msgstr ""
 
-#: views/instances.py:41
+#: views/instances.py:44
 #, python-format
 msgid "Instance %s has been scheduled for termination."
 msgstr ""
 
-#: views/instances.py:45
+#: views/instances.py:48
 #, python-format
 msgid "There were issues trying to terminate instance %s.  Please try again."
 msgstr ""
 
-#: views/instances.py:74
+#: views/instances.py:79
 #, python-format
 msgid "Instance %s has been scheduled for reboot."
 msgstr ""
 
-#: views/instances.py:78
+#: views/instances.py:83
 #, python-format
 msgid "There were issues trying to reboot instance %s.  Please try again."
 msgstr ""
 
-#: views/security.py:40
+#: views/security.py:41
 #, python-format
 msgid "Unable to disable project %(name)s: %(code)s - %(msg)s"
 msgstr ""
 
-#: views/security.py:45
+#: views/security.py:46
 #, python-format
 msgid "Project %s has been successfully disabled."
 msgstr ""
 
-#: views/security.py:51
+#: views/security.py:52
 msgid "Invalid form data"
 msgstr ""
 
-#: views/security.py:66
+#: views/security.py:68
 #, python-format
 msgid "Unable to block IPs range %(cidr)s: %(code)s %(msg)s"
 msgstr ""
 
-#: views/security.py:72
+#: views/security.py:74
 #, python-format
 msgid "IPs range %shas been successfully blocked"
 msgstr ""
 
-#: views/security.py:86
+#: views/security.py:88
 #, python-format
 msgid "Unable to shut off public IPs: %(code)s - %(msg)s"
 msgstr ""
 
-#: views/security.py:89
+#: views/security.py:91
 msgid "Public IPs have been turned off."
 msgstr ""
 
-#: views/security.py:111
+#: views/security.py:114
 #, python-format
 msgid "Unable to shut off all VPNs: %(code)s - %(msg)s"
 msgstr ""
 
-#: views/security.py:114
+#: views/security.py:118
 msgid "VPNs have been successfully turned off."
 msgstr ""
 
@@ -229,12 +229,12 @@ msgstr ""
 msgid "Volume %s has been scheduled to be detached."
 msgstr ""
 
-#: views/volumes.py:56
+#: views/volumes.py:57
 #, python-format
 msgid "Unable to delete volume %(vol)s: %(msg)s"
 msgstr ""
 
-#: views/volumes.py:60
+#: views/volumes.py:61
 #, python-format
 msgid "Volume %s has been successfully deleted."
 msgstr ""
