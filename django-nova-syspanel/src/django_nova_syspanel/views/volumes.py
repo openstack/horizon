@@ -25,9 +25,9 @@ def index(request):
         volume.instance = instance
         volume.status_str = status
 
-    return render_to_response('django_nova_syspanel/volumes/index.html',{
-        'volumes': volumes,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response('django_nova_syspanel/volumes/index.html',
+                             {'volumes': volumes, },
+                             context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -53,11 +53,11 @@ def delete(request, volume_id):
     try:
         conn.delete_volume(volume_id)
     except EC2ResponseError, e:
-        messages.error(request, _('Unable to delete volume %(vol)s: %(msg)s') % \
-                                 {'vol': volume_id, 'msg': e.error_message})
+        messages.error(request,
+                       _('Unable to delete volume %(vol)s: %(msg)s') %
+                        {'vol': volume_id, 'msg': e.error_message})
     else:
         messages.success(request,
                          _('Volume %s has been successfully deleted.') %
                          volume_id)
     return redirect('syspanel_volumes')
-

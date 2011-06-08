@@ -98,9 +98,9 @@ def project_start_vpn(request, project_id):
         LOG.info('Successfully started VPN for project %s.' % project_id)
     except boto.exception.EC2ResponseError, e:
         msg = _('Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s' %
-                       {'proj': project_id, 
-                        'code': e.code, 
-                        'msg': e.error_message})
+               {'proj': project_id,
+               'code': e.code,
+               'msg': e.error_message})
         messages.error(request, msg)
         LOG.error(msg)
 
@@ -143,8 +143,8 @@ def project_view(request, project_name):
                 LOG.info(msg)
             except boto.exception.EC2ResponseError, e:
                 msg = _('Unable modify the project %(proj)s: %(code)s - %(msg)s' %
-                        {'proj': project_name, 
-                        'code': e.code, 
+                        {'proj': project_name,
+                        'code': e.code,
                         'msg': e.error_message})
                 messages.error(request, msg)
                 LOG.error(msg)

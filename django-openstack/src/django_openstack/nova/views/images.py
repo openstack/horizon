@@ -160,7 +160,7 @@ def remove(request, project_id, image_id):
                       (image_id, project_id, e.message))
         else:
             messages.success(request,
-                             _('Image %s has been successfully deregistered.') %
+                            _('Image %s has been successfully deregistered.') %
                              image_id)
             LOG.info('Image "%s" deregistered from project "%s"' %
                      (image_id, project_id))
@@ -185,7 +185,8 @@ def privacy(request, project_id, image_id):
                          (image_id, project_id))
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               _('Unable to make image private: %s') % e.message)
+                               _('Unable to make image private: %s') %
+                                e.message)
                 LOG.error('Unable to make image "%s" private on project "%s".'
                           ' Exception text: "%s"' %
                           (image_id, project_id, e.message))
@@ -198,7 +199,8 @@ def privacy(request, project_id, image_id):
                          (image_id, project_id))
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               _('Unable to make image public: %s') % e.message)
+                               _('Unable to make image public: %s') %
+                               e.message)
                 LOG.error('Unable to make image "%s" public on project "%s".'
                           ' Exception text: "%s"' %
                           (image_id, project_id, e.message))

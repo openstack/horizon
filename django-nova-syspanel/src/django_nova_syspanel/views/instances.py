@@ -7,6 +7,7 @@ from django.utils.translation import ugettext as _
 
 from django_nova_syspanel.models import *
 
+
 def _reservations_to_instances(reservation_list):
     rv = []
     for r in reservation_list:
@@ -20,15 +21,17 @@ def _reservations_to_instances(reservation_list):
             rv.append(i2)
     return rv
 
+
 @login_required
 def index(request):
     nova = get_nova_admin_connection()
     conn = nova.connection_for(settings.NOVA_ADMIN_USER, settings.NOVA_PROJECT)
-    reservations = conn.get_all_instances()    
+    reservations = conn.get_all_instances()
     instances = _reservations_to_instances(reservations)
-    return render_to_response('django_nova_syspanel/instances/index.html',{
-        'instances': instances,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response('django_nova_syspanel/instances/index.html',
+                             {'instances': instances, },
+                             context_instance=template.RequestContext(request))
+
 
 @login_required
 def terminate(request, instance_id):
@@ -48,11 +51,12 @@ def terminate(request, instance_id):
     # reload instances, maybe get new state
     reservations = conn.get_all_instances()
     instances = _reservations_to_instances(reservations)
-    return render_to_response('django_nova_syspanel/instances/index.html',{
-        'instances': instances,
-        'message': message,
-        'status': status,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response('django_nova_syspanel/instances/index.html',
+                             {'instances': instances,
+                               'message': message,
+                               'status': status, },
+                             context_instance=template.RequestContext(request))
+
 
 @login_required
 def console(request, instance_id):
@@ -65,6 +69,7 @@ def console(request, instance_id):
 
     return response
 
+
 @login_required
 def restart(request, instance_id):
     nova = get_nova_admin_connection()
@@ -75,13 +80,13 @@ def restart(request, instance_id):
                   instance_id
         status = "success"
     except:
-        message = _("There were issues trying to reboot instance %s.  " 
+        message = _("There were issues trying to reboot instance %s.  "
                   "Please try again.") % instance_id
         status = "error"
     reservations = conn.get_all_instances()
     instances = _reservations_to_instances(reservations)
-    return render_to_response('django_nova_syspanel/instances/index.html',{
-        'instances': instances,
-        'message': message,
-        'status': status,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response('django_nova_syspanel/instances/index.html',
+                             {'instances': instances,
+                              'message': message,
+                              'status': status, },
+                             context_instance=template.RequestContext(request))

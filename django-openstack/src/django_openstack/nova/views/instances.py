@@ -143,7 +143,7 @@ def terminate(request, project_id):
         except exceptions.NovaApiError, e:
             messages.error(request,
                            _('Unable to terminate %(inst)s: %(msg)s') %
-                           {'inst': instance_id, 'msg': e.message,})
+                            {'inst': instance_id, 'msg': e.message})
             LOG.error('Unable to terminate instance "%s" on project "%s".'
                       ' Exception:"%s"' % (instance_id, project_id, e.message))
         except exceptions.NovaUnauthorizedError, e:
@@ -153,8 +153,8 @@ def terminate(request, project_id):
                       (str(request.user), instance_id, project_id))
         else:
             messages.success(request,
-                             _('Instance %(inst)s has been terminated.') % 
-                             {'inst': instance_id} )
+                             _('Instance %(inst)s has been terminated.') %
+                              {'inst': instance_id})
             LOG.info('Instance "%s" terminated on project "%s"' %
                      (instance_id, project_id))
 
@@ -218,7 +218,7 @@ def update(request, project_id, instance_id):
             except exceptions.NovaApiError, e:
                 messages.error(request,
                           _('Unable to update instance %(inst)s: %(msg)s') %
-                           {'inst': instance_id, 'msg': e.message,})
+                           {'inst': instance_id, 'msg': e.message})
                 LOG.error('Unable to update instance "%s" on project "%s".'
                           ' Exception message: "%s"' %
                           (instance_id, project_id, e.message))
@@ -229,7 +229,7 @@ def update(request, project_id, instance_id):
                           (str(request.user), instance_id, project_id))
             else:
                 messages.success(request,
-                                 _('Instance %(inst)s has been updated.') % 
+                                 _('Instance %(inst)s has been updated.') %
                                   {'inst': instance_id})
                 LOG.info('Instance "%s" updated on project "%s"' %
                          (instance_id, project_id))

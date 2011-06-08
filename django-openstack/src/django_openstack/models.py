@@ -105,7 +105,8 @@ def credentials_post_save(sender, instance, created, *args, **kwargs):
                                     body=body,
                                     to=[user.email])
         message.send(fail_silently=False)
-        LOG.info('Credentials sent to user "%s" at "%s"' % (instance.name, user.email))
+        LOG.info('Credentials sent to user "%s" at "%s"' %
+                 (instance.name, user.email))
 post_save.connect(credentials_post_save,
                   CredentialsAuthorization,
                   dispatch_uid='django_openstack.CredentialsAuthorization.post_save')
