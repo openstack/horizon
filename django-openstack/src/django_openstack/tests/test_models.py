@@ -43,29 +43,31 @@ class CredentialsAuthorizationTests(test.TestCase):
         self.mox.UnsetStubs()
 
     def test_get_by_token(self):
-        TEST_MISSING_AUTH_TOKEN = 'notAToken'
+        TEST_MISSING_AUTH_TOKEN = hashlib.sha1('notAToken').hexdigest()
 
+        # Token not a sha1, but exists in system
         cred = nova_models.CredentialsAuthorization.get_by_token(
                 TEST_BAD_AUTH_TOKEN)
-
         self.assertTrue(cred is None)
 
+        # Token doesn't exist
         cred = nova_models.CredentialsAuthorization.get_by_token(
                 TEST_MISSING_AUTH_TOKEN)
-
         self.assertTrue(cred is None)
 
+        # Good token
         cred = nova_models.CredentialsAuthorization.get_by_token(
                 TEST_AUTH_TOKEN)
         self.assertTrue(cred is not None)
 
+        # Expire the token
         cred.auth_date = datetime.datetime.now() - AUTH_EXPIRATION_LENGTH \
                                                  - HOUR
         cred.save()
 
+        # Expired token
         cred = nova_models.CredentialsAuthorization.get_by_token(
                 TEST_AUTH_TOKEN)
-
         self.assertTrue(cred is None)
 
     def test_authorize(self):
@@ -104,7 +106,7 @@ class CredentialsAuthorizationTests(test.TestCase):
 
     def test_auth_token_expired(self):
         '''
-        Test expired in past, expires in future, expires in future
+        Test expired in past, expires in future, expires _right now_
         '''
         cred = \
             nova_models.CredentialsAuthorization.get_by_token(TEST_AUTH_TOKEN)
