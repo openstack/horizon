@@ -1,0 +1,282 @@
+# Translations of Dashboard for OpenStack User Interface.
+# Copyright 2011 Midokura KK
+# This file is distributed under the same license as the Dashboard for OpenStack.
+# FIRST AUTHOR Jeffrey Wilcox, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openstack-dashboard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-08 14:02+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Takeshi Nakajima <tnakaji@midokura.jp>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Japanese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: models.py:24 models.py:25
+msgid "Forbidden"
+msgstr "アクセスを許可されていません。"
+
+#: models.py:39
+msgid "An unexpected error occurred.  Please try your request again."
+msgstr ""
+"予期しないエラーが発生しました。もう一度リクエストを試してみてください。"
+
+#: templates/django_nova_syspanel/index.html:9
+msgid ""
+"View all running instances other than VPNs. Schedule instances for\treboot "
+"or termination. Download logs."
+msgstr ""
+"VPN以外で実行中のすべてのインスタンスを表示。再起動または終了のインスタンスス"
+"ケジュールを設定。ログをダウンロード。"
+
+#: templates/django_nova_syspanel/index.html:15
+#: templates/django_nova_syspanel/volumes/index.html:24
+msgid ""
+"View all volumes. See size, status, and mount point. Detach and destroy "
+"volumes."
+msgstr ""
+"すべてのボリュームを表示。サイズ、ステータスおよびマウントポイントを参照。ボ"
+"リュームを取り外して破棄。"
+
+#: templates/django_nova_syspanel/index.html:21
+#: templates/django_nova_syspanel/vpns/index.html:25
+msgid ""
+"View all projects VPN status. Schedule launch, termination, and reboot. Send "
+"credentials."
+msgstr ""
+"すべてのプロジェクトのVPNステータスを表示。起動、終了、再起動のスケジュールを"
+"設定。認証情報を送信。"
+
+#: templates/django_nova_syspanel/index.html:27
+msgid ""
+"View servers that participate in your cloud.  See statistics about\trunning "
+"services and served objects."
+msgstr ""
+"クラウドに参加しているサーバーを表示。実行中のサービスと提供オブジェクトに関"
+"する統計情報を参照してください。"
+
+#: templates/django_nova_syspanel/index.html:33
+msgid ""
+"Perform operations to deal with rogue users, limit or prevent compromise, "
+"and deal with external threats."
+msgstr ""
+"不正なユーザーへの対応する操作を実行し、情報漏洩の制限または防止し、外部から"
+"の脅威に対処する。"
+
+#: templates/django_nova_syspanel/cloudview/index.html:9
+msgid ""
+"View servers that participate in your cloud.  See statistics about running "
+"services and served objects."
+msgstr ""
+"クラウドに参加しているサーバーを表示。実行中のサービスと提供オブジェクトに関"
+"する統計情報を参照してください。"
+
+#: templates/django_nova_syspanel/instances/index.html:23
+msgid "Manage Instances"
+msgstr "インスタンスを管理する。"
+
+#: templates/django_nova_syspanel/instances/index.html:24
+msgid ""
+"View all running instances other than VPNs. Schedule instances for reboot or "
+"termination. Download logs."
+msgstr ""
+"VPN以外で実行中のすべてのインスタンスを表示。再起動または終了のインスタンスス"
+"ケジュールを設定。ログをダウンロード。"
+
+#: templates/django_nova_syspanel/instances/index.html:36
+msgid "Refresh List"
+msgstr "リストを再読み込みする。"
+
+#: templates/django_nova_syspanel/instances/index.html:66
+msgid "Console Log"
+msgstr "ログをコンソールする。"
+
+#: templates/django_nova_syspanel/security/disable_project_credentials.html:9
+msgid ""
+"\n"
+"    If a user's credentials were comprimised, you will need to use \n"
+"    `nova-manage user revoke USERNAME`, and the restart all VPNs for "
+"projects\n"
+"    they are a member of. "
+msgstr ""
+"\n"
+" ユーザーの認証情報が漏洩していた場合には、USERNAMEを取り消すことができる"
+"nova-manage userを利用し、\n"
+"    参加している全てのVPNを再起動してください。"
+
+#: templates/django_nova_syspanel/security/disable_project_credentials.html:15
+#, python-format
+msgid ""
+"\n"
+"    The VPN for %(project)s is currently offline.  You can turn it back on\n"
+"    using "
+msgstr ""
+"\n"
+"    現在、%(project)sのVPNはオフラインになっています。あなたが使用していたも"
+"のを元に戻すことができます"
+
+#: templates/django_nova_syspanel/security/index.html:7
+msgid "Security"
+msgstr "セキュリティ"
+
+#: templates/django_nova_syspanel/security/index.html:9
+msgid "Use the following tools to secure the cloud during a security event"
+msgstr ""
+"セキュリティイベント中にクラウドのセキュリティを確保するために、次のツールを"
+"使用してください。"
+
+#: templates/django_nova_syspanel/security/index.html:14
+msgid ""
+"<strong>Scenario:</strong> Project account credentials have been compromised."
+msgstr ""
+"<strong>シナリオ:</strong>プロジェクトアカウントの認証情報が漏洩しています。"
+
+#: templates/django_nova_syspanel/security/index.html:15
+msgid ""
+"<strong>Action:</strong> Disable the user or project. This should invalidate "
+"the credentials, also deny the specific port assigned to the user."
+msgstr ""
+"<strong>アクション:</strong>ユーザーまはたプロジェクトを無効にする。これは認"
+"証情報を無効にし、ユーザーに割り当てられている特定のポートを拒否します。"
+
+#: templates/django_nova_syspanel/security/index.html:34
+msgid ""
+"<strong>Scenario:</strong> The issue pin points to be coming in from a "
+"specific external ip or ip range."
+msgstr ""
+"<strong>シナリオ:</strong>この問題は特定の範囲の外部IPアドレスから来ているこ"
+"とを示しています。"
+
+#: templates/django_nova_syspanel/security/index.html:35
+msgid ""
+"<strong>Action:</strong> Block the IP or IP range. This should manipulate ip "
+"tables to block the ip or ip range."
+msgstr ""
+"<strong>アクション:</strong>そのIPアドレスの範囲をブロックします。IPアドレス"
+"範囲をブロックするには、IPアドレステーブルを操作する必要があります。"
+
+#: templates/django_nova_syspanel/security/index.html:55
+msgid ""
+"<strong>Scenario:</strong> Issues affecting multiple public entry points or "
+"could not determine to be a specific one."
+msgstr ""
+"<strong>シナリオ:</strong>やポイントに影響を及ぼす複数のパブリックエントリの"
+"問題は、1つ具体的にできなかった決定します。"
+
+#: templates/django_nova_syspanel/security/index.html:56
+msgid ""
+"<strong>Action:</strong> Disable all public IPs on all VMs. This should "
+"unplumb the device the public ip was on."
+msgstr ""
+"<strong>アクション:</strong>全てのVM上の全てのパブリックIPアドレスを無効にし"
+"ます。この操作には、パブリックIPアドレスが付与されたデバイスを取り外す必要が"
+"あります。"
+
+#: templates/django_nova_syspanel/security/index.html:69
+msgid ""
+"<strong>Scenario:</strong> Issue related to VPN service affecting multiple "
+"customers."
+msgstr ""
+"<strong>シナリオ:</strong>複数の顧客に影響を与えるVPNサービスに関連する問題"
+
+#: templates/django_nova_syspanel/security/index.html:70
+msgid ""
+"<strong>Action:</strong> Disable VPN service. This should turn off the VPN "
+"ip."
+msgstr ""
+"<strong>アクション:</strong>VPNサービスを無効にする。この操作には、VPNのIPを"
+"オフにする必要があります。"
+
+#: templates/django_nova_syspanel/volumes/index.html:23
+msgid "Manage Volumes"
+msgstr "ボリュームを管理する。"
+
+#: templates/django_nova_syspanel/vpns/index.html:24
+msgid "Manage VPNs"
+msgstr "VPNを管理する。"
+
+#: views/instances.py:44
+#, python-format
+msgid "Instance %s has been scheduled for termination."
+msgstr "インスタンス%sは終了処理されます。"
+
+#: views/instances.py:48
+#, python-format
+msgid "There were issues trying to terminate instance %s.  Please try again."
+msgstr ""
+"インスタンス%sの終了処理中に問題が生じています。もう一度やり直してください。"
+
+#: views/instances.py:79
+#, python-format
+msgid "Instance %s has been scheduled for reboot."
+msgstr "インスタンス%sは再起動されます。"
+
+#: views/instances.py:83
+#, python-format
+msgid "There were issues trying to reboot instance %s.  Please try again."
+msgstr ""
+"インスタンス%sの再起動中に問題が生じています。もう一度やり直してください。"
+
+#: views/security.py:41
+#, python-format
+msgid "Unable to disable project %(name)s: %(code)s - %(msg)s"
+msgstr "プロジェクト%(name)sを無効にすることができません。: %(code)s - %(msg)s"
+
+#: views/security.py:46
+#, python-format
+msgid "Project %s has been successfully disabled."
+msgstr "プロジェクト%sが無効になりました。"
+
+#: views/security.py:52
+msgid "Invalid form data"
+msgstr "無効なフォームデータ"
+
+#: views/security.py:68
+#, python-format
+msgid "Unable to block IPs range %(cidr)s: %(code)s %(msg)s"
+msgstr ""
+"IPアドレス範囲%(cidr)sをブロックすることができません。: %(code)s %(msg)s"
+
+#: views/security.py:74
+#, python-format
+msgid "IPs range %shas been successfully blocked"
+msgstr "IPアドレス範囲%sは、正常にブロックされました。"
+
+#: views/security.py:88
+#, python-format
+msgid "Unable to shut off public IPs: %(code)s - %(msg)s"
+msgstr "パブリックIPアドレスを遮断することができません。: %(code)s - %(msg)s"
+
+#: views/security.py:91
+msgid "Public IPs have been turned off."
+msgstr "パブリックIPアドレスがオフになっています。"
+
+#: views/security.py:114
+#, python-format
+msgid "Unable to shut off all VPNs: %(code)s - %(msg)s"
+msgstr "全てのVPNを遮断することができません。: %(code)s - %(msg)s"
+
+#: views/security.py:118
+msgid "VPNs have been successfully turned off."
+msgstr "VPNは正常にオフになりました。"
+
+#: views/volumes.py:44
+#, python-format
+msgid "Volume %s has been scheduled to be detached."
+msgstr "ボリューム%s取り外されます。"
+
+#: views/volumes.py:57
+#, python-format
+msgid "Unable to delete volume %(vol)s: %(msg)s"
+msgstr "ボリューム%(vol)sを削除することができません。%(msg)s"
+
+#: views/volumes.py:61
+#, python-format
+msgid "Volume %s has been successfully deleted."
+msgstr "ボリューム%sが正常に削除されました。"

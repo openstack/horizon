@@ -1,4 +1,5 @@
 {% extends "django_openstack/nova/keypairs/base.html" %}
+{% load i18n %}
 
 {% block title %} - Cloud Computing{% endblock %}
 
@@ -9,8 +10,8 @@
 
 {% block content %}
   <div id="page_head">
-    <h2 id="page_heading">Keys</h2>
-    <p id="page_description">Key pairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a pem file). <em>Protect and use the key as a normal private key.</em></p>
+    <h2 id="page_heading">{% trans "Keys" %}</h2>
+    <p id="page_description">{% trans "Key pairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a pem file). <em>Protect and use the key as a normal private key.</em>" %}</p>
   </div>
 
   {% include "django_openstack/_messages.html" %}
@@ -32,7 +33,7 @@
   </div>
 
   <div id="dlg_confirm" title="Confirm Termination">
-    <p>Are you sure you wish to delete key <span id="spn_delete_key_name"></span>?</p>
+    <p>{% trans "Are you sure you wish to delete key" %} <span id="spn_delete_key_name"></span>?</p>
   </div>
 {% endblock %}
 

@@ -24,6 +24,7 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
 from django.views import generic as generic_views
+import django.views.i18n
 from registration import forms as reg_forms
 
 
@@ -31,6 +32,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.index', name='index'),
+    url(r'^i18n/setlang', django.views.i18n.set_language),
     url(r'^accounts/register/$',
         'registration.views.register',
         {'form_class': reg_forms.RegistrationFormUniqueEmail},

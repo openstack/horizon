@@ -28,6 +28,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
 from django_openstack import log as logging
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms
@@ -90,7 +91,7 @@ def launch(request, project_id, image_id):
                 )
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to launch: %s' % e.message)
+                               _('Unable to launch: %s') % e.message)
                 LOG.error('User "%s" unable to launch image "%s" '
                           ' on project "%s". Exception message: "%s"' %
                           (str(request.user), image_id, project_id, e.message))
@@ -102,7 +103,7 @@ def launch(request, project_id, image_id):
             else:
                 for instance in reservation.instances:
                     messages.success(request,
-                                     'Instance %s launched.' % instance.id)
+                                     _('Instance %s launched.') % instance.id)
                 LOG.info('%d instances of "%s" launched by "%s" on "%s"' %
                          (len(reservation.instances), image_id,
                           str(request.user), project_id))
@@ -153,13 +154,13 @@ def remove(request, project_id, image_id):
             project.deregister_image(image_id)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           'Unable to deregister image: %s' % e.message)
+                           _('Unable to deregister image: %s') % e.message)
             LOG.error('Unable to deregister image "%s" from project "%s".'
                       ' Exception message: "%s"' %
                       (image_id, project_id, e.message))
         else:
             messages.success(request,
-                             'Image %s has been successfully deregistered.' %
+                            _('Image %s has been successfully deregistered.') %
                              image_id)
             LOG.info('Image "%s" deregistered from project "%s"' %
                      (image_id, project_id))
@@ -184,7 +185,8 @@ def privacy(request, project_id, image_id):
                          (image_id, project_id))
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to make image private: %s' % e.message)
+                               _('Unable to make image private: %s') %
+                                e.message)
                 LOG.error('Unable to make image "%s" private on project "%s".'
                           ' Exception text: "%s"' %
                           (image_id, project_id, e.message))
@@ -197,7 +199,8 @@ def privacy(request, project_id, image_id):
                          (image_id, project_id))
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to make image public: %s' % e.message)
+                               _('Unable to make image public: %s') %
+                               e.message)
                 LOG.error('Unable to make image "%s" public on project "%s".'
                           ' Exception text: "%s"' %
                           (image_id, project_id, e.message))
@@ -222,10 +225,10 @@ def update(request, project_id, image_id):
                          (image_id, project_id))
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to update image: %s' % e.message)
+                               _('Unable to update image: %s') % e.message)
             else:
                 messages.success(request,
-                                 'Image %s has been updated.' % image_id)
+                                 _('Image %s has been updated.') % image_id)
 
             return redirect('nova_images_detail', project_id, image_id)
 

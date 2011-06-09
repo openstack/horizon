@@ -5,6 +5,7 @@ django-openstack/downloads/
 django-openstack/eggs/
 django-openstack/parts/
 django-openstack/src/django_nova.egg-info
+django-openstack/src/django_openstack.egg-info
 django-nova-syspanel/src/django_nova_syspanel.egg-info
 openstack-dashboard/.dashboard-venv
 openstack-dashboard/local/dashboard_openstack.sqlite3

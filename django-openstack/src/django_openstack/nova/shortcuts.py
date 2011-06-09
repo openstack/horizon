@@ -24,6 +24,8 @@ from django.conf import settings
 from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
+from django.utils.translation import ugettext as _
+
 from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova import manager
 from django_openstack.nova.exceptions import wrap_nova_error
@@ -38,14 +40,14 @@ def get_project_or_404(request, project_id):
     # Ensure that a connection is never attempted for a
     # user that is unauthenticated.
     if not request.user.is_authenticated:
-        raise PermissionDenied('User not authenticated')
+        raise PermissionDenied(_('User not authenticated'))
 
     nova = get_nova_admin_connection()
     project = nova.get_project(project_id)
     region = get_current_region(request)
 
     if not project:
-        raise Http404('Project %s does not exist.' % project_id)
+        raise Http404(_('Project %s does not exist.') % project_id)
 
     return manager.ProjectManager(request.user, project, region)
 

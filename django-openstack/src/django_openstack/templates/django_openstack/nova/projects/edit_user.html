@@ -1,4 +1,5 @@
 {% extends "django_openstack/nova/base.html" %}
+{% load i18n %}
 {% block title %} - {{ project.projectname|capfirst }} Overview{% endblock %}
 {% block pageclass %}overview{% endblock %}
 
@@ -20,8 +21,8 @@
 
 {% block content %}
   <div id="page_head">
-    <h2 id="page_heading">Edit User Roles</h2>
-    <p id="page_description">From here you can edit multiple user roles.</p>
+    <h2 id="page_heading">{% trans "Edit User Roles" %}</h2>
+    <p id="page_description">{% trans "From here you can edit multiple user roles." %}</p>
   </div>
 
   {% include "django_openstack/_messages.html" %}
@@ -31,7 +32,7 @@
       <form action="." method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <fieldset class="module aligned {{ fieldset.classes }}">
-            <h3 id="edit_{{ user.username }}">Edit Roles for User:  {{ user.username }}</h3>
+            <h3 id="edit_{{ user.username }}">{% trans "Edit Roles for User:" %}  {{ user.username }}</h3>
             <div class="form-row">
               <h4 class="label">User</h4>
               <span id="user_name">{{ user.username }}</span>
@@ -55,7 +56,7 @@
           </div>
           <div class="submit-row">
             <input type="submit" value="Save" class="default" />
-            {# <a href="#" class="deletelink">Remove User</a> #}
+            {# <a href="#" class="deletelink">{% trans "Remove User" %}</a> #}
           </div>
       </form>
     {% else %}
@@ -63,7 +64,7 @@
       <div class="ui-state-highlight ui-corner-all">
         <p>
           <span class="ui-icon ui-icon-info"></span>
-          No users are currently associated with this project.
+          {% trans "No users are currently associated with this project." %}
         </p>
       </div>
     </div>

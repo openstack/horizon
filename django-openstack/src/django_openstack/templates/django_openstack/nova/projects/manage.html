@@ -1,11 +1,12 @@
 {% extends "django_openstack/nova/base.html" %}
+{% load i18n %}
 {% block title %} - {{ project.projectname|capfirst }} Overview{% endblock %}
 {% block pageclass %}overview{% endblock %}
 
 {% block content %}
   <div id="page_head">
-    <h2 id="page_heading">Manage Users and Roles</h2>
-    <p id="page_description">From here you can manage users and roles.</p>
+    <h2 id="page_heading">{% trans "Manage Users and Roles" %}</h2>
+    <p id="page_description">{% trans "From here you can manage users and roles." %}</p>
   </div>
 
   {% include "django_openstack/_messages.html" %}
@@ -35,7 +36,7 @@
       <div class="ui-state-highlight ui-corner-all">
         <p>
           <span class="ui-icon ui-icon-info"></span>
-          No users are currently associated with this project.
+          {% trans "No users are currently associated with this project." %}
         </p>
       </div>
     </div>

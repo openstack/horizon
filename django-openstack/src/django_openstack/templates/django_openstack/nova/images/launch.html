@@ -1,4 +1,5 @@
 {% extends "django_openstack/nova/images/base.html" %}
+{% load i18n %}
 
 {% block title %} - Cloud Computing{% endblock %}
 
@@ -9,17 +10,17 @@
 {% block content %}
 <div id="right_content">
   <div id="page_head">
-    <h2 id="page_heading">Launch Image</h2>
-    <p id="page_description">You can launch up to five instances of an image at a time. Some images allow for custom configuration to be passed in via User data.</p>
+    <h2 id="page_heading">{% trans "Launch Image" %}</h2>
+    <p id="page_description">{% trans "You can launch up to five instances of an image at a time. Some images allow for custom configuration to be passed in via User data." %}</p>
   </div>
 
   <div class="dash_block first">
     <form id="frm_launch" action="{% url nova_images_launch project.projectname ami.id %}" method="post">
       {% csrf_token %}
       <fieldset>
-        <h3 class="image_id">Launch Image {{ ami.id }}</h3>
+        <h3 class="image_id">{% trans "Launch Image" %} {{ ami.id }}</h3>
         <div class="even">
-          <h4 class="label">Location</h4>
+          <h4 class="label">{% trans "Location" %}</h4>
           <span class="image_location">{{ ami.location }}</span>
         </div>
         {% include "django_openstack/nova/images/_launch_form.html" %}

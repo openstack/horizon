@@ -1,4 +1,4 @@
-{% load django_openstack_tags %}
+{% load django_openstack_tags i18n %}
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
   <head>
@@ -22,15 +22,15 @@
         <h1><a href="/">{% site_branding %}<span> Cloud Computing</span></a></h1>
         {% if user.is_authenticated %}
           <div id="user_info">
-              <span class="user">Signed in as <strong>{{ request.user.username }}</strong>.</a></span>
+              <span class="user">{% trans "Signed in as" %} <strong>{{ request.user.username }}</strong>.</span>
             <ul>
-              <li><a id="lnk_logout" href="{% url auth_logout %}">Sign Out</a></li>
-              <li><a id="lnk_change_password" href="{% url auth_password_change %}">Change Password</a></li>
+              <li><a id="lnk_logout" href="{% url auth_logout %}">{% trans "Sign Out"%}</a></li>
+              <li><a id="lnk_change_password" href="{% url auth_password_change %}">{% trans "Change Password"%}</a></li>
             </ul>
           </div>
         {% else %}
           <div id="user_info">
-            <a id="lnk_login" href="{% url auth_login %}">Sign In</a>
+            <a id="lnk_login" href="{% url auth_login %}">{% trans "Sign In"%}</a>
           </div>
         {% endif %}
       </div>

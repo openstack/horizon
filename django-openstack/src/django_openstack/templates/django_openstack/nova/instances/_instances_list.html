@@ -1,3 +1,4 @@
+{% load i18n %}
       {% if instances %}
       <table style="width: 100%">
         <tr>
@@ -98,7 +99,7 @@
         <div class="ui-state-highlight ui-corner-all">
           <p>
             <span class="ui-icon ui-icon-info"></span>
-            No instances are currently running. You may start a new instance from the <a href="{% url nova_images project.projectname %}">images</a> tab.
+            {% trans "No instances are currently running. You may start a new instance from the"%} <a href="{% url nova_images project.projectname %}">images</a> tab.
           </p>
         </div>
       </div>

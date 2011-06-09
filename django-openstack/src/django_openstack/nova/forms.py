@@ -24,6 +24,8 @@ import re
 
 from django import forms
 from django.contrib.auth import models as auth_models
+from django.utils.translation import ugettext as _
+
 from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova.exceptions import wrap_nova_error
 
@@ -59,7 +61,7 @@ def get_instance_choices(project):
 def get_key_pair_choices(project):
     choices = [(k.name, k.name) for k in project.get_key_pairs()]
     if not len(choices):
-        choices = [('', 'none available')]
+        choices = [('', _('none available'))]
     return choices
 
 #def get_security_group_choices(project):
@@ -73,7 +75,7 @@ def get_available_volume_choices(project):
     choices = [(v.id, '%s %s - %dGB' % (v.id, v.displayName, v.size))
                for v in project.get_volumes() if v.status != 'in-use']
     if not len(choices):
-        choices = [('', 'none available')]
+        choices = [('', _('none available'))]
     return choices
 
 
@@ -177,7 +179,7 @@ class CreateKeyPairForm(ProjectFormBase):
 
         if self.project.has_key_pair(name):
             raise forms.ValidationError(
-                    'A key named %s already exists.' % name)
+                    _('A key named %s already exists.') % name)
 
         return name
 
@@ -191,7 +193,7 @@ class CreateSecurityGroupForm(ProjectFormBase):
 
         if self.project.has_security_group(name):
             raise forms.ValidationError(
-                    'A security group named %s already exists.' % name)
+                    _('A security group named %s already exists.') % name)
 
         return name
 

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block headerjs %}
 
@@ -19,8 +20,8 @@
 
 {% block content %}
   <div id="page_description">
-    <h2 class="page_heading">Manage Volumes</h2>
-		<p>View all volumes. See size, status, and mount point. Detach and destroy volumes.</p>
+    <h2 class="page_heading">{% trans "Manage Volumes" %}</h2>
+		<p>{% trans "View all volumes. See size, status, and mount point. Detach and destroy volumes." %}</p>
   </div>
 
   <table>

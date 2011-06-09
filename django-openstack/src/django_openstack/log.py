@@ -8,6 +8,7 @@ the future
 
 import logging
 
+
 def getLogger(name):
     '''
     Returns a python logger

@@ -25,6 +25,7 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
 from django_openstack import log as logging
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms
@@ -63,7 +64,7 @@ def add(request, project_id):
                 keypair = project.create_key_pair(form.cleaned_data['name'])
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to create key: %s' % e.message)
+                               _('Unable to create key: %s') % e.message)
                 LOG.error('Unable to create key for user "%s" on project "%s".'
                           ' Exception: "%s"' %
                           (str(request.user), project_id, e.message))
@@ -108,12 +109,12 @@ def delete(request, project_id):
             project.delete_key_pair(key_name)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           'Unable to delete key: %s' % e.message)
+                           _('Unable to delete key: %s') % e.message)
             LOG.error('Unable to delete key "%s".  Exception: "%s"' %
                       (key_name, e.message_))
         else:
             messages.success(request,
-                             'Key %s has been successfully deleted.' % \
+                             _('Key %s has been successfully deleted.') % \
                              key_name)
             LOG.info('Key "%s" successfully deleted' % key_name)
 

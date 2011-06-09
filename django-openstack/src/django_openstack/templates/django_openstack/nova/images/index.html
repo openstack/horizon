@@ -1,6 +1,7 @@
 {% extends "django_openstack/nova/images/base.html" %}
+{% load i18n %}
 
-{% block title %} - Launch an Image{% endblock %}
+{% block title %} - {% trans "Launch an Image" %}{% endblock %}
 
 {% block headerjs %}
 <script type="text/javascript" src="/media/django_openstack/js/jquery.form.js"></script>
@@ -10,8 +11,8 @@
 {% block content %}
   <div id="right_content">
     <div id="page_head">
-      <h2 id="page_heading">Images</h2>
-      <p id="page_description">Images are snapshots of running systems which can easily be deployed to run one or more instances.</p>
+      <h2 id="page_heading">{% trans "Images" %}</h2>
+      <p id="page_description">{% trans "Images are snapshots of running systems which can easily be deployed to run one or more instances." %}</p>
     </div>
 
     {% include "django_openstack/_messages.html" %}

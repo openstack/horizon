@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load django_openstack_tags %}
+{% load django_openstack_tags i18n %}
 
 {% block headercss %}
 {% endblock %}
@@ -9,9 +9,10 @@
 
 {% block content %}
   <div id="page_head">
-    <h2>Welcome to the {% site_branding %} Dashboard</h2>
-    <p>Through the {% site_branding %} Dashboard you can manage your cloud
-      through a crisp, clean, and easy to use interface.
+    {%save_site_branding as site_brand%}
+    {%blocktrans%}<h2>Welcome to the {{site_brand}} Dashboard</h2>{%endblocktrans%}
+    <p>{%blocktrans%}Through the {{site_brand}} Dashboard you can manage your cloud
+      through a crisp, clean, and easy to use interface.{%endblocktrans%}
       {% if not request.user.is_authenticated%}To get started
       <a href="{% url registration_register %}">register</a> or sign in below.{% endif %}
     </p>
@@ -36,9 +37,22 @@
     <h3>OpenStack Resources</h3>
     <ul>
       <li><a href="http://openstack.org" target="_blank">OpenStack.org</a></li>
-      <li><a href="http://wiki.openstack.org/OpenStackDashboard" target="_blank">OpenStack Dashboard Wiki</a></li>
-      <li><a href="https://launchpad.net/openstack-dashboard" target="_blank">OpenStack Dashboard Launchpad Repository</a></li>
+      <li><a href="http://wiki.openstack.org/OpenStackDashboard" target="_blank">{% trans "OpenStack Dashboard Wiki"%}</a></li>
+      <li><a href="https://launchpad.net/openstack-dashboard" target="_blank">{% trans "OpenStack Dashboard Launchpad Repository"%}</a></li>
     </ul>
+    <form action="/i18n/setlang/" method="post"> {% csrf_token %}
+      <p><select name="language">
+      {% get_language_info_list for LANGUAGES as languages %}
+      {% for language in languages %}
+          {% if language.code == LANGUAGE_CODE %}
+             <option selected value="{{ language.code }}">{{ language.name_local }} ({{ language.code }})</option>
+          {%else%}
+              <option value="{{ language.code }}">{{ language.name_local }} ({{ language.code }})</option>
+          {%endif%}
+      {% endfor %}
+      </select></p>
+      <input type="submit" value="Select Language" />
+    </form>
   </div>
 
   {% else %}
@@ -48,14 +62,14 @@
         {% csrf_token %}
         <fieldset>
           {% if form.errors %}
-          <p class="error">Your username and password didn't match. Please try again.</p>
+          <p class="error">{% trans "Your username and password didn't match. Please try again." %}</p>
           {% endif %}
           <label for="username">Username:</label><input id="username" type="text" name="username" />
           <label for="password">Password:</label><input id="password" type="password" name="password" />
           <input type="hidden" name="next" value="/" />
           <div class="button">
             <input id="home_login_btn" type="submit" value="Sign In">
-            <span id="forgot_password"><a id="forgot_password_link" href="{% url auth_password_reset %}">Forgot Password?</a></span>
+            <span id="forgot_password"><a id="forgot_password_link" href="{% url auth_password_reset %}">{% trans "Forgot Password?"%}</a></span>
           </div>
         </fieldset>
       </form>
@@ -70,8 +84,8 @@
       <h3>OpenStack Resources</h3>
       <ul>
         <li><a href="http://openstack.org" target="_blank">OpenStack.org</a></li>
-        <li><a href="http://wiki.openstack.org/OpenStackDashboard" target="_blank">OpenStack Dashboard Wiki</a></li>
-        <li><a href="https://launchpad.net/openstack-dashboard" target="_blank">OpenStack Dashboard Launchpad Repository</a></li>
+        <li><a href="http://wiki.openstack.org/OpenStackDashboard" target="_blank">{% trans "OpenStack Dashboard Wiki"%}</a></li>
+        <li><a href="https://launchpad.net/openstack-dashboard" target="_blank">{% trans "OpenStack Dashboard Launchpad Repository"%}</a></li>
       </ul>
     </div>
   {% endif %}
