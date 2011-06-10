@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block headerjs %}
 
@@ -19,9 +20,8 @@
 
 {% block content %}
   <div id="page_description">
-    <h2 class="page_heading">Manage Instances</h2>
-		<p>View all running instances other than VPNs. Schedule instances for
-		reboot or termination. Download logs.</p>
+    <h2 class="page_heading">{% trans "Manage Instances" %}</h2>
+		<p>{% trans "View all running instances other than VPNs. Schedule instances for reboot or termination. Download logs." %}</p>
   </div>
   <div class="message">
     {% if status == "success" %}
@@ -33,7 +33,7 @@
     {% endif %}
   </div>
 	<div class="refresh">
-		<a href="{% url syspanel_instances %}">Refresh List</a>
+		<a href="{% url syspanel_instances %}">{% trans "Refresh List" %}</a>
 	</div>
   <table>
     <tr>
@@ -63,7 +63,7 @@
           <a href="{% url syspanel_instance_terminate instance.id %}">Terminate</a> |
 					<a href="{% url syspanel_instance_restart instance.id %}">Restart</a> |
           <a href="{% url syspanel_instance_console instance.id %}">Nova Log</a> |
-          <a href="logs_console.txt">Console Log</a>
+          <a href="logs_console.txt">{% trans "Console Log" %}</a>
         </td>
       </tr>
       

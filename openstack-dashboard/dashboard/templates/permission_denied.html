@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %} - Permission Denied{% endblock %}
+{% block title %} - {% trans "Permission Denied"%}{% endblock %}
 
 {% block content %}
   <div id="right_content">
     <div id="page_head">
-      <h2 id="page_heading">Permission Denied</h2>
-      <p id="page_description">You do not have permission to view the requested page.</p>
+      <h2 id="page_heading">{% trans "Permission Denied"%}</h2>
+      <p id="page_description">{% trans "You do not have permission to view the requested page."%}</p>
     </div>
   </div>
 {% endblock %}

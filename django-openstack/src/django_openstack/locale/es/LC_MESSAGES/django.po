@@ -1,0 +1,532 @@
+# Translations of Dashboard for OpenStack User Interface.
+# Copyright 2011 Midokura KK
+# This file is distributed under the same license as the Dashboard for OpenStack.
+# FIRST AUTHOR Jeffrey Wilcox, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openstack-dashboard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-08 14:01+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: management/commands/createnovausers.py:31
+msgid "Creates nova users for all users in the django auth database."
+msgstr ""
+
+#: management/commands/createnovausers.py:38
+#, python-format
+msgid "creating user %s... "
+msgstr ""
+
+#: nova/forms.py:64 nova/forms.py:78
+msgid "none available"
+msgstr ""
+
+#: nova/forms.py:182
+#, python-format
+msgid "A key named %s already exists."
+msgstr ""
+
+#: nova/forms.py:196
+#, python-format
+msgid "A security group named %s already exists."
+msgstr ""
+
+#: nova/shortcuts.py:43
+msgid "User not authenticated"
+msgstr ""
+
+#: nova/shortcuts.py:50
+#, python-format
+msgid "Project %s does not exist."
+msgstr ""
+
+#: nova/views/admin.py:96
+#, python-format
+msgid "Successfully started VPN for project %(proj)s."
+msgstr ""
+
+#: nova/views/admin.py:100
+#, python-format
+msgid "Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s"
+msgstr ""
+
+#: nova/views/admin.py:140
+#, python-format
+msgid "Successfully modified the project %(proj)s."
+msgstr ""
+
+#: nova/views/admin.py:145
+#, python-format
+msgid "Unable modify the project %(proj)s: %(code)s - %(msg)s"
+msgstr ""
+
+#: nova/views/images.py:94
+#, python-format
+msgid "Unable to launch: %s"
+msgstr ""
+
+#: nova/views/images.py:106
+#, python-format
+msgid "Instance %s launched."
+msgstr ""
+
+#: nova/views/images.py:157
+#, python-format
+msgid "Unable to deregister image: %s"
+msgstr ""
+
+#: nova/views/images.py:163
+#, python-format
+msgid "Image %s has been successfully deregistered."
+msgstr ""
+
+#: nova/views/images.py:188
+#, python-format
+msgid "Unable to make image private: %s"
+msgstr ""
+
+#: nova/views/images.py:202
+#, python-format
+msgid "Unable to make image public: %s"
+msgstr ""
+
+#: nova/views/images.py:228
+#, python-format
+msgid "Unable to update image: %s"
+msgstr ""
+
+#: nova/views/images.py:231
+#, python-format
+msgid "Image %s has been updated."
+msgstr ""
+
+#: nova/views/instances.py:145
+#, python-format
+msgid "Unable to terminate %(inst)s: %(msg)s"
+msgstr ""
+
+#: nova/views/instances.py:156
+#, python-format
+msgid "Instance %(inst)s has been terminated."
+msgstr ""
+
+#: nova/views/instances.py:220
+#, python-format
+msgid "Unable to update instance %(inst)s: %(msg)s"
+msgstr ""
+
+#: nova/views/instances.py:232
+#, python-format
+msgid "Instance %(inst)s has been updated."
+msgstr ""
+
+#: nova/views/keypairs.py:67
+#, python-format
+msgid "Unable to create key: %s"
+msgstr ""
+
+#: nova/views/keypairs.py:112
+#, python-format
+msgid "Unable to delete key: %s"
+msgstr ""
+
+#: nova/views/keypairs.py:117
+#, python-format
+msgid "Key %s has been successfully deleted."
+msgstr ""
+
+#: nova/views/regions.py:39
+#, python-format
+msgid "You are now using the region \"%s\"."
+msgstr ""
+
+#: nova/views/securitygroups.py:85
+#, python-format
+msgid "Unable to create security group: %s"
+msgstr ""
+
+#: nova/views/securitygroups.py:92
+#, python-format
+msgid "Security Group %s has been succesfully created."
+msgstr ""
+
+#: nova/views/securitygroups.py:125
+#, python-format
+msgid "Unable to authorize: %s"
+msgstr ""
+
+#: nova/views/securitygroups.py:136
+#, python-format
+msgid ""
+"Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has been "
+"authorized."
+msgstr ""
+
+#: nova/views/securitygroups.py:177
+#, python-format
+msgid "Unable to revoke: %s"
+msgstr ""
+
+#: nova/views/securitygroups.py:186
+#, python-format
+msgid ""
+"Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has been "
+"revoked."
+msgstr ""
+
+#: nova/views/securitygroups.py:210
+#, python-format
+msgid "Unable to delete security group: %s"
+msgstr ""
+
+#: nova/views/securitygroups.py:215
+#, python-format
+msgid "Security Group %s was successfully deleted."
+msgstr ""
+
+#: nova/views/volumes.py:69
+#, python-format
+msgid "Unable to create volume: %s"
+msgstr ""
+
+#: nova/views/volumes.py:77
+#, python-format
+msgid "Volume %(id)s %(name)s has been successfully created."
+msgstr ""
+
+#: nova/views/volumes.py:108
+#, python-format
+msgid "Unable to delete volume: %s"
+msgstr ""
+
+#: nova/views/volumes.py:114
+#, python-format
+msgid "Volume %s has been successfully deleted."
+msgstr ""
+
+#: nova/views/volumes.py:138
+#, python-format
+msgid "Unable to attach volume: %s"
+msgstr ""
+
+#: nova/views/volumes.py:145
+#, python-format
+msgid ""
+"Volume %s is scheduled to be attached.  If it doesn't become attached in two "
+"minutes,  please try again (you may need to specify a different device)."
+msgstr ""
+
+#: nova/views/volumes.py:179
+#, python-format
+msgid "Unable to detach volume: %s"
+msgstr ""
+
+#: nova/views/volumes.py:185
+#, python-format
+msgid "Volume %s has been successfully detached."
+msgstr ""
+
+#: templates/admin/django_openstack/nova/project/delete_project.html:13
+msgid "Delete Project"
+msgstr ""
+
+#: templates/admin/django_openstack/nova/project/delete_project.html:14
+msgid "Do you really want to delete this project?<"
+msgstr ""
+
+#: templates/admin/django_openstack/nova/project/delete_project_user.html:8
+msgid "Delete"
+msgstr ""
+
+#: templates/admin/django_openstack/nova/project/delete_project_user.html:13
+#: templates/admin/django_openstack/nova/project/project_user.html:67
+msgid "Remove User From Project"
+msgstr ""
+
+#: templates/admin/django_openstack/nova/project/delete_project_user.html:14
+msgid "Do you really want to remove this user from project?"
+msgstr ""
+
+#: templates/admin/django_openstack/nova/project/send_credentials.html:46
+#: templates/admin/django_openstack/nova/project/send_credentials.html:81
+msgid "Send Credentials"
+msgstr ""
+
+#: templates/admin/django_openstack/nova/project/send_credentials.html:47
+#, python-format
+msgid ""
+"\"Select which users you would like to send credentials to from the "
+"'%(proj)s' project.\""
+msgstr ""
+
+#: templates/admin/django_openstack/nova/project/send_credentials.html:49
+msgid "Credentials sent successfully"
+msgstr ""
+
+#: templates/django_openstack/nova/credentials/expired.html:6
+msgid "Expired Token"
+msgstr ""
+
+#: templates/django_openstack/nova/credentials/expired.html:10
+msgid "The link you clicked has expired."
+msgstr ""
+
+#: templates/django_openstack/nova/credentials/expired.html:12
+#, python-format
+msgid ""
+"This credentials download link you have reached\n"
+"      is either invalid or has expired. Each link is only good for one use. "
+"If\n"
+"      you need to download your credentials again, please contact the\n"
+"      %(brand)s support team."
+msgstr ""
+
+#: templates/django_openstack/nova/images/_list.html:70
+msgid "Make Private"
+msgstr ""
+
+#: templates/django_openstack/nova/images/_list.html:72
+msgid "Make Public"
+msgstr ""
+
+#: templates/django_openstack/nova/images/_list.html:80
+msgid "Remove Image"
+msgstr ""
+
+#: templates/django_openstack/nova/images/_list.html:110
+msgid "No images currently available."
+msgstr ""
+
+#: templates/django_openstack/nova/images/edit.html:13
+msgid "Edit Image"
+msgstr ""
+
+#: templates/django_openstack/nova/images/edit.html:14
+msgid ""
+"From this page you can edit the name and description of an image that "
+"belongs to you."
+msgstr ""
+
+#: templates/django_openstack/nova/images/edit.html:18
+msgid "Edit Image:"
+msgstr ""
+
+#: templates/django_openstack/nova/images/edit.html:29
+msgid "Update Image"
+msgstr ""
+
+#: templates/django_openstack/nova/images/index.html:4
+msgid "Launch an Image"
+msgstr ""
+
+#: templates/django_openstack/nova/images/index.html:14
+msgid "Images"
+msgstr ""
+
+#: templates/django_openstack/nova/images/index.html:15
+msgid ""
+"Images are snapshots of running systems which can easily be deployed to run "
+"one or more instances."
+msgstr ""
+
+#: templates/django_openstack/nova/images/launch.html:13
+#: templates/django_openstack/nova/images/launch.html:21
+msgid "Launch Image"
+msgstr ""
+
+#: templates/django_openstack/nova/images/launch.html:14
+msgid ""
+"You can launch up to five instances of an image at a time. Some images allow "
+"for custom configuration to be passed in via User data."
+msgstr ""
+
+#: templates/django_openstack/nova/images/launch.html:23
+msgid "Location"
+msgstr ""
+
+#: templates/django_openstack/nova/instances/_instances_list.html:102
+msgid ""
+"No instances are currently running. You may start a new instance from the"
+msgstr ""
+
+#: templates/django_openstack/nova/instances/detail_list.html:10
+msgid "Instance ID:"
+msgstr ""
+
+#: templates/django_openstack/nova/instances/detail_list.html:11
+msgid "Here you can see up to the minute performance data about your instance."
+msgstr ""
+
+#: templates/django_openstack/nova/instances/detail_list.html:18
+#: templates/django_openstack/nova/instances/edit.html:18
+msgid "Edit Instance:"
+msgstr ""
+
+#: templates/django_openstack/nova/instances/detail_list.html:29
+#: templates/django_openstack/nova/instances/edit.html:29
+msgid "Update Instance"
+msgstr ""
+
+#: templates/django_openstack/nova/instances/edit.html:13
+msgid "Edit Instance"
+msgstr ""
+
+#: templates/django_openstack/nova/instances/edit.html:14
+msgid ""
+"From this page you can give your instance an alias, so you don't have to "
+"remember its unique id."
+msgstr ""
+
+#: templates/django_openstack/nova/instances/index.html:11
+msgid "Instances"
+msgstr ""
+
+#: templates/django_openstack/nova/instances/index.html:12
+msgid ""
+"Instances are virtual servers launched from images. You can launch instances "
+"from the"
+msgstr ""
+
+#: templates/django_openstack/nova/instances/index.html:22
+msgid "Are you sure you wish to terminate instance"
+msgstr ""
+
+#: templates/django_openstack/nova/instances/index.html:26
+msgid ""
+"A connection error has occurred. Please ensure you are still connected to "
+"VPN."
+msgstr ""
+
+#: templates/django_openstack/nova/instances/performance.html:10
+#, python-format
+msgid "Instance ID: %(instance.id)s Performance\" "
+msgstr ""
+
+#: templates/django_openstack/nova/keypairs/_list.html:28
+msgid "No key pairs currently exist."
+msgstr ""
+
+#: templates/django_openstack/nova/keypairs/index.html:13
+msgid "Keys"
+msgstr ""
+
+#: templates/django_openstack/nova/keypairs/index.html:14
+msgid ""
+"Key pairs are ssh credentials which are injected into images when they are "
+"launched. Creating a new key pair registers the public key and downloads the "
+"private key (a pem file). <em>Protect and use the key as a normal private "
+"key.</em>"
+msgstr ""
+
+#: templates/django_openstack/nova/keypairs/index.html:36
+msgid "Are you sure you wish to delete key"
+msgstr ""
+
+#: templates/django_openstack/nova/projects/edit_user.html:24
+msgid "Edit User Roles"
+msgstr ""
+
+#: templates/django_openstack/nova/projects/edit_user.html:25
+msgid "From here you can edit multiple user roles."
+msgstr ""
+
+#: templates/django_openstack/nova/projects/edit_user.html:35
+msgid "Edit Roles for User:"
+msgstr ""
+
+#: templates/django_openstack/nova/projects/edit_user.html:67
+#: templates/django_openstack/nova/projects/manage.html:39
+msgid "No users are currently associated with this project."
+msgstr ""
+
+#: templates/django_openstack/nova/projects/index.html:14
+#, python-format
+msgid ""
+"Welcome to the <span>%(proj)s</span> Overview.  From here you can manage "
+"your instances, images, keys, and security groups."
+msgstr ""
+
+#: templates/django_openstack/nova/projects/index.html:15
+msgid ""
+"To get started using the command line management tools, you can <a target="
+"\"_blank\" href=\"http://open.eucalyptus.com/wiki/"
+"Euca2oolsGuide_v1.1\">download euca2ools</a> and use them with your x509 "
+"credentials."
+msgstr ""
+
+#: templates/django_openstack/nova/projects/index.html:21
+msgid "Generate X509 credentials."
+msgstr ""
+
+#: templates/django_openstack/nova/projects/index.html:22
+msgid "View Instances"
+msgstr ""
+
+#: templates/django_openstack/nova/projects/index.html:23
+msgid "View Images."
+msgstr ""
+
+#: templates/django_openstack/nova/projects/manage.html:8
+msgid "Manage Users and Roles"
+msgstr ""
+
+#: templates/django_openstack/nova/projects/manage.html:9
+msgid "From here you can manage users and roles."
+msgstr ""
+
+#: templates/django_openstack/nova/securitygroups/detail.html:19
+#, python-format
+msgid " Security Group: %(securitygroup.name)s "
+msgstr ""
+
+#: templates/django_openstack/nova/securitygroups/detail.html:20
+msgid ""
+"Add and remove protocols to the security group by authorizing and revoking "
+"port forwarding. For instance<br /> [tcp, 80, 80] will allow access to HTTP "
+"from devices outside this security group."
+msgstr ""
+
+#: templates/django_openstack/nova/securitygroups/index.html:19
+msgid "Security Groups"
+msgstr ""
+
+#: templates/django_openstack/nova/securitygroups/index.html:20
+msgid ""
+"Security groups are firewall rules which allow access to your instances from "
+"other groups as well as the internet.  All ports/protocols are denied by "
+"default."
+msgstr ""
+
+#: templates/django_openstack/nova/volumes/index.html:8
+msgid "Volumes"
+msgstr ""
+
+#: templates/django_openstack/nova/volumes/index.html:9
+msgid ""
+"Volumes provide persistent block storage. Creating a new volume gives you a "
+"raw block device which you may format with your choice of filesystems (ext3 "
+"is recommended). A volume may only be attached to a single instance at a "
+"time."
+msgstr ""
+
+#: templates/django_openstack/nova/volumes/index.html:59
+msgid "No volumes currently exist."
+msgstr ""
+
+#: templates/django_openstack/nova/volumes/index.html:68
+msgid "Create New Volume"
+msgstr ""
+
+#: templates/django_openstack/nova/volumes/index.html:79
+msgid "Attach Volume"
+msgstr ""

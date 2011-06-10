@@ -1,4 +1,5 @@
 {% extends "django_openstack/nova/instances/base.html" %}
+{% load i18n %}
 
 {% block title %} - Cloud Computing{% endblock %}
 
@@ -9,12 +10,12 @@
 {% block content %}
 <div id="right_content">
   <div id="page_head">
-    <h2 id="page_heading">Edit Instance</h2>
-    <p id="page_description">From this page you can give your instance an alias, so you don't have to remember its unique id.</p>
+    <h2 id="page_heading">{% trans "Edit Instance" %}</h2>
+    <p id="page_description">{% trans "From this page you can give your instance an alias, so you don't have to remember its unique id." %}</p>
   </div>
 
   <div class="dash_block first">
-    <h3 class="image_id">Edit Instance: {{ instance.id }}</h3>
+    <h3 class="image_id">{% trans "Edit Instance:" %} {{ instance.id }}</h3>
 
     <form class="edit_instance" id="rename_{{ selected_instance.id }}" action="{% url nova_instance_update project.projectname instance.id %}" method="post">
       <fieldset>
@@ -25,7 +26,7 @@
           {% if field.errors %}{{ field.errors }}{% endif %}
           {{ field }}
         {% endfor %}
-        <input type="submit" value="Update Instance" />
+        <input type="submit" value="{% trans "Update Instance" %}" />
       </fieldset>
     </form>
   </div>

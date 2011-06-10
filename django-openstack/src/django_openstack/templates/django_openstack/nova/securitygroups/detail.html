@@ -1,4 +1,5 @@
 {% extends "django_openstack/nova/securitygroups/base.html" %}
+{% load i18n %}
 
 {% block title %} - Cloud Computing{% endblock %}
 
@@ -15,8 +16,8 @@
       </ul>
       <div id="right_content">
         <div id="page_head">
-          <h2>Security Group: {{ securitygroup.name }}</h2>
-          <p>Add and remove protocols to the security group by authorizing and revoking port forwarding. For instance<br /> [tcp, 80, 80] will allow access to HTTP from devices outside this security group.</p>
+          <h2>{% blocktrans %} Security Group: {{ securitygroup.name }} {%endblocktrans%}</h2>
+          <p>{% trans "Add and remove protocols to the security group by authorizing and revoking port forwarding. For instance<br /> [tcp, 80, 80] will allow access to HTTP from devices outside this security group."%}</p>
         </div>
 
         {% include "django_openstack/_messages.html" %}

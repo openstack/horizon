@@ -1,4 +1,5 @@
 {% extends "django_openstack/nova/securitygroups/base.html" %}
+{% load i18n %}
 
 {% block title %} - Cloud Computing{% endblock %}
 
@@ -15,8 +16,8 @@
       </ul>
      <div id="right_content">
        <div id="page_head">
-         <h2 id="page_heading">Security Groups</h2>
-         <p id="page_description">Security groups are firewall rules which allow access to your instances from other groups as well as the internet.  All ports/protocols are denied by default.</p>
+         <h2 id="page_heading">{% trans "Security Groups" %}</h2>
+         <p id="page_description">{% trans "Security groups are firewall rules which allow access to your instances from other groups as well as the internet.  All ports/protocols are denied by default." %}</p>
        </div>
 
        {% include "django_openstack/_messages.html" %}

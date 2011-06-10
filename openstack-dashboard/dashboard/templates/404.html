@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %} - Page Not Found{% endblock %}
+{% block title %} - {% trans "Page Not Found" %}{% endblock %}
 
 {% block content %}
   <div id="right_content">
     <div id="page_head">
-      <h2 id="page_heading">The page you were looking for doesn't exist</h2>
-      <p id="page_description">You may have mistyped the address or the page may have moved.</p>
+      <h2 id="page_heading">{% trans "The page you were looking for doesn't exist"%}</h2>
+      <p id="page_description">{% trans "You may have mistyped the address or the page may have moved."%}</p>
     </div>
   </div>
 {% endblock %}

@@ -1,16 +1,17 @@
 {% extends "admin/change_list.html" %}
+{% load i18n %}
 
 {% block extrastyle %}
     {{block.super}}
     <link rel="stylesheet" type="text/css" href="{{settings.MEDIA_URL}}/stylesheets/extra_admin.css" />
 {% endblock %}
-{% block breadcrumbs %}<div class="breadcrumbs"><a href="/admin/">Home</a>&nbsp;&rsaquo;&nbsp;<a href="/admin/projects">Projects</a>&nbsp;&rsaquo;&nbsp; <a href="{% url admin_project project.projectname %}">{{project.projectname}}</a>&nbsp;&rsaquo;&nbsp;Delete</div>{% endblock %}
+{% block breadcrumbs %}<div class="breadcrumbs"><a href="/admin/">Home</a>&nbsp;&rsaquo;&nbsp;<a href="/admin/projects">Projects</a>&nbsp;&rsaquo;&nbsp; <a href="{% url admin_project project.projectname %}">{{project.projectname}}</a>&nbsp;&rsaquo;&nbsp;{% trans "Delete"%}</div>{% endblock %}
 {% block content %}
     <div id="content-main">
         <div class="module filtered" id="changelist">
             <div id="toolbartable">
-              <h1>Remove User From Project</h1>
-              <p>Do you really want to remove this user from project?</p>
+              <h1>{% trans "Remove User From Project" %}</h1>
+              <p>{% trans "Do you really want to remove this user from project?" %}</p>
               <ul>
                 <li><a href="{% url project_user project.projectname user.username %}">{{user.username}}</a> from <a href="{% url admin_project project.projectname %}">{{project.projectname}}</a></li>
               </ul>
