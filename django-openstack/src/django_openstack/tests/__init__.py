@@ -1,3 +1,3 @@
 from django_openstack.nova.tests import *
 
-from test_models import *
+from django_openstack.tests.test_models import *

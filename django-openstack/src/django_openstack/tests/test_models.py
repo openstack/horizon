@@ -1,19 +1,20 @@
-from django import test
-from django.conf import settings
-from django_openstack import models as nova_models
-from django_openstack.core import connection
-from nova_adminclient import NovaAdminClient
-
 import datetime
 import hashlib
 import mox
 import random
 
+from django import test
+from django.conf import settings
+from django_openstack import models as nova_models
+from django_openstack import utils
+from django_openstack.core import connection
+from nova_adminclient import NovaAdminClient
+
 
 TEST_USER = 'testUser'
 TEST_PROJECT = 'testProject'
 TEST_AUTH_TOKEN = hashlib.sha1('').hexdigest()
-TEST_AUTH_DATE = datetime.datetime.now()
+TEST_AUTH_DATE = utils.utcnow()
 TEST_BAD_AUTH_TOKEN = 'badToken'
 
 HOUR = datetime.timedelta(seconds=3600)
@@ -23,12 +24,12 @@ AUTH_EXPIRATION_LENGTH = \
 
 class CredentialsAuthorizationTests(test.TestCase):
     def setUp(self):
-        testCred = nova_models.CredentialsAuthorization()
-        testCred.username = TEST_USER
-        testCred.project = TEST_PROJECT
-        testCred.auth_date = TEST_AUTH_DATE
-        testCred.auth_token = TEST_AUTH_TOKEN
-        testCred.save()
+        test_cred = nova_models.CredentialsAuthorization()
+        test_cred.username = TEST_USER
+        test_cred.project = TEST_PROJECT
+        test_cred.auth_date = TEST_AUTH_DATE
+        test_cred.auth_token = TEST_AUTH_TOKEN
+        test_cred.save()
 
         badTestCred = nova_models.CredentialsAuthorization()
         badTestCred.username = TEST_USER
@@ -61,7 +62,7 @@ class CredentialsAuthorizationTests(test.TestCase):
         self.assertTrue(cred is not None)
 
         # Expire the token
-        cred.auth_date = datetime.datetime.now() - AUTH_EXPIRATION_LENGTH \
+        cred.auth_date = utils.utcnow() - AUTH_EXPIRATION_LENGTH \
                                                  - HOUR
         cred.save()
 
@@ -111,30 +112,22 @@ class CredentialsAuthorizationTests(test.TestCase):
         cred = \
             nova_models.CredentialsAuthorization.get_by_token(TEST_AUTH_TOKEN)
 
-        cred.auth_date = datetime.datetime.now() - AUTH_EXPIRATION_LENGTH \
+        cred.auth_date = utils.utcnow() - AUTH_EXPIRATION_LENGTH \
                                                  - HOUR
         self.assertTrue(cred.auth_token_expired())
 
-        cred.auth_date = datetime.datetime.now()
+        cred.auth_date = utils.utcnow()
 
         self.assertFalse(cred.auth_token_expired())
 
         # testing with time is tricky. Mock out "right now" test to avoid
         # timing issues
-        time = datetime.datetime.now()
+        time = utils.utcnow.override_time = utils.utcnow()
         cred.auth_date = time - AUTH_EXPIRATION_LENGTH
-
-        datetime_mox = self.mox.CreateMockAnything()
-        self.mox.StubOutWithMock(datetime_mox, 'datetime')
-        datetime_mox.datetime.now.AndReturn(time)
-
-        cred.datetime = datetime_mox
-
-        self.mox.ReplayAll()
 
         self.assertTrue(cred.auth_token_expired())
 
-        self.mox.VerifyAll()
+        utils.utcnow.override_time = None
 
     def test_get_download_url(self):
         cred = \

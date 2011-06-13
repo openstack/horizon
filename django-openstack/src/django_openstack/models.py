@@ -32,6 +32,7 @@ from django.db.models.signals import post_save
 from django.template.loader import render_to_string
 from django_openstack import log as logging
 from django_openstack.core import connection
+from django_openstack import utils
 
 
 LOG = logging.getLogger('django_openstack')
@@ -75,7 +76,7 @@ class CredentialsAuthorization(models.Model):
         expiration_date = datetime.timedelta(
                 days=int(settings.CREDENTIAL_AUTHORIZATION_DAYS))
 
-        return self.auth_date + expiration_date <= datetime.datetime.now()
+        return self.auth_date + expiration_date <= utils.utcnow()
 
     def get_download_url(self):
         return settings.CREDENTIAL_DOWNLOAD_URL + self.auth_token
