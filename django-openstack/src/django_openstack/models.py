@@ -31,7 +31,8 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.template.loader import render_to_string
 from django_openstack import log as logging
-from django_openstack.core.connection import get_nova_admin_connection
+from django_openstack.core import connection
+from django_openstack import utils
 
 
 LOG = logging.getLogger('django_openstack')
@@ -75,13 +76,13 @@ class CredentialsAuthorization(models.Model):
         expiration_date = datetime.timedelta(
                 days=int(settings.CREDENTIAL_AUTHORIZATION_DAYS))
 
-        return self.auth_date + expiration_date <= datetime.datetime.now()
+        return self.auth_date + expiration_date <= utils.utcnow()
 
     def get_download_url(self):
         return settings.CREDENTIAL_DOWNLOAD_URL + self.auth_token
 
     def get_zip(self):
-        nova = get_nova_admin_connection()
+        nova = connection.get_nova_admin_connection()
         self.delete()
         return nova.get_zip(self.username, self.project)
 
@@ -118,11 +119,11 @@ def user_post_save(sender, instance, created, *args, **kwargs):
     """
 
     # NOTE(devcamcar): If running unit tests, don't use a real endpoint.
-    if settings.NOVA_DEFAULT_ENDPOINT == 'none':
+    if settings.NOVA_DEFAULT_ENDPOINT is None:
         return
 
     if created:
-        nova = get_nova_admin_connection()
+        nova = connection.get_nova_admin_connection()
         if not nova.has_user(instance.username):
             nova.create_user(instance.username)
             LOG.info('User "%s" created in Nova' % instance.username)
