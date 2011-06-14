@@ -91,9 +91,6 @@ def credentials_post_save(sender, instance, created, *args, **kwargs):
     """
     Creates a Nova User when a new Django User is created.
     """
-    if settings.NOVA_DEFAULT_ENDPOINT is None:
-        return
-
     if created:
         site = site_models.Site.objects.get_current()
         user = auth_models.User.objects.get(username=instance.username)

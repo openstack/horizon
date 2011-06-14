@@ -5,6 +5,7 @@ import random
 
 from django import test
 from django.conf import settings
+from django.db.models.signals import post_save
 from django_openstack import models as nova_models
 from django_openstack import utils
 from django_openstack.core import connection
@@ -23,6 +24,15 @@ AUTH_EXPIRATION_LENGTH = \
 
 
 class CredentialsAuthorizationTests(test.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # these post_save methods interact with external resources, shut them
+        # down to test credentials
+        post_save.disconnect(sender=nova_models.CredentialsAuthorization,
+            dispatch_uid='django_openstack.CredentialsAuthorization.post_save')
+        post_save.disconnect(sender=nova_models.CredentialsAuthorization,
+                dispatch_uid='django_openstack.User.post_save')
+
     def setUp(self):
         test_cred = nova_models.CredentialsAuthorization()
         test_cred.username = TEST_USER
