@@ -97,9 +97,9 @@ class CredentialsAuthorizationTests(test.TestCase):
         self.mox.VerifyAll()
 
         self.assertTrue(cred is not None)
-        self.assertTrue(cred.username == TEST_USER2)
-        self.assertTrue(cred.project == TEST_PROJECT)
-        self.assertTrue(cred.auth_token == TEST_AUTH_TOKEN_2)
+        self.assertEqual(cred.username, TEST_USER2)
+        self.assertEqual(cred.project, TEST_PROJECT)
+        self.assertEqual(cred.auth_token, TEST_AUTH_TOKEN_2)
         self.assertFalse(cred.auth_token_expired())
 
         cred = cred_class.get_by_token(TEST_AUTH_TOKEN_2)
