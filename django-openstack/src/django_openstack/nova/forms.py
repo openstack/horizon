@@ -26,7 +26,6 @@ from django import forms
 from django.contrib.auth import models as auth_models
 from django.utils.translation import ugettext as _
 
-from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova.exceptions import wrap_nova_error
 
 
@@ -86,44 +85,6 @@ def get_protocols():
     )
 
 
-@wrap_nova_error
-def get_roles(project_roles=True):
-    nova = get_nova_admin_connection()
-    roles = nova.get_roles(project_roles=project_roles)
-    return [(role.role, role.role) for role in roles]
-
-
-@wrap_nova_error
-def get_members(project):
-    nova = get_nova_admin_connection()
-    members = nova.get_project_members(project)
-    return [str(user.memberId) for user in members]
-
-
-@wrap_nova_error
-def set_project_roles(projectname, username, roles):
-    nova = get_nova_admin_connection()
-    # hacky work around to interface correctly with multiple select form
-    _remove_roles(projectname, username)
-
-    for role in roles:
-        nova.add_user_role(username, str(role), projectname)
-
-
-def _remove_roles(project, username):
-    nova = get_nova_admin_connection()
-    userroles = nova.get_user_roles(username,  project)
-    roles = [str(role.role) for role in userroles]
-
-    for role in roles:
-        if role == "developer":
-            nova.remove_user_role(username, "developer", project)
-        if role == "sysadmin":
-            nova.remove_user_role(username, "sysadmin", project)
-        if role == "netadmin":
-            nova.remove_user_role(username, "netadmin", project)
-
-
 class ProjectFormBase(forms.Form):
     def __init__(self, project, *args, **kwargs):
         self.project = project
@@ -171,39 +132,6 @@ class UpdateImageForm(forms.Form):
         self.fields['description'].initial = image.description
 
 
-class CreateKeyPairForm(ProjectFormBase):
-    name = forms.RegexField(regex=alphanumeric_re)
-
-    def clean_name(self):
-        name = self.cleaned_data['name']
-
-        if self.project.has_key_pair(name):
-            raise forms.ValidationError(
-                    _('A key named %s already exists.') % name)
-
-        return name
-
-
-class CreateSecurityGroupForm(ProjectFormBase):
-    name = forms.RegexField(regex=alphanumeric_re)
-    description = forms.CharField()
-
-    def clean_name(self):
-        name = self.cleaned_data['name']
-
-        if self.project.has_security_group(name):
-            raise forms.ValidationError(
-                    _('A security group named %s already exists.') % name)
-
-        return name
-
-
-class AuthorizeSecurityGroupRuleForm(forms.Form):
-    protocol = forms.ChoiceField(choices=get_protocols())
-    from_port = forms.IntegerField(min_value=1, max_value=65535)
-    to_port = forms.IntegerField(min_value=1, max_value=65535)
-
-
 class CreateVolumeForm(forms.Form):
     size = forms.IntegerField(label='Size (in GB)',
                               min_value=1,
@@ -221,61 +149,3 @@ class AttachVolumeForm(ProjectFormBase):
         super(AttachVolumeForm, self).__init__(project, *args, **kwargs)
         self.fields['volume'].choices = get_available_volume_choices(project)
         self.fields['instance'].choices = get_instance_choices(project)
-
-
-class ProjectForm(forms.Form):
-    projectname = forms.CharField(label="Project Name", max_length=20)
-    description = forms.CharField(label="Description",
-                                  widget=forms.widgets.Textarea())
-    manager = forms.ModelChoiceField(queryset=auth_models.User.objects.all(),
-                                     label="Project Manager")
-
-
-class GlobalRolesForm(forms.Form):
-    role = forms.MultipleChoiceField(label='Roles', required=False)
-
-    def __init__(self, *args, **kwargs):
-        super(GlobalRolesForm, self).__init__(*args, **kwargs)
-        self.fields['role'].choices = get_roles(project_roles=False)
-
-
-class ProjectUserForm(forms.Form):
-    role = forms.MultipleChoiceField(label='Roles', required=False)
-
-    def __init__(self, project, user, *args, **kwargs):
-        super(ProjectUserForm, self).__init__(*args, **kwargs)
-        self.project = project
-        self.user = user
-        self.fields['role'].choices = get_roles()
-
-    def save(self):
-        set_project_roles(self.project.projectname,
-                          self.user.username,
-                          self.cleaned_data['role'])
-
-
-class AddProjectUserForm(forms.Form):
-    username = forms.ModelChoiceField(queryset='',
-                                      label='Username',
-                                      empty_label='Select a Username')
-    role = forms.MultipleChoiceField(label='Roles')
-
-    def __init__(self, *args, **kwargs):
-        project = kwargs.pop('project')
-        super(AddProjectUserForm, self).__init__(*args, **kwargs)
-        members = get_members(project)
-
-        self.fields['username'].queryset = \
-                auth_models.User.objects.exclude(username__in=members)
-        self.fields['role'].choices = get_roles()
-
-
-class SendCredentialsForm(forms.Form):
-    users = forms.MultipleChoiceField(label='Users', required=True)
-
-    def __init__(self, *args, **kwargs):
-        query_list = kwargs.pop('query_list')
-        super(SendCredentialsForm, self).__init__(*args, **kwargs)
-
-        self.fields['users'].choices = \
-            [(choices, choices) for choices in query_list]

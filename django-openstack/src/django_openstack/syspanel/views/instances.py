@@ -5,8 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.utils.translation import ugettext as _
 
-from django_nova_syspanel.models import *
-
 
 def _reservations_to_instances(reservation_list):
     rv = []

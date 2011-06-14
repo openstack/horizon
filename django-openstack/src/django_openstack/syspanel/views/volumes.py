@@ -6,8 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
 
-from django_nova_syspanel.models import *
-
 
 @login_required
 def index(request):

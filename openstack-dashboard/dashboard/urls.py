@@ -33,17 +33,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.index', name='index'),
     url(r'^i18n/setlang', django.views.i18n.set_language),
-    url(r'^accounts/register/$',
-        'registration.views.register',
-        {'form_class': reg_forms.RegistrationFormUniqueEmail},
-        name='registration_register'),
-    url(r'^accounts/', include('registration.urls')),
     url(r'^project/', include('django_openstack.nova.urls.project')),
-    url(r'^region/', include('django_openstack.nova.urls.region')),
-    url(r'^admin/project/', include('django_openstack.nova.urls.admin_project')),
-    url(r'^admin/roles/', include('django_openstack.nova.urls.admin_roles')),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^syspanel/', include('django_nova_syspanel.urls')),
+    url(r'^syspanel/', include('django_openstack.syspanel.urls')),
 )
 
 urlpatterns += patterns('',

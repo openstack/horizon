@@ -21,14 +21,13 @@ URL patterns for testing django-openstack views.
 """
 
 from django.conf.urls.defaults import *
-from django.conf.urls.defaults import *
 
 
 urlpatterns = patterns('',
     url(r'^projects/', include('django_openstack.nova.urls.project')),
     url(r'^region/', include('django_openstack.nova.urls.region')),
-    url(r'^admin/projects/', include('django_openstack.nova.urls.admin_project')),
-    url(r'^admin/roles/', include('django_openstack.nova.urls.admin_roles')),
+    #url(r'^admin/projects/', include('django_openstack.nova.urls.admin_project')),
+    #url(r'^admin/roles/', include('django_openstack.nova.urls.admin_roles')),
     url(r'^credentials/download/(?P<auth_token>\w+)/$',
         'django_openstack.nova.views.credentials.authorize_credentials',
         name='nova_credentials_authorize'),

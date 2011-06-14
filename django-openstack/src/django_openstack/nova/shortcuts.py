@@ -26,7 +26,6 @@ from django.core.exceptions import PermissionDenied
 from django.http import Http404
 from django.utils.translation import ugettext as _
 
-from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova import manager
 from django_openstack.nova.exceptions import wrap_nova_error
 

@@ -24,7 +24,6 @@ import boto.ec2.volume
 import boto.exception
 import boto.s3
 from django.conf import settings
-from django_openstack.core.connection import get_nova_admin_connection
 from django_openstack.nova.exceptions import wrap_nova_error
 
 

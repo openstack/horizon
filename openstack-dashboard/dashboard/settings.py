@@ -70,7 +70,7 @@ INSTALLED_APPS = (
     'django_openstack',
     'django_openstack.nova',
     'django_openstack.templatetags',
-    'django_nova_syspanel',
+    'django_openstack.syspanel',
     'registration',
 )
 

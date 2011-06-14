@@ -3,7 +3,6 @@ from django import template
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
-from django_nova_syspanel.models import get_nova_admin_connection
 
 
 @login_required

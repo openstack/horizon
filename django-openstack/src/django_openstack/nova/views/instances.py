@@ -20,6 +20,8 @@
 Views for managing Nova instances.
 """
 
+import logging
+
 from django import http
 from django import template
 from django.conf import settings
@@ -27,7 +29,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
-from django_openstack import log as logging
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms as nova_forms
 from django_openstack.nova import shortcuts
