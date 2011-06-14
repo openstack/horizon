@@ -57,8 +57,6 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'dashboard',
-    'django.contrib.auth',
-    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',

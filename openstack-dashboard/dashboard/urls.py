@@ -32,6 +32,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.index', name='index'),
+    url(r'^login$', 'dashboard.views.index', name='auth_login'),
     url(r'^i18n/setlang', django.views.i18n.set_language),
     url(r'^project/', include('django_openstack.nova.urls.project')),
     url(r'^syspanel/', include('django_openstack.syspanel.urls')),

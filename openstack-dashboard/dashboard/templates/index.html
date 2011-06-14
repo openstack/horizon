@@ -13,8 +13,7 @@
     {%blocktrans%}<h2>Welcome to the {{site_brand}} Dashboard</h2>{%endblocktrans%}
     <p>{%blocktrans%}Through the {{site_brand}} Dashboard you can manage your cloud
       through a crisp, clean, and easy to use interface.{%endblocktrans%}
-      {% if not request.user.is_authenticated%}To get started
-      <a href="{% url registration_register %}">register</a> or sign in below.{% endif %}
+      {% if not request.user.is_authenticated%}To get started sign in below.{% endif %}
     </p>
   </div>
 
@@ -69,17 +68,10 @@
           <input type="hidden" name="next" value="/" />
           <div class="button">
             <input id="home_login_btn" type="submit" value="Sign In">
-            <span id="forgot_password"><a id="forgot_password_link" href="{% url auth_password_reset %}">{% trans "Forgot Password?"%}</a></span>
           </div>
         </fieldset>
       </form>
     </div>
-    {% if not request.user.is_authenticated %}
-      <div class="home_block">
-        <h3>Don't have an account?</h3><br/>
-        <a id="lnk_register" href="{% url registration_register %}">Register</a>
-      </div>
-    {% endif %}
     <div class="home_block">
       <h3>OpenStack Resources</h3>
       <ul>
