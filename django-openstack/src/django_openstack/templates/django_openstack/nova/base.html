@@ -1,7 +1,5 @@
 {% extends "base-sidebar.html" %}
 {% load i18n %}
-{% load region_tags %}
-{% load project_tags %}
 
 {% block headerjs %}
 {{ block.super }}
@@ -9,7 +7,6 @@
 
 {# % block region %}
   <div id="region_selector">
-    {% load_regions %}
     <span id="project_name"><strong>Project:</strong> {{ project.projectname }}</span>
 
     <form id="frm_region" method="post" action="{% url region_change %}">
