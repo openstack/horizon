@@ -39,9 +39,7 @@ LOG = logging.getLogger('django_openstack.nova')
 @login_required
 @handle_nova_error
 def detail(request, tenant_id):
-    #tenant = api.account_api(request).tenants.get(request.user.tenant)
-    tenant = {'id': request.user.tenant,
-              'description': None}
+    tenant = api.get_tenant(request, request.user.tenant)
     instances = api.compute_api(request).servers.list()
 
     return render_to_response(
@@ -76,52 +74,3 @@ def manage(request, project_id):
         {'project': project,
          'members': members},
         context_instance=template.RequestContext(request))
-
-
-@login_required
-@handle_nova_error
-def edit_user(request, project_id, username):
-    nova = get_nova_admin_connection()
-    project = get_project_or_404(request, project_id)
-    user = nova.get_user(username)
-    userroles = nova.get_user_roles(username, project_id)
-
-    if project.projectManagerId != request.user.username:
-        return redirect('login')
-
-    if request.method == 'POST':
-        form = nova_forms.ProjectUserForm(project, user, request.POST)
-        if form.is_valid():
-            form.save()
-            LOG.info('Roles for user "%s" on project "%s" changed to "%s' %
-                     (str(user), project_id,
-                      ",".join(form.cleaned_data['role'])))
-
-            return redirect('nova_project_manage',  project_id)
-    else:
-        roles = [str(role.role) for role in userroles]
-        form = nova_forms.ProjectUserForm(project,
-                                          user,
-                                          {'role': roles,
-                                           'user': user})
-
-    return render_to_response(
-        'django_openstack/nova/projects/edit_user.html',
-        {'form': form,
-         'project': project,
-         'user': user},
-        context_instance=template.RequestContext(request))
-
-
-@login_required
-@handle_nova_error
-def download_credentials(request, project_id):
-    project = get_project_or_404(request, project_id)
-
-    response = http.HttpResponse(mimetype='application/zip')
-    response['Content-Disposition'] = \
-        'attachment; filename=%s-%s-%s-x509.zip' % \
-        (settings.SITE_NAME, project.projectname, request.user)
-    response.write(project.get_zip())
-
-    return response

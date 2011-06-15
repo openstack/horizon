@@ -20,7 +20,7 @@
     <div id="wrapper">
       <div id="header">
         <h1><a href="/">{% site_branding %}<span> Cloud Computing</span></a></h1>
-        {% if user.is_authenticated %}
+        {% if request.user.is_authenticated %}
           <div id="user_info">
               <span class="user">{% trans "Signed in as" %} <strong>{{ request.user.username }}</strong>.</span>
             <ul>

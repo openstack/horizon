@@ -30,7 +30,7 @@ def token(request):
 
             except api_exceptions.Unauthorized as e:
                 messages.error(request, 'Error authenticating: %s' % e.message)
-    return redirect('index')
+    return shortcuts.redirect('index')
 
 
 def switch_tenants(request, tenant_id):

@@ -1,7 +1,7 @@
 {% extends "django_openstack/nova/instances/base.html" %}
 {% load i18n %}
 
-{% block title %} - {{ project.projectname|capfirst }} Instances{% endblock %}
+{% block title %} - {{ tenant.id|capfirst }} Instances{% endblock %}
 {% block pageclass %}instances{% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
     <div id="spinner"></div>
 
     <h2 id="page_heading">{% trans "Instances" %}</h2>
-    <p id="page_description">{% trans "Instances are virtual servers launched from images. You can launch instances from the" %} <a href="{% url nova_images project.projectname %}">images tab</a>.</p>
+    <p id="page_description">{% trans "Instances are virtual servers launched from images. You can launch instances from the" %} <a href="{% url nova_images tenant.id %}">images tab</a>.</p>
   </div>
 
   {% include "django_openstack/_messages.html" %}
@@ -35,9 +35,9 @@
     setInterval(function() {
       $('#spinner').show();
       {% if detail %}
-        $('#instances').load('{% url nova_instances_refresh_detail project.projectname selected_instance.id %}', onInstancesUpdated);
+        $('#instances').load('{% url nova_instances_refresh_detail tenant.id selected_instance.id %}', onInstancesUpdated);
       {% else %}
-        $('#instances').load('{% url nova_instances_refresh project.projectname %}', onInstancesUpdated);
+        $('#instances').load('{% url nova_instances_refresh tenant.id %}', onInstancesUpdated);
       {% endif %}
     }, 15000);
 

@@ -15,13 +15,13 @@
   </div>
 
   <div class="dash_block first">
-    <form id="frm_launch" action="{% url nova_images_launch project.projectname ami.id %}" method="post">
+    <form id="frm_launch" action="{% url nova_images_launch tenant.id image.id %}" method="post">
       {% csrf_token %}
       <fieldset>
-        <h3 class="image_id">{% trans "Launch Image" %} {{ ami.id }}</h3>
+        <h3 class="image_id">{% trans "Launch Image" %} {{ image.id }}</h3>
         <div class="even">
           <h4 class="label">{% trans "Location" %}</h4>
-          <span class="image_location">{{ ami.location }}</span>
+          <span class="image_location">{{ image.location }}</span>
         </div>
         {% include "django_openstack/nova/images/_launch_form.html" %}
         <input id="launch_image" type="submit" value="Launch" />

@@ -31,20 +31,24 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
 from django_openstack.nova import exceptions
-from django_openstack.nova import forms
-from django_openstack.nova import shortcuts
+from django_openstack.nova import forms as nova_forms
+#from django_openstack.nova import shortcuts
 from django_openstack.nova.exceptions import handle_nova_error
+from django import shortcuts
+
+from django_openstack import api
+from openstackx.api import exceptions as api_exceptions
 
 
 LOG = logging.getLogger('django_openstack.nova')
 
 
-def _image_lists(images, project_id):
+def _image_lists(images, tenant_id):
     def image_is_project(i):
-        return i.ownerId == project_id
+        return i['properties']['project_id'] == tenant_id
 
     def image_is_admin(i):
-        return i.ownerId in ['admin']
+        return i['properties']['project_id'] in ['admin']
 
     def image_is_community(i):
         return (not image_is_admin(i)) and (not image_is_project(i))
@@ -57,15 +61,18 @@ def _image_lists(images, project_id):
 
 @login_required
 @handle_nova_error
-def index(request, project_id):
-    project = shortcuts.get_project_or_404(request, project_id)
-    images = project.get_images()
+def index(request, tenant_id):
+    tenant = api.get_tenant(request, request.user.tenant)
+    logging.info('TENANT: %s', tenant)
+    #project = shortcuts.get_project_or_404(request, project_id)
+    images = api.glance_api(request).get_images_detailed()
+    logging.info('IMAGES: %s', images)
 
     return render_to_response('django_openstack/nova/images/index.html', {
-        'form': forms.LaunchInstanceForm(project),
-        'region': project.region,
-        'project': project,
-        'image_lists': _image_lists(images, project_id),
+        'form': nova_forms.LaunchForm(),
+        #'region': project.region,
+        'tenant': tenant,
+        'image_lists': _image_lists(images, request.user.tenant),
     }, context_instance=template.RequestContext(request))
 
 
@@ -75,7 +82,7 @@ def launch(request, project_id, image_id):
     project = shortcuts.get_project_or_404(request, project_id)
 
     if request.method == 'POST':
-        form = forms.LaunchInstanceForm(project, request.POST)
+        form = nova_forms.LaunchInstanceForm(project, request.POST)
         if form.is_valid():
             try:
                 reservation = project.run_instances(
@@ -111,9 +118,9 @@ def launch(request, project_id, image_id):
                           (image_id,
                            ",".join(str(instance.id)
                                     for instance in reservation.instances)))
-            return redirect('nova_instances', project_id)
+            return shortcuts.redirect('nova_instances', project_id)
     else:
-        form = forms.LaunchInstanceForm(project)
+        form = nova_forms.LaunchInstanceForm(project)
 
     ami = project.get_image(image_id)
 
@@ -122,6 +129,50 @@ def launch(request, project_id, image_id):
         'region': project.region,
         'project': project,
         'ami': ami,
+    }, context_instance=template.RequestContext(request))
+
+@login_required
+@handle_nova_error
+def launch(request, tenant_id, image_id):
+    def flavorlist():
+        try:
+            fl = api.extras_api(request).flavors.list()
+
+            # TODO add vcpu count to flavors
+            sel = [(f.id, '%s (%svcpu / %sGB Disk / %sMB Ram )' %
+                   (f.name, f.vcpus, f.disk, f.ram)) for f in fl]
+            return sorted(sel)
+        except:
+            return [(1, 'm1.tiny')]
+
+    image = api.compute_api(request).images.get(image_id)
+    tenant = api.get_tenant(request, request.user.tenant)
+
+    if request.method == 'POST':
+        form = nova_forms.LaunchForm(request.POST,
+                                     initial={'flavorlist': flavorlist()})
+        if form.is_valid():
+            userdata = form.clean()
+            try:
+                image = api.compute_api(request).images.get(image_id)
+                fl = api.compute_api(request).flavors.get(userdata['flavor'])
+                api.compute_api(request).servers.create(userdata['name'],
+                                                        image,
+                                                        fl)
+                messages.success(request, "Instance was successfully\
+                                           launched.")
+                return shortcuts.redirect('nova_instances', tenant_id=tenant.id)
+            except api_exceptions.ApiException, e:
+                messages.error(request,
+                           'Unable to launch instance: %s' % e.message)
+
+    form = nova_forms.LaunchForm(initial={'image_id': image_id,
+                                          'flavorlist': flavorlist()})
+
+    return render_to_response('django_openstack/nova/images/launch.html', {
+        'tenant': tenant,
+        'image': image,
+        'form': form,
     }, context_instance=template.RequestContext(request))
 
 
@@ -136,7 +187,7 @@ def detail(request, project_id, image_id):
     if not ami:
         raise http.Http404()
     return render_to_response('django_openstack/nova/images/index.html', {
-        'form': forms.LaunchInstanceForm(project),
+        'form': nova_forms.LaunchForm(),
         'region': project.region,
         'project': project,
         'image_lists': _image_lists(images, project_id),
@@ -165,7 +216,7 @@ def remove(request, project_id, image_id):
             LOG.info('Image "%s" deregistered from project "%s"' %
                      (image_id, project_id))
 
-    return redirect('nova_images', project_id)
+    return shortcuts.redirect('nova_images', project_id)
 
 
 @login_required
@@ -205,7 +256,7 @@ def privacy(request, project_id, image_id):
                           ' Exception text: "%s"' %
                           (image_id, project_id, e.message))
 
-    return redirect('nova_images_detail', project_id, image_id)
+    return shortcuts.redirect('nova_images_detail', project_id, image_id)
 
 
 @login_required
@@ -215,7 +266,7 @@ def update(request, project_id, image_id):
     ami = project.get_image(image_id)
 
     if request.method == 'POST':
-        form = forms.UpdateImageForm(ami, request.POST)
+        form = nova_forms.UpdateImageForm(ami, request.POST)
         if form.is_valid():
             try:
                 project.update_image(image_id,
@@ -230,12 +281,12 @@ def update(request, project_id, image_id):
                 messages.success(request,
                                  _('Image %s has been updated.') % image_id)
 
-            return redirect('nova_images_detail', project_id, image_id)
+            return shortcuts.redirect('nova_images_detail', project_id, image_id)
 
         # TODO(devcamcar): This needs to be cleaned up. Can make
         # one of the render_to_response blocks go away.
         else:
-            form = forms.UpdateImageForm(ami)
+            form = nova_forms.UpdateImageForm(ami)
             return render_to_response('django_openstack/images/edit.html', {
                 'form': form,
                 'region': project.region,
@@ -243,7 +294,7 @@ def update(request, project_id, image_id):
                 'ami': ami,
             }, context_instance=template.RequestContext(request))
     else:
-        form = forms.UpdateImageForm(ami)
+        form = nova_forms.UpdateImageForm(ami)
         return render_to_response('django_openstack/nova/images/edit.html', {
             'form': form,
             'region': project.region,

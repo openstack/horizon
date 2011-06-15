@@ -53,11 +53,11 @@ urlpatterns = patterns('',
     url(r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)$',
         'django_openstack.nova.views.images.privacy',
         name='nova_images_privacy'),
+
+    # instances
     url(r'^(?P<tenant_id>[^/]+)/instances$',
         'django_openstack.nova.views.instances.index',
         name='nova_instances'),
-
-    # instances
     url(r'^(?P<tenant_id>[^/]+)/instances/refresh$',
         'django_openstack.nova.views.instances.refresh',
         name='nova_instances_refresh'),

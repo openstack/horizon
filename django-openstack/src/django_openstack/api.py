@@ -2,6 +2,7 @@ from django.conf import settings
 
 import glance.client
 import httplib
+import logging
 import json
 import openstack.compute
 import openstackx.admin
@@ -41,8 +42,16 @@ def extras_api(request):
 
 
 def auth_api():
-    return  openstackx.auth.Auth(management_url=\
+    return openstackx.auth.Auth(management_url=\
                                 settings.OPENSTACK_KEYSTONE_URL)
+
+
+def get_tenant(request, tenant_id):
+  tenants = auth_api().tenants.for_token(request.session['token'])
+  logging.info('TENANTS: %s', tenants)
+  for t in tenants:
+      if str(t.id) == str(tenant_id):
+          return t
 
 
 def token_info(token):
