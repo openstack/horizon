@@ -149,3 +149,29 @@ class AttachVolumeForm(ProjectFormBase):
         super(AttachVolumeForm, self).__init__(project, *args, **kwargs)
         self.fields['volume'].choices = get_available_volume_choices(project)
         self.fields['instance'].choices = get_instance_choices(project)
+
+
+class Login(forms.Form):
+    tenant = forms.CharField(max_length="20", label="Tenant", required=False)
+    username = forms.CharField(max_length="20", label="User Name")
+    password = forms.CharField(max_length="20", label="Password")
+
+
+class LoginWithoutTenant(forms.Form):
+    username = forms.CharField(max_length="20", label="User Name")
+    password = forms.CharField(max_length="20", label="Password")
+
+
+class LaunchForm(forms.Form):
+    image_id = forms.CharField(widget=forms.HiddenInput())
+    name = forms.CharField(max_length=80, label="Server Name")
+
+    # make the dropdown populate when the form is loaded not when django is
+    # started
+    def __init__(self, *args, **kwargs):
+        super(LaunchForm, self).__init__(*args, **kwargs)
+        flavorlist = kwargs.get('initial', {}).get('flavorlist', [])
+        self.fields['flavor'] = forms.ChoiceField(
+                choices=flavorlist,
+                label="Flavor",
+                help_text="Size of Image to launch")

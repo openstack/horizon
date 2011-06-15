@@ -57,20 +57,7 @@
   {% else %}
     <div id="home_login" class="block">
       <h3>Sign In</h3>
-      <form action="{% url auth_login %}" method="post">
-        {% csrf_token %}
-        <fieldset>
-          {% if form.errors %}
-          <p class="error">{% trans "Your username and password didn't match. Please try again." %}</p>
-          {% endif %}
-          <label for="username">Username:</label><input id="username" type="text" name="username" />
-          <label for="password">Password:</label><input id="password" type="password" name="password" />
-          <input type="hidden" name="next" value="/" />
-          <div class="button">
-            <input id="home_login_btn" type="submit" value="Sign In">
-          </div>
-        </fieldset>
-      </form>
+      {% include '_login.html' with form=login_form %}
     </div>
     <div class="home_block">
       <h3>OpenStack Resources</h3>
