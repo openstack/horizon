@@ -78,61 +78,6 @@ def index(request, tenant_id):
 
 @login_required
 @handle_nova_error
-def launch(request, project_id, image_id):
-    project = shortcuts.get_project_or_404(request, project_id)
-
-    if request.method == 'POST':
-        form = nova_forms.LaunchInstanceForm(project, request.POST)
-        if form.is_valid():
-            try:
-                reservation = project.run_instances(
-                    image_id,
-                    addressing_type='private',
-                    key_name=form.cleaned_data['key_name'],
-                    #security_groups=[form.cleaned_data['security_group']],
-                    user_data=re.sub('\r\n', '\n',
-                                     form.cleaned_data['user_data']),
-                    instance_type=form.cleaned_data['size'],
-                    min_count=form.cleaned_data['count'],
-                    max_count=form.cleaned_data['count']
-                )
-            except exceptions.NovaApiError, e:
-                messages.error(request,
-                               _('Unable to launch: %s') % e.message)
-                LOG.error('User "%s" unable to launch image "%s" '
-                          ' on project "%s". Exception message: "%s"' %
-                          (str(request.user), image_id, project_id, e.message))
-            except exceptions.NovaUnauthorizedError, e:
-                messages.error(request, 'Permission Denied')
-                LOG.error('User "%s" permission denied creating image "%s"'
-                          ' on project "%s"' %
-                          (str(request.user), image_id, project_id))
-            else:
-                for instance in reservation.instances:
-                    messages.success(request,
-                                     _('Instance %s launched.') % instance.id)
-                LOG.info('%d instances of "%s" launched by "%s" on "%s"' %
-                         (len(reservation.instances), image_id,
-                          str(request.user), project_id))
-                LOG.debug('"%s" instance ids: "%s"' %
-                          (image_id,
-                           ",".join(str(instance.id)
-                                    for instance in reservation.instances)))
-            return shortcuts.redirect('nova_instances', project_id)
-    else:
-        form = nova_forms.LaunchInstanceForm(project)
-
-    ami = project.get_image(image_id)
-
-    return render_to_response('django_openstack/nova/images/launch.html', {
-        'form': form,
-        'region': project.region,
-        'project': project,
-        'ami': ami,
-    }, context_instance=template.RequestContext(request))
-
-@login_required
-@handle_nova_error
 def launch(request, tenant_id, image_id):
     def flavorlist():
         try:
@@ -178,20 +123,19 @@ def launch(request, tenant_id, image_id):
 
 @login_required
 @handle_nova_error
-def detail(request, project_id, image_id):
-    project = shortcuts.get_project_or_404(request, project_id)
-    images = project.get_images()
+def detail(request, tenant_id, image_id):
+    image = api.compute_api(request).images.get(image_id)
+    tenant = api.get_tenant(request, request.user.tenant)
+    images = api.glance_api(request).get_images_detailed()
 
-    ami = project.get_image(image_id)
-
-    if not ami:
+    if not image:
         raise http.Http404()
     return render_to_response('django_openstack/nova/images/index.html', {
         'form': nova_forms.LaunchForm(),
-        'region': project.region,
-        'project': project,
-        'image_lists': _image_lists(images, project_id),
-        'ami': ami,
+        #'region': project.region,
+        'tenant': tenant,
+        'image_lists': _image_lists(images, tenant_id),
+        'image': image,
     }, context_instance=template.RequestContext(request))
 
 

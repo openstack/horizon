@@ -20,34 +20,34 @@
                   </div>
                   <div class="instance_detail_item">
                     <span class="label">Name: </span>
-                    <span class="data">{% if selected_instance.displayName != "" %}{{ selected_instance.displayName }}{% else %} None {% endif %}</span>
+                    <span class="data">{% if selected_instance.name != "" %}{{ selected_instance.name }}{% else %} None {% endif %}</span>
                   </div>
                   <div class="instance_detail_item">
                     <span class="label">Description: </span>
-                    <span class="data" id="desc">{{ selected_instance.displayDescription }}</span>
+                    <span class="data" id="desc">{{ selected_instance.description }}</span>
                   </div>
                 </div>
 
                 <div class="column">
-                  <div class="instance_detail_item">
-                    <span class="label">Region: </span>
-                    <span class="data">{{ selected_instance.region.name }}</span>
-                  </div>
+                  <!--<div class="instance_detail_item">-->
+                  <!--  <span class="label">Region: </span>-->
+                  <!--  <span class="data">{{ selected_instance.region.name }}</span>-->
+                  <!--</div>-->
                   <div class="instance_detail_item">
                     <span class="label">Size: </span>
                     <span class="data">{{ selected_instance.instance_type }}</span>
                   </div>
                   <div class="instance_detail_item">
                     <span class="label">State: </span>
-                    <span class="data">{{ selected_instance.state }}</span>
+                    <span class="data">{{ selected_instance.status }}</span>
                   </div>
                   <div class="instance_detail_item">
                     <span class="label">Image ID: </span>
-                    <span class="data">{{ selected_instance.image_id }}</span>
+                    <span class="data">{{ selected_instance.imageId }}</span>
                   </div>
                   <div class="instance_detail_item">
                     <span class="label">IP Address: </span>
-                    <span class="data">{{ selected_instance.dns_name }}</span>
+                    <span class="data">{{ selected_instance.private_ip }}</span>
                   </div>
 
                 </div>
@@ -76,10 +76,10 @@
 
             <td><a href="{% url nova_instances_detail tenant.id instance.id %}">{{ instance.id }} {% if instance.displayName %}({{ instance.displayName }}){% endif %}
               </a></td>
-            <td class="odd">{{ instance.image_id }}</td>
+            <td class="odd">{{ instance.imageId }}</td>
             <td>{{ instance.instance_type }}</td>
-            <td class="odd">{{ instance.dns_name }}</td>
-            <td>{{ instance.state }}</td>
+            <td class="odd">{{ instance.private_ip }}</td>
+            <td>{{ instance.status }}</td>
             <td id="actions" class="odd">
               <form id="form_terminate_{{ instance.id }}" class="form-terminate" method="post" action="{% url nova_instances_terminate tenant.id %}" >
                 <input name="instance_id" type="hidden" value="{{ instance.id }}" />

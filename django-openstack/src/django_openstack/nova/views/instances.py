@@ -61,21 +61,22 @@ def index(request, tenant_id):
 
 @login_required
 @handle_nova_error
-def detail(request, project_id, instance_id):
-    project = shortcuts.get_project_or_404(request, project_id)
-    instance = project.get_instance(instance_id)
-    instances = sorted(project.get_instances(),
-                       key=lambda k: k.public_dns_name)
+def detail(request, tenant_id, instance_id):
+    tenant = api.get_tenant(request, request.user.tenant)
+    instances = api.compute_api(request).servers.list()
+    instance = api.compute_api(request).servers.get(instance_id)
+    #instances = sorted(project.get_instances(),
+    #                   key=lambda k: k.public_dns_name)
 
     if not instance:
         raise http.Http404()
 
     return render_to_response('django_openstack/nova/instances/index.html', {
-        'region': project.region,
-        'project': project,
+        #'region': project.region,
+        'tenant': tenant,
         'selected_instance': instance,
         'instances': instances,
-        'update_form': nova_forms.UpdateInstanceForm(instance),
+        #'update_form': nova_forms.UpdateInstanceForm(instance),
         'enable_vnc': settings.ENABLE_VNC,
         'detail': True,
     }, context_instance=template.RequestContext(request))
@@ -100,18 +101,17 @@ def performance(request, project_id, instance_id):
 
 
 # TODO(devcamcar): Wrap this in an @ajax decorator.
-def refresh(request, project_id):
+def refresh(request, tenant_id):
     # TODO(devcamcar): This logic belongs in decorator.
-    if not request.user.is_authenticated():
+    if not request.user:
         return http.HttpResponseForbidden()
 
-    project = shortcuts.get_project_or_404(request, project_id)
-    instances = sorted(project.get_instances(),
-                       key=lambda k: k.public_dns_name)
+    tenant = api.get_tenant(request, request.user.tenant)
+    instances = api.compute_api(request).servers.list()
 
     return render_to_response(
         'django_openstack/nova/instances/_instances_list.html',
-        {'project': project,
+        {'tenant': tenant,
          'instances': instances},
         context_instance=template.RequestContext(request))
 

@@ -41,31 +41,31 @@
   }
 
   // TODO: On dialog open, reset form and validation.
-	$(function() {
-		$('#dlg_launch').dialog({
-		  buttons: {
-	      'Ok': function() {
-	        $('#frm_launch').ajaxSubmit(options);
-	      },
-	      'Cancel': function() {
-	        $(this).dialog('close');
-	      }
-	    },
-		  autoOpen: false,
-		  resizable: false,
-		  width: 400,
-		  height: 400
-		});
-	});
+  $(function() {
+    $('#dlg_launch').dialog({
+      buttons: {
+        'Ok': function() {
+          $('#frm_launch').ajaxSubmit(options);
+        },
+        'Cancel': function() {
+          $(this).dialog('close');
+        }
+      },
+      autoOpen: false,
+      resizable: false,
+      width: 400,
+      height: 400
+    });
+  });
 
-	function showRequest(formData, jqForm, options) {
+  function showRequest(formData, jqForm, options) {
     var queryString = $.param(formData);
     alert('About to submit: \n\n' + queryString);
     return true;
-	}
+  }
 
-	function handleResponse(data, statusText, xhr, $form) {
-	  alert('status: ' + statusText + '\nsuccess:\n\n' + data.success);
-	}
+  function handleResponse(data, statusText, xhr, $form) {
+    alert('status: ' + statusText + '\nsuccess:\n\n' + data.success);
+  }
 </script>
 {% endblock %}
