@@ -25,7 +25,6 @@
               <span class="user">{% trans "Signed in as" %} <strong>{{ request.user.username }}</strong>.</span>
             <ul>
               <li><a id="lnk_logout" href="{% url auth_logout %}">{% trans "Sign Out"%}</a></li>
-              <li><a id="lnk_change_password" href="{% url auth_password_change %}">{% trans "Change Password"%}</a></li>
             </ul>
           </div>
         {% else %}

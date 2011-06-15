@@ -32,12 +32,13 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.index', name='index'),
+    url(r'^overview$', 'dashboard.views.index', name='nova_overview'),
     url(r'^i18n/setlang', django.views.i18n.set_language),
     url(r'^project/', include('django_openstack.nova.urls.project')),
     url(r'^syspanel/', include('django_openstack.syspanel.urls')),
     url(r'^token/$', 'django_openstack.nova.views.auth.token', name='auth_token'),
     url(r'^token/switch/(?P<tenant_id>\d+)?$', 'django_openstack.nova.views.auth.switch_tenants', name='auth_switch_tenants'),
-    url(r'^token/destroy$', 'django_openstack.nova.views.auth.destroy_token', name='auth_destroy_token'),
+    url(r'^token/destroy$', 'django_openstack.nova.views.auth.destroy_token', name='auth_logout'),
 )
 
 

@@ -24,7 +24,7 @@ from django import template
 from django.shortcuts import render_to_response
 from django.views.decorators.vary import vary_on_cookie
 
-from django_openstack.nova.shortcuts import get_projects
+#from django_openstack.nova.shortcuts import get_projects
 from django_openstack.nova.exceptions import handle_nova_error
 from django_openstack.nova import forms as nova_forms
 
@@ -34,8 +34,9 @@ def index(request):
     projects = None
     page_type = "home"
 
-    if request.user.is_authenticated():
-        projects = get_projects(user=request.user)
+    if request.user:
+        pass
+        #projects = get_projects(user=request.user)
 
     return render_to_response('index.html', {
         'projects': projects,
