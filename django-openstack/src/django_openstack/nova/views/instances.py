@@ -117,19 +117,20 @@ def refresh(request, tenant_id):
 
 
 @handle_nova_error
-def refresh_detail(request, project_id, instance_id):
+def refresh_detail(request, tenant_id, instance_id):
     # TODO(devcamcar): This logic belongs in decorator.
-    if not request.user.is_authenticated():
+    if not request.user:
         return http.HttpResponseForbidden()
 
-    project = shortcuts.get_project_or_404(request, project_id)
-    instance = project.get_instance(instance_id)
-    instances = sorted(project.get_instances(),
-                       key=lambda k: k.public_dns_name)
+    tenant = api.get_tenant(request, request.user.tenant)
+    instances = api.compute_api(request).servers.list()
+    instance = api.compute_api(request).servers.get(instance_id)
+    #instances = sorted(project.get_instances(),
+    #                   key=lambda k: k.public_dns_name)
 
     return render_to_response(
         'django_openstack/nova/instances/_instances_list.html',
-        {'project': project,
+        {'tenant': tenant,
          'selected_instance': instance,
          'instances': instances},
         context_instance=template.RequestContext(request))
@@ -137,33 +138,23 @@ def refresh_detail(request, project_id, instance_id):
 
 @login_required
 @handle_nova_error
-def terminate(request, project_id):
-    project = shortcuts.get_project_or_404(request, project_id)
-
+def terminate(request, tenant_id):
+    tenant = api.get_tenant(request, request.user.tenant)
     if request.method == 'POST':
         instance_id = request.POST['instance_id']
+        instance = api.compute_api(request).servers.get(instance_id)
 
         try:
-            project.terminate_instance(instance_id)
-        except exceptions.NovaApiError, e:
+            api.compute_api(request).servers.delete(instance)
+        except api_exceptions.ApiException, e:
             messages.error(request,
-                           _('Unable to terminate %(inst)s: %(msg)s') %
-                            {'inst': instance_id, 'msg': e.message})
-            LOG.error('Unable to terminate instance "%s" on project "%s".'
-                      ' Exception:"%s"' % (instance_id, project_id, e.message))
-        except exceptions.NovaUnauthorizedError, e:
-            messages.error(request, 'Permission Denied')
-            LOG.error('User "%s" denied permission to terminate instance'
-                      ' "%s" on project "%s"' %
-                      (str(request.user), instance_id, project_id))
+                           'Unable to terminate %s: %s' %
+                           (instance_id, e.message,))
         else:
             messages.success(request,
-                             _('Instance %(inst)s has been terminated.') %
-                              {'inst': instance_id})
-            LOG.info('Instance "%s" terminated on project "%s"' %
-                     (instance_id, project_id))
+                             'Instance %s has been terminated.' % instance_id)
 
-    return redirect('nova_instances', project_id)
+    return redirect('nova_instances', tenant_id)
 
 
 @login_required
