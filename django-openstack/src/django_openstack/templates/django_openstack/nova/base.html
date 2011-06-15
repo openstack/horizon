@@ -36,32 +36,25 @@
   </div>
 {% endblock % #}
 
-{# % block nav_projects %}
-      {% load_projects %}
+{% block nav_projects %}
       <li>
         <h3 class="active"><a href="/">Projects</a></h3>
         <div id="projects">
-          {% for p in projects %}
-            <div id="{{ p.projectname }}" class="project{% if p.projectname == project.projectname %} active{% endif %}">
+          {% for t in tenants %}
+            <div id="{{ t.id }}" class="project{% if t.id == tenant.id %} active{% endif %}">
               <h4>
-                <a class="project_link" href="/project/{{ p.projectname }}">{{ p.projectname }}</a>
-                {% if p.projectManagerId == user.username %}
-                <a id="manage_project_{{p.projectname}}"
-                   class="manage_link"
-                   href="{% url nova_project_manage p.projectname %}"
-                   title="Manage User Roles">Manage Project</a>
-                {% endif %}
+                <a class="project_link" href="/project/{{ t.id }}">{{ t.id }}</a>
               </h4>
-              {% if project.projectname == p.projectname %}
+              {% if tenant.id == t.id %}
                 <ul>
-                  <li {% if p.projectname == project.projectname and sidebar_selected == "instances" %}class="active"{% endif %}>
-                    <a id="lnk_instances_{{p.projectname}}" href="{% url nova_instances p.projectname %}">Instances</a>
+                  <li {% if t.id == tenant.id and sidebar_selected == "instances" %}class="active"{% endif %}>
+                    <a id="lnk_instances_{{t.id}}" href="{% url nova_instances t.id %}">Instances</a>
                   </li>
-                  <li {% if p.projectname == project.projectname and sidebar_selected == "images" %}class="active"{% endif %}>
-                    <a id="lnk_images_{{p.projectname}}" href="{% url nova_images p.projectname %}">Images</a>
+                  <li {% if t.id == tenant.id and sidebar_selected == "images" %}class="active"{% endif %}>
+                    <a id="lnk_images_{{t.id}}" href="{% url nova_images t.id %}">Images</a>
                   </li>
-                  <!--<li {% if p.projectname == project.projectname and sidebar_selected == "volumes" %}class="active"{% endif %}>-->
-                  <!--  <a id="lnk_volumes_{{p.projectname}}" href="{% url nova_volumes p.projectname %}">Volumes</a>-->
+                  <!--<li {% if t.id == tenant.id and sidebar_selected == "volumes" %}class="active"{% endif %}>-->
+                  <!--  <a id="lnk_volumes_{{t.id}}" href="{#% url nova_volumes t.id %#}">Volumes</a>-->
                   </li>
                 </ul>
               {% endif %}
@@ -69,7 +62,7 @@
           {% endfor %}
         </div>
         </li>
-{% endblock %#}
+{% endblock %}
 
 {% block footerjs %}
 {{ block.super }}
