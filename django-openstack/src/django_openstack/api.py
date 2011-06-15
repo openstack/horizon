@@ -14,9 +14,9 @@ from urlparse import urlparse
 
 def compute_api(request):
     compute = openstack.compute.Compute(auth_token=request.session['token'],
-                                     management_url=settings.OPENSTACK_MANAGER_URL)
+                                        management_url=settings.OPENSTACK_MANAGER_URL)
     compute.client.auth_token = auth_token=request.session['token']
-    compute.client.management_url = 'http://%s:8774/v1.1/' % host
+    compute.client.management_url = settings.OPENSTACK_MANAGER_URL
     return compute
 
 

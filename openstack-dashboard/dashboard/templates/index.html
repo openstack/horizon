@@ -19,13 +19,13 @@
 
   {% if request.user.is_authenticated %}
   <div id="projects" class="block">
-    <h3>Your Projects</h3>
+    <h3>Your Tenants</h3>
     <ul>
-      {% for project in projects %}
+      {% for tenant in tenants %}
       <li class="project {% cycle 'odd' 'even' %}">
-        <a id="lnk_project_{{ project.projectname }}" href="{% url nova_project project.projectname %}">
-          {{ project.projectname|capfirst }}
-          <span class="data">{{ project.description|capfirst }}</span>
+        <a id="lnk_project_{{ tenant.id }}" href="{% url nova_tenant tenant.id%}">
+          {{ tenant.id }}
+          <span class="data">{{ tenant.description|capfirst }}</span>
         </a>
       </li>
       {% endfor %}

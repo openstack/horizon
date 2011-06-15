@@ -28,7 +28,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django_openstack.nova import forms as nova_forms
 from django_openstack.nova.exceptions import handle_nova_error
-from django_openstack.nova.shortcuts import get_project_or_404
+#from django_openstack.nova.shortcuts import get_project_or_404
+
+from django_openstack import api
 
 
 LOG = logging.getLogger('django_openstack.nova')
@@ -36,13 +38,16 @@ LOG = logging.getLogger('django_openstack.nova')
 
 @login_required
 @handle_nova_error
-def detail(request, project_id):
-    project = get_project_or_404(request, project_id)
+def detail(request, tenant_id):
+    #tenant = api.account_api(request).tenants.get(request.user.tenant)
+    tenant = {'id': request.user.tenant,
+              'description': None}
+    instances = api.compute_api(request).servers.list()
 
     return render_to_response(
-        'django_openstack/nova/projects/index.html',
-        {'project': project,
-         'instance_count': project.get_instance_count()},
+        'django_openstack/nova/tenants/index.html',
+        {'tenant': tenant,
+         'instance_count': len(instances)},
         context_instance=template.RequestContext(request))
 
 

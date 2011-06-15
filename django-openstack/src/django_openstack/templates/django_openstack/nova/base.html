@@ -7,7 +7,7 @@
 {{ block.super }}
 {% endblock %}
 
-{% block region %}
+{# % block region %}
   <div id="region_selector">
     {% load_regions %}
     <span id="project_name"><strong>Project:</strong> {{ project.projectname }}</span>
@@ -34,9 +34,9 @@
       </fieldset>
     </form>
   </div>
-{% endblock %}
+{% endblock % #}
 
-{% block nav_projects %}
+{# % block nav_projects %}
       {% load_projects %}
       <li>
         <h3 class="active"><a href="/">Projects</a></h3>
@@ -60,19 +60,16 @@
                   <li {% if p.projectname == project.projectname and sidebar_selected == "images" %}class="active"{% endif %}>
                     <a id="lnk_images_{{p.projectname}}" href="{% url nova_images p.projectname %}">Images</a>
                   </li>
-                  <li {% if p.projectname == project.projectname and sidebar_selected == "keys" %}class="active"{% endif %}>
-                    <a id="lnk_keypairs_{{p.projectname}}" href="{% url nova_keypairs p.projectname %}">Keys</a>
+                  <!--<li {% if p.projectname == project.projectname and sidebar_selected == "volumes" %}class="active"{% endif %}>-->
+                  <!--  <a id="lnk_volumes_{{p.projectname}}" href="{% url nova_volumes p.projectname %}">Volumes</a>-->
                   </li>
-                  <li {% if p.projectname == project.projectname and sidebar_selected == "volumes" %}class="active"{% endif %}>
-                    <a id="lnk_volumes_{{p.projectname}}" href="{% url nova_volumes p.projectname %}">Volumes</a>
-                  </li>
-                </ul>              
+                </ul>
               {% endif %}
             </div>
           {% endfor %}
         </div>
-      </li>
-{% endblock %}
+        </li>
+{% endblock %#}
 
 {% block footerjs %}
 {{ block.super }}
