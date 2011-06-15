@@ -40,7 +40,7 @@
           {% for t in tenants %}
             <div id="{{ t.id }}" class="project{% if t.id == tenant.id %} active{% endif %}">
               <h4>
-                <a class="project_link" href="/project/{{ t.id }}">{{ t.id }}</a>
+                <a class="project_link" href="{% url nova_tenant t.id %}">{{ t.id }}</a>
               </h4>
               {% if tenant.id == t.id %}
                 <ul>

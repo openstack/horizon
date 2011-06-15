@@ -139,6 +139,8 @@ def detail(request, tenant_id, image_id):
     }, context_instance=template.RequestContext(request))
 
 
+# TODO(termie): below = NotImplemented
+
 @login_required
 @handle_nova_error
 def remove(request, project_id, image_id):

@@ -159,28 +159,33 @@ def terminate(request, tenant_id):
 
 @login_required
 @handle_nova_error
-def console(request, project_id, instance_id):
-    project = shortcuts.get_project_or_404(request, project_id)
-    conn = project.get_openstack_connection()
-    console = conn.get_console_output(instance_id)
-    response = http.HttpResponse(mimetype='text/plain')
-    response.write(console.output)
-    response.flush()
-
-    return response
+def console(request, tenant_id, instance_id):
+    try:
+        console = api.extras_api(request).consoles.create(instance_id)
+        response = http.HttpResponse(mimetype='text/plain')
+        response.write(console.output)
+        response.flush()
+        return response
+    except api_exceptions.ApiException, e:
+        messages.error(request,
+                   'Unable to get log for instance %s: %s' %
+                   (instance_id, e.message))
+        return shortcut.redirect('nova_instances', tenant_id)
 
 
 @login_required
 @handle_nova_error
-def vnc(request, project_id, instance_id):
-    project = shortcuts.get_project_or_404(request, project_id)
-    conn = project.get_openstack_connection()
-    params = {'InstanceId': instance_id}
-    vnc = conn.get_object('GetVncConsole',
-                          params,
-                          boto.ec2.ec2object.EC2Object)
-    return http.HttpResponseRedirect(vnc.url)
+def vnc(request, tenant_id, instance_id):
+    try:
+        console = api.extras_api(request).consoles.create(instance_id, 'vnc')
+        return shortcuts.redirect(console.output)
+    except api_exceptions.ApiException, e:
+        messages.error(request,
+                   'Unable to get vnc console for instance %s: %s' %
+                   (instance_id, e.message))
+        return shortcuts.redirect('nova_instances', tenant_id)
 
+# TODO(termie): below = NotImplemented
 
 @login_required
 @handle_nova_error
