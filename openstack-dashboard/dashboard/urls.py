@@ -27,20 +27,23 @@ from django.views import generic as generic_views
 import django.views.i18n
 from registration import forms as reg_forms
 
-
-admin.autodiscover()
+from django_openstack import urls as django_openstack_urls
 
 urlpatterns = patterns('',
-    url(r'^$', 'dashboard.views.index', name='index'),
-    url(r'^overview$', 'dashboard.views.index', name='nova_overview'),
-    url(r'^i18n/setlang', django.views.i18n.set_language),
-    url(r'^tenant/', include('django_openstack.nova.urls.tenant')),
-    url(r'^syspanel/', include('django_openstack.syspanel.urls')),
-    url(r'^token/$', 'django_openstack.nova.views.auth.token', name='auth_token'),
-    url(r'^login/$', 'django_openstack.nova.views.auth.token', name='auth_login'),
-    url(r'^token/switch/(?P<tenant_id>\d+)?$', 'django_openstack.nova.views.auth.switch_tenants', name='auth_switch_tenants'),
-    url(r'^token/destroy$', 'django_openstack.nova.views.auth.destroy_token', name='auth_logout'),
+    url(r'^$', 'dashboard.views.splash', name='splash'),
+    url(r'^dash/$', 'dashboard.views.user_overview', name='dash_overview'),
 )
+
+# NOTE(termie): just append them since we want the routes at the root
+urlpatterns += django_openstack_urls.urlpatterns
+
+#url(r'^i18n/setlang', django.views.i18n.set_language),
+#url(r'^tenant/', include('django_openstack.nova.urls.tenant')),
+#url(r'^syspanel/', include('django_openstack.syspanel.urls')),
+#url(r'^token/$', 'django_openstack.nova.views.auth.token', name='auth_token'),
+#url(r'^login/$', 'django_openstack.nova.views.auth.token', name='auth_login'),
+#url(r'^token/switch/(?P<tenant_id>\d+)?$', 'django_openstack.nova.views.auth.switch_tenants', name='auth_switch_tenants'),
+#url(r'^token/destroy$', 'django_openstack.nova.views.auth.destroy_token', name='auth_logout'),
 
 
 urlpatterns += patterns('',

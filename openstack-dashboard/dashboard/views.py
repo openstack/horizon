@@ -25,6 +25,8 @@ from django import template
 from django.shortcuts import render_to_response
 from django.views.decorators.vary import vary_on_cookie
 
+from django import shortcuts
+
 from django_openstack import api
 from django_openstack.nova import forms as nova_forms
 
@@ -34,18 +36,20 @@ from django_openstack.nova.exceptions import handle_nova_error
 
 @vary_on_cookie
 @handle_nova_error
-def index(request):
-    tenants = None
-    page_type = "home"
-
+def splash(request):
     if request.user:
-        tenants = api.auth_api().tenants.for_token(request.user.token)
-        logging.info('tenants: %s', tenants)
-        #pass
-        #projects = get_projects(user=request.user)
+        if request.user.is_admin():
+            return shortcuts.redirect('admin_overview')
+        else:
+            return shortcuts.redirect('dash_overview')
 
-    return render_to_response('index.html', {
-        'tenants': tenants,
-        'page_type': page_type,
+    return render_to_response('splash.html', {
         'login_form': nova_forms.Login(),
+    }, context_instance=template.RequestContext(request))
+
+
+# login_required
+def user_overview(request, tenant_id=None):
+    return render_to_response('dash_overview.html', {
+
     }, context_instance=template.RequestContext(request))

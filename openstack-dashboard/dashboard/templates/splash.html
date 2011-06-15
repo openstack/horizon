@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{# pleasant landing page if not logged in #}
+{# redirected to overview if logged in #}
+
+{% block main %}
+  {% include '_login.html' with form=login_form %}
+{% endblock %}

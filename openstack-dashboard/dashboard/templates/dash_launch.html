@@ -1,0 +1,13 @@
+{% extends 'dash_base.html' %}
+{# launch an instance based on image #}
+{# standard nav, sidebar, launch form in main #}
+
+{% block sidebar %}
+  {% with current_section="images" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  {% include '_launch.html' %}
+{% endblock %}

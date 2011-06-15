@@ -1,0 +1,15 @@
+{% extends 'dash_base.html' %}
+{# list of user's images #}
+{# standard nav, sidebar, list of images in main #}
+
+{% block sidebar %}
+  {% with current_section="images" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  {% include '_image_list.html' %}
+  <a href="{% url dash_images_upload request.user.tenant %}">upload</a>
+
+{% endblock %}

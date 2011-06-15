@@ -8,7 +8,7 @@ from django_openstack.nova import forms as nova_forms
 from openstackx.api import exceptions as api_exceptions
 
 
-def token(request):
+def login(request):
     if request.method == 'POST':
         form = nova_forms.Login(request.POST)
         if form.is_valid():
@@ -24,9 +24,9 @@ def token(request):
                 request.session['admin'] = info['admin']
 
                 if request.session['admin']:
-                    return shortcuts.redirect('syspanel_overview')
+                    return shortcuts.redirect('admin_overview')
                 else:
-                    return shortcuts.redirect('nova_overview')
+                    return shortcuts.redirect('user_overview')
 
             except api_exceptions.Unauthorized as e:
                 messages.error(request, 'Error authenticating: %s' % e.message)
@@ -61,7 +61,7 @@ def switch_tenants(request, tenant_id):
         },context_instance=template.RequestContext(request))
 
 
-def destroy_token(request):
+def logout(request):
     request.session.clear()
     return shortcuts.redirect('novaO_instances')
 

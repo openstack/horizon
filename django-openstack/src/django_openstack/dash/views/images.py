@@ -63,14 +63,9 @@ def _image_lists(images, tenant_id):
 @handle_nova_error
 def index(request, tenant_id):
     tenant = api.get_tenant(request, request.user.tenant)
-    logging.info('TENANT: %s', tenant)
-    #project = shortcuts.get_project_or_404(request, project_id)
     images = api.glance_api(request).get_images_detailed()
-    logging.info('IMAGES: %s', images)
 
-    return render_to_response('django_openstack/nova/images/index.html', {
-        'form': nova_forms.LaunchForm(),
-        #'region': project.region,
+    return render_to_response('dash_images.html', {
         'tenant': tenant,
         'image_lists': _image_lists(images, request.user.tenant),
     }, context_instance=template.RequestContext(request))
@@ -137,6 +132,18 @@ def detail(request, tenant_id, image_id):
         'image_lists': _image_lists(images, tenant_id),
         'image': image,
     }, context_instance=template.RequestContext(request))
+
+@login_required
+@handle_nova_error
+def upload(request, tenant_id):
+    tenant = api.get_tenant(request, request.user.tenant)
+    return render_to_response('dash_upload.html', {
+        'form': None, #nova_forms.UploadForm(),
+        'tenant': tenant,
+    }, context_instance=template.RequestContext(request))
+
+
+    pass
 
 
 # TODO(termie): below = NotImplemented

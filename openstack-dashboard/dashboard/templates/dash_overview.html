@@ -1,0 +1,16 @@
+{% extends 'dash_base.html' %}
+
+{# default landing page for a non-admin user #}
+{# nav bar on top, sidebar, overview info in main #}
+
+{% block sidebar %}
+  {% with current_sidebar='overview' %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+
+OVERVIEW FOR A USER
+
+{% endblock %}
