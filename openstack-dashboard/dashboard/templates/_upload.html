@@ -1,1 +1,5 @@
-UPLOAD_FORM
+{% extends 'django_openstack/dash/_upload.html' %}
+
+{% block submit %}
+  <input type="submit" value="Upload Image" class="large-rounded" />
+{% endblock %}

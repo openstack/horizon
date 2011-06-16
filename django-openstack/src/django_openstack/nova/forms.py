@@ -151,6 +151,9 @@ class AttachVolumeForm(ProjectFormBase):
         self.fields['instance'].choices = get_instance_choices(project)
 
 
+
+
+
 class Login(forms.Form):
     tenant = forms.CharField(max_length="20", label="Tenant", required=False)
     username = forms.CharField(max_length="20", label="User Name")
@@ -175,3 +178,11 @@ class LaunchForm(forms.Form):
                 choices=flavorlist,
                 label="Flavor",
                 help_text="Size of Image to launch")
+
+
+class UploadImageForm(forms.Form):
+    name = forms.CharField(max_length="5", label="Name")
+    image_file = forms.FileField(required=False)
+    is_public = forms.BooleanField(label="Publicly Available", required=False)
+
+

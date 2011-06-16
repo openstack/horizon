@@ -37,6 +37,7 @@ from django import shortcuts
 
 from django_openstack import api
 from openstackx.api import exceptions as api_exceptions
+from glance.common import exception as glance_exception
 
 
 LOG = logging.getLogger('django_openstack.nova')
@@ -114,6 +115,39 @@ def launch(request, tenant_id, image_id):
     }, context_instance=template.RequestContext(request))
 
 
+@login_required
+def upload(request, tenant_id):
+    if request.method == "POST":
+        form = nova_forms.UploadImageForm(request.POST)
+        if form.is_valid():
+            image = form.clean()
+            metadata = {'is_public': image['is_public'],
+                        'name': image['name']}
+
+            try:
+                api.glance_api(request).add_image(metadata, image['image_file'])
+                messages.success(request, "Image was successfully uploaded.")
+            except GlanceClientConnectionError, e:
+                messages.error(request, "Error connecting to glance: %s" %
+                                         e.message)
+            except glance_exception.Error, e:
+                messages.error(request, "Error adding image: %s" % e.message)
+        else:
+            messages.error(request, "Image could not be uploaded,\
+                                     please try agian.")
+            form = nova_forms.UploadImageForm(request.POST)
+            return render_to_response('dash_upload.html', {
+                'form': form,
+            }, context_instance=template.RequestContext(request))
+
+        return redirect('syspanel_images')
+    else:
+        form = nova_forms.UploadImageForm()
+        return render_to_response('dash_upload.html', {
+            'form': form,
+        }, context_instance=template.RequestContext(request))
+
+
 
 
 
@@ -132,17 +166,6 @@ def detail(request, tenant_id, image_id):
         'image_lists': _image_lists(images, tenant_id),
         'image': image,
     }, context_instance=template.RequestContext(request))
-
-@login_required
-def upload(request, tenant_id):
-    tenant = api.get_tenant(request, request.user.tenant)
-    return render_to_response('dash_upload.html', {
-        'form': None, #nova_forms.UploadForm(),
-        'tenant': tenant,
-    }, context_instance=template.RequestContext(request))
-
-
-    pass
 
 
 # TODO(termie): below = NotImplemented

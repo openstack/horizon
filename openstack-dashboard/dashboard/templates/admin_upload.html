@@ -1,0 +1,34 @@
+{% extends 'admin_base.html' %}
+{# launch an instance based on image #}
+{# standard nav, sidebar, launch form in main #}
+
+{% block sidebar %}
+  {% with current_section="images" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Compute:</span> Upload Image</h2>
+    <p class='desc'><span>&mdash;</span> Images are virtual machines used to create Instances.</p>
+  </div>
+
+  <div class="main_content">
+    <div class="dash_block wide form">
+      <div class='title_block'>
+        <h3>Upload Image</h3>
+      </div>
+
+      {% include '_upload.html' %}
+
+      <div class="right">
+        <h3>Description:</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae est urna. Phasellus sagittis, sem posuere hendrerit mattis, velit risus viverra enim, tempus dapibus sem turpis ac erat.</p>
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed mollis ligula nec lacus mollis eu laoreet lectus porta. </p>
+        <p>Sed iaculis mauris et est consectetur egestas. Praesent dolor libero, semper sed aliquet</p>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
