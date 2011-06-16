@@ -22,7 +22,6 @@ URL patterns for the OpenStack Dashboard.
 
 from django.conf.urls.defaults import *
 from django.conf import settings
-from django.contrib import admin
 from django.views import generic as generic_views
 import django.views.i18n
 from registration import forms as reg_forms
@@ -32,6 +31,7 @@ from django_openstack import urls as django_openstack_urls
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.splash', name='splash'),
     url(r'^dash/$', 'django_openstack.dash.views.instances.usage', name='dash_overview'),
+    url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage', name='syspanel_overview'),
 )
 
 # NOTE(termie): just append them since we want the routes at the root

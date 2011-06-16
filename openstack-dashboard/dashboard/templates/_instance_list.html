@@ -20,26 +20,8 @@
           <td>{{instance.status}}</td>
           <td id="actions">
             <ul>
-              <li>
-                <form id="form_terminate_{{instance.id}}" class="form-terminate" method="post">
-                  {% csrf_token %}
-                  {% for hidden in terminate_form.hidden_fields %}
-                    {{hidden}}
-                  {% endfor %}
-                  <input name="instance" type="hidden" value="{{instance.id}}" />
-                  <input id="terminate_{{instance.id}}" class="terminate" type="submit" value="Terminate" />
-                </form>
-              </li>
-              <li>
-                <form id="form_reboot_{{instance.id}}" class="form-reboot" method="post">
-                  {% csrf_token %}
-                  {% for hidden in reboot_form.hidden_fields %}
-                    {{hidden}}
-                  {% endfor %}
-                  <input name="instance" type="hidden" value="{{instance.id}}" />
-                  <input id="reboot_{{instance.id}}" class="reboot" type="submit" value="Reboot" />
-                </form>
-              </li>
+              <li>{% include "_terminate.html" with form=terminate_form %}</li>
+              <li>{% include "_reboot.html" with form=reboot_form %}</li>
               <li><a target="_blank" href="{% url dash_instances_console request.user.tenant instance.id %}">Log</a></li>
               <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant instance.id %}">VNC Console</a></li>
             </ul>

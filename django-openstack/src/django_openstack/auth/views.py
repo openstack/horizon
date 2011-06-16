@@ -28,7 +28,7 @@ class Login(forms.SelfHandlingForm):
             request.session['admin'] = info['admin']
 
             if request.session['admin']:
-                return shortcuts.redirect('admin_overview')
+                return shortcuts.redirect('syspanel_overview')
             else:
                 return shortcuts.redirect('dash_overview')
 
@@ -45,7 +45,7 @@ class LoginWithoutTenant(Login):
 def login(request):
     if request.user:
         if request.user.is_admin():
-            return shortcuts.redirect('admin_overview')
+            return shortcuts.redirect('syspanel_overview')
         else:
             return shortcuts.redirect('dash_overview')
 

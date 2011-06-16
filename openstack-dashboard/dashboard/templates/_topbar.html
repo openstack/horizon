@@ -3,10 +3,10 @@
   <ul id="main_nav">
 
   {% if request.user %}
-    <li><a {% if current_dash == "dash" %} class="active" {% endif %} href="{% url dash_overview %}">User Dashboard</a></li>
+    <li><a {% if current_topbar == "dash" %} class="active" {% endif %} href="{% url dash_overview %}">User Dashboard</a></li>
 
     {% if request.user.is_admin %}
-    <li><a {% if current_dash == "admin" %} class="active" {% endif %} href="{% url admin_overview %}">Admin Syspanel</a></li>
+    <li><a {% if current_topbar == "syspanel" %} class="active" {% endif %} href="{% url syspanel_overview %}">Admin Syspanel</a></li>
     {% endif %}
   {% else %}
     NOT _LOGGED_IN_TOPBAR

@@ -79,26 +79,22 @@ class RebootInstance(forms.SelfHandlingForm):
 
 @login_required
 def index(request, tenant_id):
-    tenant = api.get_tenant(request, request.user.tenant)
-    instances = api.compute_api(request).servers.list()
-
     for f in (TerminateInstance, RebootInstance):
         _, handled = f.maybe_handle(request)
         if handled:
             return handled
+
+    instances = api.compute_api(request).servers.list()
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
 
-
     return render_to_response('dash_instances.html', {
-        'tenant': tenant,
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
-        'detail': False,
     }, context_instance=template.RequestContext(request))
 
 
