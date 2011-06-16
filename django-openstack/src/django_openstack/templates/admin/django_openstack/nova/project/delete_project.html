@@ -1,0 +1,26 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+
+{% block extrastyle %}
+    {{block.super}}
+    <link rel="stylesheet" type="text/css" href="{{settings.MEDIA_URL}}/stylesheets/extra_admin.css" />
+{% endblock %}
+{% block breadcrumbs %}<div class="breadcrumbs"><a href="/admin/">Home</a>&nbsp;&rsaquo;&nbsp;<a href="/admin/projects">Projects</a>&nbsp;&rsaquo;&nbsp; <a href="{% url admin_project project.projectname %}">{{project.projectname}}</a>&nbsp;&rsaquo;&nbsp;Delete</div>{% endblock %}
+{% block content %}
+    <div id="content-main">
+        <div class="module filtered" id="changelist">
+            <div id="toolbartable">
+              <h1>{% trans "Delete Project" %}</h1>
+              <p>{% trans "Do you really want to delete this project?<" %}/p>
+              <ul>
+                <li><a href="{% url admin_project project.projectname %}">{{project.projectname}}</a></li>
+              </ul>
+
+              <form action="." method="post">
+                {% csrf_token %}
+                <p><input type="submit" value="Delete"></p>
+              </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

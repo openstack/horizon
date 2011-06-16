@@ -1,0 +1,240 @@
+# Translations of Dashboard for OpenStack User Interface.
+# Copyright 2011 Midokura KK
+# This file is distributed under the same license as the Dashboard for OpenStack.
+# FIRST AUTHOR Jeffrey Wilcox, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openstack-dashboard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-08 14:02+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+
+#: models.py:24 models.py:25
+msgid "Forbidden"
+msgstr ""
+
+#: models.py:39
+msgid "An unexpected error occurred.  Please try your request again."
+msgstr ""
+
+#: templates/django_nova_syspanel/index.html:9
+msgid ""
+"View all running instances other than VPNs. Schedule instances for\treboot "
+"or termination. Download logs."
+msgstr ""
+
+#: templates/django_nova_syspanel/index.html:15
+#: templates/django_nova_syspanel/volumes/index.html:24
+msgid ""
+"View all volumes. See size, status, and mount point. Detach and destroy "
+"volumes."
+msgstr ""
+
+#: templates/django_nova_syspanel/index.html:21
+#: templates/django_nova_syspanel/vpns/index.html:25
+msgid ""
+"View all projects VPN status. Schedule launch, termination, and reboot. Send "
+"credentials."
+msgstr ""
+
+#: templates/django_nova_syspanel/index.html:27
+msgid ""
+"View servers that participate in your cloud.  See statistics about\trunning "
+"services and served objects."
+msgstr ""
+
+#: templates/django_nova_syspanel/index.html:33
+msgid ""
+"Perform operations to deal with rogue users, limit or prevent compromise, "
+"and deal with external threats."
+msgstr ""
+
+#: templates/django_nova_syspanel/cloudview/index.html:9
+msgid ""
+"View servers that participate in your cloud.  See statistics about running "
+"services and served objects."
+msgstr ""
+
+#: templates/django_nova_syspanel/instances/index.html:23
+msgid "Manage Instances"
+msgstr ""
+
+#: templates/django_nova_syspanel/instances/index.html:24
+msgid ""
+"View all running instances other than VPNs. Schedule instances for reboot or "
+"termination. Download logs."
+msgstr ""
+
+#: templates/django_nova_syspanel/instances/index.html:36
+msgid "Refresh List"
+msgstr ""
+
+#: templates/django_nova_syspanel/instances/index.html:66
+msgid "Console Log"
+msgstr ""
+
+#: templates/django_nova_syspanel/security/disable_project_credentials.html:9
+msgid ""
+"\n"
+"    If a user's credentials were comprimised, you will need to use \n"
+"    `nova-manage user revoke USERNAME`, and the restart all VPNs for "
+"projects\n"
+"    they are a member of. "
+msgstr ""
+
+#: templates/django_nova_syspanel/security/disable_project_credentials.html:15
+#, python-format
+msgid ""
+"\n"
+"    The VPN for %(project)s is currently offline.  You can turn it back on\n"
+"    using "
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:7
+msgid "Security"
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:9
+msgid "Use the following tools to secure the cloud during a security event"
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:14
+msgid ""
+"<strong>Scenario:</strong> Project account credentials have been compromised."
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:15
+msgid ""
+"<strong>Action:</strong> Disable the user or project. This should invalidate "
+"the credentials, also deny the specific port assigned to the user."
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:34
+msgid ""
+"<strong>Scenario:</strong> The issue pin points to be coming in from a "
+"specific external ip or ip range."
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:35
+msgid ""
+"<strong>Action:</strong> Block the IP or IP range. This should manipulate ip "
+"tables to block the ip or ip range."
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:55
+msgid ""
+"<strong>Scenario:</strong> Issues affecting multiple public entry points or "
+"could not determine to be a specific one."
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:56
+msgid ""
+"<strong>Action:</strong> Disable all public IPs on all VMs. This should "
+"unplumb the device the public ip was on."
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:69
+msgid ""
+"<strong>Scenario:</strong> Issue related to VPN service affecting multiple "
+"customers."
+msgstr ""
+
+#: templates/django_nova_syspanel/security/index.html:70
+msgid ""
+"<strong>Action:</strong> Disable VPN service. This should turn off the VPN "
+"ip."
+msgstr ""
+
+#: templates/django_nova_syspanel/volumes/index.html:23
+msgid "Manage Volumes"
+msgstr ""
+
+#: templates/django_nova_syspanel/vpns/index.html:24
+msgid "Manage VPNs"
+msgstr ""
+
+#: views/instances.py:44
+#, python-format
+msgid "Instance %s has been scheduled for termination."
+msgstr ""
+
+#: views/instances.py:48
+#, python-format
+msgid "There were issues trying to terminate instance %s.  Please try again."
+msgstr ""
+
+#: views/instances.py:79
+#, python-format
+msgid "Instance %s has been scheduled for reboot."
+msgstr ""
+
+#: views/instances.py:83
+#, python-format
+msgid "There were issues trying to reboot instance %s.  Please try again."
+msgstr ""
+
+#: views/security.py:41
+#, python-format
+msgid "Unable to disable project %(name)s: %(code)s - %(msg)s"
+msgstr ""
+
+#: views/security.py:46
+#, python-format
+msgid "Project %s has been successfully disabled."
+msgstr ""
+
+#: views/security.py:52
+msgid "Invalid form data"
+msgstr ""
+
+#: views/security.py:68
+#, python-format
+msgid "Unable to block IPs range %(cidr)s: %(code)s %(msg)s"
+msgstr ""
+
+#: views/security.py:74
+#, python-format
+msgid "IPs range %shas been successfully blocked"
+msgstr ""
+
+#: views/security.py:88
+#, python-format
+msgid "Unable to shut off public IPs: %(code)s - %(msg)s"
+msgstr ""
+
+#: views/security.py:91
+msgid "Public IPs have been turned off."
+msgstr ""
+
+#: views/security.py:114
+#, python-format
+msgid "Unable to shut off all VPNs: %(code)s - %(msg)s"
+msgstr ""
+
+#: views/security.py:118
+msgid "VPNs have been successfully turned off."
+msgstr ""
+
+#: views/volumes.py:44
+#, python-format
+msgid "Volume %s has been scheduled to be detached."
+msgstr ""
+
+#: views/volumes.py:57
+#, python-format
+msgid "Unable to delete volume %(vol)s: %(msg)s"
+msgstr ""
+
+#: views/volumes.py:61
+#, python-format
+msgid "Volume %s has been successfully deleted."
+msgstr ""

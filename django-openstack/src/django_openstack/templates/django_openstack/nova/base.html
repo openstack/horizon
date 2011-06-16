@@ -1,0 +1,86 @@
+{% extends "base-sidebar.html" %}
+{% load i18n %}
+{% load region_tags %}
+{% load project_tags %}
+
+{% block headerjs %}
+{{ block.super }}
+{% endblock %}
+
+{% block region %}
+  <div id="region_selector">
+    {% load_regions %}
+    <span id="project_name"><strong>Project:</strong> {{ project.projectname }}</span>
+
+    <form id="frm_region" method="post" action="{% url region_change %}">
+      {% csrf_token %}
+      <fieldset>
+        <input name="redirect_url" type="hidden" value="{{ request.get_full_path }}" />
+        <noscript>
+          <input id="btn_region_change" type="submit" value="Change" />
+        </noscript>
+
+        <div id="region_form">
+          <label for="sel_region">Region: </label>
+          <select id="sel_region" name="region">
+            {% for region in regions %}
+              <option{% if region.name == current_region.name %} selected{% endif %}>
+                {{ region.name }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+{% endblock %}
+
+{% block nav_projects %}
+      {% load_projects %}
+      <li>
+        <h3 class="active"><a href="/">Projects</a></h3>
+        <div id="projects">
+          {% for p in projects %}
+            <div id="{{ p.projectname }}" class="project{% if p.projectname == project.projectname %} active{% endif %}">
+              <h4>
+                <a class="project_link" href="/project/{{ p.projectname }}">{{ p.projectname }}</a>
+                {% if p.projectManagerId == user.username %}
+                <a id="manage_project_{{p.projectname}}"
+                   class="manage_link"
+                   href="{% url nova_project_manage p.projectname %}"
+                   title="Manage User Roles">Manage Project</a>
+                {% endif %}
+              </h4>
+              {% if project.projectname == p.projectname %}
+                <ul>
+                  <li {% if p.projectname == project.projectname and sidebar_selected == "instances" %}class="active"{% endif %}>
+                    <a id="lnk_instances_{{p.projectname}}" href="{% url nova_instances p.projectname %}">Instances</a>
+                  </li>
+                  <li {% if p.projectname == project.projectname and sidebar_selected == "images" %}class="active"{% endif %}>
+                    <a id="lnk_images_{{p.projectname}}" href="{% url nova_images p.projectname %}">Images</a>
+                  </li>
+                  <li {% if p.projectname == project.projectname and sidebar_selected == "keys" %}class="active"{% endif %}>
+                    <a id="lnk_keypairs_{{p.projectname}}" href="{% url nova_keypairs p.projectname %}">Keys</a>
+                  </li>
+                  <li {% if p.projectname == project.projectname and sidebar_selected == "volumes" %}class="active"{% endif %}>
+                    <a id="lnk_volumes_{{p.projectname}}" href="{% url nova_volumes p.projectname %}">Volumes</a>
+                  </li>
+                </ul>              
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </li>
+{% endblock %}
+
+{% block footerjs %}
+{{ block.super }}
+<script type="text/javascript">
+  $(function() {
+    $('#sel_region').change(function() {
+      $('#frm_region').submit();
+    });
+  });
+</script>
+{% endblock %}

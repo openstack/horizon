@@ -1,0 +1,85 @@
+{% extends "django_openstack/nova/volumes/base.html" %}
+{% load i18n %}
+
+{% block title %} - Cloud Computing{% endblock %}
+
+{% block content %}
+  <div id="page_head">
+    <h2 id="page_heading">{% trans "Volumes"%}</h2>
+    <p id="page_description">{% trans "Volumes provide persistent block storage. Creating a new volume gives you a raw block device which you may format with your choice of filesystems (ext3 is recommended). A volume may only be attached to a single instance at a time."%}</p>
+  </div>
+
+  {% include "django_openstack/_messages.html" %}
+
+  {% if volumes %}
+  <table style="width: 100%">
+    <tr>
+      <th>ID</th>
+      <th>Size</th>
+      <th colspan="2">Status</th>
+    </tr>
+    {% for volume in volumes %}
+      <tr class="{% cycle 'odd' 'even' %}">
+        <td id="volume_{{ volume.id }}">{{ volume.id }} {{ volume.displayName }}</td>
+        <td id="volume_{{ volume.id }}_size" class="odd">{{ volume.size }}GB</td>
+        <td id="volume_{{ volume.id }})_status">
+          {% if volume.status == "in-use" %}
+            {% if volume.attachment_state == "attached" %}
+            attached: {{ volume.attach_data.instance_id }}
+            {% else %}
+            {{ volume.attachment_state }}
+            {% endif %}
+          {% else %}
+            {{ volume.status }}
+          {% endif %}
+        </td>
+        {% if volume.attachment_state == "attached" %}
+          <td class="odd">
+            <form class="volume" action="{% url nova_volumes_detach project.projectname volume.id %}" method="post">
+              {% csrf_token %}
+              <input id="detach_{{ volume.id }}" class="detach" type="submit" value="Detach">
+             </form>
+           </td>
+        {% else %}
+          <td class="odd">
+            <form class="volume" action="{% url nova_volumes_delete project.projectname volume.id %}" method="post">
+              {% csrf_token %}
+              <input id="delete_{{ volume.id }}" class="delete" type="submit" value="Delete">
+             </form>
+           </td>
+        {% endif %}
+      </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <div class="ui-widget">
+    <div class="ui-state-highlight ui-corner-all">
+      <p>
+        <span class="ui-icon ui-icon-info"></span>
+        {% trans "No volumes currently exist."%}
+      </p>
+    </div>
+  </div>
+  {% endif %}
+  <div class="dash_block first">
+    <form id="new_volume_form" method="post" action="{% url nova_volumes_add project.projectname %}">
+      {% csrf_token %}
+      <fieldset>
+        <h3>{% trans "Create New Volume"%}</h3>
+        {% include "django_openstack/nova/volumes/_create_form.html" %}
+        <input id="create_volume" class="create" type="submit" value="Create" />
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="dash_block">
+    <form id="new_volume_form" method="post" action="{% url nova_volumes_attach project.projectname %}">
+      {% csrf_token %}
+      <fieldset>
+        <h3>{% trans "Attach Volume"%}</h3>
+        {% include "django_openstack/nova/volumes/_attach_form.html" %}
+        <input id="attach_volume" class="attach" type="submit" value="Attach" />
+      </fieldset>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% load i18n %}
+      {% if instances %}
+      <table style="width: 100%">
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Size</th>
+          <th>IP</th>
+          <th colspan="2">State</th>
+        </tr>
+        {% for instance in instances %}
+        <tr class="{% cycle 'odd' 'even' %}">
+          {% if instance.id == selected_instance.id %}
+            <td class="detail_wrapper" colspan="6">
+              <div id="{{selected_instance.id}}" class="instance_detail">
+                <div class="column">
+                  <div class="instance_detail_item">
+                    <span class="label">Instance ID: </span>
+                    <span class="data">{{ selected_instance.id }}</span>
+                  </div>
+                  <div class="instance_detail_item">
+                    <span class="label">Name: </span>
+                    <span class="data">{% if selected_instance.displayName != "" %}{{ selected_instance.displayName }}{% else %} None {% endif %}</span>
+                  </div>
+                  <div class="instance_detail_item">
+                    <span class="label">Description: </span>
+                    <span class="data" id="desc">{{ selected_instance.displayDescription }}</span>
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div class="instance_detail_item">
+                    <span class="label">Region: </span>
+                    <span class="data">{{ selected_instance.region.name }}</span>
+                  </div>
+                  <div class="instance_detail_item">
+                    <span class="label">Size: </span>
+                    <span class="data">{{ selected_instance.instance_type }}</span>
+                  </div>
+                  <div class="instance_detail_item">
+                    <span class="label">State: </span>
+                    <span class="data">{{ selected_instance.state }}</span>
+                  </div>
+                  <div class="instance_detail_item">
+                    <span class="label">Image ID: </span>
+                    <span class="data">{{ selected_instance.image_id }}</span>
+                  </div>
+                  <div class="instance_detail_item">
+                    <span class="label">IP Address: </span>
+                    <span class="data">{{ selected_instance.dns_name }}</span>
+                  </div>
+
+                </div>
+
+                <div id="last" class="column">
+                  {% if instance.state == "running" %}
+                  <a href="{% url nova_instances_console project.projectname instance.id %}" id="console_{{instance.id}}" class="console" target="_blank">Show Console</a>
+                  {% if enable_vnc %}
+                    <a href="{% url nova_instances_vnc project.projectname instance.id %}" id="vnc_{{instance.id}}" class="console" target="_blank">VNC</a>{% endif %}
+                  {% endif %}
+                  <a id="edit_instance_link" href="{% url nova_instance_update project.projectname instance.id %}">Edit Instance</a>
+                 </div>
+
+                 <span class="delete">
+                    <form id="form_terminate_{{ instance.id }}" class="form-terminate" method="post" action="{% url nova_instances_terminate project.projectname %}" >
+                      <input name="instance_id" type="hidden" value="{{ instance.id }}" />
+                      <input id="terminate_{{instance.id}}" class="terminate" type="submit" value="Terminate" />
+                      {% csrf_token %}
+                    </form>
+                  </span>
+
+              </div>
+
+            </td>
+          {% else %}
+
+            <td><a href="{% url nova_instances_detail project.projectname instance.id %}">{{ instance.id }} {% if instance.displayName %}({{ instance.displayName }}){% endif %}
+              </a></td>
+            <td class="odd">{{ instance.image_id }}</td>
+            <td>{{ instance.instance_type }}</td>
+            <td class="odd">{{ instance.dns_name }}</td>
+            <td>{{ instance.state }}</td>
+            <td id="actions" class="odd">
+              <form id="form_terminate_{{ instance.id }}" class="form-terminate" method="post" action="{% url nova_instances_terminate project.projectname %}" >
+                <input name="instance_id" type="hidden" value="{{ instance.id }}" />
+                <input id="terminate_{{instance.id}}" class="terminate" type="submit" value="Terminate" />
+                {% csrf_token %}
+              </form>
+              {% if instance.state == "running" %}
+              <a href="{% url nova_instances_console project.projectname instance.id %}" id="console_{{instance.id}}" class="console" target="_blank">Show Console</a>
+              {% endif %}
+          </td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <div class="ui-widget">
+        <div class="ui-state-highlight ui-corner-all">
+          <p>
+            <span class="ui-icon ui-icon-info"></span>
+            {% trans "No instances are currently running. You may start a new instance from the"%} <a href="{% url nova_images project.projectname %}">images</a> tab.
+          </p>
+        </div>
+      </div>
+      {% endif %}

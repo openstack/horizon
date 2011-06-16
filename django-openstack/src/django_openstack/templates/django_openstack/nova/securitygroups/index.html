@@ -1,0 +1,60 @@
+{% extends "django_openstack/nova/securitygroups/base.html" %}
+{% load i18n %}
+
+{% block title %} - Cloud Computing{% endblock %}
+
+{% block content %}
+  <div id="dashboard_tabs">
+    <div id="tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom dash-wrap" style="margin-left:0px;min-height:300px;">
+      <ul id="dashboard_nav">
+        <li><a id="lnk_overview" href="{% url dashboard_project project.projectname %}">Overview</a></li>
+        <li><a id="lnk_instances" href="{% url dashboard_instances project.projectname %}">Instances</a></li>
+        <li><a id="lnk_images" href="{% url dashboard_images project.projectname %}">Images</a></li>
+        <li><a id="lnk_keypairs" href="{% url dashboard_keypairs project.projectname %}">Keys</a></li>
+        <li class="active"><a id="lnk_securitygroups" href="{% url dashboard_securitygroups project.projectname %}">Security Groups</a></li>
+        <li><a id="lnk_volumes" href="{% url dashboard_volumes project.projectname %}">Volumes</a></li>
+      </ul>
+     <div id="right_content">
+       <div id="page_head">
+         <h2 id="page_heading">{% trans "Security Groups" %}</h2>
+         <p id="page_description">{% trans "Security groups are firewall rules which allow access to your instances from other groups as well as the internet.  All ports/protocols are denied by default." %}</p>
+       </div>
+
+       {% include "django_openstack/_messages.html" %}
+
+       <table style="width:100%;">
+         <tr>
+           <th>Name</th>
+           <th style="min-width:60%;">Description</th>
+           <th>Rules</th>
+           <th>&nbsp;</th>
+         </tr>
+         {% for securitygroup in securitygroups %}
+           <tr class="{% cycle 'odd' 'even' %}">
+             <td id="group_{{ securitygroup.id }}"><a href="{% url dashboard_securitygroups_detail project.projectname securitygroup.name %}">{{ securitygroup.name }}</a></td>
+             <td id="group_{{ securitygroup.id }}_description" class="odd">{{ securitygroup.description }}</td>
+             <td id="group_{{ securitygroup.id }}_rules">{{ securitygroup.rules|length }}</td>
+             <td class="odd">
+               <form id="delete_group_{{ securitygroup.id }}" method="post" action="{% url dashboard_securitygroups_delete project.projectname securitygroup.name %}">
+                 {% csrf_token %}
+                 <input class="ui-state-default ui-corner-all" type="submit" value="Delete">
+               </form>
+             </td>
+           </tr>
+         {% endfor %}
+       </table>
+       <div class="block">
+         <form id="add_group_form" method="post" action="{% url dashboard_securitygroups_add project.projectname %}">
+           {% csrf_token %}
+           <fieldset>
+             <h3>New Group</h3>
+             {% include "django_openstack/nova/securitygroups/_create_form.html" %}
+             <label>&nbsp;</label><input class="ui-state-default ui-corner-all" type="submit" value="Create" />
+           </fieldset>
+         </form>
+       </div>
+     </div>
+     <div class="clr"></div>
+    </div>
+  </div>
+{% endblock %}

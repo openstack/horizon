@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %} - Internal Server Error{% endblock %}
 
 {% block content %}
   <div id="right_content">
     <div id="page_head">
-      <h2 id="page_heading">Internal Server Error</h2>
-      <p id="page_description">An unexpected error occurred while processing your request.  Please try your request again.</p>
+      <h2 id="page_heading">{% trans "Internal Server Error"%}</h2>
+      <p id="page_description">{% trans "An unexpected error occurred while processing your request.  Please try your request again."%}</p>
     </div>
   </div>
 {% endblock %}

@@ -1,0 +1,78 @@
+{% extends "django_openstack/nova/keypairs/base.html" %}
+{% load i18n %}
+
+{% block title %} - Cloud Computing{% endblock %}
+
+{% block headerjs %}
+{{ block.super }}
+<script type="text/javascript" src="/media/dashboard/js/jquery.form.js"></script>
+{% endblock %}
+
+{% block content %}
+  <div id="page_head">
+    <h2 id="page_heading">{% trans "Keys" %}</h2>
+    <p id="page_description">{% trans "Key pairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a pem file). <em>Protect and use the key as a normal private key.</em>" %}</p>
+  </div>
+
+  {% include "django_openstack/_messages.html" %}
+
+  <div id="instances">
+  {% include "django_openstack/nova/keypairs/_list.html" %}
+  </div>
+
+  <div class="dash_block first">
+    <form id="frm_key_create" action="{% url nova_keypairs_add project.projectname %}" method="post">
+      {% csrf_token %}
+      <input id="js" name="js" type="hidden" value="0" />
+      <fieldset>
+        <h3>Create New Keypair</h3>
+        {% include "django_openstack/nova/keypairs/_create_form.html" %}
+        <input id="keypair_create" class="create" type="submit" value="Create" />
+      </fieldset>
+    </form>
+  </div>
+
+  <div id="dlg_confirm" title="Confirm Termination">
+    <p>{% trans "Are you sure you wish to delete key" %} <span id="spn_delete_key_name"></span>?</p>
+  </div>
+{% endblock %}
+
+{% block footerjs %}
+{{ block.super }}
+<script type="text/javascript">
+  $(function() { $('#js').val('1'); });
+
+  {% if download_key %}
+  $(function() { window.location = '{% url nova_keypairs_download project.projectname download_key %}'; });
+  {% endif %}
+
+  $(function() {
+    $('.form-key-delete').submit(function() {
+      _key_name = $(this).children(':first').val()
+      $('#spn_delete_key_name').text(_key_name);
+      $('#dlg_confirm').dialog('open');
+      return false;
+    });
+
+    $('#dlg_confirm').dialog({
+      buttons: {
+       'Ok': onConfirmOK,
+       'Cancel': function() { $(this).dialog('close'); }
+      },
+        autoOpen: false,
+        resizable: false,
+        width: 500,
+        height: 200
+      });
+
+  });
+
+  var _terminateID = null;
+
+  function onConfirmOK() {
+    $(this).dialog('close');
+    form = document.getElementById('form_key_delete_' + _key_name);
+    if(form) form.submit();
+  }
+</script>
+{% endblock %}

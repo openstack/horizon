@@ -1,0 +1,7 @@
+{% extends "django_openstack/nova/base.html" %}
+{% load sidebar_tags %}
+
+{% block nav_projects %}
+  {% sidebar_select images %}
+  {{ block.super }}
+{% endblock %}

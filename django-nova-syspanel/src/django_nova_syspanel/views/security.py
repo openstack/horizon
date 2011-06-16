@@ -3,6 +3,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
+
 from django_nova_syspanel.forms import DisableProject
 from django_nova_syspanel.forms import DisableIpAddress
 from django_nova_syspanel.models import NovaResponseError, get_nova_admin_connection
@@ -12,10 +14,11 @@ from django_nova_syspanel.models import NovaResponseError, get_nova_admin_connec
 def index(request):
     disable_project_form = DisableProject()
     disable_ip_form = DisableIpAddress()
-    return render_to_response('django_nova_syspanel/security/index.html',{
-        'project_form':disable_project_form,
-        'ip_form':disable_ip_form,
-    },context_instance = template.RequestContext(request))
+    return render_to_response('django_nova_syspanel/security/index.html',
+                             {'project_form': disable_project_form,
+                              'ip_form': disable_ip_form, },
+                             context_instance=template.RequestContext(request))
+
 
 @login_required
 def disable_project_credentials(request):
@@ -35,21 +38,22 @@ def disable_project_credentials(request):
                     conn.terminate_instances([vpn.instance_id])
             except NovaResponseError, e:
                 messages.error(request,
-                               'Unable to disable project %s: %s - %s' %
-                               (name, e.code, e.message))
+                    _('Unable to disable project %(name)s: %(code)s - %(msg)s') %
+                     {'name': name, 'code': e.code, 'msg': e.message})
                 return redirect('syspanel_security')
             else:
                 messages.success(request,
-                                 'Project %s has been successfully disabled.' %
-                                     form.cleaned_data['project_name'])
+                    _('Project %s has been successfully disabled.') %
+                      form.cleaned_data['project_name'])
             return render_to_response(
                       'django_nova_syspanel/security/disable_project_credentials.html',
-                      context_instance = template.RequestContext(request))
+                      context_instance=template.RequestContext(request))
         else:
-            messages.error(request, 'Invalid form data')
+            messages.error(request, _('Invalid form data'))
             return redirect('syspanel_security')
     else:
         return redirect('syspanel_security')
+
 
 @login_required
 def disable_ip(request):
@@ -61,12 +65,14 @@ def disable_ip(request):
                 conn.block_ips(form.cleaned_data['cidr'])
             except NovaResponseError, e:
                 messages.error(request,
-                               'Unable to block IPs range %s: %s %s' %
-                               (form.cleaned_data['cidr'], e.code, e.message))
+                    _('Unable to block IPs range %(cidr)s: %(code)s %(msg)s') %
+                     {'cidr': form.cleaned_data['cidr'],
+                      'code': e.code,
+                      'msg': e.message})
             else:
                 messages.success(request,
-                                 'IPs range %shas been successfully blocked' %
-                                 form.cleaned_data['cidr'])
+                    _('IPs range %shas been successfully blocked') %
+                      form.cleaned_data['cidr'])
 
     return redirect('syspanel_security')
 
@@ -79,10 +85,10 @@ def disable_public_ips(request):
             nova.disable_all_floating_ips()
         except NovaResponseError, e:
             messages.error(request,
-                           'Unable to shut off public IPs: %s - %s' %
-                           (e.code, e.message,))
+                _('Unable to shut off public IPs: %(code)s - %(msg)s') %
+                 {'code': e.code, 'msg': e.message, })
         else:
-            messages.success(request, 'Public IPs have been turned off.')
+            messages.success(request, _('Public IPs have been turned off.'))
     return redirect('syspanel_security')
 
 
@@ -104,10 +110,12 @@ def disable_vpn(request):
             if collector:
                 conn.terminate_instances([x.instance_id for x in collector])
         except NovaResponseError, e:
-            messages.error(request, 'Unable to shut off all VPNs: %s - %s' %
-                                    (e.code, e.message,))
+            messages.error(request,
+                _('Unable to shut off all VPNs: %(code)s - %(msg)s') %
+                 {'code': e.code, 'msg': e.message, })
         else:
-            messages.success(request, 'VPNs have been successfully turned off.')
+            messages.success(request,
+                             _('VPNs have been successfully turned off.'))
         return redirect('syspanel_security')
     else:
         return redirect('syspanel_security')

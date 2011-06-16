@@ -1,0 +1,63 @@
+{% extends "django_openstack/nova/securitygroups/base.html" %}
+{% load i18n %}
+
+{% block title %} - Cloud Computing{% endblock %}
+
+{% block content %}
+  <div id="dashboard_tabs">
+    <div id="tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom dash-wrap" style="margin-left:0;min-height:300px;">
+      <ul id="dashboard_nav">
+        <li><a id="lnk_overview" href="{% url dashboard_project project.projectname %}">Overview</a></li>
+        <li><a id="lnk_instances" href="{% url dashboard_instances project.projectname %}">Instances</a></li>
+        <li><a id="lnk_images" href="{% url dashboard_images project.projectname %}">Images</a></li>
+        <li><a id="lnk_keypairs" href="{% url dashboard_keypairs project.projectname %}">Keys</a></li>
+        <li class="active"><a id="lnk_securitygroups" href="{% url dashboard_securitygroups project.projectname %}">Security Groups</a></li>
+        <li><a id="lnk_volumes" href="{% url dashboard_volumes project.projectname %}">Volumes</a></li>
+      </ul>
+      <div id="right_content">
+        <div id="page_head">
+          <h2>{% blocktrans %} Security Group: {{ securitygroup.name }} {%endblocktrans%}</h2>
+          <p>{% trans "Add and remove protocols to the security group by authorizing and revoking port forwarding. For instance<br /> [tcp, 80, 80] will allow access to HTTP from devices outside this security group."%}</p>
+        </div>
+
+        {% include "django_openstack/_messages.html" %}
+
+        <table>
+          <tr>
+            <th>Protocol</th>
+            <th>From Port</th>
+            <th>To Port</th>
+            <th></th>
+          </tr>
+          {% for rule in securitygroup.rules %}
+          <tr class="{% cycle 'odd' 'even' %}">
+            <td>{{ rule.ip_protocol }}</td>
+            <td class="odd">{{ rule.from_port }}</td>
+            <td>{{ rule.to_port }}</td>
+            <td class="odd">
+              <form id="security_groups" method="post" action="{% url dashboard_securitygroups_revoke project.projectname securitygroup.name %}">
+                {% csrf_token %}
+                {% include "django_openstack/nova/securitygroups/_revoke_form.html" %}
+                <input class="ui-state-default ui-corner-all" type="submit" value="Revoke" />
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+
+        <div class="block">
+          <h3>Authorize</h3>
+          <form id="authorize" method="post" action="{% url dashboard_securitygroups_authorize project.projectname securitygroup.name %}">
+            {% csrf_token %}
+            <fieldset>
+              <input type="hidden" name="group" value="{{ securitygroup.name }}" />
+              {% include "django_openstack/nova/securitygroups/_authorize_form.html" %}
+              <input class="ui-state-default ui-corner-all" type="submit" value="Authorize">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block headerjs %}
 
@@ -20,9 +21,8 @@
 
 {% block content %}
   <div id="page_description">
-    <h2 class="page_heading">Manage VPNs</h2>
-		<p>View all projects VPN status. Schedule launch, termination, and reboot.
-		Send credentials.</p>
+    <h2 class="page_heading">{% trans "Manage VPNs" %}</h2>
+		<p>{% trans "View all projects VPN status. Schedule launch, termination, and reboot. Send credentials." %}</p>
   </div>
   <div class="message">
     {% if status == "success" %}

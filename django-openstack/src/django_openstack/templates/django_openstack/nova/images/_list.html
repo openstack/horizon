@@ -1,0 +1,114 @@
+{% load i18n %}
+    <h3 class="image_list_heading"> {{ heading }} </h3>
+    {% if images %}
+    <table id="image_launch">
+      <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th colspan="2">Owner</th>
+      </tr>
+      {% for image in images %}
+        {% if image.id == ami.id %}
+          <td class="detail_wrapper" colspan="4">
+            <div id="{{ ami.id }}" class="image_detail">
+              <div class="column">
+                <div class="image_detail_item">
+                  <span class="label">Owner: </span>
+                  <span class="data">{{ ami.ownerId }}</span>
+                </div>
+
+                <div class="image_detail_item">
+                  <span class="label">Description: </span>
+                  <span class="data">{{ ami.description }}</span>
+                </div>
+
+                <div id="location" class="image_detail_item">
+                  <span class="label">Location: </span>
+                  <span class="data">{{ ami.location }}</span>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="image_detail_item">
+                  <span class="label">ID: </span>
+                  <span class="data">{{ ami.id }}</span>
+                </div>
+                <div class="image_detail_item">
+                  <span class="label">Name: </span>
+                  <span class="data">{% if ami.displayName %}{{ ami.displayName }}{%else%}{{ ami.id }}{% endif %}</span>
+                </div>
+                <div class="image_detail_item">
+                  <span class="label">Type: </span>
+                  <span class="data">{{ ami.type }}</span>
+                </div>
+                <div class="image_detail_item">
+                  <span class="label">Architecture: </span>
+                  <span class="data">{{ ami.architecture }}</span>
+                </div>
+              </div>
+
+              <div id="last" class="column">
+                {% if ami.is_public %}
+                  <div id="public" class="privacy">Public Image</div>
+                {% else %}
+                  <div id="private" class="privacy">Private Image</div>
+                {% endif %}
+
+                <a id="launch_{{ image.id }}" class="launch" href="{% url nova_images_launch project.projectname image.id %}" title="Click to launch image">Launch</a>
+                {% if user.username == ami.ownerId %}
+                  <a id="edit_image_link" href="{% url nova_images_update project.projectname ami.id %}">Edit Image</a>
+                {% endif %}
+
+              </div>
+              <a id="close_detail" href="{% url nova_images project.projectname %}">[x] close</a>
+              
+              {% if user.username == ami.ownerId %}
+                <span class="image_privacy">
+                  <form id="privacy_{{ ami.id }}" action="{% url nova_images_privacy project.projectname ami.id %}" method="post" accept-charset="utf-8">
+                    {% csrf_token %}
+                    {% if ami.is_public %}
+                      <input class="private" type="submit" value="{% trans "Make Private" %}" />
+                    {% else %}
+                      <input class="public" type="submit" value="{% trans "Make Public" %}" />
+                    {% endif %}
+                  </form>
+                </span>
+
+                <span class="delete">
+                  <form id="delete_{{ ami.id }}" action="{% url nova_images_remove project.projectname ami.id %}" method="post" accept-charset="utf-8">
+                    {% csrf_token %}
+                    <input type="submit" value="{% trans "Remove Image" %}" />
+                  </form>
+                </span>
+              {% endif %}              
+            </div>
+          </td>
+        {% else %}
+          <tr class="{% cycle 'odd' 'even' %}">
+            <td class="image_id">
+              <a href="{% url nova_images_detail project.projectname image.id %}">{% if image.displayName %}{{ image.displayName }}{%else%}{{ image.id }}{% endif %}</a>
+            </td>
+            <td class="image_location odd">
+              {% if image.description %}
+                {{ image.description }}
+              {% else %}
+                {{ image.location }}
+              {% endif %}
+            </td>
+            <td class="image_owner_id">{{ image.ownerId }}</td>
+            <td class="image_launch_btn odd"><a id="launch_{{ image.id }}" class="launch" href="{% url nova_images_launch project.projectname image.id %}">Launch</a></td>
+            {#<td class="odd"><a class="ui-state-default ui-corner-all" onclick="$('#dlg_launch').dialog('open');">Launch</a></td>#}
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+    {% else %}
+    <div class="ui-widget">
+      <div class="ui-state-highlight ui-corner-all">
+        <p>
+          <span class="ui-icon ui-icon-info"></span>
+          {% trans "No images currently available." %}
+        </p>
+      </div>
+    </div>
+    {% endif %}

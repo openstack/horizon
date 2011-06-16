@@ -3,6 +3,7 @@ import boto
 import boto.exception
 import boto.s3
 from boto.ec2.volume import Volume
+from xml.dom import minidom
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -10,16 +11,18 @@ from django.core.exceptions import PermissionDenied
 from django.db.models.signals import post_save
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from xml.dom import minidom
+from django.utils.translation import ugettext as _
+
 from nova_adminclient import NovaAdminClient
 
 project_permissions = ('admin',)
 
+
 class NovaResponseError(Exception):
     def __init__(self, ec2error):
         if ec2error.reason == 'Forbidden':
-            self.code = 'Forbidden'
-            self.message = 'Forbidden'
+            self.code = _('Forbidden')
+            self.message = _('Forbidden')
             return
 
         dom = minidom.parseString(ec2error.body)
@@ -33,7 +36,7 @@ class NovaResponseError(Exception):
         try:
             self.message = err.getElementsByTagName('Message')[0].childNodes[0].data
         except IndexError:
-            self.message = 'An unexpected error occurred.  Please try your request again.'
+            self.message = _('An unexpected error occurred.  Please try your request again.')
 
         dom.unlink()
 
@@ -54,16 +57,17 @@ def handle_nova_error(fn):
         return wrapper
     return decorator(fn)
 
+
 def get_nova_admin_connection():
     """
     Returns a Nova administration connection.
     """
-    return NovaAdminClient (
+    return NovaAdminClient(
         clc_url=settings.NOVA_DEFAULT_ENDPOINT,
         region=settings.NOVA_DEFAULT_REGION,
         access_key=settings.NOVA_ACCESS_KEY,
-        secret_key=settings.NOVA_SECRET_KEY
-    )
+        secret_key=settings.NOVA_SECRET_KEY)
+
 
 class VolumeInfo(object):
     """Foo"""
@@ -101,6 +105,7 @@ class VolumeInfo(object):
         else:
             setattr(self, name, str(value))
 
+
 class ProjectManager(object):
     def __init__(self, username, project, region):
         self.username = username
@@ -132,11 +137,12 @@ class ProjectManager(object):
         sorted_images = [i for i in images if i.ownerId == self.username] + \
                         [i for i in images if i.ownerId != self.username]
 
-        return [i for i in sorted_images if i.type == 'machine' and i.location.split('/')[0] != 'nova']
+        return [i for i in sorted_images
+                if i.type == 'machine' and i.location.split('/')[0] != 'nova']
 
     def get_image(self, image_id):
         try:
-            return self.get_images(image_ids=[image_id,])[0]
+            return self.get_images(image_ids=[image_id, ])[0]
         except IndexError:
             return None
 
@@ -152,11 +158,9 @@ class ProjectManager(object):
     @handle_nova_error
     def update_image(self, image_id, display_name=None, description=None):
         conn = self.get_nova_connection()
-        params = {  
-                    'ImageId': image_id, 
-                    'DisplayName': display_name,
-                    'Description': description
-                 }
+        params = {'ImageId': image_id,
+                  'DisplayName': display_name,
+                  'Description': description}
         return conn.get_object('UpdateImage', params, boto.ec2.image.Image)
 
     @handle_nova_error
@@ -169,7 +173,8 @@ class ProjectManager(object):
 
     def get_instance_count(self):
         """
-        Returns the number of active instances in this project or None if unknown.
+        Returns the number of active instances in this project
+        or None if unknown.
         """
         try:
             return len(self.get_instances())
@@ -206,7 +211,8 @@ class ProjectManager(object):
     @handle_nova_error
     def update_instance(self, instance_id, updates):
         conn = self.get_nova_connection()
-        params = {'InstanceId': instance_id, 'DisplayName': updates['nickname'],
+        params = {'InstanceId': instance_id,
+                  'DisplayName': updates['nickname'],
                   'DisplayDescription': updates['description']}
         return conn.get_object('UpdateInstance', params,
                                boto.ec2.instance.Instance)
@@ -214,14 +220,13 @@ class ProjectManager(object):
     def get_instance_graph(self, region, instance_id, graph_name):
         # TODO(devcamcar): Need better support for multiple regions.
         #                  Need a way to get object store by region.
-        s3 = boto.s3.connection.S3Connection (
+        s3 = boto.s3.connection.S3Connection(
             aws_access_key_id=settings.NOVA_ACCESS_KEY,
             aws_secret_access_key=settings.NOVA_SECRET_KEY,
             is_secure=False,
             calling_format=boto.s3.connection.OrdinaryCallingFormat(),
             port=3333,
-            host=settings.NOVA_CLC_IP
-        )
+            host=settings.NOVA_CLC_IP)
         key = '_%s.monitor' % instance_id
 
         try:
@@ -272,7 +277,8 @@ class ProjectManager(object):
     @handle_nova_error
     def has_security_group(self, name):
         """
-        Indicates whether a security group with the specified name exists in this project.
+        Indicates whether a security group with the specified name
+        exists in this project.
         """
         return self.get_security_group(name) != None
 
@@ -290,7 +296,7 @@ class ProjectManager(object):
         Deletes a security group from the project.
         """
         conn = self.get_nova_connection()
-        return conn.delete_security_group(name = name)
+        return conn.delete_security_group(name=name)
 
     @handle_nova_error
     def authorize_security_group(self, group_name, ip_protocol, from_port, to_port):
@@ -298,13 +304,12 @@ class ProjectManager(object):
         Authorizes a rule for the specified security group.
         """
         conn = self.get_nova_connection()
-        return conn.authorize_security_group (
-            group_name = group_name,
-            ip_protocol = ip_protocol,
-            from_port = from_port,
-            to_port = to_port,
-            cidr_ip = '0.0.0.0/0'
-        )
+        return conn.authorize_security_group(
+            group_name=group_name,
+            ip_protocol=ip_protocol,
+            from_port=from_port,
+            to_port=to_port,
+            cidr_ip='0.0.0.0/0')
 
     @handle_nova_error
     def revoke_security_group(self, group_name, ip_protocol, from_port, to_port):
@@ -312,13 +317,12 @@ class ProjectManager(object):
         Revokes a rule for the specified security group.
         """
         conn = self.get_nova_connection()
-        return conn.revoke_security_group (
-            group_name = group_name,
-            ip_protocol = ip_protocol,
-            from_port = from_port,
-            to_port = to_port,
-            cidr_ip = '0.0.0.0/0'
-        )
+        return conn.revoke_security_group(
+            group_name=group_name,
+            ip_protocol=ip_protocol,
+            from_port=from_port,
+            to_port=to_port,
+            cidr_ip='0.0.0.0/0')
 
     @handle_nova_error
     def get_key_pairs(self):
@@ -350,7 +354,8 @@ class ProjectManager(object):
     @handle_nova_error
     def has_key_pair(self, name):
         """
-        Indicates whether a key pair with the specified name exists in this project.
+        Indicates whether a key pair with the specified name
+        exists in this project.
         """
         return self.get_key_pair(name) != None
 
@@ -400,6 +405,7 @@ class ProjectManager(object):
     def detach_volume(self, volume_id):
         conn = self.get_nova_connection()
         return conn.detach_volume(volume_id)
+
 
 def user_post_save(sender, instance, created, *args, **kwargs):
     """
