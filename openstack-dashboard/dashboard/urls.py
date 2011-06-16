@@ -37,14 +37,6 @@ urlpatterns = patterns('',
 # NOTE(termie): just append them since we want the routes at the root
 urlpatterns += django_openstack_urls.urlpatterns
 
-#url(r'^i18n/setlang', django.views.i18n.set_language),
-#url(r'^tenant/', include('django_openstack.nova.urls.tenant')),
-#url(r'^syspanel/', include('django_openstack.syspanel.urls')),
-#url(r'^token/$', 'django_openstack.nova.views.auth.token', name='auth_token'),
-#url(r'^login/$', 'django_openstack.nova.views.auth.token', name='auth_login'),
-#url(r'^token/switch/(?P<tenant_id>\d+)?$', 'django_openstack.nova.views.auth.switch_tenants', name='auth_switch_tenants'),
-#url(r'^token/destroy$', 'django_openstack.nova.views.auth.destroy_token', name='auth_logout'),
-
 
 urlpatterns += patterns('',
     # TODO(devcamcar): Move permission denied template into django-openstack.

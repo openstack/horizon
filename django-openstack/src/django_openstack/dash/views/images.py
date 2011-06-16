@@ -33,7 +33,6 @@ from django.utils.translation import ugettext as _
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms as nova_forms
 #from django_openstack.nova import shortcuts
-from django_openstack.nova.exceptions import handle_nova_error
 from django import shortcuts
 
 from django_openstack import api
@@ -60,7 +59,6 @@ def _image_lists(images, tenant_id):
 
 
 @login_required
-@handle_nova_error
 def index(request, tenant_id):
     tenant = api.get_tenant(request, request.user.tenant)
     images = api.glance_api(request).get_images_detailed()
@@ -73,7 +71,6 @@ def index(request, tenant_id):
 
 
 @login_required
-@handle_nova_error
 def launch(request, tenant_id, image_id):
     def flavorlist():
         try:
@@ -118,7 +115,6 @@ def launch(request, tenant_id, image_id):
 
 
 @login_required
-@handle_nova_error
 def detail(request, tenant_id, image_id):
     image = api.compute_api(request).images.get(image_id)
     tenant = api.get_tenant(request, request.user.tenant)
@@ -135,7 +131,6 @@ def detail(request, tenant_id, image_id):
     }, context_instance=template.RequestContext(request))
 
 @login_required
-@handle_nova_error
 def upload(request, tenant_id):
     tenant = api.get_tenant(request, request.user.tenant)
     return render_to_response('dash_upload.html', {
@@ -150,7 +145,6 @@ def upload(request, tenant_id):
 # TODO(termie): below = NotImplemented
 
 @login_required
-@handle_nova_error
 def remove(request, project_id, image_id):
     project = shortcuts.get_project_or_404(request, project_id)
 
@@ -174,7 +168,6 @@ def remove(request, project_id, image_id):
 
 
 @login_required
-@handle_nova_error
 def privacy(request, project_id, image_id):
     project = shortcuts.get_project_or_404(request, project_id)
 
@@ -214,7 +207,6 @@ def privacy(request, project_id, image_id):
 
 
 @login_required
-@handle_nova_error
 def update(request, project_id, image_id):
     project = shortcuts.get_project_or_404(request, project_id)
     ami = project.get_image(image_id)

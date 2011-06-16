@@ -19,6 +19,7 @@
         {% include '_topbar.html' %}
       {% endblock %}
 
+      {% block content %}
       <div id="content">
         {% block sidebar %}
         {% endblock %}
@@ -27,6 +28,7 @@
           {% endblock %}
         </div>
       </div>
+      {% endblock %}
       <div id="footer">
         {% block footer %}{% endblock %}
       </div>

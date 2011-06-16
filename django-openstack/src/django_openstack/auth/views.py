@@ -26,7 +26,7 @@ def login(request):
                 if request.session['admin']:
                     return shortcuts.redirect('admin_overview')
                 else:
-                    return shortcuts.redirect('user_overview')
+                    return shortcuts.redirect('dash_overview')
 
             except api_exceptions.Unauthorized as e:
                 messages.error(request, 'Error authenticating: %s' % e.message)
