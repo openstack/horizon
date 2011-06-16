@@ -29,21 +29,18 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
-from django_openstack.nova import exceptions
 from django_openstack.nova import forms as nova_forms
-from django_openstack.nova import shortcuts
 from django_openstack.nova.exceptions import handle_nova_error
 
 from django_openstack import api
-
-import boto.ec2.ec2object
+import openstack.compute.servers
+import openstackx.api.exceptions as api_exceptions
 
 
 LOG = logging.getLogger('django_openstack.nova')
 
 
 @login_required
-@handle_nova_error
 def index(request, tenant_id):
     tenant = api.get_tenant(request, request.user.tenant)
     instances = api.compute_api(request).servers.list()
@@ -54,6 +51,76 @@ def index(request, tenant_id):
         'detail': False,
     }, context_instance=template.RequestContext(request))
 
+
+# TODO(termie): instance_id in two places
+@login_required
+def terminate(request, tenant_id, instance_id):
+    tenant = api.get_tenant(request, request.user.tenant)
+    if request.method == 'POST':
+        instance_id = request.POST['instance_id']
+        instance = api.compute_api(request).servers.get(instance_id)
+
+        try:
+            api.compute_api(request).servers.delete(instance)
+        except api_exceptions.ApiException, e:
+            messages.error(request,
+                           'Unable to terminate %s: %s' %
+                           (instance_id, e.message,))
+        else:
+            messages.success(request,
+                             'Instance %s has been terminated.' % instance_id)
+
+    return redirect('dash_instances', tenant_id)
+
+
+@login_required
+def reboot(request, tenant_id, instance_id):
+    try:
+        server = api.compute_api(request).servers.get(instance_id)
+        server.reboot(openstack.compute.servers.REBOOT_HARD)
+        messages.success(request, "Instance rebooting")
+    except api_exceptions.ApiException, e:
+        messages.error(request,
+                   'Unable to reboot instance: %s' % e.message)
+    return redirect('dash_instances', tenant_id)
+
+
+@login_required
+def console(request, tenant_id, instance_id):
+    try:
+        console = api.extras_api(request).consoles.create(instance_id)
+        response = http.HttpResponse(mimetype='text/plain')
+        response.write(console.output)
+        response.flush()
+        return response
+    except api_exceptions.ApiException, e:
+        messages.error(request,
+                   'Unable to get log for instance %s: %s' %
+                   (instance_id, e.message))
+        return redirect('dash_instances', tenant_id)
+
+
+@login_required
+def vnc(request, tenant_id, instance_id):
+    try:
+        console = api.extras_api(request).consoles.create(instance_id, 'vnc')
+        return redirect(console.output)
+    except api_exceptions.ApiException, e:
+        messages.error(request,
+                   'Unable to get vnc console for instance %s: %s' %
+                   (instance_id, e.message))
+        return redirect('dash_instances', tenant_id)
+
+
+
+
+
+
+
+
+
+
+# TODO(termie): below = NotImplemented
 
 @login_required
 @handle_nova_error
@@ -132,56 +199,6 @@ def refresh_detail(request, tenant_id, instance_id):
         context_instance=template.RequestContext(request))
 
 
-@login_required
-@handle_nova_error
-def terminate(request, tenant_id):
-    tenant = api.get_tenant(request, request.user.tenant)
-    if request.method == 'POST':
-        instance_id = request.POST['instance_id']
-        instance = api.compute_api(request).servers.get(instance_id)
-
-        try:
-            api.compute_api(request).servers.delete(instance)
-        except api_exceptions.ApiException, e:
-            messages.error(request,
-                           'Unable to terminate %s: %s' %
-                           (instance_id, e.message,))
-        else:
-            messages.success(request,
-                             'Instance %s has been terminated.' % instance_id)
-
-    return redirect('nova_instances', tenant_id)
-
-
-@login_required
-@handle_nova_error
-def console(request, tenant_id, instance_id):
-    try:
-        console = api.extras_api(request).consoles.create(instance_id)
-        response = http.HttpResponse(mimetype='text/plain')
-        response.write(console.output)
-        response.flush()
-        return response
-    except api_exceptions.ApiException, e:
-        messages.error(request,
-                   'Unable to get log for instance %s: %s' %
-                   (instance_id, e.message))
-        return shortcut.redirect('nova_instances', tenant_id)
-
-
-@login_required
-@handle_nova_error
-def vnc(request, tenant_id, instance_id):
-    try:
-        console = api.extras_api(request).consoles.create(instance_id, 'vnc')
-        return shortcuts.redirect(console.output)
-    except api_exceptions.ApiException, e:
-        messages.error(request,
-                   'Unable to get vnc console for instance %s: %s' %
-                   (instance_id, e.message))
-        return shortcuts.redirect('nova_instances', tenant_id)
-
-# TODO(termie): below = NotImplemented
 
 @login_required
 @handle_nova_error

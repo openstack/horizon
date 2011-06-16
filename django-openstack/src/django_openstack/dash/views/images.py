@@ -99,7 +99,7 @@ def launch(request, tenant_id, image_id):
                                                         fl)
                 messages.success(request, "Instance was successfully\
                                            launched.")
-                return shortcuts.redirect('nova_instances', tenant_id=tenant.id)
+                return shortcuts.redirect('dash_instances', tenant_id=tenant.id)
             except api_exceptions.ApiException, e:
                 messages.error(request,
                            'Unable to launch instance: %s' % e.message)
@@ -107,11 +107,14 @@ def launch(request, tenant_id, image_id):
     form = nova_forms.LaunchForm(initial={'image_id': image_id,
                                           'flavorlist': flavorlist()})
 
-    return render_to_response('django_openstack/nova/images/launch.html', {
+    return render_to_response('dash_launch.html', {
         'tenant': tenant,
         'image': image,
         'form': form,
     }, context_instance=template.RequestContext(request))
+
+
+
 
 
 @login_required

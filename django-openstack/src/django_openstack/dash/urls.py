@@ -3,18 +3,15 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
 
+INSTANCES = r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/%s$'
+
 urlpatterns = patterns('django_openstack.dash.views.instances',
-    url(r'^(?P<tenant_id>[^/]+)/instances', 'index', name='dash_instances'),
-    url(r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/$',
-        'detail', name='dash_instances_detail'),
-    url(r'^(?P<tenant_id>[^/]+)/instances/terminate/$',
-        'detail', name='dash_instances_terminate'),
-    url(r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/console$',
-        'console',
-        name='dash_instances_console'),
-    url(r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/vnc$',
-        'vnc',
-        name='dash_instances_vnc'),
+    url(r'^(?P<tenant_id>[^/]+)/instances/$', 'index', name='dash_instances'),
+    url(INSTANCES % 'terminate', 'terminate', name='dash_instances_terminate'),
+    url(INSTANCES % 'reboot', 'reboot', name='dash_instances_reboot'),
+    url(INSTANCES % 'console', 'console', name='dash_instances_console'),
+    url(INSTANCES % 'vnc', 'vnc', name='dash_instances_vnc'),
+    #url(INSTANCES % '', 'detail', name='dash_instances_detail'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.images',
