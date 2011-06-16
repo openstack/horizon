@@ -1,3 +1,5 @@
+# vim: tabstop=4 shiftwidth=4 softtabstop=4
+
 from django import template
 from django import http
 from django.conf import settings
@@ -12,8 +14,46 @@ from django_openstack import api
 from django_openstack import forms
 
 
+class DeleteImage(forms.SelfHandlingForm):
+    image_id = forms.CharField(required=True)
+
+    def handle(self, request, data):
+        image_id = data['image_id']
+        try:
+            api.glance_api(request).delete_image(image_id)
+        except GlanceClientConnectionError, e:
+            messages.error(request, "Error connecting to glance: %s" % e.message)
+        except glance_exception.Error, e:
+            messages.error(request, "Error deleting image: %s" % e.message)
+        return redirect(request.build_absolute_uri())
+
+
+class ToggleImage(forms.SelfHandlingForm):
+    image_id = forms.CharField(required=True)
+
+    def handle(self, request, data):
+        try:
+            api.glance_api(request).update_image(image_id, image_meta={'is_public': False})
+        except GlanceClientConnectionError, e:
+            messages.error(request, "Error connecting to glance: %s" % e.message)
+        except glance_exception.Error, e:
+            messages.error(request, "Error updating image: %s" % e.message)
+        return redirect(request.build_absolute_uri())
+
+
+
 @login_required
 def index(request):
+    for f in (DeleteImage, ToggleImage):
+        _, handled = f.maybe_handle(request)
+        if handled:
+            return handled
+
+    # We don't have any way of showing errors for these, so don't bother
+    # trying to reuse the forms from above
+    delete_form = DeleteImage()
+    toggle_form = ToggleImage()
+
     images = []
     try:
         images = api.glance_api(request).get_images_detailed()
@@ -25,30 +65,10 @@ def index(request):
         messages.error(request, "Error retrieving image list: %s" % e.message)
 
     return render_to_response('syspanel_images.html', {
+        'delete_form': delete_form,
+        'toggle_form': toggle_form,
         'images': images,
     }, context_instance = template.RequestContext(request))
-
-
-@login_required
-def delete(request, image_id):
-    try:
-        glance_api(request).delete_image(image_id)
-    except GlanceClientConnectionError, e:
-        messages.error(request, "Error connecting to glance: %s" % e.message)
-    except glance_exception.Error, e:
-        messages.error(request, "Error deleting image: %s" % e.message)
-    return redirect('syspanel_images')
-
-
-@login_required
-def toggle(request, image_id):
-    try:
-        glance_api(request).update_image(image_id, image_meta={'is_public': False})
-    except GlanceClientConnectionError, e:
-        messages.error(request, "Error connecting to glance: %s" % e.message)
-    except glance_exception.Error, e:
-        messages.error(request, "Error updating image: %s" % e.message)
-    return redirect('syspanel_images')
 
 
 @login_required

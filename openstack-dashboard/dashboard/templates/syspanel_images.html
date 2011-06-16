@@ -1,5 +1,4 @@
 {% extends 'syspanel_base.html' %}
-{% load parse_date %}
 {# list of user's instances #}
 {# standard nav, sidebar, list of instances in main #}
 
@@ -30,49 +29,7 @@
     </div>
   </div>
 
-  <table class="wide">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Size</th>
-      <th>Public</th>
-      <th>Created</th>
-      <th>Updated</th>
-      <th colspan="2">Status</th>
-    </tr>
-    {% for image in images %}
-    <tr class="{% cycle 'odd' 'even' %}">
-        <td>{{image.id}}</td>
-        <td>{{image.name}}</td>
-        <td>{{image.size}}</td>
-        <td>{{image.is_public}}</td>
-        <td>{{image.created_at|parse_date}}</td>
-        <td>{{image.updated_at|parse_date}}</td>
-        <td>{{image.status|upper}}</td>
-        <td id="actions">
-          <ul>
-            <li><a href="{#% url syspanel_images_delete image.id %#}">Delete</a></li>
-            <li><a href="{#% url syspanel_images_toggle image.id %#}">Toggle Public</a></li>
-            <li><a href="{#% url syspanel_images_update image.id %#}">Edit</a></li>
-          </ul>
-        </td>
-    </tr>
-    <tr class="details">
-      <td class="properties" colspan="9">
-        <ul>
-          <li><span>Location: </span>{{image.properties.image_location}}</li>
-          <li><span>State: </span>{{image.properties.image_state}}</li>
-          <li><span>Kernel ID: </span>{{image.properties.kernel_id}}</li>
-          <li><span>Ramdisk ID: </span>{{image.properties.ramdisk_id}}</li>
-          <li><span>Architecture: </span>{{image.properties.architecture}}</li>
-          <li><span>Project ID: </span>{{image.container_format}}</li>
-          <li><span>Container Format: </span>{{image.properties.project_id}}</li>
-          <li><span>Disk Format: </span>{{image.disk_format}}</li>
-        </ul>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
+  {% include "_syspanel_image_list.html" %}
 
   <a id="image_create_link" href="{#% url syspanel_images_upload %#}">Upload New Image &gt;&gt;</a>
 
