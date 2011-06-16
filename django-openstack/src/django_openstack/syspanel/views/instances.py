@@ -29,9 +29,11 @@ def _next_month(date_start):
         m = 1
     return datetime.date(y, m, 1)
 
+
 def _current_month():
     today = datetime.date.today()
     return datetime.date(today.year, today.month,1)
+
 
 def _get_start_and_end_date(request):
     try:
@@ -44,8 +46,6 @@ def _get_start_and_end_date(request):
     datetime_start = datetime.datetime.combine(date_start, datetime.time())
     datetime_end = datetime.datetime.combine(date_end, datetime.time())
     return (date_start, date_end, datetime_start, datetime_end)
-
-
 
 
 @login_required
@@ -151,32 +151,5 @@ def index(request):
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
     }, context_instance=template.RequestContext(request))
-
-
-def console(request):
-    pass
-
-
-def vnc(request):
-    pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

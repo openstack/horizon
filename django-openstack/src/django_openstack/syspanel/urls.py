@@ -12,6 +12,13 @@ urlpatterns = patterns('django_openstack.syspanel.views.instances',
     #url(INSTANCES % 'vnc', 'vnc', name='syspanel_instances_vnc'),
 )
 
+urlpatterns += patterns('django_openstack.syspanel.views.images',
+    url(r'^images/$', 'index', name='syspanel_images'),
+    # NOTE(termie): currently just using the 'dash' versions
+    #url(INSTANCES % 'console', 'console', name='syspanel_instances_console'),
+    #url(INSTANCES % 'vnc', 'vnc', name='syspanel_instances_vnc'),
+)
+
 
 urlpatterns_OLD = patterns('',
     url(r'^$', 'django_openstack.syspanel.views.home.index', name='syspanel_index'),

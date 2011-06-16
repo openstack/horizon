@@ -16,8 +16,8 @@
 
   {% include "_messages.html" %}
 
-  {% if instances %}
-    <div class='main_content'>
+  <div class='main_content'>
+    {% if instances %}
       <div class='table_title wide'>
         <h3>Instances</h3>
 
@@ -36,12 +36,10 @@
       {% include '_syspanel_instance_list.html' %}
 
     {% else %}
-        <div class="status_box info">
-          <h2>Info</h2>
-          <p>There are currently no instances.  You can launch an instance from the  <a href='{% url dash_images request.user.tenant %}'>Images Page.</a></p>
-        </div>
+      <div class="status_box info">
+        <h2>Info</h2>
+        <p>There are currently no instances.  You can launch an instance from the  <a href='{% url dash_images request.user.tenant %}'>Images Page.</a></p>
+      </div>
     {% endif %}
   </div>
-</div>
-
 {% endblock %}

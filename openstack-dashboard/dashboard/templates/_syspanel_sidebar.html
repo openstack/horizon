@@ -1,7 +1,8 @@
 <div id='sidebar'>
-  <h3>Manage Compute</h3>
+  <h3>System Panel</h3>
   <ul class='sub_nav'>
     <li><a {% if current_sidebar == "overview" %} class="active" {% endif %} href="{% url syspanel_overview %}">Overview</a></li>
     <li><a {% if current_sidebar == "instances" %} class="active" {% endif %} href="{% url syspanel_instances %}">Instances</a></li>
+    <li><a {% if current_sidebar == "images" %} class="active" {% endif %} href="{% url syspanel_images %}">Images</a></li>
   </ul>
 </div>
