@@ -36,11 +36,43 @@ from django_openstack.nova import forms as nova_forms
 from django import shortcuts
 
 from django_openstack import api
+from django_openstack import forms
 from openstackx.api import exceptions as api_exceptions
 from glance.common import exception as glance_exception
 
 
 LOG = logging.getLogger('django_openstack.nova')
+
+
+class LaunchForm(forms.SelfHandlingForm):
+    image_id = forms.CharField(widget=forms.HiddenInput())
+    name = forms.CharField(max_length=80, label="Server Name")
+
+    # make the dropdown populate when the form is loaded not when django is
+    # started
+    def __init__(self, *args, **kwargs):
+        super(LaunchForm, self).__init__(*args, **kwargs)
+        flavorlist = kwargs.get('initial', {}).get('flavorlist', [])
+        self.fields['flavor'] = forms.ChoiceField(
+                choices=flavorlist,
+                label="Flavor",
+                help_text="Size of Image to launch")
+
+    def handle(self, request, data):
+        image_id = data['image_id']
+        try:
+            image = api.compute_api(request).images.get(image_id)
+            flavor = api.compute_api(request).flavors.get(data['flavor'])
+            api.compute_api(request).servers.create(data['name'],
+                                                    image,
+                                                    flavor)
+            messages.success(request, "Instance was successfully\
+                                       launched.")
+            return shortcuts.redirect(request.build_absolute_uri())
+
+        except api_exceptions.ApiException, e:
+            messages.error(request,
+                           'Unable to launch instance: %s' % e.message)
 
 
 @login_required
@@ -71,26 +103,11 @@ def launch(request, tenant_id, image_id):
     image = api.compute_api(request).images.get(image_id)
     tenant = api.get_tenant(request, request.user.tenant)
 
-    if request.method == 'POST':
-        form = nova_forms.LaunchForm(request.POST,
-                                     initial={'flavorlist': flavorlist()})
-        if form.is_valid():
-            userdata = form.clean()
-            try:
-                image = api.compute_api(request).images.get(image_id)
-                fl = api.compute_api(request).flavors.get(userdata['flavor'])
-                api.compute_api(request).servers.create(userdata['name'],
-                                                        image,
-                                                        fl)
-                messages.success(request, "Instance was successfully\
-                                           launched.")
-                return shortcuts.redirect('dash_instances', tenant_id=tenant.id)
-            except api_exceptions.ApiException, e:
-                messages.error(request,
-                           'Unable to launch instance: %s' % e.message)
-
-    form = nova_forms.LaunchForm(initial={'image_id': image_id,
-                                          'flavorlist': flavorlist()})
+    form, handled = LaunchForm.maybe_handle(
+            request, initial={'flavorlist': flavorlist(),
+                              'image_id': image_id})
+    if handled:
+        return handled
 
     return render_to_response('dash_launch.html', {
         'tenant': tenant,
@@ -99,37 +116,6 @@ def launch(request, tenant_id, image_id):
     }, context_instance=template.RequestContext(request))
 
 
-@login_required
-def upload(request, tenant_id):
-    if request.method == "POST":
-        form = nova_forms.UploadImageForm(request.POST)
-        if form.is_valid():
-            image = form.clean()
-            metadata = {'is_public': image['is_public'],
-                        'name': image['name']}
-
-            try:
-                api.glance_api(request).add_image(metadata, image['image_file'])
-                messages.success(request, "Image was successfully uploaded.")
-            except GlanceClientConnectionError, e:
-                messages.error(request, "Error connecting to glance: %s" %
-                                         e.message)
-            except glance_exception.Error, e:
-                messages.error(request, "Error adding image: %s" % e.message)
-        else:
-            messages.error(request, "Image could not be uploaded,\
-                                     please try agian.")
-            form = nova_forms.UploadImageForm(request.POST)
-            return render_to_response('dash_upload.html', {
-                'form': form,
-            }, context_instance=template.RequestContext(request))
-
-        return redirect('syspanel_images')
-    else:
-        form = nova_forms.UploadImageForm()
-        return render_to_response('dash_upload.html', {
-            'form': form,
-        }, context_instance=template.RequestContext(request))
 
 
 
