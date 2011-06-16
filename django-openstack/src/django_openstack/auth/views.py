@@ -1,5 +1,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+from django import http
+from django import template
 from django import shortcuts
 from django.contrib import messages
 
@@ -46,24 +48,24 @@ def switch_tenants(request, tenant_id):
                 request.session['user'] = userdata['username']
                 request.session['tenant'] = tenant_id
                 messages.error(request, token)
-                return shortcuts.redirect('novaO_overview')
+                return shortcuts.redirect('dash_overview')
 
             except api_exceptions.Unauthorized as ex:
                 messages.error(request, 'Error authenticating:')
-                return shortcuts.redirect('novaO_overview')
+                return shortcuts.redirect('dash_overview')
 
     else:
         form = nova_forms.LoginWithoutTenant()
 
-        return render_to_response('switch_tenants.html', {
+        return shortcuts.render_to_response('switch_tenants.html', {
+            'to_tenant': tenant_id,
             'form': form,
-            'tenant_id': tenant_id,
-        },context_instance=template.RequestContext(request))
+        }, context_instance=template.RequestContext(request))
 
 
 def logout(request):
     request.session.clear()
-    return shortcuts.redirect('novaO_instances')
+    return shortcuts.redirect('splash')
 
 
 

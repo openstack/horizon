@@ -19,7 +19,7 @@
 """
 Views for managing Nova instances.
 """
-
+import datetime
 import logging
 
 from django import http
@@ -49,6 +49,29 @@ def index(request, tenant_id):
         'tenant': tenant,
         'instances': instances,
         'detail': False,
+    }, context_instance=template.RequestContext(request))
+
+
+@login_required
+def usage(request, tenant_id=None):
+    today = datetime.date.today()
+    date_start = datetime.date(today.year, today.month, 1)
+    datetime_start = datetime.datetime.combine(date_start, datetime.time())
+    datetime_end = datetime.datetime.utcnow()
+
+    usage = {}
+    if not tenant_id:
+        tenant_id = request.user.tenant
+
+
+    try:
+        usage = api.extras_api(request).usage.get(tenant_id,
+                                                  datetime_start, datetime_end)
+    except api_exceptions.ApiException, e:
+        messages.error(request, 'Unable to get usage info: %s' % e.message)
+
+    return render_to_response('dash_usage.html', {
+        'usage': usage,
     }, context_instance=template.RequestContext(request))
 
 

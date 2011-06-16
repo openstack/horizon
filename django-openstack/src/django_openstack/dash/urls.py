@@ -4,6 +4,7 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 
 INSTANCES = r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/%s$'
+IMAGES = r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/%s$'
 
 urlpatterns = patterns('django_openstack.dash.views.instances',
     url(r'^(?P<tenant_id>[^/]+)/instances/$', 'index', name='dash_instances'),
@@ -19,10 +20,9 @@ urlpatterns += patterns('django_openstack.dash.views.images',
     url(r'^(?P<tenant_id>[^/]+)/images/upload/$',
         'upload',
         name='dash_images_upload'),
-    url(r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/launch/$',
-        'launch',
-        name='dash_images_launch'),
-    url(r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/update$',
-        'update',
-        name='dash_images_update'),
+    url(IMAGES % 'launch', 'launch', name='dash_images_launch'),
+
+    #url(r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/update$',
+    #    'update',
+    #    name='dash_images_update'),
 )
