@@ -33,6 +33,7 @@ from django_openstack.nova import forms as nova_forms
 from django_openstack.nova.exceptions import handle_nova_error
 
 from django_openstack import api
+from django_openstack import forms
 import openstack.compute.servers
 import openstackx.api.exceptions as api_exceptions
 
@@ -40,14 +41,63 @@ import openstackx.api.exceptions as api_exceptions
 LOG = logging.getLogger('django_openstack.nova')
 
 
+class TerminateInstance(forms.SelfHandlingForm):
+    instance = forms.CharField(required=True)
+
+    def handle(self, request, data):
+        instance_id = data['instance']
+        instance = api.compute_api(request).servers.get(instance_id)
+
+        try:
+            api.compute_api(request).servers.delete(instance)
+        except api_exceptions.ApiException, e:
+            messages.error(request,
+                           'Unable to terminate %s: %s' %
+                           (instance_id, e.message,))
+        else:
+            messages.success(request,
+                             'Instance %s has been terminated.' % instance_id)
+
+        return redirect(request.build_absolute_uri())
+
+
+class RebootInstance(forms.SelfHandlingForm):
+    instance = forms.CharField(required=True)
+
+    def handle(self, request, data):
+        instance_id = data['instance']
+        try:
+            server = api.compute_api(request).servers.get(instance_id)
+            server.reboot(openstack.compute.servers.REBOOT_HARD)
+            messages.success(request, "Instance rebooting")
+        except api_exceptions.ApiException, e:
+            messages.error(request,
+                       'Unable to reboot instance: %s' % e.message)
+
+        return redirect(request.build_absolute_uri())
+
+
 @login_required
 def index(request, tenant_id):
     tenant = api.get_tenant(request, request.user.tenant)
     instances = api.compute_api(request).servers.list()
 
+    for f in (TerminateInstance, RebootInstance):
+        _, handled = f.maybe_handle(request)
+        if handled:
+            return handled
+
+    # We don't have any way of showing errors for these, so don't bother
+    # trying to reuse the forms from above
+    terminate_form = TerminateInstance()
+    reboot_form = RebootInstance()
+
+
     return render_to_response('dash_instances.html', {
         'tenant': tenant,
         'instances': instances,
+        'terminate_form': terminate_form,
+        'reboot_form': reboot_form,
         'detail': False,
     }, context_instance=template.RequestContext(request))
 
@@ -73,39 +123,6 @@ def usage(request, tenant_id=None):
     return render_to_response('dash_usage.html', {
         'usage': usage,
     }, context_instance=template.RequestContext(request))
-
-
-# TODO(termie): instance_id in two places
-@login_required
-def terminate(request, tenant_id, instance_id):
-    tenant = api.get_tenant(request, request.user.tenant)
-    if request.method == 'POST':
-        instance_id = request.POST['instance_id']
-        instance = api.compute_api(request).servers.get(instance_id)
-
-        try:
-            api.compute_api(request).servers.delete(instance)
-        except api_exceptions.ApiException, e:
-            messages.error(request,
-                           'Unable to terminate %s: %s' %
-                           (instance_id, e.message,))
-        else:
-            messages.success(request,
-                             'Instance %s has been terminated.' % instance_id)
-
-    return redirect('dash_instances', tenant_id)
-
-
-@login_required
-def reboot(request, tenant_id, instance_id):
-    try:
-        server = api.compute_api(request).servers.get(instance_id)
-        server.reboot(openstack.compute.servers.REBOOT_HARD)
-        messages.success(request, "Instance rebooting")
-    except api_exceptions.ApiException, e:
-        messages.error(request,
-                   'Unable to reboot instance: %s' % e.message)
-    return redirect('dash_instances', tenant_id)
 
 
 @login_required

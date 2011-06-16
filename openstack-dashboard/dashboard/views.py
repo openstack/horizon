@@ -22,20 +22,15 @@ Views for home page.
 import logging
 
 from django import template
-from django.shortcuts import render_to_response
-from django.views.decorators.vary import vary_on_cookie
-
 from django import shortcuts
+from django.views.decorators import vary
 
 from django_openstack import api
 from django_openstack.nova import forms as nova_forms
 
+from django_openstack.auth import views as auth_views
 
-from django_openstack.nova.exceptions import handle_nova_error
-
-
-@vary_on_cookie
-@handle_nova_error
+@vary.vary_on_cookie
 def splash(request):
     if request.user:
         if request.user.is_admin():
@@ -43,13 +38,10 @@ def splash(request):
         else:
             return shortcuts.redirect('dash_overview')
 
-    return render_to_response('splash.html', {
-        'login_form': nova_forms.Login(),
-    }, context_instance=template.RequestContext(request))
+    form, handled = auth_views.Login.maybe_handle(request)
+    if handled:
+        return handled
 
-
-# login_required
-def user_overview(request, tenant_id=None):
-    return render_to_response('dash_overview.html', {
-
+    return shortcuts.render_to_response('splash.html', {
+        'form': form,
     }, context_instance=template.RequestContext(request))

@@ -153,18 +153,6 @@ class AttachVolumeForm(ProjectFormBase):
 
 
 
-
-class Login(forms.Form):
-    tenant = forms.CharField(max_length="20", label="Tenant", required=False)
-    username = forms.CharField(max_length="20", label="User Name")
-    password = forms.CharField(max_length="20", label="Password")
-
-
-class LoginWithoutTenant(forms.Form):
-    username = forms.CharField(max_length="20", label="User Name")
-    password = forms.CharField(max_length="20", label="Password")
-
-
 class LaunchForm(forms.Form):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length=80, label="Server Name")

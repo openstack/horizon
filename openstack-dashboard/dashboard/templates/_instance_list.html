@@ -21,13 +21,25 @@
           <td id="actions">
             <ul>
               <li>
-                <form id="form_terminate_{{instance.id}}" class="form-terminate" method="post" action="{% url dash_instances_terminate request.user.tenant instance.id %}" >
+                <form id="form_terminate_{{instance.id}}" class="form-terminate" method="post">
                   {% csrf_token %}
-                  <input name="instance_id" type="hidden" value="{{instance.id}}" />
+                  {% for hidden in terminate_form.hidden_fields %}
+                    {{hidden}}
+                  {% endfor %}
+                  <input name="instance" type="hidden" value="{{instance.id}}" />
                   <input id="terminate_{{instance.id}}" class="terminate" type="submit" value="Terminate" />
                 </form>
               </li>
-              <li><a href="{% url dash_instances_reboot request.user.tenant instance.id %}">Reboot</a></li>
+              <li>
+                <form id="form_reboot_{{instance.id}}" class="form-reboot" method="post">
+                  {% csrf_token %}
+                  {% for hidden in reboot_form.hidden_fields %}
+                    {{hidden}}
+                  {% endfor %}
+                  <input name="instance" type="hidden" value="{{instance.id}}" />
+                  <input id="reboot_{{instance.id}}" class="reboot" type="submit" value="Reboot" />
+                </form>
+              </li>
               <li><a target="_blank" href="{% url dash_instances_console request.user.tenant instance.id %}">Log</a></li>
               <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant instance.id %}">VNC Console</a></li>
             </ul>

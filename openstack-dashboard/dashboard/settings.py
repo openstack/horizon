@@ -67,10 +67,10 @@ INSTALLED_APPS = (
     'django.contrib.syndication',
     'django_nose',
     'django_openstack',
-    'django_openstack.nova',
+    #'django_openstack.nova',
     'django_openstack.templatetags',
-    'django_openstack.syspanel',
-    'registration',
+    #'django_openstack.syspanel',
+    #'registration',
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
