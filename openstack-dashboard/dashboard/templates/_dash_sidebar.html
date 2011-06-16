@@ -1,3 +1,8 @@
-SIDEBAR
-<a href="{% url dash_instances request.user.tenant %}">instances</a>
-<a href="{% url dash_images request.user.tenant %}">images</a>
+<div id='sidebar'>
+  <h3>Manage Compute</h3>
+  <ul class='sub_nav'>
+    <li><a {% if current_sidebar == "overview" %} class="active" {% endif %} href="{% url dash_overview %}">Overview</a></li>
+    <li><a {% if current_sidebar == "instances" %} class="active" {% endif %} href="{% url dash_instances request.user.tenant %}">Instances</a></li>
+    <li><a {% if current_sidebar == "images" %} class="active" {% endif %} href="{% url dash_images request.user.tenant %}">Images</a></li>
+  </ul>
+</div>

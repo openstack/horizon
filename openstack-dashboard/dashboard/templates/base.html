@@ -1,13 +1,37 @@
-{% include '_header.html' %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <title>OpenStack Dashboard{% block title %}{% endblock %}</title>
+    <script charset='utf-8' src='/media/dashboard/js/jquery.min.js' type='text/javascript'></script>
+    <script charset='utf-8' src='/media/dashboard/js/jquery-ui.min.js' type='text/javascript'></script>
+    <script charset='utf-8' src='/media/dashboard/js/jquery.quicksearch.js' type='text/javascript'></script>
+    <script charset='utf-8' src='/media/dashboard/js/jquery.example.min.js' type='text/javascript'></script>
+    <script charset='utf-8' src='/media/dashboard/js/form_examples.js' type='text/javascript'></script>
+    <script charset='utf-8' src='/media/dashboard/js/application.js' type='text/javascript'></script>
+    <link href='/media/dashboard/css/style.css' media='screen' rel='stylesheet' />
+    {% block headerjs %}{% endblock %}
+    {% block headercss %}{% endblock %}
+  </head>
+  <body>
+    <div id="wrapper">
+      {% block topbar %}
+        {% include '_topbar.html' %}
+      {% endblock %}
 
-{% block topbbar %}
-  {% include '_topbar.html' %}
-{% endblock %}
-
-{% block sidebar %}
-{% endblock %}
-
-{% block main %}
-{% endblock %}
-
-{% include '_footer.html' %}
+      <div id="content">
+        {% block sidebar %}
+        {% endblock %}
+        <div id="main">
+          {% block main %}
+          {% endblock %}
+        </div>
+      </div>
+      <div id="footer">
+        {% block footer %}{% endblock %}
+      </div>
+      <div id="mask"></div>
+    </div>
+    {% block footer_js %}{% endblock %}
+  </body>
+</html>

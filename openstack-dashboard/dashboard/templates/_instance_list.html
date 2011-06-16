@@ -1,1 +1,37 @@
-INSTANCE_LIST
+<table id='instances'>
+  <tr id='headings'>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Private IP</th>
+    <th>Public IP</th>
+    <th>State</th>
+    <th>Actions</th>
+  </tr>
+  <tbody class='main'>
+    {% for instance in instances %}
+      <tr class="{% cycle 'odd' 'even' %}">
+          <td>{{instance.id}}</td>
+          <td>{{instance.name}}</td>
+          <td>{{instance.imageId}}</td>
+          <td>{{instance.private_ip}}</td>
+          <td>{% if server.public_ip %}{{instance.public_ip}}{% else %}N/A{%endif%}</td>
+          <td>{{instance.status}}</td>
+          <td id="actions">
+            <ul>
+              <li>
+                <form id="form_terminate_{{server.id}}" class="form-terminate" method="post" action="{% url dash_terminate request.user_tenant %}" >
+                  {% csrf_token %}
+                  <input name="instance_id" type="hidden" value="{{instance.id}}" />
+                  <input id="terminate_{{instance.id}}" class="terminate" type="submit" value="Terminate" />
+                </form>
+              </li>
+              <li><a href="{% url dash_reboot request.user.tenant instance.id %}">Reboot</a></li>
+              <li><a target="_blank" href="{% url dash_console_log request.user.tenant instance.id %}">Log</a></li>
+              <li><a target="_blank" href="{% url dash_vnc_console request.user.tenant instance.id %}">VNC Console</a></li>
+            </ul>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

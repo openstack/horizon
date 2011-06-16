@@ -67,7 +67,8 @@ def index(request, tenant_id):
 
     return render_to_response('dash_images.html', {
         'tenant': tenant,
-        'image_lists': _image_lists(images, request.user.tenant),
+        'images': images,
+        #'image_lists': _image_lists(images, request.user.tenant),
     }, context_instance=template.RequestContext(request))
 
 

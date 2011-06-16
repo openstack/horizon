@@ -1,0 +1,627 @@
+{
+    "data": {},
+    "id": "root",
+    "name": "OpenStack Cloud",
+    "children": [
+        {
+            "id": "host001",
+            "name": "host001",
+            "data": {
+                "ram_available": "12",
+                "ram_used": "24",
+                "ram_total": "36",
+                "disk_available": "12",
+                "disk_used": "24",
+                "disk_total": "36",
+                "cores_available": "12",
+                "cores_used": "24",
+                "cores_total": "36",
+                "$color": "#477000",
+                "$area": 1200
+            },
+            "children": [
+                {
+                    "id": "project_foo",
+                    "name": "Project: Foo",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "1",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "2",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "project_bar",
+                    "name": "Project: Bar",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "3",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "4",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "project_baz",
+                    "name": "Project: Baz",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "5",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "6",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "7",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "8",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "host002",
+            "name": "host002",
+            "data": {
+                "ram_available": "12",
+                "ram_used": "24",
+                "ram_total": "36",
+                "disk_available": "12",
+                "disk_used": "24",
+                "disk_total": "36",
+                "cores_available": "12",
+                "cores_used": "24",
+                "cores_total": "36",
+                "$color": "#477000",
+                "$area": 1200
+            },
+            "children": [
+                {
+                    "id": "1project_foo",
+                    "name": "Project: Foo",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "21",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "22",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "1project_bar",
+                    "name": "Project: Bar",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "23",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "24",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "1project_baz",
+                    "name": "Project: Baz",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "25",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "26",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "27",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "28",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "host003",
+            "name": "host003",
+            "data": {
+                "ram_available": "12",
+                "ram_used": "24",
+                "ram_total": "36",
+                "disk_available": "12",
+                "disk_used": "24",
+                "disk_total": "36",
+                "cores_available": "12",
+                "cores_used": "24",
+                "cores_total": "36",
+                "$color": "#477000",
+                "$area": 1200
+            },
+            "children": [
+                {
+                    "id": "2project_foo",
+                    "name": "Project: Foo",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "31",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "32",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "2project_bar",
+                    "name": "Project: Bar",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "33",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "34",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "2project_baz",
+                    "name": "Project: Baz",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "35",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "36",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "37",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "38",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "host004",
+            "name": "host004",
+            "data": {
+                "ram_available": "12",
+                "ram_used": "24",
+                "ram_total": "36",
+                "disk_available": "12",
+                "disk_used": "24",
+                "disk_total": "36",
+                "cores_available": "12",
+                "cores_used": "24",
+                "cores_total": "36",
+                "$color": "#477000",
+                "$area": 1200
+            },
+            "children": [
+                {
+                    "id": "3project_foo",
+                    "name": "Project: Foo",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "41",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "42",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "3project_bar",
+                    "name": "Project: Bar",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "43",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "44",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "3project_baz",
+                    "name": "Project: Baz",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "45",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "46",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "47",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "48",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "host005",
+            "name": "host005",
+            "data": {
+                "ram_available": "12",
+                "ram_used": "24",
+                "ram_total": "36",
+                "disk_available": "12",
+                "disk_used": "24",
+                "disk_total": "36",
+                "cores_available": "12",
+                "cores_used": "24",
+                "cores_total": "36",
+                "$color": "#477000",
+                "$area": 1200
+            },
+            "children": [
+                {
+                    "id": "4project_foo",
+                    "name": "Project: Foo",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "51",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "52",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "4project_bar",
+                    "name": "Project: Bar",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "53",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 200
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "54",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 200
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": "4project_baz",
+                    "name": "Project: Baz",
+                    "data": {
+                        "instances": 5,
+                        "$color": "#477000",
+                        "$area": 400
+                    },
+                    "children": [
+                        {
+                            "id": "55",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "56",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "57",
+                            "name": "i-0038rsa",
+                            "data": {
+                                "$color": "#333",
+                                "$area": 100
+                            },
+                            "children": []
+                        },
+                        {
+                            "id": "58",
+                            "name": "i-0039ssa",
+                            "data": {
+                                "$color": "#999",
+                                "$area": 100
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
