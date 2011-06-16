@@ -9,4 +9,3 @@ urlpatterns = patterns('django_openstack.auth.views',
     url(r'logout/$', 'logout', name='auth_logout'),
     url(r'switch/(?P<tenant_id>[^/]+)/$', 'switch_tenants', name='auth_switch'),
 )
-

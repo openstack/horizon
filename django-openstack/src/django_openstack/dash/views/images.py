@@ -43,22 +43,6 @@ from glance.common import exception as glance_exception
 LOG = logging.getLogger('django_openstack.nova')
 
 
-def _image_lists(images, tenant_id):
-    def image_is_project(i):
-        return i['properties']['project_id'] == tenant_id
-
-    def image_is_admin(i):
-        return i['properties']['project_id'] in ['admin']
-
-    def image_is_community(i):
-        return (not image_is_admin(i)) and (not image_is_project(i))
-
-    return {'Project Images': filter(image_is_project, images),
-            '%s Images' % settings.SITE_BRANDING: filter(image_is_admin,
-                                                         images),
-            'Community Images': filter(image_is_community, images)}
-
-
 @login_required
 def index(request, tenant_id):
     tenant = api.get_tenant(request, request.user.tenant)
