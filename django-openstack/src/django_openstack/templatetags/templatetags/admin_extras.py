@@ -19,13 +19,15 @@
 Template tags for extending the Django admin interface.
 """
 
-from django.contrib.admin.templatetags.admin_list import items_for_result, result_headers
+from django.contrib.admin.templatetags.admin_list import (items_for_result,
+                                                          result_headers)
 from django.core.urlresolvers import reverse
 from django.template import Library
 from django.utils.safestring import mark_safe
 
 
 register = Library()
+
 
 def project_result_list(cl):
     headers = list(result_headers(cl))
@@ -34,9 +36,10 @@ def project_result_list(cl):
     results = list()
 
     for project in cl.result_list:
-        rl = list(items_for_result(cl,project,None))
+        rl = list(items_for_result(cl, project, None))
 
-        url = reverse('admin_project_sendcredentials', args=[project.projectname])
+        url = reverse('admin_project_sendcredentials',
+                      args=[project.projectname])
         content = mark_safe('<td><a href="%s">Send Credentials</a></td>' % url)
 
         rl.append(content)
@@ -47,4 +50,4 @@ def project_result_list(cl):
         'result_headers': headers,
         'results': results
     }
-project_result_list = register.inclusion_tag("admin/change_list_results.html")(project_result_list)
+project_result_list = register.inclusion_tag('admin/change_list_results.html')(project_result_list)

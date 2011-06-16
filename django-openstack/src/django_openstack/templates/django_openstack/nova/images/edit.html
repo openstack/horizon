@@ -1,4 +1,5 @@
 {% extends "django_openstack/nova/images/base.html" %}
+{% load i18n %}
 
 {% block title %} - Cloud Computing{% endblock %}
 
@@ -9,12 +10,12 @@
 {% block content %}
 <div id="right_content">
   <div id="page_head">
-    <h2 id="page_heading">Edit Image</h2>
-    <p id="page_description">From this page you can edit the name and description of an image that belongs to you.</p>
+    <h2 id="page_heading">{% trans "Edit Image" %}</h2>
+    <p id="page_description">{% trans "From this page you can edit the name and description of an image that belongs to you." %}</p>
   </div>
 
   <div class="dash_block first">
-    <h3 class="image_id">Edit Image: {{ ami.id }}</h3>
+    <h3 class="image_id">{% trans "Edit Image:" %} {{ ami.id }}</h3>
 
     <form class="edit_image" id="rename_{{ ami.id }}" action="{% url nova_images_update project.projectname ami.id %}" method="post">
       <fieldset>
@@ -25,7 +26,7 @@
           {% if field.errors %}{{ field.errors }}{% endif %}
           {{ field }}
         {% endfor %}
-        <input type="submit" value="Update Image" />
+        <input type="submit" value="{% trans "Update Image" %}" />
       </fieldset>
     </form>
 

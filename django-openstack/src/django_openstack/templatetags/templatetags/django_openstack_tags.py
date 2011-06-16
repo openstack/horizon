@@ -31,7 +31,25 @@ class SiteBrandingNode(template.Node):
     def render(self, context):
         return settings.SITE_BRANDING
 
+
 @register.tag
 def site_branding(parser, token):
     return SiteBrandingNode()
 
+
+# TODO(jeffjapan): This is just an assignment tag version of the above, replace
+#                  when the dashboard is upgraded to a django version that
+#                  supports the @assignment_tag decorator syntax instead.
+class SaveBrandingNode(template.Node):
+    def __init__(self, var_name):
+        self.var_name = var_name
+
+    def render(self, context):
+        context[self.var_name] = settings.SITE_BRANDING
+        return ""
+
+
+@register.tag
+def save_site_branding(parser, token):
+    tagname = token.contents.split()
+    return SaveBrandingNode(tagname[-1])

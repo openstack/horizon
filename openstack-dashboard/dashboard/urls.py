@@ -23,6 +23,8 @@ URL patterns for the OpenStack Dashboard.
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
+from django.views import generic as generic_views
+import django.views.i18n
 from registration import forms as reg_forms
 
 
@@ -30,9 +32,10 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.index', name='index'),
+    url(r'^i18n/setlang', django.views.i18n.set_language),
     url(r'^accounts/register/$',
         'registration.views.register',
-        { 'form_class': reg_forms.RegistrationFormUniqueEmail },
+        {'form_class': reg_forms.RegistrationFormUniqueEmail},
         name='registration_register'),
     url(r'^accounts/', include('registration.urls')),
     url(r'^project/', include('django_openstack.nova.urls.project')),
@@ -43,16 +46,14 @@ urlpatterns = patterns('',
     url(r'^syspanel/', include('django_nova_syspanel.urls')),
 )
 
-urlpatterns += patterns('django.views.generic.simple',
+urlpatterns += patterns('',
     # TODO(devcamcar): Move permission denied template into django-openstack.
     url(r'^denied/$',
-        'direct_to_template',
-        {'template': 'permission_denied.html'},
-        name='dashboard_permission_denied'),
+        generic_views.TemplateView.as_view(template_name='permission_denied.html'),
+        {'name': 'dashboard_permission_denied'}),
     url(r'^unavailable/$',
-        'direct_to_template',
-        {'template': 'unavailable.html'},
-        name='nova_unavailable'),
+        generic_views.TemplateView.as_view(template_name='unavailable.html'),
+        {'name': 'nova_unavailable'}),
 )
 
 urlpatterns += patterns('',

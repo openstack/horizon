@@ -91,5 +91,3 @@ def handle_nova_error(func):
         except NovaUnavailableError:
             return redirect('nova_unavailable')
     return decorator
-    
-

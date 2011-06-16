@@ -1,4 +1,5 @@
 {% extends "django_openstack/nova/instances/base.html" %}
+{% load i18n %}
 
 {% block title %} - {{ project.projectname|capfirst }} Instances{% endblock %}
 {% block pageclass %}instances{% endblock %}
@@ -7,8 +8,8 @@
   <div id="page_head">
     <div id="spinner"></div>
 
-    <h2 id="page_heading">Instances</h2>
-    <p id="page_description">Instances are virtual servers launched from images. You can launch instances from the <a href="{% url nova_images project.projectname %}">images tab</a>.</p>
+    <h2 id="page_heading">{% trans "Instances" %}</h2>
+    <p id="page_description">{% trans "Instances are virtual servers launched from images. You can launch instances from the" %} <a href="{% url nova_images project.projectname %}">images tab</a>.</p>
   </div>
 
   {% include "django_openstack/_messages.html" %}
@@ -18,11 +19,11 @@
   </div>
 
   <div id="dlg_confirm" title="Confirm Termination" style="display:none;">
-    <p>Are you sure you wish to terminate instance <span id="spn_terminate"></span>?</p>
+    <p>{% trans "Are you sure you wish to terminate instance" %} <span id="spn_terminate"></span>?</p>
   </div>
 
   <div id="connection_error" style="display:none;" title="Connection Error">
-    <p><span class="ui-icon ui-icon-alert"></span>A connection error has occurred. Please ensure you are still connected to VPN.</p>
+    <p><span class="ui-icon ui-icon-alert"></span>{% trans "A connection error has occurred. Please ensure you are still connected to VPN." %}</p>
   </div>
 {% endblock %}
 

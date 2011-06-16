@@ -1,4 +1,5 @@
 {% extends "django_openstack/nova/base.html" %}
+{% load i18n %}
 {% block title %} - {{ project.projectname|capfirst }} Overview{% endblock %}
 {% block pageclass %}overview{% endblock %}
 
@@ -10,16 +11,16 @@
   {% include "django_openstack/_messages.html" %}
 
   <div id="welcome">
-    <p>Welcome to the <span>{{ project.projectname|capfirst }}</span> Overview.  From here you can manage your instances, images, keys, and security groups.</p>
-    <p>To get started using the command line management tools, you can <a target="_blank" href="http://open.eucalyptus.com/wiki/Euca2oolsGuide_v1.1">download euca2ools</a> and use them with your x509 credentials.</p>
+    <p>{%blocktrans with proj=project.projectname|capfirst%}Welcome to the <span>{{proj}}</span> Overview.  From here you can manage your instances, images, keys, and security groups.{%endblocktrans%}</p>
+    <p>{% trans 'To get started using the command line management tools, you can <a target="_blank" href="http://open.eucalyptus.com/wiki/Euca2oolsGuide_v1.1">download euca2ools</a> and use them with your x509 credentials.' %}</p>
   </div>
 
   <div id="resources" class="dash_block">
     <h3>Project Resources</h3>
     <ul>
-      <li><a href="{% url nova_download_credentials project.projectname %}">Generate X509 credentials.</a></li>
-      <li><a href="{% url nova_instances project.projectname %}">View Instances&nbsp;(<strong>{{ instance_count }}</strong> running).</a></li>
-      <li><a href="{% url nova_images project.projectname %}">View Images.</a></li>
+      <li><a href="{% url nova_download_credentials project.projectname %}">{% trans "Generate X509 credentials." %}</a></li>
+      <li><a href="{% url nova_instances project.projectname %}">{% trans "View Instances" %}&nbsp;(<strong>{{ instance_count }}</strong> running).</a></li>
+      <li><a href="{% url nova_images project.projectname %}">{% trans "View Images." %}</a></li>
     </ul>
   </div>
 {% endblock %}

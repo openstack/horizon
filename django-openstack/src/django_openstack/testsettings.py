@@ -8,15 +8,23 @@ DATABASE_NAME = '/tmp/django-openstack.db'
 INSTALLED_APPS = ['django.contrib.auth',
                   'django.contrib.contenttypes',
                   'django.contrib.sessions',
+                  'django.contrib.sites',
                   'django_openstack',
+                  'django_openstack.tests',
+                  'django_openstack.templatetags',
                   'django_openstack.nova']
 ROOT_URLCONF = 'django_openstack.testurls'
 TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'tests', 'templates')
 )
+SITE_ID = 1
 SITE_BRANDING = 'OpenStack'
 SITE_NAME = 'openstack'
-NOVA_DEFAULT_ENDPOINT = 'none'
+ENABLE_VNC = True
+NOVA_DEFAULT_ENDPOINT = None
 NOVA_DEFAULT_REGION = 'test'
 NOVA_ACCESS_KEY = 'test'
 NOVA_SECRET_KEY = 'test'
+
+CREDENTIAL_AUTHORIZATION_DAYS = 2
+CREDENTIAL_DOWNLOAD_URL = TESTSERVER + '/credentials/'

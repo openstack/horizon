@@ -22,16 +22,19 @@ users database.
 
 from django.core.management.base import NoArgsCommand
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext as _
+
 from django_nova.connection import get_nova_admin_connection
 
+
 class Command(NoArgsCommand):
-    help = 'Creates nova users for all users in the django auth database.'
+    help = _('Creates nova users for all users in the django auth database.')
 
     def handle_noargs(self, **options):
         nova = get_nova_admin_connection()
         users = User.objects.all()
         for user in users:
             if not nova.has_user(user.username):
-                self.stdout.write('creating user %s... ' % user.username)
+                self.stdout.write(_('creating user %s... ') % user.username)
                 nova.create_user(user.username)
                 self.stdout.write('ok\n')

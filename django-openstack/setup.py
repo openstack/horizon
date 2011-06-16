@@ -1,12 +1,12 @@
 import os
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, findall
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
     name = "django-openstack",
-    version = "0.2",
+    version = "0.3",
     url = 'https://launchpad.net/django-openstack/',
     license = 'Apache 2.0',
     description = "A Django interface for OpenStack.",
@@ -15,8 +15,9 @@ setup(
     author_email = 'devin.carlen@gmail.com',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
-    package_data = {'': ['templates/django_nova/*.html','templates/django_nova/*/*.html',
-                         'templates/admin/*.html','templates/admin/*/*.html',]},
+    package_data = {'django_openstack':
+                        [s[len('src/django_openstack/'):] for s in
+                         findall('src/django_openstack/templates')]},
     install_requires = ['setuptools', 'boto==1.9b', 'mox>=0.5.0',
                         'nova-adminclient'],
     classifiers = [

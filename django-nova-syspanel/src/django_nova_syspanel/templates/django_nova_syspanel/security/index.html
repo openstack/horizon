@@ -1,17 +1,18 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block breadcrumb %}{{ block.super }}<li><a href="{% url syspanel_security %}">Security</a></li>{% endblock %}
 
 {% block content %}
-  <h2 class="page_heading">Security</h2>
+  <h2 class="page_heading">{% trans "Security" %}</h2>
   
-  <h2>Use the following tools to secure the cloud during a security event</h2>
+  <h2>{% trans "Use the following tools to secure the cloud during a security event" %}</h2>
   
   <div id="scenerios">
     <div class="scenerio">
       <div class="description">
-        <p><strong>Scenario:</strong> Project account credentials have been compromised.</p>
-        <p><strong>Action:</strong> Disable the user or project. This should invalidate the credentials, also deny the specific port assigned to the user.</p>
+        <p>{% trans "<strong>Scenario:</strong> Project account credentials have been compromised." %}</p>
+        <p>{% trans "<strong>Action:</strong> Disable the user or project. This should invalidate the credentials, also deny the specific port assigned to the user." %}</p>
       </div>
 
       <form id="disable_project_credentials" action="{% url syspanel_security_disable_project_credentials %}" method="post" accept-charset="utf-8">
@@ -30,8 +31,8 @@
 
     <div class="scenerio">
       <div class="description">
-        <p><strong>Scenario:</strong> The issue pin points to be coming in from a specific external ip or ip range.</p> 
-        <p><strong>Action:</strong> Block the IP or IP range. This should manipulate ip tables to block the ip or ip range.</p>
+        <p>{% trans "<strong>Scenario:</strong> The issue pin points to be coming in from a specific external ip or ip range." %}</p> 
+        <p>{% trans "<strong>Action:</strong> Block the IP or IP range. This should manipulate ip tables to block the ip or ip range." %}</p>
       </div>
 
         <form id="disable_ip_range" action="{% url syspanel_security_disable_ip_range %}" method="post" accept-charset="utf-8">
@@ -51,8 +52,8 @@
 
     <div class="scenerio">
       <div class="description">
-        <p><strong>Scenario:</strong> Issues affecting multiple public entry points or could not determine to be a specific one.</p> 
-        <p><strong>Action:</strong> Disable all public IPs on all VMs. This should unplumb the device the public ip was on.</p>
+        <p>{% trans "<strong>Scenario:</strong> Issues affecting multiple public entry points or could not determine to be a specific one." %}</p> 
+        <p>{% trans "<strong>Action:</strong> Disable all public IPs on all VMs. This should unplumb the device the public ip was on." %}</p>
       </div>
 
       <form action="{% url syspanel_security_disable_public_ips %}" method="post" accept-charset="utf-8">
@@ -65,8 +66,8 @@
 
     <div class="scenerio">
       <div class="description">
-        <p><strong>Scenario:</strong> Issue related to VPN service affecting multiple customers.</p> 
-        <p><strong>Action:</strong> Disable VPN service. This should turn off the VPN ip.</p>
+        <p>{% trans "<strong>Scenario:</strong> Issue related to VPN service affecting multiple customers." %}</p> 
+        <p>{% trans "<strong>Action:</strong> Disable VPN service. This should turn off the VPN ip." %}</p>
       </div>
 
       <form action="{% url syspanel_security_disable_vpn %}" method="post" accept-charset="utf-8">

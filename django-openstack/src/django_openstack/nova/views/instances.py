@@ -26,6 +26,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
+from django_openstack import log as logging
 from django_openstack.nova import exceptions
 from django_openstack.nova import forms as nova_forms
 from django_openstack.nova import shortcuts
@@ -34,18 +36,22 @@ from django_openstack.nova.exceptions import handle_nova_error
 import boto.ec2.ec2object
 
 
+LOG = logging.getLogger('django_openstack.nova')
+
+
 @login_required
 @handle_nova_error
 def index(request, project_id):
     project = shortcuts.get_project_or_404(request, project_id)
-    instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
+    instances = sorted(project.get_instances(),
+                       key=lambda k: k.public_dns_name)
 
     return render_to_response('django_openstack/nova/instances/index.html', {
         'region': project.region,
         'project': project,
         'instances': instances,
-        'detail' : False,
-    }, context_instance = template.RequestContext(request))
+        'detail': False,
+    }, context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -53,8 +59,9 @@ def index(request, project_id):
 def detail(request, project_id, instance_id):
     project = shortcuts.get_project_or_404(request, project_id)
     instance = project.get_instance(instance_id)
-    instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
-    
+    instances = sorted(project.get_instances(),
+                       key=lambda k: k.public_dns_name)
+
     if not instance:
         raise http.Http404()
 
@@ -65,8 +72,8 @@ def detail(request, project_id, instance_id):
         'instances': instances,
         'update_form': nova_forms.UpdateInstanceForm(instance),
         'enable_vnc': settings.ENABLE_VNC,
-        'detail' : True,
-    }, context_instance = template.RequestContext(request))
+        'detail': True,
+    }, context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -78,12 +85,13 @@ def performance(request, project_id, instance_id):
     if not instance:
         raise http.Http404()
 
-    return render_to_response('django_openstack/nova/instances/performance.html', {
-        'region': project.region,
-        'project': project,
-        'instance': instance,
-        'update_form': nova_forms.UpdateInstanceForm(instance),
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/instances/performance.html',
+        {'region': project.region,
+         'project': project,
+         'instance': instance,
+         'update_form': nova_forms.UpdateInstanceForm(instance)},
+        context_instance=template.RequestContext(request))
 
 
 # TODO(devcamcar): Wrap this in an @ajax decorator.
@@ -93,12 +101,14 @@ def refresh(request, project_id):
         return http.HttpResponseForbidden()
 
     project = shortcuts.get_project_or_404(request, project_id)
-    instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
+    instances = sorted(project.get_instances(),
+                       key=lambda k: k.public_dns_name)
 
-    return render_to_response('django_openstack/nova/instances/_instances_list.html', {
-        'project': project,
-        'instances': instances,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/instances/_instances_list.html',
+        {'project': project,
+         'instances': instances},
+        context_instance=template.RequestContext(request))
 
 
 @handle_nova_error
@@ -109,13 +119,15 @@ def refresh_detail(request, project_id, instance_id):
 
     project = shortcuts.get_project_or_404(request, project_id)
     instance = project.get_instance(instance_id)
-    instances = sorted(project.get_instances(), key=lambda k: k.public_dns_name)
+    instances = sorted(project.get_instances(),
+                       key=lambda k: k.public_dns_name)
 
-    return render_to_response('django_openstack/nova/instances/_instances_list.html', {
-        'project': project,
-        'selected_instance': instance,
-        'instances': instances,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/instances/_instances_list.html',
+        {'project': project,
+         'selected_instance': instance,
+         'instances': instances},
+        context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -130,13 +142,21 @@ def terminate(request, project_id):
             project.terminate_instance(instance_id)
         except exceptions.NovaApiError, e:
             messages.error(request,
-                           'Unable to terminate %s: %s' %
-                           (instance_id, e.message,))
+                           _('Unable to terminate %(inst)s: %(msg)s') %
+                            {'inst': instance_id, 'msg': e.message})
+            LOG.error('Unable to terminate instance "%s" on project "%s".'
+                      ' Exception:"%s"' % (instance_id, project_id, e.message))
         except exceptions.NovaUnauthorizedError, e:
             messages.error(request, 'Permission Denied')
+            LOG.error('User "%s" denied permission to terminate instance'
+                      ' "%s" on project "%s"' %
+                      (str(request.user), instance_id, project_id))
         else:
             messages.success(request,
-                             'Instance %s has been terminated.' % instance_id)
+                             _('Instance %(inst)s has been terminated.') %
+                              {'inst': instance_id})
+            LOG.info('Instance "%s" terminated on project "%s"' %
+                     (instance_id, project_id))
 
     return redirect('nova_instances', project_id)
 
@@ -145,7 +165,7 @@ def terminate(request, project_id):
 @handle_nova_error
 def console(request, project_id, instance_id):
     project = shortcuts.get_project_or_404(request, project_id)
-    conn = project.get_nova_connection()
+    conn = project.get_openstack_connection()
     console = conn.get_console_output(instance_id)
     response = http.HttpResponse(mimetype='text/plain')
     response.write(console.output)
@@ -153,14 +173,18 @@ def console(request, project_id, instance_id):
 
     return response
 
+
 @login_required
 @handle_nova_error
 def vnc(request, project_id, instance_id):
     project = shortcuts.get_project_or_404(request, project_id)
-    conn = project.get_nova_connection()
-    params = { 'InstanceId' : instance_id }
-    vnc = conn.get_object('GetVncConsole',params,boto.ec2.ec2object.EC2Object)
+    conn = project.get_openstack_connection()
+    params = {'InstanceId': instance_id}
+    vnc = conn.get_object('GetVncConsole',
+                          params,
+                          boto.ec2.ec2object.EC2Object)
     return http.HttpResponseRedirect(vnc.url)
+
 
 @login_required
 @handle_nova_error
@@ -193,27 +217,37 @@ def update(request, project_id, instance_id):
                 project.update_instance(instance_id, form.cleaned_data)
             except exceptions.NovaApiError, e:
                 messages.error(request,
-                               'Unable to update instance %s: %s' %
-                               (instance_id, e.message,))
+                          _('Unable to update instance %(inst)s: %(msg)s') %
+                           {'inst': instance_id, 'msg': e.message})
+                LOG.error('Unable to update instance "%s" on project "%s".'
+                          ' Exception message: "%s"' %
+                          (instance_id, project_id, e.message))
             except exceptions.NovaUnauthorizedError, e:
-               messages.error(request, 'Permission Denied')
+                messages.error(request, 'Permission Denied')
+                LOG.error('User "%s" denied permission to update instance'
+                          ' "%s" on project "%s"' %
+                          (str(request.user), instance_id, project_id))
             else:
                 messages.success(request,
-                                 'Instance %s has been updated.' % instance_id)
+                                 _('Instance %(inst)s has been updated.') %
+                                  {'inst': instance_id})
+                LOG.info('Instance "%s" updated on project "%s"' %
+                         (instance_id, project_id))
             return redirect('nova_instances', project_id)
         else:
-            return render_to_response('django_openstack/nova/instances/edit.html', {
-                'region': project.region,
-                'project': project,
-                'instance': instance,
-                'update_form': form,
-            }, context_instance = template.RequestContext(request))
+            return render_to_response(
+                'django_openstack/nova/instances/edit.html',
+                {'region': project.region,
+                 'project': project,
+                 'instance': instance,
+                 'update_form': form},
+                context_instance=template.RequestContext(request))
 
     else:
-        return render_to_response('django_openstack/nova/instances/edit.html', {
-            'region': project.region,
-            'project': project,
-            'instance': instance,
-            'update_form': nova_forms.UpdateInstanceForm(instance),
-        }, context_instance = template.RequestContext(request))
-
+        return render_to_response(
+            'django_openstack/nova/instances/edit.html',
+            {'region': project.region,
+             'project': project,
+             'instance': instance,
+             'update_form': nova_forms.UpdateInstanceForm(instance)},
+            context_instance=template.RequestContext(request))

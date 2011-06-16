@@ -26,9 +26,13 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django_openstack.core.connection import get_nova_admin_connection
+from django_openstack import log as logging
 from django_openstack.nova import forms as nova_forms
 from django_openstack.nova.exceptions import handle_nova_error
 from django_openstack.nova.shortcuts import get_project_or_404
+
+
+LOG = logging.getLogger('django_openstack.nova')
 
 
 @login_required
@@ -36,10 +40,11 @@ from django_openstack.nova.shortcuts import get_project_or_404
 def detail(request, project_id):
     project = get_project_or_404(request, project_id)
 
-    return render_to_response('django_openstack/nova/projects/index.html', {
-        'project': project,
-        'instance_count': project.get_instance_count(),
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/projects/index.html',
+        {'project': project,
+         'instance_count': project.get_instance_count()},
+        context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -54,17 +59,19 @@ def manage(request, project_id):
     members = nova.get_project_members(project_id)
 
     for member in members:
-        project_role = [str(role.role) for role in nova.get_user_roles(member.memberId, project_id)]
-        global_role = [str(role.role) for role in nova.get_user_roles(member.memberId, project=False)]
+        project_role = [str(role.role) for role in
+                        nova.get_user_roles(member.memberId, project_id)]
+        global_role = [str(role.role) for role in
+                       nova.get_user_roles(member.memberId, project=False)]
 
         member.project_roles = ", ".join(project_role)
         member.global_roles = ", ".join(global_role)
 
-
-    return render_to_response('django_openstack/nova/projects/manage.html', {
-        'project': project,
-        'members': members,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/projects/manage.html',
+        {'project': project,
+         'members': members},
+        context_instance=template.RequestContext(request))
 
 
 @login_required
@@ -82,6 +89,9 @@ def edit_user(request, project_id, username):
         form = nova_forms.ProjectUserForm(project, user, request.POST)
         if form.is_valid():
             form.save()
+            LOG.info('Roles for user "%s" on project "%s" changed to "%s' %
+                     (str(user), project_id,
+                      ",".join(form.cleaned_data['role'])))
 
             return redirect('nova_project_manage',  project_id)
     else:
@@ -91,11 +101,12 @@ def edit_user(request, project_id, username):
                                           {'role': roles,
                                            'user': user})
 
-    return render_to_response('django_openstack/nova/projects/edit_user.html', {
-        'form' : form,
-        'project': project,
-        'user' : user,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response(
+        'django_openstack/nova/projects/edit_user.html',
+        {'form': form,
+         'project': project,
+         'user': user},
+        context_instance=template.RequestContext(request))
 
 
 @login_required

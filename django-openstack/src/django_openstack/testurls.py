@@ -33,4 +33,3 @@ urlpatterns = patterns('',
         'django_openstack.nova.views.credentials.authorize_credentials',
         name='nova_credentials_authorize'),
 )
-

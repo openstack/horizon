@@ -1,12 +1,12 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block breadcrumb %}{{ block.super }}<li><a href="{% url syspanel_cloudview %}">Cloud View</a></li>{% endblock %}
 
 {% block content %}
   <div id="page_description">
     <h2 class="page_heading">Cloud View</h2>
-		<p>View servers that participate in your cloud.  See statistics about
-		running services and served objects.</p>
+		<p>{% trans "View servers that participate in your cloud.  See statistics about running services and served objects." %}</p>
   </div>
           
 

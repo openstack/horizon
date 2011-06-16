@@ -10,9 +10,9 @@ from django_nova_syspanel.models import get_nova_admin_connection
 def index(request):
     nova = get_nova_admin_connection()
     vpns = nova.get_vpns()
-    return render_to_response('django_nova_syspanel/vpns/index.html',{
-        'vpns': vpns,
-    }, context_instance = template.RequestContext(request))
+    return render_to_response('django_nova_syspanel/vpns/index.html',
+                             {'vpns': vpns, },
+                             context_instance=template.RequestContext(request))
 
 
 @login_required

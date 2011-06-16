@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %} - Service Unavailable{% endblock %}
+{% block title %} - {% trans "Service Unavailable"%}{% endblock %}
 {% block pageclass %}unavailable{% endblock %}
 
 {% block content %}
   <div id="page_head">
-    <h2 id="page_heading">Service Unavailable</h2>
-    <p id="page_description">This service is temporarily unavailable. Please check back soon.</p>
+    <h2 id="page_heading">{% trans "Service Unavailable"%}</h2>
+    <p id="page_description">{% trans "This service is temporarily unavailable. Please check back soon."%}</p>
   </div>
 {% endblock %}

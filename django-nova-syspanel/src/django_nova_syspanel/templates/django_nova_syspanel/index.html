@@ -1,39 +1,36 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <h2 class="page_heading">NASA Nebula System Panel</h2>
 
 <div class="block">
-  <h3 class="half-heading">Manage Instances</h3>
-	<p>View all running instances other than VPNs. Schedule instances for
-	reboot or termination. Download logs.</p>
+  <h3 class="half-heading">{% trans "Manage Instances</h3>
+	<p>{% trans "View all running instances other than VPNs. Schedule instances for	reboot or termination. Download logs." %}</p>
   <a class="more" href="{% url syspanel_instances %}" >Manage Instances &rarr;</a>
 </div>
 
 <div class="block">
   <h3 class="half-heading">Manage Volumes</h3>
-  <p>View all volumes. See size, status, and mount point. Detach and destroy volumes.</p>
+  <p>{% trans "View all volumes. See size, status, and mount point. Detach and destroy volumes." %}</p>
   <a class="more" href="{% url syspanel_volumes %}" >Manage Volumes &rarr;</a>
 </div>
 
 <div class="block">
   <h3 class="half-heading">Manage VPN</h3>
-	<p>View all projects VPN status. Schedule launch, termination, and reboot.
-	Send credentials.</p>
+	<p>{% trans "View all projects VPN status. Schedule launch, termination, and reboot. Send credentials." %}</p>
   <a class="more" href="{% url syspanel_vpns %}" >Manage VPN &rarr;</a>
 </div>
 
 <div class="block">
   <h3 class="half-heading">Cloud View</h3>
-	<p>View servers that participate in your cloud.  See statistics about
-	running services and served objects.</p>
+	<p>{% trans "View servers that participate in your cloud.  See statistics about	running services and served objects." %}</p>
   <a class="more" href="{% url syspanel_cloudview %}" >Cloud View &rarr;</a>
 </div>
 
 <div class="block">
   <h3 class="half-heading">Security</h3>
-	<p>Perform operations to deal with rogue users, limit or prevent compromise,
-	and deal with external threats.</p>
+	<p>{% trans "Perform operations to deal with rogue users, limit or prevent compromise, and deal with external threats." %}</p>
   <a class="more" href="{% url syspanel_security %}" >Security &rarr;</a>
 </div>
 
