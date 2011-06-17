@@ -31,6 +31,10 @@ urlpatterns += patterns('django_openstack.syspanel.views.users',
     url(r'^users/create$', 'create', name='syspanel_users_create'),
 )
 
+urlpatterns += patterns('django_openstack.syspanel.views.services',
+    url(r'^services/$', 'index', name='syspanel_services'),
+)
+
 urlpatterns_OLD = patterns('',
     url(r'^$', 'django_openstack.syspanel.views.home.index', name='syspanel_index'),
 

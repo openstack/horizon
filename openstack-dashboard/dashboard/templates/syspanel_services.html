@@ -1,0 +1,77 @@
+{% extends 'syspanel_base.html' %}
+{# list of user's instances #}
+{# standard nav, sidebar, list of instances in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="services" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>System Panel:</span> Services</h2>
+    <p class='desc'><span>&mdash;</span> Create, Edit, Upload, and Delete Services.</p>
+  </div>
+
+  {% include "_messages.html" %}
+
+       
+        <div class='table_title wide'>
+        <h3>Services</h3>
+
+        <a class="refresh" href="{% url syspanel_services %}">Refresh List</a>
+        
+        <div class='search'>
+          <form action='' method='post'>             <fieldset>
+              <label for='table_search'>Search</label>                                                                                                                    <input id='table_search' name='search' type='text' value='' />
+            </fieldset> 
+          </form> 
+        </div>  
+      </div> 
+
+
+      <table class="wide">
+        <tr>
+          <th>Hostname</th>
+          <th>Service</th>
+          <th>Enabled</th>
+          <th>Up</th>
+          <th>Actions</th>
+        </tr>
+
+        {% for service in services %}
+          <tr class="{% if service.up %}good{% else %}bad{% endif %} {% cycle 'odd' 'even' %}">
+            <td> {{service.host}} </td>
+            <td> {{service.type}} </td>
+            <td>
+            {% if service.disabled %}
+                Disabled
+            {% else %}
+                Enabled
+            {% endif %}
+            </td>
+            <td> {{service.up}} </td>
+            <td id="actions">
+              <ul>
+                <li>{% include "_service_toggle_enabled.html" with form=service_toggle_enabled_form %}</li>
+              </ul>
+            </td>
+          </tr>
+        {% endfor %}
+        {% for service in other_services %}
+          <tr class="{% if service.up %}good{% else %}bad{% endif %} {% cycle 'odd' 'even' %}">
+            <td> {{service.hostname}} </td>
+            <td> {{service.name}} </td>
+            <td> Enabled </td>
+            <td> {{service.up}} </td>
+            <td> </td>
+          </tr>
+        {% endfor %}
+      </table>
+
+
+
+
+{% endblock %}
+
