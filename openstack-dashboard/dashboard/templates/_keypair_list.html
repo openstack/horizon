@@ -1,0 +1,20 @@
+<table id="images" style="width: 100%">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Created</th>
+    <th>Updated</th>
+    <th colspan="2">Status</th>
+  </tr>
+  {% for image in images %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ keypair.name }}</td>
+    <td>{{ keypair.fingerprint }}</td>
+    <td id="actions">
+      <ul>
+        <li>{% include "_delete_keypair.html" with form=delete_form %}</li>
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

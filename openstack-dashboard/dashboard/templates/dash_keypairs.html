@@ -1,0 +1,103 @@
+{% extends 'dash_base.html' %}
+{# list of user's images #}
+{# standard nav, sidebar, list of images in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="images" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Compute:</span> Keypairs</h2> 
+    <p class='desc'><span>&mdash;</span> Keypairs blah blah.</p> 
+  </div>
+  {% include "_messages.html" %}
+
+  <div class='main_content'>
+    {% if keypairs %}
+      <div class='table_title wide'>
+        <h3>Keypairs</h3>
+        <div class='search'>
+          <form action='' method='post'>
+            <fieldset>
+              <label for='table_search'>Search</label>
+              <input id='table_search' name='search' type='text' value='' />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      {% include '_kepair_list.html' %}
+
+    {% endif %}
+  </div>
+{% endblock %}
+
+
+
+{% extends 'base.html' %}
+{% load sidebar_tags %}
+
+{% block nav_pages %}
+  {% sidebar_select keypairs %}
+  {{ block.super }}
+{% endblock %}
+
+{% block main_content %}
+  <div id='page_header'> 
+    <h2><span>Compute:</span> Keypairs</h2> 
+    <p class='desc'><span>&mdash;</span> Keypairs blah blah.</p> 
+  </div> 
+  {% include "_messages.html" %}
+  {% if keypairs %}
+  <div class='main_content'> 
+    <div class='table_title wide'> 
+      <h3>Keypairs</h3> 
+      <div class='search'> 
+        <form action='' method='post'> 
+          <fieldset> 
+            <label for='table_search'>Search</label> 
+            <input id='table_search' name='search' type='text' value='' /> 
+          </fieldset> 
+        </form> 
+      </div> 
+    </div> 
+      <table id='keypairs' class='wide'> 
+        <tr id='headings'> 
+          <th>Name</th> 
+          <th>Fingerprint</th> 
+          <th>Actions</th> 
+        </tr> 
+        <tbody class='main'> 
+          {% for keypair in keypairs %}
+          <tr class="{% cycle 'odd' 'even' %}">
+              <td>{{ keypair.name }}</td>
+              <td>{{ keypair.fingerprint }}</td>
+              <td id="actions">
+                <ul>
+                  <li>
+                    <form id="form_keypair_{{ keypair.name }}" class="form-keypair-delete" method="post" action="{% url novaO_keypair_delete keypair.name %}" >
+                      {% csrf_token %}
+                      <input name="name" type="hidden" value="{{ keypair.name }}" />
+                      <input id="delete_{{keypair.name}}" title="keypair: {{keypair.name}}" class="terminate delete_link" type="submit" value="Delete" />
+                    </form>
+                  </li>
+                </ul>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody> 
+      </table> 
+    {% else %}
+        <div class="status_box info">
+          <h2>Info</h2>
+          <p>There are currently no keypairs.<br/><br/>You can create a keypair here <a href='{% url novaO_images %}'>Images Page.</a></p>
+        </div>
+    {% endif %}
+      <a id="keypair_create_link" href="{% url novaO_keypair_create %}">Create New Keypair>></a>
+  </div> 
+</div> 
+{% endblock main_content %}
+
