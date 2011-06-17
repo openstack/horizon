@@ -1,9 +1,9 @@
 {% extends 'dash_base.html' %}
-{# list of user's images #}
+{# list of user's keypairs #}
 {# standard nav, sidebar, list of images in main #}
 
 {% block sidebar %}
-  {% with current_sidebar="images" %}
+  {% with current_sidebar="keypairs" %}
     {{block.super}}
   {% endwith %}
 {% endblock %}
