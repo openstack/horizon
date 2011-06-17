@@ -173,5 +173,3 @@ def index(request):
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
     }, context_instance=template.RequestContext(request))
-
-
