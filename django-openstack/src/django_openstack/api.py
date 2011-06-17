@@ -18,8 +18,12 @@ def url_for(request, service_name, admin=False):
         return catalog[service_name][0]['internalURL']
             
 def compute_api(request):
-    return openstack.compute.Compute(auth_token=request.session['token'],
-                                     management_url=url_for(request, 'nova'))
+    compute =  openstack.compute.Compute(auth_token=request.session['token'],
+                                         management_url=url_for(request, 'nova'))
+    # this below hack is necessary to make the jacobian compute client work
+    compute.client.auth_token = request.session['token']
+    compute.client.management_url = url_for(request, 'nova')
+    return compute
 
 def account_api(request):
     return openstackx.extras.Account(auth_token=request.session['token'],
