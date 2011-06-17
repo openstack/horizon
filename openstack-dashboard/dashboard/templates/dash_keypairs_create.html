@@ -1,0 +1,55 @@
+{% extends 'dash_base.html' %}
+{# list of user's instances #}
+{# standard nav, sidebar, list of instances in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="keypairs" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block headerjs %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $(".dash_block .left h3").hide()
+      $("form input[type='submit']").click(function(e){
+        $("form").hide("fast")
+        $(".dash_block h3").show("fast")
+        console.log($(this).parent().submit());
+        e.preventDefault()
+      })
+    })
+  </script>
+{% endblock %}
+
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Dashboard:</span> Keypairs </h2>
+    <p class='desc'><span>&mdash;</span> Create a keypair </p>
+  </div>
+
+  {% include "_messages.html" %}
+
+  
+  <div class="main_content">
+    <div class="dash_block wide form">
+      <div class='title_block'> 
+        <h3>Create User</h3> 
+      </div> 
+      <div class="left">
+        <h3>Your private key is being downloaded.</h3>
+        {% include '_keypair_form.html' with form=create_form %}
+        <h3><a href="{% url dash_keypairs request.user.tenant %}"><< Return to keypairs list</a></h3>
+      </div>
+
+      <div class="right">
+        <h3>Description:</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae est urna. Phasellus sagittis, sem posuere hendrerit mattis, velit risus viverra enim, tempus dapibus sem turpis ac erat.</p>
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed mollis ligula nec lacus mollis eu laoreet lectus porta. </p>
+        <p>Sed iaculis mauris et est consectetur egestas. Praesent dolor libero, semper sed aliquet</p>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

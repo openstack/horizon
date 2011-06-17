@@ -1,7 +1,3 @@
-/* @override http://looce.com:8080/media/dashboard/css/style.css */
-
-/* @override http://looce.com:8080/media/dashboard/css/style.css */
-
 @import url("reset.css");
 
 @font-face {
@@ -753,6 +749,10 @@ table {
 	width: 100%;
 }
 
+.left {
+	width: 358px;
+	float: left;
+}
 .dash_block .right {
 	float: left;
 	width: 303px;
@@ -768,10 +768,15 @@ table {
 	margin-bottom: 10px;
 }
 
-.dash_block .right h3 {
+.dash_block .right h3, .dash_block .left h3 {
 	color: #939393;
 	font-size: 18px;
 	font-weight: normal;
+}
+
+ .dash_block .left h3 {
+	padding: 20px;
+	color: green;
 }
 
 
@@ -1133,7 +1138,6 @@ ol li.first a {
 
 .status_box h2 {
 	font-weight: normal;
-	border-right: 1px solid;
 	float: left;
 	padding: 20px;
 	min-width: 120px;
@@ -1149,6 +1153,8 @@ ol li.first a {
 	font-size: 14px;
 	float: left;
 	padding: 20px;
+	width: 501px;
+	border-left: 1px solid;
 }
 
 
@@ -1235,7 +1241,7 @@ a.refresh:hover {
 
 .usage_block {
 	float: left;
-	width: 166px;
+	width: 227px;
 	background: #e8f8ff;
 	color: #84b6c5;
 	margin-right: 13px;
@@ -1243,7 +1249,7 @@ a.refresh:hover {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	border: 1px solid #afe3fb;
-	min-height: 180px;
+	min-height: 150px;
 }
 
 .usage_block h3 {
@@ -1469,8 +1475,8 @@ input.example, textarea.example {color: #d9d9d9;}
 	border-bottom: 1px solid #d6e4d9;
 	border-left: 1px solid #d6e4d9;
 	margin-left: -1px;
-	margin-top: -5px;
 	padding-top: 12px;
+	margin-top: -12px;
 }
 
 #drop_btn {
@@ -1523,6 +1529,7 @@ a#current_tenant {
 	padding-left: 25px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	border-color: #a9deb6;
 }
 
 #user_bar li a:hover{
@@ -1544,16 +1551,43 @@ li#sign_out a:hover {
 li.title h4{
 	padding-left: 25px;
 	color: #7ab789;
-	padding-top: 10px;
 	text-transform: uppercase;
 	font-size: 10px;
 	font-weight: normal;
+	border-bottom: 1px dotted;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .note p strong {
 	color: #333;
 }
 
+#monitoring {
+	width: 665px;
+	background: #fbfbfb;
+	float: left;
+	margin-top: -25px;
+	border: 1px solid #f3f3f3;
+	padding: 10px;
+	margin-left: 5px;
+	font-size: 14px;
+	margin-bottom: 25px;
+}
+
+#monitoring h3 {
+	font-weight: normal;
+	float: left;
+}
+
+#external_links {
+	float: left;
+}
+
+#external_links li {
+	float: left;
+	margin-left: 25px;
+}
 
 
 

@@ -1,12 +1,10 @@
-<table id="images" style="width: 100%">
+<table id="keypairs" style="width: 100%">
   <tr>
-    <th>ID</th>
     <th>Name</th>
-    <th>Created</th>
-    <th>Updated</th>
-    <th colspan="2">Status</th>
+    <th>Fingerprint</th>
+    <th>Actions</th>
   </tr>
-  {% for image in images %}
+  {% for keypair in keypairs %}
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{ keypair.name }}</td>
     <td>{{ keypair.fingerprint }}</td>

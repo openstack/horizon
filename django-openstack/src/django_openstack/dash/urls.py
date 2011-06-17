@@ -5,7 +5,7 @@ from django.conf import settings
 
 INSTANCES = r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/%s$'
 IMAGES = r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/%s$'
-KEYPAIRS = r'^(?P<tenant_id>[^/]+)/keypairs/(?P<keypair_id>[^/]+)/%s$'
+KEYPAIRS = r'^(?P<tenant_id>[^/]+)/keypairs/%s$'
 
 urlpatterns = patterns('django_openstack.dash.views.instances',
     url(r'^(?P<tenant_id>[^/]+)/$', 'usage', name='dash_usage'),
@@ -21,5 +21,5 @@ urlpatterns += patterns('django_openstack.dash.views.images',
 
 urlpatterns += patterns('django_openstack.dash.views.keypairs',
     url(r'^(?P<tenant_id>[^/]+)/keypairs/$', 'index', name='dash_keypairs'),
-    url(KEYPAIRS % 'launch', 'launch', name='dash_keypairs_launch'),
+    url(KEYPAIRS % 'create', 'create', name='dash_keypairs_create'),
 )
