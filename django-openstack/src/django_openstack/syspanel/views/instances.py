@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.utils.translation import ugettext as _
 
-
 import datetime
 import logging
 
@@ -16,6 +15,7 @@ from django.contrib import messages
 from django_openstack import api
 from django_openstack import forms
 from django_openstack.dash.views import instances as dash_instances
+from openstackx.api import exceptions as api_exceptions
 
 
 TerminateInstance = dash_instances.TerminateInstance
@@ -138,7 +138,7 @@ def index(request):
         if handled:
             return handled
 
-    instances = api.admin_api(request).servers.list()
+    instances = api.extras_api(request).servers.list()
     logging.info('INSTANCES: %s', instances[0].__dict__)
 
     # We don't have any way of showing errors for these, so don't bother
