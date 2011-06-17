@@ -30,8 +30,6 @@ from django.contrib.auth.decorators import login_required
 from django import shortcuts
 from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
-from django_openstack.nova import forms as nova_forms
-from django_openstack.nova.exceptions import handle_nova_error
 
 from django_openstack import api
 from django_openstack import forms
@@ -39,7 +37,7 @@ import openstack.compute.servers
 import openstackx.api.exceptions as api_exceptions
 
 
-LOG = logging.getLogger('django_openstack.nova')
+LOG = logging.getLogger('django_openstack.dash')
 
 
 class DeleteKeypair(forms.SelfHandlingForm):
