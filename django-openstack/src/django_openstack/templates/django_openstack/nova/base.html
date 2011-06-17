@@ -35,7 +35,7 @@
 
 {% block nav_projects %}
       <li>
-        <h3 class="active"><a href="/">Projects</a></h3>
+        <h3 class="active"><a href="{% url index %}">Projects</a></h3>
         <div id="projects">
           {% for t in tenants %}
             <div id="{{ t.id }}" class="project{% if t.id == tenant.id %} active{% endif %}">
