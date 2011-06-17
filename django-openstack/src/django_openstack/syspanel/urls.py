@@ -19,6 +19,11 @@ urlpatterns += patterns('django_openstack.syspanel.views.images',
     #url(INSTANCES % 'vnc', 'vnc', name='syspanel_instances_vnc'),
 )
 
+urlpatterns += patterns('django_openstack.syspanel.views.flavors',
+    url(r'^flavors/$', 'index', name='syspanel_flavors'),
+    url(r'^flavors/create/$', 'create', name='syspanel_flavors_create'),
+)
+
 
 urlpatterns_OLD = patterns('',
     url(r'^$', 'django_openstack.syspanel.views.home.index', name='syspanel_index'),
