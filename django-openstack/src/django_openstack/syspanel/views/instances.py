@@ -50,39 +50,42 @@ def _get_start_and_end_date(request):
 
 @login_required
 def usage(request):
-    (date_start, date_end,
-     datetime_start, datetime_end) = _get_start_and_end_date(request)
+    (date_start, date_end, datetime_start, datetime_end) = _get_start_and_end_date(request)
+    service_list = []
+    usage_list = []
+    max_vcpus = max_gigabytes = 0
+
+    if date_start > _current_month():
+        messages.error(request, 'No data for the selected period')
+        date_end = date_start
+        datetime_end = datetime_start
+    else:
+        try:
+            service_list = api.admin_api(request).services.list()
+        except api_exceptions.ApiException, e:
+            messages.error(request, 'Unable to get service info: %s' % e.message)
+
+        for service in service_list:
+            if service.type == 'nova-compute':
+                max_vcpus += service.stats['max_vcpus']
+                max_gigabytes += service.stats['max_gigabytes']
+
+        try:
+            usage_list = api.extras_api(request).usage.list(datetime_start, datetime_end)
+        except api_exceptions.ApiException, e:
+            messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     dateform = forms.DateForm()
     dateform['date'].field.initial = date_start
 
-    max_vcpus = max_gigabytes = 0
 
-    service_list = []
-    try:
-        service_list = api.admin_api(request).services.list()
-    except api_exceptions.ApiException, e:
-        messages.error(request, 'Unable to get service info: %s' % e.message)
-
-
-    for service in service_list:
-        if service.type == 'nova-compute':
-            max_vcpus += service.stats['max_vcpus']
-            max_gigabytes += service.stats['max_gigabytes']
-
-    usage_list = []
-    try:
-        usage_list = api.extras_api(request).usage.list(datetime_start,
-                                                        datetime_end)
-    except api_exceptions.ApiException, e:
-        messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     global_summary = {'max_vcpus': max_vcpus, 'max_gigabytes': max_gigabytes,
                       'total_active_disk_size': 0, 'total_active_vcpus': 0,
                       'total_active_ram_size': 0}
 
     for usage in usage_list:
-        # FIXME: api needs a simpler dict interface
+        # FIXME: api needs a simpler dict interface (with iteration) - anthony
         usage = usage._info
         for k in usage:
             v = usage[k]
@@ -97,8 +100,19 @@ def usage(request):
     used_disk_tb = global_summary['total_active_disk_size'] / float(1000)
     available_disk_tb = (global_summary['max_gigabytes'] / float(1000) - \
                         global_summary['total_active_disk_size'] / float(1000))
+    total_ram = settings.TOTAL_CLOUD_RAM_GB
+    used_ram = global_summary['total_active_ram_size'] / float(1024)
+    avail_ram = total_ram - used_ram
 
-    return render_to_response('syspanel_usage.html', {
+    ram_unit = "GB"
+    if total_ram > 999:
+        ram_unit = "TB"
+        total_ram /= float(1024)
+        used_ram /= float(1024)
+        avail_ram /= float(1024)
+
+    return render_to_response(
+    'syspanel_usage.html',{
         'dateform': dateform,
         'usage_list': usage_list,
         'global_summary': global_summary,
@@ -107,25 +121,33 @@ def usage(request):
         'max_disk_tb': max_disk_tb,
         'used_disk_tb': used_disk_tb,
         'available_disk_tb': available_disk_tb,
-        'used_ram_gb': global_summary['total_active_ram_size'] / int(1000),
+        'total_ram': total_ram,
+        'used_ram': used_ram,
+        'avail_ram': avail_ram,
+        'ram_unit': ram_unit,
+        'external_links': settings.EXTERNAL_MONITORING,
     }, context_instance = template.RequestContext(request))
 
 
 @login_required
 def tenant_usage(request, tenant_id):
-    (date_start, date_end,
-     datetime_start, datetime_end) = _get_start_and_end_date(request)
+    (date_start, date_end, datetime_start, datetime_end) = _get_start_and_end_date(request)
+    if date_start > _current_month():
+        messages.error(request, 'No data for the selected period')
+        date_end = date_start
+        datetime_end = datetime_start
 
     dateform = forms.DateForm()
     dateform['date'].field.initial = date_start
 
     usage = {}
     try:
-        usage = api.extras_api(request).usage.get(tenant_id, datetime_start, datetime_end)
+        usage = extras_api(request).usage.get(tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
-    return render_to_response('syspanel_tenant_usage.html', {
+    return render_to_response(
+    'syspanel_tenant_usage.html',{
         'dateform': dateform,
         'usage': usage,
     }, context_instance = template.RequestContext(request))
