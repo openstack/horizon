@@ -73,27 +73,18 @@ def index(request, project_id):
 @handle_nova_error
 def launch(request, project_id, image_id):
     project = shortcuts.get_project_or_404(request, project_id)
-    conn = project.get_openstack_connection()
 
     if request.method == 'POST':
         form = forms.LaunchInstanceForm(project, request.POST)
         if form.is_valid():
-            params = {'ImageId': image_id,
-                      'addressing_type': 'private',
-                      'key_name': form.cleaned_data['key_name'],
-                      'display_name': form.cleaned_data['display_name'],
-                      #'security_groups':
-                            #[form.cleaned_data['security_group']],
-                      'UserData': re.sub('\r\n', '\n',
-                       form.cleaned_data['user_data']),
-                      'InstanceType': form.cleaned_data['size'],
-                      'MinCount': form.cleaned_data['count'],
-                      'MaxCount': form.cleaned_data['count']
-                     }
-            
             try:
-                reservation = conn.get_object('RunInstances', params,
-                        boto.ec2.instance.Reservation, verb='POST')
+                reservation = project.run_instances(image_id,
+                    form.cleaned_data['size'],
+                    form.cleaned_data['count'],
+                    key_name=form.cleaned_data['key_name'],
+                    display_name=form.cleaned_data['display_name'],
+                    user_data=re.sub('\r\n', '\n',
+                       form.cleaned_data['user_data']))
             except exceptions.NovaApiError, e:
                 messages.error(request,
                                _('Unable to launch: %s') % e.message)

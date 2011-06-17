@@ -97,12 +97,28 @@ class ProjectManager(object):
                                            groups=groups,)
 
     @wrap_nova_error
-    def run_instances(self, image_id, **kwargs):
+    def run_instances(self, image_id, instance_type, count,
+                      addressing_type='private', key_name=None,
+                      display_name=None, user_data=None):
         """
         Runs instances of the specified image id.
         """
         conn = self.get_openstack_connection()
-        return conn.run_instances(image_id, **kwargs)
+        params = {
+            'ImageId': image_id,
+            'InstanceType': instance_type,
+            'MinCount': count,
+            'MaxCount': count,
+            'addressing_type': addressing_type,
+        }
+        if key_name is not None:
+            params['key_name'] = key_name
+        if display_name is not None:
+            params['display_name'] = display_name
+        if user_data is not None:
+            params['UserData'] = user_data
+        return conn.get_object('RunInstances', params,
+                boto.ec2.instance.Reservation, verb='POST')
 
     def get_instance_count(self):
         """
