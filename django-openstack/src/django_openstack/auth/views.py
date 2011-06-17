@@ -1,5 +1,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+import logging
+
 from django import http
 from django import template
 from django import shortcuts
@@ -27,6 +29,7 @@ class Login(forms.SelfHandlingForm):
             request.session['tenant'] = info['tenant']
             request.session['admin'] = info['admin']
             request.session['serviceCatalog'] = token.serviceCatalog
+            logging.info(token.serviceCatalog)
 
             if request.session['admin']:
                 return shortcuts.redirect('syspanel_overview')

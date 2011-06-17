@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
-import openstackx.compute.exceptions as api_exceptions
+from openstackx.api import exceptions as api_exceptions
 
 
 from django_openstack import api

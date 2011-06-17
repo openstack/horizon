@@ -1,5 +1,7 @@
 from django.conf import settings
 
+import logging
+
 import glance.client
 import httplib
 import json
@@ -13,10 +15,11 @@ import json
 def url_for(request, service_name, admin=False):
     catalog = request.session['serviceCatalog']
     if admin:
-        return catalog[service_name][0]['adminURL']
-    else:   
-        return catalog[service_name][0]['internalURL']
-            
+        rv  = catalog[service_name][0]['adminURL']
+    else:
+        rv = catalog[service_name][0]['internalURL']
+    return rv
+
 def compute_api(request):
     compute =  openstack.compute.Compute(auth_token=request.session['token'],
                                          management_url=url_for(request, 'nova'))
@@ -28,21 +31,21 @@ def compute_api(request):
 def account_api(request):
     return openstackx.extras.Account(auth_token=request.session['token'],
                                     management_url=url_for(request, 'keystone', True))
-                                                  
+
 def glance_api(request):
     o = urlparse(url_for(request, 'glance'))
     return glance.client.Client(o.hostname, o.port)
-            
+
 def admin_api(request):
     return openstackx.admin.Admin(auth_token=request.session['token'],
                                  management_url=url_for(request, 'nova', True))
-                                                   
-def extras_api(request):                           
+
+def extras_api(request):
     return openstackx.extras.Extras(auth_token=request.session['token'],
                                    management_url=url_for(request, 'nova'))
-                
-            
-def auth_api(): 
+
+
+def auth_api():
     return openstackx.auth.Auth(management_url=\
                                settings.OPENSTACK_KEYSTONE_URL)
 

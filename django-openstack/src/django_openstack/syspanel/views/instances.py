@@ -161,7 +161,6 @@ def index(request):
             return handled
 
     instances = api.extras_api(request).servers.list()
-    logging.info('INSTANCES: %s', instances[0].__dict__)
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
