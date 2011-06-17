@@ -21,11 +21,12 @@ class Login(forms.SelfHandlingForm):
             token = api.auth_api().tokens.create(data['tenant'],
                                                  data['username'],
                                                  data['password'])
-            info = api.token_info(token.id)
+            info = api.token_info(token)
             request.session['token'] = token.id
             request.session['user'] = info['user']
             request.session['tenant'] = info['tenant']
             request.session['admin'] = info['admin']
+            request.session['serviceCatalog'] = token.serviceCatalog
 
             if request.session['admin']:
                 return shortcuts.redirect('syspanel_overview')

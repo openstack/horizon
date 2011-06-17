@@ -2,65 +2,55 @@ from django.conf import settings
 
 import glance.client
 import httplib
-import logging
 import json
 import openstack.compute
 import openstackx.admin
 import openstackx.extras
 import openstackx.auth
 from urlparse import urlparse
+import json
 
-# FIXME this is duplicated in syspanel need to consolidate
-
-
+def url_for(request, service_name, admin=False):
+    catalog = request.session['serviceCatalog']
+    if admin:
+        return catalog[service_name][0]['adminURL']
+    else:   
+        return catalog[service_name][0]['internalURL']
+            
 def compute_api(request):
-    compute = openstack.compute.Compute(auth_token=request.session['token'],
-                                        management_url=settings.OPENSTACK_MANAGER_URL)
-    compute.client.auth_token = auth_token=request.session['token']
-    compute.client.management_url = settings.OPENSTACK_MANAGER_URL
-    return compute
-
+    return openstack.compute.Compute(auth_token=request.session['token'],
+                                     management_url=url_for(request, 'nova'))
 
 def account_api(request):
     return openstackx.extras.Account(auth_token=request.session['token'],
-                                    management_url=settings.OPENSTACK_ACCOUNT_URL)
-
-
+                                    management_url=url_for(request, 'keystone', True))
+                                                  
 def glance_api(request):
-    o = urlparse(settings.OPENSTACK_GLANCE_URL)
+    o = urlparse(url_for(request, 'glance'))
     return glance.client.Client(o.hostname, o.port)
-
-
+            
 def admin_api(request):
     return openstackx.admin.Admin(auth_token=request.session['token'],
-                                 management_url=settings.OPENSTACK_ADMIN_MANAGER_URL)
-
-
-def extras_api(request):
+                                 management_url=url_for(request, 'nova', True))
+                                                   
+def extras_api(request):                           
     return openstackx.extras.Extras(auth_token=request.session['token'],
-                                   management_url=settings.OPENSTACK_ADMIN_MANAGER_URL)
-
-
-def auth_api():
+                                   management_url=url_for(request, 'nova'))
+                
+            
+def auth_api(): 
     return openstackx.auth.Auth(management_url=\
-                                settings.OPENSTACK_KEYSTONE_URL)
-
-
-def get_tenant(request, tenant_id):
-  tenants = auth_api().tenants.for_token(request.session['token'])
-  logging.info('TENANTS: %s', tenants)
-  for t in tenants:
-      if str(t.id) == str(tenant_id):
-          return t
+                               settings.OPENSTACK_KEYSTONE_URL)
 
 
 def token_info(token):
     hdrs = {"Content-type": "application/json",
             "X_AUTH_TOKEN": settings.OPENSTACK_ADMIN_TOKEN,
             "Accept": "text/json"}
-    o = urlparse(settings.OPENSTACK_ACCOUNT_URL)
+
+    o = urlparse(token.serviceCatalog['keystone'][0]['adminURL'])
     conn = httplib.HTTPConnection(o.hostname, o.port)
-    conn.request("GET", "/v2.0/tokens/%s" % token, headers=hdrs)
+    conn.request("GET", "/v2.0/tokens/%s" % token.id, headers=hdrs)
     response = conn.getresponse()
     data = json.loads(response.read())
 
