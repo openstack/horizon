@@ -50,6 +50,14 @@ def auth_api():
                                settings.OPENSTACK_KEYSTONE_URL)
 
 
+def get_tenant(request, tenant_id):
+  tenants = auth_api().tenants.for_token(request.session['token'])
+  for t in tenants:
+      if str(t.id) == str(tenant_id):
+          return t
+
+
+
 def token_info(token):
     hdrs = {"Content-type": "application/json",
             "X_AUTH_TOKEN": settings.OPENSTACK_ADMIN_TOKEN,
