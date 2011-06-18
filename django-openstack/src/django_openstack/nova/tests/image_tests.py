@@ -89,27 +89,34 @@ class ImageViewTests(BaseProjectViewTests):
         reservation = boto.ec2.instance.Reservation()
         reservation.instances = [instance]
 
+        conn = self.mox.CreateMockAnything()
+
         self.mox.StubOutWithMock(forms, 'get_key_pair_choices')
         self.mox.StubOutWithMock(forms, 'get_instance_type_choices')
-        self.mox.StubOutWithMock(self.project, 'run_instances')
+        self.mox.StubOutWithMock(self.project, 'get_openstack_connection')
+
+        self.project.get_openstack_connection().AndReturn(conn)
 
         forms.get_key_pair_choices(self.project).AndReturn(
                 self.create_key_pair_choices([TEST_KEY]))
         forms.get_instance_type_choices().AndReturn(
                 self.create_instance_type_choices())
-        self.project.run_instances(TEST_IMAGE_ID,
-                                   addressing_type=mox.IgnoreArg(),
-                                   key_name=TEST_KEY,
-                                   user_data='',
-                                   instance_type='m1.medium',
-                                   min_count='1',
-                                   max_count='1').AndReturn(reservation)
+
+        params = {'addressing_type': 'private',
+                'UserData': '', 'display_name': u'name',
+                'MinCount': '1', 'key_name': TEST_KEY,
+                'MaxCount': '1', 'InstanceType': 'm1.medium',
+                'ImageId': TEST_IMAGE_ID}
+        conn.get_object('RunInstances', params, boto.ec2.instance.Reservation,
+                verb='POST').AndReturn(reservation)
+
         self.mox.ReplayAll()
 
         url = reverse('nova_images_launch', args=[TEST_PROJECT, TEST_IMAGE_ID])
         data = {'key_name': TEST_KEY,
                 'count': '1',
                 'size': 'm1.medium',
+                'display_name': 'name',
                 'user_data': ''}
         res = self.client.post(url, data)
         self.assertRedirectsNoFollow(res, reverse('nova_instances',

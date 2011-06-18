@@ -78,17 +78,13 @@ def launch(request, project_id, image_id):
         form = forms.LaunchInstanceForm(project, request.POST)
         if form.is_valid():
             try:
-                reservation = project.run_instances(
-                    image_id,
-                    addressing_type='private',
+                reservation = project.run_instances(image_id,
+                    form.cleaned_data['size'],
+                    form.cleaned_data['count'],
                     key_name=form.cleaned_data['key_name'],
-                    #security_groups=[form.cleaned_data['security_group']],
+                    display_name=form.cleaned_data['display_name'],
                     user_data=re.sub('\r\n', '\n',
-                                     form.cleaned_data['user_data']),
-                    instance_type=form.cleaned_data['size'],
-                    min_count=form.cleaned_data['count'],
-                    max_count=form.cleaned_data['count']
-                )
+                       form.cleaned_data['user_data']))
             except exceptions.NovaApiError, e:
                 messages.error(request,
                                _('Unable to launch: %s') % e.message)

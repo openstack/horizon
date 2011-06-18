@@ -2,7 +2,7 @@
       {% if instances %}
       <table style="width: 100%">
         <tr>
-          <th>ID</th>
+          <th>Name</th>
           <th>Image</th>
           <th>Size</th>
           <th>IP</th>
@@ -74,7 +74,7 @@
             </td>
           {% else %}
 
-            <td><a href="{% url nova_instances_detail project.projectname instance.id %}">{{ instance.id }} {% if instance.displayName %}({{ instance.displayName }}){% endif %}
+            <td><a href="{% url nova_instances_detail project.projectname instance.id %}">{% if instance.displayName %}{{ instance.displayName }}{% endif %} ({{ instance.id }})
               </a></td>
             <td class="odd">{{ instance.image_id }}</td>
             <td>{{ instance.instance_type }}</td>
