@@ -45,6 +45,9 @@ LOG = logging.getLogger('django_openstack.dash')
 class LaunchForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length=80, label="Server Name")
+    user_data = forms.CharField(widget=forms.Textarea,
+                                label="User Data",
+                                required=False)
 
     # make the dropdown populate when the form is loaded not when django is
     # started
@@ -56,14 +59,22 @@ class LaunchForm(forms.SelfHandlingForm):
                 label="Flavor",
                 help_text="Size of Image to launch")
 
+        keynamelist = kwargs.get('initial', {}).get('keynamelist', [])
+        self.fields['key_name'] = forms.ChoiceField(choices=keynamelist,
+                label="Key Name",
+                help_text="Which keypair to use for authentication")
+
     def handle(self, request, data):
         image_id = data['image_id']
         try:
             image = api.compute_api(request).images.get(image_id)
             flavor = api.compute_api(request).flavors.get(data['flavor'])
-            api.compute_api(request).servers.create(data['name'],
-                                                    image,
-                                                    flavor)
+            api.extras_api(request).servers.create(data['name'],
+                                                   image,
+                                                   flavor,
+                                                   user_data=data['user_data'],
+                                                   key_name=data.get('key_name'))
+
             messages.success(request, "Instance was successfully\
                                        launched.")
             return shortcuts.redirect(request.build_absolute_uri())
@@ -119,11 +130,20 @@ def launch(request, tenant_id, image_id):
         except:
             return [(1, 'm1.tiny')]
 
+    def keynamelist():
+        try:
+            fl = api.extras_api(request).keypairs.list()
+            sel = [(f.key_name, f.key_name) for f in fl]
+            return sel
+        except:
+            return []
+
     image = api.compute_api(request).images.get(image_id)
     tenant = api.get_tenant(request, request.user.tenant)
 
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),
+                              'keynamelist': keynamelist(),
                               'image_id': image_id})
     if handled:
         return handled
