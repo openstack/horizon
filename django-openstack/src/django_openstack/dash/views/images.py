@@ -20,6 +20,7 @@
 Views for managing Nova images.
 """
 
+import datetime
 import logging
 import re
 
@@ -75,12 +76,33 @@ class LaunchForm(forms.SelfHandlingForm):
 @login_required
 def index(request, tenant_id):
     tenant = api.get_tenant(request, request.user.tenant)
-    images = api.glance_api(request).get_images_detailed()
+    all_images = []
+    try:
+        all_images = api.glance_api(request).get_images_detailed()
+        if not all_images:
+            messages.info(request, "There are currently no images.")
+    except GlanceClientConnectionError, e:
+        messages.error(request, "Error connecting to glance: %s" % e.message)
+    except glance_exception.Error, e:
+        messages.error(request, "Error retrieving image list: %s" % e.message)
+
+    images = []
+
+    def convert_time(tstr):
+        if tstr:
+            return datetime.datetime.strptime(tstr, "%Y-%m-%dT%H:%M:%S.%f")
+        else:
+            return ''
+
+    for im in all_images:
+        im['created'] = convert_time(im['created_at'])
+        im['updated'] = convert_time(im['updated_at'])
+        if im['container_format'] not in ['aki', 'ari']:
+            images.append(im)
 
     return render_to_response('dash_images.html', {
         'tenant': tenant,
         'images': images,
-        #'image_lists': _image_lists(images, request.user.tenant),
     }, context_instance=template.RequestContext(request))
 
 
