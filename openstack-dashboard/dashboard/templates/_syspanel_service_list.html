@@ -1,0 +1,38 @@
+<table class="wide">
+  <tr>
+    <th>Hostname</th>
+    <th>Service</th>
+    <th>Enabled</th>
+    <th>Up</th>
+    <th>Actions</th>
+  </tr>
+
+  {% for service in services %}
+    <tr class="{% if service.up %}good{% endif %} {% if service.disabled %}medium{% endif %}{% if not service.up %}bad{% endif %} {% cycle 'odd' 'even' %}">
+      <td> {{service.host}} </td>
+      <td> {{service.type}} </td>
+      <td>
+      {% if service.disabled %}
+          Disabled
+      {% else %}
+          Enabled
+      {% endif %}
+      </td>
+      <td> {{service.up}} </td>
+      <td id="actions">
+        <ul>
+          <li>{% include "_service_toggle_enabled.html" with form=service_toggle_enabled_form %}</li>
+        </ul>
+      </td>
+    </tr>
+  {% endfor %}
+  {% for service in other_services %}
+    <tr class="{% if service.up %}good{% endif %} {% if service.disabled %}medium{% endif %}{% if not service.up %}bad{% endif %} {% cycle 'odd' 'even' %}">
+      <td> {{service.host}} </td>
+      <td> {{service.type}} </td>
+      <td> Enabled </td>
+      <td> {{service.up}} </td>
+      <td> </td>
+    </tr>
+  {% endfor %}
+</table>
