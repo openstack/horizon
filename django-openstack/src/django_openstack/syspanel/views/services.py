@@ -21,10 +21,8 @@ from django_openstack import forms
 from django_openstack.dash.views import instances as dash_instances
 from openstackx.api import exceptions as api_exceptions
 
-LOG = logging.getLogger('django_openstack.nova')
 
-
-class ServiceToggleEnabledForm(forms.SelfHandlingForm):
+class ToggleService(forms.SelfHandlingForm):
     service = forms.CharField(required=False)
     name = forms.CharField(required=False)
 
@@ -34,13 +32,13 @@ class ServiceToggleEnabledForm(forms.SelfHandlingForm):
             api.admin_api(request).services.update(data['service'], 
                                                    not service.disabled)
             if service.disabled:
-                messages.info(request, "Service '%s' has been enabled" \
+                messages.info(request, "Service '%s' has been enabled"
                                         % data['name'])
             else:
-                messages.info(request, "Service '%s' has been disabled" \
+                messages.info(request, "Service '%s' has been disabled"
                                         % data['name'])
         except api_exceptions.ApiException, e:
-            messages.error(request, "Unable to update service '%s': %s" \
+            messages.error(request, "Unable to update service '%s': %s"
                                      % data['name'], e.message)
         
         return redirect(request.build_absolute_uri())
@@ -48,7 +46,7 @@ class ServiceToggleEnabledForm(forms.SelfHandlingForm):
 
 @login_required
 def index(request):
-    for f in (ServiceToggleEnabledForm,):
+    for f in (ToggleService,):
         _, handled = f.maybe_handle(request)
         if handled:
             return handled
@@ -69,12 +67,12 @@ def index(request):
         except:
             up = False
         hostname = urlparse.urlparse(v['internalURL']).hostname
-        row = { 'type': k, 'internalURL': v['internalURL'], 'host': hostname,
-                'region': v['region'], 'up': up }
+        row = {'type': k, 'internalURL': v['internalURL'], 'host': hostname,
+               'region': v['region'], 'up': up }
         other_services.append(row)
    
     return render_to_response('syspanel_services.html', {
         'services': services,
-        'service_toggle_enabled_form': ServiceToggleEnabledForm,
+        'service_toggle_enabled_form': ToggleService,
         'other_services': other_services,
     }, context_instance = template.RequestContext(request))
