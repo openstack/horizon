@@ -28,25 +28,17 @@ from registration import forms as reg_forms
 
 from django_openstack import urls as django_openstack_urls
 
+
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.splash', name='splash'),
     url(r'^dash/$', 'django_openstack.dash.views.instances.usage', name='dash_overview'),
     url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage', name='syspanel_overview'),
 )
 
+
 # NOTE(termie): just append them since we want the routes at the root
 urlpatterns += django_openstack_urls.urlpatterns
 
-
-urlpatterns += patterns('',
-    # TODO(devcamcar): Move permission denied template into django-openstack.
-    url(r'^denied/$',
-        generic_views.TemplateView.as_view(template_name='permission_denied.html'),
-        {'name': 'dashboard_permission_denied'}),
-    url(r'^unavailable/$',
-        generic_views.TemplateView.as_view(template_name='unavailable.html'),
-        {'name': 'nova_unavailable'}),
-)
 
 urlpatterns += patterns('',
      (r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:],
