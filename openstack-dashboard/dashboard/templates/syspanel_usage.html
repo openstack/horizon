@@ -45,9 +45,9 @@
         <p class='avail'>{{available_cores}}<span class='label'> Avail</span></p>
       </li>
       <li class='block'>
-        <p class='overview'>120<span> GB Ram</span></p>
-        <p class='used'>{{ used_ram_gb }}<span class='unit'>GB</span><span class='label'> Used</span></p>
-        <p class='avail'>116<span class='unit'>GB</span><span class='label'>Avail</span></p>
+        <p class='overview'>{{total_ram}}<span> {{ram_unit}} Ram</span></p>
+        <p class='used'>{{used_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'> Used</span></p>
+        <p class='avail'>{{avail_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'>Avail</span></p>
       </li>
       <li class='block last'>
         <p class='overview'>{{max_disk_tb}}<span>TB Disk</span></p>
@@ -57,9 +57,10 @@
     </ul>
 
     <p id="activity">
-      <span><strong>Active Instances:</strong> {{global_summary.total_active_instances}}</span>
-      <span><strong>This month's VCPU-Hours:</strong> {{global_summary.total_cpu_usage|floatformat}}</span>
-      <span><strong>This month's GB-Hours:</strong> {{global_summary.total_disk_usage|floatformat}}</span>
+      <span><strong>Active Instances:</strong> {{global_summary.total_active_instances|default:'-'}}</span>
+      <span><strong>This month's VCPU-Hours:</strong> {{global_summary.total_cpu_usage|floatformat|default:'-'}}</span>
+      <span><strong>This month's GB-Hours:</strong> {{global_summary.total_disk_usage|floatformat|default:'-'}}</span>
+
     </p>
 
 
