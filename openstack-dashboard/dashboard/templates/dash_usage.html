@@ -17,39 +17,32 @@
   <div class='main_content'>
     {% include "_messages.html" %}
     <div id="usage">
-      <div class="usage_block">
-        <h3>Bandwidth</h3>
-        <ul>
-          <li><span class="quantity">2.09</span><span class="unit">GB</span> Down</li>
-          <li><span class="quantity">1.29</span><span class="unit">GB</span> Up</li>
-        </ul>
-      </div>
 
+    {% if usage.instances %}
       <div class="usage_block">
         <h3>CPU</h3>
         <ul>
-          <li><span class="quantity">{{usage.total_active_vcpus}}</span><span class="unit">Cores</span> Active</li>
-          <li><span class="quantity">{{usage.total_cpu_usage|floatformat}}</span><span class="unit">CPU/hr</span> Used</li>
+          <li><span class="quantity">{{ usage.total_active_vcpus|default:0 }}</span><span class="unit">Cores</span> Active</li>
+          <li><span class="quantity">{{ usage.total_cpu_usage|floatformat|default:0 }}</span><span class="unit">CPU/hr</span> Used</li>
         </ul>
       </div>
 
       <div class="usage_block">
         <h3>RAM</h3>
         <ul>
-          <li><span class="quantity">{{usage.total_active_ram_size}}</span><span class="unit">GB</span> Active</li>
+          <li><span class="quantity">{{ usage.total_active_ram_size|default:0 }}</span><span class="unit">GB</span> Active</li>
         </ul>
       </div>
 
       <div class="usage_block">
         <h3>Disk</h3>
         <ul>
-          <li><span class="quantity">{{usage.total_active_disk_size}}</span><span class="unit">GB</span> Active</li>
-          <li><span class="quantity">{{usage.total_disk_usage|floatformat}}</span><span class="unit">GB/hr</span> Used</li>
+          <li><span class="quantity">{{ usage.total_active_disk_size|default:0 }}</span><span class="unit">GB</span> Active</li>
+          <li><span class="quantity">{{ usage.total_disk_usage|floatformat|default:0 }}</span><span class="unit">GB/hr</span> Used</li>
         </ul>
       </div>
      </div>
 
-    {% if usage.instances %}
       <div class='table_title wide'>
         <h3>Server Usage Summary</h3>
         <div class='search'>
