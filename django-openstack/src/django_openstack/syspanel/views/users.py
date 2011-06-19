@@ -76,7 +76,8 @@ def index(request):
 @login_required
 def update(request, user_id):
     if request.method == "POST":
-        form = UserForm(request.POST)
+        tenants = api.account_api(request).tenants.list()
+        form = UserForm(request.POST, tenant_list=tenants)
         if form.is_valid():
             tenant = form.clean()
             # TODO Make this a real request
@@ -84,7 +85,7 @@ def update(request, user_id):
             #         user['username'], user['tenants'])
             messages.success(request,
                              '%s was successfully updated.'
-                             % user['username'])
+                             % user_id)
             return redirect('syspanel_users')
         else:
             # TODO add better error management
@@ -99,7 +100,7 @@ def update(request, user_id):
 
     else:
         tenants = api.account_api(request).tenants.list()
-        form = UserForm(initial={'id': user['id']}, tenant_list=tenants)
+        form = UserForm(initial={'id': user_id}, tenant_list=tenants)
         return render_to_response(
         'syspanel_user_update.html',{
             'form': form,
