@@ -731,6 +731,19 @@ table {
 	margin-bottom: 25px;
 }
 
+table tr td form input[type="submit"] {
+    border: 0px;
+    background: transparent;
+    color: #3fb9d3;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+}
+
+table tr td form input[type="submit"]:hover {
+    text-decoration: underline;
+}
+
 .dash_block.wide form {
 	width: 319px;
 }
