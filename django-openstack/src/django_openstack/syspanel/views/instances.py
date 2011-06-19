@@ -160,7 +160,22 @@ def index(request):
         if handled:
             return handled
 
-    instances = api.extras_api(request).servers.list()
+    try:
+        instances = api.extras_api(request).servers.list()
+        def get_image_cache():
+            images = api.glance_api(request).get_images_detailed()
+            image_dict = {}
+            for image in images:
+                image_dict[image['id']] = image
+            return image_dict
+            
+        image_dict = get_image_cache()
+        for instance in instances:
+            # FIXME - ported this over, but it is hacky
+            instance._info['attrs']['image_name'] =\
+               image_dict.get(int(instance.attrs['image_id']),{}).get('name')
+    except:
+        messages.error(request, 'Unable to get instance list: %s' % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above

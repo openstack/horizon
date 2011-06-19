@@ -1,12 +1,13 @@
+{% load parse_date %}
 <table class="wide">
   <tr>
     <th>Id</th>
     <th>User</th>
-    <th>Node</th>
+    <th>Hostname</th>
     <th>Created</th>
     <th>Image</th>
-    <th>IP</th>
     <th>Public IP</th>
+    <th>IP</th>
     <th>State</th>
     <th>Actions</th>
   </tr>
@@ -15,10 +16,12 @@
       <td>{{instance.id}}</td>
       <td>{{instance.attrs.user_id}}</td>
       <td>{{instance.attrs.hostname}}</td>
-      <td>{{instance.attrs.created_at}}</td>
-      <td title="bucket/image.manifest.xml">{{instance.imageId}}</td>
-      <td>{{instance.public_ip}}</td>
-      <td>{{instance.private_ip}}</td>
+      <td>{{instance.attrs.launched_at|parse_date}}</td>
+      <td>{{instance.attrs.image_name}}</td>
+
+      <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
+      <td>{{instance.addresses.private.0.addr|default:'networking'}}</td>
+
       <td>{{instance.status}}</td>
       <td id="actions">
         <ul>
