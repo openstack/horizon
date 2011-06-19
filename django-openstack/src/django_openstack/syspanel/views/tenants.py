@@ -55,11 +55,6 @@ class UpdateTenant(forms.SelfHandlingForm):
         return redirect('syspanel_tenants')
 
 
-class ToggleTenant(forms.SelfHandlingForm):
-    id = forms.CharField(label="ID (name)")
-    enabled = forms.BooleanField(label="Enabled", required=False)
-
-
 @login_required
 def index(request):
     tenants = []
