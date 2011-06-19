@@ -13,14 +13,12 @@ from openstackx.api import exceptions as api_exceptions
 
 
 class Login(forms.SelfHandlingForm):
-    tenant = forms.CharField(max_length="20", label="Tenant", required=False)
     username = forms.CharField(max_length="20", label="User Name")
     password = forms.CharField(max_length="20", label="Password")
 
-
     def handle(self, request, data):
         try:
-            token = api.auth_api().tokens.create(data['tenant'],
+            token = api.auth_api().tokens.create("",
                                                  data['username'],
                                                  data['password'])
             info = api.token_info(token)
@@ -38,13 +36,6 @@ class Login(forms.SelfHandlingForm):
 
         except api_exceptions.Unauthorized as e:
             messages.error(request, 'Error authenticating: %s' % e.message)
-
-
-class LoginWithoutTenant(Login):
-    tenant = forms.CharField(max_length="20",
-                             required=True,
-                             widget=forms.HiddenInput)
-
 
 def login(request):
     if request.user:
