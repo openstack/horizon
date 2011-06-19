@@ -86,22 +86,17 @@ def update(request, tenant_id):
     if handled:
         return handled
 
-    if request.POST:
-        return render_to_response(
-        'syspanel_tenant_update.html',{
-            'form': form,
-        }, context_instance = template.RequestContext(request))
-    else:
+    if request.method == 'GET':
         try:
             tenant = api.account_api(request).tenants.get(tenant_id)
             form = UpdateTenant(initial={'id': tenant.id,
                                          'description': tenant.description,
                                          'enabled': tenant.enabled})
-            return render_to_response(
-            'syspanel_tenant_update.html',{
-                'form': form,
-            }, context_instance = template.RequestContext(request))
         except api_exceptions.ApiException, e:
             messages.error(request, 'Unable to update tenant: %s' % e.message)
             return redirect('syspanel_tenants')
 
+    return render_to_response(
+    'syspanel_tenant_update.html',{
+        'form': form,
+    }, context_instance = template.RequestContext(request))
