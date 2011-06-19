@@ -18,7 +18,7 @@
       <td>{{image.is_public}}</td>
       <td>{{image.created_at|parse_date}}</td>
       <td>{{image.updated_at|parse_date}}</td>
-      <td>{{image.status|upper}}</td>
+      <td>{{image.status|capfirst}}</td>
       <td id="actions">
         <ul>
           <li>{% include "_delete_image.html" with form=delete_form %}</li>
