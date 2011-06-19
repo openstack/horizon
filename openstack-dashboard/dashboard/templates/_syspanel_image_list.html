@@ -14,7 +14,7 @@
   <tr class="{% cycle 'odd' 'even' %}">
       <td>{{image.id}}</td>
       <td>{{image.name}}</td>
-      <td>{{image.size}}</td>
+      <td>{{image.size|filesizeformat}}</td>
       <td>{{image.is_public}}</td>
       <td>{{image.created_at|parse_date}}</td>
       <td>{{image.updated_at|parse_date}}</td>
