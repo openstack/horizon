@@ -75,7 +75,7 @@
               <td>{{instance.ram_size}}</td>
               <td>{{instance.disk_size}}</td>
               <td>{{instance.flavor}}</td>
-              <td>{{instance.uptime|floatformat}}</td>
+              <td>{{instance.started_at|timeuntil}}</td>
               <td>{{instance.state}}</td>
           </tr>
           {% endfor %}

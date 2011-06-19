@@ -116,12 +116,16 @@ def usage(request, tenant_id=None):
     if not tenant_id:
         tenant_id = request.user.tenant
 
-
     try:
         usage = api.extras_api(request).usage.get(tenant_id,
                                                   datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
+
+    for instance in usage.instances:
+        instance['started_at'] = datetime.datetime.strptime(
+                instance['started_at'],
+                "%Y-%m-%d %H:%M:%S.%f")
 
     return render_to_response('dash_usage.html', {
         'usage': usage,
