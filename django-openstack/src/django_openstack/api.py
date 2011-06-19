@@ -77,3 +77,11 @@ def token_info(token):
     return {'tenant': data['auth']['user']['tenantId'],
             'user': data['auth']['user']['username'],
             'admin': admin}
+
+
+def get_image_cache(request):
+    images = glance_api(request).get_images_detailed()
+    image_dict = {}
+    for image in images:
+        image_dict[image['id']] = image
+    return image_dict

@@ -14,9 +14,9 @@
       <tr class="{% cycle 'odd' 'even' %}">
           <td>{{instance.id}}</td>
           <td>{{instance.name}}</td>
-          <td>{{instance.imageId}}</td>
-          <td>{{instance.private_ip}}</td>
-          <td>{% if server.public_ip %}{{instance.public_ip}}{% else %}N/A{%endif%}</td>
+          <td>{{instance.attrs.image_name}}</td>
+          <td>{{instance.addresses.private.0.addr|default:'networking'}}</td>
+          <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
           <td>{{instance.status}}</td>
           <td id="actions">
             <ul>
