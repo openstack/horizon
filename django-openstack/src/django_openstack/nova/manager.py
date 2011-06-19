@@ -24,7 +24,7 @@ import boto.ec2.volume
 import boto.exception
 import boto.s3
 from django.conf import settings
-from django_openstack.core.connection import get_nova_admin_connection
+from django_openstack.core import connection
 from django_openstack.nova.exceptions import wrap_nova_error
 
 
@@ -39,7 +39,7 @@ class ProjectManager(object):
         """
         Returns a boto connection for a user's project.
         """
-        openstack = get_nova_admin_connection()
+        openstack = connection.get_nova_admin_connection()
         return openstack.connection_for(self.username,
                                    self.projectname,
                                    clc_url=self.region['endpoint'],
@@ -50,7 +50,7 @@ class ProjectManager(object):
         Returns a buffer of a zip file containing signed credentials
         for the project's Nova user.
         """
-        openstack = get_nova_admin_connection()
+        openstack = connection.get_nova_admin_connection()
         return openstack.get_zip(self.username, self.projectname)
 
     def get_images(self, image_ids=None):

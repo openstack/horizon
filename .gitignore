@@ -1,0 +1,13 @@
+*.pyc
+django-openstack/.installed.cfg
+django-openstack/bin
+django-openstack/develop-eggs/
+django-openstack/downloads/
+django-openstack/eggs/
+django-openstack/parts/
+django-openstack/src/django_nova.egg-info
+django-openstack/src/django_openstack.egg-info
+django-nova-syspanel/src/django_nova_syspanel.egg-info
+openstack-dashboard/.dashboard-venv
+openstack-dashboard/local/dashboard_openstack.sqlite3
+openstack-dashboard/local/local_settings.py
