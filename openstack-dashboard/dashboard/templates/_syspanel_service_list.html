@@ -11,7 +11,7 @@
     <tr class='{{service.up|yesno:"good,bad"}} {{service.disabled|yesno:"medium,"}} {% cycle 'odd' 'even' %}'>
       <td>{{service.host}}</td>
       <td>{{service.type}}</td>
-      <td>{{service.disabled|yesno:"Enabled,Disabled"}}</td>
+      <td>{{service.disabled|yesno:"Disabled,Enabled"}}</td>
       <td>{{service.up}}</td>
       <td id="actions">
         <ul>
@@ -24,7 +24,7 @@
     <tr class='{{service.up|yesno:"good,bad"}} {{service.disabled|yesno:"medium,"}} {% cycle 'odd' 'even' %}'>
       <td>{{service.host}}</td>
       <td>{{service.type}}</td>
-      <td>{{service.disabled|yesno:"Enabled,Disabled"}}</td>
+      <td>{{service.disabled|yesno:"Disabled,Enabled"}}</td>
       <td>{{service.up}}</td>
       <td></td>
     </tr>
