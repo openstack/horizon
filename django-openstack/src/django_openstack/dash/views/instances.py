@@ -122,11 +122,6 @@ def usage(request, tenant_id=None):
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
-    for instance in usage.instances:
-        instance['started_at'] = datetime.datetime.strptime(
-                instance['started_at'],
-                "%Y-%m-%d %H:%M:%S.%f")
-
     return render_to_response('dash_usage.html', {
         'usage': usage,
     }, context_instance=template.RequestContext(request))

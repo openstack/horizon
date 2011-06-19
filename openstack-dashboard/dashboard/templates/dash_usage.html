@@ -1,4 +1,5 @@
 {% extends 'dash_base.html' %}
+{% load parse_date %}
 
 {# default landing page for a non-admin user #}
 {# nav bar on top, sidebar, overview info in main #}
@@ -75,7 +76,7 @@
               <td>{{instance.ram_size}}</td>
               <td>{{instance.disk_size}}</td>
               <td>{{instance.flavor}}</td>
-              <td>{{instance.started_at|timeuntil}}</td>
+              <td>{{instance.started_at|parse_datetime|timeuntil}}</td>
               <td>{{instance.state}}</td>
           </tr>
           {% endfor %}
