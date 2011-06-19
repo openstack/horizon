@@ -1,23 +1,22 @@
 {% extends 'syspanel_base.html' %}
-{# list of system instances #}
+{# list of tenants #}
 {# standard nav, sidebar, list of instances in main #}
 
 {% block sidebar %}
-  {% with current_sidebar="services" %}
+  {% with current_sidebar="tenants" %}
     {{block.super}}
   {% endwith %}
 {% endblock %}
 
 {% block main %}
     <div id='page_header'>
-      <h2><span>System Panel:</span> Services</h2>
-      <p class='desc'><span>&mdash;</span>View Service statuses, and toggle them to enabled or disabled.</p>
+      <h2><span>System Panel:</span> Tenants</h2>
+      <p class='desc'><span>&mdash;</span>Manage Tenants</p>
     </div>
     {% include "_messages.html" %}
     <div class="main_content">
       <div class='table_title wide'>
-        <h3>Services</h3>
-        <a class="refresh" href="{% url syspanel_services %}">Refresh List</a>
+        <h3>Tenants</h3>
         <div class='search'>
           <form action='' method='post'>
             <fieldset>
@@ -27,7 +26,9 @@
           </form>
         </div>
       </div>
-      {% include "_syspanel_service_list.html" %}
+      {% include "_syspanel_tenant_list.html" %}
+
+      <a id="tenant_create_link" href="{% url syspanel_tenants_create %}">Create New Tenant >></a>
     </div>
 {% endblock %}
 

@@ -4,6 +4,7 @@ from django.conf import settings
 
 INSTANCES = r'^instances/(?P<instance_id>[^/]+)/%s$'
 USERS = r'^users/(?P<user_id>[^/]+)/%s$'
+TENANTS = r'^tenants/(?P<tenant_id>[^/]+)/%s$'
 
 
 urlpatterns = patterns('django_openstack.syspanel.views.instances',
@@ -39,4 +40,11 @@ urlpatterns += patterns('django_openstack.syspanel.views.users',
 
 urlpatterns += patterns('django_openstack.syspanel.views.services',
     url(r'^services/$', 'index', name='syspanel_services'),
+)
+
+
+urlpatterns += patterns('django_openstack.syspanel.views.tenants',
+    url(r'^tenants/$', 'index', name='syspanel_tenants'),
+    url(TENANTS % 'update', 'update', name='syspanel_tenant_update'),
+    url(r'^tenants/create$', 'create', name='syspanel_tenants_create'),
 )

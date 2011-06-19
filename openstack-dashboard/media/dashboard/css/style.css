@@ -230,6 +230,11 @@ border: 1px solid #cbe0e8;
 	float: left;
 }
 
+input[readonly="readonly"] {
+    background: #eee;
+    color: #999;
+}
+
 #login input[type="text"] {
 	width: 325px;
 	height: 25px;
