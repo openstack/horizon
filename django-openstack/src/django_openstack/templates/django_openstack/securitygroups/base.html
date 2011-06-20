@@ -1,7 +1,0 @@
-{% extends "django_nova/base.html" %}
-{% load sidebar_tags %}
-
-{% block nav_projects %}
-  {% sidebar_select securitygroups %}
-  {{ block.super }}
-{% endblock %}

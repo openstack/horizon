@@ -22,39 +22,23 @@ URL patterns for the OpenStack Dashboard.
 
 from django.conf.urls.defaults import *
 from django.conf import settings
-from django.contrib import admin
 from django.views import generic as generic_views
 import django.views.i18n
 from registration import forms as reg_forms
 
+from django_openstack import urls as django_openstack_urls
 
-admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'dashboard.views.index', name='index'),
-    url(r'^i18n/setlang', django.views.i18n.set_language),
-    url(r'^accounts/register/$',
-        'registration.views.register',
-        {'form_class': reg_forms.RegistrationFormUniqueEmail},
-        name='registration_register'),
-    url(r'^accounts/', include('registration.urls')),
-    url(r'^project/', include('django_openstack.nova.urls.project')),
-    url(r'^region/', include('django_openstack.nova.urls.region')),
-    url(r'^admin/project/', include('django_openstack.nova.urls.admin_project')),
-    url(r'^admin/roles/', include('django_openstack.nova.urls.admin_roles')),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^syspanel/', include('django_nova_syspanel.urls')),
+    url(r'^$', 'dashboard.views.splash', name='splash'),
+    url(r'^dash/$', 'django_openstack.dash.views.instances.usage', name='dash_overview'),
+    url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage', name='syspanel_overview'),
 )
 
-urlpatterns += patterns('',
-    # TODO(devcamcar): Move permission denied template into django-openstack.
-    url(r'^denied/$',
-        generic_views.TemplateView.as_view(template_name='permission_denied.html'),
-        {'name': 'dashboard_permission_denied'}),
-    url(r'^unavailable/$',
-        generic_views.TemplateView.as_view(template_name='unavailable.html'),
-        {'name': 'nova_unavailable'}),
-)
+
+# NOTE(termie): just append them since we want the routes at the root
+urlpatterns += django_openstack_urls.urlpatterns
+
 
 urlpatterns += patterns('',
      (r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:],

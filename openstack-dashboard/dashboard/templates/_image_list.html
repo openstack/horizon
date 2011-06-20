@@ -1,0 +1,23 @@
+<table id="images" style="width: 100%">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Created</th>
+    <th>Updated</th>
+    <th colspan="2">Status</th>
+  </tr>
+  {% for image in images %}
+  <tr class="{% cycle 'odd' 'even' %}">
+      <td>{{image.id}}</td>
+      <td>{{image.name}}</td>
+      <td>{{image.created|date:"Y-m-d H:i"}}</td>
+      <td>{{image.updated|date:"Y-m-d H:i"}}</td>
+      <td>{{image.status|capfirst}}</td>
+      <td id="actions">
+        <ul>
+          <li><a id="launch_{{image.id}}" class="launch" href="{% url dash_images_launch request.user.tenant image.id %}">Launch</a></li>
+        </ul>
+      </td>
+  </tr>
+  {% endfor %}
+</table>

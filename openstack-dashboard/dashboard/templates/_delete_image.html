@@ -1,0 +1,8 @@
+<form id="form_delete_{{image.id}}" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="image_id" type="hidden" value="{{image.id}}" />
+  <input id="delete_{{image.id}}" class="delete" title="Image: {{image.name}}" type="submit" value="Delete" />
+</form>

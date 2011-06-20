@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block topbar %}
+  {% with current_topbar="dash" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block sidebar %}{% include '_dash_sidebar.html' %}{% endblock %}
+{% block main %}{% endblock %}
+

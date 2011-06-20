@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block topbar %}
+  {% with current_topbar="syspanel" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+{% block sidebar %}
+  {% include '_syspanel_sidebar.html' %}
+{% endblock %}
+{% block main %}{% endblock %}
+

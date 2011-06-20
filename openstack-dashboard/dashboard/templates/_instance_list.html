@@ -1,0 +1,32 @@
+<!-- TODO(termie): move most of this to django_openstack -->
+<table id='instances'>
+  <tr id='headings'>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Private IP</th>
+    <th>Public IP</th>
+    <th>State</th>
+    <th>Actions</th>
+  </tr>
+  <tbody class='main'>
+    {% for instance in instances %}
+      <tr class="{% cycle 'odd' 'even' %}">
+          <td>{{instance.id}}</td>
+          <td>{{instance.name}}</td>
+          <td>{{instance.attrs.image_name}}</td>
+          <td>{{instance.addresses.private.0.addr|default:'-'}}</td>
+          <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
+          <td>{{instance.status|lower|capfirst}}</td>
+          <td id="actions">
+            <ul>
+              <li>{% include "_terminate.html" with form=terminate_form %}</li>
+              <li>{% include "_reboot.html" with form=reboot_form %}</li>
+              <li><a target="_blank" href="{% url dash_instances_console request.user.tenant instance.id %}">Log</a></li>
+              <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant instance.id %}">VNC Console</a></li>
+            </ul>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

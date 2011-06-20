@@ -1,0 +1,36 @@
+{% load parse_date %}
+<table class="wide">
+  <tr>
+    <th>Id</th>
+    <th>User</th>
+    <th>Hostname</th>
+    <th>Created</th>
+    <th>Image</th>
+    <th>Public IP</th>
+    <th>IP</th>
+    <th>State</th>
+    <th>Actions</th>
+  </tr>
+  {% for instance in instances %}
+    <tr id="{{instance.id}}" class="{% cycle "odd" "even" %}">
+      <td>{{instance.id}}</td>
+      <td>{{instance.attrs.user_id}}</td>
+      <td>{{instance.attrs.hostname}}</td>
+      <td>{{instance.attrs.launched_at|parse_date}}</td>
+      <td>{{instance.attrs.image_name}}</td>
+
+      <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
+      <td>{{instance.addresses.private.0.addr|default:'-'}}</td>
+
+      <td>{{instance.status|lower|capfirst}}</td>
+      <td id="actions">
+        <ul>
+          <li>{% include "_terminate.html" with form=terminate_form %}</li>
+          <li>{% include "_reboot.html" with form=reboot_form %}</li>
+          <li><a target="_blank" href="{% url dash_instances_console instance.attrs.project_id instance.id %}">Console Log</a></li>
+          <li><a target="_blank" href="{% url dash_instances_vnc instance.attrs.project_id instance.id %}">VNC Console</a></li>
+        </ul>
+      </td>
+    </tr>
+  {% endfor %}
+</table>

@@ -1,0 +1,14 @@
+<form id="images_form" action="{% url dash_images_upload request.user.tenant %}" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  {% for field in form.visible_fields %}
+    {{field.label_tag}}
+    {{field.errors}}
+    {{field}}
+  {% endfor %}
+  {% block submit %}
+    <input type="submit" value="Upload Image" />
+  {% endblock %}
+</form>

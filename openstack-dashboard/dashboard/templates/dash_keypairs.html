@@ -1,0 +1,38 @@
+{% extends 'dash_base.html' %}
+{# list of user's keypairs #}
+{# standard nav, sidebar, list of images in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="keypairs" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Compute:</span> Keypairs</h2> 
+    <p class='desc'><span>&mdash;</span> Keypairs blah blah.</p> 
+  </div>
+  {% include "_messages.html" %}
+
+  <div class='main_content'>
+    {% if keypairs %}
+      <div class='table_title wide'>
+        <h3>Keypairs</h3>
+        <div class='search'>
+          <form action='' method='post'>
+            <fieldset>
+              <label for='table_search'>Search</label>
+              <input id='table_search' name='search' type='text' value='' />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      {% include '_keypair_list.html' %}
+
+    {% endif %}
+    <a id="keypairs_create_link" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair &gt;&gt;</a>
+  </div>
+{% endblock %}
+
