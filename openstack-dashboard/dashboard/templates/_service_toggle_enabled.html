@@ -6,7 +6,7 @@
     {% endfor %}
     <input name="service" type="hidden" value="{{service.id}}" />
     <input name="name" type="hidden" value="{{service.type}}" />
-    <input id="enable_{{service.id}}" class="enable" type="submit" value="Enable" />
+    <input id="enable_{{service.id}}" class="enable" title="Service: {{service.type}}" type="submit" value="Enable" />
   </form>
 {% else %}
   <form id="form_service_disable_{{service.id}}" class="form-service-disable" method="post">
@@ -16,6 +16,6 @@
     {% endfor %}
     <input name="service" type="hidden" value="{{service.id}}" />
     <input name="name" type="hidden" value="{{service.type}}" />
-    <input id="disable_{{service.id}}" class="disable" type="submit" value="Disable" />
+    <input id="disable_{{service.id}}" class="disable" title="Service: {{service.type}}" type="submit" value="Disable" />
   </form>
 {% endif %}
