@@ -15,7 +15,7 @@ SITE_BRANDING = 'OpenStack'
 SITE_NAME = 'openstack'
 ENABLE_VNC = True
 
-LOGIN_URL = '/accounts/login'
+LOGIN_URL = '/auth/login'
 LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(ROOT_PATH, '..', 'media')
@@ -31,19 +31,20 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_openstack.middleware.keystone.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'dashboard.middleware.DashboardLogUnhandledExceptionsMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.auth',
+    #'django.core.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
     'django.contrib.messages.context_processors.messages',
+    'django_openstack.context_processors.tenants',
 )
 
 TEMPLATE_LOADERS = (
@@ -57,8 +58,6 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'dashboard',
-    'django.contrib.auth',
-    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -68,10 +67,7 @@ INSTALLED_APPS = (
     'django.contrib.syndication',
     'django_nose',
     'django_openstack',
-    'django_openstack.nova',
     'django_openstack.templatetags',
-    'django_nova_syspanel',
-    'registration',
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'

@@ -19,24 +19,27 @@
 """
 Views for home page.
 """
+import logging
 
 from django import template
-from django.shortcuts import render_to_response
-from django.views.decorators.vary import vary_on_cookie
-from django_openstack.nova.shortcuts import get_projects
-from django_openstack.nova.exceptions import handle_nova_error
+from django import shortcuts
+from django.views.decorators import vary
 
+from django_openstack import api
+from django_openstack.auth import views as auth_views
 
-@vary_on_cookie
-@handle_nova_error
-def index(request):
-    projects = None
-    page_type = "home"
+@vary.vary_on_cookie
+def splash(request):
+    if request.user:
+        if request.user.is_admin():
+            return shortcuts.redirect('syspanel_overview')
+        else:
+            return shortcuts.redirect('dash_overview')
 
-    if request.user.is_authenticated():
-        projects = get_projects(user=request.user)
+    form, handled = auth_views.Login.maybe_handle(request)
+    if handled:
+        return handled
 
-    return render_to_response('index.html', {
-        'projects': projects,
-        'page_type': page_type,
+    return shortcuts.render_to_response('splash.html', {
+        'form': form,
     }, context_instance=template.RequestContext(request))

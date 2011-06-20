@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{# present form to log in as different tenant #}
+
+{% block sidebar %}
+  <div id="sidebar">
+    EMPTY_SIDEBAR
+  </div>
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Compute:</span> Switch to Tenant {{to_tenant}}</h2>
+    <p class='desc'><span>&mdash;</span> Login to OpenStack via Keystone auth.</p>
+  </div>
+  <div class='main_content'>
+
+  {% include "_messages.html" %}
+
+  <div class="dash_block" id="login_wrapper">
+    <div class='table_title narrow'>
+      <h3>Switch</h3>
+    </div>
+    {% include '_switch.html' %}
+  </div>
+{% endblock %}

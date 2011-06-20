@@ -1,0 +1,18 @@
+<table id="keypairs" style="width: 100%">
+  <tr>
+    <th>Name</th>
+    <th>Fingerprint</th>
+    <th>Actions</th>
+  </tr>
+  {% for keypair in keypairs %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ keypair.name }}</td>
+    <td>{{ keypair.fingerprint }}</td>
+    <td id="actions">
+      <ul>
+        <li>{% include "_delete_keypair.html" with form=delete_form %}</li>
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

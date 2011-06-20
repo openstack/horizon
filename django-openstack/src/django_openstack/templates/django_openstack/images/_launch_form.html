@@ -1,7 +1,0 @@
-{% for field in form %}  
-<div class="{% cycle 'odd' 'even'%}">
-  {{ field.label_tag }}
-  {% if field.errors %}{{ field.errors }}{% endif %}
-  {{ field }}
-</div>
-{% endfor %}

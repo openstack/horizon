@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{# pleasant landing page if not logged in #}
+{# redirected to overview if logged in #}
+
+
+{% block sidebar %}
+  <div id="sidebar">
+    EMPTY_SIDEBAR
+  </div>
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Compute:</span> Login</h2>
+    <p class='desc'><span>&mdash;</span> Login to OpenStack via Keystone auth.</p>
+  </div>
+  <div class='main_content'>
+
+  {% include "_messages.html" %}
+
+  <div class="dash_block" id="login_wrapper">
+    <div class='table_title narrow'>
+      <h3>Login</h3>
+    </div>
+    {% include '_login.html' %}
+  </div>
+{% endblock %}

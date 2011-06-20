@@ -1,0 +1,9 @@
+<form id="form_tenant_delete{{tenant.id}}" class="form-tenant-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="tenant" type="hidden" value="{{tenant.id}}" />
+  <input id="enable_{{tenant.id}}" class="enable" title="Tenant: {{tenant.id}}" type="submit" value="Delete" />
+</form>
+

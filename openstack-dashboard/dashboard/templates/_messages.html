@@ -1,0 +1,27 @@
+{% for message in messages %}
+  {% if message.tags == "info" %}
+    <div class="status_box info">
+      <h2>Info</h2>
+      <p>{{ message }}</p>
+    </div>
+  {% endif %}
+  {% if message.tags == "warning" %}
+    <div class="status_box medium">
+      <h2>Warning</h2>
+      <p>{{ message }}</p>
+    </div>
+  {% endif %}
+  {% if message.tags == "success" %}
+    <div class="status_box success">
+      <h2>Success</h2>
+      <p>{{ message }}</p>
+    </div>
+  {% endif %}
+  {% if message.tags == "error" %}
+    <div class="status_box error">
+      <h2>Error</h2>
+      <p>{{ message }}</p>
+    </div>
+  {% endif %}
+{% endfor %}
+

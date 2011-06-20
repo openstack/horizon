@@ -1,0 +1,8 @@
+<form id="form_delete_{{flavor.id}}" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="flavorid" type="hidden" value="{{flavor.id}}" />
+  <input id="delete_{{flavor.id}}" class="delete" title="Flavor: {{flavor.name}}" type="submit" value="Delete" />
+</form>

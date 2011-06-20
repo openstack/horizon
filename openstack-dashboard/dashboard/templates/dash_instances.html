@@ -1,0 +1,42 @@
+{% extends 'dash_base.html' %}
+{# list of user's instances #}
+{# standard nav, sidebar, list of instances in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="instances" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Compute:</span> Instances</h2>
+    <p class='desc'><span>&mdash;</span> Instances are virtual servers launched from images.</p>
+  </div>
+
+  {% include "_messages.html" %}
+
+  {% if instances %}
+    <div class='main_content'>
+      <div class='table_title wide'>
+        <h3>Instances</h3>
+        <div class='search'>
+          <form action='' method='post'>
+            <fieldset>
+              <label for='table_search'>Search</label>
+              <input id='table_search' name='search' type='text' value='' />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      {% include '_instance_list.html' %}
+    {% else %}
+        <div class="status_box info">
+          <h2>Info</h2>
+          <p>There are currently no instances.  You can launch an instance from the  <a href='{% url dash_images request.user.tenant %}'>Images Page.</a></p>
+        </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

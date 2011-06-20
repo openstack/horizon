@@ -1,0 +1,36 @@
+{% extends 'syspanel_base.html' %}
+{# list of tenants #}
+{# standard nav, sidebar, list of instances in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="tenants" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+    <div id='page_header'>
+      <h2><span>System Panel:</span> Tenants</h2>
+      <p class='desc'><span>&mdash;</span>Manage Tenants</p>
+    </div>
+    {% include "_messages.html" %}
+
+    <div class="main_content">
+      <div class="dash_block wide form">
+        <div class='title_block'>
+        <h3>Update Tenant</h3>
+        </div>
+        {% include '_tenant_form.html' %}
+
+        <div class="right">
+          <h3>Description:</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae est urna. Phasellus sagittis, sem posuere hendrerit mattis, velit risus viverra enim, tempus dapibus sem turpis ac erat.</p>
+          <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed mollis ligula nec lacus mollis eu laoreet lectus porta. </p>
+          <p>Sed iaculis mauris et est consectetur egestas. Praesent dolor libero, semper sed aliquet</p>
+
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,58 @@
+{% extends 'syspanel_base.html' %}
+{# list of user's instances #}
+{# standard nav, sidebar, list of instances in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="users" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>System Panel:</span> Users</h2>
+    <p class='desc'><span>&mdash;</span> Create, Edit, Upload, and Delete Users.</p>
+  </div>
+
+  {% include "_messages.html" %}
+
+  <div class="main_content">
+    <div class='table_title wide'> 
+      <h3>Users</h3> 
+      <a class="refresh" href="{% url syspanel_users %}">Refresh List</a>
+      <div class='search'>
+        <form action='' method='post'>
+          <fieldset>
+            <label for='table_search'>Search</label>
+            <input id='table_search' name='search' type='text' value='' />
+          </fieldset> 
+        </form> 
+      </div> 
+    </div>
+    
+    <table class="wide">
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Default Tenant</th>
+        <th>Options</th>
+      </tr>
+      {% for user in users %}
+        <tr class="{% cycle 'odd' 'even' %}">
+          <td>{{user.id}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.tenantId}}</td>
+          <td id="actions">
+            <ul>
+              <li>{% include "_user_delete.html" with form=user_delete_form %}</li>
+              <li><a href="{% url syspanel_users_update user.id %}">Edit</a></li>
+            </ul>                
+          </td> 
+        </tr>
+      {% endfor %} 
+    </table>                       
+    <a id="user_create_link" href="{% url syspanel_users_create %}">Create New User >></a>
+  </div>
+
+
+{% endblock %}

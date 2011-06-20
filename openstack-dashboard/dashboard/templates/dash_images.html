@@ -1,0 +1,36 @@
+{% extends 'dash_base.html' %}
+{# list of user's images #}
+{# standard nav, sidebar, list of images in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="images" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Compute:</span> Images</h2>
+    <p class='desc'><span>&mdash;</span> Images are virtual machines used to create Instances.</p>
+  </div>
+  {% include "_messages.html" %}
+
+  <div class='main_content'>
+    {% if images %}
+      <div class='table_title wide'>
+        <h3>Images</h3>
+        <div class='search'>
+          <form action='' method='post'>
+            <fieldset>
+              <label for='table_search'>Search</label>
+              <input id='table_search' name='search' type='text' value='' />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      {% include '_image_list.html' %}
+
+    {% endif %}
+  </div>
+{% endblock %}

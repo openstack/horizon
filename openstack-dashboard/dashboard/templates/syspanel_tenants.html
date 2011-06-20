@@ -1,0 +1,34 @@
+{% extends 'syspanel_base.html' %}
+{# list of tenants #}
+{# standard nav, sidebar, list of instances in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="tenants" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+    <div id='page_header'>
+      <h2><span>System Panel:</span> Tenants</h2>
+      <p class='desc'><span>&mdash;</span>Manage Tenants</p>
+    </div>
+    {% include "_messages.html" %}
+    <div class="main_content">
+      <div class='table_title wide'>
+        <h3>Tenants</h3>
+        <div class='search'>
+          <form action='' method='post'>
+            <fieldset>
+              <label for='table_search'>Search</label>
+              <input id='table_search' name='search' type='text' value='' />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      {% include "_syspanel_tenant_list.html" %}
+
+      <a id="tenant_create_link" href="{% url syspanel_tenants_create %}">Create New Tenant >></a>
+    </div>
+{% endblock %}
+

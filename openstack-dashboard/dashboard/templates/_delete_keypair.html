@@ -1,0 +1,8 @@
+<form id="form_delete_{{keypair.name}}" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="keypair_id" type="hidden" value="{{keypair.name}}" />
+  <input id="delete_{{keypair.name}}" class="delete" title="Keypair: {{keypair.name}}" type="submit" value="Delete" />
+</form>
