@@ -1,0 +1,5 @@
+django-openstack (0.3.0) UNRELEASED; urgency=low
+
+  * Initial release. (Closes: #XXXXXX)
+
+ -- termie <github@anarkystic.com>  Mon, 20 Jun 2011 20:29:57 +0000

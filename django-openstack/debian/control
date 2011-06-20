@@ -1,0 +1,17 @@
+Source: django-openstack
+Section: python
+Priority: optional
+Maintainer: Andy Smith (termie)
+Build-Depends: debhelper (>=7.0.50~), python-support (>= 0.6), cdbs (>= 0.4.49), python-all-dev
+XS-Python-Version: >=2.5
+Standards-Version: 3.9.1
+
+Package: django-openstack
+Architecture: all
+Homepage: https://github.com/4P/openstack-dashboard
+XB-Python-Version: ${python:Versions}
+Depends: ${misc:Depends}, ${python:Depends}
+Description: Blah python module that adds blah and bleh
+ Here you should put a long description your package. This line *MUST* (this is
+ for default printing) begin with a single space.
+ Look for more information about this.
