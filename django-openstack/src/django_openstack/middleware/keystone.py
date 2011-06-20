@@ -1,4 +1,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
+from django import shortcuts
+import openstackx
+import openstack
 
 
 class User(object):
@@ -9,7 +12,8 @@ class User(object):
         self.admin = admin
 
     def is_authenticated(self):
-        return True
+        # TODO: deal with token expiration
+        return self.token
 
     def is_admin(self):
         return self.admin
@@ -17,7 +21,7 @@ class User(object):
 
 def get_user_from_request(request):
     if 'user' not in request.session:
-        return None
+        return User(None,None,None,None)
     return User(request.session['token'],
                 request.session['user'],
                 request.session['tenant'],
@@ -35,3 +39,8 @@ class AuthenticationMiddleware(object):
     def process_request(self, request):
         request.__class__.user = LazyUser()
 
+    def process_exception(self, request, exception):
+        if type(exception) == openstack.compute.exceptions.Forbidden:
+            return redirect('/auth/logout')
+        if type(exception) == openstackx.api.exceptions.Forbidden:
+            return redirect('/auth/logout')

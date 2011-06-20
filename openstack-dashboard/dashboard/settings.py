@@ -15,7 +15,7 @@ SITE_BRANDING = 'OpenStack'
 SITE_NAME = 'openstack'
 ENABLE_VNC = True
 
-LOGIN_URL = '/accounts/login'
+LOGIN_URL = '/auth/login'
 LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(ROOT_PATH, '..', 'media')
