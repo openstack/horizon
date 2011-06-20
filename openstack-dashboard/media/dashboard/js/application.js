@@ -14,16 +14,25 @@ $(function(){
 
 
   // confirmation on deletion of items
-  $(".delete_link").click(function(e){
+  $(".delete").click(function(e){
     var response = confirm('Are you sure you want to delete the '+$(this).attr('title')+" ?");
     return response;
   })
 
-  $(".reboot_link").click(function(e){
+  $(".reboot").click(function(e){
     var response = confirm('Are you sure you want to reboot the '+$(this).attr('title')+" ?");
     return response;
   })
 
+  $(".disable").click(function(e){
+    var response = confirm('Are you sure you want to disable the '+$(this).attr('title')+" ?");
+    return response;
+  })
+
+  $(".enable").click(function(e){
+    var response = confirm('Are you sure you want to enable the '+$(this).attr('title')+" ?");
+    return response;
+  })
 
   // disable multiple submissions when launching a form
   $("form").submit(function() {

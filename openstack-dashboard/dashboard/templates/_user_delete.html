@@ -4,5 +4,5 @@
     {{hidden}}
   {% endfor %}
   <input name="user" type="hidden" value="{{user.id}}" />
-  <input id="enable_{{user.id}}" class="enable" type="submit" value="Delete" />
+  <input id="enable_{{user.id}}" class="delete" title="User: {{user.id}}" type="submit" value="Delete" />
 </form>

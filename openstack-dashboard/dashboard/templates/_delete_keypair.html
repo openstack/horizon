@@ -4,5 +4,5 @@
     {{hidden}}
   {% endfor %}
   <input name="keypair_id" type="hidden" value="{{keypair.name}}" />
-  <input id="delete_{{keypair.name}}" class="delete" type="submit" value="Delete" />
+  <input id="delete_{{keypair.name}}" class="delete" title="Keypair: {{keypair.name}}" type="submit" value="Delete" />
 </form>

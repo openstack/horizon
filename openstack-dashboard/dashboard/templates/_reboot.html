@@ -4,5 +4,5 @@
     {{hidden}}
   {% endfor %}
   <input name="instance" type="hidden" value="{{instance.id}}" />
-  <input id="reboot_{{instance.id}}" class="reboot" type="submit" value="Reboot" />
+  <input id="reboot_{{instance.id}}" class="reboot" title="Instance: {{instance.name}}" type="submit" value="Reboot" />
 </form>
