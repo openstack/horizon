@@ -29,9 +29,8 @@ class UserForm(forms.Form):
 
     id = forms.CharField(label="ID")
     email = forms.CharField(label="Email")
-    password = forms.CharField(label="Password", widget=forms.PasswordInput(render_value=False))
+    password = forms.CharField(label="Password", widget=forms.PasswordInput(render_value=False), required=False)
     tenant_id = forms.ChoiceField(label="Primary Tenant")
-    enabled = forms.BooleanField(label="Enabled", initial=True)
 
 
 class UserDeleteForm(forms.SelfHandlingForm):
@@ -46,18 +45,9 @@ class UserDeleteForm(forms.SelfHandlingForm):
         return redirect(request.build_absolute_uri())
 
 
-class UserToggleEnabledForm(forms.SelfHandlingForm):
-    user = forms.CharField(required=True)
-
-    def handle(self, request, data):
-        user_id = data['user']
-        messages.info(request, 'toggle not implemented %s .' % user_id)
-        return redirect(request.build_absolute_uri())
-
-
 @login_required
 def index(request):
-    for f in (UserDeleteForm, UserToggleEnabledForm):
+    for f in (UserDeleteForm,):
         _, handled = f.maybe_handle(request)
         if handled:
             return handled
@@ -65,11 +55,9 @@ def index(request):
     users = api.account_api(request).users.list()
 
     user_delete_form = UserDeleteForm()
-    user_toggle_enabled_form = UserToggleEnabledForm()
     return render_to_response('syspanel_users.html',{
         'users': users,
         'user_delete_form': user_delete_form,
-        'user_toggle_enabled_form': user_toggle_enabled_form,
     }, context_instance = template.RequestContext(request))
 
 
@@ -79,13 +67,23 @@ def update(request, user_id):
         tenants = api.account_api(request).tenants.list()
         form = UserForm(request.POST, tenant_list=tenants)
         if form.is_valid():
-            tenant = form.clean()
-            # TODO Make this a real request
-            # account_api(request).users.update(user['id'],
-            #         user['username'], user['tenants'])
+            user = form.clean()
+            updated = []
+            if user['email']:
+                updated.append('email')
+                api.account_api(request).users.update_email(user['id'],
+                                                            user['email'])
+            if user['password']:
+                updated.append('password')
+                api.account_api(request).users.update_password(user['id'],
+                                                            user['password'])
+            if user['tenant_id']:
+                updated.append('tenant')
+                api.account_api(request).users.update_tenant(user['id'],
+                                                             user['tenant_id'])
             messages.success(request,
-                             '%s was successfully updated.'
-                             % user_id)
+                             'Updated %s for %s.'
+                             % (', '.join(updated), user_id))
             return redirect('syspanel_users')
         else:
             # TODO add better error management
@@ -99,8 +97,22 @@ def update(request, user_id):
             }, context_instance = template.RequestContext(request))
 
     else:
+        u = api.account_api(request).users.get(user_id)
         tenants = api.account_api(request).tenants.list()
-        form = UserForm(initial={'id': user_id}, tenant_list=tenants)
+        try:
+            # FIXME
+            email = u.email
+        except:
+            email = ''
+
+        try:
+            tenant_id = u.tenantId
+        except:
+            tenant_id = None
+        form = UserForm(initial={'id': user_id,
+                                 'tenant_id': tenant_id,
+                                 'email': email},
+                                 tenant_list=tenants)
         return render_to_response(
         'syspanel_user_update.html',{
             'form': form,
@@ -122,7 +134,7 @@ def create(request):
                                                       user['email'],
                                                       user['password'],
                                                       user['tenant_id'],
-                                                      user['enabled'])
+                                                      True)
 
                 messages.success(request,
                                  '%s was successfully created.'
