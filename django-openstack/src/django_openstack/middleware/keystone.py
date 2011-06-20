@@ -1,4 +1,5 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
+from django.contrib import messages
 from django import shortcuts
 import openstackx
 import openstack
@@ -40,7 +41,8 @@ class AuthenticationMiddleware(object):
         request.__class__.user = LazyUser()
 
     def process_exception(self, request, exception):
-        if type(exception) == openstack.compute.exceptions.Forbidden:
-            return redirect('/auth/logout')
-        if type(exception) == openstackx.api.exceptions.Forbidden:
-            return redirect('/auth/logout')
+        if type(exception) in [openstack.compute.exceptions.Forbidden,
+                               openstackx.api.exceptions.Forbidden]:
+            messages.error(request, 'Your token has expired.\
+                                     Please log in again')
+            return shortcuts.redirect('/auth/logout')
