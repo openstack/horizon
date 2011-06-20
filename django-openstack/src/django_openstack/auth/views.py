@@ -38,7 +38,7 @@ class Login(forms.SelfHandlingForm):
             messages.error(request, 'Error authenticating: %s' % e.message)
 
 def login(request):
-    if request.user:
+    if request.user and request.user.is_authenticated():
         if request.user.is_admin():
             return shortcuts.redirect('syspanel_overview')
         else:
