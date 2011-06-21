@@ -12,7 +12,7 @@ INSTALLED_APPS = ['django.contrib.auth',
                   'django_openstack',
                   'django_openstack.tests',
                   'django_openstack.templatetags',
-                  'django_openstack.nova']
+                  ]
 ROOT_URLCONF = 'django_openstack.testurls'
 TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'tests', 'templates')
