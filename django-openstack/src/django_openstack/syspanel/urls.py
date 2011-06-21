@@ -46,5 +46,6 @@ urlpatterns += patterns('django_openstack.syspanel.views.services',
 urlpatterns += patterns('django_openstack.syspanel.views.tenants',
     url(r'^tenants/$', 'index', name='syspanel_tenants'),
     url(TENANTS % 'update', 'update', name='syspanel_tenant_update'),
+    url(TENANTS % 'users', 'users', name='syspanel_tenant_users'),
     url(r'^tenants/create$', 'create', name='syspanel_tenants_create'),
 )

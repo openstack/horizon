@@ -20,6 +20,40 @@ from django_openstack.dash.views import instances as dash_instances
 from openstackx.api import exceptions as api_exceptions
 
 
+class AddUser(forms.SelfHandlingForm):
+    user = forms.CharField()
+    tenant = forms.CharField()
+    
+    def handle(self, request, data):
+        try:  
+            api.account_api(request).role_refs.add_for_tenant_user(data['tenant'],
+                    data['user'], 'Member')
+            messages.success(request,
+                             '%s was successfully removed from %s.'
+                             % (data['user'], data['tenant']))
+        except api_exceptions.ApiException, e:
+            messages.error(request, 'Unable to create tenant: %s' %
+                           (e.message))
+        return redirect('syspanel_tenants')
+
+
+class RemoveUser(forms.SelfHandlingForm):
+    user = forms.CharField()
+    tenant = forms.CharField()
+    
+    def handle(self, request, data):
+        try:  
+            api.account_api(request).role_refs.delete_for_tenant_user(data['tenant'],
+                    data['user'], 'Member')
+            messages.success(request,
+                             '%s was successfully removed from %s.'
+                             % (data['user'], data['tenant']))
+        except api_exceptions.ApiException, e:
+            messages.error(request, 'Unable to create tenant: %s' %
+                           (e.message))
+        return redirect('syspanel_tenants')
+
+
 class CreateTenant(forms.SelfHandlingForm):
     id = forms.CharField(label="ID (name)")
     description = forms.CharField(widget=forms.widgets.Textarea(), label="Description")
@@ -99,4 +133,27 @@ def update(request, tenant_id):
     return render_to_response(
     'syspanel_tenant_update.html',{
         'form': form,
+    }, context_instance = template.RequestContext(request))
+
+
+@login_required
+def users(request, tenant_id):
+    for f in (AddUser, RemoveUser,):
+        _, handled = f.maybe_handle(request)
+        if handled:
+            return handled
+#    form, handled = UpdateTenant.maybe_handle(request)
+#    if handled:
+#        return handled
+    add_user_form = AddUser()
+    remove_user_form = RemoveUser()
+
+    users = api.account_api(request).users.get_for_tenant(tenant_id).values
+    all_users = api.account_api(request).users.list()
+    return render_to_response(
+    'syspanel_tenant_users.html',{
+        'add_user_form': add_user_form,
+        'remove_user_form': remove_user_form,
+        'tenant_id': tenant_id,
+        'users': users,
     }, context_instance = template.RequestContext(request))
