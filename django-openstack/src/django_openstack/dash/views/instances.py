@@ -89,7 +89,7 @@ def index(request, tenant_id):
         for instance in instances:
             # FIXME - ported this over, but it is hacky
             instance._info['attrs']['image_name'] =\
-               image_dict.get(int(instance.attrs['image_id']),{}).get('name')
+               image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
     except Exception as e:
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
