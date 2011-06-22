@@ -61,7 +61,7 @@ def usage(request):
         datetime_end = datetime_start
     else:
         try:
-            service_list = api.admin_api(request).services.list()
+            service_list = api.service_list(request)
         except api_exceptions.ApiException, e:
             messages.error(request, 'Unable to get service info: %s' % e.message)
 
@@ -71,7 +71,7 @@ def usage(request):
                 max_gigabytes += service.stats['max_gigabytes']
 
         try:
-            usage_list = api.extras_api(request).usage.list(datetime_start, datetime_end)
+            usage_list = api.usage_list(request, datetime_start, datetime_end)
         except api_exceptions.ApiException, e:
             messages.error(request, 'Unable to get usage info: %s' % e.message)
 
@@ -142,7 +142,7 @@ def tenant_usage(request, tenant_id):
 
     usage = {}
     try:
-        usage = extras_api(request).usage.get(tenant_id, datetime_start, datetime_end)
+        usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
@@ -162,8 +162,8 @@ def index(request):
 
     instances = []
     try:
-        image_dict = api.get_image_cache(request)
-        instances = api.extras_api(request).servers.list()
+        image_dict = api.image_all_metadata(request)
+        instances = api.server_list(request)
         for instance in instances:
             # FIXME - ported this over, but it is hacky
             instance._info['attrs']['image_name'] =\

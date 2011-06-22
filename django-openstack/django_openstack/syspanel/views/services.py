@@ -28,9 +28,10 @@ class ToggleService(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            service = api.admin_api(request).services.get(data['service'])
-            api.admin_api(request).services.update(data['service'], 
-                                                   not service.disabled)
+            service = api.service_get(request, data['service'])
+            api.service_update(request,
+                               data['service'],
+                               not service.disabled)
             if service.disabled:
                 messages.info(request, "Service '%s' has been enabled"
                                         % data['name'])
@@ -40,7 +41,7 @@ class ToggleService(forms.SelfHandlingForm):
         except api_exceptions.ApiException, e:
             messages.error(request, "Unable to update service '%s': %s"
                                      % data['name'], e.message)
-        
+
         return redirect(request.build_absolute_uri())
 
 
@@ -52,13 +53,13 @@ def index(request):
             return handled
 
     services = []
-    try:  
-        services = api.admin_api(request).services.list()
+    try:
+        services = api.service_list(request)
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get service info: %s' % e.message)
-        
+
     other_services = []
-      
+
     for k, v in request.session['serviceCatalog'].iteritems():
         v = v[0]
         try:
@@ -70,7 +71,7 @@ def index(request):
         row = {'type': k, 'internalURL': v['internalURL'], 'host': hostname,
                'region': v['region'], 'up': up }
         other_services.append(row)
-   
+
     return render_to_response('syspanel_services.html', {
         'services': services,
         'service_toggle_enabled_form': ToggleService,

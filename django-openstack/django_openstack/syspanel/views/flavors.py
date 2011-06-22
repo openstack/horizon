@@ -24,11 +24,12 @@ class CreateFlavor(forms.SelfHandlingForm):
     disk_gb = forms.CharField(max_length="5", label="Disk GB")
 
     def handle(self, request, data):
-        api.admin_api(request).flavors.create(data['name'],
-                                              int(data['memory_mb']),
-                                              int(data['vcpus']),
-                                              int(data['disk_gb']),
-                                              int(data['flavorid']))
+        api.flavor_create(request,
+                          data['name'],
+                          int(data['memory_mb']),
+                          int(data['vcpus']),
+                          int(data['disk_gb']),
+                          int(data['flavorid']))
         messages.success(request,
                 '%s was successfully added to flavors.' % data['name'])
         return redirect('syspanel_flavors')
@@ -39,7 +40,7 @@ class DeleteFlavor(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         flavor_id = data['flavorid']
-        api.admin_api(request).flavors.delete(flavor_id, True)
+        api.flavor_delete(flavor_id, True)
         return redirect(request.build_absolute_uri())
 
 
@@ -56,7 +57,7 @@ def index(request):
 
     flavors = []
     try:
-        flavors = api.admin_api(request).flavors.list()
+        flavors = api.flavor_list_admin(request)
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
