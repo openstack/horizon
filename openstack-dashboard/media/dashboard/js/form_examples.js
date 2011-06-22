@@ -25,6 +25,11 @@ $(function(){
   $("#tenant_form input#id__id").example("YetAnotherTenant");
   $("#tenant_form textarea#id_description").example("One or two sentence description.");
 
+// update/create tenant
+  $("#user_form input#id_id").example("username");
+  $("#user_form input#id_email").example("email@example.com");
+  $("#user_form input#id_password").example("password");
+
 // table search box
   $("input#table_search").example("Search...")
 })
