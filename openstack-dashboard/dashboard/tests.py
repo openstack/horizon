@@ -1,4 +1,9 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
+''' Test for django mailer.
+
+This test is pretty much worthless, and should be removed once real testing of 
+views that send emails is implemented
+'''
 
 from django import test
 from django.core import mail
