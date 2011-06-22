@@ -39,7 +39,7 @@ class UserDeleteForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         user_id = data['user']
         api.user_delete(request, user_id)
-        messages.success(request,
+        messages.info(request,
                          '%s was successfully deleted.'
                          % user_id)
         return redirect(request.build_absolute_uri())
