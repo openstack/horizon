@@ -16,6 +16,7 @@ INSTALLED_APPS = ['django.contrib.auth',
                   'django_openstack',
                   'django_openstack.tests',
                   'django_openstack.templatetags',
+                  'mailer',
                   ]
 ROOT_URLCONF = 'django_openstack.tests.testurls'
 TEMPLATE_DIRS = (
@@ -32,3 +33,5 @@ NOVA_SECRET_KEY = 'test'
 
 CREDENTIAL_AUTHORIZATION_DAYS = 2
 CREDENTIAL_DOWNLOAD_URL = TESTSERVER + '/credentials/'
+
+TEST_RUNNER='django_nose.NoseTestSuiteRunner'
