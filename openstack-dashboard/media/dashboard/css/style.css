@@ -1,3 +1,5 @@
+/* @override http://looce.com:8080/media/dashboard/css/style.css */
+
 @import url("reset.css");
 
 @font-face {
@@ -731,9 +733,15 @@ p#copy {
 	float: left;
 }
 
-.dash_block form .errorlist {
+.dash_block form .errorlist, #standalone .errorlist {
 	color: #ff5c5f;
 	font-size: 11px;
+}
+
+#standalone .errorlist li {
+	float: left;
+	width: 100%;
+	margin-top: -10px;
 }
 
 .dash_block label {
