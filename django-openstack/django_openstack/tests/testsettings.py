@@ -38,5 +38,8 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture',
             ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+# django-mailer uses a different config attribute
+# even though it just wraps django.core.mail
+MAILER_EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+EMAIL_BACKEND = MAILER_EMAIL_BACKEND
 
