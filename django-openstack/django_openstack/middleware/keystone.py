@@ -42,7 +42,10 @@ class AuthenticationMiddleware(object):
 
     def process_exception(self, request, exception):
         if type(exception) in [openstack.compute.exceptions.Forbidden,
-                               openstackx.api.exceptions.Forbidden]:
+                               openstackx.api.exceptions.Forbidden,
+                               #BEWARE - had to add this exception handler
+                               # to make token expiration work
+                               openstackx.api.exceptions.NotFound]:
             messages.error(request, 'Your token has expired.\
                                      Please log in again')
             return shortcuts.redirect('/auth/logout')
