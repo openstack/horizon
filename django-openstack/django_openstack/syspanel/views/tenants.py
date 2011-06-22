@@ -26,9 +26,11 @@ class CreateTenant(forms.SelfHandlingForm):
     enabled = forms.BooleanField(label="Enabled", required=False, initial=True)
 
     def handle(self, request, data):
-        try:  
-            api.account_api(request).tenants.create(data['id'],
-                    data['description'], data['enabled'])
+        try:
+            api.tenant_create(request,
+                              data['id'],
+                              data['description'],
+                              data['enabled'])
             messages.success(request,
                              '%s was successfully created.'
                              % data['id'])
@@ -45,8 +47,10 @@ class UpdateTenant(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.account_api(request).tenants.update(data['id'],
-                    data['description'], data['enabled'])
+            api.tenant_update(request,
+                              data['id'],
+                              data['description'],
+                              data['enabled'])
             messages.success(request,
                              '%s was successfully updated.'
                              % data['id'])
@@ -59,7 +63,7 @@ class UpdateTenant(forms.SelfHandlingForm):
 def index(request):
     tenants = []
     try:
-        tenants = api.account_api(request).tenants.list()
+        tenants = api.tenant_list(request)
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get tenant info: %s' % e.message)
     tenants.sort(key=lambda x: x.id, reverse=True)
@@ -88,7 +92,7 @@ def update(request, tenant_id):
 
     if request.method == 'GET':
         try:
-            tenant = api.account_api(request).tenants.get(tenant_id)
+            tenant = api.tenant_get(request, tenant_id)
             form = UpdateTenant(initial={'id': tenant.id,
                                          'description': tenant.description,
                                          'enabled': tenant.enabled})

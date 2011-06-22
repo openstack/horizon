@@ -45,8 +45,7 @@ class DeleteKeypair(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            keypair = api.extras_api(request).keypairs.delete(
-                                              data['keypair_id'])
+            keypair = api.keypair_delete(request, data['keypair_id'])
             messages.info(request, 'Successfully deleted keypair: %s' \
                                     % data['keypair_id'])
         except api_exceptions.ApiException, e:
@@ -58,7 +57,7 @@ class CreateKeypair(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            keypair = api.extras_api(request).keypairs.create(data['name'])
+            keypair = api.keypair_create(request, data['name'])
             response = http.HttpResponse(mimetype='application/binary')
             response['Content-Disposition'] = \
                 'attachment; filename=%s.pem' % \
@@ -76,7 +75,7 @@ def index(request, tenant_id):
         return handled
 
     try:
-        keypairs = api.extras_api(request).keypairs.list()
+        keypairs = api.keypair_list(request)
     except api_exceptions.ApiException, e:
         keypairs = []
         messages.error(request, 'Error featching keypairs: %s' % e.message)

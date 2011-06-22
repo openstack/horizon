@@ -3,8 +3,12 @@ import os
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 DEBUG = True
 TESTSERVER = 'http://testserver'
-DATABASE_ENGINE = 'sqlite3'
-DATABASE_NAME = '/tmp/django-openstack.db'
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': '/tmp/django-openstack.db',
+            },
+        }
 INSTALLED_APPS = ['django.contrib.auth',
                   'django.contrib.contenttypes',
                   'django.contrib.sessions',
@@ -12,8 +16,8 @@ INSTALLED_APPS = ['django.contrib.auth',
                   'django_openstack',
                   'django_openstack.tests',
                   'django_openstack.templatetags',
-                  'django_openstack.nova']
-ROOT_URLCONF = 'django_openstack.testurls'
+                  ]
+ROOT_URLCONF = 'django_openstack.tests.testurls'
 TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'tests', 'templates')
 )

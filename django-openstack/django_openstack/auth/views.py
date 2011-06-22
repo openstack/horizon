@@ -18,10 +18,11 @@ class Login(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            token = api.auth_api().tokens.create("",
-                                                 data['username'],
-                                                 data['password'])
-            info = api.token_info(token)
+            token = api.token_create(request,
+                                     "",
+                                     data['username'],
+                                     data['password'])
+            info = api.token_info(request, token)
             request.session['token'] = token.id
             request.session['user'] = info['user']
             request.session['tenant'] = info['tenant']
@@ -36,6 +37,7 @@ class Login(forms.SelfHandlingForm):
 
         except api_exceptions.Unauthorized as e:
             messages.error(request, 'Error authenticating: %s' % e.message)
+
 
 def login(request):
     if request.user and request.user.is_authenticated():

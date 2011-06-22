@@ -26,8 +26,6 @@ import nova_adminclient as adminclient
 from django import test
 from django.conf import settings
 from django.contrib.auth import models as auth_models
-from django_openstack.nova import manager
-from django_openstack.nova import shortcuts
 
 
 TEST_PROJECT = 'test'
@@ -67,12 +65,6 @@ class BaseProjectViewTests(BaseViewTests):
         self.user = self.authenticateTestUser()
         self.region = adminclient.RegionInfo(name=TEST_REGION,
                                              endpoint='http://test:8773/')
-        self.project = manager.ProjectManager(self.user.username,
-                                              project,
-                                              self.region)
-        self.mox.StubOutWithMock(shortcuts, 'get_project_or_404')
-        shortcuts.get_project_or_404(mox.IgnoreArg(),
-                                     'test').AndReturn(self.project)
 
     def create_key_pair_choices(self, key_names):
         return [(k, k) for k in key_names]
