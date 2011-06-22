@@ -13,13 +13,11 @@ setup(
     long_description = read('README'),
     author = 'Devin Carlen',
     author_email = 'devin.carlen@gmail.com',
-    packages = find_packages('src'),
-    package_dir = {'': 'src'},
+    packages = find_packages(),
     package_data = {'django_openstack':
-                        [s[len('src/django_openstack/'):] for s in
-                         findall('src/django_openstack/templates')]},
-    install_requires = ['setuptools', 'boto==1.9b', 'mox>=0.5.0',
-                        'nova-adminclient'],
+                        [s[len('django_openstack/'):] for s in
+                         findall('django_openstack/templates')]},
+    install_requires = ['setuptools', 'mox>=0.5.0'],
     classifiers = [
         'Development Status :: 4 - Beta',
         'Framework :: Django',
