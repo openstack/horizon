@@ -15,11 +15,21 @@ DATABASES = {
 
 CACHE_BACKEND = 'dummy://'
 
+
+# Send email to the console by default
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Or send them to /dev/null
+#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+# django-mailer uses a different settings attribute
+MAILER_EMAIL_BACKEND = EMAIL_BACKEND
+
 # Configure these for your outgoing email host
 # EMAIL_HOST = 'smtp.my-company.com'
 # EMAIL_PORT = 25
 # EMAIL_HOST_USER = 'djangomail'
 # EMAIL_HOST_PASSWORD = 'top-secret!'
+
 
 OPENSTACK_ADMIN_TOKEN = "999888777666"
 OPENSTACK_KEYSTONE_URL = "http://localhost:8080/v2.0/"

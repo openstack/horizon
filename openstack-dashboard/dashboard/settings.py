@@ -68,6 +68,7 @@ INSTALLED_APPS = (
     'django_nose',
     'django_openstack',
     'django_openstack.templatetags',
+    'mailer',
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
