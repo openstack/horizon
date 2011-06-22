@@ -2,14 +2,21 @@ PYTHON=`which python`
 DESTDIR=/
 BUILDIR=$(CURDIR)/debian/django-openstack
 PROJECT=django-openstack
-VERSION=0.3.0
 
 all:
+	@echo "make buildout - Run through buildout"
+	@echo "make test - Run tests"
 	@echo "make source - Create source package"
 	@echo "make install - Install on local system"
 	@echo "make buildrpm - Generate a rpm package"
 	@echo "make builddeb - Generate a deb package"
 	@echo "make clean - Get rid of scratch and byte files"
+
+buildout: ./bin/buildout
+	./bin/buildout
+
+./bin/buildout:
+	$(PYTHON) bootstrap.py
 
 source:
 	$(PYTHON) setup.py sdist $(COMPILE)
