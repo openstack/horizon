@@ -34,4 +34,9 @@ NOVA_SECRET_KEY = 'test'
 CREDENTIAL_AUTHORIZATION_DAYS = 2
 CREDENTIAL_DOWNLOAD_URL = TESTSERVER + '/credentials/'
 
-TEST_RUNNER='django_nose.NoseTestSuiteRunner'
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = ['--nocapture',
+            ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+
