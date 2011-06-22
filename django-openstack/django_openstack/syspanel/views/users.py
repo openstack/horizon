@@ -38,7 +38,7 @@ class UserDeleteForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         user_id = data['user']
-        api.account_api(request).users.delete(user_id)
+        api.user_delete(request, user_id)
         messages.success(request,
                          '%s was successfully deleted.'
                          % user_id)
@@ -52,7 +52,7 @@ def index(request):
         if handled:
             return handled
 
-    users = api.account_api(request).users.list()
+    users = api.user_list(request)
 
     user_delete_form = UserDeleteForm()
     return render_to_response('syspanel_users.html',{
@@ -64,23 +64,20 @@ def index(request):
 @login_required
 def update(request, user_id):
     if request.method == "POST":
-        tenants = api.account_api(request).tenants.list()
+        tenants = api.tenant_list(request)
         form = UserForm(request.POST, tenant_list=tenants)
         if form.is_valid():
             user = form.clean()
             updated = []
             if user['email']:
                 updated.append('email')
-                api.account_api(request).users.update_email(user['id'],
-                                                            user['email'])
+                api.user_update_email(request, user['id'], user['email'])
             if user['password']:
                 updated.append('password')
-                api.account_api(request).users.update_password(user['id'],
-                                                            user['password'])
+                api.user_update_password(request, user['id'], user['password'])
             if user['tenant_id']:
                 updated.append('tenant')
-                api.account_api(request).users.update_tenant(user['id'],
-                                                             user['tenant_id'])
+                api.user_update_tenant(request, user['id'], user['tenant_id'])
             messages.success(request,
                              'Updated %s for %s.'
                              % (', '.join(updated), user_id))
@@ -97,8 +94,8 @@ def update(request, user_id):
             }, context_instance = template.RequestContext(request))
 
     else:
-        u = api.account_api(request).users.get(user_id)
-        tenants = api.account_api(request).tenants.list()
+        u = api.user_get(request, user_id)
+        tenants = api.tenant_list(request)
         try:
             # FIXME
             email = u.email
@@ -122,7 +119,7 @@ def update(request, user_id):
 
 @login_required
 def create(request):
-    tenants = api.account_api(request).tenants.list()
+    tenants = api.tenant_list(request)
 
     if request.method == "POST":
         form = UserForm(request.POST, tenant_list=tenants)
@@ -130,11 +127,12 @@ def create(request):
             user = form.clean()
             # TODO Make this a real request
             try:
-                api.account_api(request).users.create(user['id'],
-                                                      user['email'],
-                                                      user['password'],
-                                                      user['tenant_id'],
-                                                      True)
+                api.user_create(request,
+                                user['id'],
+                                user['email'],
+                                user['password'],
+                                user['tenant_id'],
+                                True)
 
                 messages.success(request,
                                  '%s was successfully created.'

@@ -44,10 +44,10 @@ class TerminateInstance(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         instance_id = data['instance']
-        instance = api.compute_api(request).servers.get(instance_id)
+        instance = api.server_get(request, instance_id)
 
         try:
-            api.compute_api(request).servers.delete(instance)
+            api.server_delete(request, instance)
         except api_exceptions.ApiException, e:
             messages.error(request,
                            'Unable to terminate %s: %s' %
@@ -65,8 +65,7 @@ class RebootInstance(forms.SelfHandlingForm):
     def handle(self, request, data):
         instance_id = data['instance']
         try:
-            server = api.compute_api(request).servers.get(instance_id)
-            server.reboot(openstack.compute.servers.REBOOT_HARD)
+            server = api.server_reboot(request, instance_id)
             messages.success(request, "Instance rebooting")
         except api_exceptions.ApiException, e:
             messages.error(request,
@@ -84,8 +83,8 @@ def index(request, tenant_id):
 
     instances = []
     try:
-        image_dict = api.get_image_cache(request)
-        instances = api.extras_api(request).servers.list()
+        image_dict = api.image_all_metadata(request)
+        instances = api.server_list(request)
         for instance in instances:
             # FIXME - ported this over, but it is hacky
             instance._info['attrs']['image_name'] =\
@@ -117,11 +116,9 @@ def usage(request, tenant_id=None):
         tenant_id = request.user.tenant
 
     try:
-        usage = api.extras_api(request).usage.get(tenant_id,
-                                                  datetime_start, datetime_end)
+        usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
-
     return render_to_response('dash_usage.html', {
         'usage': usage,
     }, context_instance=template.RequestContext(request))
@@ -130,7 +127,7 @@ def usage(request, tenant_id=None):
 @login_required
 def console(request, tenant_id, instance_id):
     try:
-        console = api.extras_api(request).consoles.create(instance_id)
+        console = api.console_create(request, instance_id)
         response = http.HttpResponse(mimetype='text/plain')
         response.write(console.output)
         response.flush()
@@ -145,7 +142,7 @@ def console(request, tenant_id, instance_id):
 @login_required
 def vnc(request, tenant_id, instance_id):
     try:
-        console = api.extras_api(request).consoles.create(instance_id, 'vnc')
+        console = api.console_create(request, instance_id, 'vnc')
         return redirect(console.output)
     except api_exceptions.ApiException, e:
         messages.error(request,

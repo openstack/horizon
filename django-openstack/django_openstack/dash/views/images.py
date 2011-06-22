@@ -67,13 +67,14 @@ class LaunchForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         image_id = data['image_id']
         try:
-            image = api.compute_api(request).images.get(image_id)
-            flavor = api.compute_api(request).flavors.get(data['flavor'])
-            api.extras_api(request).servers.create(data['name'],
-                                                   image,
-                                                   flavor,
-                                                   user_data=data['user_data'],
-                                                   key_name=data.get('key_name'))
+            image = api.image_get(request, image_id)
+            flavor = api.flavor_get(request, data['flavor'])
+            api.server_create(request,
+                              data['name'],
+                              image,
+                              flavor,
+                              user_data=data['user_data'],
+                              key_name=data.get('key_name'))
 
             messages.success(request, "Instance was successfully\
                                        launched.")
@@ -86,10 +87,10 @@ class LaunchForm(forms.SelfHandlingForm):
 
 @login_required
 def index(request, tenant_id):
-    tenant = api.get_tenant(request, request.user.tenant)
+    tenant = api.token_get_tenant(request, request.user.tenant)
     all_images = []
     try:
-        all_images = api.glance_api(request).get_images_detailed()
+        all_images = api.image_list_detailed(request)
         if not all_images:
             messages.info(request, "There are currently no images.")
     except GlanceClientConnectionError, e:
@@ -121,7 +122,7 @@ def index(request, tenant_id):
 def launch(request, tenant_id, image_id):
     def flavorlist():
         try:
-            fl = api.extras_api(request).flavors.list()
+            fl = api.flavor_list(request)
 
             # TODO add vcpu count to flavors
             sel = [(f.id, '%s (%svcpu / %sGB Disk / %sMB Ram )' %
@@ -132,14 +133,14 @@ def launch(request, tenant_id, image_id):
 
     def keynamelist():
         try:
-            fl = api.extras_api(request).keypairs.list()
+            fl = api.keypair_list(request)
             sel = [(f.key_name, f.key_name) for f in fl]
             return sel
         except:
             return []
 
-    image = api.compute_api(request).images.get(image_id)
-    tenant = api.get_tenant(request, request.user.tenant)
+    image = api.image_get(request, image_id)
+    tenant = api.token_get_tenant(request, request.user.tenant)
 
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),
