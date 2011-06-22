@@ -218,6 +218,10 @@ border: 1px solid #cbe0e8;
 	-webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);	
 }
 
+#standlone .status_box  {
+	width: 200px !important;
+}
+
 .clear {
 	clear: both;
 }
