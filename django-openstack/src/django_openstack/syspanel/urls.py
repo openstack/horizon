@@ -20,6 +20,7 @@ urlpatterns = patterns('django_openstack.syspanel.views.instances',
 
 urlpatterns += patterns('django_openstack.syspanel.views.images',
     url(r'^images/$', 'index', name='syspanel_images'),
+    url(r'^images/upload/$', 'upload', name='syspanel_images_upload'),
     url(IMAGES % 'update', 'update', name='syspanel_images_update'),
     #url(INSTANCES % 'vnc', 'vnc', name='syspanel_instances_vnc'),
 )

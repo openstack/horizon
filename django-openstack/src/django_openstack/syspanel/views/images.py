@@ -50,6 +50,11 @@ class UpdateImageForm(forms.Form):
     disk_format = forms.CharField(label="Disk Format")
     #is_public = forms.BooleanField(label="Publicly Available", required=False)
 
+class UploadImageForm(forms.Form):
+    name = forms.CharField(max_length="5", label="Name")
+    image_file = forms.FileField(required=False)
+    # is_public = forms.BooleanField(label="Publicly Available", required=False, initial=True)
+
 
 @login_required
 def index(request):
@@ -109,13 +114,11 @@ def update(request, image_id):
 
                 api.glance_api(request).update_image(image_id, metadata)
                 messages.success(request, "Image was successfully updated.")
-                return redirect("syspanel_images")
             except GlanceClientConnectionError, e:
                 messages.error(request, "Error connecting to glance: %s" % e.message)
-                return redirect("syspanel_images_update", image_id)
             except glance_exception.Error, e:
                 messages.error(request, "Error updating image: %s" % e.message)
-                return redirect("syspanel_images_update", image_id)
+            return redirect("syspanel_images_update", image_id)
         else:
             messages.error(request, "Image could not be uploaded, please try agian.")
             form = UpdateImageForm(request.POST)
@@ -148,18 +151,12 @@ def upload(request):
         form = UploadImageForm(request.POST)
         if form.is_valid():
             image = form.clean()
-            metadata = {'is_public': image['is_public'],
+            metadata = {'is_public': True,
                         'disk_format': 'ami',
                         'container_format': 'ami',
-                        'name': image['name']}
+                        'name': image.get('name', None)}
             try:
-                messages.success(request, "Image was successfully uploaded.")
-            except:
-                # TODO add better error management
-                messages.error(request, "Image could not be uploaded, please try again.")
-
-            try:
-                glance_api(request).add_image(metadata, image['image_file'])
+                api.glance_api(request).add_image(metadata, image['image_file'])
             except GlanceClientConnectionError, e:
                 messages.error(request, "Error connecting to glance: %s" % e.message)
             except glance_exception.Error, e:
@@ -167,13 +164,13 @@ def upload(request):
         else:
             messages.error(request, "Image could not be uploaded, please try agian.")
             form = UploadImageForm(request.POST)
-            return render_to_response('django_nova_syspanel/images/image_upload.html',{
+            return render_to_response('syspanel_image_upload.html',{
                 'form': form,
             }, context_instance = template.RequestContext(request))
 
         return redirect('syspanel_images')
     else:
         form = UploadImageForm()
-        return render_to_response('django_nova_syspanel/images/image_upload.html',{
+        return render_to_response('syspanel_image_upload.html',{
             'form': form,
         }, context_instance = template.RequestContext(request))
