@@ -109,13 +109,13 @@ def update(request, image_id):
 
                 api.glance_api(request).update_image(image_id, metadata)
                 messages.success(request, "Image was successfully updated.")
-                redirect("syspanel_images")
+                return redirect("syspanel_images")
             except GlanceClientConnectionError, e:
                 messages.error(request, "Error connecting to glance: %s" % e.message)
-                redirect("syspanel_images_update", image_id)
+                return redirect("syspanel_images_update", image_id)
             except glance_exception.Error, e:
                 messages.error(request, "Error updating image: %s" % e.message)
-                redirect("syspanel_images_update", image_id)
+                return redirect("syspanel_images_update", image_id)
         else:
             messages.error(request, "Image could not be uploaded, please try agian.")
             form = UpdateImageForm(request.POST)
