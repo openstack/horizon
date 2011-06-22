@@ -218,10 +218,17 @@ border: 1px solid #cbe0e8;
 	-webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);	
 }
 
-#standlone .status_box  {
-	width: 200px !important;
+#standalone #login_wrapper .status_box {
+	width: 335px;
+	margin: 0;
+	margin-bottom: 25px;
 }
-
+#standalone #login_wrapper h2 {
+  min-width: 65px;
+}
+#standalone #login_wrapper p {
+  width: 183px;
+}
 .clear {
 	clear: both;
 }
@@ -737,15 +744,9 @@ p#copy {
 	float: left;
 }
 
-.dash_block form .errorlist, #standalone .errorlist {
+.dash_block form .errorlist {
 	color: #ff5c5f;
 	font-size: 11px;
-}
-
-#standalone .errorlist li {
-	float: left;
-	width: 100%;
-	margin-top: -10px;
 }
 
 .dash_block label {
