@@ -40,7 +40,6 @@ class Login(forms.SelfHandlingForm):
 
 
 def login(request):
-    messages.error(request, "Your sesions has expired blah blah blah")
     if request.user and request.user.is_authenticated():
         if request.user.is_admin():
             return shortcuts.redirect('syspanel_overview')
