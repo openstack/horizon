@@ -44,6 +44,7 @@ LOG = logging.getLogger('django_openstack.dash')
 
 class LaunchForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
+    tenant_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length=80, label="Server Name")
     user_data = forms.CharField(widget=forms.Textarea,
                                 label="User Data",
@@ -66,6 +67,7 @@ class LaunchForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         image_id = data['image_id']
+        tenant_id = data['tenant_id']
         try:
             image = api.image_get(request, image_id)
             flavor = api.flavor_get(request, data['flavor'])
@@ -78,7 +80,7 @@ class LaunchForm(forms.SelfHandlingForm):
 
             messages.success(request, "Instance was successfully\
                                        launched.")
-            return shortcuts.redirect(request.build_absolute_uri())
+            return redirect('dash_instances', tenant_id)
 
         except api_exceptions.ApiException, e:
             messages.error(request,
@@ -145,7 +147,8 @@ def launch(request, tenant_id, image_id):
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),
                               'keynamelist': keynamelist(),
-                              'image_id': image_id})
+                              'image_id': image_id,
+                              'tenant_id': tenant_id})
     if handled:
         return handled
 
