@@ -40,6 +40,15 @@ class ToggleImage(forms.SelfHandlingForm):
             messages.error(request, "Error updating image: %s" % e.message)
         return redirect(request.build_absolute_uri())
 
+class UpdateImageForm(forms.Form):
+    name = forms.CharField(max_length="5", label="Name")
+    kernel = forms.CharField(max_length="5", label="Kernel ID", required=False)
+    ramdisk = forms.CharField(max_length="5", label="Ramdisk ID", required=False)
+    architecture = forms.CharField(label="Architecture", required=False)
+    #project_id = forms.CharField(label="Project ID")
+    container_format = forms.CharField(label="Container Format", required=False)
+    disk_format = forms.CharField(label="Disk Format")
+    #is_public = forms.BooleanField(label="Publicly Available", required=False)
 
 
 @login_required
@@ -74,7 +83,7 @@ def index(request):
 @login_required
 def update(request, image_id):
     try:
-        image = glance_api(request).get_image(image_id)[0]
+        image = api.glance_api(request).get_image(image_id)[0]
     except GlanceClientConnectionError, e:
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
@@ -85,41 +94,35 @@ def update(request, image_id):
         if form.is_valid():
             image_form = form.clean()
             metadata = {
-                'is_public': image_form['is_public'],
+                'is_public': True,
                 'disk_format': image_form['disk_format'],
                 'container_format': image_form['container_format'],
                 'name': image_form['name'],
-                'location': image_form['location'],
             }
             try:
                 # TODO add public flag to properties
                 metadata['properties'] = {
-                    'kernel_id': int(image_form['kernel_id']),
-                    'ramdisk_id': int(image_form['ramdisk_id']),
-                    'image_state': image_form['state'],
+                    'kernel_id': int(image_form['kernel']),
+                    'ramdisk_id': int(image_form['ramdisk']),
                     'architecture': image_form['architecture'],
-                    'project_id': image_form['project_id'],
                 }
 
-                glance_api(request).update_image(image_id, metadata)
+                api.glance_api(request).update_image(image_id, metadata)
                 messages.success(request, "Image was successfully updated.")
+                redirect("syspanel_images")
             except GlanceClientConnectionError, e:
                 messages.error(request, "Error connecting to glance: %s" % e.message)
+                redirect("syspanel_images_update", image_id)
             except glance_exception.Error, e:
                 messages.error(request, "Error updating image: %s" % e.message)
-            except:
-                messages.error(request, "Image could not be updated, please try again.")
-
-
+                redirect("syspanel_images_update", image_id)
         else:
             messages.error(request, "Image could not be uploaded, please try agian.")
             form = UpdateImageForm(request.POST)
-            return render_to_response('django_nova_syspanel/images/image_update.html',{
+            return render_to_response('syspanel_image_update.html',{
                 'image': image,
                 'form': form,
             }, context_instance = template.RequestContext(request))
-
-        return redirect('syspanel_images')
     else:
         form = UpdateImageForm(initial={
                 'name': image.get('name', ''),
@@ -134,7 +137,7 @@ def update(request, image_id):
                 'disk_format': image.get('disk_format', ''),
             })
 
-        return render_to_response('django_nova_syspanel/images/image_update.html',{
+        return render_to_response('syspanel_image_update.html',{
             'image': image,
             'form': form,
         }, context_instance = template.RequestContext(request))

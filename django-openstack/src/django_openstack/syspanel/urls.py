@@ -3,6 +3,7 @@ from django.conf import settings
 
 
 INSTANCES = r'^instances/(?P<instance_id>[^/]+)/%s$'
+IMAGES = r'^images/(?P<image_id>[^/]+)/%s$'
 USERS = r'^users/(?P<user_id>[^/]+)/%s$'
 TENANTS = r'^tenants/(?P<tenant_id>[^/]+)/%s$'
 
@@ -19,8 +20,7 @@ urlpatterns = patterns('django_openstack.syspanel.views.instances',
 
 urlpatterns += patterns('django_openstack.syspanel.views.images',
     url(r'^images/$', 'index', name='syspanel_images'),
-    # NOTE(termie): currently just using the 'dash' versions
-    #url(INSTANCES % 'console', 'console', name='syspanel_instances_console'),
+    url(IMAGES % 'update', 'update', name='syspanel_images_update'),
     #url(INSTANCES % 'vnc', 'vnc', name='syspanel_instances_vnc'),
 )
 
