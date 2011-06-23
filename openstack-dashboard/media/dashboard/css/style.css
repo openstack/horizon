@@ -1,3 +1,5 @@
+/* @override http://looce.com:8080/media/dashboard/css/style.css */
+
 @import url("reset.css");
 
 @font-face {
@@ -216,6 +218,17 @@ border: 1px solid #cbe0e8;
 	-webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);	
 }
 
+#standalone #login_wrapper .status_box {
+	width: 335px;
+	margin: 0;
+	margin-bottom: 25px;
+}
+#standalone #login_wrapper h2 {
+  min-width: 65px;
+}
+#standalone #login_wrapper p {
+  width: 183px;
+}
 .clear {
 	clear: both;
 }
@@ -370,7 +383,7 @@ input[readonly="readonly"] {
 	padding-right: 21px;
 }
 
-.search input[type="text"], .dash_block form input[type="text"], .dash_block form textarea{
+.search input[type="text"], .dash_block form input[type="text"], .dash_block form input[type="password"], .dash_block form textarea{
 	margin-left: -1px;
 	border: 1px solid #ccc;
 	height: 31px;
@@ -385,7 +398,7 @@ input[readonly="readonly"] {
 	margin-bottom: 15px;
 }
 
-.search input[type="text"]:focus, .modal_window input:focus, .modal_window textarea:focus, .dash_block form input[type="text"]:focus {
+.search input[type="text"]:focus, .modal_window input:focus, .modal_window textarea:focus, .dash_block form input[type="text"]:focus, .dash_block form input[type="password"]:focus {
 	outline: none;
 	box-shadow:0 0 3px #41bad4;
     -moz-box-shadow:0 0 3px #41bad4;
@@ -1029,8 +1042,8 @@ ol li.first a {
 	margin-bottom: 5px;
 }
 
-.dash_block form input[type="text"] {
-	width: 284px;
+.dash_block form input[type="text"],.dash_block form input[type="password"] {
+	width: 309px;
 }
 
 .modal_window .continue_link, .dash_block form input[type="submit"], .dash_block a.more {

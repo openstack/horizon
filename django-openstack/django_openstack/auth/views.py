@@ -50,7 +50,7 @@ def login(request):
     if handled:
         return handled
 
-    return shortcuts.render_to_response('login_required.html', {
+    return shortcuts.render_to_response('splash.html', {
         'form': form,
     }, context_instance=template.RequestContext(request))
 
