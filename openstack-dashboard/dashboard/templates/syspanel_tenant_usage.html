@@ -1,4 +1,5 @@
 {% extends "syspanel_base.html" %}
+{% load parse_date %}
 
 {# shows usage for an individual tenant #}
 
@@ -10,7 +11,7 @@
 
 {% block main %}
   <div id='page_header'>
-    <h2><span>System Panel:</span> Tenant Overview</h2>
+    <h2><span>System Panel:</span> Overview</h2>
     <p class='desc'><span>&mdash;</span> View usage statistics for a tenant.</p>
   </div>
   <div class='main_content'>
@@ -25,15 +26,6 @@
         <input class="submit" type="submit"/>
       </div>
     </form>
-
-    <div id="usage">
-      <div class="usage_block">
-        <h3>Bandwidth</h3>
-        <ul>
-          <li><span class="quantity">2.09</span><span class="unit">GB</span> Down</li>
-          <li><span class="quantity">1.29</span><span class="unit">GB</span> Up</li>
-        </ul>
-      </div>
 
       <div class="usage_block">
         <h3>CPU</h3>
@@ -67,7 +59,7 @@
 
       {% if usage.instances %}
         <div class='table_title wide'>
-          <h3>Server Usage Summary</h3>
+          <h3>Tenant Usage: {{tenant_id}}</h3>
           <div class='search'>
             <form action='' method='post'>
               <fieldset>
@@ -95,10 +87,10 @@
                 <td>{{instance.name}}</td>
                 <td>{{instance.user_id}}</td>
                 <td>{{instance.vcpus}}</td>
-                <td>{{instance.ram_size}}</td>
-                <td>{{instance.disk_size}}</td>
+                <td>{{instance.ram_size}}MB</td>
+                <td>{{instance.disk_size}}GB</td>
                 <td>{{instance.flavor}}</td>
-                <td>{{instance.uptime|floatformat}}</td>
+                <td>{{instance.started_at|parse_datetime|timeuntil}}</td>
                 <td>{{instance.state}}</td>
             </tr>
             {% endfor %}

@@ -146,10 +146,10 @@ def tenant_usage(request, tenant_id):
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
-    return render_to_response(
-    'syspanel_tenant_usage.html',{
+    return render_to_response('syspanel_tenant_usage.html', {
         'dateform': dateform,
         'usage': usage,
+        'tenant_id': tenant_id,
     }, context_instance = template.RequestContext(request))
 
 
