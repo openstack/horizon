@@ -12,8 +12,8 @@
       <td>{{flavor.id}}</td>
       <td>{{flavor.name}}</td>
       <td>{{flavor.vcpus}}</td>
-      <td>{{flavor.ram}}</td>
-      <td>{{flavor.disk}}</td>
+      <td>{{flavor.ram}}MB</td>
+      <td>{{flavor.disk}}GB</td>
       <td id="actions">
         <ul>
           <li>{% include "_delete_flavor.html" with form=delete_form %}</li>
