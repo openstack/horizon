@@ -58,7 +58,7 @@
 
       <table class="wide">
         <tr id='headings'>
-          <th>Name</th>
+          <th>Instance Name</th>
           <th>User</th>
           <th>VCPUs</th>
           <th>Ram Size</th>
@@ -73,8 +73,8 @@
               <td>{{instance.name}}</td>
               <td>{{instance.user_id}}</td>
               <td>{{instance.vcpus}}</td>
-              <td>{{instance.ram_size}}</td>
-              <td>{{instance.disk_size}}</td>
+              <td>{{instance.ram_size}}MB</td>
+              <td>{{instance.disk_size}}GB</td>
               <td>{{instance.flavor}}</td>
               <td>{{instance.started_at|parse_datetime|timeuntil}}</td>
               <td>{{instance.state}}</td>

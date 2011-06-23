@@ -29,6 +29,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django import shortcuts
 from django.shortcuts import redirect, render_to_response
+from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 
 from django_openstack import api
@@ -57,7 +58,7 @@ class CreateKeypair(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            keypair = api.keypair_create(request, data['name'])
+            keypair = api.keypair_create(request, slugify(data['name']))
             response = http.HttpResponse(mimetype='application/binary')
             response['Content-Disposition'] = \
                 'attachment; filename=%s.pem' % \
@@ -71,8 +72,6 @@ class CreateKeypair(forms.SelfHandlingForm):
 @login_required
 def index(request, tenant_id):
     delete_form, handled = DeleteKeypair.maybe_handle(request)
-    if handled:
-        return handled
 
     try:
         keypairs = api.keypair_list(request)

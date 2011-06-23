@@ -39,10 +39,16 @@ class DeleteFlavor(forms.SelfHandlingForm):
     flavorid = forms.CharField(required=True)
 
     def handle(self, request, data):
-        flavor_id = data['flavorid']
-        api.flavor_delete(flavor_id, True)
+        try:
+            flavor_id = data['flavorid']
+            flavor = api.flavor_get(request, flavor_id)
+            api.flavor_delete(request, flavor_id, True)
+            messages.info(request, 'Successfully deleted flavor: %s' %
+                          flavor.name)
+        except api_exceptions.ApiException, e:
+            messages.error(request, 'Unable to delete flavor: %s' %
+                                     e.message)
         return redirect(request.build_absolute_uri())
-
 
 @login_required
 def index(request):
@@ -51,8 +57,6 @@ def index(request):
         if handled:
             return handled
 
-    # We don't have any way of showing errors for these, so don't bother
-    # trying to reuse the forms from above
     delete_form = DeleteFlavor()
 
     flavors = []

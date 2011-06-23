@@ -11,7 +11,7 @@
 {% block main %}
   <div id='page_header'>
     <h2><span>Compute:</span> Keypairs</h2> 
-    <p class='desc'><span>&mdash;</span> Keypairs blah blah.</p> 
+    <p class='desc'><span>&mdash;</span> You may make a keypair, and use the private key to login to your instances.</p> 
   </div>
   {% include "_messages.html" %}
 
@@ -19,6 +19,7 @@
     {% if keypairs %}
       <div class='table_title wide'>
         <h3>Keypairs</h3>
+        <a class="refresh" title="Refresh" href="{% url dash_keypairs request.user.tenant %}">Refresh List</a>
         <div class='search'>
           <form action='' method='post'>
             <fieldset>

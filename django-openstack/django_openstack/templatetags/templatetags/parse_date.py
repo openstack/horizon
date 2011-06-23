@@ -20,7 +20,7 @@ class ParseDateNode(template.Node):
         if context == None:
             return "None"
         date_obj = _parse_datetime(context)
-        return date_obj.strftime("%d/%m/%y at %H:%M:%S")
+        return date_obj.strftime("%m/%d/%y at %H:%M:%S")
 
 
 @register.filter(name='parse_date')
