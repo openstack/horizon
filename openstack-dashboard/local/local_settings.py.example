@@ -67,10 +67,6 @@ EXTERNAL_MONITORING = [
 #                'handlers': ['null'],
 #                'propagate': False,
 #                },
-#            'boto': {
-#                'handlers': ['null'],
-#                'propagate': False,
-#                },
 #            'django_openstack': {
 #                'handlers': ['null'],
 #                'propagate': False,
