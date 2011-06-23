@@ -56,7 +56,7 @@ def login(request):
 
 
 def switch_tenants(request, tenant_id):
-    form, handled = LoginWithoutTenant.maybe_handle(
+    form, handled = Login.maybe_handle(
             request, initial={'tenant': tenant_id})
     if handled:
         return handled
@@ -70,6 +70,3 @@ def switch_tenants(request, tenant_id):
 def logout(request):
     request.session.clear()
     return shortcuts.redirect('splash')
-
-
-
