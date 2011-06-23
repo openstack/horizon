@@ -24,7 +24,6 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from django.views import generic as generic_views
 import django.views.i18n
-from registration import forms as reg_forms
 
 from django_openstack import urls as django_openstack_urls
 
