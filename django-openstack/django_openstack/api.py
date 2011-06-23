@@ -1,6 +1,5 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-
 from django.conf import settings
 
 import logging
@@ -15,33 +14,41 @@ import openstackx.auth
 from urlparse import urlparse
 import json
 
+
 def url_for(request, service_name, admin=False):
     catalog = request.session['serviceCatalog']
     if admin:
-        rv  = catalog[service_name][0]['adminURL']
+        rv = catalog[service_name][0]['adminURL']
     else:
         rv = catalog[service_name][0]['internalURL']
     return rv
 
+
 def compute_api(request):
-    compute =  openstack.compute.Compute(auth_token=request.session['token'],
-                                         management_url=url_for(request, 'nova'))
+    compute = openstack.compute.Compute(
+        auth_token=request.session['token'],
+        management_url=url_for(request, 'nova'))
     # this below hack is necessary to make the jacobian compute client work
     compute.client.auth_token = request.session['token']
     compute.client.management_url = url_for(request, 'nova')
     return compute
 
+
 def account_api(request):
-    return openstackx.extras.Account(auth_token=request.session['token'],
-                                    management_url=url_for(request, 'keystone', True))
+    return openstackx.extras.Account(
+        auth_token=request.session['token'],
+        management_url=url_for(request, 'keystone', True))
+
 
 def glance_api(request):
     o = urlparse(url_for(request, 'glance'))
     return glance.client.Client(o.hostname, o.port)
 
+
 def admin_api(request):
     return openstackx.admin.Admin(auth_token=request.session['token'],
                                  management_url=url_for(request, 'nova', True))
+
 
 def extras_api(request):
     return openstackx.extras.Extras(auth_token=request.session['token'],
@@ -136,7 +143,9 @@ def server_list(request):
     return extras_api(request).servers.list()
 
 
-def server_reboot(request, instance_id, hardness=openstack.compute.servers.REBOOT_HARD):
+def server_reboot(request,
+                  instance_id,
+                  hardness=openstack.compute.servers.REBOOT_HARD):
     server = server_get(request, instance_id)
     return server.reboot(hardness)
 
