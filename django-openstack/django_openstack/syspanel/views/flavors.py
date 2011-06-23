@@ -39,10 +39,15 @@ class DeleteFlavor(forms.SelfHandlingForm):
     flavorid = forms.CharField(required=True)
 
     def handle(self, request, data):
-        flavor_id = data['flavorid']
-        api.flavor_delete(flavor_id, True)
+        flavor_id = data.get('flavorid', None)
+        try:
+            api.flavor_delete(flavor_id, True)
+            messages.info(request, 'Successfully deleted flavor: %s' %
+                          flavor_id)
+        except api_exceptions.ApiException, e:
+            messages.error(request, 'Unable to delete flavor: %s' %
+                                     e.message)
         return redirect(request.build_absolute_uri())
-
 
 @login_required
 def index(request):
