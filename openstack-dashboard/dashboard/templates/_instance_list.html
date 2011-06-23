@@ -4,6 +4,7 @@
     <th>ID</th>
     <th>Name</th>
     <th>Image</th>
+    <th>Size</th>
     <th>Private IP</th>
     <th>Public IP</th>
     <th>State</th>
@@ -15,6 +16,13 @@
           <td>{{instance.id}}</td>
           <td>{{instance.name}}</td>
           <td>{{instance.attrs.image_name}}</td>
+          <td>
+            <ul>
+              <li>{{instance.attrs.memory_mb}}MB Ram</li>
+              <li>{{instance.attrs.vcpus}} VCPU</li>
+              <li>{{instance.attrs.disk_gb}}GB Disk</li>
+            </ul>
+          </td>
           <td>{{instance.addresses.private.0.addr|default:'-'}}</td>
           <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
           <td>{{instance.status|lower|capfirst}}</td>

@@ -594,6 +594,13 @@ table#instances  {
 	width: 711px;
 	color: #777;
 }
+table ul {
+	margin-left: 20px;
+}
+table ul li {
+	list-style: disc;
+	font-size: 14px;
+}
 
 .table_title h3, .title_block h3 {
 	font-weight: normal;
@@ -671,6 +678,9 @@ tr.even {
 	background: #f5f5f5;
 }
 
+td#actions ul {
+	margin: 0;
+}
 td#actions li {
 	margin-bottom: 6px;
 	list-style: disc;
