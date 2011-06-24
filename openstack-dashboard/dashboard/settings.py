@@ -93,6 +93,8 @@ USE_I18N = True
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
+TOTAL_CLOUD_RAM_GB=10
+
 try:
     from local.local_settings import *
 except Exception, e:
