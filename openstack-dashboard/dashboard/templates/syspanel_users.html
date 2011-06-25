@@ -49,11 +49,6 @@
             </ul>                
           </td> 
         </tr>
-      {% empty %} 
-        <div class="status_box info">
-          <h2>Info</h2>
-          <p>There are currently no users on the system.  How are you still here?</p>
-        </div>
       {% endfor %} 
     </table>                       
     <a id="user_create_link" href="{% url syspanel_users_create %}">Create New User >></a>
