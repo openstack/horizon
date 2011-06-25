@@ -68,8 +68,20 @@
           <th>Status</th>
         </tr>
         <tbody class='main'>
-          {% for instance in usage.instances %}
+          {% for instance in running_instances %}
           <tr class="{% cycle 'odd' 'even' %}">
+              <td>{{instance.name}}</td>
+              <td>{{instance.user_id}}</td>
+              <td>{{instance.vcpus}}</td>
+              <td>{{instance.ram_size}}MB</td>
+              <td>{{instance.disk_size}}GB</td>
+              <td>{{instance.flavor}}</td>
+              <td>{{instance.started_at|parse_datetime|timesince}}</td>
+              <td>{{instance.state}}</td>
+          </tr>
+          {% endfor %}
+          {% for instance in terminated_instances %}
+          <tr class="terminated">
               <td>{{instance.name}}</td>
               <td>{{instance.user_id}}</td>
               <td>{{instance.vcpus}}</td>

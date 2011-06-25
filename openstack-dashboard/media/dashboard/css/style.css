@@ -649,6 +649,10 @@ tr.odd:hover, tr.even:hover {
 	background: #eee;
 }
 
+tr.terminated {
+	background: #ddd;
+}
+
 table tr.odd.good td {
 	border: 1px solid #92fd75;
 }

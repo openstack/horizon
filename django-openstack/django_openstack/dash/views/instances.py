@@ -119,8 +119,21 @@ def usage(request, tenant_id=None):
         usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
+
+
+    running_instances = []
+    terminated_instances = []
+    if usage.instances:
+        for i in usage.instances:
+            if i['ended_at']:
+                terminated_instances.append(i)
+            else:
+                running_instances.append(i)
+
     return render_to_response('dash_usage.html', {
         'usage': usage,
+        'running_instances': running_instances,
+        'terminated_instances': terminated_instances,
     }, context_instance=template.RequestContext(request))
 
 

@@ -63,6 +63,7 @@ class LaunchForm(forms.SelfHandlingForm):
         keynamelist = kwargs.get('initial', {}).get('keynamelist', [])
         self.fields['key_name'] = forms.ChoiceField(choices=keynamelist,
                 label="Key Name",
+                required=False,
                 help_text="Which keypair to use for authentication")
 
     def handle(self, request, data):
