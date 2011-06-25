@@ -11,7 +11,10 @@ def _parse_datetime(dtstr):
     try:
         return datetime.datetime.strptime(dtstr, "%Y-%m-%dT%H:%M:%S.%f")
     except:
-        return datetime.datetime.strptime(dtstr, "%Y-%m-%d %H:%M:%S.%f")
+        try:
+            return datetime.datetime.strptime(dtstr, "%Y-%m-%d %H:%M:%S.%f")
+        except:
+            return datetime.datetime.strptime(dtstr, "%Y-%m-%d %H:%M:%S")
 
 
 class ParseDateNode(template.Node):
