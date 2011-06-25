@@ -18,37 +18,44 @@
     {% include "_messages.html" %}
 
     <div id="usage">
-      <div class='table_title wide'>
-        <h3>Users for {{tenant_id}}</h3>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-      </div>
 
-      <table class="wide">
-        <tr id='headings'>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-        <tbody class='main'>
-          {% for user in users %}
-          <tr class="{% cycle 'odd' 'even' %}">
-              <td>{{user.id}}</td>
-              <td>{{user.email}}</td>
-              <td id="actions">
-                <ul>
-                  <li>{% include "_remove_tenant_user.html" with form=remove_user_form %}</li>
-                </ul>
-              </td>
+      {% if users %}
+        <div class='table_title wide'>
+          <h3>Users for {{tenant_id}}</h3>
+          <div class='search'>
+            <form action='' method='post'>
+              <fieldset>
+                <label for='table_search'>Search</label>
+                <input id='table_search' name='search' type='text' value='' />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <table class="wide">
+          <tr id='headings'>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
           </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+          <tbody class='main'>
+            {% for user in users %}
+            <tr class="{% cycle 'odd' 'even' %}">
+                <td>{{user.id}}</td>
+                <td>{{user.email}}</td>
+                <td id="actions">
+                  <ul>
+                    <li>{% include "_remove_tenant_user.html" with form=remove_user_form %}</li>
+                  </ul>
+                </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <div class="status_box info">
+          <h2>Info</h2>
+          <p>There are currently no users for this tenant</p>
+        </div>
+      {% endif %}
     </div>
 {% endblock %}
