@@ -4,6 +4,7 @@ Template tags for parsing date strings.
 
 import datetime
 from django import template
+from dateutil import tz
 
 register = template.Library()
 
@@ -34,6 +35,15 @@ def parse_date(value):
 @register.filter(name='parse_datetime')
 def parse_datetime(value):
     return _parse_datetime(value)
+
+
+@register.filter(name='parse_local_datetime')
+def parse_local_datetime(value):
+    dt = _parse_datetime(value)
+    local_tz = tz.tzlocal()
+    utc = tz.gettz('UTC')
+    local_dt = dt.replace(tzinfo=utc)
+    return local_dt.astimezone(local_tz)
 
 
 @register.filter(name='pretty_date')

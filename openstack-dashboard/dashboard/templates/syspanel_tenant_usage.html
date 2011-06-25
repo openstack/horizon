@@ -90,7 +90,7 @@
                 <td>{{instance.ram_size}}MB</td>
                 <td>{{instance.disk_size}}GB</td>
                 <td>{{instance.flavor}}</td>
-                <td>{{instance.started_at|parse_datetime|timeuntil}}</td>
+                <td>{{instance.started_at|parse_local_datetime|timesince}}</td>
                 <td>{{instance.state}}</td>
             </tr>
             {% endfor %}
