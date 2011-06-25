@@ -122,7 +122,7 @@ def usage(request, tenant_id=None):
 
     running_instances = []
     terminated_instances = []
-    if usage.haskey('instances'):
+    if hasattr(usage, 'instances'):
         for i in usage.instances:
             if i['ended_at']:
                 terminated_instances.append(i)
