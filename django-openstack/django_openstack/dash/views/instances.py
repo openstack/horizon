@@ -87,7 +87,7 @@ def index(request, tenant_id):
         instances = api.server_list(request)
         for instance in instances:
             # FIXME - ported this over, but it is hacky
-            instance._info['attrs']['image_name'] =\
+            instance.to_dict()['attrs']['image_name'] =\
                image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
     except Exception as e:
         messages.error(request, 'Unable to get instance list: %s' % e.message)
@@ -120,10 +120,9 @@ def usage(request, tenant_id=None):
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
-
     running_instances = []
     terminated_instances = []
-    if usage.instances:
+    if usage.haskey('instances'):
         for i in usage.instances:
             if i['ended_at']:
                 terminated_instances.append(i)
