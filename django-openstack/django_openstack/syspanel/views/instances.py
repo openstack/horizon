@@ -45,6 +45,9 @@ def _get_start_and_end_date(request):
     date_end = _next_month(date_start)
     datetime_start = datetime.datetime.combine(date_start, datetime.time())
     datetime_end = datetime.datetime.combine(date_end, datetime.time())
+
+    if date_end > datetime.date.today():
+        datetime_end = datetime.datetime.utcnow()
     return (date_start, date_end, datetime_start, datetime_end)
 
 
@@ -79,14 +82,13 @@ def usage(request):
     dateform['date'].field.initial = date_start
 
 
-
     global_summary = {'max_vcpus': max_vcpus, 'max_gigabytes': max_gigabytes,
                       'total_active_disk_size': 0, 'total_active_vcpus': 0,
                       'total_active_ram_size': 0}
 
     for usage in usage_list:
-        # FIXME: api needs a simpler dict interface (with iteration) - anthony
-        usage = usage._info
+        usage = usage.to_dict()
+        print usage
         for k in usage:
             v = usage[k]
             if type(v) in [float, int]:
