@@ -213,9 +213,9 @@ def usage_list(request, start, end):
     return extras_api(request).usage.list(start, end)
 
 
-def user_create(request, user_id, email, password, tenant_id):
+def user_create(request, user_id, email, password, tenant_id, enabled):
     return account_api(request).users.create(
-            user_id, email, password, tenant_id)
+            user_id, email, password, tenant_id, enabled)
 
 
 def user_delete(request, user_id):
