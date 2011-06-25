@@ -14,6 +14,7 @@
         <ul>
           <li>{% include "_tenant_delete.html" with form=tenant_delete_form %}</li>
           <li><a href="{% url syspanel_tenant_update tenant.id %}">Update</a></li>
+          <li><a href="{% url syspanel_tenant_users tenant.id %}">Edit Members</a></li>
         </ul>
       </td>
     </tr>
