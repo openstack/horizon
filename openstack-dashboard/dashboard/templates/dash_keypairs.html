@@ -32,8 +32,13 @@
 
       {% include '_keypair_list.html' %}
 
+       <a id="keypairs_create_link" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair &gt;&gt;</a>
+    {% else %}
+        <div class="status_box info">
+          <h2>Info</h2>
+          <p>There are currently no keypairs.<br/> <a href='{% url dash_keypairs_create request.user.tenant %}'>Create A Keypair &gt;&gt;.</a></p>
+        </div>
     {% endif %}
-    <a id="keypairs_create_link" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair &gt;&gt;</a>
   </div>
 {% endblock %}
 
