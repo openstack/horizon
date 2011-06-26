@@ -26,8 +26,8 @@
           </td>
           <td>{{instance.addresses.private.0.addr|default:'-'}}</td>
           <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
-          <td>{{instance.status|lower|capfirst}}</td>
           <td>{{instance.attrs.security_groups|join:', '}}</td>
+          <td>{{instance.status|lower|capfirst}}</td>
           <td id="actions">
             <ul>
               <li>{% include "_terminate.html" with form=terminate_form %}</li>
