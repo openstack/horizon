@@ -13,6 +13,7 @@ $(function(){
 
 // launch instance form
   $("#launch_img input#id_name").example("YetAnotherInstance")
+  $("#launch_img input#id_security_groups").example("group1,group2")
     
 // create flavor form
   $("#flavor_form input#id_flavorid").example("1234");

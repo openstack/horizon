@@ -41,14 +41,25 @@ from glance.common import exception as glance_exception
 
 LOG = logging.getLogger('django_openstack.dash')
 
+from django.core import validators
+import re
+
+
+def validate_even(value):
+    if value % 2 != 0:
+        raise ValidationError(u'%s is not an even number' % value)
+
 
 class LaunchForm(forms.SelfHandlingForm):
+    name = forms.CharField(max_length=80, label="Server Name")
     image_id = forms.CharField(widget=forms.HiddenInput())
     tenant_id = forms.CharField(widget=forms.HiddenInput())
-    name = forms.CharField(max_length=80, label="Server Name")
     user_data = forms.CharField(widget=forms.Textarea,
                                 label="User Data",
                                 required=False)
+    name = forms.CharField(max_length=80, label="Server Name")
+
+    security_groups = forms.CharField(max_length=100, validators=[validators.RegexValidator(regex=re.compile(r'^[0-9A-Za-z,]*$'))], required=False)
 
     # make the dropdown populate when the form is loaded not when django is
     # started
@@ -66,6 +77,14 @@ class LaunchForm(forms.SelfHandlingForm):
                 required=False,
                 help_text="Which keypair to use for authentication")
 
+#        self.fields.keyOrder = [
+#            'name',
+#            'user_data',
+#            'security_groups',
+#            'flavor',
+#            'key_name']
+#
+
     def handle(self, request, data):
         image_id = data['image_id']
         tenant_id = data['tenant_id']
@@ -77,7 +96,8 @@ class LaunchForm(forms.SelfHandlingForm):
                               image,
                               flavor,
                               user_data=data['user_data'],
-                              key_name=data.get('key_name'))
+                              key_name=data.get('key_name'),
+                              security_groups=data.get('security_groups').split(','))
 
             messages.success(request, "Instance was successfully\
                                        launched.")
