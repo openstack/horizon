@@ -72,6 +72,11 @@ def index(request):
                'region': v['region'], 'up': up }
         other_services.append(row)
 
+    services = sorted(services, key=lambda svc: (svc.type +
+                                                 svc.host))
+    other_services = sorted(other_services, key=lambda svc: (svc['type'] +
+                                                             svc['host']))
+
     return render_to_response('syspanel_services.html', {
         'services': services,
         'service_toggle_enabled_form': ToggleService,
