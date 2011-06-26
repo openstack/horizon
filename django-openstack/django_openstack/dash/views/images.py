@@ -59,7 +59,7 @@ class LaunchForm(forms.SelfHandlingForm):
                                 required=False)
     name = forms.CharField(max_length=80, label="Server Name")
 
-    security_groups = forms.CharField(max_length=100, validators=[validators.RegexValidator(regex=re.compile(r'^[0-9A-Za-z,]*$'))], required=False)
+    security_groups = forms.CharField(max_length=255, validators=[validators.RegexValidator(regex=re.compile(r'^[0-9A-Za-z,]*$'))], required=False)
 
     # make the dropdown populate when the form is loaded not when django is
     # started
