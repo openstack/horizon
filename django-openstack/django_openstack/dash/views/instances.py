@@ -123,7 +123,11 @@ def usage(request, tenant_id=None):
     running_instances = []
     terminated_instances = []
     if hasattr(usage, 'instances'):
+        now = datetime.datetime.now()
         for i in usage.instances:
+            # this is just a way to phrase uptime in a way that is compatible 
+            # with the 'timesince' filter.  Use of local time intentional
+            i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
             if i['ended_at']:
                 terminated_instances.append(i)
             else:
