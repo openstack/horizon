@@ -77,13 +77,17 @@ class LaunchForm(forms.SelfHandlingForm):
                 required=False,
                 help_text="Which keypair to use for authentication")
 
-#        self.fields.keyOrder = [
-#            'name',
-#            'user_data',
-#            'security_groups',
-#            'flavor',
-#            'key_name']
-#
+        # setting self.fields.keyOrder seems to break validation,
+        # so ordering fields manually
+        field_list = (
+            'name',
+            'user_data',
+            'security_groups',
+            'flavor',
+            'key_name')
+        for field in field_list[::-1]:
+            self.fields.insert(0, field, self.fields.pop(field))
+
 
     def handle(self, request, data):
         image_id = data['image_id']
