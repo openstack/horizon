@@ -149,6 +149,13 @@ def tenant_usage(request, tenant_id):
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
+    if hasattr(usage, 'instances'):
+        now = datetime.datetime.now()
+        for i in usage.instances:
+            # this is just a way to phrase uptime in a way that is compatible 
+            # with the 'timesince' filter.  Use of local time intentional
+            i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
+
     return render_to_response('syspanel_tenant_usage.html', {
         'dateform': dateform,
         'usage': usage,
