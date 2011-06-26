@@ -57,6 +57,7 @@ def usage(request):
     service_list = []
     usage_list = []
     max_vcpus = max_gigabytes = 0
+    total_ram = 0
 
     if date_start > _current_month():
         messages.error(request, 'No data for the selected period')
@@ -72,6 +73,7 @@ def usage(request):
             if service.type == 'nova-compute':
                 max_vcpus += service.stats['max_vcpus']
                 max_gigabytes += service.stats['max_gigabytes']
+                total_ram += settings.COMPUTE_HOST_RAM_GB
 
         try:
             usage_list = api.usage_list(request, datetime_start, datetime_end)
@@ -102,7 +104,6 @@ def usage(request):
     used_disk_tb = global_summary['total_active_disk_size'] / float(1000)
     available_disk_tb = (global_summary['max_gigabytes'] / float(1000) - \
                         global_summary['total_active_disk_size'] / float(1000))
-    total_ram = settings.TOTAL_CLOUD_RAM_GB
     used_ram = global_summary['total_active_ram_size'] / float(1024)
     avail_ram = total_ram - used_ram
 

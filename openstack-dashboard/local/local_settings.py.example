@@ -68,4 +68,5 @@ EXTERNAL_MONITORING = [
 #        }
 #}
 
-TOTAL_CLOUD_RAM_GB = 10
+# How much ram on each compute host?
+COMPUTE_HOST_RAM_GB = 16
