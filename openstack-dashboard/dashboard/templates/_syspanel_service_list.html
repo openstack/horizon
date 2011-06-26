@@ -9,8 +9,8 @@
 
   {% for service in services %}
     <tr class='{{service.up|yesno:"good,bad"}} {{service.disabled|yesno:"medium,"}} {% cycle 'odd' 'even' %}'>
-      <td>{{service.host}}</td>
       <td>{{service.type}}</td>
+      <td>{{service.host}}</td>
       <td>{{service.disabled|yesno:"Disabled,Enabled"}}</td>
       <td>{{service.up}}</td>
       <td id="actions">
@@ -22,8 +22,8 @@
   {% endfor %}
   {% for service in other_services %}
     <tr class='{{service.up|yesno:"good,bad"}} {{service.disabled|yesno:"medium,"}} {% cycle 'odd' 'even' %}'>
-      <td>{{service.host}}</td>
       <td>{{service.type}}</td>
+      <td>{{service.host}}</td>
       <td>{{service.disabled|yesno:"Disabled,Enabled"}}</td>
       <td>{{service.up}}</td>
       <td></td>
