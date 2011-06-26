@@ -155,7 +155,8 @@ def console(request, tenant_id, instance_id):
 def vnc(request, tenant_id, instance_id):
     try:
         console = api.console_create(request, instance_id, 'vnc')
-        return redirect(console.output + ("&title=%s" % instance_id))
+        instance = api.server_get(request, instance_id)
+        return redirect(console.output + ("&title=%s(%s)" % (instance.name, instance_id)))
     except api_exceptions.ApiException, e:
         messages.error(request,
                    'Unable to get vnc console for instance %s: %s' %
