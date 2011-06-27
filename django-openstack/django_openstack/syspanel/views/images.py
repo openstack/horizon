@@ -120,7 +120,7 @@ def update(request, image_id):
                 messages.error(request, "Error connecting to glance: %s" % e.message)
             except glance_exception.Error, e:
                 messages.error(request, "Error updating image: %s" % e.message)
-            return redirect("syspanel_images_update", image_id)
+            return redirect("syspanel_images")
         else:
             messages.error(request, "Image could not be uploaded, please try agian.")
             form = UpdateImageForm(request.POST)
