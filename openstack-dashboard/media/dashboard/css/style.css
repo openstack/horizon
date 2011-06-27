@@ -627,6 +627,7 @@ table th {
 	border-right: 1px solid #c6c6c6;
 	text-shadow: #b2b2b2 1px 1px 0;
 	text-align: left;
+    white-space:nowrap;
 }
 
 table td {
