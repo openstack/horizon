@@ -85,7 +85,7 @@ def index(request, tenant_id):
     except api_exceptions.ApiException, e:
         keypairs = []
         LOG.error("ApiException in keypair index", exc_info=True)
-        messages.error(request, 'Error featching keypairs: %s' % e.message)
+        messages.error(request, 'Error fetching keypairs: %s' % e.message)
 
     return render_to_response('dash_keypairs.html', {
         'keypairs': keypairs,

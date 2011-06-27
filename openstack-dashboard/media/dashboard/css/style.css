@@ -46,7 +46,7 @@ ul, li {
 
 h1 {
 	float: left;
-	
+
 }
 
 h1 a{
@@ -91,7 +91,7 @@ border: 1px solid #cbe0e8;
 	z-index: 500;
 	color: #8eacb7;
 	text-transform: uppercase;
-	font-size: 12px;	
+	font-size: 12px;
 	position: relative;
 	display: block;
 	float: left;
@@ -126,7 +126,7 @@ border: 1px solid #cbe0e8;
 }
 
 #nav li, #nav li a{
-	float: left;	
+	float: left;
 }
 
 #nav li a.active {
@@ -166,7 +166,7 @@ border: 1px solid #cbe0e8;
 	float: right;
 	height: 400px;
 	margin-bottom: -400px;
-	
+
 }
 
 #login_btn {
@@ -213,7 +213,7 @@ border: 1px solid #cbe0e8;
 #standalone #login {
 	float:left;
 	margin: 0 !important;
-	-webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);	
+	-webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);
 }
 
 .clear {
@@ -880,7 +880,7 @@ ol {
 
 ol li {
 	display: block;
-	float: left; 
+	float: left;
 	position: relative;
 	margin-right: -28px;
 }
@@ -1134,23 +1134,23 @@ ol li.first a {
 	margin-bottom: 25px;
 }
 
-.status_box.info { 
+.status_box.info {
 	background-color: #e8f8ff;
 	border-color: #9ac7dc;
 	color: #7ab6c5;
 }
-.status_box.success { 
+.status_box.success {
 	background-color: #e9ffe8;
 	border-color: #9edd9b;
 	color: #7ec67b;
 }
-.status_box.warning { 
+.status_box.warning {
 	background-color: #ffffe8;
 	border-color: #ffe37b;
 	color: #d1b12d;
 }
 
-.status_box.error { 
+.status_box.error {
 	background-color: #ffdbdc;
 	border-color: #ff9a99;
 	color: #ff8080;
@@ -1161,7 +1161,7 @@ ol li.first a {
 	float: left;
 	padding: 20px;
 	min-width: 120px;
-	
+
 }
 
 .status_box.info h2 { color: #2a7380; border-color: #9ac7dc; }
@@ -1308,18 +1308,18 @@ a.refresh:hover {
 
 
 
-.stat_box.good { 
+.stat_box.good {
 	background-color: #e9ffe8;
 	border-color: #9edd9b;
 	color: #7ec67b;
 }
-.stat_box.medium { 
+.stat_box.medium {
 	background-color: #ffffe8;
 	border-color: #ffe37b;
 	color: #eada83;
 }
 
-.stat_box.bad { 
+.stat_box.bad {
 	background-color: #ffdbdc;
 	border-color: #ff9a99;
 	color: #ff8080;
@@ -1376,7 +1376,7 @@ a.refresh:hover {
 }
 
 
-.stat_box p.avail span, .stat_box p.used span {	
+.stat_box p.avail span, .stat_box p.used span {
 	font-size: 11px;
 	text-transform: uppercase;
 }
@@ -1609,8 +1609,16 @@ li.title h4{
 	margin-left: 25px;
 }
 
+.container-label {
+    font-weight: bold;
+    font-size: 1.22em;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
 
-
-
-
+.container-name {
+    float: left;
+    margin-left: 5px;
+}
 

@@ -1,7 +1,7 @@
 @import url("reset.css");
 
 /*==================
-  === Misc/General 
+  === Misc/General
   ==================*/
 
 body {
@@ -60,7 +60,7 @@ p .ui-icon {
 
 
 /*==================
-  === Header 
+  === Header
   ==================*/
 
 #header {
@@ -96,7 +96,7 @@ p .ui-icon {
 
 
 /*==================
-  === Content 
+  === Content
   ==================*/
 
 #content_wrap {
@@ -483,7 +483,7 @@ input.delete, input.detach {
 }
 
 #right_content td.image_location {
-	text-align: left; 
+	text-align: left;
 }
 
 h3.image_list_heading {
@@ -505,7 +505,7 @@ h3.image_list_heading {
 td.detail_wrapper {
 	padding: 0 !important;
 	text-align: left !important;
-	
+
 }
 div.image_detail, div.instance_detail {
 	background: url(/media/dashboard/img/image_detail.png) top left no-repeat;
@@ -727,20 +727,19 @@ div.image_detail, div.instance_detail {
 	border-bottom: none;
 	border-top: none;
 }
-#projects .project a.manage_link:hover { 
+#projects .project a.manage_link:hover {
 	background-color: #f1f1f1 !important;
 	border-color: #b7b7b7;
 }
 #projects .project.active a.manage_link { background-color: #5393c9 !important; border-color: #4c83af;}
-#projects .project.active a.manage_link:hover { 
+#projects .project.active a.manage_link:hover {
 	background-color: #80afd6 !important;
 	border-color: #b7b7b7;
 }
 
-
 /* Footer */
 
-#footer {  
+#footer {
 	clear: both;
 	margin-bottom: 50px;
 }
