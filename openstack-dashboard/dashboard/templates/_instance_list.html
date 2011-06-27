@@ -15,7 +15,12 @@
     {% for instance in instances %}
       <tr class="{% cycle 'odd' 'even' %}">
           <td>{{instance.id}}</td>
-          <td>{{instance.name}}</td>
+          <td>{{instance.name}}
+            {% if instance.attrs.key_name %}
+                <br/>
+                <small> ({{instance.attrs.key_name}}) </small>
+            {% endif %}
+          </td>
           <td>{{instance.attrs.image_name}}</td>
           <td>
             <ul>
