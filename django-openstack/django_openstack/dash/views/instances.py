@@ -135,8 +135,7 @@ def usage(request, tenant_id=None):
 
     return render_to_response('dash_usage.html', {
         'usage': usage,
-        'running_instances': running_instances,
-        'terminated_instances': terminated_instances,
+        'instances': running_instances + terminated_instances,
     }, context_instance=template.RequestContext(request))
 
 
