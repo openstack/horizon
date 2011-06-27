@@ -248,7 +248,7 @@ input[readonly="readonly"] {
     color: #999;
 }
 
-#login input[type="text"] {
+#login input[type="text"], #login input[type="password"] {
 	width: 325px;
 	height: 25px;
 	padding: 5px;

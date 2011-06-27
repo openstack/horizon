@@ -14,7 +14,8 @@ from openstackx.api import exceptions as api_exceptions
 
 class Login(forms.SelfHandlingForm):
     username = forms.CharField(max_length="20", label="User Name")
-    password = forms.CharField(max_length="20", label="Password")
+    password = forms.CharField(widget=forms.PasswordInput, max_length="20",
+                               label="Password")
 
     def handle(self, request, data):
         try:
