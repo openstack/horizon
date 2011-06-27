@@ -94,6 +94,10 @@
               <td>{{instance.uptime_at|timesince}}</td>
               <td>{{instance.state|lower|capfirst}}</td>
           </tr>
+          {% empty %}
+            <tr>
+                <td colspan=9> No active instances. </td>
+            </tr>
           {% endfor %}
         </tbody>
       </table>

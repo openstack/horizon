@@ -31,10 +31,7 @@ class Login(forms.SelfHandlingForm):
             request.session['serviceCatalog'] = token.serviceCatalog
             logging.info(token.serviceCatalog)
 
-            if request.session['admin']:
-                return shortcuts.redirect('syspanel_overview')
-            else:
-                return shortcuts.redirect('dash_overview')
+            return shortcuts.redirect('dash_overview')
 
         except api_exceptions.Unauthorized as e:
             messages.error(request, 'Error authenticating: %s' % e.message)
