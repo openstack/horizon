@@ -80,14 +80,13 @@ def index(request, tenant_id):
         _, handled = f.maybe_handle(request)
         if handled:
             return handled
-
     instances = []
     try:
         image_dict = api.image_all_metadata(request)
         instances = api.server_list(request)
         for instance in instances:
             # FIXME - ported this over, but it is hacky
-            instance.to_dict()['attrs']['image_name'] =\
+            instance.attrs['image_name'] =\
                image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
     except Exception as e:
         messages.error(request, 'Unable to get instance list: %s' % e.message)
@@ -96,6 +95,7 @@ def index(request, tenant_id):
     # trying to reuse the forms from above
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
+    messages.info(request, instances[0].__dict__)
 
     return render_to_response('dash_instances.html', {
         'instances': instances,

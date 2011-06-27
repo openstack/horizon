@@ -122,7 +122,7 @@ def keypair_list(request):
 def server_create(request, name, image, flavor, user_data,
                            key_name, security_groups):
     return extras_api(request).servers.create(
-            name, image, flavor, None, None, None,
+            name, image, flavor, None, None,
             user_data, key_name, security_groups)
 
 
