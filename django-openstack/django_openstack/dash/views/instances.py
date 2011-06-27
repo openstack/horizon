@@ -120,6 +120,12 @@ def usage(request, tenant_id=None):
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
+    ram_unit = "MB"
+    total_ram = usage.total_active_ram_size
+    if total_ram > 999:
+        ram_unit = "GB"
+        total_ram /= float(1024)
+
     running_instances = []
     terminated_instances = []
     if hasattr(usage, 'instances'):
@@ -135,6 +141,8 @@ def usage(request, tenant_id=None):
 
     return render_to_response('dash_usage.html', {
         'usage': usage,
+        'ram_unit': ram_unit,
+        'total_ram': total_ram,
         'instances': running_instances + terminated_instances,
     }, context_instance=template.RequestContext(request))
 
