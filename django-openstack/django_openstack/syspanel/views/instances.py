@@ -89,7 +89,6 @@ def usage(request):
 
     for usage in usage_list:
         usage = usage.to_dict()
-        print usage
         for k in usage:
             v = usage[k]
             if type(v) in [float, int]:
