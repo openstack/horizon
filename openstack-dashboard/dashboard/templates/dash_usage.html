@@ -77,7 +77,7 @@
               <td>{{instance.disk_size}}GB</td>
               <td>{{instance.flavor}}</td>
               <td>{{instance.uptime_at|timesince}}</td>
-              <td>{{instance.state}}</td>
+              <td>{{instance.state|lower|capfirst}}</td>
           </tr>
           {% endfor %}
           {% for instance in terminated_instances %}
@@ -89,7 +89,7 @@
               <td>{{instance.disk_size}}GB</td>
               <td>{{instance.flavor}}</td>
               <td>{{instance.uptime_at|timesince}}</td>
-              <td>{{instance.state}}</td>
+              <td>{{instance.state|lower|capfirst}}</td>
           </tr>
           {% endfor %}
         </tbody>
