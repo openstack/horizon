@@ -1,5 +1,6 @@
 {% extends "syspanel_base.html" %}
 {% load parse_date %}
+{% load sizeformat %}
 
 {# shows usage for an individual tenant #}
 
@@ -82,17 +83,21 @@
             <th>Status</th>
           </tr>
           <tbody class='main'>
-            {% for instance in usage.instances %}
-            <tr class="{% cycle 'odd' 'even' %}">
+            {% for instance in instances %}
+              {% if instance.ended_at %}
+                <tr class="terminated">
+              {% else %}
+                <tr class="{% cycle 'odd' 'even' %}">
+              {% endif %}
                 <td>{{instance.name}}</td>
                 <td>{{instance.user_id}}</td>
                 <td>{{instance.vcpus}}</td>
-                <td>{{instance.ram_size}}MB</td>
+                <td>{{instance.ram_size|mbformat}}</td>
                 <td>{{instance.disk_size}}GB</td>
                 <td>{{instance.flavor}}</td>
                 <td>{{instance.uptime_at|timesince}}</td>
-                <td>{{instance.state}}</td>
-            </tr>
+                <td>{{instance.state|capfirst}}</td>
+              </tr>
             {% endfor %}
           </tbody>
         </table>
