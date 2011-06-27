@@ -600,7 +600,7 @@ table#instances  {
 }
 
 table td.name{
-	max-width: 123px;
+	max-width: 100px;
 	overflow: hidden;
 }
 
