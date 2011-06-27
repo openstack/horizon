@@ -599,12 +599,12 @@ table#instances  {
 	color: #777;
 }
 
-table#instances td.name{
+table td.name{
 	max-width: 123px;
 	overflow: hidden;
 }
 
-table#instances td.name:hover {
+table td.name:hover {
 	overflow: auto;	
 	z-index: 999;
 }
