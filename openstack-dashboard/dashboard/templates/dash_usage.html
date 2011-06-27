@@ -46,7 +46,15 @@
      </div>
 
       <div class='table_title wide'>
-        <h3>Server Usage Summary</h3>
+        <h3>Server Usage Summary
+          <small>
+            {% if show_terminated %}
+              ( <a href="{% url dash_overview %}">Hide Terminated</a> )
+            {% else %}
+              ( <a href="{% url dash_overview %}?show_terminated=1">Show Terminated</a> )
+            {% endif %}
+          </small>
+        </h3>
         <div class='search'>
           <form action='' method='post'>
             <fieldset>
@@ -59,7 +67,8 @@
 
       <table class="wide">
         <tr id='headings'>
-          <th>Instance Name</th>
+          <th>ID</th>
+          <th>Name</th>
           <th>User</th>
           <th>VCPUs</th>
           <th>Ram Size</th>
@@ -75,6 +84,7 @@
             {% else %}
               <tr class="{% cycle 'odd' 'even' %}">
             {% endif %}
+              <td>{{instance.id}}</td>
               <td>{{instance.name}}</td>
               <td>{{instance.user_id}}</td>
               <td>{{instance.vcpus}}</td>

@@ -110,6 +110,8 @@ def usage(request, tenant_id=None):
     datetime_start = datetime.datetime.combine(date_start, datetime.time())
     datetime_end = datetime.datetime.utcnow()
 
+    show_terminated = request.GET.get('show_terminated', False)
+
     usage = {}
     if not tenant_id:
         tenant_id = request.user.tenant
@@ -138,11 +140,16 @@ def usage(request, tenant_id=None):
             else:
                 running_instances.append(i)
 
+    instances = running_instances
+    if show_terminated:
+        instances += terminated_instances
+
     return render_to_response('dash_usage.html', {
         'usage': usage,
         'ram_unit': ram_unit,
         'total_ram': total_ram,
-        'instances': running_instances + terminated_instances,
+        'show_terminated': show_terminated,
+        'instances': instances
     }, context_instance=template.RequestContext(request))
 
 
