@@ -27,7 +27,7 @@ class UserForm(forms.Form):
         super(UserForm, self).__init__(*args, **kwargs)
         self.fields['tenant_id'].choices = [[tenant.id,tenant.id] for tenant in tenant_list]
 
-    id = forms.CharField(label="ID")
+    id = forms.CharField(label="ID (username)")
     email = forms.CharField(label="Email")
     password = forms.CharField(label="Password", widget=forms.PasswordInput(render_value=False), required=False)
     tenant_id = forms.ChoiceField(label="Primary Tenant")
