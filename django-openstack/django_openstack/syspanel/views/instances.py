@@ -83,7 +83,6 @@ def usage(request):
     dateform = forms.DateForm()
     dateform['date'].field.initial = date_start
 
-
     global_summary = {'max_vcpus': max_vcpus, 'max_gigabytes': max_gigabytes,
                       'total_active_disk_size': 0, 'total_active_vcpus': 0,
                       'total_active_ram_size': 0}

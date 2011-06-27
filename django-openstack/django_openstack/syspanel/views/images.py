@@ -107,11 +107,13 @@ def update(request, image_id):
             }
             try:
                 # TODO add public flag to properties
-                metadata['properties'] = {
-                    'kernel_id': int(image_form['kernel']),
-                    'ramdisk_id': int(image_form['ramdisk']),
-                    'architecture': image_form['architecture'],
-                }
+                metadata['properties'] = {}
+                if image_form['kernel']:
+                    metadata['properties']['kernel_id'] = image_form['kernel']
+                if image_form['ramdisk']:
+                    metadata['properties']['ramdisk_id'] = image_form['ramdisk']
+                if image_form['architecture']:
+                    metadata['properties']['architecture'] = image_form['architecture']
                 api.image_update(request, image_id, metadata)
                 messages.success(request, "Image was successfully updated.")
             except GlanceClientConnectionError, e:
