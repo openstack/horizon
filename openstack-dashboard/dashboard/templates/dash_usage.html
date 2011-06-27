@@ -1,5 +1,6 @@
 {% extends 'dash_base.html' %}
 {% load parse_date %}
+{% load sizeformat %}
 
 {# default landing page for a non-admin user #}
 {# nav bar on top, sidebar, overview info in main #}
@@ -77,7 +78,7 @@
               <td>{{instance.name}}</td>
               <td>{{instance.user_id}}</td>
               <td>{{instance.vcpus}}</td>
-              <td>{{instance.ram_size}}MB</td>
+              <td>{{instance.ram_size|mbformat}}</td>
               <td>{{instance.disk_size}}GB</td>
               <td>{{instance.flavor}}</td>
               <td>{{instance.uptime_at|timesince}}</td>

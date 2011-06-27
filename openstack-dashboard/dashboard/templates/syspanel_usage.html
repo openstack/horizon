@@ -1,4 +1,5 @@
 {% extends 'syspanel_base.html' %}
+{% load sizeformat %}
 
 {# default landing page for a admin user #}
 {# nav bar on top, sidebar, overview info in main #}
@@ -98,7 +99,7 @@
             <td>{{usage.total_active_instances}}</td>
             <td>{{usage.total_active_vcpus}}</td>
             <td>{{usage.total_active_disk_size}}</td>
-            <td>{{usage.total_active_ram_size}}</td>
+            <td>{{usage.total_active_ram_size|mbformat}}</td>
             <td>{{usage.total_cpu_usage|floatformat}}</td>
             <td>{{usage.total_disk_usage|floatformat}}</td>
           </tr>

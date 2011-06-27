@@ -1,4 +1,5 @@
 <!-- TODO(termie): move most of this to django_openstack -->
+{% load sizeformat %}
 <table id='instances'>
   <tr id='headings'>
     <th>ID</th>
@@ -24,7 +25,7 @@
           <td>{{instance.attrs.image_name}}</td>
           <td>
             <ul>
-              <li>{{instance.attrs.memory_mb}}MB Ram</li>
+              <li>{{instance.attrs.memory_mb|mbformat}} Ram</li>
               <li>{{instance.attrs.vcpus}} VCPU</li>
               <li>{{instance.attrs.disk_gb}}GB Disk</li>
             </ul>
