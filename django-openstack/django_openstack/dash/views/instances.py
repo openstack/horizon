@@ -95,7 +95,6 @@ def index(request, tenant_id):
     # trying to reuse the forms from above
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
-    messages.info(request, instances[0].__dict__)
 
     return render_to_response('dash_instances.html', {
         'instances': instances,
