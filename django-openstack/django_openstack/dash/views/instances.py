@@ -143,7 +143,7 @@ def usage(request, tenant_id=None):
 @login_required
 def console(request, tenant_id, instance_id):
     try:
-        console = api.console_create(request, instance_id)
+        console = api.console_create(request, instance_id, 'text')
         response = http.HttpResponse(mimetype='text/plain')
         response.write(console.output)
         response.flush()

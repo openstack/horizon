@@ -53,7 +53,7 @@ def auth_api():
                                settings.OPENSTACK_KEYSTONE_URL)
 
 
-def console_create(request, instance_id, kind=None):
+def console_create(request, instance_id, kind='text'):
     return extras_api(request).consoles.create(instance_id, kind)
 
 
