@@ -11,7 +11,7 @@
     <th colspan="2">Status</th>
   </tr>
   {% for image in images %}
-  <tr class="{% cycle 'odd' 'even' %}">
+  <tr id="images" class="{% cycle 'odd' 'even' %}">
       <td>{{image.id}}</td>
       <td>{{image.name}}</td>
       <td>{{image.size|filesizeformat}}</td>
