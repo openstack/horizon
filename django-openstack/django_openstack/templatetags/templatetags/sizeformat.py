@@ -44,4 +44,4 @@ def mbformat(mb):
 
 @register.filter(name='diskgbformat')
 def diskgbformat(gb):
-    return filesizeformat(gb * 1000 * 1000, float_format).replace(' ', '')
+    return filesizeformat(gb * 1024 * 1024 * 1024, float_format).replace(' ', '')
