@@ -98,7 +98,7 @@
             <td><a href="{% url syspanel_tenant_usage usage.tenant_id %}">{{usage.tenant_id}}</a></td>
             <td>{{usage.total_active_instances}}</td>
             <td>{{usage.total_active_vcpus}}</td>
-            <td>{{usage.total_active_disk_size}}</td>
+            <td>{{usage.total_active_disk_size|diskgbformat}}</td>
             <td>{{usage.total_active_ram_size|mbformat}}</td>
             <td>{{usage.total_cpu_usage|floatformat}}</td>
             <td>{{usage.total_disk_usage|floatformat}}</td>
