@@ -181,15 +181,24 @@ def service_update(request, name, enabled):
     return admin_api(request).services.update(name, enabled)
 
 
+def tenant_dict_for(tenant):
+    return {"id": tenant.id,
+            "description": tenant.description,
+            "enabled": tenant.enabled
+            }
+
+
 def token_get_tenant(request, tenant_id):
     tenants = auth_api().tenants.for_token(request.session['token'])
     for t in tenants:
         if str(t.id) == str(tenant_id):
-            return t
+            return tenant_dict_for(t)
+
+    LOG.warning('Unknown tenant id "%s" requested' % tenant_id)
 
 
 def token_list_tenants(request, token):
-    return auth_api().tenants.for_token(token)
+    return [tenant_dict_for(t) for t in auth_api().tenants.for_token(token)]
 
 
 def tenant_create(request, tenant_id, description, enabled):
