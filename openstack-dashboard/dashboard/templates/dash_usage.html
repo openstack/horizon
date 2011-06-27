@@ -24,7 +24,7 @@
         <h3>CPU</h3>
         <ul>
           <li><span class="quantity">{{usage.total_active_vcpus|default:0}}</span><span class="unit">Cores</span> Active</li>
-          <li><span class="quantity">{{usage.total_cpu_usage|floatformat|default:0}}</span><span class="unit">CPU/hr</span> Used</li>
+          <li><span class="quantity">{{usage.total_cpu_usage|floatformat|default:0}}</span><span class="unit">CPU-HR</span> Used</li>
         </ul>
       </div>
 
@@ -39,7 +39,7 @@
         <h3>Disk</h3>
         <ul>
           <li><span class="quantity">{{usage.total_active_disk_size|default:0}}</span><span class="unit">GB</span> Active</li>
-          <li><span class="quantity">{{usage.total_disk_usage|floatformat|default:0}}</span><span class="unit">GB/hr</span> Used</li>
+          <li><span class="quantity">{{usage.total_disk_usage|floatformat|default:0}}</span><span class="unit">GB-HR</span> Used</li>
         </ul>
       </div>
      </div>
