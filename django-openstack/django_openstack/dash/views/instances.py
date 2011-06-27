@@ -117,12 +117,12 @@ def usage(request, tenant_id=None):
         tenant_id = request.user.tenant
 
     try:
-        usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
+        usage = api.usage_get(request, tenant_id, datetime_start, datetime_end).to_dict()
     except api_exceptions.ApiException, e:
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     ram_unit = "MB"
-    total_ram = usage.total_active_ram_size
+    total_ram = usage.get('total_active_ram_size', 0)
     if total_ram > 999:
         ram_unit = "GB"
         total_ram /= float(1024)
