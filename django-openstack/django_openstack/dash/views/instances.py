@@ -49,12 +49,15 @@ class TerminateInstance(forms.SelfHandlingForm):
         try:
             api.server_delete(request, instance)
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while terminating instance "%s"' %
+                      instance_id, exc_info=True)
             messages.error(request,
                            'Unable to terminate %s: %s' %
                            (instance_id, e.message,))
         else:
-            messages.success(request,
-                             'Instance %s has been terminated.' % instance_id)
+            msg = 'Instance %s has been terminated.' % instance_id
+            LOG.info(msg)
+            messages.success(request, msg)
 
         return redirect(request.build_absolute_uri())
 
@@ -68,8 +71,15 @@ class RebootInstance(forms.SelfHandlingForm):
             server = api.server_reboot(request, instance_id)
             messages.success(request, "Instance rebooting")
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while rebooting instance "%s"' %
+                      instance_id, exc_info=True)
             messages.error(request,
                        'Unable to reboot instance: %s' % e.message)
+
+        else:
+            msg = 'Instance %s has been rebooted.' % instance_id
+            LOG.info(msg)
+            messages.success(request, msg)
 
         return redirect(request.build_absolute_uri())
 
@@ -88,8 +98,10 @@ def index(request, tenant_id):
         for instance in instances:
             # FIXME - ported this over, but it is hacky
             instance._info['attrs']['image_name'] =\
-               image_dict.get(int(instance.attrs['image_id']),{}).get('name')
+               image_dict.get(int(instance.attrs['image_id']), {}).get('name')
+    # TODO(markgius): Why isn't this an apiexception?
     except Exception as e:
+        LOG.error('Exception in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
@@ -118,6 +130,8 @@ def usage(request, tenant_id=None):
     try:
         usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException in instance usage', exc_info=True)
+
         messages.error(request, 'Unable to get usage info: %s' % e.message)
     return render_to_response('dash_usage.html', {
         'usage': usage,
@@ -133,6 +147,9 @@ def console(request, tenant_id, instance_id):
         response.flush()
         return response
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException while fetching instance console',
+                  exc_info=True)
+
         messages.error(request,
                    'Unable to get log for instance %s: %s' %
                    (instance_id, e.message))
@@ -145,6 +162,9 @@ def vnc(request, tenant_id, instance_id):
         console = api.console_create(request, instance_id, 'vnc')
         return redirect(console.output)
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException while fetching instance vnc connection',
+                  exc_info=True)
+
         messages.error(request,
                    'Unable to get vnc console for instance %s: %s' %
                    (instance_id, e.message))

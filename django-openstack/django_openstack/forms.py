@@ -14,7 +14,7 @@ from django.utils import formats
 
 from django.forms import *
 
-
+LOG = logging.getLogger('django_openstack.forms')
 RE_DATE = re.compile(r'(\d{4})-(\d\d?)-(\d\d?)$')
 
 
@@ -132,7 +132,6 @@ class SelfHandlingForm(Form):
         kwargs['initial'] = initial
         super(SelfHandlingForm, self).__init__(*args, **kwargs)
 
-
     @classmethod
     def maybe_handle(cls, request, *args, **kwargs):
         if cls.__name__ != request.POST.get('method'):
@@ -148,7 +147,7 @@ class SelfHandlingForm(Form):
 
             return form, form.handle(request, data)
         except Exception as e:
-            logging.exception('Error while handling form.')
+            LOG.error('Nonspecific error while handling form', exc_info=True)
             messages.error(request, 'Unexpected error: %s' % e.message)
             return form, None
 

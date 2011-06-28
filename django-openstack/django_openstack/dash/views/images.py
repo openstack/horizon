@@ -36,10 +36,11 @@ from django import shortcuts
 from django_openstack import api
 from django_openstack import forms
 from openstackx.api import exceptions as api_exceptions
+from glance import client as glance_client
 from glance.common import exception as glance_exception
 
 
-LOG = logging.getLogger('django_openstack.dash')
+LOG = logging.getLogger('django_openstack.dash.views.images')
 
 
 class LaunchForm(forms.SelfHandlingForm):
@@ -76,11 +77,14 @@ class LaunchForm(forms.SelfHandlingForm):
                               user_data=data['user_data'],
                               key_name=data.get('key_name'))
 
-            messages.success(request, "Instance was successfully\
-                                       launched.")
+            msg = 'Instance was successfully launched'
+            LOG.info(msg)
+            messages.success(request, msg)
             return shortcuts.redirect(request.build_absolute_uri())
 
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while creating instances of image "%s"' %
+                      image_id, exc_info=True)
             messages.error(request,
                            'Unable to launch instance: %s' % e.message)
 
@@ -93,9 +97,11 @@ def index(request, tenant_id):
         all_images = api.image_list_detailed(request)
         if not all_images:
             messages.info(request, "There are currently no images.")
-    except GlanceClientConnectionError, e:
+    except glance_client.ClientConnectionError, e:
+        LOG.error("Error connecting to glance", exc_info=True)
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
+        LOG.error("Error retrieving image list", exc_info=True)
         messages.error(request, "Error retrieving image list: %s" % e.message)
 
     images = []
@@ -129,6 +135,8 @@ def launch(request, tenant_id, image_id):
                    (f.name, f.vcpus, f.disk, f.ram)) for f in fl]
             return sorted(sel)
         except:
+            LOG.error('Unable to retrieve list of instance types',
+                      exc_info=True)
             return [(1, 'm1.tiny')]
 
     def keynamelist():
@@ -137,6 +145,7 @@ def launch(request, tenant_id, image_id):
             sel = [(f.key_name, f.key_name) for f in fl]
             return sel
         except:
+            LOG.error('Unable to retrieve list of keypairs', exc_info=True)
             return []
 
     image = api.image_get(request, image_id)

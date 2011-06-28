@@ -21,6 +21,8 @@ from openstackx.api import exceptions as api_exceptions
 TerminateInstance = dash_instances.TerminateInstance
 RebootInstance = dash_instances.RebootInstance
 
+LOG = logging.getLogger('django_openstack.syspanel.views.instances')
+
 
 def _next_month(date_start):
     y = date_start.year + (date_start.month + 1)/13
@@ -63,7 +65,10 @@ def usage(request):
         try:
             service_list = api.service_list(request)
         except api_exceptions.ApiException, e:
-            messages.error(request, 'Unable to get service info: %s' % e.message)
+            LOG.error('ApiException fetching service list in instance usage',
+                      exc_info=True)
+            messages.error(request,
+                           'Unable to get service info: %s' % e.message)
 
         for service in service_list:
             if service.type == 'nova-compute':
@@ -73,6 +78,10 @@ def usage(request):
         try:
             usage_list = api.usage_list(request, datetime_start, datetime_end)
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException fetching usage list in instance usage'
+                      ' on date range "%s to %s"' % (datetime_start,
+                                                     datetime_end),
+                      exc_info=True)
             messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     dateform = forms.DateForm()
@@ -144,6 +153,10 @@ def tenant_usage(request, tenant_id):
     try:
         usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException getting usage info for tenant "%s"'
+                  ' on date range "%s to %s"' % (tenant_id,
+                                                 datetime_start,
+                                                 datetime_end))
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     return render_to_response(
@@ -169,6 +182,7 @@ def index(request):
             instance._info['attrs']['image_name'] =\
                image_dict.get(int(instance.attrs['image_id']),{}).get('name')
     except Exception as e:
+        LOG.error('Unspecified error in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
