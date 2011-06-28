@@ -26,6 +26,17 @@ def url_for(request, service_name, admin=False):
         rv = catalog[service_name][0]['internalURL']
     return rv
 
+def tenant_dict_for(tenant):
+    return {"id": tenant.id,
+            "description": tenant.description,
+            "enabled": tenant.enabled
+            }
+
+def token_dict_for(token):
+    return {"id": token.id,
+            "username": token.username,
+            "tenant_id": token.tenant_id
+            }
 
 def compute_api(request):
     compute = openstack.compute.Compute(
@@ -181,13 +192,6 @@ def service_update(request, name, enabled):
     return admin_api(request).services.update(name, enabled)
 
 
-def tenant_dict_for(tenant):
-    return {"id": tenant.id,
-            "description": tenant.description,
-            "enabled": tenant.enabled
-            }
-
-
 def token_get_tenant(request, tenant_id):
     tenants = auth_api().tenants.for_token(request.session['token'])
     for t in tenants:
@@ -218,7 +222,7 @@ def tenant_update(request, tenant_id, description, enabled):
 
 
 def token_create(request, tenant, username, password):
-    return auth_api().tokens.create(tenant, username, password)
+    return token_dict_for(auth_api().tokens.create(tenant, username, password))
 
 
 def token_info(request, token):

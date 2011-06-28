@@ -5,7 +5,12 @@ from django import test
 
 from django_openstack import api
 
+TEST_PASSWORD = '12345'
+TEST_RETURN = 'retValue'
+TEST_TENANT_DESCRIPTION = 'tenantDescription'
 TEST_TENANT_ID = '1234'
+TEST_USERNAME = 'testUser'
+TEST_TOKEN_ID = 'userId'
 
 class Tenant(object):
     def __init__(self, id, description, enabled):
@@ -13,13 +18,11 @@ class Tenant(object):
         self.description = description
         self.enabled = enabled
 
-    def __eq__(self, other):
-        return self.id == other.id and \
-               self.description == other.description and \
-               self.enabled == other.enabled
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
+class Token(object):
+    def __init__(self, id, username, tenant_id):
+        self.id = id
+        self.username = username
+        self.tenant_id = tenant_id
 
 class AuthApiTests(test.TestCase):
     def setUp(self):
@@ -36,12 +39,12 @@ class AuthApiTests(test.TestCase):
         tenants_mock = self.mox.CreateMockAnything()
         auth_api_mock.tenants = tenants_mock
 
-        tenant_list = [Tenant(TEST_TENANT_ID,
-                              TEST_TENANT_ID + '_desc',
-                              True),
-                       Tenant('notTheDroid',
+        tenant_list = [Tenant('notTheDroid',
                               'notTheDroid_desc',
-                              False)
+                              False),
+                       Tenant(TEST_TENANT_ID,
+                              TEST_TENANT_DESCRIPTION,
+                              True),
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
@@ -50,20 +53,96 @@ class AuthApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.token_get_tenant(request, TEST_TENANT_ID)
-        self.assertEqual(ret_val, tenant_list[0])
+        ret_val = api.token_get_tenant(request_mock, TEST_TENANT_ID)
+        self.assertDictEqual(ret_val, 
+                             {'id': TEST_TENANT_ID,
+                              'description': TEST_TENANT_DESCRIPTION,
+                              'enabled': True})
 
         self.mox.VerifyAll()
 
     def test_token_get_tenant_no_tenant(self):
-        self.failIf(True)
+        self.mox.StubOutWithMock(api, 'auth_api')
+        auth_api_mock = self.mox.CreateMockAnything()
+        api.auth_api().AndReturn(auth_api_mock)
+
+        tenants_mock = self.mox.CreateMockAnything()
+        auth_api_mock.tenants = tenants_mock
+
+        tenant_list = [Tenant('notTheDroid',
+                              'notTheDroid_desc',
+                              False),
+                      ]
+        tenants_mock.for_token('aToken').AndReturn(tenant_list)
+
+        request_mock = self.mox.CreateMock(http.HttpResponse)
+        request_mock.session = {'token': 'aToken'}
+
+        self.mox.ReplayAll()
+
+        ret_val = api.token_get_tenant(request_mock, TEST_TENANT_ID)
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
 
     def test_token_list_tenants(self):
-        self.failIf(True)
+        self.mox.StubOutWithMock(api, 'auth_api')
+        auth_api_mock = self.mox.CreateMockAnything()
+        api.auth_api().AndReturn(auth_api_mock)
 
-    def test_tenant_create(self):
-        self.failIf(True)
+        tenants_mock = self.mox.CreateMockAnything()
+        auth_api_mock.tenants = tenants_mock
+
+        tenant_list = [Tenant('notTheDroid',
+                              'notTheDroid_desc',
+                              False),
+                       Tenant(TEST_TENANT_ID,
+                              TEST_TENANT_DESCRIPTION,
+                              True),
+                      ]
+        tenants_mock.for_token('aToken').AndReturn(tenant_list)
+
+        request_mock = self.mox.CreateMock(http.HttpResponse)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.token_list_tenants(request_mock, 'aToken')
+        self.assertItemsEqual(ret_val,
+                             [
+                              {'id': TEST_TENANT_ID,
+                               'description': TEST_TENANT_DESCRIPTION,
+                               'enabled': True},
+                              {'id': 'notTheDroid',
+                               'description':  'notTheDroid_desc',
+                               'enabled': False},
+                             ])
+
+        self.mox.VerifyAll()
 
     def test_token_create(self):
-        self.failIf(True)
+        self.mox.StubOutWithMock(api, 'auth_api')
+        auth_api_mock = self.mox.CreateMockAnything()
+        api.auth_api().AndReturn(auth_api_mock)
 
+        tokens_mock = self.mox.CreateMockAnything()
+        auth_api_mock.tokens = tokens_mock
+
+        test_token = Token(TEST_TOKEN_ID, TEST_USERNAME, TEST_TENANT_ID)
+
+        tokens_mock.create(TEST_TENANT_ID, TEST_USERNAME,
+                           TEST_PASSWORD).AndReturn(test_token)
+
+        request_mock = self.mox.CreateMock(http.HttpResponse)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.token_create(request_mock, TEST_TENANT_ID,
+                                   TEST_USERNAME, TEST_PASSWORD)
+
+        self.assertEqual(ret_val, 
+                         {'id': TEST_TOKEN_ID,
+                          'username': TEST_USERNAME,
+                          'tenant_id': TEST_TENANT_ID
+                          })
+
+        self.mox.VerifyAll()
