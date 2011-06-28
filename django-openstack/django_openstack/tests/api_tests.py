@@ -13,16 +13,34 @@ TEST_USERNAME = 'testUser'
 TEST_TOKEN_ID = 'userId'
 
 class Tenant(object):
+    ''' More or less fakes what the api is looking for '''
     def __init__(self, id, description, enabled):
         self.id = id
         self.description = description
         self.enabled = enabled
 
+    def __eq__(self, other):
+        return self.id == other.id and \
+               self.description == other.description and \
+               self.enabled == other.enabled
+
+    def __ne__(self, other):
+        return not self == other
+
 class Token(object):
+    ''' More or less fakes what the api is looking for '''
     def __init__(self, id, username, tenant_id):
         self.id = id
         self.username = username
         self.tenant_id = tenant_id
+
+    def __eq__(self, other):
+        return self.id == other.id and \
+               self.username == other.username and \
+               self.tenant_id == other.tenant_id
+
+    def __ne__(self, other):
+        return not self == other
 
 class AuthApiTests(test.TestCase):
     def setUp(self):
@@ -54,10 +72,7 @@ class AuthApiTests(test.TestCase):
         self.mox.ReplayAll()
 
         ret_val = api.token_get_tenant(request_mock, TEST_TENANT_ID)
-        self.assertDictEqual(ret_val, 
-                             {'id': TEST_TENANT_ID,
-                              'description': TEST_TENANT_DESCRIPTION,
-                              'enabled': True})
+        self.assertEqual(tenant_list[1], ret_val)
 
         self.mox.VerifyAll()
 
@@ -107,15 +122,8 @@ class AuthApiTests(test.TestCase):
         self.mox.ReplayAll()
 
         ret_val = api.token_list_tenants(request_mock, 'aToken')
-        self.assertItemsEqual(ret_val,
-                             [
-                              {'id': TEST_TENANT_ID,
-                               'description': TEST_TENANT_DESCRIPTION,
-                               'enabled': True},
-                              {'id': 'notTheDroid',
-                               'description':  'notTheDroid_desc',
-                               'enabled': False},
-                             ])
+        for tenant in ret_val:
+            self.assertIn(tenant, tenant_list)
 
         self.mox.VerifyAll()
 
@@ -139,10 +147,18 @@ class AuthApiTests(test.TestCase):
         ret_val = api.token_create(request_mock, TEST_TENANT_ID,
                                    TEST_USERNAME, TEST_PASSWORD)
 
-        self.assertEqual(ret_val, 
-                         {'id': TEST_TOKEN_ID,
-                          'username': TEST_USERNAME,
-                          'tenant_id': TEST_TENANT_ID
-                          })
+        self.assertEqual(test_token, ret_val)
 
         self.mox.VerifyAll()
+
+class GlanceApiTests(test.TestCase):
+    def setUp(self):
+        self.mox = mox.Mox()
+
+    def tearDown(self):
+        self.mox.UnsetStubs()
+
+    def test_image_all_metadata(self):
+        self.failIf(True)
+
+    

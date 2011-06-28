@@ -26,17 +26,53 @@ def url_for(request, service_name, admin=False):
         rv = catalog[service_name][0]['internalURL']
     return rv
 
-def tenant_dict_for(tenant):
-    return {"id": tenant.id,
-            "description": tenant.description,
-            "enabled": tenant.enabled
-            }
+class Tenant(object):
+    ''' Simple wrapper around openstackx.auth.tokens.Tenant 
+    
+        Defines what information is available from a Tenant, because
+        openstackx resources can have undocumented fields.
+    '''
+    def __init__(self, tenant):
+        self.tenant = tenant
 
-def token_dict_for(token):
-    return {"id": token.id,
-            "username": token.username,
-            "tenant_id": token.tenant_id
-            }
+    @property
+    def id(self):
+        return self.tenant.id
+    
+    @property
+    def description(self):
+        return self.tenant.description
+
+    @property
+    def enabled(self):
+        return self.tenant.enabled
+
+
+class Token(object):
+    ''' Simple wrapper around openstackx.auth.tokens.Token 
+    
+        Defines what information is available from a Token, because
+        openstackx resources can have undocumented fields.
+    '''
+    def __init__(self, token):
+        self.token = token
+
+    @property
+    def id(self):
+        return self.token.id
+
+    @property
+    def serviceCatalog(self):
+        return self.token.serviceCatalog
+
+    @property
+    def tenant_id(self):
+        return self.token.tenant_id
+
+    @property
+    def username(self):
+        return self.token.username
+
 
 def compute_api(request):
     compute = openstack.compute.Compute(
@@ -193,16 +229,18 @@ def service_update(request, name, enabled):
 
 
 def token_get_tenant(request, tenant_id):
+    # TODO(mgius): tests for views using this api call
     tenants = auth_api().tenants.for_token(request.session['token'])
     for t in tenants:
         if str(t.id) == str(tenant_id):
-            return tenant_dict_for(t)
+            return Tenant(t)
 
     LOG.warning('Unknown tenant id "%s" requested' % tenant_id)
 
 
 def token_list_tenants(request, token):
-    return [tenant_dict_for(t) for t in auth_api().tenants.for_token(token)]
+    # TODO(mgius): tests for views using this api call
+    return [Tenant(t) for t in auth_api().tenants.for_token(token)]
 
 
 def tenant_create(request, tenant_id, description, enabled):
@@ -222,8 +260,7 @@ def tenant_update(request, tenant_id, description, enabled):
 
 
 def token_create(request, tenant, username, password):
-    return token_dict_for(auth_api().tokens.create(tenant, username, password))
-
+    return Token(auth_api().tokens.create(tenant, username, password))
 
 def token_info(request, token):
     hdrs = {"Content-type": "application/json",
