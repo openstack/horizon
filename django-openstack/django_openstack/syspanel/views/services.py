@@ -12,6 +12,7 @@ import datetime
 import json
 import logging
 import subprocess
+import sys
 import urlparse
 
 from django.contrib import messages
@@ -20,6 +21,8 @@ from django_openstack import api
 from django_openstack import forms
 from django_openstack.dash.views import instances as dash_instances
 from openstackx.api import exceptions as api_exceptions
+
+LOG = logging.getLogger('django_openstack.syspanel.views.services')
 
 
 class ToggleService(forms.SelfHandlingForm):
@@ -39,6 +42,8 @@ class ToggleService(forms.SelfHandlingForm):
                 messages.info(request, "Service '%s' has been disabled"
                                         % data['name'])
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while toggling service %s' %
+                      data['service'], exc_info=True)
             messages.error(request, "Unable to update service '%s': %s"
                                      % data['name'], e.message)
 
@@ -56,6 +61,7 @@ def index(request):
     try:
         services = api.service_list(request)
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException fetching service list', exc_info=True)
         messages.error(request, 'Unable to get service info: %s' % e.message)
 
     other_services = []
@@ -63,7 +69,11 @@ def index(request):
     for k, v in request.session['serviceCatalog'].iteritems():
         v = v[0]
         try:
-            subprocess.check_call(['curl', '-m', '1', v['internalURL']])
+            # TODO(mgius): This silences curl, but there's probably
+            # a better solution than using curl to begin with
+            subprocess.check_call(['curl', '-m', '1', v['internalURL']],
+                                  stdout=open(sys.devnull, 'w'),
+                                  stderr=open(sys.devnull, 'w'))
             up = True
         except:
             up = False

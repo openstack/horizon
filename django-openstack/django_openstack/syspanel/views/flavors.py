@@ -1,5 +1,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+import logging
+
 from operator import itemgetter
 
 from django import template
@@ -14,6 +16,8 @@ from openstackx.api import exceptions as api_exceptions
 
 from django_openstack import api
 from django_openstack import forms
+
+LOG = logging.getLogger('django_openstack.syspanel.views.flavors')
 
 
 class CreateFlavor(forms.SelfHandlingForm):
@@ -30,8 +34,9 @@ class CreateFlavor(forms.SelfHandlingForm):
                           int(data['vcpus']),
                           int(data['disk_gb']),
                           int(data['flavorid']))
-        messages.success(request,
-                '%s was successfully added to flavors.' % data['name'])
+        msg = '%s was successfully added to flavors.' % data['name']
+        LOG.info(msg)
+        messages.success(request, msg)
         return redirect('syspanel_flavors')
 
 
@@ -40,6 +45,7 @@ class DeleteFlavor(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         flavor_id = data['flavorid']
+        LOG.info('Deleting flavor with id "%s"' % flavor_id)
         api.flavor_delete(flavor_id, True)
         return redirect(request.build_absolute_uri())
 
@@ -59,6 +65,7 @@ def index(request):
     try:
         flavors = api.flavor_list_admin(request)
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException while fetching usage info', exc_info=True)
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     flavors.sort(key=lambda x: x.id, reverse=True)

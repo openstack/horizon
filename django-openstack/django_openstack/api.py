@@ -15,6 +15,9 @@ from urlparse import urlparse
 import json
 
 
+LOG = logging.getLogger('django_openstack.api')
+
+
 def url_for(request, service_name, admin=False):
     catalog = request.session['serviceCatalog']
     if admin:
@@ -31,10 +34,17 @@ def compute_api(request):
     # this below hack is necessary to make the jacobian compute client work
     compute.client.auth_token = request.session['token']
     compute.client.management_url = url_for(request, 'nova')
+    LOG.debug('compute_api connection created using token "%s"'
+                      ' and url "%s"' %
+                      (request.session['token'], url_for(request, 'nova')))
     return compute
 
 
 def account_api(request):
+    LOG.debug('account_api connection created using token "%s"'
+                      ' and url "%s"' %
+                  (request.session['token'],
+                   url_for(request, 'keystone', True)))
     return openstackx.extras.Account(
         auth_token=request.session['token'],
         management_url=url_for(request, 'keystone', True))
@@ -42,22 +52,31 @@ def account_api(request):
 
 def glance_api(request):
     o = urlparse(url_for(request, 'glance'))
+    LOG.debug('glance_api connection created for host "%s:%d"' %
+                     (o.hostname, o.port))
     return glance.client.Client(o.hostname, o.port)
 
 
 def admin_api(request):
+    LOG.debug('admin_api connection created using token "%s"'
+                    ' and url "%s"' %
+                    (request.session['token'], url_for(request, 'nova', True)))
     return openstackx.admin.Admin(auth_token=request.session['token'],
                                  management_url=url_for(request, 'nova', True))
 
 
 def extras_api(request):
+    LOG.debug('extras_api connection created using token "%s"'
+                     ' and url "%s"' %
+                    (request.session['token'], url_for(request, 'nova')))
     return openstackx.extras.Extras(auth_token=request.session['token'],
                                    management_url=url_for(request, 'nova'))
 
 
 def auth_api():
-    return openstackx.auth.Auth(management_url=\
-                               settings.OPENSTACK_KEYSTONE_URL)
+    LOG.debug('auth_api connection created using url "%s"' %
+                   settings.OPENSTACK_KEYSTONE_URL)
+    return openstackx.auth.Auth(management_url=settings.OPENSTACK_KEYSTONE_URL)
 
 
 def console_create(request, instance_id, kind=None):
@@ -215,6 +234,8 @@ def token_info(request, token):
 
 
 def usage_get(request, tenant_id, start, end):
+    LOG.debug('Usage_get for tenant "%s" from %s to %s"' %
+            (tenant_id, start, end))
     return extras_api(request).usage.get(tenant_id, start, end)
 
 

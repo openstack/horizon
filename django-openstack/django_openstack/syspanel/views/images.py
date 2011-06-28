@@ -1,5 +1,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+import logging
+
 from django import template
 from django import http
 from django.conf import settings
@@ -14,6 +16,9 @@ from django_openstack import api
 from django_openstack import forms
 
 
+LOG = logging.getLogger('django_openstack.sysadmin.views.images')
+
+
 class DeleteImage(forms.SelfHandlingForm):
     image_id = forms.CharField(required=True)
 
@@ -22,8 +27,12 @@ class DeleteImage(forms.SelfHandlingForm):
         try:
             api.image_delete(request, image_id)
         except GlanceClientConnectionError, e:
-            messages.error(request, "Error connecting to glance: %s" % e.message)
+            LOG.error("Error connecting to glance", exc_info=True)
+            messages.error(request,
+                           "Error connecting to glance: %s" % e.message)
         except glance_exception.Error, e:
+            LOG.error('Error deleting image with id "%s"' % image_id,
+                      exc_info=True)
             messages.error(request, "Error deleting image: %s" % e.message)
         return redirect(request.build_absolute_uri())
 
@@ -36,11 +45,14 @@ class ToggleImage(forms.SelfHandlingForm):
         try:
             api.image_update(request, image_id, image_meta={'is_public': False})
         except GlanceClientConnectionError, e:
-            messages.error(request, "Error connecting to glance: %s" % e.message)
+            LOG.error("Error connecting to glance", exc_info=True)
+            messages.error(request,
+                           "Error connecting to glance: %s" % e.message)
         except glance_exception.Error, e:
+            LOG.error('Error updating image with id "%s"' % image_id,
+                      exc_info=True)
             messages.error(request, "Error updating image: %s" % e.message)
         return redirect(request.build_absolute_uri())
-
 
 
 @login_required
@@ -61,8 +73,10 @@ def index(request):
         if not images:
             messages.info(request, "There are currently no images.")
     except GlanceClientConnectionError, e:
+        LOG.error("Error connecting to glance", exc_info=True)
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
+        LOG.error("Error retrieving image list", exc_info=True)
         messages.error(request, "Error retrieving image list: %s" % e.message)
 
     return render_to_response('syspanel_images.html', {
@@ -77,9 +91,13 @@ def update(request, image_id):
     try:
         image = api.image_get(request, image_id)
     except GlanceClientConnectionError, e:
+        LOG.error("Error connecting to glance", exc_info=True)
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
-        messages.error(request, "Error retrieving image %s: %s" % (image_id, e.message))
+        LOG.error('Error retrieving image with id "%s"' % image_id,
+                  exc_info=True)
+        messages.error(request,
+                       "Error retrieving image %s: %s" % (image_id, e.message))
 
     if request.method == "POST":
         form = UpdateImageForm(request.POST)
@@ -104,15 +122,24 @@ def update(request, image_id):
                 api.image_update(request, image_id, metadata)
                 messages.success(request, "Image was successfully updated.")
             except GlanceClientConnectionError, e:
-                messages.error(request, "Error connecting to glance: %s" % e.message)
+                LOG.error("Error connecting to glance", exc_info=True)
+                messages.error(request,
+                               "Error connecting to glance: %s" % e.message)
             except glance_exception.Error, e:
+                LOG.error('Error updating image with id "%s"' % image_id,
+                          exc_info=True)
                 messages.error(request, "Error updating image: %s" % e.message)
             except:
-                messages.error(request, "Image could not be updated, please try again.")
-
+                LOG.error('Unspecified Exception in image update',
+                          exc_info=True)
+                messages.error(request,
+                               "Image could not be updated, please try again.")
 
         else:
-            messages.error(request, "Image could not be uploaded, please try agian.")
+            LOG.error('Image "%s" failed to update' % image['name'],
+                      exc_info=True)
+            messages.error(request,
+                           "Image could not be uploaded, please try agian.")
             form = UpdateImageForm(request.POST)
             return render_to_response('django_nova_syspanel/images/image_update.html',{
                 'image': image,
@@ -139,6 +166,7 @@ def update(request, image_id):
             'form': form,
         }, context_instance = template.RequestContext(request))
 
+
 @login_required
 def upload(request):
     if request.method == "POST":
@@ -158,11 +186,19 @@ def upload(request):
             try:
                 api.image_create(request, metadata, image['image_file'])
             except GlanceClientConnectionError, e:
-                messages.error(request, "Error connecting to glance: %s" % e.message)
+                LOG.error('Error connecting to glance while trying to upload'
+                          ' image', exc_info=True)
+                messages.error(request,
+                               "Error connecting to glance: %s" % e.message)
             except glance_exception.Error, e:
+                LOG.error('Glance exception while uploading image',
+                          exc_info=True)
                 messages.error(request, "Error adding image: %s" % e.message)
         else:
-            messages.error(request, "Image could not be uploaded, please try agian.")
+            LOG.error('Image "%s" failed to upload' % image['name'],
+                      exc_info=True)
+            messages.error(request,
+                           "Image could not be uploaded, please try agian.")
             form = UploadImageForm(request.POST)
             return render_to_response('django_nova_syspanel/images/image_upload.html',{
                 'form': form,

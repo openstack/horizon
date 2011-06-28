@@ -37,7 +37,7 @@ import openstack.compute.servers
 import openstackx.api.exceptions as api_exceptions
 
 
-LOG = logging.getLogger('django_openstack.dash')
+LOG = logging.getLogger('django_openstack.dash.views.keypairs')
 
 
 class DeleteKeypair(forms.SelfHandlingForm):
@@ -45,18 +45,22 @@ class DeleteKeypair(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            LOG.info('Deleting keypair "%s"' % data['keypair_id'])
             keypair = api.keypair_delete(request, data['keypair_id'])
             messages.info(request, 'Successfully deleted keypair: %s' \
                                     % data['keypair_id'])
         except api_exceptions.ApiException, e:
+            LOG.error("ApiException in DeleteKeypair", exc_info=True)
             messages.error(request, 'Error deleting keypair: %s' % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
+
 
 class CreateKeypair(forms.SelfHandlingForm):
     name = forms.CharField(max_length="20", label="Keypair Name")
 
     def handle(self, request, data):
         try:
+            LOG.info('Creating keypair "%s"' % data['name'])
             keypair = api.keypair_create(request, data['name'])
             response = http.HttpResponse(mimetype='application/binary')
             response['Content-Disposition'] = \
@@ -65,8 +69,10 @@ class CreateKeypair(forms.SelfHandlingForm):
             response.write(keypair.private_key)
             return response
         except api_exceptions.ApiException, e:
+            LOG.error("ApiException in CreateKeyPair", exc_info=True)
             messages.error(request, 'Error Creating Keypair: %s' % e.message)
             return shortcuts.redirect(request.build_absolute_uri())
+
 
 @login_required
 def index(request, tenant_id):
@@ -78,12 +84,14 @@ def index(request, tenant_id):
         keypairs = api.keypair_list(request)
     except api_exceptions.ApiException, e:
         keypairs = []
+        LOG.error("ApiException in keypair index", exc_info=True)
         messages.error(request, 'Error featching keypairs: %s' % e.message)
 
     return render_to_response('dash_keypairs.html', {
         'keypairs': keypairs,
         'delete_form': delete_form,
     }, context_instance=template.RequestContext(request))
+
 
 @login_required
 def create(request, tenant_id):

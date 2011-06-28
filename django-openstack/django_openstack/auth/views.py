@@ -12,6 +12,9 @@ from django_openstack import forms
 from openstackx.api import exceptions as api_exceptions
 
 
+LOG = logging.getLogger('django_openstack.auth')
+
+
 class Login(forms.SelfHandlingForm):
     username = forms.CharField(max_length="20", label="User Name")
     password = forms.CharField(max_length="20", label="Password")
@@ -28,7 +31,8 @@ class Login(forms.SelfHandlingForm):
             request.session['tenant'] = info['tenant']
             request.session['admin'] = info['admin']
             request.session['serviceCatalog'] = token.serviceCatalog
-            logging.info(token.serviceCatalog)
+            LOG.info('Login form for user "%s". Service Catalog data:\n%s' %
+                     (data['username'], token.serviceCatalog))
 
             if request.session['admin']:
                 return shortcuts.redirect('syspanel_overview')
@@ -36,7 +40,9 @@ class Login(forms.SelfHandlingForm):
                 return shortcuts.redirect('dash_overview')
 
         except api_exceptions.Unauthorized as e:
-            messages.error(request, 'Error authenticating: %s' % e.message)
+            msg = 'Error authenticating: %s' % e.message
+            LOG.error(msg, exc_info=True)
+            messages.error(request, msg)
 
 
 def login(request):

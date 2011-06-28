@@ -20,6 +20,8 @@ from django_openstack.dash.views import instances as dash_instances
 from openstackx.api import exceptions as api_exceptions
 
 
+LOG = logging.getLogger('django_openstack.syspanel.views.users')
+
 
 class UserForm(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -38,6 +40,7 @@ class UserDeleteForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         user_id = data['user']
+        LOG.info('Deleting user with id "%s"' % user_id)
         api.user_delete(request, user_id)
         messages.success(request,
                          '%s was successfully deleted.'
@@ -127,6 +130,7 @@ def create(request):
             user = form.clean()
             # TODO Make this a real request
             try:
+                LOG.info('Creating user with id "%s"' % user['id'])
                 api.user_create(request,
                                 user['id'],
                                 user['email'],
@@ -140,6 +144,10 @@ def create(request):
                 return redirect('syspanel_users')
 
             except api_exceptions.ApiException, e:
+                LOG.error('ApiException while creating user\n'
+                          'id: "%s", email: "%s", tenant_id: "%s"' %
+                          (user['id'], user['email'], user['tenant_id']),
+                          exc_info=True)
                 messages.error(request,
                                  'Error creating user: %s'
                                  % e.message)

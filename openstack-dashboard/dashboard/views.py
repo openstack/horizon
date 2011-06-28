@@ -19,14 +19,13 @@
 """
 Views for home page.
 """
-import logging
-
 from django import template
 from django import shortcuts
 from django.views.decorators import vary
 
 from django_openstack import api
 from django_openstack.auth import views as auth_views
+
 
 @vary.vary_on_cookie
 def splash(request):
