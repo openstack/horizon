@@ -99,9 +99,9 @@ class LaunchForm(forms.SelfHandlingForm):
                               data['name'],
                               image,
                               flavor,
-                              user_data=data['user_data'],
-                              key_name=data.get('key_name'),
-                              security_groups=data.get('security_groups').split(','))
+                              data.get('key_name'),
+                              data.get('user_data'),
+                              data.get('security_groups').split(','))
 
             messages.success(request, "Instance was successfully\
                                        launched.")
