@@ -18,7 +18,7 @@ from django_openstack import forms
 
 class CreateFlavor(forms.SelfHandlingForm):
     flavorid = forms.CharField(max_length="10", label="Flavor ID")
-    name = forms.CharField(max_length="5", label="Name")
+    name = forms.CharField(max_length="25", label="Name")
     vcpus = forms.CharField(max_length="5", label="VCPUs")
     memory_mb = forms.CharField(max_length="5", label="Memory MB")
     disk_gb = forms.CharField(max_length="5", label="Disk GB")
