@@ -1,8 +1,17 @@
 import os
+import shutil
 from setuptools import setup, find_packages, findall
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+dst = 'debian/openstack-dashboard/var/lib/dash'
+os.system('rm -rf %s' % dst)
+shutil.copytree('media', '%s/media' % dst)
+shutil.copytree('tools', '%s/tools' % dst)
+shutil.copytree('dashboard', '%s/dashboard' % dst)
+shutil.copytree('local', '%s/local' % dst)
+
 
 setup(
     name = "openstack-dashboard",
@@ -13,10 +22,12 @@ setup(
     long_description = read('README'),
     author = 'Devin Carlen',
     author_email = 'devin.carlen@gmail.com',
-    packages = find_packages(),
-    package_data = {'django_openstack':
-                        [s[len('django_openstack/'):] for s in
-                         findall('django_openstack/templates')]},
+#    packages = find_packages(),
+#    package_data = {'openstack-dashboard':
+#                        [s[len('dashboard/'):] for s in
+#                         findall('dashboard/templates')]},
+
+    data_files = [],
     install_requires = ['setuptools', 'mox>=0.5.0'],
     classifiers = [
         'Development Status :: 4 - Beta',
