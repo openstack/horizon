@@ -74,9 +74,16 @@ class APIDictWrapper(object):
             LOG.debug('Attempted to access unknown item "%s" on'
                       'APIResource object of type "%s"' 
                       % (attr, self.__class__))
+            raise AttributeError(attr)
 
     def __getitem__(self, item):
         return self.__getattr__(item)
+
+    def get(self, item, default=None):
+        try:
+            return self.__getattr__(item)
+        except AttributeError:
+            return default
 
 
 class Console(APIResourceWrapper):
@@ -97,7 +104,7 @@ class Image(APIDictWrapper):
 
     def __getattr__(self, attrname):
         if attrname == "properties":
-            return ImageProperties(super(Image, self).properties)
+            return ImageProperties(super(Image, self).__getattr__(attrname))
         else:
             return super(Image, self).__getattr__(attrname)
 
