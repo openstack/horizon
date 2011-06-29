@@ -2,17 +2,16 @@
 
 from django.conf import settings
 
-import logging
-
+import cloudfiles
 import glance.client
 import httplib
 import json
+import logging
 import openstack.compute
 import openstackx.admin
 import openstackx.extras
 import openstackx.auth
 from urlparse import urlparse
-import json
 
 
 LOG = logging.getLogger('django_openstack.api')
@@ -76,7 +75,15 @@ def extras_api(request):
 def auth_api():
     LOG.debug('auth_api connection created using url "%s"' %
                    settings.OPENSTACK_KEYSTONE_URL)
-    return openstackx.auth.Auth(management_url=settings.OPENSTACK_KEYSTONE_URL)
+    return openstackx.auth.Auth(
+            management_url=settings.OPENSTACK_KEYSTONE_URL)
+
+
+def swift_api():
+    return cloudfiles.get_connection(
+            settings.SWIFT_ACCOUNT + ":" + settings.SWIFT_USER,
+            settings.SWIFT_PASS,
+            authurl=settings.SWIFT_AUTHURL)
 
 
 def console_create(request, instance_id, kind=None):
@@ -270,3 +277,36 @@ def user_update_password(request, user_id, password):
 
 def user_update_tenant(request, user_id, tenant_id):
     return account_api(request).users.update_tenant(user_id, tenant_id)
+
+
+def swift_get_containers():
+    return [{"name":c.name} for c in swift_api().get_all_containers()]
+
+
+def swift_create_container(name):
+    return swift_api().create_container(name)
+
+
+def swift_delete_container(name):
+    return swift_api().delete_container(name)
+
+
+def swift_get_objects(container_name):
+    container = swift_api().get_container(container_name)
+    return [{"name":obj.name} for obj in container.get_objects()]
+
+
+def swift_upload_object(container_name, object_name, object_data):
+    container = swift_api().get_container(container_name)
+    obj = container.create_object(object_name)
+    return obj.write(object_data)
+
+
+def swift_delete_object(container_name, object_name):
+    container = swift_api().get_container(container_name)
+    return container.delete_object(object_name)
+
+
+def swift_get_object_data(container_name, object_name):
+    container = swift_api().get_container(container_name)
+    return container.get_object(object_name).stream()

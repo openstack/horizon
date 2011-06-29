@@ -44,6 +44,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.contrib.messages.context_processors.messages',
     'django_openstack.context_processors.tenants',
+    'django_openstack.context_processors.swift',
 )
 
 TEMPLATE_LOADERS = (

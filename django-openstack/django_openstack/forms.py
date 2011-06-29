@@ -138,7 +138,10 @@ class SelfHandlingForm(Form):
             return cls(*args, **kwargs), None
 
         try:
-            form = cls(request.POST, *args, **kwargs)
+            if request.FILES:
+                form = cls(request.POST, request.FILES, *args, **kwargs)
+            else:
+                form = cls(request.POST, *args, **kwargs)
 
             if not form.is_valid():
                 return form, None

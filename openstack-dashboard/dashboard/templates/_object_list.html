@@ -1,0 +1,17 @@
+<table id="objects" style="width: 100%">
+  <tr>
+    <th>Name</th>
+    <th style="width: 100px;">Actions</th>
+  </tr>
+  {% for object in objects %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ object.name }}</td>
+    <td id="actions">
+      <ul>
+        <li>{% include "_delete_object.html" with form=delete_form %}</li>
+        <li><a href="{% url dash_objects_download request.user.tenant container_name object.name %}">Download</a>
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
