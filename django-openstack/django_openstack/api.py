@@ -34,163 +34,53 @@ import json
 LOG = logging.getLogger('django_openstack.api')
 
 
-class Console(object):
+class APIObjectWrapper(object):
+    ''' Simple wrapper for api objects '''
+    attrs = []
+    def __init__(self, apiobject):
+        self.apiobject = apiobject
+
+    def __getattr__(self, attrname):
+        if attrname in self.attrs:
+            return self.apiobject.__getattr__(attrname)
+        else:
+            raise AttributeError(attrname)
+
+
+class Console(APIObjectWrapper):
     ''' Simple wrapper around openstackx.extras.consoles.Console '''
-    def __init__(self, console):
-        self.console = console
-
-    @property
-    def id(self):
-        return self.console.id
-
-    @property
-    def output(self):
-        return self.console.output
-
-    @property
-    def type(self):
-        return self.console.type
+    attrs = ['id', 'output', 'type']
 
 
-class Flavor(object):
+class Flavor(APIObjectWrapper):
     ''' Simple wrapper around openstackx.admin.flavors.Flavor '''
-    def __init__(self, flavor):
-        self.flavor = flavor
-
-    @property
-    def disk(self):
-        return self.flavor.disk
-
-    @property
-    def id(self):
-        return self.flavor.id
-
-    @property
-    def links(self):
-        return self.flavor.links
-
-    @property
-    def name(self):
-        return self.flavor.name
-
-    @property
-    def ram(self):
-        return self.flavor.ram
-
-    @property
-    def vcpus(self):
-        return self.flavor.vcpus
+    attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
 
 
-class KeyPair(object):
+class KeyPair(APIObjectWrapper):
     ''' Simple wrapper around openstackx.extras.keypairs.Keypair '''
-    def __init__(self, keypair):
-        self.keypair = keypair
+    attrs = ['fingerprint', 'key_name', 'private_key']
 
-    @property
-    def fingerprint(self):
-        return self.keypair.fingerprint
-
-    @property
-    def key_name(self):
-        return self.keypair.key_name
-
-    @property
-    def private_key(self):
-        return self.keypair.private_key
 
 class Server(object):
     ''' Simple wrapper around openstackx.extras.server.Server '''
-    def __init__(self, server):
-        self.server = server
+    attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
+             'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid']
 
-    @property
-    def addresses(self):
-        return self.server.addresses
 
-    @property
-    def attrs(self):
-        return self.server.attrs
-
-    @property
-    def hostId(self):
-        return self.server.hostId
-
-    @property
-    def id(self):
-        return self.server.id
-
-    @property
-    def imageRef(self):
-        return self.server.imageRef
-
-    @property
-    def links(self):
-        return self.server.links
-
-    @property
-    def metadata(self):
-        return self.server.metadata
-
-    @property
-    def name(self):
-        return self.server.name
-
-    @property
-    def private_ip(self):
-        return self.server.private_ip
-
-    @property
-    def public_ip(self):
-        return self.server.public_ip
-
-    @property
-    def status(self):
-        return self.server.status
-
-    @property
-    def uuid(self):
-        return self.server.uuid
+class Services(object):
+    attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up', 
+             'zone']
 
 
 class Tenant(object):
     ''' Simple wrapper around openstackx.auth.tokens.Tenant '''
-    def __init__(self, tenant):
-        self.tenant = tenant
-
-    @property
-    def id(self):
-        return self.tenant.id
-    
-    @property
-    def description(self):
-        return self.tenant.description
-
-    @property
-    def enabled(self):
-        return self.tenant.enabled
+    attrs = ['id', 'description', 'enabled']
 
 
 class Token(object):
     ''' Simple wrapper around openstackx.auth.tokens.Token '''
-    def __init__(self, token):
-        self.token = token
-
-    @property
-    def id(self):
-        return self.token.id
-
-    @property
-    def serviceCatalog(self):
-        return self.token.serviceCatalog
-
-    @property
-    def tenant_id(self):
-        return self.token.tenant_id
-
-    @property
-    def username(self):
-        return self.token.username
+    attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
 
 
 def url_for(request, service_name, admin=False):
@@ -349,7 +239,7 @@ def service_get(request, name):
 
 
 def service_list(request):
-    return admin_api(request).services.list()
+    return [Services(s) for s in admin_api(request).services.list()]
 
 
 def service_update(request, name, enabled):
