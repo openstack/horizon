@@ -43,7 +43,7 @@ class ToggleImage(forms.SelfHandlingForm):
     def handle(self, request, data):
         image_id = data['image_id']
         try:
-            api.image_update(request, image_id, image_meta={'is_public': False})
+            api.image_update(request, image_id, image_meta={'is_public': True})
         except GlanceClientConnectionError, e:
             LOG.error("Error connecting to glance", exc_info=True)
             messages.error(request,

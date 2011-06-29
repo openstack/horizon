@@ -1,4 +1,20 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
+'''
+Methods and interface objects used to interact with external apis.  
+
+API method calls return objects that are in many cases objects with
+attributes that are direct maps to the data returned from the API http call.  
+Unfortunately, these objects are also often constructed dynamically, making
+it difficult to know what data is available from the API object.  Because of this,
+all API calls should wrap their returned object in one defined here, using only
+explicitly defined properties and/or methods.  This wrapping also makes testing 
+easier.
+
+In other words, django_openstack developers not working on django_openstack.api
+shouldn't need to understand the finer details of APIs for Nova/Glance/Swift et
+al.
+
+'''
 
 from django.conf import settings
 
@@ -18,20 +34,55 @@ import json
 LOG = logging.getLogger('django_openstack.api')
 
 
-def url_for(request, service_name, admin=False):
-    catalog = request.session['serviceCatalog']
-    if admin:
-        rv = catalog[service_name][0]['adminURL']
-    else:
-        rv = catalog[service_name][0]['internalURL']
-    return rv
+class Flavor(object):
+    ''' Simple wrapper around openstackx.admin.flavors.Flavor '''
+    def __init__(self, flavor):
+        self.flavor = flavor
+
+    @property
+    def disk(self):
+        return self.flavor.disk
+
+    @property
+    def id(self):
+        return self.flavor.id
+
+    @property
+    def links(self):
+        return self.flavor.links
+
+    @property
+    def name(self):
+        return self.flavor.name
+
+    @property
+    def ram(self):
+        return self.flavor.ram
+
+    @property
+    def vcpus(self):
+        return self.flavor.vcpus
+
+
+class KeyPair(object):
+    ''' Simple wrapper around openstackx.extras.keypairs.Keypair '''
+    def __init__(self, keypair):
+        self.keypair = keypair
+
+    @property
+    def fingerprint(self):
+        return self.keypair.fingerprint
+
+    @property
+    def key_name(self):
+        return self.keypair.key_name
+
+    @property
+    def private_key(self):
+        return self.keypair.private_key
 
 class Tenant(object):
-    ''' Simple wrapper around openstackx.auth.tokens.Tenant 
-    
-        Defines what information is available from a Tenant, because
-        openstackx resources can have undocumented fields.
-    '''
+    ''' Simple wrapper around openstackx.auth.tokens.Tenant '''
     def __init__(self, tenant):
         self.tenant = tenant
 
@@ -49,11 +100,7 @@ class Tenant(object):
 
 
 class Token(object):
-    ''' Simple wrapper around openstackx.auth.tokens.Token 
-    
-        Defines what information is available from a Token, because
-        openstackx resources can have undocumented fields.
-    '''
+    ''' Simple wrapper around openstackx.auth.tokens.Token '''
     def __init__(self, token):
         self.token = token
 
@@ -72,6 +119,15 @@ class Token(object):
     @property
     def username(self):
         return self.token.username
+
+
+def url_for(request, service_name, admin=False):
+    catalog = request.session['serviceCatalog']
+    if admin:
+        rv = catalog[service_name][0]['adminURL']
+    else:
+        rv = catalog[service_name][0]['internalURL']
+    return rv
 
 
 def compute_api(request):
@@ -131,8 +187,8 @@ def console_create(request, instance_id, kind=None):
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavor_id):
-    return admin_api(request).flavors.create(
-            name, int(memory), int(vcpu), int(disk), flavor_id)
+    return Flavor(admin_api(request).flavors.create(
+            name, int(memory), int(vcpu), int(disk), flavor_id))
 
 
 def flavor_delete(request, flavor_id, purge=False):
@@ -140,15 +196,15 @@ def flavor_delete(request, flavor_id, purge=False):
 
 
 def flavor_get(request, flavor_id):
-    return compute_api(request).flavors.get(flavor_id)
+    return Flavor(compute_api(request).flavors.get(flavor_id))
 
 
 def flavor_list(request):
-    return extras_api(request).flavors.list()
+    return [Flavor(f) for f in extras_api(request).flavors.list()]
 
 
 def flavor_list_admin(request):
-    return extras_api(request).flavors.list()
+    return [Flavor(f) for f in extras_api(request).flavors.list()]
 
 
 def image_all_metadata(request):
@@ -181,7 +237,7 @@ def image_update(request, image_id, image_meta=None):
 
 
 def keypair_create(request, name):
-    return extras_api(request).keypairs.create(name)
+    return KeyPair(extras_api(request).keypairs.create(name))
 
 
 def keypair_delete(request, keypair_id):
@@ -189,7 +245,7 @@ def keypair_delete(request, keypair_id):
 
 
 def keypair_list(request):
-    return extras_api(request).keypairs.list()
+    return [KeyPair(key) for key in extras_api(request).keypairs.list()]
 
 
 def server_create(request, name, image, flavor, user_data, key_name):
@@ -229,7 +285,6 @@ def service_update(request, name, enabled):
 
 
 def token_get_tenant(request, tenant_id):
-    # TODO(mgius): tests for views using this api call
     tenants = auth_api().tenants.for_token(request.session['token'])
     for t in tenants:
         if str(t.id) == str(tenant_id):
@@ -239,24 +294,27 @@ def token_get_tenant(request, tenant_id):
 
 
 def token_list_tenants(request, token):
-    # TODO(mgius): tests for views using this api call
     return [Tenant(t) for t in auth_api().tenants.for_token(token)]
 
 
 def tenant_create(request, tenant_id, description, enabled):
-    return account_api(request).tenants.create(tenant_id, description, enabled)
+    return Tenant(account_api(request).tenants.create(tenant_id,
+                                                      description,
+                                                      enabled))
 
 
 def tenant_get(request, tenant_id):
-    return account_api(request).tenants.get(tenant_id)
+    return Tenant(account_api(request).tenants.get(tenant_id))
 
 
 def tenant_list(request):
-    return account_api(request).tenants.list()
+    return [Tenant(t) for t in account_api(request).tenants.list()]
 
 
 def tenant_update(request, tenant_id, description, enabled):
-    return account_api(request).tenants.update(tenant_id, description, enabled)
+    return Tenant(account_api(request).tenants.update(tenant_id,
+                                                      description,
+                                                      enabled))
 
 
 def token_create(request, tenant, username, password):

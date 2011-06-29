@@ -160,5 +160,3 @@ class GlanceApiTests(test.TestCase):
 
     def test_image_all_metadata(self):
         self.failIf(True)
-
-    
