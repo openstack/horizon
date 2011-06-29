@@ -34,6 +34,24 @@ import json
 LOG = logging.getLogger('django_openstack.api')
 
 
+class Console(object):
+    ''' Simple wrapper around openstackx.extras.consoles.Console '''
+    def __init__(self, console):
+        self.console = console
+
+    @property
+    def id(self):
+        return self.console.id
+
+    @property
+    def output(self):
+        return self.console.output
+
+    @property
+    def type(self):
+        return self.console.type
+
+
 class Flavor(object):
     ''' Simple wrapper around openstackx.admin.flavors.Flavor '''
     def __init__(self, flavor):
@@ -80,6 +98,60 @@ class KeyPair(object):
     @property
     def private_key(self):
         return self.keypair.private_key
+
+class Server(object):
+    ''' Simple wrapper around openstackx.extras.server.Server '''
+    def __init__(self, server):
+        self.server = server
+
+    @property
+    def addresses(self):
+        return self.server.addresses
+
+    @property
+    def attrs(self):
+        return self.server.attrs
+
+    @property
+    def hostId(self):
+        return self.server.hostId
+
+    @property
+    def id(self):
+        return self.server.id
+
+    @property
+    def imageRef(self):
+        return self.server.imageRef
+
+    @property
+    def links(self):
+        return self.server.links
+
+    @property
+    def metadata(self):
+        return self.server.metadata
+
+    @property
+    def name(self):
+        return self.server.name
+
+    @property
+    def private_ip(self):
+        return self.server.private_ip
+
+    @property
+    def public_ip(self):
+        return self.server.public_ip
+
+    @property
+    def status(self):
+        return self.server.status
+
+    @property
+    def uuid(self):
+        return self.server.uuid
+
 
 class Tenant(object):
     ''' Simple wrapper around openstackx.auth.tokens.Tenant '''
@@ -183,7 +255,7 @@ def auth_api():
 
 
 def console_create(request, instance_id, kind=None):
-    return extras_api(request).consoles.create(instance_id, kind)
+    return Console(extras_api(request).consoles.create(instance_id, kind))
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavor_id):
@@ -249,8 +321,8 @@ def keypair_list(request):
 
 
 def server_create(request, name, image, flavor, user_data, key_name):
-    return extras_api(request).servers.create(
-            name, image, flavor, user_data=user_data, key_name=key_name)
+    return Server(extras_api(request).servers.create(
+            name, image, flavor, user_data=user_data, key_name=key_name))
 
 
 def server_delete(request, instance):
@@ -258,11 +330,11 @@ def server_delete(request, instance):
 
 
 def server_get(request, instance_id):
-    return compute_api(request).servers.get(instance_id)
+    return Server(compute_api(request).servers.get(instance_id))
 
 
 def server_list(request):
-    return extras_api(request).servers.list()
+    return [Server(s) for s in extras_api(request).servers.list()]
 
 
 def server_reboot(request,
