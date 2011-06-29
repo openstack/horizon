@@ -1,0 +1,11 @@
+<form id="object_form" enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  <input type="hidden" name="container_name" value="{{ container_name }}" />
+  {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+    {% for field in form.visible_fields %}
+    {{ field.label_tag }}
+    {{ field.errors }}
+    {{ field }}
+  {% endfor %}
+  <input type="submit" value="Upload Object" class="large-rounded" />
+</form>
