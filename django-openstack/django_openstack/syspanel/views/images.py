@@ -9,8 +9,8 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
-from glance.client import ClientConnectionError as GlanceClientConnectionError
-from glance.common import exception as glance_exception
+
+from glance.common import exception as ClientExceptionError
 
 from django_openstack import api
 from django_openstack import forms
