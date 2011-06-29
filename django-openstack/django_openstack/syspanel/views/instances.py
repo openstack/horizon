@@ -95,9 +95,11 @@ def usage(request):
 
     for usage in usage_list:
         # FIXME: api needs a simpler dict interface (with iteration) - anthony
-        usage = usage._info
-        for k in usage:
-            v = usage[k]
+        # NOTE(mgius): Changed this on the api end.  Not too much neater, but
+        #              at least its not going into private member data anymore
+        #usage = usage._info
+        for k in usage.attrs:
+            v = usage.__getattr__(k)
             if type(v) in [float, int]:
                 if not k in global_summary:
                     global_summary[k] = 0

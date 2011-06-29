@@ -34,7 +34,7 @@ import json
 LOG = logging.getLogger('django_openstack.api')
 
 
-class APIObjectWrapper(object):
+class APIResourceWrapper(object):
     ''' Simple wrapper for api objects 
     
         Define attrs on the child class and pass in the 
@@ -48,43 +48,56 @@ class APIObjectWrapper(object):
         if attrname in self.attrs:
             return self.apiobject.__getattr__(attrname)
         else:
+            LOG.debug('Attempted to access unknown attribute "%s" on wrapped'
+                      ' object of type "%s"' % (attrname, self.__class__))
             raise AttributeError(attrname)
 
 
-class Console(APIObjectWrapper):
-    ''' Simple wrapper around openstackx.extras.consoles.Console '''
+class Console(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.consoles.Console'''
     attrs = ['id', 'output', 'type']
 
 
-class Flavor(APIObjectWrapper):
-    ''' Simple wrapper around openstackx.admin.flavors.Flavor '''
+class Flavor(APIResourceWrapper):
+    '''Simple wrapper around openstackx.admin.flavors.Flavor'''
     attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
 
 
-class KeyPair(APIObjectWrapper):
-    ''' Simple wrapper around openstackx.extras.keypairs.Keypair '''
+class KeyPair(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.keypairs.Keypair'''
     attrs = ['fingerprint', 'key_name', 'private_key']
 
 
-class Server(APIObjectWrapper):
-    ''' Simple wrapper around openstackx.extras.server.Server '''
+class Server(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.server.Server'''
     attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid']
 
 
-class Services(APIObjectWrapper):
+class Services(APIResourceWrapper):
     attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up', 
              'zone']
 
 
-class Tenant(APIObjectWrapper):
-    ''' Simple wrapper around openstackx.auth.tokens.Tenant '''
+class Tenant(APIResourceWrapper):
+    '''Simple wrapper around openstackx.auth.tokens.Tenant'''
     attrs = ['id', 'description', 'enabled']
 
 
-class Token(APIObjectWrapper):
-    ''' Simple wrapper around openstackx.auth.tokens.Token '''
+class Token(APIResourceWrapper):
+    '''Simple wrapper around openstackx.auth.tokens.Token'''
     attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
+
+class Usage(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.usage.Usage'''
+    attrs = ['begin', 'instances', 'stop', 'tenant_id',
+             'total_active_disk_size', 'total_active_instances',
+             'total_active_ram_size', 'total_active_vcpus', 'total_cpu_usage',
+             'total_disk_usage', 'total_hours', 'total_ram_usage']
+
+class User(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.users.User'''
+    attrs = ['email', 'enabled', 'id', 'tenantId']
 
 
 def url_for(request, service_name, admin=False):
@@ -308,18 +321,16 @@ def token_info(request, token):
 
 
 def usage_get(request, tenant_id, start, end):
-    LOG.debug('Usage_get for tenant "%s" from %s to %s"' %
-            (tenant_id, start, end))
-    return extras_api(request).usage.get(tenant_id, start, end)
+    return Usage(extras_api(request).usage.get(tenant_id, start, end))
 
 
 def usage_list(request, start, end):
-    return extras_api(request).usage.list(start, end)
+    return [Usage(u) for u in extras_api(request).usage.list(start, end)]
 
 
 def user_create(request, user_id, email, password, tenant_id):
-    return account_api(request).users.create(
-            user_id, email, password, tenant_id)
+    return User(account_api(request).users.create(
+            user_id, email, password, tenant_id))
 
 
 def user_delete(request, user_id):
@@ -327,20 +338,20 @@ def user_delete(request, user_id):
 
 
 def user_get(request, user_id):
-    return account_api(request).users.get(user_id)
+    return User(account_api(request).users.get(user_id))
 
 
 def user_list(request):
-    return account_api(request).users.list()
+    return [User(u) for u in account_api(request).users.list()]
 
 
 def user_update_email(request, user_id, email):
-    return account_api(request).users.update_email(user_id, email)
+    return User(account_api(request).users.update_email(user_id, email))
 
 
 def user_update_password(request, user_id, password):
-    return account_api(request).users.update_password(user_id, password)
+    return User(account_api(request).users.update_password(user_id, password))
 
 
 def user_update_tenant(request, user_id, tenant_id):
-    return account_api(request).users.update_tenant(user_id, tenant_id)
+    return User(account_api(request).users.update_tenant(user_id, tenant_id))
