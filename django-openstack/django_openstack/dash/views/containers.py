@@ -1,0 +1,73 @@
+# vim: tabstop=4 shiftwidth=4 softtabstop=4
+
+"""
+Views for managing Swift containers.
+"""
+import logging
+
+from django import template
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django import shortcuts
+from django.shortcuts import render_to_response
+
+from django_openstack import api
+from django_openstack import forms
+
+from cloudfiles.errors import ContainerNotEmpty
+
+
+LOG = logging.getLogger('django_openstack.dash')
+
+
+class DeleteContainer(forms.SelfHandlingForm):
+    container_name = forms.CharField(widget=forms.HiddenInput())
+
+    def handle(self, request, data):
+        try:
+            api.swift_delete_container(data['container_name'])
+        except ContainerNotEmpty, e:
+            messages.error(request,
+                           'Unable to delete non-empty container: %s' % \
+                           data['container_name'])
+            LOG.error('Unable to delete container "%s".  Exception: "%s"' %
+                      (data['container_name'], str(e)))
+        else:
+            messages.info(request,
+                      'Successfully deleted container: %s' % \
+                      data['container_name'])
+        return shortcuts.redirect(request.build_absolute_uri())
+
+
+class CreateContainer(forms.SelfHandlingForm):
+    name = forms.CharField(max_length="255", label="Container Name")
+
+    def handle(self, request, data):
+        api.swift_create_container(data['name'])
+        messages.success(request, "Container was successfully created.")
+        return shortcuts.redirect(request.build_absolute_uri())
+
+
+@login_required
+def index(request, tenant_id):
+    delete_form, handled = DeleteContainer.maybe_handle(request)
+    if handled:
+        return handled
+
+    containers = api.swift_get_containers()
+
+    return render_to_response('dash_containers.html', {
+        'containers': containers,
+        'delete_form': delete_form,
+    }, context_instance=template.RequestContext(request))
+
+
+@login_required
+def create(request, tenant_id):
+    form, handled = CreateContainer.maybe_handle(request)
+    if handled:
+        return handled
+
+    return render_to_response('dash_containers_create.html', {
+        'create_form': form,
+    }, context_instance=template.RequestContext(request))
