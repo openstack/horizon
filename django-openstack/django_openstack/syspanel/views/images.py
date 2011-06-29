@@ -7,7 +7,6 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
-from glance.client import ClientConnectionError as GlanceClientConnectionError
 from glance.common import exception as glance_exception
 
 from django_openstack import api
@@ -21,7 +20,7 @@ class DeleteImage(forms.SelfHandlingForm):
         image_id = data['image_id']
         try:
             api.image_delete(request, image_id)
-        except GlanceClientConnectionError, e:
+        except glance_exception.ClientConnectionError, e:
             messages.error(request, "Error connecting to glance: %s" % e.message)
         except glance_exception.Error, e:
             messages.error(request, "Error deleting image: %s" % e.message)
@@ -35,7 +34,7 @@ class ToggleImage(forms.SelfHandlingForm):
         image_id = data['image_id']
         try:
             api.image_update(request, image_id, image_meta={'is_public': False})
-        except GlanceClientConnectionError, e:
+        except glance_exception.ClientConnectionError, e:
             messages.error(request, "Error connecting to glance: %s" % e.message)
         except glance_exception.Error, e:
             messages.error(request, "Error updating image: %s" % e.message)
@@ -74,7 +73,7 @@ def index(request):
         images = api.image_list_detailed(request)
         if not images:
             messages.info(request, "There are currently no images.")
-    except GlanceClientConnectionError, e:
+    except glance_exception.ClientConnectionError, e:
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
         messages.error(request, "Error retrieving image list: %s" % e.message)
@@ -90,7 +89,7 @@ def index(request):
 def update(request, image_id):
     try:
         image = api.image_get(request, image_id)
-    except GlanceClientConnectionError, e:
+    except glance_exception.ClientConnectionError, e:
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
         messages.error(request, "Error retrieving image %s: %s" % (image_id, e.message))
@@ -116,7 +115,7 @@ def update(request, image_id):
                     metadata['properties']['architecture'] = image_form['architecture']
                 api.image_update(request, image_id, metadata)
                 messages.success(request, "Image was successfully updated.")
-            except GlanceClientConnectionError, e:
+            except glance_exception.ClientConnectionError, e:
                 messages.error(request, "Error connecting to glance: %s" % e.message)
             except glance_exception.Error, e:
                 messages.error(request, "Error updating image: %s" % e.message)
@@ -159,7 +158,7 @@ def upload(request):
                         'name': image.get('name', None)}
             try:
                 api.image_create(request, metadata, image['image_file'])
-            except GlanceClientConnectionError, e:
+            except glance_exception.ClientConnectionError, e:
                 messages.error(request, "Error connecting to glance: %s" % e.message)
             except glance_exception.Error, e:
                 messages.error(request, "Error adding image: %s" % e.message)
