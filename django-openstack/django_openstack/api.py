@@ -1,14 +1,14 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 '''
-Methods and interface objects used to interact with external apis.  
+Methods and interface objects used to interact with external apis.
 
 API method calls return objects that are in many cases objects with
-attributes that are direct maps to the data returned from the API http call.  
+attributes that are direct maps to the data returned from the API http call.
 Unfortunately, these objects are also often constructed dynamically, making
-it difficult to know what data is available from the API object.  Because of this,
-all API calls should wrap their returned object in one defined here, using only
-explicitly defined properties and/or methods.  This wrapping also makes testing 
-easier.
+it difficult to know what data is available from the API object.  Because of
+this, all API calls should wrap their returned object in one defined here,
+using only explicitly defined properties and/or methods.  This wrapping also
+makes testing easier.
 
 In other words, django_openstack developers not working on django_openstack.api
 shouldn't need to understand the finer details of APIs for Nova/Glance/Swift et
@@ -35,44 +35,50 @@ LOG = logging.getLogger('django_openstack.api')
 
 
 class APIResourceWrapper(object):
-    ''' Simple wrapper for api objects 
-    
-        Define attrs on the child class and pass in the 
+    ''' Simple wrapper for api objects
+
+        Define attrs on the child class and pass in the
         api object as the only argument to the constructor
     '''
     attrs = []
+
     def __init__(self, apiresource):
-        self.apiresource = apiresource
+        self._apiresource = apiresource
 
     def __getattr__(self, attr):
         if attr in self.attrs:
-            return self.apiresource.__getattr__(attr)
+            return self._apiresource.__getattr__(attr)
         else:
             LOG.debug('Attempted to access unknown attribute "%s" on'
                       'APIResource object of type "%s" wrapping resource of'
                       ' type "%s"' % (attr, self.__class__,
-                                      self.apiresource.__class__))
+                                      self._apiresource.__class__))
             raise AttributeError(attr)
+
 
 class APIDictWrapper(object):
     ''' Simple wrapper for api dictionaries
 
-        Some api calls return dictionaries.  This class provides identical 
-        behavior as APIResourceWrapper, except that it will also 
-        behave as a dictionary, in addition to attribute accesses.
+        Some api calls return dictionaries.  This class provides identical
+        behavior as APIResourceWrapper, except that it will also behave as a
+        dictionary, in addition to attribute accesses.
 
         Attribute access is the preferred method of access, to be
         consistent with api resource objects from openstackx
     '''
     def __init__(self, apidict):
-        self.apidict = apidict
+        self._apidict = apidict
 
     def __getattr__(self, attr):
         if attr in self.attrs:
-            return self.apidict[attr]
+            try:
+                return self._apidict[attr]
+            except KeyError, e:
+                raise AttributeError(e)
+
         else:
             LOG.debug('Attempted to access unknown item "%s" on'
-                      'APIResource object of type "%s"' 
+                      'APIResource object of type "%s"'
                       % (attr, self.__class__))
             raise AttributeError(attr)
 
@@ -108,6 +114,7 @@ class Image(APIDictWrapper):
         else:
             return super(Image, self).__getattr__(attrname)
 
+
 class ImageProperties(APIDictWrapper):
     '''Simple wrapper around glance image properties dictionary'''
     attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
@@ -126,7 +133,7 @@ class Server(APIResourceWrapper):
 
 
 class Services(APIResourceWrapper):
-    attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up', 
+    attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up',
              'zone']
 
 
@@ -139,12 +146,14 @@ class Token(APIResourceWrapper):
     '''Simple wrapper around openstackx.auth.tokens.Token'''
     attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
 
+
 class Usage(APIResourceWrapper):
     '''Simple wrapper around openstackx.extras.usage.Usage'''
     attrs = ['begin', 'instances', 'stop', 'tenant_id',
              'total_active_disk_size', 'total_active_instances',
              'total_active_ram_size', 'total_active_vcpus', 'total_cpu_usage',
              'total_disk_usage', 'total_hours', 'total_ram_usage']
+
 
 class User(APIResourceWrapper):
     '''Simple wrapper around openstackx.extras.users.User'''
@@ -238,6 +247,7 @@ def flavor_list_admin(request):
 
 
 def image_all_metadata(request):
+    #TODO(mgius): I have no idea what to do with this...
     images = glance_api(request).get_images_detailed()
     image_dict = {}
     for image in images:
@@ -263,7 +273,8 @@ def image_list_detailed(request):
 
 def image_update(request, image_id, image_meta=None):
     image_meta = image_meta and image_meta or {}
-    return Image(glance_api(request).update_image(image_id, image_meta=image_meta))
+    return Image(glance_api(request).update_image(image_id,
+                                                  image_meta=image_meta))
 
 
 def keypair_create(request, name):
@@ -349,6 +360,7 @@ def tenant_update(request, tenant_id, description, enabled):
 
 def token_create(request, tenant, username, password):
     return Token(auth_api().tokens.create(tenant, username, password))
+
 
 def token_info(request, token):
     hdrs = {"Content-type": "application/json",
