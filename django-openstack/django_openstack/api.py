@@ -35,7 +35,11 @@ LOG = logging.getLogger('django_openstack.api')
 
 
 class APIObjectWrapper(object):
-    ''' Simple wrapper for api objects '''
+    ''' Simple wrapper for api objects 
+    
+        Define attrs on the child class and pass in the 
+        api object as the only argument to the constructor
+    '''
     attrs = []
     def __init__(self, apiobject):
         self.apiobject = apiobject
@@ -62,23 +66,23 @@ class KeyPair(APIObjectWrapper):
     attrs = ['fingerprint', 'key_name', 'private_key']
 
 
-class Server(object):
+class Server(APIObjectWrapper):
     ''' Simple wrapper around openstackx.extras.server.Server '''
     attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid']
 
 
-class Services(object):
+class Services(APIObjectWrapper):
     attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up', 
              'zone']
 
 
-class Tenant(object):
+class Tenant(APIObjectWrapper):
     ''' Simple wrapper around openstackx.auth.tokens.Tenant '''
     attrs = ['id', 'description', 'enabled']
 
 
-class Token(object):
+class Token(APIObjectWrapper):
     ''' Simple wrapper around openstackx.auth.tokens.Token '''
     attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
 
