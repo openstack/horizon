@@ -41,16 +41,42 @@ class APIResourceWrapper(object):
         api object as the only argument to the constructor
     '''
     attrs = []
-    def __init__(self, apiobject):
-        self.apiobject = apiobject
+    def __init__(self, apiresource):
+        self.apiresource = apiresource
 
-    def __getattr__(self, attrname):
-        if attrname in self.attrs:
-            return self.apiobject.__getattr__(attrname)
+    def __getattr__(self, attr):
+        if attr in self.attrs:
+            return self.apiresource.__getattr__(attr)
         else:
-            LOG.debug('Attempted to access unknown attribute "%s" on wrapped'
-                      ' object of type "%s"' % (attrname, self.__class__))
-            raise AttributeError(attrname)
+            LOG.debug('Attempted to access unknown attribute "%s" on'
+                      'APIResource object of type "%s" wrapping resource of'
+                      ' type "%s"' % (attr, self.__class__,
+                                      self.apiresource.__class__))
+            raise AttributeError(attr)
+
+class APIDictWrapper(object):
+    ''' Simple wrapper for api dictionaries
+
+        Some api calls return dictionaries.  This class provides identical 
+        behavior as APIResourceWrapper, except that it will also 
+        behave as a dictionary, in addition to attribute accesses.
+
+        Attribute access is the preferred method of access, to be
+        consistent with api resource objects from openstackx
+    '''
+    def __init__(self, apidict):
+        self.apidict = apidict
+
+    def __getattr__(self, attr):
+        if attr in self.attrs:
+            return self.apidict[attr]
+        else:
+            LOG.debug('Attempted to access unknown item "%s" on'
+                      'APIResource object of type "%s"' 
+                      % (attr, self.__class__))
+
+    def __getitem__(self, item):
+        return self.__getattr__(item)
 
 
 class Console(APIResourceWrapper):
@@ -61,6 +87,24 @@ class Console(APIResourceWrapper):
 class Flavor(APIResourceWrapper):
     '''Simple wrapper around openstackx.admin.flavors.Flavor'''
     attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
+
+
+class Image(APIDictWrapper):
+    '''Simple wrapper around glance image dictionary'''
+    attrs = ['checksum', 'created_at', 'deleted', 'deleted_at', 'disk_format',
+             'id', 'is_public', 'location', 'name', 'properties',
+             'size', 'status', 'updated_at']
+
+    def __getattr__(self, attrname):
+        if attrname == "properties":
+            return ImageProperties(super(Image, self).properties)
+        else:
+            return super(Image, self).__getattr__(attrname)
+
+class ImageProperties(APIDictWrapper):
+    '''Simple wrapper around glance image properties dictionary'''
+    attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
+             'project_id', 'ramdisk_id']
 
 
 class KeyPair(APIResourceWrapper):
@@ -195,7 +239,7 @@ def image_all_metadata(request):
 
 
 def image_create(request, image_meta, image_file):
-    return glance_api(request).add_image(image_meta, image_file)
+    return Image(glance_api(request).add_image(image_meta, image_file))
 
 
 def image_delete(request, image_id):
@@ -203,16 +247,16 @@ def image_delete(request, image_id):
 
 
 def image_get(request, image_id):
-    return glance_api(request).get_image(image_id)[0]
+    return Image(glance_api(request).get_image(image_id)[0])
 
 
 def image_list_detailed(request):
-    return glance_api(request).get_images_detailed()
+    return [Image(i) for i in glance_api(request).get_images_detailed()]
 
 
 def image_update(request, image_id, image_meta=None):
     image_meta = image_meta and image_meta or {}
-    return glance_api(request).update_image(image_id, image_meta=image_meta)
+    return Image(glance_api(request).update_image(image_id, image_meta=image_meta))
 
 
 def keypair_create(request, name):
