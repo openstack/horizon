@@ -7,8 +7,7 @@ attributes that are direct maps to the data returned from the API http call.
 Unfortunately, these objects are also often constructed dynamically, making
 it difficult to know what data is available from the API object.  Because of
 this, all API calls should wrap their returned object in one defined here,
-using only explicitly defined properties and/or methods.  This wrapping also
-makes testing easier.
+using only explicitly defined atributes and/or methods.
 
 In other words, django_openstack developers not working on django_openstack.api
 shouldn't need to understand the finer details of APIs for Nova/Glance/Swift et
@@ -46,7 +45,8 @@ class APIResourceWrapper(object):
 
     def __getattr__(self, attr):
         if attr in self.attrs:
-            return self._apiresource.__getattr__(attr)
+            # __getattr__ won't find properties
+            return self._apiresource.__getattribute__(attr)
         else:
             LOG.debug('Attempted to access unknown attribute "%s" on'
                       'APIResource object of type "%s" wrapping resource of'
@@ -89,6 +89,11 @@ class APIDictWrapper(object):
             return self.__getattr__(item)
         except AttributeError:
             return default
+
+
+class Container(APIResourceWrapper):
+    '''Simple wrapper around cloudfiles.container.Container'''
+    attrs = ['name']
 
 
 class Console(APIResourceWrapper):
@@ -134,6 +139,10 @@ class Server(APIResourceWrapper):
 class Services(APIResourceWrapper):
     attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up',
              'zone']
+
+
+class SwiftObject(APIResourceWrapper):
+    attrs = ['name']
 
 
 class Tenant(APIResourceWrapper):
@@ -428,11 +437,11 @@ def user_update_tenant(request, user_id, tenant_id):
 
 
 def swift_get_containers():
-    return [{"name":c.name} for c in swift_api().get_all_containers()]
+    return [Container(c) for c in swift_api().get_all_containers()]
 
 
 def swift_create_container(name):
-    return swift_api().create_container(name)
+    return Container(swift_api().create_container(name))
 
 
 def swift_delete_container(name):
@@ -441,18 +450,18 @@ def swift_delete_container(name):
 
 def swift_get_objects(container_name):
     container = swift_api().get_container(container_name)
-    return [{"name":obj.name} for obj in container.get_objects()]
+    return [SwiftObject(o) for o in container.get_objects()]
 
 
 def swift_upload_object(container_name, object_name, object_data):
     container = swift_api().get_container(container_name)
     obj = container.create_object(object_name)
-    return obj.write(object_data)
+    obj.write(object_data)
 
 
 def swift_delete_object(container_name, object_name):
     container = swift_api().get_container(container_name)
-    return container.delete_object(object_name)
+    container.delete_object(object_name)
 
 
 def swift_get_object_data(container_name, object_name):
