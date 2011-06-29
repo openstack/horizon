@@ -42,7 +42,7 @@ class DeleteFlavor(forms.SelfHandlingForm):
         try:
             flavor_id = data['flavorid']
             flavor = api.flavor_get(request, flavor_id)
-            api.flavor_delete(request, flavor_id, True)
+            api.flavor_delete(request, flavor_id, False)
             messages.info(request, 'Successfully deleted flavor: %s' %
                           flavor.name)
         except api_exceptions.ApiException, e:
