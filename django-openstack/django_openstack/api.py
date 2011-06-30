@@ -137,7 +137,8 @@ class Server(APIResourceWrapper):
        Preserves the request info so image name can later be retrieved
     '''
     _attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
-             'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid']
+             'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
+             'image_name']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
@@ -145,10 +146,14 @@ class Server(APIResourceWrapper):
 
     def __getattr__(self, attr):
         if attr == "attrs":
-            return ServerAttributes(super(Server, self).__getattr__(attr),
-                                    self.request, self)
+            return ServerAttributes(super(Server, self).__getattr__(attr))
         else:
             return super(Server, self).__getattr__(attr)
+
+    @property
+    def image_name(self):
+        image = image_get(self.request, self.imageRef)
+        return image.name
 
 
 class ServerAttributes(APIDictWrapper):
@@ -159,18 +164,7 @@ class ServerAttributes(APIDictWrapper):
     _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
               'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
               'os_type', 'project_id', 'ramdisk_id', 'scheduled_at',
-              'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname',
-              'image_name']
-
-    def __init__(self, apidict, request, server):
-        super(ServerAttributes, self).__init__(apidict)
-        self.request = request
-        self.server = server
-
-    @property
-    def image_name(self):
-        image = image_get(self.request, self.server.imageRef)
-        return image.name
+              'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname']
 
 
 class Services(APIResourceWrapper):
