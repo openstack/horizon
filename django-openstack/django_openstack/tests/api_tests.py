@@ -22,8 +22,9 @@ import mox
 
 from django import http
 from django import test
-
 from django_openstack import api
+from mox import IsA
+
 
 TEST_PASSWORD = '12345'
 TEST_RETURN = 'retValue'
@@ -32,6 +33,27 @@ TEST_TENANT_ID = '1234'
 TEST_USERNAME = 'testUser'
 TEST_TOKEN_ID = 'userId'
 
+class Server(object):
+    ''' More or less fakes what the api is looking for '''
+    def __init__(self, id, imageRef, attrs=None):
+        self.id = id
+        self.imageRef = imageRef
+        if attrs is not None:
+            self.attrs = attrs
+
+    def __eq__(self, other):
+        if self.id != other.id or \
+          self.imageRef != other.imageRef:
+              return False
+
+        for k in self.attrs:
+            if other.attrs.__getattr__(k) != v:
+                return False
+
+        return True
+
+    def __ne__(self, other):
+        return not self == other
 
 class Tenant(object):
     ''' More or less fakes what the api is looking for '''
@@ -81,6 +103,7 @@ class APIResource(api.APIResourceWrapper):
 
 
 class APIDict(api.APIDictWrapper):
+    ''' Simple APIDict for testing '''
     _attrs = ['foo', 'bar', 'baz']
 
     @staticmethod
@@ -98,6 +121,8 @@ class APIResourceWrapperTests(test.TestCase):
 
     def test_get_invalid_attribute(self):
         resource = APIResource.get_instance()
+        self.assertNotIn('missing', resource._attrs,
+                msg="Test assumption broken.  Find new missing attribute")
         with self.assertRaises(AttributeError):
             resource.missing
 
@@ -117,6 +142,8 @@ class APIDictWrapperTests(test.TestCase):
 
     def test_get_invalid_item(self):
         resource = APIDict.get_instance()
+        self.assertNotIn('missing', resource._attrs,
+                msg="Test assumption broken.  Find new missing attribute")
         with self.assertRaises(AttributeError):
             resource.missing
         with self.assertRaises(KeyError):
@@ -128,6 +155,109 @@ class APIDictWrapperTests(test.TestCase):
             resource.baz
         with self.assertRaises(KeyError):
             resource['baz']
+
+    def test_get_with_default(self):
+        resource = APIDict.get_instance()
+
+        self.assertEqual(resource.get('foo'), 'foo')
+
+        self.assertIsNone(resource.get('baz'))
+
+        self.assertEqual('retValue', resource.get('baz', 'retValue'))
+
+# Wrapper classes that only define _attrs don't need extra testing.  
+# Wrapper classes that have other attributes or methods need testing
+class ImageWrapperTests(test.TestCase):
+    dict_with_properties = {
+            'properties':
+                {'image_state': 'running'},
+            'size': 100,
+            }
+    dict_without_properties = {
+            'size': 100,
+            }
+                
+    def test_get_properties(self):
+        image = api.Image(self.dict_with_properties)
+        image_props = image.properties
+        self.assertIsInstance(image_props, api.ImageProperties)
+        self.assertEqual(image_props.image_state, 'running')
+
+    def test_get_other(self):
+        image = api.Image(self.dict_with_properties)
+        self.assertEqual(image.size, 100)
+
+    def test_get_properties_missing(self):
+        image = api.Image(self.dict_without_properties)
+        with self.assertRaises(AttributeError):
+            image.properties
+
+    def test_get_other_missing(self):
+        image = api.Image(self.dict_without_properties)
+        with self.assertRaises(AttributeError):
+            self.assertNotIn('missing', image._attrs,
+                msg="Test assumption broken.  Find new missing attribute")
+            image.missing
+
+class ServerWrapperTests(test.TestCase):
+    HOST = 'hostname'
+    ID = '1'
+    IMAGE_NAME = 'imageName'
+    IMAGE_REF = '3'
+
+    def setUp(self):
+        self.mox = mox.Mox()
+
+        # these are all objects "fetched" from the api
+        self.inner_attrs = {'host':self.HOST}
+
+        self.inner_server = Server(self.ID, self.IMAGE_REF, self.inner_attrs)
+        self.inner_server_no_attrs = Server(self.ID, self.IMAGE_REF)
+
+        self.request = self.mox.CreateMock(http.HttpRequest)
+
+    def tearDown(self):
+        self.mox.UnsetStubs()
+
+    def test_get_attrs(self):
+        server = api.Server(self.inner_server, self.request)
+        attrs = server.attrs
+        # for every attribute in the "inner" object passed to the api wrapper,
+        # see if it can be accessed through the api.ServerAttribute instance
+        for k in self.inner_attrs:
+            self.assertEqual(attrs.__getattr__(k), self.inner_attrs[k])
+
+    def test_get_other(self):
+        server = api.Server(self.inner_server, self.request)
+        self.assertEqual(server.id, self.ID)
+
+    def test_get_attrs_missing(self):
+        server = api.Server(self.inner_server_no_attrs, self.request)
+        with self.assertRaises(AttributeError):
+            server.attrs
+
+    def test_get_other_missing(self):
+        server = api.Server(self.inner_server, self.request)
+        with self.assertRaises(AttributeError):
+            self.assertNotIn('missing', server._attrs,
+                msg="Test assumption broken.  Find new missing attribute")
+            server.missing
+
+    def test_image_name(self):
+        self.mox.StubOutWithMock(api, 'image_get')
+        api.image_get(IsA(http.HttpRequest),
+                      self.IMAGE_REF
+                      ).AndReturn(api.Image({'name': self.IMAGE_NAME}))
+
+        server = api.Server(self.inner_server, self.request)
+
+        self.mox.ReplayAll()
+
+        image_name = server.image_name
+
+        self.assertEqual(image_name, self.IMAGE_NAME)
+
+        self.mox.VerifyAll()
 
 
 class AuthApiTests(test.TestCase):
@@ -154,7 +284,7 @@ class AuthApiTests(test.TestCase):
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
-        request_mock = self.mox.CreateMock(http.HttpResponse)
+        request_mock = self.mox.CreateMock(http.HttpRequest)
         request_mock.session = {'token': 'aToken'}
 
         self.mox.ReplayAll()
@@ -178,7 +308,7 @@ class AuthApiTests(test.TestCase):
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
-        request_mock = self.mox.CreateMock(http.HttpResponse)
+        request_mock = self.mox.CreateMock(http.HttpRequest)
         request_mock.session = {'token': 'aToken'}
 
         self.mox.ReplayAll()
@@ -205,7 +335,7 @@ class AuthApiTests(test.TestCase):
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
-        request_mock = self.mox.CreateMock(http.HttpResponse)
+        request_mock = self.mox.CreateMock(http.HttpRequest)
 
         self.mox.ReplayAll()
 
@@ -228,7 +358,7 @@ class AuthApiTests(test.TestCase):
         tokens_mock.create(TEST_TENANT_ID, TEST_USERNAME,
                            TEST_PASSWORD).AndReturn(test_token)
 
-        request_mock = self.mox.CreateMock(http.HttpResponse)
+        request_mock = self.mox.CreateMock(http.HttpRequest)
 
         self.mox.ReplayAll()
 
@@ -246,3 +376,4 @@ class GlanceApiTests(test.TestCase):
 
     def tearDown(self):
         self.mox.UnsetStubs()
+
