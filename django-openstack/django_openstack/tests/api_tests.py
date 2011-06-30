@@ -12,6 +12,7 @@ TEST_TENANT_ID = '1234'
 TEST_USERNAME = 'testUser'
 TEST_TOKEN_ID = 'userId'
 
+
 class Tenant(object):
     ''' More or less fakes what the api is looking for '''
     def __init__(self, id, description, enabled):
@@ -27,6 +28,7 @@ class Tenant(object):
     def __ne__(self, other):
         return not self == other
 
+
 class Token(object):
     ''' More or less fakes what the api is looking for '''
     def __init__(self, id, username, tenant_id):
@@ -41,6 +43,7 @@ class Token(object):
 
     def __ne__(self, other):
         return not self == other
+
 
 class AuthApiTests(test.TestCase):
     def setUp(self):
@@ -150,6 +153,7 @@ class AuthApiTests(test.TestCase):
         self.assertEqual(test_token, ret_val)
 
         self.mox.VerifyAll()
+
 
 class GlanceApiTests(test.TestCase):
     def setUp(self):

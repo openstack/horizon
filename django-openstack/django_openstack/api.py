@@ -18,6 +18,7 @@ al.
 from django.conf import settings
 
 import cloudfiles
+import datetime
 import glance.client
 import httplib
 import json
@@ -35,21 +36,21 @@ LOG = logging.getLogger('django_openstack.api')
 class APIResourceWrapper(object):
     ''' Simple wrapper for api objects
 
-        Define attrs on the child class and pass in the
+        Define _attrs on the child class and pass in the
         api object as the only argument to the constructor
     '''
-    attrs = []
+    _attrs = []
 
     def __init__(self, apiresource):
         self._apiresource = apiresource
 
     def __getattr__(self, attr):
-        if attr in self.attrs:
+        if attr in self._attrs:
             # __getattr__ won't find properties
             return self._apiresource.__getattribute__(attr)
         else:
             LOG.debug('Attempted to access unknown attribute "%s" on'
-                      'APIResource object of type "%s" wrapping resource of'
+                      ' APIResource object of type "%s" wrapping resource of'
                       ' type "%s"' % (attr, self.__class__,
                                       self._apiresource.__class__))
             raise AttributeError(attr)
@@ -69,7 +70,7 @@ class APIDictWrapper(object):
         self._apidict = apidict
 
     def __getattr__(self, attr):
-        if attr in self.attrs:
+        if attr in self._attrs:
             try:
                 return self._apidict[attr]
             except KeyError, e:
@@ -93,24 +94,24 @@ class APIDictWrapper(object):
 
 class Container(APIResourceWrapper):
     '''Simple wrapper around cloudfiles.container.Container'''
-    attrs = ['name']
+    _attrs = ['name']
 
 
 class Console(APIResourceWrapper):
     '''Simple wrapper around openstackx.extras.consoles.Console'''
-    attrs = ['id', 'output', 'type']
+    _attrs = ['id', 'output', 'type']
 
 
 class Flavor(APIResourceWrapper):
     '''Simple wrapper around openstackx.admin.flavors.Flavor'''
-    attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
+    _attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
 
 
 class Image(APIDictWrapper):
     '''Simple wrapper around glance image dictionary'''
-    attrs = ['checksum', 'created_at', 'deleted', 'deleted_at', 'disk_format',
-             'id', 'is_public', 'location', 'name', 'properties',
-             'size', 'status', 'updated_at']
+    _attrs = ['checksum', 'container_format', 'created_at', 'deleted',
+             'deleted_at', 'disk_format', 'id', 'is_public', 'location',
+             'name', 'properties', 'size', 'status', 'updated_at']
 
     def __getattr__(self, attrname):
         if attrname == "properties":
@@ -121,43 +122,79 @@ class Image(APIDictWrapper):
 
 class ImageProperties(APIDictWrapper):
     '''Simple wrapper around glance image properties dictionary'''
-    attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
+    _attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
              'project_id', 'ramdisk_id']
 
 
 class KeyPair(APIResourceWrapper):
     '''Simple wrapper around openstackx.extras.keypairs.Keypair'''
-    attrs = ['fingerprint', 'key_name', 'private_key']
+    _attrs = ['fingerprint', 'key_name', 'private_key']
 
 
 class Server(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.server.Server'''
-    attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
+    '''Simple wrapper around openstackx.extras.server.Server
+        
+       Preserves the request info so image name can later be retrieved
+    '''
+    _attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid']
+
+    def __init__(self, apiresource, request):
+        super(Server, self).__init__(apiresource)
+        self.request = request
+
+    def __getattr__(self, attr):
+        if attr == "attrs":
+            return ServerAttributes(super(Server, self).__getattr__(attr),
+                                    self.request, self)
+        else:
+            return super(Server, self).__getattr__(attr)
+
+
+class ServerAttributes(APIDictWrapper):
+    '''Simple wrapper around openstackx.extras.server.Server attributes
+
+       Preserves the request info so image name can later be retrieved
+    '''
+    _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
+              'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
+              'os_type', 'project_id', 'ramdisk_id', 'scheduled_at',
+              'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname',
+              'image_name']
+
+    def __init__(self, apidict, request, server):
+        super(ServerAttributes, self).__init__(apidict)
+        self.request = request
+        self.server = server
+
+    @property
+    def image_name(self):
+        image = image_get(self.request, self.server.imageRef)
+        return image.name
 
 
 class Services(APIResourceWrapper):
-    attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up',
+    _attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up',
              'zone']
 
 
 class SwiftObject(APIResourceWrapper):
-    attrs = ['name']
+    _attrs = ['name']
 
 
 class Tenant(APIResourceWrapper):
     '''Simple wrapper around openstackx.auth.tokens.Tenant'''
-    attrs = ['id', 'description', 'enabled']
+    _attrs = ['id', 'description', 'enabled']
 
 
 class Token(APIResourceWrapper):
     '''Simple wrapper around openstackx.auth.tokens.Token'''
-    attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
+    _attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
 
 
 class Usage(APIResourceWrapper):
     '''Simple wrapper around openstackx.extras.usage.Usage'''
-    attrs = ['begin', 'instances', 'stop', 'tenant_id',
+    _attrs = ['begin', 'instances', 'stop', 'tenant_id',
              'total_active_disk_size', 'total_active_instances',
              'total_active_ram_size', 'total_active_vcpus', 'total_cpu_usage',
              'total_disk_usage', 'total_hours', 'total_ram_usage']
@@ -165,7 +202,7 @@ class Usage(APIResourceWrapper):
 
 class User(APIResourceWrapper):
     '''Simple wrapper around openstackx.extras.users.User'''
-    attrs = ['email', 'enabled', 'id', 'tenantId']
+    _attrs = ['email', 'enabled', 'id', 'tenantId']
 
 
 def url_for(request, service_name, admin=False):
@@ -307,7 +344,8 @@ def keypair_list(request):
 
 def server_create(request, name, image, flavor, user_data, key_name):
     return Server(extras_api(request).servers.create(
-            name, image, flavor, user_data=user_data, key_name=key_name))
+            name, image, flavor, user_data=user_data, key_name=key_name),
+            request)
 
 
 def server_delete(request, instance):
@@ -315,11 +353,11 @@ def server_delete(request, instance):
 
 
 def server_get(request, instance_id):
-    return Server(compute_api(request).servers.get(instance_id))
+    return Server(compute_api(request).servers.get(instance_id), request)
 
 
 def server_list(request):
-    return [Server(s) for s in extras_api(request).servers.list()]
+    return [Server(s, request) for s in extras_api(request).servers.list()]
 
 
 def server_reboot(request,

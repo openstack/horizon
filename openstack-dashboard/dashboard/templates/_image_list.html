@@ -1,3 +1,4 @@
+{% load parse_date %}
 <table id="images" style="width: 100%">
   <tr>
     <th>ID</th>
@@ -10,8 +11,8 @@
   <tr class="{% cycle 'odd' 'even' %}">
       <td>{{image.id}}</td>
       <td>{{image.name}}</td>
-      <td>{{image.created|date:"Y-m-d H:i"}}</td>
-      <td>{{image.updated|date:"Y-m-d H:i"}}</td>
+      <td>{{image.created_at|parse_date}}</td>
+      <td>{{image.updated_at|parse_date}}</td>
       <td>{{image.status|capfirst}}</td>
       <td id="actions">
         <ul>

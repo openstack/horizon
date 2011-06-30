@@ -1,4 +1,5 @@
 *.pyc
+*.swp
 django-openstack/.installed.cfg
 django-openstack/bin
 django-openstack/develop-eggs/

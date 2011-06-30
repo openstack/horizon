@@ -93,12 +93,7 @@ def index(request, tenant_id):
 
     instances = []
     try:
-        image_dict = api.image_all_metadata(request)
         instances = api.server_list(request)
-        for instance in instances:
-            # FIXME - ported this over, but it is hacky
-            instance._info['attrs']['image_name'] =\
-               image_dict.get(int(instance.attrs['image_id']), {}).get('name')
     # TODO(markgius): Why isn't this an apiexception?
     except Exception as e:
         LOG.error('Exception in instance index', exc_info=True)

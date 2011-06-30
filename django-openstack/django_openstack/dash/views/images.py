@@ -104,19 +104,8 @@ def index(request, tenant_id):
         LOG.error("Error retrieving image list", exc_info=True)
         messages.error(request, "Error retrieving image list: %s" % e.message)
 
-    images = []
-
-    def convert_time(tstr):
-        if tstr:
-            return datetime.datetime.strptime(tstr, "%Y-%m-%dT%H:%M:%S.%f")
-        else:
-            return ''
-
-    for im in all_images:
-        im['created'] = convert_time(im['created_at'])
-        im['updated'] = convert_time(im['updated_at'])
-        if im['container_format'] not in ['aki', 'ari']:
-            images.append(im)
+    images = [im for im in all_images
+              if im['container_format'] not in ['aki', 'ari']]
 
     return render_to_response('dash_images.html', {
         'tenant': tenant,

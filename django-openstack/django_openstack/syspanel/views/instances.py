@@ -96,9 +96,10 @@ def usage(request):
     for usage in usage_list:
         # FIXME: api needs a simpler dict interface (with iteration) - anthony
         # NOTE(mgius): Changed this on the api end.  Not too much neater, but
-        #              at least its not going into private member data anymore
+        # at least its not going into private member data of an external
+        # class anymore
         #usage = usage._info
-        for k in usage.attrs:
+        for k in usage._attrs:
             v = usage.__getattr__(k)
             if type(v) in [float, int]:
                 if not k in global_summary:
@@ -177,12 +178,7 @@ def index(request):
 
     instances = []
     try:
-        image_dict = api.image_all_metadata(request)
         instances = api.server_list(request)
-        for instance in instances:
-            # FIXME - ported this over, but it is hacky
-            instance._info['attrs']['image_name'] =\
-               image_dict.get(int(instance.attrs['image_id']),{}).get('name')
     except Exception as e:
         LOG.error('Unspecified error in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)
