@@ -46,7 +46,7 @@ class DeleteFlavor(forms.SelfHandlingForm):
     def handle(self, request, data):
         flavor_id = data['flavorid']
         LOG.info('Deleting flavor with id "%s"' % flavor_id)
-        api.flavor_delete(flavor_id, True)
+        api.flavor_delete(request, flavor_id, True)
         return redirect(request.build_absolute_uri())
 
 

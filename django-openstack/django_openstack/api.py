@@ -1,8 +1,24 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
+'''
+Methods and interface objects used to interact with external apis.
+
+API method calls return objects that are in many cases objects with
+attributes that are direct maps to the data returned from the API http call.
+Unfortunately, these objects are also often constructed dynamically, making
+it difficult to know what data is available from the API object.  Because of
+this, all API calls should wrap their returned object in one defined here,
+using only explicitly defined atributes and/or methods.
+
+In other words, django_openstack developers not working on django_openstack.api
+shouldn't need to understand the finer details of APIs for Nova/Glance/Swift et
+al.
+
+'''
 
 from django.conf import settings
 
 import cloudfiles
+import datetime
 import glance.client
 import httplib
 import json
@@ -15,6 +31,172 @@ from urlparse import urlparse
 
 
 LOG = logging.getLogger('django_openstack.api')
+
+
+class APIResourceWrapper(object):
+    ''' Simple wrapper for api objects
+
+        Define _attrs on the child class and pass in the
+        api object as the only argument to the constructor
+    '''
+    _attrs = []
+
+    def __init__(self, apiresource):
+        self._apiresource = apiresource
+
+    def __getattr__(self, attr):
+        if attr in self._attrs:
+            # __getattr__ won't find properties
+            return self._apiresource.__getattribute__(attr)
+        else:
+            LOG.debug('Attempted to access unknown attribute "%s" on'
+                      ' APIResource object of type "%s" wrapping resource of'
+                      ' type "%s"' % (attr, self.__class__,
+                                      self._apiresource.__class__))
+            raise AttributeError(attr)
+
+
+class APIDictWrapper(object):
+    ''' Simple wrapper for api dictionaries
+
+        Some api calls return dictionaries.  This class provides identical
+        behavior as APIResourceWrapper, except that it will also behave as a
+        dictionary, in addition to attribute accesses.
+
+        Attribute access is the preferred method of access, to be
+        consistent with api resource objects from openstackx
+    '''
+    def __init__(self, apidict):
+        self._apidict = apidict
+
+    def __getattr__(self, attr):
+        if attr in self._attrs:
+            try:
+                return self._apidict[attr]
+            except KeyError, e:
+                raise AttributeError(e)
+
+        else:
+            LOG.debug('Attempted to access unknown item "%s" on'
+                      'APIResource object of type "%s"'
+                      % (attr, self.__class__))
+            raise AttributeError(attr)
+
+    def __getitem__(self, item):
+        return self.__getattr__(item)
+
+    def get(self, item, default=None):
+        try:
+            return self.__getattr__(item)
+        except AttributeError:
+            return default
+
+
+class Container(APIResourceWrapper):
+    '''Simple wrapper around cloudfiles.container.Container'''
+    _attrs = ['name']
+
+
+class Console(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.consoles.Console'''
+    _attrs = ['id', 'output', 'type']
+
+
+class Flavor(APIResourceWrapper):
+    '''Simple wrapper around openstackx.admin.flavors.Flavor'''
+    _attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
+
+
+class Image(APIDictWrapper):
+    '''Simple wrapper around glance image dictionary'''
+    _attrs = ['checksum', 'container_format', 'created_at', 'deleted',
+             'deleted_at', 'disk_format', 'id', 'is_public', 'location',
+             'name', 'properties', 'size', 'status', 'updated_at']
+
+    def __getattr__(self, attrname):
+        if attrname == "properties":
+            return ImageProperties(super(Image, self).__getattr__(attrname))
+        else:
+            return super(Image, self).__getattr__(attrname)
+
+
+class ImageProperties(APIDictWrapper):
+    '''Simple wrapper around glance image properties dictionary'''
+    _attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
+             'project_id', 'ramdisk_id']
+
+
+class KeyPair(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.keypairs.Keypair'''
+    _attrs = ['fingerprint', 'key_name', 'private_key']
+
+
+class Server(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.server.Server
+        
+       Preserves the request info so image name can later be retrieved
+    '''
+    _attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
+             'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
+             'image_name']
+
+    def __init__(self, apiresource, request):
+        super(Server, self).__init__(apiresource)
+        self.request = request
+
+    def __getattr__(self, attr):
+        if attr == "attrs":
+            return ServerAttributes(super(Server, self).__getattr__(attr))
+        else:
+            return super(Server, self).__getattr__(attr)
+
+    @property
+    def image_name(self):
+        image = image_get(self.request, self.imageRef)
+        return image.name
+
+
+class ServerAttributes(APIDictWrapper):
+    '''Simple wrapper around openstackx.extras.server.Server attributes
+
+       Preserves the request info so image name can later be retrieved
+    '''
+    _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
+              'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
+              'os_type', 'project_id', 'ramdisk_id', 'scheduled_at',
+              'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname']
+
+
+class Services(APIResourceWrapper):
+    _attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up',
+             'zone']
+
+
+class SwiftObject(APIResourceWrapper):
+    _attrs = ['name']
+
+
+class Tenant(APIResourceWrapper):
+    '''Simple wrapper around openstackx.auth.tokens.Tenant'''
+    _attrs = ['id', 'description', 'enabled']
+
+
+class Token(APIResourceWrapper):
+    '''Simple wrapper around openstackx.auth.tokens.Token'''
+    _attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
+
+
+class Usage(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.usage.Usage'''
+    _attrs = ['begin', 'instances', 'stop', 'tenant_id',
+             'total_active_disk_size', 'total_active_instances',
+             'total_active_ram_size', 'total_active_vcpus', 'total_cpu_usage',
+             'total_disk_usage', 'total_hours', 'total_ram_usage']
+
+
+class User(APIResourceWrapper):
+    '''Simple wrapper around openstackx.extras.users.User'''
+    _attrs = ['email', 'enabled', 'id', 'tenantId']
 
 
 def url_for(request, service_name, admin=False):
@@ -87,12 +269,12 @@ def swift_api():
 
 
 def console_create(request, instance_id, kind=None):
-    return extras_api(request).consoles.create(instance_id, kind)
+    return Console(extras_api(request).consoles.create(instance_id, kind))
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavor_id):
-    return admin_api(request).flavors.create(
-            name, int(memory), int(vcpu), int(disk), flavor_id)
+    return Flavor(admin_api(request).flavors.create(
+            name, int(memory), int(vcpu), int(disk), flavor_id))
 
 
 def flavor_delete(request, flavor_id, purge=False):
@@ -100,18 +282,19 @@ def flavor_delete(request, flavor_id, purge=False):
 
 
 def flavor_get(request, flavor_id):
-    return compute_api(request).flavors.get(flavor_id)
+    return Flavor(compute_api(request).flavors.get(flavor_id))
 
 
 def flavor_list(request):
-    return extras_api(request).flavors.list()
+    return [Flavor(f) for f in extras_api(request).flavors.list()]
 
 
 def flavor_list_admin(request):
-    return extras_api(request).flavors.list()
+    return [Flavor(f) for f in extras_api(request).flavors.list()]
 
 
 def image_all_metadata(request):
+    #TODO(mgius): I have no idea what to do with this...
     images = glance_api(request).get_images_detailed()
     image_dict = {}
     for image in images:
@@ -120,7 +303,7 @@ def image_all_metadata(request):
 
 
 def image_create(request, image_meta, image_file):
-    return glance_api(request).add_image(image_meta, image_file)
+    return Image(glance_api(request).add_image(image_meta, image_file))
 
 
 def image_delete(request, image_id):
@@ -128,20 +311,21 @@ def image_delete(request, image_id):
 
 
 def image_get(request, image_id):
-    return glance_api(request).get_image(image_id)[0]
+    return Image(glance_api(request).get_image(image_id)[0])
 
 
 def image_list_detailed(request):
-    return glance_api(request).get_images_detailed()
+    return [Image(i) for i in glance_api(request).get_images_detailed()]
 
 
 def image_update(request, image_id, image_meta=None):
     image_meta = image_meta and image_meta or {}
-    return glance_api(request).update_image(image_id, image_meta=image_meta)
+    return Image(glance_api(request).update_image(image_id,
+                                                  image_meta=image_meta))
 
 
 def keypair_create(request, name):
-    return extras_api(request).keypairs.create(name)
+    return KeyPair(extras_api(request).keypairs.create(name))
 
 
 def keypair_delete(request, keypair_id):
@@ -149,12 +333,13 @@ def keypair_delete(request, keypair_id):
 
 
 def keypair_list(request):
-    return extras_api(request).keypairs.list()
+    return [KeyPair(key) for key in extras_api(request).keypairs.list()]
 
 
 def server_create(request, name, image, flavor, user_data, key_name):
-    return extras_api(request).servers.create(
-            name, image, flavor, user_data=user_data, key_name=key_name)
+    return Server(extras_api(request).servers.create(
+            name, image, flavor, user_data=user_data, key_name=key_name),
+            request)
 
 
 def server_delete(request, instance):
@@ -162,11 +347,11 @@ def server_delete(request, instance):
 
 
 def server_get(request, instance_id):
-    return compute_api(request).servers.get(instance_id)
+    return Server(compute_api(request).servers.get(instance_id), request)
 
 
 def server_list(request):
-    return extras_api(request).servers.list()
+    return [Server(s, request) for s in extras_api(request).servers.list()]
 
 
 def server_reboot(request,
@@ -181,7 +366,7 @@ def service_get(request, name):
 
 
 def service_list(request):
-    return admin_api(request).services.list()
+    return [Services(s) for s in admin_api(request).services.list()]
 
 
 def service_update(request, name, enabled):
@@ -192,31 +377,37 @@ def token_get_tenant(request, tenant_id):
     tenants = auth_api().tenants.for_token(request.session['token'])
     for t in tenants:
         if str(t.id) == str(tenant_id):
-            return t
+            return Tenant(t)
+
+    LOG.warning('Unknown tenant id "%s" requested' % tenant_id)
 
 
 def token_list_tenants(request, token):
-    return auth_api().tenants.for_token(token)
+    return [Tenant(t) for t in auth_api().tenants.for_token(token)]
 
 
 def tenant_create(request, tenant_id, description, enabled):
-    return account_api(request).tenants.create(tenant_id, description, enabled)
+    return Tenant(account_api(request).tenants.create(tenant_id,
+                                                      description,
+                                                      enabled))
 
 
 def tenant_get(request, tenant_id):
-    return account_api(request).tenants.get(tenant_id)
+    return Tenant(account_api(request).tenants.get(tenant_id))
 
 
 def tenant_list(request):
-    return account_api(request).tenants.list()
+    return [Tenant(t) for t in account_api(request).tenants.list()]
 
 
 def tenant_update(request, tenant_id, description, enabled):
-    return account_api(request).tenants.update(tenant_id, description, enabled)
+    return Tenant(account_api(request).tenants.update(tenant_id,
+                                                      description,
+                                                      enabled))
 
 
 def token_create(request, tenant, username, password):
-    return auth_api().tokens.create(tenant, username, password)
+    return Token(auth_api().tokens.create(tenant, username, password))
 
 
 def token_info(request, token):
@@ -241,18 +432,16 @@ def token_info(request, token):
 
 
 def usage_get(request, tenant_id, start, end):
-    LOG.debug('Usage_get for tenant "%s" from %s to %s"' %
-            (tenant_id, start, end))
-    return extras_api(request).usage.get(tenant_id, start, end)
+    return Usage(extras_api(request).usage.get(tenant_id, start, end))
 
 
 def usage_list(request, start, end):
-    return extras_api(request).usage.list(start, end)
+    return [Usage(u) for u in extras_api(request).usage.list(start, end)]
 
 
 def user_create(request, user_id, email, password, tenant_id):
-    return account_api(request).users.create(
-            user_id, email, password, tenant_id)
+    return User(account_api(request).users.create(
+            user_id, email, password, tenant_id))
 
 
 def user_delete(request, user_id):
@@ -260,31 +449,31 @@ def user_delete(request, user_id):
 
 
 def user_get(request, user_id):
-    return account_api(request).users.get(user_id)
+    return User(account_api(request).users.get(user_id))
 
 
 def user_list(request):
-    return account_api(request).users.list()
+    return [User(u) for u in account_api(request).users.list()]
 
 
 def user_update_email(request, user_id, email):
-    return account_api(request).users.update_email(user_id, email)
+    return User(account_api(request).users.update_email(user_id, email))
 
 
 def user_update_password(request, user_id, password):
-    return account_api(request).users.update_password(user_id, password)
+    return User(account_api(request).users.update_password(user_id, password))
 
 
 def user_update_tenant(request, user_id, tenant_id):
-    return account_api(request).users.update_tenant(user_id, tenant_id)
+    return User(account_api(request).users.update_tenant(user_id, tenant_id))
 
 
 def swift_get_containers():
-    return [{"name":c.name} for c in swift_api().get_all_containers()]
+    return [Container(c) for c in swift_api().get_all_containers()]
 
 
 def swift_create_container(name):
-    return swift_api().create_container(name)
+    return Container(swift_api().create_container(name))
 
 
 def swift_delete_container(name):
@@ -293,18 +482,18 @@ def swift_delete_container(name):
 
 def swift_get_objects(container_name):
     container = swift_api().get_container(container_name)
-    return [{"name":obj.name} for obj in container.get_objects()]
+    return [SwiftObject(o) for o in container.get_objects()]
 
 
 def swift_upload_object(container_name, object_name, object_data):
     container = swift_api().get_container(container_name)
     obj = container.create_object(object_name)
-    return obj.write(object_data)
+    obj.write(object_data)
 
 
 def swift_delete_object(container_name, object_name):
     container = swift_api().get_container(container_name)
-    return container.delete_object(object_name)
+    container.delete_object(object_name)
 
 
 def swift_get_object_data(container_name, object_name):

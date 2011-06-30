@@ -14,7 +14,7 @@
       <tr class="{% cycle 'odd' 'even' %}">
           <td>{{instance.id}}</td>
           <td>{{instance.name}}</td>
-          <td>{{instance.attrs.image_name}}</td>
+          <td>{{instance.image_name}}</td>
           <td>{{instance.addresses.private.0.addr|default:'-'}}</td>
           <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
           <td>{{instance.status|lower|capfirst}}</td>
