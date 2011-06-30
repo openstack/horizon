@@ -65,6 +65,71 @@ class Token(object):
         return not self == other
 
 
+class APIResource(api.APIResourceWrapper):
+    ''' Simple APIResource for testing '''
+    _attrs = ['foo', 'bar', 'baz']
+
+    @staticmethod
+    def get_instance(innerObject=None):
+        if innerObject is None:
+            class InnerAPIResource(object):
+                pass
+            innerObject = InnerAPIResource()
+            innerObject.foo = 'foo'
+            innerObject.bar = 'bar'
+        return APIResource(innerObject)
+
+
+class APIDict(api.APIDictWrapper):
+    _attrs = ['foo', 'bar', 'baz']
+
+    @staticmethod
+    def get_instance(innerDict=None):
+        if innerDict is None:
+            innerDict = {'foo': 'foo',
+                         'bar': 'bar'}
+        return APIDict(innerDict)
+
+
+class APIResourceWrapperTests(test.TestCase):
+    def test_get_attribute(self):
+        resource = APIResource.get_instance()
+        self.assertEqual(resource.foo, 'foo')
+
+    def test_get_invalid_attribute(self):
+        resource = APIResource.get_instance()
+        with self.assertRaises(AttributeError):
+            resource.missing
+
+    def test_get_inner_missing_attribute(self):
+        resource = APIResource.get_instance()
+        with self.assertRaises(AttributeError):
+            resource.baz
+
+
+class APIDictWrapperTests(test.TestCase):
+    # APIDict allows for both attribute access and dictionary style [element]
+    # style access.  Test both
+    def test_get_item(self):
+        resource = APIDict.get_instance()
+        self.assertEqual(resource.foo, 'foo')
+        self.assertEqual(resource['foo'], 'foo')
+
+    def test_get_invalid_item(self):
+        resource = APIDict.get_instance()
+        with self.assertRaises(AttributeError):
+            resource.missing
+        with self.assertRaises(KeyError):
+            resource['missing']
+
+    def test_get_inner_missing_attribute(self):
+        resource = APIDict.get_instance()
+        with self.assertRaises(AttributeError):
+            resource.baz
+        with self.assertRaises(KeyError):
+            resource['baz']
+
+
 class AuthApiTests(test.TestCase):
     def setUp(self):
         self.mox = mox.Mox()
@@ -181,6 +246,3 @@ class GlanceApiTests(test.TestCase):
 
     def tearDown(self):
         self.mox.UnsetStubs()
-
-    def test_image_all_metadata(self):
-        self.failIf(True)

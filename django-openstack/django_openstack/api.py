@@ -100,7 +100,11 @@ class APIDictWrapper(object):
             raise AttributeError(attr)
 
     def __getitem__(self, item):
-        return self.__getattr__(item)
+        try:
+            return self.__getattr__(item)
+        except AttributeError, e:
+            # caller is expecting a KeyError
+            raise KeyError(e)
 
     def get(self, item, default=None):
         try:
@@ -310,8 +314,8 @@ def flavor_list_admin(request):
     return [Flavor(f) for f in extras_api(request).flavors.list()]
 
 
+# this method is currently unused in django_openstack
 def image_all_metadata(request):
-    #TODO(mgius): I have no idea what to do with this...
     images = glance_api(request).get_images_detailed()
     image_dict = {}
     for image in images:
