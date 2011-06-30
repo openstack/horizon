@@ -56,6 +56,8 @@ CREDENTIAL_DOWNLOAD_URL = TESTSERVER + '/credentials/'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture',
+             '--cover-package=django_openstack',
+             '--cover-inclusive',
             ]
 
 # django-mailer uses a different config attribute

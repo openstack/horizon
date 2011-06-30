@@ -37,6 +37,13 @@ scripts in the bin/ directory:
 You should now be able to run unit tests as follows:
 
   $ bin/django test
+or
+  $ bin/test
+
+You can run unit tests with code coverage on django_openstack by setting
+NOSE_WITH_COVERAGE:
+
+  $ NOSE_WITH_COVERAGE=true bin/test
 
 
 
