@@ -22,16 +22,22 @@ import mox
 
 from django import http
 from django import test
+from django.conf import settings
+from django.utils import unittest
 from django_openstack import api
 from mox import IsA
+from openstackx import admin as OSAdmin
+from openstackx import auth as OSAuth
 
 
 TEST_PASSWORD = '12345'
 TEST_RETURN = 'retValue'
 TEST_TENANT_DESCRIPTION = 'tenantDescription'
 TEST_TENANT_ID = '1234'
-TEST_USERNAME = 'testUser'
+TEST_TOKEN = 'aToken'
 TEST_TOKEN_ID = 'userId'
+TEST_URL = 'http://testserver/something/v1.0'
+TEST_USERNAME = 'testUser'
 
 class Server(object):
     ''' More or less fakes what the api is looking for '''
@@ -259,6 +265,30 @@ class ServerWrapperTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+class AdminApiTests(test.TestCase):
+    def setUp(self):
+        self.mox = mox.Mox()
+
+    def tearDown(self):
+        self.mox.UnsetStubs()
+
+    def test_get_admin_api(self):
+        self.mox.StubOutClassWithMocks(OSAdmin, 'Admin')
+        OSAdmin.Admin(auth_token=TEST_TOKEN, management_url=TEST_URL)
+
+        self.mox.StubOutWithMock(api, 'url_for')
+        api.url_for(IsA(http.HttpRequest), 'nova', True).AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'nova', True).AndReturn(TEST_URL)
+
+        request = http.HttpRequest()
+        request.session = dict()
+        request.session['token'] = TEST_TOKEN
+
+        self.mox.ReplayAll()
+
+        self.assertIsNotNone(api.admin_api(request))
+
+        self.mox.VerifyAll()
 
 class AuthApiTests(test.TestCase):
     def setUp(self):
@@ -266,6 +296,18 @@ class AuthApiTests(test.TestCase):
 
     def tearDown(self):
         self.mox.UnsetStubs()
+
+    def test_get_auth_api(self):
+        settings.OPENSTACK_KEYSTONE_URL = TEST_URL
+        self.mox.StubOutClassWithMocks(OSAuth, 'Auth')
+        OSAuth.Auth(management_url=settings.OPENSTACK_KEYSTONE_URL)
+
+        self.mox.ReplayAll()
+
+        self.assertIsNotNone(api.auth_api())
+
+        self.mox.VerifyAll()
+
 
     def test_token_get_tenant(self):
         self.mox.StubOutWithMock(api, 'auth_api')
