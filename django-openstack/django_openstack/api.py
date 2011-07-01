@@ -310,11 +310,6 @@ def flavor_get(request, flavor_id):
 def flavor_list(request):
     return [Flavor(f) for f in extras_api(request).flavors.list()]
 
-
-def flavor_list_admin(request):
-    return [Flavor(f) for f in extras_api(request).flavors.list()]
-
-
 # this method is currently unused in django_openstack
 def image_all_metadata(request):
     images = glance_api(request).get_images_detailed()

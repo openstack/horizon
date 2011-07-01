@@ -81,7 +81,7 @@ def index(request):
 
     flavors = []
     try:
-        flavors = api.flavor_list_admin(request)
+        flavors = api.flavor_list(request)
     except api_exceptions.ApiException, e:
         LOG.error('ApiException while fetching usage info', exc_info=True)
         messages.error(request, 'Unable to get usage info: %s' % e.message)

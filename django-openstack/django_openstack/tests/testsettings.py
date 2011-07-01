@@ -65,3 +65,7 @@ NOSE_ARGS = ['--nocapture',
 MAILER_EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 EMAIL_BACKEND = MAILER_EMAIL_BACKEND
 
+SWIFT_ACCOUNT = 'test'
+SWIFT_USER = 'tester'
+SWIFT_PASS = 'testing'
+SWIFT_AUTHURL = 'http://swift/swiftapi/v1.0'
