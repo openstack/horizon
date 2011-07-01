@@ -47,6 +47,7 @@ TEST_TOKEN_ID = 'userId'
 TEST_URL = 'http://%s:%s/something/v1.0' % (TEST_HOSTNAME, TEST_PORT)
 TEST_USERNAME = 'testUser'
 
+
 class Server(object):
     ''' More or less fakes what the api is looking for '''
     def __init__(self, id, imageRef, attrs=None):
@@ -57,8 +58,8 @@ class Server(object):
 
     def __eq__(self, other):
         if self.id != other.id or \
-          self.imageRef != other.imageRef:
-              return False
+            self.imageRef != other.imageRef:
+                return False
 
         for k in self.attrs:
             if other.attrs.__getattr__(k) != v:
@@ -68,6 +69,7 @@ class Server(object):
 
     def __ne__(self, other):
         return not self == other
+
 
 class Tenant(object):
     ''' More or less fakes what the api is looking for '''
@@ -179,7 +181,8 @@ class APIDictWrapperTests(test.TestCase):
 
         self.assertEqual('retValue', resource.get('baz', 'retValue'))
 
-# Wrapper classes that only define _attrs don't need extra testing.  
+
+# Wrapper classes that only define _attrs don't need extra testing.
 # Wrapper classes that have other attributes or methods need testing
 class ImageWrapperTests(test.TestCase):
     dict_with_properties = {
@@ -190,7 +193,7 @@ class ImageWrapperTests(test.TestCase):
     dict_without_properties = {
             'size': 100,
             }
-                
+
     def test_get_properties(self):
         image = api.Image(self.dict_with_properties)
         image_props = image.properties
@@ -213,6 +216,7 @@ class ImageWrapperTests(test.TestCase):
                 msg="Test assumption broken.  Find new missing attribute")
             image.missing
 
+
 class ServerWrapperTests(test.TestCase):
     HOST = 'hostname'
     ID = '1'
@@ -223,7 +227,7 @@ class ServerWrapperTests(test.TestCase):
         self.mox = mox.Mox()
 
         # these are all objects "fetched" from the api
-        self.inner_attrs = {'host':self.HOST}
+        self.inner_attrs = {'host': self.HOST}
 
         self.inner_server = Server(self.ID, self.IMAGE_REF, self.inner_attrs)
         self.inner_server_no_attrs = Server(self.ID, self.IMAGE_REF)
@@ -273,6 +277,7 @@ class ServerWrapperTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+
 class AccountApiTests(test.TestCase):
     def setUp(self):
         self.mox = mox.Mox()
@@ -294,15 +299,16 @@ class AccountApiTests(test.TestCase):
         OSExtras.Account(auth_token=TEST_TOKEN, management_url=TEST_URL)
 
         self.mox.StubOutWithMock(api, 'url_for')
-        api.url_for(IsA(http.HttpRequest), 'keystone', True).AndReturn(TEST_URL)
-        api.url_for(IsA(http.HttpRequest), 'keystone', True).AndReturn(TEST_URL)
+        api.url_for(
+                IsA(http.HttpRequest), 'keystone', True).AndReturn(TEST_URL)
+        api.url_for(
+                IsA(http.HttpRequest), 'keystone', True).AndReturn(TEST_URL)
 
         self.mox.ReplayAll()
 
         self.assertIsNotNone(api.account_api(self.request))
 
         self.mox.VerifyAll()
-
 
 
 class AdminApiTests(test.TestCase):
@@ -366,8 +372,8 @@ class AdminApiTests(test.TestCase):
         admin_api = self.stub_admin_api(count=2)
 
         admin_api.flavors = self.mox.CreateMockAnything()
-        admin_api.flavors.delete(FLAVOR_ID, False)
-        admin_api.flavors.delete(FLAVOR_ID, True)
+        admin_api.flavors.delete(FLAVOR_ID, False).AndReturn(TEST_RETURN)
+        admin_api.flavors.delete(FLAVOR_ID, True).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
@@ -395,7 +401,6 @@ class AuthApiTests(test.TestCase):
         self.assertIsNotNone(api.auth_api())
 
         self.mox.VerifyAll()
-
 
     def test_token_get_tenant(self):
         self.mox.StubOutWithMock(api, 'auth_api')
@@ -499,6 +504,7 @@ class AuthApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+
 class ComputeApiTests(test.TestCase):
     def setUp(self):
         self.mox = mox.Mox()
@@ -558,6 +564,38 @@ class ComputeApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+    def test_server_delete(self):
+        INSTANCE = 'anInstance'
+
+        compute_api = self.stub_compute_api()
+
+        compute_api.servers = self.mox.CreateMockAnything()
+        compute_api.servers.delete(INSTANCE).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_delete(self.request, INSTANCE)
+
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
+
+    def test_server_get(self):
+        INSTANCE_ID = '2'
+
+        compute_api = self.stub_compute_api()
+        compute_api.servers = self.mox.CreateMockAnything()
+        compute_api.servers.get(INSTANCE_ID).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_get(self.request, INSTANCE_ID)
+
+        self.assertIsInstance(ret_val, api.Server)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
 
 class ExtrasApiTests(test.TestCase):
     def setUp(self):
@@ -587,18 +625,22 @@ class ExtrasApiTests(test.TestCase):
         self.mox.ReplayAll()
 
         self.assertIsNotNone(api.extras_api(self.request))
-        
+
         self.mox.VerifyAll()
 
     def test_console_create(self):
         extras_api = self.stub_extras_api(count=2)
         extras_api.consoles = self.mox.CreateMockAnything()
-        extras_api.consoles.create(TEST_INSTANCE_ID, TEST_CONSOLE_KIND).AndReturn(TEST_RETURN)
-        extras_api.consoles.create(TEST_INSTANCE_ID, None).AndReturn(TEST_RETURN + '2')
+        extras_api.consoles.create(
+                TEST_INSTANCE_ID, TEST_CONSOLE_KIND).AndReturn(TEST_RETURN)
+        extras_api.consoles.create(
+                TEST_INSTANCE_ID, None).AndReturn(TEST_RETURN + '2')
 
         self.mox.ReplayAll()
 
-        ret_val = api.console_create(self.request, TEST_INSTANCE_ID, TEST_CONSOLE_KIND)
+        ret_val = api.console_create(self.request,
+                                     TEST_INSTANCE_ID,
+                                     TEST_CONSOLE_KIND)
         self.assertIsInstance(ret_val, api.Console)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
@@ -625,6 +667,75 @@ class ExtrasApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+    def test_keypair_create(self):
+        NAME = '1'
+
+        extras_api = self.stub_extras_api()
+        extras_api.keypairs = self.mox.CreateMockAnything()
+        extras_api.keypairs.create(NAME).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.keypair_create(self.request, NAME)
+        self.assertIsInstance(ret_val, api.KeyPair)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+    def test_keypair_delete(self):
+        KEYPAIR_ID = '1'
+
+        extras_api = self.stub_extras_api()
+        extras_api.keypairs = self.mox.CreateMockAnything()
+        extras_api.keypairs.delete(KEYPAIR_ID).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.keypair_delete(self.request, KEYPAIR_ID)
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
+
+    def test_keypair_list(self):
+        NAME = 'keypair'
+        keypairs = (NAME + '1', NAME + '2')
+
+        extras_api = self.stub_extras_api()
+        extras_api.keypairs = self.mox.CreateMockAnything()
+        extras_api.keypairs.list().AndReturn(keypairs)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.keypair_list(self.request)
+
+        self.assertEqual(len(ret_val), len(keypairs))
+        for keypair in ret_val:
+            self.assertIsInstance(keypair, api.KeyPair)
+            self.assertIn(keypair._apiresource, keypairs)
+
+        self.mox.VerifyAll()
+
+    def test_server_create(self):
+        NAME = 'server'
+        IMAGE = 'anImage'
+        FLAVOR = 'cherry'
+        USER_DATA = {'nuts': 'berries'}
+        KEY = 'user'
+
+        extras_api = self.stub_extras_api()
+        extras_api.servers = self.mox.CreateMockAnything()
+        extras_api.servers.create(NAME, IMAGE, FLAVOR, user_data=USER_DATA,
+                                  key_name=KEY).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_create(self.request, NAME, IMAGE, FLAVOR,
+                                    USER_DATA, KEY)
+
+        self.assertIsInstance(ret_val, api.Server)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
 
 class GlanceApiTests(test.TestCase):
     def setUp(self):
@@ -648,14 +759,13 @@ class GlanceApiTests(test.TestCase):
         self.mox.StubOutClassWithMocks(glance_client, 'Client')
         glance_client.Client(TEST_HOSTNAME, TEST_PORT)
 
-
         self.mox.StubOutWithMock(api, 'url_for')
         api.url_for(IsA(http.HttpRequest), 'glance').AndReturn(TEST_URL)
 
         self.mox.ReplayAll()
 
         self.assertIsNotNone(api.glance_api(self.request))
-        
+
         self.mox.VerifyAll()
 
     def test_image_create(self):
@@ -700,7 +810,6 @@ class GlanceApiTests(test.TestCase):
 
         self.assertIsInstance(ret_val, api.Image)
         self.assertEqual(ret_val._apidict, TEST_RETURN)
-        
 
     def test_image_list_detailed(self):
         images = (TEST_RETURN, TEST_RETURN + '2')
@@ -718,6 +827,32 @@ class GlanceApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+    def test_image_update(self):
+        IMAGE_ID = '1'
+        IMAGE_META = {'metadata': 'foobar'}
+
+        glance_api = self.stub_glance_api(count=2)
+        glance_api.update_image(IMAGE_ID, image_meta={}).AndReturn(TEST_RETURN)
+        glance_api.update_image(IMAGE_ID,
+                                image_meta=IMAGE_META).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.image_update(self.request, IMAGE_ID)
+
+        self.assertIsInstance(ret_val, api.Image)
+        self.assertEqual(ret_val._apidict, TEST_RETURN)
+
+        ret_val = api.image_update(self.request,
+                                   IMAGE_ID,
+                                   image_meta=IMAGE_META)
+
+        self.assertIsInstance(ret_val, api.Image)
+        self.assertEqual(ret_val._apidict, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+
 class SwiftApiTests(test.TestCase):
     def setUp(self):
         self.mox = mox.Mox()
@@ -734,10 +869,8 @@ class SwiftApiTests(test.TestCase):
                                   authurl=settings.SWIFT_AUTHURL
                                  ).AndReturn(TEST_RETURN)
 
-
         self.mox.ReplayAll()
 
         self.assertEqual(api.swift_api(), TEST_RETURN)
 
         self.mox.VerifyAll()
-

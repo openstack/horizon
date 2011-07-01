@@ -300,7 +300,7 @@ def flavor_create(request, name, memory, vcpu, disk, flavor_id):
 
 
 def flavor_delete(request, flavor_id, purge=False):
-    return admin_api(request).flavors.delete(flavor_id, purge)
+    admin_api(request).flavors.delete(flavor_id, purge)
 
 
 def flavor_get(request, flavor_id):
@@ -346,7 +346,7 @@ def keypair_create(request, name):
 
 
 def keypair_delete(request, keypair_id):
-    return extras_api(request).keypairs.delete(keypair_id)
+    extras_api(request).keypairs.delete(keypair_id)
 
 
 def keypair_list(request):
@@ -360,7 +360,7 @@ def server_create(request, name, image, flavor, user_data, key_name):
 
 
 def server_delete(request, instance):
-    return compute_api(request).servers.delete(instance)
+    compute_api(request).servers.delete(instance)
 
 
 def server_get(request, instance_id):
@@ -462,7 +462,7 @@ def user_create(request, user_id, email, password, tenant_id):
 
 
 def user_delete(request, user_id):
-    return account_api(request).users.delete(user_id)
+    account_api(request).users.delete(user_id)
 
 
 def user_get(request, user_id):
@@ -494,7 +494,7 @@ def swift_create_container(name):
 
 
 def swift_delete_container(name):
-    return swift_api().delete_container(name)
+    swift_api().delete_container(name)
 
 
 def swift_get_objects(container_name):
