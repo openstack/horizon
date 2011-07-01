@@ -234,6 +234,7 @@ def compute_api(request):
         auth_token=request.session['token'],
         management_url=url_for(request, 'nova'))
     # this below hack is necessary to make the jacobian compute client work
+    # TODO(mgius): It looks like this is unused now?
     compute.client.auth_token = request.session['token']
     compute.client.management_url = url_for(request, 'nova')
     LOG.debug('compute_api connection created using token "%s"'

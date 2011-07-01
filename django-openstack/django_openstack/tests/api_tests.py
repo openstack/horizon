@@ -26,6 +26,7 @@ from django.conf import settings
 from django.utils import unittest
 from django_openstack import api
 from mox import IsA
+from openstack import compute as OSCompute
 from openstackx import admin as OSAdmin
 from openstackx import auth as OSAuth
 
@@ -408,6 +409,43 @@ class AuthApiTests(test.TestCase):
                                    TEST_USERNAME, TEST_PASSWORD)
 
         self.assertEqual(test_token, ret_val)
+
+        self.mox.VerifyAll()
+
+class ComputeApiTests(test.TestCase):
+    def setUp(self):
+        self.mox = mox.Mox()
+
+    def tearDown(self):
+        self.mox.UnsetStubs()
+
+    def test_get_compute_api(self):
+        class ComputeClient(object):
+            __slots__ = ['auth_token', 'management_url']
+
+        self.mox.StubOutClassWithMocks(OSCompute, 'Compute')
+        compute_api = OSCompute.Compute(auth_token=TEST_TOKEN,
+                                        management_url=TEST_URL)
+
+        compute_api.client = ComputeClient()
+
+        self.mox.StubOutWithMock(api, 'url_for')
+        # called three times?  Looks like a good place for optimization
+        api.url_for(IsA(http.HttpRequest), 'nova').AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'nova').AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'nova').AndReturn(TEST_URL)
+
+        request = http.HttpRequest()
+        request.session = {}
+        request.session['token'] = TEST_TOKEN
+
+        self.mox.ReplayAll()
+
+        compute_api = api.compute_api(request)
+
+        self.assertIsNotNone(compute_api)
+        self.assertEqual(compute_api.client.auth_token, TEST_TOKEN)
+        self.assertEqual(compute_api.client.management_url, TEST_URL)
 
         self.mox.VerifyAll()
 
