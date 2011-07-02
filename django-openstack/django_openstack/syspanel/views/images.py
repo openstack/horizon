@@ -41,9 +41,9 @@ class ToggleImage(forms.SelfHandlingForm):
         return redirect(request.build_absolute_uri())
 
 class UpdateImageForm(forms.Form):
-    name = forms.CharField(max_length="5", label="Name")
-    kernel = forms.CharField(max_length="5", label="Kernel ID", required=False)
-    ramdisk = forms.CharField(max_length="5", label="Ramdisk ID", required=False)
+    name = forms.CharField(max_length="25", label="Name")
+    kernel = forms.CharField(max_length="25", label="Kernel ID", required=False)
+    ramdisk = forms.CharField(max_length="25", label="Ramdisk ID", required=False)
     architecture = forms.CharField(label="Architecture", required=False)
     #project_id = forms.CharField(label="Project ID")
     container_format = forms.CharField(label="Container Format", required=False)
@@ -51,7 +51,7 @@ class UpdateImageForm(forms.Form):
     #is_public = forms.BooleanField(label="Publicly Available", required=False)
 
 class UploadImageForm(forms.Form):
-    name = forms.CharField(max_length="5", label="Name")
+    name = forms.CharField(max_length="25", label="Name")
     image_file = forms.FileField(required=False)
     # is_public = forms.BooleanField(label="Publicly Available", required=False, initial=True)
 
