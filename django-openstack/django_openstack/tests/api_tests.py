@@ -35,6 +35,7 @@ from openstackx import extras as OSExtras
 
 
 TEST_CONSOLE_KIND = 'vnc'
+TEST_EMAIL = 'test@test.com'
 TEST_HOSTNAME = 'hostname'
 TEST_INSTANCE_ID = '2'
 TEST_PASSWORD = '12345'
@@ -310,6 +311,109 @@ class AccountApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+    def test_tenant_create(self):
+        DESCRIPTION = 'aDescription'
+        ENABLED = True
+
+        account_api = self.stub_account_api()
+
+        account_api.tenants = self.mox.CreateMockAnything()
+        account_api.tenants.create(TEST_TENANT_ID, DESCRIPTION, ENABLED).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.tenant_create(self.request, TEST_TENANT_ID,
+                                    DESCRIPTION, ENABLED)
+
+        self.assertIsInstance(ret_val, api.Tenant)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+    def test_tenant_get(self):
+        account_api = self.stub_account_api()
+
+        account_api.tenants = self.mox.CreateMockAnything()
+        account_api.tenants.get(TEST_TENANT_ID).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.tenant_get(self.request, TEST_TENANT_ID)
+
+        self.assertIsInstance(ret_val, api.Tenant)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+    def test_tenant_list(self):
+        tenants = (TEST_RETURN, TEST_RETURN + '2')
+
+        account_api = self.stub_account_api()
+
+        account_api.tenants = self.mox.CreateMockAnything()
+        account_api.tenants.list().AndReturn(tenants)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.tenant_list(self.request)
+
+        for tenant in ret_val:
+            self.assertIsInstance(tenant, api.Tenant)
+            self.assertIn(tenant._apiresource, tenants)
+
+        self.mox.VerifyAll()
+
+    def test_tenant_update(self):
+        DESCRIPTION = 'aDescription'
+        ENABLED = True
+
+        account_api = self.stub_account_api()
+        
+        account_api.tenants = self.mox.CreateMockAnything()
+        account_api.tenants.update(TEST_TENANT_ID, DESCRIPTION,
+                                   ENABLED).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.tenant_update(self.request, TEST_TENANT_ID,
+                                    DESCRIPTION, ENABLED)
+
+        self.assertIsInstance(ret_val, api.Tenant)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+    def test_user_create(self):
+        account_api = self.stub_account_api()
+
+        account_api.users = self.mox.CreateMockAnything()
+        account_api.users.create(TEST_USERNAME, TEST_EMAIL, TEST_PASSWORD,
+                                TEST_TENANT_ID).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.user_create(self.request, TEST_USERNAME, TEST_EMAIL,
+                                  TEST_PASSWORD, TEST_TENANT_ID)
+
+        self.assertIsInstance(ret_val, api.User)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+    def test_user_delete(self):
+        account_api = self.stub_account_api()
+
+        account_api.users = self.mox.CreateMockAnything()
+        account_api.users.delete(TEST_USERNAME).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.user_delete(self.request, TEST_USERNAME)
+
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
+
 
 class AdminApiTests(test.TestCase):
     def setUp(self):
@@ -382,6 +486,56 @@ class AdminApiTests(test.TestCase):
 
         ret_val = api.flavor_delete(self.request, FLAVOR_ID, purge=True)
         self.assertIsNone(ret_val)
+
+    def test_service_get(self):
+        NAME = 'serviceName'
+
+        admin_api = self.stub_admin_api()
+        admin_api.services = self.mox.CreateMockAnything()
+        admin_api.services.get(NAME).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.service_get(self.request, NAME)
+
+        self.assertIsInstance(ret_val, api.Services)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+    def test_service_list(self):
+        services = (TEST_RETURN, TEST_RETURN + '2')
+
+        admin_api = self.stub_admin_api()
+        admin_api.services = self.mox.CreateMockAnything()
+        admin_api.services.list().AndReturn(services)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.service_list(self.request)
+
+        for service in ret_val:
+            self.assertIsInstance(service, api.Services)
+            self.assertIn(service._apiresource, services)
+
+        self.mox.VerifyAll()
+
+    def test_service_update(self):
+        ENABLED = True
+        NAME = 'serviceName'
+
+        admin_api = self.stub_admin_api()
+        admin_api.services = self.mox.CreateMockAnything()
+        admin_api.services.update(NAME, ENABLED).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.service_update(self.request, NAME, ENABLED)
+
+        self.assertIsInstance(ret_val, api.Services)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
 
 
 class AuthApiTests(test.TestCase):
@@ -596,6 +750,30 @@ class ComputeApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+    def test_server_reboot(self):
+        INSTANCE_ID = '2'
+        HARDNESS = 'diamond'
+
+        self.mox.StubOutWithMock(api, 'server_get')
+
+        server = self.mox.CreateMock(OSCompute.Server)
+        server.reboot(OSCompute.servers.REBOOT_HARD).AndReturn(TEST_RETURN)
+        api.server_get(IsA(http.HttpRequest), INSTANCE_ID).AndReturn(server)
+
+        server = self.mox.CreateMock(OSCompute.Server)
+        server.reboot(HARDNESS).AndReturn(TEST_RETURN)
+        api.server_get(IsA(http.HttpRequest), INSTANCE_ID).AndReturn(server)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_reboot(self.request, INSTANCE_ID)
+        self.assertIsNone(ret_val)
+
+        ret_val = api.server_reboot(self.request, INSTANCE_ID, hardness=HARDNESS)
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
+
 
 class ExtrasApiTests(test.TestCase):
     def setUp(self):
@@ -736,6 +914,61 @@ class ExtrasApiTests(test.TestCase):
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
         self.mox.VerifyAll()
+
+    def test_server_list(self):
+        servers = (TEST_RETURN, TEST_RETURN + '2')
+
+        extras_api = self.stub_extras_api()
+
+        extras_api.servers = self.mox.CreateMockAnything()
+        extras_api.servers.list().AndReturn(servers)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_list(self.request)
+
+        self.assertEqual(len(ret_val), len(servers))
+
+        for server in ret_val:
+            self.assertIsInstance(server, api.Server)
+            self.assertIn(server._apiresource, servers)
+
+        self.mox.VerifyAll()
+
+    def test_usage_get(self):
+        extras_api = self.stub_extras_api()
+
+        extras_api.usage = self.mox.CreateMockAnything()
+        extras_api.usage.get(TEST_TENANT_ID, 'start', 'end').AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.usage_get(self.request, TEST_TENANT_ID, 'start', 'end')
+
+        self.assertIsInstance(ret_val, api.Usage)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+    def test_usage_list(self):
+        usages = (TEST_RETURN, TEST_RETURN + '2')
+
+        extras_api = self.stub_extras_api()
+
+        extras_api.usage = self.mox.CreateMockAnything()
+        extras_api.usage.list('start', 'end').AndReturn(usages)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.usage_list(self.request, 'start', 'end')
+
+        for usage in ret_val:
+            self.assertIsInstance(usage, api.Usage)
+            self.assertIn(usage._apiresource, usages)
+
+        self.mox.VerifyAll()
+
+
 
 class GlanceApiTests(test.TestCase):
     def setUp(self):

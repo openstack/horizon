@@ -375,11 +375,11 @@ def server_reboot(request,
                   instance_id,
                   hardness=openstack.compute.servers.REBOOT_HARD):
     server = server_get(request, instance_id)
-    return server.reboot(hardness)
+    server.reboot(hardness)
 
 
 def service_get(request, name):
-    return admin_api(request).services.get(name)
+    return Services(admin_api(request).services.get(name))
 
 
 def service_list(request):
@@ -387,7 +387,7 @@ def service_list(request):
 
 
 def service_update(request, name, enabled):
-    return admin_api(request).services.update(name, enabled)
+    return Services(admin_api(request).services.update(name, enabled))
 
 
 def token_get_tenant(request, tenant_id):
