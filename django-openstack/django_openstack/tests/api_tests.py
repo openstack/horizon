@@ -278,6 +278,49 @@ class ServerWrapperTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+class ApiHelperTests(test.TestCase):
+    def setUp(self):
+        self.mox = mox.Mox()
+        self.request = http.HttpRequest()
+        self.request.session = dict()
+
+    def tearDown(self):
+        self.mox.UnsetStubs()
+
+    def test_url_for(self):
+        GLANCE_URL = 'http://glance/glanceapi/'
+        NOVA_URL = 'http://nova/novapi/'
+
+        serviceCatalog = {
+                'glance': [{'adminURL': GLANCE_URL + 'admin',
+                            'internalURL': GLANCE_URL + 'internal'},
+                          ],
+                'nova': [{'adminURL': NOVA_URL + 'admin',
+                          'internalURL': NOVA_URL + 'internal'},
+                        ],
+                }
+
+        self.request.session['serviceCatalog'] = serviceCatalog
+
+        url = api.url_for(self.request, 'glance')
+        self.assertEqual(url, GLANCE_URL + 'internal')
+
+        url = api.url_for(self.request, 'glance', admin=False)
+        self.assertEqual(url, GLANCE_URL + 'internal')
+
+        url = api.url_for(self.request, 'glance', admin=True)
+        self.assertEqual(url, GLANCE_URL + 'admin')
+
+
+        url = api.url_for(self.request, 'nova')
+        self.assertEqual(url, NOVA_URL + 'internal')
+
+        url = api.url_for(self.request, 'nova', admin=False)
+        self.assertEqual(url, NOVA_URL + 'internal')
+
+        url = api.url_for(self.request, 'nova', admin=True)
+        self.assertEqual(url, NOVA_URL + 'admin')
+
 
 class AccountApiTests(test.TestCase):
     def setUp(self):
@@ -1177,6 +1220,14 @@ class SwiftApiTests(test.TestCase):
     def tearDown(self):
         self.mox.UnsetStubs()
 
+    def stub_swift_api(self, count=1):
+        self.mox.StubOutWithMock(api, 'swift_api')
+        swift_api = self.mox.CreateMock(cloudfiles.connection.Connection)
+        for i in range(count):
+            api.swift_api().AndReturn(swift_api)
+        return swift_api
+
+
     def test_get_swift_api(self):
         self.mox.StubOutWithMock(cloudfiles, 'get_connection')
 
@@ -1189,5 +1240,137 @@ class SwiftApiTests(test.TestCase):
         self.mox.ReplayAll()
 
         self.assertEqual(api.swift_api(), TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+    def test_swift_get_containers(self):
+        containers = (TEST_RETURN, TEST_RETURN + '2')
+
+        swift_api = self.stub_swift_api()
+
+        swift_api.get_all_containers().AndReturn(containers)
+        
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_get_containers()
+
+        self.assertEqual(len(ret_val), len(containers))
+        for container in ret_val:
+            self.assertIsInstance(container, api.Container)
+            self.assertIn(container._apiresource, containers)
+
+        self.mox.VerifyAll()
+
+    def test_swift_create_container(self):
+        NAME = 'containerName'
+
+        swift_api = self.stub_swift_api()
+
+        swift_api.create_container(NAME).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_create_container(NAME)
+
+        self.assertIsInstance(ret_val, api.Container)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+    def test_swift_delete_container(self):
+        NAME = 'containerName'
+
+        swift_api = self.stub_swift_api()
+
+        swift_api.delete_container(NAME).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_delete_container(NAME)
+
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
+
+    def test_swift_get_objects(self):
+        NAME = 'containerName'
+
+        swift_objects = (TEST_RETURN, TEST_RETURN + '2')
+        container = self.mox.CreateMock(cloudfiles.container.Container)
+        container.get_objects().AndReturn(swift_objects)
+
+        swift_api = self.stub_swift_api()
+
+        swift_api.get_container(NAME).AndReturn(container)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_get_objects(NAME)
+        
+        self.assertEqual(len(ret_val), len(swift_objects))
+        for swift_object in ret_val:
+            self.assertIsInstance(swift_object, api.SwiftObject)
+            self.assertIn(swift_object._apiresource, swift_objects)
+
+        self.mox.VerifyAll()
+
+    def test_swift_upload_object(self):
+        CONTAINER_NAME = 'containerName'
+        OBJECT_NAME = 'objectName'
+        OBJECT_DATA = 'someData'
+
+        swift_api = self.stub_swift_api()
+        container = self.mox.CreateMock(cloudfiles.container.Container)
+        swift_object = self.mox.CreateMock(cloudfiles.storage_object.Object)
+
+        swift_api.get_container(CONTAINER_NAME).AndReturn(container)
+        container.create_object(OBJECT_NAME).AndReturn(swift_object)
+        swift_object.write(OBJECT_DATA).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_upload_object(CONTAINER_NAME, OBJECT_NAME,
+                                          OBJECT_DATA)
+
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
+
+    def test_swift_delete_object(self):
+        CONTAINER_NAME = 'containerName'
+        OBJECT_NAME = 'objectName'
+
+        swift_api = self.stub_swift_api()
+        container = self.mox.CreateMock(cloudfiles.container.Container)
+
+        swift_api.get_container(CONTAINER_NAME).AndReturn(container)
+        container.delete_object(OBJECT_NAME).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_delete_object(CONTAINER_NAME, OBJECT_NAME)
+
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
+
+    def test_swift_get_object_data(self):
+        CONTAINER_NAME = 'containerName'
+        OBJECT_NAME = 'objectName'
+        OBJECT_DATA = 'objectData'
+
+        swift_api = self.stub_swift_api()
+        container = self.mox.CreateMock(cloudfiles.container.Container)
+        swift_object = self.mox.CreateMock(cloudfiles.storage_object.Object)
+
+        swift_api.get_container(CONTAINER_NAME).AndReturn(container)
+        container.get_object(OBJECT_NAME).AndReturn(swift_object)
+        swift_object.stream().AndReturn(OBJECT_DATA)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_get_object_data(CONTAINER_NAME, OBJECT_NAME)
+
+        self.assertEqual(ret_val, OBJECT_DATA)
 
         self.mox.VerifyAll()
