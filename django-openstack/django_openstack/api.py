@@ -310,14 +310,6 @@ def flavor_get(request, flavor_id):
 def flavor_list(request):
     return [Flavor(f) for f in extras_api(request).flavors.list()]
 
-# this method is currently unused in django_openstack
-def image_all_metadata(request):
-    images = glance_api(request).get_images_detailed()
-    image_dict = {}
-    for image in images:
-        image_dict[image['id']] = image
-    return image_dict
-
 
 def image_create(request, image_meta, image_file):
     return Image(glance_api(request).add_image(image_meta, image_file))
@@ -428,6 +420,10 @@ def token_create(request, tenant, username, password):
 
 
 def token_info(request, token):
+    # TODO(mgius): This function doesn't make a whole lot of sense to me.  The
+    # information being gathered here really aught to be attached to Token() as
+    # part of token_create.  May require modification of openstackx so that the
+    # token_create call returns this information as well
     hdrs = {"Content-type": "application/json",
             "X_AUTH_TOKEN": settings.OPENSTACK_ADMIN_TOKEN,
             "Accept": "text/json"}
