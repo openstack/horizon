@@ -11,7 +11,7 @@
 {% block main %}
   <div id='page_header'>
     <h2><span>System Panel:</span> Images</h2>
-    <p class='desc'><span>&mdash;</span> Create, Edit, Upload, and Delete Images.</p>
+    <p class='desc'><span>&mdash;</span> Create, Edit, and Delete Images.</p>
   </div>
 
   {% include "_messages.html" %}
@@ -30,7 +30,5 @@
   </div>
 
   {% include "_syspanel_image_list.html" %}
-
-  <a id="image_create_link" class="action_link large-rounded" href="{% url syspanel_images_upload %}">Upload New Image </a>
 
 {% endblock %}

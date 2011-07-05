@@ -50,11 +50,6 @@ class UpdateImageForm(forms.Form):
     disk_format = forms.CharField(label="Disk Format")
     #is_public = forms.BooleanField(label="Publicly Available", required=False)
 
-class UploadImageForm(forms.Form):
-    name = forms.CharField(max_length="25", label="Name")
-    image_file = forms.FileField(required=False)
-    # is_public = forms.BooleanField(label="Publicly Available", required=False, initial=True)
-
 
 @login_required
 def index(request):
@@ -121,7 +116,7 @@ def update(request, image_id):
                 messages.error(request, "Error updating image: %s" % e.message)
             return redirect("syspanel_images")
         else:
-            messages.error(request, "Image could not be uploaded, please try agian.")
+            messages.error(request, "Image could not be updated, please try agian.")
             form = UpdateImageForm(request.POST)
             return render_to_response('syspanel_image_update.html',{
                 'image': image,
@@ -146,32 +141,3 @@ def update(request, image_id):
             'form': form,
         }, context_instance = template.RequestContext(request))
 
-@login_required
-def upload(request):
-    if request.method == "POST":
-        form = UploadImageForm(request.POST)
-        if form.is_valid():
-            image = form.clean()
-            metadata = {'is_public': True,
-                        'disk_format': 'ami',
-                        'container_format': 'ami',
-                        'name': image.get('name', None)}
-            try:
-                api.image_create(request, metadata, image['image_file'])
-            except glance_exception.ClientConnectionError, e:
-                messages.error(request, "Error connecting to glance: %s" % e.message)
-            except glance_exception.Error, e:
-                messages.error(request, "Error adding image: %s" % e.message)
-        else:
-            messages.error(request, "Image could not be uploaded, please try agian.")
-            form = UploadImageForm(request.POST)
-            return render_to_response('syspanel_image_upload.html',{
-                'form': form,
-            }, context_instance = template.RequestContext(request))
-
-        return redirect('syspanel_images')
-    else:
-        form = UploadImageForm()
-        return render_to_response('syspanel_image_upload.html',{
-            'form': form,
-        }, context_instance = template.RequestContext(request))
