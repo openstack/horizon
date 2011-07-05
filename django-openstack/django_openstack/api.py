@@ -51,11 +51,11 @@ LOG = logging.getLogger('django_openstack.api')
 
 
 class APIResourceWrapper(object):
-    ''' Simple wrapper for api objects
+    """ Simple wrapper for api objects
 
         Define _attrs on the child class and pass in the
         api object as the only argument to the constructor
-    '''
+    """
     _attrs = []
 
     def __init__(self, apiresource):
@@ -74,7 +74,7 @@ class APIResourceWrapper(object):
 
 
 class APIDictWrapper(object):
-    ''' Simple wrapper for api dictionaries
+    """ Simple wrapper for api dictionaries
 
         Some api calls return dictionaries.  This class provides identical
         behavior as APIResourceWrapper, except that it will also behave as a
@@ -82,7 +82,7 @@ class APIDictWrapper(object):
 
         Attribute access is the preferred method of access, to be
         consistent with api resource objects from openstackx
-    '''
+    """
     def __init__(self, apidict):
         self._apidict = apidict
 
@@ -100,7 +100,11 @@ class APIDictWrapper(object):
             raise AttributeError(attr)
 
     def __getitem__(self, item):
-        return self.__getattr__(item)
+        try:
+            return self.__getattr__(item)
+        except AttributeError, e:
+            # caller is expecting a KeyError
+            raise KeyError(e)
 
     def get(self, item, default=None):
         try:
@@ -110,22 +114,22 @@ class APIDictWrapper(object):
 
 
 class Container(APIResourceWrapper):
-    '''Simple wrapper around cloudfiles.container.Container'''
+    """Simple wrapper around cloudfiles.container.Container"""
     _attrs = ['name']
 
 
 class Console(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.consoles.Console'''
+    """Simple wrapper around openstackx.extras.consoles.Console"""
     _attrs = ['id', 'output', 'type']
 
 
 class Flavor(APIResourceWrapper):
-    '''Simple wrapper around openstackx.admin.flavors.Flavor'''
+    """Simple wrapper around openstackx.admin.flavors.Flavor"""
     _attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
 
 
 class Image(APIDictWrapper):
-    '''Simple wrapper around glance image dictionary'''
+    """Simple wrapper around glance image dictionary"""
     _attrs = ['checksum', 'container_format', 'created_at', 'deleted',
              'deleted_at', 'disk_format', 'id', 'is_public', 'location',
              'name', 'properties', 'size', 'status', 'updated_at']
@@ -138,21 +142,21 @@ class Image(APIDictWrapper):
 
 
 class ImageProperties(APIDictWrapper):
-    '''Simple wrapper around glance image properties dictionary'''
+    """Simple wrapper around glance image properties dictionary"""
     _attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
              'project_id', 'ramdisk_id']
 
 
 class KeyPair(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.keypairs.Keypair'''
+    """Simple wrapper around openstackx.extras.keypairs.Keypair"""
     _attrs = ['fingerprint', 'key_name', 'private_key']
 
 
 class Server(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.server.Server
+    """Simple wrapper around openstackx.extras.server.Server
 
        Preserves the request info so image name can later be retrieved
-    '''
+    """
     _attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
              'image_name']
@@ -174,10 +178,10 @@ class Server(APIResourceWrapper):
 
 
 class ServerAttributes(APIDictWrapper):
-    '''Simple wrapper around openstackx.extras.server.Server attributes
+    """Simple wrapper around openstackx.extras.server.Server attributes
 
        Preserves the request info so image name can later be retrieved
-    '''
+    """
     _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
               'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
               'os_type', 'project_id', 'ramdisk_id', 'scheduled_at',
@@ -194,17 +198,17 @@ class SwiftObject(APIResourceWrapper):
 
 
 class Tenant(APIResourceWrapper):
-    '''Simple wrapper around openstackx.auth.tokens.Tenant'''
+    """Simple wrapper around openstackx.auth.tokens.Tenant"""
     _attrs = ['id', 'description', 'enabled']
 
 
 class Token(APIResourceWrapper):
-    '''Simple wrapper around openstackx.auth.tokens.Token'''
+    """Simple wrapper around openstackx.auth.tokens.Token"""
     _attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
 
 
 class Usage(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.usage.Usage'''
+    """Simple wrapper around openstackx.extras.usage.Usage"""
     _attrs = ['begin', 'instances', 'stop', 'tenant_id',
              'total_active_disk_size', 'total_active_instances',
              'total_active_ram_size', 'total_active_vcpus', 'total_cpu_usage',
@@ -212,7 +216,7 @@ class Usage(APIResourceWrapper):
 
 
 class User(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.users.User'''
+    """Simple wrapper around openstackx.extras.users.User"""
     _attrs = ['email', 'enabled', 'id', 'tenantId']
 
 
@@ -230,6 +234,7 @@ def compute_api(request):
         auth_token=request.session['token'],
         management_url=url_for(request, 'nova'))
     # this below hack is necessary to make the jacobian compute client work
+    # TODO(mgius): It looks like this is unused now?
     compute.client.auth_token = request.session['token']
     compute.client.management_url = url_for(request, 'nova')
     LOG.debug('compute_api connection created using token "%s"'
@@ -295,7 +300,7 @@ def flavor_create(request, name, memory, vcpu, disk, flavor_id):
 
 
 def flavor_delete(request, flavor_id, purge=False):
-    return admin_api(request).flavors.delete(flavor_id, purge)
+    admin_api(request).flavors.delete(flavor_id, purge)
 
 
 def flavor_get(request, flavor_id):
@@ -304,19 +309,6 @@ def flavor_get(request, flavor_id):
 
 def flavor_list(request):
     return [Flavor(f) for f in extras_api(request).flavors.list()]
-
-
-def flavor_list_admin(request):
-    return [Flavor(f) for f in extras_api(request).flavors.list()]
-
-
-def image_all_metadata(request):
-    #TODO(mgius): I have no idea what to do with this...
-    images = glance_api(request).get_images_detailed()
-    image_dict = {}
-    for image in images:
-        image_dict[image['id']] = image
-    return image_dict
 
 
 def image_create(request, image_meta, image_file):
@@ -346,7 +338,7 @@ def keypair_create(request, name):
 
 
 def keypair_delete(request, keypair_id):
-    return extras_api(request).keypairs.delete(keypair_id)
+    extras_api(request).keypairs.delete(keypair_id)
 
 
 def keypair_list(request):
@@ -360,7 +352,7 @@ def server_create(request, name, image, flavor, user_data, key_name):
 
 
 def server_delete(request, instance):
-    return compute_api(request).servers.delete(instance)
+    compute_api(request).servers.delete(instance)
 
 
 def server_get(request, instance_id):
@@ -375,11 +367,11 @@ def server_reboot(request,
                   instance_id,
                   hardness=openstack.compute.servers.REBOOT_HARD):
     server = server_get(request, instance_id)
-    return server.reboot(hardness)
+    server.reboot(hardness)
 
 
 def service_get(request, name):
-    return admin_api(request).services.get(name)
+    return Services(admin_api(request).services.get(name))
 
 
 def service_list(request):
@@ -387,7 +379,7 @@ def service_list(request):
 
 
 def service_update(request, name, enabled):
-    return admin_api(request).services.update(name, enabled)
+    return Services(admin_api(request).services.update(name, enabled))
 
 
 def token_get_tenant(request, tenant_id):
@@ -428,6 +420,10 @@ def token_create(request, tenant, username, password):
 
 
 def token_info(request, token):
+    # TODO(mgius): This function doesn't make a whole lot of sense to me.  The
+    # information being gathered here really aught to be attached to Token() as
+    # part of token_create.  May require modification of openstackx so that the
+    # token_create call returns this information as well
     hdrs = {"Content-type": "application/json",
             "X_AUTH_TOKEN": settings.OPENSTACK_ADMIN_TOKEN,
             "Accept": "text/json"}
@@ -462,7 +458,7 @@ def user_create(request, user_id, email, password, tenant_id):
 
 
 def user_delete(request, user_id):
-    return account_api(request).users.delete(user_id)
+    account_api(request).users.delete(user_id)
 
 
 def user_get(request, user_id):
@@ -494,7 +490,7 @@ def swift_create_container(name):
 
 
 def swift_delete_container(name):
-    return swift_api().delete_container(name)
+    swift_api().delete_container(name)
 
 
 def swift_get_objects(container_name):

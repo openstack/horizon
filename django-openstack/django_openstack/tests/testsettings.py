@@ -50,12 +50,15 @@ NOVA_DEFAULT_ENDPOINT = None
 NOVA_DEFAULT_REGION = 'test'
 NOVA_ACCESS_KEY = 'test'
 NOVA_SECRET_KEY = 'test'
+OPENSTACK_ADMIN_TOKEN = 'test'
 
 CREDENTIAL_AUTHORIZATION_DAYS = 2
 CREDENTIAL_DOWNLOAD_URL = TESTSERVER + '/credentials/'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture',
+             '--cover-package=django_openstack',
+             '--cover-inclusive',
             ]
 
 # django-mailer uses a different config attribute
@@ -63,3 +66,7 @@ NOSE_ARGS = ['--nocapture',
 MAILER_EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 EMAIL_BACKEND = MAILER_EMAIL_BACKEND
 
+SWIFT_ACCOUNT = 'test'
+SWIFT_USER = 'tester'
+SWIFT_PASS = 'testing'
+SWIFT_AUTHURL = 'http://swift/swiftapi/v1.0'
