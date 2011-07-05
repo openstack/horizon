@@ -1097,6 +1097,24 @@ ol li.first a {
 	background-position: 0 -105px;
 }
 
+#main a.action_link {
+	margin-right: 17px;
+	color: #fff;
+	font-size: 14px;
+	padding: 10px;
+	border: 1px solid #8eb08a;
+    -webkit-transition-property: background;
+    -webkit-transition-duration: 0.2s;
+	text-shadow: #62935c 0 -1px 0;
+	background: #abc1a8; 
+	
+}
+
+#main a.action_link:hover {
+	text-decoration: none;	
+	background: #83bf7a; 
+}
+
 .dash_block {
 	background-color: #f8f8f8;
 	border: 1px solid #f1f1f1;
