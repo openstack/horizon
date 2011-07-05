@@ -21,7 +21,7 @@
 """
 Methods and interface objects used to interact with external apis.
 
-/PI method calls return objects that are in many cases objects with
+API method calls return objects that are in many cases objects with
 attributes that are direct maps to the data returned from the API http call.
 Unfortunately, these objects are also often constructed dynamically, making
 it difficult to know what data is available from the API object.  Because of

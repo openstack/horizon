@@ -45,6 +45,6 @@ NOSE_WITH_COVERAGE:
 
   $ NOSE_WITH_COVERAGE=true bin/test
 
-Get even better unit tests by running coverage directly:
+Get even better coverage info by running coverage directly:
 
   $ coverage run --branch --source django_openstack bin/django test django_openstack && coverage html
