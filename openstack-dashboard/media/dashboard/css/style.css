@@ -1177,7 +1177,7 @@ ol li.first a {
 	margin-bottom: 25px;
 }
 
-.status_box.info { 
+.status_box.info, .stat_box.info { 
 	background-color: #e8f8ff;
 	border-color: #9ac7dc;
 	color: #7ab6c5;
@@ -1401,6 +1401,28 @@ a.refresh:hover {
 	border-radius: 5px;
 }
 
+.stat_box.small { 
+	width: 359px;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+.stat_box.small p {
+	margin: 0;
+	text-align: center;
+}
+.stat_box.small p.overview {
+	margin-top: -10px;
+	margin-bottom: 5px;
+	color: #2a7380;
+}
+.stat_box.small p.avail {
+	margin: 0 auto;
+	width: 69px;
+}
+.stat_box.small li.block {
+	width: 69px;
+}
 .stat_box .status span, .stat_box .overview {
 	color: #2e802b;
 }
