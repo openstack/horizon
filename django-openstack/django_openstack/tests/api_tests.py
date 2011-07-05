@@ -51,7 +51,7 @@ TEST_USERNAME = 'testUser'
 
 
 class Server(object):
-    ''' More or less fakes what the api is looking for '''
+    """ More or less fakes what the api is looking for """
     def __init__(self, id, imageRef, attrs=None):
         self.id = id
         self.imageRef = imageRef
@@ -74,7 +74,7 @@ class Server(object):
 
 
 class Tenant(object):
-    ''' More or less fakes what the api is looking for '''
+    """ More or less fakes what the api is looking for """
     def __init__(self, id, description, enabled):
         self.id = id
         self.description = description
@@ -90,7 +90,7 @@ class Tenant(object):
 
 
 class Token(object):
-    ''' More or less fakes what the api is looking for '''
+    """ More or less fakes what the api is looking for """
     def __init__(self, id, username, tenant_id, serviceCatalog=None):
         self.id = id
         self.username = username
@@ -108,7 +108,7 @@ class Token(object):
 
 
 class APIResource(api.APIResourceWrapper):
-    ''' Simple APIResource for testing '''
+    """ Simple APIResource for testing """
     _attrs = ['foo', 'bar', 'baz']
 
     @staticmethod
@@ -123,7 +123,7 @@ class APIResource(api.APIResourceWrapper):
 
 
 class APIDict(api.APIDictWrapper):
-    ''' Simple APIDict for testing '''
+    """ Simple APIDict for testing """
     _attrs = ['foo', 'bar', 'baz']
 
     @staticmethod
@@ -281,8 +281,9 @@ class ServerWrapperTests(test.TestCase):
 
         self.mox.VerifyAll()
 
+
 class ApiHelperTests(test.TestCase):
-    ''' Tests for functions that don't use one of the api objects '''
+    """ Tests for functions that don't use one of the api objects """
     def setUp(self):
         self.mox = mox.Mox()
         self.request = http.HttpRequest()
@@ -315,7 +316,6 @@ class ApiHelperTests(test.TestCase):
         url = api.url_for(self.request, 'glance', admin=True)
         self.assertEqual(url, GLANCE_URL + 'admin')
 
-
         url = api.url_for(self.request, 'nova')
         self.assertEqual(url, NOVA_URL + 'internal')
 
@@ -326,14 +326,15 @@ class ApiHelperTests(test.TestCase):
         self.assertEqual(url, NOVA_URL + 'admin')
 
     def test_token_info(self):
-        ''' This function uses the keystone api, but not through an 
-            api client, because there doesn't appear to be one for 
+        """ This function uses the keystone api, but not through an
+            api client, because there doesn't appear to be one for
             keystone
-        '''
+        """
         GLANCE_URL = 'http://glance/glance_api/'
         KEYSTONE_HOST = 'keystonehost'
         KEYSTONE_PORT = 8080
-        KEYSTONE_URL = 'http://%s:%d/keystone/' % (KEYSTONE_HOST, KEYSTONE_PORT)
+        KEYSTONE_URL = 'http://%s:%d/keystone/' % (KEYSTONE_HOST,
+                                                   KEYSTONE_PORT)
 
         serviceCatalog = {
                 'glance': [{'adminURL': GLANCE_URL + 'admin',
@@ -1325,7 +1326,6 @@ class SwiftApiTests(test.TestCase):
             api.swift_api().AndReturn(swift_api)
         return swift_api
 
-
     def test_get_swift_api(self):
         self.mox.StubOutWithMock(cloudfiles, 'get_connection')
 
@@ -1347,7 +1347,7 @@ class SwiftApiTests(test.TestCase):
         swift_api = self.stub_swift_api()
 
         swift_api.get_all_containers().AndReturn(containers)
-        
+
         self.mox.ReplayAll()
 
         ret_val = api.swift_get_containers()
@@ -1404,7 +1404,7 @@ class SwiftApiTests(test.TestCase):
         self.mox.ReplayAll()
 
         ret_val = api.swift_get_objects(NAME)
-        
+
         self.assertEqual(len(ret_val), len(swift_objects))
         for swift_object in ret_val:
             self.assertIsInstance(swift_object, api.SwiftObject)

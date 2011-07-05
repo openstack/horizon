@@ -21,7 +21,7 @@
 """
 Methods and interface objects used to interact with external apis.
 
-API method calls return objects that are in many cases objects with
+/PI method calls return objects that are in many cases objects with
 attributes that are direct maps to the data returned from the API http call.
 Unfortunately, these objects are also often constructed dynamically, making
 it difficult to know what data is available from the API object.  Because of
@@ -51,11 +51,11 @@ LOG = logging.getLogger('django_openstack.api')
 
 
 class APIResourceWrapper(object):
-    ''' Simple wrapper for api objects
+    """ Simple wrapper for api objects
 
         Define _attrs on the child class and pass in the
         api object as the only argument to the constructor
-    '''
+    """
     _attrs = []
 
     def __init__(self, apiresource):
@@ -74,7 +74,7 @@ class APIResourceWrapper(object):
 
 
 class APIDictWrapper(object):
-    ''' Simple wrapper for api dictionaries
+    """ Simple wrapper for api dictionaries
 
         Some api calls return dictionaries.  This class provides identical
         behavior as APIResourceWrapper, except that it will also behave as a
@@ -82,7 +82,7 @@ class APIDictWrapper(object):
 
         Attribute access is the preferred method of access, to be
         consistent with api resource objects from openstackx
-    '''
+    """
     def __init__(self, apidict):
         self._apidict = apidict
 
@@ -114,22 +114,22 @@ class APIDictWrapper(object):
 
 
 class Container(APIResourceWrapper):
-    '''Simple wrapper around cloudfiles.container.Container'''
+    """Simple wrapper around cloudfiles.container.Container"""
     _attrs = ['name']
 
 
 class Console(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.consoles.Console'''
+    """Simple wrapper around openstackx.extras.consoles.Console"""
     _attrs = ['id', 'output', 'type']
 
 
 class Flavor(APIResourceWrapper):
-    '''Simple wrapper around openstackx.admin.flavors.Flavor'''
+    """Simple wrapper around openstackx.admin.flavors.Flavor"""
     _attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
 
 
 class Image(APIDictWrapper):
-    '''Simple wrapper around glance image dictionary'''
+    """Simple wrapper around glance image dictionary"""
     _attrs = ['checksum', 'container_format', 'created_at', 'deleted',
              'deleted_at', 'disk_format', 'id', 'is_public', 'location',
              'name', 'properties', 'size', 'status', 'updated_at']
@@ -142,21 +142,21 @@ class Image(APIDictWrapper):
 
 
 class ImageProperties(APIDictWrapper):
-    '''Simple wrapper around glance image properties dictionary'''
+    """Simple wrapper around glance image properties dictionary"""
     _attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
              'project_id', 'ramdisk_id']
 
 
 class KeyPair(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.keypairs.Keypair'''
+    """Simple wrapper around openstackx.extras.keypairs.Keypair"""
     _attrs = ['fingerprint', 'key_name', 'private_key']
 
 
 class Server(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.server.Server
+    """Simple wrapper around openstackx.extras.server.Server
 
        Preserves the request info so image name can later be retrieved
-    '''
+    """
     _attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
              'image_name']
@@ -178,10 +178,10 @@ class Server(APIResourceWrapper):
 
 
 class ServerAttributes(APIDictWrapper):
-    '''Simple wrapper around openstackx.extras.server.Server attributes
+    """Simple wrapper around openstackx.extras.server.Server attributes
 
        Preserves the request info so image name can later be retrieved
-    '''
+    """
     _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
               'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
               'os_type', 'project_id', 'ramdisk_id', 'scheduled_at',
@@ -198,17 +198,17 @@ class SwiftObject(APIResourceWrapper):
 
 
 class Tenant(APIResourceWrapper):
-    '''Simple wrapper around openstackx.auth.tokens.Tenant'''
+    """Simple wrapper around openstackx.auth.tokens.Tenant"""
     _attrs = ['id', 'description', 'enabled']
 
 
 class Token(APIResourceWrapper):
-    '''Simple wrapper around openstackx.auth.tokens.Token'''
+    """Simple wrapper around openstackx.auth.tokens.Token"""
     _attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
 
 
 class Usage(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.usage.Usage'''
+    """Simple wrapper around openstackx.extras.usage.Usage"""
     _attrs = ['begin', 'instances', 'stop', 'tenant_id',
              'total_active_disk_size', 'total_active_instances',
              'total_active_ram_size', 'total_active_vcpus', 'total_cpu_usage',
@@ -216,7 +216,7 @@ class Usage(APIResourceWrapper):
 
 
 class User(APIResourceWrapper):
-    '''Simple wrapper around openstackx.extras.users.User'''
+    """Simple wrapper around openstackx.extras.users.User"""
     _attrs = ['email', 'enabled', 'id', 'tenantId']
 
 
