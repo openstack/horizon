@@ -133,6 +133,9 @@ def create(request):
                                 user['password'],
                                 user['tenant_id'],
                                 True)
+                api.account_api(request).role_refs.add_for_tenant_user(
+                        user['tenant_id'], user['id'],
+                        settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
 
                 messages.success(request,
                                  '%s was successfully created.'
