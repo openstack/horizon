@@ -57,5 +57,26 @@
           <p>There are currently no users for this tenant</p>
         </div>
       {% endif %}
+      {% if new_users %}
+        <h3>Add new users</h3>
+        <table class="wide">
+          <tr id='headings'>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+          <tbody class='main'>
+            {% for user in new_users %}
+            <tr class="{% cycle 'odd' 'even' %}">
+                <td>{{user}}</td>
+                <td id="actions">
+                  <ul>
+										<li>{% include "_add_tenant_user.html" with form=add_user_form %}</li>
+                  </ul>
+                </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
     </div>
 {% endblock %}
