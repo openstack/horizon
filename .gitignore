@@ -1,10 +1,12 @@
 *.pyc
 *.swp
+django-openstack/.coverage
 django-openstack/.installed.cfg
 django-openstack/bin
 django-openstack/develop-eggs/
 django-openstack/downloads/
 django-openstack/eggs/
+django-openstack/htmlcov
 django-openstack/launchpad
 django-openstack/parts/
 django-openstack/django_nova.egg-info
