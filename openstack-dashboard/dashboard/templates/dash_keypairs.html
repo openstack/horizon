@@ -32,7 +32,7 @@
 
       {% include '_keypair_list.html' %}
 
-       <a id="keypairs_create_link" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair &gt;&gt;</a>
+       <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair</a>
     {% else %}
         <div class="status_box info">
           <h2>Info</h2>

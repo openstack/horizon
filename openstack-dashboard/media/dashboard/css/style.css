@@ -1097,6 +1097,24 @@ ol li.first a {
 	background-position: 0 -105px;
 }
 
+#main a.action_link {
+	margin-right: 17px;
+	color: #fff;
+	font-size: 14px;
+	padding: 10px;
+	border: 1px solid #8eb08a;
+    -webkit-transition-property: background;
+    -webkit-transition-duration: 0.2s;
+	text-shadow: #62935c 0 -1px 0;
+	background: #abc1a8; 
+	
+}
+
+#main a.action_link:hover {
+	text-decoration: none;	
+	background: #83bf7a; 
+}
+
 .dash_block {
 	background-color: #f8f8f8;
 	border: 1px solid #f1f1f1;
@@ -1177,7 +1195,7 @@ ol li.first a {
 	margin-bottom: 25px;
 }
 
-.status_box.info { 
+.status_box.info, .stat_box.info { 
 	background-color: #e8f8ff;
 	border-color: #9ac7dc;
 	color: #7ab6c5;
@@ -1401,6 +1419,28 @@ a.refresh:hover {
 	border-radius: 5px;
 }
 
+.stat_box.small { 
+	width: 359px;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+.stat_box.small p {
+	margin: 0;
+	text-align: center;
+}
+.stat_box.small p.overview {
+	margin-top: -10px;
+	margin-bottom: 5px;
+	color: #2a7380;
+}
+.stat_box.small p.avail {
+	margin: 0 auto;
+	width: 69px;
+}
+.stat_box.small li.block {
+	width: 69px;
+}
 .stat_box .status span, .stat_box .overview {
 	color: #2e802b;
 }

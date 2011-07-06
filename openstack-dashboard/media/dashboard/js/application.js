@@ -14,6 +14,11 @@ $(function(){
 
 
   // confirmation on deletion of items
+  $(".terminate").click(function(e){
+    var response = confirm('Are you sure you want to terminate the Instance: '+$(this).attr('title')+"?");
+    return response;
+  })
+
   $(".delete").click(function(e){
     var response = confirm('Are you sure you want to delete the '+$(this).attr('title')+" ?");
     return response;
