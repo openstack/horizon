@@ -29,11 +29,11 @@ from django import shortcuts
 from django import template as django_template
 from django import test
 from django.conf import settings
-from django.contrib.auth import models as auth_models
+from django_openstack.middleware import keystone
 
 
 class Object(object):
-    '''Inner Object for api objects'''
+    """Inner Object for api resource wrappers"""
     pass
 
 
@@ -71,22 +71,27 @@ def fake_render_to_response(template_name, context, context_instance=None,
 
 class BaseViewTests(test.TestCase):
     TEST_PROJECT = 'test'
-    TEST_STAFF_USER = 'staffUser'
-    TEST_USER = 'test'
     TEST_REGION = 'test'
+    TEST_STAFF_USER = 'staffUser'
+    TEST_TENANT = 'aTenant'
+    TEST_TOKEN = 'aToken'
+    TEST_USER = 'test'
 
     @classmethod
     def setUpClass(cls):
         cls._real_render_to_response = shortcuts.render_to_response
         shortcuts.render_to_response = fake_render_to_response
+        cls._real_get_user_from_request = keystone.get_user_from_request
 
     @classmethod
     def tearDownClass(cls):
         shortcuts.render_to_response = cls._real_render_to_response
+        keystone.get_user_from_request = cls._real_get_user_from_request
 
     def setUp(self):
         self.mox = mox.Mox()
-        self.user = self.authenticateTestUser()
+        self.setActiveUser(self.TEST_TOKEN, self.TEST_USER, self.TEST_TENANT,
+                           True)
 
     def tearDown(self):
         self.mox.UnsetStubs()
@@ -96,21 +101,6 @@ class BaseViewTests(test.TestCase):
                          ('Location', settings.TESTSERVER + expected_url))
         self.assertEqual(response.status_code, 302)
 
-    def authenticateTestUser(self):
-        user = auth_models.User.objects.create_user(self.TEST_USER,
-                                                         'test@test.com',
-                                                         password='test')
-        login = self.client.login(username=self.TEST_USER, password='test')
-        self.failUnless(login, 'Unable to login')
-        return user
-
-    def authenticateTestStaffUser(self):
-        user = auth_models.User.objects.create_user(self.TEST_STAFF_USER,
-                                                         'teststaff@test.com',
-                                                         password='test')
-        user.is_staff = True
-        user.save()
-        login = self.client.login(username=self.TEST_STAFF_USER,
-                                  password='test')
-        self.failUnless(login, 'Unable to login')
-        return user
+    def setActiveUser(self, token, username, tenant, is_admin):
+        keystone.get_user_from_request = \
+                lambda x: keystone.User(token, username, tenant, is_admin)

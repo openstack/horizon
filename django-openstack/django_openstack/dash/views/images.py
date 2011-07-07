@@ -38,7 +38,6 @@ from django import shortcuts
 from django_openstack import api
 from django_openstack import forms
 from openstackx.api import exceptions as api_exceptions
-from glance import client as glance_client
 from glance.common import exception as glance_exception
 
 
@@ -99,12 +98,12 @@ def index(request, tenant_id):
         all_images = api.image_list_detailed(request)
         if not all_images:
             messages.info(request, "There are currently no images.")
-    except glance_client.ClientConnectionError, e:
+    except glance_exception.ClientConnectionError, e:
         LOG.error("Error connecting to glance", exc_info=True)
-        messages.error(request, "Error connecting to glance: %s" % e.message)
+        messages.error(request, "Error connecting to glance: %s" % str(e))
     except glance_exception.Error, e:
         LOG.error("Error retrieving image list", exc_info=True)
-        messages.error(request, "Error retrieving image list: %s" % e.message)
+        messages.error(request, "Error retrieving image list: %s" % str(e))
 
     images = [im for im in all_images
               if im['container_format'] not in ['aki', 'ari']]
@@ -125,7 +124,7 @@ def launch(request, tenant_id, image_id):
             sel = [(f.id, '%s (%svcpu / %sGB Disk / %sMB Ram )' %
                    (f.name, f.vcpus, f.disk, f.ram)) for f in fl]
             return sorted(sel)
-        except:
+        except api_exceptions.ApiException:
             LOG.error('Unable to retrieve list of instance types',
                       exc_info=True)
             return [(1, 'm1.tiny')]
@@ -135,10 +134,12 @@ def launch(request, tenant_id, image_id):
             fl = api.keypair_list(request)
             sel = [(f.key_name, f.key_name) for f in fl]
             return sel
-        except:
+        except api_exceptions.ApiException:
             LOG.error('Unable to retrieve list of keypairs', exc_info=True)
             return []
 
+    # TODO(mgius): Any reason why these can't be after the launchform logic?
+    # If The form is valid, we've just wasted these two api calls
     image = api.image_get(request, image_id)
     tenant = api.token_get_tenant(request, request.user.tenant)
 
