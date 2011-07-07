@@ -9,7 +9,7 @@ def tenants(request):
 
     try:
         return {'tenants': api.token_list_tenants(request, request.user.token)}
-    except api_exceptions.ApiException, e:
+    except api_exceptions.BadRequest, e:
         messages.error(request, "Unable to retrieve tenant list from\
                                   keystone: %s" % e.message)
         return {'tenants': []}
