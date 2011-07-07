@@ -498,6 +498,29 @@ def swift_get_objects(container_name):
     return [SwiftObject(o) for o in container.get_objects()]
 
 
+def swift_object_exists(container_name, object_name):
+    container = swift_api().get_container(container_name)
+
+    try:
+        container.get_object(object_name)
+        return True
+    except cloudfiles.errors.NoSuchObject:
+        return False
+
+
+def swift_copy_object(orig_container_name, orig_object_name,
+                      new_container_name, new_object_name):
+
+    container = swift_api().get_container(orig_container_name)
+
+    if swift_object_exists(new_container_name, new_object_name) == True:
+        raise Exception('Object with name %s already exists in container %s'
+        % (new_object_name, new_container_name))
+
+    orig_obj = container.get_object(orig_object_name)
+    return orig_obj.copy_to(new_container_name, new_object_name)
+
+
 def swift_upload_object(container_name, object_name, object_data):
     container = swift_api().get_container(container_name)
     obj = container.create_object(object_name)

@@ -59,7 +59,37 @@ class UploadObject(forms.SelfHandlingForm):
                 request.POST['container_name'],
                 data['name'],
                 request.FILES['object_file'].read())
+
         messages.success(request, "Object was successfully uploaded.")
+        return shortcuts.redirect(request.build_absolute_uri())
+
+
+class CopyObject(forms.SelfHandlingForm):
+    container_choices = []
+
+    for idx, container in enumerate(api.swift_get_containers()):
+        container_choices.append((container['name'], container['name']))
+
+    new_container_name = forms.ChoiceField(
+        choices=container_choices,
+        label="Container to store object in")
+
+    new_object_name = forms.CharField(max_length="255",
+                                      label="New object name")
+
+    def handle(self, request, data):
+        orig_container_name = request.POST['orig_container_name']
+        orig_object_name = request.POST['orig_object_name']
+        new_container_name = request.POST['new_container_name']
+        new_object_name = data['new_object_name']
+
+        api.swift_copy_object(orig_container_name, orig_object_name,
+                              new_container_name, new_object_name)
+
+        messages.success(request,
+                         'Object was successfully copied to %s\%s' %
+                         (new_container_name, new_object_name))
+
         return shortcuts.redirect(request.build_absolute_uri())
 
 
@@ -101,3 +131,20 @@ def download(request, tenant_id, container_name, object_name):
     for data in object_data:
         response.write(data)
     return response
+
+
+@login_required
+def copy(request, tenant_id, container_name, object_name):
+    form, handled = CopyObject.maybe_handle(request)
+
+    form.fields['new_container_name'].initial = container_name
+
+    if handled:
+        return handled
+
+    return render_to_response(
+        'dash_object_copy.html',
+        {'container_name': container_name,
+         'object_name': object_name,
+         'copy_form': form },
+        context_instance=template.RequestContext(request))
