@@ -22,7 +22,13 @@ Getting Started
 ---------------
 
 Django-Nova uses Buildout (http://www.buildout.org/) to manage local
-development.  To configure your local Buildout environment:
+development.  To configure your local Buildout environment first install the following
+system-level dependencies:
+  * python-dev
+  * git
+  * bzr
+
+Then instantiate buildout with
 
   $ python bootstrap.py
   $ bin/buildout

@@ -37,7 +37,7 @@ setup(
     package_data = {'django_openstack':
                         [s[len('django_openstack/'):] for s in
                          findall('django_openstack/templates')]},
-    install_requires = ['setuptools', 'mox>=0.5.0'],
+    install_requires = ['setuptools', 'mox>=0.5.3', 'django_nose'],
     classifiers = [
         'Development Status :: 4 - Beta',
         'Framework :: Django',
