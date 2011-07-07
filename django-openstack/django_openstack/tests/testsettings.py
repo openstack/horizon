@@ -47,7 +47,7 @@ MIDDLEWARE_CLASSES = (
     'django_openstack.middleware.keystone.AuthenticationMiddleware',
     )
 
-ROOT_URLCONF = 'django_openstack.urls'
+ROOT_URLCONF = 'django_openstack.tests.testurls'
 TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'tests', 'templates')
 )

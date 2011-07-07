@@ -25,15 +25,16 @@ import datetime
 import logging
 
 from django import http
+from django import shortcuts
 from django import template
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
+from django_openstack import utils
 import openstack.compute.servers
 import openstackx.api.exceptions as api_exceptions
 
@@ -61,7 +62,7 @@ class TerminateInstance(forms.SelfHandlingForm):
             LOG.info(msg)
             messages.success(request, msg)
 
-        return redirect(request.build_absolute_uri())
+        return shortcuts.redirect(request.build_absolute_uri())
 
 
 class RebootInstance(forms.SelfHandlingForm):
@@ -83,7 +84,7 @@ class RebootInstance(forms.SelfHandlingForm):
             LOG.info(msg)
             messages.success(request, msg)
 
-        return redirect(request.build_absolute_uri())
+        return shortcuts.redirect(request.build_absolute_uri())
 
 
 @login_required
@@ -97,7 +98,7 @@ def index(request, tenant_id):
     try:
         instances = api.server_list(request)
     # TODO(markgius): Why isn't this an apiexception?
-    except Exception as e:
+    except api_exceptions.ApiException as e:
         LOG.error('Exception in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
@@ -106,7 +107,7 @@ def index(request, tenant_id):
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
 
-    return render_to_response('dash_instances.html', {
+    return shortcuts.render_to_response('dash_instances.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
@@ -115,10 +116,10 @@ def index(request, tenant_id):
 
 @login_required
 def usage(request, tenant_id=None):
-    today = datetime.date.today()
+    today = utils.today()
     date_start = datetime.date(today.year, today.month, 1)
-    datetime_start = datetime.datetime.combine(date_start, datetime.time())
-    datetime_end = datetime.datetime.utcnow()
+    datetime_start = datetime.datetime.combine(date_start, utils.time())
+    datetime_end = utils.utcnow()
 
     usage = {}
     if not tenant_id:
@@ -130,7 +131,7 @@ def usage(request, tenant_id=None):
         LOG.error('ApiException in instance usage', exc_info=True)
 
         messages.error(request, 'Unable to get usage info: %s' % e.message)
-    return render_to_response('dash_usage.html', {
+    return shortcuts.render_to_response('dash_usage.html', {
         'usage': usage,
     }, context_instance=template.RequestContext(request))
 
@@ -150,14 +151,14 @@ def console(request, tenant_id, instance_id):
         messages.error(request,
                    'Unable to get log for instance %s: %s' %
                    (instance_id, e.message))
-        return redirect('dash_instances', tenant_id)
+        return shortcuts.redirect('dash_instances', tenant_id)
 
 
 @login_required
 def vnc(request, tenant_id, instance_id):
     try:
         console = api.console_create(request, instance_id, 'vnc')
-        return redirect(console.output)
+        return shortcuts.redirect(console.output)
     except api_exceptions.ApiException, e:
         LOG.error('ApiException while fetching instance vnc connection',
                   exc_info=True)
@@ -165,4 +166,4 @@ def vnc(request, tenant_id, instance_id):
         messages.error(request,
                    'Unable to get vnc console for instance %s: %s' %
                    (instance_id, e.message))
-        return redirect('dash_instances', tenant_id)
+        return shortcuts.redirect('dash_instances', tenant_id)
