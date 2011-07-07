@@ -481,21 +481,12 @@ def user_update_tenant(request, user_id, tenant_id):
     return User(account_api(request).users.update_tenant(user_id, tenant_id))
 
 
-def swift_get_containers():
-    return [Container(c) for c in swift_api().get_all_containers()]
-
-
-def swift_create_container(name):
-    return Container(swift_api().create_container(name))
-
-
-def swift_delete_container(name):
-    swift_api().delete_container(name)
-
-
-def swift_get_objects(container_name):
-    container = swift_api().get_container(container_name)
-    return [SwiftObject(o) for o in container.get_objects()]
+def swift_container_exists(container_name):
+    try:
+        swift_api().get_container(container_name)
+        return True
+    except cloudfiles.errors.NoSuchContainer:
+        return False
 
 
 def swift_object_exists(container_name, object_name):
@@ -506,6 +497,26 @@ def swift_object_exists(container_name, object_name):
         return True
     except cloudfiles.errors.NoSuchObject:
         return False
+
+
+def swift_get_containers():
+    return [Container(c) for c in swift_api().get_all_containers()]
+
+
+def swift_create_container(name):
+    if swift_container_exists(name):
+        raise Exception('Container with name %s already exists.' % (name))
+
+    return Container(swift_api().create_container(name))
+
+
+def swift_delete_container(name):
+    swift_api().delete_container(name)
+
+
+def swift_get_objects(container_name):
+    container = swift_api().get_container(container_name)
+    return [SwiftObject(o) for o in container.get_objects()]
 
 
 def swift_copy_object(orig_container_name, orig_object_name,
