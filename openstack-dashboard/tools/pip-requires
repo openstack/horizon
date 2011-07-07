@@ -5,7 +5,15 @@ django-mailer
 django-registration==0.7
 nova-adminclient
 python-cloudfiles
+routes
+webob
+sqlalchemy
+paste
+PasteDeploy
+sqlalchemy-migrate
+eventlet
 
 bzr+https://launchpad.net/glance#egg=glance
 -e git://github.com/jacobian/openstack.compute.git#egg=openstack
 -e git://github.com/cloudbuilders/openstackx.git#egg=openstackx
+
