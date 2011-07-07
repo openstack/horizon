@@ -68,7 +68,7 @@ class CopyObject(forms.SelfHandlingForm):
     container_choices = []
 
     for idx, container in enumerate(api.swift_get_containers()):
-        container_choices.append((container['name'], container['name']))
+        container_choices.append((container.name, container.name))
 
     new_container_name = forms.ChoiceField(
         choices=container_choices,
