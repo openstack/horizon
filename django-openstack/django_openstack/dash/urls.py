@@ -12,6 +12,7 @@ urlpatterns = patterns('django_openstack.dash.views.instances',
     url(r'^(?P<tenant_id>[^/]+)/instances/$', 'index', name='dash_instances'),
     url(INSTANCES % 'console', 'console', name='dash_instances_console'),
     url(INSTANCES % 'vnc', 'vnc', name='dash_instances_vnc'),
+    url(INSTANCES % 'update', 'update', name='dash_instances_update'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.images',
