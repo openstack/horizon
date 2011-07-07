@@ -38,6 +38,15 @@ INSTALLED_APPS = ['django.contrib.auth',
                   'django_openstack.templatetags',
                   'mailer',
                   ]
+
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django_openstack.middleware.keystone.AuthenticationMiddleware',
+    )
+
 ROOT_URLCONF = 'django_openstack.urls'
 TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'tests', 'templates')
