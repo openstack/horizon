@@ -27,7 +27,6 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django import shortcuts
-from django.shortcuts import render_to_response
 
 from django_openstack import api
 from django_openstack import forms
@@ -74,7 +73,7 @@ def index(request, tenant_id):
 
     containers = api.swift_get_containers()
 
-    return render_to_response('dash_containers.html', {
+    return shortcuts.render_to_response('dash_containers.html', {
         'containers': containers,
         'delete_form': delete_form,
     }, context_instance=template.RequestContext(request))
@@ -86,6 +85,6 @@ def create(request, tenant_id):
     if handled:
         return handled
 
-    return render_to_response('dash_containers_create.html', {
+    return shortcuts.render_to_response('dash_containers_create.html', {
         'create_form': form,
     }, context_instance=template.RequestContext(request))
