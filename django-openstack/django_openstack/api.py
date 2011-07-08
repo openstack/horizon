@@ -131,7 +131,7 @@ def server_delete(request, instance):
 
 
 def server_get(request, instance_id):
-    return compute_api(request).servers.get(instance_id)
+    return extras_api(request).servers.get(instance_id)
 
 
 def server_list(request):
@@ -141,6 +141,12 @@ def server_list(request):
 def server_reboot(request, instance_id, hardness=openstack.compute.servers.REBOOT_HARD):
     server = server_get(request, instance_id)
     return server.reboot(hardness)
+
+
+def server_update(request, instance_id, name, description):
+    return extras_api(request).servers.update(instance_id,
+                                              name=name,
+                                              description=description)
 
 
 def service_get(request, name):

@@ -1,0 +1,36 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="instances" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Compute:</span> Update Instance </h2>
+<!--
+    <p class='desc'><span>&mdash;</span>Update Instance</p>
+-->
+  </div>
+
+  {% include "_messages.html" %}
+  
+  <div class="main_content">
+    <div class="dash_block wide form">
+      <div class='title_block'> 
+        <h3>Update Instance</h3> 
+      </div> 
+      <div class="left">
+        {% include '_instance_form.html' with form=form %}
+        <h3><a href="{% url dash_instances request.user.tenant %}"><< Return to Instances List</a></h3>
+      </div>
+
+      <div class="right">
+        <h3>Description:</h3>
+        <p>Update the name and description of your instance</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
