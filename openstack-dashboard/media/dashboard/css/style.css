@@ -316,6 +316,10 @@ input[readonly="readonly"] {
 	float: left;
 }
 
+.empty-sidebar {
+    height: 400px;
+}
+
 #main {
 	float: left;
 	width: 735px;
