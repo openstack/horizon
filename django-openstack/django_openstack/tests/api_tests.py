@@ -1472,3 +1472,45 @@ class SwiftApiTests(test.TestCase):
         self.assertEqual(ret_val, OBJECT_DATA)
 
         self.mox.VerifyAll()
+
+    def test_swift_object_exists(self):
+        CONTAINER_NAME = 'containerName'
+        OBJECT_NAME = 'objectName'
+
+        swift_api = self.stub_swift_api()
+        container = self.mox.CreateMock(cloudfiles.container.Container)
+        swift_object = self.mox.CreateMock(cloudfiles.Object)
+
+        swift_api.get_container(CONTAINER_NAME).AndReturn(container)
+        container.get_object(OBJECT_NAME).AndReturn(swift_object)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_object_exists(CONTAINER_NAME, OBJECT_NAME)
+        self.assertTrue(ret_val)
+
+        self.mox.VerifyAll()
+
+    def test_swift_copy_object(self):
+        CONTAINER_NAME = 'containerName'
+        OBJECT_NAME = 'objectName'
+
+        swift_api = self.stub_swift_api()
+        container = self.mox.CreateMock(cloudfiles.container.Container)
+        self.mox.StubOutWithMock(api, 'swift_object_exists')
+
+        swift_object = self.mox.CreateMock(cloudfiles.Object)
+
+        swift_api.get_container(CONTAINER_NAME).AndReturn(container)
+        api.swift_object_exists(CONTAINER_NAME, OBJECT_NAME).AndReturn(False)
+
+        container.get_object(OBJECT_NAME).AndReturn(swift_object)
+        swift_object.copy_to(CONTAINER_NAME, OBJECT_NAME)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_copy_object(CONTAINER_NAME, OBJECT_NAME,
+                                        CONTAINER_NAME, OBJECT_NAME)
+
+        self.assertIsNone(ret_val)
+        self.mox.VerifyAll()
