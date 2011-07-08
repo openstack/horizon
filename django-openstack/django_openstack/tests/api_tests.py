@@ -340,7 +340,7 @@ class ApiHelperTests(test.TestCase):
                 'glance': [{'adminURL': GLANCE_URL + 'admin',
                             'internalURL': GLANCE_URL + 'internal'},
                           ],
-                'keystone': [{'adminURL': KEYSTONE_URL + 'admin',
+                'identity': [{'adminURL': KEYSTONE_URL + 'admin',
                           'internalURL': KEYSTONE_URL + 'internal'},
                         ],
                 }
