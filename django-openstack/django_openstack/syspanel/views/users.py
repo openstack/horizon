@@ -39,9 +39,9 @@ class UserDeleteForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         user_id = data['user']
         api.user_delete(request, user_id)
-        messages.info(request,
-                         '%s was successfully deleted.'
-                         % user_id)
+        messages.info(request, '%s was successfully deleted.'
+                                % user_id)
+            
         return redirect(request.build_absolute_uri())
 
 
@@ -52,7 +52,12 @@ def index(request):
         if handled:
             return handled
 
-    users = api.user_list(request)
+    users = []
+    try:
+        users = api.user_list(request)
+    except api_exceptions.ApiException, e:
+        messages.error(request, 'Unable to list users: %s' %
+                                 e.message)
 
     user_delete_form = UserDeleteForm()
     return render_to_response('syspanel_users.html',{
@@ -119,7 +124,12 @@ def update(request, user_id):
 
 @login_required
 def create(request):
-    tenants = api.tenant_list(request)
+    try:
+        tenants = api.tenant_list(request)
+    except api_exceptions.ApiException, e:
+        messages.error(request, 'Unable to retrieve tenant list: %s' %
+                                 e.message)
+        return redirect('syspanel_users')
 
     if request.method == "POST":
         form = UserForm(request.POST, tenant_list=tenants)

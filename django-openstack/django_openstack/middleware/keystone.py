@@ -46,6 +46,10 @@ class AuthenticationMiddleware(object):
                                #BEWARE - had to add this exception handler
                                # to make token expiration work
                                openstackx.api.exceptions.NotFound]:
+            # flush other error messages, which are collateral damage
+            # when our token expires
+            for message in messages.get_messages(request):
+                pass
             messages.error(request, 'Your token has expired.\
                                      Please log in again')
             return shortcuts.redirect('/auth/logout')
