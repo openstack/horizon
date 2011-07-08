@@ -24,13 +24,14 @@ URL patterns for testing django-openstack views.
 
 from django.conf.urls.defaults import *
 
+from django_openstack import urls as django_openstack_urls
+
 
 urlpatterns = patterns('',
-    url(r'^projects/', include('django_openstack.nova.urls.project')),
-    url(r'^region/', include('django_openstack.nova.urls.region')),
-    #url(r'^admin/projects/', include('django_openstack.nova.urls.admin_project')),
-    #url(r'^admin/roles/', include('django_openstack.nova.urls.admin_roles')),
-    url(r'^credentials/download/(?P<auth_token>\w+)/$',
-        'django_openstack.nova.views.credentials.authorize_credentials',
-        name='nova_credentials_authorize'),
+    url(r'^dash/$', 'django_openstack.dash.views.instances.usage', name='dash_overview'),
+    url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage', name='syspanel_overview')
 )
+
+
+# NOTE(termie): just append them since we want the routes at the root
+urlpatterns += django_openstack_urls.urlpatterns
