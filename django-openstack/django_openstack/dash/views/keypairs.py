@@ -21,7 +21,6 @@
 """
 Views for managing Nova instances.
 """
-import datetime
 import logging
 
 from django import http
@@ -30,12 +29,10 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django import shortcuts
-from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
-import openstack.compute.servers
 import openstackx.api.exceptions as api_exceptions
 
 
@@ -89,7 +86,7 @@ def index(request, tenant_id):
         LOG.error("ApiException in keypair index", exc_info=True)
         messages.error(request, 'Error fetching keypairs: %s' % e.message)
 
-    return render_to_response('dash_keypairs.html', {
+    return shortcuts.render_to_response('dash_keypairs.html', {
         'keypairs': keypairs,
         'delete_form': delete_form,
     }, context_instance=template.RequestContext(request))
@@ -101,6 +98,6 @@ def create(request, tenant_id):
     if handled:
         return handled
 
-    return render_to_response('dash_keypairs_create.html', {
+    return shortcuts.render_to_response('dash_keypairs_create.html', {
         'create_form': form,
     }, context_instance=template.RequestContext(request))
