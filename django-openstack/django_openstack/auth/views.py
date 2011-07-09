@@ -35,6 +35,9 @@ class Login(forms.SelfHandlingForm):
 
         except api_exceptions.Unauthorized as e:
             messages.error(request, 'Error authenticating: %s' % e.message)
+        except api_exceptions.ApiException as e:
+            messages.error(request, 'Error authenticating with keystone: %s' %
+                                     e.message)
 
 
 def login(request):
@@ -68,6 +71,3 @@ def switch_tenants(request, tenant_id):
 def logout(request):
     request.session.clear()
     return shortcuts.redirect('splash')
-
-
-

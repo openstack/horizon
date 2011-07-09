@@ -114,7 +114,14 @@ class LaunchForm(forms.SelfHandlingForm):
 
 @login_required
 def index(request, tenant_id):
-    tenant = api.token_get_tenant(request, request.user.tenant)
+    tenant = {}
+    
+    try:
+        tenant = api.token_get_tenant(request, request.user.tenant)
+    except api_exceptions.ApiException, e:
+        messages.error(request, "Unable to retrienve tenant info\
+                                 from keystone: %s" % e.message)
+
     all_images = []
     try:
         all_images = api.image_list_detailed(request)
@@ -166,8 +173,19 @@ def launch(request, tenant_id, image_id):
         except:
             return []
 
-    image = api.image_get(request, image_id)
-    tenant = api.token_get_tenant(request, request.user.tenant)
+    try:
+        image = api.image_get(request, image_id)
+    except Exception, e:
+        messages.error(request, 'Unable to retrieve image %s: %s' %
+                                 (image_id, e.message))
+        return redirect('dash_instances', tenant_id)
+
+    try:
+        tenant = api.token_get_tenant(request, request.user.tenant)
+    except api_exceptions.ApiException, e:
+        messages.error(request, 'Unable to retrieve tenant %s: %s' %
+                                 (request.user.tenant, e.message))
+        return redirect('dash_instances', tenant_id)
 
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),

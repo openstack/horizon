@@ -40,6 +40,7 @@
               <li>{% include "_reboot.html" with form=reboot_form %}</li>
               <li><a target="_blank" href="{% url dash_instances_console request.user.tenant instance.id %}">Log</a></li>
               <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant instance.id %}">VNC Console</a></li>
+              <li><a href="{% url dash_instances_update request.user.tenant instance.id %}">Edit</a></li>
             </ul>
         </td>
       </tr>

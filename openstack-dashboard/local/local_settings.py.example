@@ -23,6 +23,7 @@ CACHE_BACKEND = 'dummy://'
 
 OPENSTACK_ADMIN_TOKEN = "999888777666"
 OPENSTACK_KEYSTONE_URL = "http://localhost:8080/v2.0/"
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
 # If you have external monitoring links
 EXTERNAL_MONITORING = [
