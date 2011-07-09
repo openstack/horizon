@@ -185,6 +185,8 @@ def tenant_update(request, tenant_id, description, enabled):
 def token_create(request, tenant, username, password):
     return auth_api().tokens.create(tenant, username, password)
 
+def tenant_quota_get(request, tenant):
+    return admin_api(request).quotas.get(tenant)
 
 def token_info(request, token):
     hdrs = {"Content-type": "application/json",

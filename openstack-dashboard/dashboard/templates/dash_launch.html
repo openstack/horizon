@@ -28,7 +28,15 @@
     <div class="right">
       <h3>Description:</h3>
       <p>Specify the details for launching an instance.</p>
-    </div>
+      <table>
+          {% for qutoa in quotas %}
+            <tr>
+                <td>{{quota.0}}</td>
+                <td>{{quota.1}}</td>
+            </tr>
+          {% endfor %}
+      </table>
+  </div>
 
   </div>
 {% endblock %}

@@ -168,7 +168,7 @@ def launch(request, tenant_id, image_id):
 
     image = api.image_get(request, image_id)
     tenant = api.token_get_tenant(request, request.user.tenant)
-
+    quotas = api.tenant_quota_get(request, request.user.tenant)
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),
                               'keynamelist': keynamelist(),
@@ -181,4 +181,5 @@ def launch(request, tenant_id, image_id):
         'tenant': tenant,
         'image': image,
         'form': form,
+        'quotas': quotas,
     }, context_instance=template.RequestContext(request))
