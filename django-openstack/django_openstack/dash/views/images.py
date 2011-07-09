@@ -169,6 +169,7 @@ def launch(request, tenant_id, image_id):
     image = api.image_get(request, image_id)
     tenant = api.token_get_tenant(request, request.user.tenant)
     quotas = api.tenant_quota_get(request, request.user.tenant)
+    quotas.ram = int(quotas.ram)/100
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),
                               'keynamelist': keynamelist(),
