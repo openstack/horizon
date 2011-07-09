@@ -1692,3 +1692,11 @@ li.title h4{
 	margin-left: 25px;
 }
 
+#spinner {
+	background: url(../images/spinner.gif) top left no-repeat;
+	float: right;
+	width: 24px;
+	height: 24px;
+	text-indent: -9999px;
+	margin-right: 19px;
+}

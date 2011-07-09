@@ -10,6 +10,7 @@ KEYPAIRS = r'^(?P<tenant_id>[^/]+)/keypairs/%s$'
 urlpatterns = patterns('django_openstack.dash.views.instances',
     url(r'^(?P<tenant_id>[^/]+)/$', 'usage', name='dash_usage'),
     url(r'^(?P<tenant_id>[^/]+)/instances/$', 'index', name='dash_instances'),
+    url(r'^(?P<tenant_id>[^/]+)/instances/refresh$', 'refresh', name='dash_instances_refresh'),
     url(INSTANCES % 'console', 'console', name='dash_instances_console'),
     url(INSTANCES % 'vnc', 'vnc', name='dash_instances_vnc'),
 )
