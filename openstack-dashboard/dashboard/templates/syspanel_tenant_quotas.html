@@ -1,0 +1,33 @@
+{% extends 'syspanel_base.html' %}
+{# list of tenants #}
+{# standard nav, sidebar, list of instances in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="tenants" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+    <div id='page_header'>
+      <h2><span>System Panel:</span> Tenants</h2>
+      <p class='desc'><span>&mdash;</span>Manage Tenants Quotas</p>
+    </div>
+    {% include "_messages.html" %}
+
+    <div class="main_content">
+      <div class="dash_block wide form">
+        <div class='title_block'>
+        <h3>Update Tenant Quotas</h3>
+        </div>
+        {% include 'django_openstack/syspanel/_update_quotas_form.html' with form=form %}
+
+        <div class="right">
+          <h3>Description:</h3>
+          <p>From here you can edit quotas (max limits) for the tenant {{tenant_id}}.</p>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+

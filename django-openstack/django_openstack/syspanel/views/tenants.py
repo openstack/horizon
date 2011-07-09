@@ -92,6 +92,39 @@ class UpdateTenant(forms.SelfHandlingForm):
             messages.error(request, 'Unable to update tenant: %s' % e.message)
         return redirect('syspanel_tenants')
 
+class UpdateQuotas(forms.SelfHandlingForm):
+    tenant_id = forms.CharField(label="ID (name)", widget=forms.TextInput(attrs={'readonly':'readonly'}))
+    metadata_items = forms.CharField(label="Metadata Items")
+    injected_files = forms.CharField(label="Injected Files")
+    injected_file_content_bytes = forms.CharField(label="Injected File Content Bytes")
+    cores = forms.CharField(label="VCPUs")
+    instances = forms.CharField(label="Instances")
+    volumes = forms.CharField(label="Volumes")
+    gigabytes = forms.CharField(label="Gigabytes")
+    ram = forms.CharField(label="RAM (in MB)")
+    floating_ips = forms.CharField(label="Floating IPs")
+
+    def handle(self, request, data):
+        try:
+            api.admin_api(request).quotas.update(request,
+                          tenantId=data['tenant_id'],
+                          metadata_items=data['metadata_items'],
+                          injected_file_content_bytes=
+                          data['injected_file_content_bytes'],
+                          volumes=data['volumes'],
+                          gigabytes=data['gigabytes'],
+                          ram=int(data['ram']) * 100,
+                          floating_ips=data['floating_ips'],
+                          instances=data['instances'],
+                          injected_files=data['injected_files'],
+                          cores=data['cores'],
+            )
+            messages.success(request,
+                             'Quotas for %s were successfully updated.'
+                             % data['tenant_id'])
+        except api_exceptions.ApiException, e:
+            messages.error(request, 'Unable to update quotas: %s' % e.message)
+        return redirect('syspanel_tenants')
 
 @login_required
 def index(request):
@@ -160,4 +193,33 @@ def users(request, tenant_id):
         'remove_user_form': remove_user_form,
         'tenant_id': tenant_id,
         'users': users,
+    }, context_instance = template.RequestContext(request))
+
+@login_required
+def quotas(request, tenant_id):
+    for f in (UpdateQuotas,):
+        _, handled = f.maybe_handle(request)
+        if handled:
+            return handled
+
+    quotas = api.admin_api(request).quotas.get(tenant_id)
+    quota_set = {
+        'tenant_id': quotas.tenantId,
+        'metadata_items': quotas.metadata_items,
+        'injected_file_content_bytes': quotas.injected_file_content_bytes,
+        'volumes': quotas.volumes,
+        'gigabytes': quotas.gigabytes,
+        'ram': int(quotas.ram) / 100,
+        'floating_ips': quotas.floating_ips,
+        'instances': quotas.instances,
+        'injected_files': quotas.injected_files,
+        'cores': quotas.cores,
+    }
+    form = UpdateQuotas(initial=quota_set)
+
+    return render_to_response(
+    'syspanel_tenant_quotas.html',{
+        'form': form,
+        'tenant_id': tenant_id,
+        'quotas': quotas,
     }, context_instance = template.RequestContext(request))
