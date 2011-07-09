@@ -1363,7 +1363,9 @@ class SwiftApiTests(test.TestCase):
         NAME = 'containerName'
 
         swift_api = self.stub_swift_api()
+        self.mox.StubOutWithMock(api, 'swift_container_exists')
 
+        api.swift_container_exists(NAME).AndReturn(False)
         swift_api.create_container(NAME).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
