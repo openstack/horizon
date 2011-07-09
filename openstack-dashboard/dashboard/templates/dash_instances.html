@@ -12,7 +12,7 @@
   <div id='page_header'>
     <h2><span>Compute:</span> Instances</h2>
     <p class='desc'><span>&mdash;</span> Instances are virtual servers launched from images.</p>
-    <div id="spinner">Loading...</div>
+    <div id="spinner" class="dash">Loading...</div>
   </div>
 
   {% include "_messages.html" %}
@@ -62,8 +62,6 @@
         e.preventDefault()
         loadInstances();
       })
-
     })
-
   </script>
 {% endblock footer_js %}

@@ -196,3 +196,32 @@ def index(request):
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
     }, context_instance=template.RequestContext(request))
+
+@login_required
+def refresh(request):
+    for f in (TerminateInstance, RebootInstance):
+        _, handled = f.maybe_handle(request)
+        if handled:
+            return handled
+
+    instances = []
+    try:
+        image_dict = api.image_all_metadata(request)
+        instances = api.server_list(request)
+        for instance in instances:
+            # FIXME - ported this over, but it is hacky
+            instance._info['attrs']['image_name'] =\
+               image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
+    except Exception as e:
+        messages.error(request, 'Unable to get instance list: %s' % e.message)
+
+    # We don't have any way of showing errors for these, so don't bother
+    # trying to reuse the forms from above
+    terminate_form = TerminateInstance()
+    reboot_form = RebootInstance()
+
+    return render_to_response('_syspanel_instance_list.html', {
+        'instances': instances,
+        'terminate_form': terminate_form,
+        'reboot_form': reboot_form,
+    }, context_instance=template.RequestContext(request))
