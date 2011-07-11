@@ -175,6 +175,10 @@ def launch(request, tenant_id, image_id):
 
     try:
         image = api.image_get(request, image_id)
+        tenant = api.token_get_tenant(request, request.user.tenant)
+        quotas = api.tenant_quota_get(request, request.user.tenant)
+        quotas.ram = int(quotas.ram)/100
+        
     except Exception, e:
         messages.error(request, 'Unable to retrieve image %s: %s' %
                                  (image_id, e.message))
@@ -199,4 +203,5 @@ def launch(request, tenant_id, image_id):
         'tenant': tenant,
         'image': image,
         'form': form,
+        'quotas': quotas,
     }, context_instance=template.RequestContext(request))
