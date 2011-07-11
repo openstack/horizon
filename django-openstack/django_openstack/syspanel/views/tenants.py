@@ -106,7 +106,7 @@ class UpdateQuotas(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.admin_api(request).quotas.update(data['tenant_id'],
+            api.admin_api(request).quota_sets.update(data['tenant_id'],
                           metadata_items=data['metadata_items'],
                           injected_file_content_bytes=
                           data['injected_file_content_bytes'],
@@ -201,7 +201,7 @@ def quotas(request, tenant_id):
         if handled:
             return handled
 
-    quotas = api.admin_api(request).quotas.get(tenant_id)
+    quotas = api.admin_api(request).quota_sets.get(tenant_id)
     quota_set = {
         'tenant_id': quotas.id,
         'metadata_items': quotas.metadata_items,
