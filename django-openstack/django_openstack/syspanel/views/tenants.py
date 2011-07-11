@@ -204,7 +204,7 @@ def quotas(request, tenant_id):
 
     quotas = api.admin_api(request).quotas.get(tenant_id)
     quota_set = {
-        'tenant_id': quotas.tenantId,
+        'tenant_id': quotas.id,
         'metadata_items': quotas.metadata_items,
         'injected_file_content_bytes': quotas.injected_file_content_bytes,
         'volumes': quotas.volumes,
