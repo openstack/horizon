@@ -21,7 +21,7 @@ def index(request):
     quotas = api.admin_api(request).quota_sets.get(True)._info
     quotas['ram'] = int(quotas['ram']) / 100
     quotas.pop('id')
-    messages.success(request, quotas)
+
     return render_to_response('syspanel_quotas.html',{
         'quotas': quotas,
     }, context_instance = template.RequestContext(request))
