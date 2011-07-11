@@ -106,8 +106,8 @@ class UpdateQuotas(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.admin_api(request).quotas.update(request,
-                          tenantId=data['tenant_id'],
+            messages.error(request, data['tenant_id'])
+            api.admin_api(request).quotas.update(data['tenant_id'],
                           metadata_items=data['metadata_items'],
                           injected_file_content_bytes=
                           data['injected_file_content_bytes'],
