@@ -26,6 +26,10 @@ urlpatterns += patterns('django_openstack.syspanel.views.images',
 )
 
 
+urlpatterns += patterns('django_openstack.syspanel.views.quotas',
+    url(r'^quotas/$', 'index', name='syspanel_quotas'),
+)
+
 urlpatterns += patterns('django_openstack.syspanel.views.flavors',
     url(r'^flavors/$', 'index', name='syspanel_flavors'),
     url(r'^flavors/create/$', 'create', name='syspanel_flavors_create'),
