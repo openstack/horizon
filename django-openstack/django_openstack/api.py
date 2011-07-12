@@ -247,10 +247,10 @@ def account_api(request):
     LOG.debug('account_api connection created using token "%s"'
                       ' and url "%s"' %
                   (request.session['token'],
-                   url_for(request, 'keystone', True)))
+                   url_for(request, 'identity', True)))
     return openstackx.extras.Account(
         auth_token=request.session['token'],
-        management_url=url_for(request, 'keystone', True))
+        management_url=url_for(request, 'identity', True))
 
 
 def glance_api(request):
