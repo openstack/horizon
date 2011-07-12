@@ -443,9 +443,9 @@ class AccountApiTests(test.TestCase):
 
         self.mox.StubOutWithMock(api, 'url_for')
         api.url_for(
-                IsA(http.HttpRequest), 'keystone', True).AndReturn(TEST_URL)
+                IsA(http.HttpRequest), 'identity', True).AndReturn(TEST_URL)
         api.url_for(
-                IsA(http.HttpRequest), 'keystone', True).AndReturn(TEST_URL)
+                IsA(http.HttpRequest), 'identity', True).AndReturn(TEST_URL)
 
         self.mox.ReplayAll()
 
