@@ -10,14 +10,9 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>System Panel:</span> Overview</h2>
-    <p class='desc'><span>&mdash;</span> Overview of your cloud, and overall usage.</p>
-  </div>
-  <div class='main_content'>
-    {% include "_messages.html" %}
+{% block page_title %}System Panel Overview{% endblock %}
 
+{% block syspanel_main %}
     {% if external_links %}
       <div id="monitoring">
         <h3>Monitoring: </h3>
