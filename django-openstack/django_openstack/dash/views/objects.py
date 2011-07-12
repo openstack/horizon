@@ -39,10 +39,11 @@ LOG = logging.getLogger('django_openstack.dash')
 
 class DeleteObject(forms.SelfHandlingForm):
     object_name = forms.CharField(widget=forms.HiddenInput())
+    container_name = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):
         api.swift_delete_object(
-                request.POST['container_name'],
+                data['container_name'],
                 data['object_name'])
         messages.info(request,
                       'Successfully deleted object: %s' % \
@@ -53,12 +54,13 @@ class DeleteObject(forms.SelfHandlingForm):
 class UploadObject(forms.SelfHandlingForm):
     name = forms.CharField(max_length="255", label="Object Name")
     object_file = forms.FileField(label="File")
+    container_name = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):
         api.swift_upload_object(
-                request.POST['container_name'],
+                data['container_name'],
                 data['name'],
-                request.FILES['object_file'].read())
+                self.files['object_file'].read())
 
         messages.success(request, "Object was successfully uploaded.")
         return shortcuts.redirect(request.build_absolute_uri())
@@ -70,17 +72,20 @@ class CopyObject(forms.SelfHandlingForm):
 
     new_object_name = forms.CharField(max_length="255",
                                       label="New object name")
+    orig_container_name = forms.CharField(widget=forms.HiddenInput())
+    orig_object_name = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
         super(CopyObject, self).__init__(*args, **kwargs)
 
-        container_choices = [(c.name, c.name) for c in api.swift_get_containers()]
+        container_choices = \
+                [(c.name, c.name) for c in api.swift_get_containers()]
         self.fields['new_container_name'].choices = container_choices
 
     def handle(self, request, data):
-        orig_container_name = request.POST['orig_container_name']
-        orig_object_name = request.POST['orig_object_name']
-        new_container_name = request.POST['new_container_name']
+        orig_container_name = data['orig_container_name']
+        orig_object_name = data['orig_object_name']
+        new_container_name = data['new_container_name']
         new_object_name = data['new_object_name']
 
         api.swift_copy_object(orig_container_name, orig_object_name,
@@ -101,6 +106,7 @@ def index(request, tenant_id, container_name):
 
     objects = api.swift_get_objects(container_name)
 
+    delete_form.fields['container_name'].initial = container_name
     return render_to_response('dash_objects.html', {
         'container_name': container_name,
         'objects': objects,
@@ -114,6 +120,7 @@ def upload(request, tenant_id, container_name):
     if handled:
         return handled
 
+    form.fields['container_name'].initial = container_name
     return render_to_response('dash_objects_upload.html', {
         'container_name': container_name,
         'upload_form': form,
@@ -137,10 +144,12 @@ def download(request, tenant_id, container_name, object_name):
 def copy(request, tenant_id, container_name, object_name):
     form, handled = CopyObject.maybe_handle(request)
 
-    form.fields['new_container_name'].initial = container_name
-
     if handled:
         return handled
+
+    form.fields['new_container_name'].initial = container_name
+    form.fields['orig_container_name'].initial = container_name
+    form.fields['orig_object_name'].initial = object_name
 
     return render_to_response(
         'dash_object_copy.html',
