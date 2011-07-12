@@ -8,27 +8,16 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>System Panel:</span> Users </h2>
-    <p class='desc'><span>&mdash;</span> Create a User </p>
-  </div>
+{% block page_title %}Create User{% endblock %}
 
-  {% include "_messages.html" %}
+{% block syspanel_main %}
+  <div class="dash_block wide form">
 
-  
-  <div class="main_content">
-    <div class="dash_block wide form">
-      <div class='title_block'> 
-        <h3>Create User</h3> 
-      </div> 
+    {% include 'django_openstack/syspanel/_create_user_form.html' %}
 
-      {% include 'django_openstack/syspanel/_create_user_form.html' %}
-      
-      <div class="right">
-        <h3>Description:</h3>
-        <p>From here you can create a new user and assign them to a tenant (aka project).</p>
-      </div>
+    <div class="right">
+      <h3>Description:</h3>
+      <p>From here you can create a new user and assign them to a tenant (aka project).</p>
     </div>
   </div>
 {% endblock %}

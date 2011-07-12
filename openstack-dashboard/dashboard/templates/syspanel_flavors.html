@@ -8,30 +8,10 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-   <h2><span>System Panel:</span> Flavors</h2>
-   <p class='desc'><span>&mdash;</span> Create, Edit and Delete Flavors.</p>
-  </div>
+{% block page_title %}Flavors{% endblock %}
+{% block refresh_link %}{% url syspanel_flavors %}{% endblock refresh_link %}
 
-  {% include "_messages.html" %}
-  <div class="main_content">
-      <div class='table_title wide'>
-        <h3>Flavors</h3>
-        <a class="refresh" title="Refresh" href="{% url syspanel_flavors %}">Refresh List</a>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-      </div>
-
-    {% include "_syspanel_flavor_list.html" %}
-
-    <a id="flavor_create_link" class="action_link large-rounded" href="{% url syspanel_flavors_create %}">Create New Flavor </a>
-
-
+{% block syspanel_main %}
+  {% include "_syspanel_flavor_list.html" %}
+  <a id="flavor_create_link" class="action_link large-rounded" href="{% url syspanel_flavors_create %}">Create New Flavor </a>
 {% endblock %}

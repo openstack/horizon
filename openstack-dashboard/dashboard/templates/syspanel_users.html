@@ -8,28 +8,11 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>System Panel:</span> Users</h2>
-    <p class='desc'><span>&mdash;</span> Create, Edit, and Delete Users.</p>
-  </div>
+{% block page_title %}Users{% endblock %}
+{% block refresh_link %}{% url syspanel_users %}{% endblock refresh_link %}
 
-  {% include "_messages.html" %}
+{% block syspanel_main %}
 
-  <div class="main_content">
-    <div class='table_title wide'> 
-      <h3>Users</h3> 
-      <a <a class="refresh" title="Refresh" href="{% url syspanel_users %}">Refresh List</a>
-      <div class='search'>
-        <form action='' method='post'>
-          <fieldset>
-            <label for='table_search'>Search</label>
-            <input id='table_search' name='search' type='text' value='' />
-          </fieldset> 
-        </form> 
-      </div> 
-    </div>
-    
     <table class="wide">
       <tr>
         <th>ID</th>

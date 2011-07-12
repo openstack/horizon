@@ -8,27 +8,16 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>System Panel:</span> Images </h2>
-    <p class='desc'><span>&mdash;</span> Update Image </p>
-  </div>
+{% block page_title %}Update Image{% endblock %}
+{% block refresh_link %}{% url syspanel_images %}{% endblock refresh_link %}
 
-  {% include "_messages.html" %}
+{% block syspanel_main %}
+  <div class="dash_block wide form">
+    {% include '_image_form.html' %}
 
-  <div class="main_content">
-    <div class="dash_block wide form">
-      <div class='title_block'> 
-        <h3>Update Image</h3> 
-      </div> 
-
-      {% include '_image_form.html' %}
-      
-      <div class="right">
-        <h3>Description:</h3>
-        <p>From here you can modify different properties of an image.</p>
-      </div>
+    <div class="right">
+      <h3>Description:</h3>
+      <p>From here you can modify different properties of an image.</p>
     </div>
   </div>
 {% endblock %}
-

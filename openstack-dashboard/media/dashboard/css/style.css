@@ -361,41 +361,6 @@ input[readonly="readonly"] {
 
 
 
-.search {
-	border-bottom: 1px solid #e5e5e5;
-	padding-left: 15px;
-	width: 208px;
-	margin-top: 15px;
-	margin-left: -15px;
-}
-
-.search fieldset {
-	margin-top: -15px;
-}
-
-.search form label {
-	display: block;
-	text-indent: -9999px;
-	float: left;
-	background: #fff url(../images/search.png) no-repeat 10px;
-	width: 16px;
-	height: 16px;
-	border: 1px solid #ccc;
-	margin-top: 0;
-	padding-top: 17px;
-	padding-bottom: 0;
-	padding-right: 21px;
-}
-
-.search input[type="text"], .dash_block form input[type="text"], .dash_block form input[type="password"], .dash_block form textarea{
-	margin-left: -1px;
-	border: 1px solid #ccc;
-	height: 31px;
-	float: left;
-	padding-left: 10px;
-	width: 145px;
-	margin-bottom: 15px;
-}
 
 .dash_block form select {
 	width: 100%;
@@ -441,24 +406,21 @@ input[readonly="readonly"] {
 #page_header {
 	float: left;
 	background-color: #f2f2f2;
-	margin-top: -15px;
-	margin-left: -11px;
-	padding-left: 20px;
-	padding-top: 20px;
 	width: 726px;
 	-webkit-border-top-right-radius: 10px;
 	-moz-border-radius-topright: 10px;
 	border-top-right-radius:10px;
 	border-bottom: 1px solid #e5e5e5;
-	margin-bottom: 25px;
-	padding-bottom: 20px;
+	margin: -15px 0 25px -11px;
+	padding: 20px 0 20px 20px;
 }
 
-#page_header h2, .modal_window h3 {
+#page_header h2 {
 	font-weight: normal;
 	font-size: 30px;
 	color: #a3a3a3;
 	float: left;
+	margin-top: 5px;
 }
 
 #page_header h2 span, .modal_window h3 span {
@@ -622,7 +584,7 @@ table ul li {
 	font-size: 28px;
 }
 
-.table_title .search {
+.search {
 	float: right;
 	margin-top: -9px;
 	margin-right: -15px;
@@ -1281,27 +1243,6 @@ ol li.first a {
 	padding: 20px;
 }
 
-a.refresh  {
-	display: block;
-	float: right;
-	width: 16px;
-	height: 19px;
-	background: url(../images/refresh.png) top left no-repeat;
-	text-indent: -9999px;
-	margin-top: -16px;
-	margin-left: 20px;
-	cursor: pointer;
-}
-
-a.refresh:hover {
-	background-position: left -19px;
-}
-
-
-
-.properties {
-}
-
 .properties li {
 	float: left;
 	margin-bottom: 20px;
@@ -1715,3 +1656,66 @@ li.title h4{
 	bottom: 0;
 	margin-bottom: -24px;
 }
+
+#page_header .right {
+	float: right;
+	width: 260px;
+	margin-top: 7px;
+}
+
+.search {
+	padding-left: 15px;
+	width: 208px;
+	float: left;
+}
+.search form label {
+	display: block;
+	text-indent: -9999px;
+	float: left;
+	background: #fff url(../images/search.png) no-repeat 10px;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #ccc;
+	margin-top: 0;
+	padding-top: 17px;
+	padding-bottom: 0;
+	padding-right: 21px;
+}
+
+.search input[type="text"], .dash_block form input[type="text"], .dash_block form input[type="password"], .dash_block form textarea{
+	margin-left: -1px;
+	border: 1px solid #ccc;
+	height: 31px;
+	float: left;
+	padding-left: 10px;
+	width: 145px;
+	margin-bottom: 15px;
+}
+
+
+.search input[type="text"] {
+	margin: 0;
+}
+
+a.refresh  {
+	display: block;
+	float: left;
+	width: 16px;
+	height: 19px;
+	background: url(../images/refresh.png) top left no-repeat;
+	text-indent: -9999px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+a.refresh:hover {
+	background-position: left -19px;
+}
+
+
+
+
+
+
+
+
