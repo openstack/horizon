@@ -1,28 +1,17 @@
 {% extends 'dash_base.html' %}
-{# launch an instance based on image #}
-{# standard nav, sidebar, launch form in main #}
+{# list of user's images #}
+{# standard nav, sidebar, list of images in main #}
 
 {% block sidebar %}
-  {% with current_section="images" %}
+  {% with current_sidebar="images" %}
     {{block.super}}
   {% endwith %}
 {% endblock %}
 
-{% block main %}
+{% block page_title %}Launch Instance{% endblock %}
 
-  <div id='page_header'>
-    <h2><span>Compute:</span> Launch Instance</h2>
-    <p class='desc'><span>&mdash;</span> Launch Instance from Image.</p>
-  </div>
-  <div class='main_content'>
-
-  {% include "_messages.html" %}
-
+{% block dash_main %}
   <div class="dash_block wide form">
-    <div class='title_block'>
-      <h3>Launch Image</h3>
-    </div>
-
     {% include '_launch.html' %}
     <div class="right">
       <h3>Description:</h3>
@@ -54,6 +43,5 @@
         </tr>
       </table>
   </div>
-
-  </div>
+  
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'dash_base.html' %}
-{# list of user's instances #}
-{# standard nav, sidebar, list of instances in main #}
+{# list of user's images #}
+{# standard nav, sidebar, list of images in main #}
 
 {% block sidebar %}
   {% with current_sidebar="keypairs" %}
@@ -22,32 +22,21 @@
   </script>
 {% endblock %}
 
+{% block page_title %}Create Keypair{% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>Compute:</span> Keypairs </h2>
-    <p class='desc'><span>&mdash;</span> Create a keypair.</p>
-  </div>
+{% block dash_main %}
+  <div class="dash_block wide form">
+    <div class="left">
+      <h3>Your private key is being downloaded.</h3>
+      {% include '_keypair_form.html' with form=create_form %}
+      <h3><a href="{% url dash_keypairs request.user.tenant %}"><< Return to keypairs list</a></h3>
+    </div>
 
-  {% include "_messages.html" %}
-
-  
-  <div class="main_content">
-    <div class="dash_block wide form">
-      <div class='title_block'> 
-        <h3>Create Keypair</h3> 
-      </div> 
-      <div class="left">
-        <h3>Your private key is being downloaded.</h3>
-        {% include '_keypair_form.html' with form=create_form %}
-        <h3><a href="{% url dash_keypairs request.user.tenant %}"><< Return to keypairs list</a></h3>
-      </div>
-
-      <div class="right">
-        <h3>Description:</h3>
-        <p>Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file).</p>
-        <p>Protect and use the key as you would any normal ssh private key.</p>
-      </div>
+    <div class="right">
+      <h3>Description:</h3>
+      <p>Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file).</p>
+      <p>Protect and use the key as you would any normal ssh private key.</p>
     </div>
   </div>
 {% endblock %}
+

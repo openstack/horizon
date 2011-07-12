@@ -1,4 +1,6 @@
 {% extends 'dash_base.html' %}
+{# list of user's images #}
+{# standard nav, sidebar, list of images in main #}
 
 {% block sidebar %}
   {% with current_sidebar="instances" %}
@@ -6,31 +8,40 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>Compute:</span> Update Instance </h2>
-<!--
-    <p class='desc'><span>&mdash;</span>Update Instance</p>
--->
-  </div>
+{% block page_title %}Update Instance{% endblock %}
 
-  {% include "_messages.html" %}
-  
-  <div class="main_content">
-    <div class="dash_block wide form">
-      <div class='title_block'> 
-        <h3>Update Instance</h3> 
-      </div> 
-      <div class="left">
-        {% include '_instance_form.html' with form=form %}
-        <h3><a href="{% url dash_instances request.user.tenant %}"><< Return to Instances List</a></h3>
-      </div>
+{% block dash_main %}
+  <div class="dash_block wide form">
+    <div class="left">
+      {% include '_instance_form.html' with form=form %}
+      <h3><a href="{% url dash_instances request.user.tenant %}"><< Return to Instances List</a></h3>
+    </div>
 
-      <div class="right">
-        <h3>Description:</h3>
-        <p>Update the name and description of your instance</p>
-      </div>
+    <div class="right">
+      <h3>Description:</h3>
+      <p>Update the name and description of your instance</p>
     </div>
   </div>
 {% endblock %}
 
+{% block footer_js %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $("#spinner").hide()
+      function loadInstances(){
+        $('#spinner').show();
+        $('#instances').load('{% url dash_instances_refresh request.user.tenant %}', function(){
+          $("#spinner").hide()
+        });
+      }
+      setInterval(function(){
+        loadInstances();
+      }, 15000);
+      
+      $("a.refresh").click(function(e){
+        e.preventDefault()
+        loadInstances();
+      })
+    })
+  </script>
+{% endblock footer_js %}
