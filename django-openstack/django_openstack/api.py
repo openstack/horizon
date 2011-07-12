@@ -42,6 +42,7 @@ import json
 import logging
 import openstack.compute
 import openstackx.admin
+import openstackx.api.exceptions as api_exceptions
 import openstackx.extras
 import openstackx.auth
 from urlparse import urlparse
@@ -229,6 +230,30 @@ def url_for(request, service_name, admin=False):
     return rv
 
 
+def check_openstackx(f):
+    """Decorator that adds extra info to api exceptions
+
+       The dashboard currently depends on openstackx extensions being present
+       in nova.  Error messages depending for views depending on these
+       extensions do not lead to the conclusion that nova is missing
+       extensions.
+
+       This decorator should be dropped and removed after keystone and
+       dashboard more gracefully handle extensions and openstackx extensions
+       aren't required by the dashboard in nova.
+    """
+    def inner(*args, **kwargs):
+        try:
+            return f(*args, **kwargs)
+        except api_exceptions.NotFound, e:
+            e.message = e.details or ''
+            e.message += ' This error may be caused by missing openstackx' \
+                         ' extensions in nova. See the dashboard README.'
+            raise
+
+    return inner
+
+
 def compute_api(request):
     compute = openstack.compute.Compute(
         auth_token=request.session['token'],
@@ -307,6 +332,7 @@ def flavor_get(request, flavor_id):
     return Flavor(compute_api(request).flavors.get(flavor_id))
 
 
+@check_openstackx
 def flavor_list(request):
     return [Flavor(f) for f in extras_api(request).flavors.list()]
 
@@ -341,6 +367,7 @@ def keypair_delete(request, keypair_id):
     extras_api(request).keypairs.delete(keypair_id)
 
 
+@check_openstackx
 def keypair_list(request):
     return [KeyPair(key) for key in extras_api(request).keypairs.list()]
 
@@ -359,6 +386,7 @@ def server_get(request, instance_id):
     return Server(compute_api(request).servers.get(instance_id), request)
 
 
+@check_openstackx
 def server_list(request):
     return [Server(s, request) for s in extras_api(request).servers.list()]
 
@@ -374,6 +402,7 @@ def service_get(request, name):
     return Services(admin_api(request).services.get(name))
 
 
+@check_openstackx
 def service_list(request):
     return [Services(s) for s in admin_api(request).services.list()]
 
@@ -405,6 +434,7 @@ def tenant_get(request, tenant_id):
     return Tenant(account_api(request).tenants.get(tenant_id))
 
 
+@check_openstackx
 def tenant_list(request):
     return [Tenant(t) for t in account_api(request).tenants.list()]
 
@@ -444,10 +474,12 @@ def token_info(request, token):
             'admin': admin}
 
 
+@check_openstackx
 def usage_get(request, tenant_id, start, end):
     return Usage(extras_api(request).usage.get(tenant_id, start, end))
 
 
+@check_openstackx
 def usage_list(request, start, end):
     return [Usage(u) for u in extras_api(request).usage.list(start, end)]
 
@@ -465,6 +497,7 @@ def user_get(request, user_id):
     return User(account_api(request).users.get(user_id))
 
 
+@check_openstackx
 def user_list(request):
     return [User(u) for u in account_api(request).users.list()]
 

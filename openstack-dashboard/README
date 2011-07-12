@@ -33,5 +33,21 @@ If all is well you should now able to run the server locally:
 
   $ tools/with_venv.sh dashboard/manage.py runserver
 
+Adding openstackx Extensions to Nova
+------------------------------------
 
+If you are seeing large numbers of 404 exceptions on operations such as listing
+servers, you are probably not running the openstackx extensions that the
+dashboard depends on.  You will need to download the openstackx code from
 
+> https://github.com/cloudbuilders/openstackx
+
+and add the following option to your nova instantiation:
+
+> --osapi_extensions_path=/path/to/openstackx/extensions
+
+The rackspace cloudbuilders nova.sh script automates this process and creates a
+full nova installation compatible with the dashboard.  You can acquire this
+script from the repository at
+
+https://github.com/cloudbuilders/deploy.sh
