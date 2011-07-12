@@ -19,13 +19,8 @@
     {% if objects %}
       <div class='table_title wide'>
         <h3>Objects</h3>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
+        <div class='filter'>
+           {% include '_object_filter.html' with form=filter_form %}
         </div>
       </div>
 

@@ -1397,7 +1397,7 @@ class SwiftApiTests(test.TestCase):
 
         swift_objects = (TEST_RETURN, TEST_RETURN + '2')
         container = self.mox.CreateMock(cloudfiles.container.Container)
-        container.get_objects().AndReturn(swift_objects)
+        container.get_objects(prefix=None).AndReturn(swift_objects)
 
         swift_api = self.stub_swift_api()
 
@@ -1406,6 +1406,29 @@ class SwiftApiTests(test.TestCase):
         self.mox.ReplayAll()
 
         ret_val = api.swift_get_objects(NAME)
+
+        self.assertEqual(len(ret_val), len(swift_objects))
+        for swift_object in ret_val:
+            self.assertIsInstance(swift_object, api.SwiftObject)
+            self.assertIn(swift_object._apiresource, swift_objects)
+
+        self.mox.VerifyAll()
+
+    def test_swift_get_objects_with_prefix(self):
+        NAME = 'containerName'
+        PREFIX = 'prefacedWith'
+
+        swift_objects = (TEST_RETURN, TEST_RETURN + '2')
+        container = self.mox.CreateMock(cloudfiles.container.Container)
+        container.get_objects(prefix=PREFIX).AndReturn(swift_objects)
+
+        swift_api = self.stub_swift_api()
+
+        swift_api.get_container(NAME).AndReturn(container)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.swift_get_objects(NAME, prefix=PREFIX)
 
         self.assertEqual(len(ret_val), len(swift_objects))
         for swift_object in ret_val:

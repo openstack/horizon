@@ -164,3 +164,27 @@ class ObjectViewTests(base.BaseViewTests):
                                                         ORIG_OBJECT_NAME]))
 
         self.mox.VerifyAll()
+
+    def test_filter(self):
+        PREFIX = 'prefix'
+
+        formData = {'method': 'FilterObjects',
+                    'container_name': self.CONTAINER_NAME,
+                    'object_prefix': PREFIX,
+                    }
+
+        self.mox.StubOutWithMock(api, 'swift_get_objects')
+        api.swift_get_objects(unicode(self.CONTAINER_NAME),
+                              prefix=unicode(PREFIX)
+                             ).AndReturn(self.swift_objects)
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(reverse('dash_objects',
+                                       args=[self.TEST_TENANT,
+                                             self.CONTAINER_NAME]),
+                               formData)
+
+        self.assertTemplateUsed(res, 'dash_objects.html')
+
+        self.mox.VerifyAll()

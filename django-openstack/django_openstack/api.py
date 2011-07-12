@@ -514,9 +514,9 @@ def swift_delete_container(name):
     swift_api().delete_container(name)
 
 
-def swift_get_objects(container_name):
+def swift_get_objects(container_name, prefix=None):
     container = swift_api().get_container(container_name)
-    return [SwiftObject(o) for o in container.get_objects()]
+    return [SwiftObject(o) for o in container.get_objects(prefix=prefix)]
 
 
 def swift_copy_object(orig_container_name, orig_object_name,
