@@ -6,8 +6,11 @@
   {% endwith %}
 {% endblock %}
 
-{% block page_title %}Instances{% endblock %}
-{% block refresh_link %}{% url dash_instances request.user.tenant %}{% endblock refresh_link %}
+{% block page_header %}
+  {% url dash_instances request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Instances" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
 {% block dash_main %}
   {% if instances %}

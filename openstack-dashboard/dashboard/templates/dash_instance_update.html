@@ -6,7 +6,10 @@
   {% endwith %}
 {% endblock %}
 
-{% block page_title %}Update Instance{% endblock %}
+{% block page_header %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Update Instance" %}
+{% endblock page_header %}
 
 {% block dash_main %}
   <div class="dash_block wide form">

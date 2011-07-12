@@ -9,21 +9,7 @@
 
 {% block main %}
   {% block page_header %}
-    <div id='page_header'>
-      <h2>{% block page_title %}{% endblock %}</h2>
-      <div class="right">
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-        <a class="refresh" title="Refresh" href="{% block refresh_link %}{% endblock refresh_link %}">Refresh List</a>
-      </div>
-    </div>
-  {% endblock %}
+  {% endblock page_header %}
 
   {% include "_messages.html" %}
 
