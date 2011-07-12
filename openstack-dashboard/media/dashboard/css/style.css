@@ -344,8 +344,9 @@ input[readonly="readonly"] {
 }
 
 
-
-
+.form-filter {
+   float: right;
+}
 
 
 .search {

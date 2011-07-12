@@ -37,6 +37,19 @@ from django_openstack import forms
 LOG = logging.getLogger('django_openstack.dash')
 
 
+class FilterObjects(forms.SelfHandlingForm):
+    container_name = forms.CharField(widget=forms.HiddenInput())
+    object_prefix = forms.CharField(required=False)
+
+    def handle(self, request, data):
+        object_prefix = data['object_prefix'] or None
+
+        objects = api.swift_get_objects(data['container_name'],
+                                        prefix=object_prefix)
+
+        return objects
+
+
 class DeleteObject(forms.SelfHandlingForm):
     object_name = forms.CharField(widget=forms.HiddenInput())
     container_name = forms.CharField(widget=forms.HiddenInput())
@@ -104,13 +117,17 @@ def index(request, tenant_id, container_name):
     if handled:
         return handled
 
-    objects = api.swift_get_objects(container_name)
+    filter_form, objects = FilterObjects.maybe_handle(request)
+    if not objects:
+        filter_form.fields['container_name'].initial = container_name
+        objects = api.swift_get_objects(container_name)
 
     delete_form.fields['container_name'].initial = container_name
     return render_to_response('dash_objects.html', {
         'container_name': container_name,
         'objects': objects,
         'delete_form': delete_form,
+        'filter_form': filter_form,
     }, context_instance=template.RequestContext(request))
 
 
