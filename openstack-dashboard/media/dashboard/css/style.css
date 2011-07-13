@@ -11,7 +11,8 @@
 	margin-left: -1px;
 	background: #000;
 		font-family: "Helvetica", arial, sans-serif;
-
+	border-bottom: 3px solid;
+	border-color: #eaebeb;
 }
 
 #home_link {
@@ -142,6 +143,7 @@ small {
 	position: absolute;
 	margin-top: 37px;
 	right: 1px;
+	z-index: 500;
 }
 
 #drop_btn {
@@ -308,7 +310,8 @@ li.title h4{
 }
 
 body {
-	font-family: anivers, helvetica, arial, sans-serif;
+		background: url(../images/content_bg.png) top left repeat-y;
+font-family: anivers, helvetica, arial, sans-serif;
 	color: #989898;
 	font-size: 16px;
 	line-height: 21px;
@@ -330,9 +333,7 @@ ul, li {
 }
 
 #wrapper {
-	width: 98%;
-	padding-left: 1%;
-	padding-right: 1%;
+	width: 100%;
 }
 
 
@@ -455,29 +456,36 @@ input[readonly="readonly"] {
 
 
 #content {
-	background: url(../images/content_bg.png) top left repeat-y;
+	min-width: 1000px;
 	float: left;
-	width: 960px;
-	margin-bottom: 50px;
-	border: 5px solid #e5e5e5;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	margin-top: 25px;
-	padding: 15px 0 15px 15px;
+	width: 100%;
 }
 
-
-#sidebar {
-	width: 225px;
-	float: left;
-}
 
 #main {
+	min-width: 720px;
 	float: left;
-	width: 735px;
+	margin-left: 229px;
 }
 
+
+#page_header {
+	float: left;
+	background-color: #f2f2f2;
+	width: 98%;
+	min-width: 780px;
+	border-bottom: 1px solid #e5e5e5;
+	margin-right: 0;
+	margin-bottom: 25px;
+	padding: 17px 0 18px 2%;
+	height: 31px;
+}
+
+#sidebar {
+	float: left;
+	margin-left: 21px;
+	height: 0;
+}
 
 #footer {
 	clear: both;
@@ -522,7 +530,7 @@ input[readonly="readonly"] {
 	font-weight: normal;
 	font-size: 18px;
 	color: #6a6a6a;
-	margin-top: 15px;
+	margin-top: 30px;
 	margin-bottom: 15px;
 }
 
@@ -540,19 +548,8 @@ input[readonly="readonly"] {
 #sidebar .sub_nav a.active {
 	background: #fff;
 	border: 1px solid #e1e1e1;
-}
-
-
-#page_header {
-	float: left;
-	background-color: #f2f2f2;
-	width: 726px;
-	-webkit-border-top-right-radius: 10px;
-	-moz-border-radius-topright: 10px;
-	border-top-right-radius:10px;
-	border-bottom: 1px solid #e5e5e5;
-	margin: -15px 0 25px -11px;
-	padding: 20px 0 20px 20px;
+	border-bottom-color: #ccc;
+	border-right: 0;
 }
 
 #page_header h2 {
@@ -672,44 +669,28 @@ a.more_link {
 
 .main_content {
 	float: left;
-	margin-left: 8px;
+	margin-left: 20px;
+	width: 95%;
 }
 
 .narrow {
 	width: 308px;
 }
 
-.table_title.wide {
-	width: 679px;
-}
-
 table.wide {
-	width: 711px;
+	width: 100%;
 }
 
 .table_title, .title_block {
 	background: #f2f2f2;
-	padding: 15px 15px 0;
+	padding: 15px 1% 0;
 	margin-right: 0;
 	float: left;
 	height: 44px;
 	border: 1px solid #e1e1e1;
+	width: 98%;
 }
 
-table#instances  {
-	width: 711px;
-	color: #777;
-}
-
-table td.name{
-	max-width: 100px;
-	overflow: hidden;
-}
-
-table td.name:hover {
-	overflow: auto;	
-	z-index: 999;
-}
 
 table ul {
 	margin-left: 20px;
@@ -858,12 +839,35 @@ p#copy {
 	margin-bottom: 25px;
 }
 
-.dash_block.wide.form {
-	background: url(../images/dashblock_bg.png) top left repeat-y;
+.dash_block.wide.form .right {
+	min-height: 380px;
+	max-height: 5000px;
+	width: 45%;
+	float: right;
+	border-left: 5px solid #f5f5f5;
+	
 }
 
+.dash_block.wide form {
+	width: 44%;
+	padding-right: 2%;
+	padding-left: 2%;
+}
+
+.dash_block.form form input[type="text"] {
+	width: 96%;
+}
+.dash_block.form form textarea {
+	width: 100%;
+	height: 150px;
+	padding: 10px;
+}
+
+
+
+
 .dash_block.wide {
-	width: 705px;
+	width: 100%;
 }
 
 
@@ -896,18 +900,6 @@ table {
 }
 
 
-.dash_block.wide form {
-	width: 319px;
-}
-
-.dash_block.form form input[type="text"] {
-	width: 309px !important;
-}
-.dash_block.form form textarea {
-	width: 300px;
-	height: 150px;
-	padding: 10px;
-}
 
 .dash_block table {
 	float: left;
@@ -1397,16 +1389,17 @@ ol li.first a {
 
 
 #usage {
+	width: 100%;
 	float: left;
 	margin-bottom: 25px;
 }
 
 .usage_block {
 	float: left;
-	width: 227px;
+	width: 31%;
 	background: #e8f8ff;
 	color: #84b6c5;
-	margin-right: 13px;
+	margin-right: 2%;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -1494,7 +1487,7 @@ ol li.first a {
 	border: 1px solid;
 	font-size: 24px;
 	float: left;
-	width: 705px;
+	width: 100%;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -1550,6 +1543,7 @@ ol li.first a {
 	padding: 15px 25px;
 	border-right: 1px solid ;
 	height: 61px;
+	width: 17%;
 }
 
 .stat_box .good .block {
@@ -1583,7 +1577,7 @@ ol li.first a {
 #activity {
 	float: left;
 	text-align: center;
-	width: 698px;
+	width: 99%;
 	background: #fbfbfb;
 	padding-top: 5px;
 	padding-bottom: 10px;
@@ -1642,7 +1636,7 @@ input.example, textarea.example {color: #d9d9d9;}
 }
 
 #monitoring {
-	width: 665px;
+	width: 100%;
 	background: #fbfbfb;
 	float: left;
 	margin-top: -25px;
