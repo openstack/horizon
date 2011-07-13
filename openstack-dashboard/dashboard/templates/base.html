@@ -15,11 +15,10 @@
     {% block headercss %}{% endblock %}
   </head>
   <body>
+    {% block topbar %}
+      {% include '_topbar.html' %}
+    {% endblock %}
     <div id="wrapper">
-      {% block topbar %}
-        {% include '_topbar.html' %}
-      {% endblock %}
-
       {% block content %}
       <div id="content">
         {% block sidebar %}
