@@ -9,43 +9,34 @@
 	width: 100%;
 	height: 44px;
 	margin-left: -1px;
+	background: #000;
 }
 
-h1 {
-	float: left;
-	width: 15%;
+#home_link {
+	width: 137px;
 }
-
 h1 a{
-	background: url(../images/logo_new.png) top left no-repeat;
+	background: url(../images/logo_new.png) no-repeat left 4px;
 	text-indent: -9999px;
 	display: block;
-	height: 40px;
-}
-
-h1 a:hover {
-  color: #666;
-}
-
-#nav_wrapper {
-	background: #000;
+	height: 35px;
+	width: 137px;
 	float: left;
-	width: 100%;
 }
+
 #main_nav {
 	font-family: "Helvetica", arial, sans-serif;
-	position: relative;
-	z-index: 20;
 	background: #f3f8fa;
 	padding-left: 2%;
 	padding-top: 10px;
 	border: 1px solid #cbe0e8;
 	border-right: 0;
 	min-width: 600px;
-	width: 66%;
+	width: 84%;
 	top: 0;
 	left: 13%;
 	height: 33px;
+	float: left;
 }
 #main_nav li a {
 	z-index: 500;
@@ -135,18 +126,21 @@ small {
 	height: 38px;
 	width: 16%;
 	min-width: 210px;
+	margin-top: -45px;
 }
 
 #user_bar ul {
 	float: left;
-	width: 225px;
+	width: 16%;
+	min-width: 210px;
 	background: #c9ead1;
 	border-right: 1px solid #d6e4d9;
 	border-bottom: 1px solid #d6e4d9;
 	border-left: 1px solid #d6e4d9;
-	margin-left: -1px;
 	padding-top: 12px;
-	margin-top: -12px;
+	position: absolute;
+	margin-top: 37px;
+	right: 1px;
 }
 
 #drop_btn {
@@ -181,24 +175,18 @@ a#current_tenant {
 	text-align: left;
 	font-size: 18px;
 	margin-bottom: -4px;
-}
-
-#user_tenant_list {
-	position: absolute;
-	right: 0;
-	top: 57px;
+	margin-top: -4px;
 }
 
 #user_bar li a {
-	color: #6eaf6e;
-	font-weight: bold;
-	font-size: 18px;
+	color: #5c935c;
+	font-weight: normal;
+	font-size: 14px;
 	border-bottom: 1px solid;
-	width: 200px;
 	display: block;
 	padding-left: 25px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	border-color: #a9deb6;
 }
 
@@ -219,14 +207,14 @@ li#sign_out a:hover {
 }
 
 li.title h4{
-	padding-left: 25px;
 	color: #7ab789;
 	text-transform: uppercase;
 	font-size: 10px;
 	font-weight: normal;
 	border-bottom: 1px dotted;
-	padding-top: 5px;
 	padding-bottom: 5px;
+	padding-left: 10px;
+	margin-top: -4px;
 }
 
 

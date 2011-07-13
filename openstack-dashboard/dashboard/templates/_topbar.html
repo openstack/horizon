@@ -1,37 +1,33 @@
 <div id='header'>
-  <div id="nav_wrapper">
-    <h1><a href='{% url splash %}'>OpenStack Dashboard</a></h1>
-    
-    <div id="user_bar">
-      <a id="current_tenant" href="{% url dash_overview %}">
-        <h4>{{request.user.tenant}}</h4>
-        <span>as {{request.user.username}}</span>
-      </a>
-      <a id="drop_btn" href="#">&nbsp;</a>
-      <ul id="user_tenant_list">
-        <li class="title"><h4>Available Tenants</h4></li>
-        {% for tenant in tenants %}
-          {% if tenant.enabled %}
-            <li><a href="{% url auth_switch tenant.id %}">{{tenant.id}}</a></li>
-          {% endif %}
-        {% endfor %}
-        <li id="sign_out"><a href="{% url auth_logout %}">Sign Out</a></li>
-      </ul>
-    </div>
-    
-    <ul id="main_nav">
-      {% if request.user %}
-        <li><a {% if current_topbar == "dash" %} class="active" {% endif %} href="{% url dash_overview %}">User Dashboard</a></li>
+  <ul id="main_nav">
+    <li id="home_link"><h1><a href='{% url splash %}'>OpenStack Dashboard</a></h1></li>
+    {% if request.user %}
+      <li><a {% if current_topbar == "dash" %} class="active" {% endif %} href="{% url dash_overview %}">User Dashboard</a></li>
 
-        {% if request.user.is_admin %}
-        <li><a {% if current_topbar == "syspanel" %} class="active" {% endif %} href="{% url syspanel_overview %}">System Panel</a></li>
-        {% endif %}
-      {% else %}
-        NOT _LOGGED_IN_TOPBAR
+      {% if request.user.is_admin %}
+      <li><a {% if current_topbar == "syspanel" %} class="active" {% endif %} href="{% url syspanel_overview %}">System Panel</a></li>
       {% endif %}
+    {% else %}
+      NOT _LOGGED_IN_TOPBAR
+    {% endif %}
+  </ul>
+  
+  <div id="user_bar">
+    <a id="current_tenant" href="{% url dash_overview %}">
+      <h4>{{request.user.tenant}}</h4>
+      <span>as {{request.user.username}}</span>
+    </a>
+    <a id="drop_btn" href="#">&nbsp;</a>
+    <ul id="user_tenant_list">
+      <li class="title"><h4>Available Tenants</h4></li>
+      {% for tenant in tenants %}
+        {% if tenant.enabled %}
+          <li><a href="{% url auth_switch tenant.id %}">{{tenant.id}}</a></li>
+        {% endif %}
+      {% endfor %}
+      <li id="sign_out"><a href="{% url auth_logout %}">Sign Out</a></li>
     </ul>
-
-    
   </div>
+  
 </div>
 
