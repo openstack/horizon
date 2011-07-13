@@ -1,0 +1,33 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="containers" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Object Store:</span> Objects</h2>
+    <p class='desc'><span>&mdash;</span> Manage Objects.</p>
+  </div>
+  {% include "_messages.html" %}
+  <div class="container-label">Container:</div>
+  <div class="container-name">{{ container_name }}</div>
+  <div style="clear: both;"></div>
+  <div class='main_content'>
+    {% if objects %}
+      <div class='table_title wide'>
+        <h3>Objects</h3>
+        <div class='filter'>
+           {% include '_object_filter.html' with form=filter_form %}
+        </div>
+      </div>
+
+      {% include '_object_list.html' %}
+
+    {% endif %}
+    <a href="{% url dash_objects_upload request.user.tenant container_name %}">Upload New Object &gt;&gt;</a>
+  </div>
+{% endblock %}
+

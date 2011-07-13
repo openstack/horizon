@@ -22,7 +22,13 @@ Getting Started
 ---------------
 
 Django-Nova uses Buildout (http://www.buildout.org/) to manage local
-development.  To configure your local Buildout environment:
+development.  To configure your local Buildout environment first install the following
+system-level dependencies:
+  * python-dev
+  * git
+  * bzr
+
+Then instantiate buildout with
 
   $ python bootstrap.py
   $ bin/buildout
@@ -37,6 +43,14 @@ scripts in the bin/ directory:
 You should now be able to run unit tests as follows:
 
   $ bin/django test
+or
+  $ bin/test
 
+You can run unit tests with code coverage on django_openstack by setting
+NOSE_WITH_COVERAGE:
 
+  $ NOSE_WITH_COVERAGE=true bin/test
 
+Get even better coverage info by running coverage directly:
+
+  $ coverage run --branch --source django_openstack bin/django test django_openstack && coverage html

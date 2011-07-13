@@ -1,0 +1,10 @@
+<form id="container_form"  method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+    {% for field in form.visible_fields %}
+    {{ field.label_tag }}
+    {{ field.errors }}
+    {{ field }}
+  {% endfor %}
+  <input type="submit" value="Create Container" class="large-rounded" />
+</form>

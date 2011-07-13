@@ -1,16 +1,38 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
+import logging
+
 from django import template
-from django import http
-from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
+
 from glance.common import exception as glance_exception
 
 from django_openstack import api
 from django_openstack import forms
+
+
+LOG = logging.getLogger('django_openstack.sysadmin.views.images')
 
 
 class DeleteImage(forms.SelfHandlingForm):
@@ -21,8 +43,12 @@ class DeleteImage(forms.SelfHandlingForm):
         try:
             api.image_delete(request, image_id)
         except glance_exception.ClientConnectionError, e:
-            messages.error(request, "Error connecting to glance: %s" % e.message)
+            LOG.error("Error connecting to glance", exc_info=True)
+            messages.error(request,
+                           "Error connecting to glance: %s" % e.message)
         except glance_exception.Error, e:
+            LOG.error('Error deleting image with id "%s"' % image_id,
+                      exc_info=True)
             messages.error(request, "Error deleting image: %s" % e.message)
         return redirect(request.build_absolute_uri())
 
@@ -35,8 +61,12 @@ class ToggleImage(forms.SelfHandlingForm):
         try:
             api.image_update(request, image_id, image_meta={'is_public': False})
         except glance_exception.ClientConnectionError, e:
-            messages.error(request, "Error connecting to glance: %s" % e.message)
+            LOG.error("Error connecting to glance", exc_info=True)
+            messages.error(request,
+                           "Error connecting to glance: %s" % e.message)
         except glance_exception.Error, e:
+            LOG.error('Error updating image with id "%s"' % image_id,
+                      exc_info=True)
             messages.error(request, "Error updating image: %s" % e.message)
         return redirect(request.build_absolute_uri())
 
@@ -49,7 +79,6 @@ class UpdateImageForm(forms.Form):
     container_format = forms.CharField(label="Container Format", required=False)
     disk_format = forms.CharField(label="Disk Format")
     #is_public = forms.BooleanField(label="Publicly Available", required=False)
-
 
 @login_required
 def index(request):
@@ -69,8 +98,10 @@ def index(request):
         if not images:
             messages.info(request, "There are currently no images.")
     except glance_exception.ClientConnectionError, e:
+        LOG.error("Error connecting to glance", exc_info=True)
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
+        LOG.error("Error retrieving image list", exc_info=True)
         messages.error(request, "Error retrieving image list: %s" % e.message)
 
     return render_to_response('syspanel_images.html', {
@@ -85,9 +116,13 @@ def update(request, image_id):
     try:
         image = api.image_get(request, image_id)
     except glance_exception.ClientConnectionError, e:
+        LOG.error("Error connecting to glance", exc_info=True)
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
-        messages.error(request, "Error retrieving image %s: %s" % (image_id, e.message))
+        LOG.error('Error retrieving image with id "%s"' % image_id,
+                  exc_info=True)
+        messages.error(request,
+                       "Error retrieving image %s: %s" % (image_id, e.message))
 
     if request.method == "POST":
         form = UpdateImageForm(request.POST)
@@ -111,12 +146,24 @@ def update(request, image_id):
                 api.image_update(request, image_id, metadata)
                 messages.success(request, "Image was successfully updated.")
             except glance_exception.ClientConnectionError, e:
-                messages.error(request, "Error connecting to glance: %s" % e.message)
+                LOG.error("Error connecting to glance", exc_info=True)
+                messages.error(request,
+                               "Error connecting to glance: %s" % e.message)
             except glance_exception.Error, e:
+                LOG.error('Error updating image with id "%s"' % image_id,
+                          exc_info=True)
                 messages.error(request, "Error updating image: %s" % e.message)
-            return redirect("syspanel_images")
+            except:
+                LOG.error('Unspecified Exception in image update',
+                          exc_info=True)
+                messages.error(request,
+                               "Image could not be updated, please try again.")
+
         else:
-            messages.error(request, "Image could not be updated, please try agian.")
+            LOG.error('Image "%s" failed to update' % image['name'],
+                      exc_info=True)
+            messages.error(request,
+                           "Image could not be uploaded, please try agian.")
             form = UpdateImageForm(request.POST)
             return render_to_response('syspanel_image_update.html',{
                 'image': image,
@@ -141,3 +188,47 @@ def update(request, image_id):
             'form': form,
         }, context_instance = template.RequestContext(request))
 
+
+@login_required
+def upload(request):
+    if request.method == "POST":
+        form = UploadImageForm(request.POST)
+        if form.is_valid():
+            image = form.clean()
+            metadata = {'is_public': image['is_public'],
+                        'disk_format': 'ami',
+                        'container_format': 'ami',
+                        'name': image['name']}
+            try:
+                messages.success(request, "Image was successfully uploaded.")
+            except:
+                # TODO add better error management
+                messages.error(request, "Image could not be uploaded, please try again.")
+
+            try:
+                api.image_create(request, metadata, image['image_file'])
+            except glance_exception.ClientConnectionError, e:
+                LOG.error('Error connecting to glance while trying to upload'
+                          ' image', exc_info=True)
+                messages.error(request,
+                               "Error connecting to glance: %s" % e.message)
+            except glance_exception.Error, e:
+                LOG.error('Glance exception while uploading image',
+                          exc_info=True)
+                messages.error(request, "Error adding image: %s" % e.message)
+        else:
+            LOG.error('Image "%s" failed to upload' % image['name'],
+                      exc_info=True)
+            messages.error(request,
+                           "Image could not be uploaded, please try agian.")
+            form = UploadImageForm(request.POST)
+            return render_to_response('django_nova_syspanel/images/image_upload.html',{
+                'form': form,
+            }, context_instance = template.RequestContext(request))
+
+        return redirect('syspanel_images')
+    else:
+        form = UploadImageForm()
+        return render_to_response('django_nova_syspanel/images/image_upload.html',{
+            'form': form,
+        }, context_instance = template.RequestContext(request))

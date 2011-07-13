@@ -48,7 +48,7 @@ ul, li {
 
 h1 {
 	float: left;
-	
+
 }
 
 h1 a{
@@ -93,7 +93,7 @@ border: 1px solid #cbe0e8;
 	z-index: 500;
 	color: #8eacb7;
 	text-transform: uppercase;
-	font-size: 12px;	
+	font-size: 12px;
 	position: relative;
 	display: block;
 	float: left;
@@ -132,7 +132,7 @@ small {
 }
 
 #nav li, #nav li a{
-	float: left;	
+	float: left;
 }
 
 #nav li a.active {
@@ -172,7 +172,7 @@ small {
 	float: right;
 	height: 400px;
 	margin-bottom: -400px;
-	
+
 }
 
 #login_btn {
@@ -219,7 +219,7 @@ small {
 #standalone #login {
 	float:left;
 	margin: 0 !important;
-	-webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);	
+	-webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);
 }
 
 #standalone #login_wrapper .status_box {
@@ -333,6 +333,10 @@ input[readonly="readonly"] {
 	float: left;
 }
 
+.empty-sidebar {
+    height: 400px;
+}
+
 #main {
 	float: left;
 	width: 735px;
@@ -357,8 +361,9 @@ input[readonly="readonly"] {
 }
 
 
-
-
+.form-filter {
+   float: right;
+}
 
 
 .search {
@@ -605,7 +610,7 @@ table td.name{
 }
 
 table td.name:hover {
-	overflow: auto;	
+	overflow: auto;
 	z-index: 999;
 }
 
@@ -923,7 +928,7 @@ ol {
 
 ol li {
 	display: block;
-	float: left; 
+	float: left;
 	position: relative;
 	margin-right: -28px;
 }
@@ -1106,13 +1111,13 @@ ol li.first a {
     -webkit-transition-property: background;
     -webkit-transition-duration: 0.2s;
 	text-shadow: #62935c 0 -1px 0;
-	background: #abc1a8; 
-	
+	background: #abc1a8;
+
 }
 
 #main a.action_link:hover {
-	text-decoration: none;	
-	background: #83bf7a; 
+	text-decoration: none;
+	background: #83bf7a;
 }
 
 .dash_block {
@@ -1195,23 +1200,23 @@ ol li.first a {
 	margin-bottom: 25px;
 }
 
-.status_box.info, .stat_box.info { 
+.status_box.info {
 	background-color: #e8f8ff;
 	border-color: #9ac7dc;
 	color: #7ab6c5;
 }
-.status_box.success { 
+.status_box.success {
 	background-color: #e9ffe8;
 	border-color: #9edd9b;
 	color: #7ec67b;
 }
-.status_box.warning { 
+.status_box.warning {
 	background-color: #ffffe8;
 	border-color: #ffe37b;
 	color: #d1b12d;
 }
 
-.status_box.error { 
+.status_box.error {
 	background-color: #ffdbdc;
 	border-color: #ff9a99;
 	color: #ff8080;
@@ -1222,7 +1227,7 @@ ol li.first a {
 	float: left;
 	padding: 20px;
 	min-width: 120px;
-	
+
 }
 
 .status_box.info h2 { color: #2a7380; border-color: #9ac7dc; }
@@ -1369,18 +1374,18 @@ a.refresh:hover {
 
 
 
-.stat_box.good { 
+.stat_box.good {
 	background-color: #e9ffe8;
 	border-color: #9edd9b;
 	color: #7ec67b;
 }
-.stat_box.medium { 
+.stat_box.medium {
 	background-color: #ffffe8;
 	border-color: #ffe37b;
 	color: #eada83;
 }
 
-.stat_box.bad { 
+.stat_box.bad {
 	background-color: #ffdbdc;
 	border-color: #ff9a99;
 	color: #ff8080;
@@ -1419,7 +1424,7 @@ a.refresh:hover {
 	border-radius: 5px;
 }
 
-.stat_box.small { 
+.stat_box.small {
 	width: 359px;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
@@ -1459,7 +1464,7 @@ a.refresh:hover {
 }
 
 
-.stat_box p.avail span, .stat_box p.used span {	
+.stat_box p.avail span, .stat_box p.used span {
 	font-size: 11px;
 	text-transform: uppercase;
 }
@@ -1715,3 +1720,17 @@ li.title h4{
 	bottom: 0;
 	margin-bottom: -24px;
 }
+
+.container-label {
+    font-weight: bold;
+    font-size: 1.22em;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.container-name {
+    float: left;
+    margin-left: 5px;
+}
+

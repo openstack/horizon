@@ -1,5 +1,23 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
 from django import template
 from django import http
 from django.conf import settings
@@ -20,12 +38,15 @@ from django_openstack.dash.views import instances as dash_instances
 from openstackx.api import exceptions as api_exceptions
 
 
+LOG = logging.getLogger('django_openstack.syspanel.views.tenants')
+
+
 class AddUser(forms.SelfHandlingForm):
     user = forms.CharField()
     tenant = forms.CharField()
-    
+
     def handle(self, request, data):
-        try:  
+        try:
             api.account_api(request).role_refs.add_for_tenant_user(data['tenant'],
                     data['user'], settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
@@ -40,9 +61,9 @@ class AddUser(forms.SelfHandlingForm):
 class RemoveUser(forms.SelfHandlingForm):
     user = forms.CharField()
     tenant = forms.CharField()
-    
+
     def handle(self, request, data):
-        try:  
+        try:
             api.account_api(request).role_refs.delete_for_tenant_user(data['tenant'],
                     data['user'], 'Member')
             messages.success(request,
@@ -61,6 +82,7 @@ class CreateTenant(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            LOG.info('Creating tenant with id "%s"' % data['id'])
             api.tenant_create(request,
                               data['id'],
                               data['description'],
@@ -69,6 +91,10 @@ class CreateTenant(forms.SelfHandlingForm):
                              '%s was successfully created.'
                              % data['id'])
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while creating tenant\n'
+                      'Id: "%s", Description: "%s", Enabled "%s"' %
+                      (data['id'], data['description'], data['enabled']),
+                      exc_info=True)
             messages.error(request, 'Unable to create tenant: %s' %
                            (e.message))
         return redirect('syspanel_tenants')
@@ -81,6 +107,7 @@ class UpdateTenant(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            LOG.info('Updating tenant with id "%s"' % data['id'])
             api.tenant_update(request,
                               data['id'],
                               data['description'],
@@ -89,8 +116,13 @@ class UpdateTenant(forms.SelfHandlingForm):
                              '%s was successfully updated.'
                              % data['id'])
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while updating tenant\n'
+                      'Id: "%s", Description: "%s", Enabled "%s"' %
+                      (data['id'], data['description'], data['enabled']),
+                      exc_info=True)
             messages.error(request, 'Unable to update tenant: %s' % e.message)
         return redirect('syspanel_tenants')
+
 
 class UpdateQuotas(forms.SelfHandlingForm):
     tenant_id = forms.CharField(label="ID (name)", widget=forms.TextInput(attrs={'readonly':'readonly'}))
@@ -125,12 +157,14 @@ class UpdateQuotas(forms.SelfHandlingForm):
             messages.error(request, 'Unable to update quotas: %s' % e.message)
         return redirect('syspanel_tenants')
 
+
 @login_required
 def index(request):
     tenants = []
     try:
         tenants = api.tenant_list(request)
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException while getting tenant list', exc_info=True)
         messages.error(request, 'Unable to get tenant info: %s' % e.message)
     tenants.sort(key=lambda x: x.id, reverse=True)
     return render_to_response('syspanel_tenants.html',{
@@ -163,6 +197,8 @@ def update(request, tenant_id):
                                          'description': tenant.description,
                                          'enabled': tenant.enabled})
         except api_exceptions.ApiException, e:
+            LOG.error('Error fetching tenant with id "%s"' % tenant_id,
+                      exc_info=True)
             messages.error(request, 'Unable to update tenant: %s' % e.message)
             return redirect('syspanel_tenants')
 
@@ -203,6 +239,7 @@ def users(request, tenant_id):
         'users': users,
         'new_users': new_user_ids,
     }, context_instance = template.RequestContext(request))
+
 
 @login_required
 def quotas(request, tenant_id):
