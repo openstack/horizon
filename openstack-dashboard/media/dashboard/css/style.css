@@ -10,6 +10,8 @@
 	height: 44px;
 	margin-left: -1px;
 	background: #000;
+		font-family: "Helvetica", arial, sans-serif;
+
 }
 
 #home_link {
@@ -25,7 +27,6 @@ h1 a{
 }
 
 #main_nav {
-	font-family: "Helvetica", arial, sans-serif;
 	background: #f3f8fa;
 	padding-left: 2%;
 	padding-top: 10px;
@@ -161,6 +162,7 @@ small {
 	background-color: #bfdec6;
 }
 a#current_tenant {
+	font-size: 14px;
 	background: #f3faf3;
 	color: #6eaf6e;
 	display: block;
@@ -173,18 +175,18 @@ a#current_tenant {
 
 #current_tenant h4 {
 	text-align: left;
-	font-size: 18px;
-	margin-bottom: -4px;
-	margin-top: -4px;
+	font-size: 16px;
+	margin-bottom: -7px;
 }
 
 #user_bar li a {
+	font-family: ;
 	color: #5c935c;
 	font-weight: normal;
 	font-size: 14px;
 	border-bottom: 1px solid;
 	display: block;
-	padding-left: 25px;
+	padding-left: 20px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	border-color: #a9deb6;
@@ -197,7 +199,7 @@ a#current_tenant {
 }
 
 li#sign_out a {
-	padding: 0 0 0 25px;
+	padding: 0 0 0 20px;
 	font-size: 12px;
 	background-color: #e3f3e7;
 }
