@@ -6,8 +6,11 @@
   {% endwith %}
 {% endblock %}
 
-{% block page_title %}Default Quotas{% endblock %}
-{% block refresh_link %}{% url syspanel_quotas %}{% endblock %}
+{% block page_header %}
+  {% url syspanel_quotas as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Default Quotas" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
 {% block syspanel_main %}
   <table class="wide">

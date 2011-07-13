@@ -6,8 +6,9 @@
   {% endwith %}
 {% endblock %}
 
-{% block page_title %}Update Image{% endblock %}
-{% block refresh_link %}{% url syspanel_images %}{% endblock refresh_link %}
+{% block page_header %}
+  {% include "_page_header.html" with title="Update Image" %}
+{% endblock page_header %}
 
 {% block syspanel_main %}
   <div class="dash_block wide form">

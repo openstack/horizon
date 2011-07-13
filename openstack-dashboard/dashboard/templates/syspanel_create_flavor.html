@@ -6,19 +6,12 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-   <h2><span>System Panel:</span> Flavors</h2>
-   <p class='desc'><span>&mdash;</span> Create, Edit and Delete Flavors.</p>
-  </div>
-  {% include "_messages.html" %}
+{% block page_header %}
+  {% include "_page_header.html" with title="Create Flavor" %}
+{% endblock page_header %}
 
-  <div class="main_content">
+{% block syspanel_main %}
     <div class="dash_block wide form">
-      <div class='title_block'>
-        <h3>Create Flavor</h3>
-      </div>
-
       <div class="left">
         <ul class='stat_box info small'>
           <li class='block'>
@@ -34,14 +27,11 @@
             <p class='avail'>{{available_disk_tb}}<span class='unit'>TB</span><span class='label'>Available</span></p>
           </li>
         </ul>
-
         {% include "_create_flavor.html" %}
       </div>
-      
       <div class="right">
         <h3>Description:</h3>
         <p>From here you can define the sizing of a new flavor.</p>
       </div>
     </div>
-  </div>
 {% endblock %}

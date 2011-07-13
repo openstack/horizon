@@ -6,7 +6,9 @@
   {% endwith %}
 {% endblock %}
 
-{% block page_title %}Create Tenant{% endblock %}
+{% block page_header %}
+  {% include "_page_header.html" with title="Create Tenant" %}
+{% endblock page_header %}
 
 {% block syspanel_main %}
   <div class="dash_block wide form">

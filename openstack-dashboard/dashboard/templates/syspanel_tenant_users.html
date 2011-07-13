@@ -6,7 +6,11 @@
   {% endwith %}
 {% endblock %}
 
-{% block page_title %}Users for Tenant: <span>{{tenant_id}}</span>{% endblock %}
+{% block page_header %}
+  <div id='page_header'>
+    <h2>Users for Tenant: <span>{{tenant_id}}</span></h2>
+  </div>
+{% endblock %}
 
 {% block syspanel_main %}
 <div id="usage">

@@ -10,7 +10,10 @@
   {% endwith %}
 {% endblock %}
 
-{% block page_title %}System Panel Overview{% endblock %}
+{% block page_header %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="System Panel Overview" %}
+{% endblock page_header %}
 
 {% block syspanel_main %}
     {% if external_links %}

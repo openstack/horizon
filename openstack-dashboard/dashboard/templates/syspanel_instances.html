@@ -6,7 +6,11 @@
   {% endwith %}
 {% endblock %}
 
-{% block page_title %}Instances{% endblock %}
+{% block page_header %}
+  {% url syspanel_instances as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Instances" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
 {% block syspanel_main %}
   {% if instances %}
