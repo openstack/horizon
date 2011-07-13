@@ -12,6 +12,7 @@ urlpatterns = patterns('django_openstack.syspanel.views.instances',
     url(r'^usage/(?P<tenant_id>[^/]+)$', 'tenant_usage',
         name='syspanel_tenant_usage'),
     url(r'^instances/$', 'index', name='syspanel_instances'),
+    url(r'^instances/refresh$', 'refresh', name='syspanel_instances_refresh'),
     # NOTE(termie): currently just using the 'dash' versions
     #url(INSTANCES % 'console', 'console', name='syspanel_instances_console'),
     #url(INSTANCES % 'vnc', 'vnc', name='syspanel_instances_vnc'),
@@ -24,6 +25,10 @@ urlpatterns += patterns('django_openstack.syspanel.views.images',
     #url(INSTANCES % 'vnc', 'vnc', name='syspanel_instances_vnc'),
 )
 
+
+urlpatterns += patterns('django_openstack.syspanel.views.quotas',
+    url(r'^quotas/$', 'index', name='syspanel_quotas'),
+)
 
 urlpatterns += patterns('django_openstack.syspanel.views.flavors',
     url(r'^flavors/$', 'index', name='syspanel_flavors'),
@@ -45,7 +50,8 @@ urlpatterns += patterns('django_openstack.syspanel.views.services',
 
 urlpatterns += patterns('django_openstack.syspanel.views.tenants',
     url(r'^tenants/$', 'index', name='syspanel_tenants'),
+    url(r'^tenants/create$', 'create', name='syspanel_tenants_create'),
     url(TENANTS % 'update', 'update', name='syspanel_tenant_update'),
     url(TENANTS % 'users', 'users', name='syspanel_tenant_users'),
-    url(r'^tenants/create$', 'create', name='syspanel_tenants_create'),
+    url(TENANTS % 'quotas', 'quotas', name='syspanel_tenant_quotas'),
 )

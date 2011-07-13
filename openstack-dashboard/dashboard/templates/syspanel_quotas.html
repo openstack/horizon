@@ -1,0 +1,48 @@
+{% extends 'syspanel_base.html' %}
+{# list of tenants #}
+{# standard nav, sidebar, list of instances in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="quotas" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+    <div id='page_header'>
+      <h2><span>System Panel:</span> Quotas</h2>
+      <p class='desc'><span>&mdash;</span>Default Quotas</p>
+    </div>
+    {% include "_messages.html" %}
+    <div class="main_content">
+      <div class='table_title wide'>
+        <h3>Default Quotas</h3>
+        <a class="refresh" title="Refresh" href="{% url syspanel_quotas %}">Refresh List</a>
+        <div class='search'>
+          <form action='' method='post'>
+            <fieldset>
+              <label for='table_search'>Search</label>
+              <input id='table_search' name='search' type='text' value='' />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      <table class="wide">
+        <tr>
+          <th>Quota Name</th>
+          <th>Limit</th>
+        </tr>
+        {% for name,value in quotas.items %}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+          </tr>
+        {% endfor %}
+        
+      </table>
+
+      <a id="tenant_create_link" class="action_link large-rounded" href="{% url syspanel_tenants_create %}">Create New Tenant </a>
+    </div>
+{% endblock %}
+

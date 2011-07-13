@@ -12,6 +12,7 @@
   <div id='page_header'>
     <h2><span>Compute:</span> Instances</h2>
     <p class='desc'><span>&mdash;</span> Instances are virtual servers launched from images.</p>
+    <div id="spinner" class="dash">Loading...</div>
   </div>
 
   {% include "_messages.html" %}
@@ -41,3 +42,26 @@
 </div>
 
 {% endblock %}
+
+
+{% block footer_js %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $("#spinner").hide()
+      function loadInstances(){
+        $('#spinner').show();
+        $('#instances').load('{% url dash_instances_refresh request.user.tenant %}', function(){
+          $("#spinner").hide()
+        });
+      }
+      setInterval(function(){
+        loadInstances();
+      }, 15000);
+      
+      $("a.refresh").click(function(e){
+        e.preventDefault()
+        loadInstances();
+      })
+    })
+  </script>
+{% endblock footer_js %}

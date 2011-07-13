@@ -1692,3 +1692,26 @@ li.title h4{
 	margin-left: 25px;
 }
 
+#spinner {
+	background: url(../images/spinner.gif) top left no-repeat;
+	float: right;
+	width: 24px;
+	height: 24px;
+	text-indent: -9999px;
+}
+
+#spinner.dash {
+	position: relative;
+	right: 10px;
+	bottom: 0;
+	margin-bottom: -24px;
+	top: -10px;
+}
+
+#spinner.syspanel {
+	position: relative;
+	right: 20px;
+	top: -24px;
+	bottom: 0;
+	margin-bottom: -24px;
+}
