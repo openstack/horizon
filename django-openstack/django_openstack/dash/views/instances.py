@@ -103,10 +103,6 @@ def index(request, tenant_id):
     instances = []
     try:
         instances = api.server_list(request)
-        for instance in instances:
-            # FIXME - ported this over, but it is hacky
-            instance.attrs['image_name'] =\
-               image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
     except api_exceptions.ApiException as e:
         LOG.error('Exception in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)

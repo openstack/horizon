@@ -146,6 +146,7 @@ def index(request, tenant_id):
 
 @login_required
 def launch(request, tenant_id, image_id):
+    LOG.error(dir(request))
     def flavorlist():
         try:
             fl = api.flavor_list(request)

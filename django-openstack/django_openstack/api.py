@@ -256,25 +256,26 @@ def check_openstackx(f):
 
 def compute_api(request):
     compute = openstack.compute.Compute(
-        auth_token=request.session['token'],
+        auth_token=request.user.token,
         management_url=url_for(request, 'nova'))
     # this below hack is necessary to make the jacobian compute client work
     # TODO(mgius): It looks like this is unused now?
-    compute.client.auth_token = request.session['token']
+    compute.client.auth_token = request.user.token
     compute.client.management_url = url_for(request, 'nova')
     LOG.debug('compute_api connection created using token "%s"'
                       ' and url "%s"' %
-                      (request.session['token'], url_for(request, 'nova')))
+                      (request.user.token, url_for(request, 'nova')))
     return compute
 
 
 def account_api(request):
+    LOG.error(dir(request))
     LOG.debug('account_api connection created using token "%s"'
                       ' and url "%s"' %
-                  (request.session['token'],
+                  (request.user.token,
                    url_for(request, 'identity', True)))
     return openstackx.extras.Account(
-        auth_token=request.session['token'],
+        auth_token=request.user.token,
         management_url=url_for(request, 'identity', True))
 
 
@@ -288,16 +289,16 @@ def glance_api(request):
 def admin_api(request):
     LOG.debug('admin_api connection created using token "%s"'
                     ' and url "%s"' %
-                    (request.session['token'], url_for(request, 'nova', True)))
-    return openstackx.admin.Admin(auth_token=request.session['token'],
+                    (request.user.token, url_for(request, 'nova', True)))
+    return openstackx.admin.Admin(auth_token=request.user.token,
                                  management_url=url_for(request, 'nova', True))
 
 
 def extras_api(request):
     LOG.debug('extras_api connection created using token "%s"'
                      ' and url "%s"' %
-                    (request.session['token'], url_for(request, 'nova')))
-    return openstackx.extras.Extras(auth_token=request.session['token'],
+                    (request.user.token, url_for(request, 'nova')))
+    return openstackx.extras.Extras(auth_token=request.user.token,
                                    management_url=url_for(request, 'nova'))
 
 
@@ -418,7 +419,7 @@ def service_update(request, name, enabled):
 
 
 def token_get_tenant(request, tenant_id):
-    tenants = auth_api().tenants.for_token(request.session['token'])
+    tenants = auth_api().tenants.for_token(request.user.token)
     for t in tenants:
         if str(t.id) == str(tenant_id):
             return Tenant(t)

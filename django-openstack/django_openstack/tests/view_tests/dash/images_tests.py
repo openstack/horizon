@@ -1,4 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
+import logging
+
 from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
@@ -287,43 +289,42 @@ class ImageViewTests(base.BaseViewTests):
                      }
 
         self.mox.StubOutWithMock(api, 'image_get')
-        api.image_get(IsA(http.HttpRequest),
+        api.image_get(IgnoreArg(),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
         self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IsA(http.HttpRequest),
+        api.token_get_tenant(IgnoreArg(),
                              self.TEST_TENANT).AndReturn(self.TEST_TENANT)
 
         self.mox.StubOutWithMock(api, 'flavor_list')
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
+        api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
 
         self.mox.StubOutWithMock(api, 'keypair_list')
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
+        api.keypair_list(IgnoreArg()).AndReturn(self.keypairs)
 
         # called again by the form
-        api.image_get(IsA(http.HttpRequest),
+        api.image_get(IgnoreArg(),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
         self.mox.StubOutWithMock(api, 'flavor_get')
-        api.flavor_get(IsA(http.HttpRequest),
+        api.flavor_get(IgnoreArg(),
                        IsA(unicode)).AndReturn(self.flavors[0])
 
         self.mox.StubOutWithMock(api, 'server_create')
 
         exception = api_exceptions.ApiException('apiException')
-        api.server_create(IsA(http.HttpRequest), SERVER_NAME,
+        api.server_create(IgnoreArg(), SERVER_NAME,
                           self.visibleImage, self.flavors[0],
                           user_data=USER_DATA,
                           key_name=KEY_NAME).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IgnoreArg(), IsA(unicode))
 
         self.mox.ReplayAll()
-
-        res = self.client.post(reverse('dash_images_launch',
-                                        args=[self.TEST_TENANT, IMAGE_ID]),
-                               form_data)
+        url = reverse('dash_images_launch',
+                      args=[self.TEST_TENANT, IMAGE_ID])
+        res = self.client.post(url, form_data)
 
         self.assertTemplateUsed(res, 'dash_launch.html')
 

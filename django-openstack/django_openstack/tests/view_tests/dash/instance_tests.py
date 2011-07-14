@@ -8,7 +8,7 @@ from django_openstack import api
 from django_openstack import utils
 from django_openstack.tests.view_tests import base
 from openstackx.api import exceptions as api_exceptions
-from mox import IsA
+from mox import IsA, IgnoreArg
 
 
 class InstanceViewTests(base.BaseViewTests):
@@ -238,8 +238,9 @@ class InstanceViewTests(base.BaseViewTests):
         console_mock.output = CONSOLE_OUTPUT
 
         self.mox.StubOutWithMock(api, 'console_create')
-        api.console_create(IsA(http.HttpRequest),
-                           unicode(INSTANCE_ID)).AndReturn(console_mock)
+        api.console_create(IgnoreArg(),
+                           unicode(INSTANCE_ID),
+                           IgnoreArg()).AndReturn(console_mock)
 
         self.mox.ReplayAll()
 
@@ -258,11 +259,12 @@ class InstanceViewTests(base.BaseViewTests):
                                                 message='apiException')
 
         self.mox.StubOutWithMock(api, 'console_create')
-        api.console_create(IsA(http.HttpRequest),
-                           unicode(INSTANCE_ID)).AndRaise(exception)
+        api.console_create(IgnoreArg(),
+                           unicode(INSTANCE_ID),
+                           IgnoreArg()).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(unicode))
+        messages.error(IgnoreArg(), IsA(unicode))
 
         self.mox.ReplayAll()
 
@@ -282,7 +284,7 @@ class InstanceViewTests(base.BaseViewTests):
         console_mock.output = CONSOLE_OUTPUT
 
         self.mox.StubOutWithMock(api, 'console_create')
-        api.console_create(IsA(http.HttpRequest),
+        api.console_create(IgnoreArg(),
                            unicode(INSTANCE_ID),
                            'vnc').AndReturn(console_mock)
 
