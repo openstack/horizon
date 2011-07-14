@@ -7,7 +7,6 @@ $(function(){
     $(this).parent().nextUntil(".even, .odd").fadeToggle("slow");
   })
 
-  $("#user_tenant_list").hide()
   $("#drop_btn").click(function(){
     $("#user_tenant_list").toggle();
   })
