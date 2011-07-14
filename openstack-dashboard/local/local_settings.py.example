@@ -34,12 +34,9 @@ MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 OPENSTACK_ADMIN_TOKEN = "999888777666"
 OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0/"
 
-# NOTE(tres): Replace all of this nonsense once Swift+Keystone
-# is stable.
-# SWIFT_AUTHURL = 'http://localhost:8080/auth/v1.0'
-# SWIFT_ACCOUNT = 'test'
-# SWIFT_USER = 'tester'
-# SWIFT_PASS = 'testing'
+# NOTE(tres): Available services should come from the service
+#             catalog in Keystone.
+SWIFT_ENABLED = False
 
 # If you have external monitoring links
 EXTERNAL_MONITORING = [
