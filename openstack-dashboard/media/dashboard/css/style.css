@@ -331,6 +331,7 @@ a.refresh:hover { background-position: left -19px; }
 }
 
 .main_content {
+  min-width: 760px;
   margin-left: 229px;
   padding: 20px 20px 20px 20px;
 }
@@ -424,7 +425,7 @@ td#actions form input[type="submit"] {
   width: auto;
   text-align: left;
   padding: 0px 0px 0px 0px;
-  margin: 3px 0px 0px 0px;
+  margin: -17px 0px 0px 0px;
   cursor: pointer;
   border: 0px;
   float: left;
