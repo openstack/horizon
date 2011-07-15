@@ -14,9 +14,8 @@
     {% block page_header %}
     {% endblock %}
 
-    {% include "_messages.html" %}
-
     <div class="main_content">
+      {% include "_messages.html" %}
       {% block syspanel_main %}{% endblock %}
     </div>
     
