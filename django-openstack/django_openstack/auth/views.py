@@ -20,13 +20,14 @@ class Login(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             token = api.token_create(request,
-                                     "",
+                                     data.get('tenant', ''),
                                      data['username'],
                                      data['password'])
             info = api.token_info(request, token)
+            
             request.session['token'] = token.id
             request.session['user'] = info['user']
-            request.session['tenant'] = info['tenant']
+            request.session['tenant'] = data.get('tenant', info['tenant'])
             request.session['admin'] = info['admin']
             request.session['serviceCatalog'] = token.serviceCatalog
             logging.info(token.serviceCatalog)
@@ -38,6 +39,12 @@ class Login(forms.SelfHandlingForm):
         except api_exceptions.ApiException as e:
             messages.error(request, 'Error authenticating with keystone: %s' %
                                      e.message)
+
+
+class LoginWithTenant(Login):
+    username = forms.CharField(max_length="20",
+                               widget=forms.TextInput(attrs={'readonly':'readonly'}))
+    tenant = forms.CharField(widget=forms.HiddenInput())
 
 
 def login(request):
@@ -57,8 +64,8 @@ def login(request):
 
 
 def switch_tenants(request, tenant_id):
-    form, handled = LoginWithoutTenant.maybe_handle(
-            request, initial={'tenant': tenant_id})
+    form, handled = LoginWithTenant.maybe_handle(
+            request, initial={'tenant': tenant_id, 'username': request.user.username})
     if handled:
         return handled
 
