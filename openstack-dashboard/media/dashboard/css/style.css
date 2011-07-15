@@ -49,7 +49,6 @@ ul, li {
 
 li.last { border-right: none !important; }
 
-
 /* Header */
 
 #header {
@@ -305,7 +304,7 @@ a.refresh:hover { background-position: left -19px; }
 table.wide { width: 100%; }
 
 table th {
-	background: #e6e6e6 url(../images/misc_bg.png) top left repeat-x;
+	background: #9b9a9a url(../images/misc_bg.png) top left repeat-x;
 	color: #fff;
 	text-align: left;
 	font-weight: normal;
@@ -545,6 +544,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 	padding: 5px 0 5px 0;
 	border: 1px solid #e6e6e6;
 }
+#activity.tenant { margin: 0 0 0 0; }
 #activity span { margin: 0 0 0 10px; }
 
 #activity strong {
@@ -559,8 +559,50 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 	float: left;
 }
 
+/* User Usage */
 
+#usage { height: 180px; }
 
+.usage_block {
+	background: #e8f8ff;
+	color: #84b6c5;
+	min-height: 150px;
+	width: 31%;
+	margin: 0 2% 0 0;
+	float: left;
+	border: 1px solid #afe3fb;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.usage_block h3 {
+	background: #cef0ff;
+	color: #4fa5bf;
+	font-weight: normal;
+	padding: 3px 0 3px 8px;
+	border-bottom: 1px solid #c6e7f5;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.usage_block ul { padding: 20px 20px 20px 20px; }
+.usage_block .quantity { font-size: 25px; }
+
+.usage_block li {
+	font-size: 11px;
+	margin: 0 0 15px 0;
+}
+
+.usage_block .unit{
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 0 0 0 1px;
+}
 
 
 

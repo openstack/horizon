@@ -23,6 +23,7 @@
     </div>
   </form>
 
+  <div id="usage">
     <div class="usage_block">
       <h3>CPU</h3>
       <ul>
@@ -45,8 +46,8 @@
         <li><span class="quantity">{{usage.total_disk_usage|floatformat}}</span><span class="unit">GB-HR</span> Used</li>
       </ul>
     </div>
-
-    <p id="activity">
+  </div>
+    <p id="activity" class="tenant">
       <span><strong>Active Instances:</strong> {{usage.total_active_instances}}</span>
       <span><strong>This month's VCPU-Hours:</strong> {{usage.total_cpu_usage|floatformat}}</span>
       <span><strong>This month's GB-Hours:</strong> {{usage.total_disk_usage|floatformat}}</span>
