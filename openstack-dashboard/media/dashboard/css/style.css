@@ -31,13 +31,14 @@ a {
 a:hover { text-decoration: underline; }
 
 input[type="text"], input[type="password"], textarea{
-	width: 145px;
 	height: 33px;
 	margin: 0 0 15px -1px;
 	padding: 0 0 0 10px;
 	float: left;
 	border: 1px solid #ccc;
 }
+
+textarea{ padding: 10px 0 0 10px; }
 
 small { font-size: 12px; }
 
@@ -48,6 +49,37 @@ ul, li {
 }
 
 li.last { border-right: none !important; }
+
+.small-rounded {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.large-rounded {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+input[type="submit"] {
+	background: url(../images/modal_btn.png) top left repeat-x;
+	color: #6a6a6a;
+	font-size: 14px;
+	text-align: center;
+	width: 82px;
+	height: 15px;
+	padding: 10px 10px 10px 10px;
+	float: right;
+	border: 1px solid #dcdcdc;
+}
+
+input[type="submit"]:hover {
+	background-position: 0 -35px;
+	text-decoration: underline;
+}
+input[type="submit"]:active { background-position: 0 -105px; }
+
 
 /* Header */
 
@@ -369,10 +401,13 @@ td#actions form input[type="submit"] {
 	color: #3fb9d3;
 	background: transparent;
 	font-size: 11px;
+	width: auto;
+	text-align: left;
 	padding: 0px 0px 0px 0px;
-	margin: -4px 0px 0px 0px;
+	margin: 3px 0px 0px 0px;
 	cursor: pointer;
 	border: 0px;
+	float: left;
 }
 td#actions input[type="submit"]:hover { text-decoration: underline; }
 
@@ -471,7 +506,10 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 .status_box.bad .status { background: url(../images/status_sprite.png) no-repeat 6px -186px; }
 
 .status_box.small { 
-	width: 359px;
+	width: 100%;
+	min-width: 360px;
+	margin: 0 0 25px 0;
+	float: left;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	border-radius: 0;
@@ -553,7 +591,17 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 	font-size: 11px;
 }
 
-#date_form { margin: 18px 0 25px 22px; }
+#date_form { 
+	width: 502px;
+	margin: 18px 0 25px 22px;
+}
+
+#date_form input[type="submit"] {
+	font-size: 11px;
+	padding: 5px 10px 20px;
+	cursor: pointer;
+}
+
 #date_form h3 {
 	margin: 0 20px 0 0;
 	float: left;
@@ -599,19 +647,96 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 }
 
 .usage_block .unit{
-  font-size: 11px;
-  text-transform: uppercase;
-  padding: 0 0 0 1px;
+	font-size: 11px;
+	text-transform: uppercase;
+	padding: 0 0 0 1px;
 }
 
 
+/* Forms */
 
+.dash_block {
+	background: #f8f8f8;
+	min-width: 725px;
+	margin: 0 0 25px 0;
+	padding: 25px 25px 25px 25px;
+	float: left;
+	border: 1px solid #e1e1e1;
+}
 
+.dash_block .left {
+	width: 50%;
+	float: left;
+}
 
+.dash_block .right {
+	margin: 0 0 0 3%;
+	width: 47%;
+	float: left;
+}
 
+.dash_block .right table {
+	width: 100%;
+	margin: 25px 0 0 0;
+}
 
+.dash_block .right p { max-width: 425px; }
+input.example, textarea.example {color: #d9d9d9;}
+.dash_block textarea { min-height: 150px; }
 
+.dash_block form { float: left; }
+.dash_block label {
+	width: 100%;
+	margin: 0 0 5px 0;
+	float: left;
+}
 
+.dash_block input[type="text"], .dash_block textarea, .dash_block input[type="password"]{
+	width: 97%;
+	float: left;
+}
+
+.dash_block .right h3 {
+	font-size: 24px;
+	margin: 0 0 25px 0;
+}
+
+.dash_block form select {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+input:focus, textarea:focus {
+	border-color: #b7b7b7;
+	outline: none;
+	box-shadow:0 0 3px #41bad4;
+	-moz-box-shadow:0 0 3px #41bad4;
+	-webkit-box-shadow:0 0 3px #41bad4;
+	-webkit-transition-property: -webkit-box-shadow, border-color;
+	-webkit-transition-duration: 0.2s;
+}
+
+.dash_block form input[type="submit"] {
+	font-size: 11px;
+	padding-bottom: 20px;
+	width: auto;
+	cursor: pointer;
+}
+
+.dash_block form .errorlist {
+	color: #ff5c5f;
+	font-size: 11px;
+}
+
+.dash_block p {
+	font-size: 14px;
+	margin: 10px 0 10px 0;
+}
+
+.dash_block .left h3 {
+	color: green;
+	padding: 20px 20px 20px 20px;
+}
 
 
 

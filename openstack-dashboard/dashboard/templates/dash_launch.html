@@ -12,8 +12,10 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div class="dash_block wide form">
-    {% include '_launch.html' %}
+  <div class="dash_block">
+    <div class="left">
+      {% include '_launch.html' %}
+    </div>
     <div class="right">
       <h3>Description:</h3>
       <p>Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources you are allowed to provision.</p>
@@ -43,6 +45,6 @@
           <td>{{quotas.gigabytes}}GB</td>
         </tr>
       </table>
+    </div>
   </div>
-  
 {% endblock %}

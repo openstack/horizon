@@ -10,14 +10,11 @@
 {% endblock %}
 
 {% block main %}  
-  <div class='content_wrapper'>
-    {% block page_header %}
-    {% endblock %}
+  {% block page_header %}
+  {% endblock %}
 
-    <div class="main_content">
-      {% include "_messages.html" %}
-      {% block syspanel_main %}{% endblock %}
-    </div>
-    
- </div>
+  <div class="main_content">
+    {% include "_messages.html" %}
+    {% block syspanel_main %}{% endblock %}
+  </div>
 {% endblock %}

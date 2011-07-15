@@ -13,7 +13,6 @@
       $("form input[type='submit']").click(function(e){
         $("form").hide("fast")
         $(".dash_block h3").show("fast")
-        console.log($(this).parent().submit());
         e.preventDefault()
       })
     })
@@ -26,7 +25,7 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div class="dash_block wide form">
+  <div class="dash_block">
     <div class="left">
       <h3>Your private key is being downloaded.</h3>
       {% include '_keypair_form.html' with form=create_form %}
