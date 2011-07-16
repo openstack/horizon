@@ -25,11 +25,12 @@ import openstack
 
 
 class User(object):
-    def __init__(self, token, user, tenant, admin):
+    def __init__(self, token, user, tenant, admin, service_catalog):
         self.token = token
         self.username = user
         self.tenant = tenant
         self.admin = admin
+        self.service_catalog = service_catalog
 
     def is_authenticated(self):
         # TODO: deal with token expiration
@@ -45,11 +46,13 @@ def get_user_from_request(request):
     return User(request.session['token'],
                 request.session['user'],
                 request.session['tenant'],
-                request.session['admin'])
+                request.session['admin'],
+                request.session['serviceCatalog'])
 
 
 class LazyUser(object):
     def __get__(self, request, obj_type=None):
+        return get_user_from_request(request)
         if not hasattr(request, '_cached_user'):
             request._cached_user = get_user_from_request(request)
         return request._cached_user

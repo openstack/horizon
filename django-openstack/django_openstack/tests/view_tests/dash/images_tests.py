@@ -11,6 +11,10 @@ from openstackx.api import exceptions as api_exceptions
 from mox import IgnoreArg, IsA
 
 
+class FakeQuota:
+    ram = 100
+
+
 class ImageViewTests(base.BaseViewTests):
     def setUp(self):
         super(ImageViewTests, self).setUp()
@@ -119,6 +123,10 @@ class ImageViewTests(base.BaseViewTests):
         api.image_get(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
+        self.mox.StubOutWithMock(api, 'tenant_quota_get')
+        api.tenant_quota_get(IsA(http.HttpRequest),
+                             self.TEST_TENANT).AndReturn(FakeQuota)
+
         self.mox.StubOutWithMock(api, 'token_get_tenant')
         api.token_get_tenant(IsA(http.HttpRequest),
                              self.TEST_TENANT).AndReturn(self.TEST_TENANT)
@@ -165,6 +173,7 @@ class ImageViewTests(base.BaseViewTests):
                      'key_name': KEY_NAME,
                      'name': SERVER_NAME,
                      'user_data': USER_DATA,
+                     'tenant_id': self.TEST_TENANT,
                      }
 
         self.mox.StubOutWithMock(api, 'image_get')
@@ -174,6 +183,10 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'token_get_tenant')
         api.token_get_tenant(IsA(http.HttpRequest),
                              self.TEST_TENANT).AndReturn(self.TEST_TENANT)
+
+        self.mox.StubOutWithMock(api, 'tenant_quota_get')
+        api.tenant_quota_get(IsA(http.HttpRequest),
+                             self.TEST_TENANT).AndReturn(FakeQuota)
 
         self.mox.StubOutWithMock(api, 'flavor_list')
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
@@ -193,7 +206,7 @@ class ImageViewTests(base.BaseViewTests):
 
         api.server_create(IsA(http.HttpRequest), SERVER_NAME,
                           self.visibleImage, self.flavors[0],
-                          user_data=USER_DATA, key_name=KEY_NAME)
+                          KEY_NAME, USER_DATA)
 
         self.mox.StubOutWithMock(messages, 'success')
         messages.success(IsA(http.HttpRequest), IsA(str))
@@ -204,8 +217,8 @@ class ImageViewTests(base.BaseViewTests):
                                         args=[self.TEST_TENANT, IMAGE_ID]),
                                form_data)
 
-        self.assertRedirectsNoFollow(res, reverse('dash_images_launch',
-                                          args=[self.TEST_TENANT, IMAGE_ID]))
+        self.assertRedirectsNoFollow(res, reverse('dash_instances',
+                                          args=[self.TEST_TENANT]))
 
         self.mox.VerifyAll()
 
@@ -219,6 +232,10 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'token_get_tenant')
         api.token_get_tenant(IsA(http.HttpRequest),
                              self.TEST_TENANT).AndReturn(self.TEST_TENANT)
+
+        self.mox.StubOutWithMock(api, 'tenant_quota_get')
+        api.tenant_quota_get(IsA(http.HttpRequest),
+                             self.TEST_TENANT).AndReturn(FakeQuota)
 
         exception = api_exceptions.ApiException('apiException')
         self.mox.StubOutWithMock(api, 'flavor_list')
@@ -242,7 +259,7 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_launch_keypairlist_error(self):
-        IMAGE_ID = '1'
+        IMAGE_ID = '2'
 
         self.mox.StubOutWithMock(api, 'image_get')
         api.image_get(IsA(http.HttpRequest),
@@ -251,6 +268,10 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'token_get_tenant')
         api.token_get_tenant(IsA(http.HttpRequest),
                              self.TEST_TENANT).AndReturn(self.TEST_TENANT)
+
+        self.mox.StubOutWithMock(api, 'tenant_quota_get')
+        api.tenant_quota_get(IsA(http.HttpRequest),
+                             self.TEST_TENANT).AndReturn(FakeQuota)
 
         self.mox.StubOutWithMock(api, 'flavor_list')
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
@@ -285,6 +306,7 @@ class ImageViewTests(base.BaseViewTests):
                      'image_id': IMAGE_ID,
                      'key_name': KEY_NAME,
                      'name': SERVER_NAME,
+                     'tenant_id': self.TEST_TENANT,
                      'user_data': USER_DATA,
                      }
 
@@ -295,6 +317,10 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'token_get_tenant')
         api.token_get_tenant(IgnoreArg(),
                              self.TEST_TENANT).AndReturn(self.TEST_TENANT)
+
+        self.mox.StubOutWithMock(api, 'tenant_quota_get')
+        api.tenant_quota_get(IsA(http.HttpRequest),
+                             self.TEST_TENANT).AndReturn(FakeQuota)
 
         self.mox.StubOutWithMock(api, 'flavor_list')
         api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
@@ -313,13 +339,13 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'server_create')
 
         exception = api_exceptions.ApiException('apiException')
-        api.server_create(IgnoreArg(), SERVER_NAME,
+        api.server_create(IsA(http.HttpRequest), SERVER_NAME,
                           self.visibleImage, self.flavors[0],
-                          user_data=USER_DATA,
-                          key_name=KEY_NAME).AndRaise(exception)
+                          KEY_NAME,
+                          USER_DATA).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IgnoreArg(), IsA(unicode))
+        messages.error(IsA(http.HttpRequest), IsA(str))
 
         self.mox.ReplayAll()
         url = reverse('dash_images_launch',

@@ -222,7 +222,7 @@ class User(APIResourceWrapper):
 
 
 def url_for(request, service_name, admin=False):
-    catalog = request.session['serviceCatalog']
+    catalog = request.user.service_catalog
     if admin:
         rv = catalog[service_name][0]['adminURL']
     else:
@@ -373,9 +373,9 @@ def keypair_list(request):
     return [KeyPair(key) for key in extras_api(request).keypairs.list()]
 
 
-def server_create(request, name, image, flavor, user_data, key_name):
+def server_create(request, name, image, flavor, key_name, user_data):
     return Server(extras_api(request).servers.create(
-            name, image, flavor, user_data=user_data, key_name=key_name),
+            name, image, flavor, key_name=key_name, user_data=user_data),
             request)
 
 

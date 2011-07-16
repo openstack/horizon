@@ -28,9 +28,9 @@ from django import template
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core import validators
 from django import shortcuts
 from django.shortcuts import redirect, render_to_response
-from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 
 from django_openstack import api
@@ -57,12 +57,14 @@ class DeleteKeypair(forms.SelfHandlingForm):
 
 
 class CreateKeypair(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="20", label="Keypair Name")
+
+    name = forms.CharField(max_length="20", label="Keypair Name",
+                 validators=[validators.RegexValidator('\w+')])
 
     def handle(self, request, data):
         try:
             LOG.info('Creating keypair "%s"' % data['name'])
-            keypair = api.keypair_create(request, slugify(data['name']))
+            keypair = api.keypair_create(request, data['name'])
             response = http.HttpResponse(mimetype='application/binary')
             response['Content-Disposition'] = \
                 'attachment; filename=%s.pem' % \
@@ -78,6 +80,9 @@ class CreateKeypair(forms.SelfHandlingForm):
 @login_required
 def index(request, tenant_id):
     delete_form, handled = DeleteKeypair.maybe_handle(request)
+
+    if handled:
+        return handled
 
     try:
         keypairs = api.keypair_list(request)

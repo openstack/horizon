@@ -289,16 +289,15 @@ class ApiHelperTests(test.TestCase):
         GLANCE_URL = 'http://glance/glanceapi/'
         NOVA_URL = 'http://nova/novapi/'
 
-        serviceCatalog = {
-                'glance': [{'adminURL': GLANCE_URL + 'admin',
-                            'internalURL': GLANCE_URL + 'internal'},
-                          ],
-                'nova': [{'adminURL': NOVA_URL + 'admin',
-                          'internalURL': NOVA_URL + 'internal'},
-                        ],
-                }
-
-        self.request.session['serviceCatalog'] = serviceCatalog
+        # NOTE: serviceCatalog is now constructed as part of the user object
+        # serviceCatalog = {
+        #        'glance': [{'adminURL': GLANCE_URL + 'admin',
+        #                    'internalURL': GLANCE_URL + 'internal'},
+        #                  ],
+        #        'nova': [{'adminURL': NOVA_URL + 'admin',
+        #                  'internalURL': NOVA_URL + 'internal'},
+        #                ],
+        #        }
 
         url = api.url_for(self.request, 'glance')
         self.assertEqual(url, GLANCE_URL + 'internal')
@@ -516,7 +515,7 @@ class AccountApiTests(test.TestCase):
 
         account_api.users = self.mox.CreateMockAnything()
         account_api.users.create(TEST_USERNAME, TEST_EMAIL, TEST_PASSWORD,
-                                TEST_TENANT_ID).AndReturn(TEST_RETURN)
+                                TEST_TENANT_ID, True).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
@@ -999,7 +998,7 @@ class ExtrasApiTests(test.TestCase):
         extras_api.consoles.create(
                 TEST_INSTANCE_ID, TEST_CONSOLE_KIND).AndReturn(TEST_RETURN)
         extras_api.consoles.create(
-                TEST_INSTANCE_ID, None).AndReturn(TEST_RETURN + '2')
+                TEST_INSTANCE_ID, 'text').AndReturn(TEST_RETURN + '2')
 
         self.mox.ReplayAll()
 
@@ -1095,7 +1094,7 @@ class ExtrasApiTests(test.TestCase):
         self.mox.ReplayAll()
 
         ret_val = api.server_create(self.request, NAME, IMAGE, FLAVOR,
-                                    USER_DATA, KEY)
+                                    KEY, USER_DATA)
 
         self.assertIsInstance(ret_val, api.Server)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
