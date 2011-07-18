@@ -1,9 +1,10 @@
 import tempfile
 
+from django import http
 from django.core.urlresolvers import reverse
 from django_openstack import api
 from django_openstack.tests.view_tests import base
-
+from mox import IsA
 
 class ObjectViewTests(base.BaseViewTests):
     CONTAINER_NAME = 'containerName'
@@ -16,6 +17,7 @@ class ObjectViewTests(base.BaseViewTests):
     def test_index(self):
         self.mox.StubOutWithMock(api, 'swift_get_objects')
         api.swift_get_objects(
+                IsA(http.HttpRequest),
                 self.CONTAINER_NAME).AndReturn(self.swift_objects)
 
         self.mox.ReplayAll()
@@ -49,7 +51,8 @@ class ObjectViewTests(base.BaseViewTests):
                     'object_file': OBJECT_FILE}
 
         self.mox.StubOutWithMock(api, 'swift_upload_object')
-        api.swift_upload_object(unicode(self.CONTAINER_NAME),
+        api.swift_upload_object(IsA(http.HttpRequest),
+                                unicode(self.CONTAINER_NAME),
                                 unicode(OBJECT_NAME),
                                 OBJECT_DATA)
 
@@ -73,7 +76,9 @@ class ObjectViewTests(base.BaseViewTests):
                     'object_name': OBJECT_NAME}
 
         self.mox.StubOutWithMock(api, 'swift_delete_object')
-        api.swift_delete_object(self.CONTAINER_NAME, OBJECT_NAME)
+        api.swift_delete_object(
+                IsA(http.HttpRequest),
+                self.CONTAINER_NAME, OBJECT_NAME)
 
         self.mox.ReplayAll()
 
@@ -93,7 +98,8 @@ class ObjectViewTests(base.BaseViewTests):
         OBJECT_NAME = 'objectName'
 
         self.mox.StubOutWithMock(api, 'swift_get_object_data')
-        api.swift_get_object_data(unicode(self.CONTAINER_NAME),
+        api.swift_get_object_data(IsA(http.HttpRequest),
+                                  unicode(self.CONTAINER_NAME),
                                   unicode(OBJECT_NAME)).AndReturn(OBJECT_DATA)
 
         self.mox.ReplayAll()
@@ -115,7 +121,8 @@ class ObjectViewTests(base.BaseViewTests):
         container.name = self.CONTAINER_NAME
 
         self.mox.StubOutWithMock(api, 'swift_get_containers')
-        api.swift_get_containers().AndReturn([container])
+        api.swift_get_containers(
+                IsA(http.HttpRequest)).AndReturn([container])
 
         self.mox.ReplayAll()
 
@@ -144,11 +151,15 @@ class ObjectViewTests(base.BaseViewTests):
         container.name = self.CONTAINER_NAME
 
         self.mox.StubOutWithMock(api, 'swift_get_containers')
-        api.swift_get_containers().AndReturn([container])
+        api.swift_get_containers(
+                IsA(http.HttpRequest)).AndReturn([container])
 
         self.mox.StubOutWithMock(api, 'swift_copy_object')
-        api.swift_copy_object(ORIG_CONTAINER_NAME, ORIG_OBJECT_NAME,
-                              NEW_CONTAINER_NAME, NEW_OBJECT_NAME)
+        api.swift_copy_object(IsA(http.HttpRequest),
+                              ORIG_CONTAINER_NAME,
+                              ORIG_OBJECT_NAME,
+                              NEW_CONTAINER_NAME,
+                              NEW_OBJECT_NAME)
 
         self.mox.ReplayAll()
 
@@ -174,7 +185,8 @@ class ObjectViewTests(base.BaseViewTests):
                     }
 
         self.mox.StubOutWithMock(api, 'swift_get_objects')
-        api.swift_get_objects(unicode(self.CONTAINER_NAME),
+        api.swift_get_objects(IsA(http.HttpRequest),
+                              unicode(self.CONTAINER_NAME),
                               prefix=unicode(PREFIX)
                              ).AndReturn(self.swift_objects)
 

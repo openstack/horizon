@@ -1,4 +1,5 @@
 from cloudfiles.errors import ContainerNotEmpty
+from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django_openstack import api
@@ -15,7 +16,8 @@ class ContainerViewTests(base.BaseViewTests):
 
     def test_index(self):
         self.mox.StubOutWithMock(api, 'swift_get_containers')
-        api.swift_get_containers().AndReturn([self.container])
+        api.swift_get_containers(
+                IsA(http.HttpRequest)).AndReturn([self.container])
 
         self.mox.ReplayAll()
 
@@ -35,7 +37,8 @@ class ContainerViewTests(base.BaseViewTests):
                     'method': 'DeleteContainer'}
 
         self.mox.StubOutWithMock(api, 'swift_delete_container')
-        api.swift_delete_container('containerName')
+        api.swift_delete_container(IsA(http.HttpRequest),
+                                   'containerName')
 
         self.mox.ReplayAll()
 
@@ -54,7 +57,9 @@ class ContainerViewTests(base.BaseViewTests):
         exception = ContainerNotEmpty('containerNotEmpty')
 
         self.mox.StubOutWithMock(api, 'swift_delete_container')
-        api.swift_delete_container('containerName').AndRaise(exception)
+        api.swift_delete_container(
+                IsA(http.HttpRequest),
+                'containerName').AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
 
@@ -81,7 +86,8 @@ class ContainerViewTests(base.BaseViewTests):
                     'method': 'CreateContainer'}
 
         self.mox.StubOutWithMock(api, 'swift_create_container')
-        api.swift_create_container('CreateContainer')
+        api.swift_create_container(
+                IsA(http.HttpRequest), 'CreateContainer')
 
         self.mox.StubOutWithMock(messages, 'success')
         messages.success(IgnoreArg(), IsA(str))

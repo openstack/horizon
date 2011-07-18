@@ -29,4 +29,4 @@ def tenants(request):
 
 
 def swift(request):
-    return {'swift_configured': hasattr(settings, "SWIFT_AUTHURL")}
+    return {'swift_configured': settings.SWIFT_ENABLED}

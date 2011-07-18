@@ -1316,6 +1316,10 @@ class SwiftApiTests(test.TestCase):
     def setUp(self):
         self.mox = mox.Mox()
 
+        self.request = http.HttpRequest()
+        self.request.session = dict()
+        self.request.session['token'] = TEST_TOKEN
+
     def tearDown(self):
         self.mox.UnsetStubs()
 
@@ -1323,23 +1327,8 @@ class SwiftApiTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'swift_api')
         swift_api = self.mox.CreateMock(cloudfiles.connection.Connection)
         for i in range(count):
-            api.swift_api().AndReturn(swift_api)
+            api.swift_api(IsA(http.HttpRequest)).AndReturn(swift_api)
         return swift_api
-
-    def test_get_swift_api(self):
-        self.mox.StubOutWithMock(cloudfiles, 'get_connection')
-
-        swiftuser = ':'.join((settings.SWIFT_ACCOUNT, settings.SWIFT_USER))
-        cloudfiles.get_connection(swiftuser,
-                                  settings.SWIFT_PASS,
-                                  authurl=settings.SWIFT_AUTHURL
-                                 ).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        self.assertEqual(api.swift_api(), TEST_RETURN)
-
-        self.mox.VerifyAll()
 
     def test_swift_get_containers(self):
         containers = (TEST_RETURN, TEST_RETURN + '2')
@@ -1350,7 +1339,7 @@ class SwiftApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_get_containers()
+        ret_val = api.swift_get_containers(self.request)
 
         self.assertEqual(len(ret_val), len(containers))
         for container in ret_val:
@@ -1365,12 +1354,13 @@ class SwiftApiTests(test.TestCase):
         swift_api = self.stub_swift_api()
         self.mox.StubOutWithMock(api, 'swift_container_exists')
 
-        api.swift_container_exists(NAME).AndReturn(False)
+        api.swift_container_exists(self.request,
+                                   NAME).AndReturn(False)
         swift_api.create_container(NAME).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_create_container(NAME)
+        ret_val = api.swift_create_container(self.request, NAME)
 
         self.assertIsInstance(ret_val, api.Container)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
@@ -1386,7 +1376,7 @@ class SwiftApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_delete_container(NAME)
+        ret_val = api.swift_delete_container(self.request, NAME)
 
         self.assertIsNone(ret_val)
 
@@ -1405,7 +1395,7 @@ class SwiftApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_get_objects(NAME)
+        ret_val = api.swift_get_objects(self.request, NAME)
 
         self.assertEqual(len(ret_val), len(swift_objects))
         for swift_object in ret_val:
@@ -1428,7 +1418,9 @@ class SwiftApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_get_objects(NAME, prefix=PREFIX)
+        ret_val = api.swift_get_objects(self.request,
+                                        NAME,
+                                        prefix=PREFIX)
 
         self.assertEqual(len(ret_val), len(swift_objects))
         for swift_object in ret_val:
@@ -1452,7 +1444,9 @@ class SwiftApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_upload_object(CONTAINER_NAME, OBJECT_NAME,
+        ret_val = api.swift_upload_object(self.request,
+                                          CONTAINER_NAME,
+                                          OBJECT_NAME,
                                           OBJECT_DATA)
 
         self.assertIsNone(ret_val)
@@ -1471,7 +1465,9 @@ class SwiftApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_delete_object(CONTAINER_NAME, OBJECT_NAME)
+        ret_val = api.swift_delete_object(self.request,
+                                          CONTAINER_NAME,
+                                          OBJECT_NAME)
 
         self.assertIsNone(ret_val)
 
@@ -1492,7 +1488,9 @@ class SwiftApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_get_object_data(CONTAINER_NAME, OBJECT_NAME)
+        ret_val = api.swift_get_object_data(self.request,
+                                            CONTAINER_NAME,
+                                            OBJECT_NAME)
 
         self.assertEqual(ret_val, OBJECT_DATA)
 
@@ -1511,7 +1509,9 @@ class SwiftApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_object_exists(CONTAINER_NAME, OBJECT_NAME)
+        ret_val = api.swift_object_exists(self.request,
+                                          CONTAINER_NAME,
+                                          OBJECT_NAME)
         self.assertTrue(ret_val)
 
         self.mox.VerifyAll()
@@ -1527,15 +1527,18 @@ class SwiftApiTests(test.TestCase):
         swift_object = self.mox.CreateMock(cloudfiles.Object)
 
         swift_api.get_container(CONTAINER_NAME).AndReturn(container)
-        api.swift_object_exists(CONTAINER_NAME, OBJECT_NAME).AndReturn(False)
+        api.swift_object_exists(self.request,
+                                CONTAINER_NAME,
+                                OBJECT_NAME).AndReturn(False)
 
         container.get_object(OBJECT_NAME).AndReturn(swift_object)
         swift_object.copy_to(CONTAINER_NAME, OBJECT_NAME)
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_copy_object(CONTAINER_NAME, OBJECT_NAME,
-                                        CONTAINER_NAME, OBJECT_NAME)
+        ret_val = api.swift_copy_object(self.request, CONTAINER_NAME,
+                                        OBJECT_NAME, CONTAINER_NAME,
+                                        OBJECT_NAME)
 
         self.assertIsNone(ret_val)
         self.mox.VerifyAll()
