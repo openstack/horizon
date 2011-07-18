@@ -120,3 +120,5 @@ except Exception, e:
 
 if DEBUG:
     logging.basicConfig(level=logging.DEBUG)
+
+OPENSTACK_KEYSTONE_DEFAULT_ROLE='Member'
