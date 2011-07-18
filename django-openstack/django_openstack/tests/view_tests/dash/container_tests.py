@@ -93,8 +93,8 @@ class ContainerViewTests(base.BaseViewTests):
         messages.success(IgnoreArg(), IsA(str))
 
         res = self.client.post(reverse('dash_containers_create',
-                                       args=['tenant']),
+                                       args=[self.request.user.tenant]),
                                formData)
 
-        self.assertRedirectsNoFollow(res, reverse('dash_containers_create',
-                                          args=['tenant']))
+        self.assertRedirectsNoFollow(res, reverse('dash_containers',
+                                          args=[self.request.user.tenant]))

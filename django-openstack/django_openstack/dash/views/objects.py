@@ -48,6 +48,11 @@ class FilterObjects(forms.SelfHandlingForm):
                                         data['container_name'],
                                         prefix=object_prefix)
 
+        if not objects:
+            messages.info(request,
+                          'There are no objects matching that prefix in %s' %
+                          data['container_name'])
+
         return objects
 
 
@@ -122,7 +127,8 @@ def index(request, tenant_id, container_name):
         return handled
 
     filter_form, objects = FilterObjects.maybe_handle(request)
-    if not objects:
+
+    if objects is None:
         filter_form.fields['container_name'].initial = container_name
         objects = api.swift_get_objects(request, container_name)
 
