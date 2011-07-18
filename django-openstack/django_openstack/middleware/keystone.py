@@ -64,10 +64,7 @@ class AuthenticationMiddleware(object):
 
     def process_exception(self, request, exception):
         if type(exception) in [openstack.compute.exceptions.Forbidden,
-                               openstackx.api.exceptions.Forbidden,
-                               #BEWARE - had to add this exception handler
-                               # to make token expiration work
-                               openstackx.api.exceptions.NotFound]:
+                               openstackx.api.exceptions.Forbidden]:
             # flush other error messages, which are collateral damage
             # when our token expires
             for message in messages.get_messages(request):
