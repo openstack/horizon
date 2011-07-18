@@ -1,8 +1,10 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2010 United States Government as represented by the
+# Copyright 2011 United States Government as represented by the
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -39,7 +41,7 @@ from openstackx.api import exceptions as api_exceptions
 from glance.common import exception as glance_exception
 
 
-LOG = logging.getLogger('django_openstack.dash')
+LOG = logging.getLogger('django_openstack.dash.views.images')
 
 from django.core import validators
 import re
@@ -57,9 +59,6 @@ class LaunchForm(forms.SelfHandlingForm):
     user_data = forms.CharField(widget=forms.Textarea,
                                 label="User Data",
                                 required=False)
-    name = forms.CharField(max_length=80, label="Server Name")
-
-    security_groups = forms.CharField(max_length=255, validators=[validators.RegexValidator(regex=re.compile(r'^[0-9A-Za-z,\.\-_]*$'))], required=False)
 
     # make the dropdown populate when the form is loaded not when django is
     # started
@@ -82,7 +81,6 @@ class LaunchForm(forms.SelfHandlingForm):
         field_list = (
             'name',
             'user_data',
-            'security_groups',
             'flavor',
             'key_name')
         for field in field_list[::-1]:
@@ -100,14 +98,16 @@ class LaunchForm(forms.SelfHandlingForm):
                               image,
                               flavor,
                               data.get('key_name'),
-                              data.get('user_data'),
-                              data.get('security_groups').split(','))
+                              data.get('user_data'))
 
-            messages.success(request, "Instance was successfully\
-                                       launched.")
+            msg = 'Instance was successfully launched'
+            LOG.info(msg)
+            messages.success(request, msg)
             return redirect('dash_instances', tenant_id)
 
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while creating instances of image "%s"' %
+                      image_id, exc_info=True)
             messages.error(request,
                            'Unable to launch instance: %s' % e.message)
 
@@ -115,7 +115,7 @@ class LaunchForm(forms.SelfHandlingForm):
 @login_required
 def index(request, tenant_id):
     tenant = {}
-    
+
     try:
         tenant = api.token_get_tenant(request, request.user.tenant)
     except api_exceptions.ApiException, e:
@@ -127,24 +127,15 @@ def index(request, tenant_id):
         all_images = api.image_list_detailed(request)
         if not all_images:
             messages.info(request, "There are currently no images.")
-    except GlanceClientConnectionError, e:
-        messages.error(request, "Error connecting to glance: %s" % e.message)
+    except glance_exception.ClientConnectionError, e:
+        LOG.error("Error connecting to glance", exc_info=True)
+        messages.error(request, "Error connecting to glance: %s" % str(e))
     except glance_exception.Error, e:
-        messages.error(request, "Error retrieving image list: %s" % e.message)
+        LOG.error("Error retrieving image list", exc_info=True)
+        messages.error(request, "Error retrieving image list: %s" % str(e))
 
-    images = []
-
-    def convert_time(tstr):
-        if tstr:
-            return datetime.datetime.strptime(tstr, "%Y-%m-%dT%H:%M:%S.%f")
-        else:
-            return ''
-
-    for im in all_images:
-        im['created'] = convert_time(im['created_at'])
-        im['updated'] = convert_time(im['updated_at'])
-        if im['container_format'] not in ['aki', 'ari']:
-            images.append(im)
+    images = [im for im in all_images
+              if im['container_format'] not in ['aki', 'ari']]
 
     return render_to_response('dash_images.html', {
         'tenant': tenant,
@@ -154,6 +145,7 @@ def index(request, tenant_id):
 
 @login_required
 def launch(request, tenant_id, image_id):
+    LOG.error(dir(request))
     def flavorlist():
         try:
             fl = api.flavor_list(request)
@@ -162,7 +154,9 @@ def launch(request, tenant_id, image_id):
             sel = [(f.id, '%s (%svcpu / %sGB Disk / %sMB Ram )' %
                    (f.name, f.vcpus, f.disk, f.ram)) for f in fl]
             return sorted(sel)
-        except:
+        except api_exceptions.ApiException:
+            LOG.error('Unable to retrieve list of instance types',
+                      exc_info=True)
             return [(1, 'm1.tiny')]
 
     def keynamelist():
@@ -170,25 +164,20 @@ def launch(request, tenant_id, image_id):
             fl = api.keypair_list(request)
             sel = [(f.key_name, f.key_name) for f in fl]
             return sel
-        except:
+        except api_exceptions.ApiException:
+            LOG.error('Unable to retrieve list of keypairs', exc_info=True)
             return []
 
+    # TODO(mgius): Any reason why these can't be after the launchform logic?
+    # If The form is valid, we've just wasted these two api calls
+    image = api.image_get(request, image_id)
+    tenant = api.token_get_tenant(request, request.user.tenant)
+    quotas = api.tenant_quota_get(request, request.user.tenant)
     try:
-        image = api.image_get(request, image_id)
-        tenant = api.token_get_tenant(request, request.user.tenant)
-        quotas = api.tenant_quota_get(request, request.user.tenant)
         quotas.ram = int(quotas.ram)/100
-        
     except Exception, e:
-        messages.error(request, 'Unable to retrieve image %s: %s' %
+        messages.error(request, 'Error parsing quota  for %s: %s' %
                                  (image_id, e.message))
-        return redirect('dash_instances', tenant_id)
-
-    try:
-        tenant = api.token_get_tenant(request, request.user.tenant)
-    except api_exceptions.ApiException, e:
-        messages.error(request, 'Unable to retrieve tenant %s: %s' %
-                                 (request.user.tenant, e.message))
         return redirect('dash_instances', tenant_id)
 
     form, handled = LaunchForm.maybe_handle(

@@ -1,4 +1,23 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
+
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
 from django.contrib import messages
 from django import shortcuts
 import openstackx
@@ -6,11 +25,12 @@ import openstack
 
 
 class User(object):
-    def __init__(self, token, user, tenant, admin):
+    def __init__(self, token, user, tenant, admin, service_catalog):
         self.token = token
         self.username = user
         self.tenant = tenant
         self.admin = admin
+        self.service_catalog = service_catalog
 
     def is_authenticated(self):
         # TODO: deal with token expiration
@@ -22,15 +42,17 @@ class User(object):
 
 def get_user_from_request(request):
     if 'user' not in request.session:
-        return User(None,None,None,None)
+        return User(None,None,None,None,None)
     return User(request.session['token'],
                 request.session['user'],
                 request.session['tenant'],
-                request.session['admin'])
+                request.session['admin'],
+                request.session['serviceCatalog'])
 
 
 class LazyUser(object):
     def __get__(self, request, obj_type=None):
+        return get_user_from_request(request)
         if not hasattr(request, '_cached_user'):
             request._cached_user = get_user_from_request(request)
         return request._cached_user
@@ -42,10 +64,7 @@ class AuthenticationMiddleware(object):
 
     def process_exception(self, request, exception):
         if type(exception) in [openstack.compute.exceptions.Forbidden,
-                               openstackx.api.exceptions.Forbidden,
-                               #BEWARE - had to add this exception handler
-                               # to make token expiration work
-                               openstackx.api.exceptions.NotFound]:
+                               openstackx.api.exceptions.Forbidden]:
             # flush other error messages, which are collateral damage
             # when our token expires
             for message in messages.get_messages(request):

@@ -1,8 +1,10 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2010 United States Government as represented by the
+# Copyright 2011 United States Government as represented by the
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -23,15 +25,16 @@ import datetime
 import logging
 
 from django import http
+from django import shortcuts
 from django import template
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
+from django_openstack import utils
 import openstack.compute.servers
 import openstackx.api.exceptions as api_exceptions
 
@@ -49,14 +52,17 @@ class TerminateInstance(forms.SelfHandlingForm):
         try:
             api.server_delete(request, instance)
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while terminating instance "%s"' %
+                      instance_id, exc_info=True)
             messages.error(request,
                            'Unable to terminate %s: %s' %
                            (instance_id, e.message,))
         else:
-            messages.success(request,
-                             'Instance %s has been terminated.' % instance_id)
+            msg = 'Instance %s has been terminated.' % instance_id
+            LOG.info(msg)
+            messages.success(request, msg)
 
-        return redirect(request.build_absolute_uri())
+        return shortcuts.redirect(request.build_absolute_uri())
 
 
 class RebootInstance(forms.SelfHandlingForm):
@@ -68,10 +74,17 @@ class RebootInstance(forms.SelfHandlingForm):
             server = api.server_reboot(request, instance_id)
             messages.success(request, "Instance rebooting")
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while rebooting instance "%s"' %
+                      instance_id, exc_info=True)
             messages.error(request,
                        'Unable to reboot instance: %s' % e.message)
 
-        return redirect(request.build_absolute_uri())
+        else:
+            msg = 'Instance %s has been rebooted.' % instance_id
+            LOG.info(msg)
+            messages.success(request, msg)
+
+        return shortcuts.redirect(request.build_absolute_uri())
 
 
 class UpdateInstance(forms.Form):
@@ -89,13 +102,9 @@ def index(request, tenant_id):
             return handled
     instances = []
     try:
-        image_dict = api.image_all_metadata(request)
         instances = api.server_list(request)
-        for instance in instances:
-            # FIXME - ported this over, but it is hacky
-            instance.attrs['image_name'] =\
-               image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
-    except Exception as e:
+    except api_exceptions.ApiException as e:
+        LOG.error('Exception in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
@@ -103,7 +112,7 @@ def index(request, tenant_id):
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
 
-    return render_to_response('dash_instances.html', {
+    return shortcuts.render_to_response('dash_instances.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
@@ -117,12 +126,7 @@ def refresh(request, tenant_id):
             return handled
     instances = []
     try:
-        image_dict = api.image_all_metadata(request)
         instances = api.server_list(request)
-        for instance in instances:
-            # FIXME - ported this over, but it is hacky
-            instance.attrs['image_name'] =\
-               image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
     except Exception as e:
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
@@ -130,19 +134,19 @@ def refresh(request, tenant_id):
     # trying to reuse the forms from above
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
-    
+
     return render_to_response('_instance_list.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
     }, context_instance=template.RequestContext(request))
-    
+
 @login_required
 def usage(request, tenant_id=None):
-    today = datetime.date.today()
+    today = utils.today()
     date_start = datetime.date(today.year, today.month, 1)
-    datetime_start = datetime.datetime.combine(date_start, datetime.time())
-    datetime_end = datetime.datetime.utcnow()
+    datetime_start = datetime.datetime.combine(date_start, utils.time())
+    datetime_end = utils.utcnow()
 
     show_terminated = request.GET.get('show_terminated', False)
 
@@ -153,6 +157,8 @@ def usage(request, tenant_id=None):
     try:
         usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException in instance usage', exc_info=True)
+
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     ram_unit = "MB"
@@ -168,7 +174,7 @@ def usage(request, tenant_id=None):
     if hasattr(usage, 'instances'):
         now = datetime.datetime.now()
         for i in usage.instances:
-            # this is just a way to phrase uptime in a way that is compatible 
+            # this is just a way to phrase uptime in a way that is compatible
             # with the 'timesince' filter.  Use of local time intentional
             i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
             if i['ended_at']:
@@ -180,7 +186,7 @@ def usage(request, tenant_id=None):
     if show_terminated:
         instances += terminated_instances
 
-    return render_to_response('dash_usage.html', {
+    return shortcuts.render_to_response('dash_usage.html', {
         'usage': usage,
         'ram_unit': ram_unit,
         'total_ram': total_ram,
@@ -198,10 +204,13 @@ def console(request, tenant_id, instance_id):
         response.flush()
         return response
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException while fetching instance console',
+                  exc_info=True)
+
         messages.error(request,
                    'Unable to get log for instance %s: %s' %
                    (instance_id, e.message))
-        return redirect('dash_instances', tenant_id)
+        return shortcuts.redirect('dash_instances', tenant_id)
 
 
 @login_required
@@ -209,17 +218,20 @@ def vnc(request, tenant_id, instance_id):
     try:
         console = api.console_create(request, instance_id, 'vnc')
         instance = api.server_get(request, instance_id)
-        return redirect(console.output + ("&title=%s(%s)" % (instance.name, instance_id)))
+        return shortcuts.redirect(console.output + ("&title=%s(%s)" % (instance.name, instance_id)))
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException while fetching instance vnc connection',
+                  exc_info=True)
+
         messages.error(request,
                    'Unable to get vnc console for instance %s: %s' %
                    (instance_id, e.message))
-        return redirect('dash_instances', tenant_id)
+        return shortcuts.redirect('dash_instances', tenant_id)
 
 
 @login_required
 def update(request, tenant_id, instance_id):
-    if request.POST:  
+    if request.POST:
         form = UpdateInstance(request.POST)
         if form.is_valid():
             data = form.clean()

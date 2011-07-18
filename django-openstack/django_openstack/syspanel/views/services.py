@@ -1,5 +1,23 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
 from django import template
 from django import http
 from django.conf import settings
@@ -11,7 +29,9 @@ from django.utils.translation import ugettext as _
 import datetime
 import json
 import logging
+import os
 import subprocess
+import sys
 import urlparse
 
 from django.contrib import messages
@@ -20,6 +40,8 @@ from django_openstack import api
 from django_openstack import forms
 from django_openstack.dash.views import instances as dash_instances
 from openstackx.api import exceptions as api_exceptions
+
+LOG = logging.getLogger('django_openstack.syspanel.views.services')
 
 
 class ToggleService(forms.SelfHandlingForm):
@@ -39,6 +61,8 @@ class ToggleService(forms.SelfHandlingForm):
                 messages.info(request, "Service '%s' has been disabled"
                                         % data['name'])
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException while toggling service %s' %
+                      data['service'], exc_info=True)
             messages.error(request, "Unable to update service '%s': %s"
                                      % data['name'], e.message)
 
@@ -56,6 +80,7 @@ def index(request):
     try:
         services = api.service_list(request)
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException fetching service list', exc_info=True)
         messages.error(request, 'Unable to get service info: %s' % e.message)
 
     other_services = []
@@ -63,7 +88,11 @@ def index(request):
     for k, v in request.session['serviceCatalog'].iteritems():
         v = v[0]
         try:
-            subprocess.check_call(['curl', '-m', '1', v['internalURL']])
+            # TODO(mgius): This silences curl, but there's probably
+            # a better solution than using curl to begin with
+            subprocess.check_call(['curl', '-m', '1', v['internalURL']],
+                                  stdout=open(os.devnull, 'w'),
+                                  stderr=open(os.devnull, 'w'))
             up = True
         except:
             up = False

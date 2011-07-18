@@ -1,5 +1,23 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
 from django import template
 from django import http
 from django.conf import settings
@@ -20,6 +38,8 @@ from openstackx.api import exceptions as api_exceptions
 
 TerminateInstance = dash_instances.TerminateInstance
 RebootInstance = dash_instances.RebootInstance
+
+LOG = logging.getLogger('django_openstack.syspanel.views.instances')
 
 
 def _next_month(date_start):
@@ -67,7 +87,10 @@ def usage(request):
         try:
             service_list = api.service_list(request)
         except api_exceptions.ApiException, e:
-            messages.error(request, 'Unable to get service info: %s' % e.message)
+            LOG.error('ApiException fetching service list in instance usage',
+                      exc_info=True)
+            messages.error(request,
+                           'Unable to get service info: %s' % e.message)
 
         for service in service_list:
             if service.type == 'nova-compute':
@@ -78,6 +101,10 @@ def usage(request):
         try:
             usage_list = api.usage_list(request, datetime_start, datetime_end)
         except api_exceptions.ApiException, e:
+            LOG.error('ApiException fetching usage list in instance usage'
+                      ' on date range "%s to %s"' % (datetime_start,
+                                                     datetime_end),
+                      exc_info=True)
             messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     dateform = forms.DateForm()
@@ -88,9 +115,13 @@ def usage(request):
                       'total_active_ram_size': 0}
 
     for usage in usage_list:
-        usage = usage.to_dict()
-        for k in usage:
-            v = usage[k]
+        # FIXME: api needs a simpler dict interface (with iteration) - anthony
+        # NOTE(mgius): Changed this on the api end.  Not too much neater, but
+        # at least its not going into private member data of an external
+        # class anymore
+        #usage = usage._info
+        for k in usage._attrs:
+            v = usage.__getattr__(k)
             if type(v) in [float, int]:
                 if not k in global_summary:
                     global_summary[k] = 0
@@ -145,6 +176,10 @@ def tenant_usage(request, tenant_id):
     try:
         usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
+        LOG.error('ApiException getting usage info for tenant "%s"'
+                  ' on date range "%s to %s"' % (tenant_id,
+                                                 datetime_start,
+                                                 datetime_end))
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     running_instances = []
@@ -152,7 +187,7 @@ def tenant_usage(request, tenant_id):
     if hasattr(usage, 'instances'):
         now = datetime.datetime.now()
         for i in usage.instances:
-            # this is just a way to phrase uptime in a way that is compatible 
+            # this is just a way to phrase uptime in a way that is compatible
             # with the 'timesince' filter.  Use of local time intentional
             i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
             if i['ended_at']:
@@ -177,13 +212,9 @@ def index(request):
 
     instances = []
     try:
-        image_dict = api.image_all_metadata(request)
         instances = api.server_list(request)
-        for instance in instances:
-            # FIXME - ported this over, but it is hacky
-            instance._info['attrs']['image_name'] =\
-               image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
     except Exception as e:
+        LOG.error('Unspecified error in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
@@ -206,12 +237,7 @@ def refresh(request):
 
     instances = []
     try:
-        image_dict = api.image_all_metadata(request)
         instances = api.server_list(request)
-        for instance in instances:
-            # FIXME - ported this over, but it is hacky
-            instance._info['attrs']['image_name'] =\
-               image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
     except Exception as e:
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 

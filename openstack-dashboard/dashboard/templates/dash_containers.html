@@ -1,0 +1,37 @@
+{% extends 'dash_base.html' %}
+{# list of user's containers #}
+
+{% block sidebar %}
+  {% with current_sidebar="containers" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>Object Store:</span> Containers</h2>
+    <p class='desc'><span>&mdash;</span> Manage Containers.</p>
+  </div>
+  {% include "_messages.html" %}
+
+  <div class='main_content'>
+    {% if containers %}
+      <div class='table_title wide'>
+        <h3>Containers</h3>
+        <div class='search'>
+          <form action='' method='post'>
+            <fieldset>
+              <label for='table_search'>Search</label>
+              <input id='table_search' name='search' type='text' value='' />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      {% include '_container_list.html' %}
+
+    {% endif %}
+    <a href="{% url dash_containers_create request.user.tenant %}">Create New Container &gt;&gt;</a>
+  </div>
+{% endblock %}
+

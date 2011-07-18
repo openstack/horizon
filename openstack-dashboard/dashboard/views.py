@@ -1,8 +1,10 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2010 United States Government as represented by the
+# Copyright 2011 United States Government as represented by the
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -19,14 +21,13 @@
 """
 Views for home page.
 """
-import logging
-
 from django import template
 from django import shortcuts
 from django.views.decorators import vary
 
 from django_openstack import api
 from django_openstack.auth import views as auth_views
+
 
 @vary.vary_on_cookie
 def splash(request):

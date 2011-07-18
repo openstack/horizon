@@ -1,0 +1,2 @@
+Intentionally not a python module so that test runner won't find
+these broken tests

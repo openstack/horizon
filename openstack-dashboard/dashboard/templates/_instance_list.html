@@ -8,7 +8,6 @@
     <th>Size</th>
     <th>Private IP</th>
     <th>Public IP</th>
-    <th>Groups</th>
     <th>State</th>
     <th>Actions</th>
   </tr>
@@ -22,7 +21,7 @@
                 <small> ({{instance.attrs.key_name}}) </small>
             {% endif %}
           </td>
-          <td>{{instance.attrs.image_name}}</td>
+          <td>{{instance.image_name}}</td>
           <td>
             <ul>
               <li>{{instance.attrs.memory_mb|mbformat}} Ram</li>
@@ -32,7 +31,6 @@
           </td>
           <td>{{instance.addresses.private.0.addr|default:'-'}}</td>
           <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
-          <td>{{instance.attrs.security_groups|join:', '}}</td>
           <td>{{instance.status|lower|capfirst}}</td>
           <td id="actions">
             <ul>

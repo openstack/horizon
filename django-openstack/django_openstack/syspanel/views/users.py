@@ -1,5 +1,23 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
 from django import template
 from django import http
 from django.conf import settings
@@ -20,6 +38,8 @@ from django_openstack.dash.views import instances as dash_instances
 from openstackx.api import exceptions as api_exceptions
 
 
+LOG = logging.getLogger('django_openstack.syspanel.views.users')
+
 
 class UserForm(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -38,6 +58,7 @@ class UserDeleteForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         user_id = data['user']
+        LOG.info('Deleting user with id "%s"' % user_id)
         api.user_delete(request, user_id)
         messages.info(request, '%s was successfully deleted.'
                                 % user_id)
@@ -137,6 +158,7 @@ def create(request):
             user = form.clean()
             # TODO Make this a real request
             try:
+                LOG.info('Creating user with id "%s"' % user['id'])
                 api.user_create(request,
                                 user['id'],
                                 user['email'],
@@ -153,6 +175,10 @@ def create(request):
                 return redirect('syspanel_users')
 
             except api_exceptions.ApiException, e:
+                LOG.error('ApiException while creating user\n'
+                          'id: "%s", email: "%s", tenant_id: "%s"' %
+                          (user['id'], user['email'], user['tenant_id']),
+                          exc_info=True)
                 messages.error(request,
                                  'Error creating user: %s'
                                  % e.message)
