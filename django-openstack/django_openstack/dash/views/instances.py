@@ -126,12 +126,7 @@ def refresh(request, tenant_id):
             return handled
     instances = []
     try:
-        image_dict = api.image_all_metadata(request)
         instances = api.server_list(request)
-        for instance in instances:
-            # FIXME - ported this over, but it is hacky
-            instance.attrs['image_name'] =\
-               image_dict.get(int(instance.attrs['image_ref']),{}).get('name')
     except Exception as e:
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
