@@ -467,7 +467,7 @@ def token_info(request, token):
             "X_AUTH_TOKEN": settings.OPENSTACK_ADMIN_TOKEN,
             "Accept": "text/json"}
 
-    o = urlparse(token.serviceCatalog['identity'][0]['adminURL'])
+    o = urlparse(token.serviceCatalog['keystone'][0]['adminURL'])
     conn = httplib.HTTPConnection(o.hostname, o.port)
     conn.request("GET", "/v2.0/tokens/%s" % token.id, headers=hdrs)
     response = conn.getresponse()
