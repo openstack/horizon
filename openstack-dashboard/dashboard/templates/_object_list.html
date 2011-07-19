@@ -1,4 +1,4 @@
-<table id="objects" style="width: 100%">
+<table id="objects" class="wide">
   <tr>
     <th>Name</th>
     <th style="width: 100px;">Actions</th>
@@ -9,7 +9,7 @@
     <td id="actions">
       <ul>
         <li><a href="{% url dash_object_copy request.user.tenant container_name object.name %}">Copy</a></li>
-        <li>{% include "_delete_object.html" with form=delete_form %}</li>
+        <li class="form">{% include "_delete_object.html" with form=delete_form %}</li>
         <li><a href="{% url dash_objects_download request.user.tenant container_name object.name %}">Download</a>
       </ul>
     </td>

@@ -1,6 +1,4 @@
 {% extends 'syspanel_base.html' %}
-{# list of user's instances #}
-{# standard nav, sidebar, list of instances in main #}
 
 {% block sidebar %}
   {% with current_sidebar="users" %}
@@ -8,28 +6,14 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>System Panel:</span> Users</h2>
-    <p class='desc'><span>&mdash;</span> Create, Edit, and Delete Users.</p>
-  </div>
+{% block page_header %}
+  {% url syspanel_users as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Users" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
-  {% include "_messages.html" %}
+{% block syspanel_main %}
 
-  <div class="main_content">
-    <div class='table_title wide'> 
-      <h3>Users</h3> 
-      <a <a class="refresh" title="Refresh" href="{% url syspanel_users %}">Refresh List</a>
-      <div class='search'>
-        <form action='' method='post'>
-          <fieldset>
-            <label for='table_search'>Search</label>
-            <input id='table_search' name='search' type='text' value='' />
-          </fieldset> 
-        </form> 
-      </div> 
-    </div>
-    
     <table class="wide">
       <tr>
         <th>ID</th>
@@ -44,7 +28,7 @@
           <td>{{user.tenantId}}</td>
           <td id="actions">
             <ul>
-              <li>{% include "_user_delete.html" with form=user_delete_form %}</li>
+              <li class="form">{% include "_user_delete.html" with form=user_delete_form %}</li>
               <li><a href="{% url syspanel_users_update user.id %}">Edit</a></li>
             </ul>                
           </td> 

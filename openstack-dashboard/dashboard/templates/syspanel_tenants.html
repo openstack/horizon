@@ -1,6 +1,4 @@
 {% extends 'syspanel_base.html' %}
-{# list of tenants #}
-{# standard nav, sidebar, list of instances in main #}
 
 {% block sidebar %}
   {% with current_sidebar="tenants" %}
@@ -8,28 +6,19 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-    <div id='page_header'>
-      <h2><span>System Panel:</span> Tenants</h2>
-      <p class='desc'><span>&mdash;</span>Manage Tenants</p>
-    </div>
-    {% include "_messages.html" %}
-    <div class="main_content">
-      <div class='table_title wide'>
-        <h3>Tenants</h3>
-        <a class="refresh" title="Refresh" href="{% url syspanel_tenants %}">Refresh List</a>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-      </div>
-      {% include "_syspanel_tenant_list.html" %}
+{% block page_header %}
+  {% url syspanel_tenants as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Tenants" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
-      <a id="tenant_create_link" class="action_link large-rounded" href="{% url syspanel_tenants_create %}">Create New Tenant </a>
-    </div>
+{% block syspanel_main %}
+  {% include "_syspanel_tenant_list.html" %}
+  <a id="tenant_create_link" class="action_link large-rounded" href="{% url syspanel_tenants_create %}">Create New Tenant </a>
 {% endblock %}
+
+
+
+
+
 

@@ -1,6 +1,4 @@
 {% extends 'syspanel_base.html' %}
-{# list of tenants #}
-{# standard nav, sidebar, list of instances in main #}
 
 {% block sidebar %}
   {% with current_sidebar="quotas" %}
@@ -8,38 +6,23 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-    <div id='page_header'>
-      <h2><span>System Panel:</span> Quotas</h2>
-      <p class='desc'><span>&mdash;</span>Default Quotas</p>
-    </div>
-    {% include "_messages.html" %}
-    <div class="main_content">
-      <div class='table_title wide'>
-        <h3>Default Quotas</h3>
-        <a class="refresh" title="Refresh" href="{% url syspanel_quotas %}">Refresh List</a>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-      </div>
+{% block page_header %}
+  {% url syspanel_quotas as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Default Quotas" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
-      <table class="wide">
-        <tr>
-          <th>Quota Name</th>
-          <th>Limit</th>
-        </tr>
-        {% for name,value in quotas.items %}
-          <tr>
-            <td>{{name}}</td>
-            <td>{{value}}</td>
-          </tr>
-        {% endfor %}
-        
-      </table>
-    </div>
+{% block syspanel_main %}
+  <table class="wide">
+    <tr>
+      <th>Quota Name</th>
+      <th>Limit</th>
+    </tr>
+    {% for name,value in quotas.items %}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{value}}</td>
+      </tr>
+    {% endfor %}
+  </table>
 {% endblock %}

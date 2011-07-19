@@ -1,6 +1,4 @@
 {% extends 'syspanel_base.html' %}
-{# list of user's instances #}
-{# standard nav, sidebar, list of instances in main #}
 
 {% block sidebar %}
   {% with current_sidebar="users" %}
@@ -8,27 +6,21 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>System Panel:</span> Users </h2>
-    <p class='desc'><span>&mdash;</span> Create a User </p>
-  </div>
+{% block page_header %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Create User" %}
+{% endblock page_header %}
 
-  {% include "_messages.html" %}
-
-  
-  <div class="main_content">
-    <div class="dash_block wide form">
-      <div class='title_block'> 
-        <h3>Create User</h3> 
-      </div> 
-
+{% block syspanel_main %}
+  <div class="dash_block">
+    <div class="left">
       {% include 'django_openstack/syspanel/_create_user_form.html' %}
-      
-      <div class="right">
-        <h3>Description:</h3>
-        <p>From here you can create a new user and assign them to a tenant (aka project).</p>
-      </div>
     </div>
+
+    <div class="right">
+      <h3>Description:</h3>
+      <p>From here you can create a new user and assign them to a tenant (aka project).</p>
+    </div>
+    <div class="clear">&nbsp;</div>
   </div>
 {% endblock %}

@@ -15,26 +15,23 @@
     {% block headercss %}{% endblock %}
   </head>
   <body>
-    <div id="wrapper">
-      {% block topbar %}
-        {% include '_topbar.html' %}
-      {% endblock %}
-
-      {% block content %}
+    {% block topbar %}
+      {% include '_topbar.html' %}
+    {% endblock %}
+    {% block content %}
       <div id="content">
-        {% block sidebar %}
-        {% endblock %}
         <div id="main">
+          {% block sidebar %}
+          {% endblock %}
           {% block main %}
           {% endblock %}
         </div>
       </div>
-      {% endblock %}
-      <div id="footer">
-        {% block footer %}{% endblock %}
-      </div>
-      <div id="mask"></div>
+    {% endblock %}
+    <div id="footer">
+      {% block footer %}{% endblock %}
     </div>
     {% block footer_js %}{% endblock %}
   </body>
 </html>
+

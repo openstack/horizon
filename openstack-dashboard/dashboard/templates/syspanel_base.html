@@ -8,5 +8,13 @@
 {% block sidebar %}
   {% include '_syspanel_sidebar.html' %}
 {% endblock %}
-{% block main %}{% endblock %}
 
+{% block main %}  
+  {% block page_header %}
+  {% endblock %}
+
+  <div class="main_content">
+    {% include "_messages.html" %}
+    {% block syspanel_main %}{% endblock %}
+  </div>
+{% endblock %}

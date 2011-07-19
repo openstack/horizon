@@ -1,5 +1,4 @@
 {% extends 'dash_base.html' %}
-{# list of user's containers #}
 
 {% block sidebar %}
   {% with current_sidebar="containers" %}
@@ -7,31 +6,13 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>Object Store:</span> Containers</h2>
-    <p class='desc'><span>&mdash;</span> Manage Containers.</p>
-  </div>
-  {% include "_messages.html" %}
+{% block page_header %}
+  {% url dash_images request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Containers" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
-  <div class='main_content'>
-    {% if containers %}
-      <div class='table_title wide'>
-        <h3>Containers</h3>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-      </div>
-
-      {% include '_container_list.html' %}
-
-    {% endif %}
-    <a href="{% url dash_containers_create request.user.tenant %}">Create New Container &gt;&gt;</a>
-  </div>
+{% block dash_main %}
+  {% include '_container_list.html' %}
+  <a class="action_link large-rounded" href="{% url dash_containers_create request.user.tenant %}">Create New Container &gt;&gt;</a>
 {% endblock %}
-

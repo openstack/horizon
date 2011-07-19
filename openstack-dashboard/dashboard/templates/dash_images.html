@@ -1,6 +1,4 @@
 {% extends 'dash_base.html' %}
-{# list of user's images #}
-{# standard nav, sidebar, list of images in main #}
 
 {% block sidebar %}
   {% with current_sidebar="images" %}
@@ -8,30 +6,15 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>Compute:</span> Images</h2>
-    <p class='desc'><span>&mdash;</span> Images are virtual machines used to create Instances.</p>
-  </div>
-  {% include "_messages.html" %}
+{% block page_header %}
+  {% url dash_images request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Images" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
-  <div class='main_content'>
-    {% if images %}
-      <div class='table_title wide'>
-        <h3>Images</h3>
-        <a class="refresh" title="Refresh" href="{% url dash_images request.user.tenant %}">Refresh List</a>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-      </div>
+{% block dash_main %}
+  {% if images %}
+    {% include '_image_list.html' %}
 
-      {% include '_image_list.html' %}
-
-    {% endif %}
-  </div>
+  {% endif %}
 {% endblock %}

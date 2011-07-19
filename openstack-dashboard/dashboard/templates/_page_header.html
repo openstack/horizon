@@ -1,0 +1,18 @@
+{% block page_header %}
+  <div id='page_header'>
+    <h2>{{title}}</h2>
+    {% if searchable %}
+      <div class="right">
+        <div class='search'>
+          <form action='' method='post'>
+            <fieldset>
+              <label for='table_search'>Search</label>
+              <input id='table_search' name='search' type='text' value='' />
+            </fieldset>
+          </form>
+        </div>
+        <a class="refresh" title="Refresh" href="{{refresh_link}}">Refresh List</a>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

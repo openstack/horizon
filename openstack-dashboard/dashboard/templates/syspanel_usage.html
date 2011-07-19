@@ -10,77 +10,69 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>System Panel:</span> Overview</h2>
-    <p class='desc'><span>&mdash;</span> Overview of your cloud, and overall usage.</p>
-  </div>
-  <div class='main_content'>
-    {% include "_messages.html" %}
+{% block page_header %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="System Panel Overview" %}
+{% endblock page_header %}
 
-    {% if external_links %}
-      <div id="monitoring">
-        <h3>Monitoring: </h3>
-        <ul id="external_links">
-          {% for link in external_links %}
-            <li><a target="_blank" href="{{ link.1 }}">{{ link.0 }}</a></li>
-          {% endfor %}
+{% block syspanel_main %}
+  <div id="status_top">
+        {% if external_links %}
+          <div id="monitoring">
+            <h3>Monitoring: </h3>
+            <ul id="external_links">
+              {% for link in external_links %}
+                <li><a target="_blank" href="{{ link.1 }}">{{ link.0 }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <form action="" method="get" id="date_form">
+          <!-- {% csrf_token %} -->
+          <h3> Select a month to query its usage: </h3>
+          <div class="form-row">
+            {{ dateform.date }}
+            <input class="submit" type="submit"/>
+          </div>
+        </form>
+
+        <ul class='status_box good'>
+          <li class='status block'><span>Status:</span> Good</li>
+          <li class='block'>
+            <p class='overview'>{{global_summary.max_vcpus|floatformat}}<span> Cores</span></p>
+            <p class='used'>{{global_summary.total_active_vcpus}}<span class='unit'></span><span class='label'> Used</span></p>
+    <!--
+            <p class='avail'>{{available_cores}}<span class='label'> Avail</span></p>
+    -->
+          </li>
+          <li class='block'>
+            <p class='overview'>{{total_ram}}<span> {{ram_unit}} Ram</span></p>
+            <p class='used'>{{used_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'> Used</span></p>
+    <!--
+            <p class='avail'>{{avail_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'>Avail</span></p>
+    -->
+          </li>
+          <li class='block last'>
+            <p class='overview'>{{max_disk_tb}}<span>TB Disk</span></p>
+            <p class='used'>{{used_disk_tb}}<span class='unit'>TB</span><span class='label'>Used</span></p>
+    <!--
+            <p class='avail'>{{available_disk_tb}}<span class='unit'>TB</span><span class='label'>Avail</span></p>
+    -->
+          </li>
         </ul>
-      </div>
-    {% endif %}
 
-    <form action="" method="get" id="date_form">
-      <!-- {% csrf_token %} -->
-      <h3> Select a month to query its usage: </h3>
-      <div class="form-row">
-        {{ dateform.date }}
-        <input class="submit" type="submit"/>
-      </div>
-    </form>
-
-    <ul class='stat_box good'>
-      <li class='status block'><span>Status:</span> Good</li>
-      <li class='block'>
-        <p class='overview'>{{global_summary.max_vcpus|floatformat}}<span> Cores</span></p>
-        <p class='used'>{{global_summary.total_active_vcpus}}<span class='unit'></span><span class='label'> Used</span></p>
-<!--
-        <p class='avail'>{{available_cores}}<span class='label'> Avail</span></p>
--->
-      </li>
-      <li class='block'>
-        <p class='overview'>{{total_ram}}<span> {{ram_unit}} Ram</span></p>
-        <p class='used'>{{used_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'> Used</span></p>
-<!--
-        <p class='avail'>{{avail_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'>Avail</span></p>
--->
-      </li>
-      <li class='block last'>
-        <p class='overview'>{{max_disk_tb}}<span>TB Disk</span></p>
-        <p class='used'>{{used_disk_tb}}<span class='unit'>TB</span><span class='label'>Used</span></p>
-<!--
-        <p class='avail'>{{available_disk_tb}}<span class='unit'>TB</span><span class='label'>Avail</span></p>
--->
-      </li>
-    </ul>
-
-    <p id="activity">
-      <span><strong>Active Instances:</strong> {{global_summary.total_active_instances|default:'-'}}</span>
-      <span><strong>This month's VCPU-Hours:</strong> {{global_summary.total_cpu_usage|floatformat|default:'-'}}</span>
-      <span><strong>This month's GB-Hours:</strong> {{global_summary.total_disk_usage|floatformat|default:'-'}}</span>
-    </p>
+        <p id="activity">
+          <span><strong>Active Instances:</strong> {{global_summary.total_active_instances|default:'-'}}</span>
+          <span><strong>This month's VCPU-Hours:</strong> {{global_summary.total_cpu_usage|floatformat|default:'-'}}</span>
+          <span><strong>This month's GB-Hours:</strong> {{global_summary.total_disk_usage|floatformat|default:'-'}}</span>
+        </p>
+  </div>
 
 
     {% if usage_list %}
       <div class='table_title wide'>
         <h3>Server Usage Summary</h3>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
       </div>
 
       <table class="wide">

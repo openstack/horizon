@@ -1,6 +1,4 @@
 {% extends 'dash_base.html' %}
-{# list of user's keypairs #}
-{# standard nav, sidebar, list of images in main #}
 
 {% block sidebar %}
   {% with current_sidebar="keypairs" %}
@@ -8,37 +6,20 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>Compute:</span> Keypairs</h2> 
-    <p class='desc'><span>&mdash;</span> Manage keypairs that allow instance authentication.</p> 
-  </div>
-  {% include "_messages.html" %}
+{% block page_header %}
+  {% url dash_keypairs request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Keypairs" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
-  <div class='main_content'>
-    {% if keypairs %}
-      <div class='table_title wide'>
-        <h3>Keypairs</h3>
-        <a class="refresh" title="Refresh" href="{% url dash_keypairs request.user.tenant %}">Refresh List</a>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-      </div>
-
-      {% include '_keypair_list.html' %}
-
-       <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair</a>
-    {% else %}
-        <div class="status_box info">
-          <h2>Info</h2>
-          <p>There are currently no keypairs. <a href='{% url dash_keypairs_create request.user.tenant %}'>Create A Keypair &gt;&gt;</a></p>
-        </div>
-    {% endif %}
-  </div>
+{% block dash_main %}
+  {% if keypairs %}
+    {% include '_keypair_list.html' %}
+    <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair</a>
+  {% else %}
+    <div class="message_box info">
+      <h2>Info</h2>
+      <p>There are currently no keypairs. <a href='{% url dash_keypairs_create request.user.tenant %}'>Create A Keypair &gt;&gt;</a></p>
+    </div>
+  {% endif %}
 {% endblock %}
-

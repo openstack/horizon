@@ -1,6 +1,4 @@
 {% extends 'syspanel_base.html' %}
-{# list of system instances #}
-{# standard nav, sidebar, list of instances in main #}
 
 {% block sidebar %}
   {% with current_sidebar="services" %}
@@ -8,26 +6,13 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-    <div id='page_header'>
-      <h2><span>System Panel:</span> Services</h2>
-      <p class='desc'><span>&mdash;</span>View Service statuses, and toggle them to enabled or disabled.</p>
-    </div>
-    {% include "_messages.html" %}
-    <div class="main_content">
-      <div class='table_title wide'>
-        <h3>Services</h3>
-        <a <a class="refresh" title="Refresh" href="{% url syspanel_services %}">Refresh List</a>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-      </div>
-      {% include "_syspanel_service_list.html" %}
-    </div>
+{% block page_header %}
+  {% url syspanel_services as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Services" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block syspanel_main %}
+  {% include "_syspanel_service_list.html" %}
 {% endblock %}
 

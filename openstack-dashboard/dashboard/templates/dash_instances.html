@@ -1,6 +1,4 @@
 {% extends 'dash_base.html' %}
-{# list of user's instances #}
-{# standard nav, sidebar, list of instances in main #}
 
 {% block sidebar %}
   {% with current_sidebar="instances" %}
@@ -8,41 +6,22 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>Compute:</span> Instances</h2>
-    <p class='desc'><span>&mdash;</span> Instances are virtual servers launched from images.</p>
-    <div id="spinner" class="dash">Loading...</div>
-  </div>
+{% block page_header %}
+  {% url dash_instances request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Instances" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
-  {% include "_messages.html" %}
-
+{% block dash_main %}
   {% if instances %}
-    <div class='main_content'>
-      <div class='table_title wide'>
-        <h3>Instances</h3>
-        <a class="refresh" title="Refresh" href="{% url dash_instances request.user.tenant %}">Refresh List</a>
-        <div class='search'>
-          <form action='' method='post'>
-            <fieldset>
-              <label for='table_search'>Search</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-      </div>
-      {% include '_instance_list.html' %}
-    {% else %}
-        <div class="status_box info">
-          <h2>Info</h2>
-          <p>There are currently no instances.  You can launch an instance from the  <a href='{% url dash_images request.user.tenant %}'>Images Page.</a></p>
-        </div>
-    {% endif %}
-  </div>
-</div>
-
+    {% include '_instance_list.html' %}
+  {% else %}
+    <div class="message_box info">
+      <h2>Info</h2>
+      <p>There are currently no instances.  You can launch an instance from the  <a href='{% url dash_images request.user.tenant %}'>Images Page.</a></p>
+    </div>
+  {% endif %}
 {% endblock %}
-
 
 {% block footer_js %}
   <script type="text/javascript" charset="utf-8">
