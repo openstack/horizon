@@ -135,7 +135,7 @@ def refresh(request, tenant_id):
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
 
-    return render_to_response('_instance_list.html', {
+    return shortcuts.render_to_response('_instance_list.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
