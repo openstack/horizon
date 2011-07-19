@@ -85,13 +85,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.markup',
     'django.contrib.syndication',
-    'django_nose',
     'django_openstack',
     'django_openstack.templatetags',
     'mailer',
 )
-
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
@@ -131,3 +128,5 @@ if DEBUG:
         MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     except ImportError:
         logging.info('Running in debug mode without debug_toolbar.')
+
+OPENSTACK_KEYSTONE_DEFAULT_ROLE='Member'

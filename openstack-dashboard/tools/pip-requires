@@ -5,6 +5,7 @@ django-mailer
 django-registration==0.7
 nova-adminclient
 python-cloudfiles
+python-dateutil
 routes
 webob
 sqlalchemy

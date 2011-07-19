@@ -1,0 +1,9 @@
+<form id="form_remove_tenant_user{{user.id}}" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="user" type="hidden" value="{{user.id}}" />
+  <input name="tenant" type="hidden" value="{{tenant_id}}" />
+  <input id="remove_tenant_user_{{user.id}}" class="remove" ttle="User: {{user.id}}" type="submit" value="Remove" />
+</form>

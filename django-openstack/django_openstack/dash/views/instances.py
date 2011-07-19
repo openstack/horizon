@@ -87,17 +87,22 @@ class RebootInstance(forms.SelfHandlingForm):
         return shortcuts.redirect(request.build_absolute_uri())
 
 
+class UpdateInstance(forms.Form):
+    instance = forms.CharField(widget=forms.TextInput(
+                               attrs={'readonly':'readonly'}))
+    name = forms.CharField(required=True)
+    description = forms.CharField(required=False)
+
+
 @login_required
 def index(request, tenant_id):
     for f in (TerminateInstance, RebootInstance):
         _, handled = f.maybe_handle(request)
         if handled:
             return handled
-
     instances = []
     try:
         instances = api.server_list(request)
-    # TODO(markgius): Why isn't this an apiexception?
     except api_exceptions.ApiException as e:
         LOG.error('Exception in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)
@@ -113,6 +118,24 @@ def index(request, tenant_id):
         'reboot_form': reboot_form,
     }, context_instance=template.RequestContext(request))
 
+@login_required
+def refresh(request, tenant_id):
+    instances = []
+    try:
+        instances = api.server_list(request)
+    except Exception as e:
+        messages.error(request, 'Unable to get instance list: %s' % e.message)
+
+    # We don't have any way of showing errors for these, so don't bother
+    # trying to reuse the forms from above
+    terminate_form = TerminateInstance()
+    reboot_form = RebootInstance()
+
+    return shortcuts.render_to_response('_instance_list.html', {
+        'instances': instances,
+        'terminate_form': terminate_form,
+        'reboot_form': reboot_form,
+    }, context_instance=template.RequestContext(request))
 
 @login_required
 def usage(request, tenant_id=None):
@@ -120,6 +143,8 @@ def usage(request, tenant_id=None):
     date_start = datetime.date(today.year, today.month, 1)
     datetime_start = datetime.datetime.combine(date_start, utils.time())
     datetime_end = utils.utcnow()
+
+    show_terminated = request.GET.get('show_terminated', False)
 
     usage = {}
     if not tenant_id:
@@ -131,15 +156,45 @@ def usage(request, tenant_id=None):
         LOG.error('ApiException in instance usage', exc_info=True)
 
         messages.error(request, 'Unable to get usage info: %s' % e.message)
+
+    ram_unit = "MB"
+    total_ram = 0
+    if hasattr(usage, 'total_active_ram_size'):
+        total_ram = usage.total_active_ram_size
+        if total_ram > 999:
+            ram_unit = "GB"
+            total_ram /= float(1024)
+
+    running_instances = []
+    terminated_instances = []
+    if hasattr(usage, 'instances'):
+        now = datetime.datetime.now()
+        for i in usage.instances:
+            # this is just a way to phrase uptime in a way that is compatible
+            # with the 'timesince' filter.  Use of local time intentional
+            i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
+            if i['ended_at']:
+                terminated_instances.append(i)
+            else:
+                running_instances.append(i)
+
+    instances = running_instances
+    if show_terminated:
+        instances += terminated_instances
+
     return shortcuts.render_to_response('dash_usage.html', {
         'usage': usage,
+        'ram_unit': ram_unit,
+        'total_ram': total_ram,
+        'show_terminated': show_terminated,
+        'instances': instances
     }, context_instance=template.RequestContext(request))
 
 
 @login_required
 def console(request, tenant_id, instance_id):
     try:
-        console = api.console_create(request, instance_id)
+        console = api.console_create(request, instance_id, 'text')
         response = http.HttpResponse(mimetype='text/plain')
         response.write(console.output)
         response.flush()
@@ -158,7 +213,8 @@ def console(request, tenant_id, instance_id):
 def vnc(request, tenant_id, instance_id):
     try:
         console = api.console_create(request, instance_id, 'vnc')
-        return shortcuts.redirect(console.output)
+        instance = api.server_get(request, instance_id)
+        return shortcuts.redirect(console.output + ("&title=%s(%s)" % (instance.name, instance_id)))
     except api_exceptions.ApiException, e:
         LOG.error('ApiException while fetching instance vnc connection',
                   exc_info=True)
@@ -167,3 +223,33 @@ def vnc(request, tenant_id, instance_id):
                    'Unable to get vnc console for instance %s: %s' %
                    (instance_id, e.message))
         return shortcuts.redirect('dash_instances', tenant_id)
+
+
+@login_required
+def update(request, tenant_id, instance_id):
+    if request.POST:
+        form = UpdateInstance(request.POST)
+        if form.is_valid():
+            data = form.clean()
+            instance_id = data['instance']
+            name = data['name']
+            description = data.get('description', '')
+            try:
+                api.server_update(request, instance_id, name, description)
+                messages.success(request, "Instance %s updated" % instance_id)
+            except api_exceptions.ApiException, e:
+                messages.error(request,
+                           'Unable to update instance: %s' % e.message)
+
+            return redirect('dash_instances', tenant_id)
+    else:
+        instance = api.server_get(request, instance_id)
+        form = UpdateInstance(initial={'instance': instance_id,
+                                       'tenant_id': tenant_id,
+                                       'name': instance.name,
+                                       'description': instance.attrs['description']})
+
+    return render_to_response('dash_instance_update.html', {
+        'instance': instance,
+        'form': form,
+    }, context_instance=template.RequestContext(request))

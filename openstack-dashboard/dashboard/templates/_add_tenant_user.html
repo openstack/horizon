@@ -1,0 +1,9 @@
+<form id="form_add_tenant_user{{user}}" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="user" type="hidden" value="{{user}}" />
+  <input name="tenant" type="hidden" value="{{tenant_id}}" />
+  <input id="add_tenant_user_{{user}}" class="add" ttle="User: {{user}}" type="submit" value="Add" />
+</form>

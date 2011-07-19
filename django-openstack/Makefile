@@ -33,7 +33,8 @@ builddeb:
 	$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../
 	rename -f 's/$(PROJECT)-(.*)\.tar\.gz/$(PROJECT)_$$1\.orig\.tar\.gz/' ../*
 	# build the package
-	dpkg-buildpackage -i -I -rfakeroot
+	#dpkg-buildpackage -i -I -rfakeroot
+	dpkg-buildpackage -b -rfakeroot -tc -uc -D
 
 clean:
 	$(PYTHON) setup.py clean

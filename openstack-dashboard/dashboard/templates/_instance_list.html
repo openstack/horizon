@@ -1,9 +1,11 @@
 <!-- TODO(termie): move most of this to django_openstack -->
+{% load sizeformat %}
 <table id='instances'>
   <tr id='headings'>
     <th>ID</th>
     <th>Name</th>
     <th>Image</th>
+    <th>Size</th>
     <th>Private IP</th>
     <th>Public IP</th>
     <th>State</th>
@@ -13,8 +15,20 @@
     {% for instance in instances %}
       <tr class="{% cycle 'odd' 'even' %}">
           <td>{{instance.id}}</td>
-          <td>{{instance.name}}</td>
+          <td class="name">{{instance.name}}
+            {% if instance.attrs.key_name %}
+                <br/>
+                <small> ({{instance.attrs.key_name}}) </small>
+            {% endif %}
+          </td>
           <td>{{instance.image_name}}</td>
+          <td>
+            <ul>
+              <li>{{instance.attrs.memory_mb|mbformat}} Ram</li>
+              <li>{{instance.attrs.vcpus}} VCPU</li>
+              <li>{{instance.attrs.disk_gb}}GB Disk</li>
+            </ul>
+          </td>
           <td>{{instance.addresses.private.0.addr|default:'-'}}</td>
           <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
           <td>{{instance.status|lower|capfirst}}</td>
@@ -24,6 +38,7 @@
               <li>{% include "_reboot.html" with form=reboot_form %}</li>
               <li><a target="_blank" href="{% url dash_instances_console request.user.tenant instance.id %}">Log</a></li>
               <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant instance.id %}">VNC Console</a></li>
+              <li><a href="{% url dash_instances_update request.user.tenant instance.id %}">Edit</a></li>
             </ul>
         </td>
       </tr>

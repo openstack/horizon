@@ -1,4 +1,5 @@
 {% extends 'syspanel_base.html' %}
+{% load sizeformat %}
 
 {# default landing page for a admin user #}
 {# nav bar on top, sidebar, overview info in main #}
@@ -41,18 +42,24 @@
       <li class='status block'><span>Status:</span> Good</li>
       <li class='block'>
         <p class='overview'>{{global_summary.max_vcpus|floatformat}}<span> Cores</span></p>
-        <p class='used'>{{global_summary.total_active_vcpus}}<span class='label'> Used</span></p>
+        <p class='used'>{{global_summary.total_active_vcpus}}<span class='unit'></span><span class='label'> Used</span></p>
+<!--
         <p class='avail'>{{available_cores}}<span class='label'> Avail</span></p>
+-->
       </li>
       <li class='block'>
         <p class='overview'>{{total_ram}}<span> {{ram_unit}} Ram</span></p>
         <p class='used'>{{used_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'> Used</span></p>
+<!--
         <p class='avail'>{{avail_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'>Avail</span></p>
+-->
       </li>
       <li class='block last'>
         <p class='overview'>{{max_disk_tb}}<span>TB Disk</span></p>
         <p class='used'>{{used_disk_tb}}<span class='unit'>TB</span><span class='label'>Used</span></p>
+<!--
         <p class='avail'>{{available_disk_tb}}<span class='unit'>TB</span><span class='label'>Avail</span></p>
+-->
       </li>
     </ul>
 
@@ -91,8 +98,8 @@
             <td><a href="{% url syspanel_tenant_usage usage.tenant_id %}">{{usage.tenant_id}}</a></td>
             <td>{{usage.total_active_instances}}</td>
             <td>{{usage.total_active_vcpus}}</td>
-            <td>{{usage.total_active_disk_size}}</td>
-            <td>{{usage.total_active_ram_size}}</td>
+            <td>{{usage.total_active_disk_size|diskgbformat}}</td>
+            <td>{{usage.total_active_ram_size|mbformat}}</td>
             <td>{{usage.total_cpu_usage|floatformat}}</td>
             <td>{{usage.total_disk_usage|floatformat}}</td>
           </tr>

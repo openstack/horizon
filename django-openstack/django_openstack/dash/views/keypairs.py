@@ -28,7 +28,9 @@ from django import template
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core import validators
 from django import shortcuts
+from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
 
 from django_openstack import api
@@ -55,7 +57,9 @@ class DeleteKeypair(forms.SelfHandlingForm):
 
 
 class CreateKeypair(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="20", label="Keypair Name")
+
+    name = forms.CharField(max_length="20", label="Keypair Name",
+                 validators=[validators.RegexValidator('\w+')])
 
     def handle(self, request, data):
         try:
@@ -76,6 +80,7 @@ class CreateKeypair(forms.SelfHandlingForm):
 @login_required
 def index(request, tenant_id):
     delete_form, handled = DeleteKeypair.maybe_handle(request)
+
     if handled:
         return handled
 

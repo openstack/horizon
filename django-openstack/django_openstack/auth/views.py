@@ -34,32 +34,40 @@ LOG = logging.getLogger('django_openstack.auth')
 
 class Login(forms.SelfHandlingForm):
     username = forms.CharField(max_length="20", label="User Name")
-    password = forms.CharField(max_length="20", label="Password", widget=forms.PasswordInput(render_value=False))
+    password = forms.CharField(max_length="20", label="Password",
+                               widget=forms.PasswordInput(render_value=False))
 
     def handle(self, request, data):
         try:
             token = api.token_create(request,
-                                     "",
+                                     data.get('tenant', ''),
                                      data['username'],
                                      data['password'])
             info = api.token_info(request, token)
+
             request.session['token'] = token.id
             request.session['user'] = info['user']
-            request.session['tenant'] = info['tenant']
+            request.session['tenant'] = data.get('tenant', info['tenant'])
             request.session['admin'] = info['admin']
             request.session['serviceCatalog'] = token.serviceCatalog
             LOG.info('Login form for user "%s". Service Catalog data:\n%s' %
                      (data['username'], token.serviceCatalog))
 
-            if request.session['admin']:
-                return shortcuts.redirect('syspanel_overview')
-            else:
-                return shortcuts.redirect('dash_overview')
+            return shortcuts.redirect('dash_overview')
 
         except api_exceptions.Unauthorized as e:
             msg = 'Error authenticating: %s' % e.message
             LOG.error(msg, exc_info=True)
             messages.error(request, msg)
+        except api_exceptions.ApiException as e:
+            messages.error(request, 'Error authenticating with keystone: %s' %
+                                     e.message)
+
+
+class LoginWithTenant(Login):
+    username = forms.CharField(max_length="20",
+                               widget=forms.TextInput(attrs={'readonly':'readonly'}))
+    tenant = forms.CharField(widget=forms.HiddenInput())
 
 
 def login(request):
@@ -73,14 +81,15 @@ def login(request):
     if handled:
         return handled
 
-    return shortcuts.render_to_response('login_required.html', {
+    return shortcuts.render_to_response('splash.html', {
         'form': form,
     }, context_instance=template.RequestContext(request))
 
 
 def switch_tenants(request, tenant_id):
-    form, handled = Login.maybe_handle(
-            request, initial={'tenant': tenant_id})
+    form, handled = LoginWithTenant.maybe_handle(
+            request, initial={'tenant': tenant_id,
+                              'username': request.user.username})
     if handled:
         return handled
 

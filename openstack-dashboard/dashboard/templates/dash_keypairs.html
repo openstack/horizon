@@ -11,7 +11,7 @@
 {% block main %}
   <div id='page_header'>
     <h2><span>Compute:</span> Keypairs</h2> 
-    <p class='desc'><span>&mdash;</span> Keypairs blah blah.</p> 
+    <p class='desc'><span>&mdash;</span> Manage keypairs that allow instance authentication.</p> 
   </div>
   {% include "_messages.html" %}
 
@@ -19,6 +19,7 @@
     {% if keypairs %}
       <div class='table_title wide'>
         <h3>Keypairs</h3>
+        <a class="refresh" title="Refresh" href="{% url dash_keypairs request.user.tenant %}">Refresh List</a>
         <div class='search'>
           <form action='' method='post'>
             <fieldset>
@@ -31,8 +32,13 @@
 
       {% include '_keypair_list.html' %}
 
+       <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair</a>
+    {% else %}
+        <div class="status_box info">
+          <h2>Info</h2>
+          <p>There are currently no keypairs. <a href='{% url dash_keypairs_create request.user.tenant %}'>Create A Keypair &gt;&gt;</a></p>
+        </div>
     {% endif %}
-    <a id="keypairs_create_link" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair &gt;&gt;</a>
   </div>
 {% endblock %}
 

@@ -25,11 +25,12 @@ import openstack
 
 
 class User(object):
-    def __init__(self, token, user, tenant, admin):
+    def __init__(self, token, user, tenant, admin, service_catalog):
         self.token = token
         self.username = user
         self.tenant = tenant
         self.admin = admin
+        self.service_catalog = service_catalog
 
     def is_authenticated(self):
         # TODO: deal with token expiration
@@ -41,11 +42,12 @@ class User(object):
 
 def get_user_from_request(request):
     if 'user' not in request.session:
-        return User(None,None,None,None)
+        return User(None,None,None,None,None)
     return User(request.session['token'],
                 request.session['user'],
                 request.session['tenant'],
-                request.session['admin'])
+                request.session['admin'],
+                request.session['serviceCatalog'])
 
 
 class LazyUser(object):
@@ -62,6 +64,10 @@ class AuthenticationMiddleware(object):
     def process_exception(self, request, exception):
         if type(exception) in [openstack.compute.exceptions.Forbidden,
                                openstackx.api.exceptions.Forbidden]:
+            # flush other error messages, which are collateral damage
+            # when our token expires
+            for message in messages.get_messages(request):
+                pass
             messages.error(request, 'Your token has expired.\
                                      Please log in again')
             return shortcuts.redirect('/auth/logout')

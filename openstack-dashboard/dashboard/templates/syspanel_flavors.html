@@ -13,12 +13,12 @@
    <h2><span>System Panel:</span> Flavors</h2>
    <p class='desc'><span>&mdash;</span> Create, Edit and Delete Flavors.</p>
   </div>
-`
+
   {% include "_messages.html" %}
   <div class="main_content">
       <div class='table_title wide'>
         <h3>Flavors</h3>
-        <a class="refresh" href="{% url syspanel_flavors %}">Refresh List</a>
+        <a class="refresh" title="Refresh" href="{% url syspanel_flavors %}">Refresh List</a>
         <div class='search'>
           <form action='' method='post'>
             <fieldset>
@@ -31,7 +31,7 @@
 
     {% include "_syspanel_flavor_list.html" %}
 
-    <a id="flavor_create_link" href="{% url syspanel_flavors_create %}">Create New Flavor &gt;&gt;</a>
+    <a id="flavor_create_link" class="action_link large-rounded" href="{% url syspanel_flavors_create %}">Create New Flavor </a>
 
 
 {% endblock %}

@@ -33,6 +33,7 @@ MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 
 OPENSTACK_ADMIN_TOKEN = "999888777666"
 OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0/"
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
 # NOTE(tres): Available services should come from the service
 #             catalog in Keystone.
@@ -78,4 +79,5 @@ EXTERNAL_MONITORING = [
 #        }
 #}
 
-TOTAL_CLOUD_RAM_GB = 10
+# How much ram on each compute host?
+COMPUTE_HOST_RAM_GB = 16

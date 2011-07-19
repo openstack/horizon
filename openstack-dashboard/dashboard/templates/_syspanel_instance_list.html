@@ -1,9 +1,9 @@
 {% load parse_date %}
-<table class="wide">
+<table id="instances" class="wide">
   <tr>
     <th>Id</th>
     <th>User</th>
-    <th>Hostname</th>
+    <th>Host</th>
     <th>Created</th>
     <th>Image</th>
     <th>Public IP</th>
@@ -15,7 +15,7 @@
     <tr id="{{instance.id}}" class="{% cycle "odd" "even" %}">
       <td>{{instance.id}}</td>
       <td>{{instance.attrs.user_id}}</td>
-      <td>{{instance.attrs.hostname}}</td>
+      <td class="name">{{instance.attrs.host}}</td>
       <td>{{instance.attrs.launched_at|parse_date}}</td>
       <td>{{instance.image_name}}</td>
 

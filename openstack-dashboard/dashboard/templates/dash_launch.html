@@ -24,14 +24,36 @@
     </div>
 
     {% include '_launch.html' %}
-
     <div class="right">
       <h3>Description:</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae est urna. Phasellus sagittis, sem posuere hendrerit mattis, velit risus viverra enim, tempus dapibus sem turpis ac erat.</p>
-      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed mollis ligula nec lacus mollis eu laoreet lectus porta. </p>
-      <p>Sed iaculis mauris et est consectetur egestas. Praesent dolor libero, semper sed aliquet</p>
-
-    </div>
+      <p>Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources you are allowed to provision.</p>
+      <table border="0">
+        <tr>
+          <th>Quota Name</th>
+          <th>Limit</th>
+        </tr>
+        <tr>
+          <td>RAM (MB)</td>
+          <td>{{quotas.ram}}MB</td>
+        </tr>
+        <tr>
+          <td>Floating IPs</td>
+          <td>{{quotas.floating_ips}}</td>
+        </tr>
+        <tr>
+          <td>Instances</td>
+          <td>{{quotas.instances}}</td>
+        </tr>
+        <tr>
+          <td>Volumes</td>
+          <td>{{quotas.volumes}}</td>
+        </tr>
+        <tr>
+          <td>Gigabytes</td>
+          <td>{{quotas.gigabytes}}GB</td>
+        </tr>
+      </table>
+  </div>
 
   </div>
 {% endblock %}

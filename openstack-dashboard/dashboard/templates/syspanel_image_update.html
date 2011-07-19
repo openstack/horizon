@@ -1,0 +1,34 @@
+{% extends 'syspanel_base.html' %}
+{# list of user's instances #}
+{# standard nav, sidebar, list of instances in main #}
+
+{% block sidebar %}
+  {% with current_sidebar="images" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block main %}
+  <div id='page_header'>
+    <h2><span>System Panel:</span> Images </h2>
+    <p class='desc'><span>&mdash;</span> Update Image </p>
+  </div>
+
+  {% include "_messages.html" %}
+
+  <div class="main_content">
+    <div class="dash_block wide form">
+      <div class='title_block'> 
+        <h3>Update Image</h3> 
+      </div> 
+
+      {% include '_image_form.html' %}
+      
+      <div class="right">
+        <h3>Description:</h3>
+        <p>From here you can modify different properties of an image.</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

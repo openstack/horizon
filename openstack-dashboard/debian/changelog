@@ -1,0 +1,5 @@
+openstack-dashboard (0.2.0) UNRELEASED; urgency=low
+
+  * Initial release. (Closes: #XXXXXX)
+
+ -- anthony <sleepsonthefloor@gmail.com>  Mon, 20 Jun 2011 20:29:57 +0000

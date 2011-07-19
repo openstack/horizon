@@ -70,6 +70,15 @@ class ToggleImage(forms.SelfHandlingForm):
             messages.error(request, "Error updating image: %s" % e.message)
         return redirect(request.build_absolute_uri())
 
+class UpdateImageForm(forms.Form):
+    name = forms.CharField(max_length="25", label="Name")
+    kernel = forms.CharField(max_length="25", label="Kernel ID", required=False)
+    ramdisk = forms.CharField(max_length="25", label="Ramdisk ID", required=False)
+    architecture = forms.CharField(label="Architecture", required=False)
+    #project_id = forms.CharField(label="Project ID")
+    container_format = forms.CharField(label="Container Format", required=False)
+    disk_format = forms.CharField(label="Disk Format")
+    #is_public = forms.BooleanField(label="Publicly Available", required=False)
 
 @login_required
 def index(request):
@@ -120,21 +129,20 @@ def update(request, image_id):
         if form.is_valid():
             image_form = form.clean()
             metadata = {
-                'is_public': image_form['is_public'],
+                'is_public': True,
                 'disk_format': image_form['disk_format'],
                 'container_format': image_form['container_format'],
                 'name': image_form['name'],
-                'location': image_form['location'],
             }
             try:
                 # TODO add public flag to properties
-                metadata['properties'] = {
-                    'kernel_id': int(image_form['kernel_id']),
-                    'ramdisk_id': int(image_form['ramdisk_id']),
-                    'image_state': image_form['state'],
-                    'architecture': image_form['architecture'],
-                    'project_id': image_form['project_id'],
-                }
+                metadata['properties'] = {}
+                if image_form['kernel']:
+                    metadata['properties']['kernel_id'] = image_form['kernel']
+                if image_form['ramdisk']:
+                    metadata['properties']['ramdisk_id'] = image_form['ramdisk']
+                if image_form['architecture']:
+                    metadata['properties']['architecture'] = image_form['architecture']
                 api.image_update(request, image_id, metadata)
                 messages.success(request, "Image was successfully updated.")
             except glance_exception.ClientConnectionError, e:
@@ -157,12 +165,10 @@ def update(request, image_id):
             messages.error(request,
                            "Image could not be uploaded, please try agian.")
             form = UpdateImageForm(request.POST)
-            return render_to_response('django_nova_syspanel/images/image_update.html',{
+            return render_to_response('syspanel_image_update.html',{
                 'image': image,
                 'form': form,
             }, context_instance = template.RequestContext(request))
-
-        return redirect('syspanel_images')
     else:
         form = UpdateImageForm(initial={
                 'name': image.get('name', ''),
@@ -177,7 +183,7 @@ def update(request, image_id):
                 'disk_format': image.get('disk_format', ''),
             })
 
-        return render_to_response('django_nova_syspanel/images/image_update.html',{
+        return render_to_response('syspanel_image_update.html',{
             'image': image,
             'form': form,
         }, context_instance = template.RequestContext(request))

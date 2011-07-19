@@ -45,8 +45,9 @@ LOG = logging.getLogger('django_openstack.dash.views.images')
 
 
 class LaunchForm(forms.SelfHandlingForm):
-    image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length=80, label="Server Name")
+    image_id = forms.CharField(widget=forms.HiddenInput())
+    tenant_id = forms.CharField(widget=forms.HiddenInput())
     user_data = forms.CharField(widget=forms.Textarea,
                                 label="User Data",
                                 required=False)
@@ -64,10 +65,23 @@ class LaunchForm(forms.SelfHandlingForm):
         keynamelist = kwargs.get('initial', {}).get('keynamelist', [])
         self.fields['key_name'] = forms.ChoiceField(choices=keynamelist,
                 label="Key Name",
+                required=False,
                 help_text="Which keypair to use for authentication")
+
+        # setting self.fields.keyOrder seems to break validation,
+        # so ordering fields manually
+        field_list = (
+            'name',
+            'user_data',
+            'flavor',
+            'key_name')
+        for field in field_list[::-1]:
+            self.fields.insert(0, field, self.fields.pop(field))
+
 
     def handle(self, request, data):
         image_id = data['image_id']
+        tenant_id = data['tenant_id']
         try:
             image = api.image_get(request, image_id)
             flavor = api.flavor_get(request, data['flavor'])
@@ -75,13 +89,13 @@ class LaunchForm(forms.SelfHandlingForm):
                               data['name'],
                               image,
                               flavor,
-                              user_data=data['user_data'],
-                              key_name=data.get('key_name'))
+                              data.get('key_name'),
+                              data.get('user_data'))
 
             msg = 'Instance was successfully launched'
             LOG.info(msg)
             messages.success(request, msg)
-            return shortcuts.redirect(request.build_absolute_uri())
+            return redirect('dash_instances', tenant_id)
 
         except api_exceptions.ApiException, e:
             LOG.error('ApiException while creating instances of image "%s"' %
@@ -92,7 +106,14 @@ class LaunchForm(forms.SelfHandlingForm):
 
 @login_required
 def index(request, tenant_id):
-    tenant = api.token_get_tenant(request, request.user.tenant)
+    tenant = {}
+
+    try:
+        tenant = api.token_get_tenant(request, request.user.tenant)
+    except api_exceptions.ApiException, e:
+        messages.error(request, "Unable to retrienve tenant info\
+                                 from keystone: %s" % e.message)
+
     all_images = []
     try:
         all_images = api.image_list_detailed(request)
@@ -142,11 +163,19 @@ def launch(request, tenant_id, image_id):
     # If The form is valid, we've just wasted these two api calls
     image = api.image_get(request, image_id)
     tenant = api.token_get_tenant(request, request.user.tenant)
+    quotas = api.tenant_quota_get(request, request.user.tenant)
+    try:
+        quotas.ram = int(quotas.ram)/100
+    except Exception, e:
+        messages.error(request, 'Error parsing quota  for %s: %s' %
+                                 (image_id, e.message))
+        return redirect('dash_instances', tenant_id)
 
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),
                               'keynamelist': keynamelist(),
-                              'image_id': image_id})
+                              'image_id': image_id,
+                              'tenant_id': tenant_id})
     if handled:
         return handled
 
@@ -154,4 +183,5 @@ def launch(request, tenant_id, image_id):
         'tenant': tenant,
         'image': image,
         'form': form,
+        'quotas': quotas,
     }, context_instance=template.RequestContext(request))

@@ -65,6 +65,9 @@ def _get_start_and_end_date(request):
     date_end = _next_month(date_start)
     datetime_start = datetime.datetime.combine(date_start, datetime.time())
     datetime_end = datetime.datetime.combine(date_end, datetime.time())
+
+    if date_end > datetime.date.today():
+        datetime_end = datetime.datetime.utcnow()
     return (date_start, date_end, datetime_start, datetime_end)
 
 
@@ -74,6 +77,7 @@ def usage(request):
     service_list = []
     usage_list = []
     max_vcpus = max_gigabytes = 0
+    total_ram = 0
 
     if date_start > _current_month():
         messages.error(request, 'No data for the selected period')
@@ -92,6 +96,7 @@ def usage(request):
             if service.type == 'nova-compute':
                 max_vcpus += service.stats['max_vcpus']
                 max_gigabytes += service.stats['max_gigabytes']
+                total_ram += settings.COMPUTE_HOST_RAM_GB
 
         try:
             usage_list = api.usage_list(request, datetime_start, datetime_end)
@@ -104,8 +109,6 @@ def usage(request):
 
     dateform = forms.DateForm()
     dateform['date'].field.initial = date_start
-
-
 
     global_summary = {'max_vcpus': max_vcpus, 'max_gigabytes': max_gigabytes,
                       'total_active_disk_size': 0, 'total_active_vcpus': 0,
@@ -130,7 +133,6 @@ def usage(request):
     used_disk_tb = global_summary['total_active_disk_size'] / float(1000)
     available_disk_tb = (global_summary['max_gigabytes'] / float(1000) - \
                         global_summary['total_active_disk_size'] / float(1000))
-    total_ram = settings.TOTAL_CLOUD_RAM_GB
     used_ram = global_summary['total_active_ram_size'] / float(1024)
     avail_ram = total_ram - used_ram
 
@@ -180,10 +182,24 @@ def tenant_usage(request, tenant_id):
                                                  datetime_end))
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
-    return render_to_response(
-    'syspanel_tenant_usage.html',{
+    running_instances = []
+    terminated_instances = []
+    if hasattr(usage, 'instances'):
+        now = datetime.datetime.now()
+        for i in usage.instances:
+            # this is just a way to phrase uptime in a way that is compatible
+            # with the 'timesince' filter.  Use of local time intentional
+            i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
+            if i['ended_at']:
+                terminated_instances.append(i)
+            else:
+                running_instances.append(i)
+
+    return render_to_response('syspanel_tenant_usage.html', {
         'dateform': dateform,
         'usage': usage,
+        'instances': running_instances + terminated_instances,
+        'tenant_id': tenant_id,
     }, context_instance = template.RequestContext(request))
 
 
@@ -207,6 +223,30 @@ def index(request):
     reboot_form = RebootInstance()
 
     return render_to_response('syspanel_instances.html', {
+        'instances': instances,
+        'terminate_form': terminate_form,
+        'reboot_form': reboot_form,
+    }, context_instance=template.RequestContext(request))
+
+@login_required
+def refresh(request):
+    for f in (TerminateInstance, RebootInstance):
+        _, handled = f.maybe_handle(request)
+        if handled:
+            return handled
+
+    instances = []
+    try:
+        instances = api.server_list(request)
+    except Exception as e:
+        messages.error(request, 'Unable to get instance list: %s' % e.message)
+
+    # We don't have any way of showing errors for these, so don't bother
+    # trying to reuse the forms from above
+    terminate_form = TerminateInstance()
+    reboot_form = RebootInstance()
+
+    return render_to_response('_syspanel_instance_list.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,

@@ -13,7 +13,6 @@
    <h2><span>System Panel:</span> Flavors</h2>
    <p class='desc'><span>&mdash;</span> Create, Edit and Delete Flavors.</p>
   </div>
-`
   {% include "_messages.html" %}
 
   <div class="main_content">
@@ -22,14 +21,28 @@
         <h3>Create Flavor</h3>
       </div>
 
-      {% include "_create_flavor.html" %}
+      <div class="left">
+        <ul class='stat_box info small'>
+          <li class='block'>
+            <p class='overview'>{{global_summary.max_vcpus|floatformat}}<span> Cores</span></p>
+            <p class='avail'>{{available_cores}} <span class='unit'>vcpu</span> <span class='label'>Available</span></p>
+          </li>
+          <li class='block'>
+            <p class='overview'>{{total_ram}}<span> {{ram_unit}} Ram</span></p>
+            <p class='avail'>{{avail_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'>Available</span></p>
+          </li>
+          <li class='block last'>
+            <p class='overview'>{{max_disk_tb}}<span>TB Disk</span></p>
+            <p class='avail'>{{available_disk_tb}}<span class='unit'>TB</span><span class='label'>Available</span></p>
+          </li>
+        </ul>
 
+        {% include "_create_flavor.html" %}
+      </div>
+      
       <div class="right">
         <h3>Description:</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae est urna. Phasellus sagittis, sem posuere hendrerit mattis, velit risus viverra enim, tempus dapibus sem turpis ac erat.</p>
-        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed mollis ligula nec lacus mollis eu laoreet lectus porta. </p>
-        <p>Sed iaculis mauris et est consectetur egestas. Praesent dolor libero, semper sed aliquet</p>
-
+        <p>From here you can define the sizing of a new flavor.</p>
       </div>
     </div>
   </div>

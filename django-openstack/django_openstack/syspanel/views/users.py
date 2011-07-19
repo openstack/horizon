@@ -47,7 +47,7 @@ class UserForm(forms.Form):
         super(UserForm, self).__init__(*args, **kwargs)
         self.fields['tenant_id'].choices = [[tenant.id,tenant.id] for tenant in tenant_list]
 
-    id = forms.CharField(label="ID")
+    id = forms.CharField(label="ID (username)")
     email = forms.CharField(label="Email")
     password = forms.CharField(label="Password", widget=forms.PasswordInput(render_value=False), required=False)
     tenant_id = forms.ChoiceField(label="Primary Tenant")
@@ -60,9 +60,9 @@ class UserDeleteForm(forms.SelfHandlingForm):
         user_id = data['user']
         LOG.info('Deleting user with id "%s"' % user_id)
         api.user_delete(request, user_id)
-        messages.success(request,
-                         '%s was successfully deleted.'
-                         % user_id)
+        messages.info(request, '%s was successfully deleted.'
+                                % user_id)
+            
         return redirect(request.build_absolute_uri())
 
 
@@ -73,7 +73,12 @@ def index(request):
         if handled:
             return handled
 
-    users = api.user_list(request)
+    users = []
+    try:
+        users = api.user_list(request)
+    except api_exceptions.ApiException, e:
+        messages.error(request, 'Unable to list users: %s' %
+                                 e.message)
 
     user_delete_form = UserDeleteForm()
     return render_to_response('syspanel_users.html',{
@@ -140,7 +145,12 @@ def update(request, user_id):
 
 @login_required
 def create(request):
-    tenants = api.tenant_list(request)
+    try:
+        tenants = api.tenant_list(request)
+    except api_exceptions.ApiException, e:
+        messages.error(request, 'Unable to retrieve tenant list: %s' %
+                                 e.message)
+        return redirect('syspanel_users')
 
     if request.method == "POST":
         form = UserForm(request.POST, tenant_list=tenants)
@@ -155,6 +165,9 @@ def create(request):
                                 user['password'],
                                 user['tenant_id'],
                                 True)
+                api.account_api(request).role_refs.add_for_tenant_user(
+                        user['tenant_id'], user['id'],
+                        settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
 
                 messages.success(request,
                                  '%s was successfully created.'

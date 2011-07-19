@@ -234,7 +234,7 @@ class SwiftAuthentication(object):
 
 
 def url_for(request, service_name, admin=False):
-    catalog = request.session['serviceCatalog']
+    catalog = request.user.service_catalog
     if admin:
         rv = catalog[service_name][0]['adminURL']
     else:
@@ -268,25 +268,26 @@ def check_openstackx(f):
 
 def compute_api(request):
     compute = openstack.compute.Compute(
-        auth_token=request.session['token'],
+        auth_token=request.user.token,
         management_url=url_for(request, 'nova'))
     # this below hack is necessary to make the jacobian compute client work
     # TODO(mgius): It looks like this is unused now?
-    compute.client.auth_token = request.session['token']
+    compute.client.auth_token = request.user.token
     compute.client.management_url = url_for(request, 'nova')
     LOG.debug('compute_api connection created using token "%s"'
                       ' and url "%s"' %
-                      (request.session['token'], url_for(request, 'nova')))
+                      (request.user.token, url_for(request, 'nova')))
     return compute
 
 
 def account_api(request):
+    LOG.error(dir(request))
     LOG.debug('account_api connection created using token "%s"'
                       ' and url "%s"' %
-                  (request.session['token'],
+                  (request.user.token,
                    url_for(request, 'identity', True)))
     return openstackx.extras.Account(
-        auth_token=request.session['token'],
+        auth_token=request.user.token,
         management_url=url_for(request, 'identity', True))
 
 
@@ -300,16 +301,16 @@ def glance_api(request):
 def admin_api(request):
     LOG.debug('admin_api connection created using token "%s"'
                     ' and url "%s"' %
-                    (request.session['token'], url_for(request, 'nova', True)))
-    return openstackx.admin.Admin(auth_token=request.session['token'],
+                    (request.user.token, url_for(request, 'nova', True)))
+    return openstackx.admin.Admin(auth_token=request.user.token,
                                  management_url=url_for(request, 'nova', True))
 
 
 def extras_api(request):
     LOG.debug('extras_api connection created using token "%s"'
                      ' and url "%s"' %
-                    (request.session['token'], url_for(request, 'nova')))
-    return openstackx.extras.Extras(auth_token=request.session['token'],
+                    (request.user.token, url_for(request, 'nova')))
+    return openstackx.extras.Extras(auth_token=request.user.token,
                                    management_url=url_for(request, 'nova'))
 
 
@@ -329,7 +330,7 @@ def swift_api(request):
     return cloudfiles.get_connection(auth=auth)
 
 
-def console_create(request, instance_id, kind=None):
+def console_create(request, instance_id, kind='text'):
     return Console(extras_api(request).consoles.create(instance_id, kind))
 
 
@@ -386,9 +387,9 @@ def keypair_list(request):
     return [KeyPair(key) for key in extras_api(request).keypairs.list()]
 
 
-def server_create(request, name, image, flavor, user_data, key_name):
+def server_create(request, name, image, flavor, key_name, user_data):
     return Server(extras_api(request).servers.create(
-            name, image, flavor, user_data=user_data, key_name=key_name),
+            name, image, flavor, key_name=key_name, user_data=user_data),
             request)
 
 
@@ -412,6 +413,12 @@ def server_reboot(request,
     server.reboot(hardness)
 
 
+def server_update(request, instance_id, name, description):
+    return extras_api(request).servers.update(instance_id,
+                                              name=name,
+                                              description=description)
+
+
 def service_get(request, name):
     return Services(admin_api(request).services.get(name))
 
@@ -426,7 +433,7 @@ def service_update(request, name, enabled):
 
 
 def token_get_tenant(request, tenant_id):
-    tenants = auth_api().tenants.for_token(request.session['token'])
+    tenants = auth_api().tenants.for_token(request.user.token)
     for t in tenants:
         if str(t.id) == str(tenant_id):
             return Tenant(t)
@@ -462,6 +469,8 @@ def tenant_update(request, tenant_id, description, enabled):
 def token_create(request, tenant, username, password):
     return Token(auth_api().tokens.create(tenant, username, password))
 
+def tenant_quota_get(request, tenant):
+    return admin_api(request).quota_sets.get(tenant)
 
 def token_info(request, token):
     # TODO(mgius): This function doesn't make a whole lot of sense to me.  The
@@ -498,9 +507,9 @@ def usage_list(request, start, end):
     return [Usage(u) for u in extras_api(request).usage.list(start, end)]
 
 
-def user_create(request, user_id, email, password, tenant_id):
+def user_create(request, user_id, email, password, tenant_id, enabled):
     return User(account_api(request).users.create(
-            user_id, email, password, tenant_id))
+            user_id, email, password, tenant_id, enabled))
 
 
 def user_delete(request, user_id):

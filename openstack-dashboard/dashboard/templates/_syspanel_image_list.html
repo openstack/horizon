@@ -11,7 +11,7 @@
     <th colspan="2">Status</th>
   </tr>
   {% for image in images %}
-  <tr class="{% cycle 'odd' 'even' %}">
+  <tr id="images" class="{% cycle 'odd' 'even' %}">
       <td>{{image.id}}</td>
       <td>{{image.name}}</td>
       <td>{{image.size|filesizeformat}}</td>
@@ -22,9 +22,9 @@
       <td id="actions">
         <ul>
           <li>{% include "_delete_image.html" with form=delete_form %}</li>
-          <li>{% include "_toggle_image.html" with form=toggle_form %}</li>
+          {# <li>{% include "_toggle_image.html" with form=toggle_form %}</li> #}
 
-          <li><a href="{#% url syspanel_images_update image.id %#}">Edit</a></li>
+          <li><a href="{% url syspanel_images_update image.id %}">Edit</a></li>
         </ul>
       </td>
   </tr>

@@ -29,6 +29,7 @@ from django.utils.translation import ugettext as _
 import datetime
 import json
 import logging
+import os
 import subprocess
 import sys
 import urlparse
@@ -90,8 +91,8 @@ def index(request):
             # TODO(mgius): This silences curl, but there's probably
             # a better solution than using curl to begin with
             subprocess.check_call(['curl', '-m', '1', v['internalURL']],
-                                  stdout=open(sys.devnull, 'w'),
-                                  stderr=open(sys.devnull, 'w'))
+                                  stdout=open(os.devnull, 'w'),
+                                  stderr=open(os.devnull, 'w'))
             up = True
         except:
             up = False
@@ -99,6 +100,11 @@ def index(request):
         row = {'type': k, 'internalURL': v['internalURL'], 'host': hostname,
                'region': v['region'], 'up': up }
         other_services.append(row)
+
+    services = sorted(services, key=lambda svc: (svc.type +
+                                                 svc.host))
+    other_services = sorted(other_services, key=lambda svc: (svc['type'] +
+                                                             svc['host']))
 
     return render_to_response('syspanel_services.html', {
         'services': services,

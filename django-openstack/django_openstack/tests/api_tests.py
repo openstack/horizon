@@ -24,7 +24,6 @@ import json
 import mox
 
 from django import http
-from django import test
 from django.conf import settings
 from django_openstack import api
 from glance import client as glance_client
@@ -33,6 +32,10 @@ from openstack import compute as OSCompute
 from openstackx import admin as OSAdmin
 from openstackx import auth as OSAuth
 from openstackx import extras as OSExtras
+
+
+from django_openstack import test
+from django_openstack.middleware import keystone
 
 
 TEST_CONSOLE_KIND = 'vnc'
@@ -228,7 +231,7 @@ class ServerWrapperTests(test.TestCase):
     IMAGE_REF = '3'
 
     def setUp(self):
-        self.mox = mox.Mox()
+        super(ServerWrapperTests, self).setUp()
 
         # these are all objects "fetched" from the api
         self.inner_attrs = {'host': self.HOST}
@@ -236,10 +239,7 @@ class ServerWrapperTests(test.TestCase):
         self.inner_server = Server(self.ID, self.IMAGE_REF, self.inner_attrs)
         self.inner_server_no_attrs = Server(self.ID, self.IMAGE_REF)
 
-        self.request = self.mox.CreateMock(http.HttpRequest)
-
-    def tearDown(self):
-        self.mox.UnsetStubs()
+        #self.request = self.mox.CreateMock(http.HttpRequest)
 
     def test_get_attrs(self):
         server = api.Server(self.inner_server, self.request)
@@ -284,28 +284,20 @@ class ServerWrapperTests(test.TestCase):
 
 class ApiHelperTests(test.TestCase):
     """ Tests for functions that don't use one of the api objects """
-    def setUp(self):
-        self.mox = mox.Mox()
-        self.request = http.HttpRequest()
-        self.request.session = dict()
-
-    def tearDown(self):
-        self.mox.UnsetStubs()
 
     def test_url_for(self):
         GLANCE_URL = 'http://glance/glanceapi/'
         NOVA_URL = 'http://nova/novapi/'
 
-        serviceCatalog = {
-                'glance': [{'adminURL': GLANCE_URL + 'admin',
-                            'internalURL': GLANCE_URL + 'internal'},
-                          ],
-                'nova': [{'adminURL': NOVA_URL + 'admin',
-                          'internalURL': NOVA_URL + 'internal'},
-                        ],
-                }
-
-        self.request.session['serviceCatalog'] = serviceCatalog
+        # NOTE: serviceCatalog is now constructed as part of the user object
+        # serviceCatalog = {
+        #        'glance': [{'adminURL': GLANCE_URL + 'admin',
+        #                    'internalURL': GLANCE_URL + 'internal'},
+        #                  ],
+        #        'nova': [{'adminURL': NOVA_URL + 'admin',
+        #                  'internalURL': NOVA_URL + 'internal'},
+        #                ],
+        #        }
 
         url = api.url_for(self.request, 'glance')
         self.assertEqual(url, GLANCE_URL + 'internal')
@@ -422,15 +414,6 @@ class ApiHelperTests(test.TestCase):
 
 
 class AccountApiTests(test.TestCase):
-    def setUp(self):
-        self.mox = mox.Mox()
-        self.request = http.HttpRequest()
-        self.request.session = dict()
-        self.request.session['token'] = TEST_TOKEN
-
-    def tearDown(self):
-        self.mox.UnsetStubs()
-
     def stub_account_api(self):
         self.mox.StubOutWithMock(api, 'account_api')
         account_api = self.mox.CreateMock(OSExtras.Account)
@@ -532,12 +515,12 @@ class AccountApiTests(test.TestCase):
 
         account_api.users = self.mox.CreateMockAnything()
         account_api.users.create(TEST_USERNAME, TEST_EMAIL, TEST_PASSWORD,
-                                TEST_TENANT_ID).AndReturn(TEST_RETURN)
+                                TEST_TENANT_ID, True).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
         ret_val = api.user_create(self.request, TEST_USERNAME, TEST_EMAIL,
-                                  TEST_PASSWORD, TEST_TENANT_ID)
+                                  TEST_PASSWORD, TEST_TENANT_ID, True)
 
         self.assertIsInstance(ret_val, api.User)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
@@ -641,14 +624,15 @@ class AccountApiTests(test.TestCase):
 
 
 class AdminApiTests(test.TestCase):
-    def setUp(self):
-        self.mox = mox.Mox()
-        self.request = http.HttpRequest()
-        self.request.session = dict()
-        self.request.session['token'] = TEST_TOKEN
+    #def setUp(self):
+    #    super(AdminApiTests, self).setUp()
+    #    self.request = http.HttpRequest()
+    #    keystone.AuthenticationMiddleware().process_request(self.request)
+    #    #self.request.session = dict()
+    #    #self.request.session['token'] = TEST_TOKEN
 
-    def tearDown(self):
-        self.mox.UnsetStubs()
+    #def tearDown(self):
+    #    super(AdminApiTests, self).tearDown()
 
     def stub_admin_api(self, count=1):
         self.mox.StubOutWithMock(api, 'admin_api')
@@ -764,12 +748,6 @@ class AdminApiTests(test.TestCase):
 
 
 class AuthApiTests(test.TestCase):
-    def setUp(self):
-        self.mox = mox.Mox()
-
-    def tearDown(self):
-        self.mox.UnsetStubs()
-
     def test_get_auth_api(self):
         settings.OPENSTACK_KEYSTONE_URL = TEST_URL
         self.mox.StubOutClassWithMocks(OSAuth, 'Auth')
@@ -798,12 +776,11 @@ class AuthApiTests(test.TestCase):
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
-        request_mock = self.mox.CreateMock(http.HttpRequest)
-        request_mock.session = {'token': 'aToken'}
+        self.request.session = {'token': 'aToken'}
 
         self.mox.ReplayAll()
 
-        ret_val = api.token_get_tenant(request_mock, TEST_TENANT_ID)
+        ret_val = api.token_get_tenant(self.request, TEST_TENANT_ID)
         self.assertEqual(tenant_list[1], ret_val)
 
         self.mox.VerifyAll()
@@ -822,12 +799,11 @@ class AuthApiTests(test.TestCase):
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
-        request_mock = self.mox.CreateMock(http.HttpRequest)
-        request_mock.session = {'token': 'aToken'}
+        self.request.session = {'token': 'aToken'}
 
         self.mox.ReplayAll()
 
-        ret_val = api.token_get_tenant(request_mock, TEST_TENANT_ID)
+        ret_val = api.token_get_tenant(self.request, TEST_TENANT_ID)
         self.assertIsNone(ret_val)
 
         self.mox.VerifyAll()
@@ -849,11 +825,9 @@ class AuthApiTests(test.TestCase):
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
-        request_mock = self.mox.CreateMock(http.HttpRequest)
-
         self.mox.ReplayAll()
 
-        ret_val = api.token_list_tenants(request_mock, 'aToken')
+        ret_val = api.token_list_tenants(self.request, 'aToken')
         for tenant in ret_val:
             self.assertIn(tenant, tenant_list)
 
@@ -872,11 +846,9 @@ class AuthApiTests(test.TestCase):
         tokens_mock.create(TEST_TENANT_ID, TEST_USERNAME,
                            TEST_PASSWORD).AndReturn(test_token)
 
-        request_mock = self.mox.CreateMock(http.HttpRequest)
-
         self.mox.ReplayAll()
 
-        ret_val = api.token_create(request_mock, TEST_TENANT_ID,
+        ret_val = api.token_create(self.request, TEST_TENANT_ID,
                                    TEST_USERNAME, TEST_PASSWORD)
 
         self.assertEqual(test_token, ret_val)
@@ -885,15 +857,6 @@ class AuthApiTests(test.TestCase):
 
 
 class ComputeApiTests(test.TestCase):
-    def setUp(self):
-        self.mox = mox.Mox()
-        self.request = http.HttpRequest()
-        self.request.session = {}
-        self.request.session['token'] = TEST_TOKEN
-
-    def tearDown(self):
-        self.mox.UnsetStubs()
-
     def stub_compute_api(self, count=1):
         self.mox.StubOutWithMock(api, 'compute_api')
         compute_api = self.mox.CreateMock(OSCompute.Compute)
@@ -1002,15 +965,6 @@ class ComputeApiTests(test.TestCase):
 
 
 class ExtrasApiTests(test.TestCase):
-    def setUp(self):
-        self.mox = mox.Mox()
-        self.request = http.HttpRequest()
-        self.request.session = dict()
-        self.request.session['token'] = TEST_TOKEN
-
-    def tearDown(self):
-        self.mox.UnsetStubs()
-
     def stub_extras_api(self, count=1):
         self.mox.StubOutWithMock(api, 'extras_api')
         extras_api = self.mox.CreateMock(OSExtras.Extras)
@@ -1038,7 +992,7 @@ class ExtrasApiTests(test.TestCase):
         extras_api.consoles.create(
                 TEST_INSTANCE_ID, TEST_CONSOLE_KIND).AndReturn(TEST_RETURN)
         extras_api.consoles.create(
-                TEST_INSTANCE_ID, None).AndReturn(TEST_RETURN + '2')
+                TEST_INSTANCE_ID, 'text').AndReturn(TEST_RETURN + '2')
 
         self.mox.ReplayAll()
 
@@ -1134,7 +1088,7 @@ class ExtrasApiTests(test.TestCase):
         self.mox.ReplayAll()
 
         ret_val = api.server_create(self.request, NAME, IMAGE, FLAVOR,
-                                    USER_DATA, KEY)
+                                    KEY, USER_DATA)
 
         self.assertIsInstance(ret_val, api.Server)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
@@ -1197,16 +1151,6 @@ class ExtrasApiTests(test.TestCase):
 
 
 class GlanceApiTests(test.TestCase):
-    def setUp(self):
-        self.mox = mox.Mox()
-
-        self.request = http.HttpRequest()
-        self.request.session = dict()
-        self.request.session['token'] = TEST_TOKEN
-
-    def tearDown(self):
-        self.mox.UnsetStubs()
-
     def stub_glance_api(self, count=1):
         self.mox.StubOutWithMock(api, 'glance_api')
         glance_api = self.mox.CreateMock(glance_client.Client)
