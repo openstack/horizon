@@ -409,11 +409,17 @@ tr {
   -o-transition: background 0.2s;
 }
 
+td#actions {
+  width: 200px;
+}
+
 td#actions ul { margin: 0; }
 
 td#actions li {
   font-size: 11px;
   margin: 0 8px 6px 15px;
+  clear: both;
+  width: 100%;
 }
 
 td#actions li a { font-size: 11px; }
@@ -425,7 +431,7 @@ td#actions form input[type="submit"] {
   width: auto;
   text-align: left;
   padding: 0px 0px 0px 0px;
-  margin: -17px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
   cursor: pointer;
   border: 0px;
   float: left;

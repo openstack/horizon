@@ -1,16 +1,16 @@
-<table id="containers" style="width: 100%">
+<table id="containers" class="wide">
   <tr>
     <th>Name</th>
-    <th style="width: 100px;">Actions</th>
+    <th>Actions</th>
   </tr>
   {% for container in containers %}
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{ container.name }}</td>
     <td id="actions">
       <ul>
-          <li><a href="{% url dash_objects request.user.tenant container.name %}">List Objects</a></li>
-          <li><a href="{% url dash_objects_upload request.user.tenant container.name %}">Upload Object</a></li>
         <li>{% include "_delete_container.html" with form=delete_form %}</li>
+        <li><a href="{% url dash_objects request.user.tenant container.name %}">List Objects</a></li>
+        <li><a href="{% url dash_objects_upload request.user.tenant container.name %}">Upload Object</a></li>
       </ul>
     </td>
   </tr>
