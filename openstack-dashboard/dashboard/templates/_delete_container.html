@@ -1,4 +1,4 @@
-<form id="form_delete_{{container.name}}" class="form-delete" method="post">
+<form id="form_delete_{{container.name}}" action="." class="form-delete" method="post">
   {% csrf_token %}
   {% for hidden in form.hidden_fields %}
     {{hidden}}

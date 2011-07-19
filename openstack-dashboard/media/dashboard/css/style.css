@@ -243,6 +243,7 @@ li.title h4{
   color: #6a6a6a;
   font: 18px;
   margin: 30px 0 15px 0;
+  float: left;
 }
 
 #sidebar .sub_nav { width: 200px; }
@@ -712,7 +713,6 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 input.example, textarea.example {color: #d9d9d9;}
 .dash_block textarea { min-height: 150px; }
 
-.dash_block form { float: left; }
 .dash_block label {
   width: 100%;
   margin: 0 0 5px 0;
@@ -761,7 +761,7 @@ input:focus, textarea:focus {
   margin: 10px 0 10px 0;
 }
 
-.dash_block .left h3 {
+.dash_block .left h3.success {
   color: green;
   padding: 20px 20px 20px 20px;
 }
@@ -857,3 +857,22 @@ input[readonly="readonly"] {
   clear: both;
 }
 #alternate_links a:hover { color: #989898; }
+
+/* Containers */
+
+h3.container_name {
+  font-size: 24px;
+  margin: 0 0 25px 0 ;
+}
+
+h3 span, .left h3 { color: #6a6a6a; }
+
+.left h3 {
+  font-size: 18px;
+  margin: 0 0 15px 0;
+}
+
+.left h3 a {
+  margin: 25px 0 0 0;
+  float: left;
+}

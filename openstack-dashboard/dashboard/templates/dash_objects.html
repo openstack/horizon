@@ -6,28 +6,23 @@
   {% endwith %}
 {% endblock %}
 
-{% block main %}
-  <div id='page_header'>
-    <h2><span>Object Store:</span> Objects</h2>
-    <p class='desc'><span>&mdash;</span> Manage Objects.</p>
-  </div>
-  {% include "_messages.html" %}
-  <div class="container-label">Container:</div>
-  <div class="container-name">{{ container_name }}</div>
-  <div style="clear: both;"></div>
-  <div class='main_content'>
-    {% if objects %}
-      <div class='table_title wide'>
-        <h3>Objects</h3>
-        <div class='filter'>
-           {% include '_object_filter.html' with form=filter_form %}
-        </div>
-      </div>
+{% block page_header %}
+  {% url dash_objects tenant_id container_name as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Objects" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
 
-      {% include '_object_list.html' %}
+{% block dash_main %}
+  <h3 class="container_name"><span>Container:</span> {{ container_name }}</h3>
 
-    {% endif %}
-    <a href="{% url dash_objects_upload request.user.tenant container_name %}">Upload New Object &gt;&gt;</a>
-  </div>
+  {% if objects %}
+    {% include '_object_list.html' %}
+  {% else %}
+    <div class="message_box info">
+      <h2>Info</h2>
+      <p>There are currently no objects in the container {{container_name}}.  You can upload a new object from the <a href='{% url dash_objects_upload request.user.tenant container_name %}'>Object Upload Page &gt;&gt;</a></p>
+    </div>
+  {% endif %}
+  <a class="action_link large-rounded" href="{% url dash_objects_upload request.user.tenant container_name %}">Upload New Object &gt;&gt;</a>
+
 {% endblock %}
-
