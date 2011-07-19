@@ -8,7 +8,7 @@
     <td>{{ container.name }}</td>
     <td id="actions">
       <ul>
-        <li>{% include "_delete_container.html" with form=delete_form %}</li>
+        <li class="form">{% include "_delete_container.html" with form=delete_form %}</li>
         <li><a href="{% url dash_objects request.user.tenant container.name %}">List Objects</a></li>
         <li><a href="{% url dash_objects_upload request.user.tenant container.name %}">Upload Object</a></li>
       </ul>

@@ -28,7 +28,7 @@
           <td>{{user.tenantId}}</td>
           <td id="actions">
             <ul>
-              <li>{% include "_user_delete.html" with form=user_delete_form %}</li>
+              <li class="form">{% include "_user_delete.html" with form=user_delete_form %}</li>
               <li><a href="{% url syspanel_users_update user.id %}">Edit</a></li>
             </ul>                
           </td> 

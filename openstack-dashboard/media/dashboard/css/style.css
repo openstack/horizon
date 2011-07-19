@@ -369,6 +369,7 @@ table th {
 table td {
   border: 1px solid #e8e8e8;
   padding: 10px 10px 10px 10px;
+  vertical-align: middle;
 }
 
 table ul { margin: 0 0 0 20px; }
@@ -415,26 +416,27 @@ td#actions {
 
 td#actions ul { margin: 0; }
 
+td#actions li a { font-size: 11px; }
+
 td#actions li {
   font-size: 11px;
-  margin: 0 8px 6px 15px;
-  clear: both;
+  margin: 10px 8px 6px 10px;
+  display: inline;
+  float: left;
   width: 100%;
 }
 
-td#actions li a { font-size: 11px; }
-
-td#actions form input[type="submit"] {
+td#actions li.form input[type="submit"] {
   color: #3fb9d3;
   background: transparent;
+  text-align: left;
   font-size: 11px;
   width: auto;
-  text-align: left;
+  float: left;
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
   cursor: pointer;
   border: 0px;
-  float: left;
 }
 td#actions input[type="submit"]:hover { text-decoration: underline; }
 
@@ -687,7 +689,6 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   min-width: 725px;
   margin: 0 0 25px 0;
   padding: 25px 25px 25px 25px;
-  float: left;
   border: 1px solid #e1e1e1;
 }
 

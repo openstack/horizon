@@ -14,5 +14,5 @@
 
 {% block dash_main %}
   {% include '_container_list.html' %}
-  <a href="{% url dash_containers_create request.user.tenant %}">Create New Container &gt;&gt;</a>
+  <a class="action_link large-rounded" href="{% url dash_containers_create request.user.tenant %}">Create New Container &gt;&gt;</a>
 {% endblock %}

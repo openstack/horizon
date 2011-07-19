@@ -34,8 +34,8 @@
           <td>{{instance.status|lower|capfirst}}</td>
           <td id="actions">
             <ul>
-              <li>{% include "_terminate.html" with form=terminate_form %}</li>
-              <li>{% include "_reboot.html" with form=reboot_form %}</li>
+              <li class="form">{% include "_terminate.html" with form=terminate_form %}</li>
+              <li class="form">{% include "_reboot.html" with form=reboot_form %}</li>
               <li><a target="_blank" href="{% url dash_instances_console request.user.tenant instance.id %}">Log</a></li>
               <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant instance.id %}">VNC Console</a></li>
               <li><a href="{% url dash_instances_update request.user.tenant instance.id %}">Edit</a></li>
