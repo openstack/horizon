@@ -43,14 +43,6 @@ from glance.common import exception as glance_exception
 
 LOG = logging.getLogger('django_openstack.dash.views.images')
 
-from django.core import validators
-import re
-
-
-def validate_even(value):
-    if value % 2 != 0:
-        raise ValidationError(u'%s is not an even number' % value)
-
 
 class LaunchForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=80, label="Server Name")
@@ -145,7 +137,6 @@ def index(request, tenant_id):
 
 @login_required
 def launch(request, tenant_id, image_id):
-    LOG.error(dir(request))
     def flavorlist():
         try:
             fl = api.flavor_list(request)

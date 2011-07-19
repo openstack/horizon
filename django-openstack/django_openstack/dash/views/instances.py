@@ -120,10 +120,6 @@ def index(request, tenant_id):
 
 @login_required
 def refresh(request, tenant_id):
-    for f in (TerminateInstance, RebootInstance):
-        _, handled = f.maybe_handle(request)
-        if handled:
-            return handled
     instances = []
     try:
         instances = api.server_list(request)
