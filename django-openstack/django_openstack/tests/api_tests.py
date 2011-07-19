@@ -624,16 +624,6 @@ class AccountApiTests(test.TestCase):
 
 
 class AdminApiTests(test.TestCase):
-    #def setUp(self):
-    #    super(AdminApiTests, self).setUp()
-    #    self.request = http.HttpRequest()
-    #    keystone.AuthenticationMiddleware().process_request(self.request)
-    #    #self.request.session = dict()
-    #    #self.request.session['token'] = TEST_TOKEN
-
-    #def tearDown(self):
-    #    super(AdminApiTests, self).tearDown()
-
     def stub_admin_api(self, count=1):
         self.mox.StubOutWithMock(api, 'admin_api')
         admin_api = self.mox.CreateMock(OSAdmin.Admin)
