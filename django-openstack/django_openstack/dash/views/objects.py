@@ -44,7 +44,8 @@ class FilterObjects(forms.SelfHandlingForm):
     def handle(self, request, data):
         object_prefix = data['object_prefix'] or None
 
-        objects = api.swift_get_objects(data['container_name'],
+        objects = api.swift_get_objects(request,
+                                        data['container_name'],
                                         prefix=object_prefix)
 
         return objects
@@ -56,6 +57,7 @@ class DeleteObject(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         api.swift_delete_object(
+                request,
                 data['container_name'],
                 data['object_name'])
         messages.info(request,
@@ -71,6 +73,7 @@ class UploadObject(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         api.swift_upload_object(
+                request,
                 data['container_name'],
                 data['name'],
                 self.files['object_file'].read())
@@ -89,11 +92,11 @@ class CopyObject(forms.SelfHandlingForm):
     orig_object_name = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
+        containers = kwargs.pop('containers')
+
         super(CopyObject, self).__init__(*args, **kwargs)
 
-        container_choices = \
-                [(c.name, c.name) for c in api.swift_get_containers()]
-        self.fields['new_container_name'].choices = container_choices
+        self.fields['new_container_name'].choices = containers
 
     def handle(self, request, data):
         orig_container_name = data['orig_container_name']
@@ -101,8 +104,9 @@ class CopyObject(forms.SelfHandlingForm):
         new_container_name = data['new_container_name']
         new_object_name = data['new_object_name']
 
-        api.swift_copy_object(orig_container_name, orig_object_name,
-                              new_container_name, new_object_name)
+        api.swift_copy_object(request, orig_container_name,
+                              orig_object_name, new_container_name,
+                              new_object_name)
 
         messages.success(request,
                          'Object was successfully copied to %s\%s' %
@@ -120,7 +124,7 @@ def index(request, tenant_id, container_name):
     filter_form, objects = FilterObjects.maybe_handle(request)
     if not objects:
         filter_form.fields['container_name'].initial = container_name
-        objects = api.swift_get_objects(container_name)
+        objects = api.swift_get_objects(request, container_name)
 
     delete_form.fields['container_name'].initial = container_name
     return render_to_response('dash_objects.html', {
@@ -147,7 +151,7 @@ def upload(request, tenant_id, container_name):
 @login_required
 def download(request, tenant_id, container_name, object_name):
     object_data = api.swift_get_object_data(
-            container_name, object_name)
+            request, container_name, object_name)
 
     response = http.HttpResponse()
     response['Content-Disposition'] = 'attachment; filename=%s' % \
@@ -159,7 +163,11 @@ def download(request, tenant_id, container_name, object_name):
 
 @login_required
 def copy(request, tenant_id, container_name, object_name):
-    form, handled = CopyObject.maybe_handle(request)
+    containers = \
+            [(c.name, c.name) for c in api.swift_get_containers(
+                    request)]
+    form, handled = CopyObject.maybe_handle(request,
+            containers=containers)
 
     if handled:
         return handled

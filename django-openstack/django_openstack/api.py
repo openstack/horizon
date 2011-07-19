@@ -221,6 +221,18 @@ class User(APIResourceWrapper):
     _attrs = ['email', 'enabled', 'id', 'tenantId']
 
 
+class SwiftAuthentication(object):
+    """Auth container to pass CloudFiles storage URL and token from
+       session.
+    """
+    def __init__(self, storage_url, auth_token):
+        self.storage_url = storage_url
+        self.auth_token = auth_token
+
+    def authenticate(self):
+        return (self.storage_url, '', self.auth_token)
+
+
 def url_for(request, service_name, admin=False):
     catalog = request.user.service_catalog
     if admin:
@@ -309,11 +321,13 @@ def auth_api():
             management_url=settings.OPENSTACK_KEYSTONE_URL)
 
 
-def swift_api():
-    return cloudfiles.get_connection(
-            settings.SWIFT_ACCOUNT + ":" + settings.SWIFT_USER,
-            settings.SWIFT_PASS,
-            authurl=settings.SWIFT_AUTHURL)
+def swift_api(request):
+    LOG.debug('object store connection created using token "%s"'
+                ' and url "%s"' %
+                (request.session['token'], url_for(request, 'swift')))
+    auth = SwiftAuthentication(url_for(request, 'swift'),
+                               request.session['token'])
+    return cloudfiles.get_connection(auth=auth)
 
 
 def console_create(request, instance_id, kind='text'):
@@ -523,16 +537,16 @@ def user_update_tenant(request, user_id, tenant_id):
     return User(account_api(request).users.update_tenant(user_id, tenant_id))
 
 
-def swift_container_exists(container_name):
+def swift_container_exists(request, container_name):
     try:
-        swift_api().get_container(container_name)
+        swift_api(request).get_container(container_name)
         return True
     except cloudfiles.errors.NoSuchContainer:
         return False
 
 
-def swift_object_exists(container_name, object_name):
-    container = swift_api().get_container(container_name)
+def swift_object_exists(request, container_name, object_name):
+    container = swift_api(request).get_container(container_name)
 
     try:
         container.get_object(object_name)
@@ -541,32 +555,34 @@ def swift_object_exists(container_name, object_name):
         return False
 
 
-def swift_get_containers():
-    return [Container(c) for c in swift_api().get_all_containers()]
+def swift_get_containers(request):
+    return [Container(c) for c in swift_api(request).get_all_containers()]
 
 
-def swift_create_container(name):
-    if swift_container_exists(name):
+def swift_create_container(request, name):
+    if swift_container_exists(request, name):
         raise Exception('Container with name %s already exists.' % (name))
 
-    return Container(swift_api().create_container(name))
+    return Container(swift_api(request).create_container(name))
 
 
-def swift_delete_container(name):
-    swift_api().delete_container(name)
+def swift_delete_container(request, name):
+    swift_api(request).delete_container(name)
 
 
-def swift_get_objects(container_name, prefix=None):
-    container = swift_api().get_container(container_name)
+def swift_get_objects(request, container_name, prefix=None):
+    container = swift_api(request).get_container(container_name)
     return [SwiftObject(o) for o in container.get_objects(prefix=prefix)]
 
 
-def swift_copy_object(orig_container_name, orig_object_name,
+def swift_copy_object(request, orig_container_name, orig_object_name,
                       new_container_name, new_object_name):
 
-    container = swift_api().get_container(orig_container_name)
+    container = swift_api(request).get_container(orig_container_name)
 
-    if swift_object_exists(new_container_name, new_object_name) == True:
+    if swift_object_exists(request,
+                           new_container_name,
+                           new_object_name) == True:
         raise Exception('Object with name %s already exists in container %s'
         % (new_object_name, new_container_name))
 
@@ -574,17 +590,17 @@ def swift_copy_object(orig_container_name, orig_object_name,
     return orig_obj.copy_to(new_container_name, new_object_name)
 
 
-def swift_upload_object(container_name, object_name, object_data):
-    container = swift_api().get_container(container_name)
+def swift_upload_object(request, container_name, object_name, object_data):
+    container = swift_api(request).get_container(container_name)
     obj = container.create_object(object_name)
     obj.write(object_data)
 
 
-def swift_delete_object(container_name, object_name):
-    container = swift_api().get_container(container_name)
+def swift_delete_object(request, container_name, object_name):
+    container = swift_api(request).get_container(container_name)
     container.delete_object(object_name)
 
 
-def swift_get_object_data(container_name, object_name):
-    container = swift_api().get_container(container_name)
+def swift_get_object_data(request, container_name, object_name):
+    container = swift_api(request).get_container(container_name)
     return container.get_object(object_name).stream()
