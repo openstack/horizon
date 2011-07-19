@@ -52,7 +52,6 @@ def get_user_from_request(request):
 
 class LazyUser(object):
     def __get__(self, request, obj_type=None):
-        return get_user_from_request(request)
         if not hasattr(request, '_cached_user'):
             request._cached_user = get_user_from_request(request)
         return request._cached_user

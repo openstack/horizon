@@ -42,7 +42,7 @@ class DeleteContainer(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.swift_delete_container(data['container_name'])
+            api.swift_delete_container(request, data['container_name'])
         except ContainerNotEmpty, e:
             messages.error(request,
                            'Unable to delete non-empty container: %s' % \
@@ -60,7 +60,7 @@ class CreateContainer(forms.SelfHandlingForm):
     name = forms.CharField(max_length="255", label="Container Name")
 
     def handle(self, request, data):
-        api.swift_create_container(data['name'])
+        api.swift_create_container(request, data['name'])
         messages.success(request, "Container was successfully created.")
         return shortcuts.redirect("dash_containers", request.user.tenant)
 
@@ -71,7 +71,7 @@ def index(request, tenant_id):
     if handled:
         return handled
 
-    containers = api.swift_get_containers()
+    containers = api.swift_get_containers(request)
 
     return shortcuts.render_to_response('dash_containers.html', {
         'containers': containers,

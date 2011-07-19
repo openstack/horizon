@@ -120,10 +120,6 @@ def index(request, tenant_id):
 
 @login_required
 def refresh(request, tenant_id):
-    for f in (TerminateInstance, RebootInstance):
-        _, handled = f.maybe_handle(request)
-        if handled:
-            return handled
     instances = []
     try:
         instances = api.server_list(request)
@@ -135,7 +131,7 @@ def refresh(request, tenant_id):
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
 
-    return render_to_response('_instance_list.html', {
+    return shortcuts.render_to_response('_instance_list.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
