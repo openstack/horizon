@@ -776,12 +776,11 @@ class AuthApiTests(test.TestCase):
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
-        request_mock = self.mox.CreateMock(http.HttpRequest)
-        request_mock.session = {'token': 'aToken'}
+        self.request.session = {'token': 'aToken'}
 
         self.mox.ReplayAll()
 
-        ret_val = api.token_get_tenant(request_mock, TEST_TENANT_ID)
+        ret_val = api.token_get_tenant(self.request, TEST_TENANT_ID)
         self.assertEqual(tenant_list[1], ret_val)
 
         self.mox.VerifyAll()
@@ -800,12 +799,11 @@ class AuthApiTests(test.TestCase):
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
-        request_mock = self.mox.CreateMock(http.HttpRequest)
-        request_mock.session = {'token': 'aToken'}
+        self.request.session = {'token': 'aToken'}
 
         self.mox.ReplayAll()
 
-        ret_val = api.token_get_tenant(request_mock, TEST_TENANT_ID)
+        ret_val = api.token_get_tenant(self.request, TEST_TENANT_ID)
         self.assertIsNone(ret_val)
 
         self.mox.VerifyAll()
@@ -827,11 +825,9 @@ class AuthApiTests(test.TestCase):
                       ]
         tenants_mock.for_token('aToken').AndReturn(tenant_list)
 
-        request_mock = self.mox.CreateMock(http.HttpRequest)
-
         self.mox.ReplayAll()
 
-        ret_val = api.token_list_tenants(request_mock, 'aToken')
+        ret_val = api.token_list_tenants(self.request, 'aToken')
         for tenant in ret_val:
             self.assertIn(tenant, tenant_list)
 
@@ -850,11 +846,9 @@ class AuthApiTests(test.TestCase):
         tokens_mock.create(TEST_TENANT_ID, TEST_USERNAME,
                            TEST_PASSWORD).AndReturn(test_token)
 
-        request_mock = self.mox.CreateMock(http.HttpRequest)
-
         self.mox.ReplayAll()
 
-        ret_val = api.token_create(request_mock, TEST_TENANT_ID,
+        ret_val = api.token_create(self.request, TEST_TENANT_ID,
                                    TEST_USERNAME, TEST_PASSWORD)
 
         self.assertEqual(test_token, ret_val)

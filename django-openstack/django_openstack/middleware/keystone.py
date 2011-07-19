@@ -50,9 +50,16 @@ def get_user_from_request(request):
                 request.session['serviceCatalog'])
 
 
+class LazyUser(object):
+    def __get__(self, request, obj_type=None):
+        if not hasattr(request, '_cached_user'):
+            request._cached_user = get_user_from_request(request)
+        return request._cached_user
+
+
 class AuthenticationMiddleware(object):
     def process_request(self, request):
-        request.__class__.user = get_user_from_request(request)
+        request.__class__.user = LazyUser()
 
     def process_exception(self, request, exception):
         if type(exception) in [openstack.compute.exceptions.Forbidden,
