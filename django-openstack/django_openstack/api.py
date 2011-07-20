@@ -177,6 +177,8 @@ class Server(APIResourceWrapper):
         image = image_get(self.request, self.imageRef)
         return image.name
 
+    def reboot(self, hardness=openstack.compute.servers.REBOOT_HARD):
+        compute_api(self.request).servers.reboot(self.id, hardness)
 
 class ServerAttributes(APIDictWrapper):
     """Simple wrapper around openstackx.extras.server.Server attributes
