@@ -180,6 +180,7 @@ class Server(APIResourceWrapper):
     def reboot(self, hardness=openstack.compute.servers.REBOOT_HARD):
         compute_api(self.request).servers.reboot(self.id, hardness)
 
+
 class ServerAttributes(APIDictWrapper):
     """Simple wrapper around openstackx.extras.server.Server attributes
 
@@ -471,8 +472,10 @@ def tenant_update(request, tenant_id, description, enabled):
 def token_create(request, tenant, username, password):
     return Token(auth_api().tokens.create(tenant, username, password))
 
+
 def tenant_quota_get(request, tenant):
     return admin_api(request).quota_sets.get(tenant)
+
 
 def token_info(request, token):
     # TODO(mgius): This function doesn't make a whole lot of sense to me.  The
@@ -529,6 +532,10 @@ def user_list(request):
 
 def user_update_email(request, user_id, email):
     return User(account_api(request).users.update_email(user_id, email))
+
+
+def user_update_enabled(request, user_id, enabled):
+    return User(account_api(request).users.update_enabled(user_id, enabled))
 
 
 def user_update_password(request, user_id, password):
