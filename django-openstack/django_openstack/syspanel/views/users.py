@@ -18,6 +18,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django import shortcuts
 from django import template
 from django import http
 from django.conf import settings
@@ -105,7 +106,8 @@ def index(request):
 
     user_delete_form = UserDeleteForm()
     user_enable_disable_form = UserEnableDisableForm()
-    return render_to_response('syspanel_users.html', {
+    
+    return shortcuts.render_to_response('syspanel_users.html', {
         'users': users,
         'user_delete_form': user_delete_form,
         'user_enable_disable_form': user_enable_disable_form,
