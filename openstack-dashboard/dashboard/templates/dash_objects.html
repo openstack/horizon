@@ -7,10 +7,16 @@
 {% endblock %}
 
 {% block page_header %}
-  {% url dash_objects tenant_id container_name as refresh_link %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "_page_header.html" with title="Objects" refresh_link=refresh_link searchable="true" %}
-{% endblock page_header %}
+  <div id='page_header'>
+    <h2>Objects</h2>
+    <div class="right">
+      <div class='search'>
+        {% include '_object_filter.html' with form=filter_form %}
+      </div>
+      <a class="refresh" title="Refresh" href="{% url dash_objects request.user.tenant container_name %}">Refresh List</a>
+    </div>
+  </div>
+{% endblock %}
 
 {% block dash_main %}
   <h3 class="container_name"><span>Container:</span> {{ container_name }}</h3>
