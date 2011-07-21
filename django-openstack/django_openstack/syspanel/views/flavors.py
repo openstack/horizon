@@ -103,55 +103,13 @@ def create(request):
     if handled:
         return handled
 
-    service_list = []
-    usage_list = []
-    max_vcpus = max_gigabytes = 0
-    total_ram = 0
-
-    try:
-        service_list = api.service_list(request)
-    except api_exceptions.ApiException, e:
-        messages.error(request, 'Unable to get service info: %s' % e.message)
-
-    for service in service_list:
-        if service.type == 'nova-compute':
-            max_vcpus += service.stats['max_vcpus']
-            max_gigabytes += service.stats['max_gigabytes']
-            total_ram += settings.COMPUTE_HOST_RAM_GB
-
-    global_summary = {'max_vcpus': max_vcpus, 'max_gigabytes': max_gigabytes,
-                      'total_active_disk_size': 0, 'total_active_vcpus': 0,
-                      'total_active_ram_size': 0}
-
-    for usage in usage_list:
-        usage = usage.to_dict()
-        for k in usage:
-            v = usage[k]
-            if type(v) in [float, int]:
-                if not k in global_summary:
-                    global_summary[k] = 0
-                global_summary[k] += v
-
-    max_disk_tb = used_disk_tb = available_disk_tb = 0
-
-    max_disk_tb = global_summary['max_gigabytes'] / float(1000)
-    used_disk_tb = global_summary['total_active_disk_size'] / float(1000)
-    available_disk_tb = (global_summary['max_gigabytes'] / float(1000) - \
-                        global_summary['total_active_disk_size'] / float(1000))
-    used_ram = global_summary['total_active_ram_size'] / float(1024)
-    avail_ram = total_ram - used_ram
-
-    ram_unit = "GB"
-    if total_ram > 999:
-        ram_unit = "TB"
-        total_ram /= float(1024)
-        used_ram /= float(1024)
-        avail_ram /= float(1024)
+    global_summary = api.GlobalSummary(request)
+    global_summary.service()
+    global_summary.avail()
+    global_summary.human_readable('disk_size')
+    global_summary.human_readable('ram_size')
 
     return render_to_response('syspanel_create_flavor.html',{
-        'available_cores': global_summary['max_vcpus'] - global_summary['total_active_vcpus'],
-        'available_disk_tb': available_disk_tb,
-        'avail_ram': avail_ram,
-        'ram_unit': ram_unit,
+        'global_summary': global_summary.summary,
         'form': form,
     }, context_instance = template.RequestContext(request))

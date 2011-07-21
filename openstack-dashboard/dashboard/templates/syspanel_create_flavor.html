@@ -12,21 +12,23 @@
 
 {% block syspanel_main %}
     <div class="dash_block">
-      <div class="left">
+      <div>
         <ul class='status_box info small'>
           <li class='block'>
-            <p class='overview'>{{global_summary.max_vcpus|floatformat}}<span> Cores</span></p>
-            <p class='avail'>{{available_cores}} <span class='unit'>vcpu</span> <span class='label'>Available</span></p>
+            <p class='overview'>{{global_summary.total_vcpus}}<span> Cores</span></p></span></p>
+            <p class='avail'>{{global_summary.total_avail_vcpus}}<span class='label'> Avail</span></p>
           </li>
           <li class='block'>
-            <p class='overview'>{{total_ram}}<span> {{ram_unit}} Ram</span></p>
-            <p class='avail'>{{avail_ram|floatformat}}<span class='unit'>{{ram_unit}}</span><span class='label'>Available</span></p>
+            <p class='overview'>{{global_summary.total_ram_size_hr|floatformat}}<span> {{global_summary.unit_ram_size}} Ram</span></p>
+            <p class='avail'>{{global_summary.total_avail_ram_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_ram_size}}</span><span class='label'> Avail</span></p>
           </li>
           <li class='block last'>
-            <p class='overview'>{{max_disk_tb}}<span>TB Disk</span></p>
-            <p class='avail'>{{available_disk_tb}}<span class='unit'>TB</span><span class='label'>Available</span></p>
+            <p class='overview'>{{global_summary.total_disk_size_hr|floatformat}}<span> {{global_summary.unit_disk_size}} Disk</span></p>
+            <p class='avail'>{{global_summary.total_avail_disk_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_disk_size}}</span><span class='label'> Avail</span></p>
           </li>
         </ul>
+      </div>
+      <div class="left">
         {% include "_create_flavor.html" %}
       </div>
       <div class="right">
