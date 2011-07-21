@@ -20,10 +20,30 @@
 
 import logging
 
+from django import shortcuts
+from django.contrib import messages
+from openstackx.api import exceptions as api_exceptions
+
 LOG = logging.getLogger('openstack_dashboard')
 
 
 class DashboardLogUnhandledExceptionsMiddleware(object):
     def process_exception(self, request, exception):
+        if isinstance(exception, api_exceptions.NotFound):
+            try:
+                exception.message.index('reauthenticate')
+                # clear the errors
+                for message in messages.get_messages(request):
+                    LOG.debug('Discarded message - %s: "%s"'
+                              % (message.tags, message.message))
+                messages.info(request, 'Your session has timed out.'
+                                       ' Please log back in.')
+                LOG.info('User "%s" auth token expired, redirecting to logout'
+                         % request.user.username)
+                return shortcuts.redirect('auth_logout')
+
+            except ValueError:
+                pass
+
         LOG.critical('Unhandled Exception in of type "%s" in dashboard.'
                      % type(exception), exc_info=True)
