@@ -81,7 +81,7 @@ class UserEnableDisableForm(forms.SelfHandlingForm):
             api.user_update_enabled(request, user_id, enabled)
             messages.info(request, "User %s %s" %
                                    (user_id,
-                                    "enable" if enabled else "disable"))
+                                    "enabled" if enabled else "disabled"))
         except api_exceptions.ApiException:
             messages.error(request, "Unable to %s user %s" %
                                     ("enable" if enabled else "disable",
