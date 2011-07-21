@@ -23,11 +23,12 @@
       </tr>
       {% for user in users %}
         <tr class="{% cycle 'odd' 'even' %}">
-          <td>{{user.id}}</td>
+          <td>{{user.id}}{% if not user.enabled %} (disabled){% endif %}</td>
           <td>{{user.email}}</td>
           <td>{{user.tenantId}}</td>
           <td id="actions">
             <ul>
+              <li class="form">{% include "_user_enable_disable.html" with form=user_enable_disable_form %}</li>
               <li class="form">{% include "_user_delete.html" with form=user_delete_form %}</li>
               <li><a href="{% url syspanel_users_update user.id %}">Edit</a></li>
             </ul>                

@@ -18,6 +18,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django import shortcuts
 from django import template
 from django import http
 from django.conf import settings
@@ -66,9 +67,32 @@ class UserDeleteForm(forms.SelfHandlingForm):
         return redirect(request.build_absolute_uri())
 
 
+class UserEnableDisableForm(forms.SelfHandlingForm):
+    id = forms.CharField(label="ID (username)", widget=forms.HiddenInput())
+    enabled = forms.ChoiceField(label="enabled", widget=forms.HiddenInput(),
+                                choices=[[c, c]
+                                         for c in ("disable", "enable")])
+
+    def handle(self, request, data):
+        user_id = data['id']
+        enabled = data['enabled'] == "enable"
+
+        try:
+            api.user_update_enabled(request, user_id, enabled)
+            messages.info(request, "User %s %s" %
+                                   (user_id,
+                                    "enabled" if enabled else "disabled"))
+        except api_exceptions.ApiException:
+            messages.error(request, "Unable to %s user %s" %
+                                    ("enable" if enabled else "disable",
+                                     user_id))
+
+        return redirect(request.build_absolute_uri())
+
+
 @login_required
 def index(request):
-    for f in (UserDeleteForm,):
+    for f in (UserDeleteForm, UserEnableDisableForm):
         _, handled = f.maybe_handle(request)
         if handled:
             return handled
@@ -81,10 +105,13 @@ def index(request):
                                  e.message)
 
     user_delete_form = UserDeleteForm()
-    return render_to_response('syspanel_users.html',{
+    user_enable_disable_form = UserEnableDisableForm()
+    
+    return shortcuts.render_to_response('syspanel_users.html', {
         'users': users,
         'user_delete_form': user_delete_form,
-    }, context_instance = template.RequestContext(request))
+        'user_enable_disable_form': user_enable_disable_form,
+    }, context_instance=template.RequestContext(request))
 
 
 @login_required
