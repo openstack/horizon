@@ -613,3 +613,76 @@ def swift_delete_object(request, container_name, object_name):
 def swift_get_object_data(request, container_name, object_name):
     container = swift_api(request).get_container(container_name)
     return container.get_object(object_name).stream()
+
+class GlobalSummary(object):
+    summary = {}
+
+    def __init__(self, request):
+        for rsrc in GlobalSummary.node_resources:
+            for info in GlobalSummary.node_resource_info:
+                self.summary['total_' + info + rsrc] = 0
+        self.request = request
+
+    def service(self):
+        for rsrc in GlobalSummary.node_resources:
+                self.summary['total_' + rsrc] = 0
+
+        try:
+            self.service_list = service_list(self.request)
+        except api_exceptions.ApiException, e:
+            LOG.error('ApiException fetching service list in instance usage',
+                      exc_info=True)
+            messages.error(request,
+                           'Unable to get service info: %s' % e.message)
+            return
+
+        for service in self.service_list:
+            if service.type == 'nova-compute':
+                self.summary['total_vcpus'] += min(service.stats['max_vcpus'], service.stats['vcpus'])
+                self.summary['total_disk_size'] += min(service.stats['max_gigabytes'], service.stats['local_gb'])
+                self.summary['total_ram_size'] += min(service.stats['max_ram'], service.stats['memory_mb']) if 'max_ram' in service.stats else service.stats['memory_mb']
+
+
+    def usage(self, datetime_start, datetime_end):
+        try:
+            self.usage_list = usage_list(self.request, datetime_start, datetime_end)
+        except api_exceptions.ApiException, e:
+            LOG.error('ApiException fetching usage list in instance usage'
+                      ' on date range "%s to %s"' % (datetime_start,
+                                                     datetime_end),
+                      exc_info=True)
+            messages.error(request, 'Unable to get usage info: %s' % e.message)
+            return
+
+        for usage in self.usage_list:
+            # FIXME: api needs a simpler dict interface (with iteration) - anthony
+            # NOTE(mgius): Changed this on the api end.  Not too much neater, but
+            # at least its not going into private member data of an external
+            # class anymore
+            #usage = usage._info
+            for k in usage._attrs:
+                v = usage.__getattr__(k)
+                if type(v) in [float, int]:
+                    if not k in self.summary:
+                        self.summary[k] = 0
+                    self.summary[k] += v
+
+    def human_readable(self, rsrc):
+        if self.summary['total_' + rsrc] > 1023:
+            self.summary['unit_' + rsrc] = GlobalSummary.unit_mem_size[rsrc][1]
+            mult = 1024.0
+        else:
+            self.summary['unit_' + rsrc] = GlobalSummary.unit_mem_size[rsrc][0]
+            mult = 1.0
+
+        for kind in GlobalSummary.node_resource_info:
+            self.summary['total_' + kind + rsrc + '_hr'] = self.summary['total_' + kind + rsrc] / mult
+
+    def avail(self):
+        for rsrc in GlobalSummary.node_resources:
+            self.summary['total_avail_' + rsrc] = self.summary['total_' + rsrc] - self.summary['total_active_' + rsrc]
+
+
+GlobalSummary.node_resources = ['vcpus', 'disk_size', 'ram_size']
+GlobalSummary.unit_mem_size = {'disk_size': ['GiB', 'TiB'], 'ram_size': ['MiB', 'GiB']}
+GlobalSummary.node_resource_info = ['', 'active_', 'avail_']
