@@ -289,16 +289,6 @@ class ApiHelperTests(test.TestCase):
         GLANCE_URL = 'http://glance/glanceapi/'
         NOVA_URL = 'http://nova/novapi/'
 
-        # NOTE: serviceCatalog is now constructed as part of the user object
-        # serviceCatalog = {
-        #        'glance': [{'adminURL': GLANCE_URL + 'admin',
-        #                    'internalURL': GLANCE_URL + 'internal'},
-        #                  ],
-        #        'nova': [{'adminURL': NOVA_URL + 'admin',
-        #                  'internalURL': NOVA_URL + 'internal'},
-        #                ],
-        #        }
-
         url = api.url_for(self.request, 'glance')
         self.assertEqual(url, GLANCE_URL + 'internal')
 
@@ -316,6 +306,11 @@ class ApiHelperTests(test.TestCase):
 
         url = api.url_for(self.request, 'nova', admin=True)
         self.assertEqual(url, NOVA_URL + 'admin')
+
+        self.assertNotIn('notAnApi', self.request.user.service_catalog,
+                         'Select a new nonexistent service catalog key')
+        with self.assertRaises(api.ServiceCatalogException):
+            url = api.url_for(self.request, 'notAnApi')
 
     def test_token_info(self):
         """ This function uses the keystone api, but not through an
