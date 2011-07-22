@@ -1,6 +1,5 @@
 from django import http
 from django.core.urlresolvers import reverse
-from django.utils import unittest
 from django_openstack import api
 from django_openstack.tests.view_tests import base
 from openstackx.api import exceptions as api_exceptions
