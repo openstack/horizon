@@ -125,6 +125,10 @@ def index(request, tenant_id):
     except glance_exception.Error, e:
         LOG.error("Error retrieving image list", exc_info=True)
         messages.error(request, "Error retrieving image list: %s" % str(e))
+    except api_exceptions.ApiException, e:
+        msg = "Unable to retreive image info from glance: %s" % str(e)
+        LOG.error(msg)
+        messages.error(request, msg)
 
     images = [im for im in all_images
               if im['container_format'] not in ['aki', 'ari']]

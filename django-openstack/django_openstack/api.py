@@ -235,14 +235,21 @@ class SwiftAuthentication(object):
     def authenticate(self):
         return (self.storage_url, '', self.auth_token)
 
+class ServiceCatalogException(api_exceptions.ApiException):
+    def __init__(self, service_name):
+        message = 'Invalid service catalog service: %s' % service_name
+        super(ServiceCatalogException, self).__init__(404, message)
 
 def url_for(request, service_name, admin=False):
     catalog = request.user.service_catalog
-    if admin:
-        rv = catalog[service_name][0]['adminURL']
-    else:
-        rv = catalog[service_name][0]['internalURL']
-    return rv
+    try:
+        if admin:
+            rv = catalog[service_name][0]['adminURL']
+        else:
+            rv = catalog[service_name][0]['internalURL']
+        return rv
+    except (IndexError, KeyError):
+        raise ServiceCatalogException(service_name)
 
 
 def check_openstackx(f):
