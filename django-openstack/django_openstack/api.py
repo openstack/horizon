@@ -34,6 +34,7 @@ al.
 """
 
 from django.conf import settings
+from django.contrib import messages
 
 import cloudfiles
 import glance.client
@@ -629,6 +630,8 @@ class GlobalSummary(object):
             for info in GlobalSummary.node_resource_info:
                 self.summary['total_' + info + rsrc] = 0
         self.request = request
+        self.service_list = []
+        self.usage_list = []
 
     def service(self):
         for rsrc in GlobalSummary.node_resources:
@@ -639,7 +642,7 @@ class GlobalSummary(object):
         except api_exceptions.ApiException, e:
             LOG.error('ApiException fetching service list in instance usage',
                       exc_info=True)
-            messages.error(request,
+            messages.error(self.request,
                            'Unable to get service info: %s' % e.message)
             return
 
@@ -658,7 +661,7 @@ class GlobalSummary(object):
                       ' on date range "%s to %s"' % (datetime_start,
                                                      datetime_end),
                       exc_info=True)
-            messages.error(request, 'Unable to get usage info: %s' % e.message)
+            messages.error(self.request, 'Unable to get usage info: %s' % e.message)
             return
 
         for usage in self.usage_list:
