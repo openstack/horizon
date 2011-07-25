@@ -34,6 +34,7 @@ al.
 """
 
 from django.conf import settings
+from django.contrib import messages
 
 import cloudfiles
 import glance.client
