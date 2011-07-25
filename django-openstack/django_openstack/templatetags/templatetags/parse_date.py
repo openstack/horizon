@@ -29,13 +29,13 @@ from dateutil import tz
 register = template.Library()
 
 def _parse_datetime(dtstr):
-    try:
-        return datetime.datetime.strptime(dtstr, "%Y-%m-%dT%H:%M:%S.%f")
-    except:
+    fmts = ["%Y-%m-%dT%H:%M:%S.%f", "%Y-%m-%d %H:%M:%S.%f",
+            "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S"]
+    for fmt in fmts:
         try:
-            return datetime.datetime.strptime(dtstr, "%Y-%m-%d %H:%M:%S.%f")
+            return datetime.datetime.strptime(dtstr, fmt)
         except:
-            return datetime.datetime.strptime(dtstr, "%Y-%m-%d %H:%M:%S")
+            pass
 
 
 class ParseDateNode(template.Node):
