@@ -876,3 +876,5 @@ h3 span, .left h3 { color: #6a6a6a; }
   margin: 25px 0 0 0;
   float: left;
 }
+
+td span.small { font-size: 12px; }

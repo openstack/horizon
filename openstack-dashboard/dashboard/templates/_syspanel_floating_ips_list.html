@@ -1,0 +1,18 @@
+<table id="floating_ips" class="wide">
+  <tr>
+    <th>ID</th>
+    <th>IP</th>
+    <th>Tenant</th>
+    <th>Fixed IP</th>
+    <th>Instance</th>
+  </tr>
+  {% for ip in floating_ips %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ip.id}}</td>
+    <td>{{ip.ip}}</td>
+    <td>{{ip.fixed_ip.instance.project_id|default:'None'}}</td>
+    <td>{{ip.fixed_ip.address|default:'None'}} {% if ip.fixed_ip.instance.id %}<span class="small">( ID: {{ip.fixed_ip.instance.id}} )</span>{% endif %}</td>
+    <td>{{ip.fixed_ip.instance.display_name|default:'None'}}</td>
+  </tr>
+  {% endfor %}
+</table>
