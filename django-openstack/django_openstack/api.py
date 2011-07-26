@@ -623,9 +623,12 @@ def swift_get_object_data(request, container_name, object_name):
     return container.get_object(object_name).stream()
 
 class GlobalSummary(object):
-    summary = {}
+    node_resources = ['vcpus', 'disk_size', 'ram_size']
+    unit_mem_size = {'disk_size': ['GiB', 'TiB'], 'ram_size': ['MiB', 'GiB']}
+    node_resource_info = ['', 'active_', 'avail_']
 
     def __init__(self, request):
+        self.summary = {}
         for rsrc in GlobalSummary.node_resources:
             for info in GlobalSummary.node_resource_info:
                 self.summary['total_' + info + rsrc] = 0
@@ -634,12 +637,10 @@ class GlobalSummary(object):
         self.usage_list = []
 
     def service(self):
-        for rsrc in GlobalSummary.node_resources:
-                self.summary['total_' + rsrc] = 0
-
         try:
             self.service_list = service_list(self.request)
         except api_exceptions.ApiException, e:
+            self.service_list = []
             LOG.error('ApiException fetching service list in instance usage',
                       exc_info=True)
             messages.error(self.request,
@@ -652,11 +653,11 @@ class GlobalSummary(object):
                 self.summary['total_disk_size'] += min(service.stats['max_gigabytes'], service.stats['local_gb'])
                 self.summary['total_ram_size'] += min(service.stats['max_ram'], service.stats['memory_mb']) if 'max_ram' in service.stats else service.stats['memory_mb']
 
-
     def usage(self, datetime_start, datetime_end):
         try:
             self.usage_list = usage_list(self.request, datetime_start, datetime_end)
         except api_exceptions.ApiException, e:
+            self.usage_list = []
             LOG.error('ApiException fetching usage list in instance usage'
                       ' on date range "%s to %s"' % (datetime_start,
                                                      datetime_end),
@@ -691,8 +692,3 @@ class GlobalSummary(object):
     def avail(self):
         for rsrc in GlobalSummary.node_resources:
             self.summary['total_avail_' + rsrc] = self.summary['total_' + rsrc] - self.summary['total_active_' + rsrc]
-
-
-GlobalSummary.node_resources = ['vcpus', 'disk_size', 'ram_size']
-GlobalSummary.unit_mem_size = {'disk_size': ['GiB', 'TiB'], 'ram_size': ['MiB', 'GiB']}
-GlobalSummary.node_resource_info = ['', 'active_', 'avail_']
