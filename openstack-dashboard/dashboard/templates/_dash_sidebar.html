@@ -5,6 +5,7 @@
     <li><a {% if current_sidebar == "instances" %} class="active" {% endif %} href="{% url dash_instances request.user.tenant %}">Instances</a></li>
     <li><a {% if current_sidebar == "images" %} class="active" {% endif %} href="{% url dash_images request.user.tenant %}">Images</a></li>
     <li><a {% if current_sidebar == "keypairs" %} class="active" {% endif %} href="{% url dash_keypairs request.user.tenant %}">Keypairs</a></li>
+    <li><a {% if current_sidebar == "floatingips" %} class="active" {% endif %} href="{% url dash_floating_ips request.user.tenant %}">Floating IPs</a></li>
   </ul>
   {% if swift_configured %}
   <h3>Manage Object Store</h3>

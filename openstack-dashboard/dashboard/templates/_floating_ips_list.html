@@ -1,0 +1,28 @@
+<table id="floating_ips" class="wide">
+  <tr>
+    <th>ID</th>
+    <th>IP</th>
+    <th>Fixed IP</th>
+    <th>Instance</th>
+    <th>Actions</th>
+  </tr>
+  {% for ip in floating_ips %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ ip.id }}</td>
+    <td>{{ ip.ip }}</td>
+    <td>{{ ip.fixed_ip.address|default:'None' }}</td>
+    <td>{{ ip.fixed_ip.instance.display_name|default:'None' }}</td>
+
+    <td id="actions">
+      <ul>
+        <li class="form">{% include "_release_floating_ip.html" with form=release_form %}</li>
+        {% if ip.fixed_ip %}
+        <li class="form">{% include "_disassociate_floating_ip.html" with form=disassociate_form %}</li>
+        {% else %}
+          <li class="form"><a href="{% url dash_floating_ips_disassociate request.user.tenant ip.id %}">Associate to instance</a></li>
+        {% endif %}
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
