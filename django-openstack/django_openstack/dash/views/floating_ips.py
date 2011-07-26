@@ -63,7 +63,7 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
     fixed_ip = forms.ChoiceField()
 
     def __init__(self, *args, **kwargs):
-        super(FloatingIpAllocate, self).__init__(*args, **kwargs)
+        super(FloatingIpAssociate, self).__init__(*args, **kwargs)
         instancelist = kwargs.get('initial', {}).get('instances', [])
         self.fields['fixed_ip'] = forms.ChoiceField(
                 choices=instancelist,
