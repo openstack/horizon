@@ -147,13 +147,10 @@ def index(request, tenant_id):
 
 @login_required
 def associate(request, tenant_id, ip_id):
-    try: 
-        instancelist = [(server.addresses['private'][0]['addr'], server.name)
-                        for server in api.server_list(request)]
-    except:
-        instancelist = [(server.addresses['public'][0]['addr'], server.name)
-                        for server in api.server_list(request)]
-        
+    instancelist = [(server.addresses['private'][0]['addr'], '%s (%s, %s)' % 
+            (server.addresses['private'][0]['addr'], server.id, server.name))
+            for server in api.server_list(request)]
+  
     form, handled = FloatingIpAssociate().maybe_handle(request, initial={
                 'floating_ip_id': ip_id,
                 'floating_ip': api.tenant_floating_ip_get(request, ip_id).ip,
