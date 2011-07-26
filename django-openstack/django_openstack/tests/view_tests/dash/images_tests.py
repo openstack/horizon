@@ -1,6 +1,4 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
-import logging
-
 from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
@@ -28,17 +26,17 @@ class ImageViewTests(base.BaseViewTests):
 
         self.images = (self.visibleImage, self.invisibleImage)
 
-        flavor_inner = base.Object()
-        flavor_inner.id = 1
-        flavor_inner.name = 'm1.massive'
-        flavor_inner.vcpus = 1000
-        flavor_inner.disk = 1024
-        flavor_inner.ram = 10000
-        self.flavors = (api.Flavor(flavor_inner),)
+        flavor = self.mox.CreateMock(api.Flavor)
+        flavor.id = 1
+        flavor.name = 'm1.massive'
+        flavor.vcpus = 1000
+        flavor.disk = 1024
+        flavor.ram = 10000
+        self.flavors = (flavor,)
 
-        keypair_inner = base.Object()
-        keypair_inner.key_name = 'keyName'
-        self.keypairs = (api.KeyPair(keypair_inner),)
+        keypair = self.mox.CreateMock(api.KeyPair)
+        keypair.key_name = 'keyName'
+        self.keypairs = (keypair,)
 
     def test_index(self):
         self.mox.StubOutWithMock(api, 'token_get_tenant')

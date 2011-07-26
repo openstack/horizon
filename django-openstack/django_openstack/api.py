@@ -34,6 +34,7 @@ al.
 """
 
 from django.conf import settings
+from django.contrib import messages
 
 import cloudfiles
 import glance.client
@@ -235,14 +236,21 @@ class SwiftAuthentication(object):
     def authenticate(self):
         return (self.storage_url, '', self.auth_token)
 
+class ServiceCatalogException(api_exceptions.ApiException):
+    def __init__(self, service_name):
+        message = 'Invalid service catalog service: %s' % service_name
+        super(ServiceCatalogException, self).__init__(404, message)
 
 def url_for(request, service_name, admin=False):
     catalog = request.user.service_catalog
-    if admin:
-        rv = catalog[service_name][0]['adminURL']
-    else:
-        rv = catalog[service_name][0]['internalURL']
-    return rv
+    try:
+        if admin:
+            rv = catalog[service_name][0]['adminURL']
+        else:
+            rv = catalog[service_name][0]['internalURL']
+        return rv
+    except (IndexError, KeyError):
+        raise ServiceCatalogException(service_name)
 
 
 def check_openstackx(f):
@@ -622,6 +630,8 @@ class GlobalSummary(object):
             for info in GlobalSummary.node_resource_info:
                 self.summary['total_' + info + rsrc] = 0
         self.request = request
+        self.service_list = []
+        self.usage_list = []
 
     def service(self):
         for rsrc in GlobalSummary.node_resources:
@@ -632,7 +642,7 @@ class GlobalSummary(object):
         except api_exceptions.ApiException, e:
             LOG.error('ApiException fetching service list in instance usage',
                       exc_info=True)
-            messages.error(request,
+            messages.error(self.request,
                            'Unable to get service info: %s' % e.message)
             return
 
@@ -651,7 +661,7 @@ class GlobalSummary(object):
                       ' on date range "%s to %s"' % (datetime_start,
                                                      datetime_end),
                       exc_info=True)
-            messages.error(request, 'Unable to get usage info: %s' % e.message)
+            messages.error(self.request, 'Unable to get usage info: %s' % e.message)
             return
 
         for usage in self.usage_list:

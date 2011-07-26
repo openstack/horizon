@@ -14,10 +14,10 @@ from mox import IsA, IgnoreArg
 class InstanceViewTests(base.BaseViewTests):
     def setUp(self):
         super(InstanceViewTests, self).setUp()
-        server_inner = base.Object()
-        server_inner.id = 1
-        server_inner.name = 'serverName'
-        self.servers = (api.Server(server_inner, None),)
+        server = self.mox.CreateMock(api.Server)
+        server.id = 1
+        server.name = 'serverName'
+        self.servers = (server,)
 
     def test_index(self):
         self.mox.StubOutWithMock(api, 'server_list')
