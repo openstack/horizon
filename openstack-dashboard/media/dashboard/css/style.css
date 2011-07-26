@@ -81,7 +81,7 @@ input[type="submit"]:active { background-position: 0 -105px; }
 
 .clear { clear: both; }
 
-#main a.action_link {
+#main a.action_link, #main input.action_input {
   background: #93bc8d;
   color: #fff;
   font-size: 14px;
@@ -93,9 +93,19 @@ input[type="submit"]:active { background-position: 0 -105px; }
   text-shadow: #62935c 0 -1px 0;
 }
 
-#main a.action_link:hover {
+#main a.action_link:hover, #main input.action_input:hover {
   background: #6fa267; 
   text-decoration: none;  
+}
+
+#main input.action_input {
+  height: auto;
+  width: auto;
+  float: left;
+  margin-bottom: 25px;
+  cursor: pointer;
+  font-size: 12px !important;
+
 }
 
 /* Header */

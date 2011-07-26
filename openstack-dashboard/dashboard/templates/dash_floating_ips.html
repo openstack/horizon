@@ -15,11 +15,11 @@
 {% block dash_main %}
   {% if floating_ips %}
     {% include '_floating_ips_list.html' %}
-    <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant %}">Allocate IP</a>
   {% else %}
     <div class="message_box info">
       <h2>Info</h2>
-      <p>There are currently no floating ips assigned to your tenant. <a href='{% url dash_keypairs_create request.user.tenant %}'>Allocate IP</a></p>
+      <p>There are currently no floating ips assigned to your tenant.</p>
     </div>
   {% endif %}
+  {% include "_allocate_floating_ip.html" with form=allocate_form %}
 {% endblock %}

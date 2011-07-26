@@ -56,7 +56,7 @@ class ReleaseFloatingIp(forms.SelfHandlingForm):
         return shortcuts.redirect(request.build_absolute_uri())
 
 
-class FloatingIpAllocate(forms.SelfHandlingForm):
+class FloatingIpAssociate(forms.SelfHandlingForm):
     floating_ip_id = forms.CharField(widget=forms.HiddenInput())
     floating_ip = forms.CharField(widget=forms.TextInput(
                                                 attrs={'readonly':'readonly'}))
@@ -103,9 +103,29 @@ class FloatingIpDisassociate(forms.SelfHandlingForm):
                                      % e.message)
         return shortcuts.redirect('dash_floating_ips', request.user.tenant)
 
+class FloatingIpAllocate(forms.SelfHandlingForm):
+    tenant_id = forms.CharField(widget=forms.HiddenInput())
+
+    def handle(self, request, data):
+        try:
+            ip = api.tenant_floating_ip_attach(request, data['tenant_id'])
+            LOG.info('Allocating Floating IP "%s" to tenant "%s"'
+                     % (ip.floating_ip, data['tenant_id']))
+
+            messages.success(request, 'Successfully allocated Floating IP "%s"\
+                         to tenant "%s"' % (ip.floating_ip, data['tenant_id']))
+
+        except api_exceptions.ApiException, e:
+            LOG.error("ApiException in FloatingIpAllocate", exc_info=True)
+            messages.error(request, 'Error allocating Floating IP "%s"\
+                           to tenant "%s": %s' % 
+                           (ip.floating_ip, data['tenant_id'], e.message))
+        return shortcuts.redirect('dash_floating_ips', request.user.tenant)
+
+
 @login_required
 def index(request, tenant_id):
-    for f in (ReleaseFloatingIp, FloatingIpDisassociate):
+    for f in (ReleaseFloatingIp, FloatingIpDisassociate, FloatingIpAllocate):
         _, handled = f.maybe_handle(request)
         if handled:
             return handled
@@ -118,6 +138,7 @@ def index(request, tenant_id):
         messages.error(request, 'Error fetching floating ips: %s' % e.message)
 
     return shortcuts.render_to_response('dash_floating_ips.html', {
+        'allocate_form': FloatingIpAllocate(initial={'tenant_id': request.user.tenant}),
         'disassociate_form': FloatingIpDisassociate(),
         'floating_ips': floating_ips,
         'release_form': ReleaseFloatingIp(),
@@ -129,7 +150,7 @@ def associate(request, tenant_id, ip_id):
     instancelist = [(server.addresses['private'][0]['addr'], server.name)
                     for server in api.server_list(request)]
   
-    form, handled = FloatingIpAllocate().maybe_handle(request, initial={
+    form, handled = FloatingIpAssociate().maybe_handle(request, initial={
                 'floating_ip_id': ip_id,
                 'floating_ip': api.tenant_floating_ip_get(request, ip_id).ip,
                 'instances': instancelist})
@@ -143,7 +164,7 @@ def associate(request, tenant_id, ip_id):
 
 @login_required
 def disassociate(request, tenant_id, ip_id):
-    form, handled = FloatingIpAllocate().maybe_handle(request)
+    form, handled = FloatingIpDisassociate().maybe_handle(request)
     if handled:
         return handled
 
