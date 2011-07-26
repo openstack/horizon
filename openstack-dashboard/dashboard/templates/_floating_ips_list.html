@@ -19,7 +19,7 @@
         {% if ip.fixed_ip %}
         <li class="form">{% include "_disassociate_floating_ip.html" with form=disassociate_form %}</li>
         {% else %}
-          <li class="form"><a href="{% url dash_floating_ips_disassociate request.user.tenant ip.id %}">Associate to instance</a></li>
+          <li class="form"><a href="{% url dash_floating_ips_associate request.user.tenant ip.id %}">Associate to instance</a></li>
         {% endif %}
       </ul>
     </td>
