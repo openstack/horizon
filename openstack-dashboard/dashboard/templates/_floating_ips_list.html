@@ -2,7 +2,6 @@
   <tr>
     <th>ID</th>
     <th>IP</th>
-    <th>Fixed IP</th>
     <th>Instance</th>
     <th>Actions</th>
   </tr>
@@ -10,8 +9,17 @@
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{ ip.id }}</td>
     <td>{{ ip.ip }}</td>
-    <td>{{ ip.fixed_ip.address|default:'None' }}</td>
-    <td>{{ ip.fixed_ip.instance.display_name|default:'None' }}</td>
+    <td>
+      {% if ip.fixed_ip.instance.id %}
+        <ul>
+          <li><span>ID:</span> {{ip.fixed_ip.instance.id}}</li>
+          <li><span>IP:</span> {{ip.fixed_ip.address}}</li>
+          <li><span>Name:</span> {{ip.fixed_ip.instance.display_name}}</li>
+        </ul>
+      {% else %}
+        None
+      {% endif %}
+    </td>
 
     <td id="actions">
       <ul>

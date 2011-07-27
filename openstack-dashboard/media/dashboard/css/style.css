@@ -887,4 +887,7 @@ h3 span, .left h3 { color: #6a6a6a; }
   float: left;
 }
 
-td span.small { font-size: 12px; }
+td ul span {
+  color: #666;
+  font-size: 12px;
+}
