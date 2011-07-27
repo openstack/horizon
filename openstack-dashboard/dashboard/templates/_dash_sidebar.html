@@ -4,6 +4,7 @@
     <li><a {% if current_sidebar == "overview" %} class="active" {% endif %} href="{% url dash_overview %}">Overview</a></li>
     <li><a {% if current_sidebar == "instances" %} class="active" {% endif %} href="{% url dash_instances request.user.tenant %}">Instances</a></li>
     <li><a {% if current_sidebar == "images" %} class="active" {% endif %} href="{% url dash_images request.user.tenant %}">Images</a></li>
+    <li><a {% if current_sidebar == "snapshots" %} class="active" {% endif %} href="{% url dash_snapshots request.user.tenant %}">Snapshots</a></li>
     <li><a {% if current_sidebar == "keypairs" %} class="active" {% endif %} href="{% url dash_keypairs request.user.tenant %}">Keypairs</a></li>
   </ul>
   {% if swift_configured %}
