@@ -513,7 +513,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 .status_box {
   font-size: 24px;
   width: 100%;
-  min-width: 750px;
+  min-width: 775px;
   float: left;
   border: 1px solid;
   -webkit-border-radius: 5px;
@@ -579,17 +579,26 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   font-size: 11px;
 }
 
-.status_box p.avail, .status_box p.used {
-  margin: 0 30px 0 0;
+.status_box p.used {
+  font-size: 18px;
+  margin: 0 15px 0 0;
   float: left;
+  text-align: center;
 }
-
+.status_box p.avail {
+  font-size: 18px;
+  margin: 0 0 0 0;
+  float: left;
+  text-align: center;
+}
 .status_box p.avail span, .status_box p.used span { 
-  font-size: 11px;
+  font-size: 10px;
+  margin-top: -5px;
   text-transform: uppercase;
 }
 
 .status_box li.block {
+  min-width: 135px;
   width: 17%;
   height: 61px;
   float: left;
