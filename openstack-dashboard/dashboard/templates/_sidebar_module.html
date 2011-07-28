@@ -1,7 +1,10 @@
 <h3>{{title}}</h3>
 
+{{request.view}}
+
 <ul class="sub_nav">
   {% for link in links %}
-    <li><a href="{{link.url}}">{{link.text}}</a></li>
+    <li><a {% if request.view == link.active_text %} class="active" {% endif %} href="{{link.url}}">{{link.text}}</a></li>
   {% endfor %}
 </ul>
+

@@ -10,7 +10,5 @@ sidebar_init = django.dispatch.Signal()
 @register.inclusion_tag('_sidebar_module.html')
 def initiate_module_sidebar():
     response = sidebar_init.send(sender=sidebar_init)[0][1]
-    print "###"
-    print response
-    print "###"
+
     return response
