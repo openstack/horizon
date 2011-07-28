@@ -1,3 +1,5 @@
+{% load sidebar_signals %}
+
 <div id='sidebar'>
   <h3>System Panel</h3>
   <ul class='sub_nav'>
@@ -10,5 +12,7 @@
     <li><a {% if current_sidebar == "users" %} class="active" {% endif %} href="{% url syspanel_users %}">Users</a></li>
     <li><a {% if current_sidebar == "quotas" %} class="active" {% endif %} href="{% url syspanel_quotas %}">Quotas</a></li>
   </ul>
-  {% block syspanel_sidebar %}{% endblock %}
+  
+  {% initiate_module_sidebar %}
+
 </div>

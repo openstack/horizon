@@ -1,0 +1,7 @@
+<h3>{{title}}</h3>
+
+<ul class="sub_nav">
+  {% for link in links %}
+    <li><a href="{{link.url}}">{{link.text}}</a></li>
+  {% endfor %}
+</ul>
