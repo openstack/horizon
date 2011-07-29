@@ -6,8 +6,7 @@
     <th>Host</th>
     <th>Created</th>
     <th>Image</th>
-    <th>Public IP</th>
-    <th>IP</th>
+    <th>IPs</th>
     <th>State</th>
     <th>Actions</th>
   </tr>
@@ -19,8 +18,16 @@
       <td>{{instance.attrs.launched_at|parse_date}}</td>
       <td>{{instance.image_name}}</td>
 
-      <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
-      <td>{{instance.addresses.private.0.addr|default:'-'}}</td>
+      <td class="ip_list">
+        {% for ip_group, addresses in instance.addresses.items %}
+          <h4>{{ip_group}}</h4>
+          <ul>
+            {% for address in addresses %}
+              <li>{{address.addr}}</li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </td>
 
       <td>{{instance.status|lower|capfirst}}</td>
       <td id="actions">

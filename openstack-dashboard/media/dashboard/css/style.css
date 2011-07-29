@@ -900,3 +900,10 @@ td ul span {
   color: #666;
   font-size: 12px;
 }
+
+.ip_list h4 {
+  color: #666;
+}
+.ip_list ul {
+  padding-left: 15px;
+}
