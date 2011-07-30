@@ -60,26 +60,26 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
     floating_ip_id = forms.CharField(widget=forms.HiddenInput())
     floating_ip = forms.CharField(widget=forms.TextInput(
                                                 attrs={'readonly':'readonly'}))
-    fixed_ip = forms.ChoiceField()
+    instance_id = forms.ChoiceField()
 
     def __init__(self, *args, **kwargs):
         super(FloatingIpAssociate, self).__init__(*args, **kwargs)
         instancelist = kwargs.get('initial', {}).get('instances', [])
-        self.fields['fixed_ip'] = forms.ChoiceField(
+        self.fields['instance_id'] = forms.ChoiceField(
                 choices=instancelist,
                 label="Instance")
 
     def handle(self, request, data):
         try:
             api.tenant_floating_ip_associate(request, data['floating_ip_id'],
-                                                      data['fixed_ip'])
-            LOG.info('Associating Floating IP "%s" with Fixed IP "%s"'
-                                % (data['floating_ip'], data['fixed_ip']))
+                                                      data['instance_id'])
+            LOG.info('Associating Floating IP "%s" with Instance "%s"'
+                                % (data['floating_ip'], data['instance_id']))
 
             messages.info(request, 'Successfully associated Floating IP: %s \
-                                    with Fixed IP: %s' 
+                                    with Instance: %s' 
                                     % (data['floating_ip'],
-                                       data['fixed_ip']))
+                                       data['instance_id']))
         except api_exceptions.ApiException, e:
             LOG.error("ApiException in FloatingIpAssociate", exc_info=True)
             messages.error(request, 'Error associating Floating IP: %s' % e.message)
@@ -147,7 +147,7 @@ def index(request, tenant_id):
 
 @login_required
 def associate(request, tenant_id, ip_id):
-    instancelist = [(server.addresses['private'][0]['addr'], '%s (%s, %s)' % 
+    instancelist = [(server.id, '%s (%s, %s)' % 
             (server.addresses['private'][0]['addr'], server.id, server.name))
             for server in api.server_list(request)]
   

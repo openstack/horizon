@@ -391,11 +391,11 @@ def tenant_floating_ip_release(request, floating_ip_id):
     return extras_api(request).floating_ips.release(floating_ip_id)
 
 
-def tenant_floating_ip_associate(request, floating_ip_id, fixed_ip):
+def tenant_floating_ip_associate(request, floating_ip_id, instance_id):
     """
     Associates a floating ip to a fixed ip.
     """
-    return extras_api(request).floating_ips.associate(floating_ip_id, fixed_ip)
+    return extras_api(request).floating_ips.associate(floating_ip_id, instance_id)
 
 
 def tenant_floating_ip_disassociate(request, floating_ip_id):
@@ -433,11 +433,11 @@ def admin_floating_ip_release(request, floating_ip_id):
     return admin_api(request).floating_ips.release(floating_ip_id)
 
 
-def admin_floating_ip_associate(request, floating_ip_id, fixed_ip):
+def admin_floating_ip_associate(request, floating_ip_id, instance_id):
     """
     Associates a floating ip to a fixed ip.
     """
-    return admin_api(request).floating_ips.associate(floating_ip_id, fixed_ip)
+    return admin_api(request).floating_ips.associate(floating_ip_id, instance_id)
 
 
 def admin_floating_ip_disassociate(request, floating_ip_id):
