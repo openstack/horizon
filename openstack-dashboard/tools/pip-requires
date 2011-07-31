@@ -13,6 +13,7 @@ paste
 PasteDeploy
 sqlalchemy-migrate
 eventlet
+xattr
 
 bzr+https://launchpad.net/glance#egg=glance
 -e git://github.com/jacobian/openstack.compute.git#egg=openstack
