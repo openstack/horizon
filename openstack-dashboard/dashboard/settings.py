@@ -84,7 +84,7 @@ INSTALLED_APPS = (
     'django_openstack',
     'django_openstack.templatetags',
     'mailer',
-    'dashboard.openstack_dashboard_iframer'
+    'dashboard.osdash_module_iframer'
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
