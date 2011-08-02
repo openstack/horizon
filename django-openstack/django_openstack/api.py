@@ -159,7 +159,7 @@ class Server(APIResourceWrapper):
 
        Preserves the request info so image name can later be retrieved
     """
-    _attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
+    _attrs = ['addresses', 'attrs', 'hostId', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
              'image_name']
 
@@ -175,7 +175,7 @@ class Server(APIResourceWrapper):
 
     @property
     def image_name(self):
-        image = image_get(self.request, self.imageRef)
+        image = image_get(self.request, self.image['id'])
         return image.name
 
     def reboot(self, hardness=openstack.compute.servers.REBOOT_HARD):
