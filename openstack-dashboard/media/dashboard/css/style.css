@@ -556,11 +556,14 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 }
 
 .status_box.small p.avail {
-  width: 69px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0 ;
 }
 
-.status_box.small li.block { width: 69px; }
+.status_box.small li.block {
+  width: 26%;
+}
+
 .status_box .status span, .status_box .overview { color: #2e802b; }
 .status_box p.avail { margin-right: 0; }
 
