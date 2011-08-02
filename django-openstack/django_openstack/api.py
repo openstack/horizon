@@ -378,6 +378,7 @@ def image_get(request, image_id):
 def image_list_detailed(request):
     return [Image(i) for i in glance_api(request).get_images_detailed()]
 
+
 def snapshot_list_detailed(request):
     filters = {}
     filters['property-image_type'] = 'snapshot'

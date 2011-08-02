@@ -19,7 +19,7 @@
 #    under the License.
 
 """
-Views for managing Nova images.
+Views for managing Nova instance snapshots.
 """
 
 import datetime
