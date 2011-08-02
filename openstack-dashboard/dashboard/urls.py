@@ -28,7 +28,6 @@ from django.views import generic as generic_views
 import django.views.i18n
 
 from django_openstack import urls as django_openstack_urls
-from osdash_module_iframer import urls as osdash_module_iframer_urls
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.splash', name='splash'),
@@ -39,7 +38,6 @@ urlpatterns = patterns('',
 
 # NOTE(termie): just append them since we want the routes at the root
 urlpatterns += django_openstack_urls.urlpatterns
-urlpatterns += osdash_module_iframer_urls.urlpatterns
 
 urlpatterns += patterns('',
      (r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:],

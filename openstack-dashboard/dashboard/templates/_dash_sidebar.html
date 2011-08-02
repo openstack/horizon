@@ -1,3 +1,5 @@
+{% load sidebar_modules %}
+
 <div id='sidebar'>
   <h3>Manage Compute</h3>
   <ul class='sub_nav'>
@@ -12,4 +14,7 @@
     <li><a {% if current_sidebar == "containers" %} class="active" {% endif %} href="{% url dash_containers request.user.tenant %}">Containers</a></li>
   </ul>
   {% endif %}
+  
+  {% initiate_module_sidebar %}
+  
 </div>

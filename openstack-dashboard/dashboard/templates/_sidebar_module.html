@@ -1,10 +1,10 @@
-<h3>{{title}}</h3>
-
-{{request.view}}
-
-<ul class="sub_nav">
-  {% for link in links %}
-    <li><a {% if request.view == link.active_text %} class="active" {% endif %} href="{{link.url}}">{{link.text}}</a></li>
-  {% endfor %}
-</ul>
+{% for module in modules %}
+  <h3>{{module.title}}</h3>
+  
+  <ul class="sub_nav">
+    {% for link in module.links %}
+      <li><a {% if request.view == link.active_text %} class="active" {% endif %} href="{{link.url}}">{{link.text}}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
 
