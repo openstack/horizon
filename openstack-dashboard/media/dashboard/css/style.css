@@ -640,6 +640,12 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   float: left;
 }
 
+#usage_table {
+  float: left;
+  width: 100%;
+  margin-top: 25px;
+}
+
 /* User Usage */
 
 #usage { height: 180px; }
