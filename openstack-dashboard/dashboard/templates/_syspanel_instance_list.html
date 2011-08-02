@@ -20,12 +20,20 @@
 
       <td class="ip_list">
         {% for ip_group, addresses in instance.addresses.items %}
+          {% if instance.addresses.items|length > 1 %}
           <h4>{{ip_group}}</h4>
           <ul>
             {% for address in addresses %}
               <li>{{address.addr}}</li>
             {% endfor %}
           </ul>
+          {% else %}
+          <ul>
+            {% for address in addresses %}
+              <li>{{address.addr}}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
         {% endfor %}
       </td>
 
