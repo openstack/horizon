@@ -19,7 +19,7 @@
 #    under the License.
 
 """
-Views for managing Nova images.
+Views for managing Nova instance snapshots.
 """
 
 import datetime
@@ -76,10 +76,6 @@ def index(request, tenant_id):
     except glance_exception.Error, e:
         LOG.error("Error retrieving image list", exc_info=True)
         messages.error(request, "Error retrieving image list: %s" % str(e))
-    except api_exceptions.ApiException, e:
-        msg = "Unable to retreive image info from glance: %s" % str(e)
-        LOG.error(msg)
-        messages.error(request, msg)
 
     return render_to_response('dash_snapshots.html', {
         'images': images,
