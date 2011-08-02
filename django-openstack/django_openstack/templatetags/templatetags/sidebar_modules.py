@@ -6,5 +6,12 @@ register = template.Library()
 
 
 @register.inclusion_tag('_sidebar_module.html')
-def initiate_module_sidebar():
-    return {'modules': [module[1] for module in signals.dash_apps_detection()] }
+def dash_sidebar_modules():
+    if signals.dash_apps_detection()[0][1]['type'] == "dash":
+        return {'modules': [module[1] for module in signals.dash_apps_detection()] }
+
+@register.inclusion_tag('_sidebar_module.html')
+def syspanel_sidebar_modules():
+    if signals.dash_apps_detection()[0][1]['type'] == "syspanel":
+        return {'modules': [module[1] for module in signals.dash_apps_detection()] }
+    
