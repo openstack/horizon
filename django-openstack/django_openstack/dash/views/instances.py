@@ -182,13 +182,24 @@ def usage(request, tenant_id=None):
     if show_terminated:
         instances += terminated_instances
 
-    return shortcuts.render_to_response('dash_usage.html', {
+    if request.GET.get('format', 'html') == 'csv':
+        template_name = 'dash_usage.csv'
+        mimetype = "text/csv"
+    else:
+        template_name = 'dash_usage.html'
+        mimetype = "text/html"
+
+    return shortcuts.render_to_response(template_name, {
         'usage': usage,
         'ram_unit': ram_unit,
         'total_ram': total_ram,
+        # there are no date selection caps yet so keeping csv_link simple
+        'csv_link': '?format=csv',
         'show_terminated': show_terminated,
+        'datetime_start': datetime_start,
+        'datetime_end': datetime_end,
         'instances': instances
-    }, context_instance=template.RequestContext(request))
+    }, context_instance = template.RequestContext(request), mimetype=mimetype)
 
 
 @login_required
