@@ -181,6 +181,30 @@ class InstanceViewTests(base.BaseViewTests):
 
         self.reset_times()
 
+    def test_instance_csv_usage(self):
+        TEST_RETURN = 'testReturn'
+
+        now = self.override_times()
+
+        self.mox.StubOutWithMock(api, 'usage_get')
+        api.usage_get(IsA(http.HttpRequest), self.TEST_TENANT,
+                      datetime.datetime(now.year, now.month, 1,
+                                        now.hour, now.minute, now.second),
+                      now).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('dash_usage', args=[self.TEST_TENANT]) +
+                                                    "?format=csv")
+
+        self.assertTemplateUsed(res, 'dash_usage.csv')
+
+        self.assertEqual(res.context['usage'], TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+        self.reset_times()
+
     def test_instance_usage_exception(self):
         now = self.override_times()
 
