@@ -29,11 +29,13 @@ class SnapshotsViewTests(base.BaseViewTests):
 
     def test_index(self):
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).AndReturn(self.images)
+        api.snapshot_list_detailed(IsA(http.HttpRequest)).\
+                                   AndReturn(self.images)
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('dash_snapshots', args=[self.TEST_TENANT]))
+        res = self.client.get(reverse('dash_snapshots',
+                                      args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res, 'dash_snapshots.html')
 
@@ -53,7 +55,8 @@ class SnapshotsViewTests(base.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('dash_snapshots', args=[self.TEST_TENANT]))
+        res = self.client.get(reverse('dash_snapshots',
+                                       args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res, 'dash_snapshots.html')
 
@@ -69,7 +72,8 @@ class SnapshotsViewTests(base.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('dash_snapshots', args=[self.TEST_TENANT]))
+        res = self.client.get(reverse('dash_snapshots',
+                                       args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res, 'dash_snapshots.html')
 
@@ -85,7 +89,7 @@ class SnapshotsViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_snapshots_create',
                                       args=[self.TEST_TENANT,
                                             self.good_server.id]))
-        
+
         self.assertTemplateUsed(res, 'dash_snapshots_create.html')
         self.mox.VerifyAll()
 
@@ -99,7 +103,7 @@ class SnapshotsViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_snapshots_create',
                                       args=[self.TEST_TENANT,
                                             self.bad_server.id]))
-        
+
         self.assertRedirectsNoFollow(res, reverse('dash_instances',
                                                   args=[self.TEST_TENANT]))
         self.mox.VerifyAll()
@@ -111,7 +115,6 @@ class SnapshotsViewTests(base.BaseViewTests):
                        str(self.good_server.id)).AndRaise(exception)
 
         self.mox.ReplayAll()
-
 
         res = self.client.get(reverse('dash_snapshots_create',
                                       args=[self.TEST_TENANT,
@@ -148,7 +151,6 @@ class SnapshotsViewTests(base.BaseViewTests):
         self.assertRedirectsNoFollow(res, reverse('dash_snapshots',
                                                   args=[self.TEST_TENANT]))
 
-
         self.mox.VerifyAll()
 
     def test_create_snapshot_post_exception(self):
@@ -179,6 +181,5 @@ class SnapshotsViewTests(base.BaseViewTests):
         self.assertRedirectsNoFollow(res, reverse('dash_snapshots_create',
                                                   args=[self.TEST_TENANT,
                                                         self.good_server.id]))
-
 
         self.mox.VerifyAll()
