@@ -88,7 +88,6 @@ def usage(request):
         global_summary.service()
         global_summary.usage(datetime_start, datetime_end)
 
-
     dateform = forms.DateForm()
     dateform['date'].field.initial = date_start
 
