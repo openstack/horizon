@@ -26,11 +26,10 @@
 {% block footer_js %}
   <script type="text/javascript" charset="utf-8">
     $(function(){
-      $("#spinner").hide()
       function loadInstances(){
-        $('#spinner').show();
+        $('.refresh').toggleClass("refreshing");
         $('#instances').load('{% url dash_instances_refresh request.user.tenant %}', function(){
-          $("#spinner").hide()
+          $('.refresh').toggleClass("refreshing");
         });
       }
       setInterval(function(){

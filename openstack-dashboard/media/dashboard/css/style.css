@@ -303,14 +303,18 @@ li.title h4{
 a.refresh  {
   background: url(../images/refresh.png) top left no-repeat;
   text-indent: -9999px;
-  width: 16px;
-  height: 19px;
+  width: 24px;
+  height: 24px;
   margin: 8px 0 0 20px;
   float: left;
   display: block;
   cursor: pointer;
 }
-a.refresh:hover { background-position: left -19px; }
+a.refresh:hover { background-position: left -24px; }
+
+a.refresh.refreshing {
+  background: url(../images/spinner.gif) top left no-repeat;
+}
 
 #monitoring {
   background: #f8f8f8;
