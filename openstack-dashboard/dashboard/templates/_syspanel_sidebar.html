@@ -13,6 +13,6 @@
     <li><a {% if current_sidebar == "quotas" %} class="active" {% endif %} href="{% url syspanel_quotas %}">Quotas</a></li>
   </ul>
   
-  {% syspanel_sidebar_modules %}
+  {% syspanel_sidebar_modules request %}
 
 </div>
