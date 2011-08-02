@@ -71,6 +71,10 @@ def _get_start_and_end_date(request):
     return (date_start, date_end, datetime_start, datetime_end)
 
 
+def _csv_usage_link(date_start):
+    return "?date_month=%s&date_year=%s&format=csv" % (date_start.month, date_start.year)
+
+
 @login_required
 def usage(request):
     (date_start, date_end, datetime_start, datetime_end) = _get_start_and_end_date(request)
@@ -103,6 +107,7 @@ def usage(request):
     template_name, {
         'dateform': dateform,
         'usage_list': global_summary.usage_list,
+        'csv_link': _csv_usage_link(date_start),
         'global_summary': global_summary.summary,
         'external_links': settings.EXTERNAL_MONITORING,
     }, context_instance = template.RequestContext(request), mimetype=mimetype)
@@ -152,6 +157,7 @@ def tenant_usage(request, tenant_id):
     return render_to_response(template_name, {
         'dateform': dateform,
         'usage': usage,
+        'csv_link': _csv_usage_link(date_start),
         'instances': running_instances + terminated_instances,
         'tenant_id': tenant_id,
     }, context_instance = template.RequestContext(request), mimetype=mimetype)

@@ -682,6 +682,10 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   padding: 0 0 0 1px;
 }
 
+.csv_download_link {
+  float: right;
+}
+
 
 /* Forms */
 

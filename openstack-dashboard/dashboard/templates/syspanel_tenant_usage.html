@@ -56,11 +56,13 @@
 
     {% if usage.instances %}
       <div class='table_title wide'>
+        <a class="csv_download_link" href="{{csv_link}}">Download CSV &raquo;</a>
         <h3>Tenant Usage: {{tenant_id}}</h3>
       </div>
 
       <table class="wide">
         <tr id='headings'>
+          <th>ID</th>
           <th>Name</th>
           <th>User</th>
           <th>VCPUs</th>
@@ -77,6 +79,7 @@
             {% else %}
               <tr class="{% cycle 'odd' 'even' %}">
             {% endif %}
+              <td>{{instance.id}}</td>
               <td>{{instance.name}}</td>
               <td>{{instance.user_id}}</td>
               <td>{{instance.vcpus}}</td>

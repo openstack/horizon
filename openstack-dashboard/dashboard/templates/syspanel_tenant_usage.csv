@@ -5,5 +5,5 @@ Total Active Ram (MB): {{usage.total_active_ram_size}}
 Total Disk Size: {{usage.total_active_disk_size}}
 Total Disk Usage: {{usage.total_disk_usage}}
 
-Name,UserId,VCPUs,RamMB,DiskGB,Flavor,Usage(Hours),Uptime(Seconds),State
-{% for instance in usage.instances %}{{instance.name|addslashes}},{{instance.user_id|addslashes}},{{instance.vcpus|addslashes}},{{instance.ram_size|addslashes}},{{instance.disk_size|addslashes}},{{instance.flavor|addslashes}},{{instance.hours}},{{instance.uptime}},{{instance.state|capfirst|addslashes}}{% endfor %}
+ID,Name,UserId,VCPUs,RamMB,DiskGB,Flavor,Usage(Hours),Uptime(Seconds),State
+{% for instance in usage.instances %}{{instance.id}},{{instance.name|addslashes}},{{instance.user_id|addslashes}},{{instance.vcpus|addslashes}},{{instance.ram_size|addslashes}},{{instance.disk_size|addslashes}},{{instance.flavor|addslashes}},{{instance.hours}},{{instance.uptime}},{{instance.state|capfirst|addslashes}}{% endfor %}
