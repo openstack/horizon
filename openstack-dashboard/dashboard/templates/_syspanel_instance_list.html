@@ -15,7 +15,6 @@
   {% for instance in instances %}
     <tr id="{{instance.id}}" class="{% cycle "odd" "even" %}">
       <td>{{instance.id}}</td>
-      {% # FIXME:
       <td>{{instance.attrs.tenant_id}}</td>
       <td>{{instance.attrs.user_id}}</td>
       <td class="name">{{instance.attrs.host}}</td>
