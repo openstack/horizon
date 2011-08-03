@@ -417,6 +417,11 @@ def server_list(request):
     return [Server(s, request) for s in extras_api(request).servers.list()]
 
 
+@check_openstackx
+def admin_server_list(request):
+    return [Server(s, request) for s in admin_api(request).servers.list()]
+
+
 def server_reboot(request,
                   instance_id,
                   hardness=openstack.compute.servers.REBOOT_HARD):
