@@ -189,7 +189,7 @@ class ServerAttributes(APIDictWrapper):
     """
     _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
               'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
-              'os_type', 'project_id', 'ramdisk_id', 'scheduled_at',
+              'os_type', 'tenant_id', 'ramdisk_id', 'scheduled_at',
               'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname']
 
 
