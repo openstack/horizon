@@ -189,7 +189,7 @@ class ServerAttributes(APIDictWrapper):
     """
     _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
               'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
-              'os_type', 'project_id', 'ramdisk_id', 'scheduled_at',
+              'os_type', 'tenant_id', 'ramdisk_id', 'scheduled_at',
               'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname']
 
 
@@ -415,6 +415,11 @@ def server_get(request, instance_id):
 @check_openstackx
 def server_list(request):
     return [Server(s, request) for s in extras_api(request).servers.list()]
+
+
+@check_openstackx
+def admin_server_list(request):
+    return [Server(s, request) for s in admin_api(request).servers.list()]
 
 
 def server_reboot(request,

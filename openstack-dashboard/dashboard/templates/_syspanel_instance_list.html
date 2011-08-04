@@ -2,6 +2,7 @@
 <table id="instances" class="wide">
   <tr>
     <th>Id</th>
+    <th>Tenant</th>
     <th>User</th>
     <th>Host</th>
     <th>Created</th>
@@ -14,6 +15,7 @@
   {% for instance in instances %}
     <tr id="{{instance.id}}" class="{% cycle "odd" "even" %}">
       <td>{{instance.id}}</td>
+      <td>{{instance.attrs.tenant_id}}</td>
       <td>{{instance.attrs.user_id}}</td>
       <td class="name">{{instance.attrs.host}}</td>
       <td>{{instance.attrs.launched_at|parse_date}}</td>
@@ -27,8 +29,8 @@
         <ul>
           <li class="form">{% include "_terminate.html" with form=terminate_form %}</li>
           <li class="form">{% include "_reboot.html" with form=reboot_form %}</li>
-          <li><a target="_blank" href="{% url dash_instances_console instance.attrs.project_id instance.id %}">Console Log</a></li>
-          <li><a target="_blank" href="{% url dash_instances_vnc instance.attrs.project_id instance.id %}">VNC Console</a></li>
+          <li><a target="_blank" href="{% url dash_instances_console instance.attrs.tenant_id instance.id %}">Console Log</a></li>
+          <li><a target="_blank" href="{% url dash_instances_vnc instance.attrs.tenant_id instance.id %}">VNC Console</a></li>
         </ul>
       </td>
     </tr>
