@@ -649,9 +649,9 @@ class GlobalSummary(object):
 
         for service in self.service_list:
             if service.type == 'nova-compute':
-                self.summary['total_vcpus'] += min(service.stats['max_vcpus'], service.stats['vcpus'])
-                self.summary['total_disk_size'] += min(service.stats['max_gigabytes'], service.stats['local_gb'])
-                self.summary['total_ram_size'] += min(service.stats['max_ram'], service.stats['memory_mb']) if 'max_ram' in service.stats else service.stats['memory_mb']
+                self.summary['total_vcpus'] += min(service.stats['max_vcpus'], service.stats.get('vcpus', 0))
+                self.summary['total_disk_size'] += min(service.stats['max_gigabytes'], service.stats.get('local_gb', 0))
+                self.summary['total_ram_size'] += min(service.stats['max_ram'], service.stats['memory_mb']) if 'max_ram' in service.stats else service.stats.get('memory_mb', 0)
 
     def usage(self, datetime_start, datetime_end):
         try:
