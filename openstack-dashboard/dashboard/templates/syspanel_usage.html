@@ -63,33 +63,34 @@
         </p>
   </div>
 
+  {% if usage_list %}
+  <div id="usage_table">
+    <div class='table_title wide'>
+      <h3>Server Usage Summary</h3>
+    </div>
 
-    {% if usage_list %}
-      <div class='table_title wide'>
-        <h3>Server Usage Summary</h3>
-      </div>
-
-      <table class="wide">
-        <tr id="headings">
-          <th>Tenant</th>
-          <th>Instances</th>
-          <th>VCPUs</th>
-          <th>Disk</th>
-          <th>RAM</th>
-          <th>VCPU CPU-Hours</th>
-          <th>Disk GB-Hours</th>
+    <table class="wide">
+      <tr id="headings">
+        <th>Tenant</th>
+        <th>Instances</th>
+        <th>VCPUs</th>
+        <th>Disk</th>
+        <th>RAM</th>
+        <th>VCPU CPU-Hours</th>
+        <th>Disk GB-Hours</th>
+      </tr>
+      {% for usage in usage_list %}
+        <tr>
+          <td><a href="{% url syspanel_tenant_usage usage.tenant_id %}">{{usage.tenant_id}}</a></td>
+          <td>{{usage.total_active_instances}}</td>
+          <td>{{usage.total_active_vcpus}}</td>
+          <td>{{usage.total_active_disk_size|diskgbformat}}</td>
+          <td>{{usage.total_active_ram_size|mbformat}}</td>
+          <td>{{usage.total_cpu_usage|floatformat}}</td>
+          <td>{{usage.total_disk_usage|floatformat}}</td>
         </tr>
-        {% for usage in usage_list %}
-          <tr>
-            <td><a href="{% url syspanel_tenant_usage usage.tenant_id %}">{{usage.tenant_id}}</a></td>
-            <td>{{usage.total_active_instances}}</td>
-            <td>{{usage.total_active_vcpus}}</td>
-            <td>{{usage.total_active_disk_size|diskgbformat}}</td>
-            <td>{{usage.total_active_ram_size|mbformat}}</td>
-            <td>{{usage.total_cpu_usage|floatformat}}</td>
-            <td>{{usage.total_disk_usage|floatformat}}</td>
-          </tr>
-        {% endfor %}
+      {% endfor %}
+  </div>
     {% endif %}
   </div>
 </div>
