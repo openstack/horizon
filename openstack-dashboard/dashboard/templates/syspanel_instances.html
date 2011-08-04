@@ -27,9 +27,9 @@
   <script type="text/javascript" charset="utf-8">
     $(function(){
       function loadInstances(){
-        $('.refresh').toggleClass("refreshing");
+        $('.refresh').addClass("refreshing");
         $('#instances').load('{% url dash_instances_refresh request.user.tenant %}', function(){
-          $('.refresh').toggleClass("refreshing");
+          $('.refresh').removeClass("refreshing");
         });
       }
       setInterval(function(){
