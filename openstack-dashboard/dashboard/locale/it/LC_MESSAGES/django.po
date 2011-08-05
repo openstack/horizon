@@ -1,0 +1,96 @@
+# Italian Translations of Dashboard for OpenStack User Interface.
+# Copyright 2011 Carlo Impagliazzo @ CRS4
+# This file is distributed under the same license as the Dashboard for OpenStack.
+# FIRST AUTHOR Jeffrey Wilcox, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openstack-dashboardN\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-08-05 12:41+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Carlo Impagliazzo <truijllo@crs4.it>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: settings.py:96
+msgid "English"
+msgstr "Inglese"
+
+#: settings.py:97
+msgid "British English"
+msgstr "Inglese Britannico"
+
+#: settings.py:98
+msgid "Italiano"
+msgstr ""
+
+#: settings.py:99
+msgid "Spanish"
+msgstr "Spagnolo"
+
+#: settings.py:100
+msgid "French"
+msgstr "Francese"
+
+#: settings.py:101
+msgid "Japanese"
+msgstr "Giapponese"
+
+#: settings.py:102
+msgid "Portuguese"
+msgstr "Portoghese"
+
+#: settings.py:103
+msgid "Simplified Chinese"
+msgstr "Cinese Semplificato"
+
+#: settings.py:104
+msgid "Traditional Chinese"
+msgstr "Cinese Tradizionale"
+
+#: templates/403.html:9
+msgid "Forbidden"
+msgstr "Proibito"
+
+#: templates/404.html:4
+msgid "Page Not Found"
+msgstr "Pagina Non Trovata"
+
+#: templates/404.html:9
+msgid "The page you were looking for doesn't exist"
+msgstr "La pagina che stavi cercando non esiste"
+
+#: templates/404.html:10
+msgid "You may have mistyped the address or the page may have moved."
+msgstr "Puoi aver digitato non correttamente l'indirizzo o la pagina è stata spostata."
+
+#: templates/500.html:9
+msgid "Internal Server Error"
+msgstr ""
+
+#: templates/500.html:10
+msgid ""
+"An unexpected error occurred while processing your request.  Please try your "
+"request again."
+msgstr "Si è verificato un errore inatteso elaborando la tua richesta. Riprova più tardi."
+
+#: templates/permission_denied.html:4 templates/permission_denied.html.py:9
+msgid "Permission Denied"
+msgstr "Permesso Negato"
+
+#: templates/permission_denied.html:10
+msgid "You do not have permission to view the requested page."
+msgstr "Non hai i permessi per vedere la pagina richiesta."
+
+#: templates/unavailable.html:4 templates/unavailable.html.py:9
+msgid "Service Unavailable"
+msgstr "Servizio Non Disponibile"
+
+#: templates/unavailable.html:10
+msgid "This service is temporarily unavailable. Please check back soon."
+msgstr "Questo servizio è temporaneamente non disponibile. Riprova più tardi."
