@@ -38,6 +38,7 @@ from django.contrib import messages
 
 import cloudfiles
 import glance.client
+import glance.common.exception as glance_exceptions
 import httplib
 import json
 import logging
@@ -175,8 +176,11 @@ class Server(APIResourceWrapper):
 
     @property
     def image_name(self):
-        image = image_get(self.request, self.image['id'])
-        return image.name
+        try:
+            image = image_get(self.request, self.image['id'])
+            return image.name
+        except glance_exceptions.NotFound:
+            return "(not found)"
 
     def reboot(self, hardness=openstack.compute.servers.REBOOT_HARD):
         compute_api(self.request).servers.reboot(self.id, hardness)
