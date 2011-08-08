@@ -383,6 +383,17 @@ def image_list_detailed(request):
     return [Image(i) for i in glance_api(request).get_images_detailed()]
 
 
+def snapshot_list_detailed(request):
+    filters = {}
+    filters['property-image_type'] = 'snapshot'
+    filters['is_public'] = 'none'
+    return [Image(i) for i in glance_api(request)
+                             .get_images_detailed(filters=filters)]
+
+def snapshot_create(request, instance_id, name):
+    return extras_api(request).snapshots.create(instance_id, name)
+
+
 def image_update(request, image_id, image_meta=None):
     image_meta = image_meta and image_meta or {}
     return Image(glance_api(request).update_image(image_id,
