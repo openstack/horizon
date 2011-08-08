@@ -136,6 +136,10 @@ class SnapshotsViewTests(base.BaseViewTests):
                     'instance_id': self.good_server.id,
                     'name': SNAPSHOT_NAME}
 
+        self.mox.StubOutWithMock(api, 'server_get')
+        api.server_get(IsA(http.HttpRequest),
+                       str(self.good_server.id)).AndReturn(self.good_server)
+
         self.mox.StubOutWithMock(api, 'snapshot_create')
         api.snapshot_create(IsA(http.HttpRequest),
                             str(self.good_server.id), SNAPSHOT_NAME).\
