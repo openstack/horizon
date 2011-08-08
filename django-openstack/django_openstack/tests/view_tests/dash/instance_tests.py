@@ -17,6 +17,7 @@ class InstanceViewTests(base.BaseViewTests):
         server = self.mox.CreateMock(api.Server)
         server.id = 1
         server.name = 'serverName'
+        server.attrs = {'description': 'mydesc'}
         self.servers = (server,)
 
     def test_index(self):
@@ -339,6 +340,102 @@ class InstanceViewTests(base.BaseViewTests):
 
         res = self.client.get(reverse('dash_instances_vnc',
                                       args=[self.TEST_TENANT, INSTANCE_ID]))
+
+        self.assertRedirectsNoFollow(res, reverse('dash_instances',
+                                                  args=[self.TEST_TENANT]))
+
+        self.mox.VerifyAll()
+
+    def test_instance_update_get(self):
+        INSTANCE_ID = self.servers[0].id
+
+        self.mox.StubOutWithMock(api, 'server_get')
+        api.server_get(IsA(http.HttpRequest),
+                           unicode(INSTANCE_ID)).AndReturn(self.servers[0])
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('dash_instances_update',
+                                      args=[self.TEST_TENANT, INSTANCE_ID]))
+
+        self.assertTemplateUsed(res, 'dash_instance_update.html')
+
+        self.mox.VerifyAll()
+
+    def test_instance_update_get_server_get_exception(self):
+        INSTANCE_ID = self.servers[0].id
+
+        exception = api_exceptions.ApiException('apiException')
+        self.mox.StubOutWithMock(api, 'server_get')
+        api.server_get(IsA(http.HttpRequest),
+                           unicode(INSTANCE_ID)).AndRaise(exception)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('dash_instances_update',
+                                      args=[self.TEST_TENANT, INSTANCE_ID]))
+
+        self.assertRedirectsNoFollow(res, reverse('dash_instances',
+                                                  args=[self.TEST_TENANT]))
+
+        self.mox.VerifyAll()
+
+    def test_instance_update_post(self):
+        INSTANCE_ID = self.servers[0].id
+        NAME = 'myname'
+        DESC = 'mydesc'
+        formData = {'method': 'UpdateInstance',
+                    'instance': self.servers[0].id,
+                    'name': NAME,
+                    'tenant_id': self.TEST_TENANT,
+                    'description': DESC}
+
+        self.mox.StubOutWithMock(api, 'server_get')
+        api.server_get(IsA(http.HttpRequest),
+                           unicode(INSTANCE_ID)).AndReturn(self.servers[0])
+
+        self.mox.StubOutWithMock(api, 'server_update')
+        api.server_update(IsA(http.HttpRequest),
+                          str(INSTANCE_ID), NAME, DESC)
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(reverse('dash_instances_update',
+                                       args=[self.TEST_TENANT,
+                                             INSTANCE_ID]),
+                               formData)
+
+        self.assertRedirectsNoFollow(res, reverse('dash_instances',
+                                                  args=[self.TEST_TENANT]))
+
+        self.mox.VerifyAll()
+
+    def test_instance_update_post_api_exception(self):
+        INSTANCE_ID = self.servers[0].id
+        NAME = 'myname'
+        DESC = 'mydesc'
+        formData = {'method': 'UpdateInstance',
+                    'instance': INSTANCE_ID,
+                    'name': NAME,
+                    'tenant_id': self.TEST_TENANT,
+                    'description': DESC}
+
+        self.mox.StubOutWithMock(api, 'server_get')
+        api.server_get(IsA(http.HttpRequest),
+                           unicode(INSTANCE_ID)).AndReturn(self.servers[0])
+
+        exception = api_exceptions.ApiException('apiException')
+        self.mox.StubOutWithMock(api, 'server_update')
+        api.server_update(IsA(http.HttpRequest),
+                          str(INSTANCE_ID), NAME, DESC).\
+                          AndRaise(exception)
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(reverse('dash_instances_update',
+                                       args=[self.TEST_TENANT,
+                                             INSTANCE_ID]),
+                               formData)
 
         self.assertRedirectsNoFollow(res, reverse('dash_instances',
                                                   args=[self.TEST_TENANT]))

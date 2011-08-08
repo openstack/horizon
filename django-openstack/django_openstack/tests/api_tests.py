@@ -55,15 +55,16 @@ TEST_USERNAME = 'testUser'
 
 class Server(object):
     """ More or less fakes what the api is looking for """
-    def __init__(self, id, imageRef, attrs=None):
+    def __init__(self, id, image, attrs=None):
         self.id = id
-        self.imageRef = imageRef
+        
+        self.image = image
         if attrs is not None:
             self.attrs = attrs
 
     def __eq__(self, other):
         if self.id != other.id or \
-            self.imageRef != other.imageRef:
+            self.image['id'] != other.image['id']:
                 return False
 
         for k in self.attrs:
@@ -228,7 +229,7 @@ class ServerWrapperTests(test.TestCase):
     HOST = 'hostname'
     ID = '1'
     IMAGE_NAME = 'imageName'
-    IMAGE_REF = '3'
+    IMAGE_OBJ = { 'id': '3', 'links': [{'href': '3', u'rel': u'bookmark'}] }
 
     def setUp(self):
         super(ServerWrapperTests, self).setUp()
@@ -236,8 +237,8 @@ class ServerWrapperTests(test.TestCase):
         # these are all objects "fetched" from the api
         self.inner_attrs = {'host': self.HOST}
 
-        self.inner_server = Server(self.ID, self.IMAGE_REF, self.inner_attrs)
-        self.inner_server_no_attrs = Server(self.ID, self.IMAGE_REF)
+        self.inner_server = Server(self.ID, self.IMAGE_OBJ, self.inner_attrs)
+        self.inner_server_no_attrs = Server(self.ID, self.IMAGE_OBJ)
 
         #self.request = self.mox.CreateMock(http.HttpRequest)
 
@@ -268,7 +269,7 @@ class ServerWrapperTests(test.TestCase):
     def test_image_name(self):
         self.mox.StubOutWithMock(api, 'image_get')
         api.image_get(IsA(http.HttpRequest),
-                      self.IMAGE_REF
+                      self.IMAGE_OBJ['id']
                       ).AndReturn(api.Image({'name': self.IMAGE_NAME}))
 
         server = api.Server(self.inner_server, self.request)
@@ -907,22 +908,6 @@ class ComputeApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
-    def test_server_get(self):
-        INSTANCE_ID = '2'
-
-        compute_api = self.stub_compute_api()
-        compute_api.servers = self.mox.CreateMockAnything()
-        compute_api.servers.get(INSTANCE_ID).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.server_get(self.request, INSTANCE_ID)
-
-        self.assertIsInstance(ret_val, api.Server)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-        self.mox.VerifyAll()
-
     def test_server_reboot(self):
         INSTANCE_ID = '2'
         HARDNESS = 'diamond'
@@ -1131,6 +1116,22 @@ class ExtrasApiTests(test.TestCase):
         for usage in ret_val:
             self.assertIsInstance(usage, api.Usage)
             self.assertIn(usage._apiresource, usages)
+
+        self.mox.VerifyAll()
+
+    def test_server_get(self):
+        INSTANCE_ID = '2'
+
+        extras_api = self.stub_extras_api()
+        extras_api.servers = self.mox.CreateMockAnything()
+        extras_api.servers.get(INSTANCE_ID).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_get(self.request, INSTANCE_ID)
+
+        self.assertIsInstance(ret_val, api.Server)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
         self.mox.VerifyAll()
 

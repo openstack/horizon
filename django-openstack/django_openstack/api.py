@@ -159,7 +159,7 @@ class Server(APIResourceWrapper):
 
        Preserves the request info so image name can later be retrieved
     """
-    _attrs = ['addresses', 'attrs', 'hostId', 'id', 'imageRef', 'links',
+    _attrs = ['addresses', 'attrs', 'hostId', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
              'image_name']
 
@@ -175,7 +175,7 @@ class Server(APIResourceWrapper):
 
     @property
     def image_name(self):
-        image = image_get(self.request, self.imageRef)
+        image = image_get(self.request, self.image['id'])
         return image.name
 
     def reboot(self, hardness=openstack.compute.servers.REBOOT_HARD):
@@ -189,7 +189,7 @@ class ServerAttributes(APIDictWrapper):
     """
     _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
               'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
-              'os_type', 'project_id', 'ramdisk_id', 'scheduled_at',
+              'os_type', 'tenant_id', 'ramdisk_id', 'scheduled_at',
               'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname']
 
 
@@ -409,12 +409,17 @@ def server_delete(request, instance):
 
 
 def server_get(request, instance_id):
-    return Server(compute_api(request).servers.get(instance_id), request)
+    return Server(extras_api(request).servers.get(instance_id), request)
 
 
 @check_openstackx
 def server_list(request):
     return [Server(s, request) for s in extras_api(request).servers.list()]
+
+
+@check_openstackx
+def admin_server_list(request):
+    return [Server(s, request) for s in admin_api(request).servers.list()]
 
 
 def server_reboot(request,
@@ -649,9 +654,9 @@ class GlobalSummary(object):
 
         for service in self.service_list:
             if service.type == 'nova-compute':
-                self.summary['total_vcpus'] += min(service.stats['max_vcpus'], service.stats['vcpus'])
-                self.summary['total_disk_size'] += min(service.stats['max_gigabytes'], service.stats['local_gb'])
-                self.summary['total_ram_size'] += min(service.stats['max_ram'], service.stats['memory_mb']) if 'max_ram' in service.stats else service.stats['memory_mb']
+                self.summary['total_vcpus'] += min(service.stats['max_vcpus'], service.stats.get('vcpus', 0))
+                self.summary['total_disk_size'] += min(service.stats['max_gigabytes'], service.stats.get('local_gb', 0))
+                self.summary['total_ram_size'] += min(service.stats['max_ram'], service.stats['memory_mb']) if 'max_ram' in service.stats else service.stats.get('memory_mb', 0)
 
     def usage(self, datetime_start, datetime_end):
         try:

@@ -171,7 +171,7 @@ def index(request):
 
     instances = []
     try:
-        instances = api.server_list(request)
+        instances = api.admin_server_list(request)
     except Exception as e:
         LOG.error('Unspecified error in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)

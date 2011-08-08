@@ -80,7 +80,6 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django_nose',
     'django_openstack',
     'django_openstack.templatetags',
     'mailer',
