@@ -5,7 +5,7 @@ dash_apps_ping = django.dispatch.Signal()
 dash_apps_urls = django.dispatch.Signal()
 
 
-def dash_apps_detection():
+def dash_apps_detect():
     """
     Sends a pinging signal to the app, all listening modules will reply with
     items for the sidebar.
