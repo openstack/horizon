@@ -101,10 +101,12 @@ def usage(request):
     else:
         template_name = 'syspanel_usage.html'
         mimetype = "text/html"
-
+    
     return render_to_response(
     template_name, {
         'dateform': dateform,
+        'datetime_start': datetime_start,
+        'datetime_end': datetime_end,
         'usage_list': global_summary.usage_list,
         'csv_link': _csv_usage_link(date_start),
         'global_summary': global_summary.summary,
@@ -155,6 +157,8 @@ def tenant_usage(request, tenant_id):
 
     return render_to_response(template_name, {
         'dateform': dateform,
+        'datetime_start': datetime_start,
+        'datetime_end': datetime_end,
         'usage': usage,
         'csv_link': _csv_usage_link(date_start),
         'instances': running_instances + terminated_instances,
