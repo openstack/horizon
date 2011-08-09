@@ -23,6 +23,7 @@ from django.conf.urls.defaults import *
 INSTANCES = r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/%s$'
 IMAGES = r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/%s$'
 KEYPAIRS = r'^(?P<tenant_id>[^/]+)/keypairs/%s$'
+SNAPSHOTS = r'^(?P<tenant_id>[^/]+)/snapshots/(?P<instance_id>[^/]+)/%s$'
 CONTAINERS = r'^(?P<tenant_id>[^/]+)/containers/%s$'
 OBJECTS = r'^(?P<tenant_id>[^/]+)/containers/(?P<container_name>[^/]+)/%s$'
 
@@ -43,6 +44,11 @@ urlpatterns += patterns('django_openstack.dash.views.images',
 urlpatterns += patterns('django_openstack.dash.views.keypairs',
     url(r'^(?P<tenant_id>[^/]+)/keypairs/$', 'index', name='dash_keypairs'),
     url(KEYPAIRS % 'create', 'create', name='dash_keypairs_create'),
+)
+
+urlpatterns += patterns('django_openstack.dash.views.snapshots',
+    url(r'^(?P<tenant_id>[^/]+)/snapshots/$', 'index', name='dash_snapshots'),
+    url(SNAPSHOTS % 'create', 'create', name='dash_snapshots_create'),
 )
 
 # Swift containers and objects.

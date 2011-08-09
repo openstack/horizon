@@ -23,15 +23,13 @@
   {% endif %}
 {% endblock %}
 
-
 {% block footer_js %}
   <script type="text/javascript" charset="utf-8">
     $(function(){
-      $("#spinner").hide()
       function loadInstances(){
-        $('#spinner').show();
-        $('#instances').load('{% url syspanel_instances_refresh %}', function(){
-          $("#spinner").hide()
+        $('.refresh').addClass("refreshing");
+        $('#instances').load('{% url dash_instances_refresh request.user.tenant %}', function(){
+          $('.refresh').removeClass("refreshing");
         });
       }
       setInterval(function(){

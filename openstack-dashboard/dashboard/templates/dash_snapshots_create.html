@@ -1,0 +1,37 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="snapshots" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block headerjs %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $("#id_name").focus()
+    })
+  </script>
+{% endblock %}
+
+{% block page_header %}
+  {% include "_page_header.html" with title="Create a Snapshot" %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  <div class="dash_block">
+    <div class="left">
+      <h3>Choose a name for your snapshot.</h3>
+      {% include '_snapshot_form.html' with form=create_form %}
+      <h3><a href="{% url dash_snapshots request.user.tenant %}"><< Return to snapshots list</a></h3>
+    </div>
+
+    <div class="right">
+      <h3>Description:</h3>
+      <p>Snapshots preserve the disk state of a running instance.</p>
+    </div>
+    <div class="clear">&nbsp;</div>
+  </div>
+{% endblock %}
+
+
