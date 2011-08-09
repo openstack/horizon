@@ -17,8 +17,6 @@ def dash_app_setup_urls():
     """
     Adds urls from modules
     """
-    response = dash_apps_urls.send(senter=dash_apps_urls)
-    
-    return response
+    return dash_apps_urls.send(sender=dash_apps_urls)
 
 
