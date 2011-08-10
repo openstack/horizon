@@ -36,6 +36,7 @@ from django.contrib import messages
 from django_openstack import api
 from django_openstack import forms
 from django_openstack.dash.views import instances as dash_instances
+from django_openstack.decorators import enforce_admin_access
 from openstackx.api import exceptions as api_exceptions
 
 
@@ -91,6 +92,7 @@ class UserEnableDisableForm(forms.SelfHandlingForm):
 
 
 @login_required
+@enforce_admin_access
 def index(request):
     for f in (UserDeleteForm, UserEnableDisableForm):
         _, handled = f.maybe_handle(request)
@@ -115,6 +117,7 @@ def index(request):
 
 
 @login_required
+@enforce_admin_access
 def update(request, user_id):
     if request.method == "POST":
         tenants = api.tenant_list(request)
@@ -171,6 +174,7 @@ def update(request, user_id):
 
 
 @login_required
+@enforce_admin_access
 def create(request):
     try:
         tenants = api.tenant_list(request)

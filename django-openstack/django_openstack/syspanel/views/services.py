@@ -39,6 +39,7 @@ from django.contrib import messages
 from django_openstack import api
 from django_openstack import forms
 from django_openstack.dash.views import instances as dash_instances
+from django_openstack.decorators import enforce_admin_access
 from openstackx.api import exceptions as api_exceptions
 
 LOG = logging.getLogger('django_openstack.syspanel.views.services')
@@ -70,6 +71,7 @@ class ToggleService(forms.SelfHandlingForm):
 
 
 @login_required
+@enforce_admin_access
 def index(request):
     for f in (ToggleService,):
         _, handled = f.maybe_handle(request)

@@ -14,9 +14,10 @@ from openstackx.api import exceptions as api_exceptions
 
 from django_openstack import api
 from django_openstack import forms
-
+from django_openstack.decorators import enforce_admin_access
 
 @login_required
+@enforce_admin_access
 def index(request):
     quotas = api.admin_api(request).quota_sets.get(True)._info
     quotas['ram'] = int(quotas['ram']) / 100
