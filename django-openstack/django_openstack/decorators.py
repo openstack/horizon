@@ -25,7 +25,9 @@ Simple decorator container for general purpose
 from django.shortcuts import redirect
 import logging
 
+
 LOG = logging.getLogger('django_openstack.syspanel')
+
 
 def enforce_admin_access(fn):
     """ Preserve unauthorized bypass typing directly the URL and redirects to 
