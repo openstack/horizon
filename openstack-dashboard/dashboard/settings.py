@@ -95,6 +95,7 @@ gettext_noop = lambda s: s
 LANGUAGES = (
     ('en', gettext_noop('English')),
     ('en-gb', gettext_noop('British English')),
+    ('it', gettext_noop('Italiano')),
     ('es', gettext_noop('Spanish')),
     ('fr', gettext_noop('French')),
     ('ja', gettext_noop('Japanese')),
