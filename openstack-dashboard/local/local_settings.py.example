@@ -39,6 +39,12 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 #             catalog in Keystone.
 SWIFT_ENABLED = False
 
+# Configure quantum connection details for networking
+QUANTUM_URL = '127.0.0.1'
+QUANTUM_PORT = '9696'
+QUANTUM_TENANT = '1234'
+QUANTUM_CLIENT_VERSION='0.1'
+
 # If you have external monitoring links
 EXTERNAL_MONITORING = [
     ['Nagios','http://foo.com'],
