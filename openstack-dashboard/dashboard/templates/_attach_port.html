@@ -1,0 +1,33 @@
+<form id="attach_port_form_{{port.id}}" class="form-attach" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="network" type="hidden" value="{{network.id}}" />
+  <input name="port" type="hidden" value="{{port.id}}" />
+  <input name="vif" type="hidden" value="" class="vif_input"/>
+  <input title="Attach port to a virtual interface" id="attach_{{port.id}}" class="attach" type="submit" value="Attach" />
+  <div class="port-attach" id="port_attach_div_{{port.id}}">
+    <div class="vif_status">
+        Fetching virtual interfaces ... <br/>
+        <img src="/media/dashboard/images/spinner.gif" />
+    </div>
+    <div class="select_area">
+        <select class="vif-list" name="vif"></select>
+    </div>
+    <div class="error_block ui-state-error ui-corner-all"></div>
+    <div class="attachment_details">
+        <table class="attachment_table">
+            <tr>
+                <td class="row_head">Instance Name</td> <td class="row_val instance_name"></td>
+                <td class="row_head">Instance Id</td> <td class="row_val instance_id"> </td>
+            </tr>
+            <tr>
+                <td class="row_head">VIF id</td> <td class="row_val vif_id"></td>
+                <td class="row_head">Network</td> <td class="row_val network"></td>
+            </tr>
+        </table>
+    </div>
+    <button class="attach_port_button" id="{{port.id}}">Attach</button>
+  </div>
+</form>

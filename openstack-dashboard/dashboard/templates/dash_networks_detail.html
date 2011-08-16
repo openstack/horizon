@@ -1,0 +1,38 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="networks" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url dash_networks_detail request.user.tenant network.id as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title=network.name refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block headerjs %}
+<script src="/media/dashboard/js/network_detail.js"></script>
+{% endblock %}
+
+{% block headercss %}
+    <link href='/media/dashboard/css/cupertino/jquery-ui-1.8.15.custom/jquery-ui-1.8.15.custom.css' media='screen' rel='stylesheet' />
+{% endblock %}
+
+{% block breadcrumbs %}
+    <a href="{% url dash_networks tenant %}">Networks</a>&nbsp;&raquo;&nbsp;
+    <a href="{% url dash_networks_detail tenant network.id %}">{{network.name}}</a>
+{% endblock %}
+
+{% block dash_main %}
+  {% if network.ports %}
+    {% include '_network_detail.html' %}
+    <a id="network_create_link" class="action_link large-rounded" href="{% url dash_ports_create request.user.tenant network.id %}">Create Ports</a>
+  {% else %}
+    <div class="message_box info">
+     <h2>Info</h2>
+     <p>There are currently no ports in this network. <a href="{% url dash_ports_create request.user.tenant network.id %}">Create Ports &gt;&gt;</a></p>
+    </div> 
+  {% endif %}
+{% endblock %}

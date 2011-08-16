@@ -1,0 +1,156 @@
+# vim: tabstop=4 shiftwidth=4 softtabstop=4
+
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Copyright 2011 Fourth Paradigm Development, Inc.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
+"""
+Views for managing api.quantum_api(request) network ports.
+"""
+import logging
+
+from django import http
+from django import shortcuts
+from django import template
+from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.utils.translation import ugettext as _
+
+from django_openstack import forms
+from django_openstack import api
+
+
+LOG = logging.getLogger('django_api.quantum_api(request).dash')
+
+
+class CreatePort(forms.SelfHandlingForm):
+    network = forms.CharField(widget=forms.HiddenInput())
+    ports_num = forms.IntegerField(required=True, label="Number of Ports")
+    
+    def handle(self, request, data):
+        try:
+            LOG.info('Creating %s ports on network %s' % (data['ports_num'], data['network']))
+            for i in range(0, data['ports_num']):
+                api.quantum_api(request).create_port(data['network'])
+        except Exception, e:
+            messages.error(request,
+                           'Unable to create ports on network %s: %s' %
+                           (data['network'], e.message,))
+        else:
+            msg = '%s ports created on network %s.' % (data['ports_num'], data['network'])
+            LOG.info(msg)
+            messages.success(request, msg)
+            
+        return shortcuts.redirect(request.build_absolute_uri())
+
+
+class DeletePort(forms.SelfHandlingForm):
+    network = forms.CharField(widget=forms.HiddenInput())
+    port = forms.CharField(widget=forms.HiddenInput())
+    
+    def handle(self, request, data):
+        try:
+            LOG.info('Deleting %s ports on network %s' % (data['port'], data['network']))
+            api.quantum_api(request).delete_port(data['network'], data['port'])
+        except Exception, e:
+            messages.error(request,
+                           'Unable to delete port %s: %s' %
+                           (data['port'], e.message,))
+        else:
+            msg = 'Port %s deleted from network %s.' % (data['port'], data['network'])
+            LOG.info(msg)
+            messages.success(request, msg)
+        return shortcuts.redirect(request.build_absolute_uri())
+
+
+class AttachPort(forms.SelfHandlingForm):
+    network = forms.CharField(widget=forms.HiddenInput())
+    port = forms.CharField(widget=forms.HiddenInput())
+    vif = forms.CharField(required=True, label="Select VIF to connect")
+    
+    def handle(self, request, data):
+        try:
+            LOG.info('Attaching %s port to VIF %s' % (data['port'], data['vif']))
+            body = {'port': {'attachment-id': '%s' % data['vif']}}
+            api.quantum_api(request).attach_resource(data['network'], data['port'], body)
+        except Exception, e:
+            messages.error(request,
+                           'Unable to attach port %s to VIF %s: %s' %
+                           (data['port'], data['vif'], e.message,))
+        else:
+            msg = 'Port %s connect to VIF %s.' % (data['port'], data['vif'])
+            LOG.info(msg)
+            messages.success(request, msg)
+        return shortcuts.redirect(request.build_absolute_uri())
+        
+
+class DetachPort(forms.SelfHandlingForm):
+    network = forms.CharField(widget=forms.HiddenInput())
+    port = forms.CharField(widget=forms.HiddenInput())
+    
+    def handle(self, request, data):
+        try:
+            LOG.info('Detaching port %s' % data['port'])
+            api.quantum_api(request).detach_resource(data['network'], data['port'])
+        except Exception, e:
+            messages.error(request,
+                           'Unable to detach port %s: %s' %
+                           (data['port'], e.message,))
+        else:
+            msg = 'Port %s detached.' % (data['port'])
+            LOG.info(msg)
+            messages.success(request, msg)
+        return shortcuts.redirect(request.build_absolute_uri())
+        
+
+class TogglePort(forms.SelfHandlingForm):
+    network = forms.CharField(widget=forms.HiddenInput())
+    port = forms.CharField(widget=forms.HiddenInput())
+    state = forms.CharField(widget=forms.HiddenInput())
+    
+    def handle(self, request, data):
+        try:
+            LOG.info('Toggling port state to %s' % data['state'])
+            body = {'port': {'port-state': '%s' % data['state']}}
+            api.quantum_api(request).set_port_state(data['network'], data['port'], body)
+        except Exception, e:
+            messages.error(request,
+                           'Unable to set port state to %s: %s' %
+                           (data['state'], e.message,))
+        else:
+            msg = 'Port %s state set to %s.' % (data['port'],data['state'])
+            LOG.info(msg)
+            messages.success(request, msg)
+        return shortcuts.redirect(request.build_absolute_uri())
+        
+
+@login_required
+def create(request, tenant_id, network_id):
+    create_form, handled  = CreatePort.maybe_handle(request)
+    
+    if (handled):
+        return shortcuts.redirect(
+            'dash_networks_detail', 
+            tenant_id=request.user.tenant, 
+            network_id=network_id
+        )
+        
+    return shortcuts.render_to_response('dash_ports_create.html', {
+        'network_id' : network_id,
+        'create_form' : create_form
+    }, context_instance=template.RequestContext(request))

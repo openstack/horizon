@@ -47,6 +47,7 @@ import openstackx.admin
 import openstackx.api.exceptions as api_exceptions
 import openstackx.extras
 import openstackx.auth
+from quantum.client import Client
 from urlparse import urlparse
 
 
@@ -162,7 +163,7 @@ class Server(APIResourceWrapper):
     """
     _attrs = ['addresses', 'attrs', 'hostId', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
-             'image_name']
+             'image_name', 'virtual_interfaces']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
@@ -343,6 +344,11 @@ def swift_api(request):
     auth = SwiftAuthentication(url_for(request, 'swift'),
                                request.session['token'])
     return cloudfiles.get_connection(auth=auth)
+
+
+def quantum_api(request):
+    return Client(settings.QUANTUM_URL, settings.QUANTUM_PORT, 
+                  False, request.user.tenant, 'json')
 
 
 def console_create(request, instance_id, kind='text'):

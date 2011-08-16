@@ -1,0 +1,49 @@
+<table id='Ports' class="wide">
+  <tr id='headings'>
+    <th>ID</th>
+    <th>State</th>
+    <th>Attachment</th>
+    <th>Actions</th>
+    <th>Extensions</th>
+  </tr>
+  <tbody class='main'>
+    {% for port in network.ports %}
+      <tr class="{% cycle 'odd' 'even' %}">
+          <td>{{port.id}}</td>
+          <td class="{{port.state}}">{{port.state}}</td>
+          <td>
+            {% if port.attachment == None %}
+            --
+            {% else %}
+            <table class="attachmend_details">
+                <tr>
+                    <td> Instance </td>
+                    <td> VIF Id </td>
+                </tr>
+                <tr>
+                    <td> {{port.instance}} </td>
+                    <td> {{port.attachment}} </td>
+                </tr>
+            </table>
+            {% endif %}
+          </td>
+          <td id="actions">
+            <ul>
+              {% if port.attachment == None %}
+              <li class="form">{% include "_attach_port.html" with form=attach_port_form %}</li>
+              {% else %}
+              <li class="form">{% include "_detach_port.html" with form=detach_port_form %}</li>
+              {% endif %}
+              <li class="form">{% include "_delete_port.html" with form=delete_port_form %}</li>
+              <li class="form">{% include "_toggle_port.html" with form=toggle_port_form %}</li>
+            </ul>
+          </td>
+          <td id="extensions">
+            <ul>
+            </ul>
+          </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

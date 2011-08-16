@@ -1,0 +1,34 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="networks" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url dash_networks request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Networks" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block headerjs %}
+<script src="/media/dashboard/js/network_list.js"></script>
+{% endblock %}
+
+{% block headercss %}
+    <link href='/media/dashboard/css/cupertino/jquery-ui-1.8.15.custom/jquery-ui-1.8.15.custom.css' media='screen' rel='stylesheet' />
+{% endblock %}
+
+{% block dash_main %}
+  {% if networks %}
+    {% include '_network_list.html' %}
+    <a id="network_create_link" class="action_link large-rounded" href="{% url dash_network_create request.user.tenant %}">Create New Network</a>
+  {% else %}
+    <div class="message_box info">
+      <h2>Info</h2>
+      <p>There are currently no networks. <a href='{% url dash_network_create request.user.tenant %}'>Create A Network &gt;&gt;</a></p>
+    </div>
+  {% endif %}
+  </div>
+{% endblock %}

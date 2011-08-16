@@ -1,0 +1,17 @@
+<form id="form_rename_{{network.id}}" class="form-rename" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  
+  <input name="network" type="hidden" value="{{network.id}}" />
+  <input id="new_name_{{network.id}}" name="new_name" type="hidden" value="{{network.name}}" />
+  
+  <input id="rename_{{network.id}}" class="rename" type="submit" value="Rename" />
+  
+  <div class="network_rename_div" id="rename_div_{{network.id}}">
+      <input id="change_to_{{network.id}}" name="change_to" class="change_to ui-corner-all ui-state-highlight" size="20" value="{{network.name}}"/><br/><br/>
+      <button id="{{network.id}}" class="dialog_rename">Rename</button>
+  </div>
+  
+</form>

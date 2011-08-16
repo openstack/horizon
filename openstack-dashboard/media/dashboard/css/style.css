@@ -894,3 +894,48 @@ h3 span, .left h3 { color: #6a6a6a; }
   margin: 25px 0 0 0;
   float: left;
 }
+
+/* Network details page */
+td.ACTIVE {
+  color:#6EAF6E;
+}
+
+td.DOWN {
+  color:#CC3333;
+}
+
+.vif-list {
+  font: 12px/21px arial,sans-serif;
+  font-style: italic;
+}
+
+table.attachment_table {
+    margin-top: 10px;
+    border: none;
+    display: none;
+}
+
+table.attachment_table td {
+    padding: 5px;
+    font-size: 8pt;
+}
+
+table.attachment_table td.row_head {
+    font-weight: bold;
+}
+
+table.attachment_table td.row_val {
+    font-style: italic;
+}
+
+div.error_block {
+    padding: 5px;
+    font-size: 8pt;
+}
+
+span.attachment_value {
+    font-weight:bold;
+    display:inline-block;
+    font-style:italic;
+    color:#6EAF6E;
+}
