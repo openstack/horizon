@@ -40,6 +40,7 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 SWIFT_ENABLED = False
 
 # Configure quantum connection details for networking
+QUANTUM_ENABLED = True
 QUANTUM_URL = '127.0.0.1'
 QUANTUM_PORT = '9696'
 QUANTUM_TENANT = '1234'
