@@ -17,7 +17,7 @@ eventlet
 xattr
 
 bzr+https://launchpad.net/glance#egg=glance
-bzr+https://launchpad.net/~asomya/+junk/quantum-dev
+bzr+https://launchpad.net/quantum#egg=quantum
 -e git://github.com/jacobian/openstack.compute.git#egg=openstack
 -e git://github.com/cloudbuilders/openstackx.git#egg=openstackx
 

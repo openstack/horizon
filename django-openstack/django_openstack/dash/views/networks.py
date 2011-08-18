@@ -128,15 +128,15 @@ def index(request, tenant_id):
             for port in ports['ports']:
                 total += 1
                 # Get port details
-                port_details = api.quantum_api(request).list_port_details(network['id'], port['id'])
+                port_details = api.quantum_api(request).show_port_details(network['id'], port['id'])
                 # Get port attachment
-                port_attachment = api.quantum_api(request).list_port_attachments(network['id'], port['id'])
+                port_attachment = api.quantum_api(request).show_port_attachment(network['id'], port['id'])
                 if port_attachment['attachment'] == None:
                     available += 1
                 else:
                     used += 1
             # Get network details like name and id
-            details = api.quantum_api(request).list_network_details(network['id'])
+            details = api.quantum_api(request).show_network_details(network['id'])
             networks.append({
                 'name' : details['network']['name'], 
                 'id' : network['id'],
@@ -178,15 +178,15 @@ def detail(request, tenant_id, network_id):
     network_ports = []
     
     try:
-        network_details = api.quantum_api(request).list_network_details(network_id)
+        network_details = api.quantum_api(request).show_network_details(network_id)
         network['name'] = network_details['network']['name']
         network['id'] = network_id
         # Get all ports on this network
         ports = api.quantum_api(request).list_ports(network_id)
         for port in ports['ports']:
-            port_details = api.quantum_api(request).list_port_details(network_id, port['id'])
+            port_details = api.quantum_api(request).show_port_details(network_id, port['id'])
             # Get port attachments
-            port_attachment = api.quantum_api(request).list_port_attachments(network_id, port['id'])
+            port_attachment = api.quantum_api(request).show_port_attachment(network_id, port['id'])
             # Find instance the attachment belongs to
             # Get all instances
             instances = api.server_list(request)
@@ -231,34 +231,34 @@ def vif_ids(request):
             ports = api.quantum_api(request).list_ports(network['id'])
             # Get port attachments
             for port in ports['ports']:
-                port_attachment = api.quantum_api(request).list_port_attachments(network['id'], port['id'])
+                port_attachment = api.quantum_api(request).show_port_attachment(network['id'], port['id'])
                 if port_attachment['attachment']:
                     attached_vifs.append(port_attachment['attachment'].encode('ascii'))
-            # Get all instances
-            instances = api.server_list(request)
-            # Get virtual interface ids by instance
-            for instance in instances:
-                instance_vifs = instance.virtual_interfaces
-                for vif in instance_vifs:
-                    # Check if this VIF is already connected to any port
-                    if str(vif['id']) in attached_vifs:
-                        vifs.append({
-                            'id' : vif['id'],
-                            'instance' : instance.id,
-                            'instance_name' : instance.name,
-                            'available' : False,
-                            'network_id' : vif['network']['id'],
-                            'network_name' : vif['network']['label']
-                        })
-                    else:
-                        vifs.append({
-                            'id' : vif['id'],
-                            'instance' : instance.id,
-                            'instance_name' : instance.name,
-                            'available' : True,
-                            'network_id' : vif['network']['id'],
-                            'network_name' : vif['network']['label']
-                        })
+        # Get all instances
+        instances = api.server_list(request)
+        # Get virtual interface ids by instance
+        for instance in instances:
+            instance_vifs = instance.virtual_interfaces
+            for vif in instance_vifs:
+                # Check if this VIF is already connected to any port
+                if str(vif['id']) in attached_vifs:
+                    vifs.append({
+                        'id' : vif['id'],
+                        'instance' : instance.id,
+                        'instance_name' : instance.name,
+                        'available' : False,
+                        'network_id' : vif['network']['id'],
+                        'network_name' : vif['network']['label']
+                    })
+                else:
+                    vifs.append({
+                        'id' : vif['id'],
+                        'instance' : instance.id,
+                        'instance_name' : instance.name,
+                        'available' : True,
+                        'network_id' : vif['network']['id'],
+                        'network_name' : vif['network']['label']
+                    })
         return http.HttpResponse(simplejson.dumps(vifs), mimetype='application/json')
     except Exception, e:
         messages.error(request, 'Unable to get virtual interfaces: %s' % e.message)
