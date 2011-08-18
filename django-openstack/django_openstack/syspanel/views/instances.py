@@ -206,7 +206,7 @@ def refresh(request):
 
     instances = []
     try:
-        instances = api.server_list(request)
+        instances = api.admin_server_list(request)
     except Exception as e:
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
