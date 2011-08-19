@@ -36,7 +36,6 @@ from django_openstack import forms
 from django_openstack import api
 
 from django_openstack.dash.views.ports import DeletePort
-from django_openstack.dash.views.ports import AttachPort
 from django_openstack.dash.views.ports import DetachPort
 from django_openstack.dash.views.ports import TogglePort
 
@@ -110,7 +109,6 @@ class RenameNetwork(forms.SelfHandlingForm):
 @login_required
 def index(request, tenant_id):
     delete_form, delete_handled = DeleteNetwork.maybe_handle(request)
-    rename_form, rename_handled = RenameNetwork.maybe_handle(request)
     
     networks = []
     instances = []
@@ -152,7 +150,6 @@ def index(request, tenant_id):
     return shortcuts.render_to_response('dash_networks.html', {
         'networks': networks,
         'delete_form' : delete_form,
-        'rename_form' : rename_form,
     }, context_instance=template.RequestContext(request))
 
 
@@ -166,11 +163,10 @@ def create(request, tenant_id):
         'network_form' : network_form
     }, context_instance=template.RequestContext(request))
     
-    
+
 @login_required
 def detail(request, tenant_id, network_id):
     delete_port_form, delete_handled  = DeletePort.maybe_handle(request)
-    attach_port_form, attach_handled  = AttachPort.maybe_handle(request)
     detach_port_form, detach_handled  = DetachPort.maybe_handle(request)
     toggle_port_form, port_toggle_handled = TogglePort.maybe_handle(request)
     
@@ -181,6 +177,10 @@ def detail(request, tenant_id, network_id):
         network_details = api.quantum_api(request).show_network_details(network_id)
         network['name'] = network_details['network']['name']
         network['id'] = network_id
+        
+        # Get all vifs for comparison with port attachments
+        vifs = api.get_vif_ids(request)
+        
         # Get all ports on this network
         ports = api.quantum_api(request).list_ports(network_id)
         for port in ports['ports']:
@@ -213,53 +213,20 @@ def detail(request, tenant_id, network_id):
         'network': network,
         'tenant' : tenant_id,
         'delete_port_form' : delete_port_form,
-        'attach_port_form' : attach_port_form,
         'detach_port_form' : detach_port_form,
         'toggle_port_form' : toggle_port_form
     }, context_instance=template.RequestContext(request))
 
 
 @login_required
-def vif_ids(request):
-    vifs = []
-    attached_vifs = []
+def rename(request, tenant_id, network_id):
+    rename_form, handled = RenameNetwork.maybe_handle(request)
+    network_details = api.quantum_api(request).show_network_details(network_id)
     
-    try:
-        # Get a list of all networks
-        networks_list = api.quantum_api(request).list_networks()
-        for network in networks_list['networks']:
-            ports = api.quantum_api(request).list_ports(network['id'])
-            # Get port attachments
-            for port in ports['ports']:
-                port_attachment = api.quantum_api(request).show_port_attachment(network['id'], port['id'])
-                if port_attachment['attachment']:
-                    attached_vifs.append(port_attachment['attachment'].encode('ascii'))
-        # Get all instances
-        instances = api.server_list(request)
-        # Get virtual interface ids by instance
-        for instance in instances:
-            instance_vifs = instance.virtual_interfaces
-            for vif in instance_vifs:
-                # Check if this VIF is already connected to any port
-                if str(vif['id']) in attached_vifs:
-                    vifs.append({
-                        'id' : vif['id'],
-                        'instance' : instance.id,
-                        'instance_name' : instance.name,
-                        'available' : False,
-                        'network_id' : vif['network']['id'],
-                        'network_name' : vif['network']['label']
-                    })
-                else:
-                    vifs.append({
-                        'id' : vif['id'],
-                        'instance' : instance.id,
-                        'instance_name' : instance.name,
-                        'available' : True,
-                        'network_id' : vif['network']['id'],
-                        'network_name' : vif['network']['label']
-                    })
-        return http.HttpResponse(simplejson.dumps(vifs), mimetype='application/json')
-    except Exception, e:
-        messages.error(request, 'Unable to get virtual interfaces: %s' % e.message)
-        return http.HttpResponse('Unable to get virtual interfaces: %s' % e.message, mimetype='application/json')
+    if handled:
+        return shortcuts.redirect('dash_networks', request.user.tenant)
+    
+    return shortcuts.render_to_response('dash_network_rename.html', {
+        'network' : network_details,
+        'rename_form' : rename_form
+    }, context_instance=template.RequestContext(request))

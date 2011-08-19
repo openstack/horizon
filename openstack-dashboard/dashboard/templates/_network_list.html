@@ -18,7 +18,7 @@
           <td id="actions">
             <ul>
               <li class="form">{% include "_delete_network.html" with form=delete_form %}</li>
-              <li class="form">{% include "_rename_network.html" with form=rename_form %}</li>
+              <li><a href='{% url dash_network_rename request.user.tenant network.id %}'>Rename</a></li>
             </ul>
         </td>
       </tr>

@@ -648,6 +648,47 @@ def swift_get_object_data(request, container_name, object_name):
     container = swift_api(request).get_container(container_name)
     return container.get_object(object_name).stream()
 
+def get_vif_ids(request):
+    vifs = []
+    attached_vifs = []
+    
+    # Get a list of all networks
+    networks_list = quantum_api(request).list_networks()
+    for network in networks_list['networks']:
+        ports = quantum_api(request).list_ports(network['id'])
+        # Get port attachments
+        for port in ports['ports']:
+            port_attachment = quantum_api(request).show_port_attachment(network['id'], port['id'])
+            if port_attachment['attachment']:
+                attached_vifs.append(port_attachment['attachment'].encode('ascii'))
+    # Get all instances
+    instances = server_list(request)
+    # Get virtual interface ids by instance
+    for instance in instances:
+        instance_vifs = instance.virtual_interfaces
+        for vif in instance_vifs:
+            # Check if this VIF is already connected to any port
+            if str(vif['id']) in attached_vifs:
+                vifs.append({
+                    'id' : vif['id'],
+                    'instance' : instance.id,
+                    'instance_name' : instance.name,
+                    'available' : False,
+                    'network_id' : vif['network']['id'],
+                    'network_name' : vif['network']['label']
+                })
+            else:
+                vifs.append({
+                    'id' : vif['id'],
+                    'instance' : instance.id,
+                    'instance_name' : instance.name,
+                    'available' : True,
+                    'network_id' : vif['network']['id'],
+                    'network_name' : vif['network']['label']
+                })
+
+    return vifs
+    
 class GlobalSummary(object):
     node_resources = ['vcpus', 'disk_size', 'ram_size']
     unit_mem_size = {'disk_size': ['GiB', 'TiB'], 'ram_size': ['MiB', 'GiB']}

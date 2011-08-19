@@ -12,14 +12,6 @@
   {% include "_page_header.html" with title="Networks" refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
 
-{% block headerjs %}
-<script src="/media/dashboard/js/network_list.js"></script>
-{% endblock %}
-
-{% block headercss %}
-    <link href='/media/dashboard/css/cupertino/jquery-ui-1.8.15.custom/jquery-ui-1.8.15.custom.css' media='screen' rel='stylesheet' />
-{% endblock %}
-
 {% block dash_main %}
   {% if networks %}
     {% include '_network_list.html' %}

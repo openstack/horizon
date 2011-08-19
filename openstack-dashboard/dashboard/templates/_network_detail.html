@@ -30,7 +30,7 @@
           <td id="actions">
             <ul>
               {% if port.attachment == None %}
-              <li class="form">{% include "_attach_port.html" with form=attach_port_form %}</li>
+              <li><a href='{% url dash_ports_attach request.user.tenant network.id port.id %}'>Attach</a></li>
               {% else %}
               <li class="form">{% include "_detach_port.html" with form=detach_port_form %}</li>
               {% endif %}

@@ -72,8 +72,10 @@ urlpatterns += patterns('django_openstack.dash.views.networks',
     url(r'^(?P<tenant_id>[^/]+)/networks/$', 'index', name='dash_networks'),
     url(NETWORKS % 'create', 'create', name='dash_network_create'),
     url(NETWORKS % '(?P<network_id>[^/]+)/detail', 'detail', name='dash_networks_detail'),
+    url(NETWORKS % '(?P<network_id>[^/]+)/rename', 'rename', name='dash_network_rename'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.ports',
     url(PORTS % 'create', 'create', name='dash_ports_create'),
+    url(PORTS % '(?P<port_id>[^/]+)/attach', 'attach', name='dash_ports_attach'),
 )

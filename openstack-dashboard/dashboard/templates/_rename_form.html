@@ -1,0 +1,11 @@
+<form id="rename_form" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+    {% for field in form.visible_fields %}
+    {{ field.label_tag }}
+    {{ field.errors }}
+    {{ field }}
+  {% endfor %}
+  <input type="hidden" name="network" value="{{network.network.id}}"/>
+  <input type="submit" value="Rename Network" class="large-rounded" />
+</form> 

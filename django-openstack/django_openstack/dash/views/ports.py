@@ -81,19 +81,19 @@ class DeletePort(forms.SelfHandlingForm):
 class AttachPort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     port = forms.CharField(widget=forms.HiddenInput())
-    vif = forms.CharField(required=True, label="Select VIF to connect")
-    
+    vif_id = forms.CharField(widget=forms.Select(), label="Select VIF to connect")
+        
     def handle(self, request, data):
         try:
-            LOG.info('Attaching %s port to VIF %s' % (data['port'], data['vif']))
-            body = {'port': {'attachment-id': '%s' % data['vif']}}
+            LOG.info('Attaching %s port to VIF %s' % (data['port'], data['vif_id']))
+            body = {'port': {'attachment-id': '%s' % data['vif_id']}}
             api.quantum_api(request).attach_resource(data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
                            'Unable to attach port %s to VIF %s: %s' %
-                           (data['port'], data['vif'], e.message,))
+                           (data['port'], data['vif_id'], e.message,))
         else:
-            msg = 'Port %s connect to VIF %s.' % (data['port'], data['vif'])
+            msg = 'Port %s connect to VIF %s.' % (data['port'], data['vif_id'])
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -153,4 +153,31 @@ def create(request, tenant_id, network_id):
     return shortcuts.render_to_response('dash_ports_create.html', {
         'network_id' : network_id,
         'create_form' : create_form
+    }, context_instance=template.RequestContext(request))
+
+
+@login_required
+def attach(request, tenant_id, network_id, port_id):
+    attach_form, handled  = AttachPort.maybe_handle(request)
+    
+    if handled:
+        return shortcuts.redirect('dash_networks_detail', request.user.tenant, network_id)
+    
+    # Get all avaliable vifs
+    VIF_CHOICES = []
+    vifs = api.get_vif_ids(request)
+    
+    for vif in vifs:
+        if vif['available']:
+            name = "Instance %s VIF %s" % (str(vif['instance_name']), str(vif['id']))
+            VIF_CHOICES.append({
+                'name' : str(name),
+                'id' : str(vif['id'])
+            })
+            
+    return shortcuts.render_to_response('dash_port_attach.html', {
+        'network' : network_id,
+        'port' : port_id,
+        'attach_form' : attach_form,
+        'vifs' : VIF_CHOICES,
     }, context_instance=template.RequestContext(request))

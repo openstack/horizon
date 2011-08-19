@@ -27,6 +27,3 @@ urlpatterns = patterns('',
     url(r'^syspanel/', include('django_openstack.syspanel.urls')),
 )
 
-urlpatterns += patterns('',
-    url(r'^ajax/virtual_interfaces/$', 'django_openstack.dash.views.networks.vif_ids')
-)
