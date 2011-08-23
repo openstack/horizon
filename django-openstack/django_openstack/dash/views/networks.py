@@ -42,7 +42,7 @@ from django_openstack.dash.views.ports import TogglePort
 import warnings
 
 
-LOG = logging.getLogger('django_openstack.dash')
+LOG = logging.getLogger('django_openstack.dash.views.networks')
 
 class CreateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(required=True, label="Network Name")
@@ -117,30 +117,15 @@ def index(request, tenant_id):
         networks_list = api.quantum_api(request).list_networks()
         details = []
         for network in networks_list['networks']:
-            
-            # Get all ports statistics for the network
-            total = 0
-            available = 0
-            used = 0
-            ports = api.quantum_api(request).list_ports(network['id'])
-            for port in ports['ports']:
-                total += 1
-                # Get port details
-                port_details = api.quantum_api(request).show_port_details(network['id'], port['id'])
-                # Get port attachment
-                port_attachment = api.quantum_api(request).show_port_attachment(network['id'], port['id'])
-                if port_attachment['attachment'] == None:
-                    available += 1
-                else:
-                    used += 1
+            net_stats = _calc_network_stats(request, tenant_id, network['id'])
             # Get network details like name and id
             details = api.quantum_api(request).show_network_details(network['id'])
             networks.append({
                 'name' : details['network']['name'], 
                 'id' : network['id'],
-                'total' : total,
-                'available' : available,
-                'used' : used,
+                'total' : net_stats['total'],
+                'available' : net_stats['available'],
+                'used' : net_stats['used'],
                 'tenant' : tenant_id
             })
     
@@ -171,41 +156,12 @@ def detail(request, tenant_id, network_id):
     toggle_port_form, port_toggle_handled = TogglePort.maybe_handle(request)
     
     network = {}
-    network_ports = []
     
     try:
         network_details = api.quantum_api(request).show_network_details(network_id)
         network['name'] = network_details['network']['name']
         network['id'] = network_id
-        
-        # Get all vifs for comparison with port attachments
-        vifs = api.get_vif_ids(request)
-        
-        # Get all ports on this network
-        ports = api.quantum_api(request).list_ports(network_id)
-        for port in ports['ports']:
-            port_details = api.quantum_api(request).show_port_details(network_id, port['id'])
-            # Get port attachments
-            port_attachment = api.quantum_api(request).show_port_attachment(network_id, port['id'])
-            # Find instance the attachment belongs to
-            # Get all instances
-            instances = api.server_list(request)
-            connected_instance = None
-            # Get virtual interface ids by instance
-            for instance in instances:
-                for vif in instance.virtual_interfaces:
-
-                    if str(vif['id']) == str(port_attachment['attachment']):
-                        connected_instance = instance.name
-                        break
-            network_ports.append({
-                'id' : port_details['port']['id'],
-                'state' : port_details['port']['state'],
-                'attachment' : port_attachment['attachment'],
-                'instance' : connected_instance
-            })
-        network['ports'] = network_ports
-        
+        network['ports'] = _get_port_states(request, tenant_id, network_id)
     except Exception, e:
         messages.error(request, 'Unable to get network details: %s' % e.message)
 
@@ -230,3 +186,54 @@ def rename(request, tenant_id, network_id):
         'network' : network_details,
         'rename_form' : rename_form
     }, context_instance=template.RequestContext(request))
+
+"""
+Helper method to find port states for a network
+"""
+def _get_port_states(request, tenant_id, network_id):
+    network_ports = []
+    # Get all vifs for comparison with port attachments
+    vifs = api.get_vif_ids(request)
+    
+    # Get all ports on this network
+    ports = api.quantum_api(request).list_ports(network_id)
+    for port in ports['ports']:
+        port_details = api.quantum_api(request).show_port_details(network_id, port['id'])
+        # Get port attachments
+        port_attachment = api.quantum_api(request).show_port_attachment(network_id, port['id'])
+        # Find instance the attachment belongs to
+        connected_instance = None
+        for vif in vifs:
+            if str(vif['id']) == str(port_attachment['attachment']):
+                connected_instance = vif['instance_name']
+                break
+        network_ports.append({
+            'id' : port_details['port']['id'],
+            'state' : port_details['port']['state'],
+            'attachment' : port_attachment['attachment'],
+            'instance' : connected_instance
+        })
+        
+    return network_ports
+
+"""
+Helper method to calculate statistics for a network
+"""
+def _calc_network_stats(request, tenant_id, network_id):
+     # Get all ports statistics for the network
+    total = 0
+    available = 0
+    used = 0
+    ports = api.quantum_api(request).list_ports(network_id)
+    for port in ports['ports']:
+        total += 1
+        # Get port details
+        port_details = api.quantum_api(request).show_port_details(network_id, port['id'])
+        # Get port attachment
+        port_attachment = api.quantum_api(request).show_port_attachment(network_id, port['id'])
+        if port_attachment['attachment'] == None:
+            available += 1
+        else:
+            used += 1
+    
+    return { 'total' : total, 'used' : used, 'available': available }

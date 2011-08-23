@@ -35,7 +35,7 @@ from django_openstack import forms
 from django_openstack import api
 
 
-LOG = logging.getLogger('django_api.quantum_api(request).dash')
+LOG = logging.getLogger('django_openstack.dash.views.ports')
 
 
 class CreatePort(forms.SelfHandlingForm):
@@ -143,7 +143,7 @@ class TogglePort(forms.SelfHandlingForm):
 def create(request, tenant_id, network_id):
     create_form, handled  = CreatePort.maybe_handle(request)
     
-    if (handled):
+    if handled:
         return shortcuts.redirect(
             'dash_networks_detail', 
             tenant_id=request.user.tenant, 
@@ -164,20 +164,29 @@ def attach(request, tenant_id, network_id, port_id):
         return shortcuts.redirect('dash_networks_detail', request.user.tenant, network_id)
     
     # Get all avaliable vifs
-    VIF_CHOICES = []
-    vifs = api.get_vif_ids(request)
-    
-    for vif in vifs:
-        if vif['available']:
-            name = "Instance %s VIF %s" % (str(vif['instance_name']), str(vif['id']))
-            VIF_CHOICES.append({
-                'name' : str(name),
-                'id' : str(vif['id'])
-            })
+    vifs = _get_available_vifs(request)
             
     return shortcuts.render_to_response('dash_port_attach.html', {
         'network' : network_id,
         'port' : port_id,
         'attach_form' : attach_form,
-        'vifs' : VIF_CHOICES,
+        'vifs' : vifs,
     }, context_instance=template.RequestContext(request))
+
+
+"""
+Method to get a list of available virtual interfaces
+"""
+def _get_available_vifs(request):
+    vif_choices = []
+    vifs = api.get_vif_ids(request)
+    
+    for vif in vifs:
+        if vif['available']:
+            name = "Instance %s VIF %s" % (str(vif['instance_name']), str(vif['id']))
+            vif_choices.append({
+                'name' : str(name),
+                'id' : str(vif['id'])
+            })
+
+    return vif_choices
