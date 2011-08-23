@@ -20,6 +20,7 @@
 
 from django.conf.urls.defaults import *
 from django.conf import settings
+from django_openstack.signals import *
 
 urlpatterns = patterns('',
     url(r'^auth/', include('django_openstack.auth.urls')),
@@ -27,3 +28,6 @@ urlpatterns = patterns('',
     url(r'^syspanel/', include('django_openstack.syspanel.urls')),
 )
 
+# import urls from modules
+for module_urls in dash_apps_urls.send(sender=dash_apps_urls):
+    urlpatterns += module_urls[1].urlpatterns

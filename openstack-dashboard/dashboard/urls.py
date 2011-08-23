@@ -29,7 +29,6 @@ import django.views.i18n
 
 from django_openstack import urls as django_openstack_urls
 
-
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.splash', name='splash'),
     url(r'^dash/$', 'django_openstack.dash.views.instances.usage', name='dash_overview'),
@@ -39,7 +38,6 @@ urlpatterns = patterns('',
 
 # NOTE(termie): just append them since we want the routes at the root
 urlpatterns += django_openstack_urls.urlpatterns
-
 
 urlpatterns += patterns('',
      (r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:],

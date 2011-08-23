@@ -160,7 +160,7 @@ def update(request, image_id):
                           exc_info=True)
                 messages.error(request,
                                "Image could not be updated, please try again.")
-
+            return redirect('syspanel_images_update', image_id)
         else:
             LOG.error('Image "%s" failed to update' % image['name'],
                       exc_info=True)

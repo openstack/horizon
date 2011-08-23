@@ -317,6 +317,19 @@ a.refresh.refreshing {
   background: url(../images/spinner.gif) top left no-repeat;
 }
 
+input.refreshOption {
+    margin: 10px 0 0 0;
+    float: right;
+    clear: both;
+}
+
+label.refreshOption {
+    font-size: 11px;
+    margin: -17px 20px 0 0;
+    float: right;
+    clear: both;
+}
+
 #monitoring {
   background: #f8f8f8;
   font-size: 14px;
