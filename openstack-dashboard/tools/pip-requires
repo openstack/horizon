@@ -15,7 +15,6 @@ PasteDeploy
 sqlalchemy-migrate
 eventlet
 xattr
-kombu
 
 bzr+https://launchpad.net/glance#egg=glance
 bzr+https://launchpad.net/quantum#egg=quantum
