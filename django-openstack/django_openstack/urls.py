@@ -29,5 +29,5 @@ urlpatterns = patterns('',
 )
 
 # import urls from modules
-for module_urls in dash_apps_urls.send(sender=dash_apps_urls):
+for module_urls in dash_modules_urls.send(sender=dash_modules_urls):
     urlpatterns += module_urls[1].urlpatterns
