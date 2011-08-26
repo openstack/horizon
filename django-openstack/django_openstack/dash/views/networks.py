@@ -227,8 +227,6 @@ def _calc_network_stats(request, tenant_id, network_id):
     ports = api.quantum_api(request).list_ports(network_id)
     for port in ports['ports']:
         total += 1
-        # Get port details
-        port_details = api.quantum_api(request).show_port_details(network_id, port['id'])
         # Get port attachment
         port_attachment = api.quantum_api(request).show_port_attachment(network_id, port['id'])
         if port_attachment['attachment'] == None:

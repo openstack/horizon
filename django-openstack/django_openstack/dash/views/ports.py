@@ -116,7 +116,7 @@ class DetachPort(forms.SelfHandlingForm):
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())
-        
+
 
 class TogglePort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
