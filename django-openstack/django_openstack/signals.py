@@ -1,11 +1,11 @@
 import django.dispatch
 from django.dispatch import receiver
 
-dash_apps_ping = django.dispatch.Signal()
-dash_apps_urls = django.dispatch.Signal()
+dash_modules_ping = django.dispatch.Signal()
+dash_modules_urls = django.dispatch.Signal()
 
 
-def dash_apps_detect():
+def dash_modules_detect():
     """
     Sends a pinging signal to the app, all listening modules will reply with
     items for the sidebar.
@@ -20,13 +20,13 @@ def dash_apps_detect():
                           'text':'Google', 'active_text': 'google'}],
                'type': syspanel})
     """
-    return dash_apps_ping.send(sender=dash_apps_ping)
+    return dash_modules_ping.send(sender=dash_modules_ping)
 
 
 def dash_app_setup_urls():
     """
     Adds urls from modules
     """
-    return dash_apps_urls.send(sender=dash_apps_urls)
+    return dash_modules_urls.send(sender=dash_modules_urls)
 
 
