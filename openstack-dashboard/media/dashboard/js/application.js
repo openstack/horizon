@@ -45,5 +45,9 @@ $(function(){
       });
       return true;
   });
-  
+    
+  $(".detach").click(function(e){
+    var response = confirm('Are you sure you want to detach the '+$(this).attr('title')+" ?");
+    return response;
+  })
 })

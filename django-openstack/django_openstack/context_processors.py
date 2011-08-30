@@ -38,3 +38,7 @@ def tenants(request):
 
 def swift(request):
     return {'swift_configured': settings.SWIFT_ENABLED}
+
+
+def quantum(request):
+    return {'quantum_configured': settings.QUANTUM_ENABLED}
