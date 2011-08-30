@@ -20,6 +20,7 @@
 
 from django.conf.urls.defaults import *
 
+SECURITY_GROUPS = r'^(?P<tenant_id>[^/]+)/security_groups/(?P<security_group_id>[^/]+)/%s$'
 INSTANCES = r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/%s$'
 IMAGES = r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/%s$'
 KEYPAIRS = r'^(?P<tenant_id>[^/]+)/keypairs/%s$'
@@ -34,6 +35,12 @@ urlpatterns = patterns('django_openstack.dash.views.instances',
     url(INSTANCES % 'console', 'console', name='dash_instances_console'),
     url(INSTANCES % 'vnc', 'vnc', name='dash_instances_vnc'),
     url(INSTANCES % 'update', 'update', name='dash_instances_update'),
+)
+
+urlpatterns += patterns('django_openstack.dash.views.security_groups',
+    url(r'^(?P<tenant_id>[^/]+)/security_groups/$', 'index', name='dash_security_groups'),
+    url(r'^(?P<tenant_id>[^/]+)/security_groups/create$', 'create', name='dash_security_groups_create'),
+    url(SECURITY_GROUPS % 'edit_rules', 'edit_rules', name='dash_security_groups_edit_rules'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.images',

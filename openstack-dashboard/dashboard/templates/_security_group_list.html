@@ -1,0 +1,23 @@
+<table id="security_groups" class="wide">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+  {% for security_group in security_groups %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ security_group.id }}</td>
+    <td>{{ security_group.name }}</td>
+    <td>{{ security_group.description }}</td>
+    <td id="actions">
+      <ul>
+        <li><a href="{% url dash_security_groups_edit_rules request.user.tenant security_group.id %}">Edit Rules</a></li>
+        {% if security_group.name != 'default' %}
+          <li class="form">{% include "_delete_security_group.html" with form=delete_form %}</li>
+        {% endif %}
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

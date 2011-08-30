@@ -1,0 +1,72 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="security_groups" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% include "_page_header.html" with title="Edit Security Group Rules" %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  <div class="dash_block">
+    <div class="left">
+      <h3> Rules for Security Group '{{security_group.name}}'</h3>
+      <table id="security_groups" class="wide">
+        <tr>
+          <th>ID</th>
+          <th>IP Protocol</th>
+          <th>From Port</th>
+          <th>To Port</th>
+          <th>CIDR</th>
+          <th>Actions</th>
+        </tr>
+        {% for rule in security_group.rules %}
+          <tr class="{% cycle 'odd' 'even' %}">
+            <td>{{ rule.id }}</td>
+            <td>{{ rule.ip_protocol }}</td>
+            <td>{{ rule.from_port }}</td>
+            <td>{{ rule.to_port }}</td>
+            <td>
+            {% for ip_range in rule.ip_ranges %}
+              {{ ip_range.cidr }}
+            {% endfor %}
+            </td>
+            <td id="actions">
+              <ul>
+                <li class="form">{% include "_delete_security_group_rule.html" with form=delete_form %}</li>
+              </ul>
+            </td>
+          </tr>
+        {% empty %}
+        <tr>
+          <td colspan="100%">
+            No rules for this security group
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="right security_group_rule_form_wrapper">
+      <div class="security_group_rule_form_inner">
+        <h3>Add a rule</h3>
+        <form id="security_group_rule_form"  method="post">
+          <fieldset>
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+              {% for field in form.visible_fields %}
+              {{ field.label_tag }}
+              {{ field.errors }}
+              {{ field }}
+            {% endfor %}
+            <input name="security_group_id" type="hidden" value="{{security_group.id}}" />
+            <input type="submit" value="Add Rule" class="large-rounded action_link" />
+          </fieldset>
+        </form> 
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+{% endblock %}

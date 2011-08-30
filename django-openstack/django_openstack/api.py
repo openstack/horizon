@@ -229,6 +229,22 @@ class User(APIResourceWrapper):
     _attrs = ['email', 'enabled', 'id', 'tenantId']
 
 
+class SecurityGroup(APIResourceWrapper):
+    """Simple wrapper around openstackx.extras.security_groups.SecurityGroup"""
+    _attrs = ['id', 'name', 'description', 'tenant_id', 'rules']
+
+
+class SecurityGroupRule(APIResourceWrapper):
+    """Simple wrapper around openstackx.extras.security_groups.SecurityGroupRule"""
+    _attrs = ['id', 'parent_group_id', 'group_id', 'ip_protocol',
+              'from_port', 'to_port', 'groups', 'ip_ranges']
+
+
+class SecurityGroupRule(APIResourceWrapper):
+    """Simple wrapper around openstackx.extras.users.User"""
+    _attrs = ['id', 'name', 'description', 'tenant_id', 'security_group_rules']
+
+
 class SwiftAuthentication(object):
     """Auth container to pass CloudFiles storage URL and token from
        session.
@@ -551,6 +567,41 @@ def user_delete(request, user_id):
 
 def user_get(request, user_id):
     return User(account_api(request).users.get(user_id))
+
+
+def security_group_list(request):
+    return [SecurityGroup(g)for g in extras_api(request).\
+                                     security_groups.list()]
+
+def security_group_get(request, security_group_id):
+    return SecurityGroup(extras_api(request).\
+                         security_groups.get(security_group_id))
+
+def security_group_create(request, name, description):
+    return SecurityGroup(extras_api(request).\
+                         security_groups.create(name, description))
+
+
+def security_group_delete(request, security_group_id):
+    extras_api(request).security_groups.delete(security_group_id)
+
+
+def security_group_rule_create(request, parent_group_id, ip_protocol=None,
+                                                         from_port=None,
+                                                         to_port=None,
+                                                         cidr=None,
+                                                         group_id=None):
+    return SecurityGroup(extras_api(request).\
+                         security_group_rules.create(parent_group_id,
+                                                     ip_protocol,
+                                                     from_port,
+                                                     to_port,
+                                                     cidr,
+                                                     group_id))
+
+
+def security_group_rule_delete(request, security_group_rule_id):
+    extras_api(request).security_group_rules.delete(security_group_rule_id)
 
 
 @check_openstackx
