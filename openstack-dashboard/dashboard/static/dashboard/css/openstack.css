@@ -165,7 +165,7 @@ p .ui-icon {
 
 #content.home #projects a	{
 	display: block;
-	background: url(/media/dashboard/img/server_icon.png) no-repeat 13px 9px;
+	background: url(../img/server_icon.png) no-repeat 13px 9px;
 	padding: 5px 0 5px 58px;
 	font-weight: bold;
 }
@@ -213,7 +213,7 @@ span.data {
 #home_login input[type="submit"], #lnk_register {
 	float: right;
 	height: 31px;
-	background: url(/media/dashboard/img/login_btn.png) top left repeat-x;
+	background: url(../img/login_btn.png) top left repeat-x;
 	border: 1px solid #206cb5;
 	color: #fff;
 	font-weight: bold;
@@ -508,7 +508,7 @@ td.detail_wrapper {
 
 }
 div.image_detail, div.instance_detail {
-	background: url(/media/dashboard/img/image_detail.png) top left no-repeat;
+	background: url(../img/image_detail.png) top left no-repeat;
 	height: 90px;
 	width: 674px;
 	padding: 8px 8px 16px 8px;
