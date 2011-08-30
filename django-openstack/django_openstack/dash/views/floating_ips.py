@@ -32,10 +32,13 @@ from django.core import validators
 from django import shortcuts
 from django.shortcuts import redirect, render_to_response
 from django.utils.translation import ugettext as _
+import novaclient
 
 from django_openstack import api
 from django_openstack import forms
+from novaclient import exceptions as novaclient_exceptions
 import openstackx.api.exceptions as api_exceptions
+
 
 
 LOG = logging.getLogger('django_openstack.dash.views.floating_ip')
@@ -71,17 +74,17 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.tenant_floating_ip_associate(request, data['floating_ip_id'],
-                                                      data['instance_id'])
+            api.server_add_floating_ip(request,
+                                       data['instance_id'],
+                                       data['floating_ip_id'])
             LOG.info('Associating Floating IP "%s" with Instance "%s"'
                                 % (data['floating_ip'], data['instance_id']))
-
             messages.info(request, 'Successfully associated Floating IP: %s \
                                     with Instance: %s' 
                                     % (data['floating_ip'],
                                        data['instance_id']))
-        except api_exceptions.ApiException, e:
-            LOG.error("ApiException in FloatingIpAssociate", exc_info=True)
+        except novaclient_exceptions.ClientException, e:
+            LOG.error("ClientException in FloatingIpAssociate", exc_info=True)
             messages.error(request, 'Error associating Floating IP: %s' % e.message)
         return shortcuts.redirect('dash_floating_ips', request.user.tenant)
 
@@ -91,14 +94,15 @@ class FloatingIpDisassociate(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.tenant_floating_ip_disassociate(request,
-                                                data['floating_ip_id'])
-            LOG.info('Disassociating Floating IP "%s"' % data['floating_ip_id'])
+            api.server_remove_floating_ip(request, data['floating_ip_id'])
+
+            LOG.info('Disassociating Floating IP "%s"'
+                      % data['floating_ip_id'])
 
             messages.info(request, 'Successfully disassociated Floating IP: %s' 
                                     % data['floating_ip_id'])
-        except api_exceptions.ApiException, e:
-            LOG.error("ApiException in FloatingIpAssociate", exc_info=True)
+        except novaclient_exceptions.ClientException, e:
+            LOG.error("ClientException in FloatingIpAssociate", exc_info=True)
             messages.error(request, 'Error disassociating Floating IP: %s'
                                      % e.message)
         return shortcuts.redirect('dash_floating_ips', request.user.tenant)
@@ -147,8 +151,8 @@ def index(request, tenant_id):
 
 @login_required
 def associate(request, tenant_id, ip_id):
-    instancelist = [(server.id, '%s (%s, %s)' % 
-            (server.addresses['private'][0]['addr'], server.id, server.name))
+    instancelist = [(server.id, 'id: %s, name: %s' % 
+            (server.id, server.name))
             for server in api.server_list(request)]
   
     form, handled = FloatingIpAssociate().maybe_handle(request, initial={

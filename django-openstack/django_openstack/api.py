@@ -478,14 +478,20 @@ def server_add_floating_ip(request, server, address):
     """
     Associates floating IP to server's fixed IP.
     """
-    return novaclient(request).floating_ips.add_floating_ip()
+    server = novaclient(request).servers.get(server)
+    fip = novaclient(request).floating_ips.get(address)
+
+    return server.add_floating_ip(fip)
 
 
 def server_remove_floating_ip(request, server, address):
     """
     Removes relationship between floating and server's fixed ip.
     """
-    return extras_api(request).floating_ips.disassociate(floating_ip_id)
+    server = novaclient(request).servers.get(server)
+    fip = novaclient(request).floating_ips.get(address)
+
+    return server.remove_floating_ip(fip)
 
 
 def service_get(request, name):
