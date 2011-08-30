@@ -47,6 +47,7 @@ import openstackx.admin
 import openstackx.api.exceptions as api_exceptions
 import openstackx.extras
 import openstackx.auth
+from novaclient.v1_1 import client
 from urlparse import urlparse
 
 
@@ -572,28 +573,26 @@ def user_get(request, user_id):
 
 
 def security_group_list(request):
-    return [SecurityGroup(g)for g in extras_api(request).\
+    return [SecurityGroup(g)for g in novaclient(request).\
                                      security_groups.list()]
 
 def security_group_get(request, security_group_id):
-    return SecurityGroup(extras_api(request).\
+    return SecurityGroup(novaclient(request).\
                          security_groups.get(security_group_id))
 
 def security_group_create(request, name, description):
-    return SecurityGroup(extras_api(request).\
+    return SecurityGroup(novaclient(request).\
                          security_groups.create(name, description))
 
 
 def security_group_delete(request, security_group_id):
-    extras_api(request).security_groups.delete(security_group_id)
+    novaclient(request).security_groups.delete(security_group_id)
 
 
 def security_group_rule_create(request, parent_group_id, ip_protocol=None,
-                                                         from_port=None,
-                                                         to_port=None,
-                                                         cidr=None,
-                                                         group_id=None):
-    return SecurityGroup(extras_api(request).\
+                               from_port=None, to_port=None, cidr=None,
+                               group_id=None):
+    return SecurityGroup(novaclient(request).\
                          security_group_rules.create(parent_group_id,
                                                      ip_protocol,
                                                      from_port,
@@ -603,7 +602,7 @@ def security_group_rule_create(request, parent_group_id, ip_protocol=None,
 
 
 def security_group_rule_delete(request, security_group_rule_id):
-    extras_api(request).security_group_rules.delete(security_group_rule_id)
+    novaclient(request).security_group_rules.delete(security_group_rule_id)
 
 
 @check_openstackx
