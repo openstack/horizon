@@ -346,6 +346,16 @@ def extras_api(request):
     return openstackx.extras.Extras(auth_token=request.user.token,
                                    management_url=url_for(request, 'nova'))
 
+def novaclient(request):
+    LOG.debug('novaclient connection created using token "%s"'
+              ' and url "%s"' % (request.user.token, url_for(request, 'nova')))
+    c = client.Client(username=request.user.username,
+                      api_key=request.user.token,
+                      project_id=request.user.tenant,
+                      auth_url=url_for(request, 'nova'))
+    c.client.auth_token = request.user.token
+    c.client.management_url=url_for(request, 'nova')
+    return c
 
 def auth_api():
     LOG.debug('auth_api connection created using url "%s"' %

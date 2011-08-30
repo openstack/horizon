@@ -29,11 +29,7 @@
             <td>{{ rule.ip_protocol }}</td>
             <td>{{ rule.from_port }}</td>
             <td>{{ rule.to_port }}</td>
-            <td>
-            {% for ip_range in rule.ip_ranges %}
-              {{ ip_range.cidr }}
-            {% endfor %}
-            </td>
+            <td>{{rule.ip_range.cidr}}</td>
             <td id="actions">
               <ul>
                 <li class="form">{% include "_delete_security_group_rule.html" with form=delete_form %}</li>
