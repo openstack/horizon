@@ -75,8 +75,3 @@ urlpatterns += patterns('django_openstack.syspanel.views.tenants',
     url(TENANTS % 'users', 'users', name='syspanel_tenant_users'),
     url(TENANTS % 'quotas', 'quotas', name='syspanel_tenant_quotas'),
 )
-
-
-urlpatterns += patterns('django_openstack.syspanel.views.floating_ips',
-    url(r'^floating_ips/$', 'index', name='syspanel_floating_ips'),
-)

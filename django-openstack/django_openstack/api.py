@@ -46,6 +46,7 @@ import openstackx.admin
 import openstackx.api.exceptions as api_exceptions
 import openstackx.extras
 import openstackx.auth
+from novaclient.v1_1 import client
 from urlparse import urlparse
 
 
@@ -329,6 +330,16 @@ def extras_api(request):
     return openstackx.extras.Extras(auth_token=request.user.token,
                                    management_url=url_for(request, 'nova'))
 
+def novaclient(request):
+    LOG.debug('novaclient connection created using token "%s"'
+              ' and url "%s"' % (request.user.token, url_for(request, 'nova')))
+    c = client.Client(username=request.user.username,
+                      api_key=request.user.token,
+                      project_id=request.user.tenant,
+                      auth_url=url_for(request, 'nova'))
+    c.client.auth_token = request.user.token
+    c.client.management_url=url_for(request, 'nova')
+    return c
 
 def auth_api():
     LOG.debug('auth_api connection created using url "%s"' %
@@ -363,88 +374,32 @@ def flavor_get(request, flavor_id):
     return Flavor(compute_api(request).flavors.get(flavor_id))
 
 
-@check_openstackx
 def tenant_floating_ip_list(request):
     """
     Fetches a list of all floating ips.
     """
-    return [FloatingIp(ip) for ip in extras_api(request).floating_ips.list()]
+    return [FloatingIp(ip) for ip in novaclient(request).floating_ips.list()]
+
 
 def tenant_floating_ip_get(request, floating_ip_id):
     """
     Fetches a floating ip.
     """
-    return extras_api(request).floating_ips.get(floating_ip_id)
+    return novaclient(request).floating_ips.get(floating_ip_id)
 
 
-def tenant_floating_ip_attach(request, tenant_id):
+def tenant_floating_ip_associate(request, floating_ip_id, instance_id):
     """
     Allocates a floating ip to tenant.
     """
-    return extras_api(request).floating_ips.attach()
+    return novaclient(request).floating_ips.create()
 
 
 def tenant_floating_ip_release(request, floating_ip_id):
     """
     Releases floating ip from the pool of a tenant.
     """
-    return extras_api(request).floating_ips.release(floating_ip_id)
-
-
-def tenant_floating_ip_associate(request, floating_ip_id, instance_id):
-    """
-    Associates a floating ip to a fixed ip.
-    """
-    return extras_api(request).floating_ips.associate(floating_ip_id, instance_id)
-
-
-def tenant_floating_ip_disassociate(request, floating_ip_id):
-    """
-    Removes relationship between floating and fixed ips.
-    """
-    return extras_api(request).floating_ips.disassociate(floating_ip_id)
-
-
-@check_openstackx
-def admin_floating_ip_list(request):
-    """
-    Fetches a list of all floating ips.
-    """
-    return [FloatingIp(ip) for ip in admin_api(request).floating_ips.list()]
-
-def admin_floating_ip_get(request, floating_ip_id):
-    """
-    Fetches a floating ip.
-    """
-    return admin_api(request).floating_ips.get(floating_ip_id)
-
-
-def admin_floating_ip_attach(request, tenant_id):
-    """
-    Allocates a floating ip to tenant.
-    """
-    return admin_api(request).floating_ips.attach()
-
-
-def admin_floating_ip_release(request, floating_ip_id):
-    """
-    Releases floating ip from the pool of a tenant.
-    """
-    return admin_api(request).floating_ips.release(floating_ip_id)
-
-
-def admin_floating_ip_associate(request, floating_ip_id, instance_id):
-    """
-    Associates a floating ip to a fixed ip.
-    """
-    return admin_api(request).floating_ips.associate(floating_ip_id, instance_id)
-
-
-def admin_floating_ip_disassociate(request, floating_ip_id):
-    """
-    Removes relationship between floating and fixed ips.
-    """
-    return admin_api(request).floating_ips.disassociate(floating_ip_id)
+    return novaclient(request).floating_ips.delete(floating_ip_id)
 
 
 @check_openstackx
@@ -517,6 +472,20 @@ def server_update(request, instance_id, name, description):
     return extras_api(request).servers.update(instance_id,
                                               name=name,
                                               description=description)
+
+
+def server_add_floating_ip(request, server, address):
+    """
+    Associates floating IP to server's fixed IP.
+    """
+    return novaclient(request).floating_ips.add_floating_ip()
+
+
+def server_remove_floating_ip(request, server, address):
+    """
+    Removes relationship between floating and server's fixed ip.
+    """
+    return extras_api(request).floating_ips.disassociate(floating_ip_id)
 
 
 def service_get(request, name):
