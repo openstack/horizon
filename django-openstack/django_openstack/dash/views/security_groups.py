@@ -42,7 +42,7 @@ LOG = logging.getLogger('django_openstack.dash.views.security_groups')
 
 
 class CreateGroup(forms.SelfHandlingForm):
-    name = forms.CharField()
+    name = forms.CharField(validators=[validators.validate_slug])
     description = forms.CharField()
     tenant_id = forms.CharField(widget=forms.HiddenInput())
     def handle(self, request, data):

@@ -193,8 +193,9 @@ class ServerAttributes(APIDictWrapper):
     """
     _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
               'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
-              'os_type', 'tenant_id', 'ramdisk_id', 'scheduled_at',
-              'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname']
+              'os_type', 'project_id', 'ramdisk_id', 'scheduled_at',
+              'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname',
+              'security_groups']
 
 
 class Services(APIResourceWrapper):
@@ -429,10 +430,11 @@ def keypair_list(request):
     return [KeyPair(key) for key in extras_api(request).keypairs.list()]
 
 
-def server_create(request, name, image, flavor, key_name, user_data):
+def server_create(request, name, image, flavor,
+                           key_name, user_data, security_groups):
     return Server(extras_api(request).servers.create(
-            name, image, flavor, key_name=key_name, user_data=user_data),
-            request)
+            name, image, flavor, key_name=key_name, user_data=user_data,
+            security_groups=security_groups), request)
 
 
 def server_delete(request, instance):

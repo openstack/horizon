@@ -68,6 +68,14 @@ class LaunchForm(forms.SelfHandlingForm):
                 required=False,
                 help_text="Which keypair to use for authentication")
 
+        securitygrouplist = kwargs.get('initial', {}).get('securitygrouplist', [])
+        self.fields['security_groups'] = forms.MultipleChoiceField(choices=securitygrouplist,
+                label='Security Groups',
+                required=True,
+                initial=['default'],
+                widget=forms.SelectMultiple(attrs={'class': 'chzn-select',
+                                                   'style': "min-width: 200px"}),
+                help_text="Launch instance in these Security Groups")
         # setting self.fields.keyOrder seems to break validation,
         # so ordering fields manually
         field_list = (
@@ -90,7 +98,8 @@ class LaunchForm(forms.SelfHandlingForm):
                               image,
                               flavor,
                               data.get('key_name'),
-                              data.get('user_data'))
+                              data.get('user_data'),
+                              data.get('security_groups'))
 
             msg = 'Instance was successfully launched'
             LOG.info(msg)
@@ -163,6 +172,15 @@ def launch(request, tenant_id, image_id):
             LOG.error('Unable to retrieve list of keypairs', exc_info=True)
             return []
 
+    def securitygrouplist():
+        try:
+            fl = api.security_group_list(request)
+            sel = [(f.name, f.name) for f in fl]
+            return sel
+        except api_exceptions.ApiException:
+            LOG.error('Unable to retrieve list of security groups', exc_info=True)
+            return []
+
     # TODO(mgius): Any reason why these can't be after the launchform logic?
     # If The form is valid, we've just wasted these two api calls
     image = api.image_get(request, image_id)
@@ -178,6 +196,7 @@ def launch(request, tenant_id, image_id):
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),
                               'keynamelist': keynamelist(),
+                              'securitygrouplist': securitygrouplist(),
                               'image_id': image_id,
                               'tenant_id': tenant_id})
     if handled:

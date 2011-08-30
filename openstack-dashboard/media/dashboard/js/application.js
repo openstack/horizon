@@ -45,5 +45,7 @@ $(function(){
       });
       return true;
   });
-  
+
+  // Fancy multi-selects
+  $(".chzn-select").chosen()
 })
