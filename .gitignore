@@ -1,6 +1,8 @@
 *.pyc
 *.swp
-django-openstack/.coverage
+.coverage
+coverage.xml
+reports
 django-openstack/.installed.cfg
 django-openstack/bin
 django-openstack/develop-eggs/
