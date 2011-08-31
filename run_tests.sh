@@ -37,7 +37,7 @@ function process_option {
 function run_pylint {
   echo "Running pylint ..."
   PYLINT_INCLUDE="openstack-dashboard/dashboard django-openstack/django_openstack"
-  ${wrapper} pylint --rcfile=.pylintrc -f parseable $PYLINT_INCLUDE > pylint.txt
+  ${django_wrapper} pylint --rcfile=.pylintrc -f parseable $PYLINT_INCLUDE > pylint.txt
   CODE=$?
   grep Global -A2 pylint.txt
   if [ $CODE -lt 32 ]
@@ -53,7 +53,8 @@ function run_pep8 {
   PEP8_EXCLUDE=vcsversion.py
   PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --repeat --show-pep8 --show-source"
   PEP8_INCLUDE="openstack-dashboard/dashboard django-openstack/django_openstack"
-  ${wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt
+  echo "${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt"
+  ${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt
   #perl string strips out the [ and ] characters
   #${wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt
 }
@@ -91,7 +92,9 @@ then
   else
     if [ $always_venv -eq 1 ]; then
       # Automatically install the virtualenv
+      cd openstack-dashboard
       python tools/install_venv.py
+      cd ..
       django_wrapper="${django_with_venv}"
       dashboard_wrapper="${dashboard_with_venv}"
     else
@@ -99,7 +102,9 @@ then
       read use_ve
       if [ "x$use_ve" = "xY" -o "x$use_ve" = "x" -o "x$use_ve" = "xy" ]; then
         # Install the virtualenv and run the test suite in it
+        cd openstack-dashboard
         python tools/install_venv.py
+        cd ..
         django_wrapper="${django_with_venv}"
         dashboard_wrapper="${dashboard_with_venv}"
       fi
@@ -135,6 +140,14 @@ function run_tests {
 
 if [ $just_pep8 -eq 1 ]; then
     run_pep8
+
+#capability discovery
+
+#capability discovery
+#store & compare arista -> Mongo - quarantine
+#SMBios probes
+#store & compare arista -> Mongo - quarantine
+#SMBios probes
     exit $?
 fi
 

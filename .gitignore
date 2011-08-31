@@ -2,6 +2,8 @@
 *.swp
 .coverage
 coverage.xml
+pep8.txt
+pylint.txt
 reports
 django-openstack/.installed.cfg
 django-openstack/bin
