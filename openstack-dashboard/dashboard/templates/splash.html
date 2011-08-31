@@ -3,19 +3,19 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Login</title>
-    <link href='/media/dashboard/css/style.css' media='screen' rel='stylesheet' /> 
+    <link href='{{ STATIC_URL }}dashboard/css/style.css' media='screen' rel='stylesheet' />
   </head>
   <body id="standalone">
     <div id="login_wrapper">
       <div class='large-rounded' id='login'>
         {% include "_messages.html" %}
         {% include '_login.html' %}
-        <ul id='alternate_links'> 
+        <ul id='alternate_links'>
           <li>&nbsp;</li>
           <li>&nbsp;</li>
-        </ul> 
+        </ul>
         <div class="clear"></div>
-      </div> 
+      </div>
     </div>
   </body>
 </html>
