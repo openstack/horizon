@@ -86,14 +86,14 @@ class AttachPort(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Attaching %s port to VIF %s' % (data['port'], data['vif_id']))
-            body = {'port': {'attachment-id': '%s' % data['vif_id']}}
+            body = {'attachment': {'id': '%s' % data['vif_id']}}
             api.quantum_api(request).attach_resource(data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
                            'Unable to attach port %s to VIF %s: %s' %
                            (data['port'], data['vif_id'], e.message,))
         else:
-            msg = 'Port %s connect to VIF %s.' % (data['port'], data['vif_id'])
+            msg = 'Port %s connected to VIF %s.' % (data['port'], data['vif_id'])
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -126,7 +126,7 @@ class TogglePort(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Toggling port state to %s' % data['state'])
-            body = {'port': {'port-state': '%s' % data['state']}}
+            body = {'port': {'state': '%s' % data['state']}}
             api.quantum_api(request).set_port_state(data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,

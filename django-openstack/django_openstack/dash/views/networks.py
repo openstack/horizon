@@ -52,7 +52,7 @@ class CreateNetwork(forms.SelfHandlingForm):
 
         try:
             LOG.info('Creating network %s ' % network_name)
-            send_data = {'network': {'net-name': '%s' % network_name}}
+            send_data = {'network': {'name': '%s' % network_name}}
             api.quantum_api(request).create_network(send_data)
         except Exception, e:
             messages.error(request,
@@ -92,7 +92,7 @@ class RenameNetwork(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Renaming network %s to %s' % (data['network'], data['new_name']))
-            send_data = {'network': {'net-name': '%s' % data['new_name']}}
+            send_data = {'network': {'name': '%s' % data['new_name']}}
             api.quantum_api(request).update_network(data['network'], send_data)
         except Exception, e:
             messages.error(request,
@@ -203,10 +203,11 @@ def _get_port_states(request, tenant_id, network_id):
         port_attachment = api.quantum_api(request).show_port_attachment(network_id, port['id'])
         # Find instance the attachment belongs to
         connected_instance = None
-        for vif in vifs:
-            if str(vif['id']) == str(port_attachment['attachment']):
-                connected_instance = vif['instance_name']
-                break
+        if port_attachment['attachment']:
+            for vif in vifs:
+                if str(vif['id']) == str(port_attachment['attachment']['id']):
+                    connected_instance = vif['instance_name']
+                    break
         network_ports.append({
             'id' : port_details['port']['id'],
             'state' : port_details['port']['state'],
