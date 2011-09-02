@@ -11,11 +11,9 @@
     <td>{{ ip.ip }}</td>
     <td>
       {% if ip.fixed_ip %}
-        {# NOTE(jakedahn): instance id needs to be added to floating ips api for the commented out items below to work properly #}
         <ul>
-          {# <li><span>ID:</span> {{ip.fixed_ip.instance.id}}</li> #}
+          <li><span>Instance ID:</span> {{ip.instance_id}}</li>
           <li><span>Fixed IP:</span> {{ip.fixed_ip}}</li>
-          {# <li><span>Name:</span> {{ip.fixed_ip.instance.display_name}}</li> #}
         </ul>
       {% else %}
         None

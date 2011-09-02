@@ -134,8 +134,7 @@ def index(request, tenant_id):
         if handled:
             return handled
     try:
-        floating_ips = [api.tenant_floating_ip_get(request, ip.id) 
-                        for ip in api.tenant_floating_ip_list(request)]
+        floating_ips = api.tenant_floating_ip_list(request)
     except api_exceptions.ApiException, e:
         floating_ips = []
         LOG.error("ApiException in floating ip index", exc_info=True)

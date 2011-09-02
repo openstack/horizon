@@ -488,8 +488,8 @@ def server_remove_floating_ip(request, server, address):
     """
     Removes relationship between floating and server's fixed ip.
     """
-    server = novaclient(request).servers.get(server)
     fip = novaclient(request).floating_ips.get(address)
+    server = novaclient(request).servers.get(fip.instance_id)
 
     return server.remove_floating_ip(fip)
 
