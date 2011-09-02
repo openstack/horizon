@@ -94,7 +94,8 @@ class FloatingIpDisassociate(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.server_remove_floating_ip(request, data['floating_ip_id'])
+            fip = api.tenant_floating_ip_get(request, data['floating_ip_id'])
+            api.server_remove_floating_ip(request, fip.instance_id, fip.id)
 
             LOG.info('Disassociating Floating IP "%s"'
                       % data['floating_ip_id'])
