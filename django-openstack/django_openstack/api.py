@@ -664,7 +664,7 @@ def get_vif_ids(request):
         for port in ports['ports']:
             port_attachment = quantum_api(request).show_port_attachment(network['id'], port['id'])
             if port_attachment['attachment']:
-                attached_vifs.append(port_attachment['attachment'].encode('ascii'))
+                attached_vifs.append(port_attachment['attachment']['id'].encode('ascii'))
     # Get all instances
     instances = server_list(request)
     # Get virtual interface ids by instance

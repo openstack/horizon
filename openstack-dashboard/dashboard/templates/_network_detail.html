@@ -12,9 +12,7 @@
           <td>{{port.id}}</td>
           <td class="{{port.state}}">{{port.state}}</td>
           <td>
-            {% if port.attachment == None %}
-            --
-            {% else %}
+            {% if port.attachment %}
             <table class="attachmend_details">
                 <tr>
                     <td> Instance </td>
@@ -22,17 +20,19 @@
                 </tr>
                 <tr>
                     <td> {{port.instance}} </td>
-                    <td> {{port.attachment}} </td>
+                    <td> {{port.attachment.id}} </td>
                 </tr>
             </table>
+            {% else %}
+            --
             {% endif %}
           </td>
           <td id="actions">
             <ul>
-              {% if port.attachment == None %}
-              <li><a href='{% url dash_ports_attach request.user.tenant network.id port.id %}'>Attach</a></li>
-              {% else %}
+              {% if port.attachment %}
               <li class="form">{% include "_detach_port.html" with form=detach_port_form %}</li>
+              {% else %}
+              <li><a href='{% url dash_ports_attach request.user.tenant network.id port.id %}'>Attach</a></li>
               {% endif %}
               <li class="form">{% include "_delete_port.html" with form=delete_port_form %}</li>
               <li class="form">{% include "_toggle_port.html" with form=toggle_port_form %}</li>
