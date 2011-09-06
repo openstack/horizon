@@ -352,8 +352,14 @@ def swift_api(request):
 
 
 def quantum_api(request):
+    tenant = None
+    if hasattr(request, 'user'):
+        tenant = request.user.tenant
+    else:
+        tenant = settings.QUANTUM_TENANT
+
     return quantum.client.Client(settings.QUANTUM_URL, settings.QUANTUM_PORT, 
-                  False, request.user.tenant, 'json')
+                  False, tenant, 'json')
 
 
 def console_create(request, instance_id, kind='text'):
@@ -652,6 +658,45 @@ def swift_delete_object(request, container_name, object_name):
 def swift_get_object_data(request, container_name, object_name):
     container = swift_api(request).get_container(container_name)
     return container.get_object(object_name).stream()
+
+def quantum_list_networks(request):
+    return quantum_api(request).list_networks()
+
+def quantum_network_details(request, network_id):
+    return quantum_api(request).show_network_details(network_id)
+
+def quantum_list_ports(request, network_id):
+    return quantum_api(request).list_ports(network_id)
+
+def quantum_port_details(request, network_id, port_id):
+    return quantum_api(request).show_port_details(network_id, port_id)
+
+def quantum_create_network(request, data):
+    return quantum_api(request).create_network(data)
+
+def quantum_delete_network(request, network_id):
+    return quantum_api(request).delete_network(network_id)
+
+def quantum_update_network(request, network_id, data):
+    return quantum_api(request).update_network(network_id, data)
+
+def quantum_create_port(request, network_id):
+    return quantum_api(request).create_port(network_id)
+
+def quantum_delete_port(request, network_id, port_id):
+    return quantum_api(request).delete_port(network_id, port_id)
+
+def quantum_attach_port(request, network_id, port_id, data):
+    return quantum_api(request).attach_resource(network_id, port_id, data)
+
+def quantum_detach_port(request, network_id, port_id):
+    return quantum_api(request).detach_resource(network_id, port_id)
+
+def quantum_set_port_state(request, network_id, port_id ,data):
+    return quantum_api(request).set_port_state(network_id, port_id, body)
+
+def quantum_port_attachment(request, network_id, port_id):
+    return quantum_api(request).show_port_attachment(network_id, port_id)
 
 def get_vif_ids(request):
     vifs = []

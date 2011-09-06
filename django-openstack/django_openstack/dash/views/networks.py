@@ -53,7 +53,7 @@ class CreateNetwork(forms.SelfHandlingForm):
         try:
             LOG.info('Creating network %s ' % network_name)
             send_data = {'network': {'name': '%s' % network_name}}
-            api.quantum_api(request).create_network(send_data)
+            api.quantum_create_network(request, send_data)
         except Exception, e:
             messages.error(request,
                            'Unable to create network %s: %s' %
@@ -72,7 +72,7 @@ class DeleteNetwork(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Deleting network %s ' % data['network'])
-            api.quantum_api(request).delete_network(data['network'])
+            api.quantum_delete_network(request, data['network'])
         except Exception, e:
             messages.error(request,
                            'Unable to delete network %s: %s' %
@@ -93,7 +93,7 @@ class RenameNetwork(forms.SelfHandlingForm):
         try:
             LOG.info('Renaming network %s to %s' % (data['network'], data['new_name']))
             send_data = {'network': {'name': '%s' % data['new_name']}}
-            api.quantum_api(request).update_network(data['network'], send_data)
+            api.quantum_update_network(request, data['network'], send_data)
         except Exception, e:
             messages.error(request,
                            'Unable to rename network %s: %s' %
@@ -114,12 +114,12 @@ def index(request, tenant_id):
     instances = []
     
     try:
-        networks_list = api.quantum_api(request).list_networks()
+        networks_list = api.quantum_list_networks(request)
         details = []
         for network in networks_list['networks']:
             net_stats = _calc_network_stats(request, tenant_id, network['id'])
             # Get network details like name and id
-            details = api.quantum_api(request).show_network_details(network['id'])
+            details = api.quantum_network_details(request, network['id'])
             networks.append({
                 'name' : details['network']['name'], 
                 'id' : network['id'],
@@ -158,7 +158,7 @@ def detail(request, tenant_id, network_id):
     network = {}
     
     try:
-        network_details = api.quantum_api(request).show_network_details(network_id)
+        network_details = api.quantum_network_details(request, network_id)
         network['name'] = network_details['network']['name']
         network['id'] = network_id
         network['ports'] = _get_port_states(request, tenant_id, network_id)
@@ -177,7 +177,7 @@ def detail(request, tenant_id, network_id):
 @login_required
 def rename(request, tenant_id, network_id):
     rename_form, handled = RenameNetwork.maybe_handle(request)
-    network_details = api.quantum_api(request).show_network_details(network_id)
+    network_details = api.quantum_network_details(request, network_id)
     
     if handled:
         return shortcuts.redirect('dash_networks', request.user.tenant)
@@ -196,11 +196,11 @@ def _get_port_states(request, tenant_id, network_id):
     vifs = api.get_vif_ids(request)
     
     # Get all ports on this network
-    ports = api.quantum_api(request).list_ports(network_id)
+    ports = api.quantum_list_ports(request, network_id)
     for port in ports['ports']:
-        port_details = api.quantum_api(request).show_port_details(network_id, port['id'])
+        port_details = api.quantum_port_details(request, network_id, port['id'])
         # Get port attachments
-        port_attachment = api.quantum_api(request).show_port_attachment(network_id, port['id'])
+        port_attachment = api.quantum_port_attachment(request, network_id, port['id'])
         # Find instance the attachment belongs to
         connected_instance = None
         if port_attachment['attachment']:
@@ -214,25 +214,24 @@ def _get_port_states(request, tenant_id, network_id):
             'attachment' : port_attachment['attachment'],
             'instance' : connected_instance
         })
-        
     return network_ports
 
 """
 Helper method to calculate statistics for a network
 """
 def _calc_network_stats(request, tenant_id, network_id):
-     # Get all ports statistics for the network
+    # Get all ports statistics for the network
     total = 0
     available = 0
     used = 0
-    ports = api.quantum_api(request).list_ports(network_id)
+    ports = api.quantum_list_ports(request, network_id)
     for port in ports['ports']:
         total += 1
         # Get port attachment
-        port_attachment = api.quantum_api(request).show_port_attachment(network_id, port['id'])
-        if port_attachment['attachment'] == None:
-            available += 1
-        else:
+        port_attachment = api.quantum_port_attachment(request, network_id, port['id'])
+        if port_attachment['attachment']:
             used += 1
+        else:
+            available += 1
     
     return { 'total' : total, 'used' : used, 'available': available }

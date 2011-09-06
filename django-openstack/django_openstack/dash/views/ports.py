@@ -46,7 +46,7 @@ class CreatePort(forms.SelfHandlingForm):
         try:
             LOG.info('Creating %s ports on network %s' % (data['ports_num'], data['network']))
             for i in range(0, data['ports_num']):
-                api.quantum_api(request).create_port(data['network'])
+                api.quantum_create_port(request, data['network'])
         except Exception, e:
             messages.error(request,
                            'Unable to create ports on network %s: %s' %
@@ -66,7 +66,7 @@ class DeletePort(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Deleting %s ports on network %s' % (data['port'], data['network']))
-            api.quantum_api(request).delete_port(data['network'], data['port'])
+            api.quantum_delete_port(request, data['network'], data['port'])
         except Exception, e:
             messages.error(request,
                            'Unable to delete port %s: %s' %
@@ -87,7 +87,7 @@ class AttachPort(forms.SelfHandlingForm):
         try:
             LOG.info('Attaching %s port to VIF %s' % (data['port'], data['vif_id']))
             body = {'attachment': {'id': '%s' % data['vif_id']}}
-            api.quantum_api(request).attach_resource(data['network'], data['port'], body)
+            api.quantum_attach_resource(request, data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
                            'Unable to attach port %s to VIF %s: %s' %
@@ -106,7 +106,7 @@ class DetachPort(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Detaching port %s' % data['port'])
-            api.quantum_api(request).detach_resource(data['network'], data['port'])
+            api.quantum_detach_resource(request, data['network'], data['port'])
         except Exception, e:
             messages.error(request,
                            'Unable to detach port %s: %s' %
@@ -127,7 +127,7 @@ class TogglePort(forms.SelfHandlingForm):
         try:
             LOG.info('Toggling port state to %s' % data['state'])
             body = {'port': {'state': '%s' % data['state']}}
-            api.quantum_api(request).set_port_state(data['network'], data['port'], body)
+            api.quantum_set_port_state(request, data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
                            'Unable to set port state to %s: %s' %
