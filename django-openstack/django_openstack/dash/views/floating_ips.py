@@ -113,7 +113,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            ip = api.tenant_floating_ip_attach(request, data['tenant_id'])
+            ip = api.tenant_floating_ip_allocate(request)
             LOG.info('Allocating Floating IP "%s" to tenant "%s"'
                      % (ip.floating_ip, data['tenant_id']))
 

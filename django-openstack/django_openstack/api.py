@@ -388,7 +388,7 @@ def tenant_floating_ip_get(request, floating_ip_id):
     return novaclient(request).floating_ips.get(floating_ip_id)
 
 
-def tenant_floating_ip_associate(request, floating_ip_id, instance_id):
+def tenant_floating_ip_allocate(request):
     """
     Allocates a floating ip to tenant.
     """
