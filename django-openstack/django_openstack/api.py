@@ -248,7 +248,7 @@ class ServiceCatalogException(api_exceptions.ApiException):
 
 
 class VirtualInterface(APIResourceWrapper):
-    _attrs = ['id','mac_address']
+    _attrs = ['id', 'mac_address']
 
 
 def url_for(request, service_name, admin=False):
@@ -358,7 +358,7 @@ def quantum_api(request):
     else:
         tenant = settings.QUANTUM_TENANT
 
-    return quantum.client.Client(settings.QUANTUM_URL, settings.QUANTUM_PORT, 
+    return quantum.client.Client(settings.QUANTUM_URL, settings.QUANTUM_PORT,
                   False, tenant, 'json')
 
 
@@ -406,6 +406,7 @@ def snapshot_list_detailed(request):
     filters['is_public'] = 'none'
     return [Image(i) for i in glance_api(request)
                              .get_images_detailed(filters=filters)]
+
 
 def snapshot_create(request, instance_id, name):
     return extras_api(request).snapshots.create(instance_id, name)
@@ -659,44 +660,58 @@ def swift_get_object_data(request, container_name, object_name):
     container = swift_api(request).get_container(container_name)
     return container.get_object(object_name).stream()
 
+
 def quantum_list_networks(request):
     return quantum_api(request).list_networks()
+
 
 def quantum_network_details(request, network_id):
     return quantum_api(request).show_network_details(network_id)
 
+
 def quantum_list_ports(request, network_id):
     return quantum_api(request).list_ports(network_id)
+
 
 def quantum_port_details(request, network_id, port_id):
     return quantum_api(request).show_port_details(network_id, port_id)
 
+
 def quantum_create_network(request, data):
     return quantum_api(request).create_network(data)
+
 
 def quantum_delete_network(request, network_id):
     return quantum_api(request).delete_network(network_id)
 
+
 def quantum_update_network(request, network_id, data):
     return quantum_api(request).update_network(network_id, data)
+
 
 def quantum_create_port(request, network_id):
     return quantum_api(request).create_port(network_id)
 
+
 def quantum_delete_port(request, network_id, port_id):
     return quantum_api(request).delete_port(network_id, port_id)
+
 
 def quantum_attach_port(request, network_id, port_id, data):
     return quantum_api(request).attach_resource(network_id, port_id, data)
 
+
 def quantum_detach_port(request, network_id, port_id):
     return quantum_api(request).detach_resource(network_id, port_id)
 
-def quantum_set_port_state(request, network_id, port_id ,data):
-    return quantum_api(request).set_port_state(network_id, port_id, body)
+
+def quantum_set_port_state(request, network_id, port_id, data):
+    return quantum_api(request).set_port_state(network_id, port_id, data)
+
 
 def quantum_port_attachment(request, network_id, port_id):
     return quantum_api(request).show_port_attachment(network_id, port_id)
+
 
 def get_vif_ids(request):
     vifs = []
@@ -707,32 +722,37 @@ def get_vif_ids(request):
         ports = quantum_api(request).list_ports(network['id'])
         # Get port attachments
         for port in ports['ports']:
-            port_attachment = quantum_api(request).show_port_attachment(network['id'], port['id'])
+            port_attachment = quantum_api(request).show_port_attachment(
+                                                    network['id'],
+                                                    port['id'])
             if port_attachment['attachment']:
-                attached_vifs.append(port_attachment['attachment']['id'].encode('ascii'))
+                attached_vifs.append(
+                    port_attachment['attachment']['id'].encode('ascii'))
     # Get all instances
     instances = server_list(request)
     # Get virtual interface ids by instance
     for instance in instances:
-        instance_vifs = extras_api(request).virtual_interfaces.list(instance.id)
+        id = instance.id
+        instance_vifs = extras_api(request).virtual_interfaces.list(id)
         for vif in instance_vifs:
             # Check if this VIF is already connected to any port
             if str(vif.id) in attached_vifs:
                 vifs.append({
-                    'id' : vif.id,
-                    'instance' : instance.id,
-                    'instance_name' : instance.name,
-                    'available' : False
+                    'id': vif.id,
+                    'instance': instance.id,
+                    'instance_name': instance.name,
+                    'available': False
                 })
             else:
                 vifs.append({
-                    'id' : vif.id,
-                    'instance' : instance.id,
-                    'instance_name' : instance.name,
-                    'available' : True
+                    'id': vif.id,
+                    'instance': instance.id,
+                    'instance_name': instance.name,
+                    'available': True
                 })
     return vifs
-    
+
+
 class GlobalSummary(object):
     node_resources = ['vcpus', 'disk_size', 'ram_size']
     unit_mem_size = {'disk_size': ['GiB', 'TiB'], 'ram_size': ['MiB', 'GiB']}

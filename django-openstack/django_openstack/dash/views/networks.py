@@ -44,9 +44,10 @@ import warnings
 
 LOG = logging.getLogger('django_openstack.dash.views.networks')
 
+
 class CreateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(required=True, label="Network Name")
-    
+
     def handle(self, request, data):
         network_name = data['name']
 
@@ -63,8 +64,9 @@ class CreateNetwork(forms.SelfHandlingForm):
             msg = 'Network %s has been created.' % network_name
             LOG.info(msg)
             messages.success(request, msg)
-            return shortcuts.redirect('dash_networks', tenant_id=request.user.tenant)
-        
+            return shortcuts.redirect('dash_networks',
+                                      tenant_id=request.user.tenant)
+
 
 class DeleteNetwork(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
@@ -83,15 +85,16 @@ class DeleteNetwork(forms.SelfHandlingForm):
             messages.success(request, msg)
 
         return shortcuts.redirect(request.build_absolute_uri())
-    
+
 
 class RenameNetwork(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     new_name = forms.CharField(required=True)
-    
+
     def handle(self, request, data):
         try:
-            LOG.info('Renaming network %s to %s' % (data['network'], data['new_name']))
+            LOG.info('Renaming network %s to %s' %
+                     (data['network'], data['new_name']))
             send_data = {'network': {'name': '%s' % data['new_name']}}
             api.quantum_update_network(request, data['network'], send_data)
         except Exception, e:
@@ -99,20 +102,21 @@ class RenameNetwork(forms.SelfHandlingForm):
                            'Unable to rename network %s: %s' %
                            (data['network'], e.message,))
         else:
-            msg = 'Network %s has been renamed to %s.' % (data['network'], data['new_name'])
+            msg = 'Network %s has been renamed to %s.' % \
+                  (data['network'], data['new_name'])
             LOG.info(msg)
             messages.success(request, msg)
 
         return shortcuts.redirect(request.build_absolute_uri())
-        
-        
+
+
 @login_required
 def index(request, tenant_id):
     delete_form, delete_handled = DeleteNetwork.maybe_handle(request)
-    
+
     networks = []
     instances = []
-    
+
     try:
         networks_list = api.quantum_list_networks(request)
         details = []
@@ -121,20 +125,20 @@ def index(request, tenant_id):
             # Get network details like name and id
             details = api.quantum_network_details(request, network['id'])
             networks.append({
-                'name' : details['network']['name'], 
-                'id' : network['id'],
-                'total' : net_stats['total'],
-                'available' : net_stats['available'],
-                'used' : net_stats['used'],
-                'tenant' : tenant_id
+                'name': details['network']['name'],
+                'id': network['id'],
+                'total': net_stats['total'],
+                'available': net_stats['available'],
+                'used': net_stats['used'],
+                'tenant': tenant_id
             })
-    
+
     except Exception, e:
         messages.error(request, 'Unable to get network list: %s' % e.message)
 
     return shortcuts.render_to_response('dash_networks.html', {
         'networks': networks,
-        'delete_form' : delete_form,
+        'delete_form': delete_form,
     }, context_instance=template.RequestContext(request))
 
 
@@ -143,34 +147,34 @@ def create(request, tenant_id):
     network_form, handled = CreateNetwork.maybe_handle(request)
     if handled:
         return shortcuts.redirect('dash_networks', request.user.tenant)
-        
+
     return shortcuts.render_to_response('dash_network_create.html', {
-        'network_form' : network_form
+        'network_form': network_form
     }, context_instance=template.RequestContext(request))
-    
+
 
 @login_required
 def detail(request, tenant_id, network_id):
-    delete_port_form, delete_handled  = DeletePort.maybe_handle(request)
-    detach_port_form, detach_handled  = DetachPort.maybe_handle(request)
+    delete_port_form, delete_handled = DeletePort.maybe_handle(request)
+    detach_port_form, detach_handled = DetachPort.maybe_handle(request)
     toggle_port_form, port_toggle_handled = TogglePort.maybe_handle(request)
-    
+
     network = {}
-    
+
     try:
         network_details = api.quantum_network_details(request, network_id)
         network['name'] = network_details['network']['name']
         network['id'] = network_id
         network['ports'] = _get_port_states(request, tenant_id, network_id)
     except Exception, e:
-        messages.error(request, 'Unable to get network details: %s' % e.message)
+        messages.error(request, 'Unable to get network details:%s' % e.message)
 
     return shortcuts.render_to_response('dash_networks_detail.html', {
         'network': network,
-        'tenant' : tenant_id,
-        'delete_port_form' : delete_port_form,
-        'detach_port_form' : detach_port_form,
-        'toggle_port_form' : toggle_port_form
+        'tenant': tenant_id,
+        'delete_port_form': delete_port_form,
+        'detach_port_form': detach_port_form,
+        'toggle_port_form': toggle_port_form
     }, context_instance=template.RequestContext(request))
 
 
@@ -178,29 +182,32 @@ def detail(request, tenant_id, network_id):
 def rename(request, tenant_id, network_id):
     rename_form, handled = RenameNetwork.maybe_handle(request)
     network_details = api.quantum_network_details(request, network_id)
-    
+
     if handled:
         return shortcuts.redirect('dash_networks', request.user.tenant)
-    
+
     return shortcuts.render_to_response('dash_network_rename.html', {
-        'network' : network_details,
-        'rename_form' : rename_form
+        'network': network_details,
+        'rename_form': rename_form
     }, context_instance=template.RequestContext(request))
 
-"""
-Helper method to find port states for a network
-"""
+
 def _get_port_states(request, tenant_id, network_id):
+    """
+    Helper method to find port states for a network
+    """
     network_ports = []
     # Get all vifs for comparison with port attachments
     vifs = api.get_vif_ids(request)
-    
+
     # Get all ports on this network
     ports = api.quantum_list_ports(request, network_id)
     for port in ports['ports']:
-        port_details = api.quantum_port_details(request, network_id, port['id'])
+        port_details = api.quantum_port_details(request,
+                                                network_id, port['id'])
         # Get port attachments
-        port_attachment = api.quantum_port_attachment(request, network_id, port['id'])
+        port_attachment = api.quantum_port_attachment(request,
+                                                      network_id, port['id'])
         # Find instance the attachment belongs to
         connected_instance = None
         if port_attachment['attachment']:
@@ -209,17 +216,18 @@ def _get_port_states(request, tenant_id, network_id):
                     connected_instance = vif['instance_name']
                     break
         network_ports.append({
-            'id' : port_details['port']['id'],
-            'state' : port_details['port']['state'],
-            'attachment' : port_attachment['attachment'],
-            'instance' : connected_instance
+            'id': port_details['port']['id'],
+            'state': port_details['port']['state'],
+            'attachment': port_attachment['attachment'],
+            'instance': connected_instance
         })
     return network_ports
 
-"""
-Helper method to calculate statistics for a network
-"""
+
 def _calc_network_stats(request, tenant_id, network_id):
+    """
+    Helper method to calculate statistics for a network
+    """
     # Get all ports statistics for the network
     total = 0
     available = 0
@@ -228,10 +236,11 @@ def _calc_network_stats(request, tenant_id, network_id):
     for port in ports['ports']:
         total += 1
         # Get port attachment
-        port_attachment = api.quantum_port_attachment(request, network_id, port['id'])
+        port_attachment = api.quantum_port_attachment(request,
+                                                      network_id, port['id'])
         if port_attachment['attachment']:
             used += 1
         else:
             available += 1
-    
-    return { 'total' : total, 'used' : used, 'available': available }
+
+    return {'total': total, 'used': used, 'available': available}
