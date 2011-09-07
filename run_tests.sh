@@ -51,12 +51,13 @@ function run_pylint {
 function run_pep8 {
   echo "Running pep8 ..."
   PEP8_EXCLUDE=vcsversion.py
-  PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --repeat --show-pep8 --show-source"
+  PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --repeat --show-pep8 --show-source --count"
   PEP8_INCLUDE="openstack-dashboard/dashboard django-openstack/django_openstack"
   echo "${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt"
   ${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt
   #perl string strips out the [ and ] characters
   #${wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt
+  echo "pep8 complete"
 }
 
 
