@@ -41,38 +41,42 @@ LOG = logging.getLogger('django_openstack.dash.views.ports')
 class CreatePort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     ports_num = forms.IntegerField(required=True, label="Number of Ports")
-    
+
     def handle(self, request, data):
         try:
-            LOG.info('Creating %s ports on network %s' % (data['ports_num'], data['network']))
+            LOG.info('Creating %s ports on network %s' %
+                     (data['ports_num'], data['network']))
             for i in range(0, data['ports_num']):
-                api.quantum_api(request).create_port(data['network'])
+                api.quantum_create_port(request, data['network'])
         except Exception, e:
             messages.error(request,
                            'Unable to create ports on network %s: %s' %
-                           (data['network'], e.message,))
+                           (data['network'], e.message))
         else:
-            msg = '%s ports created on network %s.' % (data['ports_num'], data['network'])
+            msg = '%s ports created on network %s.' % \
+                  (data['ports_num'], data['network'])
             LOG.info(msg)
             messages.success(request, msg)
-            
+
         return shortcuts.redirect(request.build_absolute_uri())
 
 
 class DeletePort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     port = forms.CharField(widget=forms.HiddenInput())
-    
+
     def handle(self, request, data):
         try:
-            LOG.info('Deleting %s ports on network %s' % (data['port'], data['network']))
-            api.quantum_api(request).delete_port(data['network'], data['port'])
+            LOG.info('Deleting %s ports on network %s' %
+                     (data['port'], data['network']))
+            api.quantum_delete_port(request, data['network'], data['port'])
         except Exception, e:
             messages.error(request,
                            'Unable to delete port %s: %s' %
                            (data['port'], e.message,))
         else:
-            msg = 'Port %s deleted from network %s.' % (data['port'], data['network'])
+            msg = 'Port %s deleted from network %s.' % \
+                  (data['port'], data['network'])
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -81,32 +85,36 @@ class DeletePort(forms.SelfHandlingForm):
 class AttachPort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     port = forms.CharField(widget=forms.HiddenInput())
-    vif_id = forms.CharField(widget=forms.Select(), label="Select VIF to connect")
-        
+    vif_id = forms.CharField(widget=forms.Select(),
+                             label="Select VIF to connect")
+
     def handle(self, request, data):
         try:
-            LOG.info('Attaching %s port to VIF %s' % (data['port'], data['vif_id']))
+            LOG.info('Attaching %s port to VIF %s' %
+                     (data['port'], data['vif_id']))
             body = {'attachment': {'id': '%s' % data['vif_id']}}
-            api.quantum_api(request).attach_resource(data['network'], data['port'], body)
+            api.quantum_attach_port(request,
+                                        data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
                            'Unable to attach port %s to VIF %s: %s' %
                            (data['port'], data['vif_id'], e.message,))
         else:
-            msg = 'Port %s connected to VIF %s.' % (data['port'], data['vif_id'])
+            msg = 'Port %s connected to VIF %s.' % \
+                  (data['port'], data['vif_id'])
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())
-        
+
 
 class DetachPort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     port = forms.CharField(widget=forms.HiddenInput())
-    
+
     def handle(self, request, data):
         try:
             LOG.info('Detaching port %s' % data['port'])
-            api.quantum_api(request).detach_resource(data['network'], data['port'])
+            api.quantum_detach_port(request, data['network'], data['port'])
         except Exception, e:
             messages.error(request,
                            'Unable to detach port %s: %s' %
@@ -122,71 +130,74 @@ class TogglePort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     port = forms.CharField(widget=forms.HiddenInput())
     state = forms.CharField(widget=forms.HiddenInput())
-    
+
     def handle(self, request, data):
         try:
             LOG.info('Toggling port state to %s' % data['state'])
             body = {'port': {'state': '%s' % data['state']}}
-            api.quantum_api(request).set_port_state(data['network'], data['port'], body)
+            api.quantum_set_port_state(request,
+                                       data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
                            'Unable to set port state to %s: %s' %
                            (data['state'], e.message,))
         else:
-            msg = 'Port %s state set to %s.' % (data['port'],data['state'])
+            msg = 'Port %s state set to %s.' % (data['port'], data['state'])
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())
-        
+
 
 @login_required
 def create(request, tenant_id, network_id):
-    create_form, handled  = CreatePort.maybe_handle(request)
-    
+    create_form, handled = CreatePort.maybe_handle(request)
+
     if handled:
         return shortcuts.redirect(
-            'dash_networks_detail', 
-            tenant_id=request.user.tenant, 
+            'dash_networks_detail',
+            tenant_id=request.user.tenant,
             network_id=network_id
         )
-        
+
     return shortcuts.render_to_response('dash_ports_create.html', {
-        'network_id' : network_id,
-        'create_form' : create_form
+        'network_id': network_id,
+        'create_form': create_form
     }, context_instance=template.RequestContext(request))
 
 
 @login_required
 def attach(request, tenant_id, network_id, port_id):
-    attach_form, handled  = AttachPort.maybe_handle(request)
-    
+    attach_form, handled = AttachPort.maybe_handle(request)
+
     if handled:
-        return shortcuts.redirect('dash_networks_detail', request.user.tenant, network_id)
-    
+        return shortcuts.redirect('dash_networks_detail',
+                                  request.user.tenant, network_id)
+
     # Get all avaliable vifs
     vifs = _get_available_vifs(request)
-            
+
     return shortcuts.render_to_response('dash_port_attach.html', {
-        'network' : network_id,
-        'port' : port_id,
-        'attach_form' : attach_form,
-        'vifs' : vifs,
+        'network': network_id,
+        'port': port_id,
+        'attach_form': attach_form,
+        'vifs': vifs,
     }, context_instance=template.RequestContext(request))
 
 
-"""
-Method to get a list of available virtual interfaces
-"""
 def _get_available_vifs(request):
+    """
+    Method to get a list of available virtual interfaces
+    """
     vif_choices = []
     vifs = api.get_vif_ids(request)
-    
+
     for vif in vifs:
         if vif['available']:
-            name = "Instance %s VIF %s" % (str(vif['instance_name']), str(vif['id']))
+            name = "Instance %s VIF %s" % \
+                   (str(vif['instance_name']), str(vif['id']))
             vif_choices.append({
-                'name' : str(name),
-                'id' : str(vif['id'])
+                'name': str(name),
+                'id': str(vif['id'])
             })
 
     return vif_choices
