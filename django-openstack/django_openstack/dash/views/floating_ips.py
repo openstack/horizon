@@ -113,18 +113,18 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            ip = api.tenant_floating_ip_allocate(request)
+            fip = api.tenant_floating_ip_allocate(request)
             LOG.info('Allocating Floating IP "%s" to tenant "%s"'
-                     % (ip.floating_ip, data['tenant_id']))
+                     % (fip.ip, data['tenant_id']))
 
             messages.success(request, 'Successfully allocated Floating IP "%s"\
-                         to tenant "%s"' % (ip.floating_ip, data['tenant_id']))
+                         to tenant "%s"' % (fip.ip, data['tenant_id']))
 
         except api_exceptions.ApiException, e:
             LOG.error("ApiException in FloatingIpAllocate", exc_info=True)
             messages.error(request, 'Error allocating Floating IP "%s"\
                            to tenant "%s": %s' % 
-                           (ip.floating_ip, data['tenant_id'], e.message))
+                           (fip.ip, data['tenant_id'], e.message))
         return shortcuts.redirect('dash_floating_ips', request.user.tenant)
 
 

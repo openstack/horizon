@@ -28,6 +28,7 @@ from django.conf import settings
 from django_openstack import api
 from glance import client as glance_client
 from mox import IsA
+from novaclient.v1_1 import client
 from openstack import compute as OSCompute
 from openstackx import admin as OSAdmin
 from openstackx import auth as OSAuth
@@ -951,6 +952,7 @@ class ComputeApiTests(test.TestCase):
 
 
 class ExtrasApiTests(test.TestCase):
+
     def stub_extras_api(self, count=1):
         self.mox.StubOutWithMock(api, 'extras_api')
         extras_api = self.mox.CreateMock(OSExtras.Extras)
@@ -1133,6 +1135,88 @@ class ExtrasApiTests(test.TestCase):
             self.assertIsInstance(usage, api.Usage)
             self.assertIn(usage._apiresource, usages)
 
+        self.mox.VerifyAll()
+
+
+class APIExtensionTests(test.TestCase):
+    
+    def setUp(self):
+        super(APIExtensionTests, self).setUp()
+        
+        floating_ip = self.mox.CreateMock(api.FloatingIp)
+        floating_ip.id = 1
+        floating_ip.fixed_ip = '10.0.0.4'
+        floating_ip.instance_id = 1
+        floating_ip.ip = '58.58.58.58'
+
+        self.floating_ip = floating_ip
+        self.floating_ips = [floating_ip, ]
+    
+    def test_tenant_floating_ip_list(self):
+        api.tenant_floating_ip_list = self.mox.CreateMockAnything()
+        api.tenant_floating_ip_list().AndReturn(self.floating_ips)
+        self.mox.ReplayAll()
+
+        floating_ips = api.tenant_floating_ip_list()
+
+        self.assertEqual(len(floating_ips), 1)
+        self.assertIsInstance(floating_ips[0], api.FloatingIp)
+        self.mox.VerifyAll() 
+
+    def test_tenant_floating_ip_get(self):
+        api.tenant_floating_ip_get = self.mox.CreateMockAnything()
+        api.tenant_floating_ip_get(1).AndReturn(self.floating_ip)
+        self.mox.ReplayAll()
+
+        floating_ip = api.tenant_floating_ip_get(1)
+
+        self.assertIsInstance(floating_ip, api.FloatingIp)
+        self.mox.VerifyAll() 
+
+    def test_tenant_floating_ip_allocate(self):
+        api.tenant_floating_ip_allocate = self.mox.CreateMockAnything()
+        api.tenant_floating_ip_allocate().AndReturn(self.floating_ip)
+        self.mox.ReplayAll()
+
+        floating_ip = api.tenant_floating_ip_allocate()
+
+        self.assertIsInstance(floating_ip, api.FloatingIp)
+        self.mox.VerifyAll() 
+
+    def test_tenant_floating_ip_release(self):
+        api.tenant_floating_ip_release = self.mox.CreateMockAnything()
+        api.tenant_floating_ip_release(1).AndReturn(self.floating_ip)
+        self.mox.ReplayAll()
+
+        floating_ip = api.tenant_floating_ip_release(1)
+
+        self.assertIsInstance(floating_ip, api.FloatingIp)
+        self.mox.VerifyAll() 
+    
+    def test_server_remove_floating_ip(self):
+        server = self.mox.CreateMock(api.Server)
+        server.id = 1
+
+        api.server_remove_floating_ip = self.mox.CreateMockAnything()
+        api.server_remove_floating_ip(1, 1).AndReturn(server)
+        self.mox.ReplayAll()
+
+        server = api.server_remove_floating_ip(1, 1)
+
+        self.assertIsInstance(server, api.Server)
+        self.mox.VerifyAll()
+
+    def test_server_add_floating_ip(self):
+        server = self.mox.CreateMock(api.Server)
+        server.id = 1
+
+        api.server_add_floating_ip = self.mox.CreateMockAnything()
+        api.server_add_floating_ip(1, 1).AndReturn(server)
+        self.mox.ReplayAll()
+
+        server = api.server_add_floating_ip(1, 1)
+
+        self.assertIsInstance(server, api.Server)
         self.mox.VerifyAll()
 
 
