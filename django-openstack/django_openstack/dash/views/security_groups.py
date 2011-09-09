@@ -35,7 +35,7 @@ from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
-import openstackx.api.exceptions as api_exceptions
+from novaclient import exceptions as novaclient_exceptions
 
 
 LOG = logging.getLogger('django_openstack.dash.views.security_groups')
@@ -57,8 +57,8 @@ class CreateGroup(forms.SelfHandlingForm):
                                     % data['name'])
             return shortcuts.redirect('dash_security_groups',
                                        data['tenant_id'])
-        except api_exceptions.ApiException, e:
-            LOG.error("ApiException in CreateGroup", exc_info=True)
+        except novaclient_exceptions.ClientException, e:
+            LOG.error("ClientException in CreateGroup", exc_info=True)
             messages.error(request, 'Error creating security group: %s' %
                                      e.message)
 
@@ -75,8 +75,8 @@ class DeleteGroup(forms.SelfHandlingForm):
                                                      data['security_group_id'])
             messages.info(request, 'Successfully deleted security_group: %s' \
                                     % data['security_group_id'])
-        except api_exceptions.ApiException, e:
-            LOG.error("ApiException in DeleteGroup", exc_info=True)
+        except novaclient_exceptions.ClientException, e:
+            LOG.error("ClientException in DeleteGroup", exc_info=True)
             messages.error(request, 'Error deleting security group: %s'
                                      % e.message)
         return shortcuts.redirect('dash_security_groups', data['tenant_id'])
@@ -108,8 +108,8 @@ class AddRule(forms.SelfHandlingForm):
                                                   data['cidr'])
             messages.info(request, 'Successfully added rule: %s' \
                                     % rule.id)
-        except api_exceptions.ApiException, e:
-            LOG.error("ApiException in AddRule", exc_info=True)
+        except novaclient_exceptions.ClientException, e:
+            LOG.error("ClientException in AddRule", exc_info=True)
             messages.error(request, 'Error adding rule security group: %s'
                                      % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -130,8 +130,8 @@ class DeleteRule(forms.SelfHandlingForm):
                                                 security_group_rule_id)
             messages.info(request, 'Successfully deleted rule: %s' \
                                     % security_group_rule_id)
-        except api_exceptions.ApiException, e:
-            LOG.error("ApiException in DeleteRule", exc_info=True)
+        except novaclient_exceptions.ClientException, e:
+            LOG.error("ClientException in DeleteRule", exc_info=True)
             messages.error(request, 'Error authorizing security group: %s'
                                      % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -147,9 +147,9 @@ def index(request, tenant_id):
 
     try:
         security_groups = api.security_group_list(request)
-    except api_exceptions.ApiException, e:
+    except novaclient_exceptions.ClientException, e:
         security_groups = []
-        LOG.error("ApiException in security_groups index", exc_info=True)
+        LOG.error("ClientException in security_groups index", exc_info=True)
         messages.error(request, 'Error fetching security_groups: %s'
                                  % e.message)
 
@@ -175,8 +175,8 @@ def edit_rules(request, tenant_id, security_group_id):
 
     try:
         security_group = api.security_group_get(request, security_group_id)
-    except api_exceptions.ApiException, e:
-        LOG.error("ApiException in security_groups rules edit", exc_info=True)
+    except novaclient_exceptions.ClientException, e:
+        LOG.error("ClientException in security_groups rules edit", exc_info=True)
         messages.error(request, 'Error getting security_group: %s' % e.message)
         return shortcuts.redirect('dash_security_groups', tenant_id)
 
