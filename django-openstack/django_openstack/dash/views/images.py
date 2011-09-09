@@ -39,6 +39,7 @@ from django_openstack import api
 from django_openstack import forms
 from openstackx.api import exceptions as api_exceptions
 from glance.common import exception as glance_exception
+from novaclient import exceptions as novaclient_exceptions
 
 
 LOG = logging.getLogger('django_openstack.dash.views.images')
@@ -177,7 +178,7 @@ def launch(request, tenant_id, image_id):
             fl = api.security_group_list(request)
             sel = [(f.name, f.name) for f in fl]
             return sel
-        except api_exceptions.ApiException:
+        except novaclient_exceptions.ClientException, e:
             LOG.error('Unable to retrieve list of security groups', exc_info=True)
             return []
 

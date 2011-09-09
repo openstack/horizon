@@ -5,6 +5,7 @@ from django_openstack import api
 from django_openstack.tests.view_tests import base
 from glance.common import exception as glance_exception
 from openstackx.api import exceptions as api_exceptions
+from novaclient import exceptions as novaclient_exceptions
 from mox import IgnoreArg, IsA
 
 
@@ -33,8 +34,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_index_exception(self):
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
+        exception = novaclient_exceptions.ClientException('ClientException',
+                                                  message='ClientException')
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.security_group_list(IsA(http.HttpRequest)).AndRaise(exception)
 
@@ -89,8 +90,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         SECGROUP_NAME = 'fakegroup'
         SECGROUP_DESC = 'fakegroup_desc'
 
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
+        exception = novaclient_exceptions.ClientException('ClientException',
+                                                  message='ClientException')
 
         formData = {'method': 'CreateGroup',
                     'tenant_id': self.TEST_TENANT,
@@ -133,8 +134,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
     def test_edit_rules_get_exception(self):
         SECGROUP_ID = '1'
 
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
+        exception = novaclient_exceptions.ClientException('ClientException',
+                                                  message='ClientException')
 
         self.mox.StubOutWithMock(api, 'security_group_get')
         api.security_group_get(IsA(http.HttpRequest), SECGROUP_ID).AndRaise(
@@ -195,8 +196,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_edit_rules_add_rule_exception(self):
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
+        exception = novaclient_exceptions.ClientException('ClientException',
+                                                  message='ClientException')
 
         SECGROUP_ID = '1'
         RULE_ID = '1'
@@ -261,8 +262,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_edit_rules_delete_rule_exception(self):
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
+        exception = novaclient_exceptions.ClientException('ClientException',
+                                                  message='ClientException')
 
         SECGROUP_ID = '1'
         RULE_ID = '1'
@@ -317,8 +318,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_delete_group_exception(self):
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
+        exception = novaclient_exceptions.ClientException('ClientException',
+                                                  message='ClientException')
 
         SECGROUP_ID = '1'
 
