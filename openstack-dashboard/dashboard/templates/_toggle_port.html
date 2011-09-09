@@ -1,0 +1,15 @@
+<form id="port_toggle_form" class="form-toggle" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="network" type="hidden" value="{{network.id}}" />
+  <input name="port" type="hidden" value="{{port.id}}" />
+  {% if port.state == 'DOWN' %}
+    <input name="state" type="hidden" value="ACTIVE" />
+    <input title="Turn port UP" id="port_up_{{port.id}}" class="port_up" type="submit" value="Port UP" />
+  {% else %}
+    <input name="state" type="hidden" value="DOWN" />
+    <input title="Turn port DOWN" id="port_up_{{port.id}}" class="port_down" type="submit" value="Port DOWN" />
+  {% endif %}
+</form>

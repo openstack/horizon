@@ -48,8 +48,8 @@ import openstackx.api.exceptions as api_exceptions
 import openstackx.extras
 import openstackx.auth
 from novaclient.v1_1 import client
+import quantum.client
 from urlparse import urlparse
-
 
 LOG = logging.getLogger('django_openstack.api')
 
@@ -163,7 +163,7 @@ class Server(APIResourceWrapper):
     """
     _attrs = ['addresses', 'attrs', 'hostId', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
-             'image_name']
+             'image_name', 'VirtualInterfaces']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
@@ -258,10 +258,16 @@ class SwiftAuthentication(object):
     def authenticate(self):
         return (self.storage_url, '', self.auth_token)
 
+
 class ServiceCatalogException(api_exceptions.ApiException):
     def __init__(self, service_name):
         message = 'Invalid service catalog service: %s' % service_name
         super(ServiceCatalogException, self).__init__(404, message)
+
+
+class VirtualInterface(APIResourceWrapper):
+    _attrs = ['id', 'mac_address']
+
 
 def url_for(request, service_name, admin=False):
     catalog = request.user.service_catalog
@@ -373,6 +379,17 @@ def swift_api(request):
     return cloudfiles.get_connection(auth=auth)
 
 
+def quantum_api(request):
+    tenant = None
+    if hasattr(request, 'user'):
+        tenant = request.user.tenant
+    else:
+        tenant = settings.QUANTUM_TENANT
+
+    return quantum.client.Client(settings.QUANTUM_URL, settings.QUANTUM_PORT,
+                  False, tenant, 'json')
+
+
 def console_create(request, instance_id, kind='text'):
     return Console(extras_api(request).consoles.create(instance_id, kind))
 
@@ -417,6 +434,7 @@ def snapshot_list_detailed(request):
     filters['is_public'] = 'none'
     return [Image(i) for i in glance_api(request)
                              .get_images_detailed(filters=filters)]
+
 
 def snapshot_create(request, instance_id, name):
     return extras_api(request).snapshots.create(instance_id, name)
@@ -583,7 +601,7 @@ def user_get(request, user_id):
 
 
 def security_group_list(request):
-    return [SecurityGroup(g)for g in novaclient(request).\
+    return [SecurityGroup(g) for g in novaclient(request).\
                                      security_groups.list()]
 
 def security_group_get(request, security_group_id):
@@ -703,6 +721,99 @@ def swift_delete_object(request, container_name, object_name):
 def swift_get_object_data(request, container_name, object_name):
     container = swift_api(request).get_container(container_name)
     return container.get_object(object_name).stream()
+
+
+def quantum_list_networks(request):
+    return quantum_api(request).list_networks()
+
+
+def quantum_network_details(request, network_id):
+    return quantum_api(request).show_network_details(network_id)
+
+
+def quantum_list_ports(request, network_id):
+    return quantum_api(request).list_ports(network_id)
+
+
+def quantum_port_details(request, network_id, port_id):
+    return quantum_api(request).show_port_details(network_id, port_id)
+
+
+def quantum_create_network(request, data):
+    return quantum_api(request).create_network(data)
+
+
+def quantum_delete_network(request, network_id):
+    return quantum_api(request).delete_network(network_id)
+
+
+def quantum_update_network(request, network_id, data):
+    return quantum_api(request).update_network(network_id, data)
+
+
+def quantum_create_port(request, network_id):
+    return quantum_api(request).create_port(network_id)
+
+
+def quantum_delete_port(request, network_id, port_id):
+    return quantum_api(request).delete_port(network_id, port_id)
+
+
+def quantum_attach_port(request, network_id, port_id, data):
+    return quantum_api(request).attach_resource(network_id, port_id, data)
+
+
+def quantum_detach_port(request, network_id, port_id):
+    return quantum_api(request).detach_resource(network_id, port_id)
+
+
+def quantum_set_port_state(request, network_id, port_id, data):
+    return quantum_api(request).set_port_state(network_id, port_id, data)
+
+
+def quantum_port_attachment(request, network_id, port_id):
+    return quantum_api(request).show_port_attachment(network_id, port_id)
+
+
+def get_vif_ids(request):
+    vifs = []
+    attached_vifs = []
+    # Get a list of all networks
+    networks_list = quantum_api(request).list_networks()
+    for network in networks_list['networks']:
+        ports = quantum_api(request).list_ports(network['id'])
+        # Get port attachments
+        for port in ports['ports']:
+            port_attachment = quantum_api(request).show_port_attachment(
+                                                    network['id'],
+                                                    port['id'])
+            if port_attachment['attachment']:
+                attached_vifs.append(
+                    port_attachment['attachment']['id'].encode('ascii'))
+    # Get all instances
+    instances = server_list(request)
+    # Get virtual interface ids by instance
+    for instance in instances:
+        id = instance.id
+        instance_vifs = extras_api(request).virtual_interfaces.list(id)
+        for vif in instance_vifs:
+            # Check if this VIF is already connected to any port
+            if str(vif.id) in attached_vifs:
+                vifs.append({
+                    'id': vif.id,
+                    'instance': instance.id,
+                    'instance_name': instance.name,
+                    'available': False
+                })
+            else:
+                vifs.append({
+                    'id': vif.id,
+                    'instance': instance.id,
+                    'instance_name': instance.name,
+                    'available': True
+                })
+    return vifs
+
 
 class GlobalSummary(object):
     node_resources = ['vcpus', 'disk_size', 'ram_size']

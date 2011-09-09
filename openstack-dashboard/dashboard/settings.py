@@ -37,9 +37,11 @@ ENABLE_VNC = True
 LOGIN_URL = '/auth/login'
 LOGIN_REDIRECT_URL = '/'
 
-MEDIA_ROOT = os.path.join(ROOT_PATH, '..', 'media')
+MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
 MEDIA_URL = '/media/'
-ADMIN_MEDIA_PREFIX = '/media/admin/'
+STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'static'))
+STATIC_URL = '/static/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 CREDENTIAL_AUTHORIZATION_DAYS = '5'
 
@@ -61,9 +63,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
+    'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     'django_openstack.context_processors.swift',
     'django_openstack.context_processors.tenants',
+    'django_openstack.context_processors.quantum',
 )
 
 TEMPLATE_LOADERS = (
@@ -75,11 +79,16 @@ TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'templates'),
 )
 
+STATICFILES_DIRS = (
+    os.path.join(ROOT_PATH, 'static'),
+)
+
 INSTALLED_APPS = (
     'dashboard',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
     'django_openstack',
     'django_openstack.templatetags',
     'mailer',

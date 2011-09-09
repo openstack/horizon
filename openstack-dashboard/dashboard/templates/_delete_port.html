@@ -1,0 +1,9 @@
+<form id="delete_port_form" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="network" type="hidden" value="{{network.id}}" />
+  <input name="port" type="hidden" value="{{port.id}}" />
+  <input title="Delete this port" id="delete_{{port.id}}" class="delete" type="submit" value="Delete" />
+</form>
