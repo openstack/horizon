@@ -55,12 +55,12 @@ class CreateGroup(forms.SelfHandlingForm):
                                                        data['description'])
             messages.info(request, 'Successfully created security_group: %s' \
                                     % data['name'])
+            return shortcuts.redirect('dash_security_groups',
+                                       data['tenant_id'])
         except api_exceptions.ApiException, e:
             LOG.error("ApiException in CreateGroup", exc_info=True)
             messages.error(request, 'Error creating security group: %s' %
                                      e.message)
-
-        return shortcuts.redirect('dash_security_groups', data['tenant_id'])
 
 
 class DeleteGroup(forms.SelfHandlingForm):
@@ -89,7 +89,8 @@ class AddRule(forms.SelfHandlingForm):
     from_port = forms.CharField()
     to_port = forms.CharField()
     cidr = forms.CharField()
-#    group_id = forms.CharField()
+    # TODO (anthony) source group support
+    # group_id = forms.CharField()
 
     security_group_id = forms.CharField(widget=forms.HiddenInput())
     tenant_id = forms.CharField(widget=forms.HiddenInput())
@@ -99,14 +100,14 @@ class AddRule(forms.SelfHandlingForm):
         try:
             LOG.info('Add security_group_rule: "%s"' % data)
 
-            security_group = api.security_group_rule_create(request,
-                                                     data['security_group_id'],
-                                                     data['ip_protocol'],
-                                                     data['from_port'],
-                                                     data['to_port'],
-                                                     data['cidr'])
+            rule = api.security_group_rule_create(request,
+                                                  data['security_group_id'],
+                                                  data['ip_protocol'],
+                                                  data['from_port'],
+                                                  data['to_port'],
+                                                  data['cidr'])
             messages.info(request, 'Successfully added rule: %s' \
-                                    % security_group.id)
+                                    % rule.id)
         except api_exceptions.ApiException, e:
             LOG.error("ApiException in AddRule", exc_info=True)
             messages.error(request, 'Error adding rule security group: %s'
@@ -116,7 +117,6 @@ class AddRule(forms.SelfHandlingForm):
 
 class DeleteRule(forms.SelfHandlingForm):
     security_group_rule_id = forms.CharField(widget=forms.HiddenInput())
-    security_group_id = forms.CharField(widget=forms.HiddenInput())
     tenant_id = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):
@@ -181,7 +181,7 @@ def edit_rules(request, tenant_id, security_group_id):
         return shortcuts.redirect('dash_security_groups', tenant_id)
 
     return shortcuts.render_to_response(
-                      'dash_security_groups_edit_rules.html', {
+        'dash_security_groups_edit_rules.html', {
         'security_group': security_group,
         'delete_form': delete_form,
         'form': add_form,
@@ -195,6 +195,6 @@ def create(request, tenant_id):
     if handled:
         return handled
 
-    return shortcuts.render_to_response('dash_security_group_create.html', {
+    return shortcuts.render_to_response('dash_security_groups_create.html', {
         'form': form,
     }, context_instance=template.RequestContext(request))
