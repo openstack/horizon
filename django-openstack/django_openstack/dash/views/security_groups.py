@@ -45,6 +45,7 @@ class CreateGroup(forms.SelfHandlingForm):
     name = forms.CharField(validators=[validators.validate_slug])
     description = forms.CharField()
     tenant_id = forms.CharField(widget=forms.HiddenInput())
+
     def handle(self, request, data):
         try:
             LOG.info('Add security_group: "%s"' % data)
@@ -56,28 +57,35 @@ class CreateGroup(forms.SelfHandlingForm):
                                     % data['name'])
         except api_exceptions.ApiException, e:
             LOG.error("ApiException in CreateGroup", exc_info=True)
-            messages.error(request, 'Error creating security group: %s' % e.message)
+            messages.error(request, 'Error creating security group: %s' %
+                                     e.message)
+
         return shortcuts.redirect('dash_security_groups', data['tenant_id'])
 
 
 class DeleteGroup(forms.SelfHandlingForm):
     tenant_id = forms.CharField(widget=forms.HiddenInput())
     security_group_id = forms.CharField(widget=forms.HiddenInput())
+
     def handle(self, request, data):
         try:
             LOG.info('Delete security_group: "%s"' % data)
 
-            security_group = api.security_group_delete(request, data['security_group_id'])
+            security_group = api.security_group_delete(request,
+                                                     data['security_group_id'])
             messages.info(request, 'Successfully deleted security_group: %s' \
                                     % data['security_group_id'])
         except api_exceptions.ApiException, e:
             LOG.error("ApiException in DeleteGroup", exc_info=True)
-            messages.error(request, 'Error deleting security group: %s' % e.message)
+            messages.error(request, 'Error deleting security group: %s'
+                                     % e.message)
         return shortcuts.redirect('dash_security_groups', data['tenant_id'])
 
 
 class AddRule(forms.SelfHandlingForm):
-    ip_protocol = forms.ChoiceField(choices=[('tcp', 'tcp'), ('udp', 'udp'), ('icmp', 'icmp')])
+    ip_protocol = forms.ChoiceField(choices=[('tcp', 'tcp'),
+                                             ('udp', 'udp'),
+                                             ('icmp', 'icmp')])
     from_port = forms.CharField()
     to_port = forms.CharField()
     cidr = forms.CharField()
@@ -101,7 +109,8 @@ class AddRule(forms.SelfHandlingForm):
                                     % security_group.id)
         except api_exceptions.ApiException, e:
             LOG.error("ApiException in AddRule", exc_info=True)
-            messages.error(request, 'Error adding rule security group: %s' % e.message)
+            messages.error(request, 'Error adding rule security group: %s'
+                                     % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
 
 
@@ -109,6 +118,7 @@ class DeleteRule(forms.SelfHandlingForm):
     security_group_rule_id = forms.CharField(widget=forms.HiddenInput())
     security_group_id = forms.CharField(widget=forms.HiddenInput())
     tenant_id = forms.CharField(widget=forms.HiddenInput())
+
     def handle(self, request, data):
         security_group_rule_id = data['security_group_rule_id']
         tenant_id = data['tenant_id']
@@ -122,14 +132,15 @@ class DeleteRule(forms.SelfHandlingForm):
                                     % security_group_rule_id)
         except api_exceptions.ApiException, e:
             LOG.error("ApiException in DeleteRule", exc_info=True)
-            messages.error(request, 'Error authorizing security group: %s' % e.message)
+            messages.error(request, 'Error authorizing security group: %s'
+                                     % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
 
 
 @login_required
 def index(request, tenant_id):
     delete_form, handled = DeleteGroup.maybe_handle(request,
-                                initial={ 'tenant_id': tenant_id })
+                                initial={'tenant_id': tenant_id})
 
     if handled:
         return handled
@@ -139,7 +150,8 @@ def index(request, tenant_id):
     except api_exceptions.ApiException, e:
         security_groups = []
         LOG.error("ApiException in security_groups index", exc_info=True)
-        messages.error(request, 'Error fetching security_groups: %s' % e.message)
+        messages.error(request, 'Error fetching security_groups: %s'
+                                 % e.message)
 
     return shortcuts.render_to_response('dash_security_groups.html', {
         'security_groups': security_groups,
@@ -150,14 +162,14 @@ def index(request, tenant_id):
 @login_required
 def edit_rules(request, tenant_id, security_group_id):
     add_form, handled = AddRule.maybe_handle(request,
-                              initial={ 'tenant_id': tenant_id,
-                                        'security_group_id': security_group_id })
+                           initial={'tenant_id': tenant_id,
+                                      'security_group_id': security_group_id})
     if handled:
         return handled
 
     delete_form, handled = DeleteRule.maybe_handle(request,
-                              initial={ 'tenant_id': tenant_id,
-                                        'security_group_id': security_group_id })
+                              initial={'tenant_id': tenant_id,
+                                       'security_group_id': security_group_id})
     if handled:
         return handled
 
@@ -165,10 +177,11 @@ def edit_rules(request, tenant_id, security_group_id):
         security_group = api.security_group_get(request, security_group_id)
     except api_exceptions.ApiException, e:
         LOG.error("ApiException in security_groups rules edit", exc_info=True)
-        messages.error(request, 'Error fetching security_group: %s' % e.message)
+        messages.error(request, 'Error getting security_group: %s' % e.message)
         return shortcuts.redirect('dash_security_groups', tenant_id)
 
-    return shortcuts.render_to_response('dash_security_groups_edit_rules.html', {
+    return shortcuts.render_to_response(
+                      'dash_security_groups_edit_rules.html', {
         'security_group': security_group,
         'delete_form': delete_form,
         'form': add_form,
@@ -178,7 +191,7 @@ def edit_rules(request, tenant_id, security_group_id):
 @login_required
 def create(request, tenant_id):
     form, handled = CreateGroup.maybe_handle(request,
-                                initial={ 'tenant_id': tenant_id })
+                                initial={'tenant_id': tenant_id})
     if handled:
         return handled
 
