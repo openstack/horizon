@@ -927,7 +927,6 @@ h3 span, .left h3 { color: #6a6a6a; }
   float: left;
 }
 
-<<<<<<< HEAD
 td ul span {
   color: #666;
   font-size: 12px;
@@ -939,7 +938,7 @@ td ul span {
 .ip_list ul {
   padding-left: 15px;
 }
-=======
+
 /* Network details page */
 td.ACTIVE {
   color:#6EAF6E;
@@ -984,4 +983,3 @@ span.attachment_value {
     font-style:italic;
     color:#6EAF6E;
 }
->>>>>>> master
