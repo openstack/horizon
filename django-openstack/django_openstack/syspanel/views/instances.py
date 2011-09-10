@@ -33,6 +33,8 @@ from django.contrib import messages
 from django_openstack import api
 from django_openstack import forms
 from django_openstack.dash.views import instances as dash_instances
+from django_openstack.decorators import enforce_admin_access
+
 from openstackx.api import exceptions as api_exceptions
 
 
@@ -71,7 +73,12 @@ def _get_start_and_end_date(request):
     return (date_start, date_end, datetime_start, datetime_end)
 
 
+def _csv_usage_link(date_start):
+    return "?date_month=%s&date_year=%s&format=csv" % (date_start.month, date_start.year)
+
+
 @login_required
+@enforce_admin_access
 def usage(request):
     (date_start, date_end, datetime_start, datetime_end) = _get_start_and_end_date(request)
 
@@ -91,16 +98,27 @@ def usage(request):
     global_summary.human_readable('disk_size')
     global_summary.human_readable('ram_size')
 
+    if request.GET.get('format', 'html') == 'csv':
+        template_name = 'syspanel_usage.csv'
+        mimetype = "text/csv"
+    else:
+        template_name = 'syspanel_usage.html'
+        mimetype = "text/html"
+    
     return render_to_response(
-    'syspanel_usage.html',{
+    template_name, {
         'dateform': dateform,
+        'datetime_start': datetime_start,
+        'datetime_end': datetime_end,
         'usage_list': global_summary.usage_list,
+        'csv_link': _csv_usage_link(date_start),
         'global_summary': global_summary.summary,
         'external_links': settings.EXTERNAL_MONITORING,
-    }, context_instance = template.RequestContext(request))
+    }, context_instance = template.RequestContext(request), mimetype=mimetype)
 
 
 @login_required
+@enforce_admin_access
 def tenant_usage(request, tenant_id):
     (date_start, date_end, datetime_start, datetime_end) = _get_start_and_end_date(request)
     if date_start > _current_month():
@@ -134,15 +152,26 @@ def tenant_usage(request, tenant_id):
             else:
                 running_instances.append(i)
 
-    return render_to_response('syspanel_tenant_usage.html', {
+    if request.GET.get('format', 'html') == 'csv':
+        template_name = 'syspanel_tenant_usage.csv'
+        mimetype = "text/csv"
+    else:
+        template_name = 'syspanel_tenant_usage.html'
+        mimetype = "text/html"
+
+    return render_to_response(template_name, {
         'dateform': dateform,
+        'datetime_start': datetime_start,
+        'datetime_end': datetime_end,
         'usage': usage,
+        'csv_link': _csv_usage_link(date_start),
         'instances': running_instances + terminated_instances,
         'tenant_id': tenant_id,
-    }, context_instance = template.RequestContext(request))
+    }, context_instance = template.RequestContext(request), mimetype=mimetype)
 
 
 @login_required
+@enforce_admin_access
 def index(request):
     for f in (TerminateInstance, RebootInstance):
         _, handled = f.maybe_handle(request)
@@ -151,7 +180,7 @@ def index(request):
 
     instances = []
     try:
-        instances = api.server_list(request)
+        instances = api.admin_server_list(request)
     except Exception as e:
         LOG.error('Unspecified error in instance index', exc_info=True)
         messages.error(request, 'Unable to get instance list: %s' % e.message)
@@ -168,6 +197,7 @@ def index(request):
     }, context_instance=template.RequestContext(request))
 
 @login_required
+@enforce_admin_access
 def refresh(request):
     for f in (TerminateInstance, RebootInstance):
         _, handled = f.maybe_handle(request)
@@ -176,7 +206,7 @@ def refresh(request):
 
     instances = []
     try:
-        instances = api.server_list(request)
+        instances = api.admin_server_list(request)
     except Exception as e:
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 

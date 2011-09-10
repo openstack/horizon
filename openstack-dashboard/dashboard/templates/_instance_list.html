@@ -54,6 +54,7 @@
               <li><a target="_blank" href="{% url dash_instances_console request.user.tenant instance.id %}">Log</a></li>
               <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant instance.id %}">VNC Console</a></li>
               <li><a href="{% url dash_instances_update request.user.tenant instance.id %}">Edit</a></li>
+              <li><a href="{% url dash_snapshots_create request.user.tenant instance.id %}">Snapshot</a></li>
             </ul>
         </td>
       </tr>

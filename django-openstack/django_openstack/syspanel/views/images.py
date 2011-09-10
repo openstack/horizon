@@ -30,7 +30,7 @@ from glance.common import exception as glance_exception
 
 from django_openstack import api
 from django_openstack import forms
-
+from django_openstack.decorators import enforce_admin_access
 
 LOG = logging.getLogger('django_openstack.sysadmin.views.images')
 
@@ -81,6 +81,7 @@ class UpdateImageForm(forms.Form):
     #is_public = forms.BooleanField(label="Publicly Available", required=False)
 
 @login_required
+@enforce_admin_access
 def index(request):
     for f in (DeleteImage, ToggleImage):
         _, handled = f.maybe_handle(request)
@@ -112,6 +113,7 @@ def index(request):
 
 
 @login_required
+@enforce_admin_access
 def update(request, image_id):
     try:
         image = api.image_get(request, image_id)
@@ -158,7 +160,7 @@ def update(request, image_id):
                           exc_info=True)
                 messages.error(request,
                                "Image could not be updated, please try again.")
-
+            return redirect('syspanel_images_update', image_id)
         else:
             LOG.error('Image "%s" failed to update' % image['name'],
                       exc_info=True)
@@ -190,6 +192,7 @@ def update(request, image_id):
 
 
 @login_required
+@enforce_admin_access
 def upload(request):
     if request.method == "POST":
         form = UploadImageForm(request.POST)

@@ -25,22 +25,40 @@
 
 {% block footer_js %}
   <script type="text/javascript" charset="utf-8">
-    $(function(){
-      $("#spinner").hide()
-      function loadInstances(){
-        $('#spinner').show();
+  $(function(){
+    function loadInstances(){
+      if ($("#ajax_option_box").is(':checked')) {
+        $('.refresh').addClass("refreshing");
         $('#instances').load('{% url dash_instances_refresh request.user.tenant %}', function(){
-          $("#spinner").hide()
+          $('.refresh').removeClass("refreshing");
         });
-      }
-      setInterval(function(){
-        loadInstances();
-      }, 15000);
-      
-      $("a.refresh").click(function(e){
-        e.preventDefault()
-        loadInstances();
-      })
+      };
+    }
+    setInterval(function(){
+      loadInstances();
+    }, 15000);
+    
+    loadOptionsWidget();
+    
+    $("a.refresh").click(function(e){
+      e.preventDefault()
+      loadInstances();
     })
+    
+    function loadOptionsWidget(){
+      checkbox = document.createElement("input");
+        cb = $(checkbox);
+        cb.attr('id', 'ajax_option_box');
+        cb.attr('class', 'refreshOption');
+        cb.attr('type', 'checkbox');
+      checkbox_label = document.createElement("label");
+        cbl = $(checkbox_label);
+        cbl.attr('class', 'refreshOption');
+        cbl.text('auto refresh');
+        cbl.attr('for', 'ajax_option_box');
+        $('.right').append(cb);
+        $('.right').append(cbl);
+    }
+  })
   </script>
 {% endblock footer_js %}

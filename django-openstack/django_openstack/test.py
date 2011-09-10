@@ -44,6 +44,9 @@ class TestCase(test.TestCase):
                'region': 'RegionOne',
                'internalURL': 'http://127.0.0.1:8080/v1/AUTH_1234',
                'publicURL': 'http://swift.publicinternets.com/v1/AUTH_1234'}],
+         'quantum':
+             [{'adminURL': 'http://127.0.0.1:9696/v0.1',
+               'internalURL': 'http://127.0.0.1:9696/v0.1'}],
         }
 
     def setUp(self):

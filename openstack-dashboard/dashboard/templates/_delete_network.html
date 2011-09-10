@@ -1,0 +1,8 @@
+<form id="delete_form" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="network" type="hidden" value="{{network.id}}" />
+  <input title="Network" id="delete_{{network.id}}" class="delete" type="submit" value="Delete" />
+</form>

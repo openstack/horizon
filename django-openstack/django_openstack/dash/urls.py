@@ -23,9 +23,12 @@ from django.conf.urls.defaults import *
 INSTANCES = r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/%s$'
 IMAGES = r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/%s$'
 KEYPAIRS = r'^(?P<tenant_id>[^/]+)/keypairs/%s$'
+SNAPSHOTS = r'^(?P<tenant_id>[^/]+)/snapshots/(?P<instance_id>[^/]+)/%s$'
 CONTAINERS = r'^(?P<tenant_id>[^/]+)/containers/%s$'
 FLOATING_IPS = r'^(?P<tenant_id>[^/]+)/floating_ips/(?P<ip_id>[^/]+)/%s$'
 OBJECTS = r'^(?P<tenant_id>[^/]+)/containers/(?P<container_name>[^/]+)/%s$'
+NETWORKS = r'^(?P<tenant_id>[^/]+)/networks/%s$'
+PORTS = r'^(?P<tenant_id>[^/]+)/networks/(?P<network_id>[^/]+)/ports/%s$'
 
 urlpatterns = patterns('django_openstack.dash.views.instances',
     url(r'^(?P<tenant_id>[^/]+)/$', 'usage', name='dash_usage'),
@@ -52,6 +55,11 @@ urlpatterns += patterns('django_openstack.dash.views.floating_ips',
     url(FLOATING_IPS % 'disassociate', 'disassociate', name='dash_floating_ips_disassociate'),
 )
 
+urlpatterns += patterns('django_openstack.dash.views.snapshots',
+    url(r'^(?P<tenant_id>[^/]+)/snapshots/$', 'index', name='dash_snapshots'),
+    url(SNAPSHOTS % 'create', 'create', name='dash_snapshots_create'),
+)
+
 # Swift containers and objects.
 urlpatterns += patterns('django_openstack.dash.views.containers',
     url(CONTAINERS % '', 'index', name='dash_containers'),
@@ -65,4 +73,16 @@ urlpatterns += patterns('django_openstack.dash.views.objects',
         'copy', name='dash_object_copy'),
     url(OBJECTS % '(?P<object_name>[^/]+)/download',
         'download', name='dash_objects_download'),
+)
+
+urlpatterns += patterns('django_openstack.dash.views.networks',
+    url(r'^(?P<tenant_id>[^/]+)/networks/$', 'index', name='dash_networks'),
+    url(NETWORKS % 'create', 'create', name='dash_network_create'),
+    url(NETWORKS % '(?P<network_id>[^/]+)/detail', 'detail', name='dash_networks_detail'),
+    url(NETWORKS % '(?P<network_id>[^/]+)/rename', 'rename', name='dash_network_rename'),
+)
+
+urlpatterns += patterns('django_openstack.dash.views.ports',
+    url(PORTS % 'create', 'create', name='dash_ports_create'),
+    url(PORTS % '(?P<port_id>[^/]+)/attach', 'attach', name='dash_ports_attach'),
 )

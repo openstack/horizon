@@ -7,7 +7,6 @@ def read(fname):
 
 dst = 'debian/openstack-dashboard/var/lib/dash'
 os.system('rm -rf %s' % dst)
-shutil.copytree('media', '%s/media' % dst)
 shutil.copytree('tools', '%s/tools' % dst)
 shutil.copytree('dashboard', '%s/dashboard' % dst)
 shutil.copytree('local', '%s/local' % dst)
@@ -29,6 +28,7 @@ setup(
 
     data_files = [],
     install_requires = ['setuptools', 'mox>=0.5.0'],
+    zip_safe = False,
     classifiers = [
         'Development Status :: 4 - Beta',
         'Framework :: Django',

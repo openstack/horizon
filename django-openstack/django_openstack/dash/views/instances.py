@@ -87,11 +87,24 @@ class RebootInstance(forms.SelfHandlingForm):
         return shortcuts.redirect(request.build_absolute_uri())
 
 
-class UpdateInstance(forms.Form):
+class UpdateInstance(forms.SelfHandlingForm):
+    tenant_id = forms.CharField(widget=forms.HiddenInput())
     instance = forms.CharField(widget=forms.TextInput(
                                attrs={'readonly':'readonly'}))
     name = forms.CharField(required=True)
     description = forms.CharField(required=False)
+
+    def handle(self, request, data):
+        tenant_id = data['tenant_id']
+        description = data.get('description', '')
+        try:
+            api.server_update(request, data['instance'], data['name'], description)
+            messages.success(request, "Instance '%s' updated" % data['name'])
+        except api_exceptions.ApiException, e:
+            messages.error(request,
+                       'Unable to update instance: %s' % e.message)
+
+        return shortcuts.redirect('dash_instances', tenant_id)
 
 
 @login_required
@@ -182,13 +195,24 @@ def usage(request, tenant_id=None):
     if show_terminated:
         instances += terminated_instances
 
-    return shortcuts.render_to_response('dash_usage.html', {
+    if request.GET.get('format', 'html') == 'csv':
+        template_name = 'dash_usage.csv'
+        mimetype = "text/csv"
+    else:
+        template_name = 'dash_usage.html'
+        mimetype = "text/html"
+
+    return shortcuts.render_to_response(template_name, {
         'usage': usage,
         'ram_unit': ram_unit,
         'total_ram': total_ram,
+        # there are no date selection caps yet so keeping csv_link simple
+        'csv_link': '?format=csv',
         'show_terminated': show_terminated,
+        'datetime_start': datetime_start,
+        'datetime_end': datetime_end,
         'instances': instances
-    }, context_instance=template.RequestContext(request))
+    }, context_instance = template.RequestContext(request), mimetype=mimetype)
 
 
 @login_required
@@ -227,29 +251,27 @@ def vnc(request, tenant_id, instance_id):
 
 @login_required
 def update(request, tenant_id, instance_id):
-    if request.POST:
-        form = UpdateInstance(request.POST)
-        if form.is_valid():
-            data = form.clean()
-            instance_id = data['instance']
-            name = data['name']
-            description = data.get('description', '')
-            try:
-                api.server_update(request, instance_id, name, description)
-                messages.success(request, "Instance %s updated" % instance_id)
-            except api_exceptions.ApiException, e:
-                messages.error(request,
-                           'Unable to update instance: %s' % e.message)
-
-            return redirect('dash_instances', tenant_id)
-    else:
+    try:
         instance = api.server_get(request, instance_id)
-        form = UpdateInstance(initial={'instance': instance_id,
-                                       'tenant_id': tenant_id,
-                                       'name': instance.name,
-                                       'description': instance.attrs['description']})
+    except api_exceptions.ApiException, e:
+        LOG.error('ApiException while fetching instance info',
+                  exc_info=True)
 
-    return render_to_response('dash_instance_update.html', {
+        messages.error(request,
+                   'Unable to get information for instance %s: %s' %
+                   (instance_id, e.message))
+        return shortcuts.redirect('dash_instances', tenant_id)
+
+    form, handled = UpdateInstance.maybe_handle(request, initial={
+                                'instance': instance_id,
+                                'tenant_id': tenant_id,
+                                'name': instance.name,
+                                'description': instance.attrs['description']})
+
+    if handled:
+        return handled
+
+    return shortcuts.render_to_response('dash_instance_update.html', {
         'instance': instance,
         'form': form,
     }, context_instance=template.RequestContext(request))

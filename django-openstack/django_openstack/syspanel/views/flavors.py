@@ -34,6 +34,7 @@ from openstackx.api import exceptions as api_exceptions
 
 from django_openstack import api
 from django_openstack import forms
+from django_openstack.decorators import enforce_admin_access
 
 LOG = logging.getLogger('django_openstack.syspanel.views.flavors')
 
@@ -75,6 +76,7 @@ class DeleteFlavor(forms.SelfHandlingForm):
         return redirect(request.build_absolute_uri())
 
 @login_required
+@enforce_admin_access
 def index(request):
     for f in (DeleteFlavor,):
         _, handled = f.maybe_handle(request)
@@ -98,6 +100,7 @@ def index(request):
 
 
 @login_required
+@enforce_admin_access
 def create(request):
     form, handled = CreateFlavor.maybe_handle(request)
     if handled:

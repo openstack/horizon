@@ -1,0 +1,8 @@
+Usage Report For Period:,{{datetime_start|date:"b. d Y H:i"}},/,{{datetime_end|date:"b. d Y H:i"}}
+Active Instances:,{{global_summary.total_active_instances|default:'-'}}
+This month's VCPU-Hours:,{{global_summary.total_cpu_usage|floatformat|default:'-'}}
+This month's GB-Hours:,{{global_summary.total_disk_usage|floatformat|default:'-'}}
+
+Name,UserId,VCPUs,RamMB,DiskGB,Flavor,Usage(Hours),Uptime(Seconds),State
+{% for usage in usage_list %}{% for instance in usage.instances %}{{instance.name|addslashes}},{{instance.user_id|addslashes}},{{instance.vcpus|addslashes}},{{instance.ram_size|addslashes}},{{instance.disk_size|addslashes}},{{instance.flavor|addslashes}},{{instance.hours}},{{instance.uptime}},{{instance.state|capfirst|addslashes}}{% endfor %}
+{% endfor %}

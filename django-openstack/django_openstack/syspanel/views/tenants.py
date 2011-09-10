@@ -35,6 +35,7 @@ from django.contrib import messages
 from django_openstack import api
 from django_openstack import forms
 from django_openstack.dash.views import instances as dash_instances
+from django_openstack.decorators import enforce_admin_access
 from openstackx.api import exceptions as api_exceptions
 
 
@@ -159,6 +160,7 @@ class UpdateQuotas(forms.SelfHandlingForm):
 
 
 @login_required
+@enforce_admin_access
 def index(request):
     tenants = []
     try:
@@ -173,6 +175,7 @@ def index(request):
 
 
 @login_required
+@enforce_admin_access
 def create(request):
     form, handled = CreateTenant.maybe_handle(request)
     if handled:
@@ -185,6 +188,7 @@ def create(request):
 
 
 @login_required
+@enforce_admin_access
 def update(request, tenant_id):
     form, handled = UpdateTenant.maybe_handle(request)
     if handled:
@@ -209,6 +213,7 @@ def update(request, tenant_id):
 
 
 @login_required
+@enforce_admin_access
 def users(request, tenant_id):
     for f in (AddUser, RemoveUser,):
         _, handled = f.maybe_handle(request)
@@ -242,6 +247,7 @@ def users(request, tenant_id):
 
 
 @login_required
+@enforce_admin_access
 def quotas(request, tenant_id):
     for f in (UpdateQuotas,):
         _, handled = f.maybe_handle(request)

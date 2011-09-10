@@ -1,0 +1,11 @@
+Usage Report For Period:,{{datetime_start|date:"b. d Y H:i"}},/,{{datetime_end|date:"b. d Y H:i"}}
+Tenant ID:,{{usage.tenant_id}}
+Total Active VCPUs:,{{usage.total_active_vcpus}}
+CPU-HRs Used:,{{usage.total_cpu_usage}}
+Total Active Ram (MB):,{{usage.total_active_ram_size}}
+Total Disk Size:,{{usage.total_active_disk_size}}
+Total Disk Usage:,{{usage.total_disk_usage}}
+
+ID,Name,UserId,VCPUs,RamMB,DiskGB,Flavor,Usage(Hours),Uptime(Seconds),State
+{% for instance in usage.instances %}{{instance.id}},{{instance.name|addslashes}},{{instance.user_id|addslashes}},{{instance.vcpus|addslashes}},{{instance.ram_size|addslashes}},{{instance.disk_size|addslashes}},{{instance.flavor|addslashes}},{{instance.hours}},{{instance.uptime}},{{instance.state|capfirst|addslashes}}
+{% endfor %}

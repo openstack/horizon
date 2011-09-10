@@ -909,22 +909,6 @@ class ComputeApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
-    def test_server_get(self):
-        INSTANCE_ID = '2'
-
-        compute_api = self.stub_compute_api()
-        compute_api.servers = self.mox.CreateMockAnything()
-        compute_api.servers.get(INSTANCE_ID).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.server_get(self.request, INSTANCE_ID)
-
-        self.assertIsInstance(ret_val, api.Server)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-        self.mox.VerifyAll()
-
     def test_server_reboot(self):
         INSTANCE_ID = '2'
         HARDNESS = 'diamond'
@@ -1134,6 +1118,22 @@ class ExtrasApiTests(test.TestCase):
         for usage in ret_val:
             self.assertIsInstance(usage, api.Usage)
             self.assertIn(usage._apiresource, usages)
+
+        self.mox.VerifyAll()
+
+    def test_server_get(self):
+        INSTANCE_ID = '2'
+
+        extras_api = self.stub_extras_api()
+        extras_api.servers = self.mox.CreateMockAnything()
+        extras_api.servers.get(INSTANCE_ID).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_get(self.request, INSTANCE_ID)
+
+        self.assertIsInstance(ret_val, api.Server)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
         self.mox.VerifyAll()
 

@@ -1,10 +1,12 @@
 {% block page_header %}
   <div id='page_header'>
     <h2>{{title}}</h2>
+    {% block breadcrumbs %}
+    {% endblock %}
     {% if searchable %}
       <div class="right">
         <div class='search'>
-          <form action='' method='post'>
+          <form action='' method='post' onsubmit='return false;'>
             <fieldset>
               <label for='table_search'>Search</label>
               <input id='table_search' name='search' type='text' value='' />
