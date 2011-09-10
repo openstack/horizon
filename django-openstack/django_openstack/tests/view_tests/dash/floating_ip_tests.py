@@ -137,3 +137,64 @@ class FloatingIpViewTests(base.BaseViewTests):
                                           args=[self.TEST_TENANT]))
 
         self.mox.VerifyAll()
+
+    def test_disassociate(self):
+        res = self.client.get(reverse('dash_floating_ips_disassociate',
+                                      args=[self.TEST_TENANT, 1]))
+        self.assertTemplateUsed(res, 'dash_floating_ips_associate.html')
+        self.mox.VerifyAll()
+
+    def test_disassociate_post(self):
+        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
+        api.tenant_floating_ip_list(IsA(http.HttpRequest)).\
+                                    AndReturn(self.floating_ips)
+
+        self.mox.StubOutWithMock(api, 'server_remove_floating_ip')
+        api.server_remove_floating_ip = self.mox.CreateMockAnything()
+        api.server_remove_floating_ip(IsA(http.HttpRequest), IsA(int),
+                                                             IsA(int)).\
+                                                             AndReturn(None)
+        self.mox.StubOutWithMock(messages, 'info')
+        messages.info(IsA(http.HttpRequest), IsA(unicode))
+
+        self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
+        api.tenant_floating_ip_get = self.mox.CreateMockAnything()
+        api.tenant_floating_ip_get(IsA(http.HttpRequest), IsA(unicode)).\
+                                   AndReturn(self.floating_ip)
+        self.mox.ReplayAll()
+        res = self.client.post(reverse('dash_floating_ips_disassociate',
+                                     args=[self.TEST_TENANT, 1]),
+                                     {'floating_ip_id': self.floating_ip.id,
+                                      'method': 'FloatingIpDisassociate'})
+        self.assertRedirects(res, reverse('dash_floating_ips',
+                                    args=[self.TEST_TENANT]))
+        self.mox.VerifyAll()
+
+    def test_disassociate_post_with_exception(self):
+        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
+        api.tenant_floating_ip_list(IsA(http.HttpRequest)).\
+                                    AndReturn(self.floating_ips)
+
+        self.mox.StubOutWithMock(api, 'server_remove_floating_ip')
+        exception = novaclient_exceptions.ClientException('ClientException',
+                                                    message='clientException')
+        api.server_remove_floating_ip(IsA(http.HttpRequest), IsA(int),
+                                                             IsA(int)).\
+                                                             AndRaise(exception)
+        self.mox.StubOutWithMock(messages, 'error')
+        messages.error(IsA(http.HttpRequest), IsA(str))
+
+        self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
+        api.tenant_floating_ip_get = self.mox.CreateMockAnything()
+        api.tenant_floating_ip_get(IsA(http.HttpRequest), IsA(unicode)).\
+                                   AndReturn(self.floating_ip)
+        self.mox.ReplayAll()
+        res = self.client.post(reverse('dash_floating_ips_disassociate',
+                                     args=[self.TEST_TENANT, 1]),
+                                     {'floating_ip_id': self.floating_ip.id,
+                                      'method': 'FloatingIpDisassociate'})
+        self.assertRaises(novaclient_exceptions.ClientException)
+        self.assertRedirects(res, reverse('dash_floating_ips',
+                                    args=[self.TEST_TENANT]))
+        self.mox.VerifyAll()
+
