@@ -935,6 +935,7 @@ class ComputeApiTests(test.TestCase):
 
 
 class ExtrasApiTests(test.TestCase):
+
     def stub_extras_api(self, count=1):
         self.mox.StubOutWithMock(api, 'extras_api')
         extras_api = self.mox.CreateMock(OSExtras.Extras)
@@ -992,54 +993,6 @@ class ExtrasApiTests(test.TestCase):
         for flavor in ret_val:
             self.assertIsInstance(flavor, api.Flavor)
             self.assertIn(flavor._apiresource, flavors)
-
-        self.mox.VerifyAll()
-
-    def test_keypair_create(self):
-        NAME = '1'
-
-        extras_api = self.stub_extras_api()
-        extras_api.keypairs = self.mox.CreateMockAnything()
-        extras_api.keypairs.create(NAME).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.keypair_create(self.request, NAME)
-        self.assertIsInstance(ret_val, api.KeyPair)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-        self.mox.VerifyAll()
-
-    def test_keypair_delete(self):
-        KEYPAIR_ID = '1'
-
-        extras_api = self.stub_extras_api()
-        extras_api.keypairs = self.mox.CreateMockAnything()
-        extras_api.keypairs.delete(KEYPAIR_ID).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.keypair_delete(self.request, KEYPAIR_ID)
-        self.assertIsNone(ret_val)
-
-        self.mox.VerifyAll()
-
-    def test_keypair_list(self):
-        NAME = 'keypair'
-        keypairs = (NAME + '1', NAME + '2')
-
-        extras_api = self.stub_extras_api()
-        extras_api.keypairs = self.mox.CreateMockAnything()
-        extras_api.keypairs.list().AndReturn(keypairs)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.keypair_list(self.request)
-
-        self.assertEqual(len(ret_val), len(keypairs))
-        for keypair in ret_val:
-            self.assertIsInstance(keypair, api.KeyPair)
-            self.assertIn(keypair._apiresource, keypairs)
 
         self.mox.VerifyAll()
 
@@ -1135,6 +1088,57 @@ class ExtrasApiTests(test.TestCase):
 
         self.assertIsInstance(ret_val, api.Server)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
+
+class APIExtensionTests(test.TestCase):
+    
+    def setUp(self):
+        super(APIExtensionTests, self).setUp()
+        
+        keypair = self.mox.CreateMock(api.KeyPair)
+        keypair.id = 1
+        keypair.name = TEST_RETURN
+        self.keypair = keypair
+        self.keypairs = [keypair, ]
+
+    def test_keypair_create(self):
+        api.keypair_create = self.mox.CreateMockAnything()
+        api.keypair_create(IsA(http.HttpRequest), IsA(str)).\
+                                                        AndReturn(self.keypair)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.keypair_create(self.request, TEST_RETURN)
+        self.assertIsInstance(ret_val, api.KeyPair)
+        self.assertEqual(ret_val, self.keypair)
+
+        self.mox.VerifyAll()
+
+    def test_keypair_delete(self):
+        api.keypair_delete = self.mox.CreateMockAnything()
+        api.keypair_delete(IsA(http.HttpRequest), IsA(int)).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.keypair_delete(self.request, self.keypair.id)
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
+
+    def test_keypair_list(self):
+
+        api.keypair_list = self.mox.CreateMockAnything()
+        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.keypair_list(self.request)
+
+        self.assertEqual(len(ret_val), len(self.keypairs))
+        for keypair in ret_val:
+            self.assertIsInstance(keypair, api.KeyPair)
 
         self.mox.VerifyAll()
 

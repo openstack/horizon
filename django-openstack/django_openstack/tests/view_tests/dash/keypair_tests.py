@@ -5,13 +5,13 @@ from django_openstack import api
 from django_openstack.tests.view_tests import base
 from mox import IsA
 
-import openstackx.api.exceptions as api_exceptions
+from novaclient import exceptions as novaclient_exceptions
 
 class KeyPairViewTests(base.BaseViewTests):
     def setUp(self):
         super(KeyPairViewTests, self).setUp()
         keypair = self.mox.CreateMock(api.KeyPair)
-        keypair.key_name = 'keyName'
+        keypair.name = 'keyName'
         self.keypairs = (keypair,)
 
     def test_index(self):
@@ -28,8 +28,8 @@ class KeyPairViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_index_exception(self):
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
+        exception = novaclient_exceptions.ClientException('clientException',
+                                                message='clientException')
         self.mox.StubOutWithMock(api, 'keypair_list')
         api.keypair_list(IsA(http.HttpRequest)).AndRaise(exception)
 
@@ -46,7 +46,7 @@ class KeyPairViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_delete_keypair(self):
-        KEYPAIR_ID = self.keypairs[0].key_name
+        KEYPAIR_ID = self.keypairs[0].name
         formData = {'method': 'DeleteKeypair',
                     'keypair_id': KEYPAIR_ID,
                     }
@@ -66,13 +66,13 @@ class KeyPairViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_delete_keypair_exception(self):
-        KEYPAIR_ID = self.keypairs[0].key_name
+        KEYPAIR_ID = self.keypairs[0].name
         formData = {'method': 'DeleteKeypair',
                     'keypair_id': KEYPAIR_ID,
                     }
 
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
+        exception = novaclient_exceptions.ClientException('clientException',
+                                                message='clientException')
         self.mox.StubOutWithMock(api, 'keypair_delete')
         api.keypair_delete(IsA(http.HttpRequest),
                            unicode(KEYPAIR_ID)).AndRaise(exception)
@@ -99,7 +99,7 @@ class KeyPairViewTests(base.BaseViewTests):
         PRIVATE_KEY = 'privateKey'
 
         newKeyPair = self.mox.CreateMock(api.KeyPair)
-        newKeyPair.key_name = KEYPAIR_NAME
+        newKeyPair.name = KEYPAIR_NAME
         newKeyPair.private_key = PRIVATE_KEY
 
         formData = {'method': 'CreateKeypair',
@@ -127,8 +127,8 @@ class KeyPairViewTests(base.BaseViewTests):
                     'name': KEYPAIR_NAME,
                     }
 
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
+        exception = novaclient_exceptions.ClientException('clientException',
+                                                message='clientException')
         self.mox.StubOutWithMock(api, 'keypair_create')
         api.keypair_create(IsA(http.HttpRequest),
                            KEYPAIR_NAME).AndRaise(exception)
