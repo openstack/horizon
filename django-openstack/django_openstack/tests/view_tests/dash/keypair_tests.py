@@ -7,6 +7,7 @@ from mox import IsA
 
 import openstackx.api.exceptions as api_exceptions
 
+
 class KeyPairViewTests(base.BaseViewTests):
     def setUp(self):
         super(KeyPairViewTests, self).setUp()
@@ -20,7 +21,8 @@ class KeyPairViewTests(base.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('dash_keypairs', args=[self.TEST_TENANT]))
+        res = self.client.get(reverse('dash_keypairs',
+            args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res, 'dash_keypairs.html')
         self.assertItemsEqual(res.context['keypairs'], self.keypairs)
@@ -38,7 +40,8 @@ class KeyPairViewTests(base.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('dash_keypairs', args=[self.TEST_TENANT]))
+        res = self.client.get(reverse('dash_keypairs',
+            args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res, 'dash_keypairs.html')
         self.assertEqual(len(res.context['keypairs']), 0)
@@ -91,7 +94,7 @@ class KeyPairViewTests(base.BaseViewTests):
     def test_create_keypair_get(self):
         res = self.client.get(reverse('dash_keypairs_create',
                                       args=[self.TEST_TENANT]))
-        
+
         self.assertTemplateUsed(res, 'dash_keypairs_create.html')
 
     def test_create_keypair_post(self):

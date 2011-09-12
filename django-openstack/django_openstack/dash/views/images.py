@@ -39,6 +39,7 @@ from django_openstack import api
 from django_openstack import forms
 from openstackx.api import exceptions as api_exceptions
 from glance.common import exception as glance_exception
+from novaclient import exceptions as novaclient_exceptions
 
 
 LOG = logging.getLogger('django_openstack.dash.views.images')
@@ -68,6 +69,14 @@ class LaunchForm(forms.SelfHandlingForm):
                 required=False,
                 help_text="Which keypair to use for authentication")
 
+        securitygrouplist = kwargs.get('initial', {}).get('securitygrouplist', [])
+        self.fields['security_groups'] = forms.MultipleChoiceField(choices=securitygrouplist,
+                label='Security Groups',
+                required=True,
+                initial=['default'],
+                widget=forms.SelectMultiple(attrs={'class': 'chzn-select',
+                                                   'style': "min-width: 200px"}),
+                help_text="Launch instance in these Security Groups")
         # setting self.fields.keyOrder seems to break validation,
         # so ordering fields manually
         field_list = (
@@ -77,7 +86,6 @@ class LaunchForm(forms.SelfHandlingForm):
             'key_name')
         for field in field_list[::-1]:
             self.fields.insert(0, field, self.fields.pop(field))
-
 
     def handle(self, request, data):
         image_id = data['image_id']
@@ -90,7 +98,8 @@ class LaunchForm(forms.SelfHandlingForm):
                               image,
                               flavor,
                               data.get('key_name'),
-                              data.get('user_data'))
+                              data.get('user_data'),
+                              data.get('security_groups'))
 
             msg = 'Instance was successfully launched'
             LOG.info(msg)
@@ -163,13 +172,22 @@ def launch(request, tenant_id, image_id):
             LOG.error('Unable to retrieve list of keypairs', exc_info=True)
             return []
 
+    def securitygrouplist():
+        try:
+            fl = api.security_group_list(request)
+            sel = [(f.name, f.name) for f in fl]
+            return sel
+        except novaclient_exceptions.ClientException, e:
+            LOG.error('Unable to retrieve list of security groups', exc_info=True)
+            return []
+
     # TODO(mgius): Any reason why these can't be after the launchform logic?
     # If The form is valid, we've just wasted these two api calls
     image = api.image_get(request, image_id)
     tenant = api.token_get_tenant(request, request.user.tenant)
     quotas = api.tenant_quota_get(request, request.user.tenant)
     try:
-        quotas.ram = int(quotas.ram)/100
+        quotas.ram = int(quotas.ram) / 100
     except Exception, e:
         messages.error(request, 'Error parsing quota  for %s: %s' %
                                  (image_id, e.message))
@@ -178,6 +196,7 @@ def launch(request, tenant_id, image_id):
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),
                               'keynamelist': keynamelist(),
+                              'securitygrouplist': securitygrouplist(),
                               'image_id': image_id,
                               'tenant_id': tenant_id})
     if handled:

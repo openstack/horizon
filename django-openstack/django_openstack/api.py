@@ -200,7 +200,8 @@ class ServerAttributes(APIDictWrapper):
     _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
               'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
               'os_type', 'tenant_id', 'ramdisk_id', 'scheduled_at',
-              'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname']
+              'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname',
+              'security_groups']
 
 
 class Services(APIResourceWrapper):
@@ -233,6 +234,22 @@ class Usage(APIResourceWrapper):
 class User(APIResourceWrapper):
     """Simple wrapper around openstackx.extras.users.User"""
     _attrs = ['email', 'enabled', 'id', 'tenantId']
+
+
+class SecurityGroup(APIResourceWrapper):
+    """Simple wrapper around openstackx.extras.security_groups.SecurityGroup"""
+    _attrs = ['id', 'name', 'description', 'tenant_id', 'rules']
+
+
+class SecurityGroupRule(APIResourceWrapper):
+    """Simple wrapper around openstackx.extras.security_groups.SecurityGroupRule"""
+    _attrs = ['id', 'parent_group_id', 'group_id', 'ip_protocol',
+              'from_port', 'to_port', 'groups', 'ip_ranges']
+
+
+class SecurityGroupRule(APIResourceWrapper):
+    """Simple wrapper around openstackx.extras.users.User"""
+    _attrs = ['id', 'name', 'description', 'tenant_id', 'security_group_rules']
 
 
 class SwiftAuthentication(object):
@@ -340,6 +357,16 @@ def extras_api(request):
     return openstackx.extras.Extras(auth_token=request.user.token,
                                    management_url=url_for(request, 'nova'))
 
+def novaclient(request):
+    LOG.debug('novaclient connection created using token "%s"'
+              ' and url "%s"' % (request.user.token, url_for(request, 'nova')))
+    c = client.Client(username=request.user.username,
+                      api_key=request.user.token,
+                      project_id=request.user.tenant,
+                      auth_url=url_for(request, 'nova'))
+    c.client.auth_token = request.user.token
+    c.client.management_url=url_for(request, 'nova')
+    return c
 
 def novaclient(request):
     LOG.debug('novaclient connection created using token "%s"'
@@ -477,10 +504,11 @@ def keypair_list(request):
     return [KeyPair(key) for key in extras_api(request).keypairs.list()]
 
 
-def server_create(request, name, image, flavor, key_name, user_data):
+def server_create(request, name, image, flavor,
+                           key_name, user_data, security_groups):
     return Server(extras_api(request).servers.create(
-            name, image, flavor, key_name=key_name, user_data=user_data),
-            request)
+            name, image, flavor, key_name=key_name, user_data=user_data,
+            security_groups=security_groups), request)
 
 
 def server_delete(request, instance):
@@ -635,6 +663,39 @@ def user_delete(request, user_id):
 
 def user_get(request, user_id):
     return User(account_api(request).users.get(user_id))
+
+
+def security_group_list(request):
+    return [SecurityGroup(g) for g in novaclient(request).\
+                                     security_groups.list()]
+
+def security_group_get(request, security_group_id):
+    return SecurityGroup(novaclient(request).\
+                         security_groups.get(security_group_id))
+
+def security_group_create(request, name, description):
+    return SecurityGroup(novaclient(request).\
+                         security_groups.create(name, description))
+
+
+def security_group_delete(request, security_group_id):
+    novaclient(request).security_groups.delete(security_group_id)
+
+
+def security_group_rule_create(request, parent_group_id, ip_protocol=None,
+                               from_port=None, to_port=None, cidr=None,
+                               group_id=None):
+    return SecurityGroup(novaclient(request).\
+                         security_group_rules.create(parent_group_id,
+                                                     ip_protocol,
+                                                     from_port,
+                                                     to_port,
+                                                     cidr,
+                                                     group_id))
+
+
+def security_group_rule_delete(request, security_group_rule_id):
+    novaclient(request).security_group_rules.delete(security_group_rule_id)
 
 
 @check_openstackx
@@ -846,28 +907,38 @@ class GlobalSummary(object):
 
         for service in self.service_list:
             if service.type == 'nova-compute':
-                self.summary['total_vcpus'] += min(service.stats['max_vcpus'], service.stats.get('vcpus', 0))
-                self.summary['total_disk_size'] += min(service.stats['max_gigabytes'], service.stats.get('local_gb', 0))
-                self.summary['total_ram_size'] += min(service.stats['max_ram'], service.stats['memory_mb']) if 'max_ram' in service.stats else service.stats.get('memory_mb', 0)
+                self.summary['total_vcpus'] += min(service.stats['max_vcpus'],
+                        service.stats.get('vcpus', 0))
+                self.summary['total_disk_size'] += min(
+                        service.stats['max_gigabytes'],
+                        service.stats.get('local_gb', 0))
+                self.summary['total_ram_size'] += min(
+                        service.stats['max_ram'],
+                        service.stats['memory_mb']) if 'max_ram' \
+                                in service.stats \
+                                else service.stats.get('memory_mb', 0)
 
     def usage(self, datetime_start, datetime_end):
         try:
-            self.usage_list = usage_list(self.request, datetime_start, datetime_end)
+            self.usage_list = usage_list(self.request, datetime_start,
+                    datetime_end)
         except api_exceptions.ApiException, e:
             self.usage_list = []
             LOG.error('ApiException fetching usage list in instance usage'
                       ' on date range "%s to %s"' % (datetime_start,
                                                      datetime_end),
                       exc_info=True)
-            messages.error(self.request, 'Unable to get usage info: %s' % e.message)
+            messages.error(self.request,
+                    'Unable to get usage info: %s' % e.message)
             return
 
         for usage in self.usage_list:
-            # FIXME: api needs a simpler dict interface (with iteration) - anthony
-            # NOTE(mgius): Changed this on the api end.  Not too much neater, but
-            # at least its not going into private member data of an external
-            # class anymore
-            #usage = usage._info
+            # FIXME: api needs a simpler dict interface (with iteration)
+            # - anthony
+            # NOTE(mgius): Changed this on the api end.  Not too much
+            # neater, but at least its not going into private member
+            # data of an external class anymore
+            # usage = usage._info
             for k in usage._attrs:
                 v = usage.__getattr__(k)
                 if type(v) in [float, int]:
@@ -884,8 +955,11 @@ class GlobalSummary(object):
             mult = 1.0
 
         for kind in GlobalSummary.node_resource_info:
-            self.summary['total_' + kind + rsrc + '_hr'] = self.summary['total_' + kind + rsrc] / mult
+            self.summary['total_' + kind + rsrc + '_hr'] = \
+                    self.summary['total_' + kind + rsrc] / mult
 
     def avail(self):
         for rsrc in GlobalSummary.node_resources:
-            self.summary['total_avail_' + rsrc] = self.summary['total_' + rsrc] - self.summary['total_active_' + rsrc]
+            self.summary['total_avail_' + rsrc] = \
+                    self.summary['total_' + rsrc] - \
+                    self.summary['total_active_' + rsrc]

@@ -16,6 +16,7 @@ from django_openstack import api
 from django_openstack import forms
 from django_openstack.decorators import enforce_admin_access
 
+
 @login_required
 @enforce_admin_access
 def index(request):
@@ -23,7 +24,6 @@ def index(request):
     quotas['ram'] = int(quotas['ram']) / 100
     quotas.pop('id')
 
-    return render_to_response('syspanel_quotas.html',{
+    return render_to_response('syspanel_quotas.html', {
         'quotas': quotas,
-    }, context_instance = template.RequestContext(request))
-
+    }, context_instance=template.RequestContext(request))

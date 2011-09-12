@@ -4,7 +4,6 @@ django-nose==0.1.2
 django-mailer
 django-registration==0.7
 kombu
-nova-adminclient
 python-cloudfiles
 python-dateutil
 routes
@@ -22,6 +21,6 @@ coverage
 bzr+https://launchpad.net/glance#egg=glance
 bzr+https://launchpad.net/quantum#egg=quantum
 
--e git://github.com/jacobian/openstack.compute.git#egg=openstack
--e git://github.com/cloudbuilders/openstackx.git#egg=openstackx
+-e git+https://github.com/jacobian/openstack.compute.git#egg=openstack
+-e git+https://github.com/cloudbuilders/openstackx.git#egg=openstackx
 -e git://github.com/rackspace/python-novaclient.git#egg=python-novaclient

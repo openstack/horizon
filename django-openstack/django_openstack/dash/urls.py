@@ -20,6 +20,7 @@
 
 from django.conf.urls.defaults import *
 
+SECURITY_GROUPS = r'^(?P<tenant_id>[^/]+)/security_groups/(?P<security_group_id>[^/]+)/%s$'
 INSTANCES = r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/%s$'
 IMAGES = r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/%s$'
 KEYPAIRS = r'^(?P<tenant_id>[^/]+)/keypairs/%s$'
@@ -33,10 +34,17 @@ PORTS = r'^(?P<tenant_id>[^/]+)/networks/(?P<network_id>[^/]+)/ports/%s$'
 urlpatterns = patterns('django_openstack.dash.views.instances',
     url(r'^(?P<tenant_id>[^/]+)/$', 'usage', name='dash_usage'),
     url(r'^(?P<tenant_id>[^/]+)/instances/$', 'index', name='dash_instances'),
-    url(r'^(?P<tenant_id>[^/]+)/instances/refresh$', 'refresh', name='dash_instances_refresh'),
+    url(r'^(?P<tenant_id>[^/]+)/instances/refresh$', 'refresh',
+        name='dash_instances_refresh'),
     url(INSTANCES % 'console', 'console', name='dash_instances_console'),
     url(INSTANCES % 'vnc', 'vnc', name='dash_instances_vnc'),
     url(INSTANCES % 'update', 'update', name='dash_instances_update'),
+)
+
+urlpatterns += patterns('django_openstack.dash.views.security_groups',
+    url(r'^(?P<tenant_id>[^/]+)/security_groups/$', 'index', name='dash_security_groups'),
+    url(r'^(?P<tenant_id>[^/]+)/security_groups/create$', 'create', name='dash_security_groups_create'),
+    url(SECURITY_GROUPS % 'edit_rules', 'edit_rules', name='dash_security_groups_edit_rules'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.images',
@@ -78,11 +86,14 @@ urlpatterns += patterns('django_openstack.dash.views.objects',
 urlpatterns += patterns('django_openstack.dash.views.networks',
     url(r'^(?P<tenant_id>[^/]+)/networks/$', 'index', name='dash_networks'),
     url(NETWORKS % 'create', 'create', name='dash_network_create'),
-    url(NETWORKS % '(?P<network_id>[^/]+)/detail', 'detail', name='dash_networks_detail'),
-    url(NETWORKS % '(?P<network_id>[^/]+)/rename', 'rename', name='dash_network_rename'),
+    url(NETWORKS % '(?P<network_id>[^/]+)/detail', 'detail',
+        name='dash_networks_detail'),
+    url(NETWORKS % '(?P<network_id>[^/]+)/rename', 'rename',
+        name='dash_network_rename'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.ports',
     url(PORTS % 'create', 'create', name='dash_ports_create'),
-    url(PORTS % '(?P<port_id>[^/]+)/attach', 'attach', name='dash_ports_attach'),
+    url(PORTS % '(?P<port_id>[^/]+)/attach', 'attach',
+        name='dash_ports_attach'),
 )

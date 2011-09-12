@@ -1,0 +1,8 @@
+<form id="form_delete_{{rule.id}}" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="security_group_rule_id" type="hidden" value="{{rule.id}}" />
+  <input id="delete_{{rule.id}}" class="delete" title="Security Group: {{rule.id}}" type="submit" value="Delete" />
+</form>

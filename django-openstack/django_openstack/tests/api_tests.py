@@ -58,7 +58,7 @@ class Server(object):
     """ More or less fakes what the api is looking for """
     def __init__(self, id, image, attrs=None):
         self.id = id
-        
+
         self.image = image
         if attrs is not None:
             self.attrs = attrs
@@ -230,7 +230,7 @@ class ServerWrapperTests(test.TestCase):
     HOST = 'hostname'
     ID = '1'
     IMAGE_NAME = 'imageName'
-    IMAGE_OBJ = { 'id': '3', 'links': [{'href': '3', u'rel': u'bookmark'}] }
+    IMAGE_OBJ = {'id': '3', 'links': [{'href': '3', u'rel': u'bookmark'}]}
 
     def setUp(self):
         super(ServerWrapperTests, self).setUp()
@@ -1051,16 +1051,19 @@ class ExtrasApiTests(test.TestCase):
         FLAVOR = 'cherry'
         USER_DATA = {'nuts': 'berries'}
         KEY = 'user'
+        SECGROUP = self.mox.CreateMock(api.SecurityGroup)
 
         extras_api = self.stub_extras_api()
         extras_api.servers = self.mox.CreateMockAnything()
         extras_api.servers.create(NAME, IMAGE, FLAVOR, user_data=USER_DATA,
-                                  key_name=KEY).AndReturn(TEST_RETURN)
+                                  key_name=KEY,
+                                  security_groups=[SECGROUP])\
+                                  .AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
         ret_val = api.server_create(self.request, NAME, IMAGE, FLAVOR,
-                                    KEY, USER_DATA)
+                                    KEY, USER_DATA, [SECGROUP])
 
         self.assertIsInstance(ret_val, api.Server)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)

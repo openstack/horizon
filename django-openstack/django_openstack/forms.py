@@ -48,8 +48,10 @@ class SelectDateWidget(widgets.Widget):
     day_field = '%s_day'
     year_field = '%s_year'
 
-    def __init__(self, attrs=None, years=None, required=True, skip_day_field=False):
-        # years is an optional list/tuple of years to use in the "year" select box.
+    def __init__(self, attrs=None, years=None, required=True,
+            skip_day_field=False):
+        # years is an optional list/tuple of years to use in
+        # the "year" select box.
         self.attrs = attrs or {}
         self.required = required
         self.skip_day_field = skip_day_field
@@ -57,7 +59,7 @@ class SelectDateWidget(widgets.Widget):
             self.years = years
         else:
             this_year = datetime.date.today().year
-            self.years = range(this_year, this_year+10)
+            self.years = range(this_year, this_year + 10)
 
     def render(self, name, value, attrs=None, skip_day_field=True):
         print "Render %s %s" % (name, value)
@@ -68,25 +70,32 @@ class SelectDateWidget(widgets.Widget):
             if isinstance(value, basestring):
                 if settings.USE_L10N:
                     try:
-                        input_format = formats.get_format('DATE_INPUT_FORMATS')[0]
+                        input_format = formats.get_format(
+                                'DATE_INPUT_FORMATS')[0]
                         # Python 2.4 compatibility:
-                        #     v = datetime.datetime.strptime(value, input_format)
+                        #     v = datetime.datetime.strptime(value,
+                        #                                    input_format)
                         # would be clearer, but datetime.strptime was added in
                         # Python 2.5
-                        v = datetime.datetime(*(time.strptime(value, input_format)[0:6]))
+                        v = datetime.datetime(*(time.strptime(value,
+                            input_format)[0:6]))
                         year_val, month_val, day_val = v.year, v.month, v.day
                     except ValueError:
                         pass
                 else:
                     match = RE_DATE.match(value)
                     if match:
-                        year_val, month_val, day_val = [int(v) for v in match.groups()]
+                        year_val, month_val, day_val = \
+                                [int(v) for v in match.groups()]
         choices = [(i, i) for i in self.years]
-        year_html = self.create_select(name, self.year_field, value, year_val, choices)
+        year_html = self.create_select(name,
+                self.year_field, value, year_val, choices)
         choices = dates.MONTHS.items()
-        month_html = self.create_select(name, self.month_field, value, month_val, choices)
+        month_html = self.create_select(name,
+                self.month_field, value, month_val, choices)
         choices = [(i, i) for i in range(1, 32)]
-        day_html = self.create_select(name, self.day_field, value, day_val,  choices)
+        day_html = self.create_select(name,
+                self.day_field, value, day_val,  choices)
 
         format = formats.get_format('DATE_FORMAT')
         escaped = False
@@ -174,4 +183,6 @@ class SelfHandlingForm(Form):
 
 
 class DateForm(Form):
-    date = DateField(widget=SelectDateWidget(years=range(datetime.date.today().year, 2009, -1), skip_day_field=True))
+    date = DateField(widget=SelectDateWidget(
+        years=range(datetime.date.today().year, 2009, -1),
+        skip_day_field=True))
