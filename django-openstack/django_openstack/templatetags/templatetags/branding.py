@@ -38,6 +38,7 @@ class SiteBrandingNode(template.Node):
 def site_branding(parser, token):
     return SiteBrandingNode()
 
+
 @register.tag
 def site_title(parser, token):
     return settings.SITE_BRANDING

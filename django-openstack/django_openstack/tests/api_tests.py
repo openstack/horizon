@@ -57,7 +57,7 @@ class Server(object):
     """ More or less fakes what the api is looking for """
     def __init__(self, id, image, attrs=None):
         self.id = id
-        
+
         self.image = image
         if attrs is not None:
             self.attrs = attrs
@@ -229,7 +229,7 @@ class ServerWrapperTests(test.TestCase):
     HOST = 'hostname'
     ID = '1'
     IMAGE_NAME = 'imageName'
-    IMAGE_OBJ = { 'id': '3', 'links': [{'href': '3', u'rel': u'bookmark'}] }
+    IMAGE_OBJ = {'id': '3', 'links': [{'href': '3', u'rel': u'bookmark'}]}
 
     def setUp(self):
         super(ServerWrapperTests, self).setUp()

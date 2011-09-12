@@ -842,28 +842,38 @@ class GlobalSummary(object):
 
         for service in self.service_list:
             if service.type == 'nova-compute':
-                self.summary['total_vcpus'] += min(service.stats['max_vcpus'], service.stats.get('vcpus', 0))
-                self.summary['total_disk_size'] += min(service.stats['max_gigabytes'], service.stats.get('local_gb', 0))
-                self.summary['total_ram_size'] += min(service.stats['max_ram'], service.stats['memory_mb']) if 'max_ram' in service.stats else service.stats.get('memory_mb', 0)
+                self.summary['total_vcpus'] += min(service.stats['max_vcpus'],
+                        service.stats.get('vcpus', 0))
+                self.summary['total_disk_size'] += min(
+                        service.stats['max_gigabytes'],
+                        service.stats.get('local_gb', 0))
+                self.summary['total_ram_size'] += min(
+                        service.stats['max_ram'],
+                        service.stats['memory_mb']) if 'max_ram' \
+                                in service.stats \
+                                else service.stats.get('memory_mb', 0)
 
     def usage(self, datetime_start, datetime_end):
         try:
-            self.usage_list = usage_list(self.request, datetime_start, datetime_end)
+            self.usage_list = usage_list(self.request, datetime_start,
+                    datetime_end)
         except api_exceptions.ApiException, e:
             self.usage_list = []
             LOG.error('ApiException fetching usage list in instance usage'
                       ' on date range "%s to %s"' % (datetime_start,
                                                      datetime_end),
                       exc_info=True)
-            messages.error(self.request, 'Unable to get usage info: %s' % e.message)
+            messages.error(self.request,
+                    'Unable to get usage info: %s' % e.message)
             return
 
         for usage in self.usage_list:
-            # FIXME: api needs a simpler dict interface (with iteration) - anthony
-            # NOTE(mgius): Changed this on the api end.  Not too much neater, but
-            # at least its not going into private member data of an external
-            # class anymore
-            #usage = usage._info
+            # FIXME: api needs a simpler dict interface (with iteration)
+            # - anthony
+            # NOTE(mgius): Changed this on the api end.  Not too much
+            # neater, but at least its not going into private member
+            # data of an external class anymore
+            # usage = usage._info
             for k in usage._attrs:
                 v = usage.__getattr__(k)
                 if type(v) in [float, int]:
@@ -880,8 +890,11 @@ class GlobalSummary(object):
             mult = 1.0
 
         for kind in GlobalSummary.node_resource_info:
-            self.summary['total_' + kind + rsrc + '_hr'] = self.summary['total_' + kind + rsrc] / mult
+            self.summary['total_' + kind + rsrc + '_hr'] = \
+                    self.summary['total_' + kind + rsrc] / mult
 
     def avail(self):
         for rsrc in GlobalSummary.node_resources:
-            self.summary['total_avail_' + rsrc] = self.summary['total_' + rsrc] - self.summary['total_active_' + rsrc]
+            self.summary['total_avail_' + rsrc] = \
+                    self.summary['total_' + rsrc] - \
+                    self.summary['total_active_' + rsrc]

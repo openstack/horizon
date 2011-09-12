@@ -66,7 +66,7 @@ class Login(forms.SelfHandlingForm):
 
 class LoginWithTenant(Login):
     username = forms.CharField(max_length="20",
-                               widget=forms.TextInput(attrs={'readonly':'readonly'}))
+                       widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     tenant = forms.CharField(widget=forms.HiddenInput())
 
 

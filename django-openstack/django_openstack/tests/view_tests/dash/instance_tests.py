@@ -321,7 +321,8 @@ class InstanceViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_instances_vnc',
                                       args=[self.TEST_TENANT, INSTANCE_ID]))
 
-        self.assertRedirectsNoFollow(res, CONSOLE_OUTPUT + '&title=serverName(1)')
+        self.assertRedirectsNoFollow(res,
+                CONSOLE_OUTPUT + '&title=serverName(1)')
 
         self.mox.VerifyAll()
 
