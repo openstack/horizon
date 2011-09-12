@@ -68,7 +68,7 @@ class CreateKeypair(forms.SelfHandlingForm):
             response = http.HttpResponse(mimetype='application/binary')
             response['Content-Disposition'] = \
                 'attachment; filename=%s.pem' % \
-                keypair.key_name
+                keypair.name
             response.write(keypair.private_key)
             return response
         except api_exceptions.ApiException, e:

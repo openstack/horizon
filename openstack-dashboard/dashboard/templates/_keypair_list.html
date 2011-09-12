@@ -6,7 +6,7 @@
   </tr>
   {% for keypair in keypairs %}
   <tr class="{% cycle 'odd' 'even' %}">
-    <td>{{ keypair.key_name }}</td>
+    <td>{{ keypair.name }}</td>
     <td>{{ keypair.fingerprint }}</td>
     <td id="actions">
       <ul>
