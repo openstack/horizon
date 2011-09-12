@@ -46,13 +46,16 @@ LOG = logging.getLogger('django_openstack.dash.views.snapshots')
 
 class CreateSnapshot(forms.SelfHandlingForm):
     tenant_id = forms.CharField(widget=forms.HiddenInput())
-    instance_id = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
+    instance_id = forms.CharField(widget=forms.TextInput(
+        attrs={'readonly': 'readonly'}))
     name = forms.CharField(max_length="20", label="Snapshot Name")
 
     def handle(self, request, data):
         try:
             LOG.info('Creating snapshot "%s"' % data['name'])
-            snapshot = api.snapshot_create(request, data['instance_id'], data['name'])
+            snapshot = api.snapshot_create(request,
+                    data['instance_id'],
+                    data['name'])
             instance = api.server_get(request, data['instance_id'])
 
             messages.info(request, 'Snapshot "%s" created for instance "%s"' %\

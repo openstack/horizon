@@ -131,8 +131,9 @@ if DEBUG:
         import debug_toolbar
 
         INSTALLED_APPS += ('debug_toolbar',)
-        MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+        MIDDLEWARE_CLASSES += (
+                'debug_toolbar.middleware.DebugToolbarMiddleware',)
     except ImportError:
         logging.info('Running in debug mode without debug_toolbar.')
 
-OPENSTACK_KEYSTONE_DEFAULT_ROLE='Member'
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'Member'

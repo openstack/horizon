@@ -18,7 +18,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-""" 
+"""
 Simple decorator container for general purpose
 """
 
@@ -30,13 +30,13 @@ LOG = logging.getLogger('django_openstack.syspanel')
 
 
 def enforce_admin_access(fn):
-    """ Preserve unauthorized bypass typing directly the URL and redirects to 
+    """ Preserve unauthorized bypass typing directly the URL and redirects to
     the overview dash page """
-    def dec(*args,**kwargs):
+    def dec(*args, **kwargs):
         if args[0].user.is_admin():
-            return fn(*args,**kwargs)
+            return fn(*args, **kwargs)
         else:
             LOG.warn('Redirecting user "%s" from syspanel to dash  ( %s )' %
-                     ( args[0].user.username, fn.__name__) , exc_info=True)
+                     (args[0].user.username, fn.__name__), exc_info=True)
             return redirect('dash_overview')
     return dec
