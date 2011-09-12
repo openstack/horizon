@@ -1,5 +1,6 @@
 @import url("reset.css");
 
+
 /* General/Misc */
 
 @font-face {
@@ -107,6 +108,7 @@ input[type="submit"]:active { background-position: 0 -105px; }
   font-size: 12px !important;
 
 }
+
 
 /* Header */
 
@@ -526,6 +528,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   border-left: 1px solid;
 }
 
+
 /* Status Box */
 
 .status_box {
@@ -606,12 +609,14 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   float: left;
   text-align: center;
 }
+
 .status_box p.avail {
   font-size: 18px;
   margin: 0 0 0 0;
   float: left;
   text-align: center;
 }
+
 .status_box p.avail span, .status_box p.used span { 
   font-size: 10px;
   margin-top: -5px;
@@ -652,6 +657,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   padding: 5px 0 5px 0;
   border: 1px solid #e6e6e6;
 }
+
 #activity.tenant { margin: 0 0 0 0; }
 #activity span { margin: 0 0 0 10px; }
 
@@ -682,6 +688,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   width: 100%;
   margin-top: 25px;
 }
+
 
 /* User Usage */
 
@@ -816,6 +823,7 @@ input:focus, textarea:focus {
   padding: 20px 20px 20px 20px;
 }
 
+
 /* Login Page */
 
 #standalone { background: #fff; }
@@ -908,6 +916,7 @@ input[readonly="readonly"] {
 }
 #alternate_links a:hover { color: #989898; }
 
+
 /* Containers */
 
 h3.container_name {
@@ -938,6 +947,7 @@ td ul span {
 .ip_list ul {
   padding-left: 15px;
 }
+
 
 /* Network details page */
 td.ACTIVE {
