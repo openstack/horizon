@@ -908,7 +908,34 @@ h3 span, .left h3 { color: #6a6a6a; }
   float: left;
 }
 
+.dash_block .left h3 {
+  font-size: 24px;
+  margin: 0 0 25px 0;
+}
+
+/* Security Groups */
+
+.security_group_rule_form_inner {
+  margin: 30px 30px;
+}
+
+.dash_block .security_group_rule_form_wrapper {
+  border: 1px solid #eee;
+  width: 46%;
+}
+
+.dash_block .security_group_rule_form_wrapper input[type="submit"]{
+  background: #93bc8d;
+  color: #fff;
+  margin: 0 17px 0 0;
+  border: 1px solid #8eb08a;
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 0.2s;
+  text-shadow: #62935c 0 -1px 0;
+}
+
 /* Network details page */
+
 td.ACTIVE {
   color:#6EAF6E;
 }

@@ -38,6 +38,10 @@ class ImageViewTests(base.BaseViewTests):
         keypair.key_name = 'keyName'
         self.keypairs = (keypair,)
 
+        security_group = self.mox.CreateMock(api.SecurityGroup)
+        security_group.name = 'default'
+        self.security_groups = (security_group,)
+
     def test_index(self):
         self.mox.StubOutWithMock(api, 'token_get_tenant')
         api.token_get_tenant(IsA(http.HttpRequest), self.TEST_TENANT)
@@ -135,6 +139,10 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'keypair_list')
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
 
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
+                                    self.security_groups)
+
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('dash_images_launch',
@@ -172,6 +180,7 @@ class ImageViewTests(base.BaseViewTests):
                      'name': SERVER_NAME,
                      'user_data': USER_DATA,
                      'tenant_id': self.TEST_TENANT,
+                     'security_groups': 'default',
                      }
 
         self.mox.StubOutWithMock(api, 'image_get')
@@ -192,6 +201,10 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'keypair_list')
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
 
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
+                                    self.security_groups)
+
         # called again by the form
         api.image_get(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
@@ -204,7 +217,7 @@ class ImageViewTests(base.BaseViewTests):
 
         api.server_create(IsA(http.HttpRequest), SERVER_NAME,
                           self.visibleImage, self.flavors[0],
-                          KEY_NAME, USER_DATA)
+                          KEY_NAME, USER_DATA, [self.security_groups[0].name])
 
         self.mox.StubOutWithMock(messages, 'success')
         messages.success(IsA(http.HttpRequest), IsA(str))
@@ -242,6 +255,10 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'keypair_list')
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
 
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
+                                    self.security_groups)
+
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('dash_images_launch',
@@ -278,6 +295,10 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'keypair_list')
         api.keypair_list(IsA(http.HttpRequest)).AndRaise(exception)
 
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
+                                    self.security_groups)
+
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('dash_images_launch',
@@ -306,6 +327,7 @@ class ImageViewTests(base.BaseViewTests):
                      'name': SERVER_NAME,
                      'tenant_id': self.TEST_TENANT,
                      'user_data': USER_DATA,
+                     'security_groups': 'default',
                      }
 
         self.mox.StubOutWithMock(api, 'image_get')
@@ -326,6 +348,10 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'keypair_list')
         api.keypair_list(IgnoreArg()).AndReturn(self.keypairs)
 
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
+                                    self.security_groups)
+
         # called again by the form
         api.image_get(IgnoreArg(),
                       IMAGE_ID).AndReturn(self.visibleImage)
@@ -339,8 +365,8 @@ class ImageViewTests(base.BaseViewTests):
         exception = api_exceptions.ApiException('apiException')
         api.server_create(IsA(http.HttpRequest), SERVER_NAME,
                           self.visibleImage, self.flavors[0],
-                          KEY_NAME,
-                          USER_DATA).AndRaise(exception)
+                          KEY_NAME, USER_DATA,
+                          self.security_groups).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
         messages.error(IsA(http.HttpRequest), IsA(str))

@@ -29,8 +29,8 @@
         <ul>
           <li class="form">{% include "_terminate.html" with form=terminate_form %}</li>
           <li class="form">{% include "_reboot.html" with form=reboot_form %}</li>
-          <li><a target="_blank" href="{% url dash_instances_console instance.attrs.tenant_id instance.id %}">Console Log</a></li>
-          <li><a target="_blank" href="{% url dash_instances_vnc instance.attrs.tenant_id instance.id %}">VNC Console</a></li>
+          <li><a target="_blank" href="{% url dash_instances_console request.user.tenant instance.id %}">Console Log</a></li>
+          <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant instance.id %}">VNC Console</a></li>
         </ul>
       </td>
     </tr>

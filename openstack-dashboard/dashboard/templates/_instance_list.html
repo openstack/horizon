@@ -4,6 +4,7 @@
   <tr id='headings'>
     <th>ID</th>
     <th>Name</th>
+    <th>Groups</th>
     <th>Image</th>
     <th>Size</th>
     <th>Private IP</th>
@@ -20,6 +21,13 @@
                 <br/>
                 <small> ({{instance.attrs.key_name}}) </small>
             {% endif %}
+          </td>
+          <td>
+            <ul>
+              {% for group in instance.attrs.security_groups %}
+                <li>{{group}}</li>
+              {% endfor %}
+            <ul>
           </td>
           <td>{{instance.image_name}}</td>
           <td>
