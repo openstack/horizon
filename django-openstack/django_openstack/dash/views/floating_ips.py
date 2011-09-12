@@ -126,7 +126,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
 @login_required
 def index(request, tenant_id):
     for f in (ReleaseFloatingIp, FloatingIpDisassociate, FloatingIpAllocate):
-        _, handled = f.maybe_handle(request)
+        _unused, handled = f.maybe_handle(request)
         if handled:
             return handled
     try:
