@@ -549,7 +549,7 @@ def server_add_floating_ip(request, server, address):
     server = novaclient(request).servers.get(server)
     fip = novaclient(request).floating_ips.get(address)
 
-    return server.add_floating_ip(fip)
+    return novaclient(request).servers.add_floating_ip(server, fip)
 
 
 def server_remove_floating_ip(request, server, address):
@@ -559,7 +559,7 @@ def server_remove_floating_ip(request, server, address):
     fip = novaclient(request).floating_ips.get(address)
     server = novaclient(request).servers.get(fip.instance_id)
 
-    return server.remove_floating_ip(fip)
+    return novaclient(request).servers.remove_floating_ip(server, fip)
 
 
 def service_get(request, name):

@@ -1142,6 +1142,11 @@ class ExtrasApiTests(test.TestCase):
 
 
 class APIExtensionTests(test.TestCase):
+
+    def stub_novaclient(self):
+        self.mox.StubOutWithMock(client, 'Client')
+        c = self.mox.CreateMock(client.Client)
+        return c
     
     def setUp(self):
         super(APIExtensionTests, self).setUp()
@@ -1155,73 +1160,88 @@ class APIExtensionTests(test.TestCase):
         self.floating_ip = floating_ip
         self.floating_ips = [floating_ip, ]
     
+        server = self.mox.CreateMock(api.Server)
+        server.id = 1
+
+        self.server = server
+        self.servers = [server, ]
+
     def test_tenant_floating_ip_list(self):
-        api.tenant_floating_ip_list = self.mox.CreateMockAnything()
-        api.tenant_floating_ip_list().AndReturn(self.floating_ips)
+        novaclient = self.stub_novaclient()
+                
+        novaclient.floating_ips = self.mox.CreateMockAnything()
+        novaclient.floating_ips.list().AndReturn(self.floating_ips)
         self.mox.ReplayAll()
 
-        floating_ips = api.tenant_floating_ip_list()
+        floating_ips = novaclient.floating_ips.list()
 
-        self.assertEqual(len(floating_ips), 1)
+        self.assertEqual(len(floating_ips), len(self.floating_ips))
         self.assertIsInstance(floating_ips[0], api.FloatingIp)
         self.mox.VerifyAll() 
 
     def test_tenant_floating_ip_get(self):
-        api.tenant_floating_ip_get = self.mox.CreateMockAnything()
-        api.tenant_floating_ip_get(1).AndReturn(self.floating_ip)
+        novaclient = self.stub_novaclient()
+
+        novaclient.floating_ips = self.mox.CreateMockAnything()
+        novaclient.floating_ips.get(IsA(int)).AndReturn(self.floating_ip)
         self.mox.ReplayAll()
 
-        floating_ip = api.tenant_floating_ip_get(1)
+        floating_ip = novaclient.floating_ips.get(1)
 
         self.assertIsInstance(floating_ip, api.FloatingIp)
         self.mox.VerifyAll() 
 
     def test_tenant_floating_ip_allocate(self):
-        api.tenant_floating_ip_allocate = self.mox.CreateMockAnything()
-        api.tenant_floating_ip_allocate().AndReturn(self.floating_ip)
+        novaclient = self.stub_novaclient()
+
+        novaclient.floating_ips = self.mox.CreateMockAnything()
+        novaclient.floating_ips.create().AndReturn(self.floating_ip)
         self.mox.ReplayAll()
 
-        floating_ip = api.tenant_floating_ip_allocate()
+        floating_ip = novaclient.floating_ips.create()
 
         self.assertIsInstance(floating_ip, api.FloatingIp)
         self.mox.VerifyAll() 
 
     def test_tenant_floating_ip_release(self):
-        api.tenant_floating_ip_release = self.mox.CreateMockAnything()
-        api.tenant_floating_ip_release(1).AndReturn(self.floating_ip)
+        novaclient = self.stub_novaclient()
+
+        novaclient.floating_ips = self.mox.CreateMockAnything()
+        novaclient.floating_ips.delete(1).AndReturn(self.floating_ip)
         self.mox.ReplayAll()
 
-        floating_ip = api.tenant_floating_ip_release(1)
+        floating_ip = novaclient.floating_ips.delete(1)
 
         self.assertIsInstance(floating_ip, api.FloatingIp)
-        self.mox.VerifyAll() 
-    
-    def test_server_remove_floating_ip(self):
-        server = self.mox.CreateMock(api.Server)
-        server.id = 1
+        self.mox.VerifyAll()
 
-        api.server_remove_floating_ip = self.mox.CreateMockAnything()
-        api.server_remove_floating_ip(1, 1).AndReturn(server)
+    def test_server_remove_floating_ip(self):
+        novaclient = self.stub_novaclient()
+
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.remove_floating_ip(IsA(int), IsA(int)).\
+                                                        AndReturn(self.server)
         self.mox.ReplayAll()
 
-        server = api.server_remove_floating_ip(1, 1)
-
+        server = novaclient.servers.remove_floating_ip(1, 1)
+        
         self.assertIsInstance(server, api.Server)
         self.mox.VerifyAll()
 
     def test_server_add_floating_ip(self):
-        server = self.mox.CreateMock(api.Server)
-        server.id = 1
+        novaclient = self.stub_novaclient()
 
-        api.server_add_floating_ip = self.mox.CreateMockAnything()
-        api.server_add_floating_ip(1, 1).AndReturn(server)
+        novaclient.floating_ips = self.mox.CreateMockAnything()
+        novaclient.servers = self.mox.CreateMockAnything()
+
+        novaclient.servers.add_floating_ip(IsA(int), 
+                                           IsA(int)).AndReturn(self.server)
         self.mox.ReplayAll()
 
-        server = api.server_add_floating_ip(1, 1)
+        server = novaclient.servers.add_floating_ip(1, 1)
 
         self.assertIsInstance(server, api.Server)
         self.mox.VerifyAll()
-
 
 class GlanceApiTests(test.TestCase):
     def stub_glance_api(self, count=1):
