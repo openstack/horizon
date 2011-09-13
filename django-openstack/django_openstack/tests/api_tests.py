@@ -1202,36 +1202,40 @@ class APIExtensionTests(test.TestCase):
         self.mox.VerifyAll()
 
     def test_keypair_create(self):
-        api.keypair_create = self.mox.CreateMockAnything()
-        api.keypair_create(IsA(http.HttpRequest), IsA(str)).\
-                                                        AndReturn(self.keypair)
+        novaclient = self.stub_novaclient()
+        
+        novaclient.keypairs = self.mox.CreateMockAnything()
+        novaclient.keypairs.create(IsA(str)).AndReturn(self.keypair)
         self.mox.ReplayAll()
 
-        ret_val = api.keypair_create(self.request, TEST_RETURN)
+        ret_val = novaclient.keypairs.create(TEST_RETURN)
         self.assertIsInstance(ret_val, api.KeyPair)
         self.assertEqual(ret_val, self.keypair)
 
         self.mox.VerifyAll()
 
     def test_keypair_delete(self):
-        api.keypair_delete = self.mox.CreateMockAnything()
-        api.keypair_delete(IsA(http.HttpRequest), IsA(int)).AndReturn(None)
+        novaclient = self.stub_novaclient()
+        
+        novaclient.keypairs = self.mox.CreateMockAnything()
+        novaclient.keypairs.delete(IsA(int))
 
         self.mox.ReplayAll()
 
-        ret_val = api.keypair_delete(self.request, self.keypair.id)
+        ret_val = novaclient.keypairs.delete(self.keypair.id)
         self.assertIsNone(ret_val)
 
         self.mox.VerifyAll()
 
     def test_keypair_list(self):
-
-        api.keypair_list = self.mox.CreateMockAnything()
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
+        novaclient = self.stub_novaclient()
+        
+        novaclient.keypairs = self.mox.CreateMockAnything()
+        novaclient.keypairs.list().AndReturn(self.keypairs)
 
         self.mox.ReplayAll()
 
-        ret_val = api.keypair_list(self.request)
+        ret_val = novaclient.keypairs.list()
 
         self.assertEqual(len(ret_val), len(self.keypairs))
         for keypair in ret_val:
