@@ -90,7 +90,7 @@ class RebootInstance(forms.SelfHandlingForm):
 class UpdateInstance(forms.SelfHandlingForm):
     tenant_id = forms.CharField(widget=forms.HiddenInput())
     instance = forms.CharField(widget=forms.TextInput(
-                               attrs={'readonly':'readonly'}))
+                               attrs={'readonly': 'readonly'}))
     name = forms.CharField(required=True)
     description = forms.CharField(required=False)
 
@@ -98,7 +98,10 @@ class UpdateInstance(forms.SelfHandlingForm):
         tenant_id = data['tenant_id']
         description = data.get('description', '')
         try:
-            api.server_update(request, data['instance'], data['name'], description)
+            api.server_update(request,
+                              data['instance'],
+                              data['name'],
+                              description)
             messages.success(request, "Instance '%s' updated" % data['name'])
         except api_exceptions.ApiException, e:
             messages.error(request,
@@ -131,6 +134,7 @@ def index(request, tenant_id):
         'reboot_form': reboot_form,
     }, context_instance=template.RequestContext(request))
 
+
 @login_required
 def refresh(request, tenant_id):
     instances = []
@@ -149,6 +153,7 @@ def refresh(request, tenant_id):
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
     }, context_instance=template.RequestContext(request))
+
 
 @login_required
 def usage(request, tenant_id=None):
@@ -212,7 +217,7 @@ def usage(request, tenant_id=None):
         'datetime_start': datetime_start,
         'datetime_end': datetime_end,
         'instances': instances
-    }, context_instance = template.RequestContext(request), mimetype=mimetype)
+    }, context_instance=template.RequestContext(request), mimetype=mimetype)
 
 
 @login_required
@@ -238,7 +243,8 @@ def vnc(request, tenant_id, instance_id):
     try:
         console = api.console_create(request, instance_id, 'vnc')
         instance = api.server_get(request, instance_id)
-        return shortcuts.redirect(console.output + ("&title=%s(%s)" % (instance.name, instance_id)))
+        return shortcuts.redirect(console.output +
+                ("&title=%s(%s)" % (instance.name, instance_id)))
     except api_exceptions.ApiException, e:
         LOG.error('ApiException while fetching instance vnc connection',
                   exc_info=True)

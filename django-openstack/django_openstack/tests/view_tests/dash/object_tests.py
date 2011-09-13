@@ -6,6 +6,7 @@ from django_openstack import api
 from django_openstack.tests.view_tests import base
 from mox import IsA
 
+
 class ObjectViewTests(base.BaseViewTests):
     CONTAINER_NAME = 'containerName'
 

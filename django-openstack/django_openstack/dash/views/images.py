@@ -87,7 +87,6 @@ class LaunchForm(forms.SelfHandlingForm):
         for field in field_list[::-1]:
             self.fields.insert(0, field, self.fields.pop(field))
 
-
     def handle(self, request, data):
         image_id = data['image_id']
         tenant_id = data['tenant_id']
@@ -188,7 +187,7 @@ def launch(request, tenant_id, image_id):
     tenant = api.token_get_tenant(request, request.user.tenant)
     quotas = api.tenant_quota_get(request, request.user.tenant)
     try:
-        quotas.ram = int(quotas.ram)/100
+        quotas.ram = int(quotas.ram) / 100
     except Exception, e:
         messages.error(request, 'Error parsing quota  for %s: %s' %
                                  (image_id, e.message))

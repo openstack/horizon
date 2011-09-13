@@ -1,0 +1,16 @@
+<form id="floating_ips_associate" action="" method="post">
+  {% csrf_token %}
+  <fieldset>
+    {% for hidden in form.hidden_fields %}
+      {{hidden}}
+    {% endfor %}
+    {% for field in form.visible_fields %}
+      {{field.label_tag}}
+      {{field.errors}}
+      {{field}}
+    {% endfor %}
+    {% block submit %}
+      <input type="submit" value="Associate IP" />
+    {% endblock %}
+  </fieldset>
+</form>

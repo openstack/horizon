@@ -132,6 +132,11 @@ class Flavor(APIResourceWrapper):
     _attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
 
 
+class FloatingIp(APIResourceWrapper):
+    """Simple wrapper for floating ips"""
+    _attrs = ['ip', 'fixed_ip', 'instance_id', 'id']
+
+
 class Image(APIDictWrapper):
     """Simple wrapper around glance image dictionary"""
     _attrs = ['checksum', 'container_format', 'created_at', 'deleted',
@@ -363,6 +368,18 @@ def novaclient(request):
     c.client.management_url=url_for(request, 'nova')
     return c
 
+def novaclient(request):
+    LOG.debug('novaclient connection created using token "%s"'
+              ' and url "%s"' % (request.user.token, url_for(request, 'nova')))
+    c = client.Client(username=request.user.username,
+                      api_key=request.user.token,
+                      project_id=request.user.tenant,
+                      auth_url=url_for(request, 'nova'))
+    c.client.auth_token = request.user.token
+    c.client.management_url=url_for(request, 'nova')
+    return c
+
+
 def auth_api():
     LOG.debug('auth_api connection created using url "%s"' %
                    settings.OPENSTACK_KEYSTONE_URL)
@@ -405,6 +422,34 @@ def flavor_delete(request, flavor_id, purge=False):
 
 def flavor_get(request, flavor_id):
     return Flavor(compute_api(request).flavors.get(flavor_id))
+
+
+def tenant_floating_ip_list(request):
+    """
+    Fetches a list of all floating ips.
+    """
+    return [FloatingIp(ip) for ip in novaclient(request).floating_ips.list()]
+
+
+def tenant_floating_ip_get(request, floating_ip_id):
+    """
+    Fetches a floating ip.
+    """
+    return novaclient(request).floating_ips.get(floating_ip_id)
+
+
+def tenant_floating_ip_allocate(request):
+    """
+    Allocates a floating ip to tenant.
+    """
+    return novaclient(request).floating_ips.create()
+
+
+def tenant_floating_ip_release(request, floating_ip_id):
+    """
+    Releases floating ip from the pool of a tenant.
+    """
+    return novaclient(request).floating_ips.delete(floating_ip_id)
 
 
 @check_openstackx
@@ -494,6 +539,26 @@ def server_update(request, instance_id, name, description):
     return extras_api(request).servers.update(instance_id,
                                               name=name,
                                               description=description)
+
+
+def server_add_floating_ip(request, server, address):
+    """
+    Associates floating IP to server's fixed IP.
+    """
+    server = novaclient(request).servers.get(server)
+    fip = novaclient(request).floating_ips.get(address)
+
+    return novaclient(request).servers.add_floating_ip(server, fip)
+
+
+def server_remove_floating_ip(request, server, address):
+    """
+    Removes relationship between floating and server's fixed ip.
+    """
+    fip = novaclient(request).floating_ips.get(address)
+    server = novaclient(request).servers.get(fip.instance_id)
+
+    return novaclient(request).servers.remove_floating_ip(server, fip)
 
 
 def service_get(request, name):
@@ -841,28 +906,38 @@ class GlobalSummary(object):
 
         for service in self.service_list:
             if service.type == 'nova-compute':
-                self.summary['total_vcpus'] += min(service.stats['max_vcpus'], service.stats.get('vcpus', 0))
-                self.summary['total_disk_size'] += min(service.stats['max_gigabytes'], service.stats.get('local_gb', 0))
-                self.summary['total_ram_size'] += min(service.stats['max_ram'], service.stats['memory_mb']) if 'max_ram' in service.stats else service.stats.get('memory_mb', 0)
+                self.summary['total_vcpus'] += min(service.stats['max_vcpus'],
+                        service.stats.get('vcpus', 0))
+                self.summary['total_disk_size'] += min(
+                        service.stats['max_gigabytes'],
+                        service.stats.get('local_gb', 0))
+                self.summary['total_ram_size'] += min(
+                        service.stats['max_ram'],
+                        service.stats['memory_mb']) if 'max_ram' \
+                                in service.stats \
+                                else service.stats.get('memory_mb', 0)
 
     def usage(self, datetime_start, datetime_end):
         try:
-            self.usage_list = usage_list(self.request, datetime_start, datetime_end)
+            self.usage_list = usage_list(self.request, datetime_start,
+                    datetime_end)
         except api_exceptions.ApiException, e:
             self.usage_list = []
             LOG.error('ApiException fetching usage list in instance usage'
                       ' on date range "%s to %s"' % (datetime_start,
                                                      datetime_end),
                       exc_info=True)
-            messages.error(self.request, 'Unable to get usage info: %s' % e.message)
+            messages.error(self.request,
+                    'Unable to get usage info: %s' % e.message)
             return
 
         for usage in self.usage_list:
-            # FIXME: api needs a simpler dict interface (with iteration) - anthony
-            # NOTE(mgius): Changed this on the api end.  Not too much neater, but
-            # at least its not going into private member data of an external
-            # class anymore
-            #usage = usage._info
+            # FIXME: api needs a simpler dict interface (with iteration)
+            # - anthony
+            # NOTE(mgius): Changed this on the api end.  Not too much
+            # neater, but at least its not going into private member
+            # data of an external class anymore
+            # usage = usage._info
             for k in usage._attrs:
                 v = usage.__getattr__(k)
                 if type(v) in [float, int]:
@@ -879,8 +954,11 @@ class GlobalSummary(object):
             mult = 1.0
 
         for kind in GlobalSummary.node_resource_info:
-            self.summary['total_' + kind + rsrc + '_hr'] = self.summary['total_' + kind + rsrc] / mult
+            self.summary['total_' + kind + rsrc + '_hr'] = \
+                    self.summary['total_' + kind + rsrc] / mult
 
     def avail(self):
         for rsrc in GlobalSummary.node_resources:
-            self.summary['total_avail_' + rsrc] = self.summary['total_' + rsrc] - self.summary['total_active_' + rsrc]
+            self.summary['total_avail_' + rsrc] = \
+                    self.summary['total_' + rsrc] - \
+                    self.summary['total_active_' + rsrc]

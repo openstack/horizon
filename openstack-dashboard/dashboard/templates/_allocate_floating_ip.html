@@ -1,0 +1,7 @@
+<form id="form_allocate" action="." class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input class="action_input large-rounded" type="submit" value="Allocate IP" />
+</form>

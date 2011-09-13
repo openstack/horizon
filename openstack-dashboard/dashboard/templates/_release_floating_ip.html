@@ -1,0 +1,8 @@
+<form id="form_release_{{ip.id}}" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{hidden}}
+  {% endfor %}
+  <input name="floating_ip_id" type="hidden" value="{{ip.id}}" />
+  <input id="delete_{{ip.id}}" class="delete" title="Floating IP: {{ip.id}} ({{ip.ip}})" type="submit" value="Release" />
+</form>

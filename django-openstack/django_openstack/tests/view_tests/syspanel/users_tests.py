@@ -4,6 +4,7 @@ from django_openstack.tests.view_tests import base
 from mox import IgnoreArg
 from openstackx.api import exceptions as api_exceptions
 
+
 class UsersViewTests(base.BaseViewTests):
     def setUp(self):
         super(UsersViewTests, self).setUp()
@@ -71,8 +72,10 @@ class UsersViewTests(base.BaseViewTests):
                     'enabled': 'enable'}
 
         self.mox.StubOutWithMock(api, 'user_update_enabled')
-        api_exception = api_exceptions.ApiException('apiException', message='apiException')
-        api.user_update_enabled(IgnoreArg(), OTHER_USER, True).AndRaise(api_exception)
+        api_exception = api_exceptions.ApiException('apiException',
+                message='apiException')
+        api.user_update_enabled(IgnoreArg(),
+                OTHER_USER, True).AndRaise(api_exception)
 
         self.mox.ReplayAll()
 

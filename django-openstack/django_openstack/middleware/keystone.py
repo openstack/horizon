@@ -42,7 +42,7 @@ class User(object):
 
 def get_user_from_request(request):
     if 'user' not in request.session:
-        return User(None,None,None,None,None)
+        return User(None, None, None, None, None)
     return User(request.session['token'],
                 request.session['user'],
                 request.session['tenant'],

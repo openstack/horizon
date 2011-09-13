@@ -26,7 +26,9 @@ import datetime
 from django import template
 from dateutil import tz
 
+
 register = template.Library()
+
 
 def _parse_datetime(dtstr):
     fmts = ["%Y-%m-%dT%H:%M:%S.%f", "%Y-%m-%d %H:%M:%S.%f",
