@@ -37,6 +37,7 @@ urlpatterns = patterns('',
         name='dash_overview'),
     url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage',
         name='syspanel_overview'),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 )
 
 # Development static app and project media serving using the staticfiles app.
