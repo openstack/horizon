@@ -8,9 +8,10 @@
     <li><a {% if current_sidebar == "images" %} class="active" {% endif %} href="{% url dash_images request.user.tenant %}">Images</a></li>
     <li><a {% if current_sidebar == "snapshots" %} class="active" {% endif %} href="{% url dash_snapshots request.user.tenant %}">Snapshots</a></li>
     <li><a {% if current_sidebar == "keypairs" %} class="active" {% endif %} href="{% url dash_keypairs request.user.tenant %}">Keypairs</a></li>
+    <li><a {% if current_sidebar == "floatingips" %} class="active" {% endif %} href="{% url dash_floating_ips request.user.tenant %}">Floating IPs</a></li>
     <li><a {% if current_sidebar == "security_groups" %} class="active" {% endif %} href="{% url dash_security_groups request.user.tenant %}">Security Groups</a></li>
     {% if quantum_configured %}
-    <li><a {% if current_sidebar == "networks" %} class="active" {% endif %} href="{% url dash_networks request.user.tenant %}">Networks</a></li>
+      <li><a {% if current_sidebar == "networks" %} class="active" {% endif %} href="{% url dash_networks request.user.tenant %}">Networks</a></li>
     {% endif %}
   </ul>
   {% if swift_configured %}

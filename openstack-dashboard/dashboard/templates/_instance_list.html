@@ -7,8 +7,7 @@
     <th>Groups</th>
     <th>Image</th>
     <th>Size</th>
-    <th>Private IP</th>
-    <th>Public IP</th>
+    <th>IPs</th>
     <th>State</th>
     <th>Actions</th>
   </tr>
@@ -37,8 +36,24 @@
               <li>{{instance.attrs.disk_gb}}GB Disk</li>
             </ul>
           </td>
-          <td>{{instance.addresses.private.0.addr|default:'-'}}</td>
-          <td>{{instance.addresses.public.0.addr|default:'N/A'}}</td>
+          <td class="ip_list">
+            {% for ip_group, addresses in instance.addresses.items %}
+              {% if instance.addresses.items|length > 1 %}
+              <h4>{{ip_group}}</h4>
+              <ul>
+                {% for address in addresses %}
+                  <li>{{address.addr}}</li>
+                {% endfor %}
+              </ul>
+              {% else %}
+              <ul>
+                {% for address in addresses %}
+                  <li>{{address.addr}}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            {% endfor %}
+          </td>
           <td>{{instance.status|lower|capfirst}}</td>
           <td id="actions">
             <ul>
