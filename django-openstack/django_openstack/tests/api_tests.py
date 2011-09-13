@@ -997,54 +997,6 @@ class ExtrasApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
-    def test_keypair_create(self):
-        NAME = '1'
-
-        extras_api = self.stub_extras_api()
-        extras_api.keypairs = self.mox.CreateMockAnything()
-        extras_api.keypairs.create(NAME).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.keypair_create(self.request, NAME)
-        self.assertIsInstance(ret_val, api.KeyPair)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-        self.mox.VerifyAll()
-
-    def test_keypair_delete(self):
-        KEYPAIR_ID = '1'
-
-        extras_api = self.stub_extras_api()
-        extras_api.keypairs = self.mox.CreateMockAnything()
-        extras_api.keypairs.delete(KEYPAIR_ID).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.keypair_delete(self.request, KEYPAIR_ID)
-        self.assertIsNone(ret_val)
-
-        self.mox.VerifyAll()
-
-    def test_keypair_list(self):
-        NAME = 'keypair'
-        keypairs = (NAME + '1', NAME + '2')
-
-        extras_api = self.stub_extras_api()
-        extras_api.keypairs = self.mox.CreateMockAnything()
-        extras_api.keypairs.list().AndReturn(keypairs)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.keypair_list(self.request)
-
-        self.assertEqual(len(ret_val), len(keypairs))
-        for keypair in ret_val:
-            self.assertIsInstance(keypair, api.KeyPair)
-            self.assertIn(keypair._apiresource, keypairs)
-
-        self.mox.VerifyAll()
-
     def test_server_create(self):
         NAME = 'server'
         IMAGE = 'anImage'
@@ -1150,6 +1102,12 @@ class APIExtensionTests(test.TestCase):
     
     def setUp(self):
         super(APIExtensionTests, self).setUp()
+        keypair = self.mox.CreateMock(api.KeyPair)
+        keypair.id = 1
+        keypair.name = TEST_RETURN
+
+        self.keypair = keypair
+        self.keypairs = [keypair, ]
         
         floating_ip = self.mox.CreateMock(api.FloatingIp)
         floating_ip.id = 1
@@ -1242,6 +1200,49 @@ class APIExtensionTests(test.TestCase):
 
         self.assertIsInstance(server, api.Server)
         self.mox.VerifyAll()
+
+    def test_keypair_create(self):
+        novaclient = self.stub_novaclient()
+        
+        novaclient.keypairs = self.mox.CreateMockAnything()
+        novaclient.keypairs.create(IsA(str)).AndReturn(self.keypair)
+        self.mox.ReplayAll()
+
+        ret_val = novaclient.keypairs.create(TEST_RETURN)
+        self.assertIsInstance(ret_val, api.KeyPair)
+        self.assertEqual(ret_val, self.keypair)
+
+        self.mox.VerifyAll()
+
+    def test_keypair_delete(self):
+        novaclient = self.stub_novaclient()
+        
+        novaclient.keypairs = self.mox.CreateMockAnything()
+        novaclient.keypairs.delete(IsA(int))
+
+        self.mox.ReplayAll()
+
+        ret_val = novaclient.keypairs.delete(self.keypair.id)
+        self.assertIsNone(ret_val)
+
+        self.mox.VerifyAll()
+
+    def test_keypair_list(self):
+        novaclient = self.stub_novaclient()
+        
+        novaclient.keypairs = self.mox.CreateMockAnything()
+        novaclient.keypairs.list().AndReturn(self.keypairs)
+
+        self.mox.ReplayAll()
+
+        ret_val = novaclient.keypairs.list()
+
+        self.assertEqual(len(ret_val), len(self.keypairs))
+        for keypair in ret_val:
+            self.assertIsInstance(keypair, api.KeyPair)
+
+        self.mox.VerifyAll()
+
 
 class GlanceApiTests(test.TestCase):
     def stub_glance_api(self, count=1):

@@ -25,17 +25,14 @@ import logging
 
 from django import http
 from django import template
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core import validators
 from django import shortcuts
-from django.shortcuts import redirect, render_to_response
-from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
-import openstackx.api.exceptions as api_exceptions
+from novaclient import exceptions as novaclient_exceptions
 
 
 LOG = logging.getLogger('django_openstack.dash.views.keypairs')
@@ -47,11 +44,11 @@ class DeleteKeypair(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Deleting keypair "%s"' % data['keypair_id'])
-            keypair = api.keypair_delete(request, data['keypair_id'])
+            api.keypair_delete(request, data['keypair_id'])
             messages.info(request, 'Successfully deleted keypair: %s' \
                                     % data['keypair_id'])
-        except api_exceptions.ApiException, e:
-            LOG.error("ApiException in DeleteKeypair", exc_info=True)
+        except novaclient_exceptions.ClientException, e:
+            LOG.error("ClientException in DeleteKeypair", exc_info=True)
             messages.error(request, 'Error deleting keypair: %s' % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
 
@@ -67,12 +64,11 @@ class CreateKeypair(forms.SelfHandlingForm):
             keypair = api.keypair_create(request, data['name'])
             response = http.HttpResponse(mimetype='application/binary')
             response['Content-Disposition'] = \
-                'attachment; filename=%s.pem' % \
-                keypair.key_name
+                     'attachment; filename=%s.pem' % keypair.name
             response.write(keypair.private_key)
             return response
-        except api_exceptions.ApiException, e:
-            LOG.error("ApiException in CreateKeyPair", exc_info=True)
+        except novaclient_exceptions.ClientException, e:
+            LOG.error("ClientException in CreateKeyPair", exc_info=True)
             messages.error(request, 'Error Creating Keypair: %s' % e.message)
             return shortcuts.redirect(request.build_absolute_uri())
 
@@ -86,9 +82,9 @@ def index(request, tenant_id):
 
     try:
         keypairs = api.keypair_list(request)
-    except api_exceptions.ApiException, e:
+    except novaclient_exceptions.ClientException, e:
         keypairs = []
-        LOG.error("ApiException in keypair index", exc_info=True)
+        LOG.error("ClientException in keypair index", exc_info=True)
         messages.error(request, 'Error fetching keypairs: %s' % e.message)
 
     return shortcuts.render_to_response('dash_keypairs.html', {

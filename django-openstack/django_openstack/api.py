@@ -158,7 +158,7 @@ class ImageProperties(APIDictWrapper):
 
 class KeyPair(APIResourceWrapper):
     """Simple wrapper around openstackx.extras.keypairs.Keypair"""
-    _attrs = ['fingerprint', 'key_name', 'private_key']
+    _attrs = ['fingerprint', 'name', 'private_key']
 
 
 class Server(APIResourceWrapper):
@@ -492,16 +492,15 @@ def image_update(request, image_id, image_meta=None):
 
 
 def keypair_create(request, name):
-    return KeyPair(extras_api(request).keypairs.create(name))
+    return KeyPair(novaclient(request).keypairs.create(name))
 
 
 def keypair_delete(request, keypair_id):
-    extras_api(request).keypairs.delete(keypair_id)
+    novaclient(request).keypairs.delete(keypair_id)
 
 
-@check_openstackx
 def keypair_list(request):
-    return [KeyPair(key) for key in extras_api(request).keypairs.list()]
+    return [KeyPair(key) for key in novaclient(request).keypairs.list()]
 
 
 def server_create(request, name, image, flavor,
