@@ -133,7 +133,8 @@ def index(request, tenant_id, container_name):
         objects = api.swift_get_objects(request, container_name)
 
     delete_form.fields['container_name'].initial = container_name
-    return render_to_response('dash_objects.html', {
+    return render_to_response(
+    'django_openstack/dash/objects/dash_objects.html', {
         'container_name': container_name,
         'objects': objects,
         'delete_form': delete_form,
@@ -148,7 +149,8 @@ def upload(request, tenant_id, container_name):
         return handled
 
     form.fields['container_name'].initial = container_name
-    return render_to_response('dash_objects_upload.html', {
+    return render_to_response(
+    'django_openstack/dash/objects/dash_objects_upload.html', {
         'container_name': container_name,
         'upload_form': form,
     }, context_instance=template.RequestContext(request))
@@ -183,7 +185,7 @@ def copy(request, tenant_id, container_name, object_name):
     form.fields['orig_object_name'].initial = object_name
 
     return render_to_response(
-        'dash_object_copy.html',
+        'django_openstack/dash/objects/dash_object_copy.html',
         {'container_name': container_name,
          'object_name': object_name,
          'copy_form': form},

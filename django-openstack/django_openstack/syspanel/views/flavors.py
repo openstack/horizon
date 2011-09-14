@@ -94,7 +94,8 @@ def index(request):
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     flavors.sort(key=lambda x: x.id, reverse=True)
-    return render_to_response('syspanel_flavors.html', {
+    return render_to_response(
+    'django_openstack/syspanel/flavors/syspanel_flavors.html', {
         'delete_form': delete_form,
         'flavors': flavors,
     }, context_instance=template.RequestContext(request))
@@ -113,7 +114,8 @@ def create(request):
     global_summary.human_readable('disk_size')
     global_summary.human_readable('ram_size')
 
-    return render_to_response('syspanel_create_flavor.html', {
+    return render_to_response(
+    'django_openstack/syspanel/flavors/syspanel_create_flavor.html', {
         'global_summary': global_summary.summary,
         'form': form,
     }, context_instance=template.RequestContext(request))

@@ -111,7 +111,7 @@ def index(request):
         LOG.error("Error retrieving image list", exc_info=True)
         messages.error(request, "Error retrieving image list: %s" % e.message)
 
-    return render_to_response('syspanel_images.html', {
+    return render_to_response('django_openstack/syspanel/images/syspanel_images.html', {
         'delete_form': delete_form,
         'toggle_form': toggle_form,
         'images': images,
@@ -175,7 +175,7 @@ def update(request, image_id):
             messages.error(request,
                            "Image could not be uploaded, please try agian.")
             form = UpdateImageForm(request.POST)
-            return render_to_response('syspanel_image_update.html', {
+            return render_to_response('django_openstack/syspanel/images/syspanel_image_update.html', {
                 'image': image,
                 'form': form,
             }, context_instance=template.RequestContext(request))
@@ -193,7 +193,7 @@ def update(request, image_id):
                 'disk_format': image.get('disk_format', ''),
             })
 
-        return render_to_response('syspanel_image_update.html', {
+        return render_to_response('django_openstack/syspanel/images/syspanel_image_update.html', {
             'image': image,
             'form': form,
         }, context_instance=template.RequestContext(request))

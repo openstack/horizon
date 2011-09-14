@@ -87,7 +87,8 @@ def index(request, tenant_id):
         LOG.error("ClientException in keypair index", exc_info=True)
         messages.error(request, 'Error fetching keypairs: %s' % e.message)
 
-    return shortcuts.render_to_response('dash_keypairs.html', {
+    return shortcuts.render_to_response(
+    'django_openstack/dash/keypairs/dash_keypairs.html', {
         'keypairs': keypairs,
         'delete_form': delete_form,
     }, context_instance=template.RequestContext(request))
@@ -99,6 +100,7 @@ def create(request, tenant_id):
     if handled:
         return handled
 
-    return shortcuts.render_to_response('dash_keypairs_create.html', {
+    return shortcuts.render_to_response(
+    'django_openstack/dash/keypairs/dash_keypairs_create.html', {
         'create_form': form,
     }, context_instance=template.RequestContext(request))

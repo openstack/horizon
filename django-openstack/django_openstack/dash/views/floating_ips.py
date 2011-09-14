@@ -136,7 +136,8 @@ def index(request, tenant_id):
         LOG.error("ClientException in floating ip index", exc_info=True)
         messages.error(request, 'Error fetching floating ips: %s' % e.message)
 
-    return shortcuts.render_to_response('dash_floating_ips.html', {
+    return shortcuts.render_to_response(
+    'django_openstack/dash/floating_ips/dash_floating_ips.html', {
         'allocate_form': FloatingIpAllocate(initial={
                                             'tenant_id': request.user.tenant}),
         'disassociate_form': FloatingIpDisassociate(),
@@ -158,7 +159,8 @@ def associate(request, tenant_id, ip_id):
     if handled:
         return handled
 
-    return shortcuts.render_to_response('dash_floating_ips_associate.html', {
+    return shortcuts.render_to_response(
+    'django_openstack/dash/floating_ips/dash_floating_ips_associate.html', {
         'associate_form': form,
     }, context_instance=template.RequestContext(request))
 
@@ -169,5 +171,6 @@ def disassociate(request, tenant_id, ip_id):
     if handled:
         return handled
 
-    return shortcuts.render_to_response('dash_floating_ips_associate.html', {
+    return shortcuts.render_to_response(
+    'django_openstack/dash/floating_ips/dash_floating_ips_associate.html', {
     }, context_instance=template.RequestContext(request))
