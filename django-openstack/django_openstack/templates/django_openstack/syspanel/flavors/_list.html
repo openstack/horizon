@@ -1,0 +1,24 @@
+<table class="wide">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>VCPUs</th>
+    <th>Memory</th>
+    <th>Disk</th>
+    <th>Actions</th>
+  </tr>
+  {% for flavor in flavors %}
+    <tr id="{{flavor.id}}" class="{% cycle 'odd' 'even' %}">
+      <td>{{flavor.id}}</td>
+      <td>{{flavor.name}}</td>
+      <td>{{flavor.vcpus}}</td>
+      <td>{{flavor.ram}}MB</td>
+      <td>{{flavor.disk}}GB</td>
+      <td id="actions">
+        <ul>
+          <li class="form">{% include "django_openstack/syspanel/flavors/_delete.html" with form=delete_form %}</li>
+        </ul>
+      </td>
+    </tr>
+  {% endfor %}
+</table>

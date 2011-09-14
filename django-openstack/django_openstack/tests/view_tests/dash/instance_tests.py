@@ -30,7 +30,7 @@ class InstanceViewTests(base.BaseViewTests):
                                       args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-            'django_openstack/dash/instances/dash_instances.html')
+            'django_openstack/dash/instances/index.html')
         self.assertItemsEqual(res.context['instances'], self.servers)
 
         self.mox.VerifyAll()
@@ -46,7 +46,7 @@ class InstanceViewTests(base.BaseViewTests):
                                       args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/instances/dash_instances.html')
+                'django_openstack/dash/instances/index.html')
         self.assertEqual(len(res.context['instances']), 0)
 
         self.mox.VerifyAll()
@@ -177,7 +177,7 @@ class InstanceViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_usage', args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/instances/dash_usage.html')
+                'django_openstack/dash/instances/usage.html')
 
         self.assertEqual(res.context['usage'], TEST_RETURN)
 
@@ -202,7 +202,7 @@ class InstanceViewTests(base.BaseViewTests):
                                                     "?format=csv")
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/instances/dash_usage.csv')
+                'django_openstack/dash/instances/usage.csv')
 
         self.assertEqual(res.context['usage'], TEST_RETURN)
 
@@ -229,7 +229,7 @@ class InstanceViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_usage', args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/instances/dash_usage.html')
+                'django_openstack/dash/instances/usage.html')
 
         self.assertEqual(res.context['usage'], {})
 
@@ -253,7 +253,7 @@ class InstanceViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_overview'))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/instances/dash_usage.html')
+                'django_openstack/dash/instances/usage.html')
 
         self.assertEqual(res.context['usage'], TEST_RETURN)
 
@@ -366,7 +366,7 @@ class InstanceViewTests(base.BaseViewTests):
                                       args=[self.TEST_TENANT, INSTANCE_ID]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/instances/dash_instance_update.html')
+                'django_openstack/dash/instances/update.html')
 
         self.mox.VerifyAll()
 

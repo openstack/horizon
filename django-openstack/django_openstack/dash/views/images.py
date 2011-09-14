@@ -143,7 +143,7 @@ def index(request, tenant_id):
               if im['container_format'] not in ['aki', 'ari']]
 
     return render_to_response(
-    'django_openstack/dash/images/dash_images.html', {
+    'django_openstack/dash/images/index.html', {
         'tenant': tenant,
         'images': images,
     }, context_instance=template.RequestContext(request))
@@ -204,7 +204,7 @@ def launch(request, tenant_id, image_id):
         return handled
 
     return render_to_response(
-    'django_openstack/dash/images/dash_launch.html', {
+    'django_openstack/dash/images/launch.html', {
         'tenant': tenant,
         'image': image,
         'form': form,

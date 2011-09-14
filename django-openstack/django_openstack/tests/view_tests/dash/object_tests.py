@@ -27,7 +27,7 @@ class ObjectViewTests(base.BaseViewTests):
                                       args=[self.TEST_TENANT,
                                             self.CONTAINER_NAME]))
         self.assertTemplateUsed(res,
-                'django_openstack/dash/objects/dash_objects.html')
+                'django_openstack/dash/objects/index.html')
         self.assertItemsEqual(res.context['objects'], self.swift_objects)
 
         self.mox.VerifyAll()
@@ -38,7 +38,7 @@ class ObjectViewTests(base.BaseViewTests):
                                             self.CONTAINER_NAME]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/objects/dash_objects_upload.html')
+                'django_openstack/dash/objects/upload.html')
 
     def test_upload(self):
         OBJECT_DATA = 'objectData'
@@ -135,7 +135,7 @@ class ObjectViewTests(base.BaseViewTests):
                                             OBJECT_NAME]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/objects/dash_object_copy.html')
+                'django_openstack/dash/objects/copy.html')
 
         self.mox.VerifyAll()
 
@@ -202,6 +202,6 @@ class ObjectViewTests(base.BaseViewTests):
                                formData)
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/objects/dash_objects.html')
+                'django_openstack/dash/objects/index.html')
 
         self.mox.VerifyAll()

@@ -1,0 +1,18 @@
+<table id="containers" class="wide">
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+  {% for container in containers %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ container.name }}</td>
+    <td id="actions">
+      <ul>
+        <li class="form">{% include "django_openstack/dash/containers/_delete.html" with form=delete_form %}</li>
+        <li><a href="{% url dash_objects request.user.tenant container.name %}">List Objects</a></li>
+        <li><a href="{% url dash_objects_upload request.user.tenant container.name %}">Upload Object</a></li>
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

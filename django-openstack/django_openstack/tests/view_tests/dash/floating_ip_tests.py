@@ -41,7 +41,7 @@ class FloatingIpViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_floating_ips',
                                       args=[self.TEST_TENANT]))
         self.assertTemplateUsed(res,
-                'django_openstack/dash/floating_ips/dash_floating_ips.html')
+                'django_openstack/dash/floating_ips/index.html')
         self.assertItemsEqual(res.context['floating_ips'], self.floating_ips)
 
         self.mox.VerifyAll()
@@ -60,7 +60,7 @@ class FloatingIpViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_floating_ips_associate',
                                       args=[self.TEST_TENANT, 1]))
         self.assertTemplateUsed(res,
-                'django_openstack/dash/floating_ips/dash_floating_ips_associate.html')
+                'django_openstack/dash/floating_ips/associate.html')
         self.mox.VerifyAll()
 
     def test_associate_post(self):
@@ -144,7 +144,7 @@ class FloatingIpViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_floating_ips_disassociate',
                                       args=[self.TEST_TENANT, 1]))
         self.assertTemplateUsed(res,
-                'django_openstack/dash/floating_ips/dash_floating_ips_associate.html')
+                'django_openstack/dash/floating_ips/associate.html')
         self.mox.VerifyAll()
 
     def test_disassociate_post(self):

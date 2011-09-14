@@ -84,7 +84,7 @@ def index(request, tenant_id):
         messages.error(request, msg)
 
     return render_to_response(
-    'django_openstack/dash/snapshots/dash_snapshots.html', {
+    'django_openstack/dash/snapshots/index.html', {
         'images': images,
     }, context_instance=template.RequestContext(request))
 
@@ -113,7 +113,7 @@ def create(request, tenant_id, instance_id):
         return shortcuts.redirect('dash_instances', tenant_id)
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/snapshots/dash_snapshots_create.html', {
+    'django_openstack/dash/snapshots/create.html', {
         'instance': instance,
         'create_form': form,
     }, context_instance=template.RequestContext(request))

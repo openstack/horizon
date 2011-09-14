@@ -179,7 +179,7 @@ def index(request):
         messages.error(request, 'Unable to get tenant info: %s' % e.message)
     tenants.sort(key=lambda x: x.id, reverse=True)
     return render_to_response(
-    'django_openstack/syspanel/tenants/syspanel_tenants.html', {
+    'django_openstack/syspanel/tenants/index.html', {
         'tenants': tenants,
     }, context_instance=template.RequestContext(request))
 
@@ -192,7 +192,7 @@ def create(request):
         return handled
 
     return render_to_response(
-    'django_openstack/syspanel/tenants/syspanel_tenant_create.html', {
+    'django_openstack/syspanel/tenants/create.html', {
         'form': form,
     }, context_instance=template.RequestContext(request))
 
@@ -217,7 +217,7 @@ def update(request, tenant_id):
             return redirect('syspanel_tenants')
 
     return render_to_response(
-    'django_openstack/syspanel/tenants/syspanel_tenant_update.html', {
+    'django_openstack/syspanel/tenants/update.html', {
         'form': form,
     }, context_instance=template.RequestContext(request))
 
@@ -247,7 +247,7 @@ def users(request, tenant_id):
         if i in new_user_ids:
             new_user_ids.remove(i)
     return render_to_response(
-    'django_openstack/syspanel/tenants/syspanel_tenant_users.html', {
+    'django_openstack/syspanel/tenants/users.html', {
         'add_user_form': add_user_form,
         'remove_user_form': remove_user_form,
         'tenant_id': tenant_id,
@@ -280,7 +280,7 @@ def quotas(request, tenant_id):
     form = UpdateQuotas(initial=quota_set)
 
     return render_to_response(
-    'django_openstack/syspanel/tenants/syspanel_tenant_quotas.html', {
+    'django_openstack/syspanel/tenants/quotas.html', {
         'form': form,
         'tenant_id': tenant_id,
         'quotas': quotas,

@@ -1,0 +1,18 @@
+{% extends 'django_openstack/syspanel/base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="flavors" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url syspanel_flavors as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "django_openstack/common/_page_header.html" with title="Flavors" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block syspanel_main %}
+  {% include "django_openstack/syspanel/flavors/_list.html" %}
+  <a id="flavor_create_link" class="action_link large-rounded" href="{% url syspanel_flavors_create %}">Create New Flavor </a>
+{% endblock %}

@@ -74,7 +74,7 @@ def index(request, tenant_id):
     containers = api.swift_get_containers(request)
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/containers/dash_containers.html', {
+    'django_openstack/dash/containers/index.html', {
         'containers': containers,
         'delete_form': delete_form,
     }, context_instance=template.RequestContext(request))
@@ -87,6 +87,6 @@ def create(request, tenant_id):
         return handled
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/containers/dash_containers_create.html', {
+    'django_openstack/dash/containers/create.html', {
         'create_form': form,
     }, context_instance=template.RequestContext(request))

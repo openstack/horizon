@@ -1,0 +1,27 @@
+<table id='networks' class="wide">
+  <tr id='headings'>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Ports</th>
+    <th>Available</th>
+    <th>Used</th>
+    <th>Action</th>
+  </tr>
+  <tbody class='main'>
+    {% for network in networks %}
+      <tr class="{% cycle 'odd' 'even' %}" id="{{network.id}}">
+          <td><a href='{% url dash_networks_detail request.user.tenant network.id %}'>{{network.id}}</a></td>
+          <td class="name">{{network.name}}</td>
+          <td>{{network.total}}</td>
+          <td>{{network.available}}</td>
+          <td>{{network.used}}</td>
+          <td id="actions">
+            <ul>
+              <li class="form">{% include "django_openstack/dash/networks/_delete.html" with form=delete_form %}</li>
+              <li><a href='{% url dash_network_rename request.user.tenant network.id %}'>Rename</a></li>
+            </ul>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

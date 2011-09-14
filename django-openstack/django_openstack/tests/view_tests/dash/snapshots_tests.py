@@ -38,7 +38,7 @@ class SnapshotsViewTests(base.BaseViewTests):
                                       args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/snapshots/dash_snapshots.html')
+                'django_openstack/dash/snapshots/index.html')
 
         self.assertIn('images', res.context)
         images = res.context['images']
@@ -60,7 +60,7 @@ class SnapshotsViewTests(base.BaseViewTests):
                                        args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/snapshots/dash_snapshots.html')
+                'django_openstack/dash/snapshots/index.html')
 
         self.mox.VerifyAll()
 
@@ -78,7 +78,7 @@ class SnapshotsViewTests(base.BaseViewTests):
                                        args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/snapshots/dash_snapshots.html')
+                'django_openstack/dash/snapshots/index.html')
 
         self.mox.VerifyAll()
 
@@ -94,7 +94,7 @@ class SnapshotsViewTests(base.BaseViewTests):
                                             self.good_server.id]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/snapshots/dash_snapshots_create.html')
+                'django_openstack/dash/snapshots/create.html')
         self.mox.VerifyAll()
 
     def test_create_snapshot_get_with_invalid_status(self):

@@ -1,0 +1,35 @@
+<table id="floating_ips" class="wide">
+  <tr>
+    <th>ID</th>
+    <th>IP</th>
+    <th>Instance</th>
+    <th>Actions</th>
+  </tr>
+  {% for ip in floating_ips %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ ip.id }}</td>
+    <td>{{ ip.ip }}</td>
+    <td>
+      {% if ip.fixed_ip %}
+        <ul>
+          <li><span>Instance ID:</span> {{ip.instance_id}}</li>
+          <li><span>Fixed IP:</span> {{ip.fixed_ip}}</li>
+        </ul>
+      {% else %}
+        None
+      {% endif %}
+    </td>
+
+    <td id="actions">
+      <ul>
+        <li class="form">{% include "django_openstack/dash/floating_ips/_release.html" with form=release_form %}</li>
+        {% if ip.fixed_ip %}
+        <li class="form">{% include "django_openstack/dash/floating_ips/_disassociate.html" with form=disassociate_form %}</li>
+        {% else %}
+          <li class="form"><a href="{% url dash_floating_ips_associate request.user.tenant ip.id %}">Associate to instance</a></li>
+        {% endif %}
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

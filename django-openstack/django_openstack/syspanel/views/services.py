@@ -109,7 +109,7 @@ def index(request):
                                                              svc['host']))
 
     return render_to_response(
-    'django_openstack/syspanel/services/syspanel_services.html', {
+    'django_openstack/syspanel/services/index.html', {
         'services': services,
         'service_toggle_enabled_form': ToggleService,
         'other_services': other_services,

@@ -154,7 +154,7 @@ def index(request, tenant_id):
                                  % e.message)
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/security_groups/dash_security_groups.html', {
+    'django_openstack/dash/security_groups/index.html', {
         'security_groups': security_groups,
         'delete_form': delete_form,
     }, context_instance=template.RequestContext(request))
@@ -182,7 +182,7 @@ def edit_rules(request, tenant_id, security_group_id):
         return shortcuts.redirect('dash_security_groups', tenant_id)
 
     return shortcuts.render_to_response(
-        'django_openstack/dash/security_groups/dash_security_groups_edit_rules.html', {
+        'django_openstack/dash/security_groups/edit_rules.html', {
         'security_group': security_group,
         'delete_form': delete_form,
         'form': add_form,
@@ -197,6 +197,6 @@ def create(request, tenant_id):
         return handled
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/security_groups/dash_security_groups_create.html', {
+    'django_openstack/dash/security_groups/create.html', {
         'form': form,
     }, context_instance=template.RequestContext(request))

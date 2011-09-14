@@ -25,7 +25,7 @@ class KeyPairViewTests(base.BaseViewTests):
             args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/keypairs/dash_keypairs.html')
+                'django_openstack/dash/keypairs/index.html')
         self.assertItemsEqual(res.context['keypairs'], self.keypairs)
 
         self.mox.VerifyAll()
@@ -45,7 +45,7 @@ class KeyPairViewTests(base.BaseViewTests):
             args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/keypairs/dash_keypairs.html')
+                'django_openstack/dash/keypairs/index.html')
         self.assertEqual(len(res.context['keypairs']), 0)
 
         self.mox.VerifyAll()
@@ -98,7 +98,7 @@ class KeyPairViewTests(base.BaseViewTests):
                                       args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/keypairs/dash_keypairs_create.html')
+                'django_openstack/dash/keypairs/create.html')
 
     def test_create_keypair_post(self):
         KEYPAIR_NAME = 'newKeypair'

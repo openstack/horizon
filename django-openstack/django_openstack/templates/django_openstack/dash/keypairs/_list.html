@@ -1,0 +1,18 @@
+<table id="keypairs" class="wide">
+  <tr>
+    <th>Name</th>
+    <th>Fingerprint</th>
+    <th>Actions</th>
+  </tr>
+  {% for keypair in keypairs %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ keypair.name }}</td>
+    <td>{{ keypair.fingerprint }}</td>
+    <td id="actions">
+      <ul>
+        <li class="form">{% include "django_openstack/dash/keypairs/_delete.html" with form=delete_form %}</li>
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

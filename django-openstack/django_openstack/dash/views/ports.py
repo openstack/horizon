@@ -160,7 +160,7 @@ def create(request, tenant_id, network_id):
         )
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/ports/dash_ports_create.html', {
+    'django_openstack/dash/ports/create.html', {
         'network_id': network_id,
         'create_form': create_form
     }, context_instance=template.RequestContext(request))
@@ -178,7 +178,7 @@ def attach(request, tenant_id, network_id, port_id):
     vifs = _get_available_vifs(request)
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/ports/dash_port_attach.html', {
+    'django_openstack/dash/ports/attach.html', {
         'network': network_id,
         'port': port_id,
         'attach_form': attach_form,

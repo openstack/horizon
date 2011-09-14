@@ -54,7 +54,7 @@ class ImageViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_images', args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/images/dash_images.html')
+                'django_openstack/dash/images/index.html')
 
         self.assertIn('images', res.context)
         images = res.context['images']
@@ -78,7 +78,7 @@ class ImageViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_images', args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/images/dash_images.html')
+                'django_openstack/dash/images/index.html')
 
         self.mox.VerifyAll()
 
@@ -98,7 +98,7 @@ class ImageViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_images', args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/images/dash_images.html')
+                'django_openstack/dash/images/index.html')
 
         self.mox.VerifyAll()
 
@@ -118,7 +118,7 @@ class ImageViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_images', args=[self.TEST_TENANT]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/images/dash_images.html')
+                'django_openstack/dash/images/index.html')
 
         self.mox.VerifyAll()
 
@@ -153,7 +153,7 @@ class ImageViewTests(base.BaseViewTests):
                               args=[self.TEST_TENANT, IMAGE_ID]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/images/dash_launch.html')
+                'django_openstack/dash/images/launch.html')
 
         image = res.context['image']
         self.assertEqual(image.name, self.visibleImage.name)
@@ -270,7 +270,7 @@ class ImageViewTests(base.BaseViewTests):
                               args=[self.TEST_TENANT, IMAGE_ID]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/images/dash_launch.html')
+                'django_openstack/dash/images/launch.html')
 
         form = res.context['form']
 
@@ -311,7 +311,7 @@ class ImageViewTests(base.BaseViewTests):
                               args=[self.TEST_TENANT, IMAGE_ID]))
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/images/dash_launch.html')
+                'django_openstack/dash/images/launch.html')
 
         form = res.context['form']
 
@@ -384,6 +384,6 @@ class ImageViewTests(base.BaseViewTests):
         res = self.client.post(url, form_data)
 
         self.assertTemplateUsed(res,
-                'django_openstack/dash/images/dash_launch.html')
+                'django_openstack/dash/images/launch.html')
 
         self.mox.VerifyAll()

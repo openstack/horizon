@@ -25,6 +25,6 @@ def index(request):
     quotas.pop('id')
 
     return render_to_response(
-    'django_openstack/syspanel/quotas/syspanel_quotas.html', {
+    'django_openstack/syspanel/quotas/index.html', {
         'quotas': quotas,
     }, context_instance=template.RequestContext(request))

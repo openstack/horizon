@@ -95,7 +95,7 @@ def index(request):
 
     flavors.sort(key=lambda x: x.id, reverse=True)
     return render_to_response(
-    'django_openstack/syspanel/flavors/syspanel_flavors.html', {
+    'django_openstack/syspanel/flavors/index.html', {
         'delete_form': delete_form,
         'flavors': flavors,
     }, context_instance=template.RequestContext(request))
@@ -115,7 +115,7 @@ def create(request):
     global_summary.human_readable('ram_size')
 
     return render_to_response(
-    'django_openstack/syspanel/flavors/syspanel_create_flavor.html', {
+    'django_openstack/syspanel/flavors/create.html', {
         'global_summary': global_summary.summary,
         'form': form,
     }, context_instance=template.RequestContext(request))

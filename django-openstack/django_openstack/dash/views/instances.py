@@ -129,7 +129,7 @@ def index(request, tenant_id):
     reboot_form = RebootInstance()
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/instances/dash_instances.html', {
+    'django_openstack/dash/instances/index.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
@@ -203,10 +203,10 @@ def usage(request, tenant_id=None):
         instances += terminated_instances
 
     if request.GET.get('format', 'html') == 'csv':
-        template_name = 'django_openstack/dash/instances/dash_usage.csv'
+        template_name = 'django_openstack/dash/instances/usage.csv'
         mimetype = "text/csv"
     else:
-        template_name = 'django_openstack/dash/instances/dash_usage.html'
+        template_name = 'django_openstack/dash/instances/usage.html'
         mimetype = "text/html"
 
     return shortcuts.render_to_response(template_name, {
@@ -280,7 +280,7 @@ def update(request, tenant_id, instance_id):
         return handled
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/instances/dash_instance_update.html', {
+    'django_openstack/dash/instances/update.html', {
         'instance': instance,
         'form': form,
     }, context_instance=template.RequestContext(request))

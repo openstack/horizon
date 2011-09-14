@@ -25,7 +25,7 @@ class UsersViewTests(base.BaseViewTests):
         res = self.client.get(reverse('syspanel_users'))
 
         self.assertTemplateUsed(res,
-                'django_openstack/syspanel/users/syspanel_users.html')
+                'django_openstack/syspanel/users/index.html')
         self.assertItemsEqual(res.context['users'], self.users)
 
         self.mox.VerifyAll()
