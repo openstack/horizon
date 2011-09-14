@@ -22,7 +22,8 @@ class ContainerViewTests(base.BaseViewTests):
 
         res = self.client.get(reverse('dash_containers', args=['tenant']))
 
-        self.assertTemplateUsed(res, 'dash_containers.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/dash/containers/index.html')
         self.assertIn('containers', res.context)
         containers = res.context['containers']
 
@@ -78,7 +79,8 @@ class ContainerViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_containers_create',
                               args=['tenant']))
 
-        self.assertTemplateUsed(res, 'dash_containers_create.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/dash/containers/create.html')
 
     def test_create_container_post(self):
         formData = {'name': 'containerName',

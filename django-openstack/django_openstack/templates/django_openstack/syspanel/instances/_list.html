@@ -1,0 +1,53 @@
+{% load parse_date %}
+<table id="instances" class="wide">
+  <tr>
+    <th>Id</th>
+    <th>Tenant</th>
+    <th>User</th>
+    <th>Host</th>
+    <th>Created</th>
+    <th>Image</th>
+    <th>IPs</th>
+    <th>State</th>
+    <th>Actions</th>
+  </tr>
+  {% for instance in instances %}
+    <tr id="{{instance.id}}" class="{% cycle "odd" "even" %}">
+      <td>{{instance.id}}</td>
+      <td>{{instance.attrs.tenant_id}}</td>
+      <td>{{instance.attrs.user_id}}</td>
+      <td class="name">{{instance.attrs.host}}</td>
+      <td>{{instance.attrs.launched_at|parse_date}}</td>
+      <td>{{instance.image_name}}</td>
+
+      <td class="ip_list">
+        {% for ip_group, addresses in instance.addresses.items %}
+          {% if instance.addresses.items|length > 1 %}
+          <h4>{{ip_group}}</h4>
+          <ul>
+            {% for address in addresses %}
+              <li>{{address.addr}}</li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <ul>
+            {% for address in addresses %}
+              <li>{{address.addr}}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        {% endfor %}
+      </td>
+
+      <td>{{instance.status|lower|capfirst}}</td>
+      <td id="actions">
+        <ul>
+          <li class="form">{% include "django_openstack/common/instances/_terminate.html" with form=terminate_form %}</li>
+          <li class="form">{% include "django_openstack/common/instances/_reboot.html" with form=reboot_form %}</li>
+          <li><a target="_blank" href="{% url dash_instances_console request.user.tenant instance.id %}">Console Log</a></li>
+          <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant instance.id %}">VNC Console</a></li>
+        </ul>
+      </td>
+    </tr>
+  {% endfor %}
+</table>

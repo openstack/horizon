@@ -104,10 +104,10 @@ def usage(request):
     global_summary.human_readable('ram_size')
 
     if request.GET.get('format', 'html') == 'csv':
-        template_name = 'syspanel_usage.csv'
+        template_name = 'django_openstack/syspanel/instances/usage.csv'
         mimetype = "text/csv"
     else:
-        template_name = 'syspanel_usage.html'
+        template_name = 'django_openstack/syspanel/instances/usage.html'
         mimetype = "text/html"
 
     return render_to_response(
@@ -159,10 +159,10 @@ def tenant_usage(request, tenant_id):
                 running_instances.append(i)
 
     if request.GET.get('format', 'html') == 'csv':
-        template_name = 'syspanel_tenant_usage.csv'
+        template_name = 'django_openstack/syspanel/instances/tenant_usage.csv'
         mimetype = "text/csv"
     else:
-        template_name = 'syspanel_tenant_usage.html'
+        template_name = 'django_openstack/syspanel/instances/tenant_usage.html'
         mimetype = "text/html"
 
     return render_to_response(template_name, {
@@ -196,7 +196,8 @@ def index(request):
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
 
-    return render_to_response('syspanel_instances.html', {
+    return render_to_response(
+    'django_openstack/syspanel/instances/index.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
@@ -222,7 +223,8 @@ def refresh(request):
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()
 
-    return render_to_response('_syspanel_instance_list.html', {
+    return render_to_response(
+    'django_openstack/syspanel/instances/_list.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,

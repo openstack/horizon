@@ -4,7 +4,7 @@ from django_openstack import signals
 register = template.Library()
 
 
-@register.inclusion_tag('_sidebar_module.html')
+@register.inclusion_tag('django_openstack/common/_sidebar_module.html')
 def dash_sidebar_modules(request):
     signals_call = signals.dash_modules_detect()
     if signals_call:
@@ -15,7 +15,7 @@ def dash_sidebar_modules(request):
         return {}
 
 
-@register.inclusion_tag('_sidebar_module.html')
+@register.inclusion_tag('django_openstack/common/_sidebar_module.html')
 def syspanel_sidebar_modules(request):
     signals_call = signals.dash_modules_detect()
     if signals_call:

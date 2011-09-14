@@ -27,7 +27,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_security_groups',
                               args=[self.TEST_TENANT]))
 
-        self.assertTemplateUsed(res, 'dash_security_groups.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/dash/security_groups/index.html')
         self.assertItemsEqual(res.context['security_groups'],
                               self.security_groups)
 
@@ -47,7 +48,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_security_groups',
                               args=[self.TEST_TENANT]))
 
-        self.assertTemplateUsed(res, 'dash_security_groups.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/dash/security_groups/index.html')
         self.assertEqual(len(res.context['security_groups']), 0)
 
         self.mox.VerifyAll()
@@ -56,7 +58,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_security_groups_create',
                                       args=[self.TEST_TENANT]))
 
-        self.assertTemplateUsed(res, 'dash_security_groups_create.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/dash/security_groups/create.html')
 
     def test_create_security_groups_post(self):
         SECGROUP_NAME = 'fakegroup'
@@ -109,7 +112,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
                                        args=[self.TEST_TENANT]),
                                        formData)
 
-        self.assertTemplateUsed(res, 'dash_security_groups_create.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/dash/security_groups/create.html')
 
         self.mox.VerifyAll()
 
@@ -125,7 +129,8 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_security_groups_edit_rules',
                                        args=[self.TEST_TENANT, SECGROUP_ID]))
 
-        self.assertTemplateUsed(res, 'dash_security_groups_edit_rules.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/dash/security_groups/edit_rules.html')
         self.assertItemsEqual(res.context['security_group'].name,
                               self.security_groups[0].name)
 

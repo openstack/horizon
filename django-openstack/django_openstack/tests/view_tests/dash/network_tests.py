@@ -51,7 +51,8 @@ class NetworkViewTests(base.BaseViewTests):
 
         res = self.client.get(reverse('dash_networks', args=['tenant']))
 
-        self.assertTemplateUsed(res, 'dash_networks.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/dash/networks/index.html')
         self.assertIn('networks', res.context)
         networks = res.context['networks']
 
@@ -165,7 +166,8 @@ class NetworkViewTests(base.BaseViewTests):
         res = self.client.get(reverse('dash_networks_detail',
                               args=['tenant', 'n1']))
 
-        self.assertTemplateUsed(res, 'dash_networks_detail.html')
+        self.assertTemplateUsed(res,
+                'django_openstack/dash/networks/detail.html')
         self.assertIn('network', res.context)
 
         network = res.context['network']

@@ -1,0 +1,25 @@
+{% extends 'django_openstack/dash/base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="floatingips" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url dash_floating_ips request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "django_openstack/common/_page_header.html" with title="Floating IPs" refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  {% if floating_ips %}
+    {% include 'django_openstack/dash/floating_ips/_list.html' %}
+  {% else %}
+    <div class="message_box info">
+      <h2>Info</h2>
+      <p>There are currently no floating ips assigned to your tenant.</p>
+    </div>
+  {% endif %}
+  {% include "django_openstack/dash/floating_ips/_allocate.html" with form=allocate_form %}
+{% endblock %}

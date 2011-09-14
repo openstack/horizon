@@ -136,7 +136,8 @@ def index(request, tenant_id):
     except Exception, e:
         messages.error(request, 'Unable to get network list: %s' % e.message)
 
-    return shortcuts.render_to_response('dash_networks.html', {
+    return shortcuts.render_to_response(
+    'django_openstack/dash/networks/index.html', {
         'networks': networks,
         'delete_form': delete_form,
     }, context_instance=template.RequestContext(request))
@@ -148,7 +149,8 @@ def create(request, tenant_id):
     if handled:
         return shortcuts.redirect('dash_networks', request.user.tenant)
 
-    return shortcuts.render_to_response('dash_network_create.html', {
+    return shortcuts.render_to_response(
+    'django_openstack/dash/networks/create.html', {
         'network_form': network_form
     }, context_instance=template.RequestContext(request))
 
@@ -169,7 +171,8 @@ def detail(request, tenant_id, network_id):
     except Exception, e:
         messages.error(request, 'Unable to get network details:%s' % e.message)
 
-    return shortcuts.render_to_response('dash_networks_detail.html', {
+    return shortcuts.render_to_response(
+    'django_openstack/dash/networks/detail.html', {
         'network': network,
         'tenant': tenant_id,
         'delete_port_form': delete_port_form,
@@ -186,7 +189,8 @@ def rename(request, tenant_id, network_id):
     if handled:
         return shortcuts.redirect('dash_networks', request.user.tenant)
 
-    return shortcuts.render_to_response('dash_network_rename.html', {
+    return shortcuts.render_to_response(
+    'django_openstack/dash/networks/rename.html', {
         'network': network_details,
         'rename_form': rename_form
     }, context_instance=template.RequestContext(request))
