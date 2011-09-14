@@ -1124,6 +1124,19 @@ class APIExtensionTests(test.TestCase):
         self.server = server
         self.servers = [server, ]
 
+    def test_server_snapshot_create(self):
+        novaclient = self.stub_novaclient()
+
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.create_image(IsA(int), IsA(str)).\
+                                                        AndReturn(self.server)
+        self.mox.ReplayAll()
+
+        server = novaclient.servers.create_image(1, 'test-snapshot')
+        
+        self.assertIsInstance(server, api.Server)
+        self.mox.VerifyAll()
+
     def test_tenant_floating_ip_list(self):
         novaclient = self.stub_novaclient()
                 

@@ -482,7 +482,7 @@ def snapshot_list_detailed(request):
 
 
 def snapshot_create(request, instance_id, name):
-    return extras_api(request).snapshots.create(instance_id, name)
+    return novaclient(request).servers.create_image(instance_id, name)
 
 
 def image_update(request, image_id, image_meta=None):
