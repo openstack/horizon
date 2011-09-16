@@ -404,16 +404,22 @@ def console_create(request, instance_id, kind='text'):
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavor_id):
+    # TODO -- convert to novaclient when novaclient adds create support
     return Flavor(admin_api(request).flavors.create(
             name, int(memory), int(vcpu), int(disk), flavor_id))
 
 
 def flavor_delete(request, flavor_id, purge=False):
+    # TODO -- convert to novaclient when novaclient adds delete support
     admin_api(request).flavors.delete(flavor_id, purge)
 
 
 def flavor_get(request, flavor_id):
-    return Flavor(compute_api(request).flavors.get(flavor_id))
+    return Flavor(novaclient(request).flavors.get(flavor_id))
+
+
+def flavor_list(request):
+    return [Flavor(f) for f in novaclient(request).flavors.list()]
 
 
 def tenant_floating_ip_list(request):
@@ -442,11 +448,6 @@ def tenant_floating_ip_release(request, floating_ip_id):
     Releases floating ip from the pool of a tenant.
     """
     return novaclient(request).floating_ips.delete(floating_ip_id)
-
-
-@check_openstackx
-def flavor_list(request):
-    return [Flavor(f) for f in extras_api(request).flavors.list()]
 
 
 def image_create(request, image_meta, image_file):
