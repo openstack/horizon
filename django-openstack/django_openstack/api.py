@@ -303,8 +303,10 @@ def check_openstackx(f):
             return f(*args, **kwargs)
         except api_exceptions.NotFound, e:
             e.message = e.details or ''
-            e.message += ' This error may be caused by missing openstackx' \
-                         ' extensions in nova. See the dashboard README.'
+            e.message += ' This error may be caused by a misconfigured' \
+                         ' nova url in keystone\'s service catalog, or ' \
+                         ' by missing openstackx extensions in nova. ' \
+                         ' See the dashboard README.'
             raise
 
     return inner
