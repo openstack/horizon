@@ -35,7 +35,7 @@ class ImageViewTests(base.BaseViewTests):
         self.flavors = (flavor,)
 
         keypair = self.mox.CreateMock(api.KeyPair)
-        keypair.key_name = 'keyName'
+        keypair.name = 'keyName'
         self.keypairs = (keypair,)
 
         security_group = self.mox.CreateMock(api.SecurityGroup)
@@ -167,14 +167,14 @@ class ImageViewTests(base.BaseViewTests):
 
         form_keyfield = form.fields['key_name']
         self.assertEqual(form_keyfield.choices[0][0],
-                         self.keypairs[0].key_name)
+                         self.keypairs[0].name)
 
         self.mox.VerifyAll()
 
     def test_launch_post(self):
         FLAVOR_ID = self.flavors[0].id
         IMAGE_ID = '1'
-        KEY_NAME = self.keypairs[0].key_name
+        KEY_NAME = self.keypairs[0].name
         SERVER_NAME = 'serverName'
         USER_DATA = 'userData'
 
@@ -323,7 +323,7 @@ class ImageViewTests(base.BaseViewTests):
     def test_launch_form_apiexception(self):
         FLAVOR_ID = self.flavors[0].id
         IMAGE_ID = '1'
-        KEY_NAME = self.keypairs[0].key_name
+        KEY_NAME = self.keypairs[0].name
         SERVER_NAME = 'serverName'
         USER_DATA = 'userData'
 
