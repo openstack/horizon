@@ -167,7 +167,7 @@ def launch(request, tenant_id, image_id):
     def keynamelist():
         try:
             fl = api.keypair_list(request)
-            sel = [(f.key_name, f.key_name) for f in fl]
+            sel = [(f.name, f.name) for f in fl]
             return sel
         except api_exceptions.ApiException:
             LOG.error('Unable to retrieve list of keypairs', exc_info=True)
