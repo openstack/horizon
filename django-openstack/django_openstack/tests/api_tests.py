@@ -139,6 +139,24 @@ class APIDict(api.APIDictWrapper):
         return APIDict(innerDict)
 
 
+class NovaClientTestMixin(object):
+    def setUp(self):
+        super(NovaClientTestMixin, self).setUp()
+        self._original_novaclient = api.novaclient
+        api.novaclient = lambda request: self.stub_novaclient()
+
+
+    def stub_novaclient(self):
+        if not hasattr(self, "novaclient"):
+            self.mox.StubOutWithMock(client, 'Client')
+            self.novaclient = self.mox.CreateMock(client.Client)
+        return self.novaclient
+
+    def tearDown(self):
+        super(NovaClientTestMixin, self).tearDown()
+        api.novaclient = self._original_novaclient
+
+
 class APIResourceWrapperTests(test.TestCase):
     def test_get_attribute(self):
         resource = APIResource.get_instance()
@@ -843,7 +861,7 @@ class AuthApiTests(test.TestCase):
         self.mox.VerifyAll()
 
 
-class ComputeApiTests(test.TestCase):
+class ComputeApiTests(NovaClientTestMixin, test.TestCase):
     def stub_compute_api(self, count=1):
         self.mox.StubOutWithMock(api, 'compute_api')
         compute_api = self.mox.CreateMock(OSCompute.Compute)
@@ -880,10 +898,10 @@ class ComputeApiTests(test.TestCase):
     def test_flavor_get(self):
         FLAVOR_ID = 6
 
-        compute_api = self.stub_compute_api()
+        novaclient = self.stub_novaclient()
 
-        compute_api.flavors = self.mox.CreateMockAnything()
-        compute_api.flavors.get(FLAVOR_ID).AndReturn(TEST_RETURN)
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.get(FLAVOR_ID).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
@@ -935,7 +953,7 @@ class ComputeApiTests(test.TestCase):
         self.mox.VerifyAll()
 
 
-class ExtrasApiTests(test.TestCase):
+class ExtrasApiTests(NovaClientTestMixin, test.TestCase):
 
     def stub_extras_api(self, count=1):
         self.mox.StubOutWithMock(api, 'extras_api')
@@ -982,9 +1000,9 @@ class ExtrasApiTests(test.TestCase):
 
     def test_flavor_list(self):
         flavors = (TEST_RETURN, TEST_RETURN + '2')
-        extras_api = self.stub_extras_api()
-        extras_api.flavors = self.mox.CreateMockAnything()
-        extras_api.flavors.list().AndReturn(flavors)
+        novaclient = self.stub_novaclient()
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.list().AndReturn(flavors)
 
         self.mox.ReplayAll()
 
@@ -1093,13 +1111,8 @@ class ExtrasApiTests(test.TestCase):
         self.mox.VerifyAll()
 
 
-class APIExtensionTests(test.TestCase):
+class APIExtensionTests(NovaClientTestMixin, test.TestCase):
 
-    def stub_novaclient(self):
-        self.mox.StubOutWithMock(client, 'Client')
-        c = self.mox.CreateMock(client.Client)
-        return c
-    
     def setUp(self):
         super(APIExtensionTests, self).setUp()
         keypair = self.mox.CreateMock(api.KeyPair)
@@ -1108,7 +1121,7 @@ class APIExtensionTests(test.TestCase):
 
         self.keypair = keypair
         self.keypairs = [keypair, ]
-        
+
         floating_ip = self.mox.CreateMock(api.FloatingIp)
         floating_ip.id = 1
         floating_ip.fixed_ip = '10.0.0.4'
@@ -1117,7 +1130,7 @@ class APIExtensionTests(test.TestCase):
 
         self.floating_ip = floating_ip
         self.floating_ips = [floating_ip, ]
-    
+
         server = self.mox.CreateMock(api.Server)
         server.id = 1
 
@@ -1133,13 +1146,13 @@ class APIExtensionTests(test.TestCase):
         self.mox.ReplayAll()
 
         server = novaclient.servers.create_image(1, 'test-snapshot')
-        
+
         self.assertIsInstance(server, api.Server)
         self.mox.VerifyAll()
 
     def test_tenant_floating_ip_list(self):
         novaclient = self.stub_novaclient()
-                
+
         novaclient.floating_ips = self.mox.CreateMockAnything()
         novaclient.floating_ips.list().AndReturn(self.floating_ips)
         self.mox.ReplayAll()
@@ -1148,7 +1161,7 @@ class APIExtensionTests(test.TestCase):
 
         self.assertEqual(len(floating_ips), len(self.floating_ips))
         self.assertIsInstance(floating_ips[0], api.FloatingIp)
-        self.mox.VerifyAll() 
+        self.mox.VerifyAll()
 
     def test_tenant_floating_ip_get(self):
         novaclient = self.stub_novaclient()
@@ -1160,7 +1173,7 @@ class APIExtensionTests(test.TestCase):
         floating_ip = novaclient.floating_ips.get(1)
 
         self.assertIsInstance(floating_ip, api.FloatingIp)
-        self.mox.VerifyAll() 
+        self.mox.VerifyAll()
 
     def test_tenant_floating_ip_allocate(self):
         novaclient = self.stub_novaclient()
@@ -1172,7 +1185,7 @@ class APIExtensionTests(test.TestCase):
         floating_ip = novaclient.floating_ips.create()
 
         self.assertIsInstance(floating_ip, api.FloatingIp)
-        self.mox.VerifyAll() 
+        self.mox.VerifyAll()
 
     def test_tenant_floating_ip_release(self):
         novaclient = self.stub_novaclient()
@@ -1195,7 +1208,7 @@ class APIExtensionTests(test.TestCase):
         self.mox.ReplayAll()
 
         server = novaclient.servers.remove_floating_ip(1, 1)
-        
+
         self.assertIsInstance(server, api.Server)
         self.mox.VerifyAll()
 
@@ -1205,7 +1218,7 @@ class APIExtensionTests(test.TestCase):
         novaclient.floating_ips = self.mox.CreateMockAnything()
         novaclient.servers = self.mox.CreateMockAnything()
 
-        novaclient.servers.add_floating_ip(IsA(int), 
+        novaclient.servers.add_floating_ip(IsA(int),
                                            IsA(int)).AndReturn(self.server)
         self.mox.ReplayAll()
 
@@ -1216,7 +1229,7 @@ class APIExtensionTests(test.TestCase):
 
     def test_keypair_create(self):
         novaclient = self.stub_novaclient()
-        
+
         novaclient.keypairs = self.mox.CreateMockAnything()
         novaclient.keypairs.create(IsA(str)).AndReturn(self.keypair)
         self.mox.ReplayAll()
@@ -1229,7 +1242,7 @@ class APIExtensionTests(test.TestCase):
 
     def test_keypair_delete(self):
         novaclient = self.stub_novaclient()
-        
+
         novaclient.keypairs = self.mox.CreateMockAnything()
         novaclient.keypairs.delete(IsA(int))
 
@@ -1242,7 +1255,7 @@ class APIExtensionTests(test.TestCase):
 
     def test_keypair_list(self):
         novaclient = self.stub_novaclient()
-        
+
         novaclient.keypairs = self.mox.CreateMockAnything()
         novaclient.keypairs.list().AndReturn(self.keypairs)
 
