@@ -3,7 +3,7 @@ $(function(){
 
   // show+hide image details
   $(".details").hide()
-  $("#images td").click(function(e){
+  $("#images td:not(#actions)").click(function(e){
     $(this).parent().nextUntil(".even, .odd").fadeToggle("slow");
   })
 
