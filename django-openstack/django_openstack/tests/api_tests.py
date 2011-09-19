@@ -1282,20 +1282,27 @@ class GlanceApiTests(test.TestCase):
     def stub_glance_api(self, count=1):
         self.mox.StubOutWithMock(api, 'glance_api')
         glance_api = self.mox.CreateMock(glance_client.Client)
+        glance_api.token = TEST_TOKEN
         for i in range(count):
             api.glance_api(IsA(http.HttpRequest)).AndReturn(glance_api)
         return glance_api
 
     def test_get_glance_api(self):
         self.mox.StubOutClassWithMocks(glance_client, 'Client')
-        glance_client.Client(TEST_HOSTNAME, TEST_PORT)
+        client_instance = glance_client.Client(TEST_HOSTNAME, TEST_PORT,
+                                                        auth_tok=TEST_TOKEN)
+        # Normally ``auth_tok`` is set in ``Client.__init__``, but mox doesn't
+        # duplicate that behavior so we set it manually.
+        client_instance.auth_tok = TEST_TOKEN
 
         self.mox.StubOutWithMock(api, 'url_for')
         api.url_for(IsA(http.HttpRequest), 'glance').AndReturn(TEST_URL)
 
         self.mox.ReplayAll()
 
-        self.assertIsNotNone(api.glance_api(self.request))
+        ret_val = api.glance_api(self.request)
+        self.assertIsNotNone(ret_val)
+        self.assertEqual(ret_val.auth_tok, TEST_TOKEN)
 
         self.mox.VerifyAll()
 
