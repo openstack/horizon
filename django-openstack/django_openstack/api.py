@@ -498,9 +498,10 @@ def keypair_list(request):
 
 def server_create(request, name, image, flavor,
                            key_name, user_data, security_groups):
-    return Server(extras_api(request).servers.create(
-            name, image, flavor, key_name=key_name, user_data=user_data,
-            security_groups=security_groups), request)
+    return Server(novaclient(request).servers.create(
+            name, image, flavor, userdata=user_data,
+            security_groups=security_groups,
+            key_name=key_name), request)
 
 
 def server_delete(request, instance):

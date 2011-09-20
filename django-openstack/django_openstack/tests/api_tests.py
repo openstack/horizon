@@ -952,6 +952,31 @@ class ComputeApiTests(NovaClientTestMixin, test.TestCase):
 
         self.mox.VerifyAll()
 
+    def test_server_create(self):
+        NAME = 'server'
+        IMAGE = 'anImage'
+        FLAVOR = 'cherry'
+        USER_DATA = {'nuts': 'berries'}
+        KEY = 'user'
+        SECGROUP = self.mox.CreateMock(api.SecurityGroup)
+
+        server = self.mox.CreateMock(OSCompute.Server)
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.create(NAME, IMAGE, FLAVOR, userdata=USER_DATA,
+                                  security_groups=[SECGROUP], key_name=KEY)\
+                                  .AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_create(self.request, NAME, IMAGE, FLAVOR,
+                                    KEY, USER_DATA, [SECGROUP])
+
+        self.assertIsInstance(ret_val, api.Server)
+        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+
+        self.mox.VerifyAll()
+
 
 class ExtrasApiTests(NovaClientTestMixin, test.TestCase):
 
@@ -1012,31 +1037,6 @@ class ExtrasApiTests(NovaClientTestMixin, test.TestCase):
         for flavor in ret_val:
             self.assertIsInstance(flavor, api.Flavor)
             self.assertIn(flavor._apiresource, flavors)
-
-        self.mox.VerifyAll()
-
-    def test_server_create(self):
-        NAME = 'server'
-        IMAGE = 'anImage'
-        FLAVOR = 'cherry'
-        USER_DATA = {'nuts': 'berries'}
-        KEY = 'user'
-        SECGROUP = self.mox.CreateMock(api.SecurityGroup)
-
-        extras_api = self.stub_extras_api()
-        extras_api.servers = self.mox.CreateMockAnything()
-        extras_api.servers.create(NAME, IMAGE, FLAVOR, user_data=USER_DATA,
-                                  key_name=KEY,
-                                  security_groups=[SECGROUP])\
-                                  .AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.server_create(self.request, NAME, IMAGE, FLAVOR,
-                                    KEY, USER_DATA, [SECGROUP])
-
-        self.assertIsInstance(ret_val, api.Server)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
         self.mox.VerifyAll()
 
