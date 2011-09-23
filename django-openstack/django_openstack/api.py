@@ -713,14 +713,9 @@ def user_update_password(request, user_id, password):
 def user_update_tenant(request, user_id, tenant_id):
     return User(account_api(request).users.update_tenant(user_id, tenant_id))
 
+
 def _get_role(request, name):
-    # Need admin account to retrieve the list of roles
-    admin_account = openstackx.extras.Account(
-                    auth_token=request.user.token,
-                    management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
-
-    roles = admin_account.roles.list()
-
+    roles = account_api(request).roles.list()
     for role in roles:
         if role.name.lower() == name.lower():
            return role
