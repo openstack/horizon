@@ -730,7 +730,6 @@ def _get_role(request, name):
 
 def role_add_for_tenant_user(request, tenant_id, user_id, role_name):
     role = _get_role(request, role_name)
-    roles = admin_account.roles.list()
     account_api(request).role_refs.add_for_tenant_user(
                 tenant_id,
                 user_id,
