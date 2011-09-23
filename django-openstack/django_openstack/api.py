@@ -613,10 +613,10 @@ def tenant_list_for_token(request, token):
 
 
 def users_list_for_token_and_tenant(request, token, tenant):
-    account =  openstackx.extras.Account(
-        auth_token=token,
-        management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
-    return [User(u) for u in account.users.get_for_tenant(tenant)]
+    admin_account =  openstackx.extras.Account(
+                     auth_token=token,
+                     management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
+    return [User(u) for u in admin_account.users.get_for_tenant(tenant)]
 
 
 def tenant_update(request, tenant_id, description, enabled):
@@ -712,6 +712,37 @@ def user_update_password(request, user_id, password):
 
 def user_update_tenant(request, user_id, tenant_id):
     return User(account_api(request).users.update_tenant(user_id, tenant_id))
+
+def _get_role(request, name):
+    # Need admin account to retrieve the list of roles
+    admin_account = openstackx.extras.Account(
+                    auth_token=request.user.token,
+                    management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
+
+    roles = admin_account.roles.list()
+
+    for role in roles:
+        if role.name.lower() == name.lower():
+           return role
+
+    raise Exception('Role does not exist: %s' % name)
+
+
+def role_add_for_tenant_user(request, tenant_id, user_id, role_name):
+    role = _get_role(request, role_name)
+    roles = admin_account.roles.list()
+    account_api(request).role_refs.add_for_tenant_user(
+                tenant_id,
+                user_id,
+                role.id)
+
+
+def role_delete_for_tenant_user(request, tenant_id, user_id, role_name):
+    role = _get_role(request, role_name)
+    account_api(request).role_refs.delete_for_tenant_user(
+                tenant_id,
+                user_id,
+                role.id)
 
 
 def swift_container_exists(request, container_name):

@@ -48,10 +48,11 @@ class AddUser(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.account_api(request).role_refs.add_for_tenant_user(
+            api.role_add_for_tenant_user(
+                    request,
                     data['tenant'],
                     data['user'],
-                    settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE_ID)
+                    settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
                              '%s was successfully added to %s.'
                              % (data['user'], data['tenant']))
@@ -67,10 +68,11 @@ class RemoveUser(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.account_api(request).role_refs.delete_for_tenant_user(
+            api.role_delete_for_tenant_user(
+                    request,
                     data['tenant'],
                     data['user'],
-                    settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE_ID)
+                    settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
                              '%s was successfully removed from %s.'
                              % (data['user'], data['tenant']))
@@ -239,10 +241,10 @@ def users(request, tenant_id):
     add_user_form = AddUser()
     remove_user_form = RemoveUser()
 
-    users = api.account_api(request).users.get_for_tenant(tenant_id).values
+    users = api.account_api(request).users.get_for_tenant(tenant_id)
     all_users = api.account_api(request).users.list()
     new_user_ids = []
-    user_ids = [u['id'] for u in users]
+    user_ids = [u.id for u in users]
     all_user_ids = [u.id for u in all_users]
     for uid in all_user_ids:
         if not uid in user_ids:
