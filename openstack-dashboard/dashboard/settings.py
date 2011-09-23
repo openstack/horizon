@@ -136,4 +136,4 @@ if DEBUG:
     except ImportError:
         logging.info('Running in debug mode without debug_toolbar.')
 
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'Member'
+OPENSTACK_KEYSTONE_DEFAULT_ROLE_ID = '2'

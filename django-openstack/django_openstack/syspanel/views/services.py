@@ -87,20 +87,20 @@ def index(request):
 
     other_services = []
 
-    for k, v in request.session['serviceCatalog'].iteritems():
-        v = v[0]
+    for service in request.session['serviceCatalog']:
+        url = service['endpoints'][0]['internalURL']
         try:
             # TODO(mgius): This silences curl, but there's probably
             # a better solution than using curl to begin with
-            subprocess.check_call(['curl', '-m', '1', v['internalURL']],
+            subprocess.check_call(['curl', '-m', '1', url],
                                   stdout=open(os.devnull, 'w'),
                                   stderr=open(os.devnull, 'w'))
             up = True
         except:
             up = False
-        hostname = urlparse.urlparse(v['internalURL']).hostname
-        row = {'type': k, 'internalURL': v['internalURL'], 'host': hostname,
-               'region': v['region'], 'up': up}
+        hostname = urlparse.urlparse(url).hostname
+        row = {'type': service['type'], 'internalURL': url, 'host': hostname,
+               'region': service['endpoints'][0]['region'], 'up': up}
         other_services.append(row)
 
     services = sorted(services, key=lambda svc: (svc.type +

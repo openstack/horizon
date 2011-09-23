@@ -215,12 +215,12 @@ class SwiftObject(APIResourceWrapper):
 
 class Tenant(APIResourceWrapper):
     """Simple wrapper around openstackx.auth.tokens.Tenant"""
-    _attrs = ['id', 'description', 'enabled']
+    _attrs = ['id', 'description', 'enabled', 'name']
 
 
 class Token(APIResourceWrapper):
     """Simple wrapper around openstackx.auth.tokens.Token"""
-    _attrs = ['id', 'serviceCatalog', 'tenant_id', 'username']
+    _attrs = ['id', 'serviceCatalog', 'tenant_id', 'user']
 
 
 class Usage(APIResourceWrapper):
@@ -274,16 +274,26 @@ class VirtualInterface(APIResourceWrapper):
     _attrs = ['id', 'mac_address']
 
 
-def url_for(request, service_name, admin=False):
+def get_service_from_catalog(catalog, service_type):
+    for service in catalog:
+        if service['type'] == service_type:
+            return service
+    return None
+
+
+def url_for(request, service_type, admin=False):
     catalog = request.user.service_catalog
-    try:
-        if admin:
-            rv = catalog[service_name][0]['adminURL']
-        else:
-            rv = catalog[service_name][0]['internalURL']
-        return rv
-    except (IndexError, KeyError):
-        raise ServiceCatalogException(service_name)
+    service = get_service_from_catalog(catalog, service_type)
+    if service:
+        try:
+            if admin:
+                return service['endpoints'][0]['adminURL']
+            else:
+                return service['endpoints'][0]['internalURL']
+        except (IndexError, KeyError):
+            raise ServiceCatalogException(service_type)
+    else:
+        raise ServiceCatalogException(service_type)
 
 
 def check_openstackx(f):
@@ -327,7 +337,6 @@ def compute_api(request):
 
 
 def account_api(request):
-    LOG.error(dir(request))
     LOG.debug('account_api connection created using token "%s"'
                       ' and url "%s"' %
                   (request.user.token,
@@ -581,8 +590,8 @@ def token_list_tenants(request, token):
     return [Tenant(t) for t in auth_api().tenants.for_token(token)]
 
 
-def tenant_create(request, tenant_id, description, enabled):
-    return Tenant(account_api(request).tenants.create(tenant_id,
+def tenant_create(request, name, description, enabled):
+    return Tenant(account_api(request).tenants.create(name,
                                                       description,
                                                       enabled))
 
@@ -596,6 +605,15 @@ def tenant_list(request):
     return [Tenant(t) for t in account_api(request).tenants.list()]
 
 
+def tenant_list_for_token(request, token):
+    # FIXME: use novaclient for this
+    keystone =  openstackx.auth.Auth(
+            management_url=settings.OPENSTACK_KEYSTONE_URL)
+#    keystone = openstackx.extras.Auth(
+#                   management_url=settings.OPENSTACK_KEYSTONE_URL)
+    return [Tenant(t) for t in keystone.tenants.for_token(token)]
+
+
 def tenant_update(request, tenant_id, description, enabled):
     return Tenant(account_api(request).tenants.update(tenant_id,
                                                       description,
@@ -606,33 +624,12 @@ def token_create(request, tenant, username, password):
     return Token(auth_api().tokens.create(tenant, username, password))
 
 
+def token_create_scoped_with_token(request, tenant, token):
+    return Token(auth_api().tokens.create_scoped_with_token(tenant, token))
+
+
 def tenant_quota_get(request, tenant):
     return admin_api(request).quota_sets.get(tenant)
-
-
-def token_info(request, token):
-    # TODO(mgius): This function doesn't make a whole lot of sense to me.  The
-    # information being gathered here really aught to be attached to Token() as
-    # part of token_create.  May require modification of openstackx so that the
-    # token_create call returns this information as well
-    hdrs = {"Content-type": "application/json",
-            "X_AUTH_TOKEN": settings.OPENSTACK_ADMIN_TOKEN,
-            "Accept": "text/json"}
-
-    o = urlparse(token.serviceCatalog['identity'][0]['adminURL'])
-    conn = httplib.HTTPConnection(o.hostname, o.port)
-    conn.request("GET", "/v2.0/tokens/%s" % token.id, headers=hdrs)
-    response = conn.getresponse()
-    data = json.loads(response.read())
-
-    admin = False
-    for role in data['auth']['user']['roleRefs']:
-        if role['roleId'] == 'Admin':
-            admin = True
-
-    return {'tenant': data['auth']['user']['tenantId'],
-            'user': data['auth']['user']['username'],
-            'admin': admin}
 
 
 @check_openstackx

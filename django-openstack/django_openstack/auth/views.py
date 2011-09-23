@@ -39,19 +39,52 @@ class Login(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            token = api.token_create(request,
-                                     data.get('tenant', ''),
-                                     data['username'],
-                                     data['password'])
-            info = api.token_info(request, token)
+            if data.get('tenant'):
+                token = api.token_create(request,
+                                         data.get('tenant'),
+                                         data['username'],
+                                         data['password'])
 
-            request.session['token'] = token.id
-            request.session['user'] = info['user']
-            request.session['tenant'] = data.get('tenant', info['tenant'])
-            request.session['admin'] = info['admin']
+                tenants = api.tenant_list_for_token(request, token.id)
+                tenant = None
+                for t in tenants:
+                    if t.id == data.get('tenant'):
+                        tenant = t
+            else:
+                # We are logging in without tenant
+                token = api.token_create(request,
+                                         '',
+                                         data['username'],
+                                         data['password'])
+
+                # Unscoped token
+                request.session['unscoped_token'] = token.id
+
+                # Get the tenant list, and log in using first tenant
+                # FIXME (anthony): add tenant chooser here?
+                tenant = api.tenant_list_for_token(request, token.id)[0]
+
+                # Create a token
+                token = api.token_create_scoped_with_token(request,
+                                         data.get('tenant', tenant.id),
+                                         token.id)
+
+            # Configure admin-ness
+            admin = False
+            for role in token.user['roles']:
+                if role['name'] == 'Admin':
+                    admin = True
+
+            request.session['admin'] = admin
             request.session['serviceCatalog'] = token.serviceCatalog
+
             LOG.info('Login form for user "%s". Service Catalog data:\n%s' %
                      (data['username'], token.serviceCatalog))
+
+            request.session['tenant'] = tenant.name
+            request.session['tenant_id'] = tenant.id
+            request.session['token'] = token.id
+            request.session['user'] = data['username']
 
             return shortcuts.redirect('dash_overview')
 

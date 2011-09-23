@@ -51,6 +51,8 @@ class AuthViewTests(base.BaseViewTests):
         self.assertRedirectsNoFollow(res, reverse('syspanel_overview'))
 
     def test_login(self):
+        NEW_TENANT_ID = '6'
+        NEW_TENANT_NAME = 'FAKENAME'
         TOKEN_ID = 1
 
         form_data = {'method': 'Login',
@@ -60,15 +62,23 @@ class AuthViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'token_create')
         aToken = self.mox.CreateMock(api.Token)
         aToken.id = TOKEN_ID
+        aToken.user = { 'roles': [{'name': 'fake'}]}
         aToken.serviceCatalog = {}
         api.token_create(IsA(http.HttpRequest), "", self.TEST_USER,
                          self.PASSWORD).AndReturn(aToken)
 
-        self.mox.StubOutWithMock(api, 'token_info')
-        tokenInfo = {'user': self.TEST_USER,
-                     'tenant': self.TEST_TENANT,
-                     'admin': False}
-        api.token_info(IsA(http.HttpRequest), aToken).AndReturn(tokenInfo)
+        aTenant = self.mox.CreateMock(api.Token)
+        aTenant.id = NEW_TENANT_ID
+        aTenant.name = NEW_TENANT_NAME
+
+        self.mox.StubOutWithMock(api, 'tenant_list_for_token')
+        api.tenant_list_for_token(IsA(http.HttpRequest), aToken.id).\
+                                  AndReturn([aTenant])
+
+        self.mox.StubOutWithMock(api, 'token_create_scoped_with_token')
+        api.token_create_scoped_with_token(IsA(http.HttpRequest), aTenant.id,
+                         aToken.id).AndReturn(aToken)
+
 
         self.mox.ReplayAll()
 
@@ -121,7 +131,8 @@ class AuthViewTests(base.BaseViewTests):
         self.assertTemplateUsed(res, 'switch_tenants.html')
 
     def test_switch_tenants(self):
-        NEW_TENANT = 'newTenant'
+        NEW_TENANT_ID = '6'
+        NEW_TENANT_NAME = 'FAKENAME'
         TOKEN_ID = 1
 
         self.setActiveUser(self.TEST_TOKEN, self.TEST_USER, self.TEST_TENANT,
@@ -129,29 +140,35 @@ class AuthViewTests(base.BaseViewTests):
 
         form_data = {'method': 'LoginWithTenant',
                      'password': self.PASSWORD,
-                     'tenant': NEW_TENANT,
+                     'tenant': NEW_TENANT_ID,
                      'username': self.TEST_USER}
 
         self.mox.StubOutWithMock(api, 'token_create')
+
+        aTenant = self.mox.CreateMock(api.Token)
+        aTenant.id = NEW_TENANT_ID
+        aTenant.name = NEW_TENANT_NAME
+
         aToken = self.mox.CreateMock(api.Token)
         aToken.id = TOKEN_ID
+        aToken.user = { 'roles': [{'name': 'fake'}]}
         aToken.serviceCatalog = {}
-        api.token_create(IsA(http.HttpRequest), NEW_TENANT, self.TEST_USER,
+
+        api.token_create(IsA(http.HttpRequest), NEW_TENANT_ID, self.TEST_USER,
                          self.PASSWORD).AndReturn(aToken)
 
-        self.mox.StubOutWithMock(api, 'token_info')
-        tokenInfo = {'user': self.TEST_USER,
-                     'tenant': NEW_TENANT,
-                     'admin': False}
-        api.token_info(IsA(http.HttpRequest), aToken).AndReturn(tokenInfo)
+        self.mox.StubOutWithMock(api, 'tenant_list_for_token')
+        api.tenant_list_for_token(IsA(http.HttpRequest), aToken.id).\
+                                  AndReturn([aTenant])
+
 
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('auth_switch', args=[NEW_TENANT]),
+        res = self.client.post(reverse('auth_switch', args=[NEW_TENANT_ID]),
                                form_data)
 
         self.assertRedirectsNoFollow(res, reverse('dash_overview'))
-        self.assertEqual(self.client.session['tenant'], NEW_TENANT)
+        self.assertEqual(self.client.session['tenant'], NEW_TENANT_NAME)
 
         self.mox.VerifyAll()
 
