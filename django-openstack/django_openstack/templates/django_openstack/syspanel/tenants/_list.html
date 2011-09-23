@@ -1,5 +1,6 @@
 <table class="wide">
   <tr>
+    <th>Id</th>
     <th>Name</th>
     <th>Description</th>
     <th>Enabled</th>
@@ -8,6 +9,7 @@
   {% for tenant in tenants %}
     <tr class="{% cycle 'odd' 'even' %}">
       <td>{{tenant.id}}</td>
+      <td>{{tenant.name}}</td>
       <td>{{tenant.description}}</td>
       <td>{{tenant.enabled}}</td>
       <td id="actions">

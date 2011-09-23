@@ -48,7 +48,8 @@ class AddUser(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.account_api(request).role_refs.add_for_tenant_user(
+            api.role_add_for_tenant_user(
+                    request,
                     data['tenant'],
                     data['user'],
                     settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
@@ -67,10 +68,11 @@ class RemoveUser(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.account_api(request).role_refs.delete_for_tenant_user(
+            api.role_delete_for_tenant_user(
+                    request,
                     data['tenant'],
                     data['user'],
-                    'Member')
+                    settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
                              '%s was successfully removed from %s.'
                              % (data['user'], data['tenant']))
@@ -81,7 +83,7 @@ class RemoveUser(forms.SelfHandlingForm):
 
 
 class CreateTenant(forms.SelfHandlingForm):
-    id = forms.CharField(label="ID (name)")
+    name = forms.CharField(label="Name")
     description = forms.CharField(widget=forms.widgets.Textarea(),
             label="Description")
     enabled = forms.BooleanField(label="Enabled", required=False,
@@ -89,18 +91,18 @@ class CreateTenant(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            LOG.info('Creating tenant with id "%s"' % data['id'])
+            LOG.info('Creating tenant with name "%s"' % data['name'])
             api.tenant_create(request,
-                              data['id'],
+                              data['name'],
                               data['description'],
                               data['enabled'])
             messages.success(request,
                              '%s was successfully created.'
-                             % data['id'])
+                             % data['name'])
         except api_exceptions.ApiException, e:
             LOG.error('ApiException while creating tenant\n'
                       'Id: "%s", Description: "%s", Enabled "%s"' %
-                      (data['id'], data['description'], data['enabled']),
+                      (data['name'], data['description'], data['enabled']),
                       exc_info=True)
             messages.error(request, 'Unable to create tenant: %s' %
                            (e.message))
@@ -108,17 +110,19 @@ class CreateTenant(forms.SelfHandlingForm):
 
 
 class UpdateTenant(forms.SelfHandlingForm):
-    id = forms.CharField(label="ID (name)",
+    id = forms.CharField(label="ID",
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    name = forms.CharField(label="Name")
     description = forms.CharField(widget=forms.widgets.Textarea(),
             label="Description")
-    enabled = forms.BooleanField(label="Enabled", required=False)
+    enabled = forms.BooleanField(label="Enabled")
 
     def handle(self, request, data):
         try:
             LOG.info('Updating tenant with id "%s"' % data['id'])
             api.tenant_update(request,
                               data['id'],
+                              data['name'],
                               data['description'],
                               data['enabled'])
             messages.success(request,
@@ -126,8 +130,9 @@ class UpdateTenant(forms.SelfHandlingForm):
                              % data['id'])
         except api_exceptions.ApiException, e:
             LOG.error('ApiException while updating tenant\n'
-                      'Id: "%s", Description: "%s", Enabled "%s"' %
-                      (data['id'], data['description'], data['enabled']),
+                      'Id: "%s", Name: "%s", Description: "%s", Enabled "%s"' %
+                      (data['id'], data['name'],
+                       data['description'], data['enabled']),
                       exc_info=True)
             messages.error(request, 'Unable to update tenant: %s' % e.message)
         return redirect('syspanel_tenants')
@@ -208,6 +213,7 @@ def update(request, tenant_id):
         try:
             tenant = api.tenant_get(request, tenant_id)
             form = UpdateTenant(initial={'id': tenant.id,
+                                         'name': tenant.name,
                                          'description': tenant.description,
                                          'enabled': tenant.enabled})
         except api_exceptions.ApiException, e:
@@ -235,10 +241,10 @@ def users(request, tenant_id):
     add_user_form = AddUser()
     remove_user_form = RemoveUser()
 
-    users = api.account_api(request).users.get_for_tenant(tenant_id).values
+    users = api.account_api(request).users.get_for_tenant(tenant_id)
     all_users = api.account_api(request).users.list()
     new_user_ids = []
-    user_ids = [u['id'] for u in users]
+    user_ids = [u.id for u in users]
     all_user_ids = [u.id for u in all_users]
     for uid in all_user_ids:
         if not uid in user_ids:

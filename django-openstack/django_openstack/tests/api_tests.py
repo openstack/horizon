@@ -98,13 +98,13 @@ class Token(object):
     """ More or less fakes what the api is looking for """
     def __init__(self, id, username, tenant_id, serviceCatalog=None):
         self.id = id
-        self.username = username
+        self.user = {'name': username}
         self.tenant_id = tenant_id
         self.serviceCatalog = serviceCatalog
 
     def __eq__(self, other):
         return self.id == other.id and \
-               self.username == other.username and \
+               self.user['name'] == other.user['name'] and \
                self.tenant_id == other.tenant_id and \
                self.serviceCatalog == other.serviceCatalog
 
@@ -331,101 +331,6 @@ class ApiHelperTests(test.TestCase):
                          'Select a new nonexistent service catalog key')
         with self.assertRaises(api.ServiceCatalogException):
             url = api.url_for(self.request, 'notAnApi')
-
-    def test_token_info(self):
-        """ This function uses the keystone api, but not through an
-            api client, because there doesn't appear to be one for
-            keystone
-        """
-        GLANCE_URL = 'http://glance/glance_api/'
-        KEYSTONE_HOST = 'keystonehost'
-        KEYSTONE_PORT = 8080
-        KEYSTONE_URL = 'http://%s:%d/keystone/' % (KEYSTONE_HOST,
-                                                   KEYSTONE_PORT)
-
-        serviceCatalog = {
-                'glance': [{'adminURL': GLANCE_URL + 'admin',
-                            'internalURL': GLANCE_URL + 'internal'},
-                          ],
-                'identity': [{'adminURL': KEYSTONE_URL + 'admin',
-                          'internalURL': KEYSTONE_URL + 'internal'},
-                        ],
-                }
-
-        token = Token(TEST_TOKEN_ID, TEST_TENANT_ID,
-                      TEST_USERNAME, serviceCatalog)
-
-        jsonData = {
-                'auth': {
-                    'token': {
-                        'expires': '2011-07-02T02:01:19.382655',
-                        'id': '3c5748d5-bec6-4215-843a-f959d589f4b0',
-                        },
-                    'user': {
-                        'username': 'joeuser',
-                        'roleRefs': [{'roleId': 'Minion'}],
-                        'tenantId': u'1234'
-                        }
-                    }
-                }
-
-        jsonDataAdmin = {
-                'auth': {
-                    'token': {
-                        'expires': '2011-07-02T02:01:19.382655',
-                        'id': '3c5748d5-bec6-4215-843a-f959d589f4b0',
-                        },
-                    'user': {
-                        'username': 'joeuser',
-                        'roleRefs': [{'roleId': 'Admin'}],
-                        'tenantId': u'1234'
-                        }
-                    }
-                }
-
-        # setup test where user is not admin
-        self.mox.StubOutClassWithMocks(httplib, 'HTTPConnection')
-
-        conn = httplib.HTTPConnection(KEYSTONE_HOST, KEYSTONE_PORT)
-        response = self.mox.CreateMock(httplib.HTTPResponse)
-
-        conn.request(IsA(str), IsA(str), headers=IsA(dict))
-        conn.getresponse().AndReturn(response)
-
-        response.read().AndReturn(json.dumps(jsonData))
-
-        expected_nonadmin_val = {
-                'tenant': '1234',
-                'user': 'joeuser',
-                'admin': False
-                }
-
-        # setup test where user is admin
-        conn = httplib.HTTPConnection(KEYSTONE_HOST, KEYSTONE_PORT)
-        response = self.mox.CreateMock(httplib.HTTPResponse)
-
-        conn.request(IsA(str), IsA(str), headers=IsA(dict))
-        conn.getresponse().AndReturn(response)
-
-        response.read().AndReturn(json.dumps(jsonDataAdmin))
-
-        expected_admin_val = {
-                'tenant': '1234',
-                'user': 'joeuser',
-                'admin': True
-                }
-
-        self.mox.ReplayAll()
-
-        ret_val = api.token_info(None, token)
-
-        self.assertDictEqual(ret_val, expected_nonadmin_val)
-
-        ret_val = api.token_info(None, token)
-
-        self.assertDictEqual(ret_val, expected_admin_val)
-
-        self.mox.VerifyAll()
 
 
 class AccountApiTests(test.TestCase):

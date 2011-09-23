@@ -38,20 +38,69 @@ class Login(forms.SelfHandlingForm):
                                widget=forms.PasswordInput(render_value=False))
 
     def handle(self, request, data):
-        try:
-            token = api.token_create(request,
-                                     data.get('tenant', ''),
-                                     data['username'],
-                                     data['password'])
-            info = api.token_info(request, token)
 
-            request.session['token'] = token.id
-            request.session['user'] = info['user']
-            request.session['tenant'] = data.get('tenant', info['tenant'])
-            request.session['admin'] = info['admin']
+        def is_admin(token):
+            for role in token.user['roles']:
+                if role['name'].lower() == 'admin':
+                    return True
+            return False
+
+        try:
+            if data.get('tenant'):
+                token = api.token_create(request,
+                                         data.get('tenant'),
+                                         data['username'],
+                                         data['password'])
+
+                tenants = api.tenant_list_for_token(request, token.id)
+                tenant = None
+                for t in tenants:
+                    if t.id == data.get('tenant'):
+                        tenant = t
+            else:
+                # We are logging in without tenant
+                token = api.token_create(request,
+                                         '',
+                                         data['username'],
+                                         data['password'])
+
+                # Unscoped token
+                request.session['unscoped_token'] = token.id
+
+                def get_first_tenant_for_user():
+                    for t in api.tenant_list_for_token(request, token.id):
+                        # FIXME (anthony)
+                        # keystone does the annoying 'always return everything
+                        # for admin users thing' which causes the following
+                        # annoying code block to exist (until that is fixed)
+                        if is_admin(token):
+                            for u in api.users_list_for_token_and_tenant(
+                                                    request, token.id, t.id):
+                                if u.name == data['username']:
+                                    return t
+                        else:
+                            return t
+                    return None
+
+                # Get the tenant list, and log in using first tenant
+                # FIXME (anthony): add tenant chooser here?
+                tenant = get_first_tenant_for_user()
+
+                # Create a token
+                token = api.token_create_scoped_with_token(request,
+                                         data.get('tenant', tenant.id),
+                                         token.id)
+
+            request.session['admin'] = is_admin(token)
             request.session['serviceCatalog'] = token.serviceCatalog
+
             LOG.info('Login form for user "%s". Service Catalog data:\n%s' %
                      (data['username'], token.serviceCatalog))
+
+            request.session['tenant'] = tenant.name
+            request.session['tenant_id'] = tenant.id
+            request.session['token'] = token.id
+            request.session['user'] = data['username']
 
             return shortcuts.redirect('dash_overview')
 

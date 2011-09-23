@@ -22,7 +22,7 @@
       <li class="title"><h4>Available Tenants</h4></li>
       {% for tenant in tenants %}
         {% if tenant.enabled %}
-          <li><a href="{% url auth_switch tenant.id %}">{{tenant.id}}</a></li>
+          <li><a href="{% url auth_switch tenant.id %}">{{tenant.name}}</a></li>
         {% endif %}
       {% endfor %}
       <li id="sign_out"><a href="{% url auth_logout %}">Sign Out</a></li>

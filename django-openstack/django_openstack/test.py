@@ -31,41 +31,43 @@ class TestCase(test.TestCase):
     TEST_TOKEN = 'aToken'
     TEST_USER = 'test'
 
-    TEST_SERVICE_CATALOG = \
-        {'cdn':
-             [{'adminURL': 'http://cdn.admin-nets.local/v1.1/1234',
-               'region': 'RegionOne',
-               'internalURL': 'http://127.0.0.1:7777/v1.1/1234',
-               'publicURL': 'http://cdn.publicinternets.com/v1.1/1234'}],
-         'nova_compat':
-             [{'adminURL': 'http://127.0.0.1:8774/v1.0',
-               'region': 'RegionOne',
-               'internalURL': 'http://localhost:8774/v1.0',
-               'publicURL': 'http://nova.publicinternets.com/v1.0/'}],
-         'nova':
-             [{'adminURL': 'http://nova/novapi/admin',
-               'region':'RegionOne',
-               'internalURL': 'http://nova/novapi/internal',
-               'publicURL': 'http://nova/novapi/public'}],
-         'keystone':
-             [{'adminURL': 'http://127.0.0.1:8081/v2.0',
-               'region': 'RegionOne',
-               'internalURL': 'http://127.0.0.1:8080/v2.0',
-               'publicURL': 'http://keystone.publicinternets.com/v2.0'}],
-         'glance':
-             [{'adminURL': 'http://glance/glanceapi/admin',
-               'region':'RegionOne',
-               'internalURL': 'http://glance/glanceapi/internal',
-               'publicURL': 'http://glance/glanceapi/public'}],
-         'swift':
-             [{'adminURL': 'http://swift.admin-nets.local:8080/',
-               'region': 'RegionOne',
-               'internalURL': 'http://127.0.0.1:8080/v1/AUTH_1234',
-               'publicURL': 'http://swift.publicinternets.com/v1/AUTH_1234'}],
-         'quantum':
-             [{'adminURL': 'http://127.0.0.1:9696/v0.1',
-               'internalURL': 'http://127.0.0.1:9696/v0.1'}],
-        }
+    TEST_SERVICE_CATALOG = [{
+        "endpoints": [{
+            "adminURL": "http://cdn.admin-nets.local:8774/v1.0",
+            "region": "RegionOne",
+            "internalURL": "http://127.0.0.1:8774/v1.0",
+            "publicURL": "http://cdn.admin-nets.local:8774/v1.0/"
+        }],
+        "type": "nova_compat",
+        "name": "nova_compat"
+    }, {
+        "endpoints": [{
+            "adminURL": "http://nova/novapi/admin",
+            "region": "RegionOne",
+            "internalURL": "http://nova/novapi/internal",
+            "publicURL": "http://nova/novapi/public"
+        }],
+        "type": "nova",
+        "name": "nova"
+    }, {
+        "endpoints": [{
+            "adminURL": "http://glance/glanceapi/admin",
+            "region": "RegionOne",
+            "internalURL": "http://glance/glanceapi/internal",
+            "publicURL": "http://glance/glanceapi/piblic"
+        }],
+        "type": "glance",
+        "name": "glance"
+    }, {
+        "endpoints": [{
+            "adminURL": "http://cdn.admin-nets.local:5001/v2.0",
+            "region": "RegionOne",
+            "internalURL": "http://127.0.0.1:5000/v2.0",
+            "publicURL": "http://cdn.admin-nets.local:5000/v2.0"
+        }],
+        "type": "identity",
+        "name": "identity"
+    }]
 
     def setUp(self):
         self.mox = mox.Mox()
