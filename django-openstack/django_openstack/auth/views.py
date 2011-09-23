@@ -38,6 +38,13 @@ class Login(forms.SelfHandlingForm):
                                widget=forms.PasswordInput(render_value=False))
 
     def handle(self, request, data):
+
+        def is_admin(token):
+            for role in token.user['roles']:
+                if role['name'] == 'Admin':
+                    return True
+            return False
+
         try:
             if data.get('tenant'):
                 token = api.token_create(request,
@@ -60,22 +67,31 @@ class Login(forms.SelfHandlingForm):
                 # Unscoped token
                 request.session['unscoped_token'] = token.id
 
+                def get_first_tenant_for_user():
+                    for t in api.tenant_list_for_token(request, token.id):
+                        # FIXME (anthony)
+                        # keystone does the annoying 'always return everything
+                        # for admin users thing' which causes the following
+                        # annoying code block to exist (until that is fixed)
+                        if is_admin(token):
+                            for u in api.users_list_for_token_and_tenant(
+                                                    request, token.id, t.id):
+                                if u.name == data['username']:
+                                    return t
+                        else:
+                            return t
+                    return None
+
                 # Get the tenant list, and log in using first tenant
                 # FIXME (anthony): add tenant chooser here?
-                tenant = api.tenant_list_for_token(request, token.id)[0]
+                tenant = get_first_tenant_for_user()
 
                 # Create a token
                 token = api.token_create_scoped_with_token(request,
                                          data.get('tenant', tenant.id),
                                          token.id)
 
-            # Configure admin-ness
-            admin = False
-            for role in token.user['roles']:
-                if role['name'] == 'Admin':
-                    admin = True
-
-            request.session['admin'] = admin
+            request.session['admin'] = is_admin(token)
             request.session['serviceCatalog'] = token.serviceCatalog
 
             LOG.info('Login form for user "%s". Service Catalog data:\n%s' %

@@ -233,7 +233,7 @@ class Usage(APIResourceWrapper):
 
 class User(APIResourceWrapper):
     """Simple wrapper around openstackx.extras.users.User"""
-    _attrs = ['email', 'enabled', 'id', 'tenantId']
+    _attrs = ['email', 'enabled', 'id', 'tenantId', 'name']
 
 
 class SecurityGroup(APIResourceWrapper):
@@ -609,9 +609,14 @@ def tenant_list_for_token(request, token):
     # FIXME: use novaclient for this
     keystone =  openstackx.auth.Auth(
             management_url=settings.OPENSTACK_KEYSTONE_URL)
-#    keystone = openstackx.extras.Auth(
-#                   management_url=settings.OPENSTACK_KEYSTONE_URL)
     return [Tenant(t) for t in keystone.tenants.for_token(token)]
+
+
+def users_list_for_token_and_tenant(request, token, tenant):
+    account =  openstackx.extras.Account(
+        auth_token=token,
+        management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
+    return [User(u) for u in account.users.get_for_tenant(tenant)]
 
 
 def tenant_update(request, tenant_id, description, enabled):
