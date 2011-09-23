@@ -41,7 +41,7 @@ class Login(forms.SelfHandlingForm):
 
         def is_admin(token):
             for role in token.user['roles']:
-                if role['name'] == 'Admin':
+                if role['name'].lower() == 'admin':
                     return True
             return False
 
