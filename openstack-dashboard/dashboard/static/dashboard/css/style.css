@@ -850,7 +850,8 @@ input:focus, textarea:focus {
   margin: 0 0 0 0;
 }
 
-#standalone #login_wrapper .status_box {
+#standalone #login_wrapper .message_box {
+  min-width: 335px;
   width: 335px;
   margin: 0 0 25px 0;
 }
