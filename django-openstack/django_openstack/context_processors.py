@@ -42,7 +42,3 @@ def swift(request):
 
 def quantum(request):
     return {'quantum_configured': settings.QUANTUM_ENABLED}
-
-
-def keystone_manage(request):
-    return {'keystone_manage_confidured': settings.KEYSTONE_MANAGE_ENABLED}
