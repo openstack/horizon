@@ -47,7 +47,7 @@ class TestCase(test.TestCase):
             "internalURL": "http://nova/novapi/internal",
             "publicURL": "http://nova/novapi/public"
         }],
-        "type": "nova",
+        "type": "compute",
         "name": "nova"
     }, {
         "endpoints": [{
