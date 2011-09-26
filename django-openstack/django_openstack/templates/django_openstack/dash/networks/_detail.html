@@ -32,7 +32,7 @@
               {% if port.attachment %}
               <li class="form">{% include "django_openstack/dash/networks/_detach_port.html" with form=detach_port_form %}</li>
               {% else %}
-              <li><a href='{% url dash_ports_attach request.user.tenant network.id port.id %}'>Attach</a></li>
+              <li><a href='{% url dash_ports_attach request.user.tenant_id network.id port.id %}'>Attach</a></li>
               {% endif %}
               <li class="form">{% include "django_openstack/dash/networks/_delete_port.html" with form=delete_port_form %}</li>
               <li class="form">{% include "django_openstack/dash/networks/_toggle_port.html" with form=toggle_port_form %}</li>

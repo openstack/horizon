@@ -26,7 +26,7 @@
         {% if ip.fixed_ip %}
         <li class="form">{% include "django_openstack/dash/floating_ips/_disassociate.html" with form=disassociate_form %}</li>
         {% else %}
-          <li class="form"><a href="{% url dash_floating_ips_associate request.user.tenant ip.id %}">Associate to instance</a></li>
+          <li class="form"><a href="{% url dash_floating_ips_associate request.user.tenant_id ip.id %}">Associate to instance</a></li>
         {% endif %}
       </ul>
     </td>

@@ -43,11 +43,11 @@ class PortViewTests(base.BaseViewTests):
         messages.success(IgnoreArg(), IsA(str))
 
         res = self.client.post(reverse('dash_ports_create',
-                               args=[self.request.user.tenant, "n1"]),
+                               args=[self.request.user.tenant_id, "n1"]),
                                formData)
 
         self.assertRedirectsNoFollow(res, reverse('dash_networks_detail',
-                                          args=[self.request.user.tenant,
+                                          args=[self.request.user.tenant_id,
                                           "n1"]))
 
     def test_port_delete(self):
@@ -63,7 +63,7 @@ class PortViewTests(base.BaseViewTests):
         messages.success(IgnoreArg(), IsA(str))
 
         res = self.client.post(reverse('dash_networks_detail',
-                               args=[self.request.user.tenant, "n1"]),
+                               args=[self.request.user.tenant_id, "n1"]),
                                formData)
 
     def test_port_attach(self):
@@ -80,11 +80,11 @@ class PortViewTests(base.BaseViewTests):
         messages.success(IgnoreArg(), IsA(str))
 
         res = self.client.post(reverse('dash_ports_attach',
-                               args=[self.request.user.tenant, "n1", "p1"]),
+                               args=[self.request.user.tenant_id, "n1", "p1"]),
                                formData)
 
         self.assertRedirectsNoFollow(res, reverse('dash_networks_detail',
-                                          args=[self.request.user.tenant,
+                                          args=[self.request.user.tenant_id,
                                           "n1"]))
 
     def test_port_detach(self):
@@ -100,5 +100,5 @@ class PortViewTests(base.BaseViewTests):
         messages.success(IgnoreArg(), IsA(str))
 
         res = self.client.post(reverse('dash_networks_detail',
-                               args=[self.request.user.tenant, "n1"]),
+                               args=[self.request.user.tenant_id, "n1"]),
                                formData)

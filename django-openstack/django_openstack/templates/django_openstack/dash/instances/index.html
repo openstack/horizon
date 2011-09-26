@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block page_header %}
-  {% url dash_instances request.user.tenant as refresh_link %}
+  {% url dash_instances request.user.tenant_id as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
   {% include "django_openstack/common/_page_header.html" with title="Instances" refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
@@ -18,7 +18,7 @@
   {% else %}
     <div class="message_box info">
       <h2>Info</h2>
-      <p>There are currently no instances.  You can launch an instance from the  <a href='{% url dash_images request.user.tenant %}'>Images Page.</a></p>
+      <p>There are currently no instances.  You can launch an instance from the  <a href='{% url dash_images request.user.tenant_id %}'>Images Page.</a></p>
     </div>
   {% endif %}
 {% endblock %}
@@ -29,7 +29,7 @@
     function loadInstances(){
       if ($("#ajax_option_box").is(':checked')) {
         $('.refresh').addClass("refreshing");
-        $('#instances').load('{% url dash_instances_refresh request.user.tenant %}', function(){
+        $('#instances').load('{% url dash_instances_refresh request.user.tenant_id %}', function(){
           $('.refresh').removeClass("refreshing");
         });
       };

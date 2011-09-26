@@ -65,7 +65,7 @@ class CreateNetwork(forms.SelfHandlingForm):
             LOG.info(msg)
             messages.success(request, msg)
             return shortcuts.redirect('dash_networks',
-                                      tenant_id=request.user.tenant)
+                                      tenant_id=request.user.tenant_id)
 
 
 class DeleteNetwork(forms.SelfHandlingForm):
@@ -147,7 +147,7 @@ def index(request, tenant_id):
 def create(request, tenant_id):
     network_form, handled = CreateNetwork.maybe_handle(request)
     if handled:
-        return shortcuts.redirect('dash_networks', request.user.tenant)
+        return shortcuts.redirect('dash_networks', request.user.tenant_id)
 
     return shortcuts.render_to_response(
     'django_openstack/dash/networks/create.html', {
@@ -187,7 +187,7 @@ def rename(request, tenant_id, network_id):
     network_details = api.quantum_network_details(request, network_id)
 
     if handled:
-        return shortcuts.redirect('dash_networks', request.user.tenant)
+        return shortcuts.redirect('dash_networks', request.user.tenant_id)
 
     return shortcuts.render_to_response(
     'django_openstack/dash/networks/rename.html', {

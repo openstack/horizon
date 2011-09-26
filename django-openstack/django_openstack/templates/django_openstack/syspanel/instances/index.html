@@ -18,7 +18,7 @@
   {% else %}
     <div class="message_box info">
       <h2>Info</h2>
-      <p>There are currently no instances.  You can launch an instance from the  <a href='{% url dash_images request.user.tenant %}'>Images Page.</a></p>
+      <p>There are currently no instances.  You can launch an instance from the  <a href='{% url dash_images request.user.tenant_id %}'>Images Page.</a></p>
     </div>
   {% endif %}
 {% endblock %}

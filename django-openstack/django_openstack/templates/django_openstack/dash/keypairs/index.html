@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block page_header %}
-  {% url dash_keypairs request.user.tenant as refresh_link %}
+  {% url dash_keypairs request.user.tenant_id as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
   {% include "django_openstack/common/_page_header.html" with title="Keypairs" refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
@@ -15,11 +15,11 @@
 {% block dash_main %}
   {% if keypairs %}
     {% include 'django_openstack/dash/keypairs/_list.html' %}
-    <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant %}">Create New Keypair</a>
+    <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant_id %}">Create New Keypair</a>
   {% else %}
     <div class="message_box info">
       <h2>Info</h2>
-      <p>There are currently no keypairs. <a href='{% url dash_keypairs_create request.user.tenant %}'>Create A Keypair &gt;&gt;</a></p>
+      <p>There are currently no keypairs. <a href='{% url dash_keypairs_create request.user.tenant_id %}'>Create A Keypair &gt;&gt;</a></p>
     </div>
   {% endif %}
 {% endblock %}

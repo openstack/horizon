@@ -168,7 +168,7 @@ def usage(request, tenant_id=None):
 
     usage = {}
     if not tenant_id:
-        tenant_id = request.user.tenant
+        tenant_id = request.user.tenant_id
 
     try:
         usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)

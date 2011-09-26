@@ -29,7 +29,7 @@ from mox import IsA
 class AuthViewTests(base.BaseViewTests):
     def setUp(self):
         super(AuthViewTests, self).setUp()
-        self.setActiveUser(None, None, None, None, None)
+        self.setActiveUser()
         self.PASSWORD = 'secret'
 
     def test_login_index(self):

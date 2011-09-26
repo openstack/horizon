@@ -155,7 +155,7 @@ def create(request, tenant_id, network_id):
     if handled:
         return shortcuts.redirect(
             'dash_networks_detail',
-            tenant_id=request.user.tenant,
+            tenant_id=request.user.tenant_id,
             network_id=network_id
         )
 
@@ -172,7 +172,7 @@ def attach(request, tenant_id, network_id, port_id):
 
     if handled:
         return shortcuts.redirect('dash_networks_detail',
-                                  request.user.tenant, network_id)
+                                  request.user.tenant_id, network_id)
 
     # Get all avaliable vifs
     vifs = _get_available_vifs(request)
