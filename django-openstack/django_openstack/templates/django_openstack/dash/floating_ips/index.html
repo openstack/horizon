@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block page_header %}
-  {% url dash_floating_ips request.user.tenant as refresh_link %}
+  {% url dash_floating_ips request.user.tenant_id as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
   {% include "django_openstack/common/_page_header.html" with title="Floating IPs" refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}

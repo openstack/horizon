@@ -25,10 +25,12 @@ import openstack
 
 
 class User(object):
-    def __init__(self, token, user, tenant, admin, service_catalog):
+    def __init__(self, token=None, user=None, tenant_id=None, admin=None,
+                    service_catalog=None, tenant_name=None):
         self.token = token
         self.username = user
-        self.tenant = tenant
+        self.tenant_id = tenant_id
+        self.tenant_name = tenant_name
         self.admin = admin
         self.service_catalog = service_catalog
 
@@ -42,12 +44,13 @@ class User(object):
 
 def get_user_from_request(request):
     if 'user' not in request.session:
-        return User(None, None, None, None, None)
-    return User(request.session['token'],
-                request.session['user'],
-                request.session['tenant'],
-                request.session['admin'],
-                request.session['serviceCatalog'])
+        return User()
+    return User(token=request.session['token'],
+                user=request.session['user'],
+                tenant_id=request.session['tenant_id'],
+                tenant_name=request.session['tenant'],
+                admin=request.session['admin'],
+                service_catalog=request.session['serviceCatalog'])
 
 
 class LazyUser(object):

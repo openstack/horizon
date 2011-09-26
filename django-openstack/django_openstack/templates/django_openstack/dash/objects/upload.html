@@ -16,7 +16,7 @@
   <div class="dash_block wide form">
     <div class="left">
       {% include 'django_openstack/dash/objects/_form.html' with form=upload_form %}
-      <h3><a href="{% url dash_objects request.user.tenant container_name %}">&lt;&lt; Return to objects list</a></h3>
+      <h3><a href="{% url dash_objects request.user.tenant_id container_name %}">&lt;&lt; Return to objects list</a></h3>
     </div>
 
     <div class="right">

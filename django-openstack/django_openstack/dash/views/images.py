@@ -118,7 +118,7 @@ def index(request, tenant_id):
     tenant = {}
 
     try:
-        tenant = api.token_get_tenant(request, request.user.tenant)
+        tenant = api.token_get_tenant(request, request.user.tenant_id)
     except api_exceptions.ApiException, e:
         messages.error(request, "Unable to retrienve tenant info\
                                  from keystone: %s" % e.message)
@@ -185,8 +185,8 @@ def launch(request, tenant_id, image_id):
     # TODO(mgius): Any reason why these can't be after the launchform logic?
     # If The form is valid, we've just wasted these two api calls
     image = api.image_get(request, image_id)
-    tenant = api.token_get_tenant(request, request.user.tenant)
-    quotas = api.tenant_quota_get(request, request.user.tenant)
+    tenant = api.token_get_tenant(request, request.user.tenant_id)
+    quotas = api.tenant_quota_get(request, request.user.tenant_id)
     try:
         quotas.ram = int(quotas.ram) / 100
     except Exception, e:

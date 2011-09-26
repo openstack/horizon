@@ -23,7 +23,7 @@
     <div class="left">
       <h3>Choose a name for your snapshot.</h3>
       {% include 'django_openstack/dash/snapshots/_form.html' with form=create_form %}
-      <h3><a href="{% url dash_snapshots request.user.tenant %}"><< Return to snapshots list</a></h3>
+      <h3><a href="{% url dash_snapshots request.user.tenant_id %}"><< Return to snapshots list</a></h3>
     </div>
 
     <div class="right">

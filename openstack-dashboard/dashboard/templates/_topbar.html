@@ -11,10 +11,10 @@
       NOT _LOGGED_IN_TOPBAR
     {% endif %}
   </ul>
-  
+
   <div id="user_bar">
     <a id="current_tenant" href="{% url dash_overview %}">
-      <h4>{{request.user.tenant}}</h4>
+      <h4>{{request.user.tenant_name}}</h4>
       <span>as {{request.user.username}}</span>
     </a>
     <a id="drop_btn" href="#">&nbsp;</a>
@@ -28,6 +28,6 @@
       <li id="sign_out"><a href="{% url auth_logout %}">Sign Out</a></li>
     </ul>
   </div>
-  
+
 </div>
 
