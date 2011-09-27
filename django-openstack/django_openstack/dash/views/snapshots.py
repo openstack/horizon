@@ -63,7 +63,7 @@ class CreateSnapshot(forms.SelfHandlingForm):
             return shortcuts.redirect('dash_snapshots', data['tenant_id'])
         except api_exceptions.ApiException, e:
             msg = 'Error Creating Snapshot: %s' % e.message
-            LOG.error(msg, exc_info=True)
+            LOG.exception(msg)
             messages.error(request, msg)
             return shortcuts.redirect(request.build_absolute_uri())
 
@@ -76,11 +76,11 @@ def index(request, tenant_id):
         images = api.snapshot_list_detailed(request)
     except glance_exception.ClientConnectionError, e:
         msg = 'Error connecting to glance: %s' % str(e)
-        LOG.error(msg, exc_info=True)
+        LOG.exception(msg)
         messages.error(request, msg)
     except glance_exception.Error, e:
         msg = 'Error retrieving image list: %s' % str(e)
-        LOG.error(msg, exc_info=True)
+        LOG.exception(msg)
         messages.error(request, msg)
 
     return render_to_response(
@@ -101,7 +101,7 @@ def create(request, tenant_id, instance_id):
         instance = api.server_get(request, instance_id)
     except api_exceptions.ApiException, e:
         msg = "Unable to retreive instance: %s" % str(e)
-        LOG.error(msg)
+        LOG.exception(msg)
         messages.error(request, msg)
         return shortcuts.redirect('dash_instances', tenant_id)
 

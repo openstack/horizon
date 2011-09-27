@@ -43,12 +43,11 @@ class DeleteImage(forms.SelfHandlingForm):
         try:
             api.image_delete(request, image_id)
         except glance_exception.ClientConnectionError, e:
-            LOG.error("Error connecting to glance", exc_info=True)
+            LOG.exception("Error connecting to glance")
             messages.error(request,
                            "Error connecting to glance: %s" % e.message)
         except glance_exception.Error, e:
-            LOG.error('Error deleting image with id "%s"' % image_id,
-                      exc_info=True)
+            LOG.exception('Error deleting image with id "%s"' % image_id)
             messages.error(request, "Error deleting image: %s" % e.message)
         return redirect(request.build_absolute_uri())
 
@@ -62,12 +61,11 @@ class ToggleImage(forms.SelfHandlingForm):
             api.image_update(request, image_id,
                     image_meta={'is_public': False})
         except glance_exception.ClientConnectionError, e:
-            LOG.error("Error connecting to glance", exc_info=True)
+            LOG.exception("Error connecting to glance")
             messages.error(request,
                            "Error connecting to glance: %s" % e.message)
         except glance_exception.Error, e:
-            LOG.error('Error updating image with id "%s"' % image_id,
-                      exc_info=True)
+            LOG.exception('Error updating image with id "%s"' % image_id)
             messages.error(request, "Error updating image: %s" % e.message)
         return redirect(request.build_absolute_uri())
 
@@ -105,10 +103,10 @@ def index(request):
         if not images:
             messages.info(request, "There are currently no images.")
     except glance_exception.ClientConnectionError, e:
-        LOG.error("Error connecting to glance", exc_info=True)
+        LOG.exception("Error connecting to glance")
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
-        LOG.error("Error retrieving image list", exc_info=True)
+        LOG.exception("Error retrieving image list")
         messages.error(request, "Error retrieving image list: %s" % e.message)
 
     return render_to_response('django_openstack/syspanel/images/index.html', {
@@ -124,11 +122,10 @@ def update(request, image_id):
     try:
         image = api.image_get(request, image_id)
     except glance_exception.ClientConnectionError, e:
-        LOG.error("Error connecting to glance", exc_info=True)
+        LOG.exception("Error connecting to glance")
         messages.error(request, "Error connecting to glance: %s" % e.message)
     except glance_exception.Error, e:
-        LOG.error('Error retrieving image with id "%s"' % image_id,
-                  exc_info=True)
+        LOG.exception('Error retrieving image with id "%s"' % image_id)
         messages.error(request,
                        "Error retrieving image %s: %s" % (image_id, e.message))
 
@@ -156,22 +153,19 @@ def update(request, image_id):
                 api.image_update(request, image_id, metadata)
                 messages.success(request, "Image was successfully updated.")
             except glance_exception.ClientConnectionError, e:
-                LOG.error("Error connecting to glance", exc_info=True)
+                LOG.exception("Error connecting to glance")
                 messages.error(request,
                                "Error connecting to glance: %s" % e.message)
             except glance_exception.Error, e:
-                LOG.error('Error updating image with id "%s"' % image_id,
-                          exc_info=True)
+                LOG.exception('Error updating image with id "%s"' % image_id)
                 messages.error(request, "Error updating image: %s" % e.message)
             except:
-                LOG.error('Unspecified Exception in image update',
-                          exc_info=True)
+                LOG.exception('Unspecified Exception in image update')
                 messages.error(request,
                                "Image could not be updated, please try again.")
             return redirect('syspanel_images_update', image_id)
         else:
-            LOG.error('Image "%s" failed to update' % image['name'],
-                      exc_info=True)
+            LOG.exception('Image "%s" failed to update' % image['name'])
             messages.error(request,
                            "Image could not be uploaded, please try agian.")
             form = UpdateImageForm(request.POST)
@@ -220,17 +214,15 @@ def upload(request):
             try:
                 api.image_create(request, metadata, image['image_file'])
             except glance_exception.ClientConnectionError, e:
-                LOG.error('Error connecting to glance while trying to upload'
-                          ' image', exc_info=True)
+                LOG.exception('Error connecting to glance while trying to upload'
+                          ' image')
                 messages.error(request,
                                "Error connecting to glance: %s" % e.message)
             except glance_exception.Error, e:
-                LOG.error('Glance exception while uploading image',
-                          exc_info=True)
+                LOG.exception('Glance exception while uploading image')
                 messages.error(request, "Error adding image: %s" % e.message)
         else:
-            LOG.error('Image "%s" failed to upload' % image['name'],
-                      exc_info=True)
+            LOG.exception('Image "%s" failed to upload' % image['name'])
             messages.error(request,
                            "Image could not be uploaded, please try agian.")
             form = UploadImageForm(request.POST)

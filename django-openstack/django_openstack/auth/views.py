@@ -106,7 +106,7 @@ class Login(forms.SelfHandlingForm):
 
         except api_exceptions.Unauthorized as e:
             msg = 'Error authenticating: %s' % e.message
-            LOG.error(msg, exc_info=True)
+            LOG.exception(msg)
             messages.error(request, msg)
         except api_exceptions.ApiException as e:
             messages.error(request, 'Error authenticating with keystone: %s' %

@@ -107,8 +107,8 @@ class LaunchForm(forms.SelfHandlingForm):
             return redirect('dash_instances', tenant_id)
 
         except api_exceptions.ApiException, e:
-            LOG.error('ApiException while creating instances of image "%s"' %
-                      image_id, exc_info=True)
+            LOG.exception('ApiException while creating instances of image "%s"' %
+                      image_id)
             messages.error(request,
                            'Unable to launch instance: %s' % e.message)
 
@@ -129,14 +129,14 @@ def index(request, tenant_id):
         if not all_images:
             messages.info(request, "There are currently no images.")
     except glance_exception.ClientConnectionError, e:
-        LOG.error("Error connecting to glance", exc_info=True)
+        LOG.exception("Error connecting to glance")
         messages.error(request, "Error connecting to glance: %s" % str(e))
     except glance_exception.Error, e:
-        LOG.error("Error retrieving image list", exc_info=True)
+        LOG.exception("Error retrieving image list")
         messages.error(request, "Error retrieving image list: %s" % str(e))
     except api_exceptions.ApiException, e:
         msg = "Unable to retreive image info from glance: %s" % str(e)
-        LOG.error(msg)
+        LOG.exception(msg)
         messages.error(request, msg)
 
     images = [im for im in all_images
@@ -160,8 +160,7 @@ def launch(request, tenant_id, image_id):
                    (f.name, f.vcpus, f.disk, f.ram)) for f in fl]
             return sorted(sel)
         except api_exceptions.ApiException:
-            LOG.error('Unable to retrieve list of instance types',
-                      exc_info=True)
+            LOG.exception('Unable to retrieve list of instance types')
             return [(1, 'm1.tiny')]
 
     def keynamelist():
@@ -170,7 +169,7 @@ def launch(request, tenant_id, image_id):
             sel = [(f.name, f.name) for f in fl]
             return sel
         except api_exceptions.ApiException:
-            LOG.error('Unable to retrieve list of keypairs', exc_info=True)
+            LOG.exception('Unable to retrieve list of keypairs')
             return []
 
     def securitygrouplist():
@@ -179,7 +178,7 @@ def launch(request, tenant_id, image_id):
             sel = [(f.name, f.name) for f in fl]
             return sel
         except novaclient_exceptions.ClientException, e:
-            LOG.error('Unable to retrieve list of security groups', exc_info=True)
+            LOG.exception('Unable to retrieve list of security groups')
             return []
 
     # TODO(mgius): Any reason why these can't be after the launchform logic?

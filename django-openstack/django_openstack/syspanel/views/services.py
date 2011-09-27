@@ -62,8 +62,8 @@ class ToggleService(forms.SelfHandlingForm):
                 messages.info(request, "Service '%s' has been disabled"
                                         % data['name'])
         except api_exceptions.ApiException, e:
-            LOG.error('ApiException while toggling service %s' %
-                      data['service'], exc_info=True)
+            LOG.exception('ApiException while toggling service %s' %
+                      data['service'])
             messages.error(request, "Unable to update service '%s': %s"
                                      % data['name'], e.message)
 
@@ -82,7 +82,7 @@ def index(request):
     try:
         services = api.service_list(request)
     except api_exceptions.ApiException, e:
-        LOG.error('ApiException fetching service list', exc_info=True)
+        LOG.exception('ApiException fetching service list')
         messages.error(request, 'Unable to get service info: %s' % e.message)
 
     other_services = []

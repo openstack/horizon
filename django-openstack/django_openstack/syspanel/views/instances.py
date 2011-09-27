@@ -139,7 +139,7 @@ def tenant_usage(request, tenant_id):
     try:
         usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
-        LOG.error('ApiException getting usage info for tenant "%s"'
+        LOG.exception('ApiException getting usage info for tenant "%s"'
                   ' on date range "%s to %s"' % (tenant_id,
                                                  datetime_start,
                                                  datetime_end))
@@ -188,7 +188,7 @@ def index(request):
     try:
         instances = api.admin_server_list(request)
     except Exception as e:
-        LOG.error('Unspecified error in instance index', exc_info=True)
+        LOG.exception('Unspecified error in instance index')
         messages.error(request, 'Unable to get instance list: %s' % e.message)
 
     # We don't have any way of showing errors for these, so don't bother

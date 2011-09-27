@@ -47,7 +47,7 @@ class DeleteContainer(forms.SelfHandlingForm):
             messages.error(request,
                            'Unable to delete non-empty container: %s' % \
                            data['container_name'])
-            LOG.error('Unable to delete container "%s".  Exception: "%s"' %
+            LOG.exception('Unable to delete container "%s".  Exception: "%s"' %
                       (data['container_name'], str(e)))
         else:
             messages.info(request,

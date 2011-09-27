@@ -58,7 +58,7 @@ class CreateGroup(forms.SelfHandlingForm):
             return shortcuts.redirect('dash_security_groups',
                                        data['tenant_id'])
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in CreateGroup", exc_info=True)
+            LOG.exception("ClientException in CreateGroup")
             messages.error(request, 'Error creating security group: %s' %
                                      e.message)
 
@@ -76,7 +76,7 @@ class DeleteGroup(forms.SelfHandlingForm):
             messages.info(request, 'Successfully deleted security_group: %s' \
                                     % data['security_group_id'])
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in DeleteGroup", exc_info=True)
+            LOG.exception("ClientException in DeleteGroup")
             messages.error(request, 'Error deleting security group: %s'
                                      % e.message)
         return shortcuts.redirect('dash_security_groups', data['tenant_id'])
@@ -109,7 +109,7 @@ class AddRule(forms.SelfHandlingForm):
             messages.info(request, 'Successfully added rule: %s' \
                                     % rule.id)
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in AddRule", exc_info=True)
+            LOG.exception("ClientException in AddRule")
             messages.error(request, 'Error adding rule security group: %s'
                                      % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -131,7 +131,7 @@ class DeleteRule(forms.SelfHandlingForm):
             messages.info(request, 'Successfully deleted rule: %s' \
                                     % security_group_rule_id)
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in DeleteRule", exc_info=True)
+            LOG.exception("ClientException in DeleteRule")
             messages.error(request, 'Error authorizing security group: %s'
                                      % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -149,7 +149,7 @@ def index(request, tenant_id):
         security_groups = api.security_group_list(request)
     except novaclient_exceptions.ClientException, e:
         security_groups = []
-        LOG.error("ClientException in security_groups index", exc_info=True)
+        LOG.exception("ClientException in security_groups index")
         messages.error(request, 'Error fetching security_groups: %s'
                                  % e.message)
 
@@ -177,7 +177,7 @@ def edit_rules(request, tenant_id, security_group_id):
     try:
         security_group = api.security_group_get(request, security_group_id)
     except novaclient_exceptions.ClientException, e:
-        LOG.error("ClientException in security_groups rules edit", exc_info=True)
+        LOG.exception("ClientException in security_groups rules edit")
         messages.error(request, 'Error getting security_group: %s' % e.message)
         return shortcuts.redirect('dash_security_groups', tenant_id)
 

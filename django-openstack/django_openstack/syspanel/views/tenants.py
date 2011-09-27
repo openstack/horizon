@@ -100,10 +100,9 @@ class CreateTenant(forms.SelfHandlingForm):
                              '%s was successfully created.'
                              % data['name'])
         except api_exceptions.ApiException, e:
-            LOG.error('ApiException while creating tenant\n'
+            LOG.exception('ApiException while creating tenant\n'
                       'Id: "%s", Description: "%s", Enabled "%s"' %
-                      (data['name'], data['description'], data['enabled']),
-                      exc_info=True)
+                      (data['name'], data['description'], data['enabled']))
             messages.error(request, 'Unable to create tenant: %s' %
                            (e.message))
         return redirect('syspanel_tenants')
@@ -129,11 +128,10 @@ class UpdateTenant(forms.SelfHandlingForm):
                              '%s was successfully updated.'
                              % data['id'])
         except api_exceptions.ApiException, e:
-            LOG.error('ApiException while updating tenant\n'
+            LOG.exception('ApiException while updating tenant\n'
                       'Id: "%s", Name: "%s", Description: "%s", Enabled "%s"' %
                       (data['id'], data['name'],
-                       data['description'], data['enabled']),
-                      exc_info=True)
+                       data['description'], data['enabled']))
             messages.error(request, 'Unable to update tenant: %s' % e.message)
         return redirect('syspanel_tenants')
 
@@ -180,7 +178,7 @@ def index(request):
     try:
         tenants = api.tenant_list(request)
     except api_exceptions.ApiException, e:
-        LOG.error('ApiException while getting tenant list', exc_info=True)
+        LOG.exception('ApiException while getting tenant list')
         messages.error(request, 'Unable to get tenant info: %s' % e.message)
     tenants.sort(key=lambda x: x.id, reverse=True)
     return render_to_response(
@@ -217,8 +215,7 @@ def update(request, tenant_id):
                                          'description': tenant.description,
                                          'enabled': tenant.enabled})
         except api_exceptions.ApiException, e:
-            LOG.error('Error fetching tenant with id "%s"' % tenant_id,
-                      exc_info=True)
+            LOG.exception('Error fetching tenant with id "%s"' % tenant_id)
             messages.error(request, 'Unable to update tenant: %s' % e.message)
             return redirect('syspanel_tenants')
 

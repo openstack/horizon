@@ -208,10 +208,9 @@ def create(request):
                 return redirect('syspanel_users')
 
             except api_exceptions.ApiException, e:
-                LOG.error('ApiException while creating user\n'
+                LOG.exception('ApiException while creating user\n'
                           'id: "%s", email: "%s", tenant_id: "%s"' %
-                          (user['id'], user['email'], user['tenant_id']),
-                          exc_info=True)
+                          (user['id'], user['email'], user['tenant_id']))
                 messages.error(request,
                                  'Error creating user: %s'
                                  % e.message)
