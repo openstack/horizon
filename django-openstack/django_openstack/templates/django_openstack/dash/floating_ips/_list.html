@@ -1,13 +1,11 @@
 <table id="floating_ips" class="wide">
   <tr>
-    <th>ID</th>
     <th>IP</th>
     <th>Instance</th>
     <th>Actions</th>
   </tr>
   {% for ip in floating_ips %}
   <tr class="{% cycle 'odd' 'even' %}">
-    <td>{{ ip.id }}</td>
     <td>{{ ip.ip }}</td>
     <td>
       {% if ip.fixed_ip %}
