@@ -1,13 +1,11 @@
 <table id="security_groups" class="wide">
   <tr>
-    <th>Id</th>
     <th>Name</th>
     <th>Description</th>
     <th>Actions</th>
   </tr>
   {% for security_group in security_groups %}
   <tr class="{% cycle 'odd' 'even' %}">
-    <td>{{ security_group.id }}</td>
     <td>{{ security_group.name }}</td>
     <td>{{ security_group.description }}</td>
     <td id="actions">
