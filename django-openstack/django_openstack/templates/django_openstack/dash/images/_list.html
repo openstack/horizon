@@ -16,7 +16,7 @@
       <td>{{image.status|capfirst}}</td>
       <td id="actions">
         <ul>
-          <li><a id="launch_{{image.id}}" class="launch" href="{% url dash_images_launch request.user.tenant image.id %}">Launch</a></li>
+          <li><a id="launch_{{image.id}}" class="launch" href="{% url dash_images_launch request.user.tenant_id image.id %}">Launch</a></li>
         </ul>
       </td>
   </tr>

@@ -95,11 +95,11 @@ class NetworkViewTests(base.BaseViewTests):
                     'method': 'CreateNetwork'}
 
         res = self.client.post(reverse('dash_network_create',
-                               args=[self.request.user.tenant]),
+                               args=[self.request.user.tenant_id]),
                                formData)
 
         self.assertRedirectsNoFollow(res, reverse('dash_networks',
-                                          args=[self.request.user.tenant]))
+                                          args=[self.request.user.tenant_id]))
         self.mox.VerifyAll()
 
     def test_network_delete(self):
@@ -128,7 +128,7 @@ class NetworkViewTests(base.BaseViewTests):
                     'method': 'DeleteNetwork'}
 
         res = self.client.post(reverse('dash_networks',
-                               args=[self.request.user.tenant]),
+                               args=[self.request.user.tenant_id]),
                                formData)
 
     def test_network_rename(self):
@@ -158,7 +158,7 @@ class NetworkViewTests(base.BaseViewTests):
                     'method': 'RenameNetwork'}
 
         res = self.client.post(reverse('dash_network_rename',
-                               args=[self.request.user.tenant, "n1"]),
+                               args=[self.request.user.tenant_id, "n1"]),
                                formData)
 
     def test_network_details(self):

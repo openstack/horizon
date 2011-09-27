@@ -80,7 +80,7 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
             LOG.error("ClientException in FloatingIpAssociate", exc_info=True)
             messages.error(request, 'Error associating Floating IP: %s'
                                      % e.message)
-        return shortcuts.redirect('dash_floating_ips', request.user.tenant)
+        return shortcuts.redirect('dash_floating_ips', request.user.tenant_id)
 
 
 class FloatingIpDisassociate(forms.SelfHandlingForm):
@@ -100,7 +100,7 @@ class FloatingIpDisassociate(forms.SelfHandlingForm):
             LOG.error("ClientException in FloatingIpAssociate", exc_info=True)
             messages.error(request, 'Error disassociating Floating IP: %s'
                                      % e.message)
-        return shortcuts.redirect('dash_floating_ips', request.user.tenant)
+        return shortcuts.redirect('dash_floating_ips', request.user.tenant_id)
 
 
 class FloatingIpAllocate(forms.SelfHandlingForm):
@@ -120,7 +120,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
             messages.error(request, 'Error allocating Floating IP "%s"\
                            to tenant "%s": %s' %
                            (fip.ip, data['tenant_id'], e.message))
-        return shortcuts.redirect('dash_floating_ips', request.user.tenant)
+        return shortcuts.redirect('dash_floating_ips', request.user.tenant_id)
 
 
 @login_required
@@ -139,7 +139,7 @@ def index(request, tenant_id):
     return shortcuts.render_to_response(
     'django_openstack/dash/floating_ips/index.html', {
         'allocate_form': FloatingIpAllocate(initial={
-                                            'tenant_id': request.user.tenant}),
+                                            'tenant_id': request.user.tenant_id}),
         'disassociate_form': FloatingIpDisassociate(),
         'floating_ips': floating_ips,
         'release_form': ReleaseFloatingIp(),

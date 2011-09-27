@@ -374,7 +374,7 @@ def novaclient(request):
               ' and url "%s"' % (request.user.token, url_for(request, 'compute')))
     c = client.Client(username=request.user.username,
                       api_key=request.user.token,
-                      project_id=request.user.tenant,
+                      project_id=request.user.tenant_id,
                       auth_url=url_for(request, 'compute'))
     c.client.auth_token = request.user.token
     c.client.management_url=url_for(request, 'compute')
@@ -400,7 +400,7 @@ def swift_api(request):
 def quantum_api(request):
     tenant = None
     if hasattr(request, 'user'):
-        tenant = request.user.tenant
+        tenant = request.user.tenant_id
     else:
         tenant = settings.QUANTUM_TENANT
 
@@ -634,7 +634,7 @@ def token_create_scoped_with_token(request, tenant, token):
 
 
 def tenant_quota_get(request, tenant):
-    return admin_api(request).quota_sets.get(tenant)
+    return novaclient(request).quotas.get(tenant)
 
 
 @check_openstackx

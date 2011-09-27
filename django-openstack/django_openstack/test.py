@@ -27,7 +27,8 @@ from django_openstack.middleware import keystone
 
 class TestCase(test.TestCase):
     TEST_STAFF_USER = 'staffUser'
-    TEST_TENANT = 'aTenant'
+    TEST_TENANT = '1'
+    TEST_TENANT_NAME = 'aTenant'
     TEST_TOKEN = 'aToken'
     TEST_USER = 'test'
 
@@ -82,8 +83,8 @@ class TestCase(test.TestCase):
         self.mox.UnsetStubs()
         keystone.get_user_from_request = self._real_get_user_from_request
 
-    def setActiveUser(self, token, username,
-                      tenant, is_admin, service_catalog):
+    def setActiveUser(self, token=None, username=None, tenant_id=None,
+                        is_admin=None, service_catalog=None, tenant_name=None):
         keystone.get_user_from_request = \
-                lambda x: keystone.User(token, username, tenant,
-                                        is_admin, service_catalog)
+                lambda x: keystone.User(token, username, tenant_id,
+                                        is_admin, service_catalog, tenant_name)

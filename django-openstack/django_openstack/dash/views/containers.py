@@ -62,7 +62,7 @@ class CreateContainer(forms.SelfHandlingForm):
     def handle(self, request, data):
         api.swift_create_container(request, data['name'])
         messages.success(request, "Container was successfully created.")
-        return shortcuts.redirect("dash_containers", request.user.tenant)
+        return shortcuts.redirect("dash_containers", request.user.tenant_id)
 
 
 @login_required
