@@ -318,13 +318,13 @@ class ApiHelperTests(test.TestCase):
         url = api.url_for(self.request, 'glance', admin=True)
         self.assertEqual(url, GLANCE_URL + 'admin')
 
-        url = api.url_for(self.request, 'nova')
+        url = api.url_for(self.request, 'compute')
         self.assertEqual(url, NOVA_URL + 'internal')
 
-        url = api.url_for(self.request, 'nova', admin=False)
+        url = api.url_for(self.request, 'compute', admin=False)
         self.assertEqual(url, NOVA_URL + 'internal')
 
-        url = api.url_for(self.request, 'nova', admin=True)
+        url = api.url_for(self.request, 'compute', admin=True)
         self.assertEqual(url, NOVA_URL + 'admin')
 
         self.assertNotIn('notAnApi', self.request.user.service_catalog,
@@ -556,8 +556,8 @@ class AdminApiTests(test.TestCase):
         OSAdmin.Admin(auth_token=TEST_TOKEN, management_url=TEST_URL)
 
         self.mox.StubOutWithMock(api, 'url_for')
-        api.url_for(IsA(http.HttpRequest), 'nova', True).AndReturn(TEST_URL)
-        api.url_for(IsA(http.HttpRequest), 'nova', True).AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'compute', True).AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'compute', True).AndReturn(TEST_URL)
 
         self.mox.ReplayAll()
 
@@ -786,9 +786,9 @@ class ComputeApiTests(NovaClientTestMixin, test.TestCase):
 
         self.mox.StubOutWithMock(api, 'url_for')
         # called three times?  Looks like a good place for optimization
-        api.url_for(IsA(http.HttpRequest), 'nova').AndReturn(TEST_URL)
-        api.url_for(IsA(http.HttpRequest), 'nova').AndReturn(TEST_URL)
-        api.url_for(IsA(http.HttpRequest), 'nova').AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'compute').AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'compute').AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'compute').AndReturn(TEST_URL)
 
         self.mox.ReplayAll()
 
@@ -897,8 +897,8 @@ class ExtrasApiTests(NovaClientTestMixin, test.TestCase):
         OSExtras.Extras(auth_token=TEST_TOKEN, management_url=TEST_URL)
 
         self.mox.StubOutWithMock(api, 'url_for')
-        api.url_for(IsA(http.HttpRequest), 'nova').AndReturn(TEST_URL)
-        api.url_for(IsA(http.HttpRequest), 'nova').AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'compute').AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'compute').AndReturn(TEST_URL)
 
         self.mox.ReplayAll()
 

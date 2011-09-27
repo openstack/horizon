@@ -325,14 +325,14 @@ def check_openstackx(f):
 def compute_api(request):
     compute = openstack.compute.Compute(
         auth_token=request.user.token,
-        management_url=url_for(request, 'nova'))
+        management_url=url_for(request, 'compute'))
     # this below hack is necessary to make the jacobian compute client work
     # TODO(mgius): It looks like this is unused now?
     compute.client.auth_token = request.user.token
-    compute.client.management_url = url_for(request, 'nova')
+    compute.client.management_url = url_for(request, 'compute')
     LOG.debug('compute_api connection created using token "%s"'
                       ' and url "%s"' %
-                      (request.user.token, url_for(request, 'nova')))
+                      (request.user.token, url_for(request, 'compute')))
     return compute
 
 
@@ -356,28 +356,28 @@ def glance_api(request):
 def admin_api(request):
     LOG.debug('admin_api connection created using token "%s"'
                     ' and url "%s"' %
-                    (request.user.token, url_for(request, 'nova', True)))
+                    (request.user.token, url_for(request, 'compute', True)))
     return openstackx.admin.Admin(auth_token=request.user.token,
-                                 management_url=url_for(request, 'nova', True))
+                                 management_url=url_for(request, 'compute', True))
 
 
 def extras_api(request):
     LOG.debug('extras_api connection created using token "%s"'
                      ' and url "%s"' %
-                    (request.user.token, url_for(request, 'nova')))
+                    (request.user.token, url_for(request, 'compute')))
     return openstackx.extras.Extras(auth_token=request.user.token,
-                                   management_url=url_for(request, 'nova'))
+                                   management_url=url_for(request, 'compute'))
 
 
 def novaclient(request):
     LOG.debug('novaclient connection created using token "%s"'
-              ' and url "%s"' % (request.user.token, url_for(request, 'nova')))
+              ' and url "%s"' % (request.user.token, url_for(request, 'compute')))
     c = client.Client(username=request.user.username,
                       api_key=request.user.token,
                       project_id=request.user.tenant_id,
-                      auth_url=url_for(request, 'nova'))
+                      auth_url=url_for(request, 'compute'))
     c.client.auth_token = request.user.token
-    c.client.management_url=url_for(request, 'nova')
+    c.client.management_url=url_for(request, 'compute')
     return c
 
 
