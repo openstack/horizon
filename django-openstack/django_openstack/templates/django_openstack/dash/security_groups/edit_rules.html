@@ -16,7 +16,6 @@
       <h3> Rules for Security Group '{{security_group.name}}'</h3>
       <table id="security_groups" class="wide">
         <tr>
-          <th>ID</th>
           <th>IP Protocol</th>
           <th>From Port</th>
           <th>To Port</th>
@@ -25,7 +24,6 @@
         </tr>
         {% for rule in security_group.rules %}
           <tr class="{% cycle 'odd' 'even' %}">
-            <td>{{ rule.id }}</td>
             <td>{{ rule.ip_protocol }}</td>
             <td>{{ rule.from_port }}</td>
             <td>{{ rule.to_port }}</td>
