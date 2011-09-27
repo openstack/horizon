@@ -59,7 +59,7 @@ class AddUser(forms.SelfHandlingForm):
         except api_exceptions.ApiException, e:
             messages.error(request, 'Unable to create user association: %s' %
                            (e.message))
-        return redirect('syspanel_tenants')
+        return redirect('syspanel_tenant_users', tenant_id=data['tenant'])
 
 
 class RemoveUser(forms.SelfHandlingForm):
@@ -79,7 +79,7 @@ class RemoveUser(forms.SelfHandlingForm):
         except api_exceptions.ApiException, e:
             messages.error(request, 'Unable to create tenant: %s' %
                            (e.message))
-        return redirect('syspanel_tenants')
+        return redirect('syspanel_tenant_users', tenant_id=data['tenant'])
 
 
 class CreateTenant(forms.SelfHandlingForm):
@@ -243,22 +243,15 @@ def users(request, tenant_id):
 
     users = api.account_api(request).users.get_for_tenant(tenant_id)
     all_users = api.account_api(request).users.list()
-    new_user_ids = []
     user_ids = [u.id for u in users]
-    all_user_ids = [u.id for u in all_users]
-    for uid in all_user_ids:
-        if not uid in user_ids:
-            new_user_ids.append(uid)
-    for i in user_ids:
-        if i in new_user_ids:
-            new_user_ids.remove(i)
+    new_users = [u for u in all_users if not u.id in user_ids]
     return render_to_response(
     'django_openstack/syspanel/tenants/users.html', {
         'add_user_form': add_user_form,
         'remove_user_form': remove_user_form,
         'tenant_id': tenant_id,
         'users': users,
-        'new_users': new_user_ids,
+        'new_users': new_users,
     }, context_instance=template.RequestContext(request))
 
 

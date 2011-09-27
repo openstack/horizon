@@ -17,6 +17,7 @@
     <table class="wide">
       <tr>
         <th>ID</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Default Tenant</th>
         <th>Options</th>
@@ -24,6 +25,7 @@
       {% for user in users %}
         <tr class="{% cycle 'odd' 'even' %}">
           <td>{{user.id}}{% if not user.enabled %} (disabled){% endif %}</td>
+          <td>{{user.name}}</td>
           <td>{{user.email}}</td>
           <td>{{user.tenantId}}</td>
           <td id="actions">

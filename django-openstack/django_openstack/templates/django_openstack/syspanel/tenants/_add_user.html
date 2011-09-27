@@ -3,7 +3,7 @@
   {% for hidden in form.hidden_fields %}
     {{hidden}}
   {% endfor %}
-  <input name="user" type="hidden" value="{{user}}" />
+  <input name="user" type="hidden" value="{{user.id}}" />
   <input name="tenant" type="hidden" value="{{tenant_id}}" />
-  <input id="add_tenant_user_{{user}}" class="add" ttle="User: {{user}}" type="submit" value="Add" />
+  <input id="add_tenant_user_{{user.id}}" class="add" title="User: {{user.id}}" type="submit" value="Add" />
 </form>

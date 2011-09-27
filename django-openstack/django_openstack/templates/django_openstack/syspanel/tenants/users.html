@@ -18,6 +18,7 @@
   {% if users %}
     <table class="wide">
       <tr id='headings'>
+        <th>ID</th>
         <th>Name</th>
         <th>Email</th>
         <th>Actions</th>
@@ -26,6 +27,7 @@
         {% for user in users %}
         <tr class="{% cycle 'odd' 'even' %}">
             <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
             <td>{{user.email}}</td>
             <td id="actions">
               <ul>
@@ -46,13 +48,15 @@
     <h3>Add new users</h3>
     <table class="wide">
       <tr id='headings'>
+        <th>ID</th>
         <th>Name</th>
         <th>Actions</th>
       </tr>
       <tbody class='main'>
         {% for user in new_users %}
         <tr class="{% cycle 'odd' 'even' %}">
-            <td>{{user}}</td>
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
             <td id="actions">
               <ul>
                 <li class="form">{% include "django_openstack/syspanel/tenants/_add_user.html" with form=add_user_form %}</li>
