@@ -22,7 +22,6 @@ from django import template
 from django import http
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.shortcuts import redirect
 from django.utils.translation import ugettext as _
@@ -60,7 +59,7 @@ class AddUser(forms.SelfHandlingForm):
         except api_exceptions.ApiException, e:
             messages.error(request, 'Unable to create user association: %s' %
                            (e.message))
-        return redirect(reverse('syspanel_tenant_users', kwargs={'tenant_id': data['tenant']}))
+        return redirect('syspanel_tenant_users', tenant_id=data['tenant'])
 
 
 class RemoveUser(forms.SelfHandlingForm):
@@ -80,7 +79,7 @@ class RemoveUser(forms.SelfHandlingForm):
         except api_exceptions.ApiException, e:
             messages.error(request, 'Unable to create tenant: %s' %
                            (e.message))
-        return redirect(reverse('syspanel_tenant_users', kwargs={'tenant_id': data['tenant']}))
+        return redirect('syspanel_tenant_users', tenant_id=data['tenant'])
 
 
 class CreateTenant(forms.SelfHandlingForm):
