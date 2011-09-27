@@ -48,7 +48,7 @@ class DeleteKeypair(forms.SelfHandlingForm):
             messages.info(request, 'Successfully deleted keypair: %s' \
                                     % data['keypair_id'])
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in DeleteKeypair", exc_info=True)
+            LOG.exception("ClientException in DeleteKeypair")
             messages.error(request, 'Error deleting keypair: %s' % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
 
@@ -68,7 +68,7 @@ class CreateKeypair(forms.SelfHandlingForm):
             response.write(keypair.private_key)
             return response
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in CreateKeyPair", exc_info=True)
+            LOG.exception("ClientException in CreateKeyPair")
             messages.error(request, 'Error Creating Keypair: %s' % e.message)
             return shortcuts.redirect(request.build_absolute_uri())
 
@@ -84,7 +84,7 @@ def index(request, tenant_id):
         keypairs = api.keypair_list(request)
     except novaclient_exceptions.ClientException, e:
         keypairs = []
-        LOG.error("ClientException in keypair index", exc_info=True)
+        LOG.exception("ClientException in keypair index")
         messages.error(request, 'Error fetching keypairs: %s' % e.message)
 
     return shortcuts.render_to_response(

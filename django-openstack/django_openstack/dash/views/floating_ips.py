@@ -46,7 +46,7 @@ class ReleaseFloatingIp(forms.SelfHandlingForm):
             messages.info(request, 'Successfully released Floating IP: %s' \
                                     % data['floating_ip_id'])
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in ReleaseFloatingIp", exc_info=True)
+            LOG.exception("ClientException in ReleaseFloatingIp")
             messages.error(request, 'Error releasing Floating IP from tenant: \
                                      %s' % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -77,7 +77,7 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
                                     % (data['floating_ip'],
                                        data['instance_id']))
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in FloatingIpAssociate", exc_info=True)
+            LOG.exception("ClientException in FloatingIpAssociate")
             messages.error(request, 'Error associating Floating IP: %s'
                                      % e.message)
         return shortcuts.redirect('dash_floating_ips', request.user.tenant_id)
@@ -97,7 +97,7 @@ class FloatingIpDisassociate(forms.SelfHandlingForm):
             messages.info(request, 'Successfully disassociated Floating IP: %s'
                                     % data['floating_ip_id'])
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in FloatingIpAssociate", exc_info=True)
+            LOG.exception("ClientException in FloatingIpAssociate")
             messages.error(request, 'Error disassociating Floating IP: %s'
                                      % e.message)
         return shortcuts.redirect('dash_floating_ips', request.user.tenant_id)
@@ -116,7 +116,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
                          to tenant "%s"' % (fip.ip, data['tenant_id']))
 
         except novaclient_exceptions.ClientException, e:
-            LOG.error("ClientException in FloatingIpAllocate", exc_info=True)
+            LOG.exception("ClientException in FloatingIpAllocate")
             messages.error(request, 'Error allocating Floating IP "%s"\
                            to tenant "%s": %s' %
                            (fip.ip, data['tenant_id'], e.message))
@@ -133,7 +133,7 @@ def index(request, tenant_id):
         floating_ips = api.tenant_floating_ip_list(request)
     except novaclient_exceptions.ClientException, e:
         floating_ips = []
-        LOG.error("ClientException in floating ip index", exc_info=True)
+        LOG.exception("ClientException in floating ip index")
         messages.error(request, 'Error fetching floating ips: %s' % e.message)
 
     return shortcuts.render_to_response(

@@ -37,6 +37,6 @@ def enforce_admin_access(fn):
             return fn(*args, **kwargs)
         else:
             LOG.warn('Redirecting user "%s" from syspanel to dash  ( %s )' %
-                     (args[0].user.username, fn.__name__), exc_info=True)
+                     (args[0].user.username, fn.__name__))
             return redirect('dash_overview')
     return dec

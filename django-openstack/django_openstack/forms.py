@@ -177,7 +177,7 @@ class SelfHandlingForm(Form):
 
             return form, form.handle(request, data)
         except Exception as e:
-            LOG.error('Nonspecific error while handling form', exc_info=True)
+            LOG.exception('Nonspecific error while handling form')
             messages.error(request, 'Unexpected error: %s' % e.message)
             return form, None
 

@@ -919,8 +919,7 @@ class GlobalSummary(object):
             self.service_list = service_list(self.request)
         except api_exceptions.ApiException, e:
             self.service_list = []
-            LOG.error('ApiException fetching service list in instance usage',
-                      exc_info=True)
+            LOG.exception('ApiException fetching service list in instance usage')
             messages.error(self.request,
                            'Unable to get service info: %s' % e.message)
             return
@@ -944,10 +943,9 @@ class GlobalSummary(object):
                     datetime_end)
         except api_exceptions.ApiException, e:
             self.usage_list = []
-            LOG.error('ApiException fetching usage list in instance usage'
+            LOG.exception('ApiException fetching usage list in instance usage'
                       ' on date range "%s to %s"' % (datetime_start,
-                                                     datetime_end),
-                      exc_info=True)
+                                                     datetime_end))
             messages.error(self.request,
                     'Unable to get usage info: %s' % e.message)
             return

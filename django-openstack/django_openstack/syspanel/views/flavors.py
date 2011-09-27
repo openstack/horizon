@@ -90,7 +90,7 @@ def index(request):
     try:
         flavors = api.flavor_list(request)
     except api_exceptions.ApiException, e:
-        LOG.error('ApiException while fetching usage info', exc_info=True)
+        LOG.exception('ApiException while fetching usage info')
         messages.error(request, 'Unable to get usage info: %s' % e.message)
 
     flavors.sort(key=lambda x: x.id, reverse=True)
