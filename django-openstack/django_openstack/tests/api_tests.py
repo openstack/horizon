@@ -543,6 +543,30 @@ class AccountApiTests(test.TestCase):
         self.mox.VerifyAll()
 
 
+    def test_role_add_for_tenant_user(self):
+        account_api = self.stub_account_api()
+
+        role = api.Role(APIResource.get_instance())
+        role.id = TEST_RETURN
+        role.name = TEST_RETURN
+
+        account_api.role_refs = self.mox.CreateMockAnything()
+        account_api.role_refs.add_for_tenant_user(TEST_TENANT_ID,
+                                                  TEST_USERNAME,
+                                                  TEST_RETURN).AndReturn(role)
+        api._get_role = self.mox.CreateMockAnything()
+        api._get_role(IsA(http.HttpRequest), IsA(str)).AndReturn(role)
+
+        self.mox.ReplayAll()
+        ret_val = api.role_add_for_tenant_user(self.request,
+                                               TEST_TENANT_ID,
+                                               TEST_USERNAME,
+                                               TEST_RETURN)
+        self.assertEqual(ret_val, None)
+
+        self.mox.VerifyAll()
+
+
 class AdminApiTests(test.TestCase):
     def stub_admin_api(self, count=1):
         self.mox.StubOutWithMock(api, 'admin_api')

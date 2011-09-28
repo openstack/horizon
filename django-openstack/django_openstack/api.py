@@ -236,6 +236,11 @@ class User(APIResourceWrapper):
     _attrs = ['email', 'enabled', 'id', 'tenantId', 'name']
 
 
+class Role(APIResourceWrapper):
+    """Wrapper around user role"""
+    _attrs = ['id', 'name', 'description', 'service_id']
+
+
 class SecurityGroup(APIResourceWrapper):
     """Simple wrapper around openstackx.extras.security_groups.SecurityGroup"""
     _attrs = ['id', 'name', 'description', 'tenant_id', 'rules']
