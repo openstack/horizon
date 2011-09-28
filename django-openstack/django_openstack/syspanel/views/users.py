@@ -198,13 +198,19 @@ def create(request):
                                 user['password'],
                                 user['tenant_id'],
                                 True)
-                api.account_api(request).role_refs.add_for_tenant_user(
-                        user['tenant_id'], user['id'],
-                        settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
-
                 messages.success(request,
                                  '%s was successfully created.'
                                  % user['id'])
+                try:
+                    api.role_add_for_tenant_user(
+                        request, user['tenant_id'], user['id'],
+                        settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
+                except api_exceptions.ApiException, e:
+                    LOG.exception('ApiException while assigning\
+                                   role to new user: %s' % user['id'])
+                    messages.error(request, 'Error assigning role to user: %s' 
+                                             % e.message)
+
                 return redirect('syspanel_users')
 
             except api_exceptions.ApiException, e:
