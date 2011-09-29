@@ -46,6 +46,75 @@ from novaclient import exceptions as novaclient_exceptions
 LOG = logging.getLogger('django_openstack.dash.views.images')
 
 
+class UpdateImageForm(forms.SelfHandlingForm):
+    image_id = forms.CharField(widget=forms.HiddenInput())
+    name = forms.CharField(max_length="25", label="Name")
+    kernel = forms.CharField(max_length="25", label="Kernel ID",
+            required=False)
+    ramdisk = forms.CharField(max_length="25", label="Ramdisk ID",
+            required=False)
+    architecture = forms.CharField(label="Architecture", required=False)
+    #project_id = forms.CharField(label="Project ID")
+    container_format = forms.CharField(label="Container Format",
+            required=False)
+    disk_format = forms.CharField(label="Disk Format")
+    #is_public = forms.BooleanField(label="Publicly Available", required=False)
+
+    def handle(self, request, data):
+        image_id = data['image_id']
+        tenant_id = request.user.tenant_id
+
+        try:
+            image = api.image_get(request, image_id)
+        except glance_exception.ClientConnectionError, e:
+            LOG.exception("Error connecting to glance")
+            messages.error(request, "Error connecting to glance: %s"
+                                     % e.message)
+        except glance_exception.Error, e:
+            LOG.exception('Error retrieving image with id "%s"' % image_id)
+            messages.error(request, "Error retrieving image %s: %s"
+                                     % (image_id, e.message))
+
+        if image.owner == request.user.username:
+            try:
+                meta = {
+                    'is_public': True,
+                    'disk_format': data['disk_format'],
+                    'container_format': data['container_format'],
+                    'name': data['name'],
+                }
+                # TODO add public flag to properties
+                meta['properties'] = {}
+                if data['kernel']:
+                    meta['properties']['kernel_id'] = data['kernel']
+
+                if data['ramdisk']:
+                    meta['properties']['ramdisk_id'] = data['ramdisk']
+
+                if data['architecture']:
+                    meta['properties']['architecture'] = data['architecture']
+
+                api.image_update(request, image_id, meta)
+                messages.success(request, "Image was successfully updated.")
+
+            except glance_exception.ClientConnectionError, e:
+                LOG.exception("Error connecting to glance")
+                messages.error(request, "Error connecting to glance: %s"
+                               % e.message)
+            except glance_exception.Error, e:
+                LOG.exception('Error updating image with id "%s"' % image_id)
+                messages.error(request, "Error updating image: %s" % e.message)
+            except:
+                LOG.exception('Unspecified Exception in image update')
+                messages.error(request, "Image could not be updated, \
+                                         please try again.")
+            return redirect('dash_images_update', tenant_id, image_id)
+        else:
+            messages.info(request, "Unable to update image, you are not its \
+                                    owner.")
+            return redirect('dash_images_update', tenant_id, image_id)
+
+
 class LaunchForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=80, label="Server Name")
     image_id = forms.CharField(widget=forms.HiddenInput())
@@ -209,4 +278,33 @@ def launch(request, tenant_id, image_id):
         'image': image,
         'form': form,
         'quotas': quotas,
+    }, context_instance=template.RequestContext(request))
+
+
+@login_required
+def update(request, tenant_id, image_id):
+    try:
+        image = api.image_get(request, image_id)
+    except glance_exception.ClientConnectionError, e:
+        LOG.exception("Error connecting to glance")
+        messages.error(request, "Error connecting to glance: %s"
+                                 % e.message)
+    except glance_exception.Error, e:
+        LOG.exception('Error retrieving image with id "%s"' % image_id)
+        messages.error(request, "Error retrieving image %s: %s"
+                                 % (image_id, e.message))
+
+    form, handled = UpdateImageForm().maybe_handle(request, initial={
+                 'image_id': image_id,
+                 'name': image.get('name', ''),
+                 'kernel': image['properties'].get('kernel_id', ''),
+                 'ramdisk': image['properties'].get('ramdisk_id', ''),
+                 'architecture': image['properties'].get('architecture', ''),
+                 'container_format': image.get('container_format', ''),
+                 'disk_format': image.get('disk_format', ''),})
+    if handled:
+        return handled
+
+    return render_to_response('django_openstack/dash/images/update.html', {
+        'form': form,
     }, context_instance=template.RequestContext(request))

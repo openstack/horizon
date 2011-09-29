@@ -14,11 +14,14 @@
       <td>{{image.created_at|parse_date}}</td>
       <td>{{image.updated_at|parse_date}}</td>
       <td>{{image.status|capfirst}}</td>
-      <td id="actions">
-        <ul>
-          <li><a id="launch_{{image.id}}" class="launch" href="{% url dash_images_launch request.user.tenant_id image.id %}">Launch</a></li>
-        </ul>
-      </td>
+      {% if image.owner == request.user.username %}
+        <td id="actions">
+          <ul>
+            <li class="form">{% include "django_openstack/dash/images/_delete.html" with form=delete_form %}</li>
+            <li><a href="{% url dash_images_update request.user.tenant_id image.id %}">Edit</a></li>
+          </ul>
+        </td>
+      {% endif %}
   </tr>
   {% endfor %}
 </table>
