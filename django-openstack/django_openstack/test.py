@@ -57,7 +57,7 @@ class TestCase(test.TestCase):
             "internalURL": "http://glance/glanceapi/internal",
             "publicURL": "http://glance/glanceapi/piblic"
         }],
-        "type": "glance",
+        "type": "image",
         "name": "glance"
     }, {
         "endpoints": [{

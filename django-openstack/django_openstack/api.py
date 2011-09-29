@@ -352,7 +352,7 @@ def account_api(request):
 
 
 def glance_api(request):
-    o = urlparse(url_for(request, 'glance'))
+    o = urlparse(url_for(request, 'image'))
     LOG.debug('glance_api connection created for host "%s:%d"' %
                      (o.hostname, o.port))
     return glance.client.Client(o.hostname, o.port, auth_tok=request.user.token)
