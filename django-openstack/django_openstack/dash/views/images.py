@@ -32,6 +32,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
+from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext as _
 from django import shortcuts
 
@@ -98,7 +99,7 @@ class LaunchForm(forms.SelfHandlingForm):
                               image,
                               flavor,
                               data.get('key_name'),
-                              data.get('user_data'),
+                              normalize_newlines(data.get('user_data')),
                               data.get('security_groups'))
 
             msg = 'Instance was successfully launched'
