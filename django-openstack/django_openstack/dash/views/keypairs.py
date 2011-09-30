@@ -122,6 +122,7 @@ def create(request, tenant_id):
         'create_form': form,
     }, context_instance=template.RequestContext(request))
 
+
 @login_required
 def import_keypair(request, tenant_id):
     form, handled = ImportKeypair.maybe_handle(request)
