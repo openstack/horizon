@@ -16,5 +16,10 @@
   {% if images %}
     {% include 'django_openstack/dash/images/_list.html' %}
 
-  {% endif %}
+    {% else %}
+      <div class="message_box info">
+        <h2>Info</h2>
+        <p>There are currently no images.</p>
+      </div>
+    {% endif %}
 {% endblock %}
