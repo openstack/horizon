@@ -44,14 +44,12 @@ class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length="25", label="Name")
     kernel = forms.CharField(max_length="25", label="Kernel ID",
-            required=False)
+                             required=False)
     ramdisk = forms.CharField(max_length="25", label="Ramdisk ID",
-            required=False)
+                              required=False)
     architecture = forms.CharField(label="Architecture", required=False)
-    #project_id = forms.CharField(label="Project ID")
-    #is_public = forms.BooleanField(label="Publicly Available", required=False)
     container_format = forms.CharField(label="Container Format",
-            required=False)
+                                       required=False)
     disk_format = forms.CharField(label="Disk Format")
 
     def handle(self, request, data):
@@ -65,7 +63,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
             messages.error(request, "Error connecting to glance: %s"
                                      % e.message)
         except glance_exception.Error, e:
-            LOG.exception('Error retrieving image with id "%s"' % image_id)
+            LOG.exception('Error retrieving image with id "%s"', image_id)
             messages.error(request, "Error retrieving image %s: %s"
                                      % (image_id, e.message))
 
