@@ -61,7 +61,7 @@ class TestCase(test.TestCase):
         "name": "glance"
     }, {
         "endpoints": [{
-            "adminURL": "http://cdn.admin-nets.local:5001/v2.0",
+            "adminURL": "http://cdn.admin-nets.local:35357/v2.0",
             "region": "RegionOne",
             "internalURL": "http://127.0.0.1:5000/v2.0",
             "publicURL": "http://cdn.admin-nets.local:5000/v2.0"
