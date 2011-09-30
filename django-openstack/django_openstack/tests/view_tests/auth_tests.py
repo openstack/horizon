@@ -19,6 +19,7 @@
 #    under the License.
 
 from django import http
+from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django_openstack import api
 from django_openstack.tests.view_tests import base
@@ -49,6 +50,42 @@ class AuthViewTests(base.BaseViewTests):
 
         res = self.client.get(reverse('auth_login'))
         self.assertRedirectsNoFollow(res, reverse('syspanel_overview'))
+
+    def test_login_no_tenants(self):
+        NEW_TENANT_ID = '6'
+        NEW_TENANT_NAME = 'FAKENAME'
+        TOKEN_ID = 1
+
+        form_data = {'method': 'Login',
+                    'password': self.PASSWORD,
+                    'username': self.TEST_USER}
+
+        self.mox.StubOutWithMock(api, 'token_create')
+        aToken = self.mox.CreateMock(api.Token)
+        aToken.id = TOKEN_ID
+        aToken.user = { 'roles': [{'name': 'fake'}]}
+        aToken.serviceCatalog = {}
+        api.token_create(IsA(http.HttpRequest), "", self.TEST_USER,
+                         self.PASSWORD).AndReturn(aToken)
+
+        aTenant = self.mox.CreateMock(api.Token)
+        aTenant.id = NEW_TENANT_ID
+        aTenant.name = NEW_TENANT_NAME
+
+        self.mox.StubOutWithMock(api, 'tenant_list_for_token')
+        api.tenant_list_for_token(IsA(http.HttpRequest), aToken.id).\
+                                  AndReturn([])
+
+        self.mox.StubOutWithMock(messages, 'error')
+        messages.error(IsA(http.HttpRequest), IsA(unicode))
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(reverse('auth_login'), form_data)
+
+        self.assertTemplateUsed(res, 'splash.html')
+
+        self.mox.VerifyAll()
 
     def test_login(self):
         NEW_TENANT_ID = '6'

@@ -68,23 +68,18 @@ class Login(forms.SelfHandlingForm):
                 request.session['unscoped_token'] = token.id
 
                 def get_first_tenant_for_user():
-                    for t in api.tenant_list_for_token(request, token.id):
-                        # FIXME (anthony)
-                        # keystone does the annoying 'always return everything
-                        # for admin users thing' which causes the following
-                        # annoying code block to exist (until that is fixed)
-                        if is_admin(token):
-                            for u in api.users_list_for_token_and_tenant(
-                                                    request, token.id, t.id):
-                                if u.name == data['username']:
-                                    return t
-                        else:
-                            return t
-                    return None
+                    tenants = api.tenant_list_for_token(request, token.id)
+                    return tenants[0] if len(tenants) else None
 
                 # Get the tenant list, and log in using first tenant
                 # FIXME (anthony): add tenant chooser here?
                 tenant = get_first_tenant_for_user()
+
+                # Abort if there are no valid tenants for this user
+                if not tenant:
+                    messages.error(request, 'No tenants present for user: %s' %
+                                            data['username'])
+                    return
 
                 # Create a token
                 token = api.token_create_scoped_with_token(request,
