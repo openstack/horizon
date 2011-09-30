@@ -309,13 +309,13 @@ class ApiHelperTests(test.TestCase):
         GLANCE_URL = 'http://glance/glanceapi/'
         NOVA_URL = 'http://nova/novapi/'
 
-        url = api.url_for(self.request, 'image')
+        url = api.url_for(self.request, 'glance')
         self.assertEqual(url, GLANCE_URL + 'internal')
 
-        url = api.url_for(self.request, 'image', admin=False)
+        url = api.url_for(self.request, 'glance', admin=False)
         self.assertEqual(url, GLANCE_URL + 'internal')
 
-        url = api.url_for(self.request, 'image', admin=True)
+        url = api.url_for(self.request, 'glance', admin=True)
         self.assertEqual(url, GLANCE_URL + 'admin')
 
         url = api.url_for(self.request, 'compute')
@@ -1177,6 +1177,19 @@ class APIExtensionTests(NovaClientTestMixin, test.TestCase):
 
         self.mox.VerifyAll()
 
+    def test_keypair_import(self):
+        novaclient = self.stub_novaclient()
+
+        novaclient.keypairs = self.mox.CreateMockAnything()
+        novaclient.keypairs.create(IsA(str), IsA(str)).AndReturn(self.keypair)
+        self.mox.ReplayAll()
+
+        ret_val = api.keypair_import(self.request, TEST_RETURN, TEST_RETURN)
+        self.assertIsInstance(ret_val, api.KeyPair)
+        self.assertEqual(ret_val.name, self.keypair.name)
+
+        self.mox.VerifyAll()
+
     def test_keypair_delete(self):
         novaclient = self.stub_novaclient()
 
@@ -1225,7 +1238,7 @@ class GlanceApiTests(test.TestCase):
         client_instance.auth_tok = TEST_TOKEN
 
         self.mox.StubOutWithMock(api, 'url_for')
-        api.url_for(IsA(http.HttpRequest), 'image').AndReturn(TEST_URL)
+        api.url_for(IsA(http.HttpRequest), 'glance').AndReturn(TEST_URL)
 
         self.mox.ReplayAll()
 

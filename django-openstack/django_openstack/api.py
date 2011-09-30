@@ -502,6 +502,10 @@ def keypair_create(request, name):
     return KeyPair(novaclient(request).keypairs.create(name))
 
 
+def keypair_import(request, name, public_key):
+    return KeyPair(novaclient(request).keypairs.create(name, public_key))
+
+
 def keypair_delete(request, keypair_id):
     novaclient(request).keypairs.delete(keypair_id)
 

@@ -28,7 +28,7 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core import validators
-from django import shortcuts
+from django.shortcuts import redirect, render_to_response
 
 from django_openstack import api
 from django_openstack import forms
@@ -50,7 +50,7 @@ class DeleteKeypair(forms.SelfHandlingForm):
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in DeleteKeypair")
             messages.error(request, 'Error deleting keypair: %s' % e.message)
-        return shortcuts.redirect(request.build_absolute_uri())
+        return redirect(request.build_absolute_uri())
 
 
 class CreateKeypair(forms.SelfHandlingForm):
@@ -70,7 +70,26 @@ class CreateKeypair(forms.SelfHandlingForm):
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in CreateKeyPair")
             messages.error(request, 'Error Creating Keypair: %s' % e.message)
-            return shortcuts.redirect(request.build_absolute_uri())
+            return redirect(request.build_absolute_uri())
+
+
+class ImportKeypair(forms.SelfHandlingForm):
+
+    name = forms.CharField(max_length="20", label="Keypair Name",
+                 validators=[validators.RegexValidator('\w+')])
+    public_key = forms.CharField(label='Public Key', widget=forms.Textarea)
+
+    def handle(self, request, data):
+        try:
+            LOG.info('Importing keypair "%s"' % data['name'])
+            api.keypair_import(request, data['name'], data['public_key'])
+            messages.success(request, 'Successfully imported public key: %s'
+                                       % data['name'])
+            return redirect('dash_keypairs', request.user.tenant_id)
+        except novaclient_exceptions.ClientException, e:
+            LOG.exception("ClientException in ImportKeypair")
+            messages.error(request, 'Error Importing Keypair: %s' % e.message)
+            return redirect(request.build_absolute_uri())
 
 
 @login_required
@@ -87,8 +106,7 @@ def index(request, tenant_id):
         LOG.exception("ClientException in keypair index")
         messages.error(request, 'Error fetching keypairs: %s' % e.message)
 
-    return shortcuts.render_to_response(
-    'django_openstack/dash/keypairs/index.html', {
+    return render_to_response('django_openstack/dash/keypairs/index.html', {
         'keypairs': keypairs,
         'delete_form': delete_form,
     }, context_instance=template.RequestContext(request))
@@ -100,7 +118,17 @@ def create(request, tenant_id):
     if handled:
         return handled
 
-    return shortcuts.render_to_response(
-    'django_openstack/dash/keypairs/create.html', {
+    return render_to_response('django_openstack/dash/keypairs/create.html', {
+        'create_form': form,
+    }, context_instance=template.RequestContext(request))
+
+
+@login_required
+def import_keypair(request, tenant_id):
+    form, handled = ImportKeypair.maybe_handle(request)
+    if handled:
+        return handled
+
+    return render_to_response('django_openstack/dash/keypairs/import.html', {
         'create_form': form,
     }, context_instance=template.RequestContext(request))

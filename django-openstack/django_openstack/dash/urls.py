@@ -55,6 +55,7 @@ urlpatterns += patterns('django_openstack.dash.views.images',
 urlpatterns += patterns('django_openstack.dash.views.keypairs',
     url(r'^(?P<tenant_id>[^/]+)/keypairs/$', 'index', name='dash_keypairs'),
     url(KEYPAIRS % 'create', 'create', name='dash_keypairs_create'),
+    url(KEYPAIRS % 'import', 'import_keypair', name='dash_keypairs_import'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.floating_ips',

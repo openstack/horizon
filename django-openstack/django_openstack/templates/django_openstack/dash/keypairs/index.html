@@ -15,11 +15,14 @@
 {% block dash_main %}
   {% if keypairs %}
     {% include 'django_openstack/dash/keypairs/_list.html' %}
-    <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant_id %}">Create New Keypair</a>
+    <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant_id %}">Add New Keypair</a>
+    <a id="keypairs_import_link" class="action_link large-rounded" href="{% url dash_keypairs_import request.user.tenant_id %}">Import Keypair</a>
   {% else %}
     <div class="message_box info">
       <h2>Info</h2>
-      <p>There are currently no keypairs. <a href='{% url dash_keypairs_create request.user.tenant_id %}'>Create A Keypair &gt;&gt;</a></p>
+      <p>There are currently no keypairs.</p>
     </div>
+    <a id="keypairs_create_link" class="action_link large-rounded" href="{% url dash_keypairs_create request.user.tenant_id %}">Add New Keypair</a>
+    <a id="keypairs_import_link" class="action_link large-rounded" href="{% url dash_keypairs_import request.user.tenant_id %}">Import Keypair</a>
   {% endif %}
 {% endblock %}
