@@ -82,9 +82,7 @@ class ImportKeypair(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Importing keypair "%s"' % data['name'])
-            keypair = api.keypair_import(request,
-                                         data['name'],
-                                         data['public_key'])
+            api.keypair_import(request, data['name'], data['public_key'])
             messages.success(request, 'Successfully imported public key: %s'
                                        % data['name'])
             return redirect('dash_keypairs', request.user.tenant_id)
