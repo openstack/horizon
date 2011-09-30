@@ -29,6 +29,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.utils.text import normalize_newlines
+from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
@@ -55,17 +56,17 @@ class UpdateImageForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         image_id = data['image_id']
         tenant_id = request.user.tenant_id
+        error_retrieving = _('Unable to retreive image info from glance: %s' % image_id)
+        error_updating = _('Error updating image with id: %s' % image_id)
 
         try:
             image = api.image_get(request, image_id)
         except glance_exception.ClientConnectionError, e:
-            LOG.exception("Error connecting to glance")
-            messages.error(request, "Error connecting to glance: %s"
-                                     % e.message)
+            LOG.exception(_('Error connecting to glance'))
+            messages.error(request, error_retrieving)
         except glance_exception.Error, e:
-            LOG.exception('Error retrieving image with id "%s"', image_id)
-            messages.error(request, "Error retrieving image %s: %s"
-                                     % (image_id, e.message))
+            LOG.exception(error_retrieving)
+            messages.error(request, error_retrieving)
 
         if image.owner == request.user.username:
             try:
@@ -87,23 +88,21 @@ class UpdateImageForm(forms.SelfHandlingForm):
                     meta['properties']['architecture'] = data['architecture']
 
                 api.image_update(request, image_id, meta)
-                messages.success(request, "Image was successfully updated.")
+                messages.success(request, _('Image was successfully updated.'))
 
             except glance_exception.ClientConnectionError, e:
-                LOG.exception("Error connecting to glance")
-                messages.error(request, "Error connecting to glance: %s"
-                               % e.message)
+                LOG.exception(_('Error connecting to glance'))
+                messages.error(request, error_retrieving)
             except glance_exception.Error, e:
-                LOG.exception('Error updating image with id "%s"' % image_id)
-                messages.error(request, "Error updating image: %s" % e.message)
+                LOG.exception(error_updating)
+                messages.error(request, error_updating)
             except:
-                LOG.exception('Unspecified Exception in image update')
-                messages.error(request, "Image could not be updated, \
-                                         please try again.")
+                LOG.exception(_('Unspecified Exception in image update'))
+                messages.error(request, error_updating)
             return redirect('dash_images_update', tenant_id, image_id)
         else:
-            messages.info(request, "Unable to update image, you are not its \
-                                    owner.")
+            messages.info(request, _('Unable to update image. You are not its \
+                                      owner.'))
             return redirect('dash_images_update', tenant_id, image_id)
 
 
@@ -206,7 +205,7 @@ class DeleteImage(forms.SelfHandlingForm):
 @login_required
 def index(request, tenant_id):
     for f in (DeleteImage, ):
-        _, handled = f.maybe_handle(request)
+        unused, handled = f.maybe_handle(request)
         if handled:
             return handled
     delete_form = DeleteImage()
