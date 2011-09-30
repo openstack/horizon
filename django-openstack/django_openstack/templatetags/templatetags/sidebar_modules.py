@@ -28,8 +28,8 @@ register = template.Library()
 def dash_sidebar_modules(request):
     signals_call = signals.dash_modules_detect()
     if signals_call:
-        if signals_call[0][1]['type'] == "dash":
-            return {'modules': [module[1] for module in signals_call],
+        return {'modules': [module[1] for module in signals_call
+                                    if module[1]['type'] == "dash"],
                     'request': request}
     else:
         return {}
@@ -39,8 +39,8 @@ def dash_sidebar_modules(request):
 def syspanel_sidebar_modules(request):
     signals_call = signals.dash_modules_detect()
     if signals_call:
-        if signals_call[0][1]['type'] == "syspanel":
-            return {'modules': [module[1] for module in signals_call],
+        return {'modules': [module[1] for module in signals_call
+                                if module[1]['type'] == "syspanel"],
                     'request': request}
     else:
         return {}
