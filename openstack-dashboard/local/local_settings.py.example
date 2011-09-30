@@ -34,7 +34,7 @@ MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0/"
 # FIXME: this is only needed until keystone fixes its GET /tenants call
 # so that it doesn't return everything for admins
-OPENSTACK_KEYSTONE_ADMIN_URL = "http://localhost:5001/v2.0"
+OPENSTACK_KEYSTONE_ADMIN_URL = "http://localhost:35357/v2.0"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
 # NOTE(tres): Available services should come from the service
