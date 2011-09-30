@@ -22,19 +22,13 @@
 Views for managing Nova images.
 """
 
-import datetime
 import logging
-import re
 
-from django import http
 from django import template
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.utils.text import normalize_newlines
-from django.utils.translation import ugettext as _
-from django import shortcuts
 
 from django_openstack import api
 from django_openstack import forms
@@ -55,10 +49,10 @@ class UpdateImageForm(forms.SelfHandlingForm):
             required=False)
     architecture = forms.CharField(label="Architecture", required=False)
     #project_id = forms.CharField(label="Project ID")
+    #is_public = forms.BooleanField(label="Publicly Available", required=False)
     container_format = forms.CharField(label="Container Format",
             required=False)
     disk_format = forms.CharField(label="Disk Format")
-    #is_public = forms.BooleanField(label="Publicly Available", required=False)
 
     def handle(self, request, data):
         image_id = data['image_id']
@@ -139,13 +133,16 @@ class LaunchForm(forms.SelfHandlingForm):
                 required=False,
                 help_text="Which keypair to use for authentication")
 
-        securitygrouplist = kwargs.get('initial', {}).get('securitygrouplist', [])
-        self.fields['security_groups'] = forms.MultipleChoiceField(choices=securitygrouplist,
+        securitygrouplist = kwargs.get('initial', {}).get(
+                                                      'securitygrouplist', [])
+        self.fields['security_groups'] = forms.MultipleChoiceField(
+                choices=securitygrouplist,
                 label='Security Groups',
                 required=True,
                 initial=['default'],
-                widget=forms.SelectMultiple(attrs={'class': 'chzn-select',
-                                                   'style': "min-width: 200px"}),
+                widget=forms.SelectMultiple(
+                       attrs={'class': 'chzn-select',
+                              'style': "min-width: 200px"}),
                 help_text="Launch instance in these Security Groups")
         # setting self.fields.keyOrder seems to break validation,
         # so ordering fields manually
@@ -177,35 +174,35 @@ class LaunchForm(forms.SelfHandlingForm):
             return redirect('dash_instances', tenant_id)
 
         except api_exceptions.ApiException, e:
-            LOG.exception('ApiException while creating instances of image "%s"' %
-                      image_id)
+            LOG.exception('ApiException while creating instances of image "%s"'
+                           % image_id)
             messages.error(request,
                            'Unable to launch instance: %s' % e.message)
 
 
 class DeleteImage(forms.SelfHandlingForm):
-   image_id = forms.CharField(required=True)
+    image_id = forms.CharField(required=True)
 
-   def handle(self, request, data):
-       image_id = data['image_id']
-       tenant_id = request.user.tenant_id
-       try:
-           image = api.image_get(request, image_id)
-           if image.owner == request.user.username:
-               api.image_delete(request, image_id)
-           else:
-               messages.info(request, "Unable to delete image, you are not \
+    def handle(self, request, data):
+        image_id = data['image_id']
+        tenant_id = request.user.tenant_id
+        try:
+            image = api.image_get(request, image_id)
+            if image.owner == request.user.username:
+                api.image_delete(request, image_id)
+            else:
+                messages.info(request, "Unable to delete image, you are not \
                                        its owner.")
-               return redirect('dash_images_update', tenant_id, image_id)
-       except glance_exception.ClientConnectionError, e:
-           LOG.exception("Error connecting to glance")
-           messages.error(request, "Error connecting to glance: %s"
+                return redirect('dash_images_update', tenant_id, image_id)
+        except glance_exception.ClientConnectionError, e:
+            LOG.exception("Error connecting to glance")
+            messages.error(request, "Error connecting to glance: %s"
                                     % e.message)
-       except glance_exception.Error, e:
-           LOG.exception('Error deleting image with id "%s"' % image_id)
-           messages.error(request, "Error deleting image: %s: %s"
+        except glance_exception.Error, e:
+            LOG.exception('Error deleting image with id "%s"' % image_id)
+            messages.error(request, "Error deleting image: %s: %s"
                                     % (image_id, e.message))
-       return redirect(request.build_absolute_uri())
+        return redirect(request.build_absolute_uri())
 
 
 @login_required
@@ -251,6 +248,7 @@ def index(request, tenant_id):
 
 @login_required
 def launch(request, tenant_id, image_id):
+
     def flavorlist():
         try:
             fl = api.flavor_list(request)
@@ -331,7 +329,7 @@ def update(request, tenant_id, image_id):
                  'ramdisk': image['properties'].get('ramdisk_id', ''),
                  'architecture': image['properties'].get('architecture', ''),
                  'container_format': image.get('container_format', ''),
-                 'disk_format': image.get('disk_format', ''),})
+                 'disk_format': image.get('disk_format', ''), })
     if handled:
         return handled
 
