@@ -498,8 +498,8 @@ def image_update(request, image_id, image_meta=None):
                                                   image_meta=image_meta))
 
 
-def keypair_create(request, name):
-    return KeyPair(novaclient(request).keypairs.create(name))
+def keypair_create(request, name, public_key=None):
+    return KeyPair(novaclient(request).keypairs.create(name, public_key))
 
 
 def keypair_delete(request, keypair_id):
