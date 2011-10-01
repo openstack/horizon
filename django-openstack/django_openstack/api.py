@@ -396,8 +396,8 @@ def auth_api():
 def swift_api(request):
     LOG.debug('object store connection created using token "%s"'
                 ' and url "%s"' %
-                (request.session['token'], url_for(request, 'swift')))
-    auth = SwiftAuthentication(url_for(request, 'swift'),
+                (request.session['token'], url_for(request, 'object-store')))
+    auth = SwiftAuthentication(url_for(request, 'object-store'),
                                request.session['token'])
     return cloudfiles.get_connection(auth=auth)
 
