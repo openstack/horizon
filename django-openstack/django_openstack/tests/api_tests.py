@@ -48,6 +48,7 @@ TEST_PORT = 8000
 TEST_RETURN = 'retValue'
 TEST_TENANT_DESCRIPTION = 'tenantDescription'
 TEST_TENANT_ID = '1234'
+TEST_TENANT_NAME = 'foo'
 TEST_TOKEN = 'aToken'
 TEST_TOKEN_ID = 'userId'
 TEST_URL = 'http://%s:%s/something/v1.0' % (TEST_HOSTNAME, TEST_PORT)
@@ -417,13 +418,13 @@ class AccountApiTests(test.TestCase):
         account_api = self.stub_account_api()
 
         account_api.tenants = self.mox.CreateMockAnything()
-        account_api.tenants.update(TEST_TENANT_ID, DESCRIPTION,
-                                   ENABLED).AndReturn(TEST_RETURN)
+        account_api.tenants.update(TEST_TENANT_ID, TEST_TENANT_NAME,
+                                   DESCRIPTION, ENABLED).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
-        ret_val = api.tenant_update(self.request, TEST_TENANT_ID,
-                                    DESCRIPTION, ENABLED)
+        ret_val = api.tenant_update(self.request, TEST_TENANT_ID, 
+                                    TEST_TENANT_NAME, DESCRIPTION, ENABLED)
 
         self.assertIsInstance(ret_val, api.Tenant)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
