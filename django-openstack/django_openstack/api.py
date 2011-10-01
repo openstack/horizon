@@ -599,8 +599,8 @@ def token_list_tenants(request, token):
     return [Tenant(t) for t in auth_api().tenants.for_token(token)]
 
 
-def tenant_create(request, name, description, enabled):
-    return Tenant(account_api(request).tenants.create(name,
+def tenant_create(request, tenant_name, description, enabled):
+    return Tenant(account_api(request).tenants.create(tenant_name,
                                                       description,
                                                       enabled))
 
@@ -628,8 +628,9 @@ def users_list_for_token_and_tenant(request, token, tenant):
     return [User(u) for u in admin_account.users.get_for_tenant(tenant)]
 
 
-def tenant_update(request, tenant_id, description, enabled):
+def tenant_update(request, tenant_id, tenant_name, description, enabled):
     return Tenant(account_api(request).tenants.update(tenant_id,
+                                                      tenant_name,
                                                       description,
                                                       enabled))
 
