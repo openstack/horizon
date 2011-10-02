@@ -50,6 +50,7 @@ urlpatterns += patterns('django_openstack.dash.views.security_groups',
 urlpatterns += patterns('django_openstack.dash.views.images',
     url(r'^(?P<tenant_id>[^/]+)/images/$', 'index', name='dash_images'),
     url(IMAGES % 'launch', 'launch', name='dash_images_launch'),
+    url(IMAGES % 'update', 'update', name='dash_images_update'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.keypairs',

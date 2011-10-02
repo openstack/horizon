@@ -141,7 +141,7 @@ class Image(APIDictWrapper):
     """Simple wrapper around glance image dictionary"""
     _attrs = ['checksum', 'container_format', 'created_at', 'deleted',
              'deleted_at', 'disk_format', 'id', 'is_public', 'location',
-             'name', 'properties', 'size', 'status', 'updated_at']
+             'name', 'properties', 'size', 'status', 'updated_at', 'owner']
 
     def __getattr__(self, attrname):
         if attrname == "properties":

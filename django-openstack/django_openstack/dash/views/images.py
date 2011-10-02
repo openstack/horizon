@@ -22,19 +22,14 @@
 Views for managing Nova images.
 """
 
-import datetime
 import logging
-import re
 
-from django import http
 from django import template
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext as _
-from django import shortcuts
 
 from django_openstack import api
 from django_openstack import forms
@@ -44,6 +39,71 @@ from novaclient import exceptions as novaclient_exceptions
 
 
 LOG = logging.getLogger('django_openstack.dash.views.images')
+
+
+class UpdateImageForm(forms.SelfHandlingForm):
+    image_id = forms.CharField(widget=forms.HiddenInput())
+    name = forms.CharField(max_length="25", label="Name")
+    kernel = forms.CharField(max_length="25", label="Kernel ID",
+                             required=False)
+    ramdisk = forms.CharField(max_length="25", label="Ramdisk ID",
+                              required=False)
+    architecture = forms.CharField(label="Architecture", required=False)
+    container_format = forms.CharField(label="Container Format",
+                                       required=False)
+    disk_format = forms.CharField(label="Disk Format")
+
+    def handle(self, request, data):
+        image_id = data['image_id']
+        tenant_id = request.user.tenant_id
+        error_retrieving = _('Unable to retreive image info from glance: %s' % image_id)
+        error_updating = _('Error updating image with id: %s' % image_id)
+
+        try:
+            image = api.image_get(request, image_id)
+        except glance_exception.ClientConnectionError, e:
+            LOG.exception(_('Error connecting to glance'))
+            messages.error(request, error_retrieving)
+        except glance_exception.Error, e:
+            LOG.exception(error_retrieving)
+            messages.error(request, error_retrieving)
+
+        if image.owner == request.user.username:
+            try:
+                meta = {
+                    'is_public': True,
+                    'disk_format': data['disk_format'],
+                    'container_format': data['container_format'],
+                    'name': data['name'],
+                }
+                # TODO add public flag to properties
+                meta['properties'] = {}
+                if data['kernel']:
+                    meta['properties']['kernel_id'] = data['kernel']
+
+                if data['ramdisk']:
+                    meta['properties']['ramdisk_id'] = data['ramdisk']
+
+                if data['architecture']:
+                    meta['properties']['architecture'] = data['architecture']
+
+                api.image_update(request, image_id, meta)
+                messages.success(request, _('Image was successfully updated.'))
+
+            except glance_exception.ClientConnectionError, e:
+                LOG.exception(_('Error connecting to glance'))
+                messages.error(request, error_retrieving)
+            except glance_exception.Error, e:
+                LOG.exception(error_updating)
+                messages.error(request, error_updating)
+            except:
+                LOG.exception(_('Unspecified Exception in image update'))
+                messages.error(request, error_updating)
+            return redirect('dash_images_update', tenant_id, image_id)
+        else:
+            messages.info(request, _('Unable to update image. You are not its \
+                                      owner.'))
+            return redirect('dash_images_update', tenant_id, image_id)
 
 
 class LaunchForm(forms.SelfHandlingForm):
@@ -70,13 +130,16 @@ class LaunchForm(forms.SelfHandlingForm):
                 required=False,
                 help_text="Which keypair to use for authentication")
 
-        securitygrouplist = kwargs.get('initial', {}).get('securitygrouplist', [])
-        self.fields['security_groups'] = forms.MultipleChoiceField(choices=securitygrouplist,
+        securitygrouplist = kwargs.get('initial', {}).get(
+                                                      'securitygrouplist', [])
+        self.fields['security_groups'] = forms.MultipleChoiceField(
+                choices=securitygrouplist,
                 label='Security Groups',
                 required=True,
                 initial=['default'],
-                widget=forms.SelectMultiple(attrs={'class': 'chzn-select',
-                                                   'style': "min-width: 200px"}),
+                widget=forms.SelectMultiple(
+                       attrs={'class': 'chzn-select',
+                              'style': "min-width: 200px"}),
                 help_text="Launch instance in these Security Groups")
         # setting self.fields.keyOrder seems to break validation,
         # so ordering fields manually
@@ -108,22 +171,51 @@ class LaunchForm(forms.SelfHandlingForm):
             return redirect('dash_instances', tenant_id)
 
         except api_exceptions.ApiException, e:
-            LOG.exception('ApiException while creating instances of image "%s"' %
-                      image_id)
+            LOG.exception('ApiException while creating instances of image "%s"'
+                           % image_id)
             messages.error(request,
                            'Unable to launch instance: %s' % e.message)
 
 
+class DeleteImage(forms.SelfHandlingForm):
+    image_id = forms.CharField(required=True)
+
+    def handle(self, request, data):
+        image_id = data['image_id']
+        tenant_id = request.user.tenant_id
+        try:
+            image = api.image_get(request, image_id)
+            if image.owner == request.user.username:
+                api.image_delete(request, image_id)
+            else:
+                messages.info(request, "Unable to delete image, you are not \
+                                       its owner.")
+                return redirect('dash_images_update', tenant_id, image_id)
+        except glance_exception.ClientConnectionError, e:
+            LOG.exception("Error connecting to glance")
+            messages.error(request, "Error connecting to glance: %s"
+                                    % e.message)
+        except glance_exception.Error, e:
+            LOG.exception('Error deleting image with id "%s"' % image_id)
+            messages.error(request, "Error deleting image: %s: %s"
+                                    % (image_id, e.message))
+        return redirect(request.build_absolute_uri())
+
+
 @login_required
 def index(request, tenant_id):
-    tenant = {}
+    for f in (DeleteImage, ):
+        unused, handled = f.maybe_handle(request)
+        if handled:
+            return handled
+    delete_form = DeleteImage()
 
+    tenant = {}
     try:
         tenant = api.token_get_tenant(request, request.user.tenant_id)
     except api_exceptions.ApiException, e:
         messages.error(request, "Unable to retrienve tenant info\
                                  from keystone: %s" % e.message)
-
     all_images = []
     try:
         all_images = api.image_list_detailed(request)
@@ -145,6 +237,7 @@ def index(request, tenant_id):
 
     return render_to_response(
     'django_openstack/dash/images/index.html', {
+        'delete_form': delete_form,
         'tenant': tenant,
         'images': images,
     }, context_instance=template.RequestContext(request))
@@ -152,6 +245,7 @@ def index(request, tenant_id):
 
 @login_required
 def launch(request, tenant_id, image_id):
+
     def flavorlist():
         try:
             fl = api.flavor_list(request)
@@ -209,4 +303,33 @@ def launch(request, tenant_id, image_id):
         'image': image,
         'form': form,
         'quotas': quotas,
+    }, context_instance=template.RequestContext(request))
+
+
+@login_required
+def update(request, tenant_id, image_id):
+    try:
+        image = api.image_get(request, image_id)
+    except glance_exception.ClientConnectionError, e:
+        LOG.exception("Error connecting to glance")
+        messages.error(request, "Error connecting to glance: %s"
+                                 % e.message)
+    except glance_exception.Error, e:
+        LOG.exception('Error retrieving image with id "%s"' % image_id)
+        messages.error(request, "Error retrieving image %s: %s"
+                                 % (image_id, e.message))
+
+    form, handled = UpdateImageForm().maybe_handle(request, initial={
+                 'image_id': image_id,
+                 'name': image.get('name', ''),
+                 'kernel': image['properties'].get('kernel_id', ''),
+                 'ramdisk': image['properties'].get('ramdisk_id', ''),
+                 'architecture': image['properties'].get('architecture', ''),
+                 'container_format': image.get('container_format', ''),
+                 'disk_format': image.get('disk_format', ''), })
+    if handled:
+        return handled
+
+    return render_to_response('django_openstack/dash/images/update.html', {
+        'form': form,
     }, context_instance=template.RequestContext(request))
