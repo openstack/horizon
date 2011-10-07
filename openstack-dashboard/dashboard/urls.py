@@ -28,6 +28,7 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views import generic as generic_views
 import django.views.i18n
+from django.views.generic.simple import direct_to_template
 
 from django_openstack import urls as django_openstack_urls
 
@@ -38,6 +39,9 @@ urlpatterns = patterns('',
     url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage',
         name='syspanel_overview'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^settings/$', direct_to_template,
+        {'template': 'django_openstack/dash/dashboard_settings.html'},
+        name='dashboard_settings')
 )
 
 # Development static app and project media serving using the staticfiles app.
