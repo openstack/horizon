@@ -55,10 +55,10 @@ class TerminateInstance(forms.SelfHandlingForm):
             LOG.exception('ApiException while terminating instance "%s"' %
                       instance_id)
             messages.error(request,
-                           'Unable to terminate %s: %s' %
-                           (instance_id, e.message,))
+                           _('Unable to terminate %(inst)s: %(message)s') %
+                           {"inst": instance_id, "message": e.message})
         else:
-            msg = 'Instance %s has been terminated.' % instance_id
+            msg = _('Instance %s has been terminated.') % instance_id
             LOG.info(msg)
             messages.success(request, msg)
 
@@ -77,10 +77,10 @@ class RebootInstance(forms.SelfHandlingForm):
             LOG.exception('ApiException while rebooting instance "%s"' %
                       instance_id)
             messages.error(request,
-                       'Unable to reboot instance: %s' % e.message)
+                       _('Unable to reboot instance: %s') % e.message)
 
         else:
-            msg = 'Instance %s has been rebooted.' % instance_id
+            msg = _('Instance %s has been rebooted.') % instance_id
             LOG.info(msg)
             messages.success(request, msg)
 
@@ -105,7 +105,7 @@ class UpdateInstance(forms.SelfHandlingForm):
             messages.success(request, "Instance '%s' updated" % data['name'])
         except api_exceptions.ApiException, e:
             messages.error(request,
-                       'Unable to update instance: %s' % e.message)
+                       _('Unable to update instance: %s') % e.message)
 
         return shortcuts.redirect('dash_instances', tenant_id)
 
@@ -121,7 +121,8 @@ def index(request, tenant_id):
         instances = api.server_list(request)
     except api_exceptions.ApiException as e:
         LOG.exception('Exception in instance index')
-        messages.error(request, 'Unable to get instance list: %s' % e.message)
+        messages.error(request,
+                       _('Unable to get instance list: %s') % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
@@ -142,7 +143,8 @@ def refresh(request, tenant_id):
     try:
         instances = api.server_list(request)
     except Exception as e:
-        messages.error(request, 'Unable to get instance list: %s' % e.message)
+        messages.error(request,
+                       _('Unable to get instance list: %s') % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
@@ -175,7 +177,7 @@ def usage(request, tenant_id=None):
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException in instance usage')
 
-        messages.error(request, 'Unable to get usage info: %s' % e.message)
+        messages.error(request, _('Unable to get usage info: %s') % e.message)
 
     ram_unit = "MB"
     total_ram = 0
@@ -248,8 +250,8 @@ def vnc(request, tenant_id, instance_id):
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException while fetching instance vnc connection')
         messages.error(request,
-                   'Unable to get vnc console for instance %s: %s' %
-                   (instance_id, e.message))
+            _('Unable to get vnc console for instance %(inst)s: %(message)s') %
+            {"inst": instance_id, "massage": e.message})
         return shortcuts.redirect('dash_instances', tenant_id)
 
 
@@ -260,8 +262,8 @@ def update(request, tenant_id, instance_id):
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException while fetching instance info')
         messages.error(request,
-                   'Unable to get information for instance %s: %s' %
-                   (instance_id, e.message))
+            _('Unable to get information for instance %(inst)s: %(message)s') %
+            {"inst": instance_id, "massage": e.message})
         return shortcuts.redirect('dash_instances', tenant_id)
 
     form, handled = UpdateInstance.maybe_handle(request, initial={

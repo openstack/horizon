@@ -24,6 +24,7 @@ from django.conf import settings
 from django import template
 from django import shortcuts
 from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
@@ -34,8 +35,8 @@ LOG = logging.getLogger('django_openstack.auth')
 
 
 class Login(forms.SelfHandlingForm):
-    username = forms.CharField(max_length="20", label="User Name")
-    password = forms.CharField(max_length="20", label="Password",
+    username = forms.CharField(max_length="20", label=_("User Name"))
+    password = forms.CharField(max_length="20", label=_("Password"),
                                widget=forms.PasswordInput(render_value=False))
 
     def handle(self, request, data):
@@ -78,8 +79,9 @@ class Login(forms.SelfHandlingForm):
 
                 # Abort if there are no valid tenants for this user
                 if not tenant:
-                    messages.error(request, 'No tenants present for user: %s' %
-                                            data['username'])
+                    messages.error(request,
+                                   'No tenants present for user: %(user)s' %
+                                    {"user" : data['username']})
                     return
 
                 # Create a token
@@ -100,12 +102,13 @@ class Login(forms.SelfHandlingForm):
             return shortcuts.redirect('dash_overview')
 
         except api_exceptions.Unauthorized as e:
-            msg = 'Error authenticating: %s' % e.message
+            msg = _('Error authenticating: %s') % e.message
             LOG.exception(msg)
             messages.error(request, msg)
         except api_exceptions.ApiException as e:
-            messages.error(request, 'Error authenticating with keystone: %s' %
-                                     e.message)
+            messages.error(request,
+                           _('Error authenticating with keystone: %s') %
+                           e.message)
 
 
 class LoginWithTenant(Login):

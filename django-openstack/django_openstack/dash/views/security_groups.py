@@ -53,13 +53,13 @@ class CreateGroup(forms.SelfHandlingForm):
             security_group = api.security_group_create(request,
                                                        data['name'],
                                                        data['description'])
-            messages.info(request, 'Successfully created security_group: %s' \
+            messages.info(request, _('Successfully created security_group: %s')
                                     % data['name'])
             return shortcuts.redirect('dash_security_groups',
                                        data['tenant_id'])
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in CreateGroup")
-            messages.error(request, 'Error creating security group: %s' %
+            messages.error(request, _('Error creating security group: %s') %
                                      e.message)
 
 
@@ -73,11 +73,11 @@ class DeleteGroup(forms.SelfHandlingForm):
 
             security_group = api.security_group_delete(request,
                                                      data['security_group_id'])
-            messages.info(request, 'Successfully deleted security_group: %s' \
+            messages.info(request, _('Successfully deleted security_group: %s')
                                     % data['security_group_id'])
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in DeleteGroup")
-            messages.error(request, 'Error deleting security group: %s'
+            messages.error(request, _('Error deleting security group: %s')
                                      % e.message)
         return shortcuts.redirect('dash_security_groups', data['tenant_id'])
 
@@ -110,7 +110,7 @@ class AddRule(forms.SelfHandlingForm):
                                     % rule.id)
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in AddRule")
-            messages.error(request, 'Error adding rule security group: %s'
+            messages.error(request, _('Error adding rule security group: %s')
                                      % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
 
@@ -128,11 +128,11 @@ class DeleteRule(forms.SelfHandlingForm):
             security_group = api.security_group_rule_delete(
                                                 request,
                                                 security_group_rule_id)
-            messages.info(request, 'Successfully deleted rule: %s' \
+            messages.info(request, _('Successfully deleted rule: %s')
                                     % security_group_rule_id)
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in DeleteRule")
-            messages.error(request, 'Error authorizing security group: %s'
+            messages.error(request, _('Error authorizing security group: %s')
                                      % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
 
@@ -150,7 +150,7 @@ def index(request, tenant_id):
     except novaclient_exceptions.ClientException, e:
         security_groups = []
         LOG.exception("ClientException in security_groups index")
-        messages.error(request, 'Error fetching security_groups: %s'
+        messages.error(request, _('Error fetching security_groups: %s')
                                  % e.message)
 
     return shortcuts.render_to_response(
