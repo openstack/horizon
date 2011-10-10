@@ -65,8 +65,8 @@ class UserDeleteForm(forms.SelfHandlingForm):
         user_id = data['user']
         LOG.info('Deleting user with id "%s"' % user_id)
         api.user_delete(request, user_id)
-        messages.info(request, '%s was successfully deleted.'
-                                % user_id)
+        messages.info(request, _('%(user)s was successfully deleted.')
+                                % {"user": user_id})
         return redirect(request.build_absolute_uri())
 
 
@@ -105,7 +105,7 @@ def index(request):
     try:
         users = api.user_list(request)
     except api_exceptions.ApiException, e:
-        messages.error(request, 'Unable to list users: %s' %
+        messages.error(request, _('Unable to list users: %s') %
                                  e.message)
 
     user_delete_form = UserDeleteForm()
@@ -142,8 +142,8 @@ def update(request, user_id):
             return redirect('syspanel_users')
         else:
             # TODO add better error management
-            messages.error(request, 'Unable to update user,\
-                                    please try again.')
+            messages.error(request,
+                           _('Unable to update user, please try again.'))
 
             return render_to_response(
             'django_openstack/syspanel/users/update.html', {
@@ -181,7 +181,7 @@ def create(request):
     try:
         tenants = api.tenant_list(request)
     except api_exceptions.ApiException, e:
-        messages.error(request, 'Unable to retrieve tenant list: %s' %
+        messages.error(request, _('Unable to retrieve tenant list: %s') %
                                  e.message)
         return redirect('syspanel_users')
 
@@ -199,7 +199,7 @@ def create(request):
                                 user['tenant_id'],
                                 True)
                 messages.success(request,
-                                 '%s was successfully created.'
+                                 _('%s was successfully created.')
                                  % user['id'])
                 try:
                     api.role_add_for_tenant_user(
@@ -208,8 +208,9 @@ def create(request):
                 except api_exceptions.ApiException, e:
                     LOG.exception('ApiException while assigning\
                                    role to new user: %s' % user['id'])
-                    messages.error(request, 'Error assigning role to user: %s' 
-                                             % e.message)
+                    messages.error(request,
+                                   _('Error assigning role to user: %s')
+                                   % e.message)
 
                 return redirect('syspanel_users')
 
@@ -218,7 +219,7 @@ def create(request):
                           'id: "%s", email: "%s", tenant_id: "%s"' %
                           (user['id'], user['email'], user['tenant_id']))
                 messages.error(request,
-                                 'Error creating user: %s'
+                                _('Error creating user: %s')
                                  % e.message)
                 return redirect('syspanel_users')
         else:

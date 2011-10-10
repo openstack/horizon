@@ -54,11 +54,11 @@ class AddUser(forms.SelfHandlingForm):
                     data['user'],
                     settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
-                             '%s was successfully added to %s.'
-                             % (data['user'], data['tenant']))
+                            '%(user)s was successfully added to %(tenant)s.'
+                            % {"user": data['user'], "tenant": data['tenant']})
         except api_exceptions.ApiException, e:
-            messages.error(request, 'Unable to create user association: %s' %
-                           (e.message))
+            messages.error(request, _('Unable to create user association: %s')
+                           % (e.message))
         return redirect('syspanel_tenant_users', tenant_id=data['tenant'])
 
 
@@ -74,10 +74,10 @@ class RemoveUser(forms.SelfHandlingForm):
                     data['user'],
                     settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
-                             '%s was successfully removed from %s.'
-                             % (data['user'], data['tenant']))
+                            '%(user)s was successfully removed from %(tenant)s.'
+                            % {"user": data['user'], "tenant": data['tenant']})
         except api_exceptions.ApiException, e:
-            messages.error(request, 'Unable to create tenant: %s' %
+            messages.error(request, _('Unable to create tenant: %s') %
                            (e.message))
         return redirect('syspanel_tenant_users', tenant_id=data['tenant'])
 
@@ -97,13 +97,13 @@ class CreateTenant(forms.SelfHandlingForm):
                               data['description'],
                               data['enabled'])
             messages.success(request,
-                             '%s was successfully created.'
+                             _('%s was successfully created.')
                              % data['name'])
         except api_exceptions.ApiException, e:
             LOG.exception('ApiException while creating tenant\n'
                       'Id: "%s", Description: "%s", Enabled "%s"' %
                       (data['name'], data['description'], data['enabled']))
-            messages.error(request, 'Unable to create tenant: %s' %
+            messages.error(request, _('Unable to create tenant: %s') %
                            (e.message))
         return redirect('syspanel_tenants')
 
@@ -132,7 +132,8 @@ class UpdateTenant(forms.SelfHandlingForm):
                       'Id: "%s", Name: "%s", Description: "%s", Enabled "%s"' %
                       (data['id'], data['name'],
                        data['description'], data['enabled']))
-            messages.error(request, 'Unable to update tenant: %s' % e.message)
+            messages.error(request,
+                           _('Unable to update tenant: %s') % e.message)
         return redirect('syspanel_tenants')
 
 
@@ -164,10 +165,11 @@ class UpdateQuotas(forms.SelfHandlingForm):
                cores=data['cores'],
             )
             messages.success(request,
-                             'Quotas for %s were successfully updated.'
+                             _('Quotas for %s were successfully updated.')
                              % data['tenant_id'])
         except api_exceptions.ApiException, e:
-            messages.error(request, 'Unable to update quotas: %s' % e.message)
+            messages.error(request,
+                           _('Unable to update quotas: %s') % e.message)
         return redirect('syspanel_tenants')
 
 
@@ -179,7 +181,7 @@ def index(request):
         tenants = api.tenant_list(request)
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException while getting tenant list')
-        messages.error(request, 'Unable to get tenant info: %s' % e.message)
+        messages.error(request, _('Unable to get tenant info: %s') % e.message)
     tenants.sort(key=lambda x: x.id, reverse=True)
     return render_to_response(
     'django_openstack/syspanel/tenants/index.html', {
@@ -216,7 +218,8 @@ def update(request, tenant_id):
                                          'enabled': tenant.enabled})
         except api_exceptions.ApiException, e:
             LOG.exception('Error fetching tenant with id "%s"' % tenant_id)
-            messages.error(request, 'Unable to update tenant: %s' % e.message)
+            messages.error(request,
+                           _('Unable to update tenant: %s') % e.message)
             return redirect('syspanel_tenants')
 
     return render_to_response(
