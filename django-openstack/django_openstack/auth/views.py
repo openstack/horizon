@@ -81,7 +81,7 @@ class Login(forms.SelfHandlingForm):
                 if not tenant:
                     messages.error(request,
                                    'No tenants present for user: %(user)s' %
-                                    {"user" : data['username']})
+                                    {"user": data['username']})
                     return
 
                 # Create a token

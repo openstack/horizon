@@ -143,8 +143,8 @@ def index(request, tenant_id):
 
     return shortcuts.render_to_response(
     'django_openstack/dash/floating_ips/index.html', {
-        'allocate_form': FloatingIpAllocate(initial={
-                                            'tenant_id': request.user.tenant_id}),
+        'allocate_form': FloatingIpAllocate(
+                         initial={'tenant_id': request.user.tenant_id}),
         'disassociate_form': FloatingIpDisassociate(),
         'floating_ips': floating_ips,
         'release_form': ReleaseFloatingIp(),

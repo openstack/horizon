@@ -50,7 +50,8 @@ class DeleteKeypair(forms.SelfHandlingForm):
                                     % data['keypair_id'])
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in DeleteKeypair")
-            messages.error(request, _('Error deleting keypair: %s') % e.message)
+            messages.error(request,
+                           _('Error deleting keypair: %s') % e.message)
         return redirect(request.build_absolute_uri())
 
 
@@ -70,7 +71,8 @@ class CreateKeypair(forms.SelfHandlingForm):
             return response
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in CreateKeyPair")
-            messages.error(request, _('Error Creating Keypair: %s') % e.message)
+            messages.error(request,
+                           _('Error Creating Keypair: %s') % e.message)
             return redirect(request.build_absolute_uri())
 
 

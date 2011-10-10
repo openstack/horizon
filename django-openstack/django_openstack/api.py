@@ -368,7 +368,7 @@ def admin_api(request):
                     ' and url "%s"' %
                     (request.user.token, url_for(request, 'compute', True)))
     return openstackx.admin.Admin(auth_token=request.user.token,
-                                 management_url=url_for(request, 'compute', True))
+                            management_url=url_for(request, 'compute', True))
 
 
 def extras_api(request):
@@ -401,14 +401,14 @@ def _get_base_client_from_token(tenant_id, token):
 
 
 def novaclient(request):
-    LOG.debug('novaclient connection created using token "%s"'
-              ' and url "%s"' % (request.user.token, url_for(request, 'compute')))
+    LOG.debug('novaclient connection created using token "%s" and url "%s"' %
+             (request.user.token, url_for(request, 'compute')))
     c = nova_client.Client(username=request.user.username,
                       api_key=request.user.token,
                       project_id=request.user.tenant_id,
                       auth_url=url_for(request, 'compute'))
     c.client.auth_token = request.user.token
-    c.client.management_url=url_for(request, 'compute')
+    c.client.management_url = url_for(request, 'compute')
     return c
 
 
@@ -642,15 +642,15 @@ def tenant_list(request):
 
 def tenant_list_for_token(request, token):
     # FIXME: use novaclient for this
-    keystone =  openstackx.auth.Auth(
-            management_url=settings.OPENSTACK_KEYSTONE_URL)
+    keystone = openstackx.auth.Auth(
+                            management_url=settings.OPENSTACK_KEYSTONE_URL)
     return [Tenant(t) for t in keystone.tenants.for_token(token)]
 
 
 def users_list_for_token_and_tenant(request, token, tenant):
-    admin_account =  openstackx.extras.Account(
-                     auth_token=token,
-                     management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
+    admin_account = openstackx.extras.Account(
+                    auth_token=token,
+                    management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
     return [User(u) for u in admin_account.users.get_for_tenant(tenant)]
 
 
@@ -721,9 +721,11 @@ def security_group_list(request):
     return [SecurityGroup(g) for g in novaclient(request).\
                                      security_groups.list()]
 
+
 def security_group_get(request, security_group_id):
     return SecurityGroup(novaclient(request).\
                          security_groups.get(security_group_id))
+
 
 def security_group_create(request, name, description):
     return SecurityGroup(novaclient(request).\
@@ -775,7 +777,7 @@ def _get_role(request, name):
     roles = account_api(request).roles.list()
     for role in roles:
         if role.name.lower() == name.lower():
-           return role
+            return role
 
     raise Exception('Role does not exist: %s' % name)
 

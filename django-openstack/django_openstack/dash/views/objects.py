@@ -51,8 +51,8 @@ class FilterObjects(forms.SelfHandlingForm):
 
         if not objects:
             messages.info(request,
-                          _('There are no objects matching that prefix in %s') %
-                          data['container_name'])
+                         _('There are no objects matching that prefix in %s') %
+                         data['container_name'])
 
         return objects
 

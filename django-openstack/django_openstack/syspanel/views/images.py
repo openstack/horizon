@@ -105,7 +105,8 @@ def index(request):
             messages.info(request, _("There are currently no images."))
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
-        messages.error(request, _("Error connecting to glance: %s") % e.message)
+        messages.error(request,
+                       _("Error connecting to glance: %s") % e.message)
     except glance_exception.Error, e:
         LOG.exception("Error retrieving image list")
         messages.error(request,
@@ -125,7 +126,8 @@ def update(request, image_id):
         image = api.image_get(request, image_id)
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
-        messages.error(request, _("Error connecting to glance: %s") % e.message)
+        messages.error(request,
+                       _("Error connecting to glance: %s") % e.message)
     except glance_exception.Error, e:
         LOG.exception('Error retrieving image with id "%s"' % image_id)
         messages.error(request,
@@ -209,7 +211,8 @@ def upload(request):
                         'container_format': 'ami',
                         'name': image['name']}
             try:
-                messages.success(request, _("Image was successfully uploaded."))
+                messages.success(request,
+                                 _("Image was successfully uploaded."))
             except:
                 # TODO add better error management
                 messages.error(request,
@@ -218,8 +221,8 @@ def upload(request):
             try:
                 api.image_create(request, metadata, image['image_file'])
             except glance_exception.ClientConnectionError, e:
-                LOG.exception('Error connecting to glance while trying to upload'
-                          ' image')
+                LOG.exception('Error connecting to glance while trying to'
+                              'upload image')
                 messages.error(request,
                                _("Error connecting to glance: %s") % e.message)
             except glance_exception.Error, e:

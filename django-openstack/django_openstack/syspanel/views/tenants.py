@@ -74,8 +74,8 @@ class RemoveUser(forms.SelfHandlingForm):
                     data['user'],
                     settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
-                            '%(user)s was successfully removed from %(tenant)s.'
-                            % {"user": data['user'], "tenant": data['tenant']})
+                        '%(user)s was successfully removed from %(tenant)s.'
+                        % {"user": data['user'], "tenant": data['tenant']})
         except api_exceptions.ApiException, e:
             messages.error(request, _('Unable to create tenant: %s') %
                            (e.message))

@@ -84,7 +84,8 @@ def index(request):
         services = api.service_list(request)
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException fetching service list')
-        messages.error(request, _('Unable to get service info: %s') % e.message)
+        messages.error(request,
+                       _('Unable to get service info: %s') % e.message)
 
     other_services = []
 

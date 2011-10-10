@@ -102,8 +102,8 @@ class RenameNetwork(forms.SelfHandlingForm):
                     _('Unable to rename network %(network)s: %(msg)s') %
                     {"network": data['network'], "msg": e.message})
         else:
-            msg = _('Network %(network)s has been renamed to %(new_name)s.') %{
-                  "network": data['network'], "new_name": data['new_name']}
+            msg = _('Network %(net)s has been renamed to %(new_name)s.') % {
+                  "net": data['network'], "new_name": data['new_name']}
             LOG.info(msg)
             messages.success(request, msg)
 
@@ -134,7 +134,8 @@ def index(request, tenant_id):
             })
 
     except Exception, e:
-        messages.error(request, _('Unable to get network list: %s') % e.message)
+        messages.error(request,
+                       _('Unable to get network list: %s') % e.message)
 
     return shortcuts.render_to_response(
     'django_openstack/dash/networks/index.html', {

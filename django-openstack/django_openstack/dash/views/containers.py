@@ -46,7 +46,7 @@ class DeleteContainer(forms.SelfHandlingForm):
             api.swift_delete_container(request, data['container_name'])
         except ContainerNotEmpty, e:
             messages.error(request,
-                           _('Unable to delete non-empty container: %s') % 
+                           _('Unable to delete non-empty container: %s') %
                            data['container_name'])
             LOG.exception('Unable to delete container "%s".  Exception: "%s"' %
                       (data['container_name'], str(e)))
