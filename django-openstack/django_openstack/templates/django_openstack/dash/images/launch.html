@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="images" %}
@@ -17,31 +18,31 @@
       {% include 'django_openstack/dash/images/_launch.html' %}
     </div>
     <div class="right">
-      <h3>Description:</h3>
-      <p>Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources you are allowed to provision.</p>
+      <h3>{% trans "Description:"%}</h3>
+      <p>{% trans "Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources you are allowed to provision."%}</p>
       <table border="0">
         <tr>
-          <th>Quota Name</th>
-          <th>Limit</th>
+          <th>{% trans "Quota Name"%}</th>
+          <th>{% trans "Limit"%}</th>
         </tr>
         <tr>
-          <td>RAM (MB)</td>
+          <td>{% trans "RAM (MB)"%}</td>
           <td>{{quotas.ram}}MB</td>
         </tr>
         <tr>
-          <td>Floating IPs</td>
+          <td>{% trans "Floating IPs"%}</td>
           <td>{{quotas.floating_ips}}</td>
         </tr>
         <tr>
-          <td>Instances</td>
+          <td>{% trans "Instances"%}</td>
           <td>{{quotas.instances}}</td>
         </tr>
         <tr>
-          <td>Volumes</td>
+          <td>{% trans "Volumes"%}</td>
           <td>{{quotas.volumes}}</td>
         </tr>
         <tr>
-          <td>Gigabytes</td>
+          <td>{% trans "Gigabytes"%}</td>
           <td>{{quotas.gigabytes}}GB</td>
         </tr>
       </table>

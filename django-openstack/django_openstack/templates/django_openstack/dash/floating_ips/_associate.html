@@ -1,3 +1,4 @@
+{%load i18n%}
 <form id="floating_ips_associate" action="" method="post">
   {% csrf_token %}
   <fieldset>
@@ -10,7 +11,7 @@
       {{field}}
     {% endfor %}
     {% block submit %}
-      <input type="submit" value="Associate IP" />
+      <input type="submit" value="{%trans "Associate IP"%}" />
     {% endblock %}
   </fieldset>
 </form>

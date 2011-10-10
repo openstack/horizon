@@ -1,5 +1,6 @@
+{%load i18n%}
 {% extends 'django_openstack/dash/images/_launch_form.html' %}
 
 {% block submit %}
-  <input type="submit" value="Launch Instance" class="large-rounded" />
+  <input type="submit" value="{%trans "Launch Instance"%}" class="large-rounded" />
 {% endblock %}

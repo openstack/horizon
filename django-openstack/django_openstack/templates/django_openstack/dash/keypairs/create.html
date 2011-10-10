@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="keypairs" %}
@@ -20,21 +21,21 @@
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="Create Keypair" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Create Keypair") %}
 {% endblock page_header %}
 
 {% block dash_main %}
   <div class="dash_block">
     <div class="left">
-      <h3>Your private key is being downloaded.</h3>
+      <h3>{% trans "Your private key is being downloaded."%}</h3>
       {% include 'django_openstack/dash/keypairs/_form.html' with form=create_form %}
-      <h3><a href="{% url dash_keypairs request.user.tenant_id %}"><< Return to keypairs list</a></h3>
+      <h3><a href="{% url dash_keypairs request.user.tenant_id %}"><< {% trans "Return to keypairs list"%}</a></h3>
     </div>
 
     <div class="right">
-      <h3>Description:</h3>
-      <p>Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file).</p>
-      <p>Protect and use the key as you would any normal ssh private key.</p>
+      <h3>{% trans "Description"%}:</h3>
+      <p>{% trans "Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)."%}</p>
+      <p>{% trans "Protect and use the key as you would any normal ssh private key."%}</p>
     </div>
     <div class="clear">&nbsp;</div>
   </div>

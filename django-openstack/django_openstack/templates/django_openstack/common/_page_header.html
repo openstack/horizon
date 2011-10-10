@@ -1,3 +1,4 @@
+{%load i18n%}
 {% block page_header %}
   <div id='page_header'>
     <h2>{{title}}</h2>
@@ -8,12 +9,12 @@
         <div class='search'>
           <form action='' method='post' onsubmit='return false;'>
             <fieldset>
-              <label for='table_search'>Search</label>
+              <label for='table_search'>{%trans "Search"%}</label>
               <input id='table_search' name='search' type='text' value='' />
             </fieldset>
           </form>
         </div>
-        <a class="refresh" title="Refresh" href="{{refresh_link}}">Refresh List</a>
+        <a class="refresh" title="{%trans "Refresh"%}" href="{{refresh_link}}">{%trans "Refresh List"%}</a>
       </div>
     {% endif %}
   </div>

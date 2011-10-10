@@ -1,10 +1,11 @@
+{%load i18n%}
 <table id='Ports' class="wide">
   <tr id='headings'>
-    <th>ID</th>
-    <th>State</th>
-    <th>Attachment</th>
-    <th>Actions</th>
-    <th>Extensions</th>
+    <th>{% trans "ID"%}</th>
+    <th>{% trans "State"%}</th>
+    <th>{% trans "Attachment"%}</th>
+    <th>{% trans "Actions"%}</th>
+    <th>{% trans "Extensions"%}</th>
   </tr>
   <tbody class='main'>
     {% for port in network.ports %}
@@ -15,8 +16,8 @@
             {% if port.attachment %}
             <table class="attachmend_details">
                 <tr>
-                    <td> Instance </td>
-                    <td> VIF Id </td>
+                    <td>{% trans "Instance"%}</td>
+                    <td>{% trans "VIF Id"%}</td>
                 </tr>
                 <tr>
                     <td> {{port.instance}} </td>
@@ -32,7 +33,7 @@
               {% if port.attachment %}
               <li class="form">{% include "django_openstack/dash/networks/_detach_port.html" with form=detach_port_form %}</li>
               {% else %}
-              <li><a href='{% url dash_ports_attach request.user.tenant_id network.id port.id %}'>Attach</a></li>
+              <li><a href='{% url dash_ports_attach request.user.tenant_id network.id port.id %}'>{% trans "Attach"%}</a></li>
               {% endif %}
               <li class="form">{% include "django_openstack/dash/networks/_delete_port.html" with form=delete_port_form %}</li>
               <li class="form">{% include "django_openstack/dash/networks/_toggle_port.html" with form=toggle_port_form %}</li>
@@ -46,4 +47,3 @@
     {% endfor %}
   </tbody>
 </table>
-
