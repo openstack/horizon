@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-12 14:35+0900\n"
+"POT-Creation-Date: 2011-10-11 16:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Takeshi Nakajima <tnakaji@midokura.jp>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,28 +23,29 @@ msgid "English"
 msgstr "英語"
 
 #: settings.py:106
-msgid "British English"
-msgstr "英語(UK)"
-
-#: settings.py:107
 msgid "Italiano"
 msgstr ""
 
-#: settings.py:108
+#: settings.py:107
 msgid "Spanish"
 msgstr "スペイン語"
 
-#: settings.py:109
+#: settings.py:108
 msgid "French"
 msgstr "フランス語"
 
-#: settings.py:110
+#: settings.py:109
 msgid "Japanese"
 msgstr "日本語"
 
-#: settings.py:111
+#: settings.py:110
 msgid "Portuguese"
 msgstr "ポルトガル語"
+
+#: settings.py:111
+#, fuzzy
+msgid "Polish"
+msgstr "英語"
 
 #: settings.py:112
 msgid "Simplified Chinese"
@@ -54,9 +55,19 @@ msgstr "簡体字中国語"
 msgid "Traditional Chinese"
 msgstr "繁体字中国語"
 
-#: templates/403.html:9
+#: templates/403.html:4 templates/403.html.py:9
 msgid "Forbidden"
 msgstr "アクセスを許可されていません。"
+
+#: templates/403.html:20 templates/404.html:19 templates/500.html:19
+#: templates/permission_denied.html:19
+msgid "Home"
+msgstr ""
+
+#: templates/403.html:24 templates/404.html:23 templates/500.html:23
+#: templates/permission_denied.html:23
+msgid "Projects"
+msgstr ""
 
 #: templates/404.html:4
 msgid "Page Not Found"
@@ -70,7 +81,7 @@ msgstr "あなたがお探しのページは存在しません。"
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "アドレスの入力間違えか、ページが移動された可能性があります。"
 
-#: templates/500.html:9
+#: templates/500.html:4 templates/500.html.py:9
 msgid "Internal Server Error"
 msgstr "内部サーバーエラー"
 
@@ -81,9 +92,54 @@ msgid ""
 msgstr ""
 "リクエストの処理中に予期しないエラーが発生しました。もう一度お試しください。"
 
-#: templates/dash_images.html:12
-msgid "Images"
-msgstr "イメージ"
+#: templates/_login.html:6 templates/_switch.html:6
+msgid "Sign In"
+msgstr "サインイン"
+
+#: templates/_messages.html:5
+msgid "Info"
+msgstr ""
+
+#: templates/_messages.html:11
+msgid "Warning"
+msgstr ""
+
+#: templates/_messages.html:17
+msgid "Success"
+msgstr ""
+
+#: templates/_messages.html:23
+msgid "Error"
+msgstr ""
+
+#: templates/_topbar.html:4
+#, fuzzy
+msgid "OpenStack Dashboard"
+msgstr "OpenStack Dashboard Launchpadのリポジトリー"
+
+#: templates/_topbar.html:6
+msgid "User Dashboard"
+msgstr ""
+
+#: templates/_topbar.html:9
+msgid "System Panel"
+msgstr ""
+
+#: templates/_topbar.html:24
+msgid "Available Tenants"
+msgstr ""
+
+#: templates/_topbar.html:30
+msgid "Sign Out"
+msgstr "サインアウト"
+
+#: templates/login_required.html:13 templates/login_required.html.py:22
+msgid "Login"
+msgstr ""
+
+#: templates/login_required.html:14
+msgid "Login to OpenStack via Keystone auth."
+msgstr ""
 
 #: templates/permission_denied.html:4 templates/permission_denied.html.py:9
 msgid "Permission Denied"
@@ -93,6 +149,10 @@ msgstr "アクセスが拒否されました。"
 msgid "You do not have permission to view the requested page."
 msgstr "あなたは、要求されたページを閲覧する権限がありません。"
 
+#: templates/switch_tenants.html:12
+msgid "Log-in to tenant"
+msgstr ""
+
 #: templates/unavailable.html:4 templates/unavailable.html.py:9
 msgid "Service Unavailable"
 msgstr "サービスが現在ご利用頂けません。"
@@ -101,17 +161,17 @@ msgstr "サービスが現在ご利用頂けません。"
 msgid "This service is temporarily unavailable. Please check back soon."
 msgstr "このサービスは一時的に利用できなくなっています。後ほどお試し下さい。"
 
+#~ msgid "British English"
+#~ msgstr "英語(UK)"
+
+#~ msgid "Images"
+#~ msgstr "イメージ"
+
 #~ msgid "Signed in as"
 #~ msgstr "現在のユーザ"
 
-#~ msgid "Sign Out"
-#~ msgstr "サインアウト"
-
 #~ msgid "Change Password"
 #~ msgstr "パスワード変更"
-
-#~ msgid "Sign In"
-#~ msgstr "サインイン"
 
 #~ msgid "<h2>Welcome to the %(site_brand)s Dashboard</h2>"
 #~ msgstr "<h2>%(site_brand)sのダッシュポードにようこそ。</h2>"
@@ -122,9 +182,6 @@ msgstr "このサービスは一時的に利用できなくなっています。
 #~ msgstr ""
 #~ "この使いやすい%(site_brand)sのダッシュポードであなたの\n"
 #~ "  クラウドインフラを構築することができます。"
-
-#~ msgid "OpenStack Dashboard Launchpad Repository"
-#~ msgstr "OpenStack Dashboard Launchpadのリポジトリー"
 
 #~ msgid "Your username and password didn't match. Please try again."
 #~ msgstr ""
