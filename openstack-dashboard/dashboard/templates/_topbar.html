@@ -1,11 +1,12 @@
+{%load i18n%}
 <div id='header'>
   <ul id="main_nav">
-    <li id="home_link"><h1><a href='{% url splash %}'>OpenStack Dashboard</a></h1></li>
+    <li id="home_link"><h1><a href='{% url splash %}'>{% trans "OpenStack Dashboard"%}</a></h1></li>
     {% if request.user %}
-      <li><a {% if current_topbar == "dash" %} class="active" {% endif %} href="{% url dash_overview %}">User Dashboard</a></li>
+      <li><a {% if current_topbar == "dash" %} class="active" {% endif %} href="{% url dash_overview %}">{% trans "User Dashboard"%}</a></li>
 
       {% if request.user.is_admin %}
-      <li><a {% if current_topbar == "syspanel" %} class="active" {% endif %} href="{% url syspanel_overview %}">System Panel</a></li>
+      <li><a {% if current_topbar == "syspanel" %} class="active" {% endif %} href="{% url syspanel_overview %}">{% trans "System Panel"%}</a></li>
       {% endif %}
     {% else %}
       NOT _LOGGED_IN_TOPBAR
@@ -20,15 +21,14 @@
     </a>
     <a id="drop_btn" href="#">&nbsp;</a>
     <ul id="user_tenant_list">
-      <li class="title"><h4>Available Tenants</h4></li>
+      <li class="title"><h4>{% trans "Available Tenants"%}</h4></li>
       {% for tenant in tenants %}
         {% if tenant.enabled %}
           <li><a href="{% url auth_switch tenant.id %}">{{tenant.name}}</a></li>
         {% endif %}
       {% endfor %}
-      <li id="sign_out"><a href="{% url auth_logout %}">Sign Out</a></li>
+      <li id="sign_out"><a href="{% url auth_logout %}">{% trans "Sign Out"%}</a></li>
     </ul>
   </div>
 
 </div>
-
