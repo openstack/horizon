@@ -1,4 +1,5 @@
 {% extends 'django_openstack/syspanel/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="users" %}
@@ -8,7 +9,7 @@
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="Create User" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Create User") %}
 {% endblock page_header %}
 
 {% block syspanel_main %}
@@ -18,8 +19,8 @@
     </div>
 
     <div class="right">
-      <h3>Description:</h3>
-      <p>From here you can create a new user and assign them to a tenant (aka project).</p>
+      <h3>{% trans "Description"%}:</h3>
+      <p>{% trans "From here you can create a new user and assign them to a tenant (aka project)."%}</p>
     </div>
     <div class="clear">&nbsp;</div>
   </div>

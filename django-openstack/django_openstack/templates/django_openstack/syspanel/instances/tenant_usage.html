@@ -1,6 +1,7 @@
 {% extends 'django_openstack/syspanel/base.html' %}
 {% load parse_date %}
 {% load sizeformat %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="tenants" %}
@@ -10,7 +11,7 @@
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="System Panel Overview" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("System Panel Overview") %}
 {% endblock page_header %}
 
 {% block syspanel_main %}
@@ -48,29 +49,29 @@
     </div>
   </div>
     <p id="activity" class="tenant">
-      <span><strong>Active Instances:</strong> {{usage.total_active_instances}}</span>
-      <span><strong>This month's VCPU-Hours:</strong> {{usage.total_cpu_usage|floatformat}}</span>
-      <span><strong>This month's GB-Hours:</strong> {{usage.total_disk_usage|floatformat}}</span>
+      <span><strong>{% trans "Active Instances"%}:</strong> {{usage.total_active_instances}}</span>
+      <span><strong>{% trans "This month's VCPU-Hours"%}:</strong> {{usage.total_cpu_usage|floatformat}}</span>
+      <span><strong>{% trans "This month's GB-Hours"%}:</strong> {{usage.total_disk_usage|floatformat}}</span>
     </p>
 
 
     {% if usage.instances %}
       <div class='table_title wide'>
-        <a class="csv_download_link" href="{{csv_link}}">Download CSV &raquo;</a>
-        <h3>Tenant Usage: {{tenant_id}}</h3>
+        <a class="csv_download_link" href="{{csv_link}}">{% trans "Download CSV"%} &raquo;</a>
+        <h3>{% trans "Tenant Usage"%}: {{tenant_id}}</h3>
       </div>
 
       <table class="wide">
         <tr id='headings'>
-          <th>ID</th>
-          <th>Name</th>
-          <th>User</th>
-          <th>VCPUs</th>
-          <th>Ram Size</th>
-          <th>Disk Size</th>
-          <th>Flavor</th>
-          <th>Uptime</th>
-          <th>Status</th>
+          <th>{% trans "ID"%}</th>
+          <th>{% trans "Name"%}</th>
+          <th>{% trans "User"%}</th>
+          <th>{% trans "VCPUs"%}</th>
+          <th>{% trans "Ram Size"%}</th>
+          <th>{% trans "Disk Size"%}</th>
+          <th>{% trans "Flavor"%}</th>
+          <th>{% trans "Uptime"%}</th>
+          <th>{% trans "Status"%}</th>
         </tr>
         <tbody class='main'>
           {% for instance in instances %}
@@ -95,8 +96,3 @@
   {% endif %}
 </div>
 {% endblock %}
-
-
-
-
-

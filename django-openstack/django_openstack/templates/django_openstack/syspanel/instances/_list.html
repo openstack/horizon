@@ -1,15 +1,16 @@
 {% load parse_date %}
+{%load i18n%}
 <table id="instances" class="wide">
   <tr>
-    <th>Id</th>
-    <th>Tenant</th>
-    <th>User</th>
-    <th>Host</th>
-    <th>Created</th>
-    <th>Image</th>
-    <th>IPs</th>
-    <th>State</th>
-    <th>Actions</th>
+    <th>{% trans "Id"%}</th>
+    <th>{% trans "Tenant"%}</th>
+    <th>{% trans "User"%}</th>
+    <th>{% trans "Host"%}</th>
+    <th>{% trans "Created"%}</th>
+    <th>{% trans "Image"%}</th>
+    <th>{% trans "IPs"%}</th>
+    <th>{% trans "State"%}</th>
+    <th>{% trans "Actions"%}</th>
   </tr>
   {% for instance in instances %}
     <tr id="{{instance.id}}" class="{% cycle "odd" "even" %}">
@@ -44,8 +45,8 @@
         <ul>
           <li class="form">{% include "django_openstack/common/instances/_terminate.html" with form=terminate_form %}</li>
           <li class="form">{% include "django_openstack/common/instances/_reboot.html" with form=reboot_form %}</li>
-          <li><a target="_blank" href="{% url dash_instances_console request.user.tenant_id instance.id %}">Console Log</a></li>
-          <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant_id instance.id %}">VNC Console</a></li>
+          <li><a target="_blank" href="{% url dash_instances_console request.user.tenant_id instance.id %}">{% trans "Console Log"%}</a></li>
+          <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant_id instance.id %}">{% trans "VNC Console"%}</a></li>
         </ul>
       </td>
     </tr>

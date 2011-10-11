@@ -10,7 +10,7 @@
 {% block page_header %}
   {% url dash_networks request.user.tenant_id as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="Networks" refresh_link=refresh_link searchable="true" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Networks") refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
 
 {% block dash_main %}
