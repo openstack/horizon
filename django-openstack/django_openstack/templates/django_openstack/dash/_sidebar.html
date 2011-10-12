@@ -14,13 +14,13 @@
       <li><a {% if current_sidebar == "networks" %} class="active" {% endif %} href="{% url dash_networks request.user.tenant_id %}">Networks</a></li>
     {% endif %}
   </ul>
-  {% if swift_configured %}
+  {% if object_store_configured %}
   <h3>Manage Object Store</h3>
   <ul class='sub_nav'>
     <li><a {% if current_sidebar == "containers" %} class="active" {% endif %} href="{% url dash_containers request.user.tenant_id %}">Containers</a></li>
   </ul>
   {% endif %}
-  
+
   {% dash_sidebar_modules request %}
-  
+
 </div>
