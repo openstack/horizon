@@ -47,6 +47,7 @@ import openstackx.admin
 import openstackx.api.exceptions as api_exceptions
 import openstackx.extras
 import openstackx.auth
+from novaclient import client as base_client
 from novaclient.v1_1 import client
 import quantum.client
 from urlparse import urlparse
@@ -218,9 +219,12 @@ class Tenant(APIResourceWrapper):
     _attrs = ['id', 'description', 'enabled', 'name']
 
 
-class Token(APIResourceWrapper):
-    """Simple wrapper around openstackx.auth.tokens.Token"""
-    _attrs = ['id', 'serviceCatalog', 'tenant_id', 'user']
+class Token(object):
+    def __init__(self, id=None, serviceCatalog=None, tenant_id=None, user=None):
+        self.id = id
+        self.serviceCatalog = serviceCatalog or {}
+        self.tenant_id = tenant_id
+        self.user = user or {}
 
 
 class Usage(APIResourceWrapper):
@@ -636,11 +640,15 @@ def tenant_update(request, tenant_id, tenant_name, description, enabled):
 
 
 def token_create(request, tenant, username, password):
-    return Token(auth_api().tokens.create(tenant, username, password))
-
-
-def token_create_scoped_with_token(request, tenant, token):
-    return Token(auth_api().tokens.create_scoped_with_token(tenant, token))
+    c = base_client.HTTPClient(username, password, tenant, settings.OPENSTACK_KEYSTONE_URL)
+    c.version = 'v2.0'
+    c.authenticate()
+    return Token(
+            id = c.auth_token,
+            serviceCatalog=c.service_catalog.catalog['access'].get('serviceCatalog', None),
+            user = c.service_catalog.catalog['access']['user'],
+            tenant_id = tenant
+        )
 
 
 def tenant_quota_get(request, tenant):

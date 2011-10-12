@@ -61,10 +61,11 @@ class AuthViewTests(base.BaseViewTests):
                     'username': self.TEST_USER}
 
         self.mox.StubOutWithMock(api, 'token_create')
-        aToken = self.mox.CreateMock(api.Token)
-        aToken.id = TOKEN_ID
-        aToken.user = { 'roles': [{'name': 'fake'}]}
-        aToken.serviceCatalog = {}
+        aToken = api.Token(
+                id=TOKEN_ID,
+                user={'roles': [{'name': 'fake'}]},
+                serviceCatalog={}
+            )
         api.token_create(IsA(http.HttpRequest), "", self.TEST_USER,
                          self.PASSWORD).AndReturn(aToken)
 
@@ -97,10 +98,13 @@ class AuthViewTests(base.BaseViewTests):
                     'username': self.TEST_USER}
 
         self.mox.StubOutWithMock(api, 'token_create')
-        aToken = self.mox.CreateMock(api.Token)
-        aToken.id = TOKEN_ID
-        aToken.user = { 'roles': [{'name': 'fake'}]}
-        aToken.serviceCatalog = {}
+        aToken = api.Token(
+                id=TOKEN_ID,
+                user={'roles': [{'name': 'fake'}]},
+                serviceCatalog={}
+            )
+        bToken = aToken
+
         api.token_create(IsA(http.HttpRequest), "", self.TEST_USER,
                          self.PASSWORD).AndReturn(aToken)
 
@@ -111,10 +115,10 @@ class AuthViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'tenant_list_for_token')
         api.tenant_list_for_token(IsA(http.HttpRequest), aToken.id).\
                                   AndReturn([aTenant])
+        bToken.tenant_id = aTenant.id
 
-        self.mox.StubOutWithMock(api, 'token_create_scoped_with_token')
-        api.token_create_scoped_with_token(IsA(http.HttpRequest), aTenant.id,
-                         aToken.id).AndReturn(aToken)
+        api.token_create(IsA(http.HttpRequest), aTenant.id, self.TEST_USER,
+                         self.PASSWORD).AndReturn(bToken)
 
 
         self.mox.ReplayAll()
