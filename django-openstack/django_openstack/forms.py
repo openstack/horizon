@@ -62,7 +62,6 @@ class SelectDateWidget(widgets.Widget):
             self.years = range(this_year, this_year + 10)
 
     def render(self, name, value, attrs=None, skip_day_field=True):
-        print "Render %s %s" % (name, value)
         try:
             year_val, month_val, day_val = value.year, value.month, value.day
         except AttributeError:

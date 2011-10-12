@@ -55,7 +55,7 @@ class TestCase(test.TestCase):
             "adminURL": "http://glance/glanceapi/admin",
             "region": "RegionOne",
             "internalURL": "http://glance/glanceapi/internal",
-            "publicURL": "http://glance/glanceapi/piblic"
+            "publicURL": "http://glance/glanceapi/public"
         }],
         "type": "image",
         "name": "glance"
@@ -68,6 +68,15 @@ class TestCase(test.TestCase):
         }],
         "type": "identity",
         "name": "identity"
+    }, {
+        "endpoints": [{
+            "adminURL": "http://swift/swiftapi/admin",
+            "region": "RegionOne",
+            "internalURL": "http://swift/swiftapi/internal",
+            "publicURL": "http://swift/swiftapi/public"
+        }],
+        "type": "object-store",
+        "name": "swift"
     }]
 
     def setUp(self):
