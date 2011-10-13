@@ -36,8 +36,10 @@ def tenants(request):
         return {'tenants': []}
 
 
-def swift(request):
-    return {'swift_configured': settings.SWIFT_ENABLED}
+def object_store(request):
+    catalog = getattr(request.user, 'service_catalog', [])
+    object_store = catalog and api.get_service_from_catalog(catalog, 'object-store')
+    return {'object_store_configured': object_store}
 
 
 def quantum(request):

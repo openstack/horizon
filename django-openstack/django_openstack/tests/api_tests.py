@@ -423,7 +423,7 @@ class AccountApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.tenant_update(self.request, TEST_TENANT_ID, 
+        ret_val = api.tenant_update(self.request, TEST_TENANT_ID,
                                     TEST_TENANT_NAME, DESCRIPTION, ENABLED)
 
         self.assertIsInstance(ret_val, api.Tenant)
