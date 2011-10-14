@@ -117,9 +117,9 @@ class AuthViewTests(base.BaseViewTests):
                                   AndReturn([aTenant])
         bToken.tenant_id = aTenant.id
 
-        api.token_create(IsA(http.HttpRequest), aTenant.id, self.TEST_USER,
-                         self.PASSWORD).AndReturn(bToken)
-
+        self.mox.StubOutWithMock(api, 'token_create_scoped')
+        api.token_create_scoped(IsA(http.HttpRequest), aTenant.id,
+                                    aToken.id).AndReturn(bToken)
 
         self.mox.ReplayAll()
 
