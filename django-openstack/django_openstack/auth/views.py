@@ -66,6 +66,7 @@ class Login(forms.SelfHandlingForm):
 
                 # Unscoped token
                 request.session['unscoped_token'] = token.id
+                request.user.username = data['username']
 
                 def get_first_tenant_for_user():
                     tenants = api.tenant_list_for_token(request, token.id)
@@ -82,10 +83,7 @@ class Login(forms.SelfHandlingForm):
                     return
 
                 # Create a token
-                token = api.token_create(request,
-                                         data.get('tenant', tenant.id),
-                                         data['username'],
-                                         data['password'])
+                token = api.token_create_scoped(request, tenant.id, token.id)
 
 
             request.session['admin'] = is_admin(token)
