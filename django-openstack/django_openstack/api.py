@@ -33,25 +33,25 @@ shouldn't need to understand the finer details of APIs for Nova/Glance/Swift et
 al.
 """
 
+import httplib
+import json
+import logging
 import urlparse
 
 from django.conf import settings
 from django.contrib import messages
 
 import cloudfiles
-import glance.client
-import glance.common.exception as glance_exceptions
-import httplib
-import json
-import logging
 import openstack.compute
 import openstackx.admin
 import openstackx.api.exceptions as api_exceptions
 import openstackx.extras
 import openstackx.auth
-from novaclient import client as base_client
-from novaclient.v1_1 import client
-import quantum.client
+from glance import client as glance_client
+from glance.common import exception as glance_exceptions
+from novaclient import client as base_nova_client
+from novaclient.v1_1 import client as nova_client
+from quantum import client as quantum_client
 
 LOG = logging.getLogger('django_openstack.api')
 
@@ -360,7 +360,7 @@ def glance_api(request):
     o = urlparse.urlparse(url_for(request, 'image'))
     LOG.debug('glance_api connection created for host "%s:%d"' %
                      (o.hostname, o.port))
-    return glance.client.Client(o.hostname, o.port, auth_tok=request.user.token)
+    return glance_client.Client(o.hostname, o.port, auth_tok=request.user.token)
 
 
 def admin_api(request):
@@ -387,11 +387,11 @@ def _get_base_client_from_token(tenant_id, token):
     The returned client can be passed to novaclient.keystone.client.Client
     without requiring a second authentication call.
 
-    Note (gabriel): This ought to live upstream in novaclient, but isn't
+    NOTE(gabriel): This ought to live upstream in novaclient, but isn't
     currently supported by the HTTPClient.authenticate() method (which only
     works with a username and password).
     '''
-    c = base_client.HTTPClient(None, None, tenant_id,
+    c = base_nova_client.HTTPClient(None, None, tenant_id,
                                 settings.OPENSTACK_KEYSTONE_URL)
     body = {"auth": {"tenantId": tenant_id, "token": {"id": token}}}
     token_url = urlparse.urljoin(c.auth_url, "tokens")
@@ -403,7 +403,7 @@ def _get_base_client_from_token(tenant_id, token):
 def novaclient(request):
     LOG.debug('novaclient connection created using token "%s"'
               ' and url "%s"' % (request.user.token, url_for(request, 'compute')))
-    c = client.Client(username=request.user.username,
+    c = nova_client.Client(username=request.user.username,
                       api_key=request.user.token,
                       project_id=request.user.tenant_id,
                       auth_url=url_for(request, 'compute'))
@@ -435,7 +435,7 @@ def quantum_api(request):
     else:
         tenant = settings.QUANTUM_TENANT
 
-    return quantum.client.Client(settings.QUANTUM_URL, settings.QUANTUM_PORT,
+    return quantum_client.Client(settings.QUANTUM_URL, settings.QUANTUM_PORT,
                   False, tenant, 'json')
 
 
@@ -668,17 +668,15 @@ def token_create(request, tenant, username, password):
     the given tenant. Otherwise it will return an unscoped token and without
     a service catalog.
     '''
-    c = base_client.HTTPClient(username, password, tenant,
+    c = base_nova_client.HTTPClient(username, password, tenant,
                                 settings.OPENSTACK_KEYSTONE_URL)
     c.version = 'v2.0'
     c.authenticate()
-    catalog = c.service_catalog.catalog['access']
-    return Token(
-            id = c.auth_token,
-            serviceCatalog = catalog.get('serviceCatalog', None),
-            user = catalog['user'],
-            tenant_id = tenant
-        )
+    access = c.service_catalog.catalog['access']
+    return Token(id=c.auth_token,
+                 serviceCatalog=access.get('serviceCatalog', None),
+                 user=access['user'],
+                 tenant_id=tenant)
 
 def token_create_scoped(request, tenant, token):
     '''
@@ -686,13 +684,11 @@ def token_create_scoped(request, tenant, token):
     the service catalog for the given tenant.
     '''
     c = _get_base_client_from_token(tenant, token)
-    catalog = c.service_catalog.catalog['access']
-    return Token(
-            id = c.auth_token,
-            serviceCatalog = catalog.get('serviceCatalog', None),
-            user = catalog['user'],
-            tenant_id = tenant
-        )
+    access = c.service_catalog.catalog['access']
+    return Token(id=c.auth_token,
+                 serviceCatalog=access.get('serviceCatalog', None),
+                 user=access['user'],
+                 tenant_id=tenant)
 
 def tenant_quota_get(request, tenant):
     return novaclient(request).quotas.get(tenant)
