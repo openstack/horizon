@@ -15,6 +15,7 @@
 <ul id="instance_tabs">
   <li class="active"><a class="overview" href="#">Overview</a></li>
   <li><a class="log" href="#">Log</a></li>
+  <li><a class="vnc" href="#">VNC</a></li>
   
   {# <li><a href="#">Snapshots</a></li> #}
   {# <li><a href="#">VNC Console</a></li> #}
@@ -65,6 +66,10 @@
     <div id="log" class="tab_wrapper">
       <pre class="logs"></pre>
     </div>
+
+    <div id="vnc" class="tab_wrapper">
+      <iframe src="{{vnc_url}}" width="720" height="420"></iframe>
+    </div>
     
   </div>
 {% endblock %}
@@ -74,7 +79,7 @@
     $(function(){
       $(".dash_block div.tab_wrapper").hide()
       $(".dash_block div.tab_wrapper:first").show()
-      
+
       $("#instance_tabs a").click(function(e){
         e.preventDefault();
         e.stopPropagation()
@@ -84,13 +89,22 @@
         $("#instance_tabs li").removeClass('active')
         $(this).parent().toggleClass('active')
       })
-      
+
+      $('a.log').click(function(){
+        getlog();
+      })
+
       setInterval(function(){
-        $.get("{% url dash_instances_console request.user.tenant_id instance.id %}", function(data){
-          $("#log .logs").html(data)
-          console.log('done')
-        })
+        if ($("a.log").parent().hasClass('active')) {
+          getlog();
+        };
       }, 3000)
     })
+
+    function getlog(){
+      $.get("{% url dash_instances_console request.user.tenant_id instance.id %}", function(data){
+        $("#log .logs").html(data)
+      })
+    }
   </script>
 {% endblock footer_js %}

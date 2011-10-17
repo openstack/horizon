@@ -285,6 +285,18 @@ def update(request, tenant_id, instance_id):
 def detail(request, tenant_id, instance_id):
     try:
         instance = api.server_get(request, instance_id)
+        try:
+            console = api.console_create(request, instance_id, 'vnc')
+            vnc_url =  "%s&title=%s(%s)" % (console.output,
+                                            instance.name,
+                                            instance_id)
+        except api_exceptions.ApiException, e:
+            LOG.exception('ApiException while fetching instance vnc \
+                           connection')
+            messages.error(request,
+                       'Unable to get vnc console for instance %s: %s' %
+                       (instance_id, e.message))
+            return shortcuts.redirect('dash_instances', tenant_id)
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException while fetching instance info')
         messages.error(request,
@@ -295,4 +307,5 @@ def detail(request, tenant_id, instance_id):
     return shortcuts.render_to_response(
     'django_openstack/dash/instances/detail.html', {
         'instance': instance,
+        'vnc_url': vnc_url,
     }, context_instance=template.RequestContext(request))
