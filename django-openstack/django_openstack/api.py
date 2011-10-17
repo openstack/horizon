@@ -402,7 +402,7 @@ def _get_base_client_from_token(tenant_id, token):
 
 def novaclient(request):
     LOG.debug('novaclient connection created using token "%s" and url "%s"' %
-             (request.user.token, url_for(request, 'compute')))
+              (request.user.token, url_for(request, 'compute')))
     c = nova_client.Client(username=request.user.username,
                       api_key=request.user.token,
                       project_id=request.user.tenant_id,
