@@ -83,7 +83,7 @@
       $("#instance_tabs a").click(function(e){
         e.preventDefault();
         e.stopPropagation()
-        $(".dash_block div").hide('fast')
+        $(".dash_block div.tab_wrapper").hide('fast')
         $(".dash_block div#"+$(this).attr('class')).show('fast')
 
         $("#instance_tabs li").removeClass('active')
