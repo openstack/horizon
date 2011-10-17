@@ -37,7 +37,7 @@ from django_openstack import forms
 from django_openstack import utils
 import openstack.compute.servers
 import openstackx.api.exceptions as api_exceptions
-
+import StringIO
 
 LOG = logging.getLogger('django_openstack.dash')
 
@@ -108,6 +108,29 @@ class UpdateInstance(forms.SelfHandlingForm):
                        'Unable to update instance: %s' % e.message)
 
         return shortcuts.redirect('dash_instances', tenant_id)
+
+
+def tail(f, n, offset=None):
+    """Reads a n lines from f with an offset of offset lines.  The return
+    value is a tuple in the form ``(lines, has_more)`` where `has_more` is
+    an indicator that is `True` if there are more lines in the file.
+    """
+    avg_line_length = 74
+    to_read = n + (offset or 0)
+
+    while 1:
+        try:
+            f.seek(-(avg_line_length * to_read), 2)
+        except IOError:
+            # woops.  apparently file is smaller than what we want
+            # to step back, go to the beginning instead
+            f.seek(0)
+        pos = f.tell()
+        lines = f.read().splitlines()
+        if len(lines) >= to_read or pos == 0:
+            return lines[-to_read:offset and -offset or None], \
+                   len(lines) > to_read or pos > 0
+        avg_line_length *= 1.3
 
 
 @login_required
@@ -225,9 +248,10 @@ def usage(request, tenant_id=None):
 @login_required
 def console(request, tenant_id, instance_id):
     try:
+        length = request.GET.get('length', '')
         console = api.console_create(request, instance_id, 'text')
         response = http.HttpResponse(mimetype='text/plain')
-        response.write(console.output)
+        response.write('\n'.join(console.output.split('\n')[-25:]))
         response.flush()
         return response
     except api_exceptions.ApiException, e:
@@ -277,4 +301,21 @@ def update(request, tenant_id, instance_id):
     'django_openstack/dash/instances/update.html', {
         'instance': instance,
         'form': form,
+    }, context_instance=template.RequestContext(request))
+
+
+@login_required
+def detail(request, tenant_id, instance_id):
+    try:
+        instance = api.server_get(request, instance_id)
+    except api_exceptions.ApiException, e:
+        LOG.exception('ApiException while fetching instance info')
+        messages.error(request,
+                   'Unable to get information for instance %s: %s' %
+                   (instance_id, e.message))
+        return shortcuts.redirect('dash_instances', tenant_id)
+
+    return shortcuts.render_to_response(
+    'django_openstack/dash/instances/detail.html', {
+        'instance': instance,
     }, context_instance=template.RequestContext(request))
