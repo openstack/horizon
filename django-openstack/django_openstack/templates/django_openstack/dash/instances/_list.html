@@ -15,11 +15,14 @@
     {% for instance in instances %}
       <tr class="{% cycle 'odd' 'even' %}">
           <td>{{instance.id}}</td>
-          <td class="name">{{instance.name}}
-            {% if instance.attrs.key_name %}
-                <br/>
-                <small> ({{instance.attrs.key_name}}) </small>
-            {% endif %}
+          <td class="name">
+            <a href="{% url dash_instances_detail request.user.tenant_name instance.id %}">
+              {{instance.name}}
+              {% if instance.attrs.key_name %}
+                  <br/>
+                  <small> ({{instance.attrs.key_name}}) </small>
+              {% endif %}
+            </a>
           </td>
           <td>
             <ul>

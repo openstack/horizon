@@ -16,13 +16,6 @@
   <li class="active"><a class="overview" href="#">Overview</a></li>
   <li><a class="log" href="#">Log</a></li>
   <li><a class="vnc" href="#">VNC</a></li>
-  
-  {# <li><a href="#">Snapshots</a></li> #}
-  {# <li><a href="#">VNC Console</a></li> #}
-  {# <li><a href="#">Metrics</a></li> #}
-  {# <li><a href="#">Volumes</a></li> #}
-  {# <li><a href="#">Security Groups</a></li> #}
-
 </ul>
 
   <div class="dash_block">
@@ -33,6 +26,7 @@
             <h4>Status</h4>
             <ul>
               <li><span>Status:</span> {{instance.status}}</li>
+              <li><span>Instance Name:</span> {{instance.name}}</li>
               <li><span>Instance ID:</span> {{instance.id}}</li>
             </ul>
           </div>
@@ -54,7 +48,6 @@
             <h4>Meta</h4>
             <ul>
               <li><span>Key name:</span> {{instance.attrs.key_name}}</li>
-              <li><span>Instance Name:</span> {{instance.name}}</li>
               <li><span>Security Group(s):</span> {% for group in instance.attrs.security_groups %}{{group}}, {% endfor %}</li>
               <li><span>Image Name:</span> {{instance.image_name}}</li>
             </ul>
