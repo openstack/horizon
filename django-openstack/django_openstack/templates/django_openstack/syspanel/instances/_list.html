@@ -1,7 +1,7 @@
 {% load parse_date %}
 <table id="instances" class="wide">
   <tr>
-    <th>Id</th>
+    <th>Name</th>
     <th>Tenant</th>
     <th>User</th>
     <th>Host</th>
@@ -13,7 +13,7 @@
   </tr>
   {% for instance in instances %}
     <tr id="{{instance.id}}" class="{% cycle "odd" "even" %}">
-      <td>{{instance.id}}</td>
+      <td><a href="{% url syspanel_instances_detail instance.id %}">{{instance.name}} <small>(id: {{instance.id}})</small></a></td>
       <td>{{instance.attrs.tenant_id}}</td>
       <td>{{instance.attrs.user_id}}</td>
       <td class="name">{{instance.attrs.host}}</td>

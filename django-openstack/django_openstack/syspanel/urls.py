@@ -33,6 +33,7 @@ urlpatterns = patterns('django_openstack.syspanel.views.instances',
         name='syspanel_tenant_usage'),
     url(r'^instances/$', 'index', name='syspanel_instances'),
     url(r'^instances/refresh$', 'refresh', name='syspanel_instances_refresh'),
+    url(INSTANCES % 'detail', 'detail', name='syspanel_instances_detail'),
     # NOTE(termie): currently just using the 'dash' versions
     #url(INSTANCES % 'console', 'console', name='syspanel_instances_console'),
     #url(INSTANCES % 'vnc', 'vnc', name='syspanel_instances_vnc'),
