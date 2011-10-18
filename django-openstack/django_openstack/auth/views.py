@@ -20,6 +20,7 @@
 
 import logging
 
+from django.conf import settings
 from django import template
 from django import shortcuts
 from django.contrib import messages
@@ -58,7 +59,6 @@ class Login(forms.SelfHandlingForm):
                     if t.id == data.get('tenant'):
                         tenant = t
             else:
-                # We are logging in without tenant
                 token = api.token_create(request,
                                          '',
                                          data['username'],
@@ -66,6 +66,7 @@ class Login(forms.SelfHandlingForm):
 
                 # Unscoped token
                 request.session['unscoped_token'] = token.id
+                request.user.username = data['username']
 
                 def get_first_tenant_for_user():
                     tenants = api.tenant_list_for_token(request, token.id)
@@ -82,9 +83,8 @@ class Login(forms.SelfHandlingForm):
                     return
 
                 # Create a token
-                token = api.token_create_scoped_with_token(request,
-                                         data.get('tenant', tenant.id),
-                                         token.id)
+                token = api.token_create_scoped(request, tenant.id, token.id)
+
 
             request.session['admin'] = is_admin(token)
             request.session['serviceCatalog'] = token.serviceCatalog

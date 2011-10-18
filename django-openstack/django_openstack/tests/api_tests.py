@@ -28,6 +28,7 @@ from django.conf import settings
 from django_openstack import api
 from glance import client as glance_client
 from mox import IsA
+from novaclient import service_catalog, client as base_client
 from novaclient.v1_1 import client
 from openstack import compute as OSCompute
 from openstackx import admin as OSAdmin
@@ -769,24 +770,28 @@ class AuthApiTests(test.TestCase):
         self.mox.VerifyAll()
 
     def test_token_create(self):
-        self.mox.StubOutWithMock(api, 'auth_api')
-        auth_api_mock = self.mox.CreateMockAnything()
-        api.auth_api().AndReturn(auth_api_mock)
-
-        tokens_mock = self.mox.CreateMockAnything()
-        auth_api_mock.tokens = tokens_mock
+        catalog = {
+                'access': {
+                    'token': {
+                        'id': TEST_TOKEN_ID,
+                    },
+                    'user': {
+                        'roles': [],
+                    }
+                }
+            }
+        self.mox.StubOutWithMock(base_client.HTTPClient, 'authenticate')
+        base_client.HTTPClient.authenticate()
+        base_client.HTTPClient.service_catalog = service_catalog.ServiceCatalog(catalog)
 
         test_token = Token(TEST_TOKEN_ID, TEST_USERNAME, TEST_TENANT_ID)
-
-        tokens_mock.create(TEST_TENANT_ID, TEST_USERNAME,
-                           TEST_PASSWORD).AndReturn(test_token)
 
         self.mox.ReplayAll()
 
         ret_val = api.token_create(self.request, TEST_TENANT_ID,
                                    TEST_USERNAME, TEST_PASSWORD)
 
-        self.assertEqual(test_token, ret_val)
+        self.assertEqual(test_token.tenant_id, ret_val.tenant_id)
 
         self.mox.VerifyAll()
 
