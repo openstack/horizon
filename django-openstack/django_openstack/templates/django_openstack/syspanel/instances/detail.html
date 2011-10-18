@@ -96,7 +96,7 @@
     })
 
     function getlog(){
-      $.get("{% url dash_instances_console request.user.tenant_id instance.id %}", function(data){
+      $.get("{% url dash_instances_console instance.attrs.tenant_id instance.id %}?length=25", function(data){
         $("#log .logs").html(data)
       })
     }

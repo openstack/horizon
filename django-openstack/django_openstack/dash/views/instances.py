@@ -228,7 +228,10 @@ def console(request, tenant_id, instance_id):
         length = request.GET.get('length', '')
         console = api.console_create(request, instance_id, 'text')
         response = http.HttpResponse(mimetype='text/plain')
-        response.write('\n'.join(console.output.split('\n')[-25:]))
+        if length:
+            response.write('\n'.join(console.output.split('\n')[-int(length):]))
+        else:
+            response.write(console.output)
         response.flush()
         return response
     except api_exceptions.ApiException, e:
