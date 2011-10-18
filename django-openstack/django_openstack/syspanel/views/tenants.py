@@ -114,7 +114,7 @@ class UpdateTenant(forms.SelfHandlingForm):
     name = forms.CharField(label="Name")
     description = forms.CharField(widget=forms.widgets.Textarea(),
             label="Description")
-    enabled = forms.BooleanField(label="Enabled")
+    enabled = forms.BooleanField(required=False, label="Enabled")
 
     def handle(self, request, data):
         try:
