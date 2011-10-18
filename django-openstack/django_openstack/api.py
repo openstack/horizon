@@ -50,6 +50,7 @@ import openstackx.auth
 from glance import client as glance_client
 from glance.common import exception as glance_exceptions
 from novaclient import client as base_nova_client
+from novaclient import exceptions as nova_exceptions
 from novaclient.v1_1 import client as nova_client
 from quantum import client as quantum_client
 
@@ -671,7 +672,17 @@ def token_create(request, tenant, username, password):
     c = base_nova_client.HTTPClient(username, password, tenant,
                                 settings.OPENSTACK_KEYSTONE_URL)
     c.version = 'v2.0'
-    c.authenticate()
+    try:
+        c.authenticate()
+    except nova_exceptions.AuthorizationFailure as e:
+        # When authenticating without a tenant, novaclient raises a KeyError
+        # (which is caught and raised again as an AuthorizationFailure)
+        # if no service catalog is returned. However, in this case if we got
+        # back a token we're good. If not then it really is a failure.
+        if c.service_catalog.get_token():
+            pass
+        else:
+            raise
     access = c.service_catalog.catalog['access']
     return Token(id=c.auth_token,
                  serviceCatalog=access.get('serviceCatalog', None),
