@@ -50,11 +50,11 @@ class CreatePort(forms.SelfHandlingForm):
                 api.quantum_create_port(request, data['network'])
         except Exception, e:
             messages.error(request,
-                           'Unable to create ports on network %s: %s' %
-                           (data['network'], e.message))
+                _('Unable to create ports on network %(network)s: %(msg)s') %
+                {"network": data['network'], "msg": e.message})
         else:
-            msg = '%s ports created on network %s.' % \
-                  (data['ports_num'], data['network'])
+            msg = _('%(num_ports)s ports created on network %(network)s.') % {
+                  "num_ports": data['ports_num'], "network": data['network']}
             LOG.info(msg)
             messages.success(request, msg)
 
@@ -72,11 +72,11 @@ class DeletePort(forms.SelfHandlingForm):
             api.quantum_delete_port(request, data['network'], data['port'])
         except Exception, e:
             messages.error(request,
-                           'Unable to delete port %s: %s' %
-                           (data['port'], e.message,))
+                           _('Unable to delete port %(port)s: %(msg)s') %
+                           {"port": data['port'], "msg": e.message})
         else:
-            msg = 'Port %s deleted from network %s.' % \
-                  (data['port'], data['network'])
+            msg = _('Port %(port)s deleted from network %(network)s.') % {
+                  "port": data['port'], "network": data['network']}
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())

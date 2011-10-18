@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="security_groups" %}
@@ -9,17 +10,19 @@
 {% block page_header %}
   {% url dash_security_groups request.user.tenant_id as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="Security Groups" refresh_link=refresh_link searchable="true" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Security Groups") refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
 
 {% block dash_main %}
   {% if security_groups %}
     {% include 'django_openstack/dash/security_groups/_list.html' %}
-    <a id="security_groups_create_link" class="action_link large-rounded" href="{% url dash_security_groups_create request.user.tenant_id %}">Create Security Group</a>
+    {% url dash_security_groups_create request.user.tenant_id as create_sec_url %}
+    <a id="security_groups_create_link" class="action_link large-rounded" href="{{create_sec_url}}">{% trans "Create Security Group"%}</a>
   {% else %}
     <div class="message_box info">
-      <h2>Info</h2>
-      <p>There are currently no security groups. <a href='{% url dash_security_groups_create request.user.tenant_id %}'>Create A Security Group &gt;&gt;</a></p>
+      {% url dash_security_groups_create request.user.tenant_id as dash_sec_url %}
+      <h2>{% trans "Info"%}</h2>
+      <p>{% blocktrans %}There are currently no security groups. <a href='{{dash_sec_url}}'>Create A Security Group &gt;&gt;</a>{% endblocktrans %}</p>
     </div>
   {% endif %}
 {% endblock %}

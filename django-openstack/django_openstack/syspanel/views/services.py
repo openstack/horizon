@@ -56,16 +56,17 @@ class ToggleService(forms.SelfHandlingForm):
                                data['service'],
                                not service.disabled)
             if service.disabled:
-                messages.info(request, "Service '%s' has been enabled"
+                messages.info(request, _("Service '%s' has been enabled")
                                         % data['name'])
             else:
-                messages.info(request, "Service '%s' has been disabled"
+                messages.info(request, _("Service '%s' has been disabled")
                                         % data['name'])
         except api_exceptions.ApiException, e:
             LOG.exception('ApiException while toggling service %s' %
                       data['service'])
-            messages.error(request, "Unable to update service '%s': %s"
-                                     % data['name'], e.message)
+            messages.error(request,
+                           _("Unable to update service '%(name)s': %(msg)s")
+                           % {"name": data['name'], "msg": e.message})
 
         return redirect(request.build_absolute_uri())
 
@@ -83,7 +84,8 @@ def index(request):
         services = api.service_list(request)
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException fetching service list')
-        messages.error(request, 'Unable to get service info: %s' % e.message)
+        messages.error(request,
+                       _('Unable to get service info: %s') % e.message)
 
     other_services = []
 

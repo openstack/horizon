@@ -7,491 +7,1902 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-08 14:01+0900\n"
+"POT-Creation-Date: 2011-10-11 14:12+0900\n"
 "PO-Revision-Date: 2011-09-24 14:41+0100\n"
 "Last-Translator: Tomasz 'Zen' Napierala <tomasz@napierala.org>\n"
-"Language-Team: Polish OpenStack translations team <tomasz+openstack-i18n@napierala.org>\n"
+"Language-Team: Polish OpenStack translations team <tomasz+openstack-"
+"i18n@napierala.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: management/commands/createnovausers.py:31
-msgid "Creates nova users for all users in the django auth database."
-msgstr "Tworzy użytkowników nova dla wszystkich użytkowników w baze django."
+#: auth/views.py:37
+msgid "User Name"
+msgstr ""
 
-#: management/commands/createnovausers.py:38
-#, python-format
-msgid "creating user %s... "
-msgstr "tworzenie użytkownika %s..."
+#: auth/views.py:38
+msgid "Password"
+msgstr ""
 
-#: nova/forms.py:64
-#: nova/forms.py:78
-msgid "none available"
-msgstr "brak dostępnych"
-
-#: nova/forms.py:182
-#, python-format
-msgid "A key named %s already exists."
-msgstr "Klucz o nazwie %s już istnieje."
-
-#: nova/forms.py:196
-#, python-format
-msgid "A security group named %s already exists."
-msgstr "Grupa bezpieczeństwa %s juz istnieje."
-
-#: nova/shortcuts.py:43
-msgid "User not authenticated"
+#: auth/views.py:105
+#, fuzzy, python-format
+msgid "Error authenticating: %s"
 msgstr "Użytkownik nie jest uwierzytelniony"
 
-#: nova/shortcuts.py:50
+#: auth/views.py:110
 #, python-format
-msgid "Project %s does not exist."
-msgstr "Projekt %s nie istnieje."
+msgid "Error authenticating with keystone: %s"
+msgstr ""
 
-#: nova/views/admin.py:96
-#, python-format
-msgid "Successfully started VPN for project %(proj)s."
-msgstr "Pomyślnie uruchomiono VPN dla projektu %(proj)s."
-
-#: nova/views/admin.py:100
-#, python-format
-msgid "Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s"
-msgstr "Nie można uruchomić VPN dla projektu  %(proj)s: %(code)s - %(msg)s"
-
-#: nova/views/admin.py:140
-#, python-format
-msgid "Successfully modified the project %(proj)s."
-msgstr "Pomyślnie zmodyfikowano projekt %(proj)s."
-
-#: nova/views/admin.py:145
-#, python-format
-msgid "Unable modify the project %(proj)s: %(code)s - %(msg)s"
-msgstr "Nie można zmodyfikować projektu %(proj)s: %(code)s - %(msg)s"
-
-#: nova/views/images.py:94
-#, python-format
-msgid "Unable to launch: %s"
-msgstr "Nie można uruchomić: %s"
-
-#: nova/views/images.py:106
-#, python-format
-msgid "Instance %s launched."
-msgstr "Instancja %s uruchomiona."
-
-#: nova/views/images.py:157
-#, python-format
-msgid "Unable to deregister image: %s"
-msgstr "Nie można wyrejestrować obrazu: %s"
-
-#: nova/views/images.py:163
-#, python-format
-msgid "Image %s has been successfully deregistered."
-msgstr "Obraz %s został pomyślnie wyrejestrowany."
-
-#: nova/views/images.py:188
-#, python-format
-msgid "Unable to make image private: %s"
-msgstr "Nie można ustawić widoczności obrazu na prywatną: %s"
-
-#: nova/views/images.py:202
-#, python-format
-msgid "Unable to make image public: %s"
-msgstr "Nie można ustawić widoczności obrazu na publiczną: %s"
-
-#: nova/views/images.py:228
-#, python-format
-msgid "Unable to update image: %s"
-msgstr "Nie można zaktualizować obrazu: %s"
-
-#: nova/views/images.py:231
-#, python-format
-msgid "Image %s has been updated."
-msgstr "Obraz %s został zaktualizowany."
-
-#: nova/views/instances.py:145
-#, python-format
-msgid "Unable to terminate %(inst)s: %(msg)s"
-msgstr "Nie można zakończyć %(inst)s: %(msg)s"
-
-#: nova/views/instances.py:156
-#, python-format
-msgid "Instance %(inst)s has been terminated."
-msgstr "Instancja %(inst)s została zakończona."
-
-#: nova/views/instances.py:220
-#, python-format
-msgid "Unable to update instance %(inst)s: %(msg)s"
-msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
-
-#: nova/views/instances.py:232
-#, python-format
-msgid "Instance %(inst)s has been updated."
-msgstr "Instancja %(inst)s została zaktualizowana."
-
-#: nova/views/keypairs.py:67
-#, python-format
-msgid "Unable to create key: %s"
-msgstr "Nie można utworzyć klucza: %s"
-
-#: nova/views/keypairs.py:112
-#, python-format
-msgid "Unable to delete key: %s"
+#: dash/views/containers.py:49
+#, fuzzy, python-format
+msgid "Unable to delete non-empty container: %s"
 msgstr "Nie można usunąć klucza: %s"
 
-#: nova/views/keypairs.py:117
-#, python-format
-msgid "Key %s has been successfully deleted."
-msgstr "Klucz %s został pomyślnie usunięty."
-
-#: nova/views/regions.py:39
-#, python-format
-msgid "You are now using the region \"%s\"."
-msgstr "Używasz teraz regionu \"%s\"."
-
-#: nova/views/securitygroups.py:85
-#, python-format
-msgid "Unable to create security group: %s"
-msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
-
-#: nova/views/securitygroups.py:92
-#, python-format
-msgid "Security Group %s has been succesfully created."
-msgstr "Grupa bezpieczeństwa %s została pomyślnie utworzona."
-
-#: nova/views/securitygroups.py:125
-#, python-format
-msgid "Unable to authorize: %s"
-msgstr "Nie można autoryzować: %s"
-
-#: nova/views/securitygroups.py:136
-#, python-format
-msgid "Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has been authorized."
-msgstr "Grupa bezpieczeństwa %(grp)s: Dostęp do %(proto)s porty %(fr)d - %(to)d został autoryzowany."
-
-#: nova/views/securitygroups.py:177
-#, python-format
-msgid "Unable to revoke: %s"
-msgstr "Nie można cofnąć: %s"
-
-#: nova/views/securitygroups.py:186
-#, python-format
-msgid "Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has been revoked."
-msgstr "Grupa bezpieczeństwa %(grp)s: Dostęp do %(proto)s porty %(fr)d - %(to)d został cofnięty."
-
-#: nova/views/securitygroups.py:210
-#, python-format
-msgid "Unable to delete security group: %s"
-msgstr "Nie można usunąć grupy bezpieczeństwa: %s"
-
-#: nova/views/securitygroups.py:215
-#, python-format
-msgid "Security Group %s was successfully deleted."
-msgstr "Grupa bezpieczeństwa %s została pomyślnie usunięta."
-
-#: nova/views/volumes.py:69
-#, python-format
-msgid "Unable to create volume: %s"
-msgstr "Nie można utworzyć wolumenu: %s"
-
-#: nova/views/volumes.py:77
-#, python-format
-msgid "Volume %(id)s %(name)s has been successfully created."
+#: dash/views/containers.py:65
+#, fuzzy
+msgid "Container was successfully created."
 msgstr "Wolumen %(id)s %(name)s został pomyślnie utworzony."
 
-#: nova/views/volumes.py:108
+#: dash/views/floating_ips.py:47
 #, python-format
-msgid "Unable to delete volume: %s"
-msgstr "Nie można usunąć wolumenu: %s"
+msgid "Successfully released Floating IP: %s"
+msgstr ""
 
-#: nova/views/volumes.py:114
-#, python-format
-msgid "Volume %s has been successfully deleted."
-msgstr "Wolumen %s został pomyślnie usunięty."
-
-#: nova/views/volumes.py:138
-#, python-format
-msgid "Unable to attach volume: %s"
-msgstr "Nie można dołączyć wolumenu: %s"
-
-#: nova/views/volumes.py:145
-#, python-format
-msgid "Volume %s is scheduled to be attached.  If it doesn't become attached in two minutes,  please try again (you may need to specify a different device)."
-msgstr "Wolumen %s został zaplanowany do dołączenia. Jeśli nie zostanie dołączony w ciągu 2 minut, należy spróbować ponownie (może zajść potrzeba podania innego urządzenia)"
-
-#: nova/views/volumes.py:179
-#, python-format
-msgid "Unable to detach volume: %s"
-msgstr "Nie można odłączyć wolumenu: %s"
-
-#: nova/views/volumes.py:185
-#, python-format
-msgid "Volume %s has been successfully detached."
-msgstr "Wolumen %s został pomyślnie odłączony."
-
-#: templates/admin/django_openstack/nova/project/delete_project.html:13
-msgid "Delete Project"
-msgstr "Usuń projekt"
-
-#: templates/admin/django_openstack/nova/project/delete_project.html:14
-msgid "Do you really want to delete this project?<"
-msgstr "Czy na pewno chcesz usunąć ten projekt?<"
-
-#: templates/admin/django_openstack/nova/project/delete_project_user.html:8
-msgid "Delete"
-msgstr "Usuń"
-
-#: templates/admin/django_openstack/nova/project/delete_project_user.html:13
-#: templates/admin/django_openstack/nova/project/project_user.html:67
-msgid "Remove User From Project"
-msgstr "Usuń użytkownika z projektu"
-
-#: templates/admin/django_openstack/nova/project/delete_project_user.html:14
-msgid "Do you really want to remove this user from project?"
-msgstr "Czy na pewno chcesz usunąć tego użytkownika z projektu?"
-
-#: templates/admin/django_openstack/nova/project/send_credentials.html:46
-#: templates/admin/django_openstack/nova/project/send_credentials.html:81
-msgid "Send Credentials"
-msgstr "Wyślij dane uwierzytelniające"
-
-#: templates/admin/django_openstack/nova/project/send_credentials.html:47
-#, python-format
-msgid "\"Select which users you would like to send credentials to from the '%(proj)s' project.\""
-msgstr "\"Wybierz użytkowników, którym chcesz wysłać dane uwierzytelniające do '%(proj)s' project.\""
-
-#: templates/admin/django_openstack/nova/project/send_credentials.html:49
-msgid "Credentials sent successfully"
-msgstr "Pomyślnie wysłano dane uwierzytelniające."
-
-#: templates/django_openstack/nova/credentials/expired.html:6
-msgid "Expired Token"
-msgstr "Token stracił ważność"
-
-#: templates/django_openstack/nova/credentials/expired.html:10
-msgid "The link you clicked has expired."
-msgstr "Odnośnik, na który kliknąłeś stracił ważność."
-
-#: templates/django_openstack/nova/credentials/expired.html:12
+#: dash/views/floating_ips.py:76
 #, python-format
 msgid ""
-"This credentials download link you have reached\n"
-"      is either invalid or has expired. Each link is only good for one use. If\n"
-"      you need to download your credentials again, please contact the\n"
-"      %(brand)s support team."
+"Successfully associated Floating IP:                                     "
+"%(ip)s with Instance: %(inst)s"
 msgstr ""
-"Odnośnik do danych uwierzytelniających, którego\n"
-"      którego użyłeś jest nieprawidłowy lub wygasł. Każdy odnośnik może\n"
-"      być użyty tylko raz. Jeśli musisz ponownie pobrać dane uwierzytelniające\n"
-"      skontaktuj się z zespołem wsparcia %(brand)s."
 
-#: templates/django_openstack/nova/images/_list.html:70
-msgid "Make Private"
-msgstr "Uczyń prywatnym"
+#: dash/views/floating_ips.py:99
+#, python-format
+msgid "Successfully disassociated Floating IP: %s"
+msgstr ""
 
-#: templates/django_openstack/nova/images/_list.html:72
-msgid "Make Public"
-msgstr "Uczyń publicznym"
+#: dash/views/floating_ips.py:103
+#, python-format
+msgid "Error disassociating Floating IP: %s"
+msgstr ""
 
-#: templates/django_openstack/nova/images/_list.html:80
-msgid "Remove Image"
-msgstr "Usuń obraz"
+#: dash/views/floating_ips.py:118
+#, python-format
+msgid ""
+"Successfully allocated Floating IP \"%(ip)s\"                                "
+"to tenant \"%(tenant)s\""
+msgstr ""
 
-#: templates/django_openstack/nova/images/_list.html:110
-msgid "No images currently available."
-msgstr "Brak dostępnych obrazów."
+#: dash/views/floating_ips.py:142
+#, python-format
+msgid "Error fetching floating ips: %s"
+msgstr ""
 
-#: templates/django_openstack/nova/images/edit.html:13
-msgid "Edit Image"
-msgstr "Edytuj obraz"
+#: dash/views/images.py:59
+#, fuzzy, python-format
+msgid "Unable to retreive image info from glance: %s"
+msgstr "Nie można wyrejestrować obrazu: %s"
 
-#: templates/django_openstack/nova/images/edit.html:14
-msgid "From this page you can edit the name and description of an image that belongs to you."
-msgstr "Na tej stronie można edytować nazwę i opis własnego obrazu."
+#: dash/views/images.py:61
+#, python-format
+msgid "Error updating image with id: %s"
+msgstr ""
 
-#: templates/django_openstack/nova/images/edit.html:18
-msgid "Edit Image:"
-msgstr "Edytuj obraz:"
+#: dash/views/images.py:66 dash/views/images.py:95
+msgid "Error connecting to glance"
+msgstr ""
 
-#: templates/django_openstack/nova/images/edit.html:29
-msgid "Update Image"
-msgstr "Aktualizuj obraz"
+#: dash/views/images.py:92 syspanel/views/images.py:159
+#, fuzzy
+msgid "Image was successfully updated."
+msgstr "Obraz %s został pomyślnie wyrejestrowany."
 
-#: templates/django_openstack/nova/images/index.html:4
-msgid "Launch an Image"
-msgstr "Uruchom obraz"
+#: dash/views/images.py:101
+msgid "Unspecified Exception in image update"
+msgstr ""
 
-#: templates/django_openstack/nova/images/index.html:14
-msgid "Images"
-msgstr "Obrazy"
+#: dash/views/images.py:105
+msgid ""
+"Unable to update image. You are not "
+"its                                       owner."
+msgstr ""
 
-#: templates/django_openstack/nova/images/index.html:15
-msgid "Images are snapshots of running systems which can easily be deployed to run one or more instances."
-msgstr "Obrazy są zrzutami działających systemów, które łatwo można użyć do uruchamiania nowych instancji."
+#: dash/views/instances.py:58
+#, fuzzy, python-format
+msgid "Unable to terminate %(inst)s: %(message)s"
+msgstr "Nie można zakończyć %(inst)s: %(msg)s"
 
-#: templates/django_openstack/nova/images/launch.html:13
-#: templates/django_openstack/nova/images/launch.html:21
-msgid "Launch Image"
-msgstr "Uruchom obraz"
+#: dash/views/instances.py:61
+#, fuzzy, python-format
+msgid "Instance %s has been terminated."
+msgstr "Instancja %(inst)s została zakończona."
 
-#: templates/django_openstack/nova/images/launch.html:14
-msgid "You can launch up to five instances of an image at a time. Some images allow for custom configuration to be passed in via User data."
-msgstr "Można uruchomić do 5 instancji obrazu na raz. Niektóre obraz umożliwiają przekazywanie własnej konfiguracji poprzez Dane użytkownika."
+#: dash/views/instances.py:80
+#, fuzzy, python-format
+msgid "Unable to reboot instance: %s"
+msgstr "Nie można cofnąć: %s"
 
-#: templates/django_openstack/nova/images/launch.html:23
-msgid "Location"
-msgstr "Położenie"
+#: dash/views/instances.py:83
+#, fuzzy, python-format
+msgid "Instance %s has been rebooted."
+msgstr "Instancja %(inst)s została zaktualizowana."
 
-#: templates/django_openstack/nova/instances/_instances_list.html:102
-msgid "No instances are currently running. You may start a new instance from the"
-msgstr "Brak uruchomionych instancji. Można uruchomić nową instancję z"
+#: dash/views/instances.py:108
+#, fuzzy, python-format
+msgid "Unable to update instance: %s"
+msgstr "Nie można zaktualizować obrazu: %s"
 
-#: templates/django_openstack/nova/instances/detail_list.html:10
-msgid "Instance ID:"
-msgstr "ID instancji:"
+#: dash/views/instances.py:125 dash/views/instances.py:147
+#: syspanel/views/instances.py:193 syspanel/views/instances.py:221
+#, fuzzy, python-format
+msgid "Unable to get instance list: %s"
+msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
 
-#: templates/django_openstack/nova/instances/detail_list.html:11
-msgid "Here you can see up to the minute performance data about your instance."
-msgstr "Tutaj można obejrzeć minutowe dane nt. wydajności instancji."
+#: dash/views/instances.py:180 syspanel/views/flavors.py:95
+#: syspanel/views/instances.py:146
+#, fuzzy, python-format
+msgid "Unable to get usage info: %s"
+msgstr "Nie można ustawić widoczności obrazu na publiczną: %s"
 
-#: templates/django_openstack/nova/instances/detail_list.html:18
-#: templates/django_openstack/nova/instances/edit.html:18
-msgid "Edit Instance:"
-msgstr "Edytuj instancję:"
+#: dash/views/instances.py:253
+#, fuzzy, python-format
+msgid "Unable to get vnc console for instance %(inst)s: %(message)s"
+msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
 
-#: templates/django_openstack/nova/instances/detail_list.html:29
-#: templates/django_openstack/nova/instances/edit.html:29
-msgid "Update Instance"
-msgstr "Aktualizuj instncję"
+#: dash/views/instances.py:265
+#, fuzzy, python-format
+msgid "Unable to get information for instance %(inst)s: %(message)s"
+msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
 
-#: templates/django_openstack/nova/instances/edit.html:13
-msgid "Edit Instance"
-msgstr "Edytuj instancję"
+#: dash/views/keypairs.py:49
+#, fuzzy, python-format
+msgid "Successfully deleted keypair: %s"
+msgstr "Pomyślnie zmodyfikowano projekt %(proj)s."
 
-#: templates/django_openstack/nova/instances/edit.html:14
-msgid "From this page you can give your instance an alias, so you don't have to remember its unique id."
-msgstr "Tutaj można nadać instancji alias dla łatwiejszego jej odróżnienia."
+#: dash/views/keypairs.py:54
+#, fuzzy, python-format
+msgid "Error deleting keypair: %s"
+msgstr "Nie można usunąć klucza: %s"
 
-#: templates/django_openstack/nova/instances/index.html:11
+#: dash/views/keypairs.py:75
+#, python-format
+msgid "Error Creating Keypair: %s"
+msgstr ""
+
+#: dash/views/keypairs.py:89
+#, python-format
+msgid "Successfully imported public key: %s"
+msgstr ""
+
+#: dash/views/keypairs.py:95
+#, python-format
+msgid "Error Importing Keypair: %s"
+msgstr ""
+
+#: dash/views/keypairs.py:111
+#, python-format
+msgid "Error fetching keypairs: %s"
+msgstr ""
+
+#: dash/views/networks.py:60
+#, fuzzy, python-format
+msgid "Unable to create network %(network)s: %(msg)s"
+msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#: dash/views/networks.py:64
+#, fuzzy, python-format
+msgid "Network %s has been created."
+msgstr "Obraz %s został zaktualizowany."
+
+#: dash/views/networks.py:80
+#, fuzzy, python-format
+msgid "Unable to delete network %(network)s: %(msg)s"
+msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#: dash/views/networks.py:102
+#, fuzzy, python-format
+msgid "Unable to rename network %(network)s: %(msg)s"
+msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#: dash/views/networks.py:105
+#, python-format
+msgid "Network %(net)s has been renamed to %(new_name)s."
+msgstr ""
+
+#: dash/views/networks.py:138
+#, fuzzy, python-format
+msgid "Unable to get network list: %s"
+msgstr "Nie można cofnąć: %s"
+
+#: dash/views/networks.py:174
+#, fuzzy, python-format
+msgid "Unable to get network details: %s"
+msgstr "Nie można cofnąć: %s"
+
+#: dash/views/objects.py:54
+#, python-format
+msgid "There are no objects matching that prefix in %s"
+msgstr ""
+
+#: dash/views/objects.py:70
+#, fuzzy, python-format
+msgid "Successfully deleted object: %s"
+msgstr "Pomyślnie zmodyfikowano projekt %(proj)s."
+
+#: dash/views/objects.py:87
+#, fuzzy
+msgid "Object was successfully uploaded."
+msgstr "Grupa bezpieczeństwa %s została pomyślnie usunięta."
+
+#: dash/views/objects.py:118
+#, python-format
+msgid "Object was successfully copied to %(container)s\\%(obj)s"
+msgstr ""
+
+#: dash/views/ports.py:53
+#, fuzzy, python-format
+msgid "Unable to create ports on network %(network)s: %(msg)s"
+msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#: dash/views/ports.py:56
+#, python-format
+msgid "%(num_ports)s ports created on network %(network)s."
+msgstr ""
+
+#: dash/views/ports.py:75
+#, fuzzy, python-format
+msgid "Unable to delete port %(port)s: %(msg)s"
+msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#: dash/views/ports.py:78
+#, python-format
+msgid "Port %(port)s deleted from network %(network)s."
+msgstr ""
+
+#: dash/views/security_groups.py:56
+#, fuzzy, python-format
+msgid "Successfully created security_group: %s"
+msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#: dash/views/security_groups.py:62
+#, fuzzy, python-format
+msgid "Error creating security group: %s"
+msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#: dash/views/security_groups.py:76
+#, fuzzy, python-format
+msgid "Successfully deleted security_group: %s"
+msgstr "Nie można usunąć grupy bezpieczeństwa: %s"
+
+#: dash/views/security_groups.py:80
+#, fuzzy, python-format
+msgid "Error deleting security group: %s"
+msgstr "Nie można usunąć grupy bezpieczeństwa: %s"
+
+#: dash/views/security_groups.py:113
+#, fuzzy, python-format
+msgid "Error adding rule security group: %s"
+msgstr "Nie można usunąć grupy bezpieczeństwa: %s"
+
+#: dash/views/security_groups.py:131
+#, fuzzy, python-format
+msgid "Successfully deleted rule: %s"
+msgstr "Pomyślnie zmodyfikowano projekt %(proj)s."
+
+#: dash/views/security_groups.py:135
+#, fuzzy, python-format
+msgid "Error authorizing security group: %s"
+msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#: dash/views/security_groups.py:153
+#, fuzzy, python-format
+msgid "Error fetching security_groups: %s"
+msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#: dash/views/snapshots.py:62
+#, python-format
+msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
+msgstr ""
+
+#: dash/views/snapshots.py:79 syspanel/views/images.py:49
+#: syspanel/views/images.py:67 syspanel/views/images.py:109
+#: syspanel/views/images.py:130 syspanel/views/images.py:163
+#: syspanel/views/images.py:227
+#, python-format
+msgid "Error connecting to glance: %s"
+msgstr ""
+
+#: dash/views/snapshots.py:83 syspanel/views/images.py:113
+#, python-format
+msgid "Error retrieving image list: %s"
+msgstr ""
+
+#: dash/views/snapshots.py:111
+#, python-format
+msgid ""
+"To snapshot, instance state must be                                  one of "
+"the following: %s"
+msgstr ""
+
+#: middleware/keystone.py:77
+msgid "Your token has expired. Please log in again"
+msgstr ""
+
+#: syspanel/views/flavors.py:57
+#, fuzzy, python-format
+msgid "%s was successfully added to flavors."
+msgstr "Klucz %s został pomyślnie usunięty."
+
+#: syspanel/views/flavors.py:72
+#, python-format
+msgid "Successfully deleted flavor: %s"
+msgstr ""
+
+#: syspanel/views/flavors.py:75
+#, fuzzy, python-format
+msgid "Unable to delete flavor: %s"
+msgstr "Nie można usunąć wolumenu: %s"
+
+#: syspanel/views/images.py:52
+#, python-format
+msgid "Error deleting image: %s"
+msgstr ""
+
+#: syspanel/views/images.py:70 syspanel/views/images.py:167
+#, fuzzy, python-format
+msgid "Error updating image: %s"
+msgstr "Nie można zaktualizować obrazu: %s"
+
+#: syspanel/views/images.py:105
+#: templates/django_openstack/dash/images/index.html:22
+#, fuzzy
+msgid "There are currently no images."
+msgstr "Brak istniejących par kluczy."
+
+#: syspanel/views/images.py:134
+#, python-format
+msgid "Error retrieving image %(image)s: %(msg)s"
+msgstr ""
+
+#: syspanel/views/images.py:171
+msgid "Image could not be updated, please try again."
+msgstr ""
+
+#: syspanel/views/images.py:176 syspanel/views/images.py:235
+msgid "Image could not be uploaded, please try agian."
+msgstr ""
+
+#: syspanel/views/images.py:215
+#, fuzzy
+msgid "Image was successfully uploaded."
+msgstr "Obraz %s został pomyślnie wyrejestrowany."
+
+#: syspanel/views/images.py:219
+msgid "Image could not be uploaded, please try again."
+msgstr ""
+
+#: syspanel/views/images.py:231
+#, python-format
+msgid "Error adding image: %s"
+msgstr ""
+
+#: syspanel/views/instances.py:92 syspanel/views/instances.py:131
+msgid "No data for the selected period"
+msgstr ""
+
+#: syspanel/views/services.py:59
+#, fuzzy, python-format
+msgid "Service '%s' has been enabled"
+msgstr "Obraz %s został zaktualizowany."
+
+#: syspanel/views/services.py:62
+#, fuzzy, python-format
+msgid "Service '%s' has been disabled"
+msgstr "Obraz %s został zaktualizowany."
+
+#: syspanel/views/services.py:68
+#, fuzzy, python-format
+msgid "Unable to update service '%(name)s': %(msg)s"
+msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
+
+#: syspanel/views/services.py:88
+#, fuzzy, python-format
+msgid "Unable to get service info: %s"
+msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#: syspanel/views/tenants.py:60
+#, fuzzy, python-format
+msgid "Unable to create user association: %s"
+msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#: syspanel/views/tenants.py:80 syspanel/views/tenants.py:106
+#, fuzzy, python-format
+msgid "Unable to create tenant: %s"
+msgstr "Nie można utworzyć klucza: %s"
+
+#: syspanel/views/tenants.py:100 syspanel/views/users.py:202
+#, fuzzy, python-format
+msgid "%s was successfully created."
+msgstr "Klucz %s został pomyślnie usunięty."
+
+#: syspanel/views/tenants.py:136 syspanel/views/tenants.py:222
+#, fuzzy, python-format
+msgid "Unable to update tenant: %s"
+msgstr "Nie można zaktualizować obrazu: %s"
+
+#: syspanel/views/tenants.py:168
+#, fuzzy, python-format
+msgid "Quotas for %s were successfully updated."
+msgstr "Grupa bezpieczeństwa %s została pomyślnie usunięta."
+
+#: syspanel/views/tenants.py:172
+#, fuzzy, python-format
+msgid "Unable to update quotas: %s"
+msgstr "Nie można zaktualizować obrazu: %s"
+
+#: syspanel/views/tenants.py:184
+#, fuzzy, python-format
+msgid "Unable to get tenant info: %s"
+msgstr "Nie można utworzyć klucza: %s"
+
+#: syspanel/views/users.py:68
+#, fuzzy, python-format
+msgid "%(user)s was successfully deleted."
+msgstr "Klucz %s został pomyślnie usunięty."
+
+#: syspanel/views/users.py:108
+#, fuzzy, python-format
+msgid "Unable to list users: %s"
+msgstr "Nie można usunąć klucza: %s"
+
+#: syspanel/views/users.py:146
+#, fuzzy
+msgid "Unable to update user, please try again."
+msgstr "Nie można zaktualizować obrazu: %s"
+
+#: syspanel/views/users.py:184
+#, fuzzy, python-format
+msgid "Unable to retrieve tenant list: %s"
+msgstr "Nie można utworzyć klucza: %s"
+
+#: syspanel/views/users.py:212
+#, python-format
+msgid "Error assigning role to user: %s"
+msgstr ""
+
+#: syspanel/views/users.py:222
+#, fuzzy, python-format
+msgid "Error creating user: %s"
+msgstr "tworzenie użytkownika %s..."
+
+#: templates/django_openstack/auth/_login.html:14
+#: templates/django_openstack/auth/_switch.html:14
+msgid "Login"
+msgstr ""
+
+#: templates/django_openstack/common/_page_header.html:12
+msgid "Search"
+msgstr ""
+
+#: templates/django_openstack/common/_page_header.html:17
+msgid "Refresh"
+msgstr ""
+
+#: templates/django_openstack/common/_page_header.html:17
+#: templates/django_openstack/dash/objects/index.html:17
+msgid "Refresh List"
+msgstr ""
+
+#: templates/django_openstack/common/instances/_reboot.html:8
+msgid "Reboot"
+msgstr ""
+
+#: templates/django_openstack/common/instances/_terminate.html:8
+msgid "Terminate"
+msgstr ""
+
+#: templates/django_openstack/dash/_sidebar.html:5
+msgid "Manage Compute"
+msgstr ""
+
+#: templates/django_openstack/dash/_sidebar.html:7
+#: templates/django_openstack/dash/instances/usage.html:14
+#: templates/django_openstack/syspanel/_sidebar.html:7
+msgid "Overview"
+msgstr ""
+
+#: templates/django_openstack/dash/_sidebar.html:8
+#: templates/django_openstack/dash/images/launch.html:37
+#: templates/django_openstack/dash/instances/index.html:13
+#: templates/django_openstack/syspanel/_sidebar.html:9
+#: templates/django_openstack/syspanel/instances/index.html:13
+#: templates/django_openstack/syspanel/instances/usage.html:77
 msgid "Instances"
 msgstr "Instancje"
 
-#: templates/django_openstack/nova/instances/index.html:12
-msgid "Instances are virtual servers launched from images. You can launch instances from the"
-msgstr "Instancje są wirtualnymi serwerami uruchomionymi z obrazów. Można uruchamiać instancje z"
+#: templates/django_openstack/dash/_sidebar.html:9
+#: templates/django_openstack/dash/images/index.html:12
+#: templates/django_openstack/syspanel/_sidebar.html:11
+#: templates/django_openstack/syspanel/images/index.html:13
+msgid "Images"
+msgstr "Obrazy"
 
-#: templates/django_openstack/nova/instances/index.html:22
-msgid "Are you sure you wish to terminate instance"
-msgstr "Jesteś pewien, że chcesz usunąć instancję"
+#: templates/django_openstack/dash/_sidebar.html:10
+#: templates/django_openstack/dash/snapshots/index.html:13
+msgid "Snapshots"
+msgstr ""
 
-#: templates/django_openstack/nova/instances/index.html:26
-msgid "A connection error has occurred. Please ensure you are still connected to VPN."
-msgstr "Wystąpił błąd połączenia. Należy sprawdzić połączenie VPN."
+#: templates/django_openstack/dash/_sidebar.html:11
+#: templates/django_openstack/dash/keypairs/index.html:13
+msgid "Keypairs"
+msgstr ""
 
-#: templates/django_openstack/nova/instances/performance.html:10
-#, python-format
-msgid "Instance ID: %(instance.id)s Performance\" "
-msgstr "ID instancji: %(instance.id)s wydajność\" "
+#: templates/django_openstack/dash/_sidebar.html:12
+#: templates/django_openstack/dash/floating_ips/index.html:13
+#: templates/django_openstack/dash/images/launch.html:33
+msgid "Floating IPs"
+msgstr ""
 
-#: templates/django_openstack/nova/keypairs/_list.html:28
-msgid "No key pairs currently exist."
-msgstr "Brak istniejących par kluczy."
-
-#: templates/django_openstack/nova/keypairs/index.html:13
-msgid "Keys"
-msgstr "Klucze"
-
-#: templates/django_openstack/nova/keypairs/index.html:14
-msgid "Key pairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a pem file). <em>Protect and use the key as a normal private key.</em>"
-msgstr "Pary kluczy to dane uwierzytelniające ssh, które są wstrzykiwane do instancji podczas uruchomienia. Utworzenie nowej pary rejestruje klucz publiczny umożliwia pobranie klucza prywatnego (pliku pem). <em>Należy chronić i używać ten klucza tak jak normalnego klucza prywantego.</em>"
-
-#: templates/django_openstack/nova/keypairs/index.html:36
-msgid "Are you sure you wish to delete key"
-msgstr "Czy na pewno usunąć klucz"
-
-#: templates/django_openstack/nova/projects/edit_user.html:24
-msgid "Edit User Roles"
-msgstr "Edytuj role użytkowników"
-
-#: templates/django_openstack/nova/projects/edit_user.html:25
-msgid "From here you can edit multiple user roles."
-msgstr "Tutaj można edytować wiele ról użytkowników."
-
-#: templates/django_openstack/nova/projects/edit_user.html:35
-msgid "Edit Roles for User:"
-msgstr "Edytuj role dla użytkownika:"
-
-#: templates/django_openstack/nova/projects/edit_user.html:67
-#: templates/django_openstack/nova/projects/manage.html:39
-msgid "No users are currently associated with this project."
-msgstr "Brak użytkowników aktualnie powiązanych z projektem."
-
-#: templates/django_openstack/nova/projects/index.html:14
-#, python-format
-msgid "Welcome to the <span>%(proj)s</span> Overview.  From here you can manage your instances, images, keys, and security groups."
-msgstr "Witaj w posumowaniu <span>%(proj)s</span>. Tutaj można zarządzać swoimi instancjami, obrazami, kluczami i grupami bezpieczeństwa."
-
-#: templates/django_openstack/nova/projects/index.html:15
-msgid "To get started using the command line management tools, you can <a target=\"_blank\" href=\"http://open.eucalyptus.com/wiki/Euca2oolsGuide_v1.1\">download euca2ools</a> and use them with your x509 credentials."
-msgstr "Aby zacząć pracę z narzędziami linii poleceń, możesz <a target=\"_blank\" href=\"http://open.eucalyptus.com/wiki/Euca2oolsGuide_v1.1\">pobrać euca2ools</a> i używać ich z danymi uwierzytelniającymi x509."
-
-#: templates/django_openstack/nova/projects/index.html:21
-msgid "Generate X509 credentials."
-msgstr "Wygeneruj dane uwierzytelniające x509."
-
-#: templates/django_openstack/nova/projects/index.html:22
-msgid "View Instances"
-msgstr "Zobacz instancje"
-
-#: templates/django_openstack/nova/projects/index.html:23
-msgid "View Images."
-msgstr "Zobacz obrazy"
-
-#: templates/django_openstack/nova/projects/manage.html:8
-msgid "Manage Users and Roles"
-msgstr "Zarządzaj użytkownikami i rolami"
-
-#: templates/django_openstack/nova/projects/manage.html:9
-msgid "From here you can manage users and roles."
-msgstr "Tutaj można zarządzać użytkownikami i rolami."
-
-#: templates/django_openstack/nova/securitygroups/detail.html:19
-#, python-format
-msgid " Security Group: %(securitygroup.name)s "
-msgstr "Grup abezpieczeństwa: %(securitygroup.name)s "
-
-#: templates/django_openstack/nova/securitygroups/detail.html:20
-msgid "Add and remove protocols to the security group by authorizing and revoking port forwarding. For instance<br /> [tcp, 80, 80] will allow access to HTTP from devices outside this security group."
-msgstr "Dodawaj i usuwaj protokoły do grupy bezpieczeństwa poprzez dopuszczanie lub blokowanie przekazywania portów. Na przykład <br /> [tcp, 80, 80] pozwoli na dostęp do HTTP dla urządzeń spoza tej grupy bezpieczeństwa."
-
-#: templates/django_openstack/nova/securitygroups/index.html:19
+#: templates/django_openstack/dash/_sidebar.html:13
+#: templates/django_openstack/dash/security_groups/index.html:13
 msgid "Security Groups"
 msgstr "Grupy bezpieczeństwa"
 
-#: templates/django_openstack/nova/securitygroups/index.html:20
-msgid "Security groups are firewall rules which allow access to your instances from other groups as well as the internet.  All ports/protocols are denied by default."
-msgstr "Grypu bezpieczeństwa do reguły firewall'a, które zezwalają na dostęp do twojej instancji z innych grup oraz z Internetu. Wszystkie porty/protokoły są domyślnie zablokowane."
+#: templates/django_openstack/dash/_sidebar.html:15
+#: templates/django_openstack/dash/networks/index.html:13
+msgid "Networks"
+msgstr ""
 
-#: templates/django_openstack/nova/volumes/index.html:8
+#: templates/django_openstack/dash/_sidebar.html:19
+msgid "Manage Object Store"
+msgstr ""
+
+#: templates/django_openstack/dash/_sidebar.html:21
+#: templates/django_openstack/dash/containers/index.html:13
+msgid "Containers"
+msgstr ""
+
+#: templates/django_openstack/dash/dashboard_settings.html:11
+msgid "Dashboard Settings"
+msgstr ""
+
+#: templates/django_openstack/dash/dashboard_settings.html:17
+msgid "Dashboard User Interface Language"
+msgstr ""
+
+#: templates/django_openstack/dash/dashboard_settings.html:29
+msgid "Select Language"
+msgstr ""
+
+#: templates/django_openstack/dash/containers/_delete.html:8
+#: templates/django_openstack/dash/images/_delete.html:8
+#: templates/django_openstack/dash/keypairs/_delete.html:8
+#: templates/django_openstack/dash/networks/_delete.html:8
+#: templates/django_openstack/dash/networks/_delete_port.html:9
+#: templates/django_openstack/dash/objects/_delete.html:8
+#: templates/django_openstack/dash/security_groups/_delete.html:8
+#: templates/django_openstack/dash/security_groups/_delete_rule.html:8
+#: templates/django_openstack/syspanel/flavors/_delete.html:8
+#: templates/django_openstack/syspanel/images/_delete.html:8
+#: templates/django_openstack/syspanel/tenants/_delete.html:8
+#: templates/django_openstack/syspanel/users/_delete.html:8
+msgid "Delete"
+msgstr "Usuń"
+
+#: templates/django_openstack/dash/containers/_form.html:10
+msgid "Create Container"
+msgstr ""
+
+#: templates/django_openstack/dash/containers/_list.html:4
+#: templates/django_openstack/dash/images/_list.html:6
+#: templates/django_openstack/dash/instances/_list.html:7
+#: templates/django_openstack/dash/instances/usage.html:61
+#: templates/django_openstack/dash/keypairs/_list.html:4
+#: templates/django_openstack/dash/networks/_list.html:5
+#: templates/django_openstack/dash/objects/_list.html:4
+#: templates/django_openstack/dash/security_groups/_list.html:4
+#: templates/django_openstack/syspanel/flavors/_list.html:5
+#: templates/django_openstack/syspanel/images/_list.html:7
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:67
+#: templates/django_openstack/syspanel/tenants/_list.html:5
+#: templates/django_openstack/syspanel/tenants/users.html:23
+#: templates/django_openstack/syspanel/tenants/users.html:53
+#: templates/django_openstack/syspanel/users/index.html:21
+msgid "Name"
+msgstr ""
+
+#: templates/django_openstack/dash/containers/_list.html:5
+#: templates/django_openstack/dash/instances/_list.html:13
+#: templates/django_openstack/dash/keypairs/_list.html:6
+#: templates/django_openstack/dash/networks/_detail.html:7
+#: templates/django_openstack/dash/objects/_list.html:5
+#: templates/django_openstack/dash/security_groups/_list.html:6
+#: templates/django_openstack/dash/security_groups/edit_rules.html:24
+#: templates/django_openstack/syspanel/flavors/_list.html:9
+#: templates/django_openstack/syspanel/instances/_list.html:13
+#: templates/django_openstack/syspanel/services/_list.html:9
+#: templates/django_openstack/syspanel/tenants/users.html:25
+#: templates/django_openstack/syspanel/tenants/users.html:54
+#, fuzzy
+msgid "Actions"
+msgstr "Położenie"
+
+#: templates/django_openstack/dash/containers/_list.html:13
+msgid "List Objects"
+msgstr ""
+
+#: templates/django_openstack/dash/containers/_list.html:14
+#: templates/django_openstack/dash/objects/_form.html:10
+msgid "Upload Object"
+msgstr ""
+
+#: templates/django_openstack/dash/containers/create.html:11
+#: templates/django_openstack/syspanel/tenants/_create_form.html:5
+#: templates/django_openstack/syspanel/tenants/create.html:11
+msgid "Create Tenant"
+msgstr ""
+
+#: templates/django_openstack/dash/containers/create.html:22
+msgid ""
+"A container is a storage compartment for your data and provides a way for "
+"you to organize your data. You can think of a container as a folder in "
+"Windows® or a directory in UNIX®. The primary difference between a container "
+"and these other file system concepts is that containers cannot be nested. "
+"You can, however, create an unlimited number of containers within your "
+"account. Data must be stored in a container so you must have at least one "
+"container defined in your account prior to uploading data."
+msgstr ""
+
+#: templates/django_openstack/dash/containers/index.html:18
+#, fuzzy
+msgid "Create New Container"
+msgstr "Utwórz nowy wolumen."
+
+#: templates/django_openstack/dash/floating_ips/_allocate.html:7
+msgid "Allocate IP"
+msgstr ""
+
+#: templates/django_openstack/dash/floating_ips/_associate.html:14
+msgid "Associate IP"
+msgstr ""
+
+#: templates/django_openstack/dash/floating_ips/_disassociate.html:8
+msgid "Disassociate"
+msgstr ""
+
+#: templates/django_openstack/dash/floating_ips/_list.html:14
+msgid "Instance ID:"
+msgstr "ID instancji:"
+
+#: templates/django_openstack/dash/floating_ips/_list.html:15
+msgid "Fixed IP:"
+msgstr ""
+
+#: templates/django_openstack/dash/floating_ips/_list.html:28
+#, fuzzy
+msgid "Associate to instance"
+msgstr "Aktualizuj instncję"
+
+#: templates/django_openstack/dash/floating_ips/_release.html:8
+msgid "Release"
+msgstr ""
+
+#: templates/django_openstack/dash/floating_ips/associate.html:12
+msgid "Associate Floating IP"
+msgstr ""
+
+#: templates/django_openstack/dash/floating_ips/associate.html:22
+#: templates/django_openstack/dash/images/launch.html:21
+#: templates/django_openstack/dash/images/update.html:21
+#: templates/django_openstack/dash/instances/update.html:23
+msgid "Description:"
+msgstr ""
+
+#: templates/django_openstack/dash/floating_ips/associate.html:23
+msgid "Associate a floating ip with an instance."
+msgstr ""
+
+#: templates/django_openstack/dash/floating_ips/index.html:21
+#: templates/django_openstack/dash/images/index.html:21
+#: templates/django_openstack/dash/instances/index.html:22
+#: templates/django_openstack/dash/instances/usage.html:97
+#: templates/django_openstack/dash/keypairs/index.html:23
+#: templates/django_openstack/dash/networks/detail.html:27
+#: templates/django_openstack/dash/networks/index.html:23
+#: templates/django_openstack/dash/security_groups/index.html:24
+#: templates/django_openstack/dash/snapshots/index.html:22
+#: templates/django_openstack/syspanel/instances/index.html:22
+#: templates/django_openstack/syspanel/tenants/users.html:44
+msgid "Info"
+msgstr ""
+
+#: templates/django_openstack/dash/floating_ips/index.html:22
+msgid "There are currently no floating ips assigned to your tenant."
+msgstr ""
+
+#: templates/django_openstack/dash/images/_form.html:10
+#: templates/django_openstack/dash/images/update.html:11
+#: templates/django_openstack/syspanel/images/_form.html:10
+#: templates/django_openstack/syspanel/images/update.html:11
+msgid "Update Image"
+msgstr "Aktualizuj obraz"
+
+#: templates/django_openstack/dash/images/_launch.html:5
+#: templates/django_openstack/dash/images/_launch_form.html:14
+#: templates/django_openstack/dash/images/launch.html:12
+#, fuzzy
+msgid "Launch Instance"
+msgstr "Uruchom obraz"
+
+#: templates/django_openstack/dash/images/_list.html:5
+#: templates/django_openstack/dash/instances/_list.html:6
+#: templates/django_openstack/dash/instances/usage.html:60
+#: templates/django_openstack/dash/networks/_detail.html:4
+#: templates/django_openstack/dash/networks/_list.html:4
+#: templates/django_openstack/syspanel/images/_list.html:6
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:66
+#: templates/django_openstack/syspanel/tenants/users.html:22
+#: templates/django_openstack/syspanel/tenants/users.html:52
+#: templates/django_openstack/syspanel/users/index.html:20
+msgid "ID"
+msgstr ""
+
+#: templates/django_openstack/dash/images/_list.html:7
+#: templates/django_openstack/syspanel/images/_list.html:10
+#: templates/django_openstack/syspanel/instances/_list.html:9
+msgid "Created"
+msgstr ""
+
+#: templates/django_openstack/dash/images/_list.html:8
+#: templates/django_openstack/syspanel/images/_list.html:11
+#, fuzzy
+msgid "Updated"
+msgstr "Aktualizuj obraz"
+
+#: templates/django_openstack/dash/images/_list.html:9
+#: templates/django_openstack/dash/instances/usage.html:68
+#: templates/django_openstack/syspanel/images/_list.html:12
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:74
+msgid "Status"
+msgstr ""
+
+#: templates/django_openstack/dash/images/_list.html:22
+#: templates/django_openstack/dash/instances/_list.html:65
+#: templates/django_openstack/syspanel/images/_list.html:28
+#: templates/django_openstack/syspanel/tenants/_list.html:19
+#: templates/django_openstack/syspanel/users/index.html:36
+msgid "Edit"
+msgstr ""
+
+#: templates/django_openstack/dash/images/_list.html:24
+#, fuzzy
+msgid "Launch"
+msgstr "Uruchom obraz"
+
+#: templates/django_openstack/dash/images/launch.html:22
+msgid ""
+"Specify the details for launching an instance. Also please make note of the "
+"table below; all tenants have quotas which define the limit of resources you "
+"are allowed to provision."
+msgstr ""
+
+#: templates/django_openstack/dash/images/launch.html:25
+#: templates/django_openstack/syspanel/quotas/index.html:19
+msgid "Quota Name"
+msgstr ""
+
+#: templates/django_openstack/dash/images/launch.html:26
+#: templates/django_openstack/syspanel/quotas/index.html:20
+msgid "Limit"
+msgstr ""
+
+#: templates/django_openstack/dash/images/launch.html:29
+msgid "RAM (MB)"
+msgstr ""
+
+#: templates/django_openstack/dash/images/launch.html:41
 msgid "Volumes"
 msgstr "Wolumeny"
 
-#: templates/django_openstack/nova/volumes/index.html:9
-msgid "Volumes provide persistent block storage. Creating a new volume gives you a raw block device which you may format with your choice of filesystems (ext3 is recommended). A volume may only be attached to a single instance at a time."
-msgstr "Wolumeny dostarczają trwałe miejsce przechowywania danych. Utworzenie nowego wolumenu daje udostępnia nowe urządzenie blokowe, które możesz sformatować na dowolny system plików (zalecany jest ext3). Wolumen może być dołączony tylko do jednej instancji na raz."
+#: templates/django_openstack/dash/images/launch.html:45
+msgid "Gigabytes"
+msgstr ""
 
-#: templates/django_openstack/nova/volumes/index.html:59
-msgid "No volumes currently exist."
-msgstr "Brak wolumenów."
+#: templates/django_openstack/dash/images/update.html:22
+#: templates/django_openstack/syspanel/images/update.html:22
+#, fuzzy
+msgid "From here you can modify different properties of an image."
+msgstr "Tutaj można zarządzać użytkownikami i rolami."
 
-#: templates/django_openstack/nova/volumes/index.html:68
-msgid "Create New Volume"
-msgstr "Utwórz nowy wolumen."
+#: templates/django_openstack/dash/instances/_form.html:10
+#: templates/django_openstack/dash/instances/update.html:12
+msgid "Update Instance"
+msgstr "Aktualizuj instncję"
 
-#: templates/django_openstack/nova/volumes/index.html:79
-msgid "Attach Volume"
+#: templates/django_openstack/dash/instances/_list.html:8
+msgid "Groups"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/_list.html:9
+#: templates/django_openstack/syspanel/instances/_list.html:10
+#, fuzzy
+msgid "Image"
+msgstr "Obrazy"
+
+#: templates/django_openstack/dash/instances/_list.html:10
+#: templates/django_openstack/syspanel/images/_list.html:8
+msgid "Size"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/_list.html:11
+#: templates/django_openstack/syspanel/instances/_list.html:11
+msgid "IPs"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/_list.html:12
+#: templates/django_openstack/dash/networks/_detail.html:5
+#: templates/django_openstack/syspanel/images/_list.html:36
+#: templates/django_openstack/syspanel/instances/_list.html:12
+msgid "State"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/_list.html:63
+msgid "Log"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/_list.html:64
+#: templates/django_openstack/syspanel/instances/_list.html:49
+msgid "VNC Console"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/_list.html:66
+msgid "Snapshot"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/index.html:23
+#, python-format
+msgid ""
+"There are currently no instances.  You can launch an instance from the  <a "
+"href='%(dash_img_url)s'>Images Page.</a>"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/update.html:19
+msgid "Return to Instances List"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/update.html:24
+msgid "Update the name and description of your instance"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:46
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:60
+#: templates/django_openstack/syspanel/instances/usage.html:70
+msgid "Download CSV"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:50
+msgid "Hide Terminated"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:52
+msgid "Show Terminated"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:62
+#: templates/django_openstack/syspanel/instances/_list.html:7
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:68
+msgid "User"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:63
+#: templates/django_openstack/syspanel/flavors/_list.html:6
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:69
+#: templates/django_openstack/syspanel/instances/usage.html:78
+msgid "VCPUs"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:64
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:70
+msgid "Ram Size"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:65
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:71
+msgid "Disk Size"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:66
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:72
+msgid "Flavor"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:67
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:73
+msgid "Uptime"
+msgstr ""
+
+#: templates/django_openstack/dash/instances/usage.html:89
+#, fuzzy
+msgid "No active instances."
+msgstr "Zobacz instancje"
+
+#: templates/django_openstack/dash/instances/usage.html:98
+#, python-format
+msgid ""
+"There are currently no instances.<br/><br/>You can launch an instance from "
+"the  <a href='%(dash_img_url)s'>Images Page.</a>"
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/_form.html:10
+msgid "Add Keypair"
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/_list.html:5
+msgid "Fingerprint"
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/create.html:24
+#: templates/django_openstack/dash/keypairs/import.html:15
+msgid "Create Keypair"
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/create.html:30
+msgid "Your private key is being downloaded."
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/create.html:32
+#: templates/django_openstack/dash/keypairs/import.html:22
+msgid "Return to keypairs list"
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/create.html:36
+#: templates/django_openstack/dash/keypairs/import.html:26
+#: templates/django_openstack/dash/networks/create.html:23
+#: templates/django_openstack/dash/objects/copy.html:25
+#: templates/django_openstack/dash/objects/upload.html:24
+#: templates/django_openstack/dash/ports/create.html:23
+#: templates/django_openstack/dash/security_groups/_list.html:5
+#: templates/django_openstack/dash/security_groups/create.html:21
+#: templates/django_openstack/dash/snapshots/create.html:31
+#: templates/django_openstack/syspanel/flavors/create.html:36
+#: templates/django_openstack/syspanel/images/update.html:21
+#: templates/django_openstack/syspanel/tenants/_list.html:6
+#: templates/django_openstack/syspanel/tenants/create.html:21
+#: templates/django_openstack/syspanel/tenants/quotas.html:21
+#: templates/django_openstack/syspanel/tenants/update.html:21
+#: templates/django_openstack/syspanel/users/create.html:22
+#: templates/django_openstack/syspanel/users/update.html:22
+msgid "Description"
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/create.html:37
+#: templates/django_openstack/dash/keypairs/import.html:27
+#, fuzzy
+msgid ""
+"Keypairs are ssh credentials which are injected into images when they are "
+"launched. Creating a new key pair registers the public key and downloads the "
+"private key (a .pem file)."
+msgstr ""
+"Pary kluczy to dane uwierzytelniające ssh, które są wstrzykiwane do "
+"instancji podczas uruchomienia. Utworzenie nowej pary rejestruje klucz "
+"publiczny umożliwia pobranie klucza prywatnego (pliku pem). <em>Należy "
+"chronić i używać ten klucza tak jak normalnego klucza prywantego.</em>"
+
+#: templates/django_openstack/dash/keypairs/create.html:38
+#: templates/django_openstack/dash/keypairs/import.html:28
+msgid "Protect and use the key as you would any normal ssh private key."
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/index.html:19
+#: templates/django_openstack/dash/keypairs/index.html:26
+msgid "Add New Keypair"
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/index.html:20
+#: templates/django_openstack/dash/keypairs/index.html:27
+msgid "Import Keypair"
+msgstr ""
+
+#: templates/django_openstack/dash/keypairs/index.html:24
+#, fuzzy
+msgid "There are currently no keypairs."
+msgstr "Brak istniejących par kluczy."
+
+#: templates/django_openstack/dash/networks/_detach_port.html:9
+msgid "Detach"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/_detail.html:6
+#, fuzzy
+msgid "Attachment"
 msgstr "Dołącz wolumen"
 
+#: templates/django_openstack/dash/networks/_detail.html:8
+msgid "Extensions"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/_detail.html:19
+#, fuzzy
+msgid "Instance"
+msgstr "Instancje"
+
+#: templates/django_openstack/dash/networks/_detail.html:20
+msgid "VIF Id"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/_detail.html:36
+#, fuzzy
+msgid "Attach"
+msgstr "Dołącz wolumen"
+
+#: templates/django_openstack/dash/networks/_form.html:10
+#: templates/django_openstack/dash/networks/create.html:12
+#: templates/django_openstack/dash/ports/create.html:12
+#, fuzzy
+msgid "Create Network"
+msgstr "Utwórz nowy wolumen."
+
+#: templates/django_openstack/dash/networks/_list.html:6
+msgid "Ports"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/_list.html:7
+#, fuzzy
+msgid "Available"
+msgstr "brak dostępnych"
+
+#: templates/django_openstack/dash/networks/_list.html:8
+msgid "Used"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/_list.html:9
+#, fuzzy
+msgid "Action"
+msgstr "Położenie"
+
+#: templates/django_openstack/dash/networks/_list.html:22
+#: templates/django_openstack/dash/networks/_rename.html:11
+#: templates/django_openstack/dash/networks/_rename.html:15
+#: templates/django_openstack/dash/networks/rename.html:31
+msgid "Rename"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/_rename_form.html:11
+#: templates/django_openstack/dash/networks/rename.html:12
+msgid "Rename Network"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/_toggle_port.html:11
+msgid "Port UP"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/_toggle_port.html:14
+msgid "Port DOWN"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/create.html:19
+#: templates/django_openstack/dash/networks/rename.html:27
+msgid "Return to networks list"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/create.html:24
+msgid "Networks provide layer 2 connectivity to your instances."
+msgstr ""
+
+#: templates/django_openstack/dash/networks/detail.html:24
+#: templates/django_openstack/dash/networks/detail.html:28
+msgid "Create Ports"
+msgstr ""
+
+#: templates/django_openstack/dash/networks/detail.html:28
+#, fuzzy
+msgid "There are currently no ports in this network."
+msgstr "Brak użytkowników aktualnie powiązanych z projektem."
+
+#: templates/django_openstack/dash/networks/index.html:20
+#, fuzzy
+msgid "Create New Network"
+msgstr "Utwórz nowy wolumen."
+
+#: templates/django_openstack/dash/networks/index.html:24
+msgid "There are currently no networks."
+msgstr ""
+
+#: templates/django_openstack/dash/networks/index.html:24
+#, fuzzy
+msgid "Create A Network"
+msgstr "Utwórz nowy wolumen."
+
+#: templates/django_openstack/dash/networks/rename.html:32
+msgid "Enter a new name for your network."
+msgstr ""
+
+#: templates/django_openstack/dash/objects/_copy.html:10
+#: templates/django_openstack/dash/objects/copy.html:11
+msgid "Copy Object"
+msgstr ""
+
+#: templates/django_openstack/dash/objects/_filter.html:7
+msgid "Filter"
+msgstr ""
+
+#: templates/django_openstack/dash/objects/_list.html:12
+msgid "Copy"
+msgstr ""
+
+#: templates/django_openstack/dash/objects/_list.html:14
+msgid "Download"
+msgstr ""
+
+#: templates/django_openstack/dash/objects/copy.html:21
+#: templates/django_openstack/dash/objects/upload.html:20
+msgid "Return to objects list"
+msgstr ""
+
+#: templates/django_openstack/dash/objects/copy.html:26
+msgid ""
+"You may make a new copy of an existing object to store in this or another "
+"container."
+msgstr ""
+
+#: templates/django_openstack/dash/objects/index.html:31
+#, python-format
+msgid ""
+"There are currently no objects in the container %(container_name)s.  You can "
+"upload a new object from the <a href='%(dash_obj_up_url)s'>Object Upload "
+"Page &gt;&gt;</a>"
+msgstr ""
+
+#: templates/django_openstack/dash/objects/index.html:34
+msgid "Upload New Object &gt;&gt;"
+msgstr ""
+
+#: templates/django_openstack/dash/objects/upload.html:11
+msgid "Upload Objects"
+msgstr ""
+
+#: templates/django_openstack/dash/objects/upload.html:25
+msgid ""
+"An object is the basic storage entity and any optional metadata that "
+"represents the files you store in the OpenStack Object Storage system. When "
+"you upload data to OpenStack Object Storage, the data is stored as-is (no "
+"compression or encryption) and consists of a location (container), the "
+"object's name, and any metadata consisting of key/value pairs."
+msgstr ""
+
+#: templates/django_openstack/dash/ports/attach.html:12
+#, fuzzy
+msgid "Attach Port"
+msgstr "Dołącz wolumen"
+
+#: templates/django_openstack/dash/ports/attach.html:38
+#: templates/django_openstack/dash/ports/create.html:19
+msgid "Return to network detail"
+msgstr ""
+
+#: templates/django_openstack/dash/ports/attach.html:42
+msgid ""
+"<p>Select an interface from the list on the left to attach it to this port.</"
+"p>\n"
+"    <p>Only interfaces that are not connected to any existing port are "
+"shown</p>\n"
+"    <p>If you want to reconnect a connected interface, please detach it "
+"first</p>"
+msgstr ""
+
+#: templates/django_openstack/dash/ports/create.html:24
+msgid ""
+"You can plug virtual interfaces from your instances to ports created in the "
+"network"
+msgstr ""
+
+#: templates/django_openstack/dash/security_groups/_form.html:11
+#: templates/django_openstack/dash/security_groups/create.html:11
+#: templates/django_openstack/dash/security_groups/index.html:20
+#, fuzzy
+msgid "Create Security Group"
+msgstr "Grupy bezpieczeństwa"
+
+#: templates/django_openstack/dash/security_groups/_list.html:14
+#, fuzzy
+msgid "Edit Rules"
+msgstr "Edytuj role użytkowników"
+
+#: templates/django_openstack/dash/security_groups/create.html:22
+#, fuzzy
+msgid "From here you can create a new security group"
+msgstr "Tutaj można edytować wiele ról użytkowników."
+
+#: templates/django_openstack/dash/security_groups/edit_rules.html:11
+#, fuzzy
+msgid "Edit Security Group Rules"
+msgstr "Grupy bezpieczeństwa"
+
+#: templates/django_openstack/dash/security_groups/edit_rules.html:17
+#, fuzzy
+msgid "Rules for Security Group"
+msgstr "Grupy bezpieczeństwa"
+
+#: templates/django_openstack/dash/security_groups/edit_rules.html:20
+msgid "IP Protocol"
+msgstr ""
+
+#: templates/django_openstack/dash/security_groups/edit_rules.html:21
+msgid "From Port"
+msgstr ""
+
+#: templates/django_openstack/dash/security_groups/edit_rules.html:22
+msgid "To Port"
+msgstr ""
+
+#: templates/django_openstack/dash/security_groups/edit_rules.html:23
+msgid "CIDR"
+msgstr ""
+
+#: templates/django_openstack/dash/security_groups/edit_rules.html:41
+#, fuzzy
+msgid "No rules for this security group"
+msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#: templates/django_openstack/dash/security_groups/edit_rules.html:49
+msgid "Add a rule"
+msgstr ""
+
+#: templates/django_openstack/dash/security_groups/edit_rules.html:60
+msgid "Add Rule"
+msgstr ""
+
+#: templates/django_openstack/dash/security_groups/index.html:25
+#, python-format
+msgid ""
+"There are currently no security groups. <a href='%(dash_sec_url)s'>Create A "
+"Security Group &gt;&gt;</a>"
+msgstr ""
+
+#: templates/django_openstack/dash/snapshots/_form.html:11
+msgid "Create Snapshot"
+msgstr ""
+
+#: templates/django_openstack/dash/snapshots/create.html:19
+msgid "Create a Snapshot"
+msgstr ""
+
+#: templates/django_openstack/dash/snapshots/create.html:25
+msgid "Choose a name for your snapshot."
+msgstr ""
+
+#: templates/django_openstack/dash/snapshots/create.html:27
+msgid "Return to snapshots list"
+msgstr ""
+
+#: templates/django_openstack/dash/snapshots/create.html:32
+msgid "Snapshots preserve the disk state of a running instance."
+msgstr ""
+
+#: templates/django_openstack/dash/snapshots/index.html:23
+#, python-format
+msgid ""
+"There are currently no snapshots.  You can create snapshots from running "
+"instances. <a href='%(inst_url)s'>View Running Instances &gt;&gt;</a>"
+msgstr ""
+
+#: templates/django_openstack/syspanel/_sidebar.html:5
+msgid "System Panel"
+msgstr ""
+
+#: templates/django_openstack/syspanel/_sidebar.html:8
+#: templates/django_openstack/syspanel/services/index.html:13
+msgid "Services"
+msgstr ""
+
+#: templates/django_openstack/syspanel/_sidebar.html:10
+#: templates/django_openstack/syspanel/flavors/index.html:13
+msgid "Flavors"
+msgstr ""
+
+#: templates/django_openstack/syspanel/_sidebar.html:12
+#: templates/django_openstack/syspanel/tenants/index.html:13
+msgid "Tenants"
+msgstr ""
+
+#: templates/django_openstack/syspanel/_sidebar.html:13
+#: templates/django_openstack/syspanel/users/index.html:13
+msgid "Users"
+msgstr ""
+
+#: templates/django_openstack/syspanel/_sidebar.html:14
+msgid "Quotas"
+msgstr ""
+
+#: templates/django_openstack/syspanel/flavors/_create.html:5
+#: templates/django_openstack/syspanel/flavors/_form.html:14
+#: templates/django_openstack/syspanel/flavors/create.html:11
+msgid "Create Flavor"
+msgstr ""
+
+#: templates/django_openstack/syspanel/flavors/_list.html:4
+#: templates/django_openstack/syspanel/instances/_list.html:5
+#: templates/django_openstack/syspanel/tenants/_list.html:4
+msgid "Id"
+msgstr ""
+
+#: templates/django_openstack/syspanel/flavors/_list.html:7
+msgid "Memory"
+msgstr ""
+
+#: templates/django_openstack/syspanel/flavors/_list.html:8
+#: templates/django_openstack/syspanel/instances/usage.html:79
+msgid "Disk"
+msgstr ""
+
+#: templates/django_openstack/syspanel/flavors/create.html:37
+#, fuzzy
+msgid "From here you can define the sizing of a new flavor."
+msgstr "Tutaj można zarządzać użytkownikami i rolami."
+
+#: templates/django_openstack/syspanel/flavors/index.html:18
+#, fuzzy
+msgid "Create New Flavor"
+msgstr "Utwórz nowy wolumen."
+
+#: templates/django_openstack/syspanel/images/_list.html:9
+#, fuzzy
+msgid "Public"
+msgstr "Uczyń publicznym"
+
+#: templates/django_openstack/syspanel/images/_list.html:35
+msgid "Location"
+msgstr "Położenie"
+
+#: templates/django_openstack/syspanel/images/_list.html:37
+msgid "Kernel ID"
+msgstr ""
+
+#: templates/django_openstack/syspanel/images/_list.html:38
+msgid "Ramdisk ID"
+msgstr ""
+
+#: templates/django_openstack/syspanel/images/_list.html:39
+msgid "Architecture"
+msgstr ""
+
+#: templates/django_openstack/syspanel/images/_list.html:40
+msgid "Project ID"
+msgstr ""
+
+#: templates/django_openstack/syspanel/images/_list.html:41
+msgid "Container Format"
+msgstr ""
+
+#: templates/django_openstack/syspanel/images/_list.html:42
+msgid "Disk Format"
+msgstr ""
+
+#: templates/django_openstack/syspanel/images/_toggle.html:8
+#, fuzzy
+msgid "Toggle Public"
+msgstr "Uczyń publicznym"
+
+#: templates/django_openstack/syspanel/instances/_list.html:6
+#: templates/django_openstack/syspanel/instances/usage.html:76
+msgid "Tenant"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/_list.html:8
+msgid "Host"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/_list.html:48
+msgid "Console Log"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/index.html:23
+#, python-format
+msgid ""
+"There are currently no instances.  You can launch an instance from the  <a "
+"href='%(dash_image_url)s'>Images Page.</a>"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:14
+#: templates/django_openstack/syspanel/instances/usage.html:16
+msgid "System Panel Overview"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:52
+#: templates/django_openstack/syspanel/instances/usage.html:61
+#, fuzzy
+msgid "Active Instances"
+msgstr "Zobacz instancje"
+
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:53
+#: templates/django_openstack/syspanel/instances/usage.html:62
+msgid "This month's VCPU-Hours"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:54
+#: templates/django_openstack/syspanel/instances/usage.html:63
+msgid "This month's GB-Hours"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:61
+msgid "Tenant Usage"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/usage.html:23
+msgid "Monitoring"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/usage.html:34
+msgid "Select a month to query its usage"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/usage.html:71
+msgid "Server Usage Summary"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/usage.html:80
+msgid "RAM"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/usage.html:81
+msgid "VCPU CPU-Hours"
+msgstr ""
+
+#: templates/django_openstack/syspanel/instances/usage.html:82
+msgid "Disk GB-Hours"
+msgstr ""
+
+#: templates/django_openstack/syspanel/quotas/index.html:13
+msgid "Default Quotas"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_list.html:5
+msgid "Service"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_list.html:6
+msgid "System Stats"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_list.html:7
+#: templates/django_openstack/syspanel/tenants/_list.html:7
+msgid "Enabled"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_list.html:8
+msgid "Up"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_list.html:22
+msgid "Hypervisor"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_list.html:25
+msgid "Allocable Cores"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_list.html:30
+msgid "Allocable Storage"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_list.html:35
+msgid "System Ram"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_toggle.html:10
+#: templates/django_openstack/syspanel/users/_toggle_enabled.html:18
+msgid "Enable"
+msgstr ""
+
+#: templates/django_openstack/syspanel/services/_toggle.html:20
+#: templates/django_openstack/syspanel/users/_toggle_enabled.html:9
+msgid "Disable"
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/_add_user.html:9
+msgid "Add"
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/_list.html:8
+#: templates/django_openstack/syspanel/users/index.html:24
+msgid "Options"
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/_list.html:20
+#, fuzzy
+msgid "View Members"
+msgstr "Zobacz obrazy"
+
+#: templates/django_openstack/syspanel/tenants/_list.html:21
+msgid "Modify Quotas"
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/_remove_user.html:9
+#, fuzzy
+msgid "Remove"
+msgstr "Usuń obraz"
+
+#: templates/django_openstack/syspanel/tenants/_update_form.html:5
+#: templates/django_openstack/syspanel/tenants/update.html:11
+#, fuzzy
+msgid "Update Tenant"
+msgstr "Aktualizuj instncję"
+
+#: templates/django_openstack/syspanel/tenants/_update_quotas_form.html:5
+#, fuzzy
+msgid "Update Quotas"
+msgstr "Aktualizuj instncję"
+
+#: templates/django_openstack/syspanel/tenants/create.html:22
+msgid "From here you can create a new tenant (aka project) to organize users."
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/index.html:18
+#, fuzzy
+msgid "Create New Tenant"
+msgstr "Utwórz nowy wolumen."
+
+#: templates/django_openstack/syspanel/tenants/quotas.html:11
+msgid "Update Tenant Quotas"
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/quotas.html:22
+msgid ""
+"From here you can edit quotas (max limits) for the tenant {{tenant_id}}."
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/update.html:22
+#, fuzzy
+msgid "From here you can edit a tenant."
+msgstr "Tutaj można edytować wiele ról użytkowników."
+
+#: templates/django_openstack/syspanel/tenants/users.html:12
+msgid "Users for Tenant"
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/users.html:24
+#: templates/django_openstack/syspanel/users/index.html:22
+msgid "Email"
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/users.html:45
+msgid "here are currently no users for this tenant"
+msgstr ""
+
+#: templates/django_openstack/syspanel/tenants/users.html:49
+msgid "Add new users"
+msgstr ""
+
+#: templates/django_openstack/syspanel/users/_create_form.html:5
+#: templates/django_openstack/syspanel/users/create.html:12
+msgid "Create User"
+msgstr ""
+
+#: templates/django_openstack/syspanel/users/_update_form.html:5
+#: templates/django_openstack/syspanel/users/update.html:12
+#, fuzzy
+msgid "Update User"
+msgstr "Aktualizuj obraz"
+
+#: templates/django_openstack/syspanel/users/create.html:23
+msgid ""
+"From here you can create a new user and assign them to a tenant (aka "
+"project)."
+msgstr ""
+
+#: templates/django_openstack/syspanel/users/index.html:23
+msgid "Default Tenant"
+msgstr ""
+
+#: templates/django_openstack/syspanel/users/index.html:42
+#, fuzzy
+msgid "Create New User"
+msgstr "Utwórz nowy wolumen."
+
+#: templates/django_openstack/syspanel/users/update.html:23
+msgid ""
+"From here you can edit users by changing their usernames, emails, passwords, "
+"and tenants."
+msgstr ""
+
+#: templatetags/templatetags/sizeformat.py:46
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templatetags/templatetags/sizeformat.py:50
+#, python-format
+msgid "%(size)d"
+msgid_plural "%(size)d"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templatetags/templatetags/sizeformat.py:53
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: templatetags/templatetags/sizeformat.py:56
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: templatetags/templatetags/sizeformat.py:59
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: templatetags/templatetags/sizeformat.py:62
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: templatetags/templatetags/sizeformat.py:64
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#~ msgid "Creates nova users for all users in the django auth database."
+#~ msgstr "Tworzy użytkowników nova dla wszystkich użytkowników w baze django."
+
+#~ msgid "A key named %s already exists."
+#~ msgstr "Klucz o nazwie %s już istnieje."
+
+#~ msgid "A security group named %s already exists."
+#~ msgstr "Grupa bezpieczeństwa %s juz istnieje."
+
+#~ msgid "Project %s does not exist."
+#~ msgstr "Projekt %s nie istnieje."
+
+#~ msgid "Successfully started VPN for project %(proj)s."
+#~ msgstr "Pomyślnie uruchomiono VPN dla projektu %(proj)s."
+
+#~ msgid "Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s"
+#~ msgstr "Nie można uruchomić VPN dla projektu  %(proj)s: %(code)s - %(msg)s"
+
+#~ msgid "Unable modify the project %(proj)s: %(code)s - %(msg)s"
+#~ msgstr "Nie można zmodyfikować projektu %(proj)s: %(code)s - %(msg)s"
+
+#~ msgid "Unable to launch: %s"
+#~ msgstr "Nie można uruchomić: %s"
+
+#~ msgid "Instance %s launched."
+#~ msgstr "Instancja %s uruchomiona."
+
+#~ msgid "Unable to make image private: %s"
+#~ msgstr "Nie można ustawić widoczności obrazu na prywatną: %s"
+
+#~ msgid "You are now using the region \"%s\"."
+#~ msgstr "Używasz teraz regionu \"%s\"."
+
+#~ msgid "Security Group %s has been succesfully created."
+#~ msgstr "Grupa bezpieczeństwa %s została pomyślnie utworzona."
+
+#~ msgid "Unable to authorize: %s"
+#~ msgstr "Nie można autoryzować: %s"
+
+#~ msgid ""
+#~ "Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has "
+#~ "been authorized."
+#~ msgstr ""
+#~ "Grupa bezpieczeństwa %(grp)s: Dostęp do %(proto)s porty %(fr)d - %(to)d "
+#~ "został autoryzowany."
+
+#~ msgid ""
+#~ "Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has "
+#~ "been revoked."
+#~ msgstr ""
+#~ "Grupa bezpieczeństwa %(grp)s: Dostęp do %(proto)s porty %(fr)d - %(to)d "
+#~ "został cofnięty."
+
+#~ msgid "Unable to create volume: %s"
+#~ msgstr "Nie można utworzyć wolumenu: %s"
+
+#~ msgid "Volume %s has been successfully deleted."
+#~ msgstr "Wolumen %s został pomyślnie usunięty."
+
+#~ msgid "Unable to attach volume: %s"
+#~ msgstr "Nie można dołączyć wolumenu: %s"
+
+#~ msgid ""
+#~ "Volume %s is scheduled to be attached.  If it doesn't become attached in "
+#~ "two minutes,  please try again (you may need to specify a different "
+#~ "device)."
+#~ msgstr ""
+#~ "Wolumen %s został zaplanowany do dołączenia. Jeśli nie zostanie dołączony "
+#~ "w ciągu 2 minut, należy spróbować ponownie (może zajść potrzeba podania "
+#~ "innego urządzenia)"
+
+#~ msgid "Unable to detach volume: %s"
+#~ msgstr "Nie można odłączyć wolumenu: %s"
+
+#~ msgid "Volume %s has been successfully detached."
+#~ msgstr "Wolumen %s został pomyślnie odłączony."
+
+#~ msgid "Delete Project"
+#~ msgstr "Usuń projekt"
+
+#~ msgid "Do you really want to delete this project?<"
+#~ msgstr "Czy na pewno chcesz usunąć ten projekt?<"
+
+#~ msgid "Remove User From Project"
+#~ msgstr "Usuń użytkownika z projektu"
+
+#~ msgid "Do you really want to remove this user from project?"
+#~ msgstr "Czy na pewno chcesz usunąć tego użytkownika z projektu?"
+
+#~ msgid "Send Credentials"
+#~ msgstr "Wyślij dane uwierzytelniające"
+
+#~ msgid ""
+#~ "\"Select which users you would like to send credentials to from the "
+#~ "'%(proj)s' project.\""
+#~ msgstr ""
+#~ "\"Wybierz użytkowników, którym chcesz wysłać dane uwierzytelniające do "
+#~ "'%(proj)s' project.\""
+
+#~ msgid "Credentials sent successfully"
+#~ msgstr "Pomyślnie wysłano dane uwierzytelniające."
+
+#~ msgid "Expired Token"
+#~ msgstr "Token stracił ważność"
+
+#~ msgid "The link you clicked has expired."
+#~ msgstr "Odnośnik, na który kliknąłeś stracił ważność."
+
+#~ msgid ""
+#~ "This credentials download link you have reached\n"
+#~ "      is either invalid or has expired. Each link is only good for one "
+#~ "use. If\n"
+#~ "      you need to download your credentials again, please contact the\n"
+#~ "      %(brand)s support team."
+#~ msgstr ""
+#~ "Odnośnik do danych uwierzytelniających, którego\n"
+#~ "      którego użyłeś jest nieprawidłowy lub wygasł. Każdy odnośnik może\n"
+#~ "      być użyty tylko raz. Jeśli musisz ponownie pobrać dane "
+#~ "uwierzytelniające\n"
+#~ "      skontaktuj się z zespołem wsparcia %(brand)s."
+
+#~ msgid "Make Private"
+#~ msgstr "Uczyń prywatnym"
+
+#~ msgid "No images currently available."
+#~ msgstr "Brak dostępnych obrazów."
+
+#~ msgid "Edit Image"
+#~ msgstr "Edytuj obraz"
+
+#~ msgid ""
+#~ "From this page you can edit the name and description of an image that "
+#~ "belongs to you."
+#~ msgstr "Na tej stronie można edytować nazwę i opis własnego obrazu."
+
+#~ msgid "Edit Image:"
+#~ msgstr "Edytuj obraz:"
+
+#~ msgid "Launch an Image"
+#~ msgstr "Uruchom obraz"
+
+#~ msgid ""
+#~ "Images are snapshots of running systems which can easily be deployed to "
+#~ "run one or more instances."
+#~ msgstr ""
+#~ "Obrazy są zrzutami działających systemów, które łatwo można użyć do "
+#~ "uruchamiania nowych instancji."
+
+#~ msgid ""
+#~ "You can launch up to five instances of an image at a time. Some images "
+#~ "allow for custom configuration to be passed in via User data."
+#~ msgstr ""
+#~ "Można uruchomić do 5 instancji obrazu na raz. Niektóre obraz umożliwiają "
+#~ "przekazywanie własnej konfiguracji poprzez Dane użytkownika."
+
+#~ msgid ""
+#~ "No instances are currently running. You may start a new instance from the"
+#~ msgstr "Brak uruchomionych instancji. Można uruchomić nową instancję z"
+
+#~ msgid ""
+#~ "Here you can see up to the minute performance data about your instance."
+#~ msgstr "Tutaj można obejrzeć minutowe dane nt. wydajności instancji."
+
+#~ msgid "Edit Instance:"
+#~ msgstr "Edytuj instancję:"
+
+#~ msgid "Edit Instance"
+#~ msgstr "Edytuj instancję"
+
+#~ msgid ""
+#~ "From this page you can give your instance an alias, so you don't have to "
+#~ "remember its unique id."
+#~ msgstr "Tutaj można nadać instancji alias dla łatwiejszego jej odróżnienia."
+
+#~ msgid ""
+#~ "Instances are virtual servers launched from images. You can launch "
+#~ "instances from the"
+#~ msgstr ""
+#~ "Instancje są wirtualnymi serwerami uruchomionymi z obrazów. Można "
+#~ "uruchamiać instancje z"
+
+#~ msgid "Are you sure you wish to terminate instance"
+#~ msgstr "Jesteś pewien, że chcesz usunąć instancję"
+
+#~ msgid ""
+#~ "A connection error has occurred. Please ensure you are still connected to "
+#~ "VPN."
+#~ msgstr "Wystąpił błąd połączenia. Należy sprawdzić połączenie VPN."
+
+#~ msgid "Instance ID: %(instance.id)s Performance\" "
+#~ msgstr "ID instancji: %(instance.id)s wydajność\" "
+
+#~ msgid "Keys"
+#~ msgstr "Klucze"
+
+#~ msgid "Are you sure you wish to delete key"
+#~ msgstr "Czy na pewno usunąć klucz"
+
+#~ msgid "Edit Roles for User:"
+#~ msgstr "Edytuj role dla użytkownika:"
+
+#~ msgid ""
+#~ "Welcome to the <span>%(proj)s</span> Overview.  From here you can manage "
+#~ "your instances, images, keys, and security groups."
+#~ msgstr ""
+#~ "Witaj w posumowaniu <span>%(proj)s</span>. Tutaj można zarządzać swoimi "
+#~ "instancjami, obrazami, kluczami i grupami bezpieczeństwa."
+
+#~ msgid ""
+#~ "To get started using the command line management tools, you can <a target="
+#~ "\"_blank\" href=\"http://open.eucalyptus.com/wiki/"
+#~ "Euca2oolsGuide_v1.1\">download euca2ools</a> and use them with your x509 "
+#~ "credentials."
+#~ msgstr ""
+#~ "Aby zacząć pracę z narzędziami linii poleceń, możesz <a target=\"_blank\" "
+#~ "href=\"http://open.eucalyptus.com/wiki/Euca2oolsGuide_v1.1\">pobrać "
+#~ "euca2ools</a> i używać ich z danymi uwierzytelniającymi x509."
+
+#~ msgid "Generate X509 credentials."
+#~ msgstr "Wygeneruj dane uwierzytelniające x509."
+
+#~ msgid "Manage Users and Roles"
+#~ msgstr "Zarządzaj użytkownikami i rolami"
+
+#~ msgid " Security Group: %(securitygroup.name)s "
+#~ msgstr "Grup abezpieczeństwa: %(securitygroup.name)s "
+
+#~ msgid ""
+#~ "Add and remove protocols to the security group by authorizing and "
+#~ "revoking port forwarding. For instance<br /> [tcp, 80, 80] will allow "
+#~ "access to HTTP from devices outside this security group."
+#~ msgstr ""
+#~ "Dodawaj i usuwaj protokoły do grupy bezpieczeństwa poprzez dopuszczanie "
+#~ "lub blokowanie przekazywania portów. Na przykład <br /> [tcp, 80, 80] "
+#~ "pozwoli na dostęp do HTTP dla urządzeń spoza tej grupy bezpieczeństwa."
+
+#~ msgid ""
+#~ "Security groups are firewall rules which allow access to your instances "
+#~ "from other groups as well as the internet.  All ports/protocols are "
+#~ "denied by default."
+#~ msgstr ""
+#~ "Grypu bezpieczeństwa do reguły firewall'a, które zezwalają na dostęp do "
+#~ "twojej instancji z innych grup oraz z Internetu. Wszystkie porty/"
+#~ "protokoły są domyślnie zablokowane."
+
+#~ msgid ""
+#~ "Volumes provide persistent block storage. Creating a new volume gives you "
+#~ "a raw block device which you may format with your choice of filesystems "
+#~ "(ext3 is recommended). A volume may only be attached to a single instance "
+#~ "at a time."
+#~ msgstr ""
+#~ "Wolumeny dostarczają trwałe miejsce przechowywania danych. Utworzenie "
+#~ "nowego wolumenu daje udostępnia nowe urządzenie blokowe, które możesz "
+#~ "sformatować na dowolny system plików (zalecany jest ext3). Wolumen może "
+#~ "być dołączony tylko do jednej instancji na raz."
+
+#~ msgid "No volumes currently exist."
+#~ msgstr "Brak wolumenów."

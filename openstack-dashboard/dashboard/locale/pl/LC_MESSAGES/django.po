@@ -1,0 +1,829 @@
+# Translations of Dashboard for OpenStack User Interface.
+# Copyright 2011 Midokura KK
+# This file is distributed under the same license as the Dashboard for OpenStack.
+# FIRST AUTHOR Jeffrey Wilcox, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openstack-dashboard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-11 16:04+0900\n"
+"PO-Revision-Date: 2011-09-24 14:41+0100\n"
+"Last-Translator: Tomasz 'Zen' Napierala <tomasz@napierala.org>\n"
+"Language-Team: Polish OpenStack translations team <tomasz+openstack-"
+"i18n@napierala.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: POLAND\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: settings.py:105
+msgid "English"
+msgstr ""
+
+#: settings.py:106
+msgid "Italiano"
+msgstr ""
+
+#: settings.py:107
+msgid "Spanish"
+msgstr ""
+
+#: settings.py:108
+msgid "French"
+msgstr ""
+
+#: settings.py:109
+msgid "Japanese"
+msgstr ""
+
+#: settings.py:110
+msgid "Portuguese"
+msgstr ""
+
+#: settings.py:111
+msgid "Polish"
+msgstr ""
+
+#: settings.py:112
+msgid "Simplified Chinese"
+msgstr ""
+
+#: settings.py:113
+msgid "Traditional Chinese"
+msgstr ""
+
+#: templates/403.html:4 templates/403.html.py:9
+msgid "Forbidden"
+msgstr ""
+
+#: templates/403.html:20 templates/404.html:19 templates/500.html:19
+#: templates/permission_denied.html:19
+msgid "Home"
+msgstr ""
+
+#: templates/403.html:24 templates/404.html:23 templates/500.html:23
+#: templates/permission_denied.html:23
+#, fuzzy
+msgid "Projects"
+msgstr "Usuń projekt"
+
+#: templates/404.html:4
+msgid "Page Not Found"
+msgstr ""
+
+#: templates/404.html:9
+msgid "The page you were looking for doesn't exist"
+msgstr ""
+
+#: templates/404.html:10
+msgid "You may have mistyped the address or the page may have moved."
+msgstr ""
+
+#: templates/500.html:4 templates/500.html.py:9
+msgid "Internal Server Error"
+msgstr ""
+
+#: templates/500.html:10
+msgid ""
+"An unexpected error occurred while processing your request.  Please try your "
+"request again."
+msgstr ""
+
+#: templates/_login.html:6 templates/_switch.html:6
+msgid "Sign In"
+msgstr ""
+
+#: templates/_messages.html:5
+msgid "Info"
+msgstr ""
+
+#: templates/_messages.html:11
+msgid "Warning"
+msgstr ""
+
+#: templates/_messages.html:17
+msgid "Success"
+msgstr ""
+
+#: templates/_messages.html:23
+msgid "Error"
+msgstr ""
+
+#: templates/_topbar.html:4
+msgid "OpenStack Dashboard"
+msgstr ""
+
+#: templates/_topbar.html:6
+msgid "User Dashboard"
+msgstr ""
+
+#: templates/_topbar.html:9
+msgid "System Panel"
+msgstr ""
+
+#: templates/_topbar.html:24
+#, fuzzy
+msgid "Available Tenants"
+msgstr "brak dostępnych"
+
+#: templates/_topbar.html:30
+msgid "Sign Out"
+msgstr ""
+
+#: templates/login_required.html:13 templates/login_required.html.py:22
+msgid "Login"
+msgstr ""
+
+#: templates/login_required.html:14
+msgid "Login to OpenStack via Keystone auth."
+msgstr ""
+
+#: templates/permission_denied.html:4 templates/permission_denied.html.py:9
+msgid "Permission Denied"
+msgstr ""
+
+#: templates/permission_denied.html:10
+msgid "You do not have permission to view the requested page."
+msgstr ""
+
+#: templates/switch_tenants.html:12
+msgid "Log-in to tenant"
+msgstr ""
+
+#: templates/unavailable.html:4 templates/unavailable.html.py:9
+msgid "Service Unavailable"
+msgstr ""
+
+#: templates/unavailable.html:10
+msgid "This service is temporarily unavailable. Please check back soon."
+msgstr ""
+
+#, fuzzy
+#~ msgid "Error authenticating: %s"
+#~ msgstr "Użytkownik nie jest uwierzytelniony"
+
+#, fuzzy
+#~ msgid "Unable to delete non-empty container: %s"
+#~ msgstr "Nie można usunąć klucza: %s"
+
+#, fuzzy
+#~ msgid "Container was successfully created."
+#~ msgstr "Wolumen %(id)s %(name)s został pomyślnie utworzony."
+
+#, fuzzy
+#~ msgid "Unable to retreive image info from glance: %s"
+#~ msgstr "Nie można wyrejestrować obrazu: %s"
+
+#, fuzzy
+#~ msgid "Image was successfully updated."
+#~ msgstr "Obraz %s został pomyślnie wyrejestrowany."
+
+#, fuzzy
+#~ msgid "Unable to terminate %(inst)s: %(message)s"
+#~ msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Instance %s has been terminated."
+#~ msgstr "Instancja %(inst)s została zakończona."
+
+#, fuzzy
+#~ msgid "Unable to reboot instance: %s"
+#~ msgstr "Nie można cofnąć: %s"
+
+#, fuzzy
+#~ msgid "Instance %s has been rebooted."
+#~ msgstr "Instancja %(inst)s została zaktualizowana."
+
+#, fuzzy
+#~ msgid "Unable to update instance: %s"
+#~ msgstr "Nie można zaktualizować obrazu: %s"
+
+#, fuzzy
+#~ msgid "Unable to get instance list: %s"
+#~ msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Unable to get usage info: %s"
+#~ msgstr "Nie można ustawić widoczności obrazu na publiczną: %s"
+
+#, fuzzy
+#~ msgid "Unable to get vnc console for instance %(inst)s: %(message)s"
+#~ msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Unable to get information for instance %(inst)s: %(message)s"
+#~ msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Successfully deleted keypair: %s"
+#~ msgstr "Pomyślnie zmodyfikowano projekt %(proj)s."
+
+#, fuzzy
+#~ msgid "Error deleting keypair: %s"
+#~ msgstr "Nie można usunąć klucza: %s"
+
+#, fuzzy
+#~ msgid "Unable to create network %(network)s: %(msg)s"
+#~ msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Network %s has been created."
+#~ msgstr "Obraz %s został zaktualizowany."
+
+#, fuzzy
+#~ msgid "Unable to delete network %(network)s: %(msg)s"
+#~ msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Unable to rename network %(network)s: %(msg)s"
+#~ msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Unable to get network list: %s"
+#~ msgstr "Nie można cofnąć: %s"
+
+#, fuzzy
+#~ msgid "Unable to get network details: %s"
+#~ msgstr "Nie można cofnąć: %s"
+
+#, fuzzy
+#~ msgid "Successfully deleted object: %s"
+#~ msgstr "Pomyślnie zmodyfikowano projekt %(proj)s."
+
+#, fuzzy
+#~ msgid "Object was successfully uploaded."
+#~ msgstr "Grupa bezpieczeństwa %s została pomyślnie usunięta."
+
+#, fuzzy
+#~ msgid "Unable to create ports on network %(network)s: %(msg)s"
+#~ msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Unable to delete port %(port)s: %(msg)s"
+#~ msgstr "Nie można zakończyć %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Successfully created security_group: %s"
+#~ msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "Error creating security group: %s"
+#~ msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "Successfully deleted security_group: %s"
+#~ msgstr "Nie można usunąć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "Error deleting security group: %s"
+#~ msgstr "Nie można usunąć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "Error adding rule security group: %s"
+#~ msgstr "Nie można usunąć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "Successfully deleted rule: %s"
+#~ msgstr "Pomyślnie zmodyfikowano projekt %(proj)s."
+
+#, fuzzy
+#~ msgid "Error authorizing security group: %s"
+#~ msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "Error fetching security_groups: %s"
+#~ msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "%s was successfully added to flavors."
+#~ msgstr "Klucz %s został pomyślnie usunięty."
+
+#, fuzzy
+#~ msgid "Unable to delete flavor: %s"
+#~ msgstr "Nie można usunąć wolumenu: %s"
+
+#, fuzzy
+#~ msgid "Error updating image: %s"
+#~ msgstr "Nie można zaktualizować obrazu: %s"
+
+#, fuzzy
+#~ msgid "There are currently no images."
+#~ msgstr "Brak istniejących par kluczy."
+
+#, fuzzy
+#~ msgid "Image was successfully uploaded."
+#~ msgstr "Obraz %s został pomyślnie wyrejestrowany."
+
+#, fuzzy
+#~ msgid "Service '%s' has been enabled"
+#~ msgstr "Obraz %s został zaktualizowany."
+
+#, fuzzy
+#~ msgid "Service '%s' has been disabled"
+#~ msgstr "Obraz %s został zaktualizowany."
+
+#, fuzzy
+#~ msgid "Unable to update service '%(name)s': %(msg)s"
+#~ msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
+
+#, fuzzy
+#~ msgid "Unable to get service info: %s"
+#~ msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "Unable to create user association: %s"
+#~ msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "Unable to create tenant: %s"
+#~ msgstr "Nie można utworzyć klucza: %s"
+
+#, fuzzy
+#~ msgid "%s was successfully created."
+#~ msgstr "Klucz %s został pomyślnie usunięty."
+
+#, fuzzy
+#~ msgid "Unable to update tenant: %s"
+#~ msgstr "Nie można zaktualizować obrazu: %s"
+
+#, fuzzy
+#~ msgid "Quotas for %s were successfully updated."
+#~ msgstr "Grupa bezpieczeństwa %s została pomyślnie usunięta."
+
+#, fuzzy
+#~ msgid "Unable to update quotas: %s"
+#~ msgstr "Nie można zaktualizować obrazu: %s"
+
+#, fuzzy
+#~ msgid "Unable to get tenant info: %s"
+#~ msgstr "Nie można utworzyć klucza: %s"
+
+#, fuzzy
+#~ msgid "%(user)s was successfully deleted."
+#~ msgstr "Klucz %s został pomyślnie usunięty."
+
+#, fuzzy
+#~ msgid "Unable to list users: %s"
+#~ msgstr "Nie można usunąć klucza: %s"
+
+#, fuzzy
+#~ msgid "Unable to update user, please try again."
+#~ msgstr "Nie można zaktualizować obrazu: %s"
+
+#, fuzzy
+#~ msgid "Unable to retrieve tenant list: %s"
+#~ msgstr "Nie można utworzyć klucza: %s"
+
+#, fuzzy
+#~ msgid "Error creating user: %s"
+#~ msgstr "tworzenie użytkownika %s..."
+
+#~ msgid "Instances"
+#~ msgstr "Instancje"
+
+#~ msgid "Images"
+#~ msgstr "Obrazy"
+
+#~ msgid "Security Groups"
+#~ msgstr "Grupy bezpieczeństwa"
+
+#~ msgid "Delete"
+#~ msgstr "Usuń"
+
+#, fuzzy
+#~ msgid "Actions"
+#~ msgstr "Położenie"
+
+#, fuzzy
+#~ msgid "Create New Container"
+#~ msgstr "Utwórz nowy wolumen."
+
+#~ msgid "Instance ID:"
+#~ msgstr "ID instancji:"
+
+#, fuzzy
+#~ msgid "Associate to instance"
+#~ msgstr "Aktualizuj instncję"
+
+#~ msgid "Update Image"
+#~ msgstr "Aktualizuj obraz"
+
+#, fuzzy
+#~ msgid "Launch Instance"
+#~ msgstr "Uruchom obraz"
+
+#, fuzzy
+#~ msgid "Updated"
+#~ msgstr "Aktualizuj obraz"
+
+#, fuzzy
+#~ msgid "Launch"
+#~ msgstr "Uruchom obraz"
+
+#~ msgid "Volumes"
+#~ msgstr "Wolumeny"
+
+#, fuzzy
+#~ msgid "From here you can modify different properties of an image."
+#~ msgstr "Tutaj można zarządzać użytkownikami i rolami."
+
+#~ msgid "Update Instance"
+#~ msgstr "Aktualizuj instncję"
+
+#, fuzzy
+#~ msgid "Image"
+#~ msgstr "Obrazy"
+
+#, fuzzy
+#~ msgid "No active instances."
+#~ msgstr "Zobacz instancje"
+
+#, fuzzy
+#~ msgid ""
+#~ "Keypairs are ssh credentials which are injected into images when they are "
+#~ "launched. Creating a new key pair registers the public key and downloads "
+#~ "the private key (a .pem file)."
+#~ msgstr ""
+#~ "Pary kluczy to dane uwierzytelniające ssh, które są wstrzykiwane do "
+#~ "instancji podczas uruchomienia. Utworzenie nowej pary rejestruje klucz "
+#~ "publiczny umożliwia pobranie klucza prywatnego (pliku pem). <em>Należy "
+#~ "chronić i używać ten klucza tak jak normalnego klucza prywantego.</em>"
+
+#, fuzzy
+#~ msgid "There are currently no keypairs."
+#~ msgstr "Brak istniejących par kluczy."
+
+#, fuzzy
+#~ msgid "Attachment"
+#~ msgstr "Dołącz wolumen"
+
+#, fuzzy
+#~ msgid "Instance"
+#~ msgstr "Instancje"
+
+#, fuzzy
+#~ msgid "Attach"
+#~ msgstr "Dołącz wolumen"
+
+#, fuzzy
+#~ msgid "Create Network"
+#~ msgstr "Utwórz nowy wolumen."
+
+#, fuzzy
+#~ msgid "Action"
+#~ msgstr "Położenie"
+
+#, fuzzy
+#~ msgid "There are currently no ports in this network."
+#~ msgstr "Brak użytkowników aktualnie powiązanych z projektem."
+
+#, fuzzy
+#~ msgid "Create New Network"
+#~ msgstr "Utwórz nowy wolumen."
+
+#, fuzzy
+#~ msgid "Create A Network"
+#~ msgstr "Utwórz nowy wolumen."
+
+#, fuzzy
+#~ msgid "Attach Port"
+#~ msgstr "Dołącz wolumen"
+
+#, fuzzy
+#~ msgid "Create Security Group"
+#~ msgstr "Grupy bezpieczeństwa"
+
+#, fuzzy
+#~ msgid "Edit Rules"
+#~ msgstr "Edytuj role użytkowników"
+
+#, fuzzy
+#~ msgid "From here you can create a new security group"
+#~ msgstr "Tutaj można edytować wiele ról użytkowników."
+
+#, fuzzy
+#~ msgid "Edit Security Group Rules"
+#~ msgstr "Grupy bezpieczeństwa"
+
+#, fuzzy
+#~ msgid "Rules for Security Group"
+#~ msgstr "Grupy bezpieczeństwa"
+
+#, fuzzy
+#~ msgid "No rules for this security group"
+#~ msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
+
+#, fuzzy
+#~ msgid "From here you can define the sizing of a new flavor."
+#~ msgstr "Tutaj można zarządzać użytkownikami i rolami."
+
+#, fuzzy
+#~ msgid "Create New Flavor"
+#~ msgstr "Utwórz nowy wolumen."
+
+#, fuzzy
+#~ msgid "Public"
+#~ msgstr "Uczyń publicznym"
+
+#~ msgid "Location"
+#~ msgstr "Położenie"
+
+#, fuzzy
+#~ msgid "Toggle Public"
+#~ msgstr "Uczyń publicznym"
+
+#, fuzzy
+#~ msgid "Active Instances"
+#~ msgstr "Zobacz instancje"
+
+#, fuzzy
+#~ msgid "View Members"
+#~ msgstr "Zobacz obrazy"
+
+#, fuzzy
+#~ msgid "Remove"
+#~ msgstr "Usuń obraz"
+
+#, fuzzy
+#~ msgid "Update Tenant"
+#~ msgstr "Aktualizuj instncję"
+
+#, fuzzy
+#~ msgid "Update Quotas"
+#~ msgstr "Aktualizuj instncję"
+
+#, fuzzy
+#~ msgid "Create New Tenant"
+#~ msgstr "Utwórz nowy wolumen."
+
+#, fuzzy
+#~ msgid "From here you can edit a tenant."
+#~ msgstr "Tutaj można edytować wiele ról użytkowników."
+
+#, fuzzy
+#~ msgid "Update User"
+#~ msgstr "Aktualizuj obraz"
+
+#, fuzzy
+#~ msgid "Create New User"
+#~ msgstr "Utwórz nowy wolumen."
+
+#~ msgid "Creates nova users for all users in the django auth database."
+#~ msgstr "Tworzy użytkowników nova dla wszystkich użytkowników w baze django."
+
+#~ msgid "A key named %s already exists."
+#~ msgstr "Klucz o nazwie %s już istnieje."
+
+#~ msgid "A security group named %s already exists."
+#~ msgstr "Grupa bezpieczeństwa %s juz istnieje."
+
+#~ msgid "Project %s does not exist."
+#~ msgstr "Projekt %s nie istnieje."
+
+#~ msgid "Successfully started VPN for project %(proj)s."
+#~ msgstr "Pomyślnie uruchomiono VPN dla projektu %(proj)s."
+
+#~ msgid "Unable to start VPN for the project %(proj)s: %(code)s - %(msg)s"
+#~ msgstr "Nie można uruchomić VPN dla projektu  %(proj)s: %(code)s - %(msg)s"
+
+#~ msgid "Unable modify the project %(proj)s: %(code)s - %(msg)s"
+#~ msgstr "Nie można zmodyfikować projektu %(proj)s: %(code)s - %(msg)s"
+
+#~ msgid "Unable to launch: %s"
+#~ msgstr "Nie można uruchomić: %s"
+
+#~ msgid "Instance %s launched."
+#~ msgstr "Instancja %s uruchomiona."
+
+#~ msgid "Unable to make image private: %s"
+#~ msgstr "Nie można ustawić widoczności obrazu na prywatną: %s"
+
+#~ msgid "You are now using the region \"%s\"."
+#~ msgstr "Używasz teraz regionu \"%s\"."
+
+#~ msgid "Security Group %s has been succesfully created."
+#~ msgstr "Grupa bezpieczeństwa %s została pomyślnie utworzona."
+
+#~ msgid "Unable to authorize: %s"
+#~ msgstr "Nie można autoryzować: %s"
+
+#~ msgid ""
+#~ "Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has "
+#~ "been authorized."
+#~ msgstr ""
+#~ "Grupa bezpieczeństwa %(grp)s: Dostęp do %(proto)s porty %(fr)d - %(to)d "
+#~ "został autoryzowany."
+
+#~ msgid ""
+#~ "Security Group %(grp)s: Access to %(proto)s ports %(fr)d - %(to)d has "
+#~ "been revoked."
+#~ msgstr ""
+#~ "Grupa bezpieczeństwa %(grp)s: Dostęp do %(proto)s porty %(fr)d - %(to)d "
+#~ "został cofnięty."
+
+#~ msgid "Unable to create volume: %s"
+#~ msgstr "Nie można utworzyć wolumenu: %s"
+
+#~ msgid "Volume %s has been successfully deleted."
+#~ msgstr "Wolumen %s został pomyślnie usunięty."
+
+#~ msgid "Unable to attach volume: %s"
+#~ msgstr "Nie można dołączyć wolumenu: %s"
+
+#~ msgid ""
+#~ "Volume %s is scheduled to be attached.  If it doesn't become attached in "
+#~ "two minutes,  please try again (you may need to specify a different "
+#~ "device)."
+#~ msgstr ""
+#~ "Wolumen %s został zaplanowany do dołączenia. Jeśli nie zostanie dołączony "
+#~ "w ciągu 2 minut, należy spróbować ponownie (może zajść potrzeba podania "
+#~ "innego urządzenia)"
+
+#~ msgid "Unable to detach volume: %s"
+#~ msgstr "Nie można odłączyć wolumenu: %s"
+
+#~ msgid "Volume %s has been successfully detached."
+#~ msgstr "Wolumen %s został pomyślnie odłączony."
+
+#~ msgid "Do you really want to delete this project?<"
+#~ msgstr "Czy na pewno chcesz usunąć ten projekt?<"
+
+#~ msgid "Remove User From Project"
+#~ msgstr "Usuń użytkownika z projektu"
+
+#~ msgid "Do you really want to remove this user from project?"
+#~ msgstr "Czy na pewno chcesz usunąć tego użytkownika z projektu?"
+
+#~ msgid "Send Credentials"
+#~ msgstr "Wyślij dane uwierzytelniające"
+
+#~ msgid ""
+#~ "\"Select which users you would like to send credentials to from the "
+#~ "'%(proj)s' project.\""
+#~ msgstr ""
+#~ "\"Wybierz użytkowników, którym chcesz wysłać dane uwierzytelniające do "
+#~ "'%(proj)s' project.\""
+
+#~ msgid "Credentials sent successfully"
+#~ msgstr "Pomyślnie wysłano dane uwierzytelniające."
+
+#~ msgid "Expired Token"
+#~ msgstr "Token stracił ważność"
+
+#~ msgid "The link you clicked has expired."
+#~ msgstr "Odnośnik, na który kliknąłeś stracił ważność."
+
+#~ msgid ""
+#~ "This credentials download link you have reached\n"
+#~ "      is either invalid or has expired. Each link is only good for one "
+#~ "use. If\n"
+#~ "      you need to download your credentials again, please contact the\n"
+#~ "      %(brand)s support team."
+#~ msgstr ""
+#~ "Odnośnik do danych uwierzytelniających, którego\n"
+#~ "      którego użyłeś jest nieprawidłowy lub wygasł. Każdy odnośnik może\n"
+#~ "      być użyty tylko raz. Jeśli musisz ponownie pobrać dane "
+#~ "uwierzytelniające\n"
+#~ "      skontaktuj się z zespołem wsparcia %(brand)s."
+
+#~ msgid "Make Private"
+#~ msgstr "Uczyń prywatnym"
+
+#~ msgid "No images currently available."
+#~ msgstr "Brak dostępnych obrazów."
+
+#~ msgid "Edit Image"
+#~ msgstr "Edytuj obraz"
+
+#~ msgid ""
+#~ "From this page you can edit the name and description of an image that "
+#~ "belongs to you."
+#~ msgstr "Na tej stronie można edytować nazwę i opis własnego obrazu."
+
+#~ msgid "Edit Image:"
+#~ msgstr "Edytuj obraz:"
+
+#~ msgid "Launch an Image"
+#~ msgstr "Uruchom obraz"
+
+#~ msgid ""
+#~ "Images are snapshots of running systems which can easily be deployed to "
+#~ "run one or more instances."
+#~ msgstr ""
+#~ "Obrazy są zrzutami działających systemów, które łatwo można użyć do "
+#~ "uruchamiania nowych instancji."
+
+#~ msgid ""
+#~ "You can launch up to five instances of an image at a time. Some images "
+#~ "allow for custom configuration to be passed in via User data."
+#~ msgstr ""
+#~ "Można uruchomić do 5 instancji obrazu na raz. Niektóre obraz umożliwiają "
+#~ "przekazywanie własnej konfiguracji poprzez Dane użytkownika."
+
+#~ msgid ""
+#~ "No instances are currently running. You may start a new instance from the"
+#~ msgstr "Brak uruchomionych instancji. Można uruchomić nową instancję z"
+
+#~ msgid ""
+#~ "Here you can see up to the minute performance data about your instance."
+#~ msgstr "Tutaj można obejrzeć minutowe dane nt. wydajności instancji."
+
+#~ msgid "Edit Instance:"
+#~ msgstr "Edytuj instancję:"
+
+#~ msgid "Edit Instance"
+#~ msgstr "Edytuj instancję"
+
+#~ msgid ""
+#~ "From this page you can give your instance an alias, so you don't have to "
+#~ "remember its unique id."
+#~ msgstr "Tutaj można nadać instancji alias dla łatwiejszego jej odróżnienia."
+
+#~ msgid ""
+#~ "Instances are virtual servers launched from images. You can launch "
+#~ "instances from the"
+#~ msgstr ""
+#~ "Instancje są wirtualnymi serwerami uruchomionymi z obrazów. Można "
+#~ "uruchamiać instancje z"
+
+#~ msgid "Are you sure you wish to terminate instance"
+#~ msgstr "Jesteś pewien, że chcesz usunąć instancję"
+
+#~ msgid ""
+#~ "A connection error has occurred. Please ensure you are still connected to "
+#~ "VPN."
+#~ msgstr "Wystąpił błąd połączenia. Należy sprawdzić połączenie VPN."
+
+#~ msgid "Instance ID: %(instance.id)s Performance\" "
+#~ msgstr "ID instancji: %(instance.id)s wydajność\" "
+
+#~ msgid "Keys"
+#~ msgstr "Klucze"
+
+#~ msgid "Are you sure you wish to delete key"
+#~ msgstr "Czy na pewno usunąć klucz"
+
+#~ msgid "Edit Roles for User:"
+#~ msgstr "Edytuj role dla użytkownika:"
+
+#~ msgid ""
+#~ "Welcome to the <span>%(proj)s</span> Overview.  From here you can manage "
+#~ "your instances, images, keys, and security groups."
+#~ msgstr ""
+#~ "Witaj w posumowaniu <span>%(proj)s</span>. Tutaj można zarządzać swoimi "
+#~ "instancjami, obrazami, kluczami i grupami bezpieczeństwa."
+
+#~ msgid ""
+#~ "To get started using the command line management tools, you can <a target="
+#~ "\"_blank\" href=\"http://open.eucalyptus.com/wiki/"
+#~ "Euca2oolsGuide_v1.1\">download euca2ools</a> and use them with your x509 "
+#~ "credentials."
+#~ msgstr ""
+#~ "Aby zacząć pracę z narzędziami linii poleceń, możesz <a target=\"_blank\" "
+#~ "href=\"http://open.eucalyptus.com/wiki/Euca2oolsGuide_v1.1\">pobrać "
+#~ "euca2ools</a> i używać ich z danymi uwierzytelniającymi x509."
+
+#~ msgid "Generate X509 credentials."
+#~ msgstr "Wygeneruj dane uwierzytelniające x509."
+
+#~ msgid "Manage Users and Roles"
+#~ msgstr "Zarządzaj użytkownikami i rolami"
+
+#~ msgid " Security Group: %(securitygroup.name)s "
+#~ msgstr "Grup abezpieczeństwa: %(securitygroup.name)s "
+
+#~ msgid ""
+#~ "Add and remove protocols to the security group by authorizing and "
+#~ "revoking port forwarding. For instance<br /> [tcp, 80, 80] will allow "
+#~ "access to HTTP from devices outside this security group."
+#~ msgstr ""
+#~ "Dodawaj i usuwaj protokoły do grupy bezpieczeństwa poprzez dopuszczanie "
+#~ "lub blokowanie przekazywania portów. Na przykład <br /> [tcp, 80, 80] "
+#~ "pozwoli na dostęp do HTTP dla urządzeń spoza tej grupy bezpieczeństwa."
+
+#~ msgid ""
+#~ "Security groups are firewall rules which allow access to your instances "
+#~ "from other groups as well as the internet.  All ports/protocols are "
+#~ "denied by default."
+#~ msgstr ""
+#~ "Grypu bezpieczeństwa do reguły firewall'a, które zezwalają na dostęp do "
+#~ "twojej instancji z innych grup oraz z Internetu. Wszystkie porty/"
+#~ "protokoły są domyślnie zablokowane."
+
+#~ msgid ""
+#~ "Volumes provide persistent block storage. Creating a new volume gives you "
+#~ "a raw block device which you may format with your choice of filesystems "
+#~ "(ext3 is recommended). A volume may only be attached to a single instance "
+#~ "at a time."
+#~ msgstr ""
+#~ "Wolumeny dostarczają trwałe miejsce przechowywania danych. Utworzenie "
+#~ "nowego wolumenu daje udostępnia nowe urządzenie blokowe, które możesz "
+#~ "sformatować na dowolny system plików (zalecany jest ext3). Wolumen może "
+#~ "być dołączony tylko do jednej instancji na raz."
+
+#~ msgid "No volumes currently exist."
+#~ msgstr "Brak wolumenów."

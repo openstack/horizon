@@ -1,3 +1,4 @@
+{%load i18n%}
 <form id="flavor_form" action="" method="post">
   {% csrf_token %}
   <fieldset>
@@ -10,7 +11,7 @@
       {{field}}
     {% endfor %}
     {% block submit %}
-      <input type="submit" value="Create Flavor" />
+      <input type="submit" value="{% trans "Create Flavor"%}" />
     {% endblock %}
   </fieldset>
 </form>

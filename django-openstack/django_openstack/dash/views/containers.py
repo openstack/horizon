@@ -27,6 +27,7 @@ from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django import shortcuts
+from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
@@ -45,7 +46,7 @@ class DeleteContainer(forms.SelfHandlingForm):
             api.swift_delete_container(request, data['container_name'])
         except ContainerNotEmpty, e:
             messages.error(request,
-                           'Unable to delete non-empty container: %s' % \
+                           _('Unable to delete non-empty container: %s') %
                            data['container_name'])
             LOG.exception('Unable to delete container "%s".  Exception: "%s"' %
                       (data['container_name'], str(e)))
@@ -61,7 +62,7 @@ class CreateContainer(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         api.swift_create_container(request, data['name'])
-        messages.success(request, "Container was successfully created.")
+        messages.success(request, _("Container was successfully created."))
         return shortcuts.redirect("dash_containers", request.user.tenant_id)
 
 

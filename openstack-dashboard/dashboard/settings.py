@@ -103,12 +103,12 @@ TIME_ZONE = None
 gettext_noop = lambda s: s
 LANGUAGES = (
     ('en', gettext_noop('English')),
-    ('en-gb', gettext_noop('British English')),
     ('it', gettext_noop('Italiano')),
     ('es', gettext_noop('Spanish')),
     ('fr', gettext_noop('French')),
     ('ja', gettext_noop('Japanese')),
     ('pt', gettext_noop('Portuguese')),
+    ('pl', gettext_noop('Polish')),
     ('zh-cn', gettext_noop('Simplified Chinese')),
     ('zh-tw', gettext_noop('Traditional Chinese')),
 )

@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="containers" %}
@@ -13,7 +14,7 @@
       <div class='search'>
         {% include 'django_openstack/dash/objects/_filter.html' with form=filter_form %}
       </div>
-      <a class="refresh" title="Refresh" href="{% url dash_objects request.user.tenant_id container_name %}">Refresh List</a>
+      <a class="refresh" title="Refresh" href="{% url dash_objects request.user.tenant_id container_name %}">{% trans "Refresh List"%}</a>
     </div>
   </div>
 {% endblock %}
@@ -25,10 +26,11 @@
     {% include 'django_openstack/dash/objects/_list.html' %}
   {% else %}
     <div class="message_box info">
+      {% url dash_objects_upload request.user.tenant_id container_name as dash_obj_up_url %}
       <h2>Info</h2>
-      <p>There are currently no objects in the container {{container_name}}.  You can upload a new object from the <a href='{% url dash_objects_upload request.user.tenant_id container_name %}'>Object Upload Page &gt;&gt;</a></p>
+      <p>{% blocktrans %}There are currently no objects in the container {{container_name}}.  You can upload a new object from the <a href='{{dash_obj_up_url}}'>Object Upload Page &gt;&gt;</a>{% endblocktrans %}</p>
     </div>
   {% endif %}
-  <a class="action_link large-rounded" href="{% url dash_objects_upload request.user.tenant_id container_name %}">Upload New Object &gt;&gt;</a>
+  <a class="action_link large-rounded" href="{% url dash_objects_upload request.user.tenant_id container_name %}">{% trans "Upload New Object &gt;&gt;"%}</a>
 
 {% endblock %}

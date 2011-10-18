@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="networks" %}
@@ -8,19 +9,19 @@
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="Create Network" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Create Network") %}
 {% endblock page_header %}
 
 {% block dash_main %}
   <div class="dash_block">
     <div class="left">
       {% include 'django_openstack/dash/ports/_create.html' with form=create_form %}
-      <h3><a href="{% url dash_networks_detail request.user.tenant_id network_id %}"><< Return to network detail</a></h3>
+      <h3><a href="{% url dash_networks_detail request.user.tenant_id network_id %}"><< {% trans "Return to network detail"%}</a></h3>
     </div>
 
     <div class="right">
-      <h3>Description:</h3>
-      <p>You can plug virtual interfaces from your instances to ports created in the network</p>
+      <h3>{% trans "Description"%}:</h3>
+      <p>{% trans "You can plug virtual interfaces from your instances to ports created in the network"%}</p>
     </div>
     <div class="clear">&nbsp;</div>
   </div>

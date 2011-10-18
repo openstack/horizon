@@ -89,7 +89,7 @@ def usage(request):
 
     global_summary = api.GlobalSummary(request)
     if date_start > _current_month():
-        messages.error(request, 'No data for the selected period')
+        messages.error(request, _('No data for the selected period'))
         date_end = date_start
         datetime_end = datetime_start
     else:
@@ -128,7 +128,7 @@ def tenant_usage(request, tenant_id):
     (date_start, date_end, datetime_start, datetime_end) = \
             _get_start_and_end_date(request)
     if date_start > _current_month():
-        messages.error(request, 'No data for the selected period')
+        messages.error(request, _('No data for the selected period'))
         date_end = date_start
         datetime_end = datetime_start
 
@@ -143,7 +143,7 @@ def tenant_usage(request, tenant_id):
                   ' on date range "%s to %s"' % (tenant_id,
                                                  datetime_start,
                                                  datetime_end))
-        messages.error(request, 'Unable to get usage info: %s' % e.message)
+        messages.error(request, _('Unable to get usage info: %s') % e.message)
 
     running_instances = []
     terminated_instances = []
@@ -189,7 +189,8 @@ def index(request):
         instances = api.admin_server_list(request)
     except Exception as e:
         LOG.exception('Unspecified error in instance index')
-        messages.error(request, 'Unable to get instance list: %s' % e.message)
+        messages.error(request,
+                       _('Unable to get instance list: %s') % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
@@ -216,7 +217,8 @@ def refresh(request):
     try:
         instances = api.admin_server_list(request)
     except Exception as e:
-        messages.error(request, 'Unable to get instance list: %s' % e.message)
+        messages.error(request,
+                       _('Unable to get instance list: %s') % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above

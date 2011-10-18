@@ -29,6 +29,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core import validators
 from django.shortcuts import redirect, render_to_response
+from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
@@ -45,11 +46,12 @@ class DeleteKeypair(forms.SelfHandlingForm):
         try:
             LOG.info('Deleting keypair "%s"' % data['keypair_id'])
             api.keypair_delete(request, data['keypair_id'])
-            messages.info(request, 'Successfully deleted keypair: %s' \
+            messages.info(request, _('Successfully deleted keypair: %s')
                                     % data['keypair_id'])
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in DeleteKeypair")
-            messages.error(request, 'Error deleting keypair: %s' % e.message)
+            messages.error(request,
+                           _('Error deleting keypair: %s') % e.message)
         return redirect(request.build_absolute_uri())
 
 
@@ -69,7 +71,8 @@ class CreateKeypair(forms.SelfHandlingForm):
             return response
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in CreateKeyPair")
-            messages.error(request, 'Error Creating Keypair: %s' % e.message)
+            messages.error(request,
+                           _('Error Creating Keypair: %s') % e.message)
             return redirect(request.build_absolute_uri())
 
 
@@ -83,12 +86,13 @@ class ImportKeypair(forms.SelfHandlingForm):
         try:
             LOG.info('Importing keypair "%s"' % data['name'])
             api.keypair_import(request, data['name'], data['public_key'])
-            messages.success(request, 'Successfully imported public key: %s'
+            messages.success(request, _('Successfully imported public key: %s')
                                        % data['name'])
             return redirect('dash_keypairs', request.user.tenant_id)
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in ImportKeypair")
-            messages.error(request, 'Error Importing Keypair: %s' % e.message)
+            messages.error(request,
+                           _('Error Importing Keypair: %s') % e.message)
             return redirect(request.build_absolute_uri())
 
 
@@ -104,7 +108,7 @@ def index(request, tenant_id):
     except novaclient_exceptions.ClientException, e:
         keypairs = []
         LOG.exception("ClientException in keypair index")
-        messages.error(request, 'Error fetching keypairs: %s' % e.message)
+        messages.error(request, _('Error fetching keypairs: %s') % e.message)
 
     return render_to_response('django_openstack/dash/keypairs/index.html', {
         'keypairs': keypairs,

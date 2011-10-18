@@ -202,6 +202,13 @@ h1 a{
 }
 #drop_btn:hover { background-color: #bfdec6; }
 
+#settings_btn {
+  background: url(../images/gears_small.png) no-repeat center center;
+  width: 23px;
+  height: 29px;
+}
+#settings_btn:hover { background-color: #bfdec6; }
+
 a#current_tenant {
   background: #f3faf3;
   color: #6eaf6e;

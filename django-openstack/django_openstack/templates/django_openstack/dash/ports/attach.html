@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="networks" %}
@@ -8,7 +9,7 @@
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="Attach Port" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Attach Port") %}
 {% endblock page_header %}
 
 {% block headerjs %}
@@ -34,15 +35,14 @@
   <div class="dash_block">
     <div class="left">
       {% include 'django_openstack/dash/ports/_attach.html' with form=attach_form %}
-      <h3><a href="{% url dash_networks_detail request.user.tenant_id network %}"><< Return to network detail</a></h3>
+      <h3><a href="{% url dash_networks_detail request.user.tenant_id network %}"><< {% trans "Return to network detail"%}</a></h3>
     </div>
 
     <div class="right">
-    <p>Select an interface from the list on the left to attach it to this port.</p>
+    {% blocktrans %}<p>Select an interface from the list on the left to attach it to this port.</p>
     <p>Only interfaces that are not connected to any existing port are shown</p>
-    <p>If you want to reconnect a connected interface, please detach it first</p>
+    <p>If you want to reconnect a connected interface, please detach it first</p>{% endblocktrans %}
     </div>
     <div class="clear">&nbsp;</div>
   </div>
 {% endblock %}
-

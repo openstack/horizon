@@ -1,3 +1,4 @@
+{%load i18n%}
 <form id="security_group_form"  method="post">
   <fieldset>
     {% csrf_token %}
@@ -7,6 +8,6 @@
       {{ field.errors }}
       {{ field }}
     {% endfor %}
-    <input type="submit" value="Create Security Group" class="large-rounded" />
+    <input type="submit" value="{% trans "Create Security Group"%}" class="large-rounded" />
   </fieldset>
-</form> 
+</form>

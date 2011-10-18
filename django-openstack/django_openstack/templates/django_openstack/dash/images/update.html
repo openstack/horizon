@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="images" %}
@@ -7,7 +8,7 @@
 {% endblock %}
 
 {% block page_header %}
-  {% include "django_openstack/common/_page_header.html" with title="Update Image" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Update Image") %}
 {% endblock page_header %}
 
 {% block dash_main %}
@@ -17,8 +18,8 @@
     </div>
 
     <div class="right">
-      <h3>Description:</h3>
-      <p>From here you can modify different properties of an image.</p>
+      <h3>{% trans "Description:"%}</h3>
+      <p>{% trans "From here you can modify different properties of an image."%}</p>
     </div>
     <div class="clear">&nbsp;</div>
   </div>
