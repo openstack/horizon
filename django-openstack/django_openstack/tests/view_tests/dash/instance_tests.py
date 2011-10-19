@@ -153,7 +153,7 @@ class InstanceViewTests(base.BaseViewTests):
                           unicode(self.servers[0].id)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -241,7 +241,7 @@ class InstanceViewTests(base.BaseViewTests):
                       now).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 

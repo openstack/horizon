@@ -40,7 +40,7 @@ class PortViewTests(base.BaseViewTests):
                     'method': 'CreatePort'}
 
         self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(str))
+        messages.success(IgnoreArg(), IsA(basestring))
 
         res = self.client.post(reverse('dash_ports_create',
                                args=[self.request.user.tenant_id, "n1"]),
@@ -60,7 +60,7 @@ class PortViewTests(base.BaseViewTests):
                     'method': 'DeletePort'}
 
         self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(str))
+        messages.success(IgnoreArg(), IsA(basestring))
 
         res = self.client.post(reverse('dash_networks_detail',
                                args=[self.request.user.tenant_id, "n1"]),
@@ -77,7 +77,7 @@ class PortViewTests(base.BaseViewTests):
                     'method': 'AttachPort'}
 
         self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(str))
+        messages.success(IgnoreArg(), IsA(basestring))
 
         res = self.client.post(reverse('dash_ports_attach',
                                args=[self.request.user.tenant_id, "n1", "p1"]),
@@ -97,7 +97,7 @@ class PortViewTests(base.BaseViewTests):
                     'method': 'DetachPort'}
 
         self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(str))
+        messages.success(IgnoreArg(), IsA(basestring))
 
         res = self.client.post(reverse('dash_networks_detail',
                                args=[self.request.user.tenant_id, "n1"]),
