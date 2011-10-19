@@ -61,7 +61,7 @@ class SecurityGroupsViewTests(base.BaseViewTests):
         api.security_group_list(IsA(http.HttpRequest)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -206,7 +206,7 @@ class SecurityGroupsViewTests(base.BaseViewTests):
                            .AndReturn(new_rule)
 
         self.mox.StubOutWithMock(messages, 'info')
-        messages.info(IsA(http.HttpRequest), IsA(str))
+        messages.info(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -245,7 +245,7 @@ class SecurityGroupsViewTests(base.BaseViewTests):
                            TO_PORT, CIDR).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -303,7 +303,7 @@ class SecurityGroupsViewTests(base.BaseViewTests):
                                        AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -358,7 +358,7 @@ class SecurityGroupsViewTests(base.BaseViewTests):
                                   AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 

@@ -72,7 +72,7 @@ class SnapshotsViewTests(base.BaseViewTests):
         api.snapshot_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -90,7 +90,7 @@ class SnapshotsViewTests(base.BaseViewTests):
         api.snapshot_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 

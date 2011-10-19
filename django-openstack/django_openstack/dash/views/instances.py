@@ -113,7 +113,7 @@ class UpdateInstance(forms.SelfHandlingForm):
 @login_required
 def index(request, tenant_id):
     for f in (TerminateInstance, RebootInstance):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
     instances = []
@@ -121,8 +121,7 @@ def index(request, tenant_id):
         instances = api.server_list(request)
     except api_exceptions.ApiException as e:
         LOG.exception('Exception in instance index')
-        messages.error(request,
-                       _('Unable to get instance list: %s') % e.message)
+        messages.error(request, _('Unable to get instance list: %s') % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
@@ -251,7 +250,7 @@ def vnc(request, tenant_id, instance_id):
         LOG.exception('ApiException while fetching instance vnc connection')
         messages.error(request,
             _('Unable to get vnc console for instance %(inst)s: %(message)s') %
-            {"inst": instance_id, "massage": e.message})
+            {"inst": instance_id, "message": e.message})
         return shortcuts.redirect('dash_instances', tenant_id)
 
 
@@ -263,7 +262,7 @@ def update(request, tenant_id, instance_id):
         LOG.exception('ApiException while fetching instance info')
         messages.error(request,
             _('Unable to get information for instance %(inst)s: %(message)s') %
-            {"inst": instance_id, "massage": e.message})
+            {"inst": instance_id, "message": e.message})
         return shortcuts.redirect('dash_instances', tenant_id)
 
     form, handled = UpdateInstance.maybe_handle(request, initial={

@@ -138,7 +138,7 @@ class FloatingIpViewTests(base.BaseViewTests):
                                                           AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
         api.tenant_floating_ip_get = self.mox.CreateMockAnything()
@@ -204,7 +204,7 @@ class FloatingIpViewTests(base.BaseViewTests):
                                                              IsA(int)).\
                                                              AndRaise(exception)
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
         api.tenant_floating_ip_get = self.mox.CreateMockAnything()
