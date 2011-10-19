@@ -29,7 +29,8 @@ from django_openstack import api
 from glance import client as glance_client
 from mox import IsA
 from novaclient import service_catalog, client as base_client
-from novaclient.v1_1 import client
+from novaclient.keystone import client as keystone_client
+from novaclient.v1_1 import client as nova_client
 from openstack import compute as OSCompute
 from openstackx import admin as OSAdmin
 from openstackx import auth as OSAuth
@@ -144,19 +145,27 @@ class APIDict(api.APIDictWrapper):
 class NovaClientTestMixin(object):
     def setUp(self):
         super(NovaClientTestMixin, self).setUp()
+        self._original_keystoneclient = api.keystoneclient
         self._original_novaclient = api.novaclient
+        api.keystoneclient = lambda request: self.stub_keystoneclient()
         api.novaclient = lambda request: self.stub_novaclient()
-
 
     def stub_novaclient(self):
         if not hasattr(self, "novaclient"):
-            self.mox.StubOutWithMock(client, 'Client')
-            self.novaclient = self.mox.CreateMock(client.Client)
+            self.mox.StubOutWithMock(nova_client, 'Client')
+            self.novaclient = self.mox.CreateMock(nova_client.Client)
         return self.novaclient
+
+    def stub_keystoneclient(self):
+        if not hasattr(self, "keystoneclient"):
+            self.mox.StubOutWithMock(keystone_client, 'Client')
+            self.keystoneclient = self.mox.CreateMock(keystone_client.Client)
+        return self.keystoneclient
 
     def tearDown(self):
         super(NovaClientTestMixin, self).tearDown()
         api.novaclient = self._original_novaclient
+        api.keystoneclient = self._original_keystoneclient
 
 
 class APIResourceWrapperTests(test.TestCase):
@@ -335,7 +344,7 @@ class ApiHelperTests(test.TestCase):
             url = api.url_for(self.request, 'notAnApi')
 
 
-class AccountApiTests(test.TestCase):
+class AccountApiTests(NovaClientTestMixin, test.TestCase):
     def stub_account_api(self):
         self.mox.StubOutWithMock(api, 'account_api')
         account_api = self.mox.CreateMock(OSExtras.Account)
@@ -396,10 +405,10 @@ class AccountApiTests(test.TestCase):
     def test_tenant_list(self):
         tenants = (TEST_RETURN, TEST_RETURN + '2')
 
-        account_api = self.stub_account_api()
+        keystoneclient = self.stub_keystoneclient()
 
-        account_api.tenants = self.mox.CreateMockAnything()
-        account_api.tenants.list().AndReturn(tenants)
+        keystoneclient.tenants = self.mox.CreateMockAnything()
+        keystoneclient.tenants.list().AndReturn(tenants)
 
         self.mox.ReplayAll()
 

@@ -51,6 +51,7 @@ from glance import client as glance_client
 from glance.common import exception as glance_exceptions
 from novaclient import client as base_nova_client
 from novaclient import exceptions as nova_exceptions
+from novaclient.keystone import client as keystone_client
 from novaclient.v1_1 import client as nova_client
 from quantum import client as quantum_client
 
@@ -412,6 +413,12 @@ def novaclient(request):
     c.client.management_url = url_for(request, 'compute')
     return c
 
+def keystoneclient(request):
+    conn = _get_base_client_from_token(request.user.tenant_id,
+                                            request.user.token)
+    conn.auth_url = '' # Bypass re-authentication
+    return keystone_client.Client(conn)
+
 
 def auth_api():
     LOG.debug('auth_api connection created using url "%s"' %
@@ -637,12 +644,11 @@ def tenant_get(request, tenant_id):
 
 
 def tenant_delete(request, tenant_id):
-    account_api(request).tenants.delete(tenant_id)
+    keystoneclient(request).tenants.delete(tenant_id)
 
 
-@check_openstackx
 def tenant_list(request):
-    return [Tenant(t) for t in account_api(request).tenants.list()]
+    return [Tenant(t) for t in keystoneclient(request).tenants.list()]
 
 
 def tenant_list_for_token(request, token):
