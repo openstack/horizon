@@ -18,14 +18,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns, url, include
 from django.conf import settings
 from django_openstack.signals import *
+from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
     url(r'^auth/', include('django_openstack.auth.urls')),
     url(r'^dash/', include('django_openstack.dash.urls')),
     url(r'^syspanel/', include('django_openstack.syspanel.urls')),
+    url(r'^settings/$', TemplateView.as_view(
+                template_name='django_openstack/dash/settings.html'),
+                name='dashboard_settings')
+
 )
 
 # import urls from modules
