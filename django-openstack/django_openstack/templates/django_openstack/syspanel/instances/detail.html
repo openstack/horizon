@@ -1,0 +1,104 @@
+{% extends 'django_openstack/syspanel/base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="instances" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {# to make searchable false, just remove it from the include statement #}
+    {% include "django_openstack/common/_page_header.html" with title="Instance Detail: "|add:instance.name %}
+{% endblock page_header %}
+
+{% block syspanel_main %}
+<ul id="instance_tabs">
+  <li class="active"><a class="overview" href="#">Overview</a></li>
+  <li><a class="log" href="#">Log</a></li>
+  <li><a class="vnc" href="#">VNC</a></li>
+</ul>
+
+  <div class="dash_block">
+    <div id="overview" class="tab_wrapper">
+      <ul>
+        <li>
+          <div class="status">
+            <h4>Status</h4>
+            <ul>
+              <li><span>Status:</span> {{instance.status}}</li>
+              <li><span>Instance Name:</span> {{instance.name}}</li>
+              <li><span>Instance ID:</span> {{instance.id}}</li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <div class="specs">
+            <h4>Specs</h4>
+            <ul>
+              <li><span>RAM:</span> {{instance.attrs.memory_mb}} MB</li>
+              <li><span>VCPUs:</span> {{instance.attrs.vcpus}} VCPU</li>
+              <li><span>Disk:</span> {{instance.attrs.disk_gb}}GB Disk</li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <div class="meta">
+            <h4>Meta</h4>
+            <ul>
+              <li><span>Key name:</span> {{instance.attrs.key_name}}</li>
+              <li><span>Security Group(s):</span> {% for group in instance.attrs.security_groups %}{{group}}, {% endfor %}</li>
+              <li><span>Image Name:</span> {{instance.image_name}}</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="log" class="tab_wrapper">
+      <a class="view_full" target="_blank" href="{% url dash_instances_console request.user.tenant_id instance.id %}">View Full Log</a>
+      <pre class="logs"></pre>
+    </div>
+
+    <div id="vnc" class="tab_wrapper">
+      <iframe src="{{vnc_url}}" width="720" height="420"></iframe>
+    </div>
+    
+  </div>
+{% endblock %}
+
+{% block footer_js %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $(".dash_block div.tab_wrapper").hide()
+      $(".dash_block div.tab_wrapper:first").show()
+
+      $("#instance_tabs a").click(function(e){
+        e.preventDefault()
+        e.stopPropagation()
+        $(".dash_block div.tab_wrapper").hide('fast')
+        $(".dash_block div#"+$(this).attr('class')).show('fast')
+
+        $("#instance_tabs li").removeClass('active')
+        $(this).parent().toggleClass('active')
+      })
+
+      $('a.log').click(function(){
+        getlog()
+      })
+
+      setInterval(function(){
+        if ($("a.log").parent().hasClass('active')) {
+          getlog()
+        }
+      }, 3000)
+    })
+
+    function getlog(){
+      $.get("{% url dash_instances_console instance.attrs.tenant_id instance.id %}?length=25", function(data){
+        $("#log .logs").html(data)
+      })
+    }
+  </script>
+{% endblock footer_js %}

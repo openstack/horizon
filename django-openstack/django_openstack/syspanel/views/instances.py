@@ -22,7 +22,7 @@ from django import template
 from django import http
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.utils.translation import ugettext as _
 
 import datetime
@@ -230,4 +230,34 @@ def refresh(request):
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
+    }, context_instance=template.RequestContext(request))
+
+
+@login_required
+def detail(request, instance_id):
+    try:
+        instance = api.server_get(request, instance_id)
+        try:
+            console = api.console_create(request, instance_id, 'vnc')
+            vnc_url =  "%s&title=%s(%s)" % (console.output,
+                                            instance.name,
+                                            instance_id)
+        except api_exceptions.ApiException, e:
+            LOG.exception('ApiException while fetching instance vnc \
+                           connection')
+            messages.error(request,
+                       'Unable to get vnc console for instance %s: %s' %
+                       (instance_id, e.message))
+            return redirect('dash_instances', tenant_id)
+    except api_exceptions.ApiException, e:
+        LOG.exception('ApiException while fetching instance info')
+        messages.error(request,
+                   'Unable to get information for instance %s: %s' %
+                   (instance_id, e.message))
+        return redirect('dash_instances', tenant_id)
+
+    return render_to_response(
+    'django_openstack/syspanel/instances/detail.html', {
+        'instance': instance,
+        'vnc_url': vnc_url,
     }, context_instance=template.RequestContext(request))
