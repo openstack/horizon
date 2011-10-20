@@ -419,7 +419,16 @@ def keystoneclient(request):
     conn = _get_base_client_from_token(request.user.tenant_id,
                                             request.user.token)
     conn.auth_url = '' # Bypass re-authentication
-    endpoint = settings.OPENSTACK_KEYSTONE_URL if not hasattr(conn, 'service_catalog') else None
+    if hasattr(conn, 'service_catalog'):
+        if request.user.is_admin():
+            endpoint = conn.service_catalog.url_for(service_type='identity',
+                                                    endpoint_type='adminURL')
+        else:
+            endpoint = conn.service_catalog.url_for(service_type='identity',
+                                                    endpoint_type='publicURL')
+    else:
+        endpoint = settings.OPENSTACK_KEYSTONE_URL
+
     return keystone_client.Client(conn, endpoint=endpoint)
 
 
@@ -621,19 +630,6 @@ def service_list(request):
 
 def service_update(request, name, enabled):
     return Services(admin_api(request).services.update(name, enabled))
-
-
-def token_get_tenant(request, tenant_id):
-    tenants = auth_api().tenants.for_token(request.user.token)
-    for t in tenants:
-        if str(t.id) == str(tenant_id):
-            return Tenant(t)
-
-    LOG.warning('Unknown tenant id "%s" requested' % tenant_id)
-
-
-def token_list_tenants(request, token):
-    return [Tenant(t) for t in auth_api().tenants.for_token(token)]
 
 
 def tenant_create(request, tenant_name, description, enabled):

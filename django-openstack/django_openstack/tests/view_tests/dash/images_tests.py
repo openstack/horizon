@@ -62,9 +62,6 @@ class ImageViewTests(base.BaseViewTests):
         self.security_groups = (security_group,)
 
     def test_index(self):
-        self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IsA(http.HttpRequest), self.TEST_TENANT)
-
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         api.image_list_detailed(IsA(http.HttpRequest)).AndReturn(self.images)
 
@@ -83,9 +80,6 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_index_no_images(self):
-        self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IsA(http.HttpRequest), self.TEST_TENANT)
-
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
 
@@ -102,9 +96,6 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_index_client_conn_error(self):
-        self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IsA(http.HttpRequest), self.TEST_TENANT)
-
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         exception = glance_exception.ClientConnectionError('clientConnError')
         api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
@@ -122,9 +113,6 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.VerifyAll()
 
     def test_index_glance_error(self):
-        self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IsA(http.HttpRequest), self.TEST_TENANT)
-
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         exception = glance_exception.Error('glanceError')
         api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
@@ -152,10 +140,6 @@ class ImageViewTests(base.BaseViewTests):
         api.tenant_quota_get(IsA(http.HttpRequest),
                              self.TEST_TENANT).AndReturn(FakeQuota)
 
-        self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IsA(http.HttpRequest),
-                             self.TEST_TENANT).AndReturn(self.TEST_TENANT)
-
         self.mox.StubOutWithMock(api, 'flavor_list')
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
 
@@ -176,8 +160,6 @@ class ImageViewTests(base.BaseViewTests):
 
         image = res.context['image']
         self.assertEqual(image.name, self.visibleImage.name)
-
-        self.assertEqual(res.context['tenant'], self.TEST_TENANT)
 
         form = res.context['form']
 
@@ -210,10 +192,6 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'image_get')
         api.image_get(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
-
-        self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IsA(http.HttpRequest),
-                             self.TEST_TENANT).AndReturn(self.TEST_TENANT)
 
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
         api.tenant_quota_get(IsA(http.HttpRequest),
@@ -264,10 +242,6 @@ class ImageViewTests(base.BaseViewTests):
         api.image_get(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
-        self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IsA(http.HttpRequest),
-                             self.TEST_TENANT).AndReturn(self.TEST_TENANT)
-
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
         api.tenant_quota_get(IsA(http.HttpRequest),
                              self.TEST_TENANT).AndReturn(FakeQuota)
@@ -304,10 +278,6 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'image_get')
         api.image_get(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
-
-        self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IsA(http.HttpRequest),
-                             self.TEST_TENANT).AndReturn(self.TEST_TENANT)
 
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
         api.tenant_quota_get(IsA(http.HttpRequest),
@@ -359,10 +329,6 @@ class ImageViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'image_get')
         api.image_get(IgnoreArg(),
                       IMAGE_ID).AndReturn(self.visibleImage)
-
-        self.mox.StubOutWithMock(api, 'token_get_tenant')
-        api.token_get_tenant(IgnoreArg(),
-                             self.TEST_TENANT).AndReturn(self.TEST_TENANT)
 
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
         api.tenant_quota_get(IsA(http.HttpRequest),

@@ -212,12 +212,6 @@ def index(request, tenant_id):
             return handled
     delete_form = DeleteImage()
 
-    tenant = {}
-    try:
-        tenant = api.token_get_tenant(request, request.user.tenant_id)
-    except api_exceptions.ApiException, e:
-        messages.error(request, _("Unable to retrienve tenant info\
-                                   from keystone: %s") % e.message)
     all_images = []
     try:
         all_images = api.image_list_detailed(request)
@@ -240,7 +234,6 @@ def index(request, tenant_id):
     return render_to_response(
     'django_openstack/dash/images/index.html', {
         'delete_form': delete_form,
-        'tenant': tenant,
         'images': images,
     }, context_instance=template.RequestContext(request))
 
@@ -281,7 +274,6 @@ def launch(request, tenant_id, image_id):
     # TODO(mgius): Any reason why these can't be after the launchform logic?
     # If The form is valid, we've just wasted these two api calls
     image = api.image_get(request, image_id)
-    tenant = api.token_get_tenant(request, request.user.tenant_id)
     quotas = api.tenant_quota_get(request, request.user.tenant_id)
     try:
         quotas.ram = int(quotas.ram)
@@ -302,7 +294,6 @@ def launch(request, tenant_id, image_id):
 
     return render_to_response(
     'django_openstack/dash/images/launch.html', {
-        'tenant': tenant,
         'image': image,
         'form': form,
         'quotas': quotas,
