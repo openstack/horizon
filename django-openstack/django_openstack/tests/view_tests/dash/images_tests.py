@@ -90,7 +90,7 @@ class ImageViewTests(base.BaseViewTests):
         api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
 
         self.mox.StubOutWithMock(messages, 'info')
-        messages.info(IsA(http.HttpRequest), IsA(str))
+        messages.info(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -110,7 +110,7 @@ class ImageViewTests(base.BaseViewTests):
         api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -130,7 +130,7 @@ class ImageViewTests(base.BaseViewTests):
         api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -244,7 +244,7 @@ class ImageViewTests(base.BaseViewTests):
                           KEY_NAME, USER_DATA, [self.security_groups[0].name])
 
         self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IsA(http.HttpRequest), IsA(str))
+        messages.success(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -395,7 +395,7 @@ class ImageViewTests(base.BaseViewTests):
                           self.security_groups).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
         url = reverse('dash_images_launch',

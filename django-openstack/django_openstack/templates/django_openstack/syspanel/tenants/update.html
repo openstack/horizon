@@ -1,4 +1,5 @@
 {% extends 'django_openstack/syspanel/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="tenants" %}
@@ -7,7 +8,7 @@
 {% endblock %}
 
 {% block page_header %}
-  {% include "django_openstack/common/_page_header.html" with title="Update Tenant" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Update Tenant") %}
 {% endblock page_header %}
 
 {% block syspanel_main %}
@@ -17,8 +18,8 @@
     </div>
 
     <div class="right">
-      <h3>Description:</h3>
-      <p>From here you can edit a tenant.</p>
+      <h3>{% trans "Description"%}:</h3>
+      <p>{% trans "From here you can edit a tenant."%}</p>
     </div>
     <div class="clear">&nbsp;</div>
   </div>

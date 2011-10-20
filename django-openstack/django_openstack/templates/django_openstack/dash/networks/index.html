@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="networks" %}
@@ -9,17 +10,18 @@
 {% block page_header %}
   {% url dash_networks request.user.tenant_id as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="Networks" refresh_link=refresh_link searchable="true" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Networks") refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
 
 {% block dash_main %}
   {% if networks %}
     {% include 'django_openstack/dash/networks/_list.html' %}
-    <a id="network_create_link" class="action_link large-rounded" href="{% url dash_network_create request.user.tenant_id %}">Create New Network</a>
+    {% url dash_network_create request.user.tenant_id as dash_net_url %}
+    <a id="network_create_link" class="action_link large-rounded" href="{{dash_net_url}}">{% trans "Create New Network"%}</a>
   {% else %}
     <div class="message_box info">
-      <h2>Info</h2>
-      <p>There are currently no networks. <a href='{% url dash_network_create request.user.tenant_id %}'>Create A Network &gt;&gt;</a></p>
+      <h2>{% trans "Info"%}</h2>
+      <p>{% trans "There are currently no networks."%} <a href='{% url dash_network_create request.user.tenant_id %}'>{% trans "Create A Network"%} &gt;&gt;</a></p>
     </div>
   {% endif %}
   </div>

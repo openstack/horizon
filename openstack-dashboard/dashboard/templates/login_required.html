@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
+{%load i18n%}
 
 {# pleasant landing page if not logged in #}
 {# redirected to overview if logged in #}
-
 
 {% block sidebar %}
   <div id="sidebar" class="empty-sidebar"></div>
@@ -10,8 +10,8 @@
 
 {% block main %}
   <div id='page_header'>
-    <h2><span>Compute:</span> Login</h2>
-    <p class='desc'><span>&mdash;</span> Login to OpenStack via Keystone auth.</p>
+    <h2><span>Compute:</span>{% trans "Login"%}</h2>
+    <p class='desc'><span>&mdash;</span>{% trans "Login to OpenStack via Keystone auth."%}</p>
   </div>
   <div class='main_content'>
 
@@ -19,7 +19,7 @@
 
   <div class="dash_block" id="login_wrapper">
     <div class='table_title narrow'>
-      <h3>Login</h3>
+      <h3>{% trans "Login"%}</h3>
     </div>
     {% include '_login.html' %}
   </div>

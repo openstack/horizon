@@ -1,7 +1,8 @@
+{%load i18n%}
 <form id="form_filter_{{ container_name }}" class="form-filter" method="post">
   {% csrf_token %}
   {% for hidden in form.hidden_fields %}{{hidden}}{% endfor %}
   {% for field in form.visible_fields %}{{field}}{% endfor %}
   <label for="table_search">Search</label>
-  <input id="table_search" class="filter" type="submit" value="Filter" style="font-size:11px;"/>
+  <input id="table_search" class="filter" type="submit" value="{% trans "Filter"%}" style="font-size:11px;"/>
 </form>

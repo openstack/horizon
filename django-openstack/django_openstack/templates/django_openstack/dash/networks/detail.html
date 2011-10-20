@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="networks" %}
@@ -20,11 +21,11 @@
 {% block dash_main %}
   {% if network.ports %}
     {% include 'django_openstack/dash/networks/_detail.html' %}
-    <a id="network_create_link" class="action_link large-rounded" href="{% url dash_ports_create request.user.tenant_id network.id %}">Create Ports</a>
+    <a id="network_create_link" class="action_link large-rounded" href="{% url dash_ports_create request.user.tenant_id network.id %}">{% trans "Create Ports"%}</a>
   {% else %}
     <div class="message_box info">
-     <h2>Info</h2>
-     <p>There are currently no ports in this network. <a href="{% url dash_ports_create request.user.tenant_id network.id %}">Create Ports &gt;&gt;</a></p>
+     <h2>{% trans "Info"%}</h2>
+     <p>{% trans "There are currently no ports in this network."%} <a href="{% url dash_ports_create request.user.tenant_id network.id %}">{% trans "Create Ports"%} &gt;&gt;</a></p>
     </div>
   {% endif %}
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "django_openstack/syspanel/tenants/_quotas_form.html" %}
+{%load i18n%}
 
 {% block submit %}
-  <input type="submit" value="Update Quotas" class="large-rounded" />
+  <input type="submit" value="{% trans "Update Quotas"%}" class="large-rounded" />
 {% endblock %}
-

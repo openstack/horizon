@@ -29,6 +29,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django import shortcuts
 from django.shortcuts import render_to_response
+from django.utils.translation import ugettext as _
 
 from django_openstack import api
 from django_openstack import forms
@@ -50,8 +51,8 @@ class FilterObjects(forms.SelfHandlingForm):
 
         if not objects:
             messages.info(request,
-                          'There are no objects matching that prefix in %s' %
-                          data['container_name'])
+                         _('There are no objects matching that prefix in %s') %
+                         data['container_name'])
 
         return objects
 
@@ -66,7 +67,7 @@ class DeleteObject(forms.SelfHandlingForm):
                 data['container_name'],
                 data['object_name'])
         messages.info(request,
-                      'Successfully deleted object: %s' % \
+                      _('Successfully deleted object: %s') %
                       data['object_name'])
         return shortcuts.redirect(request.build_absolute_uri())
 
@@ -83,7 +84,7 @@ class UploadObject(forms.SelfHandlingForm):
                 data['name'],
                 self.files['object_file'].read())
 
-        messages.success(request, "Object was successfully uploaded.")
+        messages.success(request, _("Object was successfully uploaded."))
         return shortcuts.redirect(request.build_absolute_uri())
 
 
@@ -114,8 +115,8 @@ class CopyObject(forms.SelfHandlingForm):
                               new_object_name)
 
         messages.success(request,
-                         'Object was successfully copied to %s\%s' %
-                         (new_container_name, new_object_name))
+                _('Object was successfully copied to %(container)s\%(obj)s') %
+                {"container": new_container_name, "obj": new_object_name})
 
         return shortcuts.redirect(request.build_absolute_uri())
 

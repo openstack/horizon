@@ -1,8 +1,9 @@
+{%load i18n%}
 <table id="security_groups" class="wide">
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Actions</th>
+    <th>{% trans "Name"%}</th>
+    <th>{% trans "Description"%}</th>
+    <th>{% trans "Actions"%}</th>
   </tr>
   {% for security_group in security_groups %}
   <tr class="{% cycle 'odd' 'even' %}">
@@ -10,7 +11,7 @@
     <td>{{ security_group.description }}</td>
     <td id="actions">
       <ul>
-        <li><a href="{% url dash_security_groups_edit_rules request.user.tenant_id security_group.id %}">Edit Rules</a></li>
+        <li><a href="{% url dash_security_groups_edit_rules request.user.tenant_id security_group.id %}">{% trans "Edit Rules"%}</a></li>
         {% if security_group.name != 'default' %}
           <li class="form">{% include "django_openstack/dash/security_groups/_delete.html" with form=delete_form %}</li>
         {% endif %}

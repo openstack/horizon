@@ -20,6 +20,8 @@
 
 from django.contrib import messages
 from django import shortcuts
+from django.utils.translation import ugettext as _
+
 import openstackx
 import openstack
 
@@ -71,6 +73,6 @@ class AuthenticationMiddleware(object):
             # when our token expires
             for message in messages.get_messages(request):
                 pass
-            messages.error(request, 'Your token has expired.\
-                                     Please log in again')
+            messages.error(request,
+                           _('Your token has expired. Please log in again'))
             return shortcuts.redirect('/auth/logout')

@@ -29,8 +29,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
-from openstackx.api import exceptions as api_exceptions
+from django.utils.translation import ugettext as _
 
+from openstackx.api import exceptions as api_exceptions
 
 from django_openstack import api
 from django_openstack import forms
@@ -53,7 +54,7 @@ class CreateFlavor(forms.SelfHandlingForm):
                           int(data['vcpus']),
                           int(data['disk_gb']),
                           int(data['flavorid']))
-        msg = '%s was successfully added to flavors.' % data['name']
+        msg = _('%s was successfully added to flavors.') % data['name']
         LOG.info(msg)
         messages.success(request, msg)
         return redirect('syspanel_flavors')
@@ -68,10 +69,10 @@ class DeleteFlavor(forms.SelfHandlingForm):
             flavor = api.flavor_get(request, flavor_id)
             LOG.info('Deleting flavor with id "%s"' % flavor_id)
             api.flavor_delete(request, flavor_id, False)
-            messages.info(request, 'Successfully deleted flavor: %s' %
+            messages.info(request, _('Successfully deleted flavor: %s') %
                           flavor.name)
         except api_exceptions.ApiException, e:
-            messages.error(request, 'Unable to delete flavor: %s' %
+            messages.error(request, _('Unable to delete flavor: %s') %
                                      e.message)
         return redirect(request.build_absolute_uri())
 
@@ -91,7 +92,7 @@ def index(request):
         flavors = api.flavor_list(request)
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException while fetching usage info')
-        messages.error(request, 'Unable to get usage info: %s' % e.message)
+        messages.error(request, _('Unable to get usage info: %s') % e.message)
 
     flavors.sort(key=lambda x: x.id, reverse=True)
     return render_to_response(

@@ -111,7 +111,7 @@ class ContainerViewTests(base.BaseViewTests):
                 IsA(http.HttpRequest), 'CreateContainer')
 
         self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(str))
+        messages.success(IgnoreArg(), IsA(basestring))
 
         res = self.client.post(reverse('dash_containers_create',
                                        args=[self.request.user.tenant_id]),

@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="floatingips" %}
@@ -8,7 +9,7 @@
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="Associate Floating IP" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Associate Floating IP") %}
 {% endblock page_header %}
 
 {% block dash_main %}
@@ -18,8 +19,8 @@
     </div>
 
     <div class="right">
-      <h3>Description:</h3>
-      <p>Associate a floating ip with an instance.</p>
+      <h3>{% trans "Description:"%}</h3>
+      <p>{% trans "Associate a floating ip with an instance."%}</p>
     </div>
     <div class="clear">&nbsp;</div>
   </div>

@@ -1,15 +1,16 @@
 <!-- TODO(termie): move most of this to django_openstack -->
 {% load sizeformat %}
+{%load i18n%}
 <table id='instances' class="wide">
   <tr id='headings'>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Groups</th>
-    <th>Image</th>
-    <th>Size</th>
-    <th>IPs</th>
-    <th>State</th>
-    <th>Actions</th>
+    <th>{% trans "ID"%}</th>
+    <th>{% trans "Name"%}</th>
+    <th>{% trans "Groups"%}</th>
+    <th>{% trans "Image"%}</th>
+    <th>{% trans "Size"%}</th>
+    <th>{% trans "IPs"%}</th>
+    <th>{% trans "State"%}</th>
+    <th>{% trans "Actions"%}</th>
   </tr>
   <tbody class='main'>
     {% for instance in instances %}
@@ -62,10 +63,10 @@
             <ul>
               <li class="form">{% include "django_openstack/common/instances/_terminate.html" with form=terminate_form %}</li>
               <li class="form">{% include "django_openstack/common/instances/_reboot.html" with form=reboot_form %}</li>
-              <li><a target="_blank" href="{% url dash_instances_console request.user.tenant_id instance.id %}">Log</a></li>
-              <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant_id instance.id %}">VNC Console</a></li>
-              <li><a href="{% url dash_instances_update request.user.tenant_id instance.id %}">Edit</a></li>
-              <li><a href="{% url dash_snapshots_create request.user.tenant_id instance.id %}">Snapshot</a></li>
+              <li><a target="_blank" href="{% url dash_instances_console request.user.tenant_id instance.id %}">{% trans "Log"%}</a></li>
+              <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant_id instance.id %}">{% trans "VNC Console"%}</a></li>
+              <li><a href="{% url dash_instances_update request.user.tenant_id instance.id %}">{% trans "Edit"%}</a></li>
+              <li><a href="{% url dash_snapshots_create request.user.tenant_id instance.id %}">{% trans "Snapshot"%}</a></li>
             </ul>
         </td>
       </tr>

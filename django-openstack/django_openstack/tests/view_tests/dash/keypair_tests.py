@@ -57,7 +57,7 @@ class KeyPairViewTests(base.BaseViewTests):
         api.keypair_list(IsA(http.HttpRequest)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(str))
+        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 

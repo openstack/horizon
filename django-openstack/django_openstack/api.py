@@ -50,6 +50,7 @@ import openstackx.auth
 from glance import client as glance_client
 from glance.common import exception as glance_exceptions
 from novaclient import client as base_nova_client
+from novaclient import exceptions as nova_exceptions
 from novaclient.v1_1 import client as nova_client
 from quantum import client as quantum_client
 
@@ -368,7 +369,7 @@ def admin_api(request):
                     ' and url "%s"' %
                     (request.user.token, url_for(request, 'compute', True)))
     return openstackx.admin.Admin(auth_token=request.user.token,
-                                 management_url=url_for(request, 'compute', True))
+                            management_url=url_for(request, 'compute', True))
 
 
 def extras_api(request):
@@ -401,14 +402,14 @@ def _get_base_client_from_token(tenant_id, token):
 
 
 def novaclient(request):
-    LOG.debug('novaclient connection created using token "%s"'
-              ' and url "%s"' % (request.user.token, url_for(request, 'compute')))
+    LOG.debug('novaclient connection created using token "%s" and url "%s"' %
+              (request.user.token, url_for(request, 'compute')))
     c = nova_client.Client(username=request.user.username,
                       api_key=request.user.token,
                       project_id=request.user.tenant_id,
                       auth_url=url_for(request, 'compute'))
     c.client.auth_token = request.user.token
-    c.client.management_url=url_for(request, 'compute')
+    c.client.management_url = url_for(request, 'compute')
     return c
 
 
@@ -642,15 +643,15 @@ def tenant_list(request):
 
 def tenant_list_for_token(request, token):
     # FIXME: use novaclient for this
-    keystone =  openstackx.auth.Auth(
-            management_url=settings.OPENSTACK_KEYSTONE_URL)
+    keystone = openstackx.auth.Auth(
+                            management_url=settings.OPENSTACK_KEYSTONE_URL)
     return [Tenant(t) for t in keystone.tenants.for_token(token)]
 
 
 def users_list_for_token_and_tenant(request, token, tenant):
-    admin_account =  openstackx.extras.Account(
-                     auth_token=token,
-                     management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
+    admin_account = openstackx.extras.Account(
+                    auth_token=token,
+                    management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
     return [User(u) for u in admin_account.users.get_for_tenant(tenant)]
 
 
@@ -671,7 +672,17 @@ def token_create(request, tenant, username, password):
     c = base_nova_client.HTTPClient(username, password, tenant,
                                 settings.OPENSTACK_KEYSTONE_URL)
     c.version = 'v2.0'
-    c.authenticate()
+    try:
+        c.authenticate()
+    except nova_exceptions.AuthorizationFailure as e:
+        # When authenticating without a tenant, novaclient raises a KeyError
+        # (which is caught and raised again as an AuthorizationFailure)
+        # if no service catalog is returned. However, in this case if we got
+        # back a token we're good. If not then it really is a failure.
+        if c.service_catalog.get_token():
+            pass
+        else:
+            raise
     access = c.service_catalog.catalog['access']
     return Token(id=c.auth_token,
                  serviceCatalog=access.get('serviceCatalog', None),
@@ -721,9 +732,11 @@ def security_group_list(request):
     return [SecurityGroup(g) for g in novaclient(request).\
                                      security_groups.list()]
 
+
 def security_group_get(request, security_group_id):
     return SecurityGroup(novaclient(request).\
                          security_groups.get(security_group_id))
+
 
 def security_group_create(request, name, description):
     return SecurityGroup(novaclient(request).\
@@ -775,7 +788,7 @@ def _get_role(request, name):
     roles = account_api(request).roles.list()
     for role in roles:
         if role.name.lower() == name.lower():
-           return role
+            return role
 
     raise Exception('Role does not exist: %s' % name)
 

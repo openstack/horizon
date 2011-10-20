@@ -1,4 +1,5 @@
 {% extends 'django_openstack/syspanel/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="services" %}
@@ -9,7 +10,7 @@
 {% block page_header %}
   {% url syspanel_services as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "django_openstack/common/_page_header.html" with title="Services" refresh_link=refresh_link searchable="true" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Services") refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
 
 {% block syspanel_main %}

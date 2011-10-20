@@ -58,8 +58,9 @@ class CreateSnapshot(forms.SelfHandlingForm):
                     data['name'])
             instance = api.server_get(request, data['instance_id'])
 
-            messages.info(request, 'Snapshot "%s" created for instance "%s"' %\
-                                    (data['name'], instance.name))
+            messages.info(request,
+                     _('Snapshot "%(name)s" created for instance "%(inst)s"') %
+                    {"name": data['name'], "inst": instance.name})
             return shortcuts.redirect('dash_snapshots', data['tenant_id'])
         except api_exceptions.ApiException, e:
             msg = 'Error Creating Snapshot: %s' % e.message
@@ -75,11 +76,11 @@ def index(request, tenant_id):
     try:
         images = api.snapshot_list_detailed(request)
     except glance_exception.ClientConnectionError, e:
-        msg = 'Error connecting to glance: %s' % str(e)
+        msg = _('Error connecting to glance: %s') % str(e)
         LOG.exception(msg)
         messages.error(request, msg)
     except glance_exception.Error, e:
-        msg = 'Error retrieving image list: %s' % str(e)
+        msg = _('Error retrieving image list: %s') % str(e)
         LOG.exception(msg)
         messages.error(request, msg)
 
@@ -107,8 +108,8 @@ def create(request, tenant_id, instance_id):
 
     valid_states = ['ACTIVE']
     if instance.status not in valid_states:
-        messages.error(request, "To snapshot, instance state must be\
-                                  one of the following: %s" %
+        messages.error(request, _("To snapshot, instance state must be\
+                                  one of the following: %s") %
                                   ', '.join(valid_states))
         return shortcuts.redirect('dash_instances', tenant_id)
 

@@ -1,4 +1,5 @@
 {% extends 'django_openstack/syspanel/base.html' %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="flavors" %}
@@ -7,7 +8,7 @@
 {% endblock %}
 
 {% block page_header %}
-  {% include "django_openstack/common/_page_header.html" with title="Create Flavor" %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Create Flavor") %}
 {% endblock page_header %}
 
 {% block syspanel_main %}
@@ -32,8 +33,8 @@
         {% include "django_openstack/syspanel/flavors/_create.html" %}
       </div>
       <div class="right">
-        <h3>Description:</h3>
-        <p>From here you can define the sizing of a new flavor.</p>
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "From here you can define the sizing of a new flavor."%}</p>
       </div>
       <div class="clear">&nbsp;</div>
     </div>

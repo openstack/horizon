@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-08 13:59+0900\n"
+"POT-Creation-Date: 2011-10-11 16:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Takeshi Nakajima <tnakaji@midokura.jp>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,41 +18,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: settings.py:86
+#: settings.py:105
 msgid "English"
 msgstr "英語"
 
-#: settings.py:87
-msgid "British English"
-msgstr "英語(UK)"
+#: settings.py:106
+msgid "Italiano"
+msgstr ""
 
-#: settings.py:88
+#: settings.py:107
 msgid "Spanish"
 msgstr "スペイン語"
 
-#: settings.py:89
+#: settings.py:108
 msgid "French"
 msgstr "フランス語"
 
-#: settings.py:90
+#: settings.py:109
 msgid "Japanese"
 msgstr "日本語"
 
-#: settings.py:91
+#: settings.py:110
 msgid "Portuguese"
 msgstr "ポルトガル語"
 
-#: settings.py:92
+#: settings.py:111
+#, fuzzy
+msgid "Polish"
+msgstr "英語"
+
+#: settings.py:112
 msgid "Simplified Chinese"
 msgstr "簡体字中国語"
 
-#: settings.py:93
+#: settings.py:113
 msgid "Traditional Chinese"
 msgstr "繁体字中国語"
 
-#: templates/403.html:9
+#: templates/403.html:4 templates/403.html.py:9
 msgid "Forbidden"
 msgstr "アクセスを許可されていません。"
+
+#: templates/403.html:20 templates/404.html:19 templates/500.html:19
+#: templates/permission_denied.html:19
+msgid "Home"
+msgstr ""
+
+#: templates/403.html:24 templates/404.html:23 templates/500.html:23
+#: templates/permission_denied.html:23
+msgid "Projects"
+msgstr ""
 
 #: templates/404.html:4
 msgid "Page Not Found"
@@ -66,7 +81,7 @@ msgstr "あなたがお探しのページは存在しません。"
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "アドレスの入力間違えか、ページが移動された可能性があります。"
 
-#: templates/500.html:9
+#: templates/500.html:4 templates/500.html.py:9
 msgid "Internal Server Error"
 msgstr "内部サーバーエラー"
 
@@ -77,53 +92,54 @@ msgid ""
 msgstr ""
 "リクエストの処理中に予期しないエラーが発生しました。もう一度お試しください。"
 
-#: templates/base-root.html:25
-msgid "Signed in as"
-msgstr "現在のユーザ"
-
-#: templates/base-root.html:27
-msgid "Sign Out"
-msgstr "サインアウト"
-
-#: templates/base-root.html:28
-msgid "Change Password"
-msgstr "パスワード変更"
-
-#: templates/base-root.html:33
+#: templates/_login.html:6 templates/_switch.html:6
 msgid "Sign In"
 msgstr "サインイン"
 
-#: templates/index.html:13
-#, python-format
-msgid "<h2>Welcome to the %(site_brand)s Dashboard</h2>"
-msgstr "<h2>%(site_brand)sのダッシュポードにようこそ。</h2>"
-
-#: templates/index.html:14
-#, python-format
-msgid ""
-"Through the %(site_brand)s Dashboard you can manage your cloud\n"
-"      through a crisp, clean, and easy to use interface."
-msgstr ""
-"この使いやすい%(site_brand)sのダッシュポードであなたの\n"
-"  クラウドインフラを構築することができます。"
-
-#: templates/index.html:40 templates/index.html.py:87
-msgid "OpenStack Dashboard Wiki"
+#: templates/_messages.html:5
+msgid "Info"
 msgstr ""
 
-#: templates/index.html:41 templates/index.html.py:88
-msgid "OpenStack Dashboard Launchpad Repository"
+#: templates/_messages.html:11
+msgid "Warning"
+msgstr ""
+
+#: templates/_messages.html:17
+msgid "Success"
+msgstr ""
+
+#: templates/_messages.html:23
+msgid "Error"
+msgstr ""
+
+#: templates/_topbar.html:4
+#, fuzzy
+msgid "OpenStack Dashboard"
 msgstr "OpenStack Dashboard Launchpadのリポジトリー"
 
-#: templates/index.html:65
-msgid "Your username and password didn't match. Please try again."
+#: templates/_topbar.html:6
+msgid "User Dashboard"
 msgstr ""
-"あなたのユーザー名とパスワードが一致しませんでした。もう一度やり直してくださ"
-"い。"
 
-#: templates/index.html:72
-msgid "Forgot Password?"
-msgstr "パスワードを忘れましたか？"
+#: templates/_topbar.html:9
+msgid "System Panel"
+msgstr ""
+
+#: templates/_topbar.html:24
+msgid "Available Tenants"
+msgstr ""
+
+#: templates/_topbar.html:30
+msgid "Sign Out"
+msgstr "サインアウト"
+
+#: templates/login_required.html:13 templates/login_required.html.py:22
+msgid "Login"
+msgstr ""
+
+#: templates/login_required.html:14
+msgid "Login to OpenStack via Keystone auth."
+msgstr ""
 
 #: templates/permission_denied.html:4 templates/permission_denied.html.py:9
 msgid "Permission Denied"
@@ -133,6 +149,10 @@ msgstr "アクセスが拒否されました。"
 msgid "You do not have permission to view the requested page."
 msgstr "あなたは、要求されたページを閲覧する権限がありません。"
 
+#: templates/switch_tenants.html:12
+msgid "Log-in to tenant"
+msgstr ""
+
 #: templates/unavailable.html:4 templates/unavailable.html.py:9
 msgid "Service Unavailable"
 msgstr "サービスが現在ご利用頂けません。"
@@ -141,40 +161,56 @@ msgstr "サービスが現在ご利用頂けません。"
 msgid "This service is temporarily unavailable. Please check back soon."
 msgstr "このサービスは一時的に利用できなくなっています。後ほどお試し下さい。"
 
-#: templates/admin/index.html:33
-#, python-format
-msgid "Models available in the %(name)s application."
-msgstr "モデルは、%(name)sアプリケーションにて提供されております。"
+#~ msgid "British English"
+#~ msgstr "英語(UK)"
 
-#: templates/admin/index.html:34
-#, python-format
-msgid "%(name)s"
-msgstr ""
+#~ msgid "Images"
+#~ msgstr "イメージ"
 
-#: templates/admin/index.html:44
-msgid "Add"
-msgstr "追加"
+#~ msgid "Signed in as"
+#~ msgstr "現在のユーザ"
 
-#: templates/admin/index.html:50
-msgid "Change"
-msgstr "変更"
+#~ msgid "Change Password"
+#~ msgstr "パスワード変更"
 
-#: templates/admin/index.html:60
-msgid "You don't have permission to edit anything."
-msgstr "編集する権限がありません。"
+#~ msgid "<h2>Welcome to the %(site_brand)s Dashboard</h2>"
+#~ msgstr "<h2>%(site_brand)sのダッシュポードにようこそ。</h2>"
 
-#: templates/admin/index.html:68
-msgid "Recent Actions"
-msgstr "最近のアクション"
+#~ msgid ""
+#~ "Through the %(site_brand)s Dashboard you can manage your cloud\n"
+#~ "      through a crisp, clean, and easy to use interface."
+#~ msgstr ""
+#~ "この使いやすい%(site_brand)sのダッシュポードであなたの\n"
+#~ "  クラウドインフラを構築することができます。"
 
-#: templates/admin/index.html:69
-msgid "My Actions"
-msgstr "私のアクション"
+#~ msgid "Your username and password didn't match. Please try again."
+#~ msgstr ""
+#~ "あなたのユーザー名とパスワードが一致しませんでした。もう一度やり直してくだ"
+#~ "さい。"
 
-#: templates/admin/index.html:73
-msgid "None available"
-msgstr "利用不可"
+#~ msgid "Forgot Password?"
+#~ msgstr "パスワードを忘れましたか？"
 
-#: templates/admin/index.html:87
-msgid "Unknown content"
-msgstr "不明なコンテンツ"
+#~ msgid "Models available in the %(name)s application."
+#~ msgstr "モデルは、%(name)sアプリケーションにて提供されております。"
+
+#~ msgid "Add"
+#~ msgstr "追加"
+
+#~ msgid "Change"
+#~ msgstr "変更"
+
+#~ msgid "You don't have permission to edit anything."
+#~ msgstr "編集する権限がありません。"
+
+#~ msgid "Recent Actions"
+#~ msgstr "最近のアクション"
+
+#~ msgid "My Actions"
+#~ msgstr "私のアクション"
+
+#~ msgid "None available"
+#~ msgstr "利用不可"
+
+#~ msgid "Unknown content"
+#~ msgstr "不明なコンテンツ"

@@ -57,11 +57,11 @@ class CreateNetwork(forms.SelfHandlingForm):
             api.quantum_create_network(request, send_data)
         except Exception, e:
             messages.error(request,
-                           'Unable to create network %s: %s' %
-                           (network_name, e.message,))
+                           _('Unable to create network %(network)s: %(msg)s') %
+                           {"network": network_name, "msg": e.message})
             return shortcuts.redirect(request.build_absolute_uri())
         else:
-            msg = 'Network %s has been created.' % network_name
+            msg = _('Network %s has been created.') % network_name
             LOG.info(msg)
             messages.success(request, msg)
             return shortcuts.redirect('dash_networks',
@@ -77,8 +77,8 @@ class DeleteNetwork(forms.SelfHandlingForm):
             api.quantum_delete_network(request, data['network'])
         except Exception, e:
             messages.error(request,
-                           'Unable to delete network %s: %s' %
-                           (data['network'], e.message,))
+                    _('Unable to delete network %(network)s: %(msg)s') %
+                    {"network": data['network'], "msg": e.message})
         else:
             msg = 'Network %s has been deleted.' % data['network']
             LOG.info(msg)
@@ -99,11 +99,11 @@ class RenameNetwork(forms.SelfHandlingForm):
             api.quantum_update_network(request, data['network'], send_data)
         except Exception, e:
             messages.error(request,
-                           'Unable to rename network %s: %s' %
-                           (data['network'], e.message,))
+                    _('Unable to rename network %(network)s: %(msg)s') %
+                    {"network": data['network'], "msg": e.message})
         else:
-            msg = 'Network %s has been renamed to %s.' % \
-                  (data['network'], data['new_name'])
+            msg = _('Network %(net)s has been renamed to %(new_name)s.') % {
+                  "net": data['network'], "new_name": data['new_name']}
             LOG.info(msg)
             messages.success(request, msg)
 
@@ -134,7 +134,8 @@ def index(request, tenant_id):
             })
 
     except Exception, e:
-        messages.error(request, 'Unable to get network list: %s' % e.message)
+        messages.error(request,
+                       _('Unable to get network list: %s') % e.message)
 
     return shortcuts.render_to_response(
     'django_openstack/dash/networks/index.html', {
@@ -169,7 +170,8 @@ def detail(request, tenant_id, network_id):
         network['id'] = network_id
         network['ports'] = _get_port_states(request, tenant_id, network_id)
     except Exception, e:
-        messages.error(request, 'Unable to get network details:%s' % e.message)
+        messages.error(request,
+                       _('Unable to get network details: %s') % e.message)
 
     return shortcuts.render_to_response(
     'django_openstack/dash/networks/detail.html', {

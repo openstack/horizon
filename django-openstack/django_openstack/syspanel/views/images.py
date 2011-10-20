@@ -25,6 +25,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import ugettext as _
 
 from glance.common import exception as glance_exception
 
@@ -45,10 +46,10 @@ class DeleteImage(forms.SelfHandlingForm):
         except glance_exception.ClientConnectionError, e:
             LOG.exception("Error connecting to glance")
             messages.error(request,
-                           "Error connecting to glance: %s" % e.message)
+                           _("Error connecting to glance: %s") % e.message)
         except glance_exception.Error, e:
             LOG.exception('Error deleting image with id "%s"' % image_id)
-            messages.error(request, "Error deleting image: %s" % e.message)
+            messages.error(request, _("Error deleting image: %s") % e.message)
         return redirect(request.build_absolute_uri())
 
 
@@ -63,10 +64,10 @@ class ToggleImage(forms.SelfHandlingForm):
         except glance_exception.ClientConnectionError, e:
             LOG.exception("Error connecting to glance")
             messages.error(request,
-                           "Error connecting to glance: %s" % e.message)
+                           _("Error connecting to glance: %s") % e.message)
         except glance_exception.Error, e:
             LOG.exception('Error updating image with id "%s"' % image_id)
-            messages.error(request, "Error updating image: %s" % e.message)
+            messages.error(request, _("Error updating image: %s") % e.message)
         return redirect(request.build_absolute_uri())
 
 
@@ -101,13 +102,15 @@ def index(request):
     try:
         images = api.image_list_detailed(request)
         if not images:
-            messages.info(request, "There are currently no images.")
+            messages.info(request, _("There are currently no images."))
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
-        messages.error(request, "Error connecting to glance: %s" % e.message)
+        messages.error(request,
+                       _("Error connecting to glance: %s") % e.message)
     except glance_exception.Error, e:
         LOG.exception("Error retrieving image list")
-        messages.error(request, "Error retrieving image list: %s" % e.message)
+        messages.error(request,
+                       _("Error retrieving image list: %s") % e.message)
 
     return render_to_response('django_openstack/syspanel/images/index.html', {
         'delete_form': delete_form,
@@ -123,11 +126,13 @@ def update(request, image_id):
         image = api.image_get(request, image_id)
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
-        messages.error(request, "Error connecting to glance: %s" % e.message)
+        messages.error(request,
+                       _("Error connecting to glance: %s") % e.message)
     except glance_exception.Error, e:
         LOG.exception('Error retrieving image with id "%s"' % image_id)
         messages.error(request,
-                       "Error retrieving image %s: %s" % (image_id, e.message))
+                       _("Error retrieving image %(image)s: %(msg)s") %
+                       {"image": image_id, "msg": e.message})
 
     if request.method == "POST":
         form = UpdateImageForm(request.POST)
@@ -151,23 +156,24 @@ def update(request, image_id):
                     metadata['properties']['architecture'] = \
                             image_form['architecture']
                 api.image_update(request, image_id, metadata)
-                messages.success(request, "Image was successfully updated.")
+                messages.success(request, _("Image was successfully updated."))
             except glance_exception.ClientConnectionError, e:
                 LOG.exception("Error connecting to glance")
                 messages.error(request,
-                               "Error connecting to glance: %s" % e.message)
+                               _("Error connecting to glance: %s") % e.message)
             except glance_exception.Error, e:
                 LOG.exception('Error updating image with id "%s"' % image_id)
-                messages.error(request, "Error updating image: %s" % e.message)
+                messages.error(request,
+                               _("Error updating image: %s") % e.message)
             except:
                 LOG.exception('Unspecified Exception in image update')
                 messages.error(request,
-                               "Image could not be updated, please try again.")
+                            _("Image could not be updated, please try again."))
             return redirect('syspanel_images_update', image_id)
         else:
             LOG.exception('Image "%s" failed to update' % image['name'])
             messages.error(request,
-                           "Image could not be uploaded, please try agian.")
+                           _("Image could not be uploaded, please try agian."))
             form = UpdateImageForm(request.POST)
             return render_to_response('django_openstack/syspanel/images/update.html', {
                 'image': image,
@@ -205,26 +211,28 @@ def upload(request):
                         'container_format': 'ami',
                         'name': image['name']}
             try:
-                messages.success(request, "Image was successfully uploaded.")
+                messages.success(request,
+                                 _("Image was successfully uploaded."))
             except:
                 # TODO add better error management
-                messages.error(request, "Image could not be uploaded, "
-                        "please try again.")
+                messages.error(request,
+                        _("Image could not be uploaded, please try again."))
 
             try:
                 api.image_create(request, metadata, image['image_file'])
             except glance_exception.ClientConnectionError, e:
-                LOG.exception('Error connecting to glance while trying to upload'
-                          ' image')
+                LOG.exception('Error connecting to glance while trying to'
+                              'upload image')
                 messages.error(request,
-                               "Error connecting to glance: %s" % e.message)
+                               _("Error connecting to glance: %s") % e.message)
             except glance_exception.Error, e:
                 LOG.exception('Glance exception while uploading image')
-                messages.error(request, "Error adding image: %s" % e.message)
+                messages.error(request,
+                               _("Error adding image: %s") % e.message)
         else:
             LOG.exception('Image "%s" failed to upload' % image['name'])
             messages.error(request,
-                           "Image could not be uploaded, please try agian.")
+                           _("Image could not be uploaded, please try agian."))
             form = UploadImageForm(request.POST)
             return render_to_response('django_nova_syspanel/images/'
                 'upload.html', {
