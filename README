@@ -1,5 +1,5 @@
-OpenStack Dashboard
--------------------
+OpenStack Dashboard (Horizon)
+-----------------------------
 
 The OpenStack Dashboard is a Django based reference implementation of a web
 based management interface for OpenStack.
@@ -15,15 +15,15 @@ README file in the django-openstack folder.
 
 For release management:
 
- * https://launchpad.net/openstack-dashboard
+ * https://launchpad.net/horizon
 
 For blueprints and feature specifications:
 
- * https://blueprints.launchpad.net/openstack-dashboard
+ * https://blueprints.launchpad.net/horizon
 
 For issue tracking:
 
- * https://bugs.launchpad.net/openstack-dashboard
+ * https://bugs.launchpad.net/horizon
 
 Project Structure and Testing:
 ------------------------------
