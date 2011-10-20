@@ -42,6 +42,7 @@ from django.conf import settings
 from django.contrib import messages
 
 import cloudfiles
+from django_openstack import exceptions
 import openstack.compute
 import openstackx.admin
 import openstackx.api.exceptions as api_exceptions
@@ -381,7 +382,7 @@ def extras_api(request):
                                    management_url=url_for(request, 'compute'))
 
 
-def _get_base_client_from_token(tenant_id, token):
+def _get_base_client_from_token(tenant_id=None, token=None):
     '''
     Helper function to create an instance of novaclient.client.HTTPClient from
     a token and tenant id rather than a username/password.
@@ -398,7 +399,8 @@ def _get_base_client_from_token(tenant_id, token):
     body = {"auth": {"tenantId": tenant_id, "token": {"id": token}}}
     token_url = urlparse.urljoin(c.auth_url, "tokens")
     resp, body = c.request(token_url, "POST", body=body)
-    c._extract_service_catalog(c.auth_url, resp, body)
+    if tenant_id is not None:
+        c._extract_service_catalog(c.auth_url, resp, body)
     return c
 
 
@@ -417,7 +419,8 @@ def keystoneclient(request):
     conn = _get_base_client_from_token(request.user.tenant_id,
                                             request.user.token)
     conn.auth_url = '' # Bypass re-authentication
-    return keystone_client.Client(conn)
+    endpoint = settings.OPENSTACK_KEYSTONE_URL if not hasattr(conn, 'service_catalog') else None
+    return keystone_client.Client(conn, endpoint=endpoint)
 
 
 def auth_api():
@@ -634,13 +637,13 @@ def token_list_tenants(request, token):
 
 
 def tenant_create(request, tenant_name, description, enabled):
-    return Tenant(account_api(request).tenants.create(tenant_name,
-                                                      description,
-                                                      enabled))
+    return Tenant(keystoneclient(request).tenants.create(tenant_name,
+                                                         description,
+                                                         enabled))
 
 
 def tenant_get(request, tenant_id):
-    return Tenant(account_api(request).tenants.get(tenant_id))
+    return Tenant(keystoneclient(request).tenants.get(tenant_id))
 
 
 def tenant_delete(request, tenant_id):
@@ -651,11 +654,19 @@ def tenant_list(request):
     return [Tenant(t) for t in keystoneclient(request).tenants.list()]
 
 
+def tenant_update(request, tenant_id, tenant_name, description, enabled):
+    return Tenant(keystoneclient(request).tenants.update(tenant_id,
+                                                         tenant_name,
+                                                         description,
+                                                         enabled))
+
+
 def tenant_list_for_token(request, token):
-    # FIXME: use novaclient for this
-    keystone = openstackx.auth.Auth(
-                            management_url=settings.OPENSTACK_KEYSTONE_URL)
-    return [Tenant(t) for t in keystone.tenants.for_token(token)]
+    request.user.token = token
+    c = keystoneclient(request)
+    # We bypassed the novaclient auth, so we need to set the client auth token
+    c.client.auth_token = token
+    return [Tenant(t) for t in c.tenants.list()]
 
 
 def users_list_for_token_and_tenant(request, token, tenant):
@@ -663,13 +674,6 @@ def users_list_for_token_and_tenant(request, token, tenant):
                     auth_token=token,
                     management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
     return [User(u) for u in admin_account.users.get_for_tenant(tenant)]
-
-
-def tenant_update(request, tenant_id, tenant_name, description, enabled):
-    return Tenant(account_api(request).tenants.update(tenant_id,
-                                                      tenant_name,
-                                                      description,
-                                                      enabled))
 
 
 def token_create(request, tenant, username, password):
@@ -704,12 +708,15 @@ def token_create_scoped(request, tenant, token):
     Creates a scoped token using the tenant id and unscoped token; retrieves
     the service catalog for the given tenant.
     '''
-    c = _get_base_client_from_token(tenant, token)
+    try:
+        c = _get_base_client_from_token(tenant, token)
+    except nova_exceptions.Unauthorized as e:
+        raise exceptions.Unauthorized("You are not authorized for this tenant.")
     access = c.service_catalog.catalog['access']
     return Token(id=c.auth_token,
-                 serviceCatalog=access.get('serviceCatalog', None),
-                 user=access['user'],
-                 tenant_id=tenant)
+             serviceCatalog=access.get('serviceCatalog', None),
+             user=access['user'],
+             tenant_id=tenant)
 
 def tenant_quota_get(request, tenant):
     return novaclient(request).quotas.get(tenant)

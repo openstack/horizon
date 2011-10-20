@@ -371,10 +371,10 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         DESCRIPTION = 'aDescription'
         ENABLED = True
 
-        account_api = self.stub_account_api()
+        keystoneclient = self.stub_keystoneclient()
 
-        account_api.tenants = self.mox.CreateMockAnything()
-        account_api.tenants.create(TEST_TENANT_ID, DESCRIPTION,
+        keystoneclient.tenants = self.mox.CreateMockAnything()
+        keystoneclient.tenants.create(TEST_TENANT_ID, DESCRIPTION,
                                    ENABLED).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
@@ -388,10 +388,10 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
     def test_tenant_get(self):
-        account_api = self.stub_account_api()
+        keystoneclient = self.stub_keystoneclient()
 
-        account_api.tenants = self.mox.CreateMockAnything()
-        account_api.tenants.get(TEST_TENANT_ID).AndReturn(TEST_RETURN)
+        keystoneclient.tenants = self.mox.CreateMockAnything()
+        keystoneclient.tenants.get(TEST_TENANT_ID).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
@@ -425,10 +425,10 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         DESCRIPTION = 'aDescription'
         ENABLED = True
 
-        account_api = self.stub_account_api()
+        keystoneclient = self.stub_keystoneclient()
 
-        account_api.tenants = self.mox.CreateMockAnything()
-        account_api.tenants.update(TEST_TENANT_ID, TEST_TENANT_NAME,
+        keystoneclient.tenants = self.mox.CreateMockAnything()
+        keystoneclient.tenants.update(TEST_TENANT_ID, TEST_TENANT_NAME,
                                    DESCRIPTION, ENABLED).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()

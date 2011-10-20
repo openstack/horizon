@@ -27,8 +27,10 @@ from django.contrib import messages
 from django.utils.translation import ugettext as _
 
 from django_openstack import api
+from django_openstack import exceptions
 from django_openstack import forms
 from openstackx.api import exceptions as api_exceptions
+from django_openstack import exceptions
 
 
 LOG = logging.getLogger('django_openstack.auth')
@@ -69,24 +71,32 @@ class Login(forms.SelfHandlingForm):
                 request.session['unscoped_token'] = token.id
                 request.user.username = data['username']
 
-                def get_first_tenant_for_user():
-                    tenants = api.tenant_list_for_token(request, token.id)
-                    return tenants[0] if len(tenants) else None
-
                 # Get the tenant list, and log in using first tenant
                 # FIXME (anthony): add tenant chooser here?
-                tenant = get_first_tenant_for_user()
+                tenants = api.tenant_list_for_token(request, token.id)
 
                 # Abort if there are no valid tenants for this user
-                if not tenant:
+                if not tenants:
                     messages.error(request,
                                    _('No tenants present for user: %(user)s') %
                                     {"user": data['username']})
                     return
 
-                # Create a token
-                token = api.token_create_scoped(request, tenant.id, token.id)
-
+                # Create a token.
+                # NOTE(gabriel): Keystone can return tenants that you're
+                # authorized to administer but not to log into as a user, so in
+                # the case of an Unauthorized error we should iterate through
+                # the tenants until one succeeds or we've failed them all.
+                while tenants:
+                    tenant = tenants.pop()
+                    try:
+                        token = api.token_create_scoped(request, tenant.id, token.id)
+                        break
+                    except exceptions.Unauthorized as e:
+                        token = None
+                if token is None:
+                    raise exceptions.Unauthorized(
+                        _("You are not authorized for any available tenants."))
 
             request.session['admin'] = is_admin(token)
             request.session['serviceCatalog'] = token.serviceCatalog
