@@ -95,8 +95,8 @@ input[type="submit"]:active { background-position: 0 -105px; }
 }
 
 #main a.action_link:hover, #main input.action_input:hover {
-  background: #6fa267; 
-  text-decoration: none;  
+  background: #6fa267;
+  text-decoration: none;
 }
 
 #main input.action_input {
@@ -118,7 +118,7 @@ input[type="submit"]:active { background-position: 0 -105px; }
   min-width: 1024px;
   width: 100%;
   height: 45px;
-  float: left;  
+  float: left;
 }
 
 h1 {
@@ -135,7 +135,7 @@ h1 a{
 }
 
 #main_nav {
-  background: #f3f8fa;
+  background-color: #f3f8fa;
   text-transform: uppercase;
   min-width: 800px;
   width: 84%;
@@ -151,7 +151,7 @@ h1 a{
 
 #main_nav li a {
   color: #8eacb7;
-  font-size: 12px; 
+  font-size: 12px;
   margin: -10px 0 0 0;
   padding: 5px 10px 0;
   float: left;
@@ -161,7 +161,7 @@ h1 a{
   height: 33px;
 }
 #main_nav li a.active { border-top: 5px solid #8eacb7; }
-#main_nav li a:hover { background: #dff2fa; }
+#main_nav li a:hover { background-color: #dff2fa; }
 
 
 /* Tenant Dropdown */
@@ -174,7 +174,7 @@ h1 a{
   height: 38px;
   margin: -45px 0 0 0;
   padding: 5px 0 0 0;
-  float: right; 
+  float: right;
   border: 1px solid #d6e4d9;
 }
 
@@ -203,11 +203,16 @@ h1 a{
 #drop_btn:hover { background-color: #bfdec6; }
 
 #settings_btn {
-  background: url(../images/gears_small.png) no-repeat center center;
+  background-image: url(../images/gears_small.png);
+  background-repeat: no-repeat;
+  background-position: center top;
   width: 23px;
   height: 29px;
 }
-#settings_btn:hover { background-color: #bfdec6; }
+#settings_btn:hover {
+  background-color: #bfdec6;
+  text-decoration: none;
+}
 
 a#current_tenant {
   background: #f3faf3;
@@ -302,7 +307,7 @@ li.title h4{
 }
 #page_header h2 span { color: #6a6a6a; }
 
-#page_header .right { 
+#page_header .right {
   float: right;
   margin-right: 20px;
 }
@@ -389,7 +394,7 @@ label.refreshOption {
   font-size: 20px;
 }
 
-table.wide { 
+table.wide {
   width: 100%;
   margin: 0 0 25px 0;
 }
@@ -494,23 +499,23 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   border-radius: 5px;
 }
 
-.message_box, .status_box.info { 
+.message_box, .status_box.info {
   background-color: #e8f8ff;
   color: #7ab6c5;
   border-color: #9ac7dc;
 }
-.message_box.success { 
+.message_box.success {
   background-color: #e9ffe8;
   color: #7ec67b;
   border-color: #9edd9b;
 }
-.message_box.warning { 
+.message_box.warning {
   background-color: #ffffe8;
   color: #d1b12d;
   border-color: #ffe37b;
 }
 
-.message_box.error { 
+.message_box.error {
   background-color: #ffdbdc;
   color: #ff8080;
   border-color: #ff9a99;
@@ -519,7 +524,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 .message_box h2 {
   float: left;
   min-width: 120px;
-  padding: 20px 20px 20px 20px;  
+  padding: 20px 20px 20px 20px;
 }
 
 .message_box.info h2 { color: #2a7380; border-color: #9ac7dc; }
@@ -549,19 +554,19 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   border-radius: 5px;
 }
 
-.status_box.good { 
+.status_box.good {
   background-color: #e9ffe8;
   color: #7ec67b;
   border-color: #9edd9b;
 }
 
-.status_box.medium { 
+.status_box.medium {
   background-color: #ffffe8;
   color: #eada83;
   border-color: #ffe37b;
 }
 
-.status_box.bad { 
+.status_box.bad {
   background-color: #ffdbdc;
   color: #ff8080;
   border-color: #ff9a99;
@@ -573,7 +578,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 .status_box.medium .status { background: url(../images/status_sprite.png) no-repeat 6px -90px; }
 .status_box.bad .status { background: url(../images/status_sprite.png) no-repeat 6px -186px; }
 
-.status_box.small { 
+.status_box.small {
   width: 100%;
   min-width: 360px;
   margin: 0 0 25px 0;
@@ -624,7 +629,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   text-align: center;
 }
 
-.status_box p.avail span, .status_box p.used span { 
+.status_box p.avail span, .status_box p.used span {
   font-size: 10px;
   margin-top: -5px;
   text-transform: uppercase;
@@ -674,7 +679,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   font-size: 11px;
 }
 
-#date_form { 
+#date_form {
   width: 502px;
   margin: 18px 0 25px 22px;
 }
@@ -842,7 +847,7 @@ input:focus, textarea:focus {
   float: left;
   position: relative;
   border: 1px solid #d2dce1;
-  -webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);  
+  -webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 0  10px rgba(0,0,0,0.2);
 }
 
