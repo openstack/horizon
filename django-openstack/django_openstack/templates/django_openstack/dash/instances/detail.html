@@ -75,7 +75,7 @@
       $(".dash_block div.tab_wrapper:first").show()
 
       $("#instance_tabs a").click(function(e){
-        e.preventDefault();
+        e.preventDefault();=
         e.stopPropagation()
         $(".dash_block div.tab_wrapper").hide('fast')
         $(".dash_block div#"+$(this).attr('class')).show('fast')
@@ -90,8 +90,8 @@
 
       setInterval(function(){
         if ($("a.log").parent().hasClass('active')) {
-          getlog();
-        };
+          getlog()
+        }
       }, 3000)
     })
 
