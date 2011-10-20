@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{%load i18n%}
+
+{% block topbar %}
+  {% with current_topbar="settings" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+
+{% block sidebar %}
+  {% include 'django_openstack/dash/_sidebar.html' %}
+{% endblock %}
+
+
+{% block main %}
+  {% block page_header %}
+    {% url dash_instances request.user.tenant_id as refresh_link %}
+    {# to make searchable false, just remove it from the include statement #}
+    {% include "django_openstack/common/_page_header.html" with title=_("Dashboard Settings") %}
+  {% endblock page_header %}
+  {% include "_messages.html" %}
+  <div class='main_content'>
+    <div class="dash_block">
+      <div class="left">
+          <h3>{% trans "Dashboard User Interface Language"%}</h3>
+          <form action="/i18n/setlang/" method="post"> {% csrf_token %}
+            <p><select name="language">
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                {% if language.code == LANGUAGE_CODE %}
+                   <option selected value="{{ language.code }}">{{ language.name_local }} ({{ language.code }})</option>
+                {%else%}
+                    <option value="{{ language.code }}">{{ language.name_local }} ({{ language.code }})</option>
+                {%endif%}
+            {% endfor %}
+            </select></p>
+            <input type="submit" value="{% trans "Select Language"%}"  class="large-rounded" />
+          </form>
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div>
+{% endblock %}
