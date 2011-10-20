@@ -52,7 +52,7 @@ class TerminateInstance(forms.SelfHandlingForm):
         try:
             api.server_delete(request, instance)
         except api_exceptions.ApiException, e:
-            LOG.exception('ApiException while terminating instance "%s"' %
+            LOG.exception(_('ApiException while terminating instance "%s"') %
                       instance_id)
             messages.error(request,
                            _('Unable to terminate %(inst)s: %(message)s') %
@@ -72,9 +72,9 @@ class RebootInstance(forms.SelfHandlingForm):
         instance_id = data['instance']
         try:
             server = api.server_reboot(request, instance_id)
-            messages.success(request, "Instance rebooting")
+            messages.success(request, _("Instance rebooting"))
         except api_exceptions.ApiException, e:
-            LOG.exception('ApiException while rebooting instance "%s"' %
+            LOG.exception(_('ApiException while rebooting instance "%s"') %
                       instance_id)
             messages.error(request,
                        _('Unable to reboot instance: %s') % e.message)
@@ -102,7 +102,8 @@ class UpdateInstance(forms.SelfHandlingForm):
                               data['instance'],
                               data['name'],
                               description)
-            messages.success(request, "Instance '%s' updated" % data['name'])
+            messages.success(request, _("Instance '%s' updated") %
+                                      data['name'])
         except api_exceptions.ApiException, e:
             messages.error(request,
                        _('Unable to update instance: %s') % e.message)
@@ -120,7 +121,7 @@ def index(request, tenant_id):
     try:
         instances = api.server_list(request)
     except api_exceptions.ApiException as e:
-        LOG.exception('Exception in instance index')
+        LOG.exception(_('Exception in instance index'))
         messages.error(request, _('Unable to get instance list: %s') % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
@@ -174,7 +175,7 @@ def usage(request, tenant_id=None):
     try:
         usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except api_exceptions.ApiException, e:
-        LOG.exception('ApiException in instance usage')
+        LOG.exception(_('ApiException in instance usage'))
 
         messages.error(request, _('Unable to get usage info: %s') % e.message)
 
@@ -236,9 +237,9 @@ def console(request, tenant_id, instance_id):
         response.flush()
         return response
     except api_exceptions.ApiException, e:
-        LOG.exception('ApiException while fetching instance console')
+        LOG.exception(_('ApiException while fetching instance console'))
         messages.error(request,
-                   'Unable to get log for instance %s: %s' %
+                   _('Unable to get log for instance %s: %s') %
                    (instance_id, e.message))
         return shortcuts.redirect('dash_instances', tenant_id)
 
@@ -251,7 +252,7 @@ def vnc(request, tenant_id, instance_id):
         return shortcuts.redirect(console.output +
                 ("&title=%s(%s)" % (instance.name, instance_id)))
     except api_exceptions.ApiException, e:
-        LOG.exception('ApiException while fetching instance vnc connection')
+        LOG.exception(_('ApiException while fetching instance vnc connection'))
         messages.error(request,
             _('Unable to get vnc console for instance %(inst)s: %(message)s') %
             {"inst": instance_id, "message": e.message})
@@ -263,7 +264,7 @@ def update(request, tenant_id, instance_id):
     try:
         instance = api.server_get(request, instance_id)
     except api_exceptions.ApiException, e:
-        LOG.exception('ApiException while fetching instance info')
+        LOG.exception(_('ApiException while fetching instance info'))
         messages.error(request,
             _('Unable to get information for instance %(inst)s: %(message)s') %
             {"inst": instance_id, "message": e.message})
@@ -295,16 +296,16 @@ def detail(request, tenant_id, instance_id):
                                             instance.name,
                                             instance_id)
         except api_exceptions.ApiException, e:
-            LOG.exception('ApiException while fetching instance vnc \
-                           connection')
+            LOG.exception(_('ApiException while fetching instance vnc \
+                           connection'))
             messages.error(request,
-                       'Unable to get vnc console for instance %s: %s' %
+                       _('Unable to get vnc console for instance %s: %s') %
                        (instance_id, e.message))
             return shortcuts.redirect('dash_instances', tenant_id)
     except api_exceptions.ApiException, e:
-        LOG.exception('ApiException while fetching instance info')
+        LOG.exception(_('ApiException while fetching instance info'))
         messages.error(request,
-                   'Unable to get information for instance %s: %s' %
+                   _('Unable to get information for instance %s: %s') %
                    (instance_id, e.message))
         return shortcuts.redirect('dash_instances', tenant_id)
 
