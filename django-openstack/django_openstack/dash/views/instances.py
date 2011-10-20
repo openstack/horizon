@@ -227,6 +227,7 @@ def usage(request, tenant_id=None):
 @login_required
 def console(request, tenant_id, instance_id):
     try:
+        # TODO(jakedahn): clean this up once the api supports tailing.
         length = request.GET.get('length', '')
         console = api.console_create(request, instance_id, 'text')
         response = http.HttpResponse(mimetype='text/plain')
