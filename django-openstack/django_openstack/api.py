@@ -406,9 +406,22 @@ def novaclient(request):
     return c
 
 def keystoneclient(request):
-    conn = _get_base_client_from_token(request.user.tenant_id,
-                                            request.user.token)
-    conn.auth_url = '' # Bypass re-authentication
+    """
+    Returns a client connected to the Keystone backend. The client is
+    cached so that subsequent API calls during the same request/response
+    cycle don't have to be re-authenticated.
+    """
+    # Take care of client connection caching/fetching a new client
+    if hasattr(request, '_keystone_connection') and \
+            request._keystone_connection.auth_token == request.user.token:
+        conn = request._keystone_connection
+    else:
+        conn = _get_base_client_from_token(request.user.tenant_id,
+                                                request.user.token)
+        conn.auth_url = '' # Bypass re-authentication
+        request._keystone_connection = conn
+
+    # Fetch the correct endpoint for the user type
     if hasattr(conn, 'service_catalog'):
         if request.user.is_admin():
             endpoint = conn.service_catalog.url_for(service_type='identity',
