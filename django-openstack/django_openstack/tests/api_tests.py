@@ -345,28 +345,6 @@ class ApiHelperTests(test.TestCase):
 
 
 class AccountApiTests(NovaClientTestMixin, test.TestCase):
-    def stub_account_api(self):
-        self.mox.StubOutWithMock(api, 'account_api')
-        account_api = self.mox.CreateMock(OSExtras.Account)
-        api.account_api(IsA(http.HttpRequest)).AndReturn(account_api)
-        return account_api
-
-    def test_get_account_api(self):
-        self.mox.StubOutClassWithMocks(OSExtras, 'Account')
-        OSExtras.Account(auth_token=TEST_TOKEN, management_url=TEST_URL)
-
-        self.mox.StubOutWithMock(api, 'url_for')
-        api.url_for(
-                IsA(http.HttpRequest), 'identity', True).AndReturn(TEST_URL)
-        api.url_for(
-                IsA(http.HttpRequest), 'identity', True).AndReturn(TEST_URL)
-
-        self.mox.ReplayAll()
-
-        self.assertIsNotNone(api.account_api(self.request))
-
-        self.mox.VerifyAll()
-
     def test_tenant_create(self):
         DESCRIPTION = 'aDescription'
         ENABLED = True
@@ -442,10 +420,10 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
     def test_user_create(self):
-        account_api = self.stub_account_api()
+        keystoneclient = self.stub_keystoneclient()
 
-        account_api.users = self.mox.CreateMockAnything()
-        account_api.users.create(TEST_USERNAME, TEST_EMAIL, TEST_PASSWORD,
+        keystoneclient.users = self.mox.CreateMockAnything()
+        keystoneclient.users.create(TEST_USERNAME, TEST_PASSWORD, TEST_EMAIL,
                                 TEST_TENANT_ID, True).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
@@ -459,10 +437,10 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
     def test_user_delete(self):
-        account_api = self.stub_account_api()
+        keystoneclient = self.stub_keystoneclient()
 
-        account_api.users = self.mox.CreateMockAnything()
-        account_api.users.delete(TEST_USERNAME).AndReturn(TEST_RETURN)
+        keystoneclient.users = self.mox.CreateMockAnything()
+        keystoneclient.users.delete(TEST_USERNAME).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
@@ -473,10 +451,10 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
     def test_user_get(self):
-        account_api = self.stub_account_api()
+        keystoneclient = self.stub_keystoneclient()
 
-        account_api.users = self.mox.CreateMockAnything()
-        account_api.users.get(TEST_USERNAME).AndReturn(TEST_RETURN)
+        keystoneclient.users = self.mox.CreateMockAnything()
+        keystoneclient.users.get(TEST_USERNAME).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
@@ -490,9 +468,9 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
     def test_user_list(self):
         users = (TEST_USERNAME, TEST_USERNAME + '2')
 
-        account_api = self.stub_account_api()
-        account_api.users = self.mox.CreateMockAnything()
-        account_api.users.list().AndReturn(users)
+        keystoneclient = self.stub_keystoneclient()
+        keystoneclient.users = self.mox.CreateMockAnything()
+        keystoneclient.users.list(tenant_id=None).AndReturn(users)
 
         self.mox.ReplayAll()
 
@@ -506,9 +484,9 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
     def test_user_update_email(self):
-        account_api = self.stub_account_api()
-        account_api.users = self.mox.CreateMockAnything()
-        account_api.users.update_email(TEST_USERNAME,
+        keystoneclient = self.stub_keystoneclient()
+        keystoneclient.users = self.mox.CreateMockAnything()
+        keystoneclient.users.update_email(TEST_USERNAME,
                                        TEST_EMAIL).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
@@ -522,9 +500,9 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
     def test_user_update_password(self):
-        account_api = self.stub_account_api()
-        account_api.users = self.mox.CreateMockAnything()
-        account_api.users.update_password(TEST_USERNAME,
+        keystoneclient = self.stub_keystoneclient()
+        keystoneclient.users = self.mox.CreateMockAnything()
+        keystoneclient.users.update_password(TEST_USERNAME,
                                           TEST_PASSWORD).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
@@ -538,9 +516,9 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
     def test_user_update_tenant(self):
-        account_api = self.stub_account_api()
-        account_api.users = self.mox.CreateMockAnything()
-        account_api.users.update_tenant(TEST_USERNAME,
+        keystoneclient = self.stub_keystoneclient()
+        keystoneclient.users = self.mox.CreateMockAnything()
+        keystoneclient.users.update_tenant(TEST_USERNAME,
                                         TEST_TENANT_ID).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
@@ -555,14 +533,14 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
 
 
     def test_role_add_for_tenant_user(self):
-        account_api = self.stub_account_api()
+        keystoneclient = self.stub_keystoneclient()
 
         role = api.Role(APIResource.get_instance())
         role.id = TEST_RETURN
         role.name = TEST_RETURN
 
-        account_api.role_refs = self.mox.CreateMockAnything()
-        account_api.role_refs.add_for_tenant_user(TEST_TENANT_ID,
+        keystoneclient.roles = self.mox.CreateMockAnything()
+        keystoneclient.roles.add_user_to_tenant(TEST_TENANT_ID,
                                                   TEST_USERNAME,
                                                   TEST_RETURN).AndReturn(role)
         api._get_role = self.mox.CreateMockAnything()
@@ -573,7 +551,7 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
                                                TEST_TENANT_ID,
                                                TEST_USERNAME,
                                                TEST_RETURN)
-        self.assertEqual(ret_val, None)
+        self.assertEqual(ret_val, role)
 
         self.mox.VerifyAll()
 
@@ -693,16 +671,14 @@ class AdminApiTests(test.TestCase):
 
 
 class AuthApiTests(test.TestCase):
-    def test_get_auth_api(self):
+    def setUp(self):
+        super(AuthApiTests, self).setUp()
+        self._prev_OPENSTACK_KEYSTONE_URL = getattr(settings, 'OPENSTACK_KEYSTONE_URL', None)
         settings.OPENSTACK_KEYSTONE_URL = TEST_URL
-        self.mox.StubOutClassWithMocks(OSAuth, 'Auth')
-        OSAuth.Auth(management_url=settings.OPENSTACK_KEYSTONE_URL)
 
-        self.mox.ReplayAll()
-
-        self.assertIsNotNone(api.auth_api())
-
-        self.mox.VerifyAll()
+    def tearDown(self):
+        super(AuthApiTests, self).tearDown()
+        settings.OPENSTACK_KEYSTONE_URL = self._prev_OPENSTACK_KEYSTONE_URL
 
     def test_token_create(self):
         catalog = {

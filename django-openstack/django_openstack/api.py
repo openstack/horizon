@@ -349,16 +349,6 @@ def compute_api(request):
     return compute
 
 
-def account_api(request):
-    LOG.debug('account_api connection created using token "%s"'
-                      ' and url "%s"' %
-                  (request.user.token,
-                   url_for(request, 'identity', True)))
-    return openstackx.extras.Account(
-        auth_token=request.user.token,
-        management_url=url_for(request, 'identity', True))
-
-
 def glance_api(request):
     o = urlparse.urlparse(url_for(request, 'image'))
     LOG.debug('glance_api connection created for host "%s:%d"' %
@@ -430,13 +420,6 @@ def keystoneclient(request):
         endpoint = settings.OPENSTACK_KEYSTONE_URL
 
     return keystone_client.Client(conn, endpoint=endpoint)
-
-
-def auth_api():
-    LOG.debug('auth_api connection created using url "%s"' %
-                   settings.OPENSTACK_KEYSTONE_URL)
-    return openstackx.auth.Auth(
-            management_url=settings.OPENSTACK_KEYSTONE_URL)
 
 
 def swift_api(request):
@@ -665,13 +648,6 @@ def tenant_list_for_token(request, token):
     return [Tenant(t) for t in c.tenants.list()]
 
 
-def users_list_for_token_and_tenant(request, token, tenant):
-    admin_account = openstackx.extras.Account(
-                    auth_token=token,
-                    management_url=settings.OPENSTACK_KEYSTONE_ADMIN_URL)
-    return [User(u) for u in admin_account.users.get_for_tenant(tenant)]
-
-
 def token_create(request, tenant, username, password):
     '''
     Creates a token using the username and password provided. If tenant
@@ -728,19 +704,6 @@ def usage_list(request, start, end):
     return [Usage(u) for u in extras_api(request).usage.list(start, end)]
 
 
-def user_create(request, user_id, email, password, tenant_id, enabled):
-    return User(account_api(request).users.create(
-            user_id, email, password, tenant_id, enabled))
-
-
-def user_delete(request, user_id):
-    account_api(request).users.delete(user_id)
-
-
-def user_get(request, user_id):
-    return User(account_api(request).users.get(user_id))
-
-
 def security_group_list(request):
     return [SecurityGroup(g) for g in novaclient(request).\
                                      security_groups.list()]
@@ -776,50 +739,68 @@ def security_group_rule_delete(request, security_group_rule_id):
     novaclient(request).security_group_rules.delete(security_group_rule_id)
 
 
-@check_openstackx
-def user_list(request):
-    return [User(u) for u in account_api(request).users.list()]
+def user_list(request, tenant_id=None):
+    return [User(u) for u in keystoneclient(request).users.list(tenant_id=tenant_id)]
+
+
+def user_create(request, user_id, email, password, tenant_id, enabled):
+    return User(keystoneclient(request).users.create(
+            user_id, password, email, tenant_id, enabled))
+
+
+def user_delete(request, user_id):
+    keystoneclient(request).users.delete(user_id)
+
+
+def user_get(request, user_id):
+    return User(keystoneclient(request).users.get(user_id))
 
 
 def user_update_email(request, user_id, email):
-    return User(account_api(request).users.update_email(user_id, email))
+    return User(keystoneclient(request).users.update_email(user_id, email))
 
 
 def user_update_enabled(request, user_id, enabled):
-    return User(account_api(request).users.update_enabled(user_id, enabled))
+    return User(keystoneclient(request).users.update_enabled(user_id, enabled))
 
 
 def user_update_password(request, user_id, password):
-    return User(account_api(request).users.update_password(user_id, password))
+    return User(keystoneclient(request).users.update_password(user_id, password))
 
 
 def user_update_tenant(request, user_id, tenant_id):
-    return User(account_api(request).users.update_tenant(user_id, tenant_id))
+    return User(keystoneclient(request).users.update_tenant(user_id, tenant_id))
 
 
 def _get_role(request, name):
-    roles = account_api(request).roles.list()
+    roles = keystoneclient(request).roles.list()
     for role in roles:
         if role.name.lower() == name.lower():
             return role
 
-    raise Exception('Role does not exist: %s' % name)
+    raise Exception(_('Role does not exist: %s') % name)
+
+def _get_roleref(request, user_id, tenant_id, role):
+    rolerefs= keystoneclient(request).roles.get_user_role_refs(user_id)
+    for roleref in rolerefs:
+        if roleref.roleId == role.id and roleref.tenantId == tenant_id:
+            return roleref
+    raise Exception(_('Role "%s" does not exist for that user on this tenant.')
+                         % role.name)
+
+def role_add_for_tenant_user(request, tenant_id, user_id, role):
+    role = _get_role(request, role)
+    return keystoneclient(request).roles.add_user_to_tenant(tenant_id,
+                                                       user_id,
+                                                       role.id)
 
 
-def role_add_for_tenant_user(request, tenant_id, user_id, role_name):
-    role = _get_role(request, role_name)
-    account_api(request).role_refs.add_for_tenant_user(
-                tenant_id,
-                user_id,
-                role.id)
-
-
-def role_delete_for_tenant_user(request, tenant_id, user_id, role_name):
-    role = _get_role(request, role_name)
-    account_api(request).role_refs.delete_for_tenant_user(
-                tenant_id,
-                user_id,
-                role.id)
+def role_delete_for_tenant_user(request, tenant_id, user_id, role):
+    role = _get_role(request, role)
+    roleref = _get_roleref(request, user_id, tenant_id, role)
+    return keystoneclient(request).roles.remove_user_from_tenant(tenant_id,
+                                                              user_id,
+                                                              roleref.id)
 
 
 def swift_container_exists(request, container_name):

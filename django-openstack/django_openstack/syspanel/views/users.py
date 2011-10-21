@@ -216,7 +216,7 @@ def create(request):
                         request, user['tenant_id'], new_user.id,
                         settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
                 except Exception, e:
-                    LOG.exception('Exception while assigning\
+                    LOG.exception('Exception while assigning \
                                    role to new user: %s' % new_user.id)
                     messages.error(request,
                                    _('Error assigning role to user: %s')
