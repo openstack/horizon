@@ -15,10 +15,7 @@
       <td>{{tenant.enabled}}</td>
       <td id="actions">
         <ul>
-          {% comment %}
-          {# FIXME -- Not implemented on the backend. #}
           <li class="form">{% include "django_openstack/syspanel/tenants/_delete.html" with form=tenant_delete_form %}</li>
-          {% endcomment %}
           <li><a href="{% url syspanel_tenant_update tenant.id %}">{% trans "Edit"%}</a></li>
           <li><a href="{% url syspanel_tenant_users tenant.id %}">{% trans "View Members"%}</a></li>
           <li><a href="{% url syspanel_tenant_quotas tenant.id %}">{% trans "Modify Quotas"%}</a></li>
