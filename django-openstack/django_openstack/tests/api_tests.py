@@ -142,12 +142,15 @@ class APIDict(api.APIDictWrapper):
         return APIDict(innerDict)
 
 
-class NovaClientTestMixin(object):
+class APITestCase(test.TestCase):
     def setUp(self):
-        super(NovaClientTestMixin, self).setUp()
+        def fake_keystoneclient(request, username=None, password=None,
+                                tenant_id=None, token_id=None, endpoint=None):
+            return self.stub_keystoneclient()
+        super(APITestCase, self).setUp()
         self._original_keystoneclient = api.keystoneclient
         self._original_novaclient = api.novaclient
-        api.keystoneclient = lambda request: self.stub_keystoneclient()
+        api.keystoneclient = fake_keystoneclient
         api.novaclient = lambda request: self.stub_novaclient()
 
     def stub_novaclient(self):
@@ -163,7 +166,7 @@ class NovaClientTestMixin(object):
         return self.keystoneclient
 
     def tearDown(self):
-        super(NovaClientTestMixin, self).tearDown()
+        super(APITestCase, self).tearDown()
         api.novaclient = self._original_novaclient
         api.keystoneclient = self._original_keystoneclient
 
@@ -344,7 +347,7 @@ class ApiHelperTests(test.TestCase):
             url = api.url_for(self.request, 'notAnApi')
 
 
-class AccountApiTests(NovaClientTestMixin, test.TestCase):
+class AccountApiTests(APITestCase):
     def test_tenant_create(self):
         DESCRIPTION = 'aDescription'
         ENABLED = True
@@ -556,7 +559,7 @@ class AccountApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
 
-class AdminApiTests(test.TestCase):
+class AdminApiTests(APITestCase):
     def stub_admin_api(self, count=1):
         self.mox.StubOutWithMock(api, 'admin_api')
         admin_api = self.mox.CreateMock(OSAdmin.Admin)
@@ -670,7 +673,7 @@ class AdminApiTests(test.TestCase):
         self.mox.VerifyAll()
 
 
-class AuthApiTests(test.TestCase):
+class AuthApiTests(APITestCase):
     def setUp(self):
         super(AuthApiTests, self).setUp()
         self._prev_OPENSTACK_KEYSTONE_URL = getattr(settings, 'OPENSTACK_KEYSTONE_URL', None)
@@ -691,11 +694,13 @@ class AuthApiTests(test.TestCase):
                     }
                 }
             }
-        self.mox.StubOutWithMock(base_client.HTTPClient, 'authenticate')
-        base_client.HTTPClient.authenticate()
-        base_client.HTTPClient.service_catalog = service_catalog.ServiceCatalog(catalog)
-
         test_token = Token(TEST_TOKEN_ID, TEST_USERNAME, TEST_TENANT_ID)
+
+        keystoneclient = self.stub_keystoneclient()
+
+        keystoneclient.tokens = self.mox.CreateMockAnything()
+        keystoneclient.tokens.create(username=TEST_USERNAME, password=TEST_PASSWORD,
+                                     tenant=TEST_TENANT_ID).AndReturn(test_token)
 
         self.mox.ReplayAll()
 
@@ -707,7 +712,7 @@ class AuthApiTests(test.TestCase):
         self.mox.VerifyAll()
 
 
-class ComputeApiTests(NovaClientTestMixin, test.TestCase):
+class ComputeApiTests(APITestCase):
     def stub_compute_api(self, count=1):
         self.mox.StubOutWithMock(api, 'compute_api')
         compute_api = self.mox.CreateMock(OSCompute.Compute)
@@ -824,7 +829,7 @@ class ComputeApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
 
-class ExtrasApiTests(NovaClientTestMixin, test.TestCase):
+class ExtrasApiTests(APITestCase):
 
     def stub_extras_api(self, count=1):
         self.mox.StubOutWithMock(api, 'extras_api')
@@ -957,7 +962,7 @@ class ExtrasApiTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
 
-class APIExtensionTests(NovaClientTestMixin, test.TestCase):
+class APIExtensionTests(APITestCase):
 
     def setUp(self):
         super(APIExtensionTests, self).setUp()
@@ -1137,7 +1142,7 @@ class APIExtensionTests(NovaClientTestMixin, test.TestCase):
         self.mox.VerifyAll()
 
 
-class GlanceApiTests(test.TestCase):
+class GlanceApiTests(APITestCase):
     def stub_glance_api(self, count=1):
         self.mox.StubOutWithMock(api, 'glance_api')
         glance_api = self.mox.CreateMock(glance_client.Client)
@@ -1250,7 +1255,7 @@ class GlanceApiTests(test.TestCase):
         self.mox.VerifyAll()
 
 
-class SwiftApiTests(test.TestCase):
+class SwiftApiTests(APITestCase):
     def setUp(self):
         self.mox = mox.Mox()
 

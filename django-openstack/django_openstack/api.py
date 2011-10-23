@@ -29,8 +29,8 @@ this, all API calls should wrap their returned object in one defined here,
 using only explicitly defined atributes and/or methods.
 
 In other words, django_openstack developers not working on django_openstack.api
-shouldn't need to understand the finer details of APIs for Nova/Glance/Swift et
-al.
+shouldn't need to understand the finer details of APIs for
+Keystone/Nova/Glance/Swift et. al.
 """
 
 import httplib
@@ -51,8 +51,8 @@ import openstackx.auth
 from glance import client as glance_client
 from glance.common import exception as glance_exceptions
 from novaclient import client as base_nova_client
-from novaclient import exceptions as nova_exceptions
-from novaclient.keystone import client as keystone_client
+from keystoneclient import exceptions as keystone_exceptions
+from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
 from quantum import client as quantum_client
 
@@ -219,16 +219,13 @@ class SwiftObject(APIResourceWrapper):
 
 
 class Tenant(APIResourceWrapper):
-    """Simple wrapper around openstackx.auth.tokens.Tenant"""
+    """Simple wrapper around keystoneclient.tenants.Tenant"""
     _attrs = ['id', 'description', 'enabled', 'name']
 
 
-class Token(object):
-    def __init__(self, id=None, serviceCatalog=None, tenant_id=None, user=None):
-        self.id = id
-        self.serviceCatalog = serviceCatalog or {}
-        self.tenant_id = tenant_id
-        self.user = user or {}
+class Token(APIResourceWrapper):
+    """Simple wrapper around keystoneclient.tokens.Tenant"""
+    _attrs = ['id', 'user', 'serviceCatalog', 'tenant_id']
 
 
 class Usage(APIResourceWrapper):
@@ -240,12 +237,12 @@ class Usage(APIResourceWrapper):
 
 
 class User(APIResourceWrapper):
-    """Simple wrapper around openstackx.extras.users.User"""
+    """Simple wrapper around keystoneclient.users.User"""
     _attrs = ['email', 'enabled', 'id', 'tenantId', 'name']
 
 
 class Role(APIResourceWrapper):
-    """Wrapper around user role"""
+    """Wrapper around keystoneclient.roles.role"""
     _attrs = ['id', 'name', 'description', 'service_id']
 
 
@@ -372,28 +369,6 @@ def extras_api(request):
                                    management_url=url_for(request, 'compute'))
 
 
-def _get_base_client_from_token(tenant_id=None, token=None):
-    '''
-    Helper function to create an instance of novaclient.client.HTTPClient from
-    a token and tenant id rather than a username/password.
-
-    The returned client can be passed to novaclient.keystone.client.Client
-    without requiring a second authentication call.
-
-    NOTE(gabriel): This ought to live upstream in novaclient, but isn't
-    currently supported by the HTTPClient.authenticate() method (which only
-    works with a username and password).
-    '''
-    c = base_nova_client.HTTPClient(None, None, tenant_id,
-                                settings.OPENSTACK_KEYSTONE_URL)
-    body = {"auth": {"tenantId": tenant_id, "token": {"id": token}}}
-    token_url = urlparse.urljoin(c.auth_url, "tokens")
-    resp, body = c.request(token_url, "POST", body=body)
-    if tenant_id is not None:
-        c._extract_service_catalog(c.auth_url, resp, body)
-    return c
-
-
 def novaclient(request):
     LOG.debug('novaclient connection created using token "%s" and url "%s"' %
               (request.user.token, url_for(request, 'compute')))
@@ -405,34 +380,53 @@ def novaclient(request):
     c.client.management_url = url_for(request, 'compute')
     return c
 
-def keystoneclient(request):
-    """
-    Returns a client connected to the Keystone backend. The client is
-    cached so that subsequent API calls during the same request/response
-    cycle don't have to be re-authenticated.
+def keystoneclient(request, username=None, password=None, tenant_id=None,
+                   token_id=None, endpoint=None):
+    """Returns a client connected to the Keystone backend.
+
+    Several forms of authentication are supported:
+
+        * Username + password -> Unscoped authentication
+        * Username + password + tenant id -> Scoped authentication
+        * Unscoped token -> Unscoped authentication
+        * Unscoped token + tenant id -> Scoped authentication
+        * Scoped token -> Scoped authentication
+
+    Available services and data from the backend will vary depending on
+    whether the authentication was scoped or unscoped.
+
+    Lazy authentication if an ``endpoint`` parameter is provided.
+
+    The client is cached so that subsequent API calls during the same
+    request/response cycle don't have to be re-authenticated.
     """
     # Take care of client connection caching/fetching a new client
-    if hasattr(request, '_keystone_connection') and \
-            request._keystone_connection.auth_token == request.user.token:
-        conn = request._keystone_connection
+    user = request.user
+    if hasattr(request, '_keystone') and request._keystone.auth_token == user.token:
+        conn = request._keystone
     else:
-        conn = _get_base_client_from_token(request.user.tenant_id,
-                                                request.user.token)
-        conn.auth_url = '' # Bypass re-authentication
-        request._keystone_connection = conn
+        conn = keystone_client.Client(username=username or user.username,
+                                      password=password,
+                                      project_id=tenant_id or user.tenant_id,
+                                      token=token_id or user.token,
+                                      auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                                      endpoint=endpoint)
+        request._keystone = conn
 
     # Fetch the correct endpoint for the user type
-    if hasattr(conn, 'service_catalog'):
-        if request.user.is_admin():
-            endpoint = conn.service_catalog.url_for(service_type='identity',
-                                                    endpoint_type='adminURL')
+    catalog = getattr(conn, 'service_catalog', None)
+    if catalog and catalog.catalog['access'].has_key('serviceCatalog'):
+        if user.is_admin():
+            endpoint = catalog.url_for(service_type='identity',
+                                       endpoint_type='adminURL')
         else:
-            endpoint = conn.service_catalog.url_for(service_type='identity',
-                                                    endpoint_type='publicURL')
+            endpoint = catalog.url_for(service_type='identity',
+                                       endpoint_type='publicURL')
     else:
         endpoint = settings.OPENSTACK_KEYSTONE_URL
+    conn.management_url = endpoint
 
-    return keystone_client.Client(conn, endpoint=endpoint)
+    return conn
 
 
 def swift_api(request):
@@ -658,10 +652,8 @@ def tenant_delete(request, tenant_id):
 
 
 def tenant_list_for_token(request, token):
-    request.user.token = token
-    c = keystoneclient(request)
-    # We bypassed the novaclient auth, so we need to set the client auth token
-    c.client.auth_token = token
+    c = keystoneclient(request, token_id=token,
+                       endpoint=settings.OPENSTACK_KEYSTONE_URL)
     return [Tenant(t) for t in c.tenants.list()]
 
 
@@ -672,40 +664,23 @@ def token_create(request, tenant, username, password):
     the given tenant. Otherwise it will return an unscoped token and without
     a service catalog.
     '''
-    c = base_nova_client.HTTPClient(username, password, tenant,
-                                settings.OPENSTACK_KEYSTONE_URL)
-    c.version = 'v2.0'
-    try:
-        c.authenticate()
-    except nova_exceptions.AuthorizationFailure as e:
-        # When authenticating without a tenant, novaclient raises a KeyError
-        # (which is caught and raised again as an AuthorizationFailure)
-        # if no service catalog is returned. However, in this case if we got
-        # back a token we're good. If not then it really is a failure.
-        if c.service_catalog.get_token():
-            pass
-        else:
-            raise
-    access = c.service_catalog.catalog['access']
-    return Token(id=c.auth_token,
-                 serviceCatalog=access.get('serviceCatalog', None),
-                 user=access['user'],
-                 tenant_id=tenant)
+    c = keystoneclient(request, username=username, password=password,
+                       tenant_id=tenant,
+                       endpoint=settings.OPENSTACK_KEYSTONE_URL)
+    token = c.tokens.create(username=username, password=password, tenant=tenant)
+    return Token(token)
 
 def token_create_scoped(request, tenant, token):
     '''
     Creates a scoped token using the tenant id and unscoped token; retrieves
     the service catalog for the given tenant.
     '''
-    try:
-        c = _get_base_client_from_token(tenant, token)
-    except nova_exceptions.Unauthorized as e:
-        raise exceptions.Unauthorized("You are not authorized for this tenant.")
-    access = c.service_catalog.catalog['access']
-    return Token(id=c.auth_token,
-             serviceCatalog=access.get('serviceCatalog', None),
-             user=access['user'],
-             tenant_id=tenant)
+    if hasattr(request, '_keystone'):
+        del request._keystone
+    c = keystoneclient(request, tenant_id=tenant, token_id=token,
+                       endpoint=settings.OPENSTACK_KEYSTONE_URL)
+    scoped_token = c.tokens.create(tenant=tenant, token=token)
+    return Token(scoped_token)
 
 def tenant_quota_get(request, tenant):
     return novaclient(request).quotas.get(tenant)
