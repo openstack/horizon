@@ -3,7 +3,7 @@
   {% for hidden in form.hidden_fields %}
     {{hidden}}
   {% endfor %}
-  <input name="tenant" type="hidden" value="{{tenant.id}}" />
-  <input id="enable_{{tenant.id}}" class="enable" title="Tenant: {{tenant.id}}" type="submit" value="Delete" />
+  <input name="tenant_id" type="hidden" value="{{tenant.id}}" />
+  <input id="delete_{{tenant.id}}" class="delete" title="Tenant: {{tenant.id}}" type="submit" value="Delete" />
 </form>
 
