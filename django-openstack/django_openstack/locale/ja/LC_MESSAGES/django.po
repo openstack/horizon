@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-11 14:12+0900\n"
+"POT-Creation-Date: 2011-10-25 15:01+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Takeshi Nakajima <tnakaji@midokura.jp>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: auth/views.py:37
+#: auth/views.py:38
 msgid "User Name"
 msgstr "ユーザ名"
 
-#: auth/views.py:38
+#: auth/views.py:39
 msgid "Password"
 msgstr "パスワード"
 
@@ -109,6 +109,11 @@ msgid ""
 "its                                       owner."
 msgstr ""
 
+#: dash/views/instances.py:55
+#, python-format
+msgid "ApiException while terminating instance \"%s\""
+msgstr ""
+
 #: dash/views/instances.py:58
 #, python-format
 msgid "Unable to terminate %(inst)s: %(message)s"
@@ -118,6 +123,16 @@ msgstr "（%(inst)s: %(message)sを停止する事ができません。"
 #, python-format
 msgid "Instance %s has been terminated."
 msgstr "インスタンス%sは停止されました。"
+
+#: dash/views/instances.py:75
+#, fuzzy
+msgid "Instance rebooting"
+msgstr "インスタンス%(inst)sが更新されました。"
+
+#: dash/views/instances.py:77
+#, fuzzy, python-format
+msgid "ApiException while rebooting instance \"%s\""
+msgstr "%sをリボーク(無効化)できません。"
 
 #: dash/views/instances.py:80
 #, fuzzy, python-format
@@ -129,10 +144,19 @@ msgstr "%sをリボーク(無効化)できません。"
 msgid "Instance %s has been rebooted."
 msgstr "インスタンス%(inst)sが更新されました。"
 
-#: dash/views/instances.py:108
+#: dash/views/instances.py:105
+#, fuzzy, python-format
+msgid "Instance '%s' updated"
+msgstr "インスタンス%sが開始しました。"
+
+#: dash/views/instances.py:109
 #, fuzzy, python-format
 msgid "Unable to update instance: %s"
 msgstr "イメージ%sを更新できません。"
+
+#: dash/views/instances.py:124
+msgid "Exception in instance index"
+msgstr ""
 
 #: dash/views/instances.py:125 dash/views/instances.py:147
 #: syspanel/views/instances.py:193 syspanel/views/instances.py:221
@@ -140,20 +164,57 @@ msgstr "イメージ%sを更新できません。"
 msgid "Unable to get instance list: %s"
 msgstr "インスタンス%(inst)s: %(msg)sを更新する事ができません。"
 
+#: dash/views/instances.py:178
+msgid "ApiException in instance usage"
+msgstr ""
+
 #: dash/views/instances.py:180 syspanel/views/flavors.py:95
 #: syspanel/views/instances.py:146
 #, fuzzy, python-format
 msgid "Unable to get usage info: %s"
 msgstr "イメージ%sを公開できません。"
 
-#: dash/views/instances.py:253
+#: dash/views/instances.py:241
+msgid "ApiException while fetching instance console"
+msgstr ""
+
+#: dash/views/instances.py:243
+#, fuzzy, python-format
+msgid "Unable to get log for instance %(inst)s: %(msg)s"
+msgstr "インスタンス%(inst)s: %(msg)sを更新する事ができません。"
+
+#: dash/views/instances.py:256
+msgid "ApiException while fetching instance vnc connection"
+msgstr ""
+
+#: dash/views/instances.py:258
 #, fuzzy, python-format
 msgid "Unable to get vnc console for instance %(inst)s: %(message)s"
 msgstr "インスタンス%(inst)s: %(msg)sを更新する事ができません。"
 
-#: dash/views/instances.py:265
+#: dash/views/instances.py:268 dash/views/instances.py:307
+msgid "ApiException while fetching instance info"
+msgstr ""
+
+#: dash/views/instances.py:270
 #, fuzzy, python-format
 msgid "Unable to get information for instance %(inst)s: %(message)s"
+msgstr "インスタンス%(inst)s: %(msg)sを更新する事ができません。"
+
+#: dash/views/instances.py:300
+msgid ""
+"ApiException while fetching instance vnc                            "
+"connection"
+msgstr ""
+
+#: dash/views/instances.py:303
+#, fuzzy, python-format
+msgid "Unable to get vnc console for instance %(inst)s: %(msg)s"
+msgstr "インスタンス%(inst)s: %(msg)sを更新する事ができません。"
+
+#: dash/views/instances.py:309
+#, fuzzy, python-format
+msgid "Unable to get information for instance %(inst)s: %(msg)s"
 msgstr "インスタンス%(inst)s: %(msg)sを更新する事ができません。"
 
 #: dash/views/keypairs.py:49
@@ -564,15 +625,15 @@ msgstr ""
 msgid "Containers"
 msgstr ""
 
-#: templates/django_openstack/dash/dashboard_settings.html:11
+#: templates/django_openstack/dash/settings.html:20
 msgid "Dashboard Settings"
 msgstr "ダッシュボードの設定"
 
-#: templates/django_openstack/dash/dashboard_settings.html:17
+#: templates/django_openstack/dash/settings.html:26
 msgid "Dashboard User Interface Language"
 msgstr ""
 
-#: templates/django_openstack/dash/dashboard_settings.html:29
+#: templates/django_openstack/dash/settings.html:38
 msgid "Select Language"
 msgstr "言語を選択"
 
@@ -605,6 +666,7 @@ msgstr ""
 #: templates/django_openstack/dash/security_groups/_list.html:4
 #: templates/django_openstack/syspanel/flavors/_list.html:5
 #: templates/django_openstack/syspanel/images/_list.html:7
+#: templates/django_openstack/syspanel/instances/_list.html:5
 #: templates/django_openstack/syspanel/instances/tenant_usage.html:67
 #: templates/django_openstack/syspanel/tenants/_list.html:5
 #: templates/django_openstack/syspanel/tenants/users.html:23
@@ -766,7 +828,7 @@ msgid "Status"
 msgstr "ステータス"
 
 #: templates/django_openstack/dash/images/_list.html:22
-#: templates/django_openstack/dash/instances/_list.html:65
+#: templates/django_openstack/dash/instances/_list.html:68
 #: templates/django_openstack/syspanel/images/_list.html:28
 #: templates/django_openstack/syspanel/tenants/_list.html:19
 #: templates/django_openstack/syspanel/users/index.html:36
@@ -845,16 +907,16 @@ msgstr ""
 msgid "State"
 msgstr "状態"
 
-#: templates/django_openstack/dash/instances/_list.html:63
+#: templates/django_openstack/dash/instances/_list.html:66
 msgid "Log"
 msgstr ""
 
-#: templates/django_openstack/dash/instances/_list.html:64
+#: templates/django_openstack/dash/instances/_list.html:67
 #: templates/django_openstack/syspanel/instances/_list.html:49
 msgid "VNC Console"
 msgstr ""
 
-#: templates/django_openstack/dash/instances/_list.html:66
+#: templates/django_openstack/dash/instances/_list.html:69
 msgid "Snapshot"
 msgstr "スナップショット"
 
@@ -1318,7 +1380,6 @@ msgid "Create Flavor"
 msgstr ""
 
 #: templates/django_openstack/syspanel/flavors/_list.html:4
-#: templates/django_openstack/syspanel/instances/_list.html:5
 #: templates/django_openstack/syspanel/tenants/_list.html:4
 msgid "Id"
 msgstr ""
@@ -1666,9 +1727,6 @@ msgstr ""
 
 #~ msgid "Unable to launch: %s"
 #~ msgstr "%sを起動できません。"
-
-#~ msgid "Instance %s launched."
-#~ msgstr "インスタンス%sが開始しました。"
 
 #~ msgid "Unable to make image private: %s"
 #~ msgstr "イメージ%sを非公開にすることができません。"
