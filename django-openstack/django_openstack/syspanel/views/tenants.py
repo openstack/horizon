@@ -111,7 +111,8 @@ class CreateTenant(forms.SelfHandlingForm):
 class UpdateTenant(forms.SelfHandlingForm):
     id = forms.CharField(label="ID",
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    name = forms.CharField(label="Name")
+    name = forms.CharField(label="Name",
+            widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     description = forms.CharField(widget=forms.widgets.Textarea(),
             label="Description")
     enabled = forms.BooleanField(required=False, label="Enabled")
@@ -126,7 +127,7 @@ class UpdateTenant(forms.SelfHandlingForm):
                               data['enabled'])
             messages.success(request,
                              '%s was successfully updated.'
-                             % data['id'])
+                             % data['name'])
         except api_exceptions.ApiException, e:
             LOG.exception('ApiException while updating tenant\n'
                       'Id: "%s", Name: "%s", Description: "%s", Enabled "%s"' %
@@ -172,10 +173,31 @@ class UpdateQuotas(forms.SelfHandlingForm):
                            _('Unable to update quotas: %s') % e.message)
         return redirect('syspanel_tenants')
 
+class DeleteTenant(forms.SelfHandlingForm):
+    tenant_id = forms.CharField(required=True)
+
+    def handle(self, request, data):
+        tenant_id = data['tenant_id']
+        try:
+            api.tenant_delete(request, tenant_id)
+            messages.info(request, _('Successfully deleted tenant %(tenant)s.')
+                                     % {"tenant": tenant_id})
+        except Exception, e:
+            LOG.exception("Error deleting tenant")
+            messages.error(request,
+                           _("Error deleting tenant: %s") % e.message)
+        return redirect(request.build_absolute_uri())
+
 
 @login_required
 @enforce_admin_access
 def index(request):
+    form, handled = DeleteTenant.maybe_handle(request)
+    if handled:
+        return handled
+
+    tenant_delete_form = DeleteTenant()
+
     tenants = []
     try:
         tenants = api.tenant_list(request)
@@ -186,6 +208,7 @@ def index(request):
     return render_to_response(
     'django_openstack/syspanel/tenants/index.html', {
         'tenants': tenants,
+        'tenant_delete_form': tenant_delete_form,
     }, context_instance=template.RequestContext(request))
 
 

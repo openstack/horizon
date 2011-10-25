@@ -50,7 +50,25 @@ class UserForm(forms.Form):
         self.fields['tenant_id'].choices = [[tenant.id, tenant.id]
                 for tenant in tenant_list]
 
-    id = forms.CharField(label="ID (username)")
+    name = forms.CharField(label="Name")
+    email = forms.CharField(label="Email")
+    password = forms.CharField(label="Password",
+                               widget=forms.PasswordInput(render_value=False),
+                               required=False)
+    tenant_id = forms.ChoiceField(label="Primary Tenant")
+
+
+class UserUpdateForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        tenant_list = kwargs.pop('tenant_list', None)
+        super(UserUpdateForm, self).__init__(*args, **kwargs)
+        self.fields['tenant_id'].choices = [[tenant.id, tenant.id]
+                for tenant in tenant_list]
+
+    id = forms.CharField(label="ID",
+            widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    # FIXME: keystone doesn't return the username from a get API call.
+    #name = forms.CharField(label="Name")
     email = forms.CharField(label="Email")
     password = forms.CharField(label="Password",
                                widget=forms.PasswordInput(render_value=False),
@@ -123,7 +141,7 @@ def index(request):
 def update(request, user_id):
     if request.method == "POST":
         tenants = api.tenant_list(request)
-        form = UserForm(request.POST, tenant_list=tenants)
+        form = UserUpdateForm(request.POST, tenant_list=tenants)
         if form.is_valid():
             user = form.clean()
             updated = []
@@ -154,20 +172,10 @@ def update(request, user_id):
     else:
         u = api.user_get(request, user_id)
         tenants = api.tenant_list(request)
-        try:
-            # FIXME
-            email = u.email
-        except:
-            email = ''
-
-        try:
-            tenant_id = u.tenantId
-        except:
-            tenant_id = None
-        form = UserForm(initial={'id': user_id,
-                                 'tenant_id': tenant_id,
-                                 'email': email},
-                                 tenant_list=tenants)
+        form = UserUpdateForm(tenant_list=tenants,
+                              initial={'id': user_id,
+                                       'tenant_id': getattr(u, 'tenantId', None),
+                                       'email': getattr(u, 'email', '')})
         return render_to_response(
         'django_openstack/syspanel/users/update.html', {
             'form': form,
@@ -191,33 +199,33 @@ def create(request):
             user = form.clean()
             # TODO Make this a real request
             try:
-                LOG.info('Creating user with id "%s"' % user['id'])
-                api.user_create(request,
-                                user['id'],
+                LOG.info('Creating user with name "%s"' % user['name'])
+                new_user = api.user_create(request,
+                                user['name'],
                                 user['email'],
                                 user['password'],
                                 user['tenant_id'],
                                 True)
                 messages.success(request,
-                                 _('%s was successfully created.')
-                                 % user['id'])
+                                 _('User "%s" was successfully created.')
+                                 % user['name'])
                 try:
                     api.role_add_for_tenant_user(
-                        request, user['tenant_id'], user['id'],
+                        request, user['tenant_id'], new_user.id,
                         settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
-                except api_exceptions.ApiException, e:
-                    LOG.exception('ApiException while assigning\
-                                   role to new user: %s' % user['id'])
+                except Exception, e:
+                    LOG.exception('Exception while assigning\
+                                   role to new user: %s' % new_user.id)
                     messages.error(request,
                                    _('Error assigning role to user: %s')
                                    % e.message)
 
                 return redirect('syspanel_users')
 
-            except api_exceptions.ApiException, e:
-                LOG.exception('ApiException while creating user\n'
-                          'id: "%s", email: "%s", tenant_id: "%s"' %
-                          (user['id'], user['email'], user['tenant_id']))
+            except Exception, e:
+                LOG.exception('Exception while creating user\n'
+                          'name: "%s", email: "%s", tenant_id: "%s"' %
+                          (user['name'], user['email'], user['tenant_id']))
                 messages.error(request,
                                 _('Error creating user: %s')
                                  % e.message)

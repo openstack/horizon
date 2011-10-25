@@ -636,6 +636,10 @@ def tenant_get(request, tenant_id):
     return Tenant(account_api(request).tenants.get(tenant_id))
 
 
+def tenant_delete(request, tenant_id):
+    account_api(request).tenants.delete(tenant_id)
+
+
 @check_openstackx
 def tenant_list(request):
     return [Tenant(t) for t in account_api(request).tenants.list()]
