@@ -240,8 +240,8 @@ def console(request, tenant_id, instance_id):
     except api_exceptions.ApiException, e:
         LOG.exception(_('ApiException while fetching instance console'))
         messages.error(request,
-                   _('Unable to get log for instance %s: %s') %
-                   (instance_id, e.message))
+                   _('Unable to get log for instance %(inst)s: %(msg)s') %
+                    {"inst": instance_id, "msg": e.message})
         return shortcuts.redirect('dash_instances', tenant_id)
 
 
@@ -300,14 +300,14 @@ def detail(request, tenant_id, instance_id):
             LOG.exception(_('ApiException while fetching instance vnc \
                            connection'))
             messages.error(request,
-                       _('Unable to get vnc console for instance %s: %s') %
-                       (instance_id, e.message))
+                _('Unable to get vnc console for instance %(inst)s: %(msg)s') %
+                {"inst": instance_id, "msg": e.message})
             return shortcuts.redirect('dash_instances', tenant_id)
     except api_exceptions.ApiException, e:
         LOG.exception(_('ApiException while fetching instance info'))
         messages.error(request,
-                   _('Unable to get information for instance %s: %s') %
-                   (instance_id, e.message))
+            _('Unable to get information for instance %(inst)s: %(msg)s') %
+            {"inst": instance_id, "msg": e.message})
         return shortcuts.redirect('dash_instances', tenant_id)
 
     return shortcuts.render_to_response(
