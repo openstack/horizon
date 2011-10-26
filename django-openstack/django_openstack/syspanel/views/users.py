@@ -131,10 +131,11 @@ def index(request):
     user_delete_form = UserDeleteForm()
     user_enable_disable_form = UserEnableDisableForm()
 
-    return shortcuts.render_to_response('django_openstack/syspanel/users/index.html', {
-        'users': users,
-        'user_delete_form': user_delete_form,
-        'user_enable_disable_form': user_enable_disable_form,
+    return shortcuts.render_to_response(
+        'django_openstack/syspanel/users/index.html', {
+            'users': users,
+            'user_delete_form': user_delete_form,
+            'user_enable_disable_form': user_enable_disable_form,
     }, context_instance=template.RequestContext(request))
 
 
@@ -172,12 +173,14 @@ def update(request, user_id):
             }, context_instance=template.RequestContext(request))
 
     else:
-        u = api.user_get(request, user_id)
+        user = api.user_get(request, user_id)
         tenants = api.tenant_list(request)
         form = UserUpdateForm(tenant_list=tenants,
                               initial={'id': user_id,
-                                       'tenant_id': getattr(u, 'tenantId', None),
-                                       'email': getattr(u, 'email', '')})
+                                       'tenant_id': getattr(user,
+                                                            'tenantId',
+                                                            None),
+                                       'email': getattr(user, 'email', '')})
         return render_to_response(
         'django_openstack/syspanel/users/update.html', {
             'form': form,

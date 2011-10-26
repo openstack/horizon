@@ -173,6 +173,7 @@ class UpdateQuotas(forms.SelfHandlingForm):
                            _('Unable to update quotas: %s') % e.message)
         return redirect('syspanel_tenants')
 
+
 class DeleteTenant(forms.SelfHandlingForm):
     tenant_id = forms.CharField(required=True)
 

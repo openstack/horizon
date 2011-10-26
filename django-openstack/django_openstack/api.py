@@ -380,6 +380,7 @@ def novaclient(request):
     c.client.management_url = url_for(request, 'compute')
     return c
 
+
 def keystoneclient(request, username=None, password=None, tenant_id=None,
                    token_id=None, endpoint=None):
     """Returns a client connected to the Keystone backend.
@@ -415,7 +416,7 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
 
     # Fetch the correct endpoint for the user type
     catalog = getattr(conn, 'service_catalog', None)
-    if catalog and catalog.catalog.has_key('serviceCatalog'):
+    if catalog and "serviceCatalog" in catalog.catalog.keys():
         if user.is_admin():
             endpoint = catalog.url_for(service_type='identity',
                                        endpoint_type='adminURL')
@@ -670,6 +671,7 @@ def token_create(request, tenant, username, password):
     token = c.tokens.authenticate(username=username, password=password, tenant=tenant)
     return Token(token)
 
+
 def token_create_scoped(request, tenant, token):
     '''
     Creates a scoped token using the tenant id and unscoped token; retrieves
@@ -681,6 +683,7 @@ def token_create_scoped(request, tenant, token):
                        endpoint=settings.OPENSTACK_KEYSTONE_URL)
     scoped_token = c.tokens.authenticate(tenant=tenant, token=token)
     return Token(scoped_token)
+
 
 def tenant_quota_get(request, tenant):
     return novaclient(request).quotas.get(tenant)
@@ -772,13 +775,15 @@ def _get_role(request, name):
 
     raise Exception(_('Role does not exist: %s') % name)
 
+
 def _get_roleref(request, user_id, tenant_id, role):
-    rolerefs= keystoneclient(request).roles.get_user_role_refs(user_id)
+    rolerefs = keystoneclient(request).roles.get_user_role_refs(user_id)
     for roleref in rolerefs:
         if roleref.roleId == role.id and roleref.tenantId == tenant_id:
             return roleref
     raise Exception(_('Role "%s" does not exist for that user on this tenant.')
                          % role.name)
+
 
 def role_add_for_tenant_user(request, tenant_id, user_id, role):
     role = _get_role(request, role)
@@ -948,15 +953,13 @@ def get_vif_ids(request):
                     'id': vif.id,
                     'instance': instance.id,
                     'instance_name': instance.name,
-                    'available': False
-                })
+                    'available': False})
             else:
                 vifs.append({
                     'id': vif.id,
                     'instance': instance.id,
                     'instance_name': instance.name,
-                    'available': True
-                })
+                    'available': True})
     return vifs
 
 

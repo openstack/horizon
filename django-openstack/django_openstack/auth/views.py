@@ -90,7 +90,9 @@ class Login(forms.SelfHandlingForm):
                 while tenants:
                     tenant = tenants.pop()
                     try:
-                        token = api.token_create_scoped(request, tenant.id, token.id)
+                        token = api.token_create_scoped(request,
+                                                        tenant.id,
+                                                        token.id)
                         break
                     except exceptions.Unauthorized as e:
                         token = None
