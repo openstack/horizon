@@ -72,17 +72,17 @@ class ToggleImage(forms.SelfHandlingForm):
 
 
 class UpdateImageForm(forms.Form):
-    name = forms.CharField(max_length="25", label="Name")
-    kernel = forms.CharField(max_length="25", label="Kernel ID",
+    name = forms.CharField(max_length="25", label=_("Name"))
+    kernel = forms.CharField(max_length="25", label=_("Kernel ID"),
             required=False)
-    ramdisk = forms.CharField(max_length="25", label="Ramdisk ID",
+    ramdisk = forms.CharField(max_length="25", label=_("Ramdisk ID"),
             required=False)
-    architecture = forms.CharField(label="Architecture", required=False)
-    #project_id = forms.CharField(label="Project ID")
-    container_format = forms.CharField(label="Container Format",
+    architecture = forms.CharField(label=_("Architecture"), required=False)
+    #project_id = forms.CharField(label=_("Project ID"))
+    container_format = forms.CharField(label=_("Container Format"),
             required=False)
-    disk_format = forms.CharField(label="Disk Format")
-    #is_public = forms.BooleanField(label="Publicly Available", required=False)
+    disk_format = forms.CharField(label=_("Disk Format"))
+    #is_public = forms.BooleanField(label=_("Publicly Available"), required=False)
 
 
 @login_required

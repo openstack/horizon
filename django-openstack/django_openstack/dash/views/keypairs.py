@@ -57,7 +57,7 @@ class DeleteKeypair(forms.SelfHandlingForm):
 
 class CreateKeypair(forms.SelfHandlingForm):
 
-    name = forms.CharField(max_length="20", label="Keypair Name",
+    name = forms.CharField(max_length="20", label=_("Keypair Name"),
                  validators=[validators.RegexValidator('\w+')])
 
     def handle(self, request, data):
@@ -78,9 +78,9 @@ class CreateKeypair(forms.SelfHandlingForm):
 
 class ImportKeypair(forms.SelfHandlingForm):
 
-    name = forms.CharField(max_length="20", label="Keypair Name",
+    name = forms.CharField(max_length="20", label=_("Keypair Name"),
                  validators=[validators.RegexValidator('\w+')])
-    public_key = forms.CharField(label='Public Key', widget=forms.Textarea)
+    public_key = forms.CharField(label=_("Public Key"), widget=forms.Textarea)
 
     def handle(self, request, data):
         try:

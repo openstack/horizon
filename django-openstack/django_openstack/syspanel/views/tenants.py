@@ -83,10 +83,10 @@ class RemoveUser(forms.SelfHandlingForm):
 
 
 class CreateTenant(forms.SelfHandlingForm):
-    name = forms.CharField(label="Name")
+    name = forms.CharField(label=_("Name"))
     description = forms.CharField(widget=forms.widgets.Textarea(),
-            label="Description")
-    enabled = forms.BooleanField(label="Enabled", required=False,
+            label=_("Description"))
+    enabled = forms.BooleanField(label=_("Enabled"), required=False,
             initial=True)
 
     def handle(self, request, data):
@@ -109,13 +109,13 @@ class CreateTenant(forms.SelfHandlingForm):
 
 
 class UpdateTenant(forms.SelfHandlingForm):
-    id = forms.CharField(label="ID",
+    id = forms.CharField(label=_("ID"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    name = forms.CharField(label="Name",
+    name = forms.CharField(label=_("Name"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     description = forms.CharField(widget=forms.widgets.Textarea(),
-            label="Description")
-    enabled = forms.BooleanField(required=False, label="Enabled")
+            label=_("Description"))
+    enabled = forms.BooleanField(required=False, label=_("Enabled"))
 
     def handle(self, request, data):
         try:
@@ -139,18 +139,18 @@ class UpdateTenant(forms.SelfHandlingForm):
 
 
 class UpdateQuotas(forms.SelfHandlingForm):
-    tenant_id = forms.CharField(label="ID (name)",
+    tenant_id = forms.CharField(label=_("ID (name)"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    metadata_items = forms.CharField(label="Metadata Items")
-    injected_files = forms.CharField(label="Injected Files")
-    injected_file_content_bytes = forms.CharField(label="Injected File "
-                                                        "Content Bytes")
-    cores = forms.CharField(label="VCPUs")
-    instances = forms.CharField(label="Instances")
-    volumes = forms.CharField(label="Volumes")
-    gigabytes = forms.CharField(label="Gigabytes")
-    ram = forms.CharField(label="RAM (in MB)")
-    floating_ips = forms.CharField(label="Floating IPs")
+    metadata_items = forms.CharField(label=_("Metadata Items"))
+    injected_files = forms.CharField(label=_("Injected Files"))
+    injected_file_content_bytes = forms.CharField(label=_("Injected File "
+                                                          "Content Bytes"))
+    cores = forms.CharField(label=_("VCPUs"))
+    instances = forms.CharField(label=_("Instances"))
+    volumes = forms.CharField(label=_("Volumes"))
+    gigabytes = forms.CharField(label=_("Gigabytes"))
+    ram = forms.CharField(label=_("RAM (in MB)"))
+    floating_ips = forms.CharField(label=_("Floating IPs"))
 
     def handle(self, request, data):
         try:

@@ -58,7 +58,7 @@ class DeleteContainer(forms.SelfHandlingForm):
 
 
 class CreateContainer(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label="Container Name")
+    name = forms.CharField(max_length="255", label=_("Container Name"))
 
     def handle(self, request, data):
         api.swift_create_container(request, data['name'])

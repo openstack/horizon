@@ -64,7 +64,7 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
         instancelist = kwargs.get('initial', {}).get('instances', [])
         self.fields['instance_id'] = forms.ChoiceField(
                 choices=instancelist,
-                label="Instance")
+                label=_("Instance"))
 
     def handle(self, request, data):
         try:

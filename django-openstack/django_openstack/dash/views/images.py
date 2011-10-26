@@ -43,15 +43,15 @@ LOG = logging.getLogger('django_openstack.dash.views.images')
 
 class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
-    name = forms.CharField(max_length="25", label="Name")
-    kernel = forms.CharField(max_length="25", label="Kernel ID",
+    name = forms.CharField(max_length="25", label=_("Name"))
+    kernel = forms.CharField(max_length="25", label=_("Kernel ID"),
                              required=False)
-    ramdisk = forms.CharField(max_length="25", label="Ramdisk ID",
+    ramdisk = forms.CharField(max_length="25", label=_("Ramdisk ID"),
                               required=False)
-    architecture = forms.CharField(label="Architecture", required=False)
-    container_format = forms.CharField(label="Container Format",
+    architecture = forms.CharField(label=_("Architecture"), required=False)
+    container_format = forms.CharField(label=_("Container Format"),
                                        required=False)
-    disk_format = forms.CharField(label="Disk Format")
+    disk_format = forms.CharField(label=_("Disk Format"))
 
     def handle(self, request, data):
         image_id = data['image_id']
@@ -108,11 +108,11 @@ class UpdateImageForm(forms.SelfHandlingForm):
 
 
 class LaunchForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=80, label="Server Name")
+    name = forms.CharField(max_length=80, label=_("Server Name"))
     image_id = forms.CharField(widget=forms.HiddenInput())
     tenant_id = forms.CharField(widget=forms.HiddenInput())
     user_data = forms.CharField(widget=forms.Textarea,
-                                label="User Data",
+                                label=_("User Data"),
                                 required=False)
 
     # make the dropdown populate when the form is loaded not when django is
@@ -122,12 +122,12 @@ class LaunchForm(forms.SelfHandlingForm):
         flavorlist = kwargs.get('initial', {}).get('flavorlist', [])
         self.fields['flavor'] = forms.ChoiceField(
                 choices=flavorlist,
-                label="Flavor",
+                label=_("Flavor"),
                 help_text="Size of Image to launch")
 
         keynamelist = kwargs.get('initial', {}).get('keynamelist', [])
         self.fields['key_name'] = forms.ChoiceField(choices=keynamelist,
-                label="Key Name",
+                label=_("Key Name"),
                 required=False,
                 help_text="Which keypair to use for authentication")
 
@@ -135,7 +135,7 @@ class LaunchForm(forms.SelfHandlingForm):
                                                       'securitygrouplist', [])
         self.fields['security_groups'] = forms.MultipleChoiceField(
                 choices=securitygrouplist,
-                label='Security Groups',
+                label=_("Security Groups"),
                 required=True,
                 initial=['default'],
                 widget=forms.SelectMultiple(

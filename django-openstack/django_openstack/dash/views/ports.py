@@ -40,7 +40,7 @@ LOG = logging.getLogger('django_openstack.dash.views.ports')
 
 class CreatePort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
-    ports_num = forms.IntegerField(required=True, label="Number of Ports")
+    ports_num = forms.IntegerField(required=True, label=_("Number of Ports"))
 
     def handle(self, request, data):
         try:
@@ -86,7 +86,7 @@ class AttachPort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     port = forms.CharField(widget=forms.HiddenInput())
     vif_id = forms.CharField(widget=forms.Select(),
-                             label="Select VIF to connect")
+                             label=_("Select VIF to connect"))
 
     def handle(self, request, data):
         try:

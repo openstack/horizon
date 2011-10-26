@@ -46,7 +46,7 @@ LOG = logging.getLogger('django_openstack.dash.views.networks')
 
 
 class CreateNetwork(forms.SelfHandlingForm):
-    name = forms.CharField(required=True, label="Network Name")
+    name = forms.CharField(required=True, label=_("Network Name"))
 
     def handle(self, request, data):
         network_name = data['name']
