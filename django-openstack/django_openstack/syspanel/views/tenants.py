@@ -255,7 +255,7 @@ def update(request, tenant_id):
 @enforce_admin_access
 def users(request, tenant_id):
     for f in (AddUser, RemoveUser,):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 #    form, handled = UpdateTenant.maybe_handle(request)
@@ -282,7 +282,7 @@ def users(request, tenant_id):
 @enforce_admin_access
 def quotas(request, tenant_id):
     for f in (UpdateQuotas,):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 

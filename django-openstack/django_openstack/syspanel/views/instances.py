@@ -180,7 +180,7 @@ def tenant_usage(request, tenant_id):
 @enforce_admin_access
 def index(request):
     for f in (TerminateInstance, RebootInstance):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 
@@ -209,7 +209,7 @@ def index(request):
 @enforce_admin_access
 def refresh(request):
     for f in (TerminateInstance, RebootInstance):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 

@@ -115,7 +115,7 @@ class UserEnableDisableForm(forms.SelfHandlingForm):
 @enforce_admin_access
 def index(request):
     for f in (UserDeleteForm, UserEnableDisableForm):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 

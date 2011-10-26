@@ -89,7 +89,7 @@ class UpdateImageForm(forms.Form):
 @enforce_admin_access
 def index(request):
     for f in (DeleteImage, ToggleImage):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 

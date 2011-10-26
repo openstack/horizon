@@ -81,7 +81,7 @@ class DeleteFlavor(forms.SelfHandlingForm):
 @enforce_admin_access
 def index(request):
     for f in (DeleteFlavor,):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 
