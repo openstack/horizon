@@ -415,7 +415,7 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
 
     # Fetch the correct endpoint for the user type
     catalog = getattr(conn, 'service_catalog', None)
-    if catalog and catalog.catalog['access'].has_key('serviceCatalog'):
+    if catalog and catalog.catalog.has_key('serviceCatalog'):
         if user.is_admin():
             endpoint = catalog.url_for(service_type='identity',
                                        endpoint_type='adminURL')
@@ -667,7 +667,7 @@ def token_create(request, tenant, username, password):
     c = keystoneclient(request, username=username, password=password,
                        tenant_id=tenant,
                        endpoint=settings.OPENSTACK_KEYSTONE_URL)
-    token = c.tokens.create(username=username, password=password, tenant=tenant)
+    token = c.tokens.authenticate(username=username, password=password, tenant=tenant)
     return Token(token)
 
 def token_create_scoped(request, tenant, token):
@@ -679,7 +679,7 @@ def token_create_scoped(request, tenant, token):
         del request._keystone
     c = keystoneclient(request, tenant_id=tenant, token_id=token,
                        endpoint=settings.OPENSTACK_KEYSTONE_URL)
-    scoped_token = c.tokens.create(tenant=tenant, token=token)
+    scoped_token = c.tokens.authenticate(tenant=tenant, token=token)
     return Token(scoped_token)
 
 def tenant_quota_get(request, tenant):
