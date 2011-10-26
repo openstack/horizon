@@ -54,7 +54,7 @@ class AddUser(forms.SelfHandlingForm):
                     data['user'],
                     settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
-                            '%(user)s was successfully added to %(tenant)s.'
+                            _('%(user)s was successfully added to %(tenant)s.')
                             % {"user": data['user'], "tenant": data['tenant']})
         except api_exceptions.ApiException, e:
             messages.error(request, _('Unable to create user association: %s')
@@ -74,7 +74,7 @@ class RemoveUser(forms.SelfHandlingForm):
                     data['user'],
                     settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
-                        '%(user)s was successfully removed from %(tenant)s.'
+                        _('%(user)s was successfully removed from %(tenant)s.')
                         % {"user": data['user'], "tenant": data['tenant']})
         except api_exceptions.ApiException, e:
             messages.error(request, _('Unable to create tenant: %s') %
@@ -83,10 +83,10 @@ class RemoveUser(forms.SelfHandlingForm):
 
 
 class CreateTenant(forms.SelfHandlingForm):
-    name = forms.CharField(label="Name")
+    name = forms.CharField(label=_("Name"))
     description = forms.CharField(widget=forms.widgets.Textarea(),
-            label="Description")
-    enabled = forms.BooleanField(label="Enabled", required=False,
+            label=_("Description"))
+    enabled = forms.BooleanField(label=_("Enabled"), required=False,
             initial=True)
 
     def handle(self, request, data):
@@ -109,13 +109,13 @@ class CreateTenant(forms.SelfHandlingForm):
 
 
 class UpdateTenant(forms.SelfHandlingForm):
-    id = forms.CharField(label="ID",
+    id = forms.CharField(label=_("ID"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    name = forms.CharField(label="Name",
+    name = forms.CharField(label=_("Name"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     description = forms.CharField(widget=forms.widgets.Textarea(),
-            label="Description")
-    enabled = forms.BooleanField(required=False, label="Enabled")
+            label=_("Description"))
+    enabled = forms.BooleanField(required=False, label=_("Enabled"))
 
     def handle(self, request, data):
         try:
@@ -126,7 +126,7 @@ class UpdateTenant(forms.SelfHandlingForm):
                               data['description'],
                               data['enabled'])
             messages.success(request,
-                             '%s was successfully updated.'
+                             _('%s was successfully updated.')
                              % data['name'])
         except api_exceptions.ApiException, e:
             LOG.exception('ApiException while updating tenant\n'
@@ -139,18 +139,18 @@ class UpdateTenant(forms.SelfHandlingForm):
 
 
 class UpdateQuotas(forms.SelfHandlingForm):
-    tenant_id = forms.CharField(label="ID (name)",
+    tenant_id = forms.CharField(label=_("ID (name)"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    metadata_items = forms.CharField(label="Metadata Items")
-    injected_files = forms.CharField(label="Injected Files")
-    injected_file_content_bytes = forms.CharField(label="Injected File "
-                                                        "Content Bytes")
-    cores = forms.CharField(label="VCPUs")
-    instances = forms.CharField(label="Instances")
-    volumes = forms.CharField(label="Volumes")
-    gigabytes = forms.CharField(label="Gigabytes")
-    ram = forms.CharField(label="RAM (in MB)")
-    floating_ips = forms.CharField(label="Floating IPs")
+    metadata_items = forms.CharField(label=_("Metadata Items"))
+    injected_files = forms.CharField(label=_("Injected Files"))
+    injected_file_content_bytes = forms.CharField(label=_("Injected File "
+                                                          "Content Bytes"))
+    cores = forms.CharField(label=_("VCPUs"))
+    instances = forms.CharField(label=_("Instances"))
+    volumes = forms.CharField(label=_("Volumes"))
+    gigabytes = forms.CharField(label=_("Gigabytes"))
+    ram = forms.CharField(label=_("RAM (in MB)"))
+    floating_ips = forms.CharField(label=_("Floating IPs"))
 
     def handle(self, request, data):
         try:
@@ -255,7 +255,7 @@ def update(request, tenant_id):
 @enforce_admin_access
 def users(request, tenant_id):
     for f in (AddUser, RemoveUser,):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 #    form, handled = UpdateTenant.maybe_handle(request)
@@ -282,7 +282,7 @@ def users(request, tenant_id):
 @enforce_admin_access
 def quotas(request, tenant_id):
     for f in (UpdateQuotas,):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 

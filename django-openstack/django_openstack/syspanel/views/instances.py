@@ -180,7 +180,7 @@ def tenant_usage(request, tenant_id):
 @enforce_admin_access
 def index(request):
     for f in (TerminateInstance, RebootInstance):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 
@@ -209,7 +209,7 @@ def index(request):
 @enforce_admin_access
 def refresh(request):
     for f in (TerminateInstance, RebootInstance):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 
@@ -246,13 +246,13 @@ def detail(request, instance_id):
             LOG.exception('ApiException while fetching instance vnc \
                            connection')
             messages.error(request,
-                       'Unable to get vnc console for instance %s: %s' %
+                       _('Unable to get vnc console for instance %s: %s') %
                        (instance_id, e.message))
             return redirect('dash_instances', tenant_id)
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException while fetching instance info')
         messages.error(request,
-                   'Unable to get information for instance %s: %s' %
+                   _('Unable to get information for instance %s: %s') %
                    (instance_id, e.message))
         return redirect('dash_instances', tenant_id)
 

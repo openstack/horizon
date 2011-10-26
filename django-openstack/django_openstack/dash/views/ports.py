@@ -40,7 +40,7 @@ LOG = logging.getLogger('django_openstack.dash.views.ports')
 
 class CreatePort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
-    ports_num = forms.IntegerField(required=True, label="Number of Ports")
+    ports_num = forms.IntegerField(required=True, label=_("Number of Ports"))
 
     def handle(self, request, data):
         try:
@@ -86,7 +86,7 @@ class AttachPort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     port = forms.CharField(widget=forms.HiddenInput())
     vif_id = forms.CharField(widget=forms.Select(),
-                             label="Select VIF to connect")
+                             label=_("Select VIF to connect"))
 
     def handle(self, request, data):
         try:
@@ -97,10 +97,10 @@ class AttachPort(forms.SelfHandlingForm):
                                         data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
-                           'Unable to attach port %s to VIF %s: %s' %
+                           _('Unable to attach port %s to VIF %s: %s') %
                            (data['port'], data['vif_id'], e.message,))
         else:
-            msg = 'Port %s connected to VIF %s.' % \
+            msg = _('Port %s connected to VIF %s.') % \
                   (data['port'], data['vif_id'])
             LOG.info(msg)
             messages.success(request, msg)
@@ -117,10 +117,10 @@ class DetachPort(forms.SelfHandlingForm):
             api.quantum_detach_port(request, data['network'], data['port'])
         except Exception, e:
             messages.error(request,
-                           'Unable to detach port %s: %s' %
+                           _('Unable to detach port %s: %s') %
                            (data['port'], e.message,))
         else:
-            msg = 'Port %s detached.' % (data['port'])
+            msg = _('Port %s detached.') % (data['port'])
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -139,10 +139,10 @@ class TogglePort(forms.SelfHandlingForm):
                                        data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
-                           'Unable to set port state to %s: %s' %
+                           _('Unable to set port state to %s: %s') %
                            (data['state'], e.message,))
         else:
-            msg = 'Port %s state set to %s.' % (data['port'], data['state'])
+            msg = _('Port %s state set to %s.') % (data['port'], data['state'])
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())

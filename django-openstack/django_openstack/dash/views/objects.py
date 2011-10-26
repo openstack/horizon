@@ -73,8 +73,8 @@ class DeleteObject(forms.SelfHandlingForm):
 
 
 class UploadObject(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label="Object Name")
-    object_file = forms.FileField(label="File")
+    name = forms.CharField(max_length="255", label=_("Object Name"))
+    object_file = forms.FileField(label=_("File"))
     container_name = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):
@@ -90,10 +90,10 @@ class UploadObject(forms.SelfHandlingForm):
 
 class CopyObject(forms.SelfHandlingForm):
     new_container_name = forms.ChoiceField(
-        label="Container to store object in")
+        label=_("Container to store object in"))
 
     new_object_name = forms.CharField(max_length="255",
-                                      label="New object name")
+                                      label=_("New object name"))
     orig_container_name = forms.CharField(widget=forms.HiddenInput())
     orig_object_name = forms.CharField(widget=forms.HiddenInput())
 

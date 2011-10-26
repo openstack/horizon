@@ -52,13 +52,13 @@ class DeleteContainer(forms.SelfHandlingForm):
                       (data['container_name'], str(e)))
         else:
             messages.info(request,
-                      'Successfully deleted container: %s' % \
+                      _('Successfully deleted container: %s') % \
                       data['container_name'])
         return shortcuts.redirect(request.build_absolute_uri())
 
 
 class CreateContainer(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label="Container Name")
+    name = forms.CharField(max_length="255", label=_("Container Name"))
 
     def handle(self, request, data):
         api.swift_create_container(request, data['name'])

@@ -48,7 +48,7 @@ class CreateSnapshot(forms.SelfHandlingForm):
     tenant_id = forms.CharField(widget=forms.HiddenInput())
     instance_id = forms.CharField(widget=forms.TextInput(
         attrs={'readonly': 'readonly'}))
-    name = forms.CharField(max_length="20", label="Snapshot Name")
+    name = forms.CharField(max_length="20", label=_("Snapshot Name"))
 
     def handle(self, request, data):
         try:
@@ -63,7 +63,7 @@ class CreateSnapshot(forms.SelfHandlingForm):
                     {"name": data['name'], "inst": instance.name})
             return shortcuts.redirect('dash_snapshots', data['tenant_id'])
         except api_exceptions.ApiException, e:
-            msg = 'Error Creating Snapshot: %s' % e.message
+            msg = _('Error Creating Snapshot: %s') % e.message
             LOG.exception(msg)
             messages.error(request, msg)
             return shortcuts.redirect(request.build_absolute_uri())
@@ -101,7 +101,7 @@ def create(request, tenant_id, instance_id):
     try:
         instance = api.server_get(request, instance_id)
     except api_exceptions.ApiException, e:
-        msg = "Unable to retreive instance: %s" % str(e)
+        msg = _("Unable to retreive instance: %s") % e
         LOG.exception(msg)
         messages.error(request, msg)
         return shortcuts.redirect('dash_instances', tenant_id)

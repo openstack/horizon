@@ -46,7 +46,7 @@ LOG = logging.getLogger('django_openstack.dash.views.networks')
 
 
 class CreateNetwork(forms.SelfHandlingForm):
-    name = forms.CharField(required=True, label="Network Name")
+    name = forms.CharField(required=True, label=_("Network Name"))
 
     def handle(self, request, data):
         network_name = data['name']
@@ -80,7 +80,7 @@ class DeleteNetwork(forms.SelfHandlingForm):
                     _('Unable to delete network %(network)s: %(msg)s') %
                     {"network": data['network'], "msg": e.message})
         else:
-            msg = 'Network %s has been deleted.' % data['network']
+            msg = _('Network %s has been deleted.') % data['network']
             LOG.info(msg)
             messages.success(request, msg)
 

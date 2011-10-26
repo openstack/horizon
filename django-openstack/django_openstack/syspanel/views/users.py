@@ -50,12 +50,12 @@ class UserForm(forms.Form):
         self.fields['tenant_id'].choices = [[tenant.id, tenant.id]
                 for tenant in tenant_list]
 
-    name = forms.CharField(label="Name")
-    email = forms.CharField(label="Email")
-    password = forms.CharField(label="Password",
+    name = forms.CharField(label=_("Name"))
+    email = forms.CharField(label=_("Email"))
+    password = forms.CharField(label=_("Password"),
                                widget=forms.PasswordInput(render_value=False),
                                required=False)
-    tenant_id = forms.ChoiceField(label="Primary Tenant")
+    tenant_id = forms.ChoiceField(label=_("Primary Tenant"))
 
 
 class UserUpdateForm(forms.Form):
@@ -65,15 +65,15 @@ class UserUpdateForm(forms.Form):
         self.fields['tenant_id'].choices = [[tenant.id, tenant.id]
                 for tenant in tenant_list]
 
-    id = forms.CharField(label="ID",
+    id = forms.CharField(label=_("ID"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     # FIXME: keystone doesn't return the username from a get API call.
-    #name = forms.CharField(label="Name")
-    email = forms.CharField(label="Email")
-    password = forms.CharField(label="Password",
+    #name = forms.CharField(label=_("Name"))
+    email = forms.CharField(label=_("Email"))
+    password = forms.CharField(label=_("Password"),
                                widget=forms.PasswordInput(render_value=False),
                                required=False)
-    tenant_id = forms.ChoiceField(label="Primary Tenant")
+    tenant_id = forms.ChoiceField(label=_("Primary Tenant"))
 
 
 class UserDeleteForm(forms.SelfHandlingForm):
@@ -89,8 +89,8 @@ class UserDeleteForm(forms.SelfHandlingForm):
 
 
 class UserEnableDisableForm(forms.SelfHandlingForm):
-    id = forms.CharField(label="ID (username)", widget=forms.HiddenInput())
-    enabled = forms.ChoiceField(label="enabled", widget=forms.HiddenInput(),
+    id = forms.CharField(label=_("ID (username)"), widget=forms.HiddenInput())
+    enabled = forms.ChoiceField(label=_("enabled"), widget=forms.HiddenInput(),
                                 choices=[[c, c]
                                          for c in ("disable", "enable")])
 
@@ -100,11 +100,11 @@ class UserEnableDisableForm(forms.SelfHandlingForm):
 
         try:
             api.user_update_enabled(request, user_id, enabled)
-            messages.info(request, "User %s %s" %
+            messages.info(request, _("User %s %s") %
                                    (user_id,
                                     "enabled" if enabled else "disabled"))
         except api_exceptions.ApiException:
-            messages.error(request, "Unable to %s user %s" %
+            messages.error(request, _("Unable to %s user %s") %
                                     ("enable" if enabled else "disable",
                                      user_id))
 
@@ -115,7 +115,7 @@ class UserEnableDisableForm(forms.SelfHandlingForm):
 @enforce_admin_access
 def index(request):
     for f in (UserDeleteForm, UserEnableDisableForm):
-        _, handled = f.maybe_handle(request)
+        form, handled = f.maybe_handle(request)
         if handled:
             return handled
 
@@ -155,7 +155,7 @@ def update(request, user_id):
                 updated.append('tenant')
                 api.user_update_tenant(request, user['id'], user['tenant_id'])
             messages.success(request,
-                             'Updated %s for %s.'
+                             _('Updated %s for %s.')
                              % (', '.join(updated), user_id))
             return redirect('syspanel_users')
         else:

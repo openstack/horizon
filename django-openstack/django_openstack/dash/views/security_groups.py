@@ -106,7 +106,7 @@ class AddRule(forms.SelfHandlingForm):
                                                   data['from_port'],
                                                   data['to_port'],
                                                   data['cidr'])
-            messages.info(request, 'Successfully added rule: %s' \
+            messages.info(request, _('Successfully added rule: %s') \
                                     % rule.id)
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in AddRule")
@@ -178,7 +178,8 @@ def edit_rules(request, tenant_id, security_group_id):
         security_group = api.security_group_get(request, security_group_id)
     except novaclient_exceptions.ClientException, e:
         LOG.exception("ClientException in security_groups rules edit")
-        messages.error(request, 'Error getting security_group: %s' % e.message)
+        messages.error(request, _('Error getting security_group: %s')
+                                  % e.message)
         return shortcuts.redirect('dash_security_groups', tenant_id)
 
     return shortcuts.render_to_response(
