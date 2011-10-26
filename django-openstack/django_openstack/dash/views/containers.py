@@ -68,11 +68,13 @@ class CreateContainer(forms.SelfHandlingForm):
 
 @login_required
 def index(request, tenant_id):
+    marker = request.GET.get('marker', None)
+
     delete_form, handled = DeleteContainer.maybe_handle(request)
     if handled:
         return handled
 
-    containers = api.swift_get_containers(request)
+    containers = api.swift_get_containers(request, marker=marker)
 
     return shortcuts.render_to_response(
     'django_openstack/dash/containers/index.html', {

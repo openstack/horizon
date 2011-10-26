@@ -1,9 +1,13 @@
-{%load i18n%}
+{% load i18n swift_paging %}
+
 <table id="containers" class="wide">
-  <tr>
-    <th>{% trans "Name" %}</th>
-    <th>{% trans "Actions" %}</th>
-  </tr>
+  <thead>
+    <tr>
+      <th>{% trans "Name" %}</th>
+      <th>{% trans "Actions" %}</th>
+    </tr>
+  </thead>
+  <tbody>
   {% for container in containers %}
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{ container.name }}</td>
@@ -16,4 +20,10 @@
     </td>
   </tr>
   {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">{% object_paging containers %}</td>
+    </tr>
+  </tfoot>
 </table>
