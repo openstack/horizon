@@ -347,7 +347,7 @@ class ApiHelperTests(test.TestCase):
             url = api.url_for(self.request, 'notAnApi')
 
 
-class AccountApiTests(APITestCase):
+class TenantAPITests(APITestCase):
     def test_tenant_create(self):
         DESCRIPTION = 'aDescription'
         ENABLED = True
@@ -422,6 +422,8 @@ class AccountApiTests(APITestCase):
 
         self.mox.VerifyAll()
 
+
+class UserAPITests(APITestCase):
     def test_user_create(self):
         keystoneclient = self.stub_keystoneclient()
 
@@ -535,6 +537,7 @@ class AccountApiTests(APITestCase):
         self.mox.VerifyAll()
 
 
+class RoleAPITests(APITestCase):
     def test_role_add_for_tenant_user(self):
         keystoneclient = self.stub_keystoneclient()
 
@@ -673,14 +676,14 @@ class AdminApiTests(APITestCase):
         self.mox.VerifyAll()
 
 
-class AuthApiTests(APITestCase):
+class TokenApiTests(APITestCase):
     def setUp(self):
-        super(AuthApiTests, self).setUp()
+        super(TokenApiTests, self).setUp()
         self._prev_OPENSTACK_KEYSTONE_URL = getattr(settings, 'OPENSTACK_KEYSTONE_URL', None)
         settings.OPENSTACK_KEYSTONE_URL = TEST_URL
 
     def tearDown(self):
-        super(AuthApiTests, self).tearDown()
+        super(TokenApiTests, self).tearDown()
         settings.OPENSTACK_KEYSTONE_URL = self._prev_OPENSTACK_KEYSTONE_URL
 
     def test_token_create(self):
