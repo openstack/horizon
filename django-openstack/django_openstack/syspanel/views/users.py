@@ -100,11 +100,11 @@ class UserEnableDisableForm(forms.SelfHandlingForm):
 
         try:
             api.user_update_enabled(request, user_id, enabled)
-            messages.info(request, "User %s %s" %
+            messages.info(request, _("User %s %s") %
                                    (user_id,
                                     "enabled" if enabled else "disabled"))
         except api_exceptions.ApiException:
-            messages.error(request, "Unable to %s user %s" %
+            messages.error(request, _("Unable to %s user %s") %
                                     ("enable" if enabled else "disable",
                                      user_id))
 
@@ -155,7 +155,7 @@ def update(request, user_id):
                 updated.append('tenant')
                 api.user_update_tenant(request, user['id'], user['tenant_id'])
             messages.success(request,
-                             'Updated %s for %s.'
+                             _('Updated %s for %s.')
                              % (', '.join(updated), user_id))
             return redirect('syspanel_users')
         else:

@@ -54,7 +54,7 @@ class AddUser(forms.SelfHandlingForm):
                     data['user'],
                     settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
-                            '%(user)s was successfully added to %(tenant)s.'
+                            _('%(user)s was successfully added to %(tenant)s.')
                             % {"user": data['user'], "tenant": data['tenant']})
         except api_exceptions.ApiException, e:
             messages.error(request, _('Unable to create user association: %s')
@@ -74,7 +74,7 @@ class RemoveUser(forms.SelfHandlingForm):
                     data['user'],
                     settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
             messages.success(request,
-                        '%(user)s was successfully removed from %(tenant)s.'
+                        _('%(user)s was successfully removed from %(tenant)s.')
                         % {"user": data['user'], "tenant": data['tenant']})
         except api_exceptions.ApiException, e:
             messages.error(request, _('Unable to create tenant: %s') %
@@ -126,7 +126,7 @@ class UpdateTenant(forms.SelfHandlingForm):
                               data['description'],
                               data['enabled'])
             messages.success(request,
-                             '%s was successfully updated.'
+                             _('%s was successfully updated.')
                              % data['name'])
         except api_exceptions.ApiException, e:
             LOG.exception('ApiException while updating tenant\n'

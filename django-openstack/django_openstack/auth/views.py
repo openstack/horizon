@@ -80,7 +80,7 @@ class Login(forms.SelfHandlingForm):
                 # Abort if there are no valid tenants for this user
                 if not tenant:
                     messages.error(request,
-                                   'No tenants present for user: %(user)s' %
+                                   _('No tenants present for user: %(user)s') %
                                     {"user": data['username']})
                     return
 

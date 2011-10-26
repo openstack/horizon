@@ -166,7 +166,7 @@ class LaunchForm(forms.SelfHandlingForm):
                               normalize_newlines(data.get('user_data')),
                               data.get('security_groups'))
 
-            msg = 'Instance was successfully launched'
+            msg = _('Instance was successfully launched')
             LOG.info(msg)
             messages.success(request, msg)
             return redirect('dash_instances', tenant_id)
@@ -175,7 +175,7 @@ class LaunchForm(forms.SelfHandlingForm):
             LOG.exception('ApiException while creating instances of image "%s"'
                            % image_id)
             messages.error(request,
-                           'Unable to launch instance: %s' % e.message)
+                           _('Unable to launch instance: %s') % e.message)
 
 
 class DeleteImage(forms.SelfHandlingForm):
@@ -189,16 +189,16 @@ class DeleteImage(forms.SelfHandlingForm):
             if image.owner == request.user.username:
                 api.image_delete(request, image_id)
             else:
-                messages.info(request, "Unable to delete image, you are not \
-                                       its owner.")
+                messages.info(request, _("Unable to delete image, you are not \
+                                         its owner."))
                 return redirect('dash_images_update', tenant_id, image_id)
         except glance_exception.ClientConnectionError, e:
             LOG.exception("Error connecting to glance")
-            messages.error(request, "Error connecting to glance: %s"
+            messages.error(request, _("Error connecting to glance: %s")
                                     % e.message)
         except glance_exception.Error, e:
             LOG.exception('Error deleting image with id "%s"' % image_id)
-            messages.error(request, "Error deleting image: %s: %s"
+            messages.error(request, _("Error deleting image: %s: %s")
                                     % (image_id, e.message))
         return redirect(request.build_absolute_uri())
 
@@ -215,21 +215,21 @@ def index(request, tenant_id):
     try:
         tenant = api.token_get_tenant(request, request.user.tenant_id)
     except api_exceptions.ApiException, e:
-        messages.error(request, "Unable to retrienve tenant info\
-                                 from keystone: %s" % e.message)
+        messages.error(request, _("Unable to retrienve tenant info\
+                                   from keystone: %s") % e.message)
     all_images = []
     try:
         all_images = api.image_list_detailed(request)
         if not all_images:
-            messages.info(request, "There are currently no images.")
+            messages.info(request, _("There are currently no images."))
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
-        messages.error(request, "Error connecting to glance: %s" % str(e))
+        messages.error(request, _("Error connecting to glance: %s") % str(e))
     except glance_exception.Error, e:
         LOG.exception("Error retrieving image list")
-        messages.error(request, "Error retrieving image list: %s" % str(e))
+        messages.error(request, _("Error retrieving image list: %s") % str(e))
     except api_exceptions.ApiException, e:
-        msg = "Unable to retreive image info from glance: %s" % str(e)
+        msg = _("Unable to retreive image info from glance: %s") % str(e)
         LOG.exception(msg)
         messages.error(request, msg)
 
@@ -285,7 +285,7 @@ def launch(request, tenant_id, image_id):
     try:
         quotas.ram = int(quotas.ram) / 100
     except Exception, e:
-        messages.error(request, 'Error parsing quota  for %s: %s' %
+        messages.error(request, _('Error parsing quota  for %s: %s') %
                                  (image_id, e.message))
         return redirect('dash_instances', tenant_id)
 
@@ -313,11 +313,11 @@ def update(request, tenant_id, image_id):
         image = api.image_get(request, image_id)
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
-        messages.error(request, "Error connecting to glance: %s"
+        messages.error(request, _("Error connecting to glance: %s")
                                  % e.message)
     except glance_exception.Error, e:
         LOG.exception('Error retrieving image with id "%s"' % image_id)
-        messages.error(request, "Error retrieving image %s: %s"
+        messages.error(request, _("Error retrieving image %s: %s")
                                  % (image_id, e.message))
 
     form, handled = UpdateImageForm().maybe_handle(request, initial={

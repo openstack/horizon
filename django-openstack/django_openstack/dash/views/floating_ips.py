@@ -48,8 +48,8 @@ class ReleaseFloatingIp(forms.SelfHandlingForm):
                                     % data['floating_ip_id'])
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in ReleaseFloatingIp")
-            messages.error(request, 'Error releasing Floating IP from tenant: \
-                                     %s' % e.message)
+            messages.error(request, _('Error releasing Floating IP '
+                                      'from tenant: %s') % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
 
 
@@ -79,7 +79,7 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
                                        "inst": data['instance_id']}))
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in FloatingIpAssociate")
-            messages.error(request, 'Error associating Floating IP: %s'
+            messages.error(request, _('Error associating Floating IP: %s')
                                      % e.message)
         return shortcuts.redirect('dash_floating_ips', request.user.tenant_id)
 
@@ -121,8 +121,8 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
 
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in FloatingIpAllocate")
-            messages.error(request, 'Error allocating Floating IP "%s"\
-                           to tenant "%s": %s' %
+            messages.error(request, _('Error allocating Floating IP "%s"\
+                           to tenant "%s": %s') %
                            (fip.ip, data['tenant_id'], e.message))
         return shortcuts.redirect('dash_floating_ips', request.user.tenant_id)
 

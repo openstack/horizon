@@ -80,7 +80,7 @@ class DeleteNetwork(forms.SelfHandlingForm):
                     _('Unable to delete network %(network)s: %(msg)s') %
                     {"network": data['network'], "msg": e.message})
         else:
-            msg = 'Network %s has been deleted.' % data['network']
+            msg = _('Network %s has been deleted.') % data['network']
             LOG.info(msg)
             messages.success(request, msg)
 

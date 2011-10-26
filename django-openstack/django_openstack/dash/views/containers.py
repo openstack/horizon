@@ -52,7 +52,7 @@ class DeleteContainer(forms.SelfHandlingForm):
                       (data['container_name'], str(e)))
         else:
             messages.info(request,
-                      'Successfully deleted container: %s' % \
+                      _('Successfully deleted container: %s') % \
                       data['container_name'])
         return shortcuts.redirect(request.build_absolute_uri())
 
