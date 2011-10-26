@@ -36,7 +36,7 @@ class ContainerViewTests(base.BaseViewTests):
     def test_index(self):
         self.mox.StubOutWithMock(api, 'swift_get_containers')
         api.swift_get_containers(
-                IsA(http.HttpRequest)).AndReturn([self.container])
+                IsA(http.HttpRequest), marker=None).AndReturn([self.container])
 
         self.mox.ReplayAll()
 

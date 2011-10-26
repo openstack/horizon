@@ -831,8 +831,10 @@ def swift_object_exists(request, container_name, object_name):
         return False
 
 
-def swift_get_containers(request):
-    return [Container(c) for c in swift_api(request).get_all_containers()]
+def swift_get_containers(request, marker=None):
+    return [Container(c) for c in swift_api(request).get_all_containers(
+                    limit=getattr(settings, 'SWIFT_PAGINATE_LIMIT', 10000),
+                    marker=marker)]
 
 
 def swift_create_container(request, name):
@@ -846,9 +848,11 @@ def swift_delete_container(request, name):
     swift_api(request).delete_container(name)
 
 
-def swift_get_objects(request, container_name, prefix=None):
+def swift_get_objects(request, container_name, prefix=None, marker=None):
     container = swift_api(request).get_container(container_name)
-    return [SwiftObject(o) for o in container.get_objects(prefix=prefix)]
+    objects = container.get_objects(prefix=prefix, marker=marker,
+                limit=getattr(settings, 'SWIFT_PAGINATE_LIMIT', 10000))
+    return [SwiftObject(o) for o in objects]
 
 
 def swift_copy_object(request, orig_container_name, orig_object_name,

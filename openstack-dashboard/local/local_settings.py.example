@@ -37,6 +37,8 @@ OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0/"
 OPENSTACK_KEYSTONE_ADMIN_URL = "http://localhost:35357/v2.0"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
+SWIFT_PAGINATE_LIMIT = 100
+
 # Configure quantum connection details for networking
 QUANTUM_ENABLED = True
 QUANTUM_URL = '127.0.0.1'

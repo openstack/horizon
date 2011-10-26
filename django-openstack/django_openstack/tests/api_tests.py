@@ -1362,7 +1362,8 @@ class SwiftApiTests(test.TestCase):
 
         swift_api = self.stub_swift_api()
 
-        swift_api.get_all_containers().AndReturn(containers)
+        swift_api.get_all_containers(limit=10000,
+                                     marker=None).AndReturn(containers)
 
         self.mox.ReplayAll()
 
@@ -1414,7 +1415,9 @@ class SwiftApiTests(test.TestCase):
 
         swift_objects = (TEST_RETURN, TEST_RETURN + '2')
         container = self.mox.CreateMock(cloudfiles.container.Container)
-        container.get_objects(prefix=None).AndReturn(swift_objects)
+        container.get_objects(limit=10000,
+                              marker=None,
+                              prefix=None).AndReturn(swift_objects)
 
         swift_api = self.stub_swift_api()
 
@@ -1437,7 +1440,9 @@ class SwiftApiTests(test.TestCase):
 
         swift_objects = (TEST_RETURN, TEST_RETURN + '2')
         container = self.mox.CreateMock(cloudfiles.container.Container)
-        container.get_objects(prefix=PREFIX).AndReturn(swift_objects)
+        container.get_objects(limit=10000,
+                              marker=None,
+                              prefix=PREFIX).AndReturn(swift_objects)
 
         swift_api = self.stub_swift_api()
 

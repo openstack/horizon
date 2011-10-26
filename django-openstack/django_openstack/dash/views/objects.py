@@ -123,6 +123,8 @@ class CopyObject(forms.SelfHandlingForm):
 
 @login_required
 def index(request, tenant_id, container_name):
+    marker = request.GET.get('marker', None)
+
     delete_form, handled = DeleteObject.maybe_handle(request)
     if handled:
         return handled
@@ -131,7 +133,7 @@ def index(request, tenant_id, container_name):
 
     if objects is None:
         filter_form.fields['container_name'].initial = container_name
-        objects = api.swift_get_objects(request, container_name)
+        objects = api.swift_get_objects(request, container_name, marker=marker)
 
     delete_form.fields['container_name'].initial = container_name
     return render_to_response(

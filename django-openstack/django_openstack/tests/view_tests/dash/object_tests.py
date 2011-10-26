@@ -39,7 +39,8 @@ class ObjectViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'swift_get_objects')
         api.swift_get_objects(
                 IsA(http.HttpRequest),
-                self.CONTAINER_NAME).AndReturn(self.swift_objects)
+                self.CONTAINER_NAME,
+                marker=None).AndReturn(self.swift_objects)
 
         self.mox.ReplayAll()
 
