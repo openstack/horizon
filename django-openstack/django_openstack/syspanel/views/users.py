@@ -47,7 +47,7 @@ class UserForm(forms.Form):
     def __init__(self, *args, **kwargs):
         tenant_list = kwargs.pop('tenant_list', None)
         super(UserForm, self).__init__(*args, **kwargs)
-        self.fields['tenant_id'].choices = [[tenant.id, tenant.id]
+        self.fields['tenant_id'].choices = [[tenant.id, tenant.name]
                 for tenant in tenant_list]
 
     name = forms.CharField(label=_("Name"))
@@ -62,7 +62,7 @@ class UserUpdateForm(forms.Form):
     def __init__(self, *args, **kwargs):
         tenant_list = kwargs.pop('tenant_list', None)
         super(UserUpdateForm, self).__init__(*args, **kwargs)
-        self.fields['tenant_id'].choices = [[tenant.id, tenant.id]
+        self.fields['tenant_id'].choices = [[tenant.id, tenant.name]
                 for tenant in tenant_list]
 
     id = forms.CharField(label=_("ID"),
