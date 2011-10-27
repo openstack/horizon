@@ -33,7 +33,7 @@ Then instantiate buildout with
   $ python bootstrap.py
   $ bin/buildout
 
-This will install all the dependencies of django-nova and provide some useful
+This will install all the dependencies of django-openstack and provide some useful
 scripts in the bin/ directory:
 
   bin/python provides a python shell for the current buildout.
