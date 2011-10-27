@@ -106,6 +106,7 @@ class AuthViewTests(base.BaseViewTests):
             user = {"id": "1",
                     "roles": [{"id": "1", "name": "fake"},], "name": "user"}
             serviceCatalog = {}
+            tenant = None
         aToken = api.Token(FakeToken())
         bToken = aToken
 
@@ -115,7 +116,7 @@ class AuthViewTests(base.BaseViewTests):
         aTenant = self.mox.CreateMock(api.Token)
         aTenant.id = NEW_TENANT_ID
         aTenant.name = NEW_TENANT_NAME
-        bToken.tenant_id = aTenant.id
+        bToken.tenant = {'id': aTenant.id, 'name': aTenant.name}
 
         self.mox.StubOutWithMock(api, 'tenant_list_for_token')
         api.tenant_list_for_token(IsA(http.HttpRequest), aToken.id).\
@@ -196,8 +197,9 @@ class AuthViewTests(base.BaseViewTests):
 
         aToken = self.mox.CreateMock(api.Token)
         aToken.id = TOKEN_ID
-        aToken.user = { 'roles': [{'name': 'fake'}]}
+        aToken.user = {'name': self.TEST_USER, 'roles': [{'name': 'fake'}]}
         aToken.serviceCatalog = {}
+        aToken.tenant = {'id': aTenant.id, 'name': aTenant.name}
 
         api.token_create(IsA(http.HttpRequest), NEW_TENANT_ID, self.TEST_USER,
                          self.PASSWORD).AndReturn(aToken)

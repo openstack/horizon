@@ -99,10 +99,10 @@ class Tenant(object):
 
 class Token(object):
     """ More or less fakes what the api is looking for """
-    def __init__(self, id, username, tenant_id, serviceCatalog=None):
+    def __init__(self, id, username, tenant_id, tenant_name, serviceCatalog=None):
         self.id = id
         self.user = {'name': username}
-        self.tenant_id = tenant_id
+        self.tenant = {'id': tenant_id, 'name': tenant_name}
         self.serviceCatalog = serviceCatalog
 
     def __eq__(self, other):
@@ -697,7 +697,8 @@ class TokenApiTests(APITestCase):
                     }
                 }
             }
-        test_token = Token(TEST_TOKEN_ID, TEST_USERNAME, TEST_TENANT_ID)
+        test_token = Token(TEST_TOKEN_ID, TEST_USERNAME,
+                           TEST_TENANT_ID, TEST_TENANT_NAME)
 
         keystoneclient = self.stub_keystoneclient()
 
@@ -710,7 +711,7 @@ class TokenApiTests(APITestCase):
         ret_val = api.token_create(self.request, TEST_TENANT_ID,
                                    TEST_USERNAME, TEST_PASSWORD)
 
-        self.assertEqual(test_token.tenant_id, ret_val.tenant_id)
+        self.assertEqual(test_token.tenant['id'], ret_val.tenant['id'])
 
         self.mox.VerifyAll()
 

@@ -225,7 +225,7 @@ class Tenant(APIResourceWrapper):
 
 class Token(APIResourceWrapper):
     """Simple wrapper around keystoneclient.tokens.Tenant"""
-    _attrs = ['id', 'user', 'serviceCatalog', 'tenant_id']
+    _attrs = ['id', 'user', 'serviceCatalog', 'tenant',]
 
 
 class Usage(APIResourceWrapper):

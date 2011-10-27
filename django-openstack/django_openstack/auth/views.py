@@ -36,19 +36,28 @@ from django_openstack import exceptions
 LOG = logging.getLogger('django_openstack.auth')
 
 
+def _is_admin(token):
+    for role in token.user['roles']:
+        if role['name'].lower() == 'admin':
+            return True
+    return False
+
+
+def _set_session_data(request, token):
+    request.session['admin'] = _is_admin(token)
+    request.session['serviceCatalog'] = token.serviceCatalog
+    request.session['tenant'] = token.tenant['name']
+    request.session['tenant_id'] = token.tenant['id']
+    request.session['token'] = token.id
+    request.session['user'] = token.user['name']
+
+
 class Login(forms.SelfHandlingForm):
     username = forms.CharField(max_length="20", label=_("User Name"))
     password = forms.CharField(max_length="20", label=_("Password"),
                                widget=forms.PasswordInput(render_value=False))
 
     def handle(self, request, data):
-
-        def is_admin(token):
-            for role in token.user['roles']:
-                if role['name'].lower() == 'admin':
-                    return True
-            return False
-
         try:
             if data.get('tenant'):
                 token = api.token_create(request,
@@ -100,16 +109,9 @@ class Login(forms.SelfHandlingForm):
                     raise exceptions.Unauthorized(
                         _("You are not authorized for any available tenants."))
 
-            request.session['admin'] = is_admin(token)
-            request.session['serviceCatalog'] = token.serviceCatalog
-
             LOG.info('Login form for user "%s". Service Catalog data:\n%s' %
                      (data['username'], token.serviceCatalog))
-
-            request.session['tenant'] = tenant.name
-            request.session['tenant_id'] = tenant.id
-            request.session['token'] = token.id
-            request.session['user'] = data['username']
+            _set_session_data(request, token)
 
             return shortcuts.redirect('dash_overview')
 
@@ -151,6 +153,17 @@ def switch_tenants(request, tenant_id):
                               'username': request.user.username})
     if handled:
         return handled
+
+    unscoped_token = request.session.get('unscoped_token', None)
+    if unscoped_token:
+        try:
+            token = api.token_create_scoped(request,
+                                            tenant_id,
+                                            unscoped_token)
+            _set_session_data(request, token)
+            return shortcuts.redirect('dash_overview')
+        except exceptions.Unauthorized as e:
+            messages.error(_("You are not authorized for that tenant."))
 
     return shortcuts.render_to_response('switch_tenants.html', {
         'to_tenant': tenant_id,
