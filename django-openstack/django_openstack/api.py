@@ -310,14 +310,14 @@ def url_for(request, service_type, admin=False):
 def check_openstackx(f):
     """Decorator that adds extra info to api exceptions
 
-       The dashboard currently depends on openstackx extensions being present
-       in nova.  Error messages depending for views depending on these
-       extensions do not lead to the conclusion that nova is missing
+       The OpenStack Dashboard currently depends on openstackx extensions
+       being present in Nova.  Error messages depending for views depending
+       on these extensions do not lead to the conclusion that Nova is missing
        extensions.
 
-       This decorator should be dropped and removed after keystone and
-       dashboard more gracefully handle extensions and openstackx extensions
-       aren't required by the dashboard in nova.
+       This decorator should be dropped and removed after Keystone and
+       Horizon more gracefully handle extensions and openstackx extensions
+       aren't required by Horizon in Nova.
     """
     def inner(*args, **kwargs):
         try:
@@ -325,9 +325,9 @@ def check_openstackx(f):
         except api_exceptions.NotFound, e:
             e.message = e.details or ''
             e.message += ' This error may be caused by a misconfigured' \
-                         ' nova url in keystone\'s service catalog, or ' \
-                         ' by missing openstackx extensions in nova. ' \
-                         ' See the dashboard README.'
+                         ' Nova url in keystone\'s service catalog, or ' \
+                         ' by missing openstackx extensions in Nova. ' \
+                         ' See the Horizon README.'
             raise
 
     return inner
