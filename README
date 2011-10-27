@@ -45,3 +45,30 @@ should be added to openstack-dashboard/tools/pip-requires.
 The run_tests.sh script invokes tests and analysis on both of these
 components in it's process, and is what Jenkins uses to verify the
 stability of the project.
+
+To run the tests::
+
+    $ ./run_tests.sh
+
+Building Contributor Documentation
+----------------------------------
+
+This documentation is written by contributors, for contributors.
+
+The source is maintained in the `doc/source` folder using
+`reStructuredText`_ and built by `Sphinx`_
+
+.. _reStructuredText: http://docutils.sourceforge.net/rst.html
+.. _Sphinx: http://sphinx.pocoo.org/
+
+* Building Automatically::
+
+    $ ./run_tests.sh --docs
+
+* Building Manually::
+
+    $ export DJANGO_SETTINGS_MODULE=local.local_settings
+    $ python doc/generate_autodoc_index.py
+    $ sphinx-build -b html doc/source build/sphinx/html
+
+Results are in the `build/sphinx/html` directory
