@@ -63,7 +63,7 @@ The source is maintained in the `doc/source` folder using
 
 * Building Automatically::
 
-    $ python setup.py build_sphinx
+    $ ./run_tests.sh --docs
 
 * Building Manually::
 
@@ -71,4 +71,4 @@ The source is maintained in the `doc/source` folder using
     $ python doc/generate_autodoc_index.py
     $ sphinx-build -b html doc/source build/sphinx/html
 
-Results in `doc/build/html` directory
+Results are in the `build/sphinx/html` directory

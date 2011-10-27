@@ -13,6 +13,7 @@ function usage {
   echo "                           been added."
   echo "  -p, --pep8               Just run pep8"
   echo "  -y, --pylint             Just run pylint"
+  echo "  --docs                   Just build the documentation"
   echo "  -h, --help               Print this usage message"
   echo ""
   echo "Note: with no options specified, the script will try to run the tests in"
@@ -30,6 +31,7 @@ function process_option {
     -p|--pep8) let just_pep8=1;;
     -y|--pylint) let just_pylint=1;;
     -f|--force) let force=1;;
+    --docs) let just_docs=1;;
     *) testargs="$testargs $1"
   esac
 }
@@ -59,6 +61,16 @@ function run_pep8 {
   ${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt
 }
 
+function run_sphinx {
+    echo "Building sphinx..."
+    echo "${django_wrapper} export DJANGO_SETTINGS_MODULE=local.local_settings"
+    ${django_wrapper} export DJANGO_SETTINGS_MODULE=local.local_settings
+    echo "${django_wrapper} python doc/generate_autodoc_index.py"
+    ${django_wrapper} python doc/generate_autodoc_index.py
+    echo "${django_wrapper} sphinx-build -b html doc/source build/sphinx/html"
+    ${django_wrapper} sphinx-build -b html doc/source build/sphinx/html
+}
+
 
 # DEFAULTS FOR RUN_TESTS.SH
 #
@@ -73,6 +85,7 @@ django_wrapper=""
 dashboard_wrapper=""
 just_pep8=0
 just_pylint=0
+just_docs=0
 
 # PROCESS ARGUMENTS, OVERRIDE DEFAULTS
 for arg in "$@"; do
@@ -138,16 +151,13 @@ function run_tests {
   exit $(($OPENSTACK_RESULT || $DASHBOARD_RESULT))
 }
 
+if [ $just_docs -eq 1 ]; then
+    run_sphinx
+    exit $?
+fi
+
 if [ $just_pep8 -eq 1 ]; then
     run_pep8
-
-#capability discovery
-
-#capability discovery
-#store & compare arista -> Mongo - quarantine
-#SMBios probes
-#store & compare arista -> Mongo - quarantine
-#SMBios probes
     exit $?
 fi
 

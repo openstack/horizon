@@ -20,14 +20,15 @@
 
 import os
 from setuptools import setup, find_packages, findall
+from django_openstack import version
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
     name = "django-openstack",
-    version = "0.4",
-    url = 'https://launchpad.net/django-openstack/',
+    version = version.canonical_version_string(),
+    url = 'https://github.com/openstack/horizon/',
     license = 'Apache 2.0',
     description = "A Django interface for OpenStack.",
     long_description = read('README'),

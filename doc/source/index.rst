@@ -14,6 +14,7 @@
       License for the specific language governing permissions and limitations
       under the License.
 
+========================
 Horizon for Contributors
 ========================
 
@@ -23,11 +24,32 @@ interface to OpenStack services including Nova, Swift, Keystone, and Quantum.
 
 This document describes horizon for contributors of the project.
 
+Project Structure
+=================
+
+This project is a bit different from other Openstack projects in that it has
+two very distinct components underneath it:
+
+* django-openstack
+* openstack-dashboard
+
+Django-openstack holds the generic libraries and components that can be
+used in any Django project. In testing, this component is set up with
+buildout (see run_tests.sh), and any dependencies that get added need to
+be added to the django-openstack/buildout.cfg file.
+
+Openstack-dashboard is a reference django project that uses django-openstack
+and is built with a virtualenv and tested through that environment. If
+depdendencies are added that the reference django project needs, they
+should be added to openstack-dashboard/tools/pip-requires.
+
 Contents:
+---------
 
 .. toctree::
    :maxdepth: 1
 
+   testing
 
 Developer Docs
 --------------
