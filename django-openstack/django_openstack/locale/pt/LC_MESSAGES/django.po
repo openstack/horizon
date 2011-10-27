@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-25 15:01+0900\n"
+"POT-Creation-Date: 2011-10-27 14:03+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: api.py:1002 syspanel/views/services.py:88
+#, python-format
+msgid "Unable to get service info: %s"
+msgstr ""
+
+#: api.py:1028 dash/views/instances.py:180 syspanel/views/flavors.py:95
+#: syspanel/views/instances.py:146
+#, python-format
+msgid "Unable to get usage info: %s"
+msgstr ""
+
+#: context_processors.py:34
+#, python-format
+msgid ""
+"Unable to retrieve tenant list from                                  "
+"keystone: %s"
+msgstr ""
+
+#: forms.py:180
+#, python-format
+msgid "Unexpected error: %s"
+msgstr ""
+
 #: auth/views.py:38
 msgid "User Name"
 msgstr ""
 
-#: auth/views.py:39
+#: auth/views.py:39 syspanel/views/users.py:55 syspanel/views/users.py:73
 msgid "Password"
+msgstr ""
+
+#: auth/views.py:83
+#, python-format
+msgid "No tenants present for user: %(user)s"
 msgstr ""
 
 #: auth/views.py:105
@@ -40,6 +68,15 @@ msgstr ""
 msgid "Unable to delete non-empty container: %s"
 msgstr ""
 
+#: dash/views/containers.py:55
+#, python-format
+msgid "Successfully deleted container: %s"
+msgstr ""
+
+#: dash/views/containers.py:61
+msgid "Container Name"
+msgstr ""
+
 #: dash/views/containers.py:65
 msgid "Container was successfully created."
 msgstr ""
@@ -49,11 +86,26 @@ msgstr ""
 msgid "Successfully released Floating IP: %s"
 msgstr ""
 
+#: dash/views/floating_ips.py:51
+#, python-format
+msgid "Error releasing Floating IP from tenant: %s"
+msgstr ""
+
+#: dash/views/floating_ips.py:67
+#: templates/django_openstack/dash/networks/_detail.html:19
+msgid "Instance"
+msgstr ""
+
 #: dash/views/floating_ips.py:76
 #, python-format
 msgid ""
 "Successfully associated Floating IP:                                     "
 "%(ip)s with Instance: %(inst)s"
+msgstr ""
+
+#: dash/views/floating_ips.py:82
+#, python-format
+msgid "Error associating Floating IP: %s"
 msgstr ""
 
 #: dash/views/floating_ips.py:99
@@ -73,12 +125,66 @@ msgid ""
 "to tenant \"%(tenant)s\""
 msgstr ""
 
+#: dash/views/floating_ips.py:124
+#, python-format
+msgid ""
+"Error allocating Floating IP \"%(ip)s\"                to tenant \"%(tenant)s"
+"\": %(msg)s"
+msgstr ""
+
 #: dash/views/floating_ips.py:142
 #, python-format
 msgid "Error fetching floating ips: %s"
 msgstr ""
 
-#: dash/views/images.py:59
+#: dash/views/images.py:46 syspanel/views/flavors.py:45
+#: syspanel/views/images.py:75 syspanel/views/tenants.py:86
+#: syspanel/views/tenants.py:114 syspanel/views/users.py:53
+#: templates/django_openstack/dash/containers/_list.html:6
+#: templates/django_openstack/dash/images/_list.html:6
+#: templates/django_openstack/dash/instances/_list.html:7
+#: templates/django_openstack/dash/instances/usage.html:61
+#: templates/django_openstack/dash/keypairs/_list.html:4
+#: templates/django_openstack/dash/networks/_list.html:5
+#: templates/django_openstack/dash/objects/_list.html:6
+#: templates/django_openstack/dash/security_groups/_list.html:4
+#: templates/django_openstack/syspanel/flavors/_list.html:5
+#: templates/django_openstack/syspanel/images/_list.html:7
+#: templates/django_openstack/syspanel/instances/_list.html:5
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:67
+#: templates/django_openstack/syspanel/tenants/_list.html:5
+#: templates/django_openstack/syspanel/tenants/users.html:23
+#: templates/django_openstack/syspanel/tenants/users.html:53
+#: templates/django_openstack/syspanel/users/index.html:21
+msgid "Name"
+msgstr ""
+
+#: dash/views/images.py:47 syspanel/views/images.py:76
+#: templates/django_openstack/syspanel/images/_list.html:37
+msgid "Kernel ID"
+msgstr ""
+
+#: dash/views/images.py:49 syspanel/views/images.py:78
+#: templates/django_openstack/syspanel/images/_list.html:38
+msgid "Ramdisk ID"
+msgstr ""
+
+#: dash/views/images.py:51 syspanel/views/images.py:80
+#: templates/django_openstack/syspanel/images/_list.html:39
+msgid "Architecture"
+msgstr ""
+
+#: dash/views/images.py:52 syspanel/views/images.py:82
+#: templates/django_openstack/syspanel/images/_list.html:41
+msgid "Container Format"
+msgstr ""
+
+#: dash/views/images.py:54 syspanel/views/images.py:84
+#: templates/django_openstack/syspanel/images/_list.html:42
+msgid "Disk Format"
+msgstr ""
+
+#: dash/views/images.py:59 dash/views/images.py:233
 #, python-format
 msgid "Unable to retreive image info from glance: %s"
 msgstr ""
@@ -104,6 +210,85 @@ msgstr ""
 msgid ""
 "Unable to update image. You are not "
 "its                                       owner."
+msgstr ""
+
+#: dash/views/images.py:111
+msgid "Server Name"
+msgstr ""
+
+#: dash/views/images.py:115
+msgid "User Data"
+msgstr ""
+
+#: dash/views/images.py:125
+#: templates/django_openstack/dash/instances/usage.html:66
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:72
+msgid "Flavor"
+msgstr ""
+
+#: dash/views/images.py:130
+msgid "Key Name"
+msgstr ""
+
+#: dash/views/images.py:138 templates/django_openstack/dash/_sidebar.html:13
+#: templates/django_openstack/dash/security_groups/index.html:13
+msgid "Security Groups"
+msgstr ""
+
+#: dash/views/images.py:169
+msgid "Instance was successfully launched"
+msgstr ""
+
+#: dash/views/images.py:178
+#, python-format
+msgid "Unable to launch instance: %s"
+msgstr ""
+
+#: dash/views/images.py:192
+msgid ""
+"Unable to delete image, you are not                                          "
+"its owner."
+msgstr ""
+
+#: dash/views/images.py:197 dash/views/images.py:228 dash/views/images.py:318
+#: dash/views/snapshots.py:79 syspanel/views/images.py:49
+#: syspanel/views/images.py:67 syspanel/views/images.py:109
+#: syspanel/views/images.py:130 syspanel/views/images.py:163
+#: syspanel/views/images.py:227
+#, python-format
+msgid "Error connecting to glance: %s"
+msgstr ""
+
+#: dash/views/images.py:202
+msgid "Error deleting image: %(image)s: %i(msg)s"
+msgstr ""
+
+#: dash/views/images.py:219
+#, python-format
+msgid ""
+"Unable to retrienve tenant info                                   from "
+"keystone: %s"
+msgstr ""
+
+#: dash/views/images.py:225 syspanel/views/images.py:105
+#: templates/django_openstack/dash/images/index.html:22
+msgid "There are currently no images."
+msgstr ""
+
+#: dash/views/images.py:231 dash/views/snapshots.py:83
+#: syspanel/views/images.py:113
+#, python-format
+msgid "Error retrieving image list: %s"
+msgstr ""
+
+#: dash/views/images.py:290
+#, python-format
+msgid "Error parsing quota  for %(image)s: %(msg)s"
+msgstr ""
+
+#: dash/views/images.py:323 syspanel/views/images.py:134
+#, python-format
+msgid "Error retrieving image %(image)s: %(msg)s"
 msgstr ""
 
 #: dash/views/instances.py:55
@@ -164,12 +349,6 @@ msgstr ""
 msgid "ApiException in instance usage"
 msgstr ""
 
-#: dash/views/instances.py:180 syspanel/views/flavors.py:95
-#: syspanel/views/instances.py:146
-#, python-format
-msgid "Unable to get usage info: %s"
-msgstr ""
-
 #: dash/views/instances.py:241
 msgid "ApiException while fetching instance console"
 msgstr ""
@@ -183,7 +362,7 @@ msgstr ""
 msgid "ApiException while fetching instance vnc connection"
 msgstr ""
 
-#: dash/views/instances.py:258
+#: dash/views/instances.py:258 syspanel/views/instances.py:249
 #, python-format
 msgid "Unable to get vnc console for instance %(inst)s: %(message)s"
 msgstr ""
@@ -192,7 +371,7 @@ msgstr ""
 msgid "ApiException while fetching instance info"
 msgstr ""
 
-#: dash/views/instances.py:270
+#: dash/views/instances.py:270 syspanel/views/instances.py:255
 #, python-format
 msgid "Unable to get information for instance %(inst)s: %(message)s"
 msgstr ""
@@ -223,9 +402,17 @@ msgstr ""
 msgid "Error deleting keypair: %s"
 msgstr ""
 
+#: dash/views/keypairs.py:60 dash/views/keypairs.py:81
+msgid "Keypair Name"
+msgstr ""
+
 #: dash/views/keypairs.py:75
 #, python-format
 msgid "Error Creating Keypair: %s"
+msgstr ""
+
+#: dash/views/keypairs.py:83
+msgid "Public Key"
 msgstr ""
 
 #: dash/views/keypairs.py:89
@@ -243,6 +430,10 @@ msgstr ""
 msgid "Error fetching keypairs: %s"
 msgstr ""
 
+#: dash/views/networks.py:49
+msgid "Network Name"
+msgstr ""
+
 #: dash/views/networks.py:60
 #, python-format
 msgid "Unable to create network %(network)s: %(msg)s"
@@ -256,6 +447,11 @@ msgstr ""
 #: dash/views/networks.py:80
 #, python-format
 msgid "Unable to delete network %(network)s: %(msg)s"
+msgstr ""
+
+#: dash/views/networks.py:83
+#, python-format
+msgid "Network %s has been deleted."
 msgstr ""
 
 #: dash/views/networks.py:102
@@ -288,13 +484,33 @@ msgstr ""
 msgid "Successfully deleted object: %s"
 msgstr ""
 
+#: dash/views/objects.py:76
+msgid "Object Name"
+msgstr ""
+
+#: dash/views/objects.py:77
+msgid "File"
+msgstr ""
+
 #: dash/views/objects.py:87
 msgid "Object was successfully uploaded."
+msgstr ""
+
+#: dash/views/objects.py:93
+msgid "Container to store object in"
+msgstr ""
+
+#: dash/views/objects.py:96
+msgid "New object name"
 msgstr ""
 
 #: dash/views/objects.py:118
 #, python-format
 msgid "Object was successfully copied to %(container)s\\%(obj)s"
+msgstr ""
+
+#: dash/views/ports.py:43
+msgid "Number of Ports"
 msgstr ""
 
 #: dash/views/ports.py:53
@@ -317,6 +533,40 @@ msgstr ""
 msgid "Port %(port)s deleted from network %(network)s."
 msgstr ""
 
+#: dash/views/ports.py:89
+msgid "Select VIF to connect"
+msgstr ""
+
+#: dash/views/ports.py:100
+#, python-format
+msgid "Unable to attach port %(port)s to VIF %(vif)s: %(msg)s"
+msgstr ""
+
+#: dash/views/ports.py:103
+#, python-format
+msgid "Port %(port)s connected to VIF %(vif)s."
+msgstr ""
+
+#: dash/views/ports.py:120
+#, python-format
+msgid "Unable to detach port %(port)s: %(message)s"
+msgstr ""
+
+#: dash/views/ports.py:123
+#, python-format
+msgid "Port %s detached."
+msgstr ""
+
+#: dash/views/ports.py:142
+#, python-format
+msgid "Unable to set port state to %(state)s: %(message)s"
+msgstr ""
+
+#: dash/views/ports.py:145
+#, python-format
+msgid "Port %(port)s state set to %(state)s."
+msgstr ""
+
 #: dash/views/security_groups.py:56
 #, python-format
 msgid "Successfully created security_group: %s"
@@ -335,6 +585,11 @@ msgstr ""
 #: dash/views/security_groups.py:80
 #, python-format
 msgid "Error deleting security group: %s"
+msgstr ""
+
+#: dash/views/security_groups.py:109
+#, python-format
+msgid "Successfully added rule: %s"
 msgstr ""
 
 #: dash/views/security_groups.py:113
@@ -357,22 +612,28 @@ msgstr ""
 msgid "Error fetching security_groups: %s"
 msgstr ""
 
+#: dash/views/security_groups.py:181
+#, python-format
+msgid "Error getting security_group: %s"
+msgstr ""
+
+#: dash/views/snapshots.py:51
+msgid "Snapshot Name"
+msgstr ""
+
 #: dash/views/snapshots.py:62
 #, python-format
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
 msgstr ""
 
-#: dash/views/snapshots.py:79 syspanel/views/images.py:49
-#: syspanel/views/images.py:67 syspanel/views/images.py:109
-#: syspanel/views/images.py:130 syspanel/views/images.py:163
-#: syspanel/views/images.py:227
+#: dash/views/snapshots.py:66
 #, python-format
-msgid "Error connecting to glance: %s"
+msgid "Error Creating Snapshot: %s"
 msgstr ""
 
-#: dash/views/snapshots.py:83 syspanel/views/images.py:113
+#: dash/views/snapshots.py:104
 #, python-format
-msgid "Error retrieving image list: %s"
+msgid "Unable to retreive instance: %s"
 msgstr ""
 
 #: dash/views/snapshots.py:111
@@ -384,6 +645,26 @@ msgstr ""
 
 #: middleware/keystone.py:77
 msgid "Your token has expired. Please log in again"
+msgstr ""
+
+#: syspanel/views/flavors.py:44
+msgid "Flavor ID"
+msgstr ""
+
+#: syspanel/views/flavors.py:46 syspanel/views/tenants.py:148
+#: templates/django_openstack/dash/instances/usage.html:63
+#: templates/django_openstack/syspanel/flavors/_list.html:6
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:69
+#: templates/django_openstack/syspanel/instances/usage.html:78
+msgid "VCPUs"
+msgstr ""
+
+#: syspanel/views/flavors.py:47
+msgid "Memory MB"
+msgstr ""
+
+#: syspanel/views/flavors.py:48
+msgid "Disk GB"
 msgstr ""
 
 #: syspanel/views/flavors.py:57
@@ -409,16 +690,6 @@ msgstr ""
 #: syspanel/views/images.py:70 syspanel/views/images.py:167
 #, python-format
 msgid "Error updating image: %s"
-msgstr ""
-
-#: syspanel/views/images.py:105
-#: templates/django_openstack/dash/images/index.html:22
-msgid "There are currently no images."
-msgstr ""
-
-#: syspanel/views/images.py:134
-#, python-format
-msgid "Error retrieving image %(image)s: %(msg)s"
 msgstr ""
 
 #: syspanel/views/images.py:171
@@ -461,9 +732,9 @@ msgstr ""
 msgid "Unable to update service '%(name)s': %(msg)s"
 msgstr ""
 
-#: syspanel/views/services.py:88
+#: syspanel/views/tenants.py:57
 #, python-format
-msgid "Unable to get service info: %s"
+msgid "%(user)s was successfully added to %(tenant)s."
 msgstr ""
 
 #: syspanel/views/tenants.py:60
@@ -471,61 +742,207 @@ msgstr ""
 msgid "Unable to create user association: %s"
 msgstr ""
 
+#: syspanel/views/tenants.py:77
+#, python-format
+msgid "%(user)s was successfully removed from %(tenant)s."
+msgstr ""
+
 #: syspanel/views/tenants.py:80 syspanel/views/tenants.py:106
 #, python-format
 msgid "Unable to create tenant: %s"
 msgstr ""
 
-#: syspanel/views/tenants.py:100 syspanel/views/users.py:202
+#: syspanel/views/tenants.py:88 syspanel/views/tenants.py:117
+#: templates/django_openstack/dash/keypairs/create.html:36
+#: templates/django_openstack/dash/keypairs/import.html:26
+#: templates/django_openstack/dash/networks/create.html:23
+#: templates/django_openstack/dash/objects/copy.html:25
+#: templates/django_openstack/dash/objects/upload.html:24
+#: templates/django_openstack/dash/ports/create.html:23
+#: templates/django_openstack/dash/security_groups/_list.html:5
+#: templates/django_openstack/dash/security_groups/create.html:21
+#: templates/django_openstack/dash/snapshots/create.html:31
+#: templates/django_openstack/syspanel/flavors/create.html:36
+#: templates/django_openstack/syspanel/images/update.html:21
+#: templates/django_openstack/syspanel/tenants/_list.html:6
+#: templates/django_openstack/syspanel/tenants/create.html:21
+#: templates/django_openstack/syspanel/tenants/quotas.html:21
+#: templates/django_openstack/syspanel/tenants/update.html:21
+#: templates/django_openstack/syspanel/users/create.html:22
+#: templates/django_openstack/syspanel/users/update.html:22
+msgid "Description"
+msgstr ""
+
+#: syspanel/views/tenants.py:89 syspanel/views/tenants.py:118
+#: templates/django_openstack/syspanel/services/_list.html:7
+#: templates/django_openstack/syspanel/tenants/_list.html:7
+msgid "Enabled"
+msgstr ""
+
+#: syspanel/views/tenants.py:100
 #, python-format
 msgid "%s was successfully created."
 msgstr ""
 
-#: syspanel/views/tenants.py:136 syspanel/views/tenants.py:222
+#: syspanel/views/tenants.py:112 syspanel/views/users.py:68
+#: templates/django_openstack/dash/images/_list.html:5
+#: templates/django_openstack/dash/instances/_list.html:6
+#: templates/django_openstack/dash/instances/usage.html:60
+#: templates/django_openstack/dash/networks/_detail.html:4
+#: templates/django_openstack/dash/networks/_list.html:4
+#: templates/django_openstack/syspanel/images/_list.html:6
+#: templates/django_openstack/syspanel/instances/tenant_usage.html:66
+#: templates/django_openstack/syspanel/tenants/users.html:22
+#: templates/django_openstack/syspanel/tenants/users.html:52
+#: templates/django_openstack/syspanel/users/index.html:20
+msgid "ID"
+msgstr ""
+
+#: syspanel/views/tenants.py:129
+#, python-format
+msgid "%s was successfully updated."
+msgstr ""
+
+#: syspanel/views/tenants.py:137 syspanel/views/tenants.py:245
 #, python-format
 msgid "Unable to update tenant: %s"
 msgstr ""
 
-#: syspanel/views/tenants.py:168
+#: syspanel/views/tenants.py:142
+msgid "ID (name)"
+msgstr ""
+
+#: syspanel/views/tenants.py:144
+msgid "Metadata Items"
+msgstr ""
+
+#: syspanel/views/tenants.py:145
+msgid "Injected Files"
+msgstr ""
+
+#: syspanel/views/tenants.py:146
+msgid "Injected File Content Bytes"
+msgstr ""
+
+#: syspanel/views/tenants.py:149
+#: templates/django_openstack/dash/_sidebar.html:8
+#: templates/django_openstack/dash/images/launch.html:37
+#: templates/django_openstack/dash/instances/index.html:13
+#: templates/django_openstack/syspanel/_sidebar.html:9
+#: templates/django_openstack/syspanel/instances/index.html:13
+#: templates/django_openstack/syspanel/instances/usage.html:77
+msgid "Instances"
+msgstr ""
+
+#: syspanel/views/tenants.py:150
+#: templates/django_openstack/dash/images/launch.html:41
+msgid "Volumes"
+msgstr ""
+
+#: syspanel/views/tenants.py:151
+#: templates/django_openstack/dash/images/launch.html:45
+msgid "Gigabytes"
+msgstr ""
+
+#: syspanel/views/tenants.py:152
+msgid "RAM (in MB)"
+msgstr ""
+
+#: syspanel/views/tenants.py:153
+#: templates/django_openstack/dash/_sidebar.html:12
+#: templates/django_openstack/dash/floating_ips/index.html:13
+#: templates/django_openstack/dash/images/launch.html:33
+msgid "Floating IPs"
+msgstr ""
+
+#: syspanel/views/tenants.py:169
 #, python-format
 msgid "Quotas for %s were successfully updated."
 msgstr ""
 
-#: syspanel/views/tenants.py:172
+#: syspanel/views/tenants.py:173
 #, python-format
 msgid "Unable to update quotas: %s"
 msgstr ""
 
-#: syspanel/views/tenants.py:184
+#: syspanel/views/tenants.py:183
+#, python-format
+msgid "Successfully deleted tenant %(tenant)s."
+msgstr ""
+
+#: syspanel/views/tenants.py:188
+#, python-format
+msgid "Error deleting tenant: %s"
+msgstr ""
+
+#: syspanel/views/tenants.py:206
 #, python-format
 msgid "Unable to get tenant info: %s"
 msgstr ""
 
-#: syspanel/views/users.py:68
+#: syspanel/views/users.py:54 syspanel/views/users.py:72
+#: templates/django_openstack/syspanel/tenants/users.html:24
+#: templates/django_openstack/syspanel/users/index.html:22
+msgid "Email"
+msgstr ""
+
+#: syspanel/views/users.py:58 syspanel/views/users.py:76
+msgid "Primary Tenant"
+msgstr ""
+
+#: syspanel/views/users.py:86
 #, python-format
 msgid "%(user)s was successfully deleted."
 msgstr ""
 
-#: syspanel/views/users.py:108
+#: syspanel/views/users.py:92
+msgid "ID (username)"
+msgstr ""
+
+#: syspanel/views/users.py:93
+msgid "enabled"
+msgstr ""
+
+#: syspanel/views/users.py:104
+#, python-format
+msgid "User %(user)s %(state)s"
+msgstr ""
+
+#: syspanel/views/users.py:109
+#, python-format
+msgid "Unable to %(state)s user %(user)s"
+msgstr ""
+
+#: syspanel/views/users.py:128
 #, python-format
 msgid "Unable to list users: %s"
 msgstr ""
 
-#: syspanel/views/users.py:146
+#: syspanel/views/users.py:160
+#, python-format
+msgid "Updated %(attrib)s for %(user)s."
+msgstr ""
+
+#: syspanel/views/users.py:166
 msgid "Unable to update user, please try again."
 msgstr ""
 
-#: syspanel/views/users.py:184
+#: syspanel/views/users.py:194
 #, python-format
 msgid "Unable to retrieve tenant list: %s"
 msgstr ""
 
 #: syspanel/views/users.py:212
 #, python-format
-msgid "Error assigning role to user: %s"
+msgid "User \"%s\" was successfully created."
 msgstr ""
 
 #: syspanel/views/users.py:222
+#, python-format
+msgid "Error assigning role to user: %s"
+msgstr ""
+
+#: syspanel/views/users.py:232
 #, python-format
 msgid "Error creating user: %s"
 msgstr ""
@@ -566,15 +983,6 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
-#: templates/django_openstack/dash/_sidebar.html:8
-#: templates/django_openstack/dash/images/launch.html:37
-#: templates/django_openstack/dash/instances/index.html:13
-#: templates/django_openstack/syspanel/_sidebar.html:9
-#: templates/django_openstack/syspanel/instances/index.html:13
-#: templates/django_openstack/syspanel/instances/usage.html:77
-msgid "Instances"
-msgstr ""
-
 #: templates/django_openstack/dash/_sidebar.html:9
 #: templates/django_openstack/dash/images/index.html:12
 #: templates/django_openstack/syspanel/_sidebar.html:11
@@ -590,17 +998,6 @@ msgstr ""
 #: templates/django_openstack/dash/_sidebar.html:11
 #: templates/django_openstack/dash/keypairs/index.html:13
 msgid "Keypairs"
-msgstr ""
-
-#: templates/django_openstack/dash/_sidebar.html:12
-#: templates/django_openstack/dash/floating_ips/index.html:13
-#: templates/django_openstack/dash/images/launch.html:33
-msgid "Floating IPs"
-msgstr ""
-
-#: templates/django_openstack/dash/_sidebar.html:13
-#: templates/django_openstack/dash/security_groups/index.html:13
-msgid "Security Groups"
 msgstr ""
 
 #: templates/django_openstack/dash/_sidebar.html:15
@@ -648,30 +1045,11 @@ msgstr ""
 msgid "Create Container"
 msgstr ""
 
-#: templates/django_openstack/dash/containers/_list.html:4
-#: templates/django_openstack/dash/images/_list.html:6
-#: templates/django_openstack/dash/instances/_list.html:7
-#: templates/django_openstack/dash/instances/usage.html:61
-#: templates/django_openstack/dash/keypairs/_list.html:4
-#: templates/django_openstack/dash/networks/_list.html:5
-#: templates/django_openstack/dash/objects/_list.html:4
-#: templates/django_openstack/dash/security_groups/_list.html:4
-#: templates/django_openstack/syspanel/flavors/_list.html:5
-#: templates/django_openstack/syspanel/images/_list.html:7
-#: templates/django_openstack/syspanel/instances/_list.html:5
-#: templates/django_openstack/syspanel/instances/tenant_usage.html:67
-#: templates/django_openstack/syspanel/tenants/_list.html:5
-#: templates/django_openstack/syspanel/tenants/users.html:23
-#: templates/django_openstack/syspanel/tenants/users.html:53
-#: templates/django_openstack/syspanel/users/index.html:21
-msgid "Name"
-msgstr ""
-
-#: templates/django_openstack/dash/containers/_list.html:5
+#: templates/django_openstack/dash/containers/_list.html:7
 #: templates/django_openstack/dash/instances/_list.html:13
 #: templates/django_openstack/dash/keypairs/_list.html:6
 #: templates/django_openstack/dash/networks/_detail.html:7
-#: templates/django_openstack/dash/objects/_list.html:5
+#: templates/django_openstack/dash/objects/_list.html:7
 #: templates/django_openstack/dash/security_groups/_list.html:6
 #: templates/django_openstack/dash/security_groups/edit_rules.html:24
 #: templates/django_openstack/syspanel/flavors/_list.html:9
@@ -682,11 +1060,11 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: templates/django_openstack/dash/containers/_list.html:13
+#: templates/django_openstack/dash/containers/_list.html:17
 msgid "List Objects"
 msgstr ""
 
-#: templates/django_openstack/dash/containers/_list.html:14
+#: templates/django_openstack/dash/containers/_list.html:18
 #: templates/django_openstack/dash/objects/_form.html:10
 msgid "Upload Object"
 msgstr ""
@@ -786,19 +1164,6 @@ msgstr ""
 msgid "Launch Instance"
 msgstr ""
 
-#: templates/django_openstack/dash/images/_list.html:5
-#: templates/django_openstack/dash/instances/_list.html:6
-#: templates/django_openstack/dash/instances/usage.html:60
-#: templates/django_openstack/dash/networks/_detail.html:4
-#: templates/django_openstack/dash/networks/_list.html:4
-#: templates/django_openstack/syspanel/images/_list.html:6
-#: templates/django_openstack/syspanel/instances/tenant_usage.html:66
-#: templates/django_openstack/syspanel/tenants/users.html:22
-#: templates/django_openstack/syspanel/tenants/users.html:52
-#: templates/django_openstack/syspanel/users/index.html:20
-msgid "ID"
-msgstr ""
-
 #: templates/django_openstack/dash/images/_list.html:7
 #: templates/django_openstack/syspanel/images/_list.html:10
 #: templates/django_openstack/syspanel/instances/_list.html:9
@@ -848,14 +1213,6 @@ msgstr ""
 
 #: templates/django_openstack/dash/images/launch.html:29
 msgid "RAM (MB)"
-msgstr ""
-
-#: templates/django_openstack/dash/images/launch.html:41
-msgid "Volumes"
-msgstr ""
-
-#: templates/django_openstack/dash/images/launch.html:45
-msgid "Gigabytes"
 msgstr ""
 
 #: templates/django_openstack/dash/images/update.html:22
@@ -942,13 +1299,6 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: templates/django_openstack/dash/instances/usage.html:63
-#: templates/django_openstack/syspanel/flavors/_list.html:6
-#: templates/django_openstack/syspanel/instances/tenant_usage.html:69
-#: templates/django_openstack/syspanel/instances/usage.html:78
-msgid "VCPUs"
-msgstr ""
-
 #: templates/django_openstack/dash/instances/usage.html:64
 #: templates/django_openstack/syspanel/instances/tenant_usage.html:70
 msgid "Ram Size"
@@ -957,11 +1307,6 @@ msgstr ""
 #: templates/django_openstack/dash/instances/usage.html:65
 #: templates/django_openstack/syspanel/instances/tenant_usage.html:71
 msgid "Disk Size"
-msgstr ""
-
-#: templates/django_openstack/dash/instances/usage.html:66
-#: templates/django_openstack/syspanel/instances/tenant_usage.html:72
-msgid "Flavor"
 msgstr ""
 
 #: templates/django_openstack/dash/instances/usage.html:67
@@ -1002,26 +1347,6 @@ msgstr ""
 msgid "Return to keypairs list"
 msgstr ""
 
-#: templates/django_openstack/dash/keypairs/create.html:36
-#: templates/django_openstack/dash/keypairs/import.html:26
-#: templates/django_openstack/dash/networks/create.html:23
-#: templates/django_openstack/dash/objects/copy.html:25
-#: templates/django_openstack/dash/objects/upload.html:24
-#: templates/django_openstack/dash/ports/create.html:23
-#: templates/django_openstack/dash/security_groups/_list.html:5
-#: templates/django_openstack/dash/security_groups/create.html:21
-#: templates/django_openstack/dash/snapshots/create.html:31
-#: templates/django_openstack/syspanel/flavors/create.html:36
-#: templates/django_openstack/syspanel/images/update.html:21
-#: templates/django_openstack/syspanel/tenants/_list.html:6
-#: templates/django_openstack/syspanel/tenants/create.html:21
-#: templates/django_openstack/syspanel/tenants/quotas.html:21
-#: templates/django_openstack/syspanel/tenants/update.html:21
-#: templates/django_openstack/syspanel/users/create.html:22
-#: templates/django_openstack/syspanel/users/update.html:22
-msgid "Description"
-msgstr ""
-
 #: templates/django_openstack/dash/keypairs/create.html:37
 #: templates/django_openstack/dash/keypairs/import.html:27
 msgid ""
@@ -1059,10 +1384,6 @@ msgstr ""
 
 #: templates/django_openstack/dash/networks/_detail.html:8
 msgid "Extensions"
-msgstr ""
-
-#: templates/django_openstack/dash/networks/_detail.html:19
-msgid "Instance"
 msgstr ""
 
 #: templates/django_openstack/dash/networks/_detail.html:20
@@ -1158,11 +1479,11 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: templates/django_openstack/dash/objects/_list.html:12
+#: templates/django_openstack/dash/objects/_list.html:16
 msgid "Copy"
 msgstr ""
 
-#: templates/django_openstack/dash/objects/_list.html:14
+#: templates/django_openstack/dash/objects/_list.html:18
 msgid "Download"
 msgstr ""
 
@@ -1375,28 +1696,8 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: templates/django_openstack/syspanel/images/_list.html:37
-msgid "Kernel ID"
-msgstr ""
-
-#: templates/django_openstack/syspanel/images/_list.html:38
-msgid "Ramdisk ID"
-msgstr ""
-
-#: templates/django_openstack/syspanel/images/_list.html:39
-msgid "Architecture"
-msgstr ""
-
 #: templates/django_openstack/syspanel/images/_list.html:40
 msgid "Project ID"
-msgstr ""
-
-#: templates/django_openstack/syspanel/images/_list.html:41
-msgid "Container Format"
-msgstr ""
-
-#: templates/django_openstack/syspanel/images/_list.html:42
-msgid "Disk Format"
 msgstr ""
 
 #: templates/django_openstack/syspanel/images/_toggle.html:8
@@ -1483,11 +1784,6 @@ msgstr ""
 msgid "System Stats"
 msgstr ""
 
-#: templates/django_openstack/syspanel/services/_list.html:7
-#: templates/django_openstack/syspanel/tenants/_list.html:7
-msgid "Enabled"
-msgstr ""
-
 #: templates/django_openstack/syspanel/services/_list.html:8
 msgid "Up"
 msgstr ""
@@ -1571,11 +1867,6 @@ msgstr ""
 
 #: templates/django_openstack/syspanel/tenants/users.html:12
 msgid "Users for Tenant"
-msgstr ""
-
-#: templates/django_openstack/syspanel/tenants/users.html:24
-#: templates/django_openstack/syspanel/users/index.html:22
-msgid "Email"
 msgstr ""
 
 #: templates/django_openstack/syspanel/tenants/users.html:45

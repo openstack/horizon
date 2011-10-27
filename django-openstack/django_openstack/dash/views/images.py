@@ -198,8 +198,9 @@ class DeleteImage(forms.SelfHandlingForm):
                                     % e.message)
         except glance_exception.Error, e:
             LOG.exception('Error deleting image with id "%s"' % image_id)
-            messages.error(request, _("Error deleting image: %s: %s")
-                                    % (image_id, e.message))
+            messages.error(request,
+                    _("Error deleting image: %(image)s: %i(msg)s")
+                    % {"image": image_id, "msg": e.message})
         return redirect(request.build_absolute_uri())
 
 
@@ -285,8 +286,9 @@ def launch(request, tenant_id, image_id):
     try:
         quotas.ram = int(quotas.ram) / 100
     except Exception, e:
-        messages.error(request, _('Error parsing quota  for %s: %s') %
-                                 (image_id, e.message))
+        messages.error(request,
+                _('Error parsing quota  for %(image)s: %(msg)s') %
+                {"image": image_id, "msg": e.message})
         return redirect('dash_instances', tenant_id)
 
     form, handled = LaunchForm.maybe_handle(
@@ -317,8 +319,9 @@ def update(request, tenant_id, image_id):
                                  % e.message)
     except glance_exception.Error, e:
         LOG.exception('Error retrieving image with id "%s"' % image_id)
-        messages.error(request, _("Error retrieving image %s: %s")
-                                 % (image_id, e.message))
+        messages.error(request,
+                _("Error retrieving image %(image)s: %(msg)s")
+                % {"image": image_id, "msg": e.message})
 
     form, handled = UpdateImageForm().maybe_handle(request, initial={
                  'image_id': image_id,

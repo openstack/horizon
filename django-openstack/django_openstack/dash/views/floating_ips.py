@@ -121,9 +121,9 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
 
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in FloatingIpAllocate")
-            messages.error(request, _('Error allocating Floating IP "%s"\
-                           to tenant "%s": %s') %
-                           (fip.ip, data['tenant_id'], e.message))
+            messages.error(request, _('Error allocating Floating IP "%(ip)s"\
+                to tenant "%(tenant)s": %(msg)s') %
+                {"ip": fip.ip, "tenant": data['tenant_id'], "msg": e.message})
         return shortcuts.redirect('dash_floating_ips', request.user.tenant_id)
 
 
