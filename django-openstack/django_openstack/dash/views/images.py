@@ -283,7 +283,7 @@ def launch(request, tenant_id, image_id):
     tenant = api.token_get_tenant(request, request.user.tenant_id)
     quotas = api.tenant_quota_get(request, request.user.tenant_id)
     try:
-        quotas.ram = int(quotas.ram) / 100
+        quotas.ram = int(quotas.ram)
     except Exception, e:
         messages.error(request, _('Error parsing quota  for %s: %s') %
                                  (image_id, e.message))
