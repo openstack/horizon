@@ -246,14 +246,14 @@ def detail(request, instance_id):
             LOG.exception('ApiException while fetching instance vnc \
                            connection')
             messages.error(request,
-                       _('Unable to get vnc console for instance %s: %s') %
-                       (instance_id, e.message))
+            _('Unable to get vnc console for instance %(inst)s: %(message)s') %
+            {"inst": instance_id, "message": e.message})
             return redirect('dash_instances', tenant_id)
     except api_exceptions.ApiException, e:
         LOG.exception('ApiException while fetching instance info')
         messages.error(request,
-                   _('Unable to get information for instance %s: %s') %
-                   (instance_id, e.message))
+            _('Unable to get information for instance %(inst)s: %(message)s') %
+            {"inst": instance_id, "message": e.message})
         return redirect('dash_instances', tenant_id)
 
     return render_to_response(

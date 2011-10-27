@@ -97,11 +97,11 @@ class AttachPort(forms.SelfHandlingForm):
                                         data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
-                           _('Unable to attach port %s to VIF %s: %s') %
-                           (data['port'], data['vif_id'], e.message,))
+                _('Unable to attach port %(port)s to VIF %(vif)s: %(msg)s') %
+                {"port": data['port'], "vif": data['vif_id'], "msg": e.message})
         else:
-            msg = _('Port %s connected to VIF %s.') % \
-                  (data['port'], data['vif_id'])
+            msg = _('Port %(port)s connected to VIF %(vif)s.') % \
+                  {"port": data['port'], "vif": data['vif_id']}
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())
@@ -117,8 +117,8 @@ class DetachPort(forms.SelfHandlingForm):
             api.quantum_detach_port(request, data['network'], data['port'])
         except Exception, e:
             messages.error(request,
-                           _('Unable to detach port %s: %s') %
-                           (data['port'], e.message,))
+                _('Unable to detach port %(port)s: %(message)s') %
+                {"port": data['port'], "message": e.message})
         else:
             msg = _('Port %s detached.') % (data['port'])
             LOG.info(msg)
@@ -139,10 +139,11 @@ class TogglePort(forms.SelfHandlingForm):
                                        data['network'], data['port'], body)
         except Exception, e:
             messages.error(request,
-                           _('Unable to set port state to %s: %s') %
-                           (data['state'], e.message,))
+                _('Unable to set port state to %(state)s: %(message)s') %
+                {"state": data['state'], "message": e.message})
         else:
-            msg = _('Port %s state set to %s.') % (data['port'], data['state'])
+            msg = _('Port %(port)s state set to %(state)s.') % {
+                "port": data['port'], "state": data['state']}
             LOG.info(msg)
             messages.success(request, msg)
         return shortcuts.redirect(request.build_absolute_uri())
