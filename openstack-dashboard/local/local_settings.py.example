@@ -31,7 +31,7 @@ MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 # EMAIL_HOST_PASSWORD = 'top-secret!'
 
 
-OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0/"
+OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0"
 # FIXME: this is only needed until keystone fixes its GET /tenants call
 # so that it doesn't return everything for admins
 OPENSTACK_KEYSTONE_ADMIN_URL = "http://localhost:35357/v2.0"

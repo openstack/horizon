@@ -173,6 +173,7 @@ class UpdateQuotas(forms.SelfHandlingForm):
                            _('Unable to update quotas: %s') % e.message)
         return redirect('syspanel_tenants')
 
+
 class DeleteTenant(forms.SelfHandlingForm):
     tenant_id = forms.CharField(required=True)
 
@@ -258,14 +259,12 @@ def users(request, tenant_id):
         form, handled = f.maybe_handle(request)
         if handled:
             return handled
-#    form, handled = UpdateTenant.maybe_handle(request)
-#    if handled:
-#        return handled
+
     add_user_form = AddUser()
     remove_user_form = RemoveUser()
 
-    users = api.account_api(request).users.get_for_tenant(tenant_id)
-    all_users = api.account_api(request).users.list()
+    users = api.user_list(request, tenant_id)
+    all_users = api.user_list(request)
     user_ids = [u.id for u in users]
     new_users = [u for u in all_users if not u.id in user_ids]
     return render_to_response(
