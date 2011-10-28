@@ -5,5 +5,5 @@
     {{hidden}}
   {% endfor %}
   <input name="image_id" type="hidden" value="{{image.id}}" />
-  <input id="delete_{{image.id}}" class="delete" title="Image: {{image.name}}" type="submit" value="{% trans "Delete"%}" />
+  <input id="delete_{{image.id}}" class="btn small delete" title="Image: {{image.name}}" type="submit" value="{% trans "Delete"%}" />
 </form>

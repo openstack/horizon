@@ -8,29 +8,18 @@
 {% endblock %}
 
 {% block page_header %}
-  <div id='page_header'>
-    <h2>Objects</h2>
-    <div class="right">
-      <div class='search'>
-        {% include 'nova/objects/_filter.html' with form=filter_form %}
-      </div>
-      <a class="refresh" title="Refresh" href="{% url horizon:nova:containers:object_index container_name %}">{% trans "Refresh List"%}</a>
-    </div>
+  <div class='page-header'>
+    <h2>Objects <small>Container: {{container_name}}</small></h2>
   </div>
-{% endblock %}
+{% endblock page_header %}
 
 {% block dash_main %}
-  <h3 class="container_name"><span>Container:</span> {{ container_name }}</h3>
-
   {% if objects %}
     {% include 'nova/objects/_list.html' %}
   {% else %}
-    <div class="message_box info">
+    <div class="alert-message block-message info">
       {% url horizon:nova:containers:object_upload container_name as dash_obj_up_url %}
-      <h2>Info</h2>
-      <p>{% blocktrans %}There are currently no objects in the container {{container_name}}.  You can upload a new object from the <a href='{{dash_obj_up_url}}'>Object Upload Page &gt;&gt;</a>{% endblocktrans %}</p>
+      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no objects in the container."%} <a class="btn small" href='{{dash_obj_up_url}}'>{% trans "Object Upload Page"%}</a></p>
     </div>
   {% endif %}
-  <a class="action_link large-rounded" href="{% url horizon:nova:containers:object_upload container_name %}">{% trans "Upload New Object &gt;&gt;"%}</a>
-
 {% endblock %}

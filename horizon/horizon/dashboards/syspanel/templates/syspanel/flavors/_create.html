@@ -1,6 +1,11 @@
 {% extends 'syspanel/flavors/_form.html' %}
 {%load i18n%}
 
+{% block form_url %}{% url horizon:syspanel:users:create %}{% endblock %}
+
 {% block submit %}
-  <input type="submit" value="{% trans "Create Flavor"%}" class="large-rounded" />
+<div class="modal-footer">
+  <input class="btn primary pull-right" type="submit" value="{%trans "Create Flavor"%}" />
+  <a href="#" class="btn secondary cancel close">Cancel</a>
+</div>
 {% endblock %}

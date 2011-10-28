@@ -1,21 +1,6 @@
 {% load i18n %}
 {% block page_header %}
-  <div id='page_header'>
+  <div class='page-header'>
     <h2>{{title}}</h2>
-    {% block breadcrumbs %}
-    {% endblock %}
-    {% if searchable %}
-      <div class="right">
-        <div class='search'>
-          <form action='' method='post' onsubmit='return false;'>
-            <fieldset>
-              <label for='table_search'>{% trans "Search" %}</label>
-              <input id='table_search' name='search' type='text' value='' />
-            </fieldset>
-          </form>
-        </div>
-        <a class="refresh" title="{% trans "Refresh" %}" href="{{ refresh_link }}">{% trans "Refresh List" %}</a>
-      </div>
-    {% endif %}
   </div>
 {% endblock %}

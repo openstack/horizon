@@ -1,5 +1,5 @@
 {%load i18n%}
-<table class="wide">
+<table class="zebra-striped">
   <tr>
     <th>{% trans "Id"%}</th>
     <th>{% trans "Name"%}</th>
@@ -16,9 +16,9 @@
       <td id="actions">
         <ul>
           <li class="form">{% include "syspanel/tenants/_delete.html" with form=tenant_delete_form %}</li>
-          <li><a href="{% url horizon:syspanel:tenants:update tenant.id %}">{% trans "Edit"%}</a></li>
-          <li><a href="{% url horizon:syspanel:tenants:users tenant.id %}">{% trans "View Members"%}</a></li>
-          <li><a href="{% url horizon:syspanel:tenants:quotas tenant.id %}">{% trans "Modify Quotas"%}</a></li>
+          <li><a class="btn small" href="{% url horizon:syspanel:tenants:update tenant.id %}">{% trans "Edit"%}</a></li>
+          <li><a class="btn small" href="{% url horizon:syspanel:tenants:users tenant.id %}">{% trans "View Members"%}</a></li>
+          <li><a class="btn small" href="{% url horizon:syspanel:tenants:quotas tenant.id %}">{% trans "Modify Quotas"%}</a></li>
         </ul>
       </td>
     </tr>

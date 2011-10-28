@@ -1,0 +1,11 @@
+{% extends "syspanel/users/_form.html" %}
+{%load i18n%}
+
+{% block form_url %}{% url horizon:syspanel:users:create %}{% endblock %}
+
+{% block submit %}
+<div class="modal-footer">
+  <input class="btn primary pull-right" type="submit" value="{%trans "Create Tenant"%}" />
+  <a href="#" class="btn secondary cancel close">Cancel</a>
+</div>
+{% endblock %}

@@ -8,23 +8,22 @@
 {% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Update Tenant Quotas") %}
+  {% include "horizon/common/_page_header.html" with title=_("Update Tenant") %}
 {% endblock page_header %}
 
 {% block syspanel_main %}
-  <div class="dash_block">
-    <div class="left">
-      {% include 'syspanel/tenants/_update_quotas_form.html' with form=form %}
+  <div class="modal static_page">
+    <div class="modal-header">
+      <h3>Update Tenant Quotas</h3>
     </div>
-
-    <div class="right">
-      <h3>{% trans "Description"%}:</h3>
-      <p>{% trans "From here you can edit quotas (max limits) for the tenant "%}{{ tenant_id }}.</p>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'syspanel/tenants/_update_quotas.html' with form=form %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "From here you can edit quotas (max limits) for the tenant {{tenant_id}}."%}</p>
+      </div>
     </div>
-    <div class="clear">&nbsp;</div>
   </div>
 {% endblock %}
-
-
-
-

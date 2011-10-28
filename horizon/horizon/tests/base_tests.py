@@ -72,8 +72,8 @@ class HorizonTests(test.TestCase):
         with self.assertRaises(base.NotRegistered):
             horizon.get_dashboard("fake")
         self.assertQuerysetEqual(horizon.get_dashboards(),
-                                 ['<Dashboard: User Dashboard>',
-                                  '<Dashboard: System Dashboard>',
+                                 ['<Dashboard: Dashboard>',
+                                  '<Dashboard: System>',
                                   '<Dashboard: Settings>',
                                   '<Dashboard: My Dashboard>'])
 

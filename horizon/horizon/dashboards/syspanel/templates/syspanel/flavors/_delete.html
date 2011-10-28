@@ -5,5 +5,5 @@
     {{hidden}}
   {% endfor %}
   <input name="flavorid" type="hidden" value="{{flavor.id}}" />
-  <input id="delete_{{flavor.id}}" class="delete" title="Flavor: {{flavor.name}}" type="submit" value="{% trans "Delete"%}" />
+  <input id="delete_{{flavor.id}}" class="btn small delete" title="Flavor: {{flavor.name}}" type="submit" value="{% trans "Delete"%}" />
 </form>

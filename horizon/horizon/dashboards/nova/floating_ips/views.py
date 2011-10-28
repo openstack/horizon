@@ -76,6 +76,7 @@ def associate(request, ip_id):
 
     return shortcuts.render(request,
                             'nova/floating_ips/associate.html', {
+                                'floating_ip_id': ip_id,
                                 'associate_form': form})
 
 
@@ -85,4 +86,5 @@ def disassociate(request, ip_id):
     if handled:
         return handled
 
-    return shortcuts.render(request, 'nova/floating_ips/associate.html', {})
+    return shortcuts.render(request, 'nova/floating_ips/associate.html', {
+                                        'floating_ip_id': ip_id})

@@ -1,17 +1,26 @@
-<!DOCTYPE html>
 {% load branding %}
+{% load i18n %}
+<!DOCTYPE html>
 <html>
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
-    <title>{% site_branding %} Dashboard{% block title %}{% endblock %}</title>
-    <script charset='utf-8' src='{{ STATIC_URL }}dashboard/js/jquery.min.js' type='text/javascript'></script>
-    <script charset='utf-8' src='{{ STATIC_URL }}dashboard/js/jquery-ui.min.js' type='text/javascript'></script>
-    <script charset='utf-8' src='{{ STATIC_URL }}dashboard/js/jquery.quicksearch.js' type='text/javascript'></script>
-    <script charset='utf-8' src='{{ STATIC_URL }}dashboard/js/jquery.example.min.js' type='text/javascript'></script>
-    <script charset='utf-8' src='{{ STATIC_URL }}dashboard/js/jquery.chosen.js' type='text/javascript'></script>
-    <script charset='utf-8' src='{{ STATIC_URL }}dashboard/js/form_examples.js' type='text/javascript'></script>
+    <title>{% block title %}{% endblock %} – {% site_branding %} Dashboard</title>
+    <script src='{{ STATIC_URL }}dashboard/js/jquery.min.js' type='text/javascript'></script>
+    <script src='{{ STATIC_URL }}dashboard/js/jquery.quicksearch.js' type='text/javascript'></script>
+    <script src='{{ STATIC_URL }}dashboard/js/jquery.example.min.js' type='text/javascript'></script>
+    <script src='{{ STATIC_URL }}dashboard/js/jquery.chosen.js' type='text/javascript'></script>
+    <script src="{{ STATIC_URL }}dashboard/js/jquery.table-sorter.js" type="text/javascript" charset="utf-8"></script>
+    <script src='{{ STATIC_URL }}dashboard/js/form_examples.js' type='text/javascript'></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-twipsy.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-alerts.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-modal.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-popover.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-scrollspy.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-tabs.js" type="text/javascript" charset="utf-8"></script>
     <script charset='utf-8' src='{{ STATIC_URL }}dashboard/js/application.js' type='text/javascript'></script>
-    <link href='{{ STATIC_URL }}dashboard/css/style.css' media='screen' rel='stylesheet' />
+    <link href='{{ STATIC_URL }}dashboard/css/bootstrap.css' media='screen' rel='stylesheet' />
+    <link href='{{ STATIC_URL }}dashboard/css/newstyle.css' media='screen' rel='stylesheet' />
     <link href='{{ STATIC_URL }}dashboard/css/chosen.css' media='screen' rel='stylesheet' />
     <link rel="shortcut icon" href="{{ STATIC_URL }}dashboard/images/favicon.ico"/>
     {% block headerjs %}{% endblock %}
@@ -19,16 +28,21 @@
   </head>
   <body>
     {% block topbar %}
-      {% include '_topbar.html' %}
+      <div id="user_info" class="pull-right">
+        <p>
+          Logged in as: {{request.user.username}}.
+          <a href="{% url horizon:settings:user:index %}">{% trans "Settings"%}</a>
+          <a href="{% url horizon:auth_logout %}">{% trans "Sign Out"%}</a>
+        </p>
+
+      </div>
     {% endblock %}
     {% block content %}
-      <div id="content">
-        <div id="main">
-          {% block sidebar %}
-          {% endblock %}
-          {% block main %}
-          {% endblock %}
-        </div>
+      <div id="container" class="container-fluid">
+        {% block sidebar %}
+        {% endblock %}
+        {% block main %}
+        {% endblock %}
       </div>
     {% endblock %}
     <div id="footer">

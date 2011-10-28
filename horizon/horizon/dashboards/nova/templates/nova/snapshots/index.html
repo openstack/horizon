@@ -17,10 +17,11 @@
   {% if images %}
     {% include 'nova/images/_list.html' %}
   {% else %}
-    <div class="message_box info">
-      {% url horizon:nova:instances:index  as inst_url %}
-      <h2>{% trans "Info"%}</h2>
-      <p>{% blocktrans %}There are currently no snapshots.  You can create snapshots from running instances. <a href='{{inst_url}}'>View Running Instances &gt;&gt;</a>{% endblocktrans %}</p>
+    <div class="alert-message block-message info">
+      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no snapshots.  You can create snapshots from running instances."%}</p>
+      <div class="alert-actions">
+        <a class="btn small" href='{% url horizon:nova:instances:index %}'>{% trans "View Running Instances" %}</a>
+      </div>
     </div>
   {% endif %}
 {% endblock %}

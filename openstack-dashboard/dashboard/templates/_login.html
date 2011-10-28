@@ -1,8 +1,11 @@
 {% extends 'horizon/auth/_login.html' %}
 {% load i18n %}
+
 {% block submit %}
   <input type="hidden" name="next" value="/" />
-  <div class="button">
-    <input id="home_login_btn" type="submit" value="{% trans "Sign In"%}">
+
+  <div class="actions">
+    <input id="home_login_btn" class="btn primary pull-right" type="submit" value="{% trans "Sign In"%}">
+    <div class="clearfix"></div>
   </div>
 {% endblock %}

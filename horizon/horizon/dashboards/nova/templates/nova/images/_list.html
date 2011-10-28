@@ -1,6 +1,16 @@
 {%load i18n%}
+
+{% block footer_js %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+
+    })
+  </script>
+{% endblock %}
+
 {% load parse_date %}
-<table id="images" class="wide">
+{% load launch_form %}
+<table id="images" class="zebra-striped">
   <tr>
     <th>{%trans "ID"%}</th>
     <th>{%trans "Name"%}</th>
@@ -21,9 +31,56 @@
             <li class="form">{% include "nova/images/_delete.html" with form=delete_form %}</li>
             <li><a href="{% url horizon:nova:images:update image.id %}">{%trans "Edit"%}</a></li>
       {% endif %}
-            <li><a id="launch_{{image.id}}" class="launch" href="{% url horizon:nova:images:launch image.id %}">{%trans "Launch"%}</a></li>
+            <li><a class="btn small" data-controls-modal="image_{{image.id}}" data-backdrop="static" href="{% url horizon:nova:images:launch image.id %}">{%trans "Launch"%}</a></li>
           </ul>
         </td>
   </tr>
   {% endfor %}
 </table>
+
+{% for image in images %}
+  <div id="image_{{image.id}}" class="modal hide">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Launch Instances</h3>
+    </div>
+    <div class="modal-body">
+      <div class="left">
+        {% launch_form request request.user.tenant_id image.id as form %}
+        {% include 'nova/images/_launch.html' with form=form image_id=image.id %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description:"%}</h3>
+        <p>{% trans "Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources they are allowed to provision."%}</p>
+        <table border="0">
+          <tr>
+            <th>{% trans "Quota Name"%}</th>
+            <th>{% trans "Limit"%}</th>
+          </tr>
+          <tr>
+            <td>{% trans "RAM (MB)"%}</td>
+            <td>{{quotas.ram}}MB</td>
+          </tr>
+          <tr>
+            <td>{% trans "Floating IPs"%}</td>
+            <td>{{quotas.floating_ips}}</td>
+          </tr>
+          <tr>
+            <td>{% trans "Instances"%}</td>
+            <td>{{quotas.instances}}</td>
+          </tr>
+          <tr>
+            <td>{% trans "Volumes"%}</td>
+            <td>{{quotas.volumes}}</td>
+          </tr>
+          <tr>
+            <td>{% trans "Gigabytes"%}</td>
+            <td>{{quotas.gigabytes}}GB</td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div>
+
+{% endfor %}

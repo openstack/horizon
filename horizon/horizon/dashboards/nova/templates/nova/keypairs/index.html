@@ -7,23 +7,70 @@
   {% endwith %}
 {% endblock %}
 
+{% block headerjs %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $('.modal').hide()
+
+      $(".left h3").hide()
+      $("form input[type='submit']").click(function(e){
+        $("form").hide("fast")
+        $(".left h3").show("fast")
+      })
+    })
+  </script>
+{% endblock %}
+
 {% block page_header %}
-  {% url horizon:nova:keypairs:index as refresh_link %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "horizon/common/_page_header.html" with title=_("Keypairs") refresh_link=refresh_link searchable="true" %}
+  {% include "horizon/common/_page_header.html" with title=_("Keypairs") %}
 {% endblock page_header %}
 
 {% block dash_main %}
   {% if keypairs %}
     {% include 'nova/keypairs/_list.html' %}
-    <a id="keypairs_create_link" class="action_link large-rounded" href="{% url horizon:nova:keypairs:create %}">{% trans "Add New Keypair"%}</a>
-    <a id="keypairs_import_link" class="action_link large-rounded" href="{% url horizon:nova:keypairs:import %}">{% trans "Import Keypair"%}</a>
   {% else %}
-    <div class="message_box info">
-      <h2>{% trans "Info"%}</h2>
-      <p>{% trans "There are currently no keypairs."%}</p>
+    <div class="alert-message block-message info">
+      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no keypairs."%}</p>
+      <div class="alert-actions">
+        <a id="keypairs_import_link" class="btn primary small" data-controls-modal="import_keypair_modal" data-backdrop="static" href="{% url horizon:nova:keypairs:import %}">{% trans "Import Keypair"%}</a>
+        <a id="keypairs_create_link" class="btn small" data-controls-modal="create_keypair_modal" data-backdrop="static" href="{% url horizon:nova:keypairs:create %}">{% trans "Create New Keypair"%}</a>
+      </div>
     </div>
-    <a id="keypairs_create_link" class="action_link large-rounded" href="{% url horizon:nova:keypairs:create %}">{% trans "Add New Keypair"%}</a>
-    <a id="keypairs_import_link" class="action_link large-rounded" href="{% url horizon:nova:keypairs:import %}">{% trans "Import Keypair"%}</a>
   {% endif %}
+
+  <div id="create_keypair_modal" class="modal">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Create Keypair</h3>
+    </div>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'nova/keypairs/_create.html' with form=create_form %}
+        <h3>Keypair downloading. <a href="{% url horizon:nova:keypairs:index %}">{% trans "Close"%}</a></h3>
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)."%}</p>
+        <p>{% trans "Protect and use the key as you would any normal ssh private key."%}</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="import_keypair_modal" class="modal">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Import Keypair</h3>
+    </div>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'nova/keypairs/_import.html' with form=import_form %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)."%}</p>
+        <p>{% trans "Protect and use the key as you would any normal ssh private key."%}</p>
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div>
 {% endblock %}

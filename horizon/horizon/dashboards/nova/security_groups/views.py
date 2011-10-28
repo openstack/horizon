@@ -42,7 +42,7 @@ def index(request):
     tenant_id = request.user.tenant_id
     delete_form, handled = DeleteGroup.maybe_handle(request,
                                 initial={'tenant_id': tenant_id})
-
+    form = CreateGroup()
     if handled:
         return handled
 
@@ -57,6 +57,7 @@ def index(request):
     return shortcuts.render(request,
                             'nova/security_groups/index.html', {
                                 'security_groups': security_groups,
+                                'form': form,
                                 'delete_form': delete_form})
 
 

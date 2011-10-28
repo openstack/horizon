@@ -45,6 +45,9 @@ def index(request):
     if handled:
         return handled
 
+    create_form = CreateKeypair()
+    import_form = ImportKeypair()
+
     try:
         keypairs = api.keypair_list(request)
     except novaclient_exceptions.ClientException, e:
@@ -55,6 +58,8 @@ def index(request):
     return shortcuts.render(request,
                             'nova/keypairs/index.html', {
                                 'keypairs': keypairs,
+                                'create_form': create_form,
+                                'import_form': import_form,
                                 'delete_form': delete_form})
 
 
@@ -77,4 +82,5 @@ def import_keypair(request):
 
     return shortcuts.render(request,
                             'nova/keypairs/import.html', {
+                                'import_form': form,
                                 'create_form': form})

@@ -1,8 +1,8 @@
 {% load horizon %}
 
 {% for heading, panels in components.iteritems %}
-<h3>{{ heading }}</h3>
-<ul class="sub_nav">
+<h4>{{ heading }}</h4>
+<ul class="main_nav">
 {% for panel in panels %}
     {% if user|can_haz:panel %}
         <li>

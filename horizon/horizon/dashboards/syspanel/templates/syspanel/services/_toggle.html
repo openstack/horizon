@@ -17,6 +17,6 @@
     {% endfor %}
     <input name="service" type="hidden" value="{{service.id}}" />
     <input name="name" type="hidden" value="{{service.type}}" />
-    <input id="disable_{{service.id}}" class="disable" title="Service: {{service.type}}" type="submit" value="{% trans "Disable"%}" />
+    <input id="disable_{{service.id}}" class="btn small disable" title="Service: {{service.type}}" type="submit" value="{% trans "Disable"%}" />
   </form>
 {% endif %}

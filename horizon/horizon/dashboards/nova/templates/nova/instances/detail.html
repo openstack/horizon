@@ -62,7 +62,7 @@
                 {% for volume in volumes %}
                 <li>
                   <span>{% trans "Volume:" %}</span>
-                  <a href="{% url dash_volumes_detail request.user.tenant_name volume.volumeId %}">
+                  <a href="{% url horizon:nova:volumes:detail volume.volumeId %}">
                     {{ volume.volumeId }} ({{ volume.device }})
                   </a>
                 </li>

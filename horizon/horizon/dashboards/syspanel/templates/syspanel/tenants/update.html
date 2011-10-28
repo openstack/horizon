@@ -12,18 +12,18 @@
 {% endblock page_header %}
 
 {% block syspanel_main %}
-  <div class="dash_block">
-    <div class="left">
-      {% include 'syspanel/tenants/_update_form.html' %}
+  <div class="modal static_page">
+    <div class="modal-header">
+      <h3>Update Tenant</h3>
     </div>
-
-    <div class="right">
-      <h3>{% trans "Description"%}:</h3>
-      <p>{% trans "From here you can edit a tenant."%}</p>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'syspanel/tenants/_update.html' %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "From here you can edit a tenant."%}</p>
+      </div>
     </div>
-    <div class="clear">&nbsp;</div>
   </div>
 {% endblock %}
-
-
-

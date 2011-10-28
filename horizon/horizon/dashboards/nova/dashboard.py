@@ -20,7 +20,7 @@ import horizon
 
 
 class Nova(horizon.Dashboard):
-    name = "User Dashboard"
+    name = "Dashboard"
     slug = "nova"
     panels = {_("Manage Compute"): ('overview', 'instances', 'images',
                                     'snapshots', 'keypairs', 'volumes',

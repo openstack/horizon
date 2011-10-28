@@ -8,3 +8,16 @@
   <input name="port" type="hidden" value="{{port.id}}" />
   <input title="Detach port from instance" id="detach_{{port.id}}" class="detach" type="submit" value="{% trans "Detach"%}" />
 </form>
+
+{% extends 'nova/networks/_form.html' %}
+{%load i18n%}
+
+{% block submit %}
+  <div class="modal-footer">
+    <input name="network" type="hidden" value="{{network.id}}" />
+    <input name="port" type="hidden" value="{{port.id}}" />
+
+    <input title="Detach port from instance" id="detach_{{port.id}}" class="btn primary pull-right detach" type="submit" value="{% trans "Detach"%}" />
+    <a href="#" class="btn secondary cancel close">Cancel</a>
+  </div>
+{% endblock %}

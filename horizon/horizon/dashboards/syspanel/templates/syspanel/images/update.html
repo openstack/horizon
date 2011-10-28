@@ -12,15 +12,18 @@
 {% endblock page_header %}
 
 {% block syspanel_main %}
-  <div class="dash_block">
-    <div class="left">
-      {% include 'syspanel/images/_form.html' %}
+  <div class="modal static_page">
+    <div class="modal-header">
+      <h3>Update Image</h3>
     </div>
-
-    <div class="right">
-      <h3>{% trans "Description"%}:</h3>
-      <p>{% trans "From here you can modify different properties of an image."%}</p>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'syspanel/images/_update.html' %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "From here you can modify different properties of an image."%}</p>
+      </div>
     </div>
-    <div class="clear">&nbsp;</div>
   </div>
 {% endblock %}

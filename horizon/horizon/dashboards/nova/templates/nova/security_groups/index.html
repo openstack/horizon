@@ -7,22 +7,45 @@
   {% endwith %}
 {% endblock %}
 
+{% block headerjs %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $('.modal').hide();
+    })
+  </script>
+{% endblock %}
+
 {% block page_header %}
-  {% url horizon:nova:security_groups:index as refresh_link %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "horizon/common/_page_header.html" with title=_("Security Groups") refresh_link=refresh_link searchable="true" %}
+  {% include "horizon/common/_page_header.html" with title=_("Security Groups") %}
 {% endblock page_header %}
 
 {% block dash_main %}
   {% if security_groups %}
     {% include 'nova/security_groups/_list.html' %}
     {% url horizon:nova:security_groups:create as create_sec_url %}
-    <a id="security_groups_create_link" class="action_link large-rounded" href="{{create_sec_url}}">{% trans "Create Security Group"%}</a>
+    <a id="security_groups_create_link" class="btn small" href="{{ create_sec_url }}" data-controls-modal="create_security_group" data-backdrop="static">{% trans "Create Security Group"%}</a>
   {% else %}
     <div class="message_box info">
       {% url horizon:nova:security_groups:create as dash_sec_url %}
       <h2>{% trans "Info"%}</h2>
-      <p>{% blocktrans %}There are currently no security groups. <a href='{{dash_sec_url}}'>Create A Security Group &gt;&gt;</a>{% endblocktrans %}</p>
+      <p>{% blocktrans %}There are currently no security groups. <a href='{{ dash_sec_url }}' data-controls-modal="create_security_group" data-backdrop="static">Create A Security Group &gt;&gt;</a>{% endblocktrans %}</p>
     </div>
   {% endif %}
+
+  <div id="create_security_group" class="modal">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Create Security Group</h3>
+    </div>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'nova/security_groups/_create.html' with form=form%}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "From here you can create a new security group"%}</p>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}

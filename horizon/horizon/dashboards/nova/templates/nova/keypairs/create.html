@@ -10,10 +10,10 @@
 {% block headerjs %}
   <script type="text/javascript" charset="utf-8">
     $(function(){
-      $(".dash_block .left h3").hide()
+      $(".left h3").hide()
       $("form input[type='submit']").click(function(e){
         $("form").hide("fast")
-        $(".dash_block h3").show("fast")
+        $(".left h3").show("fast")
       })
     })
   </script>
@@ -25,19 +25,21 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div class="dash_block">
-    <div class="left">
-      <h3>{% trans "Your private key is being downloaded."%}</h3>
-      {% include 'nova/keypairs/_form.html' with form=create_form %}
-      <h3><a href="{% url horizon:nova:keypairs:index %}"><< {% trans "Return to keypairs list"%}</a></h3>
+  <div id="import_keypair_modal" class="modal static_page">
+    <div class="modal-header">
+      <h3>Create Keypair</h3>
     </div>
-
-    <div class="right">
-      <h3>{% trans "Description"%}:</h3>
-      <p>{% trans "Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)."%}</p>
-      <p>{% trans "Protect and use the key as you would any normal ssh private key."%}</p>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'nova/keypairs/_create.html' with form=create_form %}
+        <h3><a href="{% url horizon:nova:keypairs:index %}"><< {% trans "Return to keypairs list"%}</a></h3>
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)."%}</p>
+        <p>{% trans "Protect and use the key as you would any normal ssh private key."%}</p>
+      </div>
     </div>
-    <div class="clear">&nbsp;</div>
   </div>
 {% endblock %}
 

@@ -5,5 +5,5 @@
     {{ hidden }}
   {% endfor %}
   <input name="instance" type="hidden" value="{{ instance.id }}" />
-  <input id="reboot_{{ instance.id }}" class="reboot" title="Instance: {{ instance.name }}" type="submit" value="{% trans "Reboot" %}" />
+  <input id="reboot_{{ instance.id }}" class="btn small reboot" title="Instance: {{ instance.name }}" type="submit" value="{% trans "Reboot" %}" />
 </form>

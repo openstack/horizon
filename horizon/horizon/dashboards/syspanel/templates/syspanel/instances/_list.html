@@ -1,6 +1,6 @@
 {% load parse_date %}
-{% load i18n %}
-<table id="instances" class="wide">
+{% load i18n%}
+<table id="instances" class="zebra-striped">
   <tr>
     <th>{% trans "Name"%}</th>
     <th>{% trans "Tenant"%}</th>
@@ -45,8 +45,8 @@
         <ul>
           <li class="form">{% include "horizon/common/instances/_terminate.html" with form=terminate_form %}</li>
           <li class="form">{% include "horizon/common/instances/_reboot.html" with form=reboot_form %}</li>
-          <li><a target="_blank" href="{% url horizon:nova:instances:console instance.id %}">{% trans "Console Log"%}</a></li>
-          <li><a target="_blank" href="{% url horizon:nova:instances:vnc instance.id %}">{% trans "VNC Console"%}</a></li>
+          <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances:console instance.id %}">{% trans "Console Log"%}</a></li>
+          <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances:vnc instance.id %}">{% trans "VNC Console"%}</a></li>
         </ul>
       </td>
     </tr>

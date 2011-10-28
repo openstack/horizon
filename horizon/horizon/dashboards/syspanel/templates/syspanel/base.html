@@ -5,9 +5,8 @@
 {% endblock %}
 
 {% block main %}
-  {% block page_header %}{% endblock %}
-  <div class="main_content">
-    {% include "_messages.html" %}
+  <div class="content">
+    {% block page_header %}{% endblock %}
     {% block syspanel_main %}{% endblock %}
   </div>
 {% endblock %}

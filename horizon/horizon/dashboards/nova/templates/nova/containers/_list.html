@@ -1,6 +1,6 @@
 {% load i18n swift_paging %}
 
-<table id="containers" class="wide">
+<table id="containers" class="zebra-striped">
   <thead>
     <tr>
       <th>{% trans "Name" %}</th>
@@ -14,8 +14,8 @@
     <td id="actions">
       <ul>
         <li class="form">{% include "nova/containers/_delete.html" with form=delete_form %}</li>
-        <li><a href="{% url horizon:nova:containers:object_index container.name %}">{% trans "List Objects" %}</a></li>
-        <li><a href="{% url horizon:nova:containers:object_upload container.name %}">{% trans "Upload Object"%}</a></li>
+        <li><a class="btn small" href="{% url horizon:nova:containers:object_index container.name %}">{% trans "List Objects" %}</a></li>
+        <li><a class="btn small" href="{% url horizon:nova:containers:object_upload container.name %}">{% trans "Upload Object"%}</a></li>
       </ul>
     </td>
   </tr>

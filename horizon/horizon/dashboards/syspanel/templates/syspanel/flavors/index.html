@@ -15,5 +15,5 @@
 
 {% block syspanel_main %}
   {% include "syspanel/flavors/_list.html" %}
-  <a id="flavor_create_link" class="action_link large-rounded" href="{% url horizon:syspanel:flavors:create %}">{% trans "Create New Flavor"%}</a>
+  <a id="flavor_create_link" class="btn small" href="{% url horizon:syspanel:flavors:create %}">{% trans "Create New Flavor"%}</a>
 {% endblock %}

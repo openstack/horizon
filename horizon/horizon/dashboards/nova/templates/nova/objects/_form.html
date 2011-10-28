@@ -1,11 +1,27 @@
 {%load i18n%}
-<form id="object_form" enctype="multipart/form-data" method="post">
+<form id="object_form" action="{% block form_url %}{% endblock %}" method="post">
   {% csrf_token %}
-  {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+  <fieldset>
+    {% for hidden in form.hidden_fields %}
+      {{hidden}}
+    {% endfor %}
     {% for field in form.visible_fields %}
-    {{ field.label_tag }}
-    {{ field.errors }}
-    {{ field }}
-  {% endfor %}
-  <input type="submit" value="{% trans "Upload Object"%}" class="large-rounded" />
+      <div class="clearfix{% if field.errors %} error{% endif %}">
+        {{field.label_tag}}
+        {% if field.errors %}
+          {% for error in field.errors %}
+            <span class="help-inline">{{error}}</span>
+          {% endfor %}
+        {% endif %}
+        <span class="help-block">{{field.help_text}}</span>
+        <div class="input">
+          {{field}}
+        </div>
+      </div>
+    {% endfor %}
+    {% block submit %}
+      <input type="submit" value="{%trans "Upload Object" %}" />
+    {% endblock %}
+  </fieldset>
 </form>
+

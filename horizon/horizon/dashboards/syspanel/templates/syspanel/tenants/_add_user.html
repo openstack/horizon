@@ -6,5 +6,5 @@
   {% endfor %}
   <input name="user" type="hidden" value="{{user.id}}" />
   <input name="tenant" type="hidden" value="{{tenant_id}}" />
-  <input id="add_tenant_user_{{user.id}}" class="add" title="User: {{user.id}}" type="submit" value="{% trans "Add"%}" />
+  <input id="add_tenant_user_{{user.id}}" class="btn small add" title="User: {{user.id}}" type="submit" value="{% trans "Add"%}" />
 </form>

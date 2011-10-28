@@ -5,5 +5,5 @@
     {{hidden}}
   {% endfor %}
   <input name="floating_ip_id" type="hidden" value="{{ip.id}}" />
-  <input id="delete_{{ip.id}}" class="delete" title="Floating IP: {{ip.id}} ({{ip.ip}})" type="submit" value="{% trans "Release"%}" />
+  <input id="delete_{{ip.id}}" class="btn small delete" title="Floating IP: {{ip.id}} ({{ip.ip}})" type="submit" value="{% trans "Release"%}" />
 </form>

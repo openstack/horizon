@@ -2,19 +2,15 @@
 <html lang="en" xml:lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Login</title>
-    <link href='{{ STATIC_URL }}dashboard/css/style.css' media='screen' rel='stylesheet' />
+    <title>Login – OpenStack Dashboard</title>
+    <link href='{{ STATIC_URL }}dashboard/css/bootstrap.css' media='screen' rel='stylesheet' />
+    <link href='{{ STATIC_URL }}dashboard/css/newstyle.css' media='screen' rel='stylesheet' />
   </head>
-  <body id="standalone">
-    <div id="login_wrapper">
-      <div class='large-rounded' id='login'>
+  <body id="splash">
+    <div class="container">
+      <div class="row large-rounded">
         {% include "_messages.html" %}
-        {% include '_login.html' %}
-        <ul id='alternate_links'>
-          <li>&nbsp;</li>
-          <li>&nbsp;</li>
-        </ul>
-        <div class="clear"></div>
+        {% include '_login.html' %}        
       </div>
     </div>
   </body>

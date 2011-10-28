@@ -17,10 +17,9 @@
   {% if instances %}
     {% include 'syspanel/instances/_list.html' %}
   {% else %}
-    <div class="message_box info">
+    <div class="alert-message block-message info">
       {% url horizon:nova:images:index as dash_image_url%}
-      <h2>{% trans "Info"%}</h2>
-      <p>{% blocktrans %}There are currently no instances.  You can launch an instance from the  <a href='{{dash_image_url}}'>Images Page.</a>{% endblocktrans %}</p>
+      <p><strong>{% trans "Info: "%}</strong>{% blocktrans %}There are currently no instances.  You can launch an instance from the  <a class="btn small" href='{{dash_image_url}}'>Images Page.</a>{% endblocktrans %}</p>
     </div>
   {% endif %}
 {% endblock %}

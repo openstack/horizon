@@ -1,7 +1,7 @@
 {% load parse_date %}
 {%load i18n%}
 
-<table class="wide">
+<table class="zebra-striped">
   <tr>
     <th>{% trans "ID"%}</th>
     <th>{% trans "Name"%}</th>
@@ -24,8 +24,7 @@
         <ul>
           <li class="form">{% include "syspanel/images/_delete.html" with form=delete_form %}</li>
           {# <li class="form">{% include "syspanel/images/_toggle.html" with form=toggle_form %}</li> #}
-
-          <li><a href="{% url horizon:syspanel:images:update image.id %}">{% trans "Edit"%}</a></li>
+          <li><a class="btn small" href="{% url horizon:syspanel:images:update image.id %}">{% trans "Edit"%}</a></li>
         </ul>
       </td>
   </tr>

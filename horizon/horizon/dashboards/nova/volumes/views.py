@@ -42,6 +42,8 @@ def index(request):
     if handled:
         return handled
 
+    create_form = CreateForm()
+
     try:
         volumes = api.volume_list(request)
     except novaclient_exceptions.ClientException, e:
@@ -53,6 +55,7 @@ def index(request):
                             'nova/volumes/index.html', {
                                 'volumes': volumes,
                                 'delete_form': delete_form,
+                                'create_form': create_form,
                                 'detach_form': detach_form})
 
 
@@ -107,4 +110,5 @@ def attach(request, volume_id):
     return shortcuts.render(request,
                             'nova/volumes/attach.html', {
                                 'attach_form': attach_form,
+                                'create_form': create_form,
                                 'volume_id': volume_id})

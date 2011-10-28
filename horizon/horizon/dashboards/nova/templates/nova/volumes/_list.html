@@ -1,6 +1,6 @@
 {% load i18n %}
 {% load parse_date %}
-<table id="volumes" class="wide">
+<table id="volumes" class="zebra-striped">
   <tr>
     <th>{% trans "ID" %}</th>
     <th>{% trans "Name" %}</th>
@@ -13,18 +13,14 @@
   {% for volume in volumes %}
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{ volume.id }}</td>
-    <td>
-      <a href="{% url horizon:nova:volumes:detail volume.id %}">
-        {{ volume.displayName }}
-      </a>
-    </td>
+    <td>{{ volume.displayName }}</td>
     <td>{{ volume.status|capfirst }}</td>
     <td>{{ volume.size }} {% trans "GB" %}</td>
     <td>{{ volume.createdAt|parse_date }}</td>
     <td>
       {% for attachment in volume.attachments %}
         {% if attachment %}
-          <a href="{% url horizon:nova:volumes:detail attachment.serverId %}">
+          <a href="{% url horizon:nova:instances:detail request.user.tenant_name attachment.serverId %}">
           <!-- TODO (tres): Show instance name -->
           Instance {{ attachment.serverId }}
           <small>({{ attachment.device }})</small>
@@ -45,7 +41,7 @@
         {% endif %}
         {% if volume.status == "available" %}
         <li>
-          <a href="{% url horizon:nova:volumes:attach volume.id %}">{% trans "Attach" %}</a>
+          <a class="btn small" href="{% url horizon:nova:volumes:attach volume.id %}">{% trans "Attach" %}</a>
         </li>
         <li class="form">
           {% include "nova/volumes/_delete.html" with form=delete_form %}

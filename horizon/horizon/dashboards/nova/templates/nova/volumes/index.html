@@ -1,10 +1,18 @@
 {% extends 'nova/base.html' %}
-{% load i18n %}
+{%load i18n%}
 
 {% block sidebar %}
   {% with current_sidebar="volumes" %}
     {{block.super}}
   {% endwith %}
+{% endblock %}
+
+{% block headerjs %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $('.modal').hide()
+    })
+  </script>
 {% endblock %}
 
 {% block page_header %}
@@ -17,10 +25,26 @@
   {% if volumes %}
     {% include 'nova/volumes/_list.html' %}
   {% else %}
-    <div class="message_box info">
-      <h2>{% trans "Info"%}</h2>
-      <p>{% blocktrans %}There are currently no volumes.{% endblocktrans %}</p>
+    <div class="alert-message block-message info">
+      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no volumes."%}</p>
     </div>
   {% endif %}
-  <a id="volume_create_link" class="action_link large-rounded" href="{% url horizon:nova:volumes:create %}">{% trans "Create New Volume" %}</a>
+  <a id="volume_create_link" class="btn primary small" data-controls-modal="create_volume_modal" data-backdrop="static" href="{% url horizon:nova:volumes:create %}">{% trans "Create New Volume"%}</a>
+
+  <div id="create_volume_modal" class="modal">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Create Volume</h3>
+    </div>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'nova/volumes/_create.html' with form=create_form %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "Volumes are block devices that can be attached to instances." %}</p>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}

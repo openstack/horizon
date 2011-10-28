@@ -14,14 +14,14 @@
 {% endblock page_header %}
 
 {% block breadcrumbs %}
-    <a href="{% url horizon:nova:networks:index %}">Networks</a>&nbsp;&raquo;&nbsp;
-    <a href="{% url horizon:nova:networks:detail network.id %}">{{network.name}}</a>
+    <a href="{% url horizon:nova:networks:index tenant %}">Networks</a>&nbsp;&raquo;&nbsp;
+    <a href="{% url horizon:nova:networks:detail tenant network.id %}">{{network.name}}</a>
 {% endblock %}
 
 {% block dash_main %}
   {% if network.ports %}
     {% include 'nova/networks/_detail.html' %}
-    <a id="network_create_link" class="action_link large-rounded" href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports"%}</a>
+    <a id="network_create_link" class="btn small" href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports"%}</a>
   {% else %}
     <div class="message_box info">
      <h2>{% trans "Info"%}</h2>

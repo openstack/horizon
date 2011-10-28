@@ -1,5 +1,48 @@
+(function($, window, document, undefined) {
+	$.fn.columnar = function (target, opt) {
+    var options = $.extend({
+      trigger: 'change',
+      retrieve: 'name',
+      container: $('table'),
+      selector: '.',
+      selected_class: 'hidden'
+    }, opt);
+
+    $(this).bind(options.trigger, function(e) {
+      options.container.find( options.selector + $(this).attr(options.retrieve) ).toggleClass(options.selected_class)
+    })
+  }
+}(jQuery, this, document));
+
+
 $(function(){
-  $('input#table_search').quicksearch('tr.odd, tr.even');
+  $('.cancel').click(function(){
+
+  })
+
+  $('.table_search input').quicksearch('tr.odd, tr.even', {
+    'delay': 300,
+    'loader': 'span.loading',
+    'bind': 'keyup click',
+    'show': function () {
+      this.style.color = '';
+    },
+    'hide': function () {
+      this.style.color = '#ccc';
+    },
+    'prepareQuery': function (val) {
+      return new RegExp(val, "i");
+    },
+    'testQuery': function (query, txt, _row) {
+      return query.test($(_row).find('td:not(.hidden)').text());
+    }
+  });
+
+  $('table#keypairs').tablesorter();
+
+  $('#keypair_filter form input[type=checkbox]').columnar({});
+
+
 
   // show+hide image details
   $(".details").hide()
@@ -7,8 +50,9 @@ $(function(){
     $(this).parent().nextUntil(".even, .odd").fadeToggle("slow");
   })
 
-  $("#drop_btn").click(function(){
-    $("#user_tenant_list").toggle();
+  $(".drop_btn").click(function(){
+    $(this).parent().children('.item_list').toggle();
+    return false;
   })
 
 
@@ -48,9 +92,11 @@ $(function(){
 
   // Fancy multi-selects
   $(".chzn-select").chosen()
-    
+
   $(".detach").click(function(e){
     var response = confirm('Are you sure you want to detach the '+$(this).attr('title')+" ?");
     return response;
   })
 })
+
+

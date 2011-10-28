@@ -15,7 +15,7 @@
 
 {% block syspanel_main %}
 
-    <table class="wide">
+    <table class="zebra-striped">
       <tr>
         <th>{% trans "ID"%}</th>
         <th>{% trans "Name"%}</th>
@@ -33,13 +33,13 @@
             <ul>
               <li class="form">{% include "syspanel/users/_enable_disable.html" with form=user_enable_disable_form %}</li>
               <li class="form">{% include "syspanel/users/_delete.html" with form=user_delete_form %}</li>
-              <li><a href="{% url horizon:syspanel:users:update user.id %}">{% trans "Edit"%}</a></li>
+              <li><a class="btn small" href="{% url horizon:syspanel:users:update user.id %}">{% trans "Edit"%}</a></li>
             </ul>
           </td>
         </tr>
       {% endfor %}
     </table>
-    <a id="user_create_link" class="action_link large-rounded" href="{% url horizon:syspanel:users:create %}">{% trans "Create New User"%}</a>
+    <a id="user_create_link" class="btn small" href="{% url horizon:syspanel:users:create %}">{% trans "Create New User"%}</a>
   </div>
 
 {% endblock %}

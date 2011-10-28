@@ -12,20 +12,22 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  <h3 class="container_name"><span>Container:</span> {{ container_name }}</h3>
-
-  <div class="dash_block wide form">
-    <div class="left">
-      {% include 'nova/objects/_form.html' with form=upload_form %}
-      <h3><a href="{% url horizon:nova:containers:object_index container_name %}">&lt;&lt; {% trans "Return to objects list"%}</a></h3>
+  <div id="create_container_form" class="modal static_page">
+    <div class="modal-header">
+      <h3>Object Upload: <small>Container: {{container_name}}</h3>
     </div>
-
-    <div class="right">
-      <h3>{% trans "Description"%}:</h3>
-      <p>{% trans "An object is the basic storage entity and any optional metadata that represents the files you store in the OpenStack Object Storage system. When you upload data to OpenStack Object Storage, the data is stored as-is (no compression or encryption) and consists of a location (container), the object's name, and any metadata consisting of key/value pairs."%}</p>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'nova/objects/_upload.html' with form=upload_form %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "An object is the basic storage entity and any optional metadata that represents the files you store in the OpenStack Object Storage system. When you upload data to OpenStack Object Storage, the data is stored as-is (no compression or encryption) and consists of a location (container), the object's name, and any metadata consisting of key/value pairs."%}</p>
+      </div>
     </div>
-    <div class="clear">&nbsp;</div>
   </div>
-
 {% endblock %}
+
+
+
 

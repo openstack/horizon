@@ -1,0 +1,11 @@
+{% extends 'nova/keypairs/_form.html' %}
+{%load i18n%}
+
+{% block form_url %}{% url horizon:nova:keypairs:import %}{% endblock %}
+
+{% block submit %}
+<div class="modal-footer">
+  <input class="btn primary pull-right" type="submit" value="{%trans "Import Keypair"%}" />
+  <a href="#" class="btn secondary cancel close">Cancel</a>
+</div>
+{% endblock %}

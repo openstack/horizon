@@ -12,41 +12,55 @@
   {% include "horizon/common/_page_header.html" with title=_("Launch Instance") %}
 {% endblock page_header %}
 
+{% block headerjs %}
+  <script type="text/javascript" charset="utf-8">
+    // $("#foo").modal('show', {
+    //   'backdrop': true,
+    // })
+  </script>
+{% endblock %}
+
 {% block dash_main %}
-  <div class="dash_block">
-    <div class="left">
-      {% include 'nova/images/_launch.html' %}
+  <div class="modal static_page">
+    <div class="modal-header">
+      <h3>Launch Instances</h3>
     </div>
-    <div class="right">
-      <h3>{% trans "Description:"%}</h3>
-      <p>{% trans "Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources you are allowed to provision."%}</p>
-      <table border="0">
-        <tr>
-          <th>{% trans "Quota Name"%}</th>
-          <th>{% trans "Limit"%}</th>
-        </tr>
-        <tr>
-          <td>{% trans "RAM (MB)"%}</td>
-          <td>{{quotas.ram}}MB</td>
-        </tr>
-        <tr>
-          <td>{% trans "Floating IPs"%}</td>
-          <td>{{quotas.floating_ips}}</td>
-        </tr>
-        <tr>
-          <td>{% trans "Instances"%}</td>
-          <td>{{quotas.instances}}</td>
-        </tr>
-        <tr>
-          <td>{% trans "Volumes"%}</td>
-          <td>{{quotas.volumes}}</td>
-        </tr>
-        <tr>
-          <td>{% trans "Gigabytes"%}</td>
-          <td>{{quotas.gigabytes}}GB</td>
-        </tr>
-      </table>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'nova/images/_launch.html' with image_id=image.id %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description:"%}</h3>
+        <p>{% trans "Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources they are allowed to provision."%}</p>
+        <table border="0">
+          <tr>
+            <th>{% trans "Quota Name"%}</th>
+            <th>{% trans "Limit"%}</th>
+          </tr>
+          <tr>
+            <td>{% trans "RAM (MB)"%}</td>
+            <td>{{quotas.ram}}MB</td>
+          </tr>
+          <tr>
+            <td>{% trans "Floating IPs"%}</td>
+            <td>{{quotas.floating_ips}}</td>
+          </tr>
+          <tr>
+            <td>{% trans "Instances"%}</td>
+            <td>{{quotas.instances}}</td>
+          </tr>
+          <tr>
+            <td>{% trans "Volumes"%}</td>
+            <td>{{quotas.volumes}}</td>
+          </tr>
+          <tr>
+            <td>{% trans "Gigabytes"%}</td>
+            <td>{{quotas.gigabytes}}GB</td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear">&nbsp;</div>
     </div>
-    <div class="clear">&nbsp;</div>
   </div>
 {% endblock %}
+

@@ -1,15 +1,34 @@
 {%load i18n%}
-<table id="keypairs" class="wide">
-  <tr>
-    <th>{% trans "Name"%}</th>
-    <th>{% trans "Fingerprint"%}</th>
-    <th>{% trans "Actions"%}</th>
-  </tr>
+
+<div class="table_title">
+  <h3>Keypairs</h3>
+
+  <div class="table_actions">
+    <a class="inspect" href="#">inspect</a>
+
+    <div class="keypairs table_search">
+      <form action="#">
+        <input class="span3" type="text">
+      </form>
+    </div>
+    <a id="keypairs_import_link" class="btn primary small" data-controls-modal="import_keypair_modal" data-backdrop="static" href="{% url horizon:nova:keypairs:import %}">{% trans "Import Keypair"%}</a>
+    <a id="keypairs_create_link" class="btn small" data-controls-modal="create_keypair_modal" data-backdrop="static" href="{% url horizon:nova:keypairs:create %}">{% trans "Create New Keypair"%}</a>
+  </div>
+
+</div>
+<table id="keypairs" class="zebra-striped">
+  <thead>
+    <tr>
+      <th>{% trans "Name"%}</th>
+      <th>{% trans "Fingerprint"%}</th>
+      <th>{% trans "Actions"%}</th>
+    </tr>
+  </thead>
   {% for keypair in keypairs %}
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{ keypair.name }}</td>
     <td>{{ keypair.fingerprint }}</td>
-    <td id="actions">
+    <td id="actions" class="single">
       <ul>
         <li class="form">{% include "nova/keypairs/_delete.html" with form=delete_form %}</li>
       </ul>

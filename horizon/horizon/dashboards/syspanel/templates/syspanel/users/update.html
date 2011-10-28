@@ -13,15 +13,18 @@
 {% endblock page_header %}
 
 {% block syspanel_main %}
-  <div class="dash_block">
-    <div class="left">
-      {% include 'syspanel/users/_update_form.html' %}
+  <div class="modal static_page">
+    <div class="modal-header">
+      <h3>Create User</h3>
     </div>
-
-    <div class="right">
-      <h3>{% trans "Description"%}:</h3>
-      <p>{% trans "From here you can edit users by changing their usernames, emails, passwords, and tenants."%}</p>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'syspanel/users/_update.html' %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "From here you can edit users by changing their usernames, emails, passwords, and tenants."%}</p>
+      </div>
     </div>
-    <div class="clear">&nbsp;</div>
   </div>
 {% endblock %}

@@ -15,5 +15,5 @@
 
 {% block dash_main %}
   {% include 'nova/containers/_list.html' %}
-  <a class="action_link large-rounded" href="{% url horizon:nova:containers:create %}">{% trans "Create New Container"%} &gt;&gt;</a>
+  <a class="btn small" href="{% url horizon:nova:containers:create %}">{% trans "Create New Container"%}</a>
 {% endblock %}

@@ -1,17 +1,12 @@
+{% extends 'nova/instances/_form.html' %}
 {%load i18n%}
-<form id="floating_ips_associate" action="" method="post">
-  {% csrf_token %}
-  <fieldset>
-    {% for hidden in form.hidden_fields %}
-      {{hidden}}
-    {% endfor %}
-    {% for field in form.visible_fields %}
-      {{field.label_tag}}
-      {{field.errors}}
-      {{field}}
-    {% endfor %}
-    {% block submit %}
-      <input type="submit" value="{%trans "Associate IP"%}" />
-    {% endblock %}
-  </fieldset>
-</form>
+
+{% block form_url %}{% url horizon:nova:floating_ips:associate floating_ip_id %}{% endblock %}
+
+{% block submit %}
+<div class="modal-footer">
+  <input class="btn primary pull-right" type="submit" value="{%trans "Associate IP"%}" />
+  <a href="#" class="btn secondary cancel close">Cancel</a>
+</div>
+{% endblock %}
+

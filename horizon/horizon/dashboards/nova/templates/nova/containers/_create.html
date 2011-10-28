@@ -1,0 +1,11 @@
+{% extends 'nova/keypairs/_form.html' %}
+{%load i18n%}
+
+{% block form_url %}{% url horizon:nova:containers:create %}{% endblock %}
+
+{% block submit %}
+<div class="modal-footer">
+  <input class="btn primary pull-right" type="submit" value="{%trans "Create Keypair"%}" />
+  <a href="#" class="btn secondary cancel close">Cancel</a>
+</div>
+{% endblock %}

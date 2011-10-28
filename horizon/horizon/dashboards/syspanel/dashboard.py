@@ -20,7 +20,7 @@ import horizon
 
 
 class Syspanel(horizon.Dashboard):
-    name = "System Dashboard"  # Appears in navigation
+    name = "System"  # Appears in navigation
     slug = "syspanel"
     panels = {_("System Panel"): ('overview', 'instances', 'services',
                                   'flavors', 'images', 'tenants', 'users',

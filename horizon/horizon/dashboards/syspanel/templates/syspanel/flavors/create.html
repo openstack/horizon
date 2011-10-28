@@ -12,23 +12,11 @@
 {% endblock page_header %}
 
 {% block syspanel_main %}
-    <div class="dash_block">
-      <div>
-        <ul class='status_box info small'>
-          <li class='block'>
-            <p class='overview'>{{global_summary.total_vcpus}}<span> Cores</span></p></span></p>
-            <p class='avail'>{{global_summary.total_avail_vcpus}}<span class='label'> Avail</span></p>
-          </li>
-          <li class='block'>
-            <p class='overview'>{{global_summary.total_ram_size_hr|floatformat}}<span> {{global_summary.unit_ram_size}} Ram</span></p>
-            <p class='avail'>{{global_summary.total_avail_ram_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_ram_size}}</span><span class='label'> Avail</span></p>
-          </li>
-          <li class='block last'>
-            <p class='overview'>{{global_summary.total_disk_size_hr|floatformat}}<span> {{global_summary.unit_disk_size}} Disk</span></p>
-            <p class='avail'>{{global_summary.total_avail_disk_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_disk_size}}</span><span class='label'> Avail</span></p>
-          </li>
-        </ul>
-      </div>
+  <div class="modal static_page">
+    <div class="modal-header">
+      <h3>Create User</h3>
+    </div>
+    <div class="modal-body">
       <div class="left">
         {% include "syspanel/flavors/_create.html" %}
       </div>
@@ -36,6 +24,6 @@
         <h3>{% trans "Description"%}:</h3>
         <p>{% trans "From here you can define the sizing of a new flavor."%}</p>
       </div>
-      <div class="clear">&nbsp;</div>
     </div>
+  </div>
 {% endblock %}

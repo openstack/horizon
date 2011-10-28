@@ -20,19 +20,21 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div class="dash_block">
+<div id="update_instance_modal" class="modal static_page">
+  <div class="modal-header">
+    <h3>Choose a name for your snapshot.</h3>
+  </div>
+  <div class="modal-body">
     <div class="left">
-      <h3>{% trans "Choose a name for your snapshot."%}</h3>
-      {% include 'nova/snapshots/_form.html' with form=create_form %}
-      <h3><a href="{% url horizon:nova:snapshots:index %}"><< {% trans "Return to snapshots list"%}</a></h3>
+      {% include 'nova/snapshots/_create.html' with form=create_form %}
     </div>
-
     <div class="right">
-      <h3>{% trans "Description"%}:</h3>
+      <h3>{% trans "Description:"%}</h3>
       <p>{% trans "Snapshots preserve the disk state of a running instance."%}</p>
     </div>
-    <div class="clear">&nbsp;</div>
   </div>
+</div>
+
 {% endblock %}
 
 

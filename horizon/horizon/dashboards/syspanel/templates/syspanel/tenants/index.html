@@ -15,7 +15,7 @@
 
 {% block syspanel_main %}
   {% include "syspanel/tenants/_list.html" %}
-  <a id="tenant_create_link" class="action_link large-rounded" href="{% url horizon:syspanel:tenants:create %}">{% trans "Create New Tenant"%}</a>
+  <a id="tenant_create_link" class="btn small" href="{% url horizon:syspanel:tenants:create %}">{% trans "Create New Tenant"%}</a>
 {% endblock %}
 
 

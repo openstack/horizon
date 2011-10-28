@@ -1,5 +1,5 @@
 {%load i18n%}
-<table id="floating_ips" class="wide">
+<table id="floating_ips" class="zebra-striped">
   <tr>
     <th>IP</th>
     <th>Instance</th>
@@ -25,7 +25,7 @@
         {% if ip.fixed_ip %}
         <li class="form">{% include "nova/floating_ips/_disassociate.html" with form=disassociate_form %}</li>
         {% else %}
-          <li class="form"><a href="{% url horizon:nova:floating_ips:associate ip.id %}">{%trans "Associate to instance"%}</a></li>
+          <li class="form"><a class="btn small" href="{% url horizon:nova:floating_ips:associate ip.id %}">{%trans "Associate to instance"%}</a></li>
         {% endif %}
       </ul>
     </td>

@@ -32,5 +32,6 @@ $(function(){
   $("#user_form input#id_password").example("password");
 
 // table search box
-  $("input#table_search").example("Search...")
+  $(".table_search input").example("Filter")
 })
+

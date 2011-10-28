@@ -17,11 +17,13 @@
   {% if networks %}
     {% include 'nova/networks/_list.html' %}
     {% url horizon:nova:networks:create as dash_net_url %}
-    <a id="network_create_link" class="action_link large-rounded" href="{{dash_net_url}}">{% trans "Create New Network"%}</a>
+    <a id="network_create_link" class="btn small" href="{{dash_net_url}}">{% trans "Create New Network"%}</a>
   {% else %}
-    <div class="message_box info">
-      <h2>{% trans "Info"%}</h2>
-      <p>{% trans "There are currently no networks."%} <a href='{% url horizon:nova:networks:create %}'>{% trans "Create A Network"%} &gt;&gt;</a></p>
+    <div class="alert-message block-message info">
+      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no networks."%}</p>
+      <div class="alert-actions">
+        <a class="btn small" href='{% url horizon:nova:networks:create %}'>{% trans "Create A Network"%} &gt;&gt;</a>
+      </div>
     </div>
   {% endif %}
   </div>

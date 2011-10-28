@@ -7,29 +7,23 @@
   {% endwith %}
 {% endblock %}
 
-{% block headerjs %}
-  <script type="text/javascript" charset="utf-8">
-    $(function(){
-      $("#id_name").focus()
-    })
-  </script>
-{% endblock %}
-
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Create a Volume") %}
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div class="dash_block">
-    <div class="left">
-      {% include 'nova/volumes/_form.html' with form=create_form %}
-      <h3><a href="{% url horizon:nova:volumes:index %}">&lt;&lt; {% trans "Return to volumes list"%}</a></h3>
+  <div id="create_volume_modal" class="modal static_page">
+    <div class="modal-header">
+      <h3>Create Volume</h3>
     </div>
-
-    <div class="right">
-      <h3>{% trans "Description" %}:</h3>
-      <p>{% trans "Volumes are block devices that can be attached to instances." %}</p>
+    <div class="modal-body">
+      <div class="left">
+        {% include 'nova/volumes/_create.html' with form=create_form %}
+      </div>
+      <div class="right">
+        <h3>{% trans "Description"%}:</h3>
+        <p>{% trans "Volumes are block devices that can be attached to instances." %}</p>
+      </div>
     </div>
-    <div class="clear">&nbsp;</div>
   </div>
 {% endblock %}

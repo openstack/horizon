@@ -88,6 +88,7 @@ def update(request, tenant_id):
 
     return shortcuts.render(request,
                             'syspanel/tenants/update.html', {
+                                'tenant_id': tenant_id,
                                 'form': form})
 
 

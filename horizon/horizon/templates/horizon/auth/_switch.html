@@ -6,12 +6,21 @@
     {{ hidden }}
   {% endfor %}
   {% for field in form.visible_fields %}
-    {{ field.label_tag }}
-    {{ field.errors }}
-    {{ field }}
-    {% endfor %}
+    <div class="clearfix{% if field.errors %} error{% endif %}">
+      {{field.label_tag}}
+      <div class="input">
+        {{field}}
+        {% if field.errors %}
+          {% for error in field.errors %}
+            <span class="help-inline">{{error}}</span>
+          {% endfor %}
+        {% endif %}
+        <span class="help-block">{{field.help_text}}</span>
+      </div>
+    </div>
+  {% endfor %}
   {% block submit %}
-    <input type="submit" value="{% trans "Login" %}" />
+    <input class="btn primary" type="submit" value="{%trans "Login"%}" />
   {% endblock %}
   </fieldset>
 </form>

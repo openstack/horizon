@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block page_header %}
-  <div id='page_header'>
+  <div class='page-header'>
     <h2>{% trans "Users for Tenant"%}: <span>{{tenant_id}}</span></h2>
   </div>
 {% endblock %}
@@ -17,7 +17,7 @@
 <div id="usage">
 
   {% if users %}
-    <table class="wide">
+    <table class="zebra-striped">
       <tr id='headings'>
         <th>{% trans "ID"%}</th>
         <th>{% trans "Name"%}</th>
@@ -47,7 +47,7 @@
   {% endif %}
   {% if new_users %}
     <h3>{% trans "Add new users"%}</h3>
-    <table class="wide">
+    <table class="zebra-striped">
       <tr id='headings'>
         <th>{% trans "ID"%}</th>
         <th>{% trans "Name"%}</th>

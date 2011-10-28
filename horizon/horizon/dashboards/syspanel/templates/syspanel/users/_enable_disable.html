@@ -5,5 +5,5 @@
   {% endfor %}
   <input name="id" type="hidden" value="{{user.id}}" />
   <input name="enabled" type="hidden" value="{{ user.enabled|yesno:"disable,enable,None" }}" />
-  <input id="enable_{{user.id}}" class="{{ user.enabled|yesno:"disable,enable,None" }}" title="User: {{user.id}}" type="submit" value="{{ user.enabled|yesno:"Disable,Enable,Error" }}" />
+  <input id="enable_{{user.id}}" class="btn small {{ user.enabled|yesno:"disable,enable,None" }}" title="User: {{user.id}}" type="submit" value="{{ user.enabled|yesno:"Disable,Enable,Error" }}" />
 </form>

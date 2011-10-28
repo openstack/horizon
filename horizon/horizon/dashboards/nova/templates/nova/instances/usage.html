@@ -9,53 +9,44 @@
   {% endwith %}
 {% endblock %}
 
-{% block page_header %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "horizon/common/_page_header.html" with title=_("Overview") %}
-{% endblock page_header %}
-
 {% block dash_main %}
-  <div id="usage">
+
+  <div class='page-header'>
+    <h2>Overview <small>This page shows your cloud usage.</small></h2>
+  </div>
 
   {% if usage.instances %}
-    <div class="usage_block">
-      <h3>CPU</h3>
-      <ul>
-        <li><span class="quantity">{{usage.total_active_vcpus|default:0}}</span><span class="unit">Cores</span> Active</li>
-        <li><span class="quantity">{{usage.total_cpu_usage|floatformat|default:0}}</span><span class="unit">CPU-HR</span> Used</li>
-      </ul>
-    </div>
+    <div id="usage">
+      <div class="usage_block first">
+        <h3>CPU</h3>
+        <ul>
+          <li><span class="quantity">{{usage.total_active_vcpus|default:0}}</span><span class="unit">Cores</span> Active</li>
+          <li><span class="quantity">{{usage.total_cpu_usage|floatformat|default:0}}</span><span class="unit">CPU-HR</span> Used</li>
+        </ul>
+      </div>
 
-    <div class="usage_block">
-      <h3>RAM</h3>
-      <ul>
-        <li><span class="quantity">{{total_ram|default:0}}</span><span class="unit">{{ram_unit}}</span> Active</li>
-      </ul>
-    </div>
+      <div class="usage_block">
+        <h3>RAM</h3>
+        <ul>
+          <li><span class="quantity">{{total_ram|default:0}}</span><span class="unit">{{ram_unit}}</span> Active</li>
+        </ul>
+      </div>
 
-    <div class="usage_block last">
-      <h3>Disk</h3>
-      <ul>
-        <li><span class="quantity">{{usage.total_active_disk_size|default:0}}</span><span class="unit">GB</span> Active</li>
-        <li><span class="quantity">{{usage.total_disk_usage|floatformat|default:0}}</span><span class="unit">GB-HR</span> Used</li>
-      </ul>
+      <div class="usage_block last">
+        <h3>Disk</h3>
+        <ul>
+          <li><span class="quantity">{{usage.total_active_disk_size|default:0}}</span><span class="unit">GB</span> Active</li>
+          <li><span class="quantity">{{usage.total_disk_usage|floatformat|default:0}}</span><span class="unit">GB-HR</span> Used</li>
+        </ul>
+      </div>
     </div>
-   </div>
 
     <div class='table_title wide'>
-      <a class="csv_download_link" href="{{csv_link}}">{% trans "Download CSV"%} &raquo;</a>
-      <h3>Server Usage Summary
-        <small>
-          {% if show_terminated %}
-            ( <a href="{% url horizon:nova:instances:usage %}">{% trans "Hide Terminated"%}</a> )
-          {% else %}
-            ( <a href="{% url horizon:nova:instances:usage %}?show_terminated=1">{% trans "Show Terminated"%}</a> )
-          {% endif %}
-        </small>
-      </h3>
+      <a class="csv_download_link pull-right" href="{{ csv_link }}">{% trans "Download CSV"%} &raquo;</a>
+      <h3>Server Usage Summary</h3>
     </div>
 
-    <table class="wide">
+    <table class="zebra-striped">
       <tr id='headings'>
         <th>{% trans "ID"%}</th>
         <th>{% trans "Name"%}</th>
@@ -92,11 +83,12 @@
       </tbody>
     </table>
   {% else %}
-      <div class="message_box info">
-        {% url horizon:nova:images:index  as dash_img_url%}
-        <h2>{% trans "Info"%}</h2>
-        <p>{% blocktrans %}There are currently no instances.<br/><br/>You can launch an instance from the  <a href='{{dash_img_url}}'>Images Page.</a>{% endblocktrans %}</p>
-      </div>
+  <div class="alert-message block-message info">
+    <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no instances."%}</p>
+    <div class="alert-actions">
+      <a class="btn small" href='{{ dash_img_url }}'>{% trans "Images Page" %}.</a>
+    </div>
+  </div>
   {% endif %}
 
 {% endblock %}

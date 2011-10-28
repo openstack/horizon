@@ -6,5 +6,5 @@
   {% endfor %}
   <input name="user" type="hidden" value="{{user.id}}" />
   <input name="tenant" type="hidden" value="{{tenant_id}}" />
-  <input id="remove_tenant_user_{{user.id}}" class="remove" ttle="User: {{user.id}}" type="submit" value="{% trans "Remove"%}" />
+  <input id="remove_tenant_user_{{user.id}}" class="btn small remove" ttle="User: {{user.id}}" type="submit" value="{% trans "Remove"%}" />
 </form>

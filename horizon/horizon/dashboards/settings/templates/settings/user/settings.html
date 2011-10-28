@@ -2,12 +2,10 @@
 {% load i18n %}
 
 {% block page_header %}
-  {% url horizon:nova:instances:index as refresh_link %}
   {% include "horizon/common/_page_header.html" with title=_("Dashboard Settings") %}
 {% endblock page_header %}
 
 {% block settings_main %}
-
   <div class="dash_block">
     <div class="left">
       <h3>{% trans "Dashboard User Interface Language"%}</h3>
@@ -22,7 +20,7 @@
             {%endif%}
         {% endfor %}
         </select></p>
-        <input type="submit" value="{% trans "Select Language"%}"  class="large-rounded" />
+        <input type="submit" value="{% trans "Select Language"%}"  class="btn large-rounded" />
       </form>
     </div>
 

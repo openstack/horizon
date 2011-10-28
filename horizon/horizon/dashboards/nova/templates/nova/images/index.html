@@ -15,11 +15,9 @@
 {% block dash_main %}
   {% if images %}
     {% include 'nova/images/_list.html' %}
-
-    {% else %}
-      <div class="message_box info">
-        <h2>{% trans "Info"%}</h2>
-        <p>{% trans "There are currently no images."%}</p>
-      </div>
-    {% endif %}
+  {% else %}
+    <div class="alert-message block-message info">
+      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no images."%}</p>
+    </div>
+  {% endif %}
 {% endblock %}

@@ -1,27 +1,23 @@
 {% load i18n %}
 {% for message in messages %}
   {% if message.tags == "info" %}
-    <div class="message_box info">
-      <h2>{% trans "Info"%}</h2>
-      <p>{{ message }}</p>
+    <div class="alert-message  info">
+      <p><strong>{% trans "Info: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
   {% if message.tags == "warning" %}
-    <div class="message_box medium">
-      <h2>{% trans "Warning"%}</h2>
-      <p>{{ message }}</p>
+    <div class="alert-message warning">
+      <p><strong>{% trans "Warning: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
   {% if message.tags == "success" %}
-    <div class="message_box success">
-      <h2>{% trans "Success"%}</h2>
-      <p>{{ message }}</p>
+    <div class="alert-message  success">
+      <p><strong>{% trans "Success: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
   {% if message.tags == "error" %}
-    <div class="message_box error">
-      <h2>{% trans "Error"%}</h2>
-      <p>{{ message }}</p>
+    <div class="alert-message  error">
+      <p><strong>{% trans "Error: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
 {% endfor %}

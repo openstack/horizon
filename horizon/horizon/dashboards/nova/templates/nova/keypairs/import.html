@@ -16,12 +16,15 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div class="dash_block">
+<div id="import_keypair_modal" class="modal">
+  <div class="modal-header">
+    <a href="#" class="close">&times;</a>
+    <h3>Import Keypair</h3>
+  </div>
+  <div class="modal-body">
     <div class="left">
-      {% include 'nova/keypairs/_form.html' with form=create_form %}
-      <h3><a href="{% url horizon:nova:keypairs:index %}">&lt;&lt; {% trans "Return to keypairs list"%}</a></h3>
+      {% include 'nova/keypairs/_import.html' with form=import_form %}
     </div>
-
     <div class="right">
       <h3>{% trans "Description"%}:</h3>
       <p>{% trans "Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)."%}</p>
@@ -29,5 +32,6 @@
     </div>
     <div class="clear">&nbsp;</div>
   </div>
+</div>
 {% endblock %}
 

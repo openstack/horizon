@@ -17,61 +17,59 @@
 {% endblock page_header %}
 
 {% block syspanel_main %}
-  <div id="status_top">
-        {% if external_links %}
-          <div id="monitoring">
-            <h3>{% trans "Monitoring"%}: </h3>
-            <ul id="external_links">
-              {% for link in external_links %}
-                <li><a target="_blank" href="{{ link.1 }}">{{ link.0 }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endif %}
-
-        <form action="" method="get" id="date_form">
-          <!-- {% csrf_token %} -->
-          <h3>{% trans "Select a month to query its usage"%}: </h3>
-          <div class="form-row">
-            {{ dateform.date }}
-            <input class="submit" type="submit"/>
-          </div>
-        </form>
-
-        <ul class='status_box good'>
-          <li class='status block'><span>Status:</span> Good</li>
-          <li class='block'>
-            <p class='overview'>{{global_summary.total_vcpus}}<span> Cores</span></p>
-            <p class='used'>{{global_summary.total_active_vcpus}}<span class='label'> Used</span></p>
-            <p class='avail'>{{global_summary.total_avail_vcpus}}<span class='label'> Avail</span></p>
-          </li>
-          <li class='block'>
-            <p class='overview'>{{global_summary.total_ram_size_hr|floatformat}}<span> {{global_summary.unit_ram_size}} Ram</span></p>
-            <p class='used'>{{global_summary.total_active_ram_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_ram_size}}</span><span class='label'> Used</span></p>
-            <p class='avail'>{{global_summary.total_avail_ram_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_ram_size}}</span><span class='label'> Avail</span></p>
-          </li>
-          <li class='block last'>
-            <p class='overview'>{{global_summary.total_disk_size_hr|floatformat}}<span> {{global_summary.unit_disk_size}} Disk</span></p>
-            <p class='used'>{{global_summary.total_active_disk_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_disk_size}}</span><span class='label'> Used</span></p>
-            <p class='avail'>{{global_summary.total_avail_disk_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_disk_size}}</span><span class='label'> Avail</span></p>
-          </li>
-        </ul>
-
-        <p id="activity">
-          <span><strong>{% trans "Active Instances"%}:</strong> {{global_summary.total_active_instances|default:'-'}}</span>
-          <span><strong>{% trans "This month's VCPU-Hours"%}:</strong> {{global_summary.total_cpu_usage|floatformat|default:'-'}}</span>
-          <span><strong>{% trans "This month's GB-Hours"%}:</strong> {{global_summary.total_disk_usage|floatformat|default:'-'}}</span>
-        </p>
+{% if external_links %}
+  <div id="monitoring">
+    <h3>{% trans "Monitoring"%}: </h3>
+    <ul id="external_links">
+      {% for link in external_links %}
+        <li><a target="_blank" href="{{ link.1 }}">{{ link.0 }}</a></li>
+      {% endfor %}
+    </ul>
   </div>
+{% endif %}
+
+<form action="" method="get" id="date_form">
+  <!-- {% csrf_token %} -->
+  <h3>{% trans "Select a month to query its usage"%}: </h3>
+  <div class="form-row">
+    {{ dateform.date }}
+    <input class="btn small" type="submit"/>
+  </div>
+</form>
+
+<ul class='status_box good'>
+  <li class='status block'><span>Status:</span> Good</li>
+  <li class='block'>
+    <p class='overview'>{{global_summary.total_vcpus}}<span> Cores</span></p>
+    <p class='used'>{{global_summary.total_active_vcpus}}<span class='labels'> Used</span></p>
+    <p class='avail'>{{global_summary.total_avail_vcpus}}<span class='labels'> Avail</span></p>
+  </li>
+  <li class='block'>
+    <p class='overview'>{{global_summary.total_ram_size_hr|floatformat}}<span> {{global_summary.unit_ram_size}} Ram</span></p>
+    <p class='used'>{{global_summary.total_active_ram_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_ram_size}}</span><span class='labels'> Used</span></p>
+    <p class='avail'>{{global_summary.total_avail_ram_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_ram_size}}</span><span class='labels'> Avail</span></p>
+  </li>
+  <li class='block last'>
+    <p class='overview'>{{global_summary.total_disk_size_hr|floatformat}}<span> {{global_summary.unit_disk_size}} Disk</span></p>
+    <p class='used'>{{global_summary.total_active_disk_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_disk_size}}</span><span class='labels'> Used</span></p>
+    <p class='avail'>{{global_summary.total_avail_disk_size_hr|floatformat}}<span class='unit'> {{global_summary.unit_disk_size}}</span><span class='labels'> Avail</span></p>
+  </li>
+</ul>
+
+<p id="activity">
+  <span><strong>{% trans "Active Instances"%}:</strong> {{global_summary.total_active_instances|default:'-'}}</span>
+  <span><strong>{% trans "This month's VCPU-Hours"%}:</strong> {{global_summary.total_cpu_usage|floatformat|default:'-'}}</span>
+  <span><strong>{% trans "This month's GB-Hours"%}:</strong> {{global_summary.total_disk_usage|floatformat|default:'-'}}</span>
+</p>
 
   {% if usage_list %}
-  <div id="usage_table">
+  <div id="usage">
     <div class='table_title wide'>
-      <a class="csv_download_link" href="{{csv_link}}">{% trans "Download CSV"%} &raquo;</a>
+      <a class="csv_download_link pull-right" href="{{csv_link}}">{% trans "Download CSV"%} &raquo;</a>
       <h3>{% trans "Server Usage Summary"%}</h3>
     </div>
 
-    <table class="wide">
+    <table class="zebra-striped">
       <tr id="headings">
         <th>{% trans "Tenant"%}</th>
         <th>{% trans "Instances"%}</th>
