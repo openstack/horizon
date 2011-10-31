@@ -1,0 +1,1971 @@
+# Translations of Dashboard for OpenStack User Interface.
+# Copyright 2011 Midokura KK
+# This file is distributed under the same license as the Dashboard for OpenStack.
+# FIRST AUTHOR Jeffrey Wilcox, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openstack-dashboard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-01 23:07-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+
+#: context_processors.py:35
+#, python-format
+msgid ""
+"Unable to retrieve tenant list from                                  "
+"keystone: %s"
+msgstr ""
+
+#: forms.py:180
+#, python-format
+msgid "Unexpected error: %s"
+msgstr ""
+
+#: middleware.py:85
+msgid "Your token has expired. Please log in again"
+msgstr ""
+
+#: api/keystone.py:199
+#, python-format
+msgid "Role does not exist: %s"
+msgstr ""
+
+#: api/keystone.py:207
+#, python-format
+msgid "Role \"%s\" does not exist for that user on this tenant."
+msgstr ""
+
+#: dashboards/dash/dashboard.py:25
+msgid "Manage Compute"
+msgstr ""
+
+#: dashboards/dash/dashboard.py:28
+msgid "Network"
+msgstr ""
+
+#: dashboards/dash/dashboard.py:29
+msgid "Object Store"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:22
+#, python-format
+msgid "Unable to delete non-empty container: %s"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:28
+#, python-format
+msgid "Successfully deleted container: %s"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:34
+msgid "Container Name"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:38
+msgid "Container was successfully created."
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:55
+#, python-format
+msgid "There are no objects matching that prefix in %s"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:71
+#, python-format
+msgid "Successfully deleted object: %s"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:77
+msgid "Object Name"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:78
+msgid "File"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:88
+msgid "Object was successfully uploaded."
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:94
+msgid "Container to store object in"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:97
+msgid "New object name"
+msgstr ""
+
+#: dashboards/dash/containers/forms.py:119
+#, python-format
+msgid "Object was successfully copied to %(container)s\\%(obj)s"
+msgstr ""
+
+#: dashboards/dash/containers/panel.py:8
+#: dashboards/dash/templates/dash/containers/index.html:13
+msgid "Containers"
+msgstr ""
+
+#: dashboards/dash/floating_ips/forms.py:43
+#, python-format
+msgid "Successfully released Floating IP: %s"
+msgstr ""
+
+#: dashboards/dash/floating_ips/forms.py:47
+#, python-format
+msgid "Error releasing Floating IP from tenant: %s"
+msgstr ""
+
+#: dashboards/dash/floating_ips/forms.py:63
+#: dashboards/dash/templates/dash/networks/_detail.html:19
+msgid "Instance"
+msgstr ""
+
+#: dashboards/dash/floating_ips/forms.py:72
+#, python-format
+msgid ""
+"Successfully associated Floating IP:                                     "
+"%(ip)s with Instance: %(inst)s"
+msgstr ""
+
+#: dashboards/dash/floating_ips/forms.py:78
+#, python-format
+msgid "Error associating Floating IP: %s"
+msgstr ""
+
+#: dashboards/dash/floating_ips/forms.py:95
+#, python-format
+msgid "Successfully disassociated Floating IP: %s"
+msgstr ""
+
+#: dashboards/dash/floating_ips/forms.py:99
+#, python-format
+msgid "Error disassociating Floating IP: %s"
+msgstr ""
+
+#: dashboards/dash/floating_ips/forms.py:114
+#, python-format
+msgid ""
+"Successfully allocated Floating IP \"%(ip)s\"                                "
+"to tenant \"%(tenant)s\""
+msgstr ""
+
+#: dashboards/dash/floating_ips/forms.py:120
+#, python-format
+msgid ""
+"Error allocating Floating IP \"%(ip)s\"                to tenant \"%(tenant)s"
+"\": %(msg)s"
+msgstr ""
+
+#: dashboards/dash/floating_ips/views.py:53
+#, python-format
+msgid "Error fetching floating ips: %s"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:42
+#: dashboards/dash/templates/dash/containers/_list.html:6
+#: dashboards/dash/templates/dash/images/_list.html:6
+#: dashboards/dash/templates/dash/instances/_list.html:7
+#: dashboards/dash/templates/dash/instances/usage.html:61
+#: dashboards/dash/templates/dash/keypairs/_list.html:4
+#: dashboards/dash/templates/dash/networks/_list.html:5
+#: dashboards/dash/templates/dash/objects/_list.html:6
+#: dashboards/dash/templates/dash/security_groups/_list.html:4
+#: dashboards/syspanel/flavors/forms.py:37
+#: dashboards/syspanel/images/forms.py:72
+#: dashboards/syspanel/templates/syspanel/flavors/_list.html:5
+#: dashboards/syspanel/templates/syspanel/images/_list.html:7
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:5
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:67
+#: dashboards/syspanel/templates/syspanel/tenants/_list.html:5
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:23
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:53
+#: dashboards/syspanel/templates/syspanel/users/index.html:21
+#: dashboards/syspanel/tenants/forms.py:79
+#: dashboards/syspanel/tenants/forms.py:107
+#: dashboards/syspanel/users/forms.py:42
+msgid "Name"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:43 dashboards/syspanel/images/forms.py:73
+#: dashboards/syspanel/templates/syspanel/images/_list.html:37
+msgid "Kernel ID"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:45 dashboards/syspanel/images/forms.py:75
+#: dashboards/syspanel/templates/syspanel/images/_list.html:38
+msgid "Ramdisk ID"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:47 dashboards/syspanel/images/forms.py:77
+#: dashboards/syspanel/templates/syspanel/images/_list.html:39
+msgid "Architecture"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:48 dashboards/syspanel/images/forms.py:79
+#: dashboards/syspanel/templates/syspanel/images/_list.html:41
+msgid "Container Format"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:50 dashboards/syspanel/images/forms.py:81
+#: dashboards/syspanel/templates/syspanel/images/_list.html:42
+msgid "Disk Format"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:55 dashboards/dash/images/views.py:63
+#, python-format
+msgid "Unable to retreive image info from glance: %s"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:57
+#, python-format
+msgid "Error updating image with id: %s"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:62 dashboards/dash/images/forms.py:91
+msgid "Error connecting to glance"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:88 dashboards/syspanel/images/views.py:106
+msgid "Image was successfully updated."
+msgstr ""
+
+#: dashboards/dash/images/forms.py:97
+msgid "Unspecified Exception in image update"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:101
+msgid ""
+"Unable to update image. You are not "
+"its                                       owner."
+msgstr ""
+
+#: dashboards/dash/images/forms.py:107
+msgid "Server Name"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:111
+msgid "User Data"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:121
+#: dashboards/dash/templates/dash/instances/usage.html:66
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:72
+msgid "Flavor"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:126
+msgid "Key Name"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:134
+#: dashboards/dash/templates/dash/security_groups/index.html:13
+msgid "Security Groups"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:165
+msgid "Instance was successfully launched"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:174
+#, python-format
+msgid "Unable to launch instance: %s"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:188
+msgid ""
+"Unable to delete image, you are not                                          "
+"its owner."
+msgstr ""
+
+#: dashboards/dash/images/forms.py:193 dashboards/dash/images/views.py:58
+#: dashboards/dash/images/views.py:144 dashboards/dash/snapshots/views.py:51
+#: dashboards/syspanel/images/forms.py:46
+#: dashboards/syspanel/images/forms.py:64
+#: dashboards/syspanel/images/views.py:57
+#: dashboards/syspanel/images/views.py:77
+#: dashboards/syspanel/images/views.py:110
+#: dashboards/syspanel/images/views.py:173
+#, python-format
+msgid "Error connecting to glance: %s"
+msgstr ""
+
+#: dashboards/dash/images/forms.py:198
+msgid "Error deleting image: %(image)s: %i(msg)s"
+msgstr ""
+
+#: dashboards/dash/images/views.py:55
+#: dashboards/dash/templates/dash/images/index.html:22
+#: dashboards/syspanel/images/views.py:53
+msgid "There are currently no images."
+msgstr ""
+
+#: dashboards/dash/images/views.py:61 dashboards/dash/snapshots/views.py:55
+#: dashboards/syspanel/images/views.py:61
+#, python-format
+msgid "Error retrieving image list: %s"
+msgstr ""
+
+#: dashboards/dash/images/views.py:118
+#, python-format
+msgid "Error parsing quota  for %(image)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/images/views.py:149 dashboards/syspanel/images/views.py:81
+#, python-format
+msgid "Error retrieving image %(image)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/instances/forms.py:25
+#, python-format
+msgid "ApiException while terminating instance \"%s\""
+msgstr ""
+
+#: dashboards/dash/instances/forms.py:28
+#, python-format
+msgid "Unable to terminate %(inst)s: %(message)s"
+msgstr ""
+
+#: dashboards/dash/instances/forms.py:31
+#, python-format
+msgid "Instance %s has been terminated."
+msgstr ""
+
+#: dashboards/dash/instances/forms.py:45
+msgid "Instance rebooting"
+msgstr ""
+
+#: dashboards/dash/instances/forms.py:47
+#, python-format
+msgid "ApiException while rebooting instance \"%s\""
+msgstr ""
+
+#: dashboards/dash/instances/forms.py:50
+#, python-format
+msgid "Unable to reboot instance: %s"
+msgstr ""
+
+#: dashboards/dash/instances/forms.py:53
+#, python-format
+msgid "Instance %s has been rebooted."
+msgstr ""
+
+#: dashboards/dash/instances/forms.py:75
+#, python-format
+msgid "Instance '%s' updated"
+msgstr ""
+
+#: dashboards/dash/instances/forms.py:79
+#, python-format
+msgid "Unable to update instance: %s"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:55
+msgid "Exception in instance index"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:56 dashboards/dash/instances/views.py:79
+#: dashboards/syspanel/instances/views.py:270
+#: dashboards/syspanel/instances/views.py:296
+#, python-format
+msgid "Unable to get instance list: %s"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:110
+msgid "ApiException in instance usage"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:112
+#: dashboards/syspanel/flavors/views.py:53
+#: dashboards/syspanel/instances/views.py:93
+#: dashboards/syspanel/instances/views.py:225
+#, python-format
+msgid "Unable to get usage info: %s"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:174
+msgid "ApiException while fetching instance console"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:176
+#, python-format
+msgid "Unable to get log for instance %(inst)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:190
+msgid "ApiException while fetching instance vnc connection"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:192
+#: dashboards/syspanel/instances/views.py:323
+#, python-format
+msgid "Unable to get vnc console for instance %(inst)s: %(message)s"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:203
+#: dashboards/dash/instances/views.py:242
+msgid "ApiException while fetching instance info"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:205
+#: dashboards/syspanel/instances/views.py:329
+#, python-format
+msgid "Unable to get information for instance %(inst)s: %(message)s"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:235
+msgid ""
+"ApiException while fetching instance vnc                            "
+"connection"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:238
+#, python-format
+msgid "Unable to get vnc console for instance %(inst)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/instances/views.py:244
+#, python-format
+msgid "Unable to get information for instance %(inst)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/keypairs/forms.py:24
+#, python-format
+msgid "Successfully deleted keypair: %s"
+msgstr ""
+
+#: dashboards/dash/keypairs/forms.py:29
+#, python-format
+msgid "Error deleting keypair: %s"
+msgstr ""
+
+#: dashboards/dash/keypairs/forms.py:35 dashboards/dash/keypairs/forms.py:56
+msgid "Keypair Name"
+msgstr ""
+
+#: dashboards/dash/keypairs/forms.py:50
+#, python-format
+msgid "Error Creating Keypair: %s"
+msgstr ""
+
+#: dashboards/dash/keypairs/forms.py:58
+msgid "Public Key"
+msgstr ""
+
+#: dashboards/dash/keypairs/forms.py:64
+#, python-format
+msgid "Successfully imported public key: %s"
+msgstr ""
+
+#: dashboards/dash/keypairs/forms.py:70
+#, python-format
+msgid "Error Importing Keypair: %s"
+msgstr ""
+
+#: dashboards/dash/keypairs/views.py:53
+#, python-format
+msgid "Error fetching keypairs: %s"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:15
+msgid "Network Name"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:26
+#, python-format
+msgid "Unable to create network %(network)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:30
+#, python-format
+msgid "Network %s has been created."
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:45
+#, python-format
+msgid "Unable to delete network %(network)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:48
+#, python-format
+msgid "Network %s has been deleted."
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:67
+#, python-format
+msgid "Unable to rename network %(network)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:70
+#, python-format
+msgid "Network %(net)s has been renamed to %(new_name)s."
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:80
+msgid "Number of Ports"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:90
+#, python-format
+msgid "Unable to create ports on network %(network)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:93
+#, python-format
+msgid "%(num_ports)s ports created on network %(network)s."
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:112
+#, python-format
+msgid "Unable to delete port %(port)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:115
+#, python-format
+msgid "Port %(port)s deleted from network %(network)s."
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:126
+msgid "Select VIF to connect"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:137
+#, python-format
+msgid "Unable to attach port %(port)s to VIF %(vif)s: %(msg)s"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:142
+#, python-format
+msgid "Port %(port)s connected to VIF %(vif)s."
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:159
+#, python-format
+msgid "Unable to detach port %(port)s: %(message)s"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:162
+#, python-format
+msgid "Port %s detached."
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:181
+#, python-format
+msgid "Unable to set port state to %(state)s: %(message)s"
+msgstr ""
+
+#: dashboards/dash/networks/forms.py:184
+#, python-format
+msgid "Port %(port)s state set to %(state)s."
+msgstr ""
+
+#: dashboards/dash/networks/views.py:68
+#, python-format
+msgid "Unable to get network list: %s"
+msgstr ""
+
+#: dashboards/dash/networks/views.py:104
+#, python-format
+msgid "Unable to get network details: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/forms.py:48
+#, python-format
+msgid "Successfully created security_group: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/forms.py:53
+#, python-format
+msgid "Error creating security group: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/forms.py:67
+#, python-format
+msgid "Successfully deleted security_group: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/forms.py:71
+#, python-format
+msgid "Error deleting security group: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/forms.py:100
+#, python-format
+msgid "Successfully added rule: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/forms.py:104
+#, python-format
+msgid "Error adding rule security group: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/forms.py:122
+#, python-format
+msgid "Successfully deleted rule: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/forms.py:126
+#, python-format
+msgid "Error authorizing security group: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/views.py:54
+#, python-format
+msgid "Error fetching security_groups: %s"
+msgstr ""
+
+#: dashboards/dash/security_groups/views.py:82
+#, python-format
+msgid "Error getting security_group: %s"
+msgstr ""
+
+#: dashboards/dash/snapshots/forms.py:19
+msgid "Snapshot Name"
+msgstr ""
+
+#: dashboards/dash/snapshots/forms.py:30
+#, python-format
+msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
+msgstr ""
+
+#: dashboards/dash/snapshots/forms.py:34
+#, python-format
+msgid "Error Creating Snapshot: %s"
+msgstr ""
+
+#: dashboards/dash/snapshots/views.py:76
+#, python-format
+msgid "Unable to retreive instance: %s"
+msgstr ""
+
+#: dashboards/dash/snapshots/views.py:83
+#, python-format
+msgid ""
+"To snapshot, instance state must be                                  one of "
+"the following: %s"
+msgstr ""
+
+#: dashboards/dash/templates/dash/settings.html:20
+#: dashboards/settings/templates/settings/user/settings.html:6
+msgid "Dashboard Settings"
+msgstr ""
+
+#: dashboards/dash/templates/dash/settings.html:26
+#: dashboards/settings/templates/settings/user/settings.html:13
+msgid "Dashboard User Interface Language"
+msgstr ""
+
+#: dashboards/dash/templates/dash/settings.html:38
+#: dashboards/settings/templates/settings/user/settings.html:25
+msgid "Select Language"
+msgstr ""
+
+#: dashboards/dash/templates/dash/containers/_delete.html:8
+#: dashboards/dash/templates/dash/images/_delete.html:8
+#: dashboards/dash/templates/dash/keypairs/_delete.html:8
+#: dashboards/dash/templates/dash/networks/_delete.html:8
+#: dashboards/dash/templates/dash/networks/_delete_port.html:9
+#: dashboards/dash/templates/dash/objects/_delete.html:8
+#: dashboards/dash/templates/dash/security_groups/_delete.html:8
+#: dashboards/dash/templates/dash/security_groups/_delete_rule.html:8
+#: dashboards/syspanel/templates/syspanel/flavors/_delete.html:8
+#: dashboards/syspanel/templates/syspanel/images/_delete.html:8
+#: dashboards/syspanel/templates/syspanel/tenants/_delete.html:8
+#: dashboards/syspanel/templates/syspanel/users/_delete.html:8
+msgid "Delete"
+msgstr ""
+
+#: dashboards/dash/templates/dash/containers/_form.html:10
+msgid "Create Container"
+msgstr ""
+
+#: dashboards/dash/templates/dash/containers/_list.html:7
+#: dashboards/dash/templates/dash/instances/_list.html:13
+#: dashboards/dash/templates/dash/keypairs/_list.html:6
+#: dashboards/dash/templates/dash/networks/_detail.html:7
+#: dashboards/dash/templates/dash/objects/_list.html:7
+#: dashboards/dash/templates/dash/security_groups/_list.html:6
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:24
+#: dashboards/syspanel/templates/syspanel/flavors/_list.html:9
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:13
+#: dashboards/syspanel/templates/syspanel/services/_list.html:9
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:25
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:54
+msgid "Actions"
+msgstr ""
+
+#: dashboards/dash/templates/dash/containers/_list.html:17
+msgid "List Objects"
+msgstr ""
+
+#: dashboards/dash/templates/dash/containers/_list.html:18
+#: dashboards/dash/templates/dash/objects/_form.html:10
+msgid "Upload Object"
+msgstr ""
+
+#: dashboards/dash/templates/dash/containers/create.html:11
+#: dashboards/syspanel/templates/syspanel/tenants/_create_form.html:5
+#: dashboards/syspanel/templates/syspanel/tenants/create.html:11
+msgid "Create Tenant"
+msgstr ""
+
+#: dashboards/dash/templates/dash/containers/create.html:22
+msgid ""
+"A container is a storage compartment for your data and provides a way for "
+"you to organize your data. You can think of a container as a folder in "
+"Windows® or a directory in UNIX®. The primary difference between a container "
+"and these other file system concepts is that containers cannot be nested. "
+"You can, however, create an unlimited number of containers within your "
+"account. Data must be stored in a container so you must have at least one "
+"container defined in your account prior to uploading data."
+msgstr ""
+
+#: dashboards/dash/templates/dash/containers/index.html:18
+msgid "Create New Container"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/_allocate.html:7
+msgid "Allocate IP"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/_associate.html:14
+msgid "Associate IP"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/_disassociate.html:8
+msgid "Disassociate"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/_list.html:14
+msgid "Instance ID:"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/_list.html:15
+msgid "Fixed IP:"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/_list.html:28
+msgid "Associate to instance"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/_release.html:8
+msgid "Release"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/associate.html:12
+msgid "Associate Floating IP"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/associate.html:22
+#: dashboards/dash/templates/dash/images/launch.html:21
+#: dashboards/dash/templates/dash/images/update.html:21
+#: dashboards/dash/templates/dash/instances/update.html:23
+msgid "Description:"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/associate.html:23
+msgid "Associate a floating ip with an instance."
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/index.html:13
+#: dashboards/dash/templates/dash/images/launch.html:33
+#: dashboards/syspanel/tenants/forms.py:146
+msgid "Floating IPs"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/index.html:21
+#: dashboards/dash/templates/dash/images/index.html:21
+#: dashboards/dash/templates/dash/instances/index.html:22
+#: dashboards/dash/templates/dash/instances/usage.html:97
+#: dashboards/dash/templates/dash/keypairs/index.html:23
+#: dashboards/dash/templates/dash/networks/detail.html:27
+#: dashboards/dash/templates/dash/networks/index.html:23
+#: dashboards/dash/templates/dash/security_groups/index.html:24
+#: dashboards/dash/templates/dash/snapshots/index.html:22
+#: dashboards/syspanel/templates/syspanel/instances/index.html:22
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:44
+msgid "Info"
+msgstr ""
+
+#: dashboards/dash/templates/dash/floating_ips/index.html:22
+msgid "There are currently no floating ips assigned to your tenant."
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/_form.html:10
+#: dashboards/dash/templates/dash/images/update.html:11
+#: dashboards/syspanel/templates/syspanel/images/_form.html:10
+#: dashboards/syspanel/templates/syspanel/images/update.html:11
+msgid "Update Image"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/_launch.html:5
+#: dashboards/dash/templates/dash/images/_launch_form.html:14
+#: dashboards/dash/templates/dash/images/launch.html:12
+msgid "Launch Instance"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/_list.html:5
+#: dashboards/dash/templates/dash/instances/_list.html:6
+#: dashboards/dash/templates/dash/instances/usage.html:60
+#: dashboards/dash/templates/dash/networks/_detail.html:4
+#: dashboards/dash/templates/dash/networks/_list.html:4
+#: dashboards/syspanel/templates/syspanel/images/_list.html:6
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:66
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:22
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:52
+#: dashboards/syspanel/templates/syspanel/users/index.html:20
+#: dashboards/syspanel/tenants/forms.py:105
+#: dashboards/syspanel/users/forms.py:57
+msgid "ID"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/_list.html:7
+#: dashboards/syspanel/templates/syspanel/images/_list.html:10
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:9
+msgid "Created"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/_list.html:8
+#: dashboards/syspanel/templates/syspanel/images/_list.html:11
+msgid "Updated"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/_list.html:9
+#: dashboards/dash/templates/dash/instances/usage.html:68
+#: dashboards/syspanel/templates/syspanel/images/_list.html:12
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:74
+msgid "Status"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/_list.html:22
+#: dashboards/dash/templates/dash/instances/_list.html:68
+#: dashboards/syspanel/templates/syspanel/images/_list.html:28
+#: dashboards/syspanel/templates/syspanel/tenants/_list.html:19
+#: dashboards/syspanel/templates/syspanel/users/index.html:36
+msgid "Edit"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/_list.html:24
+msgid "Launch"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/index.html:12
+#: dashboards/syspanel/templates/syspanel/images/index.html:13
+msgid "Images"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/launch.html:22
+msgid ""
+"Specify the details for launching an instance. Also please make note of the "
+"table below; all tenants have quotas which define the limit of resources you "
+"are allowed to provision."
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/launch.html:25
+#: dashboards/syspanel/templates/syspanel/quotas/index.html:19
+msgid "Quota Name"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/launch.html:26
+#: dashboards/syspanel/templates/syspanel/quotas/index.html:20
+msgid "Limit"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/launch.html:29
+msgid "RAM (MB)"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/launch.html:37
+#: dashboards/dash/templates/dash/instances/index.html:13
+#: dashboards/syspanel/templates/syspanel/instances/index.html:13
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:77
+#: dashboards/syspanel/tenants/forms.py:142
+msgid "Instances"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/launch.html:41
+#: dashboards/syspanel/tenants/forms.py:143
+msgid "Volumes"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/launch.html:45
+#: dashboards/syspanel/tenants/forms.py:144
+msgid "Gigabytes"
+msgstr ""
+
+#: dashboards/dash/templates/dash/images/update.html:22
+#: dashboards/syspanel/templates/syspanel/images/update.html:22
+msgid "From here you can modify different properties of an image."
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/_form.html:10
+#: dashboards/dash/templates/dash/instances/update.html:12
+msgid "Update Instance"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/_list.html:8
+msgid "Groups"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/_list.html:9
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:10
+msgid "Image"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/_list.html:10
+#: dashboards/syspanel/templates/syspanel/images/_list.html:8
+msgid "Size"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/_list.html:11
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:11
+msgid "IPs"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/_list.html:12
+#: dashboards/dash/templates/dash/networks/_detail.html:5
+#: dashboards/syspanel/templates/syspanel/images/_list.html:36
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:12
+msgid "State"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/_list.html:66
+msgid "Log"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/_list.html:67
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:49
+msgid "VNC Console"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/_list.html:69
+msgid "Snapshot"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/index.html:23
+#, python-format
+msgid ""
+"There are currently no instances.  You can launch an instance from the  <a "
+"href='%(dash_img_url)s'>Images Page.</a>"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/update.html:19
+msgid "Return to Instances List"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/update.html:24
+msgid "Update the name and description of your instance"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:14
+msgid "Overview"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:46
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:60
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:70
+msgid "Download CSV"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:50
+msgid "Hide Terminated"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:52
+msgid "Show Terminated"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:62
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:7
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:68
+msgid "User"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:63
+#: dashboards/syspanel/flavors/forms.py:38
+#: dashboards/syspanel/templates/syspanel/flavors/_list.html:6
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:69
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:78
+#: dashboards/syspanel/tenants/forms.py:141
+msgid "VCPUs"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:64
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:70
+msgid "Ram Size"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:65
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:71
+msgid "Disk Size"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:67
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:73
+msgid "Uptime"
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:89
+msgid "No active instances."
+msgstr ""
+
+#: dashboards/dash/templates/dash/instances/usage.html:98
+#, python-format
+msgid ""
+"There are currently no instances.<br/><br/>You can launch an instance from "
+"the  <a href='%(dash_img_url)s'>Images Page.</a>"
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/_form.html:10
+msgid "Add Keypair"
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/_list.html:5
+msgid "Fingerprint"
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/create.html:24
+#: dashboards/dash/templates/dash/keypairs/import.html:15
+msgid "Create Keypair"
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/create.html:30
+msgid "Your private key is being downloaded."
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/create.html:32
+#: dashboards/dash/templates/dash/keypairs/import.html:22
+msgid "Return to keypairs list"
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/create.html:36
+#: dashboards/dash/templates/dash/keypairs/import.html:26
+#: dashboards/dash/templates/dash/networks/create.html:23
+#: dashboards/dash/templates/dash/objects/copy.html:25
+#: dashboards/dash/templates/dash/objects/upload.html:24
+#: dashboards/dash/templates/dash/ports/create.html:23
+#: dashboards/dash/templates/dash/security_groups/_list.html:5
+#: dashboards/dash/templates/dash/security_groups/create.html:21
+#: dashboards/dash/templates/dash/snapshots/create.html:31
+#: dashboards/syspanel/templates/syspanel/flavors/create.html:36
+#: dashboards/syspanel/templates/syspanel/images/update.html:21
+#: dashboards/syspanel/templates/syspanel/tenants/_list.html:6
+#: dashboards/syspanel/templates/syspanel/tenants/create.html:21
+#: dashboards/syspanel/templates/syspanel/tenants/quotas.html:21
+#: dashboards/syspanel/templates/syspanel/tenants/update.html:21
+#: dashboards/syspanel/templates/syspanel/users/create.html:22
+#: dashboards/syspanel/templates/syspanel/users/update.html:22
+#: dashboards/syspanel/tenants/forms.py:81
+#: dashboards/syspanel/tenants/forms.py:110
+msgid "Description"
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/create.html:37
+#: dashboards/dash/templates/dash/keypairs/import.html:27
+msgid ""
+"Keypairs are ssh credentials which are injected into images when they are "
+"launched. Creating a new key pair registers the public key and downloads the "
+"private key (a .pem file)."
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/create.html:38
+#: dashboards/dash/templates/dash/keypairs/import.html:28
+msgid "Protect and use the key as you would any normal ssh private key."
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/index.html:13
+msgid "Keypairs"
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/index.html:19
+#: dashboards/dash/templates/dash/keypairs/index.html:26
+msgid "Add New Keypair"
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/index.html:20
+#: dashboards/dash/templates/dash/keypairs/index.html:27
+msgid "Import Keypair"
+msgstr ""
+
+#: dashboards/dash/templates/dash/keypairs/index.html:24
+msgid "There are currently no keypairs."
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_detach_port.html:9
+msgid "Detach"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_detail.html:6
+msgid "Attachment"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_detail.html:8
+msgid "Extensions"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_detail.html:20
+msgid "VIF Id"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_detail.html:36
+msgid "Attach"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_form.html:10
+#: dashboards/dash/templates/dash/networks/create.html:12
+#: dashboards/dash/templates/dash/ports/create.html:12
+msgid "Create Network"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_list.html:6
+msgid "Ports"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_list.html:7
+msgid "Available"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_list.html:8
+msgid "Used"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_list.html:9
+msgid "Action"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_list.html:22
+#: dashboards/dash/templates/dash/networks/_rename.html:11
+#: dashboards/dash/templates/dash/networks/_rename.html:15
+#: dashboards/dash/templates/dash/networks/rename.html:31
+msgid "Rename"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_rename_form.html:11
+#: dashboards/dash/templates/dash/networks/rename.html:12
+msgid "Rename Network"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_toggle_port.html:11
+msgid "Port UP"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/_toggle_port.html:14
+msgid "Port DOWN"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/create.html:19
+#: dashboards/dash/templates/dash/networks/rename.html:27
+msgid "Return to networks list"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/create.html:24
+msgid "Networks provide layer 2 connectivity to your instances."
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/detail.html:24
+#: dashboards/dash/templates/dash/networks/detail.html:28
+msgid "Create Ports"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/detail.html:28
+msgid "There are currently no ports in this network."
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/index.html:13
+msgid "Networks"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/index.html:20
+msgid "Create New Network"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/index.html:24
+msgid "There are currently no networks."
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/index.html:24
+msgid "Create A Network"
+msgstr ""
+
+#: dashboards/dash/templates/dash/networks/rename.html:32
+msgid "Enter a new name for your network."
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/_copy.html:10
+#: dashboards/dash/templates/dash/objects/copy.html:11
+msgid "Copy Object"
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/_filter.html:7
+msgid "Filter"
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/_list.html:16
+msgid "Copy"
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/_list.html:18
+msgid "Download"
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/copy.html:21
+#: dashboards/dash/templates/dash/objects/upload.html:20
+msgid "Return to objects list"
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/copy.html:26
+msgid ""
+"You may make a new copy of an existing object to store in this or another "
+"container."
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/index.html:17
+#: templates/horizon/common/_page_header.html:17
+msgid "Refresh List"
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/index.html:31
+#, python-format
+msgid ""
+"There are currently no objects in the container %(container_name)s.  You can "
+"upload a new object from the <a href='%(dash_obj_up_url)s'>Object Upload "
+"Page &gt;&gt;</a>"
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/index.html:34
+msgid "Upload New Object &gt;&gt;"
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/upload.html:11
+msgid "Upload Objects"
+msgstr ""
+
+#: dashboards/dash/templates/dash/objects/upload.html:25
+msgid ""
+"An object is the basic storage entity and any optional metadata that "
+"represents the files you store in the OpenStack Object Storage system. When "
+"you upload data to OpenStack Object Storage, the data is stored as-is (no "
+"compression or encryption) and consists of a location (container), the "
+"object's name, and any metadata consisting of key/value pairs."
+msgstr ""
+
+#: dashboards/dash/templates/dash/ports/attach.html:12
+msgid "Attach Port"
+msgstr ""
+
+#: dashboards/dash/templates/dash/ports/attach.html:38
+#: dashboards/dash/templates/dash/ports/create.html:19
+msgid "Return to network detail"
+msgstr ""
+
+#: dashboards/dash/templates/dash/ports/attach.html:42
+msgid ""
+"<p>Select an interface from the list on the left to attach it to this port.</"
+"p>\n"
+"    <p>Only interfaces that are not connected to any existing port are "
+"shown</p>\n"
+"    <p>If you want to reconnect a connected interface, please detach it "
+"first</p>"
+msgstr ""
+
+#: dashboards/dash/templates/dash/ports/create.html:24
+msgid ""
+"You can plug virtual interfaces from your instances to ports created in the "
+"network"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/_form.html:11
+#: dashboards/dash/templates/dash/security_groups/create.html:11
+#: dashboards/dash/templates/dash/security_groups/index.html:20
+msgid "Create Security Group"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/_list.html:14
+msgid "Edit Rules"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/create.html:22
+msgid "From here you can create a new security group"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:11
+msgid "Edit Security Group Rules"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:17
+msgid "Rules for Security Group"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:20
+msgid "IP Protocol"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:21
+msgid "From Port"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:22
+msgid "To Port"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:23
+msgid "CIDR"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:41
+msgid "No rules for this security group"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:49
+msgid "Add a rule"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/edit_rules.html:60
+msgid "Add Rule"
+msgstr ""
+
+#: dashboards/dash/templates/dash/security_groups/index.html:25
+#, python-format
+msgid ""
+"There are currently no security groups. <a href='%(dash_sec_url)s'>Create A "
+"Security Group &gt;&gt;</a>"
+msgstr ""
+
+#: dashboards/dash/templates/dash/snapshots/_form.html:11
+msgid "Create Snapshot"
+msgstr ""
+
+#: dashboards/dash/templates/dash/snapshots/create.html:19
+msgid "Create a Snapshot"
+msgstr ""
+
+#: dashboards/dash/templates/dash/snapshots/create.html:25
+msgid "Choose a name for your snapshot."
+msgstr ""
+
+#: dashboards/dash/templates/dash/snapshots/create.html:27
+msgid "Return to snapshots list"
+msgstr ""
+
+#: dashboards/dash/templates/dash/snapshots/create.html:32
+msgid "Snapshots preserve the disk state of a running instance."
+msgstr ""
+
+#: dashboards/dash/templates/dash/snapshots/index.html:13
+msgid "Snapshots"
+msgstr ""
+
+#: dashboards/dash/templates/dash/snapshots/index.html:23
+#, python-format
+msgid ""
+"There are currently no snapshots.  You can create snapshots from running "
+"instances. <a href='%(inst_url)s'>View Running Instances &gt;&gt;</a>"
+msgstr ""
+
+#: dashboards/syspanel/dashboard.py:25
+msgid "System Panel"
+msgstr ""
+
+#: dashboards/syspanel/flavors/forms.py:36
+msgid "Flavor ID"
+msgstr ""
+
+#: dashboards/syspanel/flavors/forms.py:39
+msgid "Memory MB"
+msgstr ""
+
+#: dashboards/syspanel/flavors/forms.py:40
+msgid "Disk GB"
+msgstr ""
+
+#: dashboards/syspanel/flavors/forms.py:49
+#, python-format
+msgid "%s was successfully added to flavors."
+msgstr ""
+
+#: dashboards/syspanel/flavors/forms.py:64
+#, python-format
+msgid "Successfully deleted flavor: %s"
+msgstr ""
+
+#: dashboards/syspanel/flavors/forms.py:67
+#, python-format
+msgid "Unable to delete flavor: %s"
+msgstr ""
+
+#: dashboards/syspanel/images/forms.py:49
+#, python-format
+msgid "Error deleting image: %s"
+msgstr ""
+
+#: dashboards/syspanel/images/forms.py:67
+#: dashboards/syspanel/images/views.py:114
+#, python-format
+msgid "Error updating image: %s"
+msgstr ""
+
+#: dashboards/syspanel/images/views.py:118
+msgid "Image could not be updated, please try again."
+msgstr ""
+
+#: dashboards/syspanel/images/views.py:123
+#: dashboards/syspanel/images/views.py:181
+msgid "Image could not be uploaded, please try agian."
+msgstr ""
+
+#: dashboards/syspanel/images/views.py:161
+msgid "Image was successfully uploaded."
+msgstr ""
+
+#: dashboards/syspanel/images/views.py:165
+msgid "Image could not be uploaded, please try again."
+msgstr ""
+
+#: dashboards/syspanel/images/views.py:177
+#, python-format
+msgid "Error adding image: %s"
+msgstr ""
+
+#: dashboards/syspanel/instances/views.py:67
+#: dashboards/syspanel/services/views.py:52
+#, python-format
+msgid "Unable to get service info: %s"
+msgstr ""
+
+#: dashboards/syspanel/instances/views.py:172
+#: dashboards/syspanel/instances/views.py:210
+msgid "No data for the selected period"
+msgstr ""
+
+#: dashboards/syspanel/services/forms.py:46
+#, python-format
+msgid "Service '%s' has been enabled"
+msgstr ""
+
+#: dashboards/syspanel/services/forms.py:49
+#, python-format
+msgid "Service '%s' has been disabled"
+msgstr ""
+
+#: dashboards/syspanel/services/forms.py:55
+#, python-format
+msgid "Unable to update service '%(name)s': %(msg)s"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/flavors/_create.html:5
+#: dashboards/syspanel/templates/syspanel/flavors/_form.html:14
+#: dashboards/syspanel/templates/syspanel/flavors/create.html:11
+msgid "Create Flavor"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/flavors/_list.html:4
+#: dashboards/syspanel/templates/syspanel/tenants/_list.html:4
+msgid "Id"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/flavors/_list.html:7
+msgid "Memory"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/flavors/_list.html:8
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:79
+msgid "Disk"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/flavors/create.html:37
+msgid "From here you can define the sizing of a new flavor."
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/flavors/index.html:13
+msgid "Flavors"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/flavors/index.html:18
+msgid "Create New Flavor"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/images/_list.html:9
+msgid "Public"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/images/_list.html:35
+msgid "Location"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/images/_list.html:40
+msgid "Project ID"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/images/_toggle.html:8
+msgid "Toggle Public"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:6
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:76
+msgid "Tenant"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:8
+msgid "Host"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/_list.html:48
+msgid "Console Log"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/index.html:23
+#, python-format
+msgid ""
+"There are currently no instances.  You can launch an instance from the  <a "
+"href='%(dash_image_url)s'>Images Page.</a>"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:14
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:16
+msgid "System Panel Overview"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:52
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:61
+msgid "Active Instances"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:53
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:62
+msgid "This month's VCPU-Hours"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:54
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:63
+msgid "This month's GB-Hours"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/tenant_usage.html:61
+msgid "Tenant Usage"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:23
+msgid "Monitoring"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:34
+msgid "Select a month to query its usage"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:71
+msgid "Server Usage Summary"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:80
+msgid "RAM"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:81
+msgid "VCPU CPU-Hours"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/instances/usage.html:82
+msgid "Disk GB-Hours"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/quotas/index.html:13
+msgid "Default Quotas"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_list.html:5
+msgid "Service"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_list.html:6
+msgid "System Stats"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_list.html:7
+#: dashboards/syspanel/templates/syspanel/tenants/_list.html:7
+#: dashboards/syspanel/tenants/forms.py:82
+#: dashboards/syspanel/tenants/forms.py:111
+msgid "Enabled"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_list.html:8
+msgid "Up"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_list.html:22
+msgid "Hypervisor"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_list.html:25
+msgid "Allocable Cores"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_list.html:30
+msgid "Allocable Storage"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_list.html:35
+msgid "System Ram"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_toggle.html:10
+#: dashboards/syspanel/templates/syspanel/users/_toggle_enabled.html:18
+msgid "Enable"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/_toggle.html:20
+#: dashboards/syspanel/templates/syspanel/users/_toggle_enabled.html:9
+msgid "Disable"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/services/index.html:13
+msgid "Services"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/_add_user.html:9
+msgid "Add"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/_list.html:8
+#: dashboards/syspanel/templates/syspanel/users/index.html:24
+msgid "Options"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/_list.html:20
+msgid "View Members"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/_list.html:21
+msgid "Modify Quotas"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/_remove_user.html:9
+msgid "Remove"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/_update_form.html:5
+#: dashboards/syspanel/templates/syspanel/tenants/update.html:11
+msgid "Update Tenant"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/_update_quotas_form.html:5
+msgid "Update Quotas"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/create.html:22
+msgid "From here you can create a new tenant (aka project) to organize users."
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/index.html:13
+msgid "Tenants"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/index.html:18
+msgid "Create New Tenant"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/quotas.html:11
+msgid "Update Tenant Quotas"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/quotas.html:22
+msgid "From here you can edit quotas (max limits) for the tenant "
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/update.html:22
+msgid "From here you can edit a tenant."
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:12
+msgid "Users for Tenant"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:24
+#: dashboards/syspanel/templates/syspanel/users/index.html:22
+#: dashboards/syspanel/users/forms.py:43 dashboards/syspanel/users/forms.py:61
+msgid "Email"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:45
+msgid "here are currently no users for this tenant"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/tenants/users.html:49
+msgid "Add new users"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/users/_create_form.html:5
+#: dashboards/syspanel/templates/syspanel/users/create.html:12
+msgid "Create User"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/users/_update_form.html:5
+#: dashboards/syspanel/templates/syspanel/users/update.html:12
+msgid "Update User"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/users/create.html:23
+msgid ""
+"From here you can create a new user and assign them to a tenant (aka "
+"project)."
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/users/index.html:13
+msgid "Users"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/users/index.html:23
+msgid "Default Tenant"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/users/index.html:42
+msgid "Create New User"
+msgstr ""
+
+#: dashboards/syspanel/templates/syspanel/users/update.html:23
+msgid ""
+"From here you can edit users by changing their usernames, emails, passwords, "
+"and tenants."
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:48
+#, python-format
+msgid "%(user)s was successfully added to %(tenant)s."
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:51
+#, python-format
+msgid "Unable to create user association: %s"
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:69
+#, python-format
+msgid "%(user)s was successfully removed from %(tenant)s."
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:72
+#: dashboards/syspanel/tenants/forms.py:99
+#, python-format
+msgid "Unable to create tenant: %s"
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:93
+#, python-format
+msgid "%s was successfully created."
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:122
+#, python-format
+msgid "%s was successfully updated."
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:130
+#: dashboards/syspanel/tenants/views.py:86
+#, python-format
+msgid "Unable to update tenant: %s"
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:135
+msgid "ID (name)"
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:137
+msgid "Metadata Items"
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:138
+msgid "Injected Files"
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:139
+msgid "Injected File Content Bytes"
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:145
+msgid "RAM (in MB)"
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:162
+#, python-format
+msgid "Quotas for %s were successfully updated."
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:166
+#, python-format
+msgid "Unable to update quotas: %s"
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:177
+#, python-format
+msgid "Successfully deleted tenant %(tenant)s."
+msgstr ""
+
+#: dashboards/syspanel/tenants/forms.py:182
+#, python-format
+msgid "Error deleting tenant: %s"
+msgstr ""
+
+#: dashboards/syspanel/tenants/views.py:51
+#, python-format
+msgid "Unable to get tenant info: %s"
+msgstr ""
+
+#: dashboards/syspanel/users/forms.py:44 dashboards/syspanel/users/forms.py:62
+#: views/auth.py:57
+msgid "Password"
+msgstr ""
+
+#: dashboards/syspanel/users/forms.py:47 dashboards/syspanel/users/forms.py:65
+msgid "Primary Tenant"
+msgstr ""
+
+#: dashboards/syspanel/users/forms.py:75
+#, python-format
+msgid "%(user)s was successfully deleted."
+msgstr ""
+
+#: dashboards/syspanel/users/forms.py:81
+msgid "ID (username)"
+msgstr ""
+
+#: dashboards/syspanel/users/forms.py:82
+msgid "enabled"
+msgstr ""
+
+#: dashboards/syspanel/users/forms.py:93
+#, python-format
+msgid "User %(user)s %(state)s"
+msgstr ""
+
+#: dashboards/syspanel/users/forms.py:98
+#, python-format
+msgid "Unable to %(state)s user %(user)s"
+msgstr ""
+
+#: dashboards/syspanel/users/views.py:49
+#, python-format
+msgid "Unable to list users: %s"
+msgstr ""
+
+#: dashboards/syspanel/users/views.py:80
+#, python-format
+msgid "Updated %(attrib)s for %(user)s."
+msgstr ""
+
+#: dashboards/syspanel/users/views.py:86
+msgid "Unable to update user, please try again."
+msgstr ""
+
+#: dashboards/syspanel/users/views.py:113
+#, python-format
+msgid "Unable to retrieve tenant list: %s"
+msgstr ""
+
+#: dashboards/syspanel/users/views.py:131
+#, python-format
+msgid "User \"%s\" was successfully created."
+msgstr ""
+
+#: dashboards/syspanel/users/views.py:141
+#, python-format
+msgid "Error assigning role to user: %s"
+msgstr ""
+
+#: dashboards/syspanel/users/views.py:151
+#, python-format
+msgid "Error creating user: %s"
+msgstr ""
+
+#: templates/horizon/auth/_login.html:14
+#: templates/horizon/auth/_switch.html:14
+msgid "Login"
+msgstr ""
+
+#: templates/horizon/common/_page_header.html:12
+msgid "Search"
+msgstr ""
+
+#: templates/horizon/common/_page_header.html:17
+msgid "Refresh"
+msgstr ""
+
+#: templates/horizon/common/instances/_reboot.html:8
+msgid "Reboot"
+msgstr ""
+
+#: templates/horizon/common/instances/_terminate.html:8
+msgid "Terminate"
+msgstr ""
+
+#: templatetags/sizeformat.py:46
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templatetags/sizeformat.py:50
+#, python-format
+msgid "%(size)d"
+msgid_plural "%(size)d"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templatetags/sizeformat.py:53
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: templatetags/sizeformat.py:56
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: templatetags/sizeformat.py:59
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: templatetags/sizeformat.py:62
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: templatetags/sizeformat.py:64
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: views/auth.py:56
+msgid "User Name"
+msgstr ""
+
+#: views/auth.py:90
+#, python-format
+msgid "No tenants present for user: %(user)s"
+msgstr ""
+
+#: views/auth.py:110
+msgid "You are not authorized for any available tenants."
+msgstr ""
+
+#: views/auth.py:119
+#, python-format
+msgid "Error authenticating: %s"
+msgstr ""
+
+#: views/auth.py:124
+#, python-format
+msgid "Error authenticating with keystone: %s"
+msgstr ""
+
+#: views/auth.py:164
+msgid "You are not authorized for that tenant."
+msgstr ""

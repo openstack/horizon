@@ -1,0 +1,25 @@
+{% extends 'syspanel/base.html' %}
+{%load i18n%}
+
+{% block sidebar %}
+  {% with current_sidebar="tenants" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url horizon:syspanel:tenants:index as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "horizon/common/_page_header.html" with title=_("Tenants") refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block syspanel_main %}
+  {% include "syspanel/tenants/_list.html" %}
+  <a id="tenant_create_link" class="action_link large-rounded" href="{% url horizon:syspanel:tenants:create %}">{% trans "Create New Tenant"%}</a>
+{% endblock %}
+
+
+
+
+
+

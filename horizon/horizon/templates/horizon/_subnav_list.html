@@ -1,0 +1,14 @@
+{% load horizon %}
+
+{% for heading, panels in components.iteritems %}
+<h3>{{ heading }}</h3>
+<ul class="sub_nav">
+{% for panel in panels %}
+    {% if user|can_haz:panel %}
+        <li>
+            <a href="{{ panel.get_absolute_url }}" {% if current == panel.slug %}class="active"{% endif %}>{{ panel.name }}</a>
+        </li>
+    {% endif %}
+{% endfor %}
+</ul>
+{% endfor %}

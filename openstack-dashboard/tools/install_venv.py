@@ -107,9 +107,10 @@ def create_virtualenv(venv=VENV):
 
 
 def install_dependencies(venv=VENV):
-    print 'Installing dependencies with pip (this can take a while)...'
-    run_command([WITH_VENV, 'pip', 'install', '-E', venv, '-r', PIP_REQUIRES],
-                redirect_output=False)
+    print "Quietly installing dependencies..."
+    print "(This may take several minutes, don't panic)"
+    run_command([WITH_VENV, 'pip', 'install', '-q', '-E',
+                    venv, '-r', PIP_REQUIRES], redirect_output=False)
 
     # Tell the virtual env how to "import dashboard"
     py = 'python%d.%d' % (sys.version_info[0], sys.version_info[1])
@@ -119,8 +120,8 @@ def install_dependencies(venv=VENV):
 
 
 def install_django_openstack():
-    print 'Installing django_openstack in development mode...'
-    path = os.path.join(ROOT, '..', 'django-openstack')
+    print 'Installing horizon module in development mode...'
+    path = os.path.join(ROOT, '..', 'horizon')
     run_command([WITH_VENV, 'python', 'setup.py', 'develop'], cwd=path)
 
 

@@ -1,0 +1,29 @@
+{% load i18n swift_paging %}
+
+<table id="objects" class="wide">
+  <thead>
+    <tr>
+      <th>{% trans "Name"%}</th>
+      <th style="width: 100px;">{% trans "Actions"%}</th>
+    </tr>
+  </theaad>
+  <tbody>
+    {% for object in objects %}
+    <tr class="{% cycle 'odd' 'even' %}">
+      <td>{{ object.name }}</td>
+      <td id="actions">
+        <ul>
+          <li><a href="{% url horizon:nova:containers:object_copy container_name object.name %}">{% trans "Copy"%}</a></li>
+          <li class="form">{% include "nova/objects/_delete.html" with form=delete_form %}</li>
+          <li><a href="{% url horizon:nova:containers:object_download container_name object.name %}">{% trans "Download"%}</a>
+        </ul>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">{% object_paging objects %}</td>
+    </tr>
+  </tfoot>
+</table>

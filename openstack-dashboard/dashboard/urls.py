@@ -26,19 +26,13 @@ from django.conf.urls.defaults import *
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.views import generic as generic_views
-import django.views.i18n
 
-from django_openstack import urls as django_openstack_urls
+import horizon
+
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.splash', name='splash'),
-    url(r'^dash/$', 'django_openstack.dash.views.instances.usage',
-        name='dash_overview'),
-    url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage',
-        name='syspanel_overview'),
-    url(r'^i18n/', include('django.conf.urls.i18n')),
-)
+    url(r'', include(horizon.urls)))
 
 # Development static app and project media serving using the staticfiles app.
 urlpatterns += staticfiles_urlpatterns()
@@ -47,6 +41,3 @@ urlpatterns += staticfiles_urlpatterns()
 # development. Only active if DEBUG==True and the URL prefix is a local
 # path. Production media should NOT be served by Django.
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# NOTE(termie): just append them since we want the routes at the root
-urlpatterns += django_openstack_urls.urlpatterns

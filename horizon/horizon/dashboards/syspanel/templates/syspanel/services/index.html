@@ -1,0 +1,19 @@
+{% extends 'syspanel/base.html' %}
+{%load i18n%}
+
+{% block sidebar %}
+  {% with current_sidebar="services" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url horizon:syspanel:services:index as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "horizon/common/_page_header.html" with title=_("Services") refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block syspanel_main %}
+  {% include "syspanel/services/_list.html" %}
+{% endblock %}
+

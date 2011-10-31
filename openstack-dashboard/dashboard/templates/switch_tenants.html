@@ -1,4 +1,4 @@
-{%load i18n%}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
   <head>
@@ -9,7 +9,7 @@
   <body id="standalone">
     <div id="login_wrapper">
       <div class='large-rounded' id='login'>
-        <h3>{% trans "Log-in to tenant"%}: <i>{{to_tenant}}</i></h3>
+        <h3>{% trans "Log-in to tenant"%}: <i>{{ to_tenant }}</i></h3>
         <br/>
         {% include "_messages.html" %}
         {% include '_login.html' %}

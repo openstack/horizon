@@ -2,17 +2,21 @@
 
 function usage {
   echo "Usage: $0 [OPTION]..."
-  echo "Run Openstack Dashboard's test suite(s)"
+  echo "Run Horizon's test suite(s)"
   echo ""
   echo "  -V, --virtual-env        Always use virtualenv.  Install automatically"
   echo "                           if not present"
   echo "  -N, --no-virtual-env     Don't use virtualenv.  Run tests in local"
   echo "                           environment"
+  echo "  -c, --coverage           Generate reports using Coverage"
   echo "  -f, --force              Force a clean re-build of the virtual"
   echo "                           environment. Useful when dependencies have"
   echo "                           been added."
   echo "  -p, --pep8               Just run pep8"
   echo "  -y, --pylint             Just run pylint"
+  echo "  --runserver              Run the Django development server for"
+  echo "                           openstack-dashboard in the virtual"
+  echo "                           environment."
   echo "  --docs                   Just build the documentation"
   echo "  -h, --help               Print this usage message"
   echo ""
@@ -31,14 +35,21 @@ function process_option {
     -p|--pep8) let just_pep8=1;;
     -y|--pylint) let just_pylint=1;;
     -f|--force) let force=1;;
+    -c|--coverage) let with_coverage=1;;
     --docs) let just_docs=1;;
+    --runserver) let runserver=1;;
     *) testargs="$testargs $1"
   esac
 }
 
+function run_server {
+  echo "Starting Django development server..."
+  ${django_wrapper} python openstack-dashboard/dashboard/manage.py runserver
+}
+
 function run_pylint {
   echo "Running pylint ..."
-  PYLINT_INCLUDE="openstack-dashboard/dashboard django-openstack/django_openstack"
+  PYLINT_INCLUDE="openstack-dashboard/dashboard horizon/horizon"
   ${django_wrapper} pylint --rcfile=.pylintrc -f parseable $PYLINT_INCLUDE > pylint.txt
   CODE=$?
   grep Global -A2 pylint.txt
@@ -54,7 +65,7 @@ function run_pep8 {
   echo "Running pep8 ..."
   PEP8_EXCLUDE=vcsversion.py
   PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --repeat"
-  PEP8_INCLUDE="openstack-dashboard/dashboard django-openstack/django_openstack"
+  PEP8_INCLUDE="openstack-dashboard/dashboard horizon/horizon"
   echo "${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt"
   #${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt
   #perl string strips out the [ and ] characters
@@ -63,14 +74,11 @@ function run_pep8 {
 
 function run_sphinx {
     echo "Building sphinx..."
-    echo "${django_wrapper} export DJANGO_SETTINGS_MODULE=local.local_settings"
-    ${django_wrapper} export DJANGO_SETTINGS_MODULE=local.local_settings
-    echo "${django_wrapper} python doc/generate_autodoc_index.py"
-    ${django_wrapper} python doc/generate_autodoc_index.py
-    echo "${django_wrapper} sphinx-build -b html doc/source build/sphinx/html"
-    ${django_wrapper} sphinx-build -b html doc/source build/sphinx/html
+    echo "export DJANGO_SETTINGS_MODULE=dashboard.settings"
+    export DJANGO_SETTINGS_MODULE=dashboard.settings
+    echo "${django_wrapper} sphinx-build -b html docs/source docs/build/html"
+    ${django_wrapper} sphinx-build -b html docs/source docs/build/html
 }
-
 
 # DEFAULTS FOR RUN_TESTS.SH
 #
@@ -80,12 +88,14 @@ dashboard_with_venv=tools/with_venv.sh
 always_venv=0
 never_venv=0
 force=0
+with_coverage=0
 testargs=""
 django_wrapper=""
 dashboard_wrapper=""
 just_pep8=0
 just_pylint=0
 just_docs=0
+runserver=0
 
 # PROCESS ARGUMENTS, OVERRIDE DEFAULTS
 for arg in "$@"; do
@@ -108,6 +118,10 @@ then
       cd openstack-dashboard
       python tools/install_venv.py
       cd ..
+      cd horizon
+      python bootstrap.py
+      bin/buildout
+      cd ..
       django_wrapper="${django_with_venv}"
       dashboard_wrapper="${dashboard_with_venv}"
     else
@@ -118,6 +132,10 @@ then
         cd openstack-dashboard
         python tools/install_venv.py
         cd ..
+        cd horizon
+        python bootstrap.py
+        bin/buildout
+        cd ..
         django_wrapper="${django_with_venv}"
         dashboard_wrapper="${dashboard_with_venv}"
       fi
@@ -126,29 +144,33 @@ then
 fi
 
 function run_tests {
-  echo "Running django-openstack (core django) tests"
+  echo "Running Horizon application tests"
   ${django_wrapper} coverage erase
-  cd django-openstack
-  python bootstrap.py
-  bin/buildout
-  cd ..
-  ${django_wrapper} coverage run django-openstack/bin/test
-  # get results of the django-openstack tests
+  ${django_wrapper} coverage run horizon/bin/test
+  # get results of the Horizon tests
   OPENSTACK_RESULT=$?
 
-  echo "Running openstack-dashboard (django website) tests"
+  echo "Running openstack-dashboard (Django project) tests"
   cd openstack-dashboard
+  if [ -f local/local_settings.py ]; then
+    cp local/local_settings.py local/local_settings.py.bak
+  fi
   cp local/local_settings.py.example local/local_settings.py
   ${dashboard_wrapper} coverage run dashboard/manage.py test
+  if [ -f local/local_settings.py.bak ]; then
+    cp local/local_settings.py.bak local/local_settings.py
+    rm local/local_settings.py.bak
+  fi
   # get results of the openstack-dashboard tests
   DASHBOARD_RESULT=$?
   cd ..
-
-  echo "Generating coverage reports"
-  ${django_wrapper} coverage combine
-  ${django_wrapper} coverage xml --omit='/usr*,setup.py,*egg*'
-  ${django_wrapper} coverage html --omit='/usr*,setup.py,*egg*' -d reports
-  exit $(($OPENSTACK_RESULT || $DASHBOARD_RESULT))
+  if [ $with_coverage -eq 1 ]; then
+    echo "Generating coverage reports"
+    ${django_wrapper} coverage combine
+    ${django_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*'
+    ${django_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*' -d reports
+    exit $(($OPENSTACK_RESULT || $DASHBOARD_RESULT))
+  fi
 }
 
 if [ $just_docs -eq 1 ]; then
@@ -163,6 +185,11 @@ fi
 
 if [ $just_pylint -eq 1 ]; then
     run_pylint
+    exit $?
+fi
+
+if [ $runserver -eq 1 ]; then
+    run_server
     exit $?
 fi
 

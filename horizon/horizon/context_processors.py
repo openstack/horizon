@@ -1,0 +1,69 @@
+# vim: tabstop=4 shiftwidth=4 softtabstop=4
+
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Copyright 2011 Nebula, Inc.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+"""
+Context processors used by Horizon.
+"""
+
+from django.conf import settings
+from django.contrib import messages
+
+from horizon import api
+
+
+def horizon(request):
+    """ The main Horizon context processor. Required for Horizon to function.
+
+    Adds three variables to the request context:
+
+    ``tenants``
+        A list of the tenants the current uses is authorized to access.
+
+    ``object_store_configured``
+        Boolean. Will be ``True`` if there is a service of type
+        ``object-store`` in the user's ``ServiceCatalog``.
+
+    ``network_configured``
+        Boolean. Will be ``True`` if ``settings.QUANTUM_ENABLED`` is ``True``.
+    """
+    context = {}
+
+    # Auth/Keystone context
+    if request.user.is_authenticated():
+        try:
+            tenants = api.tenant_list_for_token(request, request.user.token)
+            context['tenants'] = tenants
+        except Exception, e:
+            if hasattr(request.user, 'message_set'):
+                messages.error(request, _("Unable to retrieve tenant list from\
+                                          keystone: %s") % e.message)
+        context['tenants'] = []
+
+    # Object Store/Swift context
+    catalog = getattr(request.user, 'service_catalog', [])
+    object_store = catalog and api.get_service_from_catalog(catalog,
+                                                            'object-store')
+    context['object_store_configured'] = object_store
+
+    # Quantum context
+    # TODO(gabriel): Convert to service catalog check when Quantum starts
+    #                supporting keystone integration.
+    context['network_configured'] = getattr(settings, 'QUANTUM_ENABLED', None)
+
+    return context

@@ -1,0 +1,29 @@
+{% extends 'nova/base.html' %}
+{%load i18n%}
+
+{% block sidebar %}
+  {% with current_sidebar="networks" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "horizon/common/_page_header.html" with title=_("Create Network") %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  <div class="dash_block">
+    <div class="left">
+      {% include 'nova/ports/_create.html' with form=create_form %}
+      <h3><a href="{% url horizon:nova:networks:detail network_id %}"><< {% trans "Return to network detail"%}</a></h3>
+    </div>
+
+    <div class="right">
+      <h3>{% trans "Description"%}:</h3>
+      <p>{% trans "You can plug virtual interfaces from your instances to ports created in the network"%}</p>
+    </div>
+    <div class="clear">&nbsp;</div>
+  </div>
+{% endblock %}
+

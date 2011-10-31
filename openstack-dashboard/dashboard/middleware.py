@@ -24,6 +24,7 @@ from django import shortcuts
 from django.contrib import messages
 from openstackx.api import exceptions as api_exceptions
 
+
 LOG = logging.getLogger('openstack_dashboard')
 
 

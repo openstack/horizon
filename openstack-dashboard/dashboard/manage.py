@@ -20,6 +20,8 @@
 #    under the License.
 
 from django.core.management import execute_manager
+
+
 try:
     import settings  # Assumed to be in the same directory.
 except ImportError:
@@ -30,6 +32,7 @@ except ImportError:
     "the file settings.py does indeed exist, it's causing an ImportError "
     "somehow.)\n" % __file__)
     sys.exit(1)
+
 
 if __name__ == "__main__":
     execute_manager(settings)

@@ -1,0 +1,28 @@
+{% extends 'nova/base.html' %}
+{%load i18n%}
+
+{% block sidebar %}
+  {% with current_sidebar="networks" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url horizon:nova:networks:index as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "horizon/common/_page_header.html" with title=_("Networks") refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  {% if networks %}
+    {% include 'nova/networks/_list.html' %}
+    {% url horizon:nova:networks:create as dash_net_url %}
+    <a id="network_create_link" class="action_link large-rounded" href="{{dash_net_url}}">{% trans "Create New Network"%}</a>
+  {% else %}
+    <div class="message_box info">
+      <h2>{% trans "Info"%}</h2>
+      <p>{% trans "There are currently no networks."%} <a href='{% url horizon:nova:networks:create %}'>{% trans "Create A Network"%} &gt;&gt;</a></p>
+    </div>
+  {% endif %}
+  </div>
+{% endblock %}

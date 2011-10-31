@@ -13,8 +13,7 @@ DATABASES = {
     },
 }
 
-CACHE_BACKEND = 'dummy://'
-
+CACHE_BACKEND = 'locmem://'
 
 # Send email to the console by default
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -30,61 +29,73 @@ MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 # EMAIL_HOST_USER = 'djangomail'
 # EMAIL_HOST_PASSWORD = 'top-secret!'
 
+HORIZON_CONFIG = {
+    'dashboards': ('nova', 'syspanel', 'settings',),
+    'default_dashboard': 'nova',
+    'user_home': 'dashboard.views.user_home',
+}
 
-OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0"
+OPENSTACK_HOST = "127.0.0.1"
+OPENSTACK_KEYSTONE_URL = "http://%s:5000/v2.0" % OPENSTACK_HOST
 # FIXME: this is only needed until keystone fixes its GET /tenants call
 # so that it doesn't return everything for admins
-OPENSTACK_KEYSTONE_ADMIN_URL = "http://localhost:35357/v2.0"
+OPENSTACK_KEYSTONE_ADMIN_URL = "http://%s:35357/v2.0" % OPENSTACK_HOST
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
 SWIFT_PAGINATE_LIMIT = 100
 
 # Configure quantum connection details for networking
 QUANTUM_ENABLED = True
-QUANTUM_URL = '127.0.0.1'
+QUANTUM_URL = '%s'  % OPENSTACK_HOST
 QUANTUM_PORT = '9696'
 QUANTUM_TENANT = '1234'
 QUANTUM_CLIENT_VERSION='0.1'
 
-# If you have external monitoring links
-EXTERNAL_MONITORING = [
-    ['Nagios','http://foo.com'],
-    ['Ganglia','http://bar.com'],
-]
+# If you have external monitoring links, eg:
+# EXTERNAL_MONITORING = [
+#     ['Nagios','http://foo.com'],
+#     ['Ganglia','http://bar.com'],
+# ]
 
-# If you do not have external monitoring links
-# EXTERNAL_MONITORING = []
-
-# Uncomment the following segment to silence most logging
-# django.db and boto DEBUG logging is extremely verbose.
-#LOGGING = {
-#        'version': 1,
-#        # set to True will disable all logging except that specified, unless
-#        # nothing is specified except that django.db.backends will still log,
-#        # even when set to True, so disable explicitly
-#        'disable_existing_loggers': False,
-#        'handlers': {
-#            'null': {
-#                'level': 'DEBUG',
-#                'class': 'django.utils.log.NullHandler',
-#                },
-#            'console': {
-#                'level': 'DEBUG',
-#                'class': 'logging.StreamHandler',
-#                },
-#            },
-#        'loggers': {
-#            # Comment or Uncomment these to turn on/off logging output
-#            'django.db.backends': {
-#                'handlers': ['null'],
-#                'propagate': False,
-#                },
-#            'django_openstack': {
-#                'handlers': ['null'],
-#                'propagate': False,
-#            },
-#        }
-#}
+LOGGING = {
+        'version': 1,
+        # When set to True this will disable all logging except
+        # for loggers specified in this configuration dictionary. Note that
+        # if nothing is specified here and disable_existing_loggers is True,
+        # django.db.backends will still log unless it is disabled explicitly.
+        'disable_existing_loggers': False,
+        'handlers': {
+            'null': {
+                'level': 'DEBUG',
+                'class': 'django.utils.log.NullHandler',
+                },
+            'console': {
+                # Set the level to "DEBUG" for verbose output logging.
+                'level': 'INFO',
+                'class': 'logging.StreamHandler',
+                },
+            },
+        'loggers': {
+            # Logging from django.db.backends is VERY verbose, send to null
+            # by default.
+            'django.db.backends': {
+                'handlers': ['null'],
+                'propagate': False,
+                },
+            'horizon': {
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'novaclient': {
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'keystoneclient': {
+                'handlers': ['console'],
+                'propagate': False,
+            },
+        }
+}
 
 # How much ram on each compute host?
 COMPUTE_HOST_RAM_GB = 16

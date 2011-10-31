@@ -1,0 +1,26 @@
+{% extends 'nova/base.html' %}
+{% load i18n %}
+
+{% block sidebar %}
+  {% with current_sidebar="volumes" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url horizon:nova:volumes:index as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "horizon/common/_page_header.html" with title=_("Volumes") refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  {% if volumes %}
+    {% include 'nova/volumes/_list.html' %}
+  {% else %}
+    <div class="message_box info">
+      <h2>{% trans "Info"%}</h2>
+      <p>{% blocktrans %}There are currently no volumes.{% endblocktrans %}</p>
+    </div>
+  {% endif %}
+  <a id="volume_create_link" class="action_link large-rounded" href="{% url horizon:nova:volumes:create %}">{% trans "Create New Volume" %}</a>
+{% endblock %}

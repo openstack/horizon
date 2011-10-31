@@ -52,10 +52,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django_openstack.middleware.keystone.AuthenticationMiddleware',
+    'dashboard.middleware.DashboardLogUnhandledExceptionsMiddleware',
+    'horizon.middleware.HorizonMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'dashboard.middleware.DashboardLogUnhandledExceptionsMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -65,9 +65,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
-    'django_openstack.context_processors.object_store',
-    'django_openstack.context_processors.tenants',
-    'django_openstack.context_processors.quantum',
+    'horizon.context_processors.horizon',
 )
 
 TEMPLATE_LOADERS = (
@@ -85,12 +83,13 @@ STATICFILES_DIRS = (
 
 INSTALLED_APPS = (
     'dashboard',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_openstack',
-    'django_openstack.templatetags',
+    'horizon',
+    'horizon.dashboards.nova',
+    'horizon.dashboards.syspanel',
+    'horizon.dashboards.settings',
     'mailer',
 )
 
@@ -98,6 +97,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 TIME_ZONE = None
 gettext_noop = lambda s: s
@@ -119,6 +119,9 @@ ACCOUNT_ACTIVATION_DAYS = 7
 
 TOTAL_CLOUD_RAM_GB = 10
 
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'Member'
+LIVE_SERVER_PORT = 8000
+
 try:
     from local.local_settings import *
 except Exception, e:
@@ -136,4 +139,3 @@ if DEBUG:
     except ImportError:
         logging.info('Running in debug mode without debug_toolbar.')
 
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'Member'

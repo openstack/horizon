@@ -1,0 +1,10 @@
+{% for module in modules %}
+  <h3>{{ module.title }}</h3>
+
+  <ul class="sub_nav">
+    {% for link in module.links %}
+      <li><a {% if request.get_full_path == link.url %} class="active" {% endif %} href="{{ link.url }}">{{ link.text }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
