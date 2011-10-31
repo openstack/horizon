@@ -82,7 +82,8 @@ class UpdateImageForm(forms.Form):
     container_format = forms.CharField(label=_("Container Format"),
             required=False)
     disk_format = forms.CharField(label=_("Disk Format"))
-    #is_public = forms.BooleanField(label=_("Publicly Available"), required=False)
+    #is_public = forms.BooleanField(label=_("Publicly Available"),
+    #                               required=False)
 
 
 @login_required
@@ -175,7 +176,8 @@ def update(request, image_id):
             messages.error(request,
                            _("Image could not be uploaded, please try agian."))
             form = UpdateImageForm(request.POST)
-            return render_to_response('django_openstack/syspanel/images/update.html', {
+            return render_to_response('django_openstack/syspanel/images/'
+            'update.html', {
                 'image': image,
                 'form': form,
             }, context_instance=template.RequestContext(request))
@@ -193,7 +195,8 @@ def update(request, image_id):
                 'disk_format': image.get('disk_format', ''),
             })
 
-        return render_to_response('django_openstack/syspanel/images/update.html', {
+        return render_to_response('django_openstack/syspanel/images/'
+        'update.html', {
             'image': image,
             'form': form,
         }, context_instance=template.RequestContext(request))

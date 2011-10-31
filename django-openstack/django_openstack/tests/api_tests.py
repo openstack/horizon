@@ -99,7 +99,8 @@ class Tenant(object):
 
 class Token(object):
     """ More or less fakes what the api is looking for """
-    def __init__(self, id, username, tenant_id, tenant_name, serviceCatalog=None):
+    def __init__(self, id, username, tenant_id, tenant_name,
+                 serviceCatalog=None):
         self.id = id
         self.user = {'name': username}
         self.tenant = {'id': tenant_id, 'name': tenant_name}
@@ -679,7 +680,9 @@ class AdminApiTests(APITestCase):
 class TokenApiTests(APITestCase):
     def setUp(self):
         super(TokenApiTests, self).setUp()
-        self._prev_OPENSTACK_KEYSTONE_URL = getattr(settings, 'OPENSTACK_KEYSTONE_URL', None)
+        self._prev_OPENSTACK_KEYSTONE_URL = getattr(settings,
+                                                    'OPENSTACK_KEYSTONE_URL',
+                                                    None)
         settings.OPENSTACK_KEYSTONE_URL = TEST_URL
 
     def tearDown(self):
@@ -703,8 +706,10 @@ class TokenApiTests(APITestCase):
         keystoneclient = self.stub_keystoneclient()
 
         keystoneclient.tokens = self.mox.CreateMockAnything()
-        keystoneclient.tokens.authenticate(username=TEST_USERNAME, password=TEST_PASSWORD,
-                                           tenant=TEST_TENANT_ID).AndReturn(test_token)
+        keystoneclient.tokens.authenticate(username=TEST_USERNAME,
+                                           password=TEST_PASSWORD,
+                                           tenant=TEST_TENANT_ID
+                                          ).AndReturn(test_token)
 
         self.mox.ReplayAll()
 

@@ -5,9 +5,12 @@ from django.utils.text import normalize_newlines
 
 from django_openstack import signals, test
 
+
 def single_line(text):
     ''' Quick utility to make comparing template output easier. '''
-    return re.sub(' +', ' ', normalize_newlines(text).replace('\n', '')).strip()
+    return re.sub(' +',
+                  ' ',
+                  normalize_newlines(text).replace('\n', '')).strip()
 
 
 class TemplateTagTests(test.TestCase):
@@ -29,7 +32,7 @@ class TemplateTagTests(test.TestCase):
             })
         '''
         self.mox.StubOutWithMock(signals, 'dash_modules_detect')
-        signals_call= (
+        signals_call = (
                 (self._signal, {
                     'title': 'Nixon',
                     'links': [{'url':'/dash/nixon/google',
@@ -52,11 +55,17 @@ class TemplateTagTests(test.TestCase):
         # Dash module is rendered correctly, and only in dash sidebar
         ttext = '{% load sidebar_modules %}{% dash_sidebar_modules request %}'
         t = template.Template(ttext)
-        self.assertEqual(single_line(t.render(context)) , '<h3>Nixon</h3> <ul class="sub_nav"> <li><a href="/dash/nixon/google">Google</a></li> </ul>')
+        self.assertEqual(single_line(t.render(context)),
+                         '<h3>Nixon</h3> <ul class="sub_nav"> <li>'
+                         '<a href="/dash/nixon/google">Google</a></li> </ul>')
 
         # Syspanel module is rendered correctly and only in syspanel sidebar
-        ttext = '{% load sidebar_modules %}{% syspanel_sidebar_modules request %}'
+        ttext = ('{% load sidebar_modules %}'
+                 '{% syspanel_sidebar_modules request %}')
         t = template.Template(ttext)
-        self.assertEqual(single_line(t.render(context)) , '<h3>Nixon</h3> <ul class="sub_nav"> <li><a href="/syspanel/nixon/google">Google</a></li> </ul>')
+        self.assertEqual(single_line(t.render(context)),
+                         '<h3>Nixon</h3> <ul class="sub_nav"> <li>'
+                         '<a href="/syspanel/nixon/google">Google</a></li>'
+                         ' </ul>')
 
         self.mox.VerifyAll()

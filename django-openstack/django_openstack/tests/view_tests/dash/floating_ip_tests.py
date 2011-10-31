@@ -200,9 +200,9 @@ class FloatingIpViewTests(base.BaseViewTests):
         self.mox.StubOutWithMock(api, 'server_remove_floating_ip')
         exception = novaclient_exceptions.ClientException('ClientException',
                                                     message='clientException')
-        api.server_remove_floating_ip(IsA(http.HttpRequest), IsA(int),
-                                                             IsA(int)).\
-                                                             AndRaise(exception)
+        api.server_remove_floating_ip(IsA(http.HttpRequest),
+                                      IsA(int),
+                                      IsA(int)).AndRaise(exception)
         self.mox.StubOutWithMock(messages, 'error')
         messages.error(IsA(http.HttpRequest), IsA(basestring))
 
@@ -219,4 +219,3 @@ class FloatingIpViewTests(base.BaseViewTests):
         self.assertRedirects(res, reverse('dash_floating_ips',
                                     args=[self.TEST_TENANT]))
         self.mox.VerifyAll()
-
