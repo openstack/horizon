@@ -252,7 +252,8 @@ class SecurityGroup(APIResourceWrapper):
 
 
 class SecurityGroupRule(APIResourceWrapper):
-    """Simple wrapper around openstackx.extras.security_groups.SecurityGroupRule"""
+    """Simple wrapper around
+    openstackx.extras.security_groups.SecurityGroupRule"""
     _attrs = ['id', 'parent_group_id', 'group_id', 'ip_protocol',
               'from_port', 'to_port', 'groups', 'ip_ranges']
 
@@ -350,7 +351,9 @@ def glance_api(request):
     o = urlparse.urlparse(url_for(request, 'image'))
     LOG.debug('glance_api connection created for host "%s:%d"' %
                      (o.hostname, o.port))
-    return glance_client.Client(o.hostname, o.port, auth_tok=request.user.token)
+    return glance_client.Client(o.hostname,
+                                o.port,
+                                auth_tok=request.user.token)
 
 
 def admin_api(request):
@@ -672,6 +675,7 @@ def token_create(request, tenant, username, password):
     return Token(token)
 
 
+
 def token_create_scoped(request, tenant, token):
     '''
     Creates a scoped token using the tenant id and unscoped token; retrieves
@@ -683,6 +687,7 @@ def token_create_scoped(request, tenant, token):
                        endpoint=settings.OPENSTACK_KEYSTONE_URL)
     scoped_token = c.tokens.authenticate(tenant=tenant, token=token)
     return Token(scoped_token)
+
 
 
 def tenant_quota_get(request, tenant):
@@ -982,7 +987,8 @@ class GlobalSummary(object):
             self.service_list = service_list(self.request)
         except api_exceptions.ApiException, e:
             self.service_list = []
-            LOG.exception('ApiException fetching service list in instance usage')
+            LOG.exception('ApiException fetching service list '
+                          'in instance usage')
             messages.error(self.request,
                            _('Unable to get service info: %s') % e.message)
             return

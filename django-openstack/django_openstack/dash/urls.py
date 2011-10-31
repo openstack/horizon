@@ -20,7 +20,8 @@
 
 from django.conf.urls.defaults import *
 
-SECURITY_GROUPS = r'^(?P<tenant_id>[^/]+)/security_groups/(?P<security_group_id>[^/]+)/%s$'
+SECURITY_GROUPS = r('^(?P<tenant_id>[^/]+)/security_groups/'
+                    '(?P<security_group_id>[^/]+)/%s$')
 INSTANCES = r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/%s$'
 IMAGES = r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/%s$'
 KEYPAIRS = r'^(?P<tenant_id>[^/]+)/keypairs/%s$'
@@ -43,9 +44,12 @@ urlpatterns = patterns('django_openstack.dash.views.instances',
 )
 
 urlpatterns += patterns('django_openstack.dash.views.security_groups',
-    url(r'^(?P<tenant_id>[^/]+)/security_groups/$', 'index', name='dash_security_groups'),
-    url(r'^(?P<tenant_id>[^/]+)/security_groups/create$', 'create', name='dash_security_groups_create'),
-    url(SECURITY_GROUPS % 'edit_rules', 'edit_rules', name='dash_security_groups_edit_rules'),
+    url(r'^(?P<tenant_id>[^/]+)/security_groups/$', 'index',
+        name='dash_security_groups'),
+    url(r'^(?P<tenant_id>[^/]+)/security_groups/create$', 'create',
+        name='dash_security_groups_create'),
+    url(SECURITY_GROUPS % 'edit_rules', 'edit_rules',
+        name='dash_security_groups_edit_rules'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.images',
@@ -61,9 +65,12 @@ urlpatterns += patterns('django_openstack.dash.views.keypairs',
 )
 
 urlpatterns += patterns('django_openstack.dash.views.floating_ips',
-    url(r'^(?P<tenant_id>[^/]+)/floating_ips/$', 'index', name='dash_floating_ips'),
-    url(FLOATING_IPS % 'associate', 'associate', name='dash_floating_ips_associate'),
-    url(FLOATING_IPS % 'disassociate', 'disassociate', name='dash_floating_ips_disassociate'),
+    url(r'^(?P<tenant_id>[^/]+)/floating_ips/$', 'index',
+        name='dash_floating_ips'),
+    url(FLOATING_IPS % 'associate', 'associate',
+        name='dash_floating_ips_associate'),
+    url(FLOATING_IPS % 'disassociate', 'disassociate',
+        name='dash_floating_ips_disassociate'),
 )
 
 urlpatterns += patterns('django_openstack.dash.views.snapshots',

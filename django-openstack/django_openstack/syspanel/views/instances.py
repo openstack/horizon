@@ -239,9 +239,9 @@ def detail(request, instance_id):
         instance = api.server_get(request, instance_id)
         try:
             console = api.console_create(request, instance_id, 'vnc')
-            vnc_url =  "%s&title=%s(%s)" % (console.output,
-                                            instance.name,
-                                            instance_id)
+            vnc_url = "%s&title=%s(%s)" % (console.output,
+                                           instance.name,
+                                           instance_id)
         except api_exceptions.ApiException, e:
             LOG.exception('ApiException while fetching instance vnc \
                            connection')

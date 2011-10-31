@@ -122,7 +122,8 @@ def index(request, tenant_id):
         instances = api.server_list(request)
     except api_exceptions.ApiException as e:
         LOG.exception(_('Exception in instance index'))
-        messages.error(request, _('Unable to get instance list: %s') % e.message)
+        messages.error(request, _('Unable to get instance list: %s')
+                       % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
@@ -232,7 +233,8 @@ def console(request, tenant_id, instance_id):
         console = api.console_create(request, instance_id, 'text')
         response = http.HttpResponse(mimetype='text/plain')
         if length:
-            response.write('\n'.join(console.output.split('\n')[-int(length):]))
+            response.write('\n'.join(console.output.split('\n')
+                           [-int(length):]))
         else:
             response.write(console.output)
         response.flush()
@@ -293,9 +295,9 @@ def detail(request, tenant_id, instance_id):
         instance = api.server_get(request, instance_id)
         try:
             console = api.console_create(request, instance_id, 'vnc')
-            vnc_url =  "%s&title=%s(%s)" % (console.output,
-                                            instance.name,
-                                            instance_id)
+            vnc_url = "%s&title=%s(%s)" % (console.output,
+                                           instance.name,
+                                           instance_id)
         except api_exceptions.ApiException, e:
             LOG.exception(_('ApiException while fetching instance vnc \
                            connection'))
