@@ -98,7 +98,9 @@ class AttachPort(forms.SelfHandlingForm):
         except Exception, e:
             messages.error(request,
                 _('Unable to attach port %(port)s to VIF %(vif)s: %(msg)s') %
-                {"port": data['port'], "vif": data['vif_id'], "msg": e.message})
+                {"port": data['port'],
+                 "vif": data['vif_id'],
+                 "msg": e.message})
         else:
             msg = _('Port %(port)s connected to VIF %(vif)s.') % \
                   {"port": data['port'], "vif": data['vif_id']}

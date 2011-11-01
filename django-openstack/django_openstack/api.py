@@ -225,7 +225,7 @@ class Tenant(APIResourceWrapper):
 
 class Token(APIResourceWrapper):
     """Simple wrapper around keystoneclient.tokens.Tenant"""
-    _attrs = ['id', 'user', 'serviceCatalog', 'tenant',]
+    _attrs = ['id', 'user', 'serviceCatalog', 'tenant']
 
 
 class Usage(APIResourceWrapper):
@@ -406,7 +406,8 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
     """
     # Take care of client connection caching/fetching a new client
     user = request.user
-    if hasattr(request, '_keystone') and request._keystone.auth_token == user.token:
+    if (hasattr(request, '_keystone') and
+        request._keystone.auth_token == user.token):
         conn = request._keystone
     else:
         conn = keystone_client.Client(username=username or user.username,
@@ -671,9 +672,10 @@ def token_create(request, tenant, username, password):
     c = keystoneclient(request, username=username, password=password,
                        tenant_id=tenant,
                        endpoint=settings.OPENSTACK_KEYSTONE_URL)
-    token = c.tokens.authenticate(username=username, password=password, tenant=tenant)
+    token = c.tokens.authenticate(username=username,
+                                  password=password,
+                                  tenant=tenant)
     return Token(token)
-
 
 
 def token_create_scoped(request, tenant, token):
@@ -687,7 +689,6 @@ def token_create_scoped(request, tenant, token):
                        endpoint=settings.OPENSTACK_KEYSTONE_URL)
     scoped_token = c.tokens.authenticate(tenant=tenant, token=token)
     return Token(scoped_token)
-
 
 
 def tenant_quota_get(request, tenant):
@@ -740,7 +741,8 @@ def security_group_rule_delete(request, security_group_rule_id):
 
 
 def user_list(request, tenant_id=None):
-    return [User(u) for u in keystoneclient(request).users.list(tenant_id=tenant_id)]
+    return [User(u) for u in
+            keystoneclient(request).users.list(tenant_id=tenant_id)]
 
 
 def user_create(request, user_id, email, password, tenant_id, enabled):
@@ -765,11 +767,13 @@ def user_update_enabled(request, user_id, enabled):
 
 
 def user_update_password(request, user_id, password):
-    return User(keystoneclient(request).users.update_password(user_id, password))
+    return User(keystoneclient(request).users.update_password(user_id,
+                                                              password))
 
 
 def user_update_tenant(request, user_id, tenant_id):
-    return User(keystoneclient(request).users.update_tenant(user_id, tenant_id))
+    return User(keystoneclient(request).users.update_tenant(user_id,
+                                                            tenant_id))
 
 
 def _get_role(request, name):
