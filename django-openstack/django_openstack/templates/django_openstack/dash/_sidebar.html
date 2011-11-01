@@ -11,6 +11,7 @@
     <li><a {% if current_sidebar == "keypairs" %} class="active" {% endif %} href="{% url dash_keypairs request.user.tenant_id %}">{% trans "Keypairs"%}</a></li>
     <li><a {% if current_sidebar == "floatingips" %} class="active" {% endif %} href="{% url dash_floating_ips request.user.tenant_id %}">{% trans "Floating IPs"%}</a></li>
     <li><a {% if current_sidebar == "security_groups" %} class="active" {% endif %} href="{% url dash_security_groups request.user.tenant_id %}">{% trans "Security Groups"%}</a></li>
+    <li><a {% if current_sidebar == "volumes" %} class="active" {% endif %} href="{% url dash_volumes request.user.tenant_id %}">{% trans "Volumes"%}</a></li>
     {% if quantum_configured %}
       <li><a {% if current_sidebar == "networks" %} class="active" {% endif %} href="{% url dash_networks request.user.tenant_id %}">{% trans "Networks"%}</a></li>
     {% endif %}

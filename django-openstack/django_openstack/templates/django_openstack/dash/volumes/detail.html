@@ -1,0 +1,52 @@
+{% extends 'django_openstack/dash/base.html' %}
+{% load i18n %}
+{% load parse_date %}
+
+{% block sidebar %}
+  {% with current_sidebar="volumes" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "django_openstack/common/_page_header.html" with title="Volume Detail: "|add:volume.displayName %}
+{% endblock page_header %}
+
+{% block dash_main %}
+<ul id="instance_tabs">
+    <li class="active"><a class="overview" href="#">{% trans "Overview" %}</a></li>
+</ul>
+
+  <div class="dash_block">
+    <div id="overview" class="tab_wrapper">
+      <ul>
+        <li>
+          <div class="status">
+            <h4>{% trans "Details" %}</h4>
+            <ul>
+              <li><span>{% trans "ID:" %}</span> {{ volume.id }}</li>
+              <li><span>{% trans "Name:" %}</span> {{ volume.displayName }}</li>
+              <li><span>{% trans "Size:" %}</span> {{ volume.size }} {% trans "GB" %}</li>
+              <li><span>{% trans "Description:" %}</span> {{ volume.displayDescription }}</li>
+              <li><span>{% trans "Status:" %}</span> {{ volume.status|capfirst }}</li>
+              <li><span>{% trans "Created:" %}</span> {{ volume.createdAt|parse_date }}</li>
+              <li>
+                <span>{% trans "Attached To:" %}</span>
+                {% if instance %}
+                <a href="{% url dash_instances_detail request.user.tenant_name attachment.serverId %}">
+                  {% trans "Instance" %} {{ instance.id }}
+                  ({{ instance.name }})
+                </a>
+                {% trans "on" %} {{ attachment.device }}
+                {% else %}
+                {% trans "Not Attached" %}
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

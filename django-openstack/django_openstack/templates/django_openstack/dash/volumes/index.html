@@ -1,0 +1,26 @@
+{% extends 'django_openstack/dash/base.html' %}
+{% load i18n %}
+
+{% block sidebar %}
+  {% with current_sidebar="volumes" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url dash_volumes request.user.tenant_id as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "django_openstack/common/_page_header.html" with title=_("Volumes") refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  {% if volumes %}
+    {% include 'django_openstack/dash/volumes/_list.html' %}
+  {% else %}
+    <div class="message_box info">
+      <h2>{% trans "Info"%}</h2>
+      <p>{% blocktrans %}There are currently no volumes.{% endblocktrans %}</p>
+    </div>
+  {% endif %}
+  <a id="volume_create_link" class="action_link large-rounded" href="{% url dash_volumes_create request.user.tenant_id %}">{% trans "Create New Volume" %}</a>
+{% endblock %}

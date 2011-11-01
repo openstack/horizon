@@ -1,0 +1,10 @@
+{% load i18n %}
+<form id="form_delete_{{ volume.id }}" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  <input name="volume_id" type="hidden" value="{{ volume.id }}" />
+  <input name="volume_name" type="hidden" value="{{ volume.displayName }}" />
+  <input id="delete_{{ volume.id }}" class="delete" title="Volume: {{ volume.displayName }}" type="submit" value="{% trans "Delete" %}" />
+</form>

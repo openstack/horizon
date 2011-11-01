@@ -971,6 +971,92 @@ class ExtrasApiTests(APITestCase):
         self.mox.VerifyAll()
 
 
+class VolumeTests(APITestCase):
+    def setUp(self):
+        super(VolumeTests, self).setUp()
+        volume = api.Volume(APIResource.get_instance())
+        volume.id = 1
+        volume.displayName = "displayName"
+        volume.attachments = [{"device": "/dev/vdb",
+                               "serverId": 1,
+                               "id": 1,
+                               "volumeId": 1}]
+        self.volume = volume
+        self.volumes = [volume, ]
+
+        self.novaclient = self.stub_novaclient()
+        self.novaclient.volumes = self.mox.CreateMockAnything()
+
+    def test_volume_list(self):
+        self.novaclient.volumes.list().AndReturn(self.volumes)
+        self.mox.ReplayAll()
+
+        volumes = api.volume_list(self.request)
+
+        self.assertIsInstance(volumes[0], api.Volume)
+        self.mox.VerifyAll()
+
+    def test_volume_get(self):
+        self.novaclient.volumes.get(IsA(int)).AndReturn(self.volume)
+        self.mox.ReplayAll()
+
+        volume = api.volume_get(self.request, 1)
+
+        self.assertIsInstance(volume, api.Volume)
+        self.mox.VerifyAll()
+
+    def test_volume_instance_list(self):
+        self.novaclient.volumes.get_server_volumes(IsA(int)).AndReturn(
+                self.volume.attachments)
+        self.mox.ReplayAll()
+
+        attachments = api.volume_instance_list(self.request, 1)
+
+        self.assertEqual(attachments, self.volume.attachments)
+        self.mox.VerifyAll()
+
+    def test_volume_create(self):
+        self.novaclient.volumes.create(IsA(int), IsA(str), IsA(str)).AndReturn(
+                self.volume)
+        self.mox.ReplayAll()
+
+        new_volume = api.volume_create(self.request,
+                                       10,
+                                       "new volume",
+                                       "new description")
+
+        self.assertIsInstance(new_volume, api.Volume)
+        self.mox.VerifyAll()
+
+    def test_volume_delete(self):
+        self.novaclient.volumes.delete(IsA(int))
+        self.mox.ReplayAll()
+
+        ret_val = api.volume_delete(self.request, 1)
+
+        self.assertIsNone(ret_val)
+        self.mox.VerifyAll()
+
+    def test_volume_attach(self):
+        self.novaclient.volumes.create_server_volume(
+                IsA(int), IsA(int), IsA(str))
+        self.mox.ReplayAll()
+
+        ret_val = api.volume_attach(self.request, 1, 1, "/dev/vdb")
+
+        self.assertIsNone(ret_val)
+        self.mox.VerifyAll()
+
+    def test_volume_detach(self):
+        self.novaclient.volumes.delete_server_volume(IsA(int), IsA(int))
+        self.mox.ReplayAll()
+
+        ret_val = api.volume_detach(self.request, 1, 1)
+
+        self.assertIsNone(ret_val)
+        self.mox.VerifyAll()
+
+
 class APIExtensionTests(APITestCase):
 
     def setUp(self):

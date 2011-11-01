@@ -1,0 +1,35 @@
+{% extends 'django_openstack/dash/base.html' %}
+{%load i18n%}
+
+{% block sidebar %}
+  {% with current_sidebar="volumes" %}
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
+
+{% block headerjs %}
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $("#id_name").focus()
+    })
+  </script>
+{% endblock %}
+
+{% block page_header %}
+  {% include "django_openstack/common/_page_header.html" with title=_("Create a Volume") %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  <div class="dash_block">
+    <div class="left">
+      {% include 'django_openstack/dash/volumes/_form.html' with form=create_form %}
+      <h3><a href="{% url dash_volumes request.user.tenant_id %}">&lt;&lt; {% trans "Return to volumes list"%}</a></h3>
+    </div>
+
+    <div class="right">
+      <h3>{% trans "Description" %}:</h3>
+      <p>{% trans "Volumes are block devices that can be attached to instances." %}</p>
+    </div>
+    <div class="clear">&nbsp;</div>
+  </div>
+{% endblock %}

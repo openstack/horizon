@@ -1,4 +1,5 @@
 {% extends 'django_openstack/dash/base.html' %}
+{% load i18n %}
 
 {% block sidebar %}
   {% with current_sidebar="instances" %}
@@ -13,9 +14,9 @@
 
 {% block dash_main %}
 <ul id="instance_tabs">
-  <li class="active"><a class="overview" href="#">Overview</a></li>
-  <li><a class="log" href="#">Log</a></li>
-  <li><a class="vnc" href="#">VNC</a></li>
+  <li class="active"><a class="overview" href="#">{% trans "Overview" %}</a></li>
+  <li><a class="log" href="#">{% trans "Log" %}</a></li>
+  <li><a class="vnc" href="#">{% trans "VNC" %}</a></li>
 </ul>
 
   <div class="dash_block">
@@ -23,33 +24,52 @@
       <ul>
         <li>
           <div class="status">
-            <h4>Status</h4>
+            <h4>{% trans "Status" %}</h4>
             <ul>
-              <li><span>Status:</span> {{instance.status}}</li>
-              <li><span>Instance Name:</span> {{instance.name}}</li>
-              <li><span>Instance ID:</span> {{instance.id}}</li>
+              <li><span>{% trans "Status:" %}</span> {{instance.status}}</li>
+              <li><span>{% trans "Instance Name:" %}</span> {{instance.name}}</li>
+              <li><span>{% trans "Instance ID:" %}</span> {{instance.id}}</li>
             </ul>
           </div>
         </li>
 
         <li>
           <div class="specs">
-            <h4>Specs</h4>
+            <h4>{% trans "Specs" %}</h4>
             <ul>
-              <li><span>RAM:</span> {{instance.attrs.memory_mb}}</li>
-              <li><span>VCPUs:</span> {{instance.attrs.vcpus}} VCPU</li>
-              <li><span>Disk:</span> {{instance.attrs.disk_gb}}GB Disk</li>
+              <li><span>{% trans "RAM:" %}</span> {{instance.attrs.memory_mb}}</li>
+              <li><span>{% trans "VCPUs:" %}</span> {{instance.attrs.vcpus}} {% trans "VCPU" %}</li>
+              <li><span>{% trans "Disk:" %}</span> {{instance.attrs.disk_gb}}{% trans "GB Disk" %}</li>
             </ul>
           </div>
         </li>
 
         <li>
           <div class="meta">
-            <h4>Meta</h4>
+            <h4>{% trans "Meta" %}</h4>
             <ul>
-              <li><span>Key name:</span> {{instance.attrs.key_name}}</li>
-              <li><span>Security Group(s):</span> {% for group in instance.attrs.security_groups %}{{group}}, {% endfor %}</li>
-              <li><span>Image Name:</span> {{instance.image_name}}</li>
+              <li><span>{% trans "Key name:" %}</span> {{instance.attrs.key_name}}</li>
+              <li><span>{% trans "Security Group(s):" %}</span> {% for group in instance.attrs.security_groups %}{{group}}, {% endfor %}</li>
+              <li><span>{% trans "Image Name:" %}</span> {{instance.image_name}}</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h4>{% trans "Volumes" %}</h4>
+            <ul>
+              {% if volumes %}
+                {% for volume in volumes %}
+                <li>
+                  <span>{% trans "Volume:" %}</span>
+                  <a href="{% url dash_volumes_detail request.user.tenant_name volume.volumeId %}">
+                    {{ volume.volumeId }} ({{ volume.device }})
+                  </a>
+                </li>
+                {% endfor %}
+              {% else %}
+              <li><span>{% trans "None Attached" %}</span></li>
+              {% endif %}
             </ul>
           </div>
         </li>
@@ -57,14 +77,14 @@
     </div>
 
     <div id="log" class="tab_wrapper">
-      <a class="view_full" target="_blank" href="{% url dash_instances_console request.user.tenant_id instance.id %}">View Full Log</a>
+      <a class="view_full" target="_blank" href="{% url dash_instances_console request.user.tenant_id instance.id %}">{% trans "View Full Log" %}</a>
       <pre class="logs"></pre>
     </div>
 
     <div id="vnc" class="tab_wrapper">
       <iframe src="{{vnc_url}}" width="720" height="420"></iframe>
     </div>
-    
+
   </div>
 {% endblock %}
 

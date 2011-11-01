@@ -1,0 +1,14 @@
+{% load i18n %}
+<form id="attach_form"  method="post">
+  <fieldset>
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+      {% for field in form.visible_fields %}
+      {{ field.label_tag }}
+      {{ field.errors }}
+      {{ field }}
+    {% endfor %}
+    <input type="hidden" name="volume_id" value="{{ volume_id }}" />
+    <input type="submit" value="{% trans "Attach Volume" %}" class="large-rounded" />
+  </fieldset>
+</form>

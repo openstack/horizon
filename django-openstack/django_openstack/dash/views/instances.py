@@ -293,6 +293,7 @@ def update(request, tenant_id, instance_id):
 def detail(request, tenant_id, instance_id):
     try:
         instance = api.server_get(request, instance_id)
+        volumes = api.volume_instance_list(request, instance_id)
         try:
             console = api.console_create(request, instance_id, 'vnc')
             vnc_url = "%s&title=%s(%s)" % (console.output,
@@ -316,4 +317,5 @@ def detail(request, tenant_id, instance_id):
     'django_openstack/dash/instances/detail.html', {
         'instance': instance,
         'vnc_url': vnc_url,
+        'volumes': volumes
     }, context_instance=template.RequestContext(request))

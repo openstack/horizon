@@ -1,0 +1,13 @@
+{% load i18n %}
+<form id="volume_form"  method="post">
+  <fieldset>
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+      {% for field in form.visible_fields %}
+      {{ field.label_tag }}
+      {{ field.errors }}
+      {{ field }}
+    {% endfor %}
+    <input type="submit" value="{% trans "Create Volume" %}" class="large-rounded" />
+  </fieldset>
+</form>

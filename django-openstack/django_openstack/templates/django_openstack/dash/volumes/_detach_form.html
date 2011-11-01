@@ -1,0 +1,11 @@
+{% load i18n %}
+<form id="form_detach_{{ attachment.volumeId }}" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  <input name="volume_id" type="hidden" value="{{ attachment.volumeId }}" />
+  <input name="instance_id" type="hidden" value="{{ attachment.serverId }}" />
+  <input name="attachment_id" type="hidden" value="{{ attachment.id }}" />
+  <input id="detach_{{ attachment.volumeId }}" class="detach" title="{% trans "volume" %} {{ attachment.volumeId }} {% trans "from the instance" %} {{ attachment.serverId }}" type="submit" value="{% trans "Detach" %}" />
+</form>

@@ -20,12 +20,13 @@
 
 from django.conf.urls.defaults import *
 
-SECURITY_GROUPS = r('^(?P<tenant_id>[^/]+)/security_groups/'
-                    '(?P<security_group_id>[^/]+)/%s$')
+SECURITY_GROUPS = r'^(?P<tenant_id>[^/]+)/security_groups/' \
+                   '(?P<security_group_id>[^/]+)/%s$'
 INSTANCES = r'^(?P<tenant_id>[^/]+)/instances/(?P<instance_id>[^/]+)/%s$'
 IMAGES = r'^(?P<tenant_id>[^/]+)/images/(?P<image_id>[^/]+)/%s$'
 KEYPAIRS = r'^(?P<tenant_id>[^/]+)/keypairs/%s$'
 SNAPSHOTS = r'^(?P<tenant_id>[^/]+)/snapshots/(?P<instance_id>[^/]+)/%s$'
+VOLUMES = r'^(?P<tenant_id>[^/]+)/volumes/(?P<volume_id>[^/]+)/%s$'
 CONTAINERS = r'^(?P<tenant_id>[^/]+)/containers/%s$'
 FLOATING_IPS = r'^(?P<tenant_id>[^/]+)/floating_ips/(?P<ip_id>[^/]+)/%s$'
 OBJECTS = r'^(?P<tenant_id>[^/]+)/containers/(?P<container_name>[^/]+)/%s$'
@@ -76,6 +77,14 @@ urlpatterns += patterns('django_openstack.dash.views.floating_ips',
 urlpatterns += patterns('django_openstack.dash.views.snapshots',
     url(r'^(?P<tenant_id>[^/]+)/snapshots/$', 'index', name='dash_snapshots'),
     url(SNAPSHOTS % 'create', 'create', name='dash_snapshots_create'),
+)
+
+urlpatterns += patterns('django_openstack.dash.views.volumes',
+    url(r'^(?P<tenant_id>[^/]+)/volumes/$', 'index', name='dash_volumes'),
+    url(r'^(?P<tenant_id>[^/]+)/volumes/create', 'create',
+            name='dash_volumes_create'),
+    url(VOLUMES % 'attach', 'attach', name='dash_volumes_attach'),
+    url(VOLUMES % 'detail', 'detail', name='dash_volumes_detail'),
 )
 
 # Swift containers and objects.
