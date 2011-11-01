@@ -24,4 +24,4 @@ sphinx
 -e git+https://github.com/jacobian/openstack.compute.git#egg=openstack
 -e git+https://github.com/cloudbuilders/openstackx.git#egg=openstackx
 -e git://github.com/rackspace/python-novaclient.git#egg=python-novaclient
--e git://github.com/rackspace/python-keystoneclient.git#egg=python-keystoneclient
+-e git://github.com/4P/python-keystoneclient.git#egg=python-keystoneclient
