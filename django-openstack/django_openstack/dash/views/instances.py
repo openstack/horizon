@@ -153,7 +153,7 @@ def refresh(request, tenant_id):
     reboot_form = RebootInstance()
 
     return shortcuts.render_to_response(
-    'django_openstack/dash/instances/_instance_list.html', {
+    'django_openstack/dash/instances/_list.html', {
         'instances': instances,
         'terminate_form': terminate_form,
         'reboot_form': reboot_form,
