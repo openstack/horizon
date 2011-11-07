@@ -6,11 +6,13 @@ django-registration==0.7
 eventlet
 glance
 kombu
+mox
 nose==1.0.0
 paste
 PasteDeploy
 python-cloudfiles
 python-dateutil
+quantum
 routes
 sqlalchemy
 sqlalchemy-migrate
@@ -22,6 +24,5 @@ xattr
 
 -e git+https://github.com/cloudbuilders/openstackx.git#egg=openstackx
 -e git+https://github.com/jacobian/openstack.compute.git#egg=openstack
--e git+https://github.com/openstack/quantum.git#egg=quantum
 -e git+https://github.com/rackspace/python-novaclient.git#egg=python-novaclient
 -e git+https://github.com/4P/python-keystoneclient.git#egg=python-keystoneclient

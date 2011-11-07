@@ -12,7 +12,6 @@
 # serve to show the default.
 
 import sys, os
-import horizon.version
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 HORIZON_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "horizon"))
@@ -20,6 +19,12 @@ DASHBOARD_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "openstack-da
 
 sys.path.insert(0, HORIZON_DIR)
 sys.path.insert(0, DASHBOARD_DIR)
+
+# This is required for ReadTheDocs.org, but isn't a bad idea anyway.
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dashboard.settings'
+
+import horizon.version
+
 
 def write_autodoc_index():
 
@@ -50,6 +55,8 @@ def write_autodoc_index():
     SRCS = {'horizon': HORIZON_DIR,
             'dashboard': DASHBOARD_DIR}
 
+    EXCLUDED_MODULES = ('horizon.tests', 'dashboard.tests',)
+
     if not(os.path.exists(RSTDIR)):
         os.mkdir(RSTDIR)
 
@@ -68,6 +75,9 @@ def write_autodoc_index():
         if not(os.path.exists(os.path.join(RSTDIR, modulename))):
             os.mkdir(os.path.join(RSTDIR, modulename))
         for module in find_autodoc_modules(modulename, path):
+            if any([module.startswith(exclude) for exclude in EXCLUDED_MODULES]):
+                print "Excluded module %s." % module
+                continue
             mod_path = os.path.join(path, *module.split("."))
             generated_file = os.path.join(RSTDIR, modulename, "%s.rst" % module)
 
