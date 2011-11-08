@@ -29,123 +29,36 @@ from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
 from horizon import exceptions
-from horizon import forms
+from horizon import users
+from horizon.base import Horizon
+from horizon.views.auth_forms import Login, LoginWithTenant, _set_session_data
 
 
 LOG = logging.getLogger(__name__)
 
 
-def _is_admin(token):
-    for role in token.user['roles']:
-        if role['name'].lower() == 'admin':
-            return True
-    return False
-
-
-def _set_session_data(request, token):
-    request.session['admin'] = _is_admin(token)
-    request.session['serviceCatalog'] = token.serviceCatalog
-    request.session['tenant'] = token.tenant['name']
-    request.session['tenant_id'] = token.tenant['id']
-    request.session['token'] = token.id
-    request.session['user'] = token.user['name']
-    request.session['roles'] = token.user['roles']
-
-
-class Login(forms.SelfHandlingForm):
-    username = forms.CharField(max_length="20", label=_("User Name"))
-    password = forms.CharField(max_length="20", label=_("Password"),
-                               widget=forms.PasswordInput(render_value=False))
-
-    def handle(self, request, data):
-        try:
-            if data.get('tenant'):
-                token = api.token_create(request,
-                                         data.get('tenant'),
-                                         data['username'],
-                                         data['password'])
-
-                tenants = api.tenant_list_for_token(request, token.id)
-                tenant = None
-                for t in tenants:
-                    if t.id == data.get('tenant'):
-                        tenant = t
-            else:
-                token = api.token_create(request,
-                                         '',
-                                         data['username'],
-                                         data['password'])
-
-                # Unscoped token
-                request.session['unscoped_token'] = token.id
-                request.user.username = data['username']
-
-                # Get the tenant list, and log in using first tenant
-                # FIXME (anthony): add tenant chooser here?
-                tenants = api.tenant_list_for_token(request, token.id)
-
-                # Abort if there are no valid tenants for this user
-                if not tenants:
-                    messages.error(request,
-                                   _('No tenants present for user: %(user)s') %
-                                    {"user": data['username']})
-                    return
-
-                # Create a token.
-                # NOTE(gabriel): Keystone can return tenants that you're
-                # authorized to administer but not to log into as a user, so in
-                # the case of an Unauthorized error we should iterate through
-                # the tenants until one succeeds or we've failed them all.
-                while tenants:
-                    tenant = tenants.pop()
-                    try:
-                        token = api.token_create_scoped(request,
-                                                        tenant.id,
-                                                        token.id)
-                        break
-                    except exceptions.Unauthorized as e:
-                        token = None
-                if token is None:
-                    raise exceptions.Unauthorized(
-                        _("You are not authorized for any available tenants."))
-
-            LOG.info('Login form for user "%s". Service Catalog data:\n%s' %
-                     (data['username'], token.serviceCatalog))
-            _set_session_data(request, token)
-
-            return shortcuts.redirect('horizon:nova:overview:index')
-
-        except api_exceptions.Unauthorized as e:
-            msg = _('Error authenticating: %s') % e.message
-            LOG.exception(msg)
-            messages.error(request, msg)
-        except api_exceptions.ApiException as e:
-            messages.error(request,
-                           _('Error authenticating with keystone: %s') %
-                           e.message)
-
-
-class LoginWithTenant(Login):
-    username = forms.CharField(max_length="20",
-                       widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    tenant = forms.CharField(widget=forms.HiddenInput())
-
-
 def login(request):
-    if request.user and request.user.is_authenticated():
-        if request.user.is_admin():
-            return shortcuts.redirect('horizon:syspanel:overview:index')
-        else:
-            return shortcuts.redirect('horizon:nova:overview:index')
+    """
+    Logs in a user and redirects them to the URL specified by
+    :func:`horizon.get_user_home`.
+    """
+    if request.user.is_authenticated():
+        user = users.User(users.get_user_from_request(request))
+        return shortcuts.redirect(Horizon.get_user_home(user))
 
     form, handled = Login.maybe_handle(request)
     if handled:
         return handled
 
+    # FIXME(gabriel): we don't ship a view named splash
     return shortcuts.render(request, 'splash.html', {'form': form})
 
 
 def switch_tenants(request, tenant_id):
+    """
+    Swaps a user from one tenant to another using the unscoped token from
+    Keystone to exchange scoped tokens for the new tenant.
+    """
     form, handled = LoginWithTenant.maybe_handle(
             request, initial={'tenant': tenant_id,
                               'username': request.user.username})
@@ -159,10 +72,12 @@ def switch_tenants(request, tenant_id):
                                             tenant_id,
                                             unscoped_token)
             _set_session_data(request, token)
-            return shortcuts.redirect('horizon:nova:overview:index')
+            user = users.User(users.get_user_from_request(request))
+            return shortcuts.redirect(Horizon.get_user_home(user))
         except exceptions.Unauthorized as e:
             messages.error(_("You are not authorized for that tenant."))
 
+    # FIXME(gabriel): we don't ship switch_tenants.html
     return shortcuts.render(request,
                             'switch_tenants.html', {
                                 'to_tenant': tenant_id,
@@ -170,5 +85,7 @@ def switch_tenants(request, tenant_id):
 
 
 def logout(request):
+    """ Clears the session and logs the current user out. """
     request.session.clear()
+    # FIXME(gabriel): we don't ship a view named splash
     return shortcuts.redirect('splash')

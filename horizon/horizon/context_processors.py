@@ -21,10 +21,15 @@
 Context processors used by Horizon.
 """
 
+import logging
+
 from django.conf import settings
 from django.contrib import messages
 
 from horizon import api
+
+
+LOG = logging.getLogger(__name__)
 
 
 def horizon(request):
@@ -45,15 +50,19 @@ def horizon(request):
     context = {}
 
     # Auth/Keystone context
+    context.setdefault('authorized_tenants', [])
     if request.user.is_authenticated():
         try:
-            tenants = api.tenant_list_for_token(request, request.user.token)
-            context['tenants'] = tenants
+            tenants = api.tenant_list_for_token(request,
+                                                request.user.token,
+                                                endpoint_type='internalURL')
+            context['authorized_tenants'] = tenants
         except Exception, e:
             if hasattr(request.user, 'message_set'):
-                messages.error(request, _("Unable to retrieve tenant list from\
-                                          keystone: %s") % e.message)
-        context['tenants'] = []
+                messages.error(request, _("Unable to retrieve tenant list: %s")
+                               % e.message)
+            else:
+                LOG.exception('Could not retrieve tenant list.')
 
     # Object Store/Swift context
     catalog = getattr(request.user, 'service_catalog', [])

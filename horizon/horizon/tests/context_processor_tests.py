@@ -18,8 +18,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django import http
+from mox import IsA
+
 from horizon import context_processors
 from horizon import test
+from horizon import api
 
 
 class ContextProcessorTests(test.TestCase):
@@ -31,6 +35,20 @@ class ContextProcessorTests(test.TestCase):
     def tearDown(self):
         super(ContextProcessorTests, self).tearDown()
         self.request.user.service_catalog = self._prev_catalog
+
+    def test_authorized_tenants(self):
+        tenant_list = self.TEST_CONTEXT['authorized_tenants']
+        self.mox.StubOutWithMock(api, 'tenant_list_for_token')
+        api.tenant_list_for_token(IsA(http.HttpRequest),
+                                  self.TEST_TOKEN,
+                                  endpoint_type='internalURL') \
+                                  .AndReturn(tenant_list)
+        self.mox.ReplayAll()
+
+        context = context_processors.horizon(self.request)
+        self.assertEqual(len(context['authorized_tenants']), 1)
+        tenant = context['authorized_tenants'].pop()
+        self.assertEqual(tenant['id'], self.TEST_TENANT)
 
     def test_object_store(self):
         # Returns the object store service data when it's in the catalog

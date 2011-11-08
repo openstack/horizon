@@ -15,7 +15,7 @@
     <a id="drop_btn" href="#">&nbsp;</a>
     <ul id="user_tenant_list">
       <li class="title"><h4>{% trans "Available Tenants"%}</h4></li>
-      {% for tenant in tenants %}
+      {% for tenant in authorized_tenants %}
         {% if tenant.enabled %}
           <li><a href="{% url horizon:auth_switch tenant.id %}">{{tenant.name}}</a></li>
         {% endif %}

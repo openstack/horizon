@@ -23,7 +23,9 @@ import logging
 from django.conf import settings
 
 from keystoneclient import exceptions as keystone_exceptions
+from keystoneclient import service_catalog
 from keystoneclient.v2_0 import client as keystone_client
+from keystoneclient.v2_0 import tokens
 
 from horizon.api.base import *
 from horizon.api.deprecated import admin_api
@@ -59,7 +61,7 @@ class Services(APIResourceWrapper):
 
 
 def keystoneclient(request, username=None, password=None, tenant_id=None,
-                   token_id=None, endpoint=None):
+                   token_id=None, endpoint=None, endpoint_type=None):
     """Returns a client connected to the Keystone backend.
 
     Several forms of authentication are supported:
@@ -82,8 +84,11 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
     user = request.user
     if hasattr(request, '_keystone') and \
             request._keystone.auth_token == user.token:
+        LOG.debug("Using cached client for token: %s" % user.token)
         conn = request._keystone
     else:
+        LOG.debug("Creating a new client connection with endpoint: %s."
+                  % endpoint)
         conn = keystone_client.Client(username=username or user.username,
                                       password=password,
                                       project_id=tenant_id or user.tenant_id,
@@ -95,7 +100,10 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
     # Fetch the correct endpoint for the user type
     catalog = getattr(conn, 'service_catalog', None)
     if catalog and "serviceCatalog" in catalog.catalog.keys():
-        if user.is_admin():
+        if endpoint_type:
+            endpoint = catalog.url_for(service_type='identity',
+                                       endpoint_type=endpoint_type)
+        elif user.is_admin():
             endpoint = catalog.url_for(service_type='identity',
                                        endpoint_type='adminURL')
         else:
@@ -137,9 +145,11 @@ def tenant_delete(request, tenant_id):
     keystoneclient(request).tenants.delete(tenant_id)
 
 
-def tenant_list_for_token(request, token):
-    c = keystoneclient(request, token_id=token,
-                       endpoint=settings.OPENSTACK_KEYSTONE_URL)
+def tenant_list_for_token(request, token, endpoint_type=None):
+    c = keystoneclient(request,
+                       token_id=token,
+                       endpoint=settings.OPENSTACK_KEYSTONE_URL,
+                       endpoint_type=endpoint_type)
     return [Tenant(t) for t in c.tenants.list()]
 
 
@@ -170,7 +180,17 @@ def token_create_scoped(request, tenant, token):
         del request._keystone
     c = keystoneclient(request, tenant_id=tenant, token_id=token,
                        endpoint=settings.OPENSTACK_KEYSTONE_URL)
-    scoped_token = c.tokens.authenticate(tenant=tenant, token=token)
+    raw_token = c.tokens.authenticate(tenant=tenant,
+                                      token=token,
+                                      return_raw=True)
+    c.service_catalog = service_catalog.ServiceCatalog(raw_token)
+    if request.user.is_admin():
+        c.management_url = c.service_catalog.url_for(service_type='identity',
+                                                     endpoint_type='adminURL')
+    else:
+        c.management_url = c.service_catalog.url_for(service_type='identity',
+                                                     endpoint_type='publicURL')
+    scoped_token = tokens.Token(tokens.TokenManager, raw_token)
     return Token(scoped_token)
 
 

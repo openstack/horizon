@@ -138,4 +138,3 @@ if DEBUG:
                 'debug_toolbar.middleware.DebugToolbarMiddleware',)
     except ImportError:
         logging.info('Running in debug mode without debug_toolbar.')
-

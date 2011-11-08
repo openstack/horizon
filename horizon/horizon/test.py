@@ -66,6 +66,12 @@ class TestCase(django_test.TestCase):
     TEST_TOKEN = 'aToken'
     TEST_USER = 'test'
     TEST_ROLES = [{'name': 'admin', 'id': '1'}]
+    TEST_CONTEXT = {'authorized_tenants': [{'enabled': True,
+                                            'name': 'aTenant',
+                                            'id': '1',
+                                            'description': "None"}],
+                    'object_store_configured': False,
+                    'network_configured': False}
 
     TEST_SERVICE_CATALOG = [
         {"endpoints": [{
@@ -107,12 +113,8 @@ class TestCase(django_test.TestCase):
     def setUp(self):
         self.mox = mox.Mox()
 
-        context_dict = {'tenants': [],
-                        'object_store_configured': False,
-                        'network_configured': False}
-
         self._real_horizon_context_processor = context_processors.horizon
-        context_processors.horizon = lambda request: context_dict
+        context_processors.horizon = lambda request: self.TEST_CONTEXT
 
         self._real_get_user_from_request = users.get_user_from_request
         self.setActiveUser(token=self.TEST_TOKEN,
