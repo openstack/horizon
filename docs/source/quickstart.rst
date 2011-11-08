@@ -2,6 +2,35 @@
 Horizon Quickstart
 ==================
 
+Setup
+=====
+
+To setup an Horizon development environment simply clone the Horizon git
+repository at http://github.com/openstack/horizon and execute the
+``run_tests.sh`` script from the root folder (see :doc:`ref/run_tests`).
+
+Horizon assumes a single end-point for OpenStack services which defaults to
+the local host (127.0.0.1). If this is not the case change the
+``OPENSTACK_HOST`` setting in the ``local_settings.py`` file, located in the
+``openstack-dashboard/local`` folder, to the actual IP address of the
+OpenStack end-point Horizon should use.
+
+To start the Horizon development server use the Django ``manage.py`` utility
+from the ``openstack-dashboard`` directory with the context of the virtual
+environment::
+
+    > tools/with_venv.sh dashboard/manage.py runserver
+
+Alternately specify the listen IP and port::
+
+    > tools/with_venv.sh dashboard/manage.py runserver 0.0.0.0:8080
+
+Once the Horizon server is running point a web browser to http://localhost:8000
+or to the IP and port the server is listening.
+
+note:: The ``DevStack`` project (http://devstack.org/) can be used to install
+an OpenStack development environment from scratch.
+
 Horizon's Structure
 ===================
 

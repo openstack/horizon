@@ -28,7 +28,7 @@ For issue tracking:
 Project Structure and Testing:
 ------------------------------
 
-This project is a bit different from other Openstack projects in that it has
+This project is a bit different from other OpenStack projects in that it has
 two very distinct components underneath it: ``horizon``, and
 ``openstack-dashboard``.
 
