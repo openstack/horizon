@@ -46,5 +46,3 @@ def splash(request):
         return handled
 
     return shortcuts.render(request, 'splash.html', {'form': form})
-
-

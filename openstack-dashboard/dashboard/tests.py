@@ -1,6 +1,7 @@
 from django import test
 from noseselenium.cases import SeleniumTestCaseMixin
 
+
 class SeleniumTests(test.TestCase, SeleniumTestCaseMixin):
     def test_splash(self):
         self.selenium.open("/")

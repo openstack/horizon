@@ -1,5 +1,14 @@
 #!/bin/bash
 
+set -o errexit
+
+# ---------------UPDATE ME-------------------------------#
+# Increment me any time the environment should be rebuilt.
+# This includes dependncy changes, directory renames, etc.
+# Simple integer secuence: 1, 2, 3...
+environment_version=1
+#--------------------------------------------------------#
+
 function usage {
   echo "Usage: $0 [OPTION]..."
   echo "Run Horizon's test suite(s)"
@@ -14,6 +23,7 @@ function usage {
   echo "                           been added."
   echo "  -p, --pep8               Just run pep8"
   echo "  -y, --pylint             Just run pylint"
+  echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
   echo "  --skip-selenium          Run unit tests but skip Selenium tests"
   echo "  --runserver              Run the Django development server for"
   echo "                           openstack-dashboard in the virtual"
@@ -31,15 +41,16 @@ function usage {
 function process_option {
   case "$1" in
     -h|--help) usage;;
-    -V|--virtual-env) let always_venv=1; let never_venv=0;;
-    -N|--no-virtual-env) let always_venv=0; let never_venv=1;;
-    -p|--pep8) let just_pep8=1;;
-    -y|--pylint) let just_pylint=1;;
-    -f|--force) let force=1;;
-    -c|--coverage) let with_coverage=1;;
-    --skip-selenium) let selenium=-1;;
-    --docs) let just_docs=1;;
-    --runserver) let runserver=1;;
+    -V|--virtual-env) always_venv=1; never_venv=0;;
+    -N|--no-virtual-env) always_venv=0; never_venv=1;;
+    -p|--pep8) just_pep8=1;;
+    -y|--pylint) just_pylint=1;;
+    -f|--force) force=1;;
+    -q|--quiet) quiet=1;;
+    -c|--coverage) with_coverage=1;;
+    --skip-selenium) selenium=-1;;
+    --docs) just_docs=1;;
+    --runserver) runserver=1;;
     *) testargs="$testargs $1"
   esac
 }
@@ -65,13 +76,14 @@ function run_pylint {
 
 function run_pep8 {
   echo "Running pep8 ..."
+  rm -f pep8.txt
   PEP8_EXCLUDE=vcsversion.py
   PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --repeat"
   PEP8_INCLUDE="openstack-dashboard/dashboard horizon/horizon"
   echo "${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt"
   #${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt
   #perl string strips out the [ and ] characters
-  ${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt
+  ${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt
 }
 
 function run_sphinx {
@@ -99,11 +111,63 @@ just_pep8=0
 just_pylint=0
 just_docs=0
 runserver=0
+quiet=0
 
 # PROCESS ARGUMENTS, OVERRIDE DEFAULTS
 for arg in "$@"; do
     process_option $arg
 done
+
+function environment_check {
+  echo "Checking environment."
+  if [ -f .environment_version ]; then
+    ENV_VERS=`cat .environment_version`
+    if [ $ENV_VERS -eq $environment_version ]; then
+      echo "Environment is up to date."
+      return 0
+    fi
+  fi
+  if [ $quiet -eq 1 ]; then
+    install_venv
+  else
+    # If we didn't pass our check, ask about upgrading the environment.
+    echo -e "Your environment appears to be out of date. Update? (Y/n) \c"
+    read update_env
+    if [ "x$update_env" = "xY" -o "x$update_env" = "x" -o "x$update_env" = "xy" ]; then
+      install_venv
+    fi
+  fi
+}
+
+function sanity_check {
+  # Anything that should be determined prior to running the tests, server, etc.
+  if [ ! -f horizon/bin/test ]; then
+    echo "Error: Test script not found at horizon/bin/test. Did buildout succeed?"
+    exit 1
+  fi
+  if [ ! -f horizon/bin/coverage ]; then
+    echo "Error: Coverage script not found at horizon/bin/coverage. Did buildout succeed?"
+    exit 1
+  fi
+  if [ ! -f horizon/bin/seleniumrc ]; then
+    echo "Error: Selenium script not found at horizon/bin/seleniumrc. Did buildout succeed?"
+    exit 1
+  fi
+}
+
+function install_venv {
+  cd openstack-dashboard
+  python tools/install_venv.py
+  cd ..
+  cd horizon
+  python bootstrap.py
+  bin/buildout
+  cd ..
+  django_wrapper="${django_with_venv}"
+  dashboard_wrapper="${dashboard_with_venv}"
+  sanity_check
+  echo $environment_version > .environment_version
+}
 
 if [ $never_venv -eq 0 ]
 then
@@ -118,29 +182,17 @@ then
   else
     if [ $always_venv -eq 1 ]; then
       # Automatically install the virtualenv
-      cd openstack-dashboard
-      python tools/install_venv.py
-      cd ..
-      cd horizon
-      python bootstrap.py
-      bin/buildout
-      cd ..
-      django_wrapper="${django_with_venv}"
-      dashboard_wrapper="${dashboard_with_venv}"
+      install_venv
     else
-      echo -e "No virtual environment found...create one? (Y/n) \c"
-      read use_ve
-      if [ "x$use_ve" = "xY" -o "x$use_ve" = "x" -o "x$use_ve" = "xy" ]; then
-        # Install the virtualenv and run the test suite in it
-        cd openstack-dashboard
-        python tools/install_venv.py
-        cd ..
-        cd horizon
-        python bootstrap.py
-        bin/buildout
-        cd ..
-        django_wrapper="${django_with_venv}"
-        dashboard_wrapper="${dashboard_with_venv}"
+      if [ $quiet -eq 1 ]; then
+        echo -e "No virtual environment found...create one? (Y/n) \c"
+        read use_ve
+        if [ "x$use_ve" = "xY" -o "x$use_ve" = "x" -o "x$use_ve" = "xy" ]; then
+          # Install the virtualenv and run the test suite in it
+          install_venv
+        fi
+      else
+        install_venv
       fi
     fi
   fi
@@ -159,6 +211,8 @@ function wait_for_selenium {
 }
 
 function run_tests {
+  sanity_check
+
   if [ $selenium -eq 0 ]; then
     echo "Starting Selenium server..."
     ${django_wrapper} horizon/bin/seleniumrc > .selenium_log &
@@ -208,11 +262,13 @@ function run_tests {
         kill `echo "${SELENIUM_JOB}" | awk '{print $4}'`
         echo "Selenium process stopped."
       else
-        echo "Selenium process not found. This may require manual claenup."
+        echo "Selenium process not found. This may require manual cleanup."
     fi
     rm -f .selenium_log
   fi
 }
+
+environment_check
 
 if [ $just_docs -eq 1 ]; then
     run_sphinx

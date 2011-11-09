@@ -1,5 +1,6 @@
 *.pyc
 *.swp
+.environment_version
 .selenium_log
 .coverage
 coverage.xml

@@ -27,7 +27,7 @@ DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': '/tmp/horizon.db',
-            'TEST_NAME': '/tmp/test_horizon.db',}}
+            'TEST_NAME': '/tmp/test_horizon.db'}}
 
 INSTALLED_APPS = (
     'django.contrib.sessions',
