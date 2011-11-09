@@ -161,8 +161,16 @@ function wait_for_selenium {
 function run_tests {
   if [ $selenium -eq 0 ]; then
     echo "Starting Selenium server..."
-    ${django_wrapper} horizon/bin/seleniumrc > .selenium_log &
-    wait_for_selenium
+    
+    if [ -f horizon/bin/seleniumrc ]; then
+        echo "Selenium Installed"
+        ${django_wrapper} horizon/bin/seleniumrc > .selenium_log &
+        wait_for_selenium
+      else
+        echo "Selenium Not Installed"
+        selenium=1
+    fi
+    
   fi
 
   echo "Running Horizon application tests"
