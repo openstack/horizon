@@ -1,5 +1,6 @@
 *.pyc
 *.swp
+.selenium_log
 .coverage
 coverage.xml
 pep8.txt
@@ -20,5 +21,5 @@ django-nova-syspanel/src/django_nova_syspanel.egg-info
 openstack-dashboard/.dashboard-venv
 openstack-dashboard/local/dashboard_openstack.sqlite3
 openstack-dashboard/local/local_settings.py
-build/
+docs/build/
 docs/source/sourcecode

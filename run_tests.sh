@@ -14,6 +14,7 @@ function usage {
   echo "                           been added."
   echo "  -p, --pep8               Just run pep8"
   echo "  -y, --pylint             Just run pylint"
+  echo "  --skip-selenium          Run unit tests but skip Selenium tests"
   echo "  --runserver              Run the Django development server for"
   echo "                           openstack-dashboard in the virtual"
   echo "                           environment."
@@ -36,6 +37,7 @@ function process_option {
     -y|--pylint) let just_pylint=1;;
     -f|--force) let force=1;;
     -c|--coverage) let with_coverage=1;;
+    --skip-selenium) let selenium=-1;;
     --docs) let just_docs=1;;
     --runserver) let runserver=1;;
     *) testargs="$testargs $1"
@@ -89,6 +91,7 @@ always_venv=0
 never_venv=0
 force=0
 with_coverage=0
+selenium=0
 testargs=""
 django_wrapper=""
 dashboard_wrapper=""
@@ -143,7 +146,25 @@ then
   fi
 fi
 
+function wait_for_selenium {
+  # Selenium can sometimes take several seconds to start.
+  STARTED=`grep -irn "Started SocketListener on 0.0.0.0:4444" .selenium_log`
+  if [ $? -eq 0 ]; then
+      echo "Selenium server started."
+    else
+      echo -n "."
+      sleep 1
+      wait_for_selenium
+  fi
+}
+
 function run_tests {
+  if [ $selenium -eq 0 ]; then
+    echo "Starting Selenium server..."
+    ${django_wrapper} horizon/bin/seleniumrc > .selenium_log &
+    wait_for_selenium
+  fi
+
   echo "Running Horizon application tests"
   ${django_wrapper} coverage erase
   ${django_wrapper} coverage run horizon/bin/test
@@ -156,20 +177,40 @@ function run_tests {
     cp local/local_settings.py local/local_settings.py.bak
   fi
   cp local/local_settings.py.example local/local_settings.py
-  ${dashboard_wrapper} coverage run dashboard/manage.py test
+
+  if [ $selenium -eq 0 ]; then
+      ${dashboard_wrapper} coverage run dashboard/manage.py test --with-selenium --with-cherrypyliveserver
+    else
+      ${dashboard_wrapper} coverage run dashboard/manage.py test
+  fi
+
   if [ -f local/local_settings.py.bak ]; then
     cp local/local_settings.py.bak local/local_settings.py
     rm local/local_settings.py.bak
   fi
+  cd ..
+
   # get results of the openstack-dashboard tests
   DASHBOARD_RESULT=$?
-  cd ..
+
   if [ $with_coverage -eq 1 ]; then
     echo "Generating coverage reports"
     ${django_wrapper} coverage combine
     ${django_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*'
     ${django_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*' -d reports
     exit $(($OPENSTACK_RESULT || $DASHBOARD_RESULT))
+  fi
+
+  if [ $selenium -eq 0 ]; then
+    echo "Stopping Selenium server..."
+    SELENIUM_JOB=`ps -elf | grep "selenium" | grep -v grep`
+    if [ $? -eq 0 ]; then
+        kill `echo "${SELENIUM_JOB}" | awk '{print $4}'`
+        echo "Selenium process stopped."
+      else
+        echo "Selenium process not found. This may require manual claenup."
+    fi
+    rm -f .selenium_log
   fi
 }
 

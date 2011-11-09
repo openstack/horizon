@@ -43,6 +43,7 @@ def horizon_main_nav(context):
     """ Generates top-level dashboard navigation entries. """
     if 'request' not in context:
         return {}
+    current_dashboard = context['request'].horizon.get('dashboard', None)
     dashboards = []
     for dash in Horizon.get_dashboards():
         if callable(dash.nav) and dash.nav(context):
@@ -51,7 +52,7 @@ def horizon_main_nav(context):
             dashboards.append(dash)
     return {'components': dashboards,
             'user': context['request'].user,
-            'current': context['request'].horizon['dashboard'].slug}
+            'current': getattr(current_dashboard, 'slug', None)}
 
 
 @register.inclusion_tag('horizon/_subnav_list.html', takes_context=True)

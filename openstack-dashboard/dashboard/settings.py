@@ -86,6 +86,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_nose',
     'horizon',
     'horizon.dashboards.nova',
     'horizon.dashboards.syspanel',
@@ -137,4 +138,5 @@ if DEBUG:
         MIDDLEWARE_CLASSES += (
                 'debug_toolbar.middleware.DebugToolbarMiddleware',)
     except ImportError:
-        logging.info('Running in debug mode without debug_toolbar.')
+        _logger = logging.getLogger(__name__)
+        _logger.debug('Running in debug mode without debug_toolbar.')

@@ -29,6 +29,10 @@ import horizon
 from horizon.views import auth as auth_views
 
 
+def qunit_tests(request):
+    return shortcuts.render(request, "qunit.html")
+
+
 def user_home(user):
     if user.admin:
         return horizon.get_dashboard('syspanel').get_absolute_url()
@@ -42,3 +46,5 @@ def splash(request):
         return handled
 
     return shortcuts.render(request, 'splash.html', {'form': form})
+
+

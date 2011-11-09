@@ -32,6 +32,7 @@ import horizon
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.splash', name='splash'),
+    url(r'^qunit/$', 'dashboard.views.qunit_tests', name='qunit_tests'),
     url(r'', include(horizon.urls)))
 
 # Development static app and project media serving using the staticfiles app.

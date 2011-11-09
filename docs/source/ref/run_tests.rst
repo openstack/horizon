@@ -28,12 +28,18 @@ environments will be necessary but not necessarily as time consuming.
 I just want to run the tests!
 =============================
 
-Running both sets of unit tests quickly and easily is the main goal of this
+Running the full set of unit tests quickly and easily is the main goal of this
 script. All you need to do is::
 
     ./run_tests.sh
 
-Yep, that's it. Everything else the script can do is optional.
+Yep, that's it. However, for a quicker test run you can skip the Selenium
+tests by using the ``--skip-selenium`` flag::
+
+    ./run_tests.sh --skip-selenium
+
+This isn't recommended, but can be a timesaver when you only need to run
+the code tests and not the frontend tests during development.
 
 Give me metrics!
 ================

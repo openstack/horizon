@@ -26,11 +26,13 @@ TESTSERVER = 'http://testserver'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': '/tmp/horizon.db'}}
+            'NAME': '/tmp/horizon.db',
+            'TEST_NAME': '/tmp/test_horizon.db',}}
 
 INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django_nose',
     'horizon',
     'horizon.tests',
     'horizon.dashboards.nova',
@@ -80,6 +82,8 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture',
              '--cover-package=horizon',
              '--cover-inclusive']
+# For nose-selenium integration
+LIVE_SERVER_PORT = 8000
 
 # django-mailer uses a different config attribute
 # even though it just wraps django.core.mail
