@@ -144,6 +144,15 @@ h1 a{
   border: 1px solid #cbe0e8;
 }
 
+#main_nav h1 {
+  /* Ensure Branding doesn't exceed sidebar space */ 
+  display: block;
+  width: 188px;
+  padding-right: 5px; /*tidy topmenu alignment */
+  height: 35px;
+  overflow: hidden;
+}
+
 #main_nav li {
   margin: 0 20px 0 0;
   float: left;
