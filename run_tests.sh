@@ -58,18 +58,21 @@ function process_option {
 function run_server {
   echo "Starting Django development server..."
   ${django_wrapper} python openstack-dashboard/dashboard/manage.py runserver
+  echo "Server stopped."
 }
 
 function run_pylint {
   echo "Running pylint ..."
   PYLINT_INCLUDE="openstack-dashboard/dashboard horizon/horizon"
-  ${django_wrapper} pylint --rcfile=.pylintrc -f parseable $PYLINT_INCLUDE > pylint.txt
+  ${django_wrapper} pylint --rcfile=.pylintrc -f parseable $PYLINT_INCLUDE > pylint.txt || true
   CODE=$?
   grep Global -A2 pylint.txt
   if [ $CODE -lt 32 ]
   then
+      echo "Completed successfully."
       exit 0
   else
+      echo "Completed with problems."
       exit $CODE
   fi
 }
@@ -81,9 +84,15 @@ function run_pep8 {
   PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --repeat"
   PEP8_INCLUDE="openstack-dashboard/dashboard horizon/horizon"
   echo "${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt"
-  #${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt
-  #perl string strips out the [ and ] characters
-  ${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt
+  ${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt || true
+  PEP8_COUNT=`wc -l pep8.txt | awk '{ print $1 }'`
+  if [ $PEP8_COUNT -ge 1 ]; then
+    echo "PEP8 violations found ($PEP8_COUNT):"
+    cat pep8.txt
+    echo "Please fix all PEP8 violations before committing."
+  else
+    echo "No violations found. Good job!"
+  fi
 }
 
 function run_sphinx {
@@ -92,6 +101,7 @@ function run_sphinx {
     export DJANGO_SETTINGS_MODULE=dashboard.settings
     echo "${django_wrapper} sphinx-build -b html docs/source docs/build/html"
     ${django_wrapper} sphinx-build -b html docs/source docs/build/html
+    echo "Build complete."
 }
 
 # DEFAULTS FOR RUN_TESTS.SH
@@ -156,15 +166,23 @@ function sanity_check {
 }
 
 function install_venv {
+  # Install openstack-dashboard with install_venv.py
+  export PIP_DOWNLOAD_CACHE=/tmp/.pip_download_cache
+  export PIP_USE_MIRRORS=true
   cd openstack-dashboard
   python tools/install_venv.py
   cd ..
+  # Install horizon with buildout
+  if [ ! -d /tmp/.buildout_cache ]; then
+    mkdir -p /tmp/.buildout_cache
+  fi
   cd horizon
   python bootstrap.py
   bin/buildout
   cd ..
   django_wrapper="${django_with_venv}"
   dashboard_wrapper="${dashboard_with_venv}"
+  # Make sure it worked and record the environment version
   sanity_check
   echo $environment_version > .environment_version
 }

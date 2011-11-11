@@ -6,12 +6,13 @@ django-nose==0.1.2
 django-nose-selenium
 django-registration==0.7
 eventlet
-glance
+glance==2011.3
 kombu
 mox
 nose==1.0.0
 paste
 PasteDeploy
+pycrypto==2.3
 python-cloudfiles
 python-dateutil
 quantum
