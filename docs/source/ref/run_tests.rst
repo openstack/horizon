@@ -2,6 +2,9 @@
 The ``run_tests.sh`` Script
 ===========================
 
+.. contents:: Contents:
+   :local:
+
 Horizon ships with a script called ``run_tests.sh`` at the root of the
 repository. This script provides many crucial functions for the project,
 and also makes several otherwise complex tasks trivial for you as a
@@ -104,3 +107,24 @@ run::
     ./run_tests.sh --force
 
 That will blow away the existing environments and create new ones for you.
+
+Non-interactive Mode
+====================
+
+There is an optional flag which will run the script in a non-interactive
+(and eventually less verbose) mode::
+
+    ./run_tests.sh --quiet
+
+This will automatically take the default action for actions which would
+normally prompt for user input such as installing/updating the environment.
+
+Environment Versioning
+======================
+
+Horizon keeps track of changes to the environment by incrementing an
+``environment_version`` integer at the top of ``run_tests.sh``.
+
+If you do anything which changes the environment (adding new dependencies
+or renaming directories are both great examples) be sure to increment the
+``environment_version`` counter as well.

@@ -50,6 +50,12 @@ uses ``horizon`` and is built with a virtualenv. If dependencies are added that
 ``openstack-dashboard`` requires they should be added to ``openstack-
 dashboard/tools/pip-requires``.
 
+  .. important::
+
+    If you do anything which changes the environment (adding new dependencies
+    or renaming directories are both great examples) be sure to increment the
+    ``environment_version`` counter in :doc:`run_tests.sh <ref/run_tests>`.
+
 Project
 =======
 
