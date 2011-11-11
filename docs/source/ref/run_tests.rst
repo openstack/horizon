@@ -119,6 +119,18 @@ There is an optional flag which will run the script in a non-interactive
 This will automatically take the default action for actions which would
 normally prompt for user input such as installing/updating the environment.
 
+Environment Backups
+===================
+
+To speed up the process of doing clean checkouts, running continuous
+integration tests, etc. there are options for backing up the current
+environment and restoring from a backup.
+
+    ./run_tests.sh --restore-environment
+    ./run_tests.sh --backup-environment
+
+The environment backup is stored in ``/tmp/.horizon_environment/``.
+
 Environment Versioning
 ======================
 

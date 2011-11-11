@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=1
+environment_version=2
 #--------------------------------------------------------#
 
 function usage {
@@ -29,6 +29,8 @@ function usage {
   echo "                           openstack-dashboard in the virtual"
   echo "                           environment."
   echo "  --docs                   Just build the documentation"
+  echo "  --backup-environment     Make a backup of the environment on exit"
+  echo "  --restore-environment    Restore the environment before running"
   echo "  -h, --help               Print this usage message"
   echo ""
   echo "Note: with no options specified, the script will try to run the tests in"
@@ -37,6 +39,27 @@ function usage {
   echo "  virtual environment, simply pass the -N option."
   exit
 }
+
+# DEFAULTS FOR RUN_TESTS.SH
+#
+venv=openstack-dashboard/.dashboard-venv
+django_with_venv=openstack-dashboard/tools/with_venv.sh
+dashboard_with_venv=tools/with_venv.sh
+always_venv=0
+never_venv=0
+force=0
+with_coverage=0
+selenium=0
+testargs=""
+django_wrapper=""
+dashboard_wrapper=""
+just_pep8=0
+just_pylint=0
+just_docs=0
+runserver=0
+quiet=0
+backup_env=0
+restore_env=0
 
 function process_option {
   case "$1" in
@@ -51,6 +74,8 @@ function process_option {
     --skip-selenium) selenium=-1;;
     --docs) just_docs=1;;
     --runserver) runserver=1;;
+    --backup-environment) backup_env=1;;
+    --restore-environment) restore_env=1;;
     *) testargs="$testargs $1"
   esac
 }
@@ -104,44 +129,29 @@ function run_sphinx {
     echo "Build complete."
 }
 
-# DEFAULTS FOR RUN_TESTS.SH
-#
-venv=openstack-dashboard/.dashboard-venv
-django_with_venv=openstack-dashboard/tools/with_venv.sh
-dashboard_with_venv=tools/with_venv.sh
-always_venv=0
-never_venv=0
-force=0
-with_coverage=0
-selenium=0
-testargs=""
-django_wrapper=""
-dashboard_wrapper=""
-just_pep8=0
-just_pylint=0
-just_docs=0
-runserver=0
-quiet=0
-
-# PROCESS ARGUMENTS, OVERRIDE DEFAULTS
-for arg in "$@"; do
-    process_option $arg
-done
-
 function environment_check {
   echo "Checking environment."
   if [ -f .environment_version ]; then
     ENV_VERS=`cat .environment_version`
     if [ $ENV_VERS -eq $environment_version ]; then
-      echo "Environment is up to date."
-      return 0
+      if [ -e ${venv} ]; then
+        # If the environment exists and is up-to-date then set our variables
+        django_wrapper="${django_with_venv}"
+        dashboard_wrapper="${dashboard_with_venv}"
+        echo "Environment is up to date."
+        return 0
+      fi
     fi
   fi
+
   if [ $quiet -eq 1 ]; then
     install_venv
   else
-    # If we didn't pass our check, ask about upgrading the environment.
-    echo -e "Your environment appears to be out of date. Update? (Y/n) \c"
+    if [ ! -e ${venv} ]; then
+      echo -e "Environment not found. Install? (Y/n) \c"
+    else
+      echo -e "Your environment appears to be out of date. Update? (Y/n) \c"
+    fi
     read update_env
     if [ "x$update_env" = "xY" -o "x$update_env" = "x" -o "x$update_env" = "xy" ]; then
       install_venv
@@ -151,6 +161,10 @@ function environment_check {
 
 function sanity_check {
   # Anything that should be determined prior to running the tests, server, etc.
+  if [ ! -e ${venv} ]; then
+    echo "Virtualenv not found at openstack-dashboard/.dashboard-venv. Did install_venv.py succeed?"
+    exit 1
+  fi
   if [ ! -f horizon/bin/test ]; then
     echo "Error: Test script not found at horizon/bin/test. Did buildout succeed?"
     exit 1
@@ -163,6 +177,70 @@ function sanity_check {
     echo "Error: Selenium script not found at horizon/bin/seleniumrc. Did buildout succeed?"
     exit 1
   fi
+}
+
+function backup_environment {
+  if [ $backup_env -eq 1 ]; then
+    echo "Backing up environment..."
+    if [ ! -e ${venv} ]; then
+      echo "Environment not installed. Cannot back up."
+      return 0
+    fi
+    if [ -d /tmp/.horizon_environment ]; then
+      mv /tmp/.horizon_environment /tmp/.horizon_environment.old
+      rm -rf /tmp/.horizon_environment
+    fi
+    mkdir -p /tmp/.horizon_environment
+    cp -r openstack-dashboard/.dashboard-venv /tmp/.horizon_environment/
+    cp -r horizon/bin /tmp/.horizon_environment/
+    cp -r horizon/eggs /tmp/.horizon_environment/
+    cp -r horizon/parts /tmp/.horizon_environment/
+    cp -r horizon/develop-eggs /tmp/.horizon_environment/
+    cp -r horizon/horizon.egg-info /tmp/.horizon_environment/
+    cp .environment_version /tmp/.horizon_environment/
+    # Remove the backup now that we've completed successfully
+    rm -rf /tmp/.horizon_environment.old
+    echo "Backup completed"
+  fi
+}
+
+function restore_environment {
+  if [ $restore_env -eq 1 ]; then
+    echo "Restoring environment from backup..."
+    if [ ! -d /tmp/.horizon_environment ]; then
+      echo "No backup to restore from."
+      return 0
+    fi
+    rm -rf openstack-dashboard/.dashboard-venv
+    rm -rf horizon/bin
+    rm -rf horizon/eggs
+    rm -rf horizon/parts
+    rm -rf horizon/develop-eggs
+    rm -rf horizon/horizon.egg-info
+    rm -f .environment_version
+
+    cp -r /tmp/.horizon_environment/.dashboard-venv openstack-dashboard/
+    cp -r /tmp/.horizon_environment/bin horizon/
+    cp -r /tmp/.horizon_environment/eggs horizon/
+    cp -r /tmp/.horizon_environment/parts horizon/
+    cp -r /tmp/.horizon_environment/develop-eggs horizon/
+    cp -r /tmp/.horizon_environment/horizon.egg-info horizon/
+    cp -r /tmp/.horizon_environment/.environment_version ./
+    echo "Environment restored successfully."
+  fi
+}
+
+function destroy_venv {
+  echo "Cleaning virtualenv..."
+  rm -rf ${venv}
+  rm -rf openstack-dashboard/.dashboard-venv
+  rm -rf horizon/bin
+  rm -rf horizon/eggs
+  rm -rf horizon/parts
+  rm -rf horizon/develop-eggs
+  rm -rf horizon/horizon.egg-info
+  rm -f .environment_version
+  echo "Environment cleaned."
 }
 
 function install_venv {
@@ -186,35 +264,6 @@ function install_venv {
   sanity_check
   echo $environment_version > .environment_version
 }
-
-if [ $never_venv -eq 0 ]
-then
-  # Remove the virtual environment if --force used
-  if [ $force -eq 1 ]; then
-    echo "Cleaning virtualenv..."
-    rm -rf ${venv}
-  fi
-  if [ -e ${venv} ]; then
-    django_wrapper="${django_with_venv}"
-    dashboard_wrapper="${dashboard_with_venv}"
-  else
-    if [ $always_venv -eq 1 ]; then
-      # Automatically install the virtualenv
-      install_venv
-    else
-      if [ $quiet -eq 1 ]; then
-        echo -e "No virtual environment found...create one? (Y/n) \c"
-        read use_ve
-        if [ "x$use_ve" = "xY" -o "x$use_ve" = "x" -o "x$use_ve" = "xy" ]; then
-          # Install the virtualenv and run the test suite in it
-          install_venv
-        fi
-      else
-        install_venv
-      fi
-    fi
-  fi
-fi
 
 function wait_for_selenium {
   # Selenium can sometimes take several seconds to start.
@@ -255,6 +304,8 @@ function run_tests {
     else
       ${dashboard_wrapper} coverage run dashboard/manage.py test
   fi
+  # get results of the openstack-dashboard tests
+  DASHBOARD_RESULT=$?
 
   if [ -f local/local_settings.py.bak ]; then
     cp local/local_settings.py.bak local/local_settings.py
@@ -262,15 +313,11 @@ function run_tests {
   fi
   cd ..
 
-  # get results of the openstack-dashboard tests
-  DASHBOARD_RESULT=$?
-
   if [ $with_coverage -eq 1 ]; then
     echo "Generating coverage reports"
     ${django_wrapper} coverage combine
     ${django_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*'
     ${django_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*' -d reports
-    exit $(($OPENSTACK_RESULT || $DASHBOARD_RESULT))
   fi
 
   if [ $selenium -eq 0 ]; then
@@ -284,28 +331,69 @@ function run_tests {
     fi
     rm -f .selenium_log
   fi
+  if [ $(($OPENSTACK_RESULT || $DASHBOARD_RESULT)) -eq 0 ]; then
+    echo "Tests completed successfully."
+  else
+    echo "Tests failed."
+  fi
+  exit $(($OPENSTACK_RESULT || $DASHBOARD_RESULT))
 }
 
-environment_check
 
+# ---------PREPARE THE ENVIRONMENT------------ #
+
+# PROCESS ARGUMENTS, OVERRIDE DEFAULTS
+for arg in "$@"; do
+    process_option $arg
+done
+
+# Ignore all of this if the -N flag was set
+if [ $never_venv -eq 0 ]; then
+
+  # Restore previous environment if desired
+  if [ $restore_env -eq 1 ]; then
+    restore_environment
+  fi
+
+  # Remove the virtual environment if --force used
+  if [ $force -eq 1 ]; then
+    destroy_venv
+  fi
+
+  # Then check if it's up-to-date
+  environment_check
+
+  # Create a backup of the up-to-date environment if desired
+  if [ $backup_env -eq 1 ]; then
+    backup_environment
+  fi
+fi
+
+# ---------EXERCISE THE CODE------------ #
+
+# Build the docs
 if [ $just_docs -eq 1 ]; then
     run_sphinx
     exit $?
 fi
 
+# PEP8
 if [ $just_pep8 -eq 1 ]; then
     run_pep8
     exit $?
 fi
 
+# Pylint
 if [ $just_pylint -eq 1 ]; then
     run_pylint
     exit $?
 fi
 
+# Django development server
 if [ $runserver -eq 1 ]; then
     run_server
     exit $?
 fi
 
+# Full test suite
 run_tests || exit
