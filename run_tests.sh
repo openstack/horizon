@@ -24,13 +24,14 @@ function usage {
   echo "  -p, --pep8               Just run pep8"
   echo "  -y, --pylint             Just run pylint"
   echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
-  echo "  --skip-selenium          Run unit tests but skip Selenium tests"
+  echo "  --with-selenium          Run unit tests including Selenium tests"
   echo "  --runserver              Run the Django development server for"
   echo "                           openstack-dashboard in the virtual"
   echo "                           environment."
   echo "  --docs                   Just build the documentation"
   echo "  --backup-environment     Make a backup of the environment on exit"
   echo "  --restore-environment    Restore the environment before running"
+  echo "  --destroy-environment    DEstroy the environment and exit"
   echo "  -h, --help               Print this usage message"
   echo ""
   echo "Note: with no options specified, the script will try to run the tests in"
@@ -60,6 +61,10 @@ runserver=0
 quiet=0
 backup_env=0
 restore_env=0
+destroy=0
+
+# Jenkins sets a "JOB_NAME" variable, if it's not set, we'll make it "default"
+[ "$JOB_NAME" ] || JOB_NAME="default"
 
 function process_option {
   case "$1" in
@@ -71,11 +76,12 @@ function process_option {
     -f|--force) force=1;;
     -q|--quiet) quiet=1;;
     -c|--coverage) with_coverage=1;;
-    --skip-selenium) selenium=-1;;
+    --with-selenium) selenium=1;;
     --docs) just_docs=1;;
     --runserver) runserver=1;;
     --backup-environment) backup_env=1;;
     --restore-environment) restore_env=1;;
+    --destroy-environment) destroy=1;;
     *) testargs="$testargs $1"
   esac
 }
@@ -129,6 +135,26 @@ function run_sphinx {
     echo "Build complete."
 }
 
+function destroy_buildout {
+  echo "Removing buildout files..."
+  rm -rf horizon/bin
+  rm -rf horizon/eggs
+  rm -rf horizon/parts
+  rm -rf horizon/develop-eggs
+  rm -rf horizon/horizon.egg-info
+  echo "Buildout files removed."
+}
+
+function destroy_venv {
+  echo "Cleaning virtualenv..."
+  destroy_buildout
+  echo "Removing virtualenv..."
+  rm -rf openstack-dashboard/.dashboard-venv
+  echo "Virtualenv removed."
+  rm -f .environment_version
+  echo "Environment cleaned."
+}
+
 function environment_check {
   echo "Checking environment."
   if [ -f .environment_version ]; then
@@ -154,6 +180,7 @@ function environment_check {
     fi
     read update_env
     if [ "x$update_env" = "xY" -o "x$update_env" = "x" -o "x$update_env" = "xy" ]; then
+      # Buildout doesn't play nice with upgrading everytime; kill it to be safe
       destroy_buildout
       install_venv
     fi
@@ -182,25 +209,26 @@ function sanity_check {
 
 function backup_environment {
   if [ $backup_env -eq 1 ]; then
-    echo "Backing up environment..."
+    rm -rf /tmp/.horizon_environment
+    echo "Backing up environment \"$JOB_NAME\"..."
     if [ ! -e ${venv} ]; then
       echo "Environment not installed. Cannot back up."
       return 0
     fi
-    if [ -d /tmp/.horizon_environment ]; then
-      mv /tmp/.horizon_environment /tmp/.horizon_environment.old
-      rm -rf /tmp/.horizon_environment
+    if [ -d /tmp/.horizon_environment/$JOB_NAME ]; then
+      mv /tmp/.horizon_environment/$JOB_NAME /tmp/.horizon_environment/$JOB_NAME.old
+      rm -rf /tmp/.horizon_environment/$JOB_NAME
     fi
-    mkdir -p /tmp/.horizon_environment
-    cp -r openstack-dashboard/.dashboard-venv /tmp/.horizon_environment/
-    cp -r horizon/bin /tmp/.horizon_environment/
-    cp -r horizon/eggs /tmp/.horizon_environment/
-    cp -r horizon/parts /tmp/.horizon_environment/
-    cp -r horizon/develop-eggs /tmp/.horizon_environment/
-    cp -r horizon/horizon.egg-info /tmp/.horizon_environment/
-    cp .environment_version /tmp/.horizon_environment/
+    mkdir -p /tmp/.horizon_environment/$JOB_NAME
+    cp -r openstack-dashboard/.dashboard-venv /tmp/.horizon_environment/$JOB_NAME/
+    cp -r horizon/bin /tmp/.horizon_environment/$JOB_NAME/
+    cp -r horizon/eggs /tmp/.horizon_environment/$JOB_NAME/
+    cp -r horizon/parts /tmp/.horizon_environment/$JOB_NAME/
+    cp -r horizon/develop-eggs /tmp/.horizon_environment/$JOB_NAME/
+    cp -r horizon/horizon.egg-info /tmp/.horizon_environment/$JOB_NAME/
+    cp .environment_version /tmp/.horizon_environment/$JOB_NAME/
     # Remove the backup now that we've completed successfully
-    rm -rf /tmp/.horizon_environment.old
+    rm -rf /tmp/.horizon_environment/$JOB_NAME.old
     echo "Backup completed"
   fi
 }
@@ -208,45 +236,23 @@ function backup_environment {
 function restore_environment {
   if [ $restore_env -eq 1 ]; then
     echo "Restoring environment from backup..."
-    if [ ! -d /tmp/.horizon_environment ]; then
+    if [ ! -d /tmp/.horizon_environment/$JOB_NAME ]; then
       echo "No backup to restore from."
       return 0
     fi
-    rm -rf openstack-dashboard/.dashboard-venv
-    rm -rf horizon/bin
-    rm -rf horizon/eggs
-    rm -rf horizon/parts
-    rm -rf horizon/develop-eggs
-    rm -rf horizon/horizon.egg-info
-    rm -f .environment_version
 
-    cp -r /tmp/.horizon_environment/.dashboard-venv openstack-dashboard/
-    cp -r /tmp/.horizon_environment/bin horizon/
-    cp -r /tmp/.horizon_environment/eggs horizon/
-    cp -r /tmp/.horizon_environment/parts horizon/
-    cp -r /tmp/.horizon_environment/develop-eggs horizon/
-    cp -r /tmp/.horizon_environment/horizon.egg-info horizon/
-    cp -r /tmp/.horizon_environment/.environment_version ./
+    destroy_buildout
 
-    # Setup.py generates an absolute path, which we need to regenerate
-    cd horizon
-    ../openstack-dashboard/tools/with_venv.sh python setup.py develop
-    cd ..
+    cp -r /tmp/.horizon_environment/$JOB_NAME/.dashboard-venv openstack-dashboard/
+    cp -r /tmp/.horizon_environment/$JOB_NAME/bin horizon/
+    cp -r /tmp/.horizon_environment/$JOB_NAME/eggs horizon/
+    cp -r /tmp/.horizon_environment/$JOB_NAME/parts horizon/
+    cp -r /tmp/.horizon_environment/$JOB_NAME/develop-eggs horizon/
+    cp -r /tmp/.horizon_environment/$JOB_NAME/horizon.egg-info horizon/
+    cp -r /tmp/.horizon_environment/$JOB_NAME/.environment_version ./
+
     echo "Environment restored successfully."
   fi
-}
-
-function destroy_venv {
-  echo "Cleaning virtualenv..."
-  rm -rf ${venv}
-  rm -rf openstack-dashboard/.dashboard-venv
-  rm -rf horizon/bin
-  rm -rf horizon/eggs
-  rm -rf horizon/parts
-  rm -rf horizon/develop-eggs
-  rm -rf horizon/horizon.egg-info
-  rm -f .environment_version
-  echo "Environment cleaned."
 }
 
 function install_venv {
@@ -268,6 +274,7 @@ function install_venv {
   dashboard_wrapper="${dashboard_with_venv}"
   # Make sure it worked and record the environment version
   sanity_check
+  chmod -R 754 openstack-dashboard/.dashboard-venv
   echo $environment_version > .environment_version
 }
 
@@ -275,19 +282,35 @@ function wait_for_selenium {
   # Selenium can sometimes take several seconds to start.
   STARTED=`grep -irn "Started SocketListener on 0.0.0.0:4444" .selenium_log`
   if [ $? -eq 0 ]; then
-      echo "Selenium server started."
-    else
-      echo -n "."
-      sleep 1
-      wait_for_selenium
+    echo "Selenium server started."
+    return 0
+  fi
+  echo -n "."
+  sleep 1
+  wait_for_selenium
+}
+
+function stop_selenium {
+  if [ $selenium -eq 1 ]; then
+    echo "Stopping Selenium server..."
+    SELENIUM_JOB=`ps -elf | grep "seleniumrc" | grep -v grep`
+    if [ $? -eq 0 ]; then
+        kill `echo "${SELENIUM_JOB}" | awk '{print $4}'`
+        echo "Selenium process stopped."
+      else
+        echo "No selenium process running."
+    fi
+    rm -f .selenium_log
   fi
 }
 
 function run_tests {
   sanity_check
 
-  if [ $selenium -eq 0 ]; then
+  if [ $selenium -eq 1 ]; then
+    stop_selenium
     echo "Starting Selenium server..."
+    rm -f .selenium_log
     ${django_wrapper} horizon/bin/seleniumrc > .selenium_log &
     wait_for_selenium
   fi
@@ -305,7 +328,7 @@ function run_tests {
   fi
   cp local/local_settings.py.example local/local_settings.py
 
-  if [ $selenium -eq 0 ]; then
+  if [ $selenium -eq 1 ]; then
       ${dashboard_wrapper} coverage run dashboard/manage.py test --with-selenium --with-cherrypyliveserver
     else
       ${dashboard_wrapper} coverage run dashboard/manage.py test
@@ -326,17 +349,8 @@ function run_tests {
     ${django_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*' -d reports
   fi
 
-  if [ $selenium -eq 0 ]; then
-    echo "Stopping Selenium server..."
-    SELENIUM_JOB=`ps -elf | grep "selenium" | grep -v grep`
-    if [ $? -eq 0 ]; then
-        kill `echo "${SELENIUM_JOB}" | awk '{print $4}'`
-        echo "Selenium process stopped."
-      else
-        echo "Selenium process not found. This may require manual cleanup."
-    fi
-    rm -f .selenium_log
-  fi
+  stop_selenium
+
   if [ $(($OPENSTACK_RESULT || $DASHBOARD_RESULT)) -eq 0 ]; then
     echo "Tests completed successfully."
   else
@@ -352,6 +366,12 @@ function run_tests {
 for arg in "$@"; do
     process_option $arg
 done
+
+# If destroy is set, just blow it away and exit.
+if [ $destroy -eq 1 ]; then
+  destroy_venv
+  exit 0
+fi
 
 # Ignore all of this if the -N flag was set
 if [ $never_venv -eq 0 ]; then
