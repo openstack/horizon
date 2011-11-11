@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=2
+environment_version=3
 #--------------------------------------------------------#
 
 function usage {
@@ -47,7 +47,7 @@ django_with_venv=openstack-dashboard/tools/with_venv.sh
 dashboard_with_venv=tools/with_venv.sh
 always_venv=0
 never_venv=0
-force=0
+force=1
 with_coverage=0
 selenium=0
 testargs=""
@@ -154,6 +154,7 @@ function environment_check {
     fi
     read update_env
     if [ "x$update_env" = "xY" -o "x$update_env" = "x" -o "x$update_env" = "xy" ]; then
+      destroy_buildout
       install_venv
     fi
   fi
@@ -226,6 +227,11 @@ function restore_environment {
     cp -r /tmp/.horizon_environment/develop-eggs horizon/
     cp -r /tmp/.horizon_environment/horizon.egg-info horizon/
     cp -r /tmp/.horizon_environment/.environment_version ./
+
+    # Setup.py generates an absolute path, which we need to regenerate
+    cd horizon
+    ../openstack-dashboard/tools/with_venv.sh python setup.py develop
+    cd ..
     echo "Environment restored successfully."
   fi
 }
