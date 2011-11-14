@@ -48,7 +48,7 @@ django_with_venv=openstack-dashboard/tools/with_venv.sh
 dashboard_with_venv=tools/with_venv.sh
 always_venv=0
 never_venv=0
-force=1
+force=0
 with_coverage=0
 selenium=0
 testargs=""
@@ -209,7 +209,6 @@ function sanity_check {
 
 function backup_environment {
   if [ $backup_env -eq 1 ]; then
-    rm -rf /tmp/.horizon_environment
     echo "Backing up environment \"$JOB_NAME\"..."
     if [ ! -e ${venv} ]; then
       echo "Environment not installed. Cannot back up."
