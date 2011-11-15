@@ -77,6 +77,16 @@ For more detailed code analysis you can run::
 
 The output will be saved in ``./pylint.txt``.
 
+Tab Characters
+--------------
+
+For those who dislike having a mix of tab characters and spaces for indentation
+there's a command to check for that in Python, CSS, JavaScript and HTML files::
+
+    ./run_tests.sh --tabs
+
+This will output a total "tab count" and a list of the offending files.
+
 Running the development server
 ==============================
 

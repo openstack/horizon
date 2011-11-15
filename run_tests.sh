@@ -22,6 +22,7 @@ function usage {
   echo "                           environment. Useful when dependencies have"
   echo "                           been added."
   echo "  -p, --pep8               Just run pep8"
+  echo "  -t, --tabs               Check for tab characters in files."
   echo "  -y, --pylint             Just run pylint"
   echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
   echo "  --with-selenium          Run unit tests including Selenium tests"
@@ -57,6 +58,7 @@ dashboard_wrapper=""
 just_pep8=0
 just_pylint=0
 just_docs=0
+just_tabs=0
 runserver=0
 quiet=0
 backup_env=0
@@ -74,6 +76,7 @@ function process_option {
     -p|--pep8) just_pep8=1;;
     -y|--pylint) just_pylint=1;;
     -f|--force) force=1;;
+    -t|--tabs) just_tabs=1;;
     -q|--quiet) quiet=1;;
     -c|--coverage) with_coverage=1;;
     --with-selenium) selenium=1;;
@@ -133,6 +136,22 @@ function run_sphinx {
     echo "${django_wrapper} sphinx-build -b html docs/source docs/build/html"
     ${django_wrapper} sphinx-build -b html docs/source docs/build/html
     echo "Build complete."
+}
+
+function tab_check {
+  TAB_VIOLATIONS=`find horizon/horizon openstack-dashboard/dashboard -type f -regex ".*\.\(css\|js\|py\|html\)" -print0 | xargs -0 awk '/\t/' | wc -l`
+  if [ $TAB_VIOLATIONS -gt 0 ]; then
+    echo "TABS! $TAB_VIOLATIONS of them! Oh no!"
+    HORIZON_FILES=`find horizon/horizon openstack-dashboard/dashboard -type f -regex ".*\.\(css\|js\|py|\html\)"`
+    for TABBED_FILE in $HORIZON_FILES
+    do
+      TAB_COUNT=`awk '/\t/' $TABBED_FILE | wc -l`
+      if [ $TAB_COUNT -gt 0 ]; then
+        echo "$TABBED_FILE: $TAB_COUNT"
+      fi
+    done
+  fi
+  return $TAB_VIOLATIONS;
 }
 
 function destroy_buildout {
@@ -411,6 +430,12 @@ fi
 # Pylint
 if [ $just_pylint -eq 1 ]; then
     run_pylint
+    exit $?
+fi
+
+# Tab checker
+if [ $just_tabs -eq 1 ]; then
+    tab_check
     exit $?
 fi
 
