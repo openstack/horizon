@@ -1,11 +1,52 @@
-{% extends 'nova/images/_launch_form.html' %}
+{% extends "horizon/common/_modal_form.html" %}
 {%load i18n%}
 
-{% block form_url %}{% url horizon:nova:images:launch image_id %}{% endblock %}
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url horizon:nova:images:launch image_id %}{% endblock %}
 
-{% block submit %}
-<div class="modal-footer">
-  <input class="btn primary pull-right" type="submit" value="{%trans "Launch Instance"%}" />
-  <a href="#" class="btn secondary cancel close">Cancel</a>
+{% block modal_id %}launch_image_{{ image_id }}{% endblock %}
+
+{% block modal-header %}Launch Instances{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
 </div>
+<div class="right">
+    <h3>{% trans "Description:"%}</h3>
+        <p>{% trans "Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources they are allowed to provision."%}</p>
+        <table border="0">
+          <tr>
+            <th>{% trans "Quota Name"%}</th>
+            <th>{% trans "Limit"%}</th>
+          </tr>
+          <tr>
+            <td>{% trans "RAM (MB)"%}</td>
+            <td>{{quotas.ram}}MB</td>
+          </tr>
+          <tr>
+            <td>{% trans "Floating IPs"%}</td>
+            <td>{{quotas.floating_ips}}</td>
+          </tr>
+          <tr>
+            <td>{% trans "Instances"%}</td>
+            <td>{{quotas.instances}}</td>
+          </tr>
+          <tr>
+            <td>{% trans "Volumes"%}</td>
+            <td>{{quotas.volumes}}</td>
+          </tr>
+          <tr>
+            <td>{% trans "Gigabytes"%}</td>
+            <td>{{quotas.gigabytes}}GB</td>
+          </tr>
+        </table>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn primary pull-right" type="submit" value="{%trans "Launch Instance"%}" />
+  <a href="{% url horizon:nova:images:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

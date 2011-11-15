@@ -5,5 +5,5 @@
     {{ hidden }}
   {% endfor %}
   <input name="instance" type="hidden" value="{{ instance.id }}" />
-  <input id="terminate_{{instance.id}}" class="terminate" title="{{ instance.name }}" type="submit" value="{% trans "Terminate" %}" />
+  <input id="terminate_{{instance.id}}" class="btn small danger terminate" title="{{ instance.name }}" type="submit" value="{% trans "Terminate" %}" />
 </form>

@@ -103,7 +103,7 @@ class ServerAttributes(APIDictWrapper):
 
        Preserves the request info so image name can later be retrieved
     """
-    _attrs = ['description', 'disk_gb', 'host', 'image_ref', 'kernel_id',
+    _attrs = ['disk_gb', 'host', 'image_ref', 'kernel_id',
               'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
               'os_type', 'tenant_id', 'ramdisk_id', 'scheduled_at',
               'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname',
@@ -231,12 +231,11 @@ def server_delete(request, instance):
 
 
 def server_get(request, instance_id):
-    return Server(extras_api(request).servers.get(instance_id), request)
+    return Server(novaclient(request).servers.get(instance_id), request)
 
 
-@check_openstackx
 def server_list(request):
-    return [Server(s, request) for s in extras_api(request).servers.list()]
+    return [Server(s, request) for s in novaclient(request).servers.list()]
 
 
 @check_openstackx
@@ -251,10 +250,8 @@ def server_reboot(request,
     server.reboot(hardness)
 
 
-def server_update(request, instance_id, name, description):
-    return extras_api(request).servers.update(instance_id,
-                                              name=name,
-                                              description=description)
+def server_update(request, instance_id, name):
+    return novaclient(request).servers.update(instance_id, name=name)
 
 
 def server_add_floating_ip(request, server, address):

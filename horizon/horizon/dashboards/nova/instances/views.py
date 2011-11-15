@@ -209,8 +209,7 @@ def update(request, instance_id):
     form, handled = UpdateInstance.maybe_handle(request, initial={
                                 'instance': instance_id,
                                 'tenant_id': tenant_id,
-                                'name': instance.name,
-                                'description': instance.attrs['description']})
+                                'name': instance.name})
 
     if handled:
         return handled

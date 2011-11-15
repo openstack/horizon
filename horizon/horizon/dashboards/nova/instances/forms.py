@@ -82,16 +82,13 @@ class UpdateInstance(forms.SelfHandlingForm):
     instance = forms.CharField(widget=forms.TextInput(
                                attrs={'readonly': 'readonly'}))
     name = forms.CharField(required=True)
-    description = forms.CharField(required=False)
 
     def handle(self, request, data):
         tenant_id = data['tenant_id']
-        description = data.get('description', '')
         try:
             api.server_update(request,
                               data['instance'],
-                              data['name'],
-                              description)
+                              data['name'])
             messages.success(request, _("Instance '%s' updated") %
                                       data['name'])
         except api_exceptions.ApiException, e:

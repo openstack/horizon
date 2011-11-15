@@ -12,7 +12,7 @@
 {% extends 'nova/networks/_form.html' %}
 {%load i18n%}
 
-{% block submit %}
+{% block modal-footer %}
   <div class="modal-footer">
     <input name="network" type="hidden" value="{{network.id}}" />
     <input name="port" type="hidden" value="{{port.id}}" />

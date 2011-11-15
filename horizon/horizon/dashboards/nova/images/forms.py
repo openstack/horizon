@@ -65,7 +65,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
             LOG.exception(error_retrieving)
             messages.error(request, error_retrieving)
 
-        if image.owner == request.user.username:
+        if image.owner == request.user.tenant_id:
             try:
                 meta = {
                     'is_public': True,

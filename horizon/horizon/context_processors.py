@@ -46,8 +46,12 @@ def horizon(request):
 
     ``network_configured``
         Boolean. Will be ``True`` if ``settings.QUANTUM_ENABLED`` is ``True``.
+
+    Additionally, it sets the names ``True`` and ``False`` in the context
+    to their boolean equivalents for convenience.
     """
-    context = {}
+    context = {"True": True,
+               "False": False}
 
     # Auth/Keystone context
     context.setdefault('authorized_tenants', [])

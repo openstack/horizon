@@ -13,20 +13,7 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div id="update_instance_modal" class="modal static_page">
-    <div class="modal-header">
-      <h3>Update Instance</h3>
-    </div>
-    <div class="modal-body">
-      <div class="left">
-        {% include 'nova/instances/_update.html' with form=form %}
-      </div>
-      <div class="right">
-        <h3>{% trans "Description:"%}</h3>
-        <p>{% trans "Update the name and description of your instance"%}</p>
-      </div>
-    </div>
-  </div>
+  {% include 'nova/instances/_update.html' with form=form %}
 {% endblock %}
 
 {% block footer_js %}

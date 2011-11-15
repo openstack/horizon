@@ -21,6 +21,13 @@
 Classes and methods related to user handling in Horizon.
 """
 
+import logging
+
+from horizon import exceptions
+
+
+LOG = logging.getLogger(__name__)
+
 
 def get_user_from_request(request):
     """ Checks the current session and returns a :class:`~horizon.users.User`.
@@ -34,11 +41,12 @@ def get_user_from_request(request):
     If the session contains invalid data,
     :exc:`~horizon.exceptions.NotAuthorized` will be raised.
     """
-    if 'user' not in request.session:
+    if 'user_id' not in request.session:
         return User()
     try:
-        return User(token=request.session['token'],
-                    user=request.session['user'],
+        return User(id=request.session['user_id'],
+                    token=request.session['token'],
+                    user=request.session['user_name'],
                     tenant_id=request.session['tenant_id'],
                     tenant_name=request.session['tenant'],
                     service_catalog=request.session['serviceCatalog'],
@@ -46,6 +54,7 @@ def get_user_from_request(request):
     except KeyError:
         # If any of those keys are missing from the session it is
         # overwhelmingly likely that we're dealing with an outdated session.
+        LOG.exception("Error while creating User from session.")
         request.session.clear()
         raise exceptions.NotAuthorized(_("Your session has expired. "
                                          "Please log in again."))
@@ -91,8 +100,9 @@ class User(object):
         Boolean value indicating whether or not this user has admin
         privileges. Internally mapped to :meth:`horizon.users.User.is_admin`.
     """
-    def __init__(self, token=None, user=None, tenant_id=None,
+    def __init__(self, id=None, token=None, user=None, tenant_id=None,
                     service_catalog=None, tenant_name=None, roles=None):
+        self.id = id
         self.token = token
         self.username = user
         self.tenant_id = tenant_id

@@ -46,8 +46,6 @@ def index(request):
         unused, handled = f.maybe_handle(request)
         if handled:
             return handled
-    delete_form = DeleteImage()
-
     all_images = []
     try:
         all_images = api.image_list_detailed(request)
@@ -67,9 +65,12 @@ def index(request):
     images = [im for im in all_images
               if im['container_format'] not in ['aki', 'ari']]
 
+    quotas = api.tenant_quota_get(request, request.user.tenant_id)
+
     return shortcuts.render(request,
                             'nova/images/index.html', {
-                                'delete_form': delete_form,
+                                'delete_form': DeleteImage(),
+                                'quotas': quotas,
                                 'images': images})
 
 

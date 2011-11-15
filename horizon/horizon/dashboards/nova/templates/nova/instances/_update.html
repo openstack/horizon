@@ -1,11 +1,24 @@
-{% extends 'nova/instances/_form.html' %}
+{% extends "horizon/common/_modal_form.html" %}
 {%load i18n%}
 
-{% block form_url %}{% url horizon:nova:instances:update instance.id %}{% endblock %}
+{% block form_id %}update_instance_form{% endblock %}
+{% block form_action %}{% url horizon:nova:instances:update instance.id %}{% endblock %}
 
-{% block submit %}
-<div class="modal-footer">
-  <input class="btn primary pull-right" type="submit" value="{%trans "Update Instance"%}" />
-  <a href="#" class="btn secondary cancel close">Cancel</a>
+{% block modal-header %}Update Instance{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
 </div>
+<div class="right">
+    <h3>{% trans "Description:"%}</h3>
+    <p>{% trans "Update the name of your instance"%}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn primary pull-right" type="submit" value="{%trans "Update Instance"%}" />
+  <a href="{% url horizon:nova:instances:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

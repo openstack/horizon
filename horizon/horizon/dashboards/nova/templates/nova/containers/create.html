@@ -12,20 +12,7 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div id="create_container_form" class="modal static_page">
-    <div class="modal-header">
-      <h3>Create Container</h3>
-    </div>
-    <div class="modal-body">
-      <div class="left">
-        {% include 'nova/containers/_create.html' with form=create_form %}
-      </div>
-      <div class="right">
-        <h3>{% trans "Description"%}:</h3>
-        <p>{% trans "A container is a storage compartment for your data and provides a way for you to organize your data. You can think of a container as a folder in Windows® or a directory in UNIX®. The primary difference between a container and these other file system concepts is that containers cannot be nested. You can, however, create an unlimited number of containers within your account. Data must be stored in a container so you must have at least one container defined in your account prior to uploading data."%}</p>
-      </div>
-    </div>
-  </div>
+  {% include "nova/containers/_create.html" with form=create_form %}
 {% endblock %}
 
 

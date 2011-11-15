@@ -1,36 +1,16 @@
+{% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
-<div class="modal">
-  <div class="modal-header">
-    <h3>Log In</h3>
-  </div>
-  <div class="modal-body">
-    <form action="{% url horizon:auth_login %}" method="post">
-      {% csrf_token %}
-      <fieldset>
-      {% for hidden in form.hidden_fields %}
-        {{ hidden }}
-      {% endfor %}
-      {% for field in form.visible_fields %}
-          <div class="clearfix{% if field.errors %} error{% endif %}">
-            {{field.label_tag}}
-            {% if field.errors %}
-              {% for error in field.errors %}
-                <span class="help-inline">{{error}}</span>
-              {% endfor %}
-            {% endif %}
-            <span class="help-block">{{field.help_text}}</span>
-            <div class="input">
-              {{field}}
-            </div>
-          </div>
-        {% endfor %}
-      </fieldset>
-    </div>
-    <div class="modal-footer">
-    {% block submit %}
-      <input type="submit" value="{% trans "Login" %}" />
-    {% endblock %}
-    </div>
-  </form>
-</div>
+{% block modal-header %}Log In{% endblock %}
+
+{% block form-action %}{% url horizon:auth_login %}{% endblock %}
+
+{% block modal-body %}
+  <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+{% endblock %}
+
+{% block modal-footer %}
+  <input type="submit" class="btn primary pull-right" value="{% trans "Login" %}" />
+{% endblock %}

@@ -63,7 +63,7 @@ html, #splash{
 }
 
 #create_container_form .modal-footer{
-		margin-top: 190px;
+	margin-top: 190px;
 }
 
 .nav li a {
@@ -306,6 +306,10 @@ small {
 table form {
 	margin-bottom: 0;
 	width: 1px;
+}
+
+.modal > form {
+    margin-bottom: 0;
 }
 
 #actions.single {

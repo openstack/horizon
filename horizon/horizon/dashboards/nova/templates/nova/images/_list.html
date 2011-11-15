@@ -1,12 +1,4 @@
-{%load i18n%}
-
-{% block footer_js %}
-  <script type="text/javascript" charset="utf-8">
-    $(function(){
-
-    })
-  </script>
-{% endblock %}
+{% load i18n %}
 
 {% load parse_date %}
 {% load launch_form %}
@@ -27,13 +19,18 @@
       <td>{{image.status|capfirst}}</td>
       <td id="actions">
           <ul>
-      {% if image.owner == request.user.username %}
+            <li>{{ image.request.user.id }}<a class="btn small primary" data-controls-modal="launch_image_{{image.id}}" data-backdrop="static" href="{% url horizon:nova:images:launch image.id %}">{% trans "Launch" %}</a></li>
+            {% if image.owner == request.user.tenant_id %}
             <li class="form">{% include "nova/images/_delete.html" with form=delete_form %}</li>
-            <li><a href="{% url horizon:nova:images:update image.id %}">{%trans "Edit"%}</a></li>
-      {% endif %}
-            <li><a class="btn small" href="{% url horizon:nova:images:launch image.id %}">{%trans "Launch"%}</a></li>
+            <li><a class='btn small' href="{% url horizon:nova:images:update image.id %}">{% trans "Edit" %}</a></li>
+            {% endif %}
           </ul>
         </td>
   </tr>
   {% endfor %}
 </table>
+
+{% for image in images %}
+  {% launch_form request request.user.tenant_id image.id as launch_form %}
+  {% include 'nova/images/_launch.html' with form=launch_form image_id=image.id hide=True %}
+{% endfor %}

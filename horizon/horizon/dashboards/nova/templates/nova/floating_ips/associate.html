@@ -13,19 +13,5 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div id="update_instance_modal" class="modal static_page">
-    <div class="modal-header">
-      <h3>Associate Floating IP</h3>
-    </div>
-    <div class="modal-body">
-      <div class="left">
-        {% include 'nova/floating_ips/_associate.html' with form=associate_form %}
-      </div>
-      <div class="right">
-        <h3>{% trans "Description:"%}</h3>
-        <p>{% trans "Associate a floating ip with an instance."%}</p>
-      </div>
-    </div>
-  </div>
-
+  {% include 'nova/floating_ips/_associate.html' with form=associate_form %}
 {% endblock %}

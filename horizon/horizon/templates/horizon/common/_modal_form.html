@@ -1,0 +1,16 @@
+<div id="{% block modal_id %}{% endblock %}" class="{% block modal_class %}modal{% if hide %} hide {% else %} static_page{% endif %}{% endblock %}">
+  <form id="{% block form_id %}{% endblock %}" class="{% block form_class %}{% endblock %}" action="{% block form_action %}{% endblock %}" method="{% block form-method %}POST{% endblock %}">{% csrf_token %}
+    <div class="modal-header">
+      {% if hide %}<a href="#" class="close">&times;</a>{% endif %}
+      <h3>{% block modal-header %}{% endblock %}</h3>
+    </div>
+    <div class="modal-body clearfix">
+    {% block modal-body %}
+        <fieldset>
+        {% include "horizon/common/_form_fields.html" %}
+        </fieldset>
+    {% endblock %}
+    </div>
+    <div class="modal-footer">{% block modal-footer %}{% endblock %}</div>
+  </form>
+</div>

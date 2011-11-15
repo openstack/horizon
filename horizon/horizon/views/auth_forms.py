@@ -44,7 +44,8 @@ def _set_session_data(request, token):
     request.session['tenant'] = token.tenant['name']
     request.session['tenant_id'] = token.tenant['id']
     request.session['token'] = token.id
-    request.session['user'] = token.user['name']
+    request.session['user_name'] = token.user['name']
+    request.session['user_id'] = token.user['id']
     request.session['roles'] = token.user['roles']
 
 

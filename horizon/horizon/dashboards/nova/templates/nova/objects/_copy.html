@@ -1,6 +1,6 @@
 {%load i18n%}
 
-<form id="import_keypair_form" action="{% block form_url %}{% endblock %}" method="post">
+<form id="copy_object_form" action="{% block form_action %}{% endblock %}" method="post">
   {% csrf_token %}
   <fieldset>
     {% for hidden in form.hidden_fields %}
@@ -20,7 +20,7 @@
         </div>
       </div>
     {% endfor %}
-    {% block submit %}
+    {% block modal-footer %}
       <input type="submit" value="{%trans "Add Keypair" %}" />
     {% endblock %}
   </fieldset>
