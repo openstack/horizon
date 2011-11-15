@@ -54,26 +54,12 @@ h2 {
 html, #splash{
   background: #fafafa;
 }
-#splash label {
-	text-align: left;
-}
 
-#splash div.clearfix {
-	padding-left: 25px;
-}
-
-#splash .row {
-  background: #fff url(../images/logo.png) no-repeat center 50px;
+#splash .modal {
+  background: #fff url(../images/logo.png) no-repeat center 35px;
   width: 390px;
-  margin: 0 auto;
-  padding-top: 192px;
+  padding-top: 170px;
   border: 1px solid #e1e1e1;
-  border-top: 0;
-}
-
-
-#splash .actions {
-	margin-bottom: -18px;
 }
 
 #create_container_form .modal-footer{
@@ -292,14 +278,6 @@ small {
 #user_info a {
 	margin-left: 25px;
 	font-size: 11px !important;
-
-}
-
-.dead_nav {
-	margin-top: 5000px;
-	float: left;
-	width: 0;
-	height: 0;
 }
 
 .main_nav {
