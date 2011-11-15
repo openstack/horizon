@@ -1,5 +1,5 @@
 {% extends 'nova/base.html' %}
-{%load i18n%}
+{% load i18n %}
 
 {% block sidebar %}
   {% with current_sidebar="containers" %}
@@ -14,6 +14,15 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  {% include 'nova/containers/_list.html' %}
-  <a class="btn small" href="{% url horizon:nova:containers:create %}">{% trans "Create New Container"%}</a>
+  {% if containers %}
+    {% include 'nova/containers/_list.html' %}
+  {% else %}
+    <div class="alert-message block-message info">
+      <p>
+        <strong>{% trans "Info: " %}</strong>
+        {% trans "There are currently no containers."%}
+        <a class="btn small" href="{% url horizon:nova:containers:create %}">{% trans "Create New Container" %}</a>
+      </p>
+    </div>
+  {% endif %}
 {% endblock %}

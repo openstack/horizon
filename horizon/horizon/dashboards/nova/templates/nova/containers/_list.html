@@ -13,9 +13,9 @@
     <td>{{ container.name }}</td>
     <td id="actions">
       <ul>
-        <li class="form">{% include "nova/containers/_delete.html" with form=delete_form %}</li>
         <li><a class="btn small" href="{% url horizon:nova:containers:object_index container.name %}">{% trans "List Objects" %}</a></li>
-        <li><a class="btn small" href="{% url horizon:nova:containers:object_upload container.name %}">{% trans "Upload Object"%}</a></li>
+        <li><a class="btn small primary" href="{% url horizon:nova:containers:object_upload container.name %}">{% trans "Upload Object"%}</a></li>
+        <li class="form">{% include "nova/containers/_delete.html" with form=delete_form %}</li>
       </ul>
     </td>
   </tr>
