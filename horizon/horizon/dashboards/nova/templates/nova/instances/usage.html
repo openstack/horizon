@@ -9,11 +9,11 @@
   {% endwith %}
 {% endblock %}
 
-{% block dash_main %}
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title="Overview: "|add:"<small>This page shows your cloud usage.</small>" %}
+{% endblock page_header %}
 
-  <div class='page-header'>
-    <h2>Overview <small>This page shows your cloud usage.</small></h2>
-  </div>
+{% block dash_main %}
 
   {% if usage.instances %}
     <div id="usage">
