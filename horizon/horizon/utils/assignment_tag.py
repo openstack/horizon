@@ -30,15 +30,15 @@ if not hasattr(Library, 'assignment_tag'):
         A utility method for parsing token keyword arguments.
 
         :param bits: A list containing remainder of the token (split by spaces)
-            that is to be checked for arguments. Valid arguments will be removed
-            from this list.
+            that is to be checked for arguments. Valid arguments will be
+            removed from this list.
 
         :param support_legacy: If set to true ``True``, the legacy format
-            ``1 as foo`` will be accepted. Otherwise, only the standard ``foo=1``
-            format is allowed.
+            ``1 as foo`` will be accepted. Otherwise, only the standard
+            ``foo=1`` format is allowed.
 
-        :returns: A dictionary of the arguments retrieved from the ``bits`` token
-            list.
+        :returns: A dictionary of the arguments retrieved from the ``bits``
+            token list.
 
         There is no requirement for all remaining token ``bits`` to be keyword
         arguments, so the dictionary will be returned as soon as an invalid
@@ -105,14 +105,14 @@ if not hasattr(Library, 'assignment_tag'):
                 elif param in kwargs:
                     # The keyword argument has already been supplied once
                     raise TemplateSyntaxError(
-                        "'%s' received multiple values for keyword argument '%s'" %
-                        (name, param))
+                        "'%s' received multiple values for keyword argument "
+                        "'%s'" % (name, param))
                 else:
                     # All good, record the keyword argument
                     kwargs[str(param)] = value
                     if param in unhandled_params:
-                        # If using the keyword syntax for a positional arg, then
-                        # consume it.
+                        # If using the keyword syntax for a positional arg,
+                        # then consume it.
                         unhandled_params.remove(param)
             else:
                 if kwargs:
@@ -123,7 +123,7 @@ if not hasattr(Library, 'assignment_tag'):
                     # Record the positional argument
                     args.append(parser.compile_filter(bit))
                     try:
-                        # Consume from the list of expected positional arguments
+                        # Consume from the expected positional arguments
                         unhandled_params.pop(0)
                     except IndexError:
                         if varargs is None:
@@ -141,12 +141,11 @@ if not hasattr(Library, 'assignment_tag'):
                 (name, u", ".join([u"'%s'" % p for p in unhandled_params])))
         return args, kwargs
 
-
     class TagHelperNode(Node):
         """
         Base class for tag helper nodes such as SimpleNode, InclusionNode and
-        AssignmentNode. Manages the positional and keyword arguments to be passed
-        to the decorated function.
+        AssignmentNode. Manages the positional and keyword arguments to be
+        passed to the decorated function.
         """
 
         def __init__(self, takes_context, args, kwargs):
@@ -162,48 +161,50 @@ if not hasattr(Library, 'assignment_tag'):
                                     for k, v in self.kwargs.items())
             return resolved_args, resolved_kwargs
 
-
     def assignment_tag(self, func=None, takes_context=None, name=None):
-            def dec(func):
-                params, varargs, varkw, defaults = getargspec(func)
+        def dec(func):
+            params, varargs, varkw, defaults = getargspec(func)
 
-                class AssignmentNode(TagHelperNode):
-                    def __init__(self, takes_context, args, kwargs, target_var):
-                        super(AssignmentNode, self).__init__(takes_context, args, kwargs)
-                        self.target_var = target_var
+            class AssignmentNode(TagHelperNode):
+                def __init__(self, takes_context, args, kwargs, target_var):
+                    super(AssignmentNode, self) \
+                            .__init__(takes_context, args, kwargs)
+                    self.target_var = target_var
 
-                    def render(self, context):
-                        resolved_args, resolved_kwargs = self.get_resolved_arguments(context)
-                        context[self.target_var] = func(*resolved_args, **resolved_kwargs)
-                        return ''
+                def render(self, context):
+                    resolved_args, resolved_kwargs = \
+                            self.get_resolved_arguments(context)
+                    context[self.target_var] = func(*resolved_args,
+                                                    **resolved_kwargs)
+                    return ''
 
-                function_name = (name or
-                    getattr(func, '_decorated_function', func).__name__)
+            function_name = (name or
+                getattr(func, '_decorated_function', func).__name__)
 
-                def compile_func(parser, token):
-                    bits = token.split_contents()[1:]
-                    if len(bits) < 2 or bits[-2] != 'as':
-                        raise TemplateSyntaxError(
-                            "'%s' tag takes at least 2 arguments and the "
-                            "second last argument must be 'as'" % function_name)
-                    target_var = bits[-1]
-                    bits = bits[:-2]
-                    args, kwargs = parse_bits(parser, bits, params,
-                        varargs, varkw, defaults, takes_context, function_name)
-                    return AssignmentNode(takes_context, args, kwargs, target_var)
+            def compile_func(parser, token):
+                bits = token.split_contents()[1:]
+                if len(bits) < 2 or bits[-2] != 'as':
+                    raise TemplateSyntaxError(
+                        "'%s' tag takes at least 2 arguments and the "
+                        "second last argument must be 'as'" % function_name)
+                target_var = bits[-1]
+                bits = bits[:-2]
+                args, kwargs = parse_bits(parser, bits, params,
+                    varargs, varkw, defaults, takes_context, function_name)
+                return AssignmentNode(takes_context, args, kwargs, target_var)
 
-                compile_func.__doc__ = func.__doc__
-                self.tag(function_name, compile_func)
-                return func
+            compile_func.__doc__ = func.__doc__
+            self.tag(function_name, compile_func)
+            return func
 
-            if func is None:
-                # @register.assignment_tag(...)
-                return dec
-            elif callable(func):
-                # @register.assignment_tag
-                return dec(func)
-            else:
-                raise TemplateSyntaxError("Invalid arguments provided to assignment_tag")
-
+        if func is None:
+            # @register.assignment_tag(...)
+            return dec
+        elif callable(func):
+            # @register.assignment_tag
+            return dec(func)
+        else:
+            raise TemplateSyntaxError("Invalid arguments provided to "
+                                      "assignment_tag")
 
     Library.assignment_tag = assignment_tag
