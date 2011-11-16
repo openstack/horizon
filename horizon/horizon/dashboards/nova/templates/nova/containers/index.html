@@ -10,13 +10,13 @@
 {% block dash_main %}
   {% if containers %}
     {% include 'nova/containers/_list.html' %}
+    <a class="btn small primary" href="{% url horizon:nova:containers:create %}">{% trans "Create New Container" %}</a>
   {% else %}
     <div class="alert-message block-message info">
-      <p>
-        <strong>{% trans "Info: " %}</strong>
-        {% trans "There are currently no containers."%}
-        <a class="btn small" href="{% url horizon:nova:containers:create %}">{% trans "Create New Container" %}</a>
-      </p>
+      <p><strong>{% trans "Info: " %}</strong>{% trans "There are currently no containers." %}</p>
+      <div class="alert-actions">
+        <a class="btn small primary" href="{% url horizon:nova:containers:create %}">{% trans "Create New Container" %}</a>
+      </div>
     </div>
   {% endif %}
 {% endblock %}

@@ -43,7 +43,8 @@ class ContainerViewTests(test.BaseViewTests):
     def test_index(self):
         self.mox.StubOutWithMock(api, 'swift_get_containers')
         api.swift_get_containers(
-                IsA(http.HttpRequest), marker=None).AndReturn([self.container])
+                IsA(http.HttpRequest), marker=None).AndReturn(
+                        ([self.container], False))
 
         self.mox.ReplayAll()
 
@@ -126,7 +127,7 @@ class ObjectViewTests(test.BaseViewTests):
         api.swift_get_objects(
                 IsA(http.HttpRequest),
                 self.CONTAINER_NAME,
-                marker=None).AndReturn(self.swift_objects)
+                marker=None).AndReturn((self.swift_objects, False))
 
         self.mox.ReplayAll()
 
@@ -222,7 +223,7 @@ class ObjectViewTests(test.BaseViewTests):
 
         self.mox.StubOutWithMock(api, 'swift_get_containers')
         api.swift_get_containers(
-                IsA(http.HttpRequest)).AndReturn([container])
+                IsA(http.HttpRequest)).AndReturn(([container], False))
 
         self.mox.ReplayAll()
 
@@ -249,7 +250,7 @@ class ObjectViewTests(test.BaseViewTests):
 
         self.mox.StubOutWithMock(api, 'swift_get_containers')
         api.swift_get_containers(
-                IsA(http.HttpRequest)).AndReturn([container])
+                IsA(http.HttpRequest)).AndReturn(([container], False))
 
         self.mox.StubOutWithMock(api, 'swift_copy_object')
         api.swift_copy_object(IsA(http.HttpRequest),
@@ -281,7 +282,7 @@ class ObjectViewTests(test.BaseViewTests):
         api.swift_get_objects(IsA(http.HttpRequest),
                               unicode(self.CONTAINER_NAME),
                               prefix=unicode(PREFIX))\
-                              .AndReturn(self.swift_objects)
+                              .AndReturn((self.swift_objects, False))
 
         self.mox.ReplayAll()
 

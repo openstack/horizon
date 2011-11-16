@@ -3,7 +3,7 @@
 
 {% block page_header %}
   <div class='page-header'>
-    <h2>Objects <small>Container: {{container_name}}</small></h2>
+    <h2>Objects <small>Container: {{ container_name }}</small></h2>
   </div>
 {% endblock page_header %}
 
@@ -14,9 +14,9 @@
     <div class="alert-message block-message info">
       {% url horizon:nova:containers:object_upload container_name as dash_obj_up_url %}
       <p>
-        <strong>{% trans "Info: "%}</strong>
-        {% trans "There are currently no objects in the container."%}
-        <a class="btn small" href='{{dash_obj_up_url}}'>{% trans "Object Upload Page"%}</a>
+        <strong>{% trans "Info: " %}</strong>
+        {% trans "There are currently no objects in the container." %}
+        <a class="btn small" href='{{ dash_obj_up_url }}'>{% trans "Object Upload Page" %}</a>
       </p>
     </div>
   {% endif %}

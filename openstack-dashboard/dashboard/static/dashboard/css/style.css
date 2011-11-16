@@ -309,7 +309,8 @@ table form {
 	width: 1px;
 }
 
-.modal > form {
+.modal > form,
+.alert-actions > form {
     margin-bottom: 0;
 }
 
@@ -653,6 +654,9 @@ table tr.odd.bad td { border: 1px solid #ffb7b8; }
 table tr.even.bad td { border: 1px solid #fba7a9; }
 table tr.odd.medium td { border: 1px solid #f8e400; }
 table tr.even.medium td { border: 1px solid #f0dd00; }
+
+/*Fix for bootstrap not applying style to table footer.*/
+tfoot tr td { border-top: 1px solid #DDD }
 
 .odd.good { background: #e1ffd9; }
 .odd.medium { background: #fffabf; }

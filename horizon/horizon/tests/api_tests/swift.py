@@ -46,15 +46,17 @@ class SwiftApiTests(APITestCase):
 
         swift_api = self.stub_swift_api()
 
-        swift_api.get_all_containers(limit=10000,
+        swift_api.get_all_containers(limit=10001,
                                      marker=None).AndReturn(containers)
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_get_containers(self.request)
+        (conts, more) = api.swift_get_containers(self.request)
 
-        self.assertEqual(len(ret_val), len(containers))
-        for container in ret_val:
+        self.assertEqual(len(conts), len(containers))
+        self.assertFalse(more)
+
+        for container in conts:
             self.assertIsInstance(container, api.Container)
             self.assertIn(container._apiresource, containers)
 
@@ -93,7 +95,7 @@ class SwiftApiTests(APITestCase):
 
         swift_objects = (TEST_RETURN, TEST_RETURN + '2')
         container = self.mox.CreateMock(cloudfiles.container.Container)
-        container.get_objects(limit=10000,
+        container.get_objects(limit=10000 + 1,
                               marker=None,
                               prefix=None).AndReturn(swift_objects)
 
@@ -103,10 +105,12 @@ class SwiftApiTests(APITestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_get_objects(self.request, NAME)
+        (objects, more) = api.swift_get_objects(self.request, NAME)
 
-        self.assertEqual(len(ret_val), len(swift_objects))
-        for swift_object in ret_val:
+        self.assertEqual(len(objects), len(swift_objects))
+        self.assertFalse(more)
+
+        for swift_object in objects:
             self.assertIsInstance(swift_object, api.SwiftObject)
             self.assertIn(swift_object._apiresource, swift_objects)
 
@@ -116,7 +120,7 @@ class SwiftApiTests(APITestCase):
 
         swift_objects = (TEST_RETURN, TEST_RETURN + '2')
         container = self.mox.CreateMock(cloudfiles.container.Container)
-        container.get_objects(limit=10000,
+        container.get_objects(limit=10000 + 1,
                               marker=None,
                               prefix=PREFIX).AndReturn(swift_objects)
 
@@ -126,12 +130,14 @@ class SwiftApiTests(APITestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.swift_get_objects(self.request,
+        (objects, more) = api.swift_get_objects(self.request,
                                         NAME,
                                         prefix=PREFIX)
 
-        self.assertEqual(len(ret_val), len(swift_objects))
-        for swift_object in ret_val:
+        self.assertEqual(len(objects), len(swift_objects))
+        self.assertFalse(more)
+
+        for swift_object in objects:
             self.assertIsInstance(swift_object, api.SwiftObject)
             self.assertIn(swift_object._apiresource, swift_objects)
 

@@ -43,12 +43,13 @@ def index(request):
     if handled:
         return handled
 
-    containers = api.swift_get_containers(request, marker=marker)
+    containers, more = api.swift_get_containers(request, marker=marker)
 
     return shortcuts.render(request,
                             'nova/containers/index.html',
                             {'containers': containers,
-                             'delete_form': delete_form})
+                             'delete_form': delete_form,
+                             'more': more})
 
 
 @login_required
@@ -70,17 +71,22 @@ def object_index(request, container_name):
     if handled:
         return handled
 
-    filter_form, objects = FilterObjects.maybe_handle(request)
+    filter_form, paged_objects = FilterObjects.maybe_handle(request)
 
-    if objects is None:
+    if paged_objects is None:
         filter_form.fields['container_name'].initial = container_name
-        objects = api.swift_get_objects(request, container_name, marker=marker)
+        objects, more = api.swift_get_objects(request,
+                                              container_name,
+                                              marker=marker)
+    else:
+        objects, more = paged_objects
 
     delete_form.fields['container_name'].initial = container_name
     return shortcuts.render(request,
                             'nova/objects/index.html',
                             {'container_name': container_name,
                              'objects': objects,
+                             'more': more,
                              'delete_form': delete_form,
                              'filter_form': filter_form})
 
@@ -115,7 +121,7 @@ def object_download(request, container_name, object_name):
 def object_copy(request, container_name, object_name):
     containers = \
             [(c.name, c.name) for c in api.swift_get_containers(
-                    request)]
+                    request)[0]]
     form, handled = CopyObject.maybe_handle(request,
             containers=containers)
 

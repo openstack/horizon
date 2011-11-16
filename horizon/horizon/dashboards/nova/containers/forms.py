@@ -67,16 +67,16 @@ class FilterObjects(forms.SelfHandlingForm):
     def handle(self, request, data):
         object_prefix = data['object_prefix'] or None
 
-        objects = api.swift_get_objects(request,
-                                        data['container_name'],
-                                        prefix=object_prefix)
+        objects, more = api.swift_get_objects(request,
+                                              data['container_name'],
+                                              prefix=object_prefix)
 
         if not objects:
             messages.info(request,
                          _('There are no objects matching that prefix in %s') %
                          data['container_name'])
 
-        return objects
+        return (objects, more)
 
 
 class DeleteObject(forms.SelfHandlingForm):

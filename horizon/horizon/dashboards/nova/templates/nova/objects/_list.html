@@ -19,7 +19,7 @@
         <td>{{ object.name }}</td>
         <td id="actions">
           <ul>
-            <li><a class="btn small" href="{% url horizon:nova:containers:object_download container_name object.name %}">{% trans "Download"%}</a>
+            <li><a class="btn small primary" href="{% url horizon:nova:containers:object_download container_name object.name %}">{% trans "Download"%}</a>
             <li><a class="btn small" href="{% url horizon:nova:containers:object_copy container_name object.name %}">{% trans "Copy"%}</a></li>
             <li class="form">{% include "nova/objects/_delete.html" with form=delete_form %}</li>
           </ul>
@@ -27,10 +27,12 @@
       </tr>
       {% endfor %}
     </tbody>
+    {% if more %}
     <tfoot>
       <tr>
         <td colspan="2">{% object_paging objects %}</td>
       </tr>
     </tfoot>
+    {% endif %}
   </table>
 </div>

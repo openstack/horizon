@@ -21,9 +21,11 @@
   </tr>
   {% endfor %}
   </tbody>
+  {% if more %}
   <tfoot>
     <tr>
       <td colspan="2">{% object_paging containers %}</td>
     </tr>
   </tfoot>
+  {% endif %}
 </table>
