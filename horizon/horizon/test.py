@@ -65,6 +65,7 @@ class TestCase(django_test.TestCase):
     TEST_TENANT_NAME = 'aTenant'
     TEST_TOKEN = 'aToken'
     TEST_USER = 'test'
+    TEST_USER_ID = '1'
     TEST_ROLES = [{'name': 'admin', 'id': '1'}]
     TEST_CONTEXT = {'authorized_tenants': [{'enabled': True,
                                             'name': 'aTenant',
@@ -129,10 +130,11 @@ class TestCase(django_test.TestCase):
         context_processors.horizon = self._real_horizon_context_processor
         users.get_user_from_request = self._real_get_user_from_request
 
-    def setActiveUser(self, token=None, username=None, tenant_id=None,
+    def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
                         service_catalog=None, tenant_name=None, roles=None):
         users.get_user_from_request = lambda x: \
-                users.User(token=token,
+                users.User(id=id,
+                           token=token,
                            user=username,
                            tenant_id=tenant_id,
                            service_catalog=service_catalog)
@@ -204,10 +206,11 @@ class BaseViewTests(TestCase):
 
 
 class BaseAdminViewTests(BaseViewTests):
-    def setActiveUser(self, token=None, username=None, tenant_id=None,
+    def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
                     service_catalog=None, tenant_name=None, roles=None):
         users.get_user_from_request = lambda x: \
-                users.User(token=self.TEST_TOKEN,
+                users.User(id=self.TEST_USER_ID,
+                           token=self.TEST_TOKEN,
                            user=self.TEST_USER,
                            tenant_id=self.TEST_TENANT,
                            service_catalog=self.TEST_SERVICE_CATALOG,

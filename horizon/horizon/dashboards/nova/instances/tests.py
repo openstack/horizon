@@ -36,7 +36,6 @@ class InstanceViewTests(test.BaseViewTests):
         server = self.mox.CreateMock(api.Server)
         server.id = 1
         server.name = 'serverName'
-        server.attrs = {'description': 'mydesc'}
         self.servers = (server,)
 
     def test_index(self):
@@ -390,12 +389,10 @@ class InstanceViewTests(test.BaseViewTests):
     def test_instance_update_post(self):
         INSTANCE_ID = self.servers[0].id
         NAME = 'myname'
-        DESC = 'mydesc'
         formData = {'method': 'UpdateInstance',
                     'instance': self.servers[0].id,
                     'name': NAME,
-                    'tenant_id': self.TEST_TENANT,
-                    'description': DESC}
+                    'tenant_id': self.TEST_TENANT}
 
         self.mox.StubOutWithMock(api, 'server_get')
         api.server_get(IsA(http.HttpRequest),
@@ -403,7 +400,7 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.mox.StubOutWithMock(api, 'server_update')
         api.server_update(IsA(http.HttpRequest),
-                          str(INSTANCE_ID), NAME, DESC)
+                          str(INSTANCE_ID), NAME)
 
         self.mox.ReplayAll()
 
@@ -419,12 +416,10 @@ class InstanceViewTests(test.BaseViewTests):
     def test_instance_update_post_api_exception(self):
         INSTANCE_ID = self.servers[0].id
         NAME = 'myname'
-        DESC = 'mydesc'
         formData = {'method': 'UpdateInstance',
                     'instance': INSTANCE_ID,
                     'name': NAME,
-                    'tenant_id': self.TEST_TENANT,
-                    'description': DESC}
+                    'tenant_id': self.TEST_TENANT}
 
         self.mox.StubOutWithMock(api, 'server_get')
         api.server_get(IsA(http.HttpRequest),
@@ -433,7 +428,7 @@ class InstanceViewTests(test.BaseViewTests):
         exception = api_exceptions.ApiException('apiException')
         self.mox.StubOutWithMock(api, 'server_update')
         api.server_update(IsA(http.HttpRequest),
-                          str(INSTANCE_ID), NAME, DESC).\
+                          str(INSTANCE_ID), NAME).\
                           AndRaise(exception)
 
         self.mox.ReplayAll()

@@ -363,10 +363,10 @@ class ExtrasApiTests(APITestCase):
     def test_server_list(self):
         servers = (TEST_RETURN, TEST_RETURN + '2')
 
-        extras_api = self.stub_extras_api()
+        novaclient = self.stub_novaclient()
 
-        extras_api.servers = self.mox.CreateMockAnything()
-        extras_api.servers.list().AndReturn(servers)
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.list().AndReturn(servers)
 
         self.mox.ReplayAll()
 
@@ -417,9 +417,9 @@ class ExtrasApiTests(APITestCase):
     def test_server_get(self):
         INSTANCE_ID = '2'
 
-        extras_api = self.stub_extras_api()
-        extras_api.servers = self.mox.CreateMockAnything()
-        extras_api.servers.get(INSTANCE_ID).AndReturn(TEST_RETURN)
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.get(INSTANCE_ID).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 

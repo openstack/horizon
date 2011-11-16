@@ -180,8 +180,8 @@ class AuthViewTests(test.BaseViewTests):
         NEW_TENANT_NAME = 'FAKENAME'
         TOKEN_ID = 1
 
-        self.setActiveUser(self.TEST_TOKEN, self.TEST_USER, self.TEST_TENANT,
-                           False, self.TEST_SERVICE_CATALOG)
+        self.setActiveUser(self.TEST_USER_ID, self.TEST_TOKEN, self.TEST_USER,
+                           self.TEST_TENANT, False, self.TEST_SERVICE_CATALOG)
 
         form_data = {'method': 'LoginWithTenant',
                      'password': self.PASSWORD,
@@ -196,7 +196,8 @@ class AuthViewTests(test.BaseViewTests):
 
         aToken = self.mox.CreateMock(api.Token)
         aToken.id = TOKEN_ID
-        aToken.user = {'name': self.TEST_USER, 'roles': [{'name': 'fake'}]}
+        aToken.user = {'id': self.TEST_USER_ID,
+                       'name': self.TEST_USER, 'roles': [{'name': 'fake'}]}
         aToken.serviceCatalog = {}
         aToken.tenant = {'id': aTenant.id, 'name': aTenant.name}
 
