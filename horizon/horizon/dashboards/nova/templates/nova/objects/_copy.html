@@ -1,28 +1,24 @@
-{%load i18n%}
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
 
-<form id="copy_object_form" action="{% block form_action %}{% endblock %}" method="post">
-  {% csrf_token %}
-  <fieldset>
-    {% for hidden in form.hidden_fields %}
-      {{hidden}}
-    {% endfor %}
-    {% for field in form.visible_fields %}
-      <div class="clearfix{% if field.errors %} error{% endif %}">
-        {{field.label_tag}}
-        {% if field.errors %}
-          {% for error in field.errors %}
-            <span class="help-inline">{{error}}</span>
-          {% endfor %}
-        {% endif %}
-        <span class="help-block">{{field.help_text}}</span>
-        <div class="input">
-          {{field}}
-        </div>
-      </div>
-    {% endfor %}
-    {% block modal-footer %}
-      <input type="submit" value="{%trans "Add Keypair" %}" />
-    {% endblock %}
-  </fieldset>
-</form>
+{% block form_id %}copy_object_form{% endblock %}
+{% block form_action %}{% url horizon:nova:containers:object_copy container_name object_name %}{% endblock %}
 
+{% block modal-header %}Copy Object: {{ object_name }}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description"%}:</h3>
+    <p>{% trans "You may make a new copy of an existing object to store in this or another container."%}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+    <input class="btn primary pull-right" type="submit" value="{% trans "Copy Object" %}" />
+    <a href="{% url horizon:nova:containers:object_index container_name %}" class="btn secondary cancel close">Cancel</a>
+{% endblock %}

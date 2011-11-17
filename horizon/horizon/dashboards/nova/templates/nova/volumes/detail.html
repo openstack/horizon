@@ -1,12 +1,5 @@
 {% extends 'nova/base.html' %}
-{% load i18n %}
-{% load parse_date %}
-
-{% block sidebar %}
-  {% with current_sidebar="volumes" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n parse_date %}
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}

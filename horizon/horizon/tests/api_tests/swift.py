@@ -58,8 +58,6 @@ class SwiftApiTests(APITestCase):
             self.assertIsInstance(container, api.Container)
             self.assertIn(container._apiresource, containers)
 
-        self.mox.VerifyAll()
-
     def test_swift_create_container(self):
         NAME = 'containerName'
 
@@ -77,8 +75,6 @@ class SwiftApiTests(APITestCase):
         self.assertIsInstance(ret_val, api.Container)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
-        self.mox.VerifyAll()
-
     def test_swift_delete_container(self):
         NAME = 'containerName'
 
@@ -91,8 +87,6 @@ class SwiftApiTests(APITestCase):
         ret_val = api.swift_delete_container(self.request, NAME)
 
         self.assertIsNone(ret_val)
-
-        self.mox.VerifyAll()
 
     def test_swift_get_objects(self):
         NAME = 'containerName'
@@ -115,8 +109,6 @@ class SwiftApiTests(APITestCase):
         for swift_object in ret_val:
             self.assertIsInstance(swift_object, api.SwiftObject)
             self.assertIn(swift_object._apiresource, swift_objects)
-
-        self.mox.VerifyAll()
 
     def test_swift_get_objects_with_prefix(self):
         NAME = 'containerName'
@@ -143,8 +135,6 @@ class SwiftApiTests(APITestCase):
             self.assertIsInstance(swift_object, api.SwiftObject)
             self.assertIn(swift_object._apiresource, swift_objects)
 
-        self.mox.VerifyAll()
-
     def test_swift_upload_object(self):
         CONTAINER_NAME = 'containerName'
         OBJECT_NAME = 'objectName'
@@ -167,8 +157,6 @@ class SwiftApiTests(APITestCase):
 
         self.assertIsNone(ret_val)
 
-        self.mox.VerifyAll()
-
     def test_swift_delete_object(self):
         CONTAINER_NAME = 'containerName'
         OBJECT_NAME = 'objectName'
@@ -186,8 +174,6 @@ class SwiftApiTests(APITestCase):
                                           OBJECT_NAME)
 
         self.assertIsNone(ret_val)
-
-        self.mox.VerifyAll()
 
     def test_swift_get_object_data(self):
         CONTAINER_NAME = 'containerName'
@@ -210,8 +196,6 @@ class SwiftApiTests(APITestCase):
 
         self.assertEqual(ret_val, OBJECT_DATA)
 
-        self.mox.VerifyAll()
-
     def test_swift_object_exists(self):
         CONTAINER_NAME = 'containerName'
         OBJECT_NAME = 'objectName'
@@ -229,8 +213,6 @@ class SwiftApiTests(APITestCase):
                                           CONTAINER_NAME,
                                           OBJECT_NAME)
         self.assertTrue(ret_val)
-
-        self.mox.VerifyAll()
 
     def test_swift_copy_object(self):
         CONTAINER_NAME = 'containerName'
@@ -257,4 +239,3 @@ class SwiftApiTests(APITestCase):
                                         OBJECT_NAME)
 
         self.assertIsNone(ret_val)
-        self.mox.VerifyAll()

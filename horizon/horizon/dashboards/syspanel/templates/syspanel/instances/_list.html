@@ -43,8 +43,8 @@
       <td>{{instance.status|lower|capfirst}}</td>
       <td id="actions">
         <ul>
-          <li class="form">{% include "horizon/common/instances/_terminate.html" with form=terminate_form %}</li>
-          <li class="form">{% include "horizon/common/instances/_reboot.html" with form=reboot_form %}</li>
+          <li class="form">{% include "syspanel/instances/_terminate.html" with form=terminate_form %}</li>
+          <li class="form">{% include "syspanel/instances/_reboot.html" with form=reboot_form %}</li>
           <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances:console instance.id %}">{% trans "Console Log"%}</a></li>
           <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances:vnc instance.id %}">{% trans "VNC Console"%}</a></li>
         </ul>

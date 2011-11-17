@@ -10,7 +10,7 @@
   <tbody>
   {% for container in containers %}
   <tr class="{% cycle 'odd' 'even' %}">
-    <td>{{ container.name }}</td>
+    <td><a href="{% url horizon:nova:containers:object_index container.name %}">{{ container.name }}</a></td>
     <td id="actions">
       <ul>
         <li><a class="btn small" href="{% url horizon:nova:containers:object_index container.name %}">{% trans "List Objects" %}</a></li>

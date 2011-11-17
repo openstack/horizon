@@ -40,7 +40,6 @@ from horizon.dashboards.nova.networks.forms import (CreateNetwork,
 LOG = logging.getLogger(__name__)
 
 
-@login_required
 def index(request):
     tenant_id = request.user.tenant_id
     delete_form, delete_handled = DeleteNetwork.maybe_handle(request)
@@ -74,7 +73,6 @@ def index(request):
                                 'delete_form': delete_form})
 
 
-@login_required
 def create(request):
     network_form, handled = CreateNetwork.maybe_handle(request)
     if handled:
@@ -85,24 +83,27 @@ def create(request):
                             {'network_form': network_form})
 
 
-@login_required
 def detail(request, network_id):
     tenant_id = request.user.tenant_id
-    delete_port_form, delete_handled = DeletePort.maybe_handle(request)
-    detach_port_form, detach_handled = DetachPort.maybe_handle(request)
-    toggle_port_form, port_toggle_handled = TogglePort.maybe_handle(request)
+    delete_port_form, delete_handled = DeletePort.maybe_handle(request,
+                                            initial={"network": network_id})
+    detach_port_form, detach_handled = DetachPort.maybe_handle(request,
+                                            initial={"network": network_id})
+    toggle_port_form, port_toggle_handled = TogglePort.maybe_handle(request,
+                                            initial={"network": network_id})
 
     network = {}
+    network['id'] = network_id
 
     try:
         network_details = api.quantum_network_details(request, network_id)
         network['name'] = network_details['network']['name']
-        network['id'] = network_id
         network['ports'] = _get_port_states(request, network_id)
     except Exception, e:
         LOG.exception("Unable to get network details.")
         messages.error(request,
                        _('Unable to get network details: %s') % e.message)
+        return shortcuts.redirect("horizon:nova:networks:index")
 
     return shortcuts.render(request,
                             'nova/networks/detail.html',
@@ -113,17 +114,20 @@ def detail(request, network_id):
                              'toggle_port_form': toggle_port_form})
 
 
-@login_required
 def rename(request, network_id):
-    rename_form, handled = RenameNetwork.maybe_handle(request)
     network_details = api.quantum_network_details(request, network_id)
+    network = network_details['network']
+
+    rename_form, handled = RenameNetwork.maybe_handle(request, initial={
+                                                'network': network['id'],
+                                                'new_name': network['name']})
 
     if handled:
         return shortcuts.redirect('horizon:nova:networks:index')
 
     return shortcuts.render(request,
                             'nova/networks/rename.html', {
-                                'network': network_details,
+                                'network': network,
                                 'rename_form': rename_form})
 
 
@@ -148,7 +152,7 @@ def _get_port_states(request, network_id):
         if port_attachment['attachment']:
             for vif in vifs:
                 if str(vif['id']) == str(port_attachment['attachment']['id']):
-                    connected_instance = vif['instance_name']
+                    connected_instance = vif['id']
                     break
         network_ports.append({
             'id': port_details['port']['id'],
@@ -180,9 +184,9 @@ def _calc_network_stats(request, network_id):
     return {'total': total, 'used': used, 'available': available}
 
 
-@login_required
 def port_create(request, network_id):
-    create_form, handled = CreatePort.maybe_handle(request)
+    create_form, handled = CreatePort.maybe_handle(request, initial={
+                                                   "network": network_id})
 
     if handled:
         return shortcuts.redirect('horizon:nova:networks:detail',
@@ -194,38 +198,17 @@ def port_create(request, network_id):
                                 'create_form': create_form})
 
 
-@login_required
 def port_attach(request, network_id, port_id):
-    attach_form, handled = AttachPort.maybe_handle(request)
+    attach_form, handled = AttachPort.maybe_handle(request, initial={
+                                                   "network": network_id,
+                                                   "port": port_id})
 
     if handled:
         return shortcuts.redirect('horizon:nova:networks:detail',
                                    network_id=network_id)
 
-    # Get all avaliable vifs
-    vifs = _get_available_vifs(request)
-
     return shortcuts.render(request,
                             'nova/ports/attach.html', {
                                 'network': network_id,
                                 'port': port_id,
-                                'attach_form': attach_form,
-                                'vifs': vifs})
-
-
-def _get_available_vifs(request):
-    """
-    Method to get a list of available virtual interfaces
-    """
-    vif_choices = []
-    vifs = api.get_vif_ids(request)
-
-    for vif in vifs:
-        if vif['available']:
-            name = "Instance %s VIF %s" % \
-                   (str(vif['instance_name']), str(vif['id']))
-            vif_choices.append({
-                'name': str(name),
-                'id': str(vif['id'])})
-
-    return vif_choices
+                                'attach_form': attach_form})

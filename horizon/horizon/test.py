@@ -127,6 +127,7 @@ class TestCase(django_test.TestCase):
 
     def tearDown(self):
         self.mox.UnsetStubs()
+        self.mox.VerifyAll()
         context_processors.horizon = self._real_horizon_context_processor
         users.get_user_from_request = self._real_get_user_from_request
 

@@ -33,7 +33,7 @@ LOG = logging.getLogger(__name__)
 
 
 class CreateFlavor(forms.SelfHandlingForm):
-    flavorid = forms.CharField(max_length="10", label=_("Flavor ID"))
+    flavorid = forms.IntegerField(label=_("Flavor ID"))
     name = forms.CharField(max_length="25", label=_("Name"))
     vcpus = forms.CharField(max_length="5", label=_("VCPUs"))
     memory_mb = forms.CharField(max_length="5", label=_("Memory MB"))

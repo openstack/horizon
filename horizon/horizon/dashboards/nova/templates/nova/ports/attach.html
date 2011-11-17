@@ -1,48 +1,11 @@
 {% extends 'nova/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="networks" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}
   {% include "horizon/common/_page_header.html" with title=_("Attach Port") %}
 {% endblock page_header %}
 
-{% block headerjs %}
-<script type="text/javascript">
-  var VIF_OPTIONS = {
-    {% for vif in vifs %}
-      '{{vif.id}}' : '{{vif.name}}',
-    {% endfor %}
-  };
-
-  $(document).ready(function() {
-    $.each(VIF_OPTIONS, function(val, text) {
-        $('select#id_vif_id')
-          .append($("<option></option>")
-          .attr("value", val)
-          .text(text));
-    });
-  });
-</script>
-{% endblock headerjs %}
-
 {% block dash_main %}
-  <div class="dash_block">
-    <div class="left">
-      {% include 'nova/ports/_attach.html' with form=attach_form %}
-      <h3><a href="{% url horizon:nova:networks:detail network %}"><< {% trans "Return to network detail"%}</a></h3>
-    </div>
-
-    <div class="right">
-    {% blocktrans %}<p>Select an interface from the list on the left to attach it to this port.</p>
-    <p>Only interfaces that are not connected to any existing port are shown</p>
-    <p>If you want to reconnect a connected interface, please detach it first</p>{% endblocktrans %}
-    </div>
-    <div class="clear">&nbsp;</div>
-  </div>
+    {% include 'nova/ports/_attach.html' with form=attach_form %}
 {% endblock %}

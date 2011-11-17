@@ -1,6 +1,6 @@
 <!-- TODO(termie): move most of this to horizon -->
 {% load sizeformat %}
-{%load i18n%}
+{% load i18n %}
 <table id='instances' class="zebra-striped">
   <tr id='headings'>
     <th>{% trans "ID"%}</th>
@@ -65,8 +65,8 @@
               <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances:vnc instance.id %}">{% trans "VNC Console"%}</a></li>
               <li><a class="btn small" href="{% url horizon:nova:instances:update instance.id %}">{% trans "Edit"%}</a></li>
               <li><a class="btn small" href="{% url horizon:nova:snapshots:create instance.id %}">{% trans "Snapshot"%}</a></li>
-              <li class="form">{% include "horizon/common/instances/_reboot.html" with form=reboot_form %}</li>
-              <li class="form">{% include "horizon/common/instances/_terminate.html" with form=terminate_form %}</li>
+              <li class="form">{% include "nova/instances/_reboot.html" with form=reboot_form %}</li>
+              <li class="form">{% include "nova/instances/_terminate.html" with form=terminate_form %}</li>
             </ul>
         </td>
       </tr>

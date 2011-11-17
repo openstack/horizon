@@ -176,6 +176,11 @@ class SelfHandlingForm(Form):
         super(SelfHandlingForm, self).__init__(*args, **kwargs)
 
     @classmethod
+    def _instantiate(cls, request, *args, **kwargs):
+        """ Instantiates the form. Allows customization in subclasses. """
+        return cls(*args, **kwargs)
+
+    @classmethod
     def maybe_handle(cls, request, *args, **kwargs):
         """
         If the form is valid, :meth:`.maybe_handle` calls a
@@ -187,19 +192,20 @@ class SelfHandlingForm(Form):
         """
 
         if cls.__name__ != request.POST.get('method'):
-            return cls(*args, **kwargs), None
+            return cls._instantiate(request, *args, **kwargs), None
+
+        if request.FILES:
+            form = cls._instantiate(request, request.POST, request.FILES,
+                                    *args, **kwargs)
+        else:
+            form = cls._instantiate(request, request.POST, *args, **kwargs)
+
+        if not form.is_valid():
+            return form, None
+
+        data = form.clean()
 
         try:
-            if request.FILES:
-                form = cls(request.POST, request.FILES, *args, **kwargs)
-            else:
-                form = cls(request.POST, *args, **kwargs)
-
-            if not form.is_valid():
-                return form, None
-
-            data = form.clean()
-
             return form, form.handle(request, data)
         except Exception as e:
             LOG.exception('Error while handling form "%s".' % cls.__name__)

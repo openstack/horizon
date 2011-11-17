@@ -1,11 +1,5 @@
 {% extends 'syspanel/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="tenants" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {% url horizon:syspanel:tenants:index as refresh_link %}
@@ -17,9 +11,3 @@
   {% include "syspanel/tenants/_list.html" %}
   <a id="tenant_create_link" class="btn small" href="{% url horizon:syspanel:tenants:create %}">{% trans "Create New Tenant"%}</a>
 {% endblock %}
-
-
-
-
-
-

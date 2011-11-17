@@ -21,6 +21,6 @@
 from django.conf.urls.defaults import patterns, url
 
 urlpatterns = patterns('horizon.dashboards.syspanel.users.views',
-    url(r'^users/$', 'index', name='index'),
+    url(r'^$', 'index', name='index'),
     url(r'^(?P<user_id>[^/]+)/update/$', 'update', name='update'),
-    url(r'^users/create/$', 'create', name='create'))
+    url(r'^create/$', 'create', name='create'))

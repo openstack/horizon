@@ -1,13 +1,5 @@
 {% extends 'syspanel/base.html' %}
-{% load parse_date %}
-{% load sizeformat %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="tenants" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n parse_date sizeformat %}
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}

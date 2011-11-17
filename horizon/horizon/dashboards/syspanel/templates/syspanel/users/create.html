@@ -1,11 +1,5 @@
 {% extends 'syspanel/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="users" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}
@@ -13,18 +7,5 @@
 {% endblock page_header %}
 
 {% block syspanel_main %}
-  <div class="modal static_page">
-    <div class="modal-header">
-      <h3>Create User</h3>
-    </div>
-    <div class="modal-body">
-      <div class="left">
-        {% include 'syspanel/tenants/_create.html' %}
-      </div>
-      <div class="right">
-        <h3>{% trans "Description"%}:</h3>
-        <p>{% trans "From here you can create a new user and assign them to a tenant (aka project)."%}</p>
-      </div>
-    </div>
-  </div>
+    {% include 'syspanel/users/_create.html' %}
 {% endblock %}

@@ -1,87 +1,10 @@
 {% extends 'nova/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="security_groups" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Edit Security Group Rules") %}
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div class="modal static_page">
-    <div class="modal-header">
-      <h3>Edit Security Group Rules</h3>
-    </div>
-    <div id="security_group_rule_modal" action="" class="modal-body">
-      <div class="left">
-        <h3>{% trans "Add a rule"%}</h3>
-        <form id="security_group_rule_form"  method="post">
-          {% csrf_token %}
-          <fieldset>
-            {% for hidden in form.hidden_fields %}
-              {{hidden}}
-            {% endfor %}
-            {% for field in form.visible_fields %}
-              <div class="clearfix{% if field.errors %} error{% endif %}">
-                {{field.label_tag}}
-                {% if field.errors %}
-                  {% for error in field.errors %}
-                    <span class="help-inline">{{error}}</span>
-                  {% endfor %}
-                {% endif %}
-                <span class="help-block">{{field.help_text}}</span>
-                <div class="input">
-                  {{field}}
-                </div>
-              </div>
-            {% endfor %}
-            <input name="security_group_id" type="hidden" value="{{security_group.id}}" />
-            <div class="modal-footer">
-              <input class="btn primary pull-right" type="submit" value="{%trans "Add Rule"%}" />
-              <a href="#" class="btn secondary cancel close">Cancel</a>
-            </div>
-
-
-          </fieldset>
-        </form>
-      </div>
-
-      <div class="right">
-        <h3> {% trans "Rules for Security Group"%} '{{security_group.name}}'</h3>
-        <table id="security_groups" class="zebra-striped">
-          <tr>
-            <th>{% trans "IP Protocol"%}</th>
-            <th>{% trans "From Port"%}</th>
-            <th>{% trans "To Port"%}</th>
-            <th>{% trans "CIDR"%}</th>
-            <th>{% trans "Actions"%}</th>
-          </tr>
-          {% for rule in security_group.rules %}
-            <tr class="{% cycle 'odd' 'even' %}">
-              <td>{{ rule.ip_protocol }}</td>
-              <td>{{ rule.from_port }}</td>
-              <td>{{ rule.to_port }}</td>
-              <td>{{rule.ip_range.cidr}}</td>
-              <td id="actions">
-                <ul>
-                  <li class="form">{% include "nova/security_groups/_delete_rule.html" with form=delete_form %}</li>
-                </ul>
-              </td>
-            </tr>
-          {% empty %}
-          <tr>
-            <td colspan="100%">
-              {% trans "No rules for this security group"%}
-            </td>
-          </tr>
-          {% endfor %}
-        </table>
-      </div>
-    </div>
-    <div style="clear: both;"></div>
-  </div>
+  {% include "nova/security_groups/_edit_rules.html" %}
 {% endblock %}

@@ -1,9 +1,9 @@
-{% extends 'nova/networks/_form.html' %}
-{%load i18n%}
-
-{% block modal-footer %}
-  <div class="modal-footer">
-    <input class="btn primary pull-right" type="submit" value="{%trans "Delete"%}" />
-    <a href="#" class="btn secondary cancel close">Cancel</a>
-  </div>
-{% endblock %}
+{% load i18n %}
+<form id="form_delete_{{network.id}}" class="form-delete" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  <input name="network" type="hidden" value="{{ network.id }}" />
+  <input id="delete_{{ network.id }}" class="btn small danger delete" title="Network: {{ network.name }}" type="submit" value="{% trans "Delete"%}" />
+</form>

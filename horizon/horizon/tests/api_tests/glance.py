@@ -53,8 +53,6 @@ class GlanceApiTests(APITestCase):
         self.assertIsNotNone(ret_val)
         self.assertEqual(ret_val.auth_tok, TEST_TOKEN)
 
-        self.mox.VerifyAll()
-
     def test_image_create(self):
         IMAGE_FILE = 'someData'
         IMAGE_META = {'metadata': 'foo'}
@@ -69,8 +67,6 @@ class GlanceApiTests(APITestCase):
         self.assertIsInstance(ret_val, api.Image)
         self.assertEqual(ret_val._apidict, TEST_RETURN)
 
-        self.mox.VerifyAll()
-
     def test_image_delete(self):
         IMAGE_ID = '1'
 
@@ -82,8 +78,6 @@ class GlanceApiTests(APITestCase):
         ret_val = api.image_delete(self.request, IMAGE_ID)
 
         self.assertEqual(ret_val, TEST_RETURN)
-
-        self.mox.VerifyAll()
 
     def test_image_get(self):
         IMAGE_ID = '1'
@@ -112,8 +106,6 @@ class GlanceApiTests(APITestCase):
             self.assertIsInstance(image, api.Image)
             self.assertIn(image._apidict, images)
 
-        self.mox.VerifyAll()
-
     def test_image_update(self):
         IMAGE_ID = '1'
         IMAGE_META = {'metadata': 'foobar'}
@@ -136,8 +128,6 @@ class GlanceApiTests(APITestCase):
 
         self.assertIsInstance(ret_val, api.Image)
         self.assertEqual(ret_val._apidict, TEST_RETURN)
-
-        self.mox.VerifyAll()
 
 
 # Wrapper classes that have other attributes or methods need testing

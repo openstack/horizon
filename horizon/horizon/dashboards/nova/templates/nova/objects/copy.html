@@ -1,33 +1,12 @@
 {% extends 'nova/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="containers" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Copy Object") %}
 {% endblock page_header %}
 
 {% block dash_main %}
-  <h3 class="container_name"><span>Container:</span> {{container_name}}</h3>
-
-  <div class="dash_block wide form">
-    <div class="left">
-      <h3>Copy Object: '{{object_name}}'</h3>
-      {% include 'nova/objects/_copy.html' with form=copy_form greeting="HI" %}
-      <h3><a href="{% url horizon:nova:containers:object_index container_name %}">&lt;&lt; {% trans "Return to objects list"%}</a></h3>
-    </div>
-
-    <div class="right">
-      <h3>{% trans "Description"%}:</h3>
-      <p>{% trans "You may make a new copy of an existing object to store in this or another container."%}</p>
-    </div>
-    <div class="clear">&nbsp;</div>
-  </div>
-
+    {% include 'nova/objects/_copy.html' with form=copy_form %}
 {% endblock %}
 
 

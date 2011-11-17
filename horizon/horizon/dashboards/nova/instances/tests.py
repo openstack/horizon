@@ -50,8 +50,6 @@ class InstanceViewTests(test.BaseViewTests):
             'nova/instances/index.html')
         self.assertItemsEqual(res.context['instances'], self.servers)
 
-        self.mox.VerifyAll()
-
     def test_index_server_list_exception(self):
         self.mox.StubOutWithMock(api, 'server_list')
         exception = api_exceptions.ApiException('apiException')
@@ -64,8 +62,6 @@ class InstanceViewTests(test.BaseViewTests):
         self.assertTemplateUsed(res,
                 'nova/instances/index.html')
         self.assertEqual(len(res.context['instances']), 0)
-
-        self.mox.VerifyAll()
 
     def test_terminate_instance(self):
         formData = {'method': 'TerminateInstance',
@@ -86,8 +82,6 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
-
-        self.mox.VerifyAll()
 
     def test_terminate_instance_exception(self):
         formData = {'method': 'TerminateInstance',
@@ -115,8 +109,6 @@ class InstanceViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
 
-        self.mox.VerifyAll()
-
     def test_reboot_instance(self):
         formData = {'method': 'RebootInstance',
                     'instance': self.servers[0].id,
@@ -132,8 +124,6 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
-
-        self.mox.VerifyAll()
 
     def test_reboot_instance_exception(self):
         formData = {'method': 'RebootInstance',
@@ -157,8 +147,6 @@ class InstanceViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
 
-        self.mox.VerifyAll()
-
     def test_instance_usage(self):
         TEST_RETURN = 'testReturn'
 
@@ -178,8 +166,6 @@ class InstanceViewTests(test.BaseViewTests):
                 'nova/instances/usage.html')
 
         self.assertEqual(res.context['usage'], TEST_RETURN)
-
-        self.mox.VerifyAll()
 
         self.reset_times()
 
@@ -203,8 +189,6 @@ class InstanceViewTests(test.BaseViewTests):
                 'nova/instances/usage.csv')
 
         self.assertEqual(res.context['usage'], TEST_RETURN)
-
-        self.mox.VerifyAll()
 
         self.reset_times()
 
@@ -231,8 +215,6 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.assertEqual(res.context['usage'], {})
 
-        self.mox.VerifyAll()
-
         self.reset_times()
 
     def test_instance_usage_default_tenant(self):
@@ -254,8 +236,6 @@ class InstanceViewTests(test.BaseViewTests):
                 'nova/instances/usage.html')
 
         self.assertEqual(res.context['usage'], TEST_RETURN)
-
-        self.mox.VerifyAll()
 
         self.reset_times()
 
@@ -279,8 +259,6 @@ class InstanceViewTests(test.BaseViewTests):
         self.assertIsInstance(res, http.HttpResponse)
         self.assertContains(res, CONSOLE_OUTPUT)
 
-        self.mox.VerifyAll()
-
     def test_instance_console_exception(self):
         INSTANCE_ID = self.servers[0].id
 
@@ -302,8 +280,6 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
-
-        self.mox.VerifyAll()
 
     def test_instance_vnc(self):
         INSTANCE_ID = self.servers[0].id
@@ -328,8 +304,6 @@ class InstanceViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res,
                 CONSOLE_OUTPUT + '&title=serverName(1)')
 
-        self.mox.VerifyAll()
-
     def test_instance_vnc_exception(self):
         INSTANCE_ID = self.servers[0].id
 
@@ -349,8 +323,6 @@ class InstanceViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
 
-        self.mox.VerifyAll()
-
     def test_instance_update_get(self):
         INSTANCE_ID = self.servers[0].id
 
@@ -365,8 +337,6 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.assertTemplateUsed(res,
                 'nova/instances/update.html')
-
-        self.mox.VerifyAll()
 
     def test_instance_update_get_server_get_exception(self):
         INSTANCE_ID = self.servers[0].id
@@ -383,8 +353,6 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
-
-        self.mox.VerifyAll()
 
     def test_instance_update_post(self):
         INSTANCE_ID = self.servers[0].id
@@ -410,8 +378,6 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
-
-        self.mox.VerifyAll()
 
     def test_instance_update_post_api_exception(self):
         INSTANCE_ID = self.servers[0].id
@@ -439,5 +405,3 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
-
-        self.mox.VerifyAll()

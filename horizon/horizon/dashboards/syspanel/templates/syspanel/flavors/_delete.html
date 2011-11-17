@@ -1,9 +1,9 @@
-{%load i18n%}
+{% load i18n %}
 <form id="form_delete_{{flavor.id}}" class="form-delete" method="post">
   {% csrf_token %}
   {% for hidden in form.hidden_fields %}
     {{hidden}}
   {% endfor %}
   <input name="flavorid" type="hidden" value="{{flavor.id}}" />
-  <input id="delete_{{flavor.id}}" class="btn small delete" title="Flavor: {{flavor.name}}" type="submit" value="{% trans "Delete"%}" />
+  <input id="delete_{{flavor.id}}" class="btn small danger delete" title="Flavor: {{flavor.name}}" type="submit" value="{% trans "Delete"%}" />
 </form>

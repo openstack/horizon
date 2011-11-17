@@ -84,8 +84,6 @@ class ImageViewTests(test.BaseViewTests):
         self.assertEqual(len(images), 1)
         self.assertEqual(images[0].name, 'visibleImage')
 
-        self.mox.VerifyAll()
-
     def test_index_no_images(self):
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
@@ -102,8 +100,6 @@ class ImageViewTests(test.BaseViewTests):
         res = self.client.get(IMAGES_INDEX_URL)
 
         self.assertTemplateUsed(res, 'nova/images/index.html')
-
-        self.mox.VerifyAll()
 
     def test_index_client_conn_error(self):
         self.mox.StubOutWithMock(api, 'image_list_detailed')
@@ -124,8 +120,6 @@ class ImageViewTests(test.BaseViewTests):
         self.assertTemplateUsed(res,
                 'nova/images/index.html')
 
-        self.mox.VerifyAll()
-
     def test_index_glance_error(self):
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         exception = glance_exception.Error('glanceError')
@@ -143,8 +137,6 @@ class ImageViewTests(test.BaseViewTests):
         res = self.client.get(IMAGES_INDEX_URL)
 
         self.assertTemplateUsed(res, 'nova/images/index.html')
-
-        self.mox.VerifyAll()
 
     def test_launch_get(self):
         IMAGE_ID = '1'
@@ -185,8 +177,6 @@ class ImageViewTests(test.BaseViewTests):
         form_keyfield = form.fields['key_name']
         self.assertEqual(form_keyfield.choices[0][0],
                          self.keypairs[0].name)
-
-        self.mox.VerifyAll()
 
     def test_launch_post(self):
         FLAVOR_ID = self.flavors[0].id
@@ -249,8 +239,6 @@ class ImageViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
 
-        self.mox.VerifyAll()
-
     def test_launch_flavorlist_error(self):
         IMAGE_ID = '1'
 
@@ -285,8 +273,6 @@ class ImageViewTests(test.BaseViewTests):
         form_flavorfield = form.fields['flavor']
         self.assertIn('m1.tiny', form_flavorfield.choices[0][1])
 
-        self.mox.VerifyAll()
-
     def test_launch_keypairlist_error(self):
         IMAGE_ID = '2'
 
@@ -320,8 +306,6 @@ class ImageViewTests(test.BaseViewTests):
 
         form_keyfield = form.fields['key_name']
         self.assertEqual(len(form_keyfield.choices), 0)
-
-        self.mox.VerifyAll()
 
     def test_launch_form_apiexception(self):
         FLAVOR_ID = self.flavors[0].id
@@ -382,5 +366,3 @@ class ImageViewTests(test.BaseViewTests):
         res = self.client.post(url, form_data)
 
         self.assertTemplateUsed(res, 'nova/images/launch.html')
-
-        self.mox.VerifyAll()

@@ -21,11 +21,11 @@
 from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
-from horizon import test
 from mox import IgnoreArg, IsA
 import quantum.client
 
 from horizon import api
+from horizon import test
 
 
 class NetworkViewTests(test.BaseViewTests):
@@ -34,7 +34,7 @@ class NetworkViewTests(test.BaseViewTests):
         self.network = {}
         self.network['networks'] = []
         self.network['networks'].append({'id': 'n1'})
-        self.network_details = {'network': {'name': 'test_network'}}
+        self.network_details = {'network': {'id': '1', 'name': 'test_network'}}
         self.ports = {}
         self.ports['ports'] = []
         self.ports['ports'].append({'id': 'p1'})
@@ -79,8 +79,6 @@ class NetworkViewTests(test.BaseViewTests):
         self.assertEqual(networks[0]['used'], 1)
         self.assertEqual(networks[0]['available'], 0)
 
-        self.mox.VerifyAll()
-
     def test_network_create(self):
         self.mox.StubOutWithMock(api, "quantum_create_network")
         api.quantum_create_network(IsA(http.HttpRequest), dict).AndReturn(True)
@@ -95,7 +93,6 @@ class NetworkViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:networks:index'))
-        self.mox.VerifyAll()
 
     def test_network_delete(self):
         self.mox.StubOutWithMock(api, "quantum_delete_network")
@@ -119,41 +116,33 @@ class NetworkViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        formData = {'id': 'n1',
+        formData = {'network': 'n1',
                     'method': 'DeleteNetwork'}
 
         res = self.client.post(reverse('horizon:nova:networks:index'),
                                formData)
 
     def test_network_rename(self):
-        self.mox.StubOutWithMock(api, "quantum_update_network")
-        api.quantum_update_network(IsA(http.HttpRequest),
-                                   'n1', dict).AndReturn(True)
-
-        self.mox.StubOutWithMock(api, 'quantum_list_networks')
-        api.quantum_list_networks(IsA(http.HttpRequest)).\
-                                        AndReturn(self.network)
-
         self.mox.StubOutWithMock(api, 'quantum_network_details')
         api.quantum_network_details(IsA(http.HttpRequest),
                                     'n1').AndReturn(self.network_details)
 
-        self.mox.StubOutWithMock(api, 'quantum_list_ports')
-        api.quantum_list_ports(IsA(http.HttpRequest),
-                               'n1').AndReturn(self.ports)
-
-        self.mox.StubOutWithMock(api, 'quantum_port_attachment')
-        api.quantum_port_attachment(IsA(http.HttpRequest),
-                                    'n1', 'p1').AndReturn(self.port_attachment)
+        self.mox.StubOutWithMock(api, 'quantum_update_network')
+        api.quantum_update_network(IsA(http.HttpRequest), 'n1',
+                                   {'network': {'name': "Test1"}})
 
         self.mox.ReplayAll()
 
-        formData = {'new_name': 'Test1',
+        formData = {'network': 'n1',
+                    'new_name': 'Test1',
                     'method': 'RenameNetwork'}
 
         res = self.client.post(reverse('horizon:nova:networks:rename',
                                        args=["n1"]),
                                formData)
+
+        self.assertRedirectsNoFollow(res,
+                                     reverse('horizon:nova:networks:index'))
 
     def test_network_details(self):
         self.mox.StubOutWithMock(api, 'quantum_network_details')
@@ -188,8 +177,6 @@ class NetworkViewTests(test.BaseViewTests):
         self.assertEqual(network['name'], 'test_network')
         self.assertEqual(network['id'], 'n1')
 
-        self.mox.VerifyAll()
-
 
 class PortViewTests(test.BaseViewTests):
     def setUp(self):
@@ -205,6 +192,8 @@ class PortViewTests(test.BaseViewTests):
 
         self.mox.StubOutWithMock(messages, 'success')
         messages.success(IgnoreArg(), IsA(basestring))
+
+        self.mox.ReplayAll()
 
         res = self.client.post(reverse('horizon:nova:networks:port_create',
                                        args=["n1"]),
@@ -226,6 +215,8 @@ class PortViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(messages, 'success')
         messages.success(IgnoreArg(), IsA(basestring))
 
+        self.mox.ReplayAll()
+
         res = self.client.post(reverse('horizon:nova:networks:detail',
                                        args=["n1"]),
                                formData)
@@ -234,14 +225,18 @@ class PortViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, "quantum_attach_port")
         api.quantum_attach_port(IsA(http.HttpRequest),
                                 'n1', 'p1', dict).AndReturn(True)
+        self.mox.StubOutWithMock(api, "get_vif_ids")
+        api.get_vif_ids(IsA(http.HttpRequest)).AndReturn([{
+                'id': 'v1',
+                'instance_name': 'instance1',
+                'available': True}])
 
         formData = {'port': 'p1',
                     'network': 'n1',
                     'vif_id': 'v1',
                     'method': 'AttachPort'}
 
-        self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(basestring))
+        self.mox.ReplayAll()
 
         res = self.client.post(reverse('horizon:nova:networks:port_attach',
                                        args=["n1", "p1"]),
@@ -262,6 +257,8 @@ class PortViewTests(test.BaseViewTests):
 
         self.mox.StubOutWithMock(messages, 'success')
         messages.success(IgnoreArg(), IsA(basestring))
+
+        self.mox.ReplayAll()
 
         res = self.client.post(reverse('horizon:nova:networks:detail',
                                              args=["n1"]),

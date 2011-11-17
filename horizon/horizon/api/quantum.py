@@ -26,6 +26,7 @@ import logging
 from django.conf import settings
 from quantum import client as quantum_client
 
+from horizon.api import nova
 from horizon.api.base import *
 from horizon.api.deprecated import extras_api
 
@@ -111,7 +112,7 @@ def get_vif_ids(request):
                 attached_vifs.append(
                     port_attachment['attachment']['id'].encode('ascii'))
     # Get all instances
-    instances = server_list(request)
+    instances = nova.server_list(request)
     # Get virtual interface ids by instance
     for instance in instances:
         id = instance.id

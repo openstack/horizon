@@ -1,4 +1,4 @@
-{%load i18n%}
+{% load i18n %}
 {% if user.enabled %}
   <form id="form_user_disable_{{user.id}}" class="form-user-disable" method="post">
     {% csrf_token %}

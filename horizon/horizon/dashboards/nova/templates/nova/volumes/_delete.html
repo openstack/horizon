@@ -6,5 +6,5 @@
   {% endfor %}
   <input name="volume_id" type="hidden" value="{{ volume.id }}" />
   <input name="volume_name" type="hidden" value="{{ volume.displayName }}" />
-  <input id="delete_{{ volume.id }}" class="btn small delete" title="Volume: {{ volume.displayName }}" type="submit" value="{% trans "Delete" %}" />
+  <input id="delete_{{ volume.id }}" class="btn small danger delete" title="Volume: {{ volume.displayName }}" type="submit" value="{% trans "Delete" %}" />
 </form>

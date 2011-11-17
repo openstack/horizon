@@ -1,11 +1,24 @@
-{% extends 'nova/objects/_form.html' %}
+{% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
+{% block form_id %}upload_object_form{% endblock %}
 {% block form_action %}{% url horizon:nova:containers:object_upload container_name %}{% endblock %}
 
-{% block modal-footer %}
-<div class="modal-footer">
-  <input class="btn primary pull-right" type="submit" value="{% trans "Upload Object" %}" />
-  <a href="#" class="btn secondary cancel close">Cancel</a>
+{% block modal-header %}Upload Object To Container: {{ container_name }}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
 </div>
+<div class="right">
+    <h3>{% trans "Description"%}:</h3>
+    <p>{% trans "An object is the basic storage entity and any optional metadata that represents the files you store in the OpenStack Object Storage system. When you upload data to OpenStack Object Storage, the data is stored as-is (no compression or encryption) and consists of a location (container), the object's name, and any metadata consisting of key/value pairs."%}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn primary pull-right" type="submit" value="{% trans "Upload Object" %}" />
+  <a href="{% url horizon:nova:containers:object_index container_name %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

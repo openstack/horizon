@@ -42,7 +42,7 @@ def index(request):
     tenant_id = request.user.tenant_id
     delete_form, handled = DeleteGroup.maybe_handle(request,
                                 initial={'tenant_id': tenant_id})
-    form = CreateGroup()
+    form = CreateGroup(initial={'tenant_id': tenant_id})
     if handled:
         return handled
 

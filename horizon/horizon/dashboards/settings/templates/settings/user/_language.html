@@ -1,0 +1,38 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}language_settings_form{% endblock %}
+{% block form_action %}/i18n/setlang/{% endblock %}
+
+{% block modal_id %}language_settings_modal{% endblock %}
+{% block modal-header %}{% trans "Select Language" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <h3>{% trans "Dashboard User Interface Language"%}</h3>
+    <fieldset>
+        <label for="language_select">{% trans "Language Settings"%}</label>
+        <div class="input">
+        <p><select name="language">
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            {% if language.code == LANGUAGE_CODE %}
+               <option selected value="{{ language.code }}">{{ language.name_local }} ({{ language.code }})</option>
+            {%else%}
+                <option value="{{ language.code }}">{{ language.name_local }} ({{ language.code }})</option>
+            {%endif%}
+        {% endfor %}
+        </select></p>
+        </select>
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:"%}</h3>
+    <p>{% trans "From here you can modify different settings for your dashboard."%}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+    <input class="btn primary" type="submit" value="{% trans "Select Language" %}" />
+    {% if hide %}<a href="{% url horizon:settings:user:index %}" class="btn secondary cancel close">Cancel</a>{% endif %}
+{% endblock %}

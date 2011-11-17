@@ -1,26 +1,24 @@
-{%load i18n%}
-<form action="{% block form_action %}{% endblock %}" method="post">
-  {% csrf_token %}
-  <fieldset>
-    {% for hidden in form.hidden_fields %}
-      {{hidden}}
-    {% endfor %}
-    {% for field in form.visible_fields %}
-      <div class="clearfix{% if field.errors %} error{% endif %}">
-        {{field.label_tag}}
-        {% if field.errors %}
-          {% for error in field.errors %}
-            <span class="help-inline">{{error}}</span>
-          {% endfor %}
-        {% endif %}
-        <span class="help-block">{{field.help_text}}</span>
-        <div class="input">
-          {{field}}
-        </div>
-      </div>
-    {% endfor %}
-    {% block modal-footer %}
-      <input type="submit" value="{%trans "Update Instance" %}" />
-    {% endblock %}
-  </fieldset>
-</form>
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}create_port_form{% endblock %}
+{% block form_action %}{% url horizon:nova:networks:port_create network_id %}{% endblock %}
+
+{% block modal-header %}Create Port{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:"%}</h3>
+    <p>{% trans "Networks provide layer 2 connectivity to your instances."%}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input type="submit" class='btn small primary create' value="{%trans "Create Port" %}" />
+  <a href="{% url horizon:nova:networks:detail network_id %}" class="btn secondary cancel close">Cancel</a>
+{% endblock %}

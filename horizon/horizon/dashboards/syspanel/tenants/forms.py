@@ -77,7 +77,8 @@ class RemoveUser(forms.SelfHandlingForm):
 
 class CreateTenant(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"))
-    description = forms.CharField(widget=forms.widgets.Textarea(),
+    description = forms.CharField(required=False,
+            widget=forms.widgets.Textarea(),
             label=_("Description"))
     enabled = forms.BooleanField(label=_("Enabled"), required=False,
             initial=True)
@@ -87,7 +88,7 @@ class CreateTenant(forms.SelfHandlingForm):
             LOG.info('Creating tenant with name "%s"' % data['name'])
             api.tenant_create(request,
                               data['name'],
-                              data['description'],
+                              data['description'] or '',
                               data['enabled'])
             messages.success(request,
                              _('%s was successfully created.')
@@ -106,7 +107,8 @@ class UpdateTenant(forms.SelfHandlingForm):
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     name = forms.CharField(label=_("Name"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    description = forms.CharField(widget=forms.widgets.Textarea(),
+    description = forms.CharField(required=False,
+            widget=forms.widgets.Textarea(),
             label=_("Description"))
     enabled = forms.BooleanField(required=False, label=_("Enabled"))
 
@@ -116,7 +118,7 @@ class UpdateTenant(forms.SelfHandlingForm):
             api.tenant_update(request,
                               data['id'],
                               data['name'],
-                              data['description'],
+                              data['description'] or '',
                               data['enabled'])
             messages.success(request,
                              _('%s was successfully updated.')

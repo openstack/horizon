@@ -1,11 +1,5 @@
 {% extends 'syspanel/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="users" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {% url horizon:syspanel:users:index as refresh_link %}
@@ -31,9 +25,9 @@
           <td>{{user.tenantId}}</td>
           <td id="actions">
             <ul>
+              <li><a class="btn small" href="{% url horizon:syspanel:users:update user.id %}">{% trans "Edit"%}</a></li>
               <li class="form">{% include "syspanel/users/_enable_disable.html" with form=user_enable_disable_form %}</li>
               <li class="form">{% include "syspanel/users/_delete.html" with form=user_delete_form %}</li>
-              <li><a class="btn small" href="{% url horizon:syspanel:users:update user.id %}">{% trans "Edit"%}</a></li>
             </ul>
           </td>
         </tr>

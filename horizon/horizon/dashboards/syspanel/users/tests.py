@@ -52,8 +52,6 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'syspanel/users/index.html')
         self.assertItemsEqual(res.context['users'], self.users)
 
-        self.mox.VerifyAll()
-
     def test_enable_user(self):
         OTHER_USER = 'otherUser'
         formData = {'method': 'UserEnableDisableForm',
@@ -70,8 +68,6 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
-        self.mox.VerifyAll()
-
     def test_disable_user(self):
         OTHER_USER = 'otherUser'
         formData = {'method': 'UserEnableDisableForm',
@@ -87,8 +83,6 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
-
-        self.mox.VerifyAll()
 
     def test_enable_disable_user_exception(self):
         OTHER_USER = 'otherUser'
@@ -107,5 +101,3 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
-
-        self.mox.VerifyAll()

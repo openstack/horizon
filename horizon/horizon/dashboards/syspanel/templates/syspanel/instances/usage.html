@@ -1,15 +1,5 @@
 {% extends 'syspanel/base.html' %}
-{% load sizeformat %}
-{%load i18n%}
-
-{# default landing page for a admin user #}
-{# nav bar on top, sidebar, overview info in main #}
-
-{% block sidebar %}
-  {% with current_sidebar="overview" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n sizeformat %}
 
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}

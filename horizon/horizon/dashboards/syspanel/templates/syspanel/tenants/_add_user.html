@@ -1,4 +1,4 @@
-{%load i18n%}
+{% load i18n %}
 <form id="form_add_tenant_user{{user}}" method="post">
   {% csrf_token %}
   {% for hidden in form.hidden_fields %}

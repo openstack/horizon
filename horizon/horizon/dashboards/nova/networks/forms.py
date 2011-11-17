@@ -142,8 +142,21 @@ class DeletePort(forms.SelfHandlingForm):
 class AttachPort(forms.SelfHandlingForm):
     network = forms.CharField(widget=forms.HiddenInput())
     port = forms.CharField(widget=forms.HiddenInput())
-    vif_id = forms.CharField(widget=forms.Select(),
-                             label=_("Select VIF to connect"))
+    vif_id = forms.ChoiceField(label=_("Select VIF to connect"))
+
+    def __init__(self, request, *args, **kwargs):
+        super(AttachPort, self).__init__(*args, **kwargs)
+        # Populate VIF choices
+        vif_choices = [('', "Select a VIF")]
+        for vif in api.get_vif_ids(request):
+            if vif['available']:
+                name = "Instance %s VIF %s" % (vif['instance_name'], vif['id'])
+                vif_choices.append((vif['id'], name,))
+        self.fields['vif_id'].choices = vif_choices
+
+    @classmethod
+    def _instantiate(cls, request, *args, **kwargs):
+        return cls(request, *args, **kwargs)
 
     def handle(self, request, data):
         try:

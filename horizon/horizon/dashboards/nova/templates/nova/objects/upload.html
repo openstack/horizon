@@ -1,31 +1,12 @@
 {% extends 'nova/base.html' %}
 {% load i18n %}
 
-{% block sidebar %}
-  {% with current_sidebar="containers" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
-
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Upload Objects") %}
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div id="create_container_form" class="modal static_page">
-    <div class="modal-header">
-      <h3>Object Upload: <small>Container: {{ container_name }}</h3>
-    </div>
-    <div class="modal-body">
-      <div class="left">
-        {% include 'nova/objects/_upload.html' with form=upload_form %}
-      </div>
-      <div class="right">
-        <h3>{% trans "Description"%}:</h3>
-        <p>{% trans "An object is the basic storage entity and any optional metadata that represents the files you store in the OpenStack Object Storage system. When you upload data to OpenStack Object Storage, the data is stored as-is (no compression or encryption) and consists of a location (container), the object's name, and any metadata consisting of key/value pairs."%}</p>
-      </div>
-    </div>
-  </div>
+    {% include 'nova/objects/_upload.html' with form=upload_form %}
 {% endblock %}
 
 

@@ -1,29 +1,10 @@
 {% extends 'nova/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="volumes" %}
-    {{ block.super }}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Create a Volume") %}
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div id="create_volume_modal" class="modal static_page">
-    <div class="modal-header">
-      <h3>Create Volume</h3>
-    </div>
-    <div class="modal-body">
-      <div class="left">
-        {% include 'nova/volumes/_create.html' with form=create_form %}
-      </div>
-      <div class="right">
-        <h3>{% trans "Description"%}:</h3>
-        <p>{% trans "Volumes are block devices that can be attached to instances." %}</p>
-      </div>
-    </div>
-  </div>
+    {% include 'nova/volumes/_create.html' with form=create_form %}
 {% endblock %}

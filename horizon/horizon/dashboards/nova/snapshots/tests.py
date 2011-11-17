@@ -63,8 +63,6 @@ class SnapshotsViewTests(test.BaseViewTests):
         images = res.context['images']
         self.assertEqual(len(images), 1)
 
-        self.mox.VerifyAll()
-
     def test_index_client_conn_error(self):
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
         exception = glance_exception.ClientConnectionError('clientConnError')
@@ -78,8 +76,6 @@ class SnapshotsViewTests(test.BaseViewTests):
         res = self.client.get(reverse('horizon:nova:snapshots:index'))
 
         self.assertTemplateUsed(res, 'nova/snapshots/index.html')
-
-        self.mox.VerifyAll()
 
     def test_index_glance_error(self):
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
@@ -95,8 +91,6 @@ class SnapshotsViewTests(test.BaseViewTests):
 
         self.assertTemplateUsed(res, 'nova/snapshots/index.html')
 
-        self.mox.VerifyAll()
-
     def test_create_snapshot_get(self):
         self.mox.StubOutWithMock(api, 'server_get')
         api.server_get(IsA(http.HttpRequest),
@@ -108,7 +102,6 @@ class SnapshotsViewTests(test.BaseViewTests):
                                       args=[self.good_server.id]))
 
         self.assertTemplateUsed(res, 'nova/snapshots/create.html')
-        self.mox.VerifyAll()
 
     def test_create_snapshot_get_with_invalid_status(self):
         self.mox.StubOutWithMock(api, 'server_get')
@@ -122,7 +115,6 @@ class SnapshotsViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
-        self.mox.VerifyAll()
 
     def test_create_get_server_exception(self):
         self.mox.StubOutWithMock(api, 'server_get')
@@ -137,8 +129,6 @@ class SnapshotsViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
-
-        self.mox.VerifyAll()
 
     def test_create_snapshot_post(self):
         SNAPSHOT_NAME = 'snappy'
@@ -169,8 +159,6 @@ class SnapshotsViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:snapshots:index'))
 
-        self.mox.VerifyAll()
-
     def test_create_snapshot_post_exception(self):
         SNAPSHOT_NAME = 'snappy'
 
@@ -198,5 +186,3 @@ class SnapshotsViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:snapshots:create',
                                              args=[self.good_server.id]))
-
-        self.mox.VerifyAll()

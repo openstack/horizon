@@ -1,18 +1,24 @@
-{%load i18n%}
-<form id="form_rename_{{network.id}}" class="form-rename" method="post">
-  {% csrf_token %}
-  {% for hidden in form.hidden_fields %}
-    {{hidden}}
-  {% endfor %}
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
 
-  <input name="network" type="hidden" value="{{network.id}}" />
-  <input id="new_name_{{network.id}}" name="new_name" type="hidden" value="{{network.name}}" />
+{% block form_id %}form_rename_{{network.id}}{% endblock %}
+{% block form_action %}{% url horizon:nova:networks:rename network.id %}{% endblock %}
 
-  <input id="rename_{{network.id}}" class="rename" type="submit" value="{% trans "Rename"%}" />
+{% block modal-header %}Rename Network{% endblock %}
 
-  <div class="network_rename_div" id="rename_div_{{network.id}}">
-      <input id="change_to_{{network.id}}" name="change_to" class="change_to ui-corner-all ui-state-highlight" size="20" value="{{network.name}}"/><br/><br/>
-      <button id="{{network.id}}" class="dialog_rename">{% trans "Rename"%}</button>
-  </div>
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Rename"%}:</h3>
+    <p>{% trans "Enter a new name for your network."%}</p>
+</div>
+{% endblock %}
 
-</form>
+{% block modal-footer %}
+    <input class="btn primary pull-right" type="submit" value="{%trans "Rename Network"%}" />
+    <a href="{% url horizon:nova:networks:index %}" class="btn secondary cancel close">Cancel</a>
+{% endblock %}

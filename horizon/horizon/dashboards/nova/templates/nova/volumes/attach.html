@@ -1,27 +1,10 @@
 {% extends 'nova/base.html' %}
 {% load i18n %}
 
-{% block sidebar %}
-  {% with current_sidebar="volumes" %}
-    {{ block.super }}
-  {% endwith %}
-{% endblock %}
-
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Attach a Volume") %}
 {% endblock page_header %}
 
 {% block dash_main %}
-  <div class="dash_block">
-    <div class="left">
-      {% include 'nova/volumes/_attach_form.html' with form=attach_form %}
-      <h3><a href="{% url horizon:nova:volumes:index %}">&lt;&lt; {% trans "Return to volumes list" %}</a></h3>
-    </div>
-
-    <div class="right">
-      <h3>{% trans "Description" %}:</h3>
-      <p>{% trans "Attach a volume to an instance." %}</p>
-    </div>
-    <div class="clear">&nbsp;</div>
-  </div>
+    {% include 'nova/volumes/_attach.html' with form=attach_form %}
 {% endblock %}

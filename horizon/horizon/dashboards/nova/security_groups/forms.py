@@ -45,7 +45,8 @@ class CreateGroup(forms.SelfHandlingForm):
             security_group = api.security_group_create(request,
                                                        data['name'],
                                                        data['description'])
-            messages.info(request, _('Successfully created security_group: %s')
+            messages.success(request,
+                             _('Successfully created security_group: %s')
                                     % data['name'])
             return shortcuts.redirect('horizon:nova:security_groups:index')
         except novaclient_exceptions.ClientException, e:
@@ -64,7 +65,8 @@ class DeleteGroup(forms.SelfHandlingForm):
 
             security_group = api.security_group_delete(request,
                                                      data['security_group_id'])
-            messages.info(request, _('Successfully deleted security_group: %s')
+            messages.success(request,
+                             _('Successfully deleted security_group: %s')
                                     % data['security_group_id'])
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in DeleteGroup")
@@ -97,7 +99,7 @@ class AddRule(forms.SelfHandlingForm):
                                                   data['from_port'],
                                                   data['to_port'],
                                                   data['cidr'])
-            messages.info(request, _('Successfully added rule: %s') \
+            messages.success(request, _('Successfully added rule: %s') \
                                     % rule.id)
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in AddRule")

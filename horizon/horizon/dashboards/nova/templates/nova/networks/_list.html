@@ -1,4 +1,4 @@
-{%load i18n%}
+{% load i18n %}
 <table id='networks' class="zebra-striped">
   <tr id='headings'>
     <th>{% trans "ID"%}</th>
@@ -10,16 +10,16 @@
   </tr>
   <tbody class='main'>
     {% for network in networks %}
-      <tr class="{% cycle 'odd' 'even' %}" id="{{network.id}}">
-          <td><a href='{% url horizon:nova:networks:detail network.id %}'>{{network.id}}</a></td>
-          <td class="name">{{network.name}}</td>
-          <td>{{network.total}}</td>
-          <td>{{network.available}}</td>
-          <td>{{network.used}}</td>
-          <td id="actions">
+      <tr class="{% cycle 'odd' 'even' %}" id="{{ network.id }}">
+          <td><a href='{% url horizon:nova:networks:detail network.id %}'>{{ network.id }}</a></td>
+          <td class="name">{{ network.name }}</td>
+          <td>{{ network.total }}</td>
+          <td>{{ network.available }}</td>
+          <td>{{ network.used }}</td>
+          <td id="actions" class="single">
             <ul>
+              <li><a class='btn small' href='{% url horizon:nova:networks:rename network.id %}'>{% trans "Rename"%}</a></li>
               <li class="form">{% include "nova/networks/_delete.html" with form=delete_form %}</li>
-              <li><a href='{% url horizon:nova:networks:rename network.id %}'>{% trans "Rename"%}</a></li>
             </ul>
         </td>
       </tr>

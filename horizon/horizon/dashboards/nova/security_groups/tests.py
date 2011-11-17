@@ -19,7 +19,6 @@
 #    under the License.
 
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from glance.common import exception as glance_exception
 from openstackx.api import exceptions as api_exceptions
@@ -57,16 +56,11 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         self.assertItemsEqual(res.context['security_groups'],
                               self.security_groups)
 
-        self.mox.VerifyAll()
-
     def test_index_exception(self):
         exception = novaclient_exceptions.ClientException('ClientException',
                                                   message='ClientException')
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.security_group_list(IsA(http.HttpRequest)).AndRaise(exception)
-
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -74,8 +68,6 @@ class SecurityGroupsViewTests(test.BaseViewTests):
 
         self.assertTemplateUsed(res, 'nova/security_groups/index.html')
         self.assertEqual(len(res.context['security_groups']), 0)
-
-        self.mox.VerifyAll()
 
     def test_create_security_groups_get(self):
         res = self.client.get(SG_CREATE_URL)
@@ -105,8 +97,6 @@ class SecurityGroupsViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res, SG_INDEX_URL)
 
-        self.mox.VerifyAll()
-
     def test_create_security_groups_post_exception(self):
         SECGROUP_NAME = 'fakegroup'
         SECGROUP_DESC = 'fakegroup_desc'
@@ -130,8 +120,6 @@ class SecurityGroupsViewTests(test.BaseViewTests):
 
         self.assertTemplateUsed(res, 'nova/security_groups/create.html')
 
-        self.mox.VerifyAll()
-
     def test_edit_rules_get(self):
 
         self.mox.StubOutWithMock(api, 'security_group_get')
@@ -146,8 +134,6 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         self.assertItemsEqual(res.context['security_group'].name,
                               self.security_groups[0].name)
 
-        self.mox.VerifyAll()
-
     def test_edit_rules_get_exception(self):
         exception = novaclient_exceptions.ClientException('ClientException',
                                                   message='ClientException')
@@ -161,8 +147,6 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         res = self.client.get(SG_EDIT_RULE_URL)
 
         self.assertRedirectsNoFollow(res, SG_INDEX_URL)
-
-        self.mox.VerifyAll()
 
     def test_edit_rules_add_rule(self):
         RULE_ID = '1'
@@ -192,16 +176,11 @@ class SecurityGroupsViewTests(test.BaseViewTests):
                            SECGROUP_ID, IP_PROTOCOL, FROM_PORT, TO_PORT, CIDR)\
                            .AndReturn(new_rule)
 
-        self.mox.StubOutWithMock(messages, 'info')
-        messages.info(IsA(http.HttpRequest), IsA(basestring))
-
         self.mox.ReplayAll()
 
         res = self.client.post(SG_EDIT_RULE_URL, formData)
 
         self.assertRedirectsNoFollow(res, SG_EDIT_RULE_URL)
-
-        self.mox.VerifyAll()
 
     def test_edit_rules_add_rule_exception(self):
         exception = novaclient_exceptions.ClientException('ClientException',
@@ -226,16 +205,11 @@ class SecurityGroupsViewTests(test.BaseViewTests):
                            SECGROUP_ID, IP_PROTOCOL, FROM_PORT,
                            TO_PORT, CIDR).AndRaise(exception)
 
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
-
         self.mox.ReplayAll()
 
         res = self.client.post(SG_EDIT_RULE_URL, formData)
 
         self.assertRedirectsNoFollow(res, SG_EDIT_RULE_URL)
-
-        self.mox.VerifyAll()
 
     def test_edit_rules_delete_rule(self):
         RULE_ID = '1'
@@ -248,16 +222,11 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'security_group_rule_delete')
         api.security_group_rule_delete(IsA(http.HttpRequest), RULE_ID)
 
-        self.mox.StubOutWithMock(messages, 'info')
-        messages.info(IsA(http.HttpRequest), IsA(unicode))
-
         self.mox.ReplayAll()
 
         res = self.client.post(SG_EDIT_RULE_URL, formData)
 
         self.assertRedirectsNoFollow(res, SG_EDIT_RULE_URL)
-
-        self.mox.VerifyAll()
 
     def test_edit_rules_delete_rule_exception(self):
         exception = novaclient_exceptions.ClientException('ClientException',
@@ -274,16 +243,11 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         api.security_group_rule_delete(IsA(http.HttpRequest), RULE_ID).\
                                        AndRaise(exception)
 
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
-
         self.mox.ReplayAll()
 
         res = self.client.post(SG_EDIT_RULE_URL, formData)
 
         self.assertRedirectsNoFollow(res, SG_EDIT_RULE_URL)
-
-        self.mox.VerifyAll()
 
     def test_delete_group(self):
 
@@ -295,16 +259,11 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'security_group_delete')
         api.security_group_delete(IsA(http.HttpRequest), SECGROUP_ID)
 
-        self.mox.StubOutWithMock(messages, 'info')
-        messages.info(IsA(http.HttpRequest), IsA(unicode))
-
         self.mox.ReplayAll()
 
         res = self.client.post(SG_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, SG_INDEX_URL)
-
-        self.mox.VerifyAll()
 
     def test_delete_group_exception(self):
         exception = novaclient_exceptions.ClientException('ClientException',
@@ -319,13 +278,8 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         api.security_group_delete(IsA(http.HttpRequest), SECGROUP_ID).\
                                   AndRaise(exception)
 
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
-
         self.mox.ReplayAll()
 
         res = self.client.post(SG_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, SG_INDEX_URL)
-
-        self.mox.VerifyAll()

@@ -1,12 +1,6 @@
 {% extends 'nova/base.html' %}
 {% load i18n %}
 
-{% block sidebar %}
-  {% with current_sidebar="containers" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
-
 {% block page_header %}
   {% url horizon:nova:images:index as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}

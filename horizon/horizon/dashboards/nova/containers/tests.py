@@ -55,8 +55,6 @@ class ContainerViewTests(test.BaseViewTests):
         self.assertEqual(len(containers), 1)
         self.assertEqual(containers[0].name, 'containerName')
 
-        self.mox.VerifyAll()
-
     def test_delete_container(self):
         formData = {'container_name': 'containerName',
                     'method': 'DeleteContainer'}
@@ -70,8 +68,6 @@ class ContainerViewTests(test.BaseViewTests):
         res = self.client.post(CONTAINER_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, CONTAINER_INDEX_URL)
-
-        self.mox.VerifyAll()
 
     def test_delete_container_nonempty(self):
         formData = {'container_name': 'containerName',
@@ -94,8 +90,6 @@ class ContainerViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res, CONTAINER_INDEX_URL)
 
-        self.mox.VerifyAll()
-
     def test_create_container_get(self):
         res = self.client.get(reverse('horizon:nova:containers:create'))
 
@@ -107,10 +101,9 @@ class ContainerViewTests(test.BaseViewTests):
 
         self.mox.StubOutWithMock(api, 'swift_create_container')
         api.swift_create_container(
-                IsA(http.HttpRequest), 'CreateContainer')
+                IsA(http.HttpRequest), u'containerName')
 
-        self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(basestring))
+        self.mox.ReplayAll()
 
         res = self.client.post(reverse('horizon:nova:containers:create'),
                                formData)
@@ -139,8 +132,6 @@ class ObjectViewTests(test.BaseViewTests):
                                       args=[self.CONTAINER_NAME]))
         self.assertTemplateUsed(res, 'nova/objects/index.html')
         self.assertItemsEqual(res.context['objects'], self.swift_objects)
-
-        self.mox.VerifyAll()
 
     def test_upload_index(self):
         res = self.client.get(reverse('horizon:nova:containers:object_upload',
@@ -174,10 +165,8 @@ class ObjectViewTests(test.BaseViewTests):
                                formData)
 
         self.assertRedirectsNoFollow(res,
-                            reverse('horizon:nova:containers:object_upload',
+                            reverse('horizon:nova:containers:object_index',
                                     args=[self.CONTAINER_NAME]))
-
-        self.mox.VerifyAll()
 
     def test_delete(self):
         OBJECT_NAME = 'objectName'
@@ -200,8 +189,6 @@ class ObjectViewTests(test.BaseViewTests):
                                 reverse('horizon:nova:containers:object_index',
                                         args=[self.CONTAINER_NAME]))
 
-        self.mox.VerifyAll()
-
     def test_download(self):
         OBJECT_DATA = 'objectData'
         OBJECT_NAME = 'objectName'
@@ -220,8 +207,6 @@ class ObjectViewTests(test.BaseViewTests):
         self.assertEqual(res.content, OBJECT_DATA)
         self.assertTrue(res.has_header('Content-Disposition'))
 
-        self.mox.VerifyAll()
-
     def test_copy_index(self):
         OBJECT_NAME = 'objectName'
 
@@ -239,8 +224,6 @@ class ObjectViewTests(test.BaseViewTests):
                                             OBJECT_NAME]))
 
         self.assertTemplateUsed(res, 'nova/objects/copy.html')
-
-        self.mox.VerifyAll()
 
     def test_copy(self):
         NEW_CONTAINER_NAME = self.CONTAINER_NAME
@@ -276,11 +259,8 @@ class ObjectViewTests(test.BaseViewTests):
                               formData)
 
         self.assertRedirectsNoFollow(res,
-                            reverse('horizon:nova:containers:object_copy',
-                                    args=[ORIG_CONTAINER_NAME,
-                                          ORIG_OBJECT_NAME]))
-
-        self.mox.VerifyAll()
+                            reverse('horizon:nova:containers:object_index',
+                                    args=[NEW_CONTAINER_NAME]))
 
     def test_filter(self):
         PREFIX = 'prefix'
@@ -303,5 +283,3 @@ class ObjectViewTests(test.BaseViewTests):
                                formData)
 
         self.assertTemplateUsed(res, 'nova/objects/index.html')
-
-        self.mox.VerifyAll()

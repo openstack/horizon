@@ -1,13 +1,5 @@
 {% extends 'nova/base.html' %}
-{% load parse_date %}
-{% load sizeformat %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="overview" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n parse_date sizeformat %}
 
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title="Overview: "|add:"<small>This page shows your cloud usage.</small>" %}

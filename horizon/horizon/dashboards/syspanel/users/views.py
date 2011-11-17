@@ -61,103 +61,24 @@ def index(request):
 
 @login_required
 def update(request, user_id):
-    if request.method == "POST":
-        tenants = api.tenant_list(request)
-        form = UserUpdateForm(request.POST, tenant_list=tenants)
-        if form.is_valid():
-            user = form.clean()
-            updated = []
-            if user['email']:
-                updated.append('email')
-                api.user_update_email(request, user['id'], user['email'])
-            if user['password']:
-                updated.append('password')
-                api.user_update_password(request, user['id'], user['password'])
-            if user['tenant_id']:
-                updated.append('tenant')
-                api.user_update_tenant(request, user['id'], user['tenant_id'])
-            messages.success(request,
-                             _('Updated %(attrib)s for %(user)s.') %
-                             {"attrib": ', '.join(updated), "user": user_id})
-            return shortcuts.redirect('horizon:syspanel:users:index')
-        else:
-            # TODO add better error management
-            messages.error(request,
-                           _('Unable to update user, please try again.'))
-
-            return shortcuts.render(request,
-                                    'syspanel/users/update.html', {
-                                        'form': form,
-                                        'user_id': user_id})
-
-    else:
-        user = api.user_get(request, user_id)
-        tenants = api.tenant_list(request)
-        form = UserUpdateForm(tenant_list=tenants,
-                              initial={'id': user_id,
-                                       'tenant_id': getattr(user,
-                                                            'tenantId',
-                                                            None),
-                                       'email': getattr(user, 'email', '')})
-        return shortcuts.render(request,
-                                'syspanel/users/update.html', {
-                                    'form': form,
-                                    'user_id': user_id})
+    user = api.user_get(request, user_id)
+    form, handled = UserUpdateForm.maybe_handle(request, initial={
+                                'id': user_id,
+                                'tenant_id': getattr(user, 'tenantId', None),
+                                'email': getattr(user, 'email', '')})
+    if handled:
+        return handled
+    return shortcuts.render(request,
+                            'syspanel/users/update.html', {
+                                'form': form,
+                                'user_id': user_id})
 
 
 @login_required
 def create(request):
-    try:
-        tenants = api.tenant_list(request)
-    except api_exceptions.ApiException, e:
-        messages.error(request, _('Unable to retrieve tenant list: %s') %
-                                 e.message)
-        return shortcuts.redirect('horizon:syspanel:users:index')
-
-    if request.method == "POST":
-        form = UserForm(request.POST, tenant_list=tenants)
-        if form.is_valid():
-            user = form.clean()
-            # TODO Make this a real request
-            try:
-                LOG.info('Creating user with name "%s"' % user['name'])
-                new_user = api.user_create(request,
-                                user['name'],
-                                user['email'],
-                                user['password'],
-                                user['tenant_id'],
-                                True)
-                messages.success(request,
-                                 _('User "%s" was successfully created.')
-                                 % user['name'])
-                try:
-                    api.role_add_for_tenant_user(
-                        request, user['tenant_id'], new_user.id,
-                        settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
-                except Exception, e:
-                    LOG.exception('Exception while assigning \
-                                   role to new user: %s' % new_user.id)
-                    messages.error(request,
-                                   _('Error assigning role to user: %s')
-                                   % e.message)
-
-                return shortcuts.redirect('horizon:syspanel:users:index')
-
-            except Exception, e:
-                LOG.exception('Exception while creating user\n'
-                          'name: "%s", email: "%s", tenant_id: "%s"' %
-                          (user['name'], user['email'], user['tenant_id']))
-                messages.error(request,
-                                _('Error creating user: %s')
-                                 % e.message)
-                return shortcuts.redirect('horizon:syspanel:users:index')
-        else:
-            return shortcuts.render(request,
-                                    'syspanel/users/create.html', {
-                                        'form': form})
-
-    else:
-        form = UserForm(tenant_list=tenants)
-        return shortcuts.render(request,
-                                'syspanel/users/create.html', {
-                                    'form': form})
+    form, handled = UserForm.maybe_handle(request)
+    if handled:
+        return handled
+    return shortcuts.render(request,
+                            'syspanel/users/create.html',
+                            {'form': form})

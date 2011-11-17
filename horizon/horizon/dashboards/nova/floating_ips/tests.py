@@ -64,8 +64,6 @@ class FloatingIpViewTests(test.BaseViewTests):
         self.assertTemplateUsed(res, 'nova/floating_ips/index.html')
         self.assertItemsEqual(res.context['floating_ips'], self.floating_ips)
 
-        self.mox.VerifyAll()
-
     def test_associate(self):
         self.mox.StubOutWithMock(api, 'server_list')
         api.server_list = self.mox.CreateMockAnything()
@@ -80,7 +78,6 @@ class FloatingIpViewTests(test.BaseViewTests):
         res = self.client.get(reverse('horizon:nova:floating_ips:associate',
                                       args=[1]))
         self.assertTemplateUsed(res, 'nova/floating_ips/associate.html')
-        self.mox.VerifyAll()
 
     def test_associate_post(self):
         server = self.server
@@ -115,7 +112,6 @@ class FloatingIpViewTests(test.BaseViewTests):
                                 'method': 'FloatingIpAssociate'})
 
         self.assertRedirects(res, FLOATING_IPS_INDEX)
-        self.mox.VerifyAll()
 
     def test_associate_post_with_exception(self):
         server = self.server
@@ -155,13 +151,10 @@ class FloatingIpViewTests(test.BaseViewTests):
 
         self.assertRedirects(res, FLOATING_IPS_INDEX)
 
-        self.mox.VerifyAll()
-
     def test_disassociate(self):
         res = self.client.get(reverse('horizon:nova:floating_ips:disassociate',
                                       args=[1]))
         self.assertTemplateUsed(res, 'nova/floating_ips/associate.html')
-        self.mox.VerifyAll()
 
     def test_disassociate_post(self):
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
@@ -186,7 +179,6 @@ class FloatingIpViewTests(test.BaseViewTests):
                  {'floating_ip_id': self.floating_ip.id,
                   'method': 'FloatingIpDisassociate'})
         self.assertRedirects(res, FLOATING_IPS_INDEX)
-        self.mox.VerifyAll()
 
     def test_disassociate_post_with_exception(self):
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
@@ -213,4 +205,3 @@ class FloatingIpViewTests(test.BaseViewTests):
                  'method': 'FloatingIpDisassociate'})
         self.assertRaises(novaclient_exceptions.ClientException)
         self.assertRedirects(res, FLOATING_IPS_INDEX)
-        self.mox.VerifyAll()

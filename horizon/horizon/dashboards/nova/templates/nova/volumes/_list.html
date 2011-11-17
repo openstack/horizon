@@ -35,7 +35,7 @@
         {% if volume.status == "in-use" %}
           {% for attachment in volume.attachments %}
             <li class="form">
-              {% include "nova/volumes/_detach_form.html" with form=detach_form %}
+              {% include "nova/volumes/_detach.html" with form=detach_form %}
             </li>
           {% endfor %}
         {% endif %}

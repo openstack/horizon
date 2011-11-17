@@ -1,12 +1,6 @@
 {% extends 'nova/base.html' %}
 {% load i18n %}
 
-{% block sidebar %}
-  {% with current_sidebar="instances" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
-
 {% block page_header %}
   {# to make searchable false, just remove it from the include statement #}
   {% include "horizon/common/_page_header.html" with title="Instance Detail: "|add:instance.name %}

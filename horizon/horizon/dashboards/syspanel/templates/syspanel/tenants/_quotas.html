@@ -1,10 +1,10 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
-{% block form_id %}{% endblock %}
-{% block form_action %}{% url horizon:syspanel:tenants:update tenant_id %}{% endblock %}
+{% block form_id %}quota_update_form{% endblock %}
+{% block form_action %}{% url horizon:syspanel:tenants:quotas tenant_id %}{% endblock %}
 
-{% block modal-header %}{% endblock %}
+{% block modal-header %}{%trans "Update Quota"%}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -14,11 +14,11 @@
 </div>
 <div class="right">
     <h3>{% trans "Description"%}:</h3>
-    <p>{% trans "From here you can edit a tenant."%}</p>
+    <p>{% trans "From here you can edit quotas (max limits) for the tenant {{tenant_id}}."%}</p>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
-  <input class="btn primary pull-right" type="submit" value="{%trans "Update Tenant"%}" />
+    <input class="btn primary pull-right" type="submit" value="{%trans "Update Quota"%}" />
   <a href="{% url horizon:syspanel:tenants:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

@@ -46,8 +46,6 @@ class KeyPairViewTests(test.BaseViewTests):
         self.assertTemplateUsed(res, 'nova/keypairs/index.html')
         self.assertItemsEqual(res.context['keypairs'], self.keypairs)
 
-        self.mox.VerifyAll()
-
     def test_index_exception(self):
         exception = novaclient_exceptions.ClientException('clientException',
                                                 message='clientException')
@@ -63,8 +61,6 @@ class KeyPairViewTests(test.BaseViewTests):
 
         self.assertTemplateUsed(res, 'nova/keypairs/index.html')
         self.assertEqual(len(res.context['keypairs']), 0)
-
-        self.mox.VerifyAll()
 
     def test_delete_keypair(self):
         KEYPAIR_ID = self.keypairs[0].name
@@ -82,8 +78,6 @@ class KeyPairViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:keypairs:index'))
-
-        self.mox.VerifyAll()
 
     def test_delete_keypair_exception(self):
         KEYPAIR_ID = self.keypairs[0].name
@@ -104,8 +98,6 @@ class KeyPairViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:keypairs:index'))
-
-        self.mox.VerifyAll()
 
     def test_create_keypair_get(self):
         res = self.client.get(reverse('horizon:nova:keypairs:create'))
@@ -135,8 +127,6 @@ class KeyPairViewTests(test.BaseViewTests):
 
         self.assertTrue(res.has_header('Content-Disposition'))
 
-        self.mox.VerifyAll()
-
     def test_create_keypair_exception(self):
         KEYPAIR_NAME = 'newKeypair'
 
@@ -157,5 +147,3 @@ class KeyPairViewTests(test.BaseViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:keypairs:create'))
-
-        self.mox.VerifyAll()

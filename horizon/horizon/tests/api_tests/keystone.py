@@ -70,8 +70,6 @@ class KeystoneAdminApiTests(APITestCase):
         self.assertIsInstance(ret_val, api.Services)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
-        self.mox.VerifyAll()
-
     def test_service_list(self):
         services = (TEST_RETURN, TEST_RETURN + '2')
 
@@ -87,8 +85,6 @@ class KeystoneAdminApiTests(APITestCase):
             self.assertIsInstance(service, api.Services)
             self.assertIn(service._apiresource, services)
 
-        self.mox.VerifyAll()
-
     def test_service_update(self):
         ENABLED = True
         NAME = 'serviceName'
@@ -103,8 +99,6 @@ class KeystoneAdminApiTests(APITestCase):
 
         self.assertIsInstance(ret_val, api.Services)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-        self.mox.VerifyAll()
 
 
 class TokenApiTests(APITestCase):
@@ -148,8 +142,6 @@ class TokenApiTests(APITestCase):
 
         self.assertEqual(test_token.tenant['id'], ret_val.tenant['id'])
 
-        self.mox.VerifyAll()
-
 
 class RoleAPITests(APITestCase):
     def test_role_add_for_tenant_user(self):
@@ -173,8 +165,6 @@ class RoleAPITests(APITestCase):
                                                TEST_RETURN)
         self.assertEqual(ret_val, role)
 
-        self.mox.VerifyAll()
-
 
 class TenantAPITests(APITestCase):
     def test_tenant_create(self):
@@ -195,8 +185,6 @@ class TenantAPITests(APITestCase):
         self.assertIsInstance(ret_val, api.Tenant)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
-        self.mox.VerifyAll()
-
     def test_tenant_get(self):
         keystoneclient = self.stub_keystoneclient()
 
@@ -209,8 +197,6 @@ class TenantAPITests(APITestCase):
 
         self.assertIsInstance(ret_val, api.Tenant)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-        self.mox.VerifyAll()
 
     def test_tenant_list(self):
         tenants = (TEST_RETURN, TEST_RETURN + '2')
@@ -228,8 +214,6 @@ class TenantAPITests(APITestCase):
         for tenant in ret_val:
             self.assertIsInstance(tenant, api.Tenant)
             self.assertIn(tenant._apiresource, tenants)
-
-        self.mox.VerifyAll()
 
     def test_tenant_update(self):
         DESCRIPTION = 'aDescription'
@@ -249,8 +233,6 @@ class TenantAPITests(APITestCase):
         self.assertIsInstance(ret_val, api.Tenant)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
-        self.mox.VerifyAll()
-
 
 class UserAPITests(APITestCase):
     def test_user_create(self):
@@ -268,8 +250,6 @@ class UserAPITests(APITestCase):
         self.assertIsInstance(ret_val, api.User)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
-        self.mox.VerifyAll()
-
     def test_user_delete(self):
         keystoneclient = self.stub_keystoneclient()
 
@@ -281,8 +261,6 @@ class UserAPITests(APITestCase):
         ret_val = api.user_delete(self.request, TEST_USERNAME)
 
         self.assertIsNone(ret_val)
-
-        self.mox.VerifyAll()
 
     def test_user_get(self):
         keystoneclient = self.stub_keystoneclient()
@@ -296,8 +274,6 @@ class UserAPITests(APITestCase):
 
         self.assertIsInstance(ret_val, api.User)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-        self.mox.VerifyAll()
 
     def test_user_list(self):
         users = (TEST_USERNAME, TEST_USERNAME + '2')
@@ -315,8 +291,6 @@ class UserAPITests(APITestCase):
             self.assertIsInstance(user, api.User)
             self.assertIn(user._apiresource, users)
 
-        self.mox.VerifyAll()
-
     def test_user_update_email(self):
         keystoneclient = self.stub_keystoneclient()
         keystoneclient.users = self.mox.CreateMockAnything()
@@ -330,8 +304,6 @@ class UserAPITests(APITestCase):
 
         self.assertIsInstance(ret_val, api.User)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-        self.mox.VerifyAll()
 
     def test_user_update_password(self):
         keystoneclient = self.stub_keystoneclient()
@@ -347,8 +319,6 @@ class UserAPITests(APITestCase):
         self.assertIsInstance(ret_val, api.User)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
-        self.mox.VerifyAll()
-
     def test_user_update_tenant(self):
         keystoneclient = self.stub_keystoneclient()
         keystoneclient.users = self.mox.CreateMockAnything()
@@ -362,5 +332,3 @@ class UserAPITests(APITestCase):
 
         self.assertIsInstance(ret_val, api.User)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-        self.mox.VerifyAll()

@@ -1,4 +1,4 @@
-{%load i18n%}
+{% load i18n %}
 {% if service.disabled %}
   <form id="form_service_enable_{{service.id}}" class="form-service-enable" method="post">
     {% csrf_token %}

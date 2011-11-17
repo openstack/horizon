@@ -107,7 +107,8 @@ class UploadObject(forms.SelfHandlingForm):
                 self.files['object_file'].read())
 
         messages.success(request, _("Object was successfully uploaded."))
-        return shortcuts.redirect(request.build_absolute_uri())
+        return shortcuts.redirect("horizon:nova:containers:object_index",
+                                  data['container_name'])
 
 
 class CopyObject(forms.SelfHandlingForm):
@@ -140,4 +141,5 @@ class CopyObject(forms.SelfHandlingForm):
                 _('Object was successfully copied to %(container)s\%(obj)s') %
                 {"container": new_container_name, "obj": new_object_name})
 
-        return shortcuts.redirect(request.build_absolute_uri())
+        return shortcuts.redirect("horizon:nova:containers:object_index",
+                                  data['new_container_name'])

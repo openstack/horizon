@@ -1,11 +1,5 @@
 {% extends 'nova/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="networks" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {% url horizon:nova:networks:detail network.id as refresh_link %}
@@ -13,19 +7,14 @@
   {% include "horizon/common/_page_header.html" with title=network.name refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
 
-{% block breadcrumbs %}
-    <a href="{% url horizon:nova:networks:index tenant %}">Networks</a>&nbsp;&raquo;&nbsp;
-    <a href="{% url horizon:nova:networks:detail tenant network.id %}">{{network.name}}</a>
-{% endblock %}
-
 {% block dash_main %}
   {% if network.ports %}
     {% include 'nova/networks/_detail.html' %}
     <a id="network_create_link" class="btn small" href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports"%}</a>
   {% else %}
-    <div class="message_box info">
+    <div class="alert-message block-message info">
      <h2>{% trans "Info"%}</h2>
-     <p>{% trans "There are currently no ports in this network."%} <a href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports"%} &gt;&gt;</a></p>
+     <p>{% trans "There are currently no ports in this network."%} <a class='btn small' href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports"%}</a></p>
     </div>
   {% endif %}
 {% endblock %}

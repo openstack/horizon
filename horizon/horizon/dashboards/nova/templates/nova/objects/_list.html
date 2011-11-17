@@ -1,29 +1,36 @@
 {% load i18n swift_paging %}
 
-<table id="objects" class="zebra-striped">
-  <thead>
-    <tr>
-      <th>{% trans "Name"%}</th>
-      <th style="width: 100px;">{% trans "Actions"%}</th>
-    </tr>
-  </theaad>
-  <tbody>
-    {% for object in objects %}
-    <tr class="{% cycle 'odd' 'even' %}">
-      <td>{{ object.name }}</td>
-      <td id="actions">
-        <ul>
-          <li><a class="btn small primary" href="{% url horizon:nova:containers:object_download container_name object.name %}">{% trans "Download"%}</a>
-          <li><a class="btn small" href="{% url horizon:nova:containers:object_copy container_name object.name %}">{% trans "Copy"%}</a></li>
-          <li class="form">{% include "nova/objects/_delete.html" with form=delete_form %}</li>
-        </ul>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="2">{% object_paging objects %}</td>
-    </tr>
-  </tfoot>
-</table>
+<div class="table_title">
+  <h3>Objects</h3>
+  <div class="table_actions">
+  <a class="btn small primary pull-right" href="{% url horizon:nova:containers:object_upload container_name %}">{% trans "Upload Object"%}</a>
+  </div>
+
+  <table id="objects" class="zebra-striped">
+    <thead>
+      <tr>
+        <th>{% trans "Name"%}</th>
+        <th style="width: 100px;">{% trans "Actions"%}</th>
+      </tr>
+    </theaad>
+    <tbody>
+      {% for object in objects %}
+      <tr class="{% cycle 'odd' 'even' %}">
+        <td>{{ object.name }}</td>
+        <td id="actions">
+          <ul>
+            <li><a class="btn small" href="{% url horizon:nova:containers:object_download container_name object.name %}">{% trans "Download"%}</a>
+            <li><a class="btn small" href="{% url horizon:nova:containers:object_copy container_name object.name %}">{% trans "Copy"%}</a></li>
+            <li class="form">{% include "nova/objects/_delete.html" with form=delete_form %}</li>
+          </ul>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">{% object_paging objects %}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

@@ -1,11 +1,5 @@
 {% extends 'syspanel/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="flavors" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {% url horizon:syspanel:flavors:index as refresh_link %}

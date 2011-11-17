@@ -1,11 +1,5 @@
 {% extends 'nova/base.html' %}
-{%load i18n%}
-
-{% block sidebar %}
-  {% with current_sidebar="networks" %}
-    {{block.super}}
-  {% endwith %}
-{% endblock %}
+{% load i18n %}
 
 {% block page_header %}
   {% url horizon:nova:networks:index as refresh_link %}
@@ -22,7 +16,7 @@
     <div class="alert-message block-message info">
       <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no networks."%}</p>
       <div class="alert-actions">
-        <a class="btn small" href='{% url horizon:nova:networks:create %}'>{% trans "Create A Network"%} &gt;&gt;</a>
+        <a class="btn small" href='{% url horizon:nova:networks:create %}'>{% trans "Create A Network"%}</a>
       </div>
     </div>
   {% endif %}

@@ -95,14 +95,13 @@ def create(request):
 
 @login_required
 def attach(request, volume_id):
-
-    def instances():
-        insts = api.server_list(request)
-        return [(inst.id, '%s (Instance %s)' % (inst.name, inst.id))
-                for inst in insts]
+    insts = api.server_list(request)
+    instances = [(inst.id, '%s (Instance %s)' % \
+                    (inst.name, inst.id)) for inst in insts]
+    instances.insert(0, ('', _("Select an instance")))
 
     attach_form, handled = AttachForm.maybe_handle(
-            request, initial={'instance_list': instances()})
+            request, initial={'instance_list': instances})
 
     if handled:
         return handled
@@ -110,5 +109,4 @@ def attach(request, volume_id):
     return shortcuts.render(request,
                             'nova/volumes/attach.html', {
                                 'attach_form': attach_form,
-                                'create_form': create_form,
                                 'volume_id': volume_id})
