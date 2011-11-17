@@ -60,6 +60,7 @@ html, #splash{
   width: 390px;
   padding-top: 170px;
   border: 1px solid #e1e1e1;
+  margin-left: -195px;  /*accounts for splash's non-standard width */
 }
 
 #create_container_form .modal-footer{
