@@ -22,6 +22,7 @@ import tempfile
 
 from cloudfiles.errors import ContainerNotEmpty
 from django import http
+from django import template
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from mox import IgnoreArg, IsA
@@ -159,6 +160,11 @@ class ObjectViewTests(test.BaseViewTests):
                                 OBJECT_DATA)
 
         self.mox.ReplayAll()
+
+        t = template.loader.get_template('nova/objects/_upload.html')
+        c = template.Context({"container_name": self.CONTAINER_NAME})
+        rendered = t.render(c)
+        self.assertNotEqual(-1, rendered.find('enctype="multipart/form-data"'))
 
         res = self.client.post(reverse('horizon:nova:containers:object_upload',
                                        args=[self.CONTAINER_NAME]),

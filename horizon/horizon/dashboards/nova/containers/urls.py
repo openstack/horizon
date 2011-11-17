@@ -28,9 +28,9 @@ OBJECTS = r'^(?P<container_name>[^/]+)/%s$'
 urlpatterns = patterns('horizon.dashboards.nova.containers.views',
     url(r'^$', 'index', name='index'),
     url(r'^create/$', 'create', name='create'),
-    url(OBJECTS % '', 'object_index', name='object_index'),
-    url(OBJECTS % 'upload', 'object_upload', name='object_upload'),
-    url(OBJECTS % '(?P<object_name>[^/]+)/copy',
+    url(OBJECTS % r'$', 'object_index', name='object_index'),
+    url(OBJECTS % r'upload$', 'object_upload', name='object_upload'),
+    url(OBJECTS % r'(?P<object_name>[^/]+)/copy$',
         'object_copy', name='object_copy'),
-    url(OBJECTS % '(?P<object_name>[^/]+)/download',
+    url(OBJECTS % r'(?P<object_name>[^/]+)/download$',
         'object_download', name='object_download'))

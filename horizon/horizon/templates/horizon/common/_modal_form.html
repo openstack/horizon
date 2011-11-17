@@ -1,5 +1,5 @@
 <div id="{% block modal_id %}{% endblock %}" class="{% block modal_class %}modal{% if hide %} hide {% else %} static_page{% endif %}{% endblock %}">
-  <form id="{% block form_id %}{% endblock %}" class="{% block form_class %}{% endblock %}" action="{% block form_action %}{% endblock %}" method="{% block form-method %}POST{% endblock %}">{% csrf_token %}
+  <form id="{% block form_id %}{% endblock %}" class="{% block form_class %}{% endblock %}" action="{% block form_action %}{% endblock %}" method="{% block form-method %}POST{% endblock %}" {% block form_attrs %}{% endblock %}>{% csrf_token %}
     <div class="modal-header">
       {% if hide %}<a href="#" class="close">&times;</a>{% endif %}
       <h3>{% block modal-header %}{% endblock %}</h3>
