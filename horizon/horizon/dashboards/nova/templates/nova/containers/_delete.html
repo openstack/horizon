@@ -1,10 +1,10 @@
-{%load i18n%}
+{% load i18n %}
 <form id="form_delete_{{container.name}}" action="." class="form-delete" method="post">
   {% csrf_token %}
   {% for hidden in form.hidden_fields %}
-    {{hidden}}
+    {{ hidden }}
   {% endfor %}
-  <input name="container_name" type="hidden" value="{{container.name}}" />
-  <input id="delete_{{container.name}}" class="btn small delete" title="Container: {{container.name}}" type="submit" value="{%trans "Delete"%}" />
+  <input name="container_name" type="hidden" value="{{ container.name }}" />
+  <input id="delete_{{ container.name }}" class="btn small danger delete" title="Container: {{ container.name }}" type="submit" value="{% trans "Delete" %}" />
 </form>
 

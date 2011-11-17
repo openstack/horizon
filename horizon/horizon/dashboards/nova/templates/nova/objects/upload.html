@@ -1,5 +1,5 @@
 {% extends 'nova/base.html' %}
-{%load i18n%}
+{% load i18n %}
 
 {% block sidebar %}
   {% with current_sidebar="containers" %}
@@ -14,7 +14,7 @@
 {% block dash_main %}
   <div id="create_container_form" class="modal static_page">
     <div class="modal-header">
-      <h3>Object Upload: <small>Container: {{container_name}}</h3>
+      <h3>Object Upload: <small>Container: {{ container_name }}</h3>
     </div>
     <div class="modal-body">
       <div class="left">

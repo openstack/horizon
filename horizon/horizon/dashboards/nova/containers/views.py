@@ -26,7 +26,6 @@ import logging
 from django import http
 from django.contrib.auth.decorators import login_required
 from django import shortcuts
-from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon.dashboards.nova.containers.forms import (DeleteContainer,

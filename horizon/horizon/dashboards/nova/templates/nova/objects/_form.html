@@ -1,13 +1,13 @@
-{%load i18n%}
-<form id="object_form" action="{% block form_action %}{% endblock %}" method="post">
+{% load i18n %}
+<form id="object_form" enctype="multipart/form-data" action="{% block form_url %}{% endblock %}" method="post">
   {% csrf_token %}
   <fieldset>
     {% for hidden in form.hidden_fields %}
-      {{hidden}}
+      {{ hidden }}
     {% endfor %}
     {% for field in form.visible_fields %}
       <div class="clearfix{% if field.errors %} error{% endif %}">
-        {{field.label_tag}}
+        {{ field.label_tag }}
         {% if field.errors %}
           {% for error in field.errors %}
             <span class="help-inline">{{error}}</span>
@@ -15,7 +15,7 @@
         {% endif %}
         <span class="help-block">{{field.help_text}}</span>
         <div class="input">
-          {{field}}
+          {{ field }}
         </div>
       </div>
     {% endfor %}
