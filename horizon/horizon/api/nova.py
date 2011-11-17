@@ -139,7 +139,7 @@ def novaclient(request):
     LOG.debug('novaclient connection created using token "%s" and url "%s"' %
               (request.user.token, url_for(request, 'compute')))
     c = nova_client.Client(username=request.user.username,
-                      api_key=request.user.token,
+                      password=request.user.token,
                       project_id=request.user.tenant_id,
                       auth_url=url_for(request, 'compute'))
     c.client.auth_token = request.user.token
