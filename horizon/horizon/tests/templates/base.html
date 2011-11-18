@@ -1,0 +1,32 @@
+{% load branding %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %} – {% site_branding %} Dashboard</title>
+    {% block headerjs %}{% endblock %}
+    {% block headercss %}{% endblock %}
+  </head>
+  <body>
+    {% block topbar %}
+      <div id="user_info" class="pull-right">
+        <p>
+          Logged in as: {{ request.user.username }}.
+          <a href="{% url horizon:settings:user:index %}">{% trans "Settings"%}</a>
+          <a href="{% url horizon:auth_logout %}">{% trans "Sign Out"%}</a>
+        </p>
+      </div>
+    {% endblock %}
+    {% block content %}
+      <div id="container" class="container-fluid">
+        {% block sidebar %}{% endblock %}
+        {% block main %}{% endblock %}
+      </div>
+    {% endblock %}
+    <div id="footer">
+      {% block footer %}{% endblock %}
+    </div>
+    {% block footer_js %}{% endblock %}
+  </body>
+</html>
+

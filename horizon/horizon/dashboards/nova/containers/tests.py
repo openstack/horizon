@@ -37,7 +37,7 @@ CONTAINER_INDEX_URL = reverse('horizon:nova:containers:index')
 class ContainerViewTests(test.BaseViewTests):
     def setUp(self):
         super(ContainerViewTests, self).setUp()
-        self.container = self.mox.CreateMock(api.Container)
+        self.container = api.Container(None)
         self.container.name = 'containerName'
 
     def test_index(self):
@@ -117,7 +117,8 @@ class ObjectViewTests(test.BaseViewTests):
 
     def setUp(self):
         super(ObjectViewTests, self).setUp()
-        swift_object = self.mox.CreateMock(api.SwiftObject)
+        swift_object = api.SwiftObject(None)
+        swift_object.name = "test_object"
         self.swift_objects = [swift_object]
 
     def test_index(self):
@@ -161,10 +162,10 @@ class ObjectViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        t = template.loader.get_template('nova/objects/_upload.html')
-        c = template.Context({"container_name": self.CONTAINER_NAME})
-        rendered = t.render(c)
-        self.assertNotEqual(-1, rendered.find('enctype="multipart/form-data"'))
+        res = self.client.get(reverse('horizon:nova:containers:object_upload',
+                                       args=[self.CONTAINER_NAME]))
+
+        self.assertContains(res, 'enctype="multipart/form-data"')
 
         res = self.client.post(reverse('horizon:nova:containers:object_upload',
                                        args=[self.CONTAINER_NAME]),

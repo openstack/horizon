@@ -33,7 +33,7 @@ class UsersViewTests(test.BaseAdminViewTests):
     def setUp(self):
         super(UsersViewTests, self).setUp()
 
-        self.user = self.mox.CreateMock(api.User)
+        self.user = api.User(None)
         self.user.enabled = True
         self.user.id = self.TEST_USER
         self.user.roles = self.TEST_ROLES

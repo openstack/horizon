@@ -42,14 +42,16 @@ class ImageViewTests(test.BaseViewTests):
         image_dict = {'name': 'visibleImage',
                       'container_format': 'novaImage'}
         self.visibleImage = api.Image(image_dict)
+        self.visibleImage.id = '1'
 
         image_dict = {'name': 'invisibleImage',
                       'container_format': 'aki'}
         self.invisibleImage = api.Image(image_dict)
+        self.invisibleImage.id = '2'
 
         self.images = (self.visibleImage, self.invisibleImage)
 
-        flavor = self.mox.CreateMock(api.Flavor)
+        flavor = api.Flavor(None)
         flavor.id = 1
         flavor.name = 'm1.massive'
         flavor.vcpus = 1000
@@ -57,11 +59,11 @@ class ImageViewTests(test.BaseViewTests):
         flavor.ram = 10000
         self.flavors = (flavor,)
 
-        keypair = self.mox.CreateMock(api.KeyPair)
+        keypair = api.KeyPair(None)
         keypair.name = 'keyName'
         self.keypairs = (keypair,)
 
-        security_group = self.mox.CreateMock(api.SecurityGroup)
+        security_group = api.SecurityGroup(None)
         security_group.name = 'default'
         self.security_groups = (security_group,)
 

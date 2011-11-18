@@ -3,6 +3,7 @@
 .environment_version
 .selenium_log
 .coverage
+.noseids
 coverage.xml
 pep8.txt
 pylint.txt

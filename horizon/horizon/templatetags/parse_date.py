@@ -31,6 +31,8 @@ register = template.Library()
 
 
 def _parse_datetime(dtstr):
+    if not dtstr:
+        return "None"
     fmts = ["%Y-%m-%dT%H:%M:%S.%f", "%Y-%m-%d %H:%M:%S.%f",
             "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S"]
     for fmt in fmts:
@@ -43,7 +45,7 @@ def _parse_datetime(dtstr):
 class ParseDateNode(template.Node):
     def render(self, context):
         """Turn an iso formatted time back into a datetime."""
-        if context == None:
+        if not context:
             return "None"
         date_obj = _parse_datetime(context)
         return date_obj.strftime("%m/%d/%y at %H:%M:%S")
@@ -70,4 +72,6 @@ def parse_local_datetime(value):
 
 @register.filter(name='pretty_date')
 def pretty_date(value):
+    if not value:
+        return "None"
     return value.strftime("%d/%m/%y at %H:%M:%S")

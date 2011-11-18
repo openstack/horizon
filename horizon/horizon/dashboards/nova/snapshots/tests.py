@@ -36,13 +36,13 @@ class SnapshotsViewTests(test.BaseViewTests):
                       'container_format': 'novaImage'}
         self.images = [image_dict]
 
-        server = self.mox.CreateMock(api.Server)
+        server = api.Server(None, self.request)
         server.id = 1
         server.status = 'ACTIVE'
         server.name = 'sgoody'
         self.good_server = server
 
-        server = self.mox.CreateMock(api.Server)
+        server = api.Server(None, self.request)
         server.id = 2
         server.status = 'BUILD'
         server.name = 'baddy'

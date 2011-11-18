@@ -31,7 +31,7 @@ from horizon import test
 class KeyPairViewTests(test.BaseViewTests):
     def setUp(self):
         super(KeyPairViewTests, self).setUp()
-        keypair = self.mox.CreateMock(api.KeyPair)
+        keypair = api.KeyPair(None)
         keypair.name = 'keyName'
         self.keypairs = (keypair,)
 

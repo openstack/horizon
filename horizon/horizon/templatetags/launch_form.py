@@ -25,6 +25,7 @@ Template tags for dynamic creation of image launch form.
 from __future__ import absolute_import
 
 from django import template
+from openstackx import exceptions as api_exceptions
 
 from horizon import api
 from horizon import forms

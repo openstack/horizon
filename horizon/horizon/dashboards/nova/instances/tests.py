@@ -33,7 +33,7 @@ from horizon import test
 class InstanceViewTests(test.BaseViewTests):
     def setUp(self):
         super(InstanceViewTests, self).setUp()
-        server = self.mox.CreateMock(api.Server)
+        server = api.Server(None, self.request)
         server.id = 1
         server.name = 'serverName'
         self.servers = (server,)

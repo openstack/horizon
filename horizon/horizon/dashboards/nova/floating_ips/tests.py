@@ -39,13 +39,13 @@ class FloatingIpViewTests(test.BaseViewTests):
 
     def setUp(self):
         super(FloatingIpViewTests, self).setUp()
-        server = self.mox.CreateMock(api.Server)
+        server = api.Server(None, self.request)
         server.id = 1
         server.name = 'serverName'
         self.server = server
         self.servers = (server, )
 
-        floating_ip = self.mox.CreateMock(api.FloatingIp)
+        floating_ip = api.FloatingIp(None)
         floating_ip.id = 1
         floating_ip.fixed_ip = '10.0.0.4'
         floating_ip.instance_id = 1

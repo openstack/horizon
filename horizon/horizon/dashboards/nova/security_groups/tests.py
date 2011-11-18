@@ -39,7 +39,8 @@ class SecurityGroupsViewTests(test.BaseViewTests):
     def setUp(self):
         super(SecurityGroupsViewTests, self).setUp()
 
-        security_group = self.mox.CreateMock(api.SecurityGroup)
+        security_group = api.SecurityGroup(None)
+        security_group.id = '1'
         security_group.name = 'default'
         self.security_groups = (security_group,)
 
