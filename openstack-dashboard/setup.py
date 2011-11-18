@@ -26,13 +26,6 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-dst = 'debian/openstack-dashboard/var/lib/dash'
-os.system('rm -rf %s' % dst)
-shutil.copytree('tools', '%s/tools' % dst)
-shutil.copytree('dashboard', '%s/dashboard' % dst)
-shutil.copytree('local', '%s/local' % dst)
-
-
 setuptools.setup(
     name = 'openstack-dashboard',
     version = '0.4',
