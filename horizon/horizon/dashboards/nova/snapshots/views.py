@@ -74,7 +74,7 @@ def create(request, instance_id):
     try:
         instance = api.server_get(request, instance_id)
     except api_exceptions.ApiException, e:
-        msg = _("Unable to retreive instance: %s") % e
+        msg = _("Unable to retrieve instance: %s") % e
         LOG.exception(msg)
         messages.error(request, msg)
         return shortcuts.redirect('horizon:nova:instances:index')

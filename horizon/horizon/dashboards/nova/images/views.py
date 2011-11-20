@@ -58,7 +58,7 @@ def index(request):
         LOG.exception("Error retrieving image list")
         messages.error(request, _("Error retrieving image list: %s") % str(e))
     except api_exceptions.ApiException, e:
-        msg = _("Unable to retreive image info from glance: %s") % str(e)
+        msg = _("Unable to retrieve image info from glance: %s") % str(e)
         LOG.exception(msg)
         messages.error(request, msg)
 
