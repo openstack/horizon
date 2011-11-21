@@ -44,5 +44,5 @@ def splash(request):
     form, handled = auth_views.Login.maybe_handle(request)
     if handled:
         return handled
-
+    request.session.clear()
     return shortcuts.render(request, 'splash.html', {'form': form})
