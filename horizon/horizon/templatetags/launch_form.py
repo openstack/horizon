@@ -23,16 +23,16 @@ Template tags for dynamic creation of image launch form.
 """
 
 from __future__ import absolute_import
-
+import logging
 from django import template
-from openstackx import exceptions as api_exceptions
-
+from openstackx.api import exceptions as api_exceptions
+from novaclient import exceptions as novaclient_exceptions
 from horizon import api
-from horizon import forms
 from horizon.dashboards.nova.images.forms import LaunchForm
 from horizon.utils import assignment_tag
 
 
+LOG = logging.getLogger(__name__)
 register = template.Library()
 
 
@@ -65,14 +65,13 @@ def launch_form(request, tenant_id, image_id):
             fl = api.security_group_list(request)
             sel = [(f.name, f.name) for f in fl]
             return sel
-        except novaclient_exceptions.ClientException, e:
+        except novaclient_exceptions.ClientException:
             LOG.exception('Unable to retrieve list of security groups')
             return []
 
     form = LaunchForm(initial={'flavorlist': flavorlist(request),
-                                        'keynamelist': keynamelist(request),
-                                        'securitygrouplist':
-                                         securitygrouplist(request),
-                                        'image_id': image_id,
-                                        'tenant_id': tenant_id})
+                               'keynamelist': keynamelist(request),
+                               'securitygrouplist': securitygrouplist(request),
+                               'image_id': image_id,
+                               'tenant_id': tenant_id})
     return form

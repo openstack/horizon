@@ -33,7 +33,8 @@ class SnapshotsViewTests(test.BaseViewTests):
     def setUp(self):
         super(SnapshotsViewTests, self).setUp()
         image_dict = {'name': 'snapshot',
-                      'container_format': 'novaImage'}
+                      'container_format': 'novaImage',
+                      'id': 3}
         self.images = [image_dict]
 
         server = api.Server(None, self.request)
@@ -48,10 +49,36 @@ class SnapshotsViewTests(test.BaseViewTests):
         server.name = 'baddy'
         self.bad_server = server
 
+        flavor = api.Flavor(None)
+        flavor.id = 1
+        flavor.name = 'm1.massive'
+        flavor.vcpus = 1000
+        flavor.disk = 1024
+        flavor.ram = 10000
+        self.flavors = (flavor,)
+
+        keypair = api.KeyPair(None)
+        keypair.name = 'keyName'
+        self.keypairs = (keypair,)
+
+        security_group = api.SecurityGroup(None)
+        security_group.name = 'default'
+        self.security_groups = (security_group,)
+
     def test_index(self):
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
         api.snapshot_list_detailed(IsA(http.HttpRequest)).\
                                    AndReturn(self.images)
+
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
+
+        self.mox.StubOutWithMock(api, 'keypair_list')
+        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
+
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
+                                    self.security_groups)
 
         self.mox.ReplayAll()
 

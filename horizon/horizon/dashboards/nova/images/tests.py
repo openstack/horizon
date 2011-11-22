@@ -75,6 +75,16 @@ class ImageViewTests(test.BaseViewTests):
         api.tenant_quota_get(IsA(http.HttpRequest), self.TEST_TENANT) \
                 .AndReturn({})
 
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
+
+        self.mox.StubOutWithMock(api, 'keypair_list')
+        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
+
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
+                                    self.security_groups)
+
         self.mox.ReplayAll()
 
         res = self.client.get(IMAGES_INDEX_URL)
