@@ -28,6 +28,7 @@ from django import shortcuts
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 from openstackx.api import exceptions as api_exceptions
+from keystoneclient import exceptions as keystone_exceptions
 
 from horizon import api
 from horizon import base
@@ -80,10 +81,14 @@ class Login(forms.SelfHandlingForm):
                 return shortcuts.redirect(base.Horizon.get_user_home(user))
 
             elif data.get('username', None):
-                token = api.token_create(request,
-                                         '',
-                                         data['username'],
-                                         data['password'])
+                try:
+                    token = api.token_create(request,
+                                             '',
+                                             data['username'],
+                                             data['password'])
+                except keystone_exceptions.Unauthorized:
+                    messages.error(request, _('Bad user name or password.'))
+                    return
 
                 # Unscoped token
                 request.session['unscoped_token'] = token.id
