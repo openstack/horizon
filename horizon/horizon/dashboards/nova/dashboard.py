@@ -28,6 +28,7 @@ class Nova(horizon.Dashboard):
               _("Network"): ('networks',),
               _("Object Store"): ('containers',)}
     default_panel = 'overview'
+    supports_tenants = True
 
 
 horizon.register(Nova)

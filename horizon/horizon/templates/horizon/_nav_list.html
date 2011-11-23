@@ -1,5 +1,4 @@
 {% load horizon %}
-
 {% for component in components %}
     {% if user|can_haz:component %}
         <li{% if current == component.slug %} class="active"{% endif %}>

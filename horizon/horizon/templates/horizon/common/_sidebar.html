@@ -8,6 +8,7 @@
     </ul>
   </div>
 
+  {% if request.horizon.dashboard.supports_tenants %}
   <div id="tenant_switcher" class="switcher_bar">
     <a id="current_tenant" class="current_item" href="{% url horizon:nova:overview:index %}">
       <h4>Project</h4>
@@ -22,6 +23,7 @@
       {% endfor %}
     </ul>
   </div>
+  {% endif %}
 
   {% horizon_dashboard_nav %}
 </div>
