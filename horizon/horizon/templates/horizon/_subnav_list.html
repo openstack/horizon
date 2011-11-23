@@ -6,7 +6,7 @@
 {% for panel in panels %}
     {% if user|can_haz:panel %}
         <li>
-            <a href="{{ panel.get_absolute_url }}" {% if current == panel.slug %}class="active"{% endif %}>{{ panel.name }}</a>
+            <a href="{{ panel.get_absolute_url }}" {% if current == panel.slug %}class="active"{% endif %} tabindex='1'>{{ panel.name }}</a>
         </li>
     {% endif %}
 {% endfor %}
