@@ -74,10 +74,16 @@ def associate(request, ip_id):
     if handled:
         return handled
 
-    return shortcuts.render(request,
-                            'nova/floating_ips/associate.html', {
-                                'floating_ip_id': ip_id,
-                                'associate_form': form})
+    context = {'floating_ip_id': ip_id,
+               'form': form}
+
+    if request.is_ajax():
+        template = 'nova/floating_ips/_associate.html'
+        context['hide'] = True
+    else:
+        template = 'nova/floating_ips/associate.html'
+
+    return shortcuts.render(request, template, context)
 
 
 @login_required
