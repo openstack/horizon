@@ -6,7 +6,6 @@ django-nose==0.1.2
 django-nose-selenium
 django-registration==0.7
 eventlet
-glance==2011.3
 kombu
 mox
 nose==1.0.0
@@ -29,3 +28,4 @@ xattr
 -e git+https://github.com/jacobian/openstack.compute.git#egg=openstack
 -e git+https://github.com/rackspace/python-novaclient.git#egg=python-novaclient
 -e git+https://github.com/4P/python-keystoneclient.git#egg=python-keystoneclient
+-e git+https://github.com/openstack/glance.git#egg=glance

@@ -1,5 +1,5 @@
 {% load i18n %}
-<form id="form_allocate" action="." class="form-delete" method="post">
+<form id="form_allocate" action="." method="post">
   {% csrf_token %}
   {% for hidden in form.hidden_fields %}
     {{hidden}}

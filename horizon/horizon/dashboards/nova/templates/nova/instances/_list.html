@@ -1,73 +1,53 @@
 <!-- TODO(termie): move most of this to horizon -->
 {% load sizeformat %}
 {% load i18n %}
-<table id='instances' class="zebra-striped">
-  <tr id='headings'>
-    <th>{% trans "ID"%}</th>
-    <th>{% trans "Name"%}</th>
-    <th>{% trans "Groups"%}</th>
-    <th>{% trans "Image"%}</th>
-    <th>{% trans "Size"%}</th>
-    <th>{% trans "IPs"%}</th>
-    <th>{% trans "State"%}</th>
-    <th>{% trans "Actions"%}</th>
-  </tr>
-  <tbody class='main'>
+
+<div class="table_title">
+  <h3>{% trans "My Instances" %}</h3>
+  <div class="table_actions">
+    <a class="btn small primary" href='{% url horizon:nova:images:index %}'>{% trans "Launch Instance" %}</a>
+    <div class="instances table_search">
+      <form action="#">
+        <input class="span3" type="text">
+      </form>
+    </div>
+    <a class="inspect" href="#">{% trans "inspect" %}</a>
+  </div>
+</div>
+
+<table id='instances' class="zebra-striped sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th>{% trans "Name"%}</th>
+      <th>{% trans "Size"%}</th>
+      <th>{% trans "State"%}</th>
+      <th>{% trans "Actions"%}</th>
+    </tr>
+  </thead>
+  <tbody>
     {% for instance in instances %}
       <tr class="{% cycle 'odd' 'even' %}">
-          <td>{{instance.id}}</td>
-          <td class="name">
-            <a href="{% url horizon:nova:instances:detail instance.id %}">
-              {{instance.name}}
-              {% if instance.attrs.key_name %}
-                  <br/>
-                  <small> ({{instance.attrs.key_name}}) </small>
-              {% endif %}
-            </a>
-          </td>
-          <td>
-            <ul>
-              {% for group in instance.attrs.security_groups %}
-                <li>{{group}}</li>
-              {% endfor %}
-            <ul>
-          </td>
-          <td>{{instance.image_name}}</td>
-          <td>
-            <ul>
-              <li>{{instance.attrs.memory_mb|mbformat}} Ram</li>
-              <li>{{instance.attrs.vcpus}} VCPU</li>
-              <li>{{instance.attrs.disk_gb}}GB Disk</li>
-            </ul>
-          </td>
-          <td class="ip_list">
-            {% for ip_group, addresses in instance.addresses.items %}
-              {% if instance.addresses.items|length > 1 %}
-              <h4>{{ip_group}}</h4>
-              <ul>
-                {% for address in addresses %}
-                  <li>{{address.addr}}</li>
-                {% endfor %}
-              </ul>
-              {% else %}
-              <ul>
-                {% for address in addresses %}
-                  <li>{{address.addr}}</li>
-                {% endfor %}
-              </ul>
-              {% endif %}
-            {% endfor %}
-          </td>
-          <td>{{instance.status|lower|capfirst}}</td>
-          <td id="actions">
-            <ul>
-              <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances:console instance.id %}">{% trans "Log"%}</a></li>
-              <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances:vnc instance.id %}">{% trans "VNC Console"%}</a></li>
-              <li><a class="btn small" href="{% url horizon:nova:instances:update instance.id %}">{% trans "Edit"%}</a></li>
-              <li><a class="btn small" href="{% url horizon:nova:snapshots:create instance.id %}">{% trans "Snapshot"%}</a></li>
-              <li class="form">{% include "nova/instances/_reboot.html" with form=reboot_form %}</li>
-              <li class="form">{% include "nova/instances/_terminate.html" with form=terminate_form %}</li>
-            </ul>
+        <td class="select">
+          <input type="checkbox" name="instance_{{instance.id}}" value="instance_{{instance.id}}" id="instance_select_{{instance.id}}" />
+        </td>
+        <td class="name">
+          <a href="{% url horizon:nova:instances:detail instance.id %}">{{instance.name}}</a>
+        </td>
+        <td>
+          {{instance.attrs.memory_mb|mbformat}} Ram | {{instance.attrs.vcpus}} VCPU | {{instance.attrs.disk_gb}}GB Disk
+        </td>
+        <td>{{instance.status|lower|capfirst}}</td>
+        <td id="name_{{instance.name}}" class="actions">
+          <a class="more-actions" href="#">View</a>
+          <ul>
+            <li><a class="btn small" target='_blank' href='{% url horizon:nova:instances:vnc instance.id %}'>{% trans 'VNC Console'%}</a></li>
+            <li><a class='btn small' target='_blank' href='{% url horizon:nova:instances:console instance.id %}'>{% trans 'Log'%}</a></li>
+            <li><a class='btn small' href='{% url horizon:nova:instances:update instance.id %}'>{% trans 'Edit'%}</a></li>
+            <li><a class='btn small' href='{% url horizon:nova:snapshots:create instance.id %}'>{% trans 'Snapshot'%}</a></li>
+            <li>{% include 'nova/instances/_reboot.html' with form=reboot_form %}</li>
+            <li>{% include 'nova/instances/_terminate.html' with form=terminate_form %}</li>
+          </ul>
         </td>
       </tr>
     {% endfor %}

@@ -47,7 +47,7 @@ class Image(APIDictWrapper):
 class ImageProperties(APIDictWrapper):
     """Simple wrapper around glance image properties dictionary"""
     _attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
-             'project_id', 'ramdisk_id']
+             'project_id', 'ramdisk_id', 'image_type']
 
 
 def glance_api(request):

@@ -1,5 +1,5 @@
 {% load i18n %}
-<form id="form_reboot_{{ instance.id }}" class="form-reboot" method="post">
+<form id="form_reboot_{{ instance.id }}" class="form-reboot form-inline" method="post">
   {% csrf_token %}
   {% for hidden in form.hidden_fields %}
     {{ hidden }}

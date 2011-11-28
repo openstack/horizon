@@ -3,7 +3,7 @@
     var options = $.extend({
       trigger: 'change',
       retrieve: 'name',
-      container: $('table'),
+      container: $('table.sortable'),
       selector: '.',
       selected_class: 'hidden'
     }, opt);
@@ -39,7 +39,7 @@ $(function(){
       this.style.color = '';
     },
     'hide': function () {
-      this.style.color = '#ccc';
+      this.style.display = 'none';
     },
     'prepareQuery': function (val) {
       return new RegExp(val, "i");
@@ -49,10 +49,7 @@ $(function(){
     }
   });
 
-  $('table#keypairs').tablesorter();
-
-  $('#keypair_filter form input[type=checkbox]').columnar({});
-
+  $('table.sortable').tablesorter();
 
   // show+hide image details
   $(".details").hide()
@@ -107,6 +104,26 @@ $(function(){
     var response = confirm('Are you sure you want to detach the '+$(this).attr('title')+" ?");
     return response;
   })
+
+
+  // Actions button dropdown behavior
+  $('a.more-actions').mouseenter(function() {
+    $(this).addClass('active')
+    $('td.actions ul').each(function(){
+      // If another dropdown is open, close it.
+      if ($(this).hasClass('active')) {
+        $(this).removeClass('active')
+        $(this).parent().find('a.more-actions').removeClass('active')
+      };
+    })
+    $(this).parent().find('ul').addClass('active');
+  })
+
+  $('td.actions ul').mouseleave(function(){
+    $(this).parent().find('a.more-actions').removeClass('active')
+    $(this).removeClass('active');
+  })
+
 })
 
 

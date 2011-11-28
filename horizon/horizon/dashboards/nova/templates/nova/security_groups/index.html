@@ -7,9 +7,8 @@
 
 {% block dash_main %}
   {% if security_groups %}
-    {% include 'nova/security_groups/_list.html' %}
     {% url horizon:nova:security_groups:create as create_sec_url %}
-    <a id="security_groups_create_link" class="btn small" href="{{ create_sec_url }}" data-controls-modal="create_security_group_modal" data-backdrop="static">{% trans "Create Security Group" %}</a>
+    {% include 'nova/security_groups/_list.html' %}
   {% else %}
     <div class="message_box info">
       {% url horizon:nova:security_groups:create as dash_sec_url %}
