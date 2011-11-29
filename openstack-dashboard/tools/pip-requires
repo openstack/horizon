@@ -15,7 +15,6 @@ PasteDeploy
 pycrypto==2.3
 python-cloudfiles
 python-dateutil
-quantum
 routes
 sqlalchemy
 sqlalchemy-migrate
@@ -25,6 +24,7 @@ sphinx
 webob
 xattr
 
+-e git+https://github.com/openstack/quantum.git@stable/diablo#egg=quantum
 -e git+https://github.com/cloudbuilders/openstackx.git#egg=openstackx
 -e git+https://github.com/jacobian/openstack.compute.git#egg=openstack
 -e git+https://github.com/rackspace/python-novaclient.git#egg=python-novaclient
