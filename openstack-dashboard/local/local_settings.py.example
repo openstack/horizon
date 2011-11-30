@@ -14,6 +14,9 @@ DATABASES = {
     },
 }
 
+# We recommend you use memcached for development; otherwise after every reload
+# of the django development server, you will have to login again. To use
+# memcached set CACHE_BACKED to something like 'memcached://127.0.0.1:11211/' 
 CACHE_BACKEND = 'locmem://'
 
 # Send email to the console by default
