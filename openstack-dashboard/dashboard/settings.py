@@ -91,7 +91,6 @@ INSTALLED_APPS = (
     'horizon.dashboards.nova',
     'horizon.dashboards.syspanel',
     'horizon.dashboards.settings',
-    'mailer',
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
