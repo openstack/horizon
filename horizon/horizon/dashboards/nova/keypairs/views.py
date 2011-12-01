@@ -38,15 +38,14 @@ from horizon.dashboards.nova.keypairs.forms import (CreateKeypair,
 LOG = logging.getLogger(__name__)
 
 
+# FIXME(gabriel): There's a very obvious pattern to these views.
+#                 This is a perfect candidate for a class-based view.
+
 @login_required
 def index(request):
     delete_form, handled = DeleteKeypair.maybe_handle(request)
-
     if handled:
         return handled
-
-    create_form = CreateKeypair()
-    import_form = ImportKeypair()
 
     try:
         keypairs = api.keypair_list(request)
@@ -55,12 +54,15 @@ def index(request):
         LOG.exception("ClientException in keypair index")
         messages.error(request, _('Error fetching keypairs: %s') % e.message)
 
-    return shortcuts.render(request,
-                            'nova/keypairs/index.html', {
-                                'keypairs': keypairs,
-                                'create_form': create_form,
-                                'import_form': import_form,
-                                'delete_form': delete_form})
+    context = {'keypairs': keypairs, 'delete_form': delete_form}
+
+    if request.is_ajax():
+        template = 'nova/keypairs/_list.html'
+        context['hide'] = True
+    else:
+        template = 'nova/keypairs/index.html'
+
+    return shortcuts.render(request, template, context)
 
 
 @login_required
@@ -69,9 +71,15 @@ def create(request):
     if handled:
         return handled
 
-    return shortcuts.render(request,
-                            'nova/keypairs/create.html', {
-                                'create_form': form})
+    context = {'form': form}
+
+    if request.is_ajax():
+        template = 'nova/keypairs/_create.html'
+        context['hide'] = True
+    else:
+        template = 'nova/keypairs/create.html'
+
+    return shortcuts.render(request, template, context)
 
 
 @login_required
@@ -80,7 +88,12 @@ def import_keypair(request):
     if handled:
         return handled
 
-    return shortcuts.render(request,
-                            'nova/keypairs/import.html', {
-                                'import_form': form,
-                                'create_form': form})
+    context = {'form': form}
+
+    if request.is_ajax():
+        template = 'nova/keypairs/_import.html'
+        context['hide'] = True
+    else:
+        template = 'nova/keypairs/import.html'
+
+    return shortcuts.render(request, template, context)

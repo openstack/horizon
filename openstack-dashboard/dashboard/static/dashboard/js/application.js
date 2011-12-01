@@ -16,8 +16,9 @@
 
 
 $(function(){
-  $('.modal:not(.static_page) .cancel').live('click', function (evt) {
+  $(document).on('click', '.modal:not(.static_page) .cancel', function (evt) {
     $(this).closest('.modal').remove();
+    return false;
   });
 
   $('.ajax-modal').click(function (evt) {
@@ -105,7 +106,6 @@ $(function(){
     return response;
   })
 
-
   // Actions button dropdown behavior
   $('a.more-actions').mouseenter(function() {
     $(this).addClass('active')
@@ -124,6 +124,15 @@ $(function(){
     $(this).removeClass('active');
   })
 
+  $(document).on("submit", ".modal #create_keypair_form", function(e){
+    var $this = $(this);
+    $this.closest(".modal").modal("hide");
+    $('#main_content').prepend('<div class="alert-message info">'
+        + '<p><strong>Info: </strong>The data on this page may have changed, '
+        + '<a href=".">click here to refresh it</a>.</p>'
+        + '</div>');
+    return true;
+  });
 })
 
 
