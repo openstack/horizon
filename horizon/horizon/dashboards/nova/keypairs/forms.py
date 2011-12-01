@@ -24,6 +24,7 @@ from django import http
 from django import shortcuts
 from django.contrib import messages
 from django.core import validators
+from django.utils.http import urlquote
 from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
 
@@ -40,7 +41,7 @@ class DeleteKeypair(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Deleting keypair "%s"' % data['keypair_id'])
-            api.keypair_delete(request, data['keypair_id'])
+            api.keypair_delete(request, urlquote(data['keypair_id']))
             messages.info(request, _('Successfully deleted keypair: %s')
                                     % data['keypair_id'])
         except novaclient_exceptions.ClientException, e:
