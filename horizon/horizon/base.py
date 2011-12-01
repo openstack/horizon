@@ -139,8 +139,19 @@ class Registry(object):
             for registered in self._registry.values():
                 if registered.slug == cls:
                     return registered
-        raise NotRegistered('%s with slug "%s" is not registered'
-                            % (self._registerable_class, cls))
+        class_name = self._registerable_class.__name__
+        if hasattr(self, "_registered_with"):
+            parent = self._registered_with._registerable_type.__name__
+            raise NotRegistered('%(type)s with slug "%(slug)s" is not '
+                                'registered with %(parent)s "%(name)s".'
+                                    % {"type": class_name,
+                                       "slug": cls,
+                                       "parent": parent,
+                                       "name": self.name})
+        else:
+            raise NotRegistered('%(type)s with slug "%(slug)s" is not '
+                                'registered.'
+                                    % {"type": class_name, "slug": cls})
 
 
 class Panel(HorizonComponent):
