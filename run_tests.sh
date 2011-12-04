@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=3
+environment_version=4
 #--------------------------------------------------------#
 
 function usage {
@@ -190,6 +190,7 @@ function environment_check {
   fi
 
   if [ $quiet -eq 1 ]; then
+    destroy_buildout
     install_venv
   else
     if [ ! -e ${venv} ]; then
