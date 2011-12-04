@@ -38,6 +38,9 @@ except ImportError:
     warnings.warn(msg, Warning)
 
 if django:
+    # This can be removed once the upstream bug is fixed.
+    from horizon.utils import reverse_bugfix
+
     from horizon.base import Horizon, Dashboard, Panel, Workflow
 
     register = Horizon.register
