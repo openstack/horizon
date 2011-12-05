@@ -161,4 +161,6 @@ def update(request, image_id):
     if handled:
         return handled
 
-    return shortcuts.render(request, 'nova/images/update.html', {'form': form})
+    context = {'form': form, "image": image}
+
+    return shortcuts.render(request, 'nova/images/update.html', context)
