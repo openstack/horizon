@@ -27,7 +27,7 @@
               <li>
                 <span>{% trans "Attached To:" %}</span>
                 {% if instance %}
-                <a href="{% url horizon:nova:volumes:detail attachment.serverId %}">
+                <a href="{% url horizon:nova:instances_and_volumes:volumes:detail attachment.serverId %}">
                   {% trans "Instance" %} {{ instance.id }}
                   ({{ instance.name }})
                 </a>

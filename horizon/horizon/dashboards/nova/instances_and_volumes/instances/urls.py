@@ -1,5 +1,9 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
 # Copyright 2011 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -16,10 +20,15 @@
 
 from django.conf.urls.defaults import patterns, url
 
+INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
 
-urlpatterns = patterns('horizon.dashboards.nova.volumes.views',
+urlpatterns = patterns(
+    'horizon.dashboards.nova.instances_and_volumes.instances.views',
     url(r'^$', 'index', name='index'),
-    url(r'^create/$', 'create', name='create'),
-    url(r'^(?P<volume_id>[^/]+)/attach/$', 'attach', name='attach'),
-    url(r'^(?P<volume_id>[^/]+)/detail/$', 'detail', name='detail'),
+    url(r'^usage/$', 'usage', name='usage'),
+    url(r'^refresh$', 'refresh', name='refresh'),
+    url(INSTANCES % 'detail', 'detail', name='detail'),
+    url(INSTANCES % 'console', 'console', name='console'),
+    url(INSTANCES % 'vnc', 'vnc', name='vnc'),
+    url(INSTANCES % 'update', 'update', name='update'),
 )

@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block form_id %}update_instance_form{% endblock %}
-{% block form_action %}{% url horizon:nova:instances:update instance.id %}{% endblock %}
+{% block form_action %}{% url horizon:nova:instances_and_volumes:instances:update instance.id %}{% endblock %}
 
 {% block modal-header %}Update Instance{% endblock %}
 
@@ -20,5 +20,5 @@
 
 {% block modal-footer %}
   <input class="btn primary pull-right" type="submit" value="{%trans "Update Instance"%}" />
-  <a href="{% url horizon:nova:instances:index %}" class="btn secondary cancel close">Cancel</a>
+  <a href="{% url horizon:nova:instances_and_volumes:instances:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

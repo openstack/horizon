@@ -27,8 +27,8 @@ from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
-from horizon.dashboards.nova.volumes.forms import (CreateForm,
-        DeleteForm, AttachForm, DetachForm)
+from horizon.dashboards.nova.instances_and_volumes.volumes.forms \
+                        import (CreateForm, DeleteForm, AttachForm, DetachForm)
 
 
 LOG = logging.getLogger(__name__)
@@ -52,7 +52,7 @@ def index(request):
         messages.error(request, _('Error fetching volumes: %s') % e.message)
 
     return shortcuts.render(request,
-                            'nova/volumes/index.html', {
+                            'nova/instances_and_volumes/volumes/index.html', {
                                 'volumes': volumes,
                                 'delete_form': delete_form,
                                 'create_form': create_form,
@@ -72,10 +72,11 @@ def detail(request, volume_id):
     except novaclient_exceptions.ClientException, e:
         LOG.exception("ClientException in volume get")
         messages.error(request, _('Error fetching volume: %s') % e.message)
-        return shortcuts.redirect('horizon:nova:volumes:index')
+        return shortcuts.redirect(
+                            'horizon:nova:instances_and_volumes:volumes:index')
 
     return shortcuts.render(request,
-                            'nova/volumes/detail.html', {
+                            'nova/instances_and_volumes/volumes/detail.html', {
                                 'volume': volume,
                                 'attachment': attachment,
                                 'instance': instance})
@@ -89,7 +90,7 @@ def create(request):
         return handled
 
     return shortcuts.render(request,
-                            'nova/volumes/create.html', {
+                            'nova/instances_and_volumes/volumes/create.html', {
                                 'create_form': create_form})
 
 
@@ -104,6 +105,6 @@ def attach(request, volume_id):
         return handled
 
     return shortcuts.render(request,
-                            'nova/volumes/attach.html', {
+                            'nova/instances_and_volumes/volumes/attach.html', {
                                 'attach_form': attach_form,
                                 'volume_id': volume_id})

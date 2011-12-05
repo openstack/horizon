@@ -141,7 +141,7 @@ class SnapshotsViewTests(test.BaseViewTests):
                                       args=[self.bad_server.id]))
 
         self.assertRedirectsNoFollow(res,
-                                     reverse('horizon:nova:instances:index'))
+                reverse('horizon:nova:instances_and_volumes:instances:index'))
 
     def test_create_get_server_exception(self):
         self.mox.StubOutWithMock(api, 'server_get')
@@ -155,7 +155,7 @@ class SnapshotsViewTests(test.BaseViewTests):
                                       args=[self.good_server.id]))
 
         self.assertRedirectsNoFollow(res,
-                                     reverse('horizon:nova:instances:index'))
+                reverse('horizon:nova:instances_and_volumes:instances:index'))
 
     def test_create_snapshot_post(self):
         SNAPSHOT_NAME = 'snappy'

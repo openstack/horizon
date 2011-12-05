@@ -1,9 +1,5 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2011 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
 # Copyright 2011 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -22,9 +18,9 @@ import horizon
 from horizon.dashboards.nova import dashboard
 
 
-class Instances(horizon.Panel):
-    name = "Instances"
-    slug = 'instances'
+class InstancesAndVolumes(horizon.Panel):
+    name = "Instances & Volumes"
+    slug = 'instances_and_volumes'
 
 
-dashboard.Nova.register(Instances)
+dashboard.Nova.register(InstancesAndVolumes)

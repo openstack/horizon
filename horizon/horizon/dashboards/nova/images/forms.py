@@ -165,7 +165,8 @@ class LaunchForm(forms.SelfHandlingForm):
             msg = _('Instance was successfully launched')
             LOG.info(msg)
             messages.success(request, msg)
-            return redirect('horizon:nova:instances:index')
+            return redirect(
+                        'horizon:nova:instances_and_volumes:instances:index')
 
         except api_exceptions.ApiException, e:
             LOG.exception('ApiException while creating instances of image "%s"'

@@ -7,7 +7,7 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  {% include 'nova/instances/_update.html' with form=form %}
+  {% include 'nova/instances_and_volumes/instances/_update.html' with form=form %}
 {% endblock %}
 
 {% block footer_js %}
@@ -16,7 +16,7 @@
       $("#spinner").hide()
       function loadInstances(){
         $('#spinner').show();
-        $('#instances').load('{% url horizon:nova:instances:refresh %}', function(){
+        $('#instances').load('{% url horizon:nova:instances_and_volumes:instances:refresh %}', function(){
           $("#spinner").hide()
         });
       }

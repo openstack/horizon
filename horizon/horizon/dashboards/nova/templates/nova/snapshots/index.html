@@ -14,7 +14,7 @@
     <div class="alert-message block-message info">
       <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no snapshots.  You can create snapshots from running instances."%}</p>
       <div class="alert-actions">
-        <a class="btn small primary" href='{% url horizon:nova:instances:index %}'>{% trans "View Running Instances" %}</a>
+        <a class="btn small primary" href='{% url horizon:nova:instances_and_volumes:instances:index %}'>{% trans "View Running Instances" %}</a>
       </div>
     </div>
   {% endif %}

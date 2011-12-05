@@ -1,0 +1,26 @@
+{% extends 'nova/base.html' %}
+{% load i18n %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Instances &amp; Volumes") %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  {% if instances %}
+    {% include 'nova/instances_and_volumes/instances/_list.html' %}
+  {% else %}
+    {% include 'nova/instances_and_volumes/instances/_no_instances.html' %}
+  {% endif %}
+
+  {% if volumes %}
+    {% include 'nova/instances_and_volumes/volumes/_list.html' %}
+  {% else %}
+    <div class="alert-message block-message info">
+      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no volumes."%}</p>
+      <div class="alert-actions">
+        <a id="volume_create_link" class="btn primary small" data-controls-modal="create_volume_modal" data-backdrop="static" href="{% url horizon:nova:instances_and_volumes:volumes:create %}">{% trans "Create New Volume"%}</a>
+      </div>
+    </div>
+  {% endif %}
+  {% include 'nova/instances_and_volumes/volumes/_create.html' with form=create_form hide=True %}
+{% endblock %}

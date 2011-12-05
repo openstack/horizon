@@ -34,8 +34,8 @@ import openstackx.api.exceptions as api_exceptions
 from horizon import api
 from horizon import forms
 from horizon import test
-from horizon.dashboards.nova.instances.forms import (TerminateInstance,
-        RebootInstance, UpdateInstance)
+from horizon.dashboards.nova.instances_and_volumes.instances.forms import \
+                            (TerminateInstance, RebootInstance, UpdateInstance)
 
 
 LOG = logging.getLogger(__name__)
@@ -62,10 +62,10 @@ def index(request):
     reboot_form = RebootInstance()
 
     return shortcuts.render(request,
-                            'nova/instances/index.html', {
-                                'instances': instances,
-                                'terminate_form': terminate_form,
-                                'reboot_form': reboot_form})
+                        'nova/instances_and_volumes/instances/index.html', {
+                            'instances': instances,
+                            'terminate_form': terminate_form,
+                            'reboot_form': reboot_form})
 
 
 @login_required
@@ -84,10 +84,10 @@ def refresh(request):
     reboot_form = RebootInstance()
 
     return shortcuts.render(request,
-                            'nova/instances/_list.html', {
-                                'instances': instances,
-                                'terminate_form': terminate_form,
-                                'reboot_form': reboot_form})
+                        'nova/instances_and_volumes/instances/_list.html', {
+                            'instances': instances,
+                            'terminate_form': terminate_form,
+                            'reboot_form': reboot_form})
 
 
 @login_required
@@ -137,10 +137,10 @@ def usage(request, tenant_id=None):
         instances += terminated_instances
 
     if request.GET.get('format', 'html') == 'csv':
-        template_name = 'nova/instances/usage.csv'
+        template_name = 'nova/instances_and_volumes/instances/usage.csv'
         mimetype = "text/csv"
     else:
-        template_name = 'nova/instances/usage.html'
+        template_name = 'nova/instances_and_volumes/instances/usage.html'
         mimetype = "text/html"
 
     return shortcuts.render(request, template_name, {
@@ -175,7 +175,8 @@ def console(request, instance_id):
         messages.error(request,
                    _('Unable to get log for instance %(inst)s: %(msg)s') %
                     {"inst": instance_id, "msg": e.message})
-        return shortcuts.redirect('horizon:nova:instances:index')
+        return shortcuts.redirect(
+                          'horizon:nova:instances_and_volumes:instances:index')
 
 
 @login_required
@@ -191,7 +192,8 @@ def vnc(request, instance_id):
         messages.error(request,
             _('Unable to get vnc console for instance %(inst)s: %(message)s') %
             {"inst": instance_id, "message": e.message})
-        return shortcuts.redirect('horizon:nova:instances:index')
+        return shortcuts.redirect(
+                          'horizon:nova:instances_and_volumes:instances:index')
 
 
 @login_required
@@ -204,7 +206,8 @@ def update(request, instance_id):
         messages.error(request,
             _('Unable to get information for instance %(inst)s: %(message)s') %
             {"inst": instance_id, "message": e.message})
-        return shortcuts.redirect('horizon:nova:instances:index')
+        return shortcuts.redirect(
+                          'horizon:nova:instances_and_volumes:instances:index')
 
     form, handled = UpdateInstance.maybe_handle(request, initial={
                                 'instance': instance_id,
@@ -215,9 +218,9 @@ def update(request, instance_id):
         return handled
 
     return shortcuts.render(request,
-                            'nova/instances/update.html', {
-                                'instance': instance,
-                                'form': form})
+                        'nova/instances_and_volumes/instances/update.html', {
+                            'instance': instance,
+                            'form': form})
 
 
 @login_required
@@ -237,16 +240,18 @@ def detail(request, instance_id):
             messages.error(request,
                 _('Unable to get vnc console for instance %(inst)s: %(msg)s') %
                 {"inst": instance_id, "msg": e.message})
-            return shortcuts.redirect('horizon:nova:instances:index')
+            return shortcuts.redirect(
+                          'horizon:nova:instances_and_volumes:instances:index')
     except api_exceptions.ApiException, e:
         LOG.exception(_('ApiException while fetching instance info'))
         messages.error(request,
             _('Unable to get information for instance %(inst)s: %(msg)s') %
             {"inst": instance_id, "msg": e.message})
-        return shortcuts.redirect('horizon:nova:instances:index')
+        return shortcuts.redirect(
+                          'horizon:nova:instances_and_volumes:instances:index')
 
     return shortcuts.render(request,
-                            'nova/instances/detail.html', {
-                                'instance': instance,
-                                'vnc_url': vnc_url,
-                                'volumes': volumes})
+                        'nova/instances_and_volumes/instances/detail.html', {
+                            'instance': instance,
+                            'vnc_url': vnc_url,
+                            'volumes': volumes})

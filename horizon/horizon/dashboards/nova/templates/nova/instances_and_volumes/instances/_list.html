@@ -32,7 +32,7 @@
           <input type="checkbox" name="instance_{{instance.id}}" value="instance_{{instance.id}}" id="instance_select_{{instance.id}}" />
         </td>
         <td class="name">
-          <a href="{% url horizon:nova:instances:detail instance.id %}">{{instance.name}}</a>
+          <a href="{% url horizon:nova:instances_and_volumes:instances:detail instance.id %}">{{instance.name}}</a>
         </td>
         <td>
           {{instance.attrs.memory_mb|mbformat}} Ram | {{instance.attrs.vcpus}} VCPU | {{instance.attrs.disk_gb}}GB Disk
@@ -41,12 +41,12 @@
         <td id="name_{{instance.name}}" class="actions">
           <a class="more-actions" href="#">View</a>
           <ul>
-            <li><a class="btn small" target='_blank' href='{% url horizon:nova:instances:vnc instance.id %}'>{% trans 'VNC Console'%}</a></li>
-            <li><a class='btn small' target='_blank' href='{% url horizon:nova:instances:console instance.id %}'>{% trans 'Log'%}</a></li>
-            <li><a class='btn small' href='{% url horizon:nova:instances:update instance.id %}'>{% trans 'Edit'%}</a></li>
+            <li><a class="btn small" target='_blank' href='{% url horizon:nova:instances_and_volumes:instances:vnc instance.id %}'>{% trans 'VNC Console'%}</a></li>
+            <li><a class='btn small' target='_blank' href='{% url horizon:nova:instances_and_volumes:instances:console instance.id %}'>{% trans 'Log'%}</a></li>
+            <li><a class='btn small' href='{% url horizon:nova:instances_and_volumes:instances:update instance.id %}'>{% trans 'Edit'%}</a></li>
             <li><a class='btn small' href='{% url horizon:nova:snapshots:create instance.id %}'>{% trans 'Snapshot'%}</a></li>
-            <li>{% include 'nova/instances/_reboot.html' with form=reboot_form %}</li>
-            <li>{% include 'nova/instances/_terminate.html' with form=terminate_form %}</li>
+            <li>{% include 'nova/instances_and_volumes/instances/_reboot.html' with form=reboot_form %}</li>
+            <li>{% include 'nova/instances_and_volumes/instances/_terminate.html' with form=terminate_form %}</li>
           </ul>
         </td>
       </tr>

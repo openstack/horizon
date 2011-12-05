@@ -77,14 +77,16 @@ def create(request, instance_id):
         msg = _("Unable to retrieve instance: %s") % e
         LOG.exception(msg)
         messages.error(request, msg)
-        return shortcuts.redirect('horizon:nova:instances:index')
+        return shortcuts.redirect(
+                        'horizon:nova:instances_and_volumes:instances:index')
 
     valid_states = ['ACTIVE']
     if instance.status not in valid_states:
         messages.error(request, _("To snapshot, instance state must be\
                                   one of the following: %s") %
                                   ', '.join(valid_states))
-        return shortcuts.redirect('horizon:nova:instances:index')
+        return shortcuts.redirect(
+                        'horizon:nova:instances_and_volumes:instances:index')
 
     return shortcuts.render(request,
                             'nova/snapshots/create.html',

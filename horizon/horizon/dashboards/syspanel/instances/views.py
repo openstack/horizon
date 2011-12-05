@@ -31,12 +31,9 @@ from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import forms
-from horizon.dashboards.nova.instances import views as dash_instances
+from horizon.dashboards.nova.instances_and_volumes.instances.forms import \
+                                            (TerminateInstance, RebootInstance)
 from openstackx.api import exceptions as api_exceptions
-
-
-TerminateInstance = dash_instances.TerminateInstance
-RebootInstance = dash_instances.RebootInstance
 
 
 LOG = logging.getLogger(__name__)

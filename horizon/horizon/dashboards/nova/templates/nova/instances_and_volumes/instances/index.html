@@ -2,16 +2,16 @@
 {% load i18n %}
 
 {% block page_header %}
-  {% url horizon:nova:instances:index as refresh_link %}
+  {% url horizon:nova:instances_and_volumes:instances:index as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
   {% include "horizon/common/_page_header.html" with title=_("Instances") refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
 
 {% block dash_main %}
   {% if instances %}
-    {% include 'nova/instances/_list.html' %}
+    {% include 'nova/instances_and_volumes/instances/_list.html' %}
   {% else %}
-    {% include 'nova/instances/_no_instances.html' %}
+    {% include 'nova/instances_and_volumes/instances/_no_instances.html' %}
   {% endif %}
 {% endblock %}
 
@@ -21,7 +21,7 @@
     function loadInstances(){
       if ($("#ajax_option_box").is(':checked')) {
         $('.refresh').addClass("refreshing");
-        $('#instances').load('{% url horizon:nova:instances:refresh %}', function(){
+        $('#instances').load('{% url horizon:nova:instances_and_volumes:instances:refresh %}', function(){
           $('.refresh').removeClass("refreshing");
         });
       };

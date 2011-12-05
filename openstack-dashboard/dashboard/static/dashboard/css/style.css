@@ -338,6 +338,10 @@ table form {
     margin-right: 25px;
 }
 
+#main_content table {
+    margin-bottom: 50px;
+}
+
 .table_actions {
     float: right;
     min-width: 400px;
@@ -746,6 +750,7 @@ td.actions ul {
 
 td.actions ul.active {
   display: block;
+  z-index: 100;
 }
 
 td.actions ul li {

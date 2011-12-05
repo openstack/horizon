@@ -118,7 +118,8 @@ def launch(request, image_id):
         messages.error(request,
                 _('Error parsing quota  for %(image)s: %(msg)s') %
                 {"image": image_id, "msg": e.message})
-        return shortcuts.redirect('horizon:nova:instances:index')
+        return shortcuts.redirect(
+                        'horizon:nova:instances_and_volumes:instances:index')
 
     form, handled = LaunchForm.maybe_handle(
             request, initial={'flavorlist': flavorlist(),

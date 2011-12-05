@@ -14,13 +14,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import horizon
-from horizon.dashboards.nova import dashboard
+from django.conf.urls.defaults import patterns, url
 
 
-class Volumes(horizon.Panel):
-    name = "Volumes"
-    slug = 'volumes'
-
-
-dashboard.Nova.register(Volumes)
+urlpatterns = patterns(
+    'horizon.dashboards.nova.instances_and_volumes.volumes.views',
+    url(r'^$', 'index', name='index'),
+    url(r'^create/$', 'create', name='create'),
+    url(r'^(?P<volume_id>[^/]+)/attach/$', 'attach', name='attach'),
+    url(r'^(?P<volume_id>[^/]+)/detail/$', 'detail', name='detail'),
+)
