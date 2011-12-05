@@ -141,10 +141,6 @@ def tenant_update(request, tenant_id, tenant_name, description, enabled):
                                                          enabled))
 
 
-def tenant_delete(request, tenant_id):
-    keystoneclient(request).tenants.delete(tenant_id)
-
-
 def tenant_list_for_token(request, token, endpoint_type=None):
     c = keystoneclient(request,
                        token_id=token,

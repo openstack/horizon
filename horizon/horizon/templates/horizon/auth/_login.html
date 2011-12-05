@@ -7,6 +7,14 @@
 {% block form-action %}{% url horizon:auth_login %}{% endblock %}
 
 {% block modal-body %}
+  {% for message in messages %}
+    {% if message.tags == "login error" %}
+    <div class="alert-message error">
+      <strong>{% trans "Error: " %}</strong>
+      {{ message }}
+    </div>
+    {% endif %}
+  {% endfor %}
   <fieldset>
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>

@@ -78,7 +78,9 @@ class AuthViewTests(test.BaseViewTests):
                                   AndReturn([])
 
         self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(unicode))
+        messages.error(IsA(http.HttpRequest),
+                       IsA(unicode),
+                       extra_tags=IsA(str))
 
         self.mox.ReplayAll()
 

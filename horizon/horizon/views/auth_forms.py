@@ -87,7 +87,8 @@ class Login(forms.SelfHandlingForm):
                                              data['username'],
                                              data['password'])
                 except keystone_exceptions.Unauthorized:
-                    messages.error(request, _('Bad user name or password.'))
+                    messages.error(request, _('Bad user name or password.'),
+                            extra_tags="login")
                     return
 
                 # Unscoped token
@@ -102,7 +103,8 @@ class Login(forms.SelfHandlingForm):
                 if not tenants:
                     messages.error(request,
                                    _('No tenants present for user: %(user)s') %
-                                    {"user": data['username']})
+                                    {"user": data['username']},
+                                   extra_tags="login")
                     return
 
                 # Create a token.
@@ -130,11 +132,11 @@ class Login(forms.SelfHandlingForm):
         except api_exceptions.Unauthorized as e:
             msg = _('Error authenticating: %s') % e.message
             LOG.exception(msg)
-            messages.error(request, msg)
+            messages.error(request, msg, extra_tags="login")
         except api_exceptions.ApiException as e:
             messages.error(request,
                            _('Error authenticating with keystone: %s') %
-                           e.message)
+                           e.message, extra_tags="login")
 
 
 class LoginWithTenant(Login):
