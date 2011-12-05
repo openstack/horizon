@@ -24,13 +24,12 @@ import logging
 
 from django.contrib import messages
 from novaclient.v1_1 import client as nova_client
+from novaclient.v1_1.servers import REBOOT_HARD
 
 from horizon.api.base import *
 from horizon.api.deprecated import admin_api
-from horizon.api.deprecated import compute_api
 from horizon.api.deprecated import check_openstackx
 from horizon.api.deprecated import extras_api
-from horizon.api.deprecated import REBOOT_HARD
 
 LOG = logging.getLogger(__name__)
 
@@ -95,7 +94,7 @@ class Server(APIResourceWrapper):
             return "(not found)"
 
     def reboot(self, hardness=REBOOT_HARD):
-        compute_api(self.request).servers.reboot(self.id, hardness)
+        novaclient(self.request).servers.reboot(self.id, hardness)
 
 
 class ServerAttributes(APIDictWrapper):
@@ -227,7 +226,7 @@ def server_create(request, name, image, flavor,
 
 
 def server_delete(request, instance):
-    compute_api(request).servers.delete(instance)
+    novaclient(request).servers.delete(instance)
 
 
 def server_get(request, instance_id):

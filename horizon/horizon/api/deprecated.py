@@ -22,7 +22,6 @@ import functools
 import logging
 
 from django.utils.decorators import available_attrs
-import openstack.compute
 import openstackx.admin
 import openstackx.api.exceptions as openstackx_exceptions
 import openstackx.extras
@@ -31,9 +30,6 @@ from horizon.api.base import *
 
 
 LOG = logging.getLogger(__name__)
-
-
-REBOOT_HARD = openstack.compute.servers.REBOOT_HARD
 
 
 def check_openstackx(f):
@@ -60,22 +56,6 @@ def check_openstackx(f):
                          ' See the Horizon README.'
             raise
     return inner
-
-
-def compute_api(request):
-    management_url = url_for(request, 'compute')
-    compute = openstack.compute.Compute(
-        auth_token=request.user.token,
-        management_url=management_url)
-    # this below hack is necessary to make the jacobian compute client work
-    # TODO(mgius): It looks like this is unused now?
-    compute.client.auth_token = request.user.token
-    compute.client.management_url = management_url
-    LOG.debug('compute_api connection created using token "%s"'
-                      ' and url "%s"' %
-                      (request.user.token, management_url))
-    return compute
-
 
 def admin_api(request):
     management_url = url_for(request, 'compute', True)

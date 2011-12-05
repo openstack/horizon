@@ -26,7 +26,6 @@ from django import shortcuts
 from django.utils.translation import ugettext as _
 
 import openstackx
-import openstack
 
 from horizon import exceptions
 from horizon import users
@@ -52,8 +51,7 @@ class HorizonMiddleware(object):
             messages.error(request, _(unicode(exception)))
             return shortcuts.redirect('/auth/logout')
 
-        if type(exception) in [openstack.compute.exceptions.Forbidden,
-                               openstackx.api.exceptions.Forbidden]:
+        if type(exception) == openstackx.api.exceptions.Forbidden:
             # flush other error messages, which are collateral damage
             # when our token expires
             for message in messages.get_messages(request):

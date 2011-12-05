@@ -23,10 +23,10 @@ from __future__ import absolute_import
 from django import http
 from django.conf import settings
 from mox import IsA
-from openstack import compute as OSCompute
 from openstackx import admin as OSAdmin
 from openstackx import auth as OSAuth
 from openstackx import extras as OSExtras
+from novaclient.v1_1 import servers
 
 
 from horizon.tests.api_tests.utils import *
@@ -174,35 +174,6 @@ class NovaAdminApiTests(APITestCase):
 
 
 class ComputeApiTests(APITestCase):
-    def stub_compute_api(self, count=1):
-        self.mox.StubOutWithMock(api.nova, 'compute_api')
-        compute_api = self.mox.CreateMock(OSCompute.Compute)
-        for i in range(count):
-            api.nova.compute_api(IsA(http.HttpRequest)) \
-                    .AndReturn(compute_api)
-        return compute_api
-
-    def test_get_compute_api(self):
-        class ComputeClient(object):
-            __slots__ = ['auth_token', 'management_url']
-
-        self.mox.StubOutClassWithMocks(OSCompute, 'Compute')
-        compute_api = OSCompute.Compute(auth_token=TEST_TOKEN,
-                                        management_url=TEST_URL)
-
-        compute_api.client = ComputeClient()
-
-        self.mox.StubOutWithMock(api.deprecated, 'url_for')
-        api.deprecated.url_for(IsA(http.HttpRequest),
-                               'compute').AndReturn(TEST_URL)
-
-        self.mox.ReplayAll()
-
-        compute_api = api.nova.compute_api(self.request)
-
-        self.assertIsNotNone(compute_api)
-        self.assertEqual(compute_api.client.auth_token, TEST_TOKEN)
-        self.assertEqual(compute_api.client.management_url, TEST_URL)
 
     def test_flavor_get(self):
         FLAVOR_ID = 6
@@ -221,10 +192,9 @@ class ComputeApiTests(APITestCase):
     def test_server_delete(self):
         INSTANCE = 'anInstance'
 
-        compute_api = self.stub_compute_api()
-
-        compute_api.servers = self.mox.CreateMockAnything()
-        compute_api.servers.delete(INSTANCE).AndReturn(TEST_RETURN)
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.delete(INSTANCE).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
@@ -234,27 +204,19 @@ class ComputeApiTests(APITestCase):
 
     def test_server_reboot(self):
         INSTANCE_ID = '2'
-        HARDNESS = 'diamond'
+        HARDNESS = servers.REBOOT_HARD
+
+        server = self.mox.CreateMock(servers.Server)
+        server.reboot(HARDNESS)
 
         self.mox.StubOutWithMock(api.nova, 'server_get')
 
-        server = self.mox.CreateMock(OSCompute.Server)
-        server.reboot(OSCompute.servers.REBOOT_HARD).AndReturn(TEST_RETURN)
-        api.nova.server_get(IsA(http.HttpRequest),
-                            INSTANCE_ID).AndReturn(server)
-
-        server = self.mox.CreateMock(OSCompute.Server)
-        server.reboot(HARDNESS).AndReturn(TEST_RETURN)
         api.nova.server_get(IsA(http.HttpRequest),
                             INSTANCE_ID).AndReturn(server)
 
         self.mox.ReplayAll()
 
         ret_val = api.server_reboot(self.request, INSTANCE_ID)
-        self.assertIsNone(ret_val)
-
-        ret_val = api.server_reboot(self.request, INSTANCE_ID,
-                                    hardness=HARDNESS)
         self.assertIsNone(ret_val)
 
     def test_server_create(self):
@@ -265,7 +227,6 @@ class ComputeApiTests(APITestCase):
         KEY = 'user'
         SECGROUP = self.mox.CreateMock(api.SecurityGroup)
 
-        server = self.mox.CreateMock(OSCompute.Server)
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
         novaclient.servers.create(NAME, IMAGE, FLAVOR, userdata=USER_DATA,
