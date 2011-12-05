@@ -141,7 +141,7 @@ class Registry(object):
                     return registered
         class_name = self._registerable_class.__name__
         if hasattr(self, "_registered_with"):
-            parent = self._registered_with._registerable_type.__name__
+            parent = self._registered_with._registerable_class.__name__
             raise NotRegistered('%(type)s with slug "%(slug)s" is not '
                                 'registered with %(parent)s "%(name)s".'
                                     % {"type": class_name,
