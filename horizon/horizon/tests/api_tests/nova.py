@@ -99,8 +99,8 @@ class ServerWrapperTests(test.TestCase):
 
     def test_image_name(self):
         image = api.Image({'name': self.IMAGE_NAME})
-        self.mox.StubOutWithMock(api.glance, 'image_get')
-        api.glance.image_get(IsA(http.HttpRequest),
+        self.mox.StubOutWithMock(api.glance, 'image_get_meta')
+        api.glance.image_get_meta(IsA(http.HttpRequest),
                       self.IMAGE_OBJ['id']).AndReturn(image)
 
         server = api.Server(self.inner_server, self.request)

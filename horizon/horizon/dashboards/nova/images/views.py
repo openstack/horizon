@@ -110,7 +110,7 @@ def launch(request, image_id):
     tenant_id = request.user.tenant_id
     # TODO(mgius): Any reason why these can't be after the launchform logic?
     # If The form is valid, we've just wasted these two api calls
-    image = api.image_get(request, image_id)
+    image = api.image_get_meta(request, image_id)
     quotas = api.tenant_quota_get(request, request.user.tenant_id)
     try:
         quotas.ram = int(quotas.ram)
@@ -139,7 +139,7 @@ def launch(request, image_id):
 @login_required
 def update(request, image_id):
     try:
-        image = api.image_get(request, image_id)
+        image = api.image_get_meta(request, image_id)
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
         messages.error(request, _("Error connecting to glance: %s")

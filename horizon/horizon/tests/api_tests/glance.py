@@ -79,18 +79,18 @@ class GlanceApiTests(APITestCase):
 
         self.assertEqual(ret_val, TEST_RETURN)
 
-    def test_image_get(self):
+    def test_image_get_meta(self):
         IMAGE_ID = '1'
 
         glance_api = self.stub_glance_api()
-        glance_api.get_image(IMAGE_ID).AndReturn([TEST_RETURN])
+        glance_api.get_image_meta(IMAGE_ID).AndReturn([TEST_RETURN])
 
         self.mox.ReplayAll()
 
-        ret_val = api.image_get(self.request, IMAGE_ID)
+        ret_val = api.image_get_meta(self.request, IMAGE_ID)
 
         self.assertIsInstance(ret_val, api.Image)
-        self.assertEqual(ret_val._apidict, TEST_RETURN)
+        self.assertEqual(ret_val._apidict, [TEST_RETURN])
 
     def test_image_list_detailed(self):
         images = (TEST_RETURN, TEST_RETURN + '2')

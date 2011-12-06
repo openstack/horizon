@@ -153,8 +153,8 @@ class ImageViewTests(test.BaseViewTests):
     def test_launch_get(self):
         IMAGE_ID = '1'
 
-        self.mox.StubOutWithMock(api, 'image_get')
-        api.image_get(IsA(http.HttpRequest),
+        self.mox.StubOutWithMock(api, 'image_get_meta')
+        api.image_get_meta(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
@@ -207,8 +207,8 @@ class ImageViewTests(test.BaseViewTests):
                      'security_groups': 'default',
                      }
 
-        self.mox.StubOutWithMock(api, 'image_get')
-        api.image_get(IsA(http.HttpRequest),
+        self.mox.StubOutWithMock(api, 'image_get_meta')
+        api.image_get_meta(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
@@ -226,7 +226,7 @@ class ImageViewTests(test.BaseViewTests):
                                     self.security_groups)
 
         # called again by the form
-        api.image_get(IsA(http.HttpRequest),
+        api.image_get_meta(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
         self.mox.StubOutWithMock(api, 'flavor_get')
@@ -254,8 +254,8 @@ class ImageViewTests(test.BaseViewTests):
     def test_launch_flavorlist_error(self):
         IMAGE_ID = '1'
 
-        self.mox.StubOutWithMock(api, 'image_get')
-        api.image_get(IsA(http.HttpRequest),
+        self.mox.StubOutWithMock(api, 'image_get_meta')
+        api.image_get_meta(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
@@ -288,8 +288,8 @@ class ImageViewTests(test.BaseViewTests):
     def test_launch_keypairlist_error(self):
         IMAGE_ID = '2'
 
-        self.mox.StubOutWithMock(api, 'image_get')
-        api.image_get(IsA(http.HttpRequest),
+        self.mox.StubOutWithMock(api, 'image_get_meta')
+        api.image_get_meta(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
@@ -336,8 +336,8 @@ class ImageViewTests(test.BaseViewTests):
                      'security_groups': 'default',
                      }
 
-        self.mox.StubOutWithMock(api, 'image_get')
-        api.image_get(IgnoreArg(),
+        self.mox.StubOutWithMock(api, 'image_get_meta')
+        api.image_get_meta(IgnoreArg(),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
@@ -355,7 +355,7 @@ class ImageViewTests(test.BaseViewTests):
                                     self.security_groups)
 
         # called again by the form
-        api.image_get(IgnoreArg(),
+        api.image_get_meta(IgnoreArg(),
                       IMAGE_ID).AndReturn(self.visibleImage)
 
         self.mox.StubOutWithMock(api, 'flavor_get')
