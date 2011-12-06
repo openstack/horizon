@@ -70,7 +70,7 @@ def index(request):
 @login_required
 def update(request, image_id):
     try:
-        image = api.image_get(request, image_id)
+        image = api.image_get_meta(request, image_id)
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
         messages.error(request,

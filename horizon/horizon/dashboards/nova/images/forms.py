@@ -57,7 +57,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
         error_updating = _('Error updating image with id: %s' % image_id)
 
         try:
-            image = api.image_get(request, image_id)
+            image = api.image_get_meta(request, image_id)
         except glance_exception.ClientConnectionError, e:
             LOG.exception(_('Error connecting to glance'))
             messages.error(request, error_retrieving)
@@ -152,7 +152,7 @@ class LaunchForm(forms.SelfHandlingForm):
         image_id = data['image_id']
         tenant_id = data['tenant_id']
         try:
-            image = api.image_get(request, image_id)
+            image = api.image_get_meta(request, image_id)
             flavor = api.flavor_get(request, data['flavor'])
             api.server_create(request,
                               data['name'],
@@ -181,7 +181,7 @@ class DeleteImage(forms.SelfHandlingForm):
         image_id = data['image_id']
         tenant_id = request.user.tenant_id
         try:
-            image = api.image_get(request, image_id)
+            image = api.image_get_meta(request, image_id)
             if image.owner == request.user.username:
                 api.image_delete(request, image_id)
             else:
