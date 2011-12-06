@@ -15,38 +15,38 @@
     </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description:"%}</h3>
-        <p>{% trans "Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources they are allowed to provision."%}</p>
+    <h3>{% trans "Description:" %}</h3>
+        <p>{% trans "Specify the details for launching an instance. Also please make note of the table below; all tenants have quotas which define the limit of resources they are allowed to provision." %}</p>
         <table border="0">
           <tr>
-            <th>{% trans "Quota Name"%}</th>
-            <th>{% trans "Limit"%}</th>
+            <th>{% trans "Quota Name" %}</th>
+            <th>{% trans "Limit" %}</th>
           </tr>
           <tr>
-            <td>{% trans "RAM (MB)"%}</td>
-            <td>{{quotas.ram}}MB</td>
+            <td>{% trans "RAM (MB)" %}</td>
+            <td>{{ quotas.ram }}MB</td>
           </tr>
           <tr>
-            <td>{% trans "Floating IPs"%}</td>
-            <td>{{quotas.floating_ips}}</td>
+            <td>{% trans "Floating IPs" %}</td>
+            <td>{{ quotas.floating_ips }}</td>
           </tr>
           <tr>
-            <td>{% trans "Instances"%}</td>
-            <td>{{quotas.instances}}</td>
+            <td>{% trans "Instances" %}</td>
+            <td>{{ quotas.instances }}</td>
           </tr>
           <tr>
-            <td>{% trans "Volumes"%}</td>
-            <td>{{quotas.volumes}}</td>
+            <td>{% trans "Volumes" %}</td>
+            <td>{{ quotas.volumes }}</td>
           </tr>
           <tr>
-            <td>{% trans "Gigabytes"%}</td>
-            <td>{{quotas.gigabytes}}GB</td>
+            <td>{% trans "Available Disk" %}</td>
+            <td>{{ quotas.gigabytes }}GB</td>
           </tr>
         </table>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
-  <input class="btn primary pull-right" type="submit" value="{%trans "Launch Instance"%}" />
+  <input class="btn primary pull-right" type="submit" value="{% trans "Launch Instance" %}" />
   <a href="{% url horizon:nova:images:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}
