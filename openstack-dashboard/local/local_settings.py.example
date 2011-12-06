@@ -24,9 +24,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Or send them to /dev/null
 #EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
-# django-mailer uses a different settings attribute
-MAILER_EMAIL_BACKEND = EMAIL_BACKEND
-
 # Configure these for your outgoing email host
 # EMAIL_HOST = 'smtp.my-company.com'
 # EMAIL_PORT = 25
