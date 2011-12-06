@@ -89,7 +89,7 @@ def quantum_detach_port(request, network_id, port_id):
 
 
 def quantum_set_port_state(request, network_id, port_id, data):
-    return quantum_api(request).set_port_state(network_id, port_id, data)
+    return quantum_api(request).update_port(network_id, port_id, data)
 
 
 def quantum_port_attachment(request, network_id, port_id):
