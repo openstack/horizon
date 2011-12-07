@@ -246,18 +246,29 @@ class Dashboard(Registry, HorizonComponent):
     .. attribute:: panels
 
         The ``panels`` attribute can be either a list containing the name
-        of each panel module which should be loaded as part of this
-        dashboard, or a dictionary of tuples which define groups of
+        of each panel **module**  which should be loaded as part of this
+        dashboard, or a dictionary of tuples which define groups of panels
         as in the following example::
 
             class Syspanel(horizon.Dashboard):
                 panels = {'System Panel': ('overview', 'instances', ...)}
 
         Automatically generated navigation will use the order of the
-        modules in this attribute. Default: ``[]``.
+        modules in this attribute.
 
-        Panel modules must be listed in ``panels`` in order to be
-        discovered by the automatic registration mechanism.
+        Default: ``[]``.
+
+        .. warning::
+
+            The values for this attribute should not correspond to the
+            :attr:`~.Panel.name` attributes of the ``Panel`` classes.
+            They should be the names of the Python modules in which the
+            ``panel.py`` files live. This is used for the automatic
+            loading and registration of ``Panel`` classes much like
+            Django's ``ModelAdmin`` machinery.
+
+            Panel modules must be listed in ``panels`` in order to be
+            discovered by the automatic registration mechanism.
 
     .. attribute:: default_panel
 
