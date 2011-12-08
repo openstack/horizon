@@ -87,8 +87,10 @@ class Login(forms.SelfHandlingForm):
                                              data['username'],
                                              data['password'])
                 except keystone_exceptions.Unauthorized:
+                    LOG.exception("Failed login attempt for %s."
+                                  % data['username'])
                     messages.error(request, _('Bad user name or password.'),
-                            extra_tags="login")
+                                   extra_tags="login")
                     return
 
                 # Unscoped token
