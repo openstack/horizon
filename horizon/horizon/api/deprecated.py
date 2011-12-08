@@ -57,6 +57,7 @@ def check_openstackx(f):
             raise
     return inner
 
+
 def admin_api(request):
     management_url = url_for(request, 'compute', True)
     LOG.debug('admin_api connection created using token "%s"'

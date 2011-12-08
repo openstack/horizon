@@ -65,7 +65,8 @@ class AttachForm(forms.SelfHandlingForm):
         super(AttachForm, self).__init__(*args, **kwargs)
         # populate volume_id
         volume_id = kwargs.get('initial', {}).get('volume_id', [])
-        self.fields['volume_id'] = forms.CharField(widget=forms.HiddenInput(), initial=volume_id)
+        self.fields['volume_id'] = forms.CharField(widget=forms.HiddenInput(),
+                                                   initial=volume_id)
 
         # Populate instance choices
         instance_list = kwargs.get('initial', {}).get('instances', [])
@@ -77,7 +78,7 @@ class AttachForm(forms.SelfHandlingForm):
                                   choices=instances,
                                   label="Attach to Instance",
                                   help_text="Select an instance to attach to.")
-        
+
     def handle(self, request, data):
         try:
             api.volume_attach(request,

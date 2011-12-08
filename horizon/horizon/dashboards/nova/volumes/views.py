@@ -94,9 +94,9 @@ def create(request):
 
 
 @login_required
-def attach(request, volume_id):    
+def attach(request, volume_id):
     instances = api.server_list(request)
-    attach_form, handled = AttachForm.maybe_handle(request, 
+    attach_form, handled = AttachForm.maybe_handle(request,
                                       initial={'volume_id': volume_id,
                                                'instances': instances})
 
