@@ -127,7 +127,7 @@ $(function(){
   $(document).on("submit", ".modal #create_keypair_form", function(e){
     var $this = $(this);
     $this.closest(".modal").modal("hide");
-    $('#main_content').prepend('<div class="alert-message info">'
+    $('#main_content .page-header').after('<div class="alert-message info">'
         + '<p><strong>Info: </strong>The data on this page may have changed, '
         + '<a href=".">click here to refresh it</a>.</p>'
         + '</div>');

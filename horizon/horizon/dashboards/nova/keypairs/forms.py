@@ -24,6 +24,7 @@ from django import http
 from django import shortcuts
 from django.contrib import messages
 from django.core import validators
+from django.template.defaultfilters import slugify
 from django.utils.http import urlquote
 from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
@@ -53,8 +54,12 @@ class DeleteKeypair(forms.SelfHandlingForm):
 
 class CreateKeypair(forms.SelfHandlingForm):
 
-    name = forms.CharField(max_length="20", label=_("Keypair Name"),
-                 validators=[validators.RegexValidator('\w+')])
+    name = forms.CharField(max_length="20",
+                           label=_("Keypair Name"),
+                           validators=[validators.validate_slug],
+                           error_messages={'invalid': _('Keypair names may '
+                                'only contain letters, numbers, underscores '
+                                'and hyphens.')})
 
     def handle(self, request, data):
         try:
@@ -62,8 +67,9 @@ class CreateKeypair(forms.SelfHandlingForm):
             keypair = api.keypair_create(request, data['name'])
             response = http.HttpResponse(mimetype='application/binary')
             response['Content-Disposition'] = \
-                     'attachment; filename=%s.pem' % keypair.name
+                     'attachment; filename=%s.pem' % slugify(keypair.name)
             response.write(keypair.private_key)
+            response['Content-Length'] = str(len(response.content))
             return response
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in CreateKeyPair")
