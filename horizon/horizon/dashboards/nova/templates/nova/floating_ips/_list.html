@@ -42,7 +42,7 @@
       {% if ip.fixed_ip %}
         {% include "nova/floating_ips/_disassociate.html" with form=disassociate_form %}
       {% else %}
-        <a class="btn primary small ajax-modal" href="{% url horizon:nova:floating_ips:associate ip.id %}">{% trans "Associate to instance{% trans</a>
+        <a class="btn primary small ajax-modal" href="{% url horizon:nova:floating_ips:associate ip.id %}">{% trans "Associate to instance" %}</a>
       {% endif %}
     </td>
     <td id="name_{{ip.name}}" class="actions">
