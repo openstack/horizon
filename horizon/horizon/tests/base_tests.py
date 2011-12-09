@@ -20,6 +20,8 @@
 
 import copy
 
+from django.core.urlresolvers import NoReverseMatch
+
 import horizon
 from horizon import base
 from horizon import exceptions
@@ -123,6 +125,15 @@ class HorizonTests(test.TestCase):
         syspanel = horizon.get_dashboard("syspanel")
         instances = syspanel.get_panel("instances")
         self.assertEqual(instances._registered_with, syspanel)
+        self.assertEqual(instances.get_absolute_url(), "/syspanel/instances/")
+
+    def test_index_url_name(self):
+        syspanel = horizon.get_dashboard("syspanel")
+        instances = syspanel.get_panel("instances")
+        instances.index_url_name = "does_not_exist"
+        with self.assertRaises(NoReverseMatch):
+            instances.get_absolute_url()
+        instances.index_url_name = "index"
         self.assertEqual(instances.get_absolute_url(), "/syspanel/instances/")
 
     def test_lazy_urls(self):
