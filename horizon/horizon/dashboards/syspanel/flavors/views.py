@@ -24,7 +24,7 @@ from django import shortcuts
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
-from openstackx.api import exceptions as api_exceptions
+from novaclient import exceptions as api_exceptions
 
 from horizon import api
 from horizon import forms
@@ -48,9 +48,12 @@ def index(request):
     flavors = []
     try:
         flavors = api.flavor_list(request)
-    except api_exceptions.ApiException, e:
-        LOG.exception('ApiException while fetching usage info')
-        messages.error(request, _('Unable to get usage info: %s') % e.message)
+    except api_exceptions.Unauthorized, e:
+        LOG.exception('Unauthorized attempt to access flavor list.')
+        messages.error(request, _('Unauthorized.'))
+    except Exception, e:
+        LOG.exception('Exception while fetching usage info')
+        messages.error(request, _('Unable to get flavor list: %s') % e.message)
 
     flavors.sort(key=lambda x: x.id, reverse=True)
     return shortcuts.render(request,

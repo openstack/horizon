@@ -51,7 +51,7 @@ def index(request):
     instances = []
     try:
         instances = api.server_list(request)
-    except api_exceptions.ApiException as e:
+    except Exception as e:
         LOG.exception(_('Exception in instance index'))
         messages.error(request, _('Unable to get instance list: %s')
                        % e.message)

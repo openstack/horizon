@@ -25,7 +25,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
-from openstackx.api import exceptions as api_exceptions
+from keystoneclient import exceptions as api_exceptions
 
 from horizon import api
 from horizon.dashboards.syspanel.users.forms import (UserForm, UserUpdateForm,
@@ -45,9 +45,12 @@ def index(request):
     users = []
     try:
         users = api.user_list(request)
-    except api_exceptions.ApiException, e:
-        messages.error(request, _('Unable to list users: %s') %
-                                 e.message)
+    except api_exceptions.AuthorizationFailure, e:
+        LOG.exception("Unauthorized attempt to list users.")
+        messages.error(request, _('Unable to get user info: %s') % e.message)
+    except Exception, e:
+        LOG.exception('Exception while getting user list')
+        messages.error(request, _('Unable to get user info: %s') % e.message)
 
     user_delete_form = UserDeleteForm()
     toggle_form = UserEnableDisableForm()

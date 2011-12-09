@@ -100,10 +100,6 @@ class ImageViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
 
-        self.mox.StubOutWithMock(api, 'tenant_quota_get')
-        api.tenant_quota_get(IsA(http.HttpRequest), self.TEST_TENANT) \
-                .AndReturn({})
-
         self.mox.StubOutWithMock(messages, 'info')
         messages.info(IsA(http.HttpRequest), IsA(basestring))
 
@@ -118,10 +114,6 @@ class ImageViewTests(test.BaseViewTests):
         exception = glance_exception.ClientConnectionError('clientConnError')
         api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
 
-        self.mox.StubOutWithMock(api, 'tenant_quota_get')
-        api.tenant_quota_get(IsA(http.HttpRequest), self.TEST_TENANT) \
-                .AndReturn({})
-
         self.mox.StubOutWithMock(messages, 'error')
         messages.error(IsA(http.HttpRequest), IsA(basestring))
 
@@ -134,12 +126,8 @@ class ImageViewTests(test.BaseViewTests):
 
     def test_index_glance_error(self):
         self.mox.StubOutWithMock(api, 'image_list_detailed')
-        exception = glance_exception.Error('glanceError')
+        exception = glance_exception.GlanceException('glanceError')
         api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
-
-        self.mox.StubOutWithMock(api, 'tenant_quota_get')
-        api.tenant_quota_get(IsA(http.HttpRequest), self.TEST_TENANT) \
-                .AndReturn({})
 
         self.mox.StubOutWithMock(messages, 'error')
         messages.error(IsA(http.HttpRequest), IsA(basestring))

@@ -25,7 +25,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
-from openstackx.api import exceptions as api_exceptions
+from keystoneclient import exceptions as api_exceptions
 
 from horizon import api
 from horizon.dashboards.syspanel.tenants.forms import (AddUser, RemoveUser,
@@ -46,9 +46,13 @@ def index(request):
     tenants = []
     try:
         tenants = api.tenant_list(request)
-    except api_exceptions.ApiException, e:
-        LOG.exception('ApiException while getting tenant list')
+    except api_exceptions.AuthorizationFailure, e:
+        LOG.exception("Unauthorized attempt to list tenants.")
         messages.error(request, _('Unable to get tenant info: %s') % e.message)
+    except Exception, e:
+        LOG.exception('Exception while getting tenant list')
+        messages.error(request, _('Unable to get tenant info: %s') % e.message)
+
     tenants.sort(key=lambda x: x.id, reverse=True)
     return shortcuts.render(request,
                             'syspanel/tenants/index.html', {

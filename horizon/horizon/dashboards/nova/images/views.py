@@ -54,10 +54,10 @@ def index(request):
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
         messages.error(request, _("Error connecting to glance: %s") % str(e))
-    except glance_exception.Error, e:
+    except glance_exception.GlanceException, e:
         LOG.exception("Error retrieving image list")
         messages.error(request, _("Error retrieving image list: %s") % str(e))
-    except api_exceptions.ApiException, e:
+    except Exception, e:
         msg = _("Unable to retrieve image info from glance: %s") % str(e)
         LOG.exception(msg)
         messages.error(request, msg)
@@ -65,13 +65,13 @@ def index(request):
     images = [im for im in all_images
               if im['container_format'] not in ['aki', 'ari']]
 
-    quotas = api.tenant_quota_get(request, request.user.tenant_id)
+    context = {'delete_form': DeleteImage(), 'images': images}
 
-    return shortcuts.render(request,
-                            'nova/images/index.html', {
-                                'delete_form': DeleteImage(),
-                                'quotas': quotas,
-                                'images': images})
+    if images:
+        quotas = api.tenant_quota_get(request, request.user.tenant_id)
+        context['quotas'] = quotas
+
+    return shortcuts.render(request, 'nova/images/index.html', context)
 
 
 @login_required

@@ -106,7 +106,7 @@ class SnapshotsViewTests(test.BaseViewTests):
 
     def test_index_glance_error(self):
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-        exception = glance_exception.Error('glanceError')
+        exception = glance_exception.GlanceException('glanceError')
         api.snapshot_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')

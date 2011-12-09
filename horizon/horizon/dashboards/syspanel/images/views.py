@@ -55,7 +55,7 @@ def index(request):
         LOG.exception("Error connecting to glance")
         messages.error(request,
                        _("Error connecting to glance: %s") % e.message)
-    except glance_exception.Error, e:
+    except glance_exception.GlanceException, e:
         LOG.exception("Error retrieving image list")
         messages.error(request,
                        _("Error retrieving image list: %s") % e.message)

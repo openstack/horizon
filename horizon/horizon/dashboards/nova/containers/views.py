@@ -24,6 +24,7 @@ Views for managing Swift containers.
 import logging
 
 from django import http
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django import shortcuts
 
@@ -43,7 +44,13 @@ def index(request):
     if handled:
         return handled
 
-    containers, more = api.swift_get_containers(request, marker=marker)
+    try:
+        containers, more = api.swift_get_containers(request, marker=marker)
+    except Exception, e:
+        containers, more = None, None
+        msg = _('Error retrieving container list: %s') % e
+        LOG.exception(msg)
+        messages.error(request, msg)
 
     return shortcuts.render(request,
                             'nova/containers/index.html',

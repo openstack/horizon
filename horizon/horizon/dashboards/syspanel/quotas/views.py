@@ -18,18 +18,28 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django import shortcuts
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
 
 
+LOG = logging.getLogger(__name__)
+
+
 @login_required
 def index(request):
-    quotas = api.admin_api(request).quota_sets.get(True)._info
-    quotas['ram'] = int(quotas['ram']) / 100
-    quotas.pop('id')
+    try:
+        quotas = api.admin_api(request).quota_sets.get(True)._info
+        quotas['ram'] = int(quotas['ram']) / 100
+        quotas.pop('id')
+    except Exception, e:
+        quotas = None
+        LOG.exception('Exception while getting quota info')
+        messages.error(request, _('Unable to get quota info: %s') % e.message)
 
     return shortcuts.render(request,
                             'syspanel/quotas/index.html', {
