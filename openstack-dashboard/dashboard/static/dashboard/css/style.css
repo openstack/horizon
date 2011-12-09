@@ -249,6 +249,10 @@ a.current_item:hover h3, a.current_item:hover h4 {
   padding: 0 0 0 1px;
 }
 
+.table_title {
+  overflow: auto; /* Triggers clearing if all contained elements are floated */
+}
+
 .table_title h3 {
     font-family: anivers;
     font-weight: normal;
