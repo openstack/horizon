@@ -1,0 +1,11 @@
+{% extends 'nova/base.html' %}
+{% load i18n %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Create Keypair") %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  {% include 'nova/access_and_security/keypairs/_create.html' %}
+{% endblock %}
+

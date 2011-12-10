@@ -1,0 +1,21 @@
+{% extends 'nova/base.html' %}
+{% load i18n %}
+
+{% block page_header %}
+  {% url horizon:nova:access_and_security:floating_ips:index as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "horizon/common/_page_header.html" with title=_("Floating IPs") refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  {% if floating_ips %}
+    {% include 'nova/access_and_security/floating_ips/_list.html' %}
+  {% else %}
+    <div class="alert-message block-message info">
+      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no floating ips assigned to your tenant."%}</p>
+      <div class="alert-actions">
+        {% include "nova/access_and_security/floating_ips/_allocate.html" with form=allocate_form %}
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

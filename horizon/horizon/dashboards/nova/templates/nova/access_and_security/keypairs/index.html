@@ -1,0 +1,21 @@
+{% extends 'nova/base.html' %}
+{% load i18n %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Keypairs") %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  {% if keypairs %}
+    {% include 'nova/access_and_security/keypairs/_list.html' %}
+  {% else %}
+    <div class="alert-message block-message info">
+      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no keypairs."%}</p>
+      <div class="alert-actions">
+        <a id="keypairs_create_link" class="btn primary small ajax-modal" href="{% url horizon:nova:access_and_security:keypairs:create %}">{% trans "Create New Keypair"%}</a>
+        <a id="keypairs_import_link" class="btn small ajax-modal" href="{% url horizon:nova:access_and_security:keypairs:import %}">{% trans "Import Keypair"%}</a>
+      </div>
+    </div>
+  {% endif %}
+  </div>
+{% endblock %}

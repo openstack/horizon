@@ -36,7 +36,7 @@
       </td>
       <td id="name_{{image.name}}" class="actions">        
         {% if image.owner == request.user.tenant_id %}
-        <a class="more-actions" href="#">View</a>
+        <a class="more-actions" href="#">More</a>
         <ul>
           <li><a class='btn small' href="{% url horizon:nova:images:update image.id %}">{% trans "Edit" %}</a></li>
           <li class="form">{% include "nova/images/_delete.html" with form=delete_form %}</li>

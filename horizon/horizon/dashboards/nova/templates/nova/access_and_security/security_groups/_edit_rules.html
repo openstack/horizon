@@ -1,0 +1,53 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}security_group_rule_form{% endblock %}
+{% block form_action %}{% url horizon:nova:access_and_security:security_groups:edit_rules security_group.id %}{% endblock %}
+
+{% block modal_id %}security_group_rule_modal{% endblock %}
+{% block modal-header %}Edit Security Group Rules{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    <h3>{% trans "Add a rule"%}</h3>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3> {% trans "Rules for Security Group"%} '{{security_group.name}}'</h3>
+    <table id="security_groups" class="zebra-striped">
+      <tr>
+        <th>{% trans "IP Protocol"%}</th>
+        <th>{% trans "From Port"%}</th>
+        <th>{% trans "To Port"%}</th>
+        <th>{% trans "CIDR"%}</th>
+        <th>{% trans "Actions"%}</th>
+      </tr>
+      {% for rule in security_group.rules %}
+        <tr class="{% cycle 'odd' 'even' %}">
+          <td>{{ rule.ip_protocol }}</td>
+          <td>{{ rule.from_port }}</td>
+          <td>{{ rule.to_port }}</td>
+          <td>{{rule.ip_range.cidr}}</td>
+          <td id="actions">
+            <ul>
+              <li class="form">{% include "nova/access_and_security/security_groups/_delete_rule.html" with form=delete_form %}</li>
+            </ul>
+          </td>
+        </tr>
+      {% empty %}
+      <tr>
+        <td colspan="100%">
+          {% trans "No rules for this security group"%}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+    <input class="btn primary pull-right" type="submit" value="{%trans "Add Rule"%}" />
+    <a href="{% url horizon:nova:access_and_security:index %}" class="btn secondary cancel close">Cancel</a>
+{% endblock %}

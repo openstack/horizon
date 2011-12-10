@@ -1,6 +1,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
 # Copyright 2011 Nebula, Inc.
+# Copyright 2011 Openstack LLC
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -14,21 +15,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext as _
-
 import horizon
+from horizon.dashboards.nova import dashboard
 
 
-class Nova(horizon.Dashboard):
-    name = "Dashboard"
-    slug = "nova"
-    panels = {_("Manage Compute"): ('overview', 'instances_and_volumes',
-                                    'images', 'snapshots',
-                                    'access_and_security',),
-              _("Network"): ('networks',),
-              _("Object Store"): ('containers',)}
-    default_panel = 'overview'
-    supports_tenants = True
+class AccessAndSecurity(horizon.Panel):
+    name = "Access & Security"
+    slug = 'access_and_security'
 
 
-horizon.register(Nova)
+dashboard.Nova.register(AccessAndSecurity)

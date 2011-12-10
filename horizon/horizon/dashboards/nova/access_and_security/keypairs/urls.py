@@ -1,5 +1,9 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+# Copyright 2011 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
 # Copyright 2011 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -14,21 +18,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext as _
-
-import horizon
+from django.conf.urls.defaults import patterns, url
 
 
-class Nova(horizon.Dashboard):
-    name = "Dashboard"
-    slug = "nova"
-    panels = {_("Manage Compute"): ('overview', 'instances_and_volumes',
-                                    'images', 'snapshots',
-                                    'access_and_security',),
-              _("Network"): ('networks',),
-              _("Object Store"): ('containers',)}
-    default_panel = 'overview'
-    supports_tenants = True
-
-
-horizon.register(Nova)
+urlpatterns = patterns(
+    'horizon.dashboards.nova.access_and_security.keypairs.views',
+    url(r'^$', 'index', name='index'),
+    url(r'^create/$', 'create', name='create'),
+    url(r'^import/$', 'import_keypair', name='import'),
+)

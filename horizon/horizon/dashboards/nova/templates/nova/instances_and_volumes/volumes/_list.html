@@ -48,7 +48,7 @@
 
       <td id="name_{{instance.name}}" class="actions">
         {% if  volume.status == "in-use" or volume.status == "available" %}
-          <a class="more-actions" href="#">View</a>
+          <a class="more-actions" href="#">More</a>
           <ul>
             {% if volume.status == "in-use" %}
               {% for attachment in volume.attachments %}
