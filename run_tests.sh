@@ -209,21 +209,24 @@ function environment_check {
 
 function sanity_check {
   # Anything that should be determined prior to running the tests, server, etc.
-  if [ ! -e ${venv} ]; then
-    echo "Virtualenv not found at openstack-dashboard/.dashboard-venv. Did install_venv.py succeed?"
-    exit 1
-  fi
-  if [ ! -f horizon/bin/test ]; then
-    echo "Error: Test script not found at horizon/bin/test. Did buildout succeed?"
-    exit 1
-  fi
-  if [ ! -f horizon/bin/coverage ]; then
-    echo "Error: Coverage script not found at horizon/bin/coverage. Did buildout succeed?"
-    exit 1
-  fi
-  if [ ! -f horizon/bin/seleniumrc ]; then
-    echo "Error: Selenium script not found at horizon/bin/seleniumrc. Did buildout succeed?"
-    exit 1
+  # Don't sanity-check anything environment-related in -N flag is set
+  if [ $never_venv -eq 0 ]; then
+    if [ ! -e ${venv} ]; then
+      echo "Virtualenv not found at openstack-dashboard/.dashboard-venv. Did install_venv.py succeed?"
+      exit 1
+    fi
+    if [ ! -f horizon/bin/test ]; then
+      echo "Error: Test script not found at horizon/bin/test. Did buildout succeed?"
+      exit 1
+    fi
+    if [ ! -f horizon/bin/coverage ]; then
+      echo "Error: Coverage script not found at horizon/bin/coverage. Did buildout succeed?"
+      exit 1
+    fi
+    if [ ! -f horizon/bin/seleniumrc ]; then
+      echo "Error: Selenium script not found at horizon/bin/seleniumrc. Did buildout succeed?"
+      exit 1
+    fi
   fi
 }
 

@@ -25,6 +25,7 @@ from django import shortcuts
 from django import test as django_test
 from django import template as django_template
 from django.conf import settings
+import httplib2
 import mox
 
 from horizon import context_processors
@@ -114,6 +115,13 @@ class TestCase(django_test.TestCase):
     def setUp(self):
         self.mox = mox.Mox()
 
+        def fake_conn_request(*args, **kwargs):
+            raise Exception("An external URI request tried to escape through "
+                            "an httplib2 client. Args: %s, kwargs: %s"
+                            % (args, kwargs))
+        self._real_conn_request = httplib2.Http._conn_request
+        httplib2.Http._conn_request = fake_conn_request
+
         self._real_horizon_context_processor = context_processors.horizon
         context_processors.horizon = lambda request: self.TEST_CONTEXT
 
@@ -127,6 +135,7 @@ class TestCase(django_test.TestCase):
 
     def tearDown(self):
         self.mox.UnsetStubs()
+        httplib2.Http._conn_request = self._real_conn_request
         context_processors.horizon = self._real_horizon_context_processor
         users.get_user_from_request = self._real_get_user_from_request
         self.mox.VerifyAll()
