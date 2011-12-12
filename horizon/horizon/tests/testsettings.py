@@ -19,6 +19,9 @@
 #    under the License.
 
 import os
+import socket
+
+socket.setdefaulttimeout(1)
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 DEBUG = True
