@@ -47,7 +47,6 @@ LOG = logging.getLogger(__name__)
 
 @login_required
 def index(request):
-    tenant_id = request.user.tenant_id
     for f in (TerminateInstance, RebootInstance, DeleteForm, DetachForm):
         form, handled = f.maybe_handle(request)
         if handled:

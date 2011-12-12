@@ -35,7 +35,7 @@
       <td>      
         {% for attachment in volume.attachments %}
           {% if attachment %}
-            <a href="{% url horizon:nova:instances_and_volumes:instances:detail request.user.tenant_name attachment.serverId %}">
+            <a href="{% url horizon:nova:instances_and_volumes:instances:detail attachment.serverId %}">
             {# TODO(jake): Make this the instance name #}
             Instance {{ attachment.serverId }}
             <small>({{ attachment.device }})</small>
