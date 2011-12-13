@@ -150,11 +150,12 @@ class FloatingIpViewTests(test.BaseViewTests):
         self.mox.ReplayAll()
 
         res = self.client.post(reverse(
-           'horizon:nova:access_and_security:floating_ips:associate',args=[1]),
-                               {'instance_id': 1,
-                                'floating_ip_id': self.floating_ip.id,
-                                'floating_ip': self.floating_ip.ip,
-                                'method': 'FloatingIpAssociate'})
+                'horizon:nova:access_and_security:floating_ips:associate',
+                args=[1]),
+                {'instance_id': 1,
+                 'floating_ip_id': self.floating_ip.id,
+                 'floating_ip': self.floating_ip.ip,
+                 'method': 'FloatingIpAssociate'})
         self.assertRaises(novaclient_exceptions.ClientException)
 
         self.assertRedirects(res, FLOATING_IPS_INDEX)

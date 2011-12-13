@@ -35,7 +35,6 @@ class KeyPairViewTests(test.BaseViewTests):
         keypair.name = 'keyName'
         self.keypairs = (keypair,)
 
-
     def test_delete_keypair(self):
         KEYPAIR_ID = self.keypairs[0].name
         formData = {'method': 'DeleteKeypair',

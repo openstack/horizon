@@ -119,6 +119,7 @@ class HorizonTests(test.TestCase):
         settings_dash.register(MyPanel)
         self.assertQuerysetEqual(settings_dash.get_panels(),
                                  ['<Panel: User Settings>',
+                                  '<Panel: Tenant Settings>',
                                   '<Panel: My Panel>'])
 
     def test_panels(self):

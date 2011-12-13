@@ -103,7 +103,7 @@ def get_service_from_catalog(catalog, service_type):
     return None
 
 
-def url_for(request, service_type, admin=False):
+def url_for(request, service_type, admin=False, endpoint_type='internalURL'):
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)
     if service:
@@ -111,7 +111,7 @@ def url_for(request, service_type, admin=False):
             if admin:
                 return service['endpoints'][0]['adminURL']
             else:
-                return service['endpoints'][0]['internalURL']
+                return service['endpoints'][0][endpoint_type]
         except (IndexError, KeyError):
             raise exceptions.ServiceCatalogException(service_type)
     else:
