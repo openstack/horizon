@@ -569,8 +569,10 @@ class VolumeTests(APITestCase):
         self.assertEqual(attachments, self.volume.attachments)
 
     def test_volume_create(self):
-        self.novaclient.volumes.create(IsA(int), IsA(str), IsA(str)).AndReturn(
-                self.volume)
+        self.novaclient.volumes.create(IsA(int),
+                                       display_name=IsA(str),
+                                       display_description=IsA(str)) \
+                                       .AndReturn(self.volume)
         self.mox.ReplayAll()
 
         new_volume = api.volume_create(self.request,

@@ -336,7 +336,7 @@ def volume_instance_list(request, instance_id):
 
 def volume_create(request, size, name, description):
     return Volume(novaclient(request).volumes.create(
-            size, name, description))
+            size, display_name=name, display_description=description))
 
 
 def volume_delete(request, volume_id):
