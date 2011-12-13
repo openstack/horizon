@@ -36,7 +36,8 @@ from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
 from horizon import forms
-from horizon.dashboards.nova.snapshots.forms import CreateSnapshot
+from horizon.dashboards.nova.images_and_snapshots.snapshots.forms import \
+                                                                CreateSnapshot
 
 
 LOG = logging.getLogger(__name__)
@@ -58,7 +59,7 @@ def index(request):
         messages.error(request, msg)
 
     return shortcuts.render(request,
-                            'nova/snapshots/index.html',
+                            'nova/images_and_snapshots/snapshots/index.html',
                             {'images': images})
 
 
@@ -89,6 +90,6 @@ def create(request, instance_id):
                         'horizon:nova:instances_and_volumes:instances:index')
 
     return shortcuts.render(request,
-                            'nova/snapshots/create.html',
+                            'nova/images_and_snapshots/snapshots/create.html',
                             {'instance': instance,
                              'create_form': form})

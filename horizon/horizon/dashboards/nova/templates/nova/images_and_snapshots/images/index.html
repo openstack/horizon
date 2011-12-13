@@ -2,14 +2,14 @@
 {% load i18n %}
 
 {% block page_header %}
-  {% url horizon:nova:images:index as refresh_link %}
+  {% url horizon:nova:images_and_snapshots:images:index as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
   {% include "horizon/common/_page_header.html" with title=_("Images") refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
 
 {% block dash_main %}
   {% if images %}
-    {% include 'nova/images/_list.html' %}
+    {% include 'nova/images_and_snapshots/images/_list.html' %}
   {% else %}
     <div class="alert-message block-message info">
       <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no images."%}</p>

@@ -2,7 +2,7 @@
 
 
 <div class="table_title">
-  <h3>Images and Snapshots</h3>
+  <h3>Snapshots</h3>
   <div class="table_actions">
     <div class="images table_search">
       <form action="#">
@@ -23,7 +23,7 @@
       <th colspan="2">{% trans "Actions" %}</th>
     </tr>
   </thead>
-  {% for image in images %}
+  {% for image in snapshots %}
   <tr class="{% cycle 'odd' 'even' %}">
       <td class="select">
         <input type="checkbox" name="image_{{image.id}}" value="image_{{image.id}}" id="image_select_{{image.id}}" />
@@ -32,14 +32,14 @@
       <td>{{image.properties.image_type|default:"Image"}}</td>
       <td>{{image.status|capfirst}}</td>
       <td>
-        <a class="btn small primary" data-controls-modal="launch_image_{{image.id}}" data-backdrop="static" href="{% url horizon:nova:images:launch image.id %}">{% trans "Launch" %}</a>
+        <a class="btn small primary" data-controls-modal="launch_image_{{image.id}}" data-backdrop="static" href="{% url horizon:nova:images_and_snapshots:images:launch image.id %}">{% trans "Launch" %}</a>
       </td>
-      <td id="name_{{image.name}}" class="actions">        
+      <td id="name_{{image.name}}" class="actions">
         {% if image.owner == request.user.tenant_id %}
-        <a class="more-actions" href="#">More</a>
+        <a class="more-actions" href="#">View</a>
         <ul>
-          <li><a class='btn small' href="{% url horizon:nova:images:update image.id %}">{% trans "Edit" %}</a></li>
-          <li class="form">{% include "nova/images/_delete.html" with form=delete_form %}</li>
+          <li><a class='btn small' href="{% url horizon:nova:images_and_snapshots:images:update image.id %}">{% trans "Edit" %}</a></li>
+          <li class="form">{% include "nova/images_and_snapshots/images/_delete.html" with form=delete_form %}</li>
         </ul>
         {% endif %}
       </td>
@@ -47,7 +47,7 @@
   {% endfor %}
 </table>
 
-{% for image in images %}
+{% for image in snapshots %}
   {% launch_form request request.user.tenant_id image.id as launch_form %}
-  {% include 'nova/images/_launch.html' with form=launch_form image_id=image.id hide=True %}
+  {% include 'nova/images_and_snapshots/images/_launch.html' with form=launch_form image_id=image.id hide=True %}
 {% endfor %}

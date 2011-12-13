@@ -29,7 +29,7 @@ from horizon import api
 from horizon import test
 
 
-IMAGES_INDEX_URL = reverse('horizon:nova:images:index')
+IMAGES_INDEX_URL = reverse('horizon:nova:images_and_snapshots:images:index')
 
 
 class FakeQuota:
@@ -67,77 +67,6 @@ class ImageViewTests(test.BaseViewTests):
         security_group.name = 'default'
         self.security_groups = (security_group,)
 
-    def test_index(self):
-        self.mox.StubOutWithMock(api, 'image_list_detailed')
-        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn(self.images)
-
-        self.mox.StubOutWithMock(api, 'tenant_quota_get')
-        api.tenant_quota_get(IsA(http.HttpRequest), self.TEST_TENANT) \
-                .AndReturn({})
-
-        self.mox.StubOutWithMock(api, 'flavor_list')
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
-
-        self.mox.StubOutWithMock(api, 'keypair_list')
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
-                                    self.security_groups)
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(IMAGES_INDEX_URL)
-
-        self.assertTemplateUsed(res, 'nova/images/index.html')
-
-        self.assertIn('images', res.context)
-        images = res.context['images']
-        self.assertEqual(len(images), 1)
-        self.assertEqual(images[0].name, 'visibleImage')
-
-    def test_index_no_images(self):
-        self.mox.StubOutWithMock(api, 'image_list_detailed')
-        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
-
-        self.mox.StubOutWithMock(messages, 'info')
-        messages.info(IsA(http.HttpRequest), IsA(basestring))
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(IMAGES_INDEX_URL)
-
-        self.assertTemplateUsed(res, 'nova/images/index.html')
-
-    def test_index_client_conn_error(self):
-        self.mox.StubOutWithMock(api, 'image_list_detailed')
-        exception = glance_exception.ClientConnectionError('clientConnError')
-        api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
-
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(IMAGES_INDEX_URL)
-
-        self.assertTemplateUsed(res,
-                'nova/images/index.html')
-
-    def test_index_glance_error(self):
-        self.mox.StubOutWithMock(api, 'image_list_detailed')
-        exception = glance_exception.GlanceException('glanceError')
-        api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
-
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(IMAGES_INDEX_URL)
-
-        self.assertTemplateUsed(res, 'nova/images/index.html')
-
     def test_launch_get(self):
         IMAGE_ID = '1'
 
@@ -161,10 +90,12 @@ class ImageViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:nova:images:launch',
-                                      args=[IMAGE_ID]))
+        res = self.client.get(
+                    reverse('horizon:nova:images_and_snapshots:images:launch',
+                            args=[IMAGE_ID]))
 
-        self.assertTemplateUsed(res, 'nova/images/launch.html')
+        self.assertTemplateUsed(res,
+                                'nova/images_and_snapshots/images/launch.html')
 
         image = res.context['image']
         self.assertEqual(image.name, self.visibleImage.name)
@@ -232,9 +163,10 @@ class ImageViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('horizon:nova:images:launch',
-                                       args=[IMAGE_ID]),
-                               form_data)
+        res = self.client.post(
+                    reverse('horizon:nova:images_and_snapshots:images:launch',
+                            args=[IMAGE_ID]),
+                            form_data)
 
         self.assertRedirectsNoFollow(res,
                  reverse('horizon:nova:instances_and_volumes:instances:index'))
@@ -263,10 +195,12 @@ class ImageViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:nova:images:launch',
-                                      args=[IMAGE_ID]))
+        res = self.client.get(
+                    reverse('horizon:nova:images_and_snapshots:images:launch',
+                            args=[IMAGE_ID]))
 
-        self.assertTemplateUsed(res, 'nova/images/launch.html')
+        self.assertTemplateUsed(res,
+                                'nova/images_and_snapshots/images/launch.html')
 
         form = res.context['form']
 
@@ -297,10 +231,12 @@ class ImageViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:nova:images:launch',
-                                      args=[IMAGE_ID]))
+        res = self.client.get(
+                    reverse('horizon:nova:images_and_snapshots:images:launch',
+                            args=[IMAGE_ID]))
 
-        self.assertTemplateUsed(res, 'nova/images/launch.html')
+        self.assertTemplateUsed(res, 
+                                'nova/images_and_snapshots/images/launch.html')
 
         form = res.context['form']
 
@@ -362,7 +298,9 @@ class ImageViewTests(test.BaseViewTests):
         messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
-        url = reverse('horizon:nova:images:launch', args=[IMAGE_ID])
+        url = reverse('horizon:nova:images_and_snapshots:images:launch',
+                      args=[IMAGE_ID])
         res = self.client.post(url, form_data)
 
-        self.assertTemplateUsed(res, 'nova/images/launch.html')
+        self.assertTemplateUsed(res,
+                                'nova/images_and_snapshots/images/launch.html')

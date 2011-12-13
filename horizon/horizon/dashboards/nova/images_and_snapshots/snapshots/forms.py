@@ -49,7 +49,7 @@ class CreateSnapshot(forms.SelfHandlingForm):
             messages.info(request,
                      _('Snapshot "%(name)s" created for instance "%(inst)s"') %
                     {"name": data['name'], "inst": instance.name})
-            return shortcuts.redirect('horizon:nova:snapshots:index')
+            return shortcuts.redirect('horizon:nova:images_and_snapshots:snapshots:index')
         except api_exceptions.ApiException, e:
             msg = _('Error Creating Snapshot: %s') % e.message
             LOG.exception(msg)

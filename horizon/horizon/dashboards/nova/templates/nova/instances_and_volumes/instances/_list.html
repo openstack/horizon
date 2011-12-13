@@ -5,7 +5,7 @@
 <div class="table_title">
   <h3>{% trans "My Instances" %}</h3>
   <div class="table_actions">
-    <a class="btn small primary" href='{% url horizon:nova:images:index %}'>{% trans "Launch Instance" %}</a>
+    <a class="btn small primary" href='{% url horizon:nova:images_and_snapshots:images:index %}'>{% trans "Launch Instance" %}</a>
     <div class="instances table_search">
       <form action="#">
         <input class="span3" type="text">
@@ -44,7 +44,7 @@
             <li><a class="btn small" target='_blank' href='{% url horizon:nova:instances_and_volumes:instances:vnc instance.id %}'>{% trans 'VNC Console'%}</a></li>
             <li><a class='btn small' target='_blank' href='{% url horizon:nova:instances_and_volumes:instances:console instance.id %}'>{% trans 'Log'%}</a></li>
             <li><a class='btn small' href='{% url horizon:nova:instances_and_volumes:instances:update instance.id %}'>{% trans 'Edit'%}</a></li>
-            <li><a class='btn small' href='{% url horizon:nova:snapshots:create instance.id %}'>{% trans 'Snapshot'%}</a></li>
+            <li><a class='btn small' href='{% url horizon:nova:images_and_snapshots:snapshots:create instance.id %}'>{% trans 'Snapshot'%}</a></li>
             <li>{% include 'nova/instances_and_volumes/instances/_reboot.html' with form=reboot_form %}</li>
             <li>{% include 'nova/instances_and_volumes/instances/_terminate.html' with form=terminate_form %}</li>
           </ul>

@@ -18,10 +18,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns, url
 
 
-urlpatterns = patterns('horizon.dashboards.nova.images.views',
+urlpatterns = patterns('horizon.dashboards.nova.images_and_snapshots.snapshots.views',
     url(r'^$', 'index', name='index'),
-    url(r'^(?P<image_id>[^/]+)/launch/$', 'launch', name='launch'),
-    url(r'^(?P<image_id>[^/]+)/update/$', 'update', name='update'))
+    url(r'^(?P<instance_id>[^/]+)/create', 'create', name='create'))
