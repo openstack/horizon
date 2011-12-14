@@ -643,12 +643,11 @@ table form {
   margin-bottom: 115px;
 }
 
-
-#security_group_rule_modal .left input, #security_group_rule_modal .left select, #security_group_rule_modal .left {
-  width: 150px;
+#edit_security_group_rule_form {
+    float: right;
+    width: 163px;
 }
-
-#security_group_rule_modal .left fieldset {
+#edit_security_group_rule_form fieldset {
     width: 163px;
 }
 
@@ -658,12 +657,13 @@ table form {
 
 #security_group_rule_modal .right {
     width: 475px;
+    float: right;
+    margin-left: 25px;
 }
 
 #security_group_rule_modal .right table {
     margin-top: 31px;
 }
-
 table tr.odd.good td { border: 1px solid #92fd75; }
 table tr.even.good td { border: 1px solid #88f06d; }
 table tr.odd.bad td { border: 1px solid #ffb7b8; }
