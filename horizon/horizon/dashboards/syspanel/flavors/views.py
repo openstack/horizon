@@ -53,6 +53,8 @@ def index(request):
         messages.error(request, _('Unauthorized.'))
     except Exception, e:
         LOG.exception('Exception while fetching usage info')
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request, _('Unable to get flavor list: %s') % e.message)
 
     flavors.sort(key=lambda x: x.id, reverse=True)

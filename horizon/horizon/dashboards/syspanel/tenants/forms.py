@@ -180,6 +180,8 @@ class DeleteTenant(forms.SelfHandlingForm):
                                      % {"tenant": tenant_id})
         except Exception, e:
             LOG.exception("Error deleting tenant")
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                            _("Error deleting tenant: %s") % e.message)
         return shortcuts.redirect(request.build_absolute_uri())
