@@ -63,6 +63,8 @@ def horizon(request):
             context['authorized_tenants'] = tenants
         except Exception, e:
             if hasattr(request.user, 'message_set'):
+                if not hasattr(e, 'message'):
+                    e.message = str(e)
                 messages.error(request, _("Unable to retrieve tenant list: %s")
                                % e.message)
             else:

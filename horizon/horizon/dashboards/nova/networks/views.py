@@ -64,6 +64,8 @@ def index(request):
 
     except Exception, e:
         LOG.exception("Unable to get network list.")
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request,
                        _('Unable to get network list: %s') % e.message)
 
@@ -101,6 +103,8 @@ def detail(request, network_id):
         network['ports'] = _get_port_states(request, network_id)
     except Exception, e:
         LOG.exception("Unable to get network details.")
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request,
                        _('Unable to get network details: %s') % e.message)
         return shortcuts.redirect("horizon:nova:networks:index")

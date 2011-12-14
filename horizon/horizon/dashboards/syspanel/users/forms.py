@@ -75,6 +75,8 @@ class UserForm(BaseUserForm):
             except Exception, e:
                 LOG.exception('Exception while assigning \
                                role to new user: %s' % new_user.id)
+                if not hasattr(e, 'message'):
+                    e.message = str(e)
                 messages.error(request,
                                _('Error assigning role to user: %s')
                                % e.message)
@@ -85,6 +87,8 @@ class UserForm(BaseUserForm):
             LOG.exception('Exception while creating user\n'
                       'name: "%s", email: "%s", tenant_id: "%s"' %
                       (data['name'], data['email'], data['tenant_id']))
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                             _('Error creating user: %s')
                              % e.message)

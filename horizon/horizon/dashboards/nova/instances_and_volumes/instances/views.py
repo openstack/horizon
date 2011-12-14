@@ -54,6 +54,8 @@ def index(request):
         instances = api.server_list(request)
     except Exception as e:
         LOG.exception(_('Exception in instance index'))
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request, _('Unable to get instance list: %s')
                        % e.message)
 
@@ -69,6 +71,8 @@ def index(request):
         messages.error(request, _('Unauthorized.'))
     except Exception, e:
         LOG.exception('Exception while fetching flavor info')
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request, _('Unable to get flavor info: %s') % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
@@ -90,6 +94,8 @@ def refresh(request):
     try:
         instances = api.server_list(request)
     except Exception as e:
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request,
                        _('Unable to get instance list: %s') % e.message)
 
@@ -276,6 +282,8 @@ def detail(request, instance_id):
         messages.error(request, _('Unauthorized.'))
     except Exception, e:
         LOG.exception('Exception while fetching flavor info')
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request, _('Unable to get flavor info: %s') % e.message)
 
     return shortcuts.render(request,
