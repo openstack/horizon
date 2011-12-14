@@ -50,6 +50,8 @@ def index(request):
         messages.error(request, _('Unable to get user info: %s') % e.message)
     except Exception, e:
         LOG.exception('Exception while getting user list')
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request, _('Unable to get user info: %s') % e.message)
 
     user_delete_form = UserDeleteForm()

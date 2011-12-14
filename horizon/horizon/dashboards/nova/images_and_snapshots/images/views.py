@@ -115,6 +115,8 @@ def launch(request, image_id):
     try:
         quotas.ram = int(quotas.ram)
     except Exception, e:
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request,
                 _('Error parsing quota  for %(image)s: %(msg)s') %
                 {"image": image_id, "msg": e.message})
