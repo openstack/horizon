@@ -22,6 +22,7 @@ from django.conf.urls.defaults import patterns, url, include
 from django.views.generic import TemplateView
 
 urlpatterns = patterns('horizon.views.auth',
+    url(r'home/$', 'user_home', name='user_home'),
     url(r'auth/login/$', 'login', name='auth_login'),
     url(r'auth/logout/$', 'logout', name='auth_logout'),
     url(r'auth/switch/(?P<tenant_id>[^/]+)/$', 'switch_tenants',

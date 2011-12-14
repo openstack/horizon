@@ -1,7 +1,7 @@
 {% load horizon i18n %}
 
 <div class='sidebar'>
-  <h1 class="brand clearfix"><a href="{% url splash %}">{% trans "OpenStack Dashboard"%}</a></h1>
+  <h1 class="brand clearfix"><a href="{% url horizon:user_home %}">{% trans "OpenStack Dashboard"%}</a></h1>
   <div class='clearfix'>
     <ul class="tabs">
       {% horizon_main_nav %}
