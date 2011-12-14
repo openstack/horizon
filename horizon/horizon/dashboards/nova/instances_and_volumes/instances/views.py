@@ -28,6 +28,7 @@ from django import http
 from django import shortcuts
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext as _
 import openstackx.api.exceptions as api_exceptions
 
@@ -55,6 +56,20 @@ def index(request):
         LOG.exception(_('Exception in instance index'))
         messages.error(request, _('Unable to get instance list: %s')
                        % e.message)
+
+    # Gather our flavors and correlate our instances to them
+    try:
+        flavors = api.flavor_list(request)
+        full_flavors = SortedDict([(str(flavor.id), flavor) for \
+                                    flavor in flavors])
+        for instance in instances:
+            instance.full_flavor = full_flavors[instance.flavor["id"]]
+    except api_exceptions.Unauthorized, e:
+        LOG.exception('Unauthorized attempt to access flavor list.')
+        messages.error(request, _('Unauthorized.'))
+    except Exception, e:
+        LOG.exception('Exception while fetching flavor info')
+        messages.error(request, _('Unable to get flavor info: %s') % e.message)
 
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
@@ -249,6 +264,19 @@ def detail(request, instance_id):
             {"inst": instance_id, "msg": e.message})
         return shortcuts.redirect(
                           'horizon:nova:instances_and_volumes:instances:index')
+
+    # Gather our flavors and images and correlate our instances to them
+    try:
+        flavors = api.flavor_list(request)
+        full_flavors = SortedDict([(str(flavor.id), flavor) for \
+                                    flavor in flavors])
+        instance.full_flavor = full_flavors[instance.flavor["id"]]
+    except api_exceptions.Unauthorized, e:
+        LOG.exception('Unauthorized attempt to access flavor list.')
+        messages.error(request, _('Unauthorized.'))
+    except Exception, e:
+        LOG.exception('Exception while fetching flavor info')
+        messages.error(request, _('Unable to get flavor info: %s') % e.message)
 
     return shortcuts.render(request,
                         'nova/instances_and_volumes/instances/detail.html', {

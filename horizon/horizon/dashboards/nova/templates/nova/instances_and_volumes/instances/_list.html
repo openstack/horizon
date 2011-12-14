@@ -35,7 +35,7 @@
           <a href="{% url horizon:nova:instances_and_volumes:instances:detail instance.id %}">{{ instance.name }}</a>
         </td>
         <td>
-          {{ instance.attrs.memory_mb|mbformat }} Ram | {{ instance.attrs.vcpus }} VCPU | {{ instance.attrs.disk_gb }}GB Disk
+          {{ instance.full_flavor.ram|mbformat }} Ram | {{ instance.full_flavor.vcpus }} VCPU | {{ instance.full_flavor.disk }}GB Disk
         </td>
         <td>{{ instance.status|lower|capfirst }}</td>
         <td id="name_{{ instance.name }}" class="actions">

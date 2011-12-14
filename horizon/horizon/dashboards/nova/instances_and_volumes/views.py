@@ -30,6 +30,7 @@ from django import shortcuts
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
+from django.utils.datastructures import SortedDict
 from novaclient import exceptions as novaclient_exceptions
 import openstackx.api.exceptions as api_exceptions
 
@@ -51,18 +52,36 @@ def index(request):
         form, handled = f.maybe_handle(request)
         if handled:
             return handled
+
+    # Gather our instances
     try:
         instances = api.server_list(request)
     except api_exceptions.ApiException as e:
         instances = []
         LOG.exception(_('Exception in instance index'))
         messages.error(request, _('Unable to fetch instances: %s') % e.message)
+
+    # Gather our volumes
     try:
         volumes = api.volume_list(request)
     except novaclient_exceptions.ClientException, e:
         volumes = []
         LOG.exception("ClientException in volume index")
         messages.error(request, _('Unable to fetch volumes: %s') % e.message)
+
+    # Gather our flavors and correlate our instances to them
+    try:
+        flavors = api.flavor_list(request)
+        full_flavors = SortedDict([(str(flavor.id), flavor) for \
+                                    flavor in flavors])
+        for instance in instances:
+            instance.full_flavor = full_flavors[instance.flavor["id"]]
+    except api_exceptions.Unauthorized, e:
+        LOG.exception('Unauthorized attempt to access flavor list.')
+        messages.error(request, _('Unauthorized.'))
+    except Exception, e:
+        LOG.exception('Exception while fetching flavor info')
+        messages.error(request, _('Unable to get flavor info: %s') % e.message)
 
     terminate_form = TerminateInstance()
     reboot_form = RebootInstance()

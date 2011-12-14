@@ -71,7 +71,7 @@ class Server(APIResourceWrapper):
     """
     _attrs = ['addresses', 'attrs', 'hostId', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
-             'image_name', 'VirtualInterfaces']
+             'image_name', 'VirtualInterfaces', 'flavor', 'key_name']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
