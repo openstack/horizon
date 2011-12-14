@@ -28,9 +28,10 @@ from django import template
 from openstackx.api import exceptions as api_exceptions
 from novaclient import exceptions as novaclient_exceptions
 from horizon import api
-from horizon.dashboards.nova.images.forms import LaunchForm
-from horizon.utils import assignment_tag
+from horizon.dashboards.nova.images_and_snapshots.images.forms import \
+                                                                     LaunchForm
 
+from horizon.utils import assignment_tag
 
 LOG = logging.getLogger(__name__)
 register = template.Library()

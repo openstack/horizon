@@ -65,59 +65,6 @@ class SnapshotsViewTests(test.BaseViewTests):
         security_group.name = 'default'
         self.security_groups = (security_group,)
 
-    def test_index(self):
-        self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).\
-                                   AndReturn(self.images)
-
-        self.mox.StubOutWithMock(api, 'flavor_list')
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
-
-        self.mox.StubOutWithMock(api, 'keypair_list')
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
-                                    self.security_groups)
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:nova:snapshots:index'))
-
-        self.assertTemplateUsed(res, 'nova/snapshots/index.html')
-
-        self.assertIn('images', res.context)
-        images = res.context['images']
-        self.assertEqual(len(images), 1)
-
-    def test_index_client_conn_error(self):
-        self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-        exception = glance_exception.ClientConnectionError('clientConnError')
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
-
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:nova:snapshots:index'))
-
-        self.assertTemplateUsed(res, 'nova/snapshots/index.html')
-
-    def test_index_glance_error(self):
-        self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-        exception = glance_exception.GlanceException('glanceError')
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
-
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:nova:snapshots:index'))
-
-        self.assertTemplateUsed(res, 'nova/snapshots/index.html')
-
     def test_create_snapshot_get(self):
         self.mox.StubOutWithMock(api, 'server_get')
         api.server_get(IsA(http.HttpRequest),
@@ -125,10 +72,12 @@ class SnapshotsViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:nova:snapshots:create',
-                                      args=[self.good_server.id]))
+        res = self.client.get(
+                reverse('horizon:nova:images_and_snapshots:snapshots:create',
+                        args=[self.good_server.id]))
 
-        self.assertTemplateUsed(res, 'nova/snapshots/create.html')
+        self.assertTemplateUsed(res,
+                            'nova/images_and_snapshots/snapshots/create.html')
 
     def test_create_snapshot_get_with_invalid_status(self):
         self.mox.StubOutWithMock(api, 'server_get')
@@ -137,8 +86,9 @@ class SnapshotsViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:nova:snapshots:create',
-                                      args=[self.bad_server.id]))
+        res = self.client.get(
+                reverse('horizon:nova:images_and_snapshots:snapshots:create',
+                        args=[self.bad_server.id]))
 
         self.assertRedirectsNoFollow(res,
                 reverse('horizon:nova:instances_and_volumes:instances:index'))
@@ -151,8 +101,9 @@ class SnapshotsViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:nova:snapshots:create',
-                                      args=[self.good_server.id]))
+        res = self.client.get(
+                reverse('horizon:nova:images_and_snapshots:snapshots:create',
+                        args=[self.good_server.id]))
 
         self.assertRedirectsNoFollow(res,
                 reverse('horizon:nova:instances_and_volumes:instances:index'))
@@ -179,12 +130,13 @@ class SnapshotsViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('horizon:nova:snapshots:create',
-                                      args=[self.good_server.id]),
-                               formData)
+        res = self.client.post(
+                reverse('horizon:nova:images_and_snapshots:snapshots:create',
+                        args=[self.good_server.id]),
+                        formData)
 
         self.assertRedirectsNoFollow(res,
-                                     reverse('horizon:nova:snapshots:index'))
+                reverse('horizon:nova:images_and_snapshots:snapshots:index'))
 
     def test_create_snapshot_post_exception(self):
         SNAPSHOT_NAME = 'snappy'
@@ -206,10 +158,11 @@ class SnapshotsViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('horizon:nova:snapshots:create',
-                                      args=[self.good_server.id]),
-                               formData)
+        res = self.client.post(
+                reverse('horizon:nova:images_and_snapshots:snapshots:create',
+                        args=[self.good_server.id]),
+                        formData)
 
         self.assertRedirectsNoFollow(res,
-                                     reverse('horizon:nova:snapshots:create',
-                                             args=[self.good_server.id]))
+                 reverse('horizon:nova:images_and_snapshots:snapshots:create',
+                 args=[self.good_server.id]))

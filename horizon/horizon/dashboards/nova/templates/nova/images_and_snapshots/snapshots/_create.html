@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block form_id %}create_snapshot_form{% endblock %}
-{% block form_action %}{% url horizon:nova:snapshots:create instance.id %}{% endblock %}
+{% block form_action %}{% url horizon:nova:images_and_snapshots:snapshots:create instance.id %}{% endblock %}
 
 {% block modal_id %}create_snapshot_modal{% endblock %}
 {% block modal-header %}{%trans "Create Snapshot"%}{% endblock %}
@@ -21,5 +21,5 @@
 
 {% block modal-footer %}
      <input class="btn primary pull-right" type="submit" value="{%trans "Create Snapshot"%}" />
-     <a href="{% url horizon:nova:snapshots:index %}" class="btn secondary cancel close">Cancel</a>
+     <a href="{% url horizon:nova:images_and_snapshots:snapshots:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

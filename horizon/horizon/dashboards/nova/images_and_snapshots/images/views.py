@@ -33,8 +33,8 @@ from novaclient import exceptions as novaclient_exceptions
 from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
-from horizon.dashboards.nova.images.forms import (UpdateImageForm,
-        LaunchForm, DeleteImage)
+from horizon.dashboards.nova.images_and_snapshots.images.forms import \
+                                    (UpdateImageForm, LaunchForm, DeleteImage)
 
 
 LOG = logging.getLogger(__name__)
@@ -67,11 +67,11 @@ def index(request):
 
     context = {'delete_form': DeleteImage(), 'images': images}
 
-    if images:
-        quotas = api.tenant_quota_get(request, request.user.tenant_id)
-        context['quotas'] = quotas
-
-    return shortcuts.render(request, 'nova/images/index.html', context)
+    return shortcuts.render(request,
+                            'nova/images_and_snapshots/images/index.html', {
+                                'delete_form': DeleteImage(),
+                                'quotas': quotas,
+                                'images': images})
 
 
 @login_required
@@ -131,7 +131,7 @@ def launch(request, image_id):
         return handled
 
     return shortcuts.render(request,
-                            'nova/images/launch.html', {
+                            'nova/images_and_snapshots/images/launch.html', {
                                 'image': image,
                                 'form': form,
                                 'quotas': quotas})
@@ -164,4 +164,4 @@ def update(request, image_id):
 
     context = {'form': form, "image": image}
 
-    return shortcuts.render(request, 'nova/images/update.html', context)
+    return shortcuts.render(request, 'nova/images_and_snapshots/images/update.html', context)
