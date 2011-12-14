@@ -43,7 +43,7 @@
       <td>{{ instance.status|lower|capfirst }}</td>
       <td id="actions">
         <ul>
-          {% if instance.status != "ACTIVE" %}
+          {% if instance.status == "ACTIVE" %}
           <li class="form">{% include "syspanel/instances/_reboot.html" with form=reboot_form %}</li>
           <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances_and_volumes:instances:console instance.id %}">{% trans "Console Log" %}</a></li>
           <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances_and_volumes:instances:vnc instance.id %}">{% trans "VNC Console" %}</a></li>
