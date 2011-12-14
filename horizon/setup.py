@@ -37,7 +37,10 @@ setup(
     packages = find_packages(),
     package_data = {'horizon':
                         [s[len('horizon/'):] for s in
-                         findall('horizon/templates')]},
+                         findall('horizon/templates') \
+                             + findall('horizon/dashboards/nova/templates') \
+                             + findall('horizon/dashboards/syspanel/templates') \
+                             + findall('horizon/dashboards/settings/templates')]},
     install_requires = ['setuptools', 'mox>=0.5.3', 'django_nose'],
     classifiers = [
         'Development Status :: 4 - Beta',
