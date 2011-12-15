@@ -1,5 +1,6 @@
 {% extends 'syspanel/base.html' %}
 {% load i18n %}
+{% block title %}Users{% endblock %}
 
 {% block page_header %}
   {% url horizon:syspanel:users:index as refresh_link %}

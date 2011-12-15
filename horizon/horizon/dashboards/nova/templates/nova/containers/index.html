@@ -1,5 +1,6 @@
 {% extends 'nova/base.html' %}
 {% load i18n %}
+{% block title %}Containers{% endblock %}
 
 {% block page_header %}
   {% url horizon:nova:images_and_snapshots:images:index as refresh_link %}

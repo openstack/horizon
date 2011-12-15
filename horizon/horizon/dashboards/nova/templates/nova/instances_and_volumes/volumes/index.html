@@ -1,5 +1,6 @@
 {% extends 'nova/base.html' %}
 {% load i18n %}
+{% block title %}Volumes{% endblock %}
 
 {% block page_header %}
   {% url horizon:nova:instances_and_volumes:volumes:index as refresh_link %}

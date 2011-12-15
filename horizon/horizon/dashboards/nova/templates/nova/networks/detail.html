@@ -1,5 +1,6 @@
 {% extends 'nova/base.html' %}
 {% load i18n %}
+{% block title %}Network Detail{% endblock %}
 
 {% block page_header %}
   {% url horizon:nova:networks:detail network.id as refresh_link %}

@@ -1,5 +1,6 @@
 {% extends 'syspanel/base.html' %}
 {% load i18n %}
+{% block title %}Instances{% endblock %}
 
 {% block page_header %}
   {% url horizon:syspanel:instances:index as refresh_link %}

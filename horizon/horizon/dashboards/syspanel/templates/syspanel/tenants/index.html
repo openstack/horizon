@@ -1,5 +1,6 @@
 {% extends 'syspanel/base.html' %}
 {% load i18n %}
+{% block title %}Tenants{% endblock %}
 
 {% block page_header %}
   {% url horizon:syspanel:tenants:index as refresh_link %}
