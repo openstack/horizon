@@ -14,12 +14,12 @@
     </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description"%}:</h3>
-    <p>{% trans "From here you can create a new tenant (aka project) to organize users."%}</p>
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% trans "From here you can create a new tenant (aka project) to organize users." %}</p>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
-    <input class="btn primary pull-right" type="submit" value="{%trans "Create Tenant" %}" />
+    <input class="btn primary pull-right" type="submit" value="{% trans "Create Tenant" %}" />
     <a href="{% url horizon:syspanel:tenants:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

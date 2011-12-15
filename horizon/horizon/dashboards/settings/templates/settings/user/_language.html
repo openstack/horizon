@@ -9,9 +9,9 @@
 
 {% block modal-body %}
 <div class="left">
-    <h3>{% trans "Dashboard User Interface Language"%}</h3>
+    <h3>{% trans "Dashboard User Interface Language" %}</h3>
     <fieldset>
-        <label for="language_select">{% trans "Language Settings"%}</label>
+        <label for="language_select">{% trans "Language Settings" %}</label>
         <div class="input">
         <p><select name="language">
         {% get_language_info_list for LANGUAGES as languages %}
@@ -27,8 +27,8 @@
     </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description:"%}</h3>
-    <p>{% trans "From here you can modify different settings for your dashboard."%}</p>
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "From here you can modify different settings for your dashboard." %}</p>
 </div>
 {% endblock %}
 

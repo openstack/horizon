@@ -21,9 +21,9 @@
           <div class="status">
             <h4>Status</h4>
             <ul>
-              <li><span>Status:</span> {{instance.status}}</li>
-              <li><span>Instance Name:</span> {{instance.name}}</li>
-              <li><span>Instance ID:</span> {{instance.id}}</li>
+              <li><span>Status:</span> {{ instance.status }}</li>
+              <li><span>Instance Name:</span> {{ instance.name }}</li>
+              <li><span>Instance ID:</span> {{ instance.id }}</li>
             </ul>
           </div>
         </li>
@@ -32,9 +32,9 @@
           <div class="specs">
             <h4>Specs</h4>
             <ul>
-              <li><span>RAM:</span> {{instance.attrs.memory_mb}} MB</li>
-              <li><span>VCPUs:</span> {{instance.attrs.vcpus}} VCPU</li>
-              <li><span>Disk:</span> {{instance.attrs.disk_gb}}GB Disk</li>
+              <li><span>RAM:</span> {{ instance.attrs.memory_mb }} MB</li>
+              <li><span>VCPUs:</span> {{ instance.attrs.vcpus }} VCPU</li>
+              <li><span>Disk:</span> {{ instance.attrs.disk_gb }}GB Disk</li>
             </ul>
           </div>
         </li>
@@ -43,9 +43,9 @@
           <div class="meta">
             <h4>Meta</h4>
             <ul>
-              <li><span>Key name:</span> {{instance.attrs.key_name}}</li>
-              <li><span>Security Group(s):</span> {% for group in instance.attrs.security_groups %}{{group}}, {% endfor %}</li>
-              <li><span>Image Name:</span> {{instance.image_name}}</li>
+              <li><span>Key name:</span> {{ instance.attrs.key_name }}</li>
+              <li><span>Security Group(s):</span> {% for group in instance.attrs.security_groups %}{{ group }}, {% endfor %}</li>
+              <li><span>Image Name:</span> {{ instance.image_name }}</li>
             </ul>
           </div>
         </li>
@@ -58,7 +58,7 @@
     </div>
 
     <div id="vnc" class="tab_wrapper">
-      <iframe src="{{vnc_url}}" width="720" height="420"></iframe>
+      <iframe src="{{ vnc_url }}" width="720" height="420"></iframe>
     </div>
 
   </div>

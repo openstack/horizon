@@ -11,11 +11,11 @@
 {% block dash_main %}
   {% if network.ports %}
     {% include 'nova/networks/_detail.html' %}
-    <a id="network_create_link" class="btn small" href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports"%}</a>
+    <a id="network_create_link" class="btn small" href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports" %}</a>
   {% else %}
     <div class="alert-message block-message info">
-     <h2>{% trans "Info"%}</h2>
-     <p>{% trans "There are currently no ports in this network."%} <a class='btn small' href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports"%}</a></p>
+     <h2>{% trans "Info" %}</h2>
+     <p>{% trans "There are currently no ports in this network." %} <a class='btn small' href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports" %}</a></p>
     </div>
   {% endif %}
 {% endblock %}

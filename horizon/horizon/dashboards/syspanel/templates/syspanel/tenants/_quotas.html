@@ -4,7 +4,7 @@
 {% block form_id %}quota_update_form{% endblock %}
 {% block form_action %}{% url horizon:syspanel:tenants:quotas tenant_id %}{% endblock %}
 
-{% block modal-header %}{%trans "Update Quota"%}{% endblock %}
+{% block modal-header %}{% trans "Update Quota" %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -13,12 +13,12 @@
     </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description"%}:</h3>
-    <p>{% trans "From here you can edit quotas (max limits) for the tenant {{tenant_id}}."%}</p>
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% trans "From here you can edit quotas (max limits) for the tenant {{ tenant_id }}." %}</p>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
-    <input class="btn primary pull-right" type="submit" value="{%trans "Update Quota"%}" />
+    <input class="btn primary pull-right" type="submit" value="{% trans "Update Quota" %}" />
   <a href="{% url horizon:syspanel:tenants:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

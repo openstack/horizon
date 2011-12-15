@@ -7,20 +7,20 @@
   {% endfor %}
   {% for field in form.visible_fields %}
     <div class="clearfix{% if field.errors %} error{% endif %}">
-      {{field.label_tag}}
+      {{ field.label_tag }}
       <div class="input">
-        {{field}}
+        {{ field }}
         {% if field.errors %}
           {% for error in field.errors %}
-            <span class="help-inline">{{error}}</span>
+            <span class="help-inline">{{ error }}</span>
           {% endfor %}
         {% endif %}
-        <span class="help-block">{{field.help_text}}</span>
+        <span class="help-block">{{ field.help_text }}</span>
       </div>
     </div>
   {% endfor %}
   {% block modal-footer %}
-    <input class="btn primary" type="submit" value="{%trans "Login"%}" />
+    <input class="btn primary" type="submit" value="{% trans "Login" %}" />
   {% endblock %}
   </fieldset>
 </form>

@@ -28,7 +28,7 @@
     {% for volume in volumes %}
     <tr class="{% cycle 'odd' 'even' %}">
       <td></t<td class="select">
-        <input type="checkbox" name="volume_{{volume.id}}" value="volume_{{volume.id}}" id="volume_select_{{volume.id}}" />
+        <input type="checkbox" name="volume_{{ volume.id }}" value="volume_{{ volume.id }}" id="volume_select_{{ volume.id }}" />
       </td>
       <td>{{ volume.displayName }}</td>
       <td>{{ volume.size }} {% trans "GB" %}</td>

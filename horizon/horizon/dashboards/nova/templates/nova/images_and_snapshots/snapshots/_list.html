@@ -26,15 +26,15 @@
   {% for image in snapshots %}
   <tr class="{% cycle 'odd' 'even' %}">
       <td class="select">
-        <input type="checkbox" name="image_{{image.id}}" value="image_{{image.id}}" id="image_select_{{image.id}}" />
+        <input type="checkbox" name="image_{{ image.id }}" value="image_{{ image.id }}" id="image_select_{{ image.id }}" />
       </td>
-      <td>{{image.name}}</td>
-      <td>{{image.properties.image_type|default:"Image"}}</td>
-      <td>{{image.status|capfirst}}</td>
+      <td>{{ image.name }}</td>
+      <td>{{ image.properties.image_type|default:"Image" }}</td>
+      <td>{{ image.status|capfirst }}</td>
       <td>
-        <a class="btn small primary" data-controls-modal="launch_image_{{image.id}}" data-backdrop="static" href="{% url horizon:nova:images_and_snapshots:images:launch image.id %}">{% trans "Launch" %}</a>
+        <a class="btn small primary" data-controls-modal="launch_image_{{ image.id }}" data-backdrop="static" href="{% url horizon:nova:images_and_snapshots:images:launch image.id %}">{% trans "Launch" %}</a>
       </td>
-      <td id="name_{{image.name}}" class="actions">
+      <td id="name_{{ image.name }}" class="actions">
         {% if image.owner == request.user.tenant_id %}
         <a class="more-actions" href="#">View</a>
         <ul>

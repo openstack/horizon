@@ -17,9 +17,9 @@
     {% include 'nova/instances_and_volumes/volumes/_list.html' %}
   {% else %}
     <div class="alert-message block-message info">
-      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no volumes."%}</p>
+      <p><strong>{% trans "Info: " %}</strong>{% trans "There are currently no volumes." %}</p>
       <div class="alert-actions">
-        <a id="volume_create_link" class="btn primary small" data-controls-modal="create_volume_modal" data-backdrop="static" href="{% url horizon:nova:instances_and_volumes:volumes:create %}">{% trans "Create New Volume"%}</a>
+        <a id="volume_create_link" class="btn primary small" data-controls-modal="create_volume_modal" data-backdrop="static" href="{% url horizon:nova:instances_and_volumes:volumes:create %}">{% trans "Create New Volume" %}</a>
       </div>
     </div>
   {% endif %}

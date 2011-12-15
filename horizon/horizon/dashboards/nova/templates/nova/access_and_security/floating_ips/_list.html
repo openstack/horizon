@@ -25,14 +25,14 @@
   {% for ip in floating_ips %}
   <tr class="{% cycle 'odd' 'even' %}">
     <td class="select">
-      <input type="checkbox" name="ip_{{ip.id}}" value="ip_{{ip.id}}" id="ip_select_{{ip.id}}" />
+      <input type="checkbox" name="ip_{{ ip.id }}" value="ip_{{ ip.id }}" id="ip_select_{{ ip.id }}" />
     </td>
     <td>{{ip.ip }}</td>
     <td>
       {% if ip.fixed_ip %}
         <ul>
-          <li><span>{% trans "Instance ID:" %}</span> {{ip.instance_id }}</li>
-          <li><span>{% trans "Fixed IP:" %}</span> {{ip.fixed_ip }}</li>
+          <li><span>{% trans "Instance ID:" %}</span> {{ ip.instance_id }}</li>
+          <li><span>{% trans "Fixed IP:" %}</span> {{ ip.fixed_ip }}</li>
         </ul>
       {% else %}
         None
@@ -45,7 +45,7 @@
         <a class="btn primary small ajax-modal" href="{% url horizon:nova:access_and_security:floating_ips:associate ip.id %}">{% trans "Associate to instance" %}</a>
       {% endif %}
     </td>
-    <td id="name_{{ip.name}}" class="actions">
+    <td id="name_{{ ip.name }}" class="actions">
       <a class="more-actions" href="#">More</a>
       <ul>
         <li class="form">{% include "nova/access_and_security/floating_ips/_release.html" with form=release_form %}</li>

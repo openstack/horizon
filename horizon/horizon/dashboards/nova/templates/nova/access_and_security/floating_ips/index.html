@@ -13,7 +13,7 @@
     {% include 'nova/access_and_security/floating_ips/_list.html' %}
   {% else %}
     <div class="alert-message block-message info">
-      <p><strong>{% trans "Info: "%}</strong>{% trans "There are currently no floating ips assigned to your tenant."%}</p>
+      <p><strong>{% trans "Info: " %}</strong>{% trans "There are currently no floating ips assigned to your tenant." %}</p>
       <div class="alert-actions">
         {% include "nova/access_and_security/floating_ips/_allocate.html" with form=allocate_form %}
       </div>

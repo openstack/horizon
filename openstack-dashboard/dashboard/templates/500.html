@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %} - {% trans "Internal Server Error"%}{% endblock %}
+{% block title %} - {% trans "Internal Server Error" %}{% endblock %}
 
 {% block content %}
   <div id="right_content">
     <div id="page_head">
-      <h2 id="page_heading">{% trans "Internal Server Error"%}</h2>
-      <p id="page_description">{% trans "An unexpected error occurred while processing your request.  Please try your request again."%}</p>
+      <h2 id="page_heading">{% trans "Internal Server Error" %}</h2>
+      <p id="page_description">{% trans "An unexpected error occurred while processing your request.  Please try your request again." %}</p>
     </div>
   </div>
 {% endblock %}
@@ -16,11 +16,11 @@
   <div id="sidebar">
     <ul id="navigation">
       {% block nav_home %}
-      <li><h3><a href="{% url index %}">{% trans "Home"%}</a></h3></li>
+      <li><h3><a href="{% url index %}">{% trans "Home" %}</a></h3></li>
       {% endblock %}
 
       {% block nav_projects %}
-      <li><h3><a href="{% url index %}">{% trans "Projects"%}</a></h3></li>
+      <li><h3><a href="{% url index %}">{% trans "Projects" %}</a></h3></li>
       {% endblock %}
     </ul>
   </div> <!-- end sidebar -->

@@ -13,12 +13,12 @@
     </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description:"%}</h3>
-    <p>{% trans "Networks provide layer 2 connectivity to your instances."%}</p>
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "Networks provide layer 2 connectivity to your instances." %}</p>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
-  <input type="submit" class='btn small primary create' value="{%trans "Create Port" %}" />
+  <input type="submit" class='btn small primary create' value="{% trans "Create Port" %}" />
   <a href="{% url horizon:nova:networks:detail network_id %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

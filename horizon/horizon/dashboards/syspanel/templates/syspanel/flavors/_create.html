@@ -5,7 +5,7 @@
 {% block form_action %}{% url horizon:syspanel:flavors:create %}{% endblock %}
 
 {% block modal_id %}create_flavor_modal{% endblock %}
-{% block modal-header %}{%trans "Create Flavor"%}{% endblock %}
+{% block modal-header %}{% trans "Create Flavor" %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -14,12 +14,12 @@
     </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description"%}:</h3>
-    <p>{% trans "From here you can define the sizing of a new flavor."%}</p>
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% trans "From here you can define the sizing of a new flavor." %}</p>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
-  <input class="btn primary pull-right" type="submit" value="{%trans "Create Flavor"%}" />
+  <input class="btn primary pull-right" type="submit" value="{% trans "Create Flavor" %}" />
   <a href="{% url horizon:syspanel:flavors:index" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

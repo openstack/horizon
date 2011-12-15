@@ -5,7 +5,7 @@
 {% block form_action %}{% url horizon:nova:instances_and_volumes:volumes:attach volume_id %}{% endblock %}
 
 {% block modal_id %}attach_volume_modal{% endblock %}
-{% block modal-header %}{%trans "Attach Volume"%}{% endblock %}
+{% block modal-header %}{% trans "Attach Volume" %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -20,6 +20,6 @@
 {% endblock %}
 
 {% block modal-footer %}
-    <input class="btn primary pull-right" type="submit" value="{%trans "Attach Volume"%}" />
+    <input class="btn primary pull-right" type="submit" value="{% trans "Attach Volume" %}" />
     <a href="{% url horizon:nova:instances_and_volumes:volumes:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

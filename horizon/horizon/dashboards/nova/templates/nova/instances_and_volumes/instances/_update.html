@@ -13,12 +13,12 @@
     </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description:"%}</h3>
-    <p>{% trans "Update the name of your instance"%}</p>
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "Update the name of your instance" %}</p>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
-  <input class="btn primary pull-right" type="submit" value="{%trans "Update Instance"%}" />
+  <input class="btn primary pull-right" type="submit" value="{% trans "Update Instance" %}" />
   <a href="{% url horizon:nova:instances_and_volumes:instances:index %}" class="btn secondary cancel close">Cancel</a>
 {% endblock %}

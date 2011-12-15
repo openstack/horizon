@@ -12,8 +12,8 @@
       <div id="user_info" class="pull-right">
         <p>
           Logged in as: {{ request.user.username }}.
-          <a href="{% url horizon:settings:user:index %}">{% trans "Settings"%}</a>
-          <a href="{% url horizon:auth_logout %}">{% trans "Sign Out"%}</a>
+          <a href="{% url horizon:settings:user:index %}">{% trans "Settings" %}</a>
+          <a href="{% url horizon:auth_logout %}">{% trans "Sign Out" %}</a>
         </p>
       </div>
     {% endblock %}
