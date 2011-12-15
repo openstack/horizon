@@ -73,8 +73,6 @@ def index(request):
         LOG.exception("ClientException in floating ip index")
         messages.error(request,
                     _('Error fetching floating ips: %s') % e.message)
-    allocate_form = FloatingIpAllocate(initial={
-                                     'tenant_id': request.user.tenant_id})
     try:
         keypairs = api.keypair_list(request)
     except novaclient_exceptions.ClientException, e:
@@ -86,9 +84,10 @@ def index(request):
                'floating_ips': floating_ips,
                'security_groups': security_groups,
                'keypair_delete_form': DeleteKeypair(),
-               'allocate_form': FloatingIpAllocate(),
                'disassociate_form': FloatingIpDisassociate(),
                'release_form': ReleaseFloatingIp(),
+               'allocate_form': FloatingIpAllocate(initial={
+                                        'tenant_id': request.user.tenant_id}),
                'sec_group_create_form': CreateGroup(
                                             initial={'tenant_id': tenant_id}),
                'sec_group_delete_form': DeleteGroup.maybe_handle(request,
