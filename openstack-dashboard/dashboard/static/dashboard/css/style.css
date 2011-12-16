@@ -769,3 +769,8 @@ td.actions ul li input {
 td.actions ul {
   display: none;
 }
+
+.launch_image input[type="checkbox"] {
+  float: left;
+  width: 25px;
+}
