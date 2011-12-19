@@ -80,6 +80,8 @@ def index(request):
         LOG.exception('Unauthorized attempt to access flavor list.')
         messages.error(request, _('Unauthorized.'))
     except Exception, e:
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         LOG.exception('Exception while fetching flavor info')
         messages.error(request, _('Unable to get flavor info: %s') % e.message)
 

@@ -263,6 +263,8 @@ def index(request):
         instances = api.admin_server_list(request)
     except Exception as e:
         LOG.exception('Unspecified error in instance index')
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request,
                        _('Unable to get instance list: %s') % e.message)
 
@@ -289,6 +291,8 @@ def refresh(request):
     try:
         instances = api.admin_server_list(request)
     except Exception as e:
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request,
                        _('Unable to get instance list: %s') % e.message)
 

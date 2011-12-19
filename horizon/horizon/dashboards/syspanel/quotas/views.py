@@ -39,6 +39,8 @@ def index(request):
     except Exception, e:
         quotas = None
         LOG.exception('Exception while getting quota info')
+        if not hasattr(e, 'message'):
+            e.message = str(e)
         messages.error(request, _('Unable to get quota info: %s') % e.message)
 
     return shortcuts.render(request,

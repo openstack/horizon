@@ -212,6 +212,8 @@ class SelfHandlingForm(Form):
             if issubclass(e.__class__, exceptions.NotAuthorized):
                 # Let the middleware handle it as intended.
                 raise
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request, _('%s') % e.message)
             return form, None
 

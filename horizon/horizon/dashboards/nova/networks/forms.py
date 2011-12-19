@@ -42,6 +42,8 @@ class CreateNetwork(forms.SelfHandlingForm):
             send_data = {'network': {'name': '%s' % network_name}}
             api.quantum_create_network(request, send_data)
         except Exception, e:
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                            _('Unable to create network %(network)s: %(msg)s') %
                            {"network": network_name, "msg": e.message})
@@ -61,6 +63,8 @@ class DeleteNetwork(forms.SelfHandlingForm):
             LOG.info('Deleting network %s ' % data['network'])
             api.quantum_delete_network(request, data['network'])
         except Exception, e:
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                     _('Unable to delete network %(network)s: %(msg)s') %
                     {"network": data['network'], "msg": e.message})
@@ -83,6 +87,8 @@ class RenameNetwork(forms.SelfHandlingForm):
             send_data = {'network': {'name': '%s' % data['new_name']}}
             api.quantum_update_network(request, data['network'], send_data)
         except Exception, e:
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                     _('Unable to rename network %(network)s: %(msg)s') %
                     {"network": data['network'], "msg": e.message})
@@ -106,6 +112,8 @@ class CreatePort(forms.SelfHandlingForm):
             for i in range(0, data['ports_num']):
                 api.quantum_create_port(request, data['network'])
         except Exception, e:
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                 _('Unable to create ports on network %(network)s: %(msg)s') %
                 {"network": data['network'], "msg": e.message})
@@ -128,6 +136,8 @@ class DeletePort(forms.SelfHandlingForm):
                      (data['port'], data['network']))
             api.quantum_delete_port(request, data['network'], data['port'])
         except Exception, e:
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                            _('Unable to delete port %(port)s: %(msg)s') %
                            {"port": data['port'], "msg": e.message})
@@ -166,6 +176,8 @@ class AttachPort(forms.SelfHandlingForm):
             api.quantum_attach_port(request,
                                         data['network'], data['port'], body)
         except Exception, e:
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                 _('Unable to attach port %(port)s to VIF %(vif)s: %(msg)s') %
                 {"port": data['port'],
@@ -188,6 +200,8 @@ class DetachPort(forms.SelfHandlingForm):
             LOG.info('Detaching port %s' % data['port'])
             api.quantum_detach_port(request, data['network'], data['port'])
         except Exception, e:
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                 _('Unable to detach port %(port)s: %(message)s') %
                 {"port": data['port'], "message": e.message})
@@ -210,6 +224,8 @@ class TogglePort(forms.SelfHandlingForm):
             api.quantum_set_port_state(request,
                                        data['network'], data['port'], body)
         except Exception, e:
+            if not hasattr(e, 'message'):
+                e.message = str(e)
             messages.error(request,
                 _('Unable to set port state to %(state)s: %(message)s') %
                 {"state": data['state'], "message": e.message})
