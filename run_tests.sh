@@ -25,6 +25,7 @@ function usage {
   echo "  -t, --tabs               Check for tab characters in files."
   echo "  -y, --pylint             Just run pylint"
   echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
+  echo "                           Implies -V if -N is not set."
   echo "  --with-selenium          Run unit tests including Selenium tests"
   echo "  --runserver              Run the Django development server for"
   echo "                           openstack-dashboard in the virtual"
@@ -189,7 +190,7 @@ function environment_check {
     fi
   fi
 
-  if [ $quiet -eq 1 ]; then
+  if [ $always_venv -eq 1 ]; then
     destroy_buildout
     install_venv
   else
@@ -397,6 +398,11 @@ function run_tests {
 for arg in "$@"; do
     process_option $arg
 done
+
+if [ $quiet -eq 1 ] && [ $never_venv -eq 0 ] && [ $always_venv -eq 0 ]
+then
+  always_venv=1
+fi
 
 # If destroy is set, just blow it away and exit.
 if [ $destroy -eq 1 ]; then
