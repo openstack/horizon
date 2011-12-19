@@ -132,7 +132,7 @@ class TokenApiTests(APITestCase):
         keystoneclient.tokens = self.mox.CreateMockAnything()
         keystoneclient.tokens.authenticate(username=TEST_USERNAME,
                                            password=TEST_PASSWORD,
-                                           tenant=TEST_TENANT_ID)\
+                                           tenant_id=TEST_TENANT_ID)\
                                            .AndReturn(test_token)
 
         self.mox.ReplayAll()
