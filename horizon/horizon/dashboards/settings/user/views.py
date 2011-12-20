@@ -21,11 +21,4 @@ from horizon.dashboards.settings.tenant.forms import DownloadOpenRCForm
 
 @login_required
 def index(request):
-    form, handled = DownloadOpenRCForm.maybe_handle(request,
-                        initial={'tenant': request.user.tenant_id})
-    if handled:
-        return handled
-
-    context = {'form': form}
-
-    return shortcuts.render(request, 'settings/tenant/settings.html', context)
+    return shortcuts.render(request, 'settings/user/settings.html', {})

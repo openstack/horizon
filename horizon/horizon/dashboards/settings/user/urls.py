@@ -1,9 +1,5 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2011 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
 # Copyright 2011 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -19,10 +15,7 @@
 #    under the License.
 
 from django.conf.urls.defaults import patterns, url
-from django.views.generic import TemplateView
 
 
-urlpatterns = patterns('',
-    url(r'^$', TemplateView.as_view(
-                template_name='settings/user/settings.html'),
-                name='index'))
+urlpatterns = patterns('horizon.dashboards.settings.user.views',
+    url(r'^$', 'index', name='index'))
