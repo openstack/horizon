@@ -285,6 +285,7 @@ function install_venv {
     export PIP_NO_INPUT=true
   fi
   cd openstack-dashboard
+  INSTALL_FAILED=0
   python tools/install_venv.py || INSTALL_FAILED=1
   if [ $INSTALL_FAILED -eq 1 ]; then
     echo "Error updating environment with pip, trying without src packages..."
