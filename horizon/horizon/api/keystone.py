@@ -80,10 +80,11 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
     The client is cached so that subsequent API calls during the same
     request/response cycle don't have to be re-authenticated.
     """
+
     # Take care of client connection caching/fetching a new client
     user = request.user
     if hasattr(request, '_keystone') and \
-            request._keystone.auth_token == user.token:
+            request._keystone.auth_token == token_id:
         LOG.debug("Using cached client for token: %s" % user.token)
         conn = request._keystone
     else:
@@ -91,7 +92,7 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
                   % endpoint)
         conn = keystone_client.Client(username=username or user.username,
                                       password=password,
-                                      project_id=tenant_id or user.tenant_id,
+                                      tenant_id=tenant_id or user.tenant_id,
                                       token=token_id or user.token,
                                       auth_url=settings.OPENSTACK_KEYSTONE_URL,
                                       endpoint=endpoint)
@@ -163,7 +164,7 @@ def token_create(request, tenant, username, password):
                        endpoint=settings.OPENSTACK_KEYSTONE_URL)
     token = c.tokens.authenticate(username=username,
                                   password=password,
-                                  tenant=tenant)
+                                  tenant_id=tenant)
     return Token(token)
 
 
@@ -176,7 +177,7 @@ def token_create_scoped(request, tenant, token):
         del request._keystone
     c = keystoneclient(request, tenant_id=tenant, token_id=token,
                        endpoint=settings.OPENSTACK_KEYSTONE_URL)
-    raw_token = c.tokens.authenticate(tenant=tenant,
+    raw_token = c.tokens.authenticate(tenant_id=tenant,
                                       token=token,
                                       return_raw=True)
     c.service_catalog = service_catalog.ServiceCatalog(raw_token)
