@@ -134,9 +134,7 @@ class LaunchForm(forms.SelfHandlingForm):
                 label=_("Security Groups"),
                 required=True,
                 initial=['default'],
-                widget=forms.SelectMultiple(
-                       attrs={'class': 'chzn-select',
-                              'style': "min-width: 200px"}),
+                widget=forms.CheckboxSelectMultiple(),
                 help_text="Launch instance in these Security Groups")
         # setting self.fields.keyOrder seems to break validation,
         # so ordering fields manually
