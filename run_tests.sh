@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=5
+environment_version=6
 #--------------------------------------------------------#
 
 function usage {
@@ -281,8 +281,16 @@ function install_venv {
   # Install openstack-dashboard with install_venv.py
   export PIP_DOWNLOAD_CACHE=/tmp/.pip_download_cache
   export PIP_USE_MIRRORS=true
+  if [ $quiet -eq 1 ]; then
+    export PIP_NO_INPUT=true
+  fi
   cd openstack-dashboard
-  python tools/install_venv.py
+  python tools/install_venv.py || INSTALL_FAILED=1
+  if [ $INSTALL_FAILED -eq 1 ]; then
+    echo "Error updating environment with pip, trying without src packages..."
+    rm -rf .dashboard-venv/src
+    python tools/install_venv.py
+  fi
   cd ..
   # Install horizon with buildout
   if [ ! -d /tmp/.buildout_cache ]; then
