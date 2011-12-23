@@ -21,7 +21,10 @@
 from django.conf.urls.defaults import patterns, url
 
 
-urlpatterns = patterns('horizon.dashboards.nova.images_and_snapshots.images.views',
+VIEWS_MOD = 'horizon.dashboards.nova.images_and_snapshots.images.views'
+
+
+urlpatterns = patterns(VIEWS_MOD,
     url(r'^$', 'index', name='index'),
     url(r'^(?P<image_id>[^/]+)/launch/$', 'launch', name='launch'),
     url(r'^(?P<image_id>[^/]+)/update/$', 'update', name='update'))

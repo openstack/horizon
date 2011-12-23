@@ -235,7 +235,7 @@ class ImageViewTests(test.BaseViewTests):
                     reverse('horizon:nova:images_and_snapshots:images:launch',
                             args=[IMAGE_ID]))
 
-        self.assertTemplateUsed(res, 
+        self.assertTemplateUsed(res,
                                 'nova/images_and_snapshots/images/launch.html')
 
         form = res.context['form']
