@@ -88,9 +88,10 @@ class AttachForm(forms.SelfHandlingForm):
                               data['device'])
             vol_name = api.volume_get(request, data['volume_id']).displayName
 
-            message = (_('Attaching volume %s to instance %s at %s') %
-                            (vol_name, data['instance'],
-                             data['device']))
+            message = (_('Attaching volume %(vol)s to instance \
+                            %(inst)s at %(dev)s') %
+                            {"vol": vol_name, "inst": data['instance'],
+                            "dev": data['device']})
             LOG.info(message)
             messages.info(request, message)
         except novaclient_exceptions.ClientException, e:
@@ -110,8 +111,8 @@ class DetachForm(forms.SelfHandlingForm):
         try:
             api.volume_detach(request, data['instance_id'],
                               data['attachment_id'])
-            message = (_('Detaching volume %s from instance %s') %
-                    (data['volume_id'], data['instance_id']))
+            message = (_('Detaching volume %(vol)s from instance %(inst)s') %
+                    {"vol": data['volume_id'], "inst": data['instance_id']})
             LOG.info(message)
             messages.info(request, message)
         except novaclient_exceptions.ClientException, e:
