@@ -40,6 +40,21 @@
         </li>
 
         <li>
+          <div class="addresses">
+            <h4>{% trans "IP Addresses" %}</h4>
+            <ul>
+              {% for network, ip_list in instance.addresses.items %}
+              <li><span>{{ network|title }}:</span>
+                {% for ip in ip_list %}
+                    {% if not forloop.last %}{{ ip.addr}}, {% else %}{{ip.addr}}{% endif %}
+                {% endfor %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+
+        <li>
           <div class="meta">
             <h4>{% trans "Meta" %}</h4>
             <ul>
