@@ -21,7 +21,6 @@
 import logging
 
 from django import shortcuts
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -30,6 +29,7 @@ from keystoneclient import exceptions as api_exceptions
 from horizon import api
 from horizon.dashboards.syspanel.users.forms import (UserForm, UserUpdateForm,
         UserDeleteForm, UserEnableDisableForm)
+from horizon.dashboards.syspanel.users.tables import UsersTable
 
 
 LOG = logging.getLogger(__name__)
@@ -37,11 +37,6 @@ LOG = logging.getLogger(__name__)
 
 @login_required
 def index(request):
-    for f in (UserDeleteForm, UserEnableDisableForm):
-        form, handled = f.maybe_handle(request)
-        if handled:
-            return handled
-
     users = []
     try:
         users = api.user_list(request)
@@ -54,14 +49,14 @@ def index(request):
             e.message = str(e)
         messages.error(request, _('Unable to get user info: %s') % e.message)
 
-    user_delete_form = UserDeleteForm()
-    toggle_form = UserEnableDisableForm()
+    table = UsersTable(request, users)
+    handled = table.maybe_handle()
+    if handled:
+        return handled
 
-    return shortcuts.render(request,
-                            'syspanel/users/index.html', {
-                                'users': users,
-                                'user_delete_form': user_delete_form,
-                                'user_enable_disable_form': toggle_form})
+    context = {'table': table}
+    template = 'syspanel/users/index.html'
+    return shortcuts.render(request, template, context)
 
 
 @login_required
@@ -73,10 +68,16 @@ def update(request, user_id):
                                 'email': getattr(user, 'email', '')})
     if handled:
         return handled
-    return shortcuts.render(request,
-                            'syspanel/users/update.html', {
-                                'form': form,
-                                'user_id': user_id})
+
+    context = {'form': form,
+               'user_id': user_id}
+    if request.is_ajax():
+        template = 'syspanel/users/_update.html'
+        context['hide'] = True
+    else:
+        template = 'syspanel/users/update.html'
+
+    return shortcuts.render(request, template, context)
 
 
 @login_required
@@ -84,6 +85,12 @@ def create(request):
     form, handled = UserForm.maybe_handle(request)
     if handled:
         return handled
-    return shortcuts.render(request,
-                            'syspanel/users/create.html',
-                            {'form': form})
+
+    context = {'form': form}
+    if request.is_ajax():
+        template = 'syspanel/users/_create.html'
+        context['hide'] = True
+    else:
+        template = 'syspanel/users/create.html'
+
+    return shortcuts.render(request, template, context)

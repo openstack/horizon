@@ -1,0 +1,31 @@
+
+{% if table.multi_select %}
+<form action="" method="POST">{% csrf_token %}
+{% endif %}
+
+<div class='table_header'>
+  <h3 class='table_title'>{{ table }}</h3>
+  {{ table.render_table_actions }}
+</div>
+<table id="{{ table.name }}" class="zebra-striped">
+  <thead>
+    <tr>
+      {% for column in table.get_columns %}
+        <th class="{{ column.get_classes }}">{{ column }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+  {% for row in table.get_rows %}
+  <tr id="{{ row.id }}" class="{% cycle 'odd' 'even' %} {{ row.status_class }}">
+    {% for cell in row %}
+    <td class="{{ cell.get_classes }}">{{ cell.value }}</td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% if table.multi_select %}
+</form>
+{% endif %}

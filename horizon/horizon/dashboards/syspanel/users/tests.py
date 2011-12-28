@@ -35,7 +35,8 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.user = api.User(None)
         self.user.enabled = True
-        self.user.id = self.TEST_USER
+        self.user.id = self.TEST_USER_ID
+        self.user.name = self.TEST_USER
         self.user.roles = self.TEST_ROLES
         self.user.tenantId = self.TEST_TENANT
 
@@ -50,54 +51,46 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.get(USERS_INDEX_URL)
 
         self.assertTemplateUsed(res, 'syspanel/users/index.html')
-        self.assertItemsEqual(res.context['users'], self.users)
+        self.assertItemsEqual(res.context['table'].data, self.users)
 
     def test_enable_user(self):
-        OTHER_USER = 'otherUser'
-        formData = {'method': 'UserEnableDisableForm',
-                    'id': OTHER_USER,
-                    'enabled': 'enable'}
+        formData = {'action': 'users__enable__%s' % self.user.id}
 
-        self.mox.StubOutWithMock(api, 'user_update_enabled')
-        api.user_update_enabled(IgnoreArg(), OTHER_USER, True).AndReturn(
-                self.mox.CreateMock(api.User))
+        self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
+        api.keystone.user_update_enabled(IgnoreArg(), self.user.id, True) \
+                    .AndReturn(self.mox.CreateMock(api.User))
 
         self.mox.ReplayAll()
 
         res = self.client.post(USERS_INDEX_URL, formData)
 
-        self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
+        self.assertRedirects(res, USERS_INDEX_URL)
 
     def test_disable_user(self):
-        OTHER_USER = 'otherUser'
-        formData = {'method': 'UserEnableDisableForm',
-                    'id': OTHER_USER,
-                    'enabled': 'disable'}
+        formData = {'action': 'users__disable__%s' % self.user.id}
 
-        self.mox.StubOutWithMock(api, 'user_update_enabled')
-        api.user_update_enabled(IgnoreArg(), OTHER_USER, False).AndReturn(
-                self.mox.CreateMock(api.User))
+        self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
+        api.keystone.user_update_enabled(IgnoreArg(), self.user.id, False) \
+                    .AndReturn(self.mox.CreateMock(api.User))
 
         self.mox.ReplayAll()
 
         res = self.client.post(USERS_INDEX_URL, formData)
 
-        self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
+        self.assertRedirects(res, USERS_INDEX_URL)
 
     def test_enable_disable_user_exception(self):
-        OTHER_USER = 'otherUser'
-        formData = {'method': 'UserEnableDisableForm',
-                    'id': OTHER_USER,
-                    'enabled': 'enable'}
+        OTHER_USER_ID = '5'
+        formData = {'action': 'users__enable__%s' % OTHER_USER_ID}
 
-        self.mox.StubOutWithMock(api, 'user_update_enabled')
+        self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
         api_exception = api_exceptions.ApiException('apiException',
-                message='apiException')
-        api.user_update_enabled(IgnoreArg(),
-                OTHER_USER, True).AndRaise(api_exception)
+                                                    message='apiException')
+        api.keystone.user_update_enabled(IgnoreArg(), OTHER_USER_ID, True) \
+                    .AndRaise(api_exception)
 
         self.mox.ReplayAll()
 
         res = self.client.post(USERS_INDEX_URL, formData)
 
-        self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
+        self.assertRedirects(res, USERS_INDEX_URL)

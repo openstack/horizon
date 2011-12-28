@@ -249,17 +249,18 @@ a.current_item:hover h3, a.current_item:hover h4 {
   padding: 0 0 0 1px;
 }
 
-.table_title {
+.table_title, .table_header {
   overflow: auto; /* Triggers clearing if all contained elements are floated */
 }
 
-.table_title h3 {
+.table_title h3, .table_header h3 {
     font-family: anivers;
     font-weight: normal;
     font-size: 24px;
     margin-bottom: 5px;
     float: left;
 }
+
 th {
     background: #f1f1f1;
 }
@@ -342,22 +343,39 @@ table form {
     margin-bottom: 50px;
 }
 
+#main_content table tr td {
+    vertical-align: middle;
+}
+
 .table_actions {
     float: right;
     min-width: 400px;
 }
 
 .table_actions .table_search {
-    float: right;
+    display: inline-block;
 }
 
 .table_search input {
     background: url(../images/search.png) no-repeat 137px 5px;
 }
 
-.table_actions a{
+.table_actions a, .table_actions button {
     float: right;
     margin-left: 10px;
+}
+
+.table_actions button.filter {
+  margin-left: 0;
+}
+
+.table_header .table_actions {
+  min-width: 0;
+}
+
+.table_header .table_actions a, .table_header .table_actions button {
+  display: inline-block;
+  float: none;
 }
 
 .table_actions form {
@@ -718,56 +736,78 @@ td.select {
 
 /* Actions dropdown */
 
-td.actions {
+td.actions_column {
   width: 150px;
   padding: 10px;
+  position: relative;
+  min-height: 20px;
 }
 
-td.actions a.more-actions {
-  display: block;
-  float: left;
-  width: 132px;
-  padding: 10px;
-  background: url(../images/right_droparrow.png) no-repeat 130px;
+td.actions_column ul.row_actions {
+  border: 1px solid #F9F9F9;
+  margin-bottom: 0;
+  width: 148px;
 }
 
-td.actions a.more-actions:hover, td.actions a.more-actions.active {
-  background: #cdcdcd url(../images/drop_arrow.png) no-repeat 125px;
-
+tr + tr td.actions_column ul.row_actions {
+  border: 1px solid #FFF;
 }
 
-td.actions ul {
-  background: #e1e1e1;
-  float: left;
-  width: 150px;
-  position: absolute;
-  padding-bottom: 10px;
+tr:hover td.actions_column ul.row_actions {
+  border: 1px solid #F5F5F5;
+}
+
+tr td.actions_column ul.row_actions.active,
+tr:hover td.actions_column ul.row_actions.active {
+  background: #FFF;
   border: 1px solid #cacaca;
-  padding-top: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 10px; /* accounts for padding */
+  left: 10px; /* accounts for padding */
+}
+
+td.actions_column ul.row_actions li {
   display: none;
-  margin-top: 37px;
+  padding: 0 10px;
 }
 
-td.actions ul.active {
+td.actions_column ul.row_actions.active li {
   display: block;
-  z-index: 100;
 }
 
-td.actions ul li {
-  padding: 5px 10px;
+td.actions_column ul.row_actions li.action.primary {
+  display: block;
+  background-image: url(../images/right_droparrow.png);
+  background-repeat: no-repeat;
+  background-position: 130px center;
 }
 
-td.actions ul li a {
-  width: 110px;
+td.actions_column ul.row_actions li:hover {
+  background-color: #cdcdcd;
 }
 
-td.actions ul li input {
-  width: 129px;
+td.actions_column ul.row_actions li.action.primary:hover,
+td.actions_column ul.row_actions.active li.action.primary {
+  background-image: url(../images/drop_arrow.png);
+  background-position: 125px center;
+}
+
+td.actions_column ul.row_actions a,
+td.actions_column ul.row_actions input,
+td.actions_column ul.row_actions button {
+  background: none;
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: underline;
+  width: 100%;
   text-align: left;
 }
 
-td.actions ul {
-  display: none;
+td.multi_select_column {
+  width: 30px;
+  text-align: center;
 }
 
 .launch_image input[type="checkbox"] {

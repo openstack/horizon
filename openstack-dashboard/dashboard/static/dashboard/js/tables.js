@@ -1,15 +1,10 @@
 horizon.addInitFunction(function() {
-  $('td.actions ul').mouseleave(function(){
-    $(this).parent().find('a.more-actions').removeClass('active')
-    $(this).removeClass('active');
-  });
-
   $('.table_search input').quicksearch('tr.odd, tr.even', {
     'delay': 300,
     'loader': 'span.loading',
     'bind': 'keyup click',
     'show': function () {
-      this.style.color = '';
+      this.style.display = '';
     },
     'hide': function () {
       this.style.display = 'none';
@@ -24,16 +19,19 @@ horizon.addInitFunction(function() {
 
   $('table.sortable').tablesorter();
 
-  // Actions button dropdown behavior
-  $('a.more-actions').mouseenter(function() {
-    $(this).addClass('active')
-    $('td.actions ul').each(function(){
-      // If another dropdown is open, close it.
-      if ($(this).hasClass('active')) {
-        $(this).removeClass('active')
-        $(this).parent().find('a.more-actions').removeClass('active')
-      };
-    });
-    $(this).parent().find('ul').addClass('active');
+    // Actions button dropdown behavior
+  $('.action.primary').mouseenter(function() {
+    var $trigger = $(this),
+        $column = $trigger.closest('.actions_column');
+    // Set a fixed height on the column to avoid reflow/jumping.
+    $column.height($column.height());
+    $trigger.closest('.row_actions').addClass('active');
+  });
+
+  $('td.actions_column ul').mouseleave(function(){
+    var $ul = $(this),
+        $column = $ul.closest('.actions_column');
+    $column.height('auto');
+    $ul.removeClass('active');
   });
 });

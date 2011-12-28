@@ -1,0 +1,17 @@
+<div class="table_actions clearfix">
+{% if filter %}
+    <div class="table_search">
+        <input class="span3 example" value="{{ filter.filter_string|default:'' }}" type="text" name="{{ filter.get_param_name }}" />
+        <button type="submit" class="btn small filter">Filter</button>
+    </div>
+{% endif %}
+{% for action in table_actions %}
+    {% if action != filter %}
+        {% if action.method != "GET" %}
+            <button class='btn small {{ action.classes|join:" " }}' name="action" value="{{ action.get_param_name }}" type="submit">{% if action.handles_multiple %}{{ action.verbose_name_plural }}{% else %}{{ action.verbose_name }}{% endif %}</button>
+        {% else %}
+            <a href='{{ action.get_link_url }}' {{ action.attr_string|safe }}>{{ action.verbose_name }}</a>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+</div>

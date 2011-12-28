@@ -1,0 +1,13 @@
+{% load horizon %}
+
+<ul class="row_actions unstyled clearfix">
+{% for action in row_actions %}
+    <li class="action{% if forloop.first %} primary{% endif %}">
+        {% if action.method != "GET" %}
+            <button {{ action.attr_string }} name="action" value="{{ action.table.name }}__{{ action.name }}__{{ row_id }}" type="submit">{{ action.verbose_name }}</button>
+        {% else %}
+            <a href='{{ action.bound_url }}' {{ action.attr_string|safe }}>{{ action.verbose_name }}</a>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

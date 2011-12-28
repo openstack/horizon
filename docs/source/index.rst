@@ -69,6 +69,7 @@ In-depth documentation for Horizon and it's APIs.
 
    ref/run_tests
    ref/horizon
+   ref/tables
    ref/users
    ref/forms
    ref/views

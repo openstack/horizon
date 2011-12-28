@@ -183,7 +183,8 @@ class SelfHandlingForm(Form):
     @classmethod
     def maybe_handle(cls, request, *args, **kwargs):
         """
-        If the form is valid, :meth:`.maybe_handle` calls a
+        If the form is valid,
+        :meth:`~horizon.forms.SelfHandlingForm.maybe_handle` calls a
         ``handle(request, data)`` method on its subclass to
         determine what action to take.
 

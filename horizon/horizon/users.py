@@ -131,3 +131,9 @@ class User(object):
             if role['name'].lower() == 'admin':
                 return True
         return False
+
+    def get_and_delete_messages(self):
+        """ Placeholder function for parity with
+        ``django.contrib.auth.models.User``.
+        """
+        return []
