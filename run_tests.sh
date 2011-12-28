@@ -372,6 +372,7 @@ function run_tests {
     cp local/local_settings.py.bak local/local_settings.py
     rm local/local_settings.py.bak
   fi
+  rm local/local_settings.pyc
   cd ..
 
   if [ $with_coverage -eq 1 ]; then
