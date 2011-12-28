@@ -92,7 +92,7 @@ function process_option {
 
 function run_server {
   echo "Starting Django development server..."
-  ${django_wrapper} python openstack-dashboard/dashboard/manage.py runserver
+  ${django_wrapper} python openstack-dashboard/dashboard/manage.py runserver $testargs
   echo "Server stopped."
 }
 
