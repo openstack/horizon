@@ -34,6 +34,6 @@
 
 {% block modal-footer %}
     <input class="btn primary" type="submit" value="{% trans "Select Language" %}" />
-    {% if hide %}<a href="{% url horizon:settings:user:index %}" class="btn secondary cancel close">Cancel</a>{% endif %}
+    {% if hide %}<a href="{% url horizon:settings:user:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
 {% endblock %}
 

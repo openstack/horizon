@@ -20,5 +20,5 @@
 
 {% block modal-footer %}
     <input class="btn primary pull-right" type="submit" value="{% trans "Rename Network" %}" />
-    <a href="{% url horizon:nova:networks:index %}" class="btn secondary cancel close">Cancel</a>
+    <a href="{% url horizon:nova:networks:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}
