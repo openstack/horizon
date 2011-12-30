@@ -70,6 +70,10 @@ class DisableUsersAction(tables.Action):
         failures = 0
         disabled = []
         for obj_id in object_ids:
+            if obj_id == request.user.id:
+                messages.info(request, _('You cannot disable the user you are '
+                                         'currently logged in as.'))
+                continue
             try:
                 api.keystone.user_update_enabled(request, obj_id, False)
                 disabled.append(obj_id)
@@ -81,8 +85,9 @@ class DisableUsersAction(tables.Action):
             messages.info(request, _("Disabled the following users: %s")
                                      % ", ".join(disabled))
         else:
-            messages.success(request, _("Successfully disabled users: %s")
-                                        % ", ".join(disabled))
+            if disabled:
+                messages.success(request, _("Successfully disabled users: %s")
+                                            % ", ".join(disabled))
         return shortcuts.redirect('horizon:syspanel:users:index')
 
 
@@ -96,6 +101,10 @@ class DeleteUsersAction(tables.Action):
         failures = 0
         deleted = []
         for obj_id in object_ids:
+            if obj_id == request.user.id:
+                messages.info(request, _('You cannot delete the user you are '
+                                         'currently logged in as.'))
+                continue
             LOG.info('Deleting user with id "%s"' % obj_id)
             try:
                 api.keystone.user_delete(request, obj_id)
@@ -108,8 +117,9 @@ class DeleteUsersAction(tables.Action):
             messages.info(request, _("Deleted the following users: %s")
                                      % ", ".join(deleted))
         else:
-            messages.success(request, _("Successfully deleted users: %s")
-                                        % ", ".join(deleted))
+            if deleted:
+                messages.success(request, _("Successfully deleted users: %s")
+                                            % ", ".join(deleted))
         return shortcuts.redirect('horizon:syspanel:users:index')
 
 

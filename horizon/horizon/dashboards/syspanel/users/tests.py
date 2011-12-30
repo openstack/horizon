@@ -67,10 +67,11 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertRedirects(res, USERS_INDEX_URL)
 
     def test_disable_user(self):
-        formData = {'action': 'users__disable__%s' % self.user.id}
+        OTHER_USER_ID = '5'
+        formData = {'action': 'users__disable__%s' % OTHER_USER_ID}
 
         self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
-        api.keystone.user_update_enabled(IgnoreArg(), self.user.id, False) \
+        api.keystone.user_update_enabled(IgnoreArg(), OTHER_USER_ID, False) \
                     .AndReturn(self.mox.CreateMock(api.User))
 
         self.mox.ReplayAll()
@@ -94,3 +95,25 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirects(res, USERS_INDEX_URL)
+
+    def test_shoot_yourself_in_the_foot(self):
+        self.mox.StubOutWithMock(api, 'user_list')
+        # Four times... one for each post and one for each followed redirect
+        api.user_list(IgnoreArg()).AndReturn(self.users)
+        api.user_list(IgnoreArg()).AndReturn(self.users)
+        api.user_list(IgnoreArg()).AndReturn(self.users)
+        api.user_list(IgnoreArg()).AndReturn(self.users)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'users__disable__%s' % self.request.user.id}
+        res = self.client.post(USERS_INDEX_URL, formData, follow=True)
+        self.assertEqual(list(res.context['messages'])[0].message,
+                         'You cannot disable the user you are currently '
+                         'logged in as.')
+
+        formData = {'action': 'users__delete__%s' % self.request.user.id}
+        res = self.client.post(USERS_INDEX_URL, formData, follow=True)
+        self.assertEqual(list(res.context['messages'])[0].message,
+                         'You cannot delete the user you are currently '
+                         'logged in as.')
