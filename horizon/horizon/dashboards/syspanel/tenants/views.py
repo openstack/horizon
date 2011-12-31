@@ -24,7 +24,7 @@ from django import shortcuts
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from keystoneclient import exceptions as api_exceptions
 
 from horizon import api

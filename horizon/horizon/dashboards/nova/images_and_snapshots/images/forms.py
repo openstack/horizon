@@ -27,7 +27,7 @@ import logging
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.utils.text import normalize_newlines
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from glance.common import exception as glance_exception
 from openstackx.api import exceptions as api_exceptions
 

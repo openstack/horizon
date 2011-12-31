@@ -29,7 +29,7 @@ from django import shortcuts
 from django import template
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon.dashboards.nova.networks.forms import (CreateNetwork,

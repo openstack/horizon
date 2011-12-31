@@ -22,7 +22,7 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 import horizon
 from horizon import api

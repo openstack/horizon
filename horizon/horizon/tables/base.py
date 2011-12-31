@@ -25,7 +25,7 @@ from django.contrib import messages
 from django.core import urlresolvers
 from django.utils.datastructures import SortedDict
 from django.utils.html import escape
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 
 from .actions import FilterAction, LinkAction
