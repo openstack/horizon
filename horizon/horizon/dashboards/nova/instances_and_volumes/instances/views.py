@@ -29,7 +29,7 @@ from django import shortcuts
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.datastructures import SortedDict
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 import openstackx.api.exceptions as api_exceptions
 
 from horizon import api

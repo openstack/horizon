@@ -23,7 +23,7 @@ Middleware provided and used by Horizon.
 
 from django.contrib import messages
 from django import shortcuts
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 import openstackx
 
