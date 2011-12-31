@@ -20,5 +20,5 @@
 
 {% block modal-footer %}
   <input type="submit" class='btn small primary create' value="{% trans "Create Port" %}" />
-  <a href="{% url horizon:nova:networks:detail network_id %}" class="btn secondary cancel close">Cancel</a>
+  <a href="{% url horizon:nova:networks:detail network_id %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}
