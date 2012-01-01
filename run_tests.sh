@@ -280,7 +280,7 @@ function restore_environment {
 
 function install_venv {
   # Install openstack-dashboard with install_venv.py
-  export PIP_DOWNLOAD_CACHE=/tmp/.pip_download_cache
+  export PIP_DOWNLOAD_CACHE=${PIP_DOWNLOAD_CACHE-/tmp/.pip_download_cache}
   export PIP_USE_MIRRORS=true
   if [ $quiet -eq 1 ]; then
     export PIP_NO_INPUT=true
