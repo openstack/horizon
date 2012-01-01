@@ -36,4 +36,5 @@ from horizon.api.glance import *
 from horizon.api.keystone import *
 from horizon.api.nova import *
 from horizon.api.swift import *
-from horizon.api.quantum import *
+if settings.QUANTUM_ENABLED:
+    from horizon.api.quantum import *
