@@ -32,6 +32,7 @@ from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext as _
 import openstackx.api.exceptions as api_exceptions
 
+import horizon
 from horizon import api
 from horizon import forms
 from horizon import test
@@ -164,6 +165,8 @@ def usage(request, tenant_id=None):
         template_name = 'nova/instances_and_volumes/instances/usage.html'
         mimetype = "text/html"
 
+    dash_url = horizon.get_dashboard('nova').get_absolute_url()
+
     return shortcuts.render(request, template_name, {
                                 'usage': usage,
                                 'ram_unit': ram_unit,
@@ -172,7 +175,8 @@ def usage(request, tenant_id=None):
                                 'show_terminated': show_terminated,
                                 'datetime_start': datetime_start,
                                 'datetime_end': datetime_end,
-                                'instances': instances},
+                                'instances': instances,
+                                'dash_url': dash_url},
                             content_type=mimetype)
 
 

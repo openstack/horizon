@@ -269,10 +269,6 @@ th {
 small {
     font-size: 11px;
 }
-.csv_download_link {
-    margin-top: 11px;
-    font-size: 11px;
-}
 
 #user_info {
     position: relative;
@@ -813,4 +809,15 @@ td.multi_select_column {
 .launch_image input[type="checkbox"] {
   float: left;
   width: 25px;
+}
+
+.table_title a {
+    font-size: 11px;
+    float: right;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+tr.terminated {
+  color: #999999;
 }

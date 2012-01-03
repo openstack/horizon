@@ -35,21 +35,24 @@
     </div>
 
     <div class='table_title wide'>
-      <a class="csv_download_link pull-right" href="{{ csv_link }}">{% trans "Download CSV" %} &raquo;</a>
+      <a class="csv_download_link pull-right" href="{{ csv_link }}">{% trans "Download CSV" %}</a>
+
+      {% if show_terminated %}
+        <a id="toggle_terminated" href="{{dash_url}}">{% trans "Hide Terminated" %}</a>
+      {% else %}
+        <a id="toggle_terminated" href="{{dash_url}}?show_terminated=True">{% trans "Show Terminated" %}</a>
+      {% endif %}
+
       <h3>Server Usage Summary</h3>
     </div>
 
     <table class="zebra-striped">
       <tr id='headings'>
-        <th>{% trans "ID" %}</th>
         <th>{% trans "Name" %}</th>
         <th>{% trans "User" %}</th>
-        <th>{% trans "VCPUs" %}</th>
-        <th>{% trans "Ram Size" %}</th>
-        <th>{% trans "Disk Size" %}</th>
-        <th>{% trans "Flavor" %}</th>
+        <th>{% trans "Size" %}</th>
         <th>{% trans "Uptime" %}</th>
-        <th>{% trans "Status" %}</th>
+        <th>{% trans "State" %}</th>
       </tr>
       <tbody class='main'>
         {% for instance in instances %}
@@ -58,13 +61,9 @@
           {% else %}
             <tr class="{% cycle 'odd' 'even' %}">
           {% endif %}
-            <td>{{ instance.id }}</td>
             <td>{{ instance.name }}</td>
             <td>{{ instance.user_id }}</td>
-            <td>{{ instance.vcpus }}</td>
-            <td>{{ instance.ram_size|mbformat }}</td>
-            <td>{{ instance.disk_size }}GB</td>
-            <td>{{ instance.flavor }}</td>
+            <td>{{ instance.ram_size|mbformat }} Ram | {{ instance.vcpus }} VCPU | {{ instance.disk_size }}GB Disk</td>
             <td>{{ instance.uptime_at|timesince }}</td>
             <td>{{ instance.state|lower|capfirst }}</td>
         </tr>
