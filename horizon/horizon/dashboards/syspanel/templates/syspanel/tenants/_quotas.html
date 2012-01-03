@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block form_id %}quota_update_form{% endblock %}
-{% block form_action %}{% url horizon:syspanel:tenants:quotas tenant_id %}{% endblock %}
+{% block form_action %}{% url horizon:syspanel:tenants:quotas tenant.id %}{% endblock %}
 
 {% block modal-header %}{% trans "Update Quota" %}{% endblock %}
 
@@ -14,7 +14,7 @@
 </div>
 <div class="right">
     <h3>{% trans "Description" %}:</h3>
-    <p>{% trans "From here you can edit quotas (max limits) for the tenant {{ tenant_id }}." %}</p>
+    <p>{% blocktrans with tenant_id=tenant.id %}From here you can edit quotas (max limits) for the tenant {{ tenant_id }}.{% endblocktrans %}</p>
 </div>
 {% endblock %}
 

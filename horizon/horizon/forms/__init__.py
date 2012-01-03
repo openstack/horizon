@@ -14,7 +14,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+# FIXME(gabriel): Legacy imports from django-openstack.forms
+# for API compatibility.
+from django.forms import *
+from django.forms import widgets
+
 # Convenience imports for public API components.
-from .actions import Action, LinkAction, FilterAction
-from .base import DataTable, Column
-from .views import DataTableView
+from .base import SelfHandlingForm, SelectDateWidget, DateForm
+from .views import ModalFormView
