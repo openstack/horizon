@@ -11,18 +11,26 @@ Getting Started
 ===============
 
 For local development, first create a virtualenv for the project.
-A tool is included to create one for you:
+In the Horizon ``tools`` directory there is a script to create one for you:
 
   $ python tools/install_venv.py
+
+Alternatively, the ``run_tests.sh`` script will also install the environment
+for you and then run the full test suite to verify everything is installed
+and functioning correctly.
 
 Now that the virtualenv is created, you need to configure your local
 environment.  To do this, create a ``local_settings.py`` file in the ``local/``
 directory.  There is a ``local_settings.py.example`` file there that may be
 used as a template.
 
-If all is well you should now able to run the server locally:
+If all is well you should now able to run the development server locally:
 
-  $ tools/with_venv.sh dashboard/manage.py runserver
+  $ tools/with_venv.sh openstack-dashboard/manage.py runserver
+
+or, as a shortcut::
+
+  $ ./run_tests.sh --runserver
 
 Settings Up OpenStack
 =====================

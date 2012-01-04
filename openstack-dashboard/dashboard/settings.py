@@ -24,7 +24,8 @@ import sys
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-sys.path.append(ROOT_PATH)
+if ROOT_PATH not in sys.path:
+    sys.path.append(ROOT_PATH)
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG

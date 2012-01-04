@@ -3,18 +3,11 @@ DESTDIR=/
 PROJECT=horizon
 
 all:
-	@echo "make buildout - Run through buildout"
 	@echo "make test - Run tests"
 	@echo "make source - Create source package"
 	@echo "make install - Install on local system"
 	@echo "make buildrpm - Generate a rpm package"
 	@echo "make clean - Get rid of scratch and byte files"
-
-buildout: ./bin/buildout
-	./bin/buildout
-
-./bin/buildout:
-	$(PYTHON) bootstrap.py
 
 source:
 	$(PYTHON) setup.py sdist $(COMPILE)

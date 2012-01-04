@@ -21,39 +21,10 @@ you can disregard this advice.
 Getting Started
 ===============
 
-Horizon uses Buildout (http://www.buildout.org/) to manage local development.
-To configure your local Buildout environment first install the following
-system-level dependencies:
+Horizon uses the common environment configured by ``tools/install_venv.py``
+based on the dependencies listed in ``tools/pip-requires`` for local
+development.
 
-  * python-dev
-  * git
-  * bzr
-
-Then instantiate buildout with::
-
-  $ python bootstrap.py
-  $ bin/buildout
-
-This will install all the dependencies of Horizon and provide some useful
-scripts in the ``bin/`` directory:
-
-  bin/python provides a python shell for the current buildout.
-  bin/django provides django functions for the current buildout.
-
-
-You should now be able to run unit tests as follows::
-
-  $ bin/django test
-
-or::
-
-  $ bin/test
-
-You can run unit tests with code coverage on Horizon by setting
-``NOSE_WITH_COVERAGE``::
-
-  $ NOSE_WITH_COVERAGE=true bin/test
-
-Get even better coverage info by running coverage directly::
-
-  $ coverage run --branch --source horizon bin/django test horizon && coverage html
+The simplest way to get going is to simply run the ``run_tests.sh`` script
+included with the Horizon project. This will set up your local environment
+and run the full test suite to verify that everything is working properly.

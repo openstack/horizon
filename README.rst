@@ -34,18 +34,22 @@ two very distinct components underneath it: ``horizon``, and
 ``openstack-dashboard``.
 
 The ``horizon`` directory holds the generic libraries and components that can
-be used in any Django project. In testing, this component is set up with
-buildout (see ``run_tests.sh``), and any dependencies that get added need to
-be added to the ``horizon/buildout.cfg`` file.
+be used in any Django project.
 
 The ``openstack-dashboard`` directory contains a reference Django project that
-uses ``horizon`` and is built with a virtualenv and tested through that
-environment. If dependencies are added that ``openstack-dashboard`` requires
-they should be added to ``openstack-dashboard/tools/pip-requires``.
+uses ``horizon``.
+
+For development, both pieces share an environment which (by default) is
+built with the ``tools/install_venv.py`` script. That script creates a
+virtualenv and installs all the necessary packages.
+
+If dependencies are added to either ``horizon`` or ``openstack-dashboard``,
+they should be added to ``tools/pip-requires``.
 
 The ``run_tests.sh`` script invokes tests and analyses on both of these
 components in its process, and is what Jenkins uses to verify the
-stability of the project.
+stability of the project. If run before an environment is set up, it will
+ask if you wish to install one.
 
 To run the tests::
 

@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=6
+environment_version=7
 #--------------------------------------------------------#
 
 function usage {
@@ -45,26 +45,27 @@ function usage {
 
 # DEFAULTS FOR RUN_TESTS.SH
 #
-venv=openstack-dashboard/.dashboard-venv
-django_with_venv=openstack-dashboard/tools/with_venv.sh
-dashboard_with_venv=tools/with_venv.sh
+root=`pwd`
+venv=$root/.horizon-venv
+with_venv=tools/with_venv.sh
+included_dirs="openstack-dashboard/dashboard horizon/horizon"
+
 always_venv=0
-never_venv=0
+backup_env=0
+command_wrapper=""
+destroy=0
 force=0
-with_coverage=0
-selenium=0
-testargs=""
-django_wrapper=""
-dashboard_wrapper=""
 just_pep8=0
 just_pylint=0
 just_docs=0
 just_tabs=0
-runserver=0
+never_venv=0
 quiet=0
-backup_env=0
 restore_env=0
-destroy=0
+runserver=0
+selenium=0
+testargs=""
+with_coverage=0
 
 # Jenkins sets a "JOB_NAME" variable, if it's not set, we'll make it "default"
 [ "$JOB_NAME" ] || JOB_NAME="default"
@@ -92,18 +93,16 @@ function process_option {
 
 function run_server {
   echo "Starting Django development server..."
-  ${django_wrapper} python openstack-dashboard/dashboard/manage.py runserver $testargs
+  ${command_wrapper} python $root/openstack-dashboard/manage.py runserver $testargs
   echo "Server stopped."
 }
 
 function run_pylint {
   echo "Running pylint ..."
-  PYLINT_INCLUDE="openstack-dashboard/dashboard horizon/horizon"
-  ${django_wrapper} pylint --rcfile=.pylintrc -f parseable $PYLINT_INCLUDE > pylint.txt || true
+  PYTHONPATH=$root/openstack-dashboard ${command_wrapper} pylint --rcfile=.pylintrc -f parseable $included_dirs > pylint.txt || true
   CODE=$?
   grep Global -A2 pylint.txt
-  if [ $CODE -lt 32 ]
-  then
+  if [ $CODE -lt 32 ]; then
       echo "Completed successfully."
       exit 0
   else
@@ -117,9 +116,7 @@ function run_pep8 {
   rm -f pep8.txt
   PEP8_EXCLUDE=vcsversion.py
   PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --repeat"
-  PEP8_INCLUDE="openstack-dashboard/dashboard horizon/horizon"
-  echo "${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE > pep8.txt"
-  ${django_wrapper} pep8 $PEP8_OPTIONS $PEP8_INCLUDE | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt || true
+  ${command_wrapper} pep8 $PEP8_OPTIONS $included_dirs | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt || true
   PEP8_COUNT=`wc -l pep8.txt | awk '{ print $1 }'`
   if [ $PEP8_COUNT -ge 1 ]; then
     echo "PEP8 violations found ($PEP8_COUNT):"
@@ -132,18 +129,16 @@ function run_pep8 {
 
 function run_sphinx {
     echo "Building sphinx..."
-    echo "export DJANGO_SETTINGS_MODULE=dashboard.settings"
     export DJANGO_SETTINGS_MODULE=dashboard.settings
-    echo "${django_wrapper} sphinx-build -b html docs/source docs/build/html"
-    ${django_wrapper} sphinx-build -b html docs/source docs/build/html
+    ${command_wrapper} sphinx-build -b html docs/source docs/build/html
     echo "Build complete."
 }
 
 function tab_check {
-  TAB_VIOLATIONS=`find horizon/horizon openstack-dashboard/dashboard -type f -regex ".*\.\(css\|js\|py\|html\)" -print0 | xargs -0 awk '/\t/' | wc -l`
+  TAB_VIOLATIONS=`find $included_dirs -type f -regex ".*\.\(css\|js\|py\|html\)" -print0 | xargs -0 awk '/\t/' | wc -l`
   if [ $TAB_VIOLATIONS -gt 0 ]; then
     echo "TABS! $TAB_VIOLATIONS of them! Oh no!"
-    HORIZON_FILES=`find horizon/horizon openstack-dashboard/dashboard -type f -regex ".*\.\(css\|js\|py|\html\)"`
+    HORIZON_FILES=`find $included_dirs -type f -regex ".*\.\(css\|js\|py|\html\)"`
     for TABBED_FILE in $HORIZON_FILES
     do
       TAB_COUNT=`awk '/\t/' $TABBED_FILE | wc -l`
@@ -155,21 +150,10 @@ function tab_check {
   return $TAB_VIOLATIONS;
 }
 
-function destroy_buildout {
-  echo "Removing buildout files..."
-  rm -rf horizon/bin
-  rm -rf horizon/eggs
-  rm -rf horizon/parts
-  rm -rf horizon/develop-eggs
-  rm -rf horizon/horizon.egg-info
-  echo "Buildout files removed."
-}
-
 function destroy_venv {
-  echo "Cleaning virtualenv..."
-  destroy_buildout
+  echo "Cleaning environment..."
   echo "Removing virtualenv..."
-  rm -rf openstack-dashboard/.dashboard-venv
+  rm -rf $venv
   echo "Virtualenv removed."
   rm -f .environment_version
   echo "Environment cleaned."
@@ -182,8 +166,7 @@ function environment_check {
     if [ $ENV_VERS -eq $environment_version ]; then
       if [ -e ${venv} ]; then
         # If the environment exists and is up-to-date then set our variables
-        django_wrapper="${django_with_venv}"
-        dashboard_wrapper="${dashboard_with_venv}"
+        command_wrapper="${root}/${with_venv}"
         echo "Environment is up to date."
         return 0
       fi
@@ -191,7 +174,6 @@ function environment_check {
   fi
 
   if [ $always_venv -eq 1 ]; then
-    destroy_buildout
     install_venv
   else
     if [ ! -e ${venv} ]; then
@@ -201,8 +183,6 @@ function environment_check {
     fi
     read update_env
     if [ "x$update_env" = "xY" -o "x$update_env" = "x" -o "x$update_env" = "xy" ]; then
-      # Buildout doesn't play nice with upgrading everytime; kill it to be safe
-      destroy_buildout
       install_venv
     fi
   fi
@@ -213,20 +193,15 @@ function sanity_check {
   # Don't sanity-check anything environment-related in -N flag is set
   if [ $never_venv -eq 0 ]; then
     if [ ! -e ${venv} ]; then
-      echo "Virtualenv not found at openstack-dashboard/.dashboard-venv. Did install_venv.py succeed?"
+      echo "Virtualenv not found at $venv. Did install_venv.py succeed?"
       exit 1
     fi
-    if [ ! -f horizon/bin/test ]; then
-      echo "Error: Test script not found at horizon/bin/test. Did buildout succeed?"
-      exit 1
-    fi
-    if [ ! -f horizon/bin/coverage ]; then
-      echo "Error: Coverage script not found at horizon/bin/coverage. Did buildout succeed?"
-      exit 1
-    fi
-    if [ ! -f horizon/bin/seleniumrc ]; then
-      echo "Error: Selenium script not found at horizon/bin/seleniumrc. Did buildout succeed?"
-      exit 1
+  fi
+  if [ $selenium -eq 1 ]; then
+    SELENIUM_JOB=`ps -elf | grep "selenium" | grep -v grep`
+    if [ $? -eq 0 ]; then
+      echo "WARNING: Selenium doesn't appear to be running. Please start a selenium server process."
+      selenium=0
     fi
   fi
 }
@@ -243,12 +218,7 @@ function backup_environment {
       rm -rf /tmp/.horizon_environment/$JOB_NAME
     fi
     mkdir -p /tmp/.horizon_environment/$JOB_NAME
-    cp -r openstack-dashboard/.dashboard-venv /tmp/.horizon_environment/$JOB_NAME/
-    cp -r horizon/bin /tmp/.horizon_environment/$JOB_NAME/
-    cp -r horizon/eggs /tmp/.horizon_environment/$JOB_NAME/
-    cp -r horizon/parts /tmp/.horizon_environment/$JOB_NAME/
-    cp -r horizon/develop-eggs /tmp/.horizon_environment/$JOB_NAME/
-    cp -r horizon/horizon.egg-info /tmp/.horizon_environment/$JOB_NAME/
+    cp -r $venv /tmp/.horizon_environment/$JOB_NAME/
     cp .environment_version /tmp/.horizon_environment/$JOB_NAME/
     # Remove the backup now that we've completed successfully
     rm -rf /tmp/.horizon_environment/$JOB_NAME.old
@@ -264,15 +234,8 @@ function restore_environment {
       return 0
     fi
 
-    destroy_buildout
-
-    cp -r /tmp/.horizon_environment/$JOB_NAME/.dashboard-venv openstack-dashboard/
-    cp -r /tmp/.horizon_environment/$JOB_NAME/bin horizon/
-    cp -r /tmp/.horizon_environment/$JOB_NAME/eggs horizon/
-    cp -r /tmp/.horizon_environment/$JOB_NAME/parts horizon/
-    cp -r /tmp/.horizon_environment/$JOB_NAME/develop-eggs horizon/
-    cp -r /tmp/.horizon_environment/$JOB_NAME/horizon.egg-info horizon/
-    cp -r /tmp/.horizon_environment/$JOB_NAME/.environment_version ./
+    cp -r /tmp/.horizon_environment/$JOB_NAME/.horizon-venv ./ || true
+    cp -r /tmp/.horizon_environment/$JOB_NAME/.environment_version ./ || true
 
     echo "Environment restored successfully."
   fi
@@ -285,111 +248,62 @@ function install_venv {
   if [ $quiet -eq 1 ]; then
     export PIP_NO_INPUT=true
   fi
-  cd openstack-dashboard
   INSTALL_FAILED=0
   python tools/install_venv.py || INSTALL_FAILED=1
   if [ $INSTALL_FAILED -eq 1 ]; then
     echo "Error updating environment with pip, trying without src packages..."
-    rm -rf .dashboard-venv/src
+    rm -rf $venv/src
     python tools/install_venv.py
   fi
-  cd ..
-  # Install horizon with buildout
-  if [ ! -d /tmp/.buildout_cache ]; then
-    mkdir -p /tmp/.buildout_cache
-  fi
-  cd horizon
-  python bootstrap.py
-  bin/buildout
-  cd ..
-  django_wrapper="${django_with_venv}"
-  dashboard_wrapper="${dashboard_with_venv}"
+  command_wrapper="$root/${with_venv}"
   # Make sure it worked and record the environment version
   sanity_check
-  chmod -R 754 openstack-dashboard/.dashboard-venv
+  chmod -R 754 $venv
   echo $environment_version > .environment_version
-}
-
-function wait_for_selenium {
-  # Selenium can sometimes take several seconds to start.
-  STARTED=`grep -irn "Started SocketListener on 0.0.0.0:4444" .selenium_log`
-  if [ $? -eq 0 ]; then
-    echo "Selenium server started."
-    return 0
-  fi
-  echo -n "."
-  sleep 1
-  wait_for_selenium
-}
-
-function stop_selenium {
-  if [ $selenium -eq 1 ]; then
-    echo "Stopping Selenium server..."
-    SELENIUM_JOB=`ps -elf | grep "seleniumrc" | grep -v grep`
-    if [ $? -eq 0 ]; then
-        kill `echo "${SELENIUM_JOB}" | awk '{print $4}'`
-        echo "Selenium process stopped."
-      else
-        echo "No selenium process running."
-    fi
-    rm -f .selenium_log
-  fi
 }
 
 function run_tests {
   sanity_check
 
-  if [ $selenium -eq 1 ]; then
-    stop_selenium
-    echo "Starting Selenium server..."
-    rm -f .selenium_log
-    ${django_wrapper} horizon/bin/seleniumrc > .selenium_log &
-    wait_for_selenium
-  fi
-
   echo "Running Horizon application tests"
-  ${django_wrapper} coverage erase
-  ${django_wrapper} coverage run horizon/bin/test
+  ${command_wrapper} coverage erase
+  ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test horizon --settings=horizon.tests.testsettings
   # get results of the Horizon tests
-  OPENSTACK_RESULT=$?
+  HORIZON_RESULT=$?
 
   echo "Running openstack-dashboard (Django project) tests"
-  cd openstack-dashboard
-  if [ -f local/local_settings.py ]; then
-    cp local/local_settings.py local/local_settings.py.bak
+  if [ -f $root/openstack-dashboard/local/local_settings.py ]; then
+    cp $root/openstack-dashboard/local/local_settings.py $root/openstack-dashboard/local/local_settings.py.bak
   fi
-  cp local/local_settings.py.example local/local_settings.py
+  cp $root/openstack-dashboard/local/local_settings.py.example $root/openstack-dashboard/local/local_settings.py
 
   if [ $selenium -eq 1 ]; then
-      ${dashboard_wrapper} coverage run dashboard/manage.py test --with-selenium --with-cherrypyliveserver
+      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard --with-selenium --with-cherrypyliveserver
     else
-      ${dashboard_wrapper} coverage run dashboard/manage.py test
+      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard
   fi
   # get results of the openstack-dashboard tests
   DASHBOARD_RESULT=$?
 
-  if [ -f local/local_settings.py.bak ]; then
-    cp local/local_settings.py.bak local/local_settings.py
-    rm local/local_settings.py.bak
+  if [ -f $root/openstack-dashboard/local/local_settings.py.bak ]; then
+    cp $root/openstack-dashboard/local/local_settings.py.bak $root/openstack-dashboard/local/local_settings.py
+    rm $root/openstack-dashboard/local/local_settings.py.bak
   fi
-  rm local/local_settings.pyc
-  cd ..
+  rm -f $root/openstack-dashboard/local/local_settings.pyc
 
   if [ $with_coverage -eq 1 ]; then
     echo "Generating coverage reports"
-    ${django_wrapper} coverage combine
-    ${django_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*'
-    ${django_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*' -d reports
+    ${command_wrapper} coverage combine
+    ${command_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*'
+    ${command_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*' -d reports
   fi
 
-  stop_selenium
-
-  if [ $(($OPENSTACK_RESULT || $DASHBOARD_RESULT)) -eq 0 ]; then
+  if [ $(($HORIZON_RESULT || $DASHBOARD_RESULT)) -eq 0 ]; then
     echo "Tests completed successfully."
   else
     echo "Tests failed."
   fi
-  exit $(($OPENSTACK_RESULT || $DASHBOARD_RESULT))
+  exit $(($HORIZON_RESULT || $DASHBOARD_RESULT))
 }
 
 

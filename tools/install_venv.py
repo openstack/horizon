@@ -30,7 +30,7 @@ import sys
 
 
 ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-VENV = os.path.join(ROOT, '.dashboard-venv')
+VENV = os.path.join(ROOT, '.horizon-venv')
 WITH_VENV = os.path.join(ROOT, 'tools', 'with_venv.sh')
 PIP_REQUIRES = os.path.join(ROOT, 'tools', 'pip-requires')
 
@@ -121,18 +121,18 @@ def install_dependencies(venv=VENV):
 
 def install_django_openstack():
     print 'Installing horizon module in development mode...'
-    path = os.path.join(ROOT, '..', 'horizon')
+    path = os.path.join(ROOT, 'horizon')
     run_command([WITH_VENV, 'python', 'setup.py', 'develop'], cwd=path)
 
 
 def print_summary():
     summary = """
- OpenStack Dashboard development environment setup is complete.
+ Horizon development environment setup is complete.
 
  To activate the virtualenv for the extent of your current shell session you
  can run:
 
- $ source .dashboard-venv/bin/activate
+ $ source .horizon-venv/bin/activate
   """
     print summary
 

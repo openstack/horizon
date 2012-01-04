@@ -15,18 +15,17 @@ First Run
 
 If you start with a clean copy of the Horizon repository, the first thing
 you should do is to run ``./run_tests.sh`` from the root of the repository.
-This will do three things for you:
+This will do two things for you:
 
-    #. Set up a virtual environment for ``openstack-dashboard`` using
+    #. Set up a virtual environment for both the ``horizon`` module and
+       the ``openstack-dashboard`` project using
        ``openstack-dashboard/tools/install_venv.py``.
-    #. Set up an environment for ``horizon`` using
-       ``horizon/bootstrap.py`` and ``horizon/bin/buildout``.
     #. Run the tests for both ``horizon`` and ``openstack-dashboard`` using
        their respective environments and verify that evreything is working.
 
-Setting up both environments the first time can take several minutes, but only
+Setting up the environment the first time can take several minutes, but only
 needs to be done once. If dependencies are added in the future, updating the
-environments will be necessary but not necessarily as time consuming.
+environments will be necessary but not as time consuming.
 
 I just want to run the tests!
 =============================

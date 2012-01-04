@@ -34,21 +34,22 @@ an OpenStack development environment from scratch.
 Horizon's Structure
 ===================
 
-This project is a bit different from other Openstack projects in that it is
-composed of two distinct components:
-
-    * ``horizon``
-    * ``openstack-dashboard``
+This project is a bit different from other OpenStack projects in that it has
+two very distinct components underneath it: ``horizon``, and
+``openstack-dashboard``.
 
 The ``horizon`` directory holds the generic libraries and components that can
-be used in any Django project. In testing, this component is set up with
-buildout (see :doc:`ref/run_tests`), and any dependencies that need to
-be added to the ``horizon/buildout.cfg`` file.
+be used in any Django project.
 
 The ``openstack-dashboard`` directory contains a reference Django project that
-uses ``horizon`` and is built with a virtualenv. If dependencies are added that
-``openstack-dashboard`` requires they should be added to ``openstack-
-dashboard/tools/pip-requires``.
+uses ``horizon``.
+
+For development, both pieces share an environment which (by default) is
+built with the ``tools/install_venv.py`` script. That script creates a
+virtualenv and installs all the necessary packages.
+
+If dependencies are added to either ``horizon`` or ``openstack-dashboard``,
+they should be added to ``tools/pip-requires``.
 
   .. important::
 
