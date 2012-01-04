@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block form_id %}update_tenant_form{% endblock %}
-{% block form_action %}{% url horizon:syspanel:users:update user_id %}{% endblock %}
+{% block form_action %}{% url horizon:syspanel:users:update user.id %}{% endblock %}
 
 {% block modal-header %}{% trans "Update User" %}{% endblock %}
 

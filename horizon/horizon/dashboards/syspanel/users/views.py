@@ -27,70 +27,57 @@ from django.utils.translation import ugettext as _
 from keystoneclient import exceptions as api_exceptions
 
 from horizon import api
-from horizon.dashboards.syspanel.users.forms import (UserForm, UserUpdateForm,
-        UserDeleteForm, UserEnableDisableForm)
-from horizon.dashboards.syspanel.users.tables import UsersTable
+from horizon import forms
+from horizon import tables
+from .forms import CreateUserForm, UpdateUserForm
+from .tables import UsersTable
 
 
 LOG = logging.getLogger(__name__)
 
 
-@login_required
-def index(request):
-    users = []
-    try:
-        users = api.user_list(request)
-    except api_exceptions.AuthorizationFailure, e:
-        LOG.exception("Unauthorized attempt to list users.")
-        messages.error(request, _('Unable to get user info: %s') % e.message)
-    except Exception, e:
-        LOG.exception('Exception while getting user list')
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        messages.error(request, _('Unable to get user info: %s') % e.message)
+class IndexView(tables.DataTableView):
+    table_class = UsersTable
+    template_name = 'syspanel/users/index.html'
 
-    table = UsersTable(request, users)
-    handled = table.maybe_handle()
-    if handled:
-        return handled
-
-    context = {'table': table}
-    template = 'syspanel/users/index.html'
-    return shortcuts.render(request, template, context)
+    def get_data(self):
+        users = []
+        try:
+            users = api.user_list(self.request)
+        except api_exceptions.AuthorizationFailure, e:
+            LOG.exception("Unauthorized attempt to list users.")
+            messages.error(self.request,
+                           _('Unable to get user info: %s') % e.message)
+        except Exception, e:
+            LOG.exception('Exception while getting user list')
+            if not hasattr(e, 'message'):
+                e.message = str(e)
+            messages.error(self.request,
+                           _('Unable to get user info: %s') % e.message)
+        return users
 
 
-@login_required
-def update(request, user_id):
-    user = api.user_get(request, user_id)
-    form, handled = UserUpdateForm.maybe_handle(request, initial={
-                                'id': user_id,
-                                'tenant_id': getattr(user, 'tenantId', None),
-                                'email': getattr(user, 'email', '')})
-    if handled:
-        return handled
+class UpdateView(forms.ModalFormView):
+    form_class = UpdateUserForm
+    template_name = 'syspanel/users/update.html'
+    context_object_name = 'user'
 
-    context = {'form': form,
-               'user_id': user_id}
-    if request.is_ajax():
-        template = 'syspanel/users/_update.html'
-        context['hide'] = True
-    else:
-        template = 'syspanel/users/update.html'
+    def get_object(self, *args, **kwargs):
+        user_id = kwargs['user_id']
+        try:
+            return api.user_get(self.request, user_id)
+        except Exception as e:
+            LOG.exception('Error fetching user with id "%s"' % user_id)
+            messages.error(self.request,
+                           _('Unable to update user: %s') % e.message)
+            raise http.Http404("User with id %s not found." % user_id)
 
-    return shortcuts.render(request, template, context)
+    def get_initial(self):
+        return {'id': self.object.id,
+                'tenant_id': getattr(self.object, 'tenantId', None),
+                'email': getattr(self.object, 'email', '')}
 
 
-@login_required
-def create(request):
-    form, handled = UserForm.maybe_handle(request)
-    if handled:
-        return handled
-
-    context = {'form': form}
-    if request.is_ajax():
-        template = 'syspanel/users/_create.html'
-        context['hide'] = True
-    else:
-        template = 'syspanel/users/create.html'
-
-    return shortcuts.render(request, template, context)
+class CreateView(forms.ModalFormView):
+    form_class = CreateUserForm
+    template_name = 'syspanel/users/create.html'

@@ -71,7 +71,8 @@ class UpdateView(forms.ModalFormView):
     template_name = 'syspanel/tenants/update.html'
     context_object_name = 'tenant'
 
-    def get_object(self, tenant_id):
+    def get_object(self, *args, **kwargs):
+        tenant_id = kwargs['tenant_id']
         try:
             return api.tenant_get(self.request, tenant_id)
         except Exception as e:
