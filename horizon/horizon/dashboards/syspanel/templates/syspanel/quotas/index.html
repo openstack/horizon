@@ -9,16 +9,5 @@
 {% endblock page_header %}
 
 {% block syspanel_main %}
-  <table class="zebra-striped">
-    <tr>
-      <th>{% trans "Quota Name" %}</th>
-      <th>{% trans "Limit" %}</th>
-    </tr>
-    {% for name,value in quotas.items %}
-      <tr>
-        <td>{{name}}</td>
-        <td>{{value}}</td>
-      </tr>
-    {% endfor %}
-  </table>
+  {{ table.render }}
 {% endblock %}
