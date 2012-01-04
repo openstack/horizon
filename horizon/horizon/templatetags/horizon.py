@@ -61,7 +61,7 @@ def horizon_dashboard_nav(context):
     if 'request' not in context:
         return {}
     dashboard = context['request'].horizon['dashboard']
-    if type(dashboard.panels) is dict:
+    if isinstance(dashboard.panels, dict):
         panels = copy.copy(dashboard.get_panels())
     else:
         panels = {dashboard.name: dashboard.get_panels()}
