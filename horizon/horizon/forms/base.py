@@ -192,7 +192,8 @@ class SelfHandlingForm(Form):
         converted to messages.
         """
 
-        if cls.__name__ != request.POST.get('method'):
+        if request.method != 'POST' or \
+                cls.__name__ != request.POST.get('method'):
             return cls._instantiate(request, *args, **kwargs), None
 
         if request.FILES:

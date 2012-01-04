@@ -20,10 +20,14 @@
 
 from django.conf.urls.defaults import patterns, url
 
+from .views import IndexView, CreateView, UpdateView, QuotasView
+
 
 urlpatterns = patterns('horizon.dashboards.syspanel.tenants.views',
-    url(r'^$', 'index', name='index'),
-    url(r'^create$', 'create', name='create'),
-    url(r'^(?P<tenant_id>[^/]+)/update/$', 'update', name='update'),
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^create$', CreateView.as_view(), name='create'),
+    url(r'^(?P<tenant_id>[^/]+)/update/$',
+        UpdateView.as_view(), name='update'),
     url(r'^(?P<tenant_id>[^/]+)/users/$', 'users', name='users'),
-    url(r'^(?P<tenant_id>[^/]+)/quotas/$', 'quotas', name='quotas'))
+    url(r'^(?P<tenant_id>[^/]+)/quotas/$',
+        QuotasView.as_view(), name='quotas'))

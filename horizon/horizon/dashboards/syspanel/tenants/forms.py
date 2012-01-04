@@ -167,21 +167,3 @@ class UpdateQuotas(forms.SelfHandlingForm):
             messages.error(request,
                            _('Unable to update quotas: %s') % e.message)
         return shortcuts.redirect('horizon:syspanel:tenants:index')
-
-
-class DeleteTenant(forms.SelfHandlingForm):
-    tenant_id = forms.CharField(required=True)
-
-    def handle(self, request, data):
-        tenant_id = data['tenant_id']
-        try:
-            api.tenant_delete(request, tenant_id)
-            messages.info(request, _('Successfully deleted tenant %(tenant)s.')
-                                     % {"tenant": tenant_id})
-        except Exception, e:
-            LOG.exception("Error deleting tenant")
-            if not hasattr(e, 'message'):
-                e.message = str(e)
-            messages.error(request,
-                           _("Error deleting tenant: %s") % e.message)
-        return shortcuts.redirect(request.build_absolute_uri())
