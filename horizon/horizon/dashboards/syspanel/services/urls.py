@@ -20,6 +20,8 @@
 
 from django.conf.urls.defaults import patterns, url
 
+from .views import IndexView
+
 
 urlpatterns = patterns('horizon.dashboards.syspanel.services.views',
-    url(r'^$', 'index', name='index'))
+    url(r'^$', IndexView.as_view(), name='index'))

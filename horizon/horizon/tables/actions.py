@@ -38,6 +38,17 @@ class BaseAction(object):
         """
         return True
 
+    def update(self, request, datum):
+        """ Allows per-action customization based on current conditions.
+
+        This is particularly useful when you wish to create a "toggle"
+        action that will be rendered differently based on the value of an
+        attribute on the current row's data.
+
+        By default this method is a no-op.
+        """
+        pass
+
     @property
     def attr_string(self):
         """

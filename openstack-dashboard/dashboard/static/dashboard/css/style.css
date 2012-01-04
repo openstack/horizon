@@ -678,27 +678,6 @@ table form {
 #security_group_rule_modal .right table {
     margin-top: 31px;
 }
-table tr.odd.good td { border: 1px solid #92fd75; }
-table tr.even.good td { border: 1px solid #88f06d; }
-table tr.odd.bad td { border: 1px solid #ffb7b8; }
-table tr.even.bad td { border: 1px solid #fba7a9; }
-table tr.odd.medium td { border: 1px solid #f8e400; }
-table tr.even.medium td { border: 1px solid #f0dd00; }
-
-/*Fix for bootstrap not applying style to table footer.*/
-tfoot tr td { border-top: 1px solid #DDD }
-
-.odd.good { background: #e1ffd9; }
-.odd.medium { background: #fffabf; }
-.odd.bad { background: #ffd9d9; }
-
-.even.good { background: #c2ffb2; }
-.even.medium { background: #fff690; }
-.even.bad { background: #ffb7b8; }
-
-.odd.good:hover, .even.good:hover { background: #98ff7e; }
-.odd.medium:hover, .even.medium:hover { background: #fff376; }
-.odd.bad:hover, .even.bad:hover { background: #ff9899; }
 
 #actions {
     width: 90px;
@@ -722,6 +701,7 @@ tfoot tr td { border-top: 1px solid #DDD }
 .details-modal .modal-body {
   padding-bottom: 20px;
 }
+
 .form-inline {
   display: inline;
 }
@@ -779,9 +759,11 @@ td.actions_column ul.row_actions li.action.primary {
   background-position: 130px center;
 }
 
+
 td.actions_column ul.row_actions li:hover {
   background-color: #cdcdcd;
 }
+
 
 td.actions_column ul.row_actions li.action.primary:hover,
 td.actions_column ul.row_actions.active li.action.primary {
@@ -799,6 +781,35 @@ td.actions_column ul.row_actions button {
   text-decoration: underline;
   width: 100%;
   text-align: left;
+}
+
+/* Overrides for single-action rows (no dropdown) */
+
+tr td.actions_column ul.row_actions.single,
+tr:hover td.actions_column ul.row_actions.single,
+td.actions_column ul.row_actions.single,
+td.actions_column ul.row_actions.single:hover {
+  border: none;
+}
+
+td.actions_column ul.row_actions.single li.action {
+  display: block;
+}
+
+td.actions_column ul.row_actions.single li.action:hover {
+  background-color: transparent;
+}
+
+td.actions_column ul.row_actions.single a,
+td.actions_column ul.row_actions.single input,
+td.actions_column ul.row_actions.single button {
+  color: #43a1d6;
+}
+
+td.actions_column ul.row_actions.single a:hover,
+td.actions_column ul.row_actions.single input:hover,
+td.actions_column ul.row_actions.single button:hover {
+  color: black;
 }
 
 td.multi_select_column {

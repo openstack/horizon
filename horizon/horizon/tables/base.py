@@ -14,6 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import copy
 import logging
 from operator import attrgetter
 import sys
@@ -87,6 +88,7 @@ class Column(object):
 
             status_choices = (
                     ('enabled', True),
+                    ('true', True)
                     ('up', True),
                     ('active', True),
                     ('on', True),
@@ -95,6 +97,7 @@ class Column(object):
                     ('', None),
                     ('disabled', False),
                     ('down', False),
+                    ('false', False),
                     ('inactive', False),
                     ('off', False),
                 )
@@ -114,6 +117,7 @@ class Column(object):
     verbose_name = None
     status_choices = (
         ('enabled', True),
+        ('true', True),
         ('up', True),
         ('active', True),
         ('on', True),
@@ -122,6 +126,7 @@ class Column(object):
         ('', None),
         ('disabled', False),
         ('down', False),
+        ('false', False),
         ('inactive', False),
         ('off', False),
     )
@@ -603,14 +608,13 @@ class DataTable(object):
                                                     action.filter_string)
         return self._filtered_data
 
-    def _filter_actions(self, actions, request, datum=None):
+    def _filter_action(self, action, request, datum=None):
         try:
             # Catch user errors in permission functions here
-            return [action for action in actions \
-                            if action().allowed(request, datum)]
+            return action.allowed(request, datum)
         except Exception:
             LOG.exception("Error while checking action permissions.")
-            return []
+            return None
 
     def render(self):
         """ Renders the table using the template from the table options. """
@@ -619,22 +623,43 @@ class DataTable(object):
         context = template.RequestContext(self._meta.request, extra_context)
         return table_template.render(context)
 
+    def get_object_by_id(self, lookup):
+        """
+        Returns the data object from the table's dataset which matches
+        the ``lookup`` parameter specified. An error will be raised if
+        a the match is not a single data object.
+
+        Uses :meth:`~horizon.tables.DataTable.get_object_id` internally.
+        """
+        matches = [datum for datum in self.data if
+                   self.get_object_id(datum) == lookup]
+        if len(matches) > 1:
+            raise ValueError("Multiple matches were returned for that id: %s."
+                           % matches)
+        if not matches:
+            raise ValueError('No match returned for the id "%s".' % lookup)
+        return matches[0]
+
     def get_table_actions(self):
         """ Returns a list of the action instances for this table. """
-        available_actions = self._filter_actions(self._meta.table_actions,
-                                                 self._meta.request)
-        bound_actions = [self.base_actions[action.name] for \
-                         action in available_actions]
-        return bound_actions
+        bound_actions = [self.base_actions[action.name] for
+                         action in self._meta.table_actions]
+        return [action for action in bound_actions if
+                self._filter_action(action, self._meta.request)]
 
     def get_row_actions(self, datum):
         """ Returns a list of the action instances for a specific row. """
         bound_actions = []
-        available_actions = self._filter_actions(self._meta.row_actions,
-                                                 self._meta.request,
-                                                 datum)
-        for action in available_actions:
-            bound_action = self.base_actions[action.name]
+        for action in self._meta.row_actions:
+            # Copy to allow modifying properties per row
+            bound_action = copy.copy(self.base_actions[action.name])
+            # Remove disallowed actions.
+            if not self._filter_action(bound_action,
+                                       self._meta.request,
+                                       datum):
+                continue
+            # Hook for modifying actions based on data. No-op by default.
+            bound_action.update(self._meta.request, datum)
             # Pre-create the URL for this link with appropriate parameters
             if isinstance(bound_action, LinkAction):
                 bound_action.bound_url = bound_action.get_link_url(datum)

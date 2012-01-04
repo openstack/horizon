@@ -1,8 +1,4 @@
-
-{% if table.multi_select %}
 <form action="" method="POST">{% csrf_token %}
-{% endif %}
-
 <div class='table_header'>
   <h3 class='table_title'>{{ table }}</h3>
   {{ table.render_table_actions }}
@@ -25,7 +21,4 @@
   {% endfor %}
   </tbody>
 </table>
-
-{% if table.multi_select %}
 </form>
-{% endif %}
