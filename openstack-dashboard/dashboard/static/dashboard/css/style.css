@@ -839,3 +839,8 @@ div.input input[type="checkbox"] {
 tr.terminated {
   color: #999999;
 }
+
+/* Fix twipsy z-index to show above modals. Bootstrap bug 582*/
+.twipsy {
+  z-index: 12000;
+}

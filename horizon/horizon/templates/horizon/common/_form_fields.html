@@ -2,7 +2,7 @@
   {{ hidden }}
 {% endfor %}
 {% for field in form.visible_fields %}
-  <div class="clearfix{% if field.errors %} error{% endif %}">
+  <div class="form-field clearfix{% if field.errors %} error{% endif %}">
     {{ field.label_tag }}
     {% if field.errors %}
       {% for error in field.errors %}

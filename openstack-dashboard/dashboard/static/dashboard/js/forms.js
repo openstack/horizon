@@ -52,4 +52,29 @@ horizon.addInitFunction(function() {
     var response = confirm('Are you sure you want to detach the ' + $(this).attr('title') + " ?");
     return response;
   });
+
+  // Twipsy tooltips
+  function getTwipsyTitle() {
+      return $(this).closest('div.form-field').children('.help-block').text();
+  }
+
+  $("div.form-field").find("input:not(:checkbox), textarea, select").twipsy({
+      placement:'right',
+      trigger: 'focus',
+      offset: 4,
+      title: getTwipsyTitle
+  });
+
+  /* Trigger the twipsy on hover for checkboxes since focus only happens
+     when the user clicks the element (which is too late for a tooltip to
+     be useful). */
+  $('div.form-field').has("input:checkbox").twipsy({
+      placement: 'right',
+      trigger: 'hover',
+      offset: 4,
+      title: getTwipsyTitle
+  });
+
+  // Hide the text for js-capable browsers
+    $('span.help-block').hide();
 });
