@@ -810,7 +810,7 @@ td.multi_select_column {
   text-align: center;
 }
 
-.launch_image input[type="checkbox"] {
+div.input input[type="checkbox"] {
   float: left;
   width: 25px;
 }
