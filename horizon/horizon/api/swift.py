@@ -117,9 +117,7 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
 
     container = swift_api(request).get_container(orig_container_name)
 
-    if swift_object_exists(request,
-                           new_container_name,
-                           new_object_name) == True:
+    if swift_object_exists(request, new_container_name, new_object_name):
         raise Exception('Object with name %s already exists in container %s'
         % (new_object_name, new_container_name))
 

@@ -99,7 +99,7 @@ class GlobalSummary(object):
             # usage = usage._info
             for k in usage._attrs:
                 v = usage.__getattr__(k)
-                if type(v) in [float, int]:
+                if isinstance(v, (float, int)):
                     if not k in self.summary:
                         self.summary[k] = 0
                     self.summary[k] += v

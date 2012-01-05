@@ -344,7 +344,7 @@ class Dashboard(Registry, HorizonComponent):
         dashboard in order.
         """
         registered = copy.copy(self._registry)
-        if type(self.panels) is dict:
+        if isinstance(self.panels, dict):
             panels = {}
             for heading, items in self.panels.iteritems():
                 panels.setdefault(heading, [])
@@ -412,7 +412,7 @@ class Dashboard(Registry, HorizonComponent):
         package = '.'.join(self.__module__.split('.')[:-1])
         mod = import_module(package)
         panels = []
-        if type(self.panels) is dict:
+        if isinstance(self.panels, dict):
             [panels.extend(values) for values in self.panels.values()]
         else:
             panels = self.panels
