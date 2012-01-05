@@ -64,6 +64,16 @@ class Volume(APIResourceWrapper):
               'attachments', 'displayDescription']
 
 
+class Quota(object):
+    """ Basic wrapper for individual limits in a quota. """
+    def __init__(self, name, limit):
+        self.name = name
+        self.limit = limit
+
+    def __repr__(self):
+        return "<Quota: (%s, %s)>" % (self.name, self.limit)
+
+
 class Server(APIResourceWrapper):
     """Simple wrapper around openstackx.extras.server.Server
 
