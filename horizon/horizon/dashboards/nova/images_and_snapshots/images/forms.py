@@ -98,8 +98,8 @@ class UpdateImageForm(forms.SelfHandlingForm):
                 messages.error(request, error_updating)
             return redirect('dash_images_update', tenant_id, image_id)
         else:
-            messages.info(request, _('Unable to update image. You are not its \
-                                      owner.'))
+            messages.info(request, _('Unable to delete the requested image '
+                                     'because you are not its owner.'))
             return redirect('dash_images_update', tenant_id, image_id)
 
 
