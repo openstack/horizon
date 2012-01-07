@@ -97,9 +97,6 @@ class FloatingIpViewTests(test.BaseViewTests):
         api.server_add_floating_ip(IsA(http.HttpRequest), IsA(unicode),
                                                           IsA(unicode)).\
                                                           AndReturn(None)
-        self.mox.StubOutWithMock(messages, 'info')
-        messages.info(IsA(http.HttpRequest), IsA(unicode))
-
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
         api.tenant_floating_ip_get = self.mox.CreateMockAnything()
         api.tenant_floating_ip_get(IsA(http.HttpRequest), str(1)).\
@@ -129,8 +126,8 @@ class FloatingIpViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.security_group_list(IsA(http.HttpRequest)).\
                                 AndReturn(self.security_groups)
-        self.mox.StubOutWithMock(api, 'keypair_list')
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
 
         self.mox.StubOutWithMock(api, 'server_add_floating_ip')
         api.server_add_floating_ip = self.mox.CreateMockAnything()
@@ -139,9 +136,6 @@ class FloatingIpViewTests(test.BaseViewTests):
         api.server_add_floating_ip(IsA(http.HttpRequest), IsA(unicode),
                                                           IsA(unicode)).\
                                                           AndRaise(exception)
-
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
         api.tenant_floating_ip_get = self.mox.CreateMockAnything()
@@ -174,8 +168,8 @@ class FloatingIpViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.security_group_list(IsA(http.HttpRequest)).\
                                 AndReturn(self.security_groups)
-        self.mox.StubOutWithMock(api, 'keypair_list')
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
 
         self.mox.StubOutWithMock(api, 'server_remove_floating_ip')
         api.server_remove_floating_ip = self.mox.CreateMockAnything()
@@ -204,8 +198,8 @@ class FloatingIpViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.security_group_list(IsA(http.HttpRequest)).\
                                 AndReturn(self.security_groups)
-        self.mox.StubOutWithMock(api, 'keypair_list')
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
 
         self.mox.StubOutWithMock(api, 'server_remove_floating_ip')
         exception = novaclient_exceptions.ClientException('ClientException',
@@ -213,9 +207,6 @@ class FloatingIpViewTests(test.BaseViewTests):
         api.server_remove_floating_ip(IsA(http.HttpRequest),
                                       IsA(int),
                                       IsA(int)).AndRaise(exception)
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
-
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
         api.tenant_floating_ip_get = self.mox.CreateMockAnything()
         api.tenant_floating_ip_get(IsA(http.HttpRequest), IsA(unicode)).\

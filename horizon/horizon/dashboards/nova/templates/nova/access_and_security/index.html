@@ -7,7 +7,7 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  
+
   <div id="floating_ips">
     {% if floating_ips %}
       {% include 'nova/access_and_security/floating_ips/_list.html' %}
@@ -34,8 +34,8 @@
   </div>
 
 <div id="keypairs">
-  {% if keypairs %}
-    {% include 'nova/access_and_security/keypairs/_list.html' %}
+  {% if keypairs_table.data %}
+    {{ keypairs_table.render }}
   {% else %}
     <div class="alert-message block-message info">
       <p><strong>{% trans "Info: " %}</strong>{% trans "There are currently no keypairs." %}</p>
