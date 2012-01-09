@@ -36,15 +36,11 @@ import openstackx.api.exceptions as api_exceptions
 from horizon import api
 from horizon import forms
 from horizon import test
-from horizon.dashboards.nova.access_and_security.keypairs.forms import \
-                                                                (DeleteKeypair)
-from horizon.dashboards.nova.access_and_security.security_groups.forms import \
-                                                                  (CreateGroup,
-                                                                   DeleteGroup)
-from horizon.dashboards.nova.access_and_security.floating_ips.forms import \
-                                                       (ReleaseFloatingIp,
-                                                        FloatingIpDisassociate,
-                                                        FloatingIpAllocate)
+from .keypairs.forms import DeleteKeypair
+from .keypairs.tables import KeypairsTable
+from .security_groups.forms import CreateGroup, DeleteGroup
+from .floating_ips.forms import (ReleaseFloatingIp, FloatingIpDisassociate,
+                                 FloatingIpAllocate)
 
 
 LOG = logging.getLogger(__name__)
@@ -53,11 +49,26 @@ LOG = logging.getLogger(__name__)
 @login_required
 def index(request):
     tenant_id = request.user.tenant_id
+
     for f in (CreateGroup, DeleteGroup, DeleteKeypair, ReleaseFloatingIp,
               FloatingIpDisassociate, FloatingIpAllocate):
         _unused, handled = f.maybe_handle(request)
         if handled:
             return handled
+
+    # NOTE(gabriel): This is all temporary until all tables
+    #                in this view are converted to DataTables.
+    try:
+        keypairs = api.nova.keypair_list(request)
+    except Exception, e:
+        keypairs = []
+        LOG.exception("Exception in keypair index")
+        messages.error(request,
+                       _('Keypair list is currently unavailable.'))
+    keypairs_table = KeypairsTable(request, keypairs)
+    handled = keypairs_table.maybe_handle()
+    if handled:
+        return handled
 
     try:
         security_groups = api.security_group_list(request)
@@ -73,14 +84,8 @@ def index(request):
         LOG.exception("ClientException in floating ip index")
         messages.error(request,
                     _('Error fetching floating ips: %s') % e.message)
-    try:
-        keypairs = api.keypair_list(request)
-    except novaclient_exceptions.ClientException, e:
-        keypairs = []
-        LOG.exception("ClientException in keypair index")
-        messages.error(request, _('Error fetching keypairs: %s') % e.message)
 
-    context = {'keypairs': keypairs,
+    context = {'keypairs_table': keypairs_table,
                'floating_ips': floating_ips,
                'security_groups': security_groups,
                'keypair_delete_form': DeleteKeypair(),

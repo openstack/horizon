@@ -48,7 +48,7 @@ class AccessAndSecurityTests(test.BaseViewTests):
         floating_ip.ip = '58.58.58.58'
 
         self.floating_ip = floating_ip
-        self.floating_ips = [floating_ip, ]
+        self.floating_ips = (floating_ip,)
 
         security_group = api.SecurityGroup(None)
         security_group.id = '1'
@@ -57,13 +57,14 @@ class AccessAndSecurityTests(test.BaseViewTests):
 
     def test_index(self):
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+
+        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
         api.tenant_floating_ip_list(IsA(http.HttpRequest)).\
                                     AndReturn(self.floating_ips)
-        self.mox.StubOutWithMock(api, 'security_group_list')
         api.security_group_list(IsA(http.HttpRequest)).\
                                 AndReturn(self.security_groups)
-        self.mox.StubOutWithMock(api, 'keypair_list')
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
 
         self.mox.ReplayAll()
 
@@ -71,7 +72,8 @@ class AccessAndSecurityTests(test.BaseViewTests):
                              reverse('horizon:nova:access_and_security:index'))
 
         self.assertTemplateUsed(res, 'nova/access_and_security/index.html')
-        self.assertItemsEqual(res.context['keypairs'], self.keypairs)
+        self.assertItemsEqual(res.context['keypairs_table'].data,
+                              self.keypairs)
         self.assertItemsEqual(res.context['security_groups'],
                               self.security_groups)
         self.assertItemsEqual(res.context['floating_ips'], self.floating_ips)

@@ -28,6 +28,9 @@ from horizon import api
 from horizon import test
 
 
+INDEX_VIEW_URL = reverse('horizon:nova:access_and_security:index')
+
+
 class KeyPairViewTests(test.BaseViewTests):
     def setUp(self):
         super(KeyPairViewTests, self).setUp()
@@ -38,20 +41,16 @@ class KeyPairViewTests(test.BaseViewTests):
     def test_delete_keypair(self):
         KEYPAIR_ID = self.keypairs[0].name
         formData = {'method': 'DeleteKeypair',
-                    'keypair_id': KEYPAIR_ID,
-                    }
+                    'keypair_id': KEYPAIR_ID}
 
         self.mox.StubOutWithMock(api, 'keypair_delete')
         api.keypair_delete(IsA(http.HttpRequest), unicode(KEYPAIR_ID))
 
         self.mox.ReplayAll()
 
-        res = self.client.post(
-                    reverse('horizon:nova:access_and_security:index'),
-                               formData)
+        res = self.client.post(INDEX_VIEW_URL, formData)
 
-        self.assertRedirectsNoFollow(res,
-                 reverse('horizon:nova:access_and_security:index'))
+        self.assertRedirectsNoFollow(res, INDEX_VIEW_URL)
 
     def test_delete_keypair_exception(self):
         KEYPAIR_ID = self.keypairs[0].name
@@ -67,12 +66,9 @@ class KeyPairViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.post(
-                    reverse('horizon:nova:access_and_security:index'),
-                               formData)
+        res = self.client.post(INDEX_VIEW_URL, formData)
 
-        self.assertRedirectsNoFollow(res,
-                 reverse('horizon:nova:access_and_security:index'))
+        self.assertRedirectsNoFollow(res, INDEX_VIEW_URL)
 
     def test_create_keypair_get(self):
         res = self.client.get(
