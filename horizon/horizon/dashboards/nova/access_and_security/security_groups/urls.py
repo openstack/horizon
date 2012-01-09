@@ -20,10 +20,11 @@
 
 from django.conf.urls.defaults import patterns, url
 
+from .views import CreateView, EditRulesView
 
-urlpatterns = patterns(
-    'horizon.dashboards.nova.access_and_security.security_groups.views',
-    url(r'^$', 'index', name='index'),
-    url(r'^create/$', 'create', name='create'),
-    url(r'^(?P<security_group_id>[^/]+)/edit_rules/$', 'edit_rules',
+
+urlpatterns = patterns('',
+    url(r'^create/$', CreateView.as_view(), name='create'),
+    url(r'^(?P<security_group_id>[^/]+)/edit_rules/$',
+        EditRulesView.as_view(),
         name='edit_rules'))

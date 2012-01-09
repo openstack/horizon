@@ -74,6 +74,7 @@ class AccessAndSecurityTests(test.BaseViewTests):
         self.assertTemplateUsed(res, 'nova/access_and_security/index.html')
         self.assertItemsEqual(res.context['keypairs_table'].data,
                               self.keypairs)
-        self.assertItemsEqual(res.context['security_groups'],
+        self.assertItemsEqual(res.context['security_groups_table'].data,
                               self.security_groups)
-        self.assertItemsEqual(res.context['floating_ips'], self.floating_ips)
+        self.assertItemsEqual(res.context['floating_ips_table'].data,
+                              self.floating_ips)

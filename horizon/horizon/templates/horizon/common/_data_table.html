@@ -3,22 +3,33 @@
   <h3 class='table_title'>{{ table }}</h3>
   {{ table.render_table_actions }}
 </div>
+{% with columns=table.get_columns rows=table.get_rows %}
 <table id="{{ table.name }}" class="zebra-striped">
   <thead>
     <tr>
-      {% for column in table.get_columns %}
+      {% for column in columns %}
         <th class="{{ column.get_classes }}">{{ column }}</th>
       {% endfor %}
     </tr>
   </thead>
   <tbody>
-  {% for row in table.get_rows %}
+  {% for row in rows %}
   <tr id="{{ row.id }}" class="{% cycle 'odd' 'even' %} {{ row.status_class }}">
     {% for cell in row %}
     <td class="{{ cell.get_classes }}">{{ cell.value }}</td>
     {% endfor %}
   </tr>
+  {% empty %}
+  <tr class="{% cycle 'odd' 'even' %} empty">
+    <td colspan="{{ table.get_columns|length }}">{{ table.get_empty_message }}</td>
+  </tr>
   {% endfor %}
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="{{ table.get_columns|length }}">Displaying {{ rows|length }} item{{ rows|pluralize }}</td>
+    </td>
+  </tfoot>
 </table>
+{% endwith %}
 </form>

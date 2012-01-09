@@ -40,11 +40,13 @@ class KeyPairViewTests(test.BaseViewTests):
 
     def test_delete_keypair(self):
         KEYPAIR_ID = self.keypairs[0].name
-        formData = {'method': 'DeleteKeypair',
-                    'keypair_id': KEYPAIR_ID}
+        formData = {'action': 'keypairs__delete__%s' % KEYPAIR_ID}
 
-        self.mox.StubOutWithMock(api, 'keypair_delete')
-        api.keypair_delete(IsA(http.HttpRequest), unicode(KEYPAIR_ID))
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_delete')
+
+        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
+        api.nova.keypair_delete(IsA(http.HttpRequest), unicode(KEYPAIR_ID))
 
         self.mox.ReplayAll()
 
@@ -54,15 +56,16 @@ class KeyPairViewTests(test.BaseViewTests):
 
     def test_delete_keypair_exception(self):
         KEYPAIR_ID = self.keypairs[0].name
-        formData = {'method': 'DeleteKeypair',
-                    'keypair_id': KEYPAIR_ID,
-                    }
+        formData = {'action': 'keypairs__delete__%s' % KEYPAIR_ID}
 
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_delete')
+
+        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
         exception = novaclient_exceptions.ClientException('clientException',
                                                 message='clientException')
-        self.mox.StubOutWithMock(api, 'keypair_delete')
-        api.keypair_delete(IsA(http.HttpRequest),
-                           unicode(KEYPAIR_ID)).AndRaise(exception)
+        api.nova.keypair_delete(IsA(http.HttpRequest), unicode(KEYPAIR_ID)) \
+                .AndRaise(exception)
 
         self.mox.ReplayAll()
 

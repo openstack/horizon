@@ -23,76 +23,36 @@ Views for managing Nova floating IPs.
 """
 import logging
 
-from django import template
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django import shortcuts
 from django.utils.translation import ugettext as _
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
-from horizon.dashboards.nova.access_and_security.floating_ips.forms import \
-                             (ReleaseFloatingIp, FloatingIpAssociate,
-                              FloatingIpDisassociate, FloatingIpAllocate)
+from horizon import forms
+from .forms import FloatingIpAssociate
 
 
 LOG = logging.getLogger(__name__)
 
 
-@login_required
-def index(request):
-    for f in (ReleaseFloatingIp, FloatingIpDisassociate, FloatingIpAllocate):
-        _unused, handled = f.maybe_handle(request)
-        if handled:
-            return handled
-    try:
-        floating_ips = api.tenant_floating_ip_list(request)
-    except novaclient_exceptions.ClientException, e:
-        floating_ips = []
-        LOG.exception("ClientException in floating ip index")
-        messages.error(request,
-                       _('Error fetching floating ips: %s') % e.message)
-    allocate_form = FloatingIpAllocate(initial={
-                                        'tenant_id': request.user.tenant_id})
-    return shortcuts.render(request,
-                        'nova/access_and_security/floating_ips/index.html', {
-                            'allocate_form': allocate_form,
-                            'disassociate_form': FloatingIpDisassociate(),
-                            'floating_ips': floating_ips,
-                            'release_form': ReleaseFloatingIp()})
+class AssociateView(forms.ModalFormView):
+    form_class = FloatingIpAssociate
+    template_name = 'nova/access_and_security/floating_ips/associate.html'
+    context_object_name = 'floating_ip'
 
+    def get_object(self, *args, **kwargs):
+        ip_id = kwargs['ip_id']
+        try:
+            return api.tenant_floating_ip_get(self.request, ip_id)
+        except Exception as e:
+            LOG.exception('Error fetching floating ip with id "%s".' % ip_id)
+            messages.error(self.request,
+                           _('Unable to associate floating ip: %s') % e)
+            raise http.Http404("Floating IP %s not available." % ip_id)
 
-@login_required
-def associate(request, ip_id):
-    instancelist = [(server.id, 'id: %s, name: %s' %
-            (server.id, server.name))
-            for server in api.server_list(request)]
-
-    form, handled = FloatingIpAssociate().maybe_handle(request, initial={
-                'floating_ip_id': ip_id,
-                'floating_ip': api.tenant_floating_ip_get(request, ip_id).ip,
-                'instances': instancelist})
-    if handled:
-        return handled
-
-    context = {'floating_ip_id': ip_id,
-               'form': form}
-
-    if request.is_ajax():
-        template = 'nova/access_and_security/floating_ips/_associate.html'
-        context['hide'] = True
-    else:
-        template = 'nova/access_and_security/floating_ips/associate.html'
-
-    return shortcuts.render(request, template, context)
-
-
-@login_required
-def disassociate(request, ip_id):
-    form, handled = FloatingIpDisassociate().maybe_handle(request)
-    if handled:
-        return handled
-
-    return shortcuts.render(request,
-                    'nova/access_and_security/floating_ips/associate.html', {
-                    'floating_ip_id': ip_id})
+    def get_initial(self):
+        instances = [(server.id, 'id: %s, name: %s' %
+                        (server.id, server.name))
+                        for server in api.server_list(self.request)]
+        return {'floating_ip_id': self.object.id,
+                'floating_ip': self.object.ip,
+                'instances': instances}

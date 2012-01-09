@@ -17,7 +17,14 @@ horizon.addInitFunction(function() {
     }
   });
 
-  $('table.sortable').tablesorter();
+  $('table.sortable').each(function(index, table) {
+      var $table = $(table);
+      // Only trigger if we have actual data rows in the table.
+      // Calling on an empty table throws a javascript error.
+      if ($table.find('tbody tr').length) {
+        $table.tablesorter();
+      }
+    })
 
     // Actions button dropdown behavior
   $('.action.primary').mouseenter(function() {

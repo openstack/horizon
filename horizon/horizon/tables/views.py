@@ -17,7 +17,74 @@
 from django.views import generic
 
 
-class DataTableView(generic.TemplateView):
+class MultiTableView(generic.TemplateView):
+    """
+    A class-based generic view to handle the display and processing of
+    multiple :class:`~horizon.tables.DataTable` classes in a single view.
+
+    Three steps are required to use this view: set the ``table_classes``
+    attribute with a tuple of the desired
+    :class:`~horizon.tables.DataTable` classes;
+    define a ``get_{{ table_name }}_data`` method for each table class
+    which returns a set of data for that table; and specify a template for
+    the ``template_name`` attribute.
+    """
+    def __init__(self, *args, **kwargs):
+        super(MultiTableView, self).__init__(*args, **kwargs)
+        self.table_classes = getattr(self, "table_classes", [])
+        self._data = {}
+        self._tables = {}
+
+    def get_data(self):
+        if not self._data:
+            for table in self.table_classes:
+                func_name = "get_%s_data" % table._meta.name
+                data_func = getattr(self, func_name, None)
+                if data_func is None:
+                    cls_name = self.__class__.__name__
+                    raise NotImplementedError("You must define a %s method "
+                                              "on %s." % (func_name, cls_name))
+                self._data[table._meta.name] = data_func()
+        return self._data
+
+    def get_tables(self):
+        if not self.table_classes:
+            raise AttributeError('You must specify a one or more DataTable '
+                                 'classes for the "table_classes" attribute '
+                                 'on %s.' % self.__class__.__name__)
+        if not self._tables:
+            for table in self.table_classes:
+                func_name = "get_%s_table" % table._meta.name
+                table_func = getattr(self, func_name, None)
+                data = self.get_data()[table._meta.name]
+                if table_func is None:
+                    tbl = table(self.request, data)
+                else:
+                    tbl = table_func(self, self.request, data)
+                self._tables[table._meta.name] = tbl
+        return self._tables
+
+    def get_context_data(self, **kwargs):
+        context = super(MultiTableView, self).get_context_data(**kwargs)
+        tables = self.get_tables()
+        for name, table in tables.items():
+            context["%s_table" % name] = table
+        return context
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
+
+    def post(self, request, *args, **kwargs):
+        tables = self.get_tables().values()
+        for table in tables:
+            handled = table.maybe_handle()
+            if handled:
+                return handled
+        return self.get(request, *args, **kwargs)
+
+
+class DataTableView(MultiTableView):
     """ A class-based generic view to handle basic DataTable processing.
 
     Three steps are required to use this view: set the ``table_class``
@@ -32,6 +99,10 @@ class DataTableView(generic.TemplateView):
         raise NotImplementedError('You must define a "get_data" method on %s.'
                                   % self.__class__.__name__)
 
+    def get_tables(self):
+        table = self.get_table()
+        return {table._meta.name: table}
+
     def get_table(self):
         if not self.table_class:
             raise AttributeError('You must specify a DataTable class for the '
@@ -41,15 +112,7 @@ class DataTableView(generic.TemplateView):
             self.table = self.table_class(self.request, self.get_data())
         return self.table
 
-    def get(self, request, *args, **kwargs):
-        table = self.get_table()
-        context = self.get_context_data(**kwargs)
-        context[self.context_object_name] = table
-        return self.render_to_response(context)
-
-    def post(self, request, *args, **kwargs):
-        table = self.get_table()
-        handled = table.maybe_handle()
-        if handled:
-            return handled
-        return self.get(request, *args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(DataTableView, self).get_context_data(**kwargs)
+        context[self.context_object_name] = self.table
+        return context

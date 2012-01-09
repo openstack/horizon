@@ -20,10 +20,11 @@
 
 from django.conf.urls.defaults import patterns, url
 
+from .views import AssociateView
 
-urlpatterns = patterns(
-    'horizon.dashboards.nova.access_and_security.floating_ips.views',
-    url(r'^$', 'index', name='index'),
-    url(r'^(?P<ip_id>[^/]+)/associate/$', 'associate', name='associate'),
-    url(r'^(?P<ip_id>[^/]+)/disassociate/$', 'disassociate',
-        name='disassociate'))
+
+urlpatterns = patterns('',
+    url(r'^(?P<ip_id>[^/]+)/associate/$',
+        AssociateView.as_view(),
+        name='associate')
+)

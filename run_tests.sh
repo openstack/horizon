@@ -267,7 +267,7 @@ function run_tests {
 
   echo "Running Horizon application tests"
   ${command_wrapper} coverage erase
-  ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test horizon --settings=horizon.tests.testsettings
+  ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test horizon --settings=horizon.tests.testsettings $testargs
   # get results of the Horizon tests
   HORIZON_RESULT=$?
 
@@ -278,9 +278,9 @@ function run_tests {
   cp $root/openstack-dashboard/local/local_settings.py.example $root/openstack-dashboard/local/local_settings.py
 
   if [ $selenium -eq 1 ]; then
-      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard --with-selenium --with-cherrypyliveserver
+      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard --with-selenium --with-cherrypyliveserver $testargs
     else
-      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard
+      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard $testargs
   fi
   # get results of the openstack-dashboard tests
   DASHBOARD_RESULT=$?

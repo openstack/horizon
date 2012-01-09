@@ -1,8 +1,0 @@
-{% load i18n %}
-<form id="form_allocate" action="." method="post">
-  {% csrf_token %}
-  {% for hidden in form.hidden_fields %}
-    {{ hidden }}
-  {% endfor %}
-  <input class="btn small primary" type="submit" value="{% trans "Allocate IP" %}" />
-</form>

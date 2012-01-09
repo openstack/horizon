@@ -260,8 +260,9 @@ class Row(object):
         for column in table.columns.values():
             if column.auto == "multi_select":
                 widget = forms.CheckboxInput(check_test=False)
+                # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
-                                     table.get_object_id(datum))
+                                     str(table.get_object_id(datum)))
                 column._data_cache[datum] = data
             elif column.auto == "actions":
                 data = table.render_row_actions(datum)
@@ -623,6 +624,10 @@ class DataTable(object):
         context = template.RequestContext(self._meta.request, extra_context)
         return table_template.render(context)
 
+    def get_empty_message(self):
+        """ Returns the message to be displayed when there is no data. """
+        return _("No items to display.")
+
     def get_object_by_id(self, lookup):
         """
         Returns the data object from the table's dataset which matches
@@ -717,7 +722,7 @@ class DataTable(object):
         # See if we have a list of ids
         obj_ids = obj_ids or self._meta.request.POST.getlist('object_ids')
         action = self.base_actions.get(action_name, None)
-        if action and (obj_id or obj_ids):
+        if action and (not action.requires_input or obj_id or obj_ids):
             # Single handling is easy
             if not action.handles_multiple:
                 response = action.single(self, self._meta.request, obj_id)
@@ -727,6 +732,9 @@ class DataTable(object):
                     obj_ids = [obj_id]
                 response = action.multiple(self, self._meta.request, obj_ids)
             return response
+        elif action and action.requires_input and not (obj_id or obj_ids):
+            messages.info(self._meta.request,
+                          _("Please select a row before taking that action."))
         return None
 
     def maybe_handle(self):

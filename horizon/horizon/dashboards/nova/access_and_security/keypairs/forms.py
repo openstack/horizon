@@ -36,24 +36,7 @@ from horizon import forms
 LOG = logging.getLogger(__name__)
 
 
-class DeleteKeypair(forms.SelfHandlingForm):
-    keypair_id = forms.CharField(widget=forms.HiddenInput())
-
-    def handle(self, request, data):
-        try:
-            LOG.info('Deleting keypair "%s"' % data['keypair_id'])
-            api.keypair_delete(request, urlquote(data['keypair_id']))
-            messages.info(request, _('Successfully deleted keypair: %s')
-                                    % data['keypair_id'])
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in DeleteKeypair")
-            messages.error(request,
-                           _('Error deleting keypair: %s') % e.message)
-        return shortcuts.redirect(request.build_absolute_uri())
-
-
 class CreateKeypair(forms.SelfHandlingForm):
-
     name = forms.CharField(max_length="20",
                            label=_("Keypair Name"),
                            validators=[validators.validate_slug],
@@ -79,7 +62,6 @@ class CreateKeypair(forms.SelfHandlingForm):
 
 
 class ImportKeypair(forms.SelfHandlingForm):
-
     name = forms.CharField(max_length="20", label=_("Keypair Name"),
                  validators=[validators.RegexValidator('\w+')])
     public_key = forms.CharField(label=_("Public Key"), widget=forms.Textarea)

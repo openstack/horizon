@@ -20,17 +20,13 @@
 
 from django.conf.urls.defaults import *
 
-import horizon
+from .floating_ips import urls as fip_urls
+from .keypairs import urls as keypair_urls
+from .security_groups import urls as sec_group_urls
+from .views import IndexView
 
-from horizon.dashboards.nova.access_and_security.keypairs import urls \
-                                                            as keypair_urls
-from horizon.dashboards.nova.access_and_security.floating_ips import urls \
-                                                            as fip_urls
-from horizon.dashboards.nova.access_and_security.security_groups import urls \
-                                                            as sec_group_urls
-
-urlpatterns = patterns('horizon.dashboards.nova.access_and_security',
-    url(r'^$', 'views.index', name='index'),
+urlpatterns = patterns('',
+    url(r'^$', IndexView.as_view(), name='index'),
     url(r'keypairs/', include(keypair_urls, namespace='keypairs')),
     url(r'floating_ips/', include(fip_urls, namespace='floating_ips')),
     url(r'security_groups/',

@@ -17,7 +17,6 @@
 from django import http
 from django import shortcuts
 from django.core.urlresolvers import reverse
-from django.test.client import RequestFactory
 
 import horizon
 from horizon import tables
@@ -110,13 +109,6 @@ class MyTable(tables.DataTable):
 
 
 class DataTableTests(test.TestCase):
-    def setUp(self):
-        super(DataTableTests, self).setUp()
-        self.factory = RequestFactory()
-
-    def tearDown(self):
-        super(DataTableTests, self).tearDown()
-
     def test_table_instantiation(self):
         """ Tests everything that happens when the table is instantiated. """
         self.table = MyTable(self.request, TEST_DATA)
@@ -372,6 +364,8 @@ class DataTableTests(test.TestCase):
                          ('my_table', 'click', None))
         handled = self.table.maybe_handle()
         self.assertEqual(handled, None)
+        self.assertEqual(list(req._messages)[0].message,
+                         "Please select a row before taking that action.")
 
         # Filtering
         action_string = "my_table__filter__q"

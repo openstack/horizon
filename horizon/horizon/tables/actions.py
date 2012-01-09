@@ -30,6 +30,7 @@ class BaseAction(object):
     handles_multiple = False
     attrs = {}
     name = None
+    requires_input = False
 
     def allowed(self, request, datum):
         """ Determine whether this action is allowed for the current request.
@@ -84,6 +85,11 @@ class Action(BaseAction):
         The HTTP method for this action. Defaults to ``POST``. Other methods
         may or may not succeed currently.
 
+    .. attribute:: requires_input
+
+        Boolean value indicating whether or not this action can be taken
+        without any additional input (e.g. an object id). Defaults to ``True``.
+
     At least one of the following methods must be defined:
 
     .. method:: single(self, data_table, request, object_id)
@@ -104,10 +110,11 @@ class Action(BaseAction):
         into a list containing only the single object id.
     """
     method = "POST"
+    requires_input = True
 
     def __init__(self, verbose_name=None, verbose_name_plural=None,
                  single_func=None, multiple_func=None, handle_func=None,
-                 handles_multiple=False, attrs=None):
+                 handles_multiple=False, attrs=None, requires_input=True):
         super(Action, self).__init__()
         self.name = unicode(getattr(self, 'name', self.__class__.__name__))
         verbose_name = verbose_name or self.name.title()
@@ -121,6 +128,9 @@ class Action(BaseAction):
         self.handles_multiple = getattr(self,
                                         "handles_multiple",
                                         handles_multiple)
+        self.requires_input = getattr(self,
+                                      "requires_input",
+                                      requires_input)
         if attrs:
             self.attrs.update(attrs)
 

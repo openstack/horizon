@@ -25,6 +25,8 @@ from django import shortcuts
 from django import test as django_test
 from django import template as django_template
 from django.conf import settings
+from django.contrib.messages.storage import default_storage
+from django.test.client import RequestFactory
 import httplib2
 import mox
 
@@ -58,6 +60,14 @@ def utcnow():
     return datetime.datetime.utcnow()
 
 utcnow.override_time = None
+
+
+class RequestFactoryWithMessages(RequestFactory):
+    def post(self, *args, **kwargs):
+        req = super(RequestFactoryWithMessages, self).post(*args, **kwargs)
+        req.session = []
+        req._messages = default_storage(req)
+        return req
 
 
 class TestCase(django_test.TestCase):
@@ -114,6 +124,7 @@ class TestCase(django_test.TestCase):
 
     def setUp(self):
         self.mox = mox.Mox()
+        self.factory = RequestFactoryWithMessages()
 
         def fake_conn_request(*args, **kwargs):
             raise Exception("An external URI request tried to escape through "

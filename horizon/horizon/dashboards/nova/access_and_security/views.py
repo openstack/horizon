@@ -22,86 +22,52 @@
 """
 Views for Instances and Volumes.
 """
-import datetime
 import logging
 
-from django import http
-from django import shortcuts
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
-import openstackx.api.exceptions as api_exceptions
 
 from horizon import api
-from horizon import forms
-from horizon import test
-from .keypairs.forms import DeleteKeypair
+from horizon import tables
 from .keypairs.tables import KeypairsTable
-from .security_groups.forms import CreateGroup, DeleteGroup
-from .floating_ips.forms import (ReleaseFloatingIp, FloatingIpDisassociate,
-                                 FloatingIpAllocate)
+from .floating_ips.tables import FloatingIPsTable
+from .security_groups.tables import SecurityGroupsTable
 
 
 LOG = logging.getLogger(__name__)
 
 
-@login_required
-def index(request):
-    tenant_id = request.user.tenant_id
+class IndexView(tables.MultiTableView):
+    table_classes = (KeypairsTable, SecurityGroupsTable, FloatingIPsTable)
+    template_name = 'nova/access_and_security/index.html'
 
-    for f in (CreateGroup, DeleteGroup, DeleteKeypair, ReleaseFloatingIp,
-              FloatingIpDisassociate, FloatingIpAllocate):
-        _unused, handled = f.maybe_handle(request)
-        if handled:
-            return handled
+    def get_keypairs_data(self):
+        try:
+            keypairs = api.nova.keypair_list(self.request)
+        except Exception, e:
+            keypairs = []
+            LOG.exception("Exception in keypair index")
+            messages.error(self.request,
+                           _('Keypair list is currently unavailable.'))
+        return keypairs
 
-    # NOTE(gabriel): This is all temporary until all tables
-    #                in this view are converted to DataTables.
-    try:
-        keypairs = api.nova.keypair_list(request)
-    except Exception, e:
-        keypairs = []
-        LOG.exception("Exception in keypair index")
-        messages.error(request,
-                       _('Keypair list is currently unavailable.'))
-    keypairs_table = KeypairsTable(request, keypairs)
-    handled = keypairs_table.maybe_handle()
-    if handled:
-        return handled
+    def get_security_groups_data(self):
+        try:
+            security_groups = api.security_group_list(self.request)
+        except novaclient_exceptions.ClientException, e:
+            security_groups = []
+            LOG.exception("ClientException in security_groups index")
+            messages.error(self.request,
+                           _('Error fetching security_groups: %s') % e)
+        return security_groups
 
-    try:
-        security_groups = api.security_group_list(request)
-    except novaclient_exceptions.ClientException, e:
-        security_groups = []
-        LOG.exception("ClientException in security_groups index")
-        messages.error(request, _('Error fetching security_groups: %s')
-                                 % e.message)
-    try:
-        floating_ips = api.tenant_floating_ip_list(request)
-    except novaclient_exceptions.ClientException, e:
-        floating_ips = []
-        LOG.exception("ClientException in floating ip index")
-        messages.error(request,
-                    _('Error fetching floating ips: %s') % e.message)
-
-    context = {'keypairs_table': keypairs_table,
-               'floating_ips': floating_ips,
-               'security_groups': security_groups,
-               'keypair_delete_form': DeleteKeypair(),
-               'disassociate_form': FloatingIpDisassociate(),
-               'release_form': ReleaseFloatingIp(),
-               'allocate_form': FloatingIpAllocate(initial={
-                                        'tenant_id': request.user.tenant_id}),
-               'sec_group_create_form': CreateGroup(
-                                            initial={'tenant_id': tenant_id}),
-               'sec_group_delete_form': DeleteGroup.maybe_handle(request,
-                                            initial={'tenant_id': tenant_id})}
-
-    if request.is_ajax():
-        template = 'nova/access_and_security/index_ajax.html'
-        context['hide'] = True
-    else:
-        template = 'nova/access_and_security/index.html'
-
-    return shortcuts.render(request, template, context)
+    def get_floating_ips_data(self):
+        try:
+            floating_ips = api.tenant_floating_ip_list(self.request)
+        except novaclient_exceptions.ClientException, e:
+            floating_ips = []
+            LOG.exception("ClientException in floating ip index")
+            messages.error(self.request,
+                        _('Error fetching floating ips: %s') % e)
+        return floating_ips

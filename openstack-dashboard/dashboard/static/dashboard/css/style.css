@@ -343,6 +343,17 @@ table form {
     vertical-align: middle;
 }
 
+#main_content table tr.empty td {
+  text-align: center;
+}
+
+#main_content table tfoot tr td {
+  border-top: 1px solid #DDD;
+  background-color: #F1F1F1;
+  font-size: 11px;
+  line-height: 14px;
+}
+
 .table_actions {
     float: right;
     min-width: 400px;

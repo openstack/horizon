@@ -56,27 +56,6 @@ class CreateGroup(forms.SelfHandlingForm):
                                      e.message)
 
 
-class DeleteGroup(forms.SelfHandlingForm):
-    tenant_id = forms.CharField(widget=forms.HiddenInput())
-    security_group_id = forms.CharField(widget=forms.HiddenInput())
-
-    def handle(self, request, data):
-        try:
-            LOG.info('Delete security_group: "%s"' % data)
-
-            security_group = api.security_group_delete(request,
-                                                     data['security_group_id'])
-            messages.success(request,
-                             _('Successfully deleted security_group: %s')
-                                    % data['security_group_id'])
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in DeleteGroup")
-            messages.error(request, _('Error deleting security group: %s')
-                                     % e.message)
-        return shortcuts.redirect(
-                    'horizon:nova:access_and_security:index')
-
-
 class AddRule(forms.SelfHandlingForm):
     ip_protocol = forms.ChoiceField(choices=[('tcp', 'tcp'),
                                              ('udp', 'udp'),
@@ -106,27 +85,5 @@ class AddRule(forms.SelfHandlingForm):
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in AddRule")
             messages.error(request, _('Error adding rule security group: %s')
-                                     % e.message)
-        return shortcuts.redirect(request.build_absolute_uri())
-
-
-class DeleteRule(forms.SelfHandlingForm):
-    security_group_rule_id = forms.CharField(widget=forms.HiddenInput())
-    tenant_id = forms.CharField(widget=forms.HiddenInput())
-
-    def handle(self, request, data):
-        security_group_rule_id = data['security_group_rule_id']
-        tenant_id = data['tenant_id']
-        try:
-            LOG.info('Delete security_group_rule: "%s"' % data)
-
-            security_group = api.security_group_rule_delete(
-                                                request,
-                                                security_group_rule_id)
-            messages.info(request, _('Successfully deleted rule: %s')
-                                    % security_group_rule_id)
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in DeleteRule")
-            messages.error(request, _('Error authorizing security group: %s')
                                      % e.message)
         return shortcuts.redirect(request.build_absolute_uri())

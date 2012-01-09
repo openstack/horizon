@@ -23,36 +23,11 @@ Views for managing Nova keypairs.
 """
 import logging
 
-from django import http
-from django import shortcuts
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.utils.translation import ugettext as _
-from novaclient import exceptions as novaclient_exceptions
-
-from horizon import api
 from horizon import forms
-from horizon import tables
-from .forms import CreateKeypair, DeleteKeypair, ImportKeypair
-from .tables import KeypairsTable
+from .forms import CreateKeypair, ImportKeypair
 
 
 LOG = logging.getLogger(__name__)
-
-
-class IndexView(tables.DataTableView):
-    table_class = KeypairsTable
-    template_name = 'nova/access_and_security/keypairs/index.html'
-
-    def get_data(self):
-        try:
-            keypairs = api.nova.keypair_list(self.request)
-        except Exception, e:
-            keypairs = []
-            LOG.exception("ClientException in keypair index")
-            messages.error(request,
-                           _('Error fetching keypairs: %s') % e.message)
-        return keypairs
 
 
 class CreateView(forms.ModalFormView):

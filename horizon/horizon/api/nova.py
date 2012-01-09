@@ -132,16 +132,9 @@ class SecurityGroup(APIResourceWrapper):
     _attrs = ['id', 'name', 'description', 'tenant_id', 'rules']
 
 
-class SecurityGroupRule(APIResourceWrapper):
-    """Simple wrapper around
-    openstackx.extras.security_groups.SecurityGroupRule"""
-    _attrs = ['id', 'parent_group_id', 'group_id', 'ip_protocol',
-              'from_port', 'to_port', 'groups', 'ip_ranges']
-
-
-class SecurityGroupRule(APIResourceWrapper):
-    """Simple wrapper around openstackx.extras.users.User"""
-    _attrs = ['id', 'name', 'description', 'tenant_id', 'security_group_rules']
+class SecurityGroupRule(APIDictWrapper):
+    """ Simple wrapper for individual rules in a SecurityGroup. """
+    _attrs = ['ip_protocol', 'from_port', 'to_port', 'ip_range']
 
 
 def novaclient(request):

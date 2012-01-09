@@ -20,12 +20,10 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import IndexView, CreateView, ImportView
+from .views import CreateView, ImportView
 
 
-urlpatterns = patterns(
-    'horizon.dashboards.nova.access_and_security.keypairs.views',
-    url(r'^$', IndexView.as_view(), name='index'),
+urlpatterns = patterns('',
     url(r'^create/$', CreateView.as_view(), name='create'),
     url(r'^import/$', ImportView.as_view(), name='import'),
 )
