@@ -231,13 +231,10 @@ class InstanceViewTests(test.BaseViewTests):
         CONSOLE_OUTPUT = 'output'
         INSTANCE_ID = self.servers[0].id
 
-        console_mock = self.mox.CreateMock(api.Console)
-        console_mock.output = CONSOLE_OUTPUT
-
-        self.mox.StubOutWithMock(api, 'console_create')
-        api.console_create(IgnoreArg(),
-                           unicode(INSTANCE_ID),
-                           IgnoreArg()).AndReturn(console_mock)
+        self.mox.StubOutWithMock(api, 'server_console_output')
+        api.server_console_output(IsA(http.HttpRequest),
+                                  unicode(INSTANCE_ID),
+                                  tail_length=None).AndReturn(CONSOLE_OUTPUT)
 
         self.mox.ReplayAll()
 
@@ -248,28 +245,6 @@ class InstanceViewTests(test.BaseViewTests):
         self.assertIsInstance(res, http.HttpResponse)
         self.assertContains(res, CONSOLE_OUTPUT)
 
-    def test_instance_console_exception(self):
-        INSTANCE_ID = self.servers[0].id
-
-        exception = api_exceptions.ApiException('apiException',
-                                                message='apiException')
-
-        self.mox.StubOutWithMock(api, 'console_create')
-        api.console_create(IgnoreArg(),
-                           unicode(INSTANCE_ID),
-                           IgnoreArg()).AndRaise(exception)
-
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IgnoreArg(), IsA(unicode))
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(
-                reverse('horizon:nova:instances_and_volumes:instances:console',
-                        args=[INSTANCE_ID]))
-
-        self.assertRedirectsNoFollow(res,
-                reverse('horizon:nova:instances_and_volumes:instances:index'))
 
     def test_instance_vnc(self):
         INSTANCE_ID = self.servers[0].id

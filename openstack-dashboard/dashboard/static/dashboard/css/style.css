@@ -840,6 +840,38 @@ tr.terminated {
   color: #999999;
 }
 
+#instance_tabs {
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+#instance_tabs li a {
+  background: #f2f2f2;
+  display: block;
+  font-size: 14px;
+  float: left;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border: 1px solid #e1e1e1;
+  border-bottom: none;
+}
+
+#instance_tabs li.active a {
+  background: #fff;
+  padding-bottom: 8px;
+  margin-bottom: -5px;
+}
+
+a.view_full {
+  float: right;
+  margin: 10px 10px 0 0;
+}
+
+.tab_wrapper {
+  padding-top: 50px;
+}
+
 /* Fix twipsy z-index to show above modals. Bootstrap bug 582*/
 .twipsy {
   z-index: 12000;
