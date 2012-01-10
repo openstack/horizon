@@ -245,7 +245,6 @@ class InstanceViewTests(test.BaseViewTests):
         self.assertIsInstance(res, http.HttpResponse)
         self.assertContains(res, CONSOLE_OUTPUT)
 
-
     def test_instance_vnc(self):
         INSTANCE_ID = self.servers[0].id
         CONSOLE_OUTPUT = '/vncserver'

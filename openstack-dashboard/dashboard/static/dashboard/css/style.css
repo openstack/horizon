@@ -732,7 +732,7 @@ td.actions_column ul.row_actions {
   width: 148px;
 }
 
-tr + tr td.actions_column ul.row_actions {
+tr.even td.actions_column ul.row_actions {
   border: 1px solid #FFF;
 }
 

@@ -29,6 +29,7 @@ from mox import IgnoreArg, IsA
 
 from horizon import api
 from horizon import test
+from .tables import ContainersTable, ObjectsTable
 
 
 CONTAINER_INDEX_URL = reverse('horizon:nova:containers:index')
@@ -39,6 +40,8 @@ class ContainerViewTests(test.BaseViewTests):
         super(ContainerViewTests, self).setUp()
         self.container = api.Container(None)
         self.container.name = 'containerName'
+        self.container.size_used = 128
+        self.containers = (self.container,)
 
     def test_index(self):
         self.mox.StubOutWithMock(api, 'swift_get_containers')
@@ -51,46 +54,44 @@ class ContainerViewTests(test.BaseViewTests):
         res = self.client.get(CONTAINER_INDEX_URL)
 
         self.assertTemplateUsed(res, 'nova/containers/index.html')
-        self.assertIn('containers', res.context)
-        containers = res.context['containers']
+        self.assertIn('table', res.context)
+        containers = res.context['table'].data
 
         self.assertEqual(len(containers), 1)
         self.assertEqual(containers[0].name, 'containerName')
 
     def test_delete_container(self):
-        formData = {'container_name': 'containerName',
-                    'method': 'DeleteContainer'}
-
         self.mox.StubOutWithMock(api, 'swift_delete_container')
         api.swift_delete_container(IsA(http.HttpRequest),
                                    'containerName')
 
         self.mox.ReplayAll()
 
-        res = self.client.post(CONTAINER_INDEX_URL, formData)
+        action_string = "containers__delete__%s" % self.container.name
+        form_data = {"action": action_string}
+        req = self.factory.post(CONTAINER_INDEX_URL, form_data)
+        table = ContainersTable(req, self.containers)
+        handled = table.maybe_handle()
 
-        self.assertRedirectsNoFollow(res, CONTAINER_INDEX_URL)
+        self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
 
     def test_delete_container_nonempty(self):
-        formData = {'container_name': 'containerName',
-                          'method': 'DeleteContainer'}
+        self.mox.StubOutWithMock(api, 'swift_delete_container')
 
         exception = ContainerNotEmpty('containerNotEmpty')
-
-        self.mox.StubOutWithMock(api, 'swift_delete_container')
         api.swift_delete_container(
                 IsA(http.HttpRequest),
                 'containerName').AndRaise(exception)
 
-        self.mox.StubOutWithMock(messages, 'error')
-
-        messages.error(IgnoreArg(), IsA(unicode))
-
         self.mox.ReplayAll()
 
-        res = self.client.post(CONTAINER_INDEX_URL, formData)
+        action_string = "containers__delete__%s" % self.container.name
+        form_data = {"action": action_string}
+        req = self.factory.post(CONTAINER_INDEX_URL, form_data)
+        table = ContainersTable(req, self.containers)
+        handled = table.maybe_handle()
 
-        self.assertRedirectsNoFollow(res, CONTAINER_INDEX_URL)
+        self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
 
     def test_create_container_get(self):
         res = self.client.get(reverse('horizon:nova:containers:create'))
@@ -118,8 +119,11 @@ class ObjectViewTests(test.BaseViewTests):
 
     def setUp(self):
         super(ObjectViewTests, self).setUp()
-        swift_object = api.SwiftObject(None)
+        swift_object = api.swift.SwiftObject(None)
         swift_object.name = "test_object"
+        swift_object.size = '128'
+        swift_object.container = api.swift.Container(None)
+        swift_object.container.name = 'container_name'
         self.swift_objects = [swift_object]
 
     def test_index(self):
@@ -134,7 +138,7 @@ class ObjectViewTests(test.BaseViewTests):
         res = self.client.get(reverse('horizon:nova:containers:object_index',
                                       args=[self.CONTAINER_NAME]))
         self.assertTemplateUsed(res, 'nova/objects/index.html')
-        self.assertItemsEqual(res.context['objects'], self.swift_objects)
+        self.assertItemsEqual(res.context['table'].data, self.swift_objects)
 
     def test_upload_index(self):
         res = self.client.get(reverse('horizon:nova:containers:object_upload',
@@ -177,25 +181,23 @@ class ObjectViewTests(test.BaseViewTests):
                                     args=[self.CONTAINER_NAME]))
 
     def test_delete(self):
-        OBJECT_NAME = 'objectName'
-        formData = {'method': 'DeleteObject',
-                    'container_name': self.CONTAINER_NAME,
-                    'object_name': OBJECT_NAME}
-
         self.mox.StubOutWithMock(api, 'swift_delete_object')
         api.swift_delete_object(
                 IsA(http.HttpRequest),
-                self.CONTAINER_NAME, OBJECT_NAME)
+                self.CONTAINER_NAME, self.swift_objects[0].name)
 
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('horizon:nova:containers:object_index',
-                                       args=[self.CONTAINER_NAME]),
-                               formData)
+        OBJECT_INDEX_URL = reverse('horizon:nova:containers:object_index',
+                                   args=[self.CONTAINER_NAME])
+        action_string = "objects__delete__%s" % self.swift_objects[0].name
+        form_data = {"action": action_string}
+        req = self.factory.post(OBJECT_INDEX_URL, form_data)
+        kwargs = {"container_name": self.CONTAINER_NAME}
+        table = ObjectsTable(req, self.swift_objects, **kwargs)
+        handled = table.maybe_handle()
 
-        self.assertRedirectsNoFollow(res,
-                                reverse('horizon:nova:containers:object_index',
-                                        args=[self.CONTAINER_NAME]))
+        self.assertEqual(handled['location'], OBJECT_INDEX_URL)
 
     def test_download(self):
         OBJECT_DATA = 'objectData'
@@ -269,25 +271,3 @@ class ObjectViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res,
                             reverse('horizon:nova:containers:object_index',
                                     args=[NEW_CONTAINER_NAME]))
-
-    def test_filter(self):
-        PREFIX = 'prefix'
-
-        formData = {'method': 'FilterObjects',
-                    'container_name': self.CONTAINER_NAME,
-                    'object_prefix': PREFIX,
-                    }
-
-        self.mox.StubOutWithMock(api, 'swift_get_objects')
-        api.swift_get_objects(IsA(http.HttpRequest),
-                              unicode(self.CONTAINER_NAME),
-                              prefix=unicode(PREFIX))\
-                              .AndReturn((self.swift_objects, False))
-
-        self.mox.ReplayAll()
-
-        res = self.client.post(reverse('horizon:nova:containers:object_index',
-                                       args=[self.CONTAINER_NAME]),
-                               formData)
-
-        self.assertTemplateUsed(res, 'nova/objects/index.html')

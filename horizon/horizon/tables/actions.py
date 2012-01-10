@@ -206,7 +206,7 @@ class LinkAction(BaseAction):
         if attrs:
             self.attrs.update(attrs)
 
-    def get_link_url(self, datum=None, *args, **kwargs):
+    def get_link_url(self, datum=None):
         """ Returns the final URL based on the value of ``url``.
 
         If ``url`` is callable it will call the function.
@@ -217,7 +217,7 @@ class LinkAction(BaseAction):
         passed as the first parameter.
         """
         if callable(self.url):
-            return self.url(datum, *args, **kwargs)
+            return self.url(datum, **self.kwargs)
         try:
             if datum:
                 obj_id = self.table.get_object_id(datum)

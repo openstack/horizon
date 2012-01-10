@@ -31,11 +31,11 @@ LOG = logging.getLogger(__name__)
 
 class Container(APIResourceWrapper):
     """Simple wrapper around cloudfiles.container.Container"""
-    _attrs = ['name']
+    _attrs = ['name', 'size_used', 'object_count', ]
 
 
 class SwiftObject(APIResourceWrapper):
-    _attrs = ['name']
+    _attrs = ['name', 'container', 'size', 'metadata', 'last_modified']
 
 
 class SwiftAuthentication(object):
@@ -78,7 +78,7 @@ def swift_object_exists(request, container_name, object_name):
 
 
 def swift_get_containers(request, marker=None):
-    limit = getattr(settings, 'SWIFT_PAGINATE_LIMIT', 10000)
+    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     containers = [Container(c) for c in swift_api(request).get_all_containers(
                     limit=limit + 1,
                     marker=marker)]
@@ -100,12 +100,11 @@ def swift_delete_container(request, name):
 
 
 def swift_get_objects(request, container_name, prefix=None, marker=None):
-    limit = getattr(settings, 'SWIFT_PAGINATE_LIMIT', 10000)
+    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     container = swift_api(request).get_container(container_name)
     objects = [SwiftObject(o) for o in
             container.get_objects(prefix=prefix, marker=marker,
                                   limit=limit + 1)]
-
     if(len(objects) > limit):
         return (objects[0:-1], True)
     else:
@@ -114,7 +113,6 @@ def swift_get_objects(request, container_name, prefix=None, marker=None):
 
 def swift_copy_object(request, orig_container_name, orig_object_name,
                       new_container_name, new_object_name):
-
     container = swift_api(request).get_container(orig_container_name)
 
     if swift_object_exists(request, new_container_name, new_object_name):

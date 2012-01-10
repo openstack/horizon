@@ -27,7 +27,13 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="{{ table.get_columns|length }}">Displaying {{ rows|length }} item{{ rows|pluralize }}</td>
+      <td colspan="{{ table.get_columns|length }}">
+        <span>Displaying {{ rows|length }} item{{ rows|pluralize }}</span>
+        {% if table.has_more_data %}
+        <span class="spacer">|</span>
+        <a href="?marker={{ table.get_marker }}">More&nbsp;&raquo;</a>
+        {% endif %}
+      </td>
     </td>
   </tfoot>
 </table>

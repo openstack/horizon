@@ -24,6 +24,7 @@ from django import template
 from django.conf import settings
 from django.contrib import messages
 from django.core import urlresolvers
+from django.utils import http
 from django.utils.datastructures import SortedDict
 from django.utils.html import escape
 from django.utils.translation import ugettext as _
@@ -479,6 +480,9 @@ class DataTableOptions(object):
                                     'multi_select',
                                     len(self.table_actions) > 0)
 
+        # Set runtime table defaults; not configurable.
+        self.has_more_data = False
+
 
 class DataTableMetaclass(type):
     """ Metaclass to add options to DataTable class and collect columns. """
@@ -565,9 +569,10 @@ class DataTable(object):
     """
     __metaclass__ = DataTableMetaclass
 
-    def __init__(self, request, data):
+    def __init__(self, request, data, **kwargs):
         self._meta.request = request
         self._meta.data = data
+        self.kwargs = kwargs
 
         for column in self.columns.values():
             column.table = self
@@ -755,6 +760,23 @@ class DataTable(object):
         but this can be overridden to return other values.
         """
         return datum.id
+
+    def has_more_data(self):
+        """
+        Returns a boolean value indicating whether there is more data
+        available to this table from the source (generally an API).
+
+        The method is largely meant for internal use, but if you want to
+        override it to provide custom behavior you can do so at your own risk.
+        """
+        return self._meta.has_more_data
+
+    def get_marker(self):
+        """
+        Returns the identifier for the last object in the current data set
+        for APIs that use marker/limit-based paging.
+        """
+        return http.urlquote_plus(self.get_object_id(self.data[-1]))
 
     def get_columns(self):
         """ Returns this table's columns including auto-generated ones."""

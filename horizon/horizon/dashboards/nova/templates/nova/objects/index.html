@@ -9,16 +9,5 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  {% if objects %}
-    {% include 'nova/objects/_list.html' %}
-  {% else %}
-    <div class="alert-message block-message info">
-      {% url horizon:nova:containers:object_upload container_name as dash_obj_up_url %}
-      <p>
-        <strong>{% trans "Info: " %}</strong>
-        {% trans "There are currently no objects in the container." %}
-        <a class="btn small" href='{{ dash_obj_up_url }}'>{% trans "Object Upload Page" %}</a>
-      </p>
-    </div>
-  {% endif %}
+  {{ table.render }}
 {% endblock %}

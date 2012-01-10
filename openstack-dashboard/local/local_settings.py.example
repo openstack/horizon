@@ -45,7 +45,7 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
 # The number of Swift containers and objects to display on a single page before
 # providing a paging element (a "more" link) to paginate results.
-SWIFT_PAGINATE_LIMIT = 1000
+API_RESULT_LIMIT = 1000
 
 # Configure quantum connection details for networking
 QUANTUM_ENABLED = True
