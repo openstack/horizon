@@ -272,24 +272,13 @@ function run_tests {
   HORIZON_RESULT=$?
 
   echo "Running openstack-dashboard (Django project) tests"
-  if [ -f $root/openstack-dashboard/local/local_settings.py ]; then
-    cp $root/openstack-dashboard/local/local_settings.py $root/openstack-dashboard/local/local_settings.py.bak
-  fi
-  cp $root/openstack-dashboard/local/local_settings.py.example $root/openstack-dashboard/local/local_settings.py
-
   if [ $selenium -eq 1 ]; then
-      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard --with-selenium --with-cherrypyliveserver $testargs
+      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard --settings=horizon.tests.testsettings --with-selenium --with-cherrypyliveserver $testargs
     else
-      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard $testargs
+      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard --settings=horizon.tests.testsettings $testargs
   fi
   # get results of the openstack-dashboard tests
   DASHBOARD_RESULT=$?
-
-  if [ -f $root/openstack-dashboard/local/local_settings.py.bak ]; then
-    cp $root/openstack-dashboard/local/local_settings.py.bak $root/openstack-dashboard/local/local_settings.py
-    rm $root/openstack-dashboard/local/local_settings.py.bak
-  fi
-  rm -f $root/openstack-dashboard/local/local_settings.pyc
 
   if [ $with_coverage -eq 1 ]; then
     echo "Generating coverage reports"
