@@ -105,3 +105,41 @@ OPENSTACK_ADMIN_TOKEN = "openstack"
 OPENSTACK_KEYSTONE_URL = "http://%s:5000/v2.0" % OPENSTACK_ADDRESS
 OPENSTACK_KEYSTONE_ADMIN_URL = "http://%s:35357/v2.0" % OPENSTACK_ADDRESS
 OPENSTACK_KEYSTONE_DEFAULT_ROLE_ID = "2"
+
+# Silence logging output during tests.
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+            },
+        },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['null'],
+            'propagate': False,
+            },
+        'horizon': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'novaclient': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'keystoneclient': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'quantum': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'nose.plugins.manager': {
+            'handlers': ['null'],
+            'propagate': False,
+        }
+    }
+}
