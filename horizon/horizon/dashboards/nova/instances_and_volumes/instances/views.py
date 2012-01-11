@@ -185,14 +185,12 @@ def console(request, instance_id):
     tenant_id = request.user.tenant_id
     try:
         # TODO(jakedahn): clean this up once the api supports tailing.
-        length = request.GET.get('length', '')
-        console = api.console_create(request, instance_id, 'text')
+        length = request.GET.get('length', None)
+        console = api.server_console_output(request,
+                                            instance_id,
+                                            tail_length=length)
         response = http.HttpResponse(mimetype='text/plain')
-        if length:
-            response.write('\n'.join(console.output.split('\n')
-                           [-int(length):]))
-        else:
-            response.write(console.output)
+        response.write(console)
         response.flush()
         return response
     except api_exceptions.ApiException, e:

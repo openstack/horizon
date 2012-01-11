@@ -240,6 +240,12 @@ def server_list(request):
     return [Server(s, request) for s in novaclient(request).servers.list()]
 
 
+def server_console_output(request, instance_id, tail_length=None):
+    """Gets console output of an instance"""
+    return novaclient(request).servers.get_console_output(instance_id,
+                                                          length=tail_length)
+
+
 @check_openstackx
 def admin_server_list(request):
     return [Server(s, request) for s in admin_api(request).servers.list()]
