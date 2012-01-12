@@ -91,36 +91,17 @@ class DisableUsersAction(tables.Action):
         return shortcuts.redirect('horizon:syspanel:users:index')
 
 
-class DeleteUsersAction(tables.Action):
-    name = "delete"
-    verbose_name = _("Delete")
-    verbose_name_plural = _("Delete Users")
-    classes = ("danger",)
+class DeleteUsersAction(tables.DeleteAction):
+    data_type_singular = _("User")
+    data_type_plural = _("Users")
 
-    def handle(self, data_table, request, object_ids):
-        failures = 0
-        deleted = []
-        for obj_id in object_ids:
-            if obj_id == request.user.id:
-                messages.info(request, _('You cannot delete the user you are '
-                                         'currently logged in as.'))
-                continue
-            LOG.info('Deleting user with id "%s"' % obj_id)
-            try:
-                api.keystone.user_delete(request, obj_id)
-                deleted.append(obj_id)
-            except Exception, e:
-                failures += 1
-                messages.error(request, _("Error deleting user: %s") % e)
-                LOG.exception("Error deleting user.")
-        if failures:
-            messages.info(request, _("Deleted the following users: %s")
-                                     % ", ".join(deleted))
-        else:
-            if deleted:
-                messages.success(request, _("Successfully deleted users: %s")
-                                            % ", ".join(deleted))
-        return shortcuts.redirect('horizon:syspanel:users:index')
+    def allowed(self, request, datum):
+        if datum and datum.id == request.user.id:
+            return False
+        return True
+
+    def delete(self, request, obj_id):
+        api.keystone.user_delete(request, obj_id)
 
 
 class UserFilterAction(tables.FilterAction):

@@ -38,31 +38,12 @@ class CreateLink(tables.LinkAction):
     attrs = {"class": "ajax-modal btn small"}
 
 
-class DeleteTenantsAction(tables.Action):
-    name = "delete"
-    verbose_name = _("Delete")
-    verbose_name_plural = _("Delete Tenants")
-    classes = ("danger",)
+class DeleteTenantsAction(tables.DeleteAction):
+    data_type_singular = _("Tenant")
+    data_type_plural = _("Tenants")
 
-    def handle(self, data_table, request, object_ids):
-        failures = 0
-        deleted = []
-        for obj_id in object_ids:
-            LOG.info('Deleting tenant with id "%s"' % obj_id)
-            try:
-                api.keystone.tenant_delete(request, obj_id)
-                deleted.append(obj_id)
-            except Exception, e:
-                failures += 1
-                messages.error(request, _("Error deleting tenant: %s") % e)
-                LOG.exception("Error deleting tenant.")
-        if failures:
-            messages.info(request, _("Deleted the following tenant: %s")
-                                     % ", ".join(deleted))
-        else:
-            messages.success(request, _("Successfully deleted tenant: %s")
-                                        % ", ".join(deleted))
-        return shortcuts.redirect('horizon:syspanel:tenants:index')
+    def delete(self, request, obj_id):
+        api.keystone.tenant_delete(request, obj_id)
 
 
 class TenantFilterAction(tables.FilterAction):

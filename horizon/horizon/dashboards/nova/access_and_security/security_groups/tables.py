@@ -28,38 +28,17 @@ from horizon import tables
 LOG = logging.getLogger(__name__)
 
 
-class DeleteGroup(tables.Action):
-    name = "delete"
-    verbose_name = _("Delete")
-    verbose_name_plural = _("Delete Security Groups")
-    classes = ('danger',)
+class DeleteGroup(tables.DeleteAction):
+    data_type_singular = _("Security Group")
+    data_type_plural = _("Security Groups")
 
     def allowed(self, request, security_group=None):
         if not security_group:
             return True
         return security_group.name != 'default'
 
-    def handle(self, table, request, object_ids):
-        tenant_id = request.user.tenant_id
-        deleted = []
-        for obj_id in object_ids:
-            obj = table.get_object_by_id(int(obj_id))
-            if obj.name == "default":
-                messages.info(request, _("The default group can't be deleted"))
-                continue
-            try:
-                security_group = api.security_group_delete(request, obj_id)
-                deleted.append(obj)
-                LOG.info('Deleted security_group: "%s"' % obj.name)
-            except novaclient_exceptions.ClientException, e:
-                LOG.exception("Error deleting security group")
-                messages.error(request, _('Unable to delete group: %s')
-                                         % obj.name)
-        if deleted:
-            messages.success(request,
-                             _('Successfully deleted security groups: %s')
-                               % ", ".join([group.name for group in deleted]))
-        return shortcuts.redirect('horizon:nova:access_and_security:index')
+    def delete(self, request, obj_id):
+        api.security_group_delete(request, obj_id)
 
 
 class CreateGroup(tables.LinkAction):
@@ -79,6 +58,9 @@ class SecurityGroupsTable(tables.DataTable):
     name = tables.Column("name")
     description = tables.Column("description")
 
+    def sanitize_id(self, obj_id):
+        return int(obj_id)
+
     class Meta:
         name = "security_groups"
         verbose_name = _("Security Groups")
@@ -86,26 +68,12 @@ class SecurityGroupsTable(tables.DataTable):
         row_actions = (EditRules, DeleteGroup)
 
 
-class DeleteRule(tables.Action):
-    name = "delete"
-    verbose_name = _("Delete")
-    classes = ('danger',)
+class DeleteRule(tables.DeleteAction):
+    data_type_singular = _("Security Group Rule")
+    data_type_plural = _("Security Group Rules")
 
-    def single(self, table, request, obj_id):
-        tenant_id = request.user.tenant_id
-        obj = table.get_object_by_id(int(obj_id))
-        try:
-            LOG.info('Delete security_group_rule: "%s"' % obj_id)
-            security_group = api.security_group_rule_delete(request, obj_id)
-            messages.info(request, _('Successfully deleted rule: %s')
-                                    % obj_id)
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in DeleteRule")
-            messages.error(request, _('Error authorizing security group: %s')
-                                     % e.message)
-        return shortcuts.redirect('horizon:nova:access_and_security:'
-                                  'security_groups:edit_rules',
-                                  (obj.parent_group_id))
+    def delete(self, request, obj_id):
+        api.security_group_rule_delete(request, obj_id)
 
 
 def get_cidr(rule):
@@ -117,6 +85,14 @@ class RulesTable(tables.DataTable):
     from_port = tables.Column("from_port", verbose_name=_("From Port"))
     to_port = tables.Column("to_port", verbose_name=_("To Port"))
     cidr = tables.Column(get_cidr, verbose_name=_("CIDR"))
+
+    def sanitize_id(self, obj_id):
+        return int(obj_id)
+
+    def get_object_display(self, datum):
+        #FIXME (PaulM) Do something prettier here
+        return ', '.join([':'.join((k, str(v))) for
+                         k, v in datum._apidict.iteritems()])
 
     class Meta:
         name = "rules"

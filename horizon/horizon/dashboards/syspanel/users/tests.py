@@ -109,11 +109,10 @@ class UsersViewTests(test.BaseAdminViewTests):
         formData = {'action': 'users__disable__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
         self.assertEqual(list(res.context['messages'])[0].message,
-                         'You cannot disable the user you are currently '
-                         'logged in as.')
+                         u'You cannot disable the user you are currently '
+                         u'logged in as.')
 
         formData = {'action': 'users__delete__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
         self.assertEqual(list(res.context['messages'])[0].message,
-                         'You cannot delete the user you are currently '
-                         'logged in as.')
+                         u'You do not have permission to delete user: test')

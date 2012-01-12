@@ -637,7 +637,7 @@ class DataTable(object):
         """
         Returns the data object from the table's dataset which matches
         the ``lookup`` parameter specified. An error will be raised if
-        a the match is not a single data object.
+        the match is not a single data object.
 
         Uses :meth:`~horizon.tables.DataTable.get_object_id` internally.
         """
@@ -728,6 +728,10 @@ class DataTable(object):
         obj_ids = obj_ids or self._meta.request.POST.getlist('object_ids')
         action = self.base_actions.get(action_name, None)
         if action and (not action.requires_input or obj_id or obj_ids):
+            if obj_id:
+                obj_id = self.sanitize_id(obj_id)
+            if obj_ids:
+                obj_ids = [self.sanitize_id(i) for i in obj_ids]
             # Single handling is easy
             if not action.handles_multiple:
                 response = action.single(self, self._meta.request, obj_id)
@@ -753,6 +757,12 @@ class DataTable(object):
                     return self.take_action(action, obj_id)
         return None
 
+    def sanitize_id(self, obj_id):
+        """ Override to modify an incoming obj_id to match existing
+        API data types or modify the format.
+        """
+        return obj_id
+
     def get_object_id(self, datum):
         """ Returns the identifier for the object this row will represent.
 
@@ -760,6 +770,14 @@ class DataTable(object):
         but this can be overridden to return other values.
         """
         return datum.id
+
+    def get_object_display(self, datum):
+        """ Returns a display name that identifies this object.
+
+        By default, this returns a ``name`` attribute from the given object,
+        but this can be overriden to return other values.
+        """
+        return datum.name
 
     def has_more_data(self):
         """

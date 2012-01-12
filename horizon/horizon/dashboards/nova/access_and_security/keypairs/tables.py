@@ -27,30 +27,12 @@ from horizon import tables
 LOG = logging.getLogger(__name__)
 
 
-class DeleteKeyPairs(tables.Action):
-    name = "delete"
-    verbose_name = _("Delete")
-    verbose_name_plural = _("Delete Keypairs")
-    classes = ("danger",)
+class DeleteKeyPairs(tables.DeleteAction):
+    data_type_singular = _("Keypair")
+    data_type_plural = _("Keypairs")
 
-    def handle(self, data_table, request, object_ids):
-        failures = 0
-        deleted = []
-        for obj_id in object_ids:
-            try:
-                api.nova.keypair_delete(request, obj_id)
-                deleted.append(obj_id)
-            except Exception, e:
-                failures += 1
-                messages.error(request, _("Error deleting keypair: %s") % e)
-                LOG.exception("Error deleting keypair.")
-        if failures:
-            messages.info(request, _("Deleted the following keypairs: %s")
-                                     % ", ".join(deleted))
-        else:
-            messages.success(request, _("Successfully deleted keypairs: %s")
-                                        % ", ".join(deleted))
-        return shortcuts.redirect('horizon:nova:access_and_security:index')
+    def delete(self, request, obj_id):
+        api.nova.keypair_delete(request, obj_id)
 
 
 class ImportKeyPair(tables.LinkAction):
