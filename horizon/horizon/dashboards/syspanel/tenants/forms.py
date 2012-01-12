@@ -149,7 +149,8 @@ class UpdateQuotas(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.admin_api(request).quota_sets.update(data['tenant_id'],
+            api.keystone.tenant_quota_update(request,
+               data['tenant_id'],
                metadata_items=data['metadata_items'],
                injected_file_content_bytes=data['injected_file_content_bytes'],
                volumes=data['volumes'],

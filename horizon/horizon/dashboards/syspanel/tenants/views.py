@@ -115,12 +115,12 @@ class QuotasView(forms.ModalFormView):
     template_name = 'syspanel/tenants/quotas.html'
     context_object_name = 'tenant'
 
-    def get_object(self, tenant_id):
-        return api.tenant_get(self.request, tenant_id)
+    def get_object(self, *args, **kwargs):
+        return api.keystone.tenant_get(self.request, kwargs["tenant_id"])
 
     def get_initial(self):
-        admin_api = api.admin_api(self.request)
-        quotas = admin_api.quota_sets.get(self.kwargs['tenant_id'])
+        quotas = api.keystone.tenant_quota_get(self.request,
+                                               self.kwargs['tenant_id'])
         return {
             'tenant_id': quotas.id,
             'metadata_items': quotas.metadata_items,
