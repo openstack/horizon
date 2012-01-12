@@ -35,7 +35,11 @@ class Container(APIResourceWrapper):
 
 
 class SwiftObject(APIResourceWrapper):
-    _attrs = ['name', 'container', 'size', 'metadata', 'last_modified']
+    _attrs = ['name', 'container', 'size', 'metadata', 'last_modified',
+              'metadata']
+
+    def sync_metadata(self):
+        self._apiresource.sync_metadata()
 
 
 class SwiftAuthentication(object):
@@ -127,11 +131,17 @@ def swift_upload_object(request, container_name, object_name, object_data):
     container = swift_api(request).get_container(container_name)
     obj = container.create_object(object_name)
     obj.write(object_data)
+    return obj
 
 
 def swift_delete_object(request, container_name, object_name):
     container = swift_api(request).get_container(container_name)
     container.delete_object(object_name)
+
+
+def swift_get_object(request, container_name, object_name):
+    container = swift_api(request).get_container(container_name)
+    return container.get_object(object_name)
 
 
 def swift_get_object_data(request, container_name, object_name):

@@ -46,12 +46,13 @@ class UploadObject(forms.SelfHandlingForm):
     container_name = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):
-        api.swift_upload_object(
-                request,
-                data['container_name'],
-                data['name'],
-                self.files['object_file'].read())
-
+        object_file = self.files['object_file']
+        obj = api.swift_upload_object(request,
+                                      data['container_name'],
+                                      data['name'],
+                                      object_file.read())
+        obj.metadata['orig-filename'] = object_file.name
+        obj.sync_metadata()
         messages.success(request, _("Object was successfully uploaded."))
         return shortcuts.redirect("horizon:nova:containers:object_index",
                                   data['container_name'])
