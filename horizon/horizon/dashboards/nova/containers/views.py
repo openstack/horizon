@@ -29,118 +29,112 @@ from django.contrib.auth.decorators import login_required
 from django import shortcuts
 
 from horizon import api
-from horizon.dashboards.nova.containers.forms import (DeleteContainer,
-        CreateContainer, FilterObjects, DeleteObject, UploadObject, CopyObject)
+from horizon import forms
+from horizon import tables
+from .forms import CreateContainer, UploadObject, CopyObject
+from .tables import ContainersTable, ObjectsTable
 
 
 LOG = logging.getLogger(__name__)
 
 
-@login_required
-def index(request):
-    marker = request.GET.get('marker', None)
+class IndexView(tables.DataTableView):
+    table_class = ContainersTable
+    template_name = 'nova/containers/index.html'
 
-    delete_form, handled = DeleteContainer.maybe_handle(request)
-    if handled:
-        return handled
+    def has_more_data(self):
+        return self._more
 
-    try:
-        containers, more = api.swift_get_containers(request, marker=marker)
-    except Exception, e:
-        containers, more = None, None
-        msg = _('Error retrieving container list: %s') % e
-        LOG.exception(msg)
-        messages.error(request, msg)
-
-    return shortcuts.render(request,
-                            'nova/containers/index.html',
-                            {'containers': containers,
-                             'delete_form': delete_form,
-                             'more': more})
+    def get_data(self):
+        containers = []
+        self._more = None
+        marker = self.request.GET.get('marker', None)
+        try:
+            containers, self._more = api.swift_get_containers(self.request,
+                                                              marker=marker)
+        except Exception, e:
+            msg = _('Unable to retrieve container list.')
+            LOG.exception(msg)
+            messages.error(self.request, msg)
+        return containers
 
 
-@login_required
-def create(request):
-    form, handled = CreateContainer.maybe_handle(request)
-    if handled:
-        return handled
-
-    return shortcuts.render(request,
-                            'nova/containers/create.html',
-                            {'create_form': form})
+class CreateView(forms.ModalFormView):
+    form_class = CreateContainer
+    template_name = 'nova/containers/create.html'
 
 
-@login_required
-def object_index(request, container_name):
-    marker = request.GET.get('marker', None)
+class ObjectIndexView(tables.DataTableView):
+    table_class = ObjectsTable
+    template_name = 'nova/objects/index.html'
 
-    delete_form, handled = DeleteObject.maybe_handle(request)
-    if handled:
-        return handled
+    def has_more_data(self):
+        return self._more
 
-    filter_form, paged_objects = FilterObjects.maybe_handle(request)
+    def get_data(self):
+        containers = []
+        self._more = None
+        marker = self.request.GET.get('marker', None)
+        container_name = self.kwargs['container_name']
+        try:
+            containers, self._more = api.swift_get_objects(self.request,
+                                                           container_name,
+                                                           marker=marker)
+        except Exception, e:
+            msg = _('Unable to retrieve container list.')
+            LOG.exception(msg)
+            messages.error(self.request, msg)
+        return containers
 
-    if paged_objects is None:
-        filter_form.fields['container_name'].initial = container_name
-        objects, more = api.swift_get_objects(request,
-                                              container_name,
-                                              marker=marker)
-    else:
-        objects, more = paged_objects
-
-    delete_form.fields['container_name'].initial = container_name
-    return shortcuts.render(request,
-                            'nova/objects/index.html',
-                            {'container_name': container_name,
-                             'objects': objects,
-                             'more': more,
-                             'delete_form': delete_form,
-                             'filter_form': filter_form})
-
-
-@login_required
-def object_upload(request, container_name):
-    form, handled = UploadObject.maybe_handle(request)
-    if handled:
-        return handled
-
-    form.fields['container_name'].initial = container_name
-    return shortcuts.render(request,
-                            'nova/objects/upload.html',
-                            {'container_name': container_name,
-                             'upload_form': form})
+    def get_context_data(self, **kwargs):
+        context = super(ObjectIndexView, self).get_context_data(**kwargs)
+        context['container_name'] = self.kwargs["container_name"]
+        return context
 
 
-@login_required
+class UploadView(forms.ModalFormView):
+    form_class = UploadObject
+    template_name = 'nova/objects/upload.html'
+
+    def get_initial(self):
+        return {"container_name": self.kwargs["container_name"]}
+
+    def get_context_data(self, **kwargs):
+        context = super(UploadView, self).get_context_data(**kwargs)
+        context['container_name'] = self.kwargs["container_name"]
+        return context
+
+
 def object_download(request, container_name, object_name):
-    object_data = api.swift_get_object_data(
-            request, container_name, object_name)
-
+    object_data = api.swift_get_object_data(request,
+                                            container_name,
+                                            object_name)
     response = http.HttpResponse()
-    response['Content-Disposition'] = 'attachment; filename=%s' % \
-            object_name
+    response['Content-Disposition'] = 'attachment; filename=%s' % object_name
+    response['Content-Type'] = 'application/octet-stream'
     for data in object_data:
         response.write(data)
     return response
 
 
-@login_required
-def object_copy(request, container_name, object_name):
-    containers = \
-            [(c.name, c.name) for c in api.swift_get_containers(
-                    request)[0]]
-    form, handled = CopyObject.maybe_handle(request,
-            containers=containers)
+class CopyView(forms.ModalFormView):
+    form_class = CopyObject
+    template_name = 'nova/objects/copy.html'
 
-    if handled:
-        return handled
+    def get_form_kwargs(self):
+        kwargs = super(CopyView, self).get_form_kwargs()
+        kwargs['containers'] = [(c.name, c.name) for c in
+                                api.swift_get_containers(self.request)[0]]
+        return kwargs
 
-    form.fields['new_container_name'].initial = container_name
-    form.fields['orig_container_name'].initial = container_name
-    form.fields['orig_object_name'].initial = object_name
+    def get_initial(self):
+        return {"new_container_name": self.kwargs["container_name"],
+                "orig_container_name": self.kwargs["container_name"],
+                "orig_object_name": self.kwargs["object_name"],
+                "new_object_name": "%s copy" % self.kwargs["object_name"]}
 
-    return shortcuts.render(request,
-                            'nova/objects/copy.html',
-                            {'container_name': container_name,
-                             'object_name': object_name,
-                             'copy_form': form})
+    def get_context_data(self, **kwargs):
+        context = super(CopyView, self).get_context_data(**kwargs)
+        context['container_name'] = self.kwargs["container_name"]
+        context['object_name'] = self.kwargs["object_name"]
+        return context

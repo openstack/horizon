@@ -91,6 +91,9 @@ class DataTableView(MultiTableView):
     attribute with the desired :class:`~horizon.tables.DataTable` class;
     define a ``get_data`` method which returns a set of data for the
     table; and specify a template for the ``template_name`` attribute.
+
+    Optionally, you can override the ``has_more_data`` method to trigger
+    pagination handling for APIs that support it.
     """
     table_class = None
     context_object_name = 'table'
@@ -98,6 +101,9 @@ class DataTableView(MultiTableView):
     def get_data(self):
         raise NotImplementedError('You must define a "get_data" method on %s.'
                                   % self.__class__.__name__)
+
+    def has_more_data(self):
+        return False
 
     def get_tables(self):
         table = self.get_table()
@@ -109,7 +115,10 @@ class DataTableView(MultiTableView):
                                  '"table_class" attribute on %s.'
                                  % self.__class__.__name__)
         if not hasattr(self, "table"):
-            self.table = self.table_class(self.request, self.get_data())
+            self.table = self.table_class(self.request,
+                                          self.get_data(),
+                                          **self.kwargs)
+            self.table._meta.has_more_data = self.has_more_data()
         return self.table
 
     def get_context_data(self, **kwargs):
