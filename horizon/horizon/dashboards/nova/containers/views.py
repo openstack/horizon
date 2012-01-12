@@ -22,6 +22,7 @@
 Views for managing Swift containers.
 """
 import logging
+import os
 
 from django import http
 from django.contrib import messages
@@ -77,14 +78,14 @@ class ObjectIndexView(tables.DataTableView):
         marker = self.request.GET.get('marker', None)
         container_name = self.kwargs['container_name']
         try:
-            containers, self._more = api.swift_get_objects(self.request,
+            objects, self._more = api.swift_get_objects(self.request,
                                                            container_name,
                                                            marker=marker)
         except Exception, e:
             msg = _('Unable to retrieve container list.')
             LOG.exception(msg)
             messages.error(self.request, msg)
-        return containers
+        return objects
 
     def get_context_data(self, **kwargs):
         context = super(ObjectIndexView, self).get_context_data(**kwargs)
@@ -106,11 +107,18 @@ class UploadView(forms.ModalFormView):
 
 
 def object_download(request, container_name, object_name):
+    obj = api.swift.swift_get_object(request, container_name, object_name)
+    # Add the original file extension back on if it wasn't preserved in the
+    # name given to the object.
+    filename = object_name
+    if not os.path.splitext(obj.name)[1]:
+        name, ext = os.path.splitext(obj.metadata.get('orig-filename', ''))
+        filename = "%s%s" % (object_name, ext)
     object_data = api.swift_get_object_data(request,
                                             container_name,
                                             object_name)
     response = http.HttpResponse()
-    response['Content-Disposition'] = 'attachment; filename=%s' % object_name
+    response['Content-Disposition'] = 'attachment; filename=%s' % filename
     response['Content-Type'] = 'application/octet-stream'
     for data in object_data:
         response.write(data)

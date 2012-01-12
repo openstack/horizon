@@ -161,7 +161,7 @@ class SwiftApiTests(APITestCase):
                                           OBJECT_NAME,
                                           OBJECT_DATA)
 
-        self.assertIsNone(ret_val)
+        self.assertEqual(ret_val, swift_object)
 
     def test_swift_delete_object(self):
         CONTAINER_NAME = 'containerName'

@@ -118,8 +118,15 @@ class ObjectViewTests(test.BaseViewTests):
     CONTAINER_NAME = 'containerName'
 
     def setUp(self):
+        class FakeCloudFile(object):
+            def __init__(self):
+                self.metadata = {}
+
+            def sync_metadata(self):
+                pass
+
         super(ObjectViewTests, self).setUp()
-        swift_object = api.swift.SwiftObject(None)
+        swift_object = api.swift.SwiftObject(FakeCloudFile())
         swift_object.name = "test_object"
         swift_object.size = '128'
         swift_object.container = api.swift.Container(None)
@@ -163,7 +170,7 @@ class ObjectViewTests(test.BaseViewTests):
         api.swift_upload_object(IsA(http.HttpRequest),
                                 unicode(self.CONTAINER_NAME),
                                 unicode(OBJECT_NAME),
-                                OBJECT_DATA)
+                                OBJECT_DATA).AndReturn(self.swift_objects[0])
 
         self.mox.ReplayAll()
 
@@ -204,6 +211,12 @@ class ObjectViewTests(test.BaseViewTests):
         OBJECT_NAME = 'objectName'
 
         self.mox.StubOutWithMock(api, 'swift_get_object_data')
+        self.mox.StubOutWithMock(api.swift, 'swift_get_object')
+
+        api.swift.swift_get_object(IsA(http.HttpRequest),
+                                  unicode(self.CONTAINER_NAME),
+                                  unicode(OBJECT_NAME)) \
+                                  .AndReturn(self.swift_objects[0])
         api.swift_get_object_data(IsA(http.HttpRequest),
                                   unicode(self.CONTAINER_NAME),
                                   unicode(OBJECT_NAME)).AndReturn(OBJECT_DATA)
