@@ -24,6 +24,7 @@ from django.core.urlresolvers import reverse
 from glance.common import exception as glance_exception
 from openstackx.api import exceptions as api_exceptions
 from novaclient import exceptions as novaclient_exceptions
+from novaclient.v1_1 import security_group_rules as nova_rules
 from mox import IgnoreArg, IsA
 
 from horizon import api
@@ -56,12 +57,15 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         sg2.name = 'group_2'
 
         rule = {'id': 1,
-                'ip_protocol': "tcp",
+                'ip_protocol': u"tcp",
                 'from_port': "80",
                 'to_port': "80",
                 'parent_group_id': "2",
                 'ip_range': {'cidr': "0.0.0.0/32"}}
-        self.rules = [api.nova.SecurityGroupRule(rule)]
+        manager = nova_rules.SecurityGroupRuleManager
+        rule_obj = nova_rules.SecurityGroupRule(manager, rule)
+        self.rules = [rule_obj]
+        sg1.rules = self.rules
         sg2.rules = self.rules
 
         self.security_groups = (sg1, sg2)
@@ -179,7 +183,7 @@ class SecurityGroupsViewTests(test.BaseViewTests):
 
         res = self.client.post(SG_EDIT_RULE_URL, formData)
 
-        self.assertRedirectsNoFollow(res, SG_EDIT_RULE_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_edit_rules_add_rule_exception(self):
         exception = novaclient_exceptions.ClientException('ClientException',
@@ -208,7 +212,7 @@ class SecurityGroupsViewTests(test.BaseViewTests):
 
         res = self.client.post(SG_EDIT_RULE_URL, formData)
 
-        self.assertRedirectsNoFollow(res, SG_EDIT_RULE_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_edit_rules_delete_rule(self):
         RULE_ID = 1
@@ -224,7 +228,7 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         handled = table.maybe_handle()
 
         self.assertEqual(strip_absolute_base(handled['location']),
-                         SG_EDIT_RULE_URL)
+                         INDEX_URL)
 
     def test_edit_rules_delete_rule_exception(self):
         RULE_ID = 1
@@ -244,7 +248,7 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         handled = table.maybe_handle()
 
         self.assertEqual(strip_absolute_base(handled['location']),
-                         SG_EDIT_RULE_URL)
+                         INDEX_URL)
 
     def test_delete_group(self):
         self.mox.StubOutWithMock(api, 'security_group_delete')

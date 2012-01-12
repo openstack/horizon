@@ -164,7 +164,7 @@ class LaunchForm(forms.SelfHandlingForm):
             LOG.info(msg)
             messages.success(request, msg)
             return redirect(
-                        'horizon:nova:instances_and_volumes:instances:index')
+                        'horizon:nova:instances_and_volumes:index')
 
         except:
             exceptions.handle(request, _('Unable to launch instance.'))

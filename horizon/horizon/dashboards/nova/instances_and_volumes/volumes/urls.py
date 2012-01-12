@@ -16,11 +16,14 @@
 
 from django.conf.urls.defaults import patterns, url
 
+from .views import CreateView, EditAttachmentsView
+
 
 urlpatterns = patterns(
     'horizon.dashboards.nova.instances_and_volumes.volumes.views',
-    url(r'^$', 'index', name='index'),
-    url(r'^create/$', 'create', name='create'),
-    url(r'^(?P<volume_id>[^/]+)/attach/$', 'attach', name='attach'),
+    url(r'^create/$', CreateView.as_view(), name='create'),
+    url(r'^(?P<volume_id>[^/]+)/attach/$',
+        EditAttachmentsView.as_view(),
+        name='attach'),
     url(r'^(?P<volume_id>[^/]+)/detail/$', 'detail', name='detail'),
 )

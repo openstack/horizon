@@ -21,6 +21,6 @@
 
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('horizon.dashboards.syspanel',
-    url(r'^$', 'instances.views.usage', name='index'),
+urlpatterns = patterns('horizon.dashboards.syspanel.overview.views',
+    url(r'^$', 'usage', name='index'),
 )

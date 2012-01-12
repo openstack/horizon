@@ -20,15 +20,16 @@
 
 from django.conf.urls.defaults import patterns, url
 
+from .views import UpdateView, DetailView
+
+
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
+
 
 urlpatterns = patterns(
     'horizon.dashboards.nova.instances_and_volumes.instances.views',
-    url(r'^$', 'index', name='index'),
-    url(r'^usage/$', 'usage', name='usage'),
-    url(r'^refresh$', 'refresh', name='refresh'),
-    url(INSTANCES % 'detail', 'detail', name='detail'),
+    url(INSTANCES % 'detail', DetailView.as_view(), name='detail'),
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
-    url(INSTANCES % 'update', 'update', name='update'),
+    url(INSTANCES % 'update', UpdateView.as_view(), name='update'),
 )

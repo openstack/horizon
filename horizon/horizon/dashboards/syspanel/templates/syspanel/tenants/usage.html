@@ -20,10 +20,10 @@
 {% endif %}
 
 <form action="" method="get" id="date_form">
-  <!-- {% csrf_token %} -->
   <h3>{% trans "Select a month to query its usage" %}: </h3>
   <div class="form-row">
-    {{ dateform.date }}
+    {{ dateform.month }}
+    {{ dateform.year }}
     <input class="btn small" type="submit"/>
   </div>
 </form>
@@ -72,7 +72,7 @@
       </tr>
       {% for usage in usage_list %}
         <tr>
-          <td><a href="{% url horizon:syspanel:instances:tenant_usage usage.tenant_id %}">{{ usage.tenant_id }}</a></td>
+          <td><a href="{% url horizon:syspanel:tenants:usage usage.tenant_id %}">{{ usage.tenant_id }}</a></td>
           <td>{{ usage.total_active_instances }}</td>
           <td>{{ usage.total_active_vcpus }}</td>
           <td>{{ usage.total_active_disk_size|diskgbformat }}</td>

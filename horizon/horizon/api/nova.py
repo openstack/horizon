@@ -25,6 +25,7 @@ import logging
 
 from django.contrib import messages
 from novaclient.v1_1 import client as nova_client
+from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.servers import REBOOT_HARD
 
 from horizon.api.base import *
@@ -87,7 +88,8 @@ class Server(APIResourceWrapper):
     """
     _attrs = ['addresses', 'attrs', 'hostId', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
-             'image_name', 'VirtualInterfaces', 'flavor', 'key_name']
+             'image_name', 'VirtualInterfaces', 'flavor', 'key_name',
+             'OS-EXT-STS:power_state', 'OS-EXT-STS:task_state']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
@@ -135,12 +137,31 @@ class Usage(APIResourceWrapper):
 
 class SecurityGroup(APIResourceWrapper):
     """Simple wrapper around openstackx.extras.security_groups.SecurityGroup"""
-    _attrs = ['id', 'name', 'description', 'tenant_id', 'rules']
+    _attrs = ['id', 'name', 'description', 'tenant_id']
+
+    @property
+    def rules(self):
+        """ Wraps transmitted rule info in the novaclient rule class. """
+        if not hasattr(self, "_rules"):
+            manager = nova_rules.SecurityGroupRuleManager
+            self._rules = [nova_rules.SecurityGroupRule(manager, rule) for \
+                           rule in self._apiresource.rules]
+        return self._rules
+
+    @rules.setter
+    def rules(self, value):
+        self._rules = value
 
 
-class SecurityGroupRule(APIDictWrapper):
+class SecurityGroupRule(APIResourceWrapper):
     """ Simple wrapper for individual rules in a SecurityGroup. """
-    _attrs = ['ip_protocol', 'from_port', 'to_port', 'ip_range']
+    _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range']
+
+    def __unicode__(self):
+        vals = {'from': self.from_port,
+                'to': self.to_port,
+                'cidr': self.ip_range['cidr']}
+        return 'ALLOW %(from)s:%(to)s from %(cidr)s' % vals
 
 
 def novaclient(request):
@@ -191,6 +212,7 @@ def floating_ip_pools_list(request):
     """
     return [FloatingIpPool(pool)
             for pool in novaclient(request).floating_ip_pools.list()]
+
 
 def tenant_floating_ip_get(request, floating_ip_id):
     """
@@ -348,13 +370,13 @@ def security_group_delete(request, security_group_id):
 def security_group_rule_create(request, parent_group_id, ip_protocol=None,
                                from_port=None, to_port=None, cidr=None,
                                group_id=None):
-    return SecurityGroup(novaclient(request).\
-                         security_group_rules.create(parent_group_id,
-                                                     ip_protocol,
-                                                     from_port,
-                                                     to_port,
-                                                     cidr,
-                                                     group_id))
+    return SecurityGroupRule(novaclient(request).\
+                             security_group_rules.create(parent_group_id,
+                                                         ip_protocol,
+                                                         from_port,
+                                                         to_port,
+                                                         cidr,
+                                                         group_id))
 
 
 def security_group_rule_delete(request, security_group_rule_id):

@@ -1,4 +1,4 @@
-<form action="" method="POST">{% csrf_token %}
+<form action="{{ table.get_absolute_url }}" method="POST">{% csrf_token %}
 <div class='table_header'>
   <h3 class='table_title'>{{ table }}</h3>
   {{ table.render_table_actions }}

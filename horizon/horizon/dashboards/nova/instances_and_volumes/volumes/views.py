@@ -26,35 +26,14 @@ from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
-from horizon.dashboards.nova.instances_and_volumes.volumes.forms \
-                        import (CreateForm, DeleteForm, AttachForm, DetachForm)
+from horizon import exceptions
+from horizon import forms
+from horizon import tables
+from .forms import CreateForm, AttachForm
+from .tables import AttachmentsTable
 
 
 LOG = logging.getLogger(__name__)
-
-
-def index(request):
-    delete_form, handled = DeleteForm.maybe_handle(request)
-    detach_form, handled = DetachForm.maybe_handle(request)
-
-    if handled:
-        return handled
-
-    create_form = CreateForm()
-
-    try:
-        volumes = api.volume_list(request)
-    except novaclient_exceptions.ClientException, e:
-        volumes = []
-        LOG.exception("ClientException in volume index")
-        messages.error(request, _('Error fetching volumes: %s') % e.message)
-
-    return shortcuts.render(request,
-                            'nova/instances_and_volumes/volumes/index.html', {
-                                'volumes': volumes,
-                                'delete_form': delete_form,
-                                'create_form': create_form,
-                                'detach_form': detach_form})
 
 
 def detail(request, volume_id):
@@ -79,27 +58,48 @@ def detail(request, volume_id):
                                 'instance': instance})
 
 
-def create(request):
-    create_form, handled = CreateForm.maybe_handle(request)
-
-    if handled:
-        return handled
-
-    return shortcuts.render(request,
-                            'nova/instances_and_volumes/volumes/create.html', {
-                                'create_form': create_form})
+class CreateView(forms.ModalFormView):
+    form_class = CreateForm
+    template_name = 'nova/instances_and_volumes/volumes/create.html'
 
 
-def attach(request, volume_id):
-    instances = api.server_list(request)
-    attach_form, handled = AttachForm.maybe_handle(request,
-                                      initial={'volume_id': volume_id,
-                                               'instances': instances})
+class EditAttachmentsView(tables.DataTableView):
+    table_class = AttachmentsTable
+    template_name = 'nova/instances_and_volumes/volumes/attach.html'
 
-    if handled:
-        return handled
+    def get_data(self):
+        volume_id = self.kwargs['volume_id']
+        try:
+            self.object = api.volume_get(self.request, volume_id)
+            attachments = [att for att in self.object.attachments if att]
+        except:
+            self.object = None
+            attachments = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume information.'))
+        return attachments
 
-    return shortcuts.render(request,
-                            'nova/instances_and_volumes/volumes/attach.html', {
-                                'attach_form': attach_form,
-                                'volume_id': volume_id})
+    def handle_form(self):
+        instances = api.nova.server_list(self.request)
+        initial = {'volume_id': self.kwargs["volume_id"],
+                   'instances': instances}
+        return AttachForm.maybe_handle(self.request, initial=initial)
+
+    def get(self, request, *args, **kwargs):
+        form, handled = self.handle_form()
+        if handled:
+            return handled
+        tables = self.get_tables()
+        if not self.object:
+            return shortcuts.redirect("horizon:nova:instances_and_volumes:"
+                                      "index")
+        context = self.get_context_data(**kwargs)
+        context['form'] = form
+        context['volume'] = self.object
+        return self.render_to_response(context)
+
+    def post(self, request, *args, **kwargs):
+        form, handled = self.handle_form()
+        if handled:
+            return handled
+        return super(EditAttachmentsView, self).post(request, *args, **kwargs)

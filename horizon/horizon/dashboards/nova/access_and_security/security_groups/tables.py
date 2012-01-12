@@ -52,6 +52,7 @@ class EditRules(tables.LinkAction):
     name = "edit_rules"
     verbose_name = _("Edit Rules")
     url = "horizon:nova:access_and_security:security_groups:edit_rules"
+    attrs = {"class": "ajax-modal"}
 
 
 class SecurityGroupsTable(tables.DataTable):
@@ -69,11 +70,14 @@ class SecurityGroupsTable(tables.DataTable):
 
 
 class DeleteRule(tables.DeleteAction):
-    data_type_singular = _("Security Group Rule")
-    data_type_plural = _("Security Group Rules")
+    data_type_singular = _("Rule")
+    data_type_plural = _("Rules")
 
     def delete(self, request, obj_id):
         api.security_group_rule_delete(request, obj_id)
+
+    def get_success_url(self, request):
+        return reverse("horizon:nova:access_and_security:index")
 
 
 def get_cidr(rule):
@@ -81,7 +85,9 @@ def get_cidr(rule):
 
 
 class RulesTable(tables.DataTable):
-    protocol = tables.Column("ip_protocol", verbose_name=_("IP Protocol"))
+    protocol = tables.Column("ip_protocol",
+                             verbose_name=_("IP Protocol"),
+                             filters=(unicode.upper,))
     from_port = tables.Column("from_port", verbose_name=_("From Port"))
     to_port = tables.Column("to_port", verbose_name=_("To Port"))
     cidr = tables.Column(get_cidr, verbose_name=_("CIDR"))
@@ -89,12 +95,11 @@ class RulesTable(tables.DataTable):
     def sanitize_id(self, obj_id):
         return int(obj_id)
 
-    def get_object_display(self, datum):
-        #FIXME (PaulM) Do something prettier here
-        return ', '.join([':'.join((k, str(v))) for
-                         k, v in datum._apidict.iteritems()])
+    def get_object_display(self, rule):
+        return unicode(rule)
 
     class Meta:
         name = "rules"
         verbose_name = _("Security Group Rules")
+        table_actions = (DeleteRule,)
         row_actions = (DeleteRule,)

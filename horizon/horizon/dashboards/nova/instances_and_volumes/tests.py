@@ -36,9 +36,12 @@ class InstancesAndVolumesViewTest(test.BaseViewTests):
         server = api.Server(None, self.request)
         server.id = 1
         server.name = 'serverName'
+        server.status = "ACTIVE"
 
         volume = api.Volume(self.request)
         volume.id = 1
+        volume.size = 10
+        volume.attachments = [{}]
 
         self.servers = (server,)
         self.volumes = (volume,)
@@ -56,7 +59,8 @@ class InstancesAndVolumesViewTest(test.BaseViewTests):
 
         self.assertTemplateUsed(res,
             'nova/instances_and_volumes/index.html')
-        self.assertItemsEqual(res.context['instances'], self.servers)
+        instances = res.context['instances_table'].data
+        self.assertItemsEqual(instances, self.servers)
 
     def test_index_server_list_exception(self):
         self.mox.StubOutWithMock(api, 'server_list')
@@ -72,4 +76,4 @@ class InstancesAndVolumesViewTest(test.BaseViewTests):
 
         self.assertTemplateUsed(res,
                 'nova/instances_and_volumes/index.html')
-        self.assertEqual(len(res.context['instances']), 0)
+        self.assertEqual(len(res.context['instances_table'].data), 0)

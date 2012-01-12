@@ -24,6 +24,12 @@ class ViewMembersLink(tables.LinkAction):
     url = "horizon:syspanel:tenants:users"
 
 
+class UsageLink(tables.LinkAction):
+    name = "usage"
+    verbose_name = _("View Usage")
+    url = "horizon:syspanel:tenants:usage"
+
+
 class EditLink(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit")
@@ -69,6 +75,6 @@ class TenantsTable(tables.DataTable):
     class Meta:
         name = "tenants"
         verbose_name = _("Tenants")
-        row_actions = (EditLink, ViewMembersLink, ModifyQuotasLink,
+        row_actions = (EditLink, UsageLink, ViewMembersLink, ModifyQuotasLink,
                        DeleteTenantsAction)
         table_actions = (TenantFilterAction, CreateLink, DeleteTenantsAction)

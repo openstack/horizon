@@ -30,4 +30,6 @@ urlpatterns = patterns('horizon.dashboards.syspanel.tenants.views',
         UpdateView.as_view(), name='update'),
     url(r'^(?P<tenant_id>[^/]+)/users/$', 'users', name='users'),
     url(r'^(?P<tenant_id>[^/]+)/quotas/$',
-        QuotasView.as_view(), name='quotas'))
+        QuotasView.as_view(), name='quotas'),
+    url(r'^(?P<tenant_id>[^/]+)/usage/$', 'usage', name='usage')
+)

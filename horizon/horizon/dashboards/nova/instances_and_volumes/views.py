@@ -35,76 +35,45 @@ import openstackx.api.exceptions as api_exceptions
 
 from horizon import api
 from horizon import forms
-from horizon import test
-from horizon.dashboards.nova.instances_and_volumes.instances.forms import (
-    TerminateInstance, PauseInstance, UnpauseInstance, SuspendInstance,
-    ResumeInstance, RebootInstance, UpdateInstance)
-from horizon.dashboards.nova.instances_and_volumes.volumes.forms import (
-CreateForm, DeleteForm, AttachForm, DetachForm)
+from horizon import tables
+from .instances.tables import InstancesTable
+from .volumes.tables import VolumesTable
 
 
 LOG = logging.getLogger(__name__)
 
 
-def index(request):
-    for f in (TerminateInstance, PauseInstance, UnpauseInstance,
-              SuspendInstance, ResumeInstance, RebootInstance,
-              DeleteForm, DetachForm):
-        form, handled = f.maybe_handle(request)
-        if handled:
-            return handled
+class IndexView(tables.MultiTableView):
+    table_classes = (InstancesTable, VolumesTable)
+    template_name = 'nova/instances_and_volumes/index.html'
 
-    # Gather our instances
-    try:
-        instances = api.server_list(request)
-    except api_exceptions.ApiException as e:
-        instances = []
-        LOG.exception(_('Exception in instance index'))
-        messages.error(request, _('Unable to fetch instances: %s') % e.message)
+    def get_instances_data(self):
+        # Gather our instances
+        try:
+            instances = api.server_list(self.request)
+        except Exception as e:
+            instances = []
+            LOG.exception(_('Exception while fetching instances.'))
+            messages.error(self.request, _('Unable to retrieve instances.'))
+        # Gather our flavors and correlate our instances to them
+        try:
+            flavors = api.flavor_list(self.request)
+            full_flavors = SortedDict([(str(flavor.id), flavor) for \
+                                        flavor in flavors])
+            for instance in instances:
+                instance.full_flavor = full_flavors[instance.flavor["id"]]
+        except Exception, e:
+            LOG.exception('Exception while fetching flavor info.')
+            messages.error(self.request,
+                           _('Unable to retrieve instance size information.'))
+        return instances
 
-    # Gather our volumes
-    try:
-        volumes = api.volume_list(request)
-    except novaclient_exceptions.ClientException, e:
-        volumes = []
-        LOG.exception("ClientException in volume index")
-        messages.error(request, _('Unable to fetch volumes: %s') % e.message)
-
-    # Gather our flavors and correlate our instances to them
-    try:
-        flavors = api.flavor_list(request)
-        full_flavors = SortedDict([(str(flavor.id), flavor) for \
-                                    flavor in flavors])
-        for instance in instances:
-            instance.full_flavor = full_flavors[instance.flavor["id"]]
-    except api_exceptions.Unauthorized, e:
-        LOG.exception('Unauthorized attempt to access flavor list.')
-        messages.error(request, _('Unauthorized.'))
-    except Exception, e:
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        LOG.exception('Exception while fetching flavor info')
-        messages.error(request, _('Unable to get flavor info: %s') % e.message)
-
-    terminate_form = TerminateInstance()
-    pause_form = PauseInstance()
-    unpause_form = UnpauseInstance()
-    suspend_form = SuspendInstance()
-    resume_form = ResumeInstance()
-    reboot_form = RebootInstance()
-    delete_form = DeleteForm()
-    detach_form = DetachForm()
-    create_form = CreateForm()
-
-    return shortcuts.render(request, 'nova/instances_and_volumes/index.html', {
-                                     'instances': instances,
-                                     'terminate_form': terminate_form,
-                                     'pause_form': pause_form,
-                                     'unpause_form': unpause_form,
-                                     'suspend_form': suspend_form,
-                                     'resume_form': resume_form,
-                                     'reboot_form': reboot_form,
-                                     'volumes': volumes,
-                                     'delete_form': delete_form,
-                                     'create_form': create_form,
-                                     'detach_form': detach_form})
+    def get_volumes_data(self):
+        # Gather our volumes
+        try:
+            volumes = api.volume_list(self.request)
+        except novaclient_exceptions.ClientException, e:
+            volumes = []
+            LOG.exception("ClientException in volume index")
+            messages.error(self.request, _('Unable to fetch volumes: %s') % e)
+        return volumes

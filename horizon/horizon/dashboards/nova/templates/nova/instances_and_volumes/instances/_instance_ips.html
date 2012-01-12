@@ -1,0 +1,10 @@
+{% for ip_group, addresses in instance.addresses.items %}
+    {% if instance.addresses.items|length > 1 %}
+    <h4>{{ ip_group }}</h4>
+    {% endif %}
+    <ul>
+    {% for address in addresses %}
+      <li>{{ address.addr }}</li>
+    {% endfor %}
+    </ul>
+{% endfor %}

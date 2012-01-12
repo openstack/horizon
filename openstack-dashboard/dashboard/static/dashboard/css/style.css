@@ -335,19 +335,19 @@ table form {
     margin-right: 25px;
 }
 
-#main_content table {
+table {
     margin-bottom: 50px;
 }
 
-#main_content table tr td {
+table tr td {
     vertical-align: middle;
 }
 
-#main_content table tr.empty td {
+table tr.empty td {
   text-align: center;
 }
 
-#main_content table tfoot tr td {
+table tfoot tr td {
   border-top: 1px solid #DDD;
   background-color: #F1F1F1;
   font-size: 11px;
@@ -582,6 +582,30 @@ table form {
     position: absolute;
 }
 
+.modal form.horizontal .form-field {
+    float: left;
+  }
+
+.modal form.horizontal.split_half .form-field {
+    width: 334px; /* Fits 2 fields to a row */
+}
+
+.modal form.horizontal.split_quarter .form-field {
+    width: 167px; /* Fits 4 fields to a row */
+}
+
+.modal form.horizontal fieldset {
+    width: 100%;
+}
+
+.modal table {
+  margin-bottom: 30px;
+}
+
+.modal-body ~ hr {
+  margin-bottom: 0;
+}
+
 .modal.static_page {
   position: relative;
   left: 250px;
@@ -662,28 +686,6 @@ table form {
 
 #create_keypair_modal .clearfix {
   margin-bottom: 115px;
-}
-
-#edit_security_group_rule_form {
-    float: right;
-    width: 163px;
-}
-#edit_security_group_rule_form fieldset {
-    width: 163px;
-}
-
-#security_group_rule_modal .left .help-inline {
-    float: left;
-}
-
-#security_group_rule_modal .right {
-    width: 475px;
-    float: right;
-    margin-left: 25px;
-}
-
-#security_group_rule_modal .right table {
-    margin-top: 31px;
 }
 
 #actions {

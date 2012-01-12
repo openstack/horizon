@@ -21,6 +21,6 @@
 
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('horizon.dashboards.nova',
-    url(r'^$', 'instances_and_volumes.instances.views.usage', name='index'),
+urlpatterns = patterns('horizon.dashboards.nova.overview.views',
+    url(r'^$', 'usage', name='index'),
 )

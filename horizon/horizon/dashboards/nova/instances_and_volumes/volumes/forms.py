@@ -38,28 +38,13 @@ class CreateForm(forms.SelfHandlingForm):
             LOG.exception("ClientException in CreateVolume")
             messages.error(request,
                            _('Error Creating Volume: %s') % e.message)
-        return shortcuts.redirect(
-                            "horizon:nova:instances_and_volumes:volumes:index")
-
-
-class DeleteForm(forms.SelfHandlingForm):
-    volume_id = forms.CharField(widget=forms.HiddenInput())
-    volume_name = forms.CharField(widget=forms.HiddenInput())
-
-    def handle(self, request, data):
-        try:
-            api.volume_delete(request, data['volume_id'])
-            message = 'Deleting volume "%s"' % data['volume_id']
-            LOG.info(message)
-            messages.info(request, message)
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in DeleteVolume")
-            messages.error(request,
-                           _('Error deleting volume: %s') % e.message)
-        return shortcuts.redirect(request.build_absolute_uri())
+        return shortcuts.redirect("horizon:nova:instances_and_volumes:index")
 
 
 class AttachForm(forms.SelfHandlingForm):
+    instance = forms.ChoiceField(label="Attach to Instance",
+                                 help_text=_("Select an instance to "
+                                             "attach to."))
     device = forms.CharField(label="Device Name", initial="/dev/vdb")
 
     def __init__(self, *args, **kwargs):
@@ -75,10 +60,7 @@ class AttachForm(forms.SelfHandlingForm):
         for instance in instance_list:
             instances.append((instance.id, '%s (%s)' % (instance.name,
                                                         instance.id)))
-        self.fields['instance'] = forms.ChoiceField(
-                                  choices=instances,
-                                  label="Attach to Instance",
-                                  help_text="Select an instance to attach to.")
+        self.fields['instance'].choices = instances
 
     def handle(self, request, data):
         try:
@@ -99,25 +81,4 @@ class AttachForm(forms.SelfHandlingForm):
             messages.error(request,
                            _('Error attaching volume: %s') % e.message)
         return shortcuts.redirect(
-                            "horizon:nova:instances_and_volumes:volumes:index")
-
-
-class DetachForm(forms.SelfHandlingForm):
-    volume_id = forms.CharField(widget=forms.HiddenInput())
-    instance_id = forms.CharField(widget=forms.HiddenInput())
-    attachment_id = forms.CharField(widget=forms.HiddenInput())
-
-    def handle(self, request, data):
-        try:
-            api.volume_detach(request, data['instance_id'],
-                              data['attachment_id'])
-            message = (_('Detaching volume %(vol)s from instance %(inst)s') %
-                    {"vol": data['volume_id'], "inst": data['instance_id']})
-            LOG.info(message)
-            messages.info(request, message)
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in DetachVolume")
-            messages.error(request,
-                           _('Error detaching volume: %s') % e.message)
-        return shortcuts.redirect(
-                            "horizon:nova:instances_and_volumes:volumes:index")
+                            "horizon:nova:instances_and_volumes:index")

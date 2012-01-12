@@ -73,6 +73,10 @@ class EditRulesView(tables.DataTableView):
         context = self.get_context_data(**kwargs)
         context['form'] = form
         context['security_group'] = self.object
+        if request.is_ajax():
+            context['hide'] = True
+            self.template_name = ('nova/access_and_security/security_groups'
+                                 '/_edit_rules.html')
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):

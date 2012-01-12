@@ -21,16 +21,15 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
 
+from .views import DetailView, AdminIndexView
+
 
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
 
 
 urlpatterns = patterns('horizon.dashboards.syspanel.instances.views',
-    url(r'^usage/(?P<tenant_id>[^/]+)$', 'tenant_usage', name='tenant_usage'),
-    url(r'^$', 'index', name='index'),
-    url(r'^refresh$', 'refresh', name='refresh'),
-    url(INSTANCES % 'detail', 'detail', name='detail'),
-    # NOTE(termie): currently just using the 'dash' versions
-    #url(INSTANCES % 'console', 'console', name='instances_console'),
-    #url(INSTANCES % 'vnc', 'vnc', name='syspanel_instances_vnc'),
+    url(r'^$', AdminIndexView.as_view(), name='index'),
+    url(INSTANCES % 'detail', DetailView.as_view(), name='detail'),
+    url(INSTANCES % 'console', 'console', name='console'),
+    url(INSTANCES % 'vnc', 'vnc', name='vnc'),
 )

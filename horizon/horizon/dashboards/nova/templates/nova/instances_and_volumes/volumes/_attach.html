@@ -2,24 +2,20 @@
 {% load i18n %}
 
 {% block form_id %}attach_volume_form{% endblock %}
-{% block form_action %}{% url horizon:nova:instances_and_volumes:volumes:attach volume_id %}{% endblock %}
+{% block form_action %}{% url horizon:nova:instances_and_volumes:volumes:attach volume.id %}{% endblock %}
+{% block form_class %}{{ block.super }} horizontal split_half{% endblock %}
 
 {% block modal_id %}attach_volume_modal{% endblock %}
-{% block modal-header %}{% trans "Attach Volume" %}{% endblock %}
+{% block modal-header %}{% trans "Manage Volume Attachments" %}{% endblock %}
 
 {% block modal-body %}
-<div class="left">
+    <h3>{% trans "Attach To Instance" %}</h3>
     <fieldset>
     {% include "horizon/common/_form_fields.html" %}
     </fieldset>
-</div>
-<div class="right">
-  <h3>{% trans "Description" %}:</h3>
-  <p>{% trans "Attach a volume to an instance." %}</p>
-</div>
 {% endblock %}
 
 {% block modal-footer %}
     <input class="btn primary pull-right" type="submit" value="{% trans "Attach Volume" %}" />
-    <a href="{% url horizon:nova:instances_and_volumes:volumes:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+    <a href="{% url horizon:nova:instances_and_volumes:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

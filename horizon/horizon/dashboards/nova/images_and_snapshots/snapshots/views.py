@@ -76,7 +76,7 @@ def create(request, instance_id):
         LOG.exception(msg)
         messages.error(request, msg)
         return shortcuts.redirect(
-                        'horizon:nova:instances_and_volumes:instances:index')
+                        'horizon:nova:instances_and_volumes:index')
 
     valid_states = ['ACTIVE']
     if instance.status not in valid_states:
@@ -84,7 +84,7 @@ def create(request, instance_id):
                                   one of the following: %s") %
                                   ', '.join(valid_states))
         return shortcuts.redirect(
-                        'horizon:nova:instances_and_volumes:instances:index')
+                        'horizon:nova:instances_and_volumes:index')
 
     return shortcuts.render(request,
                             'nova/images_and_snapshots/snapshots/create.html',

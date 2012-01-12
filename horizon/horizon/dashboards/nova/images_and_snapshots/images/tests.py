@@ -29,7 +29,7 @@ from horizon import api
 from horizon import test
 
 
-IMAGES_INDEX_URL = reverse('horizon:nova:images_and_snapshots:images:index')
+IMAGES_INDEX_URL = reverse('horizon:nova:images_and_snapshots:index')
 
 
 class FakeQuota:
@@ -169,7 +169,7 @@ class ImageViewTests(test.BaseViewTests):
                             form_data)
 
         self.assertRedirectsNoFollow(res,
-                 reverse('horizon:nova:instances_and_volumes:instances:index'))
+                 reverse('horizon:nova:instances_and_volumes:index'))
 
     def test_launch_flavorlist_error(self):
         IMAGE_ID = '1'

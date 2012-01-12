@@ -155,9 +155,10 @@ class Action(BaseAction):
             self.handles_multiple = True
 
         if not has_handler and (not has_single or has_multiple):
+            cls_name = self.__class__.__name__
             raise NotImplementedError('You must define either a "handle" '
-                                      'method or a "single" or "multiple"'
-                                      ' method.')
+                                      'method or a "single" or "multiple" '
+                                      'method on %s.' % cls_name)
 
         if not has_single:
             def single(self, data_table, request, object_id):
@@ -313,26 +314,12 @@ class BatchAction(Action):
 
        Optional location to redirect after completion of the delete
        action. Defaults to the current page.
-
-    .. method:: get_success_url(self, request=None)
-
-       Optional method that returns the success url.
-
-    .. method:: action(self, request, datum_id)
-
-       Required method that accepts the specified object information
-       and performs the action. Return values are discarded, errors
-       raised are caught and logged.
-
-    .. method:: allowed(self, request, datum)
-
-       Optional method that returns a boolean indicating whether the
-       action is allowed for the given input.
     """
     completion_url = None
 
     def _conjugate(self, items=None, past=False):
-        """Builds combinations like 'Delete Object' and 'Deleted
+        """
+        Builds combinations like 'Delete Object' and 'Deleted
         Objects' based on the number of items and `past` flag.
         """
         if past:
@@ -355,16 +342,21 @@ class BatchAction(Action):
         super(BatchAction, self).__init__()
 
     def action(self, request, datum_id):
-        """ Override to take action on the specified datum. Return
-        values are ignored, errors raised are caught and logged.
+        """
+        Required. Accepts a single object id and performs the specific action.
+
+        Return values are discarded, errors raised are caught and logged.
         """
         raise NotImplementedError('action() must be defined for '
                                   'BatchAction: %s' % self.data_type_singular)
 
-    def get_completion_url(self, request=None):
+    def get_success_url(self, request=None):
+        """
+        Returns the URL to redirect to after a successful action.
+        """
         if self.completion_url:
             return self.completion_url
-        return request.build_absolute_uri()
+        return request.get_full_path()
 
     def handle(self, table, request, obj_ids):
         tenant_id = request.user.tenant_id
@@ -407,7 +399,7 @@ class BatchAction(Action):
                     self._conjugate(action_success, True),
                     ", ".join(action_success)))
 
-        return shortcuts.redirect(self.get_completion_url(request))
+        return shortcuts.redirect(self.get_success_url(request))
 
 
 class DeleteAction(BatchAction):

@@ -1,60 +1,11 @@
 {% extends 'syspanel/base.html' %}
 {% load i18n %}
-{% block title %}Instances{% endblock %}
+{% block title %}{% trans "Instances" %}{% endblock %}
 
 {% block page_header %}
-  {% url horizon:syspanel:instances:index as refresh_link %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "horizon/common/_page_header.html" with title=_("Instances") refresh_link=refresh_link searchable="true" %}
+  {% include "horizon/common/_page_header.html" with title=_("Instances") %}
 {% endblock page_header %}
 
 {% block syspanel_main %}
-  {% if instances %}
-    {% include 'syspanel/instances/_list.html' %}
-  {% else %}
-    <div class="alert-message block-message info">
-      {% url horizon:nova:images_and_snapshots:images:index as dash_image_url%}
-      <p><strong>{% trans "Info: " %}</strong>{% blocktrans %}There are currently no instances.  You can launch an instance from the  <a class="btn small" href='{{dash_image_url}}'>Images Page.</a>{% endblocktrans %}</p>
-    </div>
-  {% endif %}
+    {{ table.render }}
 {% endblock %}
-
-{% block footer_js %}
-  <script type="text/javascript" charset="utf-8">
-    $(function(){
-      function loadInstances(){
-        if ($("#ajax_option_box").is(':checked')) {
-          $('.refresh').addClass("refreshing");
-          $('#instances').load('{% url horizon:syspanel:instances:refresh %}', function(){
-            $('.refresh').removeClass("refreshing");
-          });
-        };
-      }
-      setInterval(function(){
-        loadInstances();
-      }, 15000);
-
-      loadOptionsWidget();
-
-      $("a.refresh").click(function(e){
-        e.preventDefault()
-        loadInstances();
-      })
-
-      function loadOptionsWidget(){
-        checkbox = document.createElement("input");
-          cb = $(checkbox);
-          cb.attr('id', 'ajax_option_box');
-          cb.attr('class', 'refreshOption');
-          cb.attr('type', 'checkbox');
-        checkbox_label = document.createElement("label");
-          cbl = $(checkbox_label);
-          cbl.attr('class', 'refreshOption');
-          cbl.text('auto refresh');
-          cbl.attr('for', 'ajax_option_box');
-          $('.right').append(cb);
-          $('.right').append(cbl);
-      }
-    })
-  </script>
-{% endblock footer_js %}

@@ -14,6 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import collections
 import copy
 import logging
 from operator import attrgetter
@@ -107,6 +108,12 @@ class Column(object):
 
         A string to be used for cells which have no data. Defaults to an
         empty string.
+
+    .. attribute:: filters
+
+        A list of functions (often template filters) to be applied to the
+        value of the data for this column prior to output. This is effectively
+        a shortcut for writing a custom ``transform`` function in simple cases.
     """
     # Used to retain order when instantiating columns on a table
     creation_counter = 0
@@ -134,7 +141,7 @@ class Column(object):
 
     def __init__(self, transform, verbose_name=None, sortable=False,
                  link=None, hidden=False, attrs=None, status=False,
-                 status_choices=None, empty_value=None):
+                 status_choices=None, empty_value=None, filters=None):
         self._data_cache = {}
 
         if callable(transform):
@@ -154,6 +161,7 @@ class Column(object):
         self.hidden = hidden
         self.status = status
         self.empty_value = empty_value or ''
+        self.filters = filters or []
         if status_choices:
             self.status_choices = status_choices
 
@@ -183,17 +191,30 @@ class Column(object):
         or the return value of the attr:`~horizon.tables.Column.transform`
         method for this column.
         """
-        if datum in self._data_cache:
-            return self._data_cache[datum]
+        if self.table.get_object_id(datum) in self._data_cache:
+            return self._data_cache[self.table.get_object_id(datum)]
+
+        # Callable transformations
         if callable(self.transform):
-            return self.transform(datum)
-        if not hasattr(datum, self.transform) and settings.DEBUG:
-            messages.error(self.table._meta.request,
-                           _("The attribute %(attr)s doesn't exist on "
-                             "%(obj)s.") % {'attr': self.transform,
-                                            'obj': datum})
-        self._data_cache[datum] = getattr(datum, self.transform, None)
-        return self._data_cache[datum]
+            data = self.transform(datum)
+        # Basic object lookups
+        elif hasattr(datum, self.transform):
+            data = getattr(datum, self.transform, None)
+        # Dict lookups
+        elif isinstance(datum, collections.Iterable) and \
+                self.transform in datum:
+            data = datum.get(self.transform)
+        else:
+            if settings.DEBUG:
+                messages.error(self.table._meta.request,
+                               _("The attribute %(attr)s doesn't exist on "
+                                 "%(obj)s.") % {'attr': self.transform,
+                                                'obj': datum})
+            data = None
+        for filter_func in self.filters:
+            data = filter_func(data)
+        self._data_cache[self.table.get_object_id(datum)] = data
+        return self._data_cache[self.table.get_object_id(datum)]
 
     def get_classes(self):
         """ Returns a flattened string of the column's CSS classes. """
@@ -264,10 +285,10 @@ class Row(object):
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
                                      str(table.get_object_id(datum)))
-                column._data_cache[datum] = data
+                column._data_cache[self.table.get_object_id(datum)] = data
             elif column.auto == "actions":
                 data = table.render_row_actions(datum)
-                column._data_cache[datum] = data
+                column._data_cache[self.table.get_object_id(datum)] = data
             else:
                 data = column.get_data(datum)
             cell = Cell(datum, data, column, self)
@@ -628,6 +649,19 @@ class DataTable(object):
         extra_context = {self._meta.context_var_name: self}
         context = template.RequestContext(self._meta.request, extra_context)
         return table_template.render(context)
+
+    def get_absolute_url(self):
+        """ Returns the canonical URL for this table.
+
+        This is used for the POST action attribute on the form element
+        wrapping the table. In many cases it is also useful for redirecting
+        after a successful action on the table.
+
+        For convenience it defaults to the value of
+        ``request.get_full_path()``, e.g. the path at which the table
+        was requested.
+        """
+        return self._meta.request.get_full_path()
 
     def get_empty_message(self):
         """ Returns the message to be displayed when there is no data. """

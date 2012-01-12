@@ -1,23 +1,21 @@
+{% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
-<div id="security_group_rule_modal" class="{% block modal_class %}modal{% if hide %} hide {% else %} static_page{% endif %}{% endblock %}">
-    <div class="modal-header">
-      {% if hide %}<a href="#" class="close">&times;</a>{% endif %}
-      <h3>Edit Security Group Rules</h3>
-    </div>
-    <div class="modal-body clearfix">
-      <div class="right">
-          {{ table.render }}
-      </div>
-      <form id="edit_security_group_rule_form" action="{% url horizon:nova:access_and_security:security_groups:edit_rules security_group.id %}" method="post">
-        {% csrf_token %}
-        <fieldset>
-        {% include "horizon/common/_form_fields.html" %}
-        </fieldset>
-    </div>
-    <div class="modal-footer">
-      <input class="btn primary pull-right" type="submit" value="{% trans "Add Rule" %}" />
-      <a href="{% url horizon:nova:access_and_security:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
-    </div>
-  </form>
-</div>
+{% block form_id %}security_group_rule_form{% endblock %}
+{% block form_action %}{% url horizon:nova:access_and_security:security_groups:edit_rules security_group.id %}{% endblock %}
+{% block form_class %}{{ block.super }} horizontal split_quarter{% endblock %}
+
+{% block modal_id %}security_group_rule_modal{% endblock %}
+{% block modal-header %}{% trans "Edit Security Group Rules" %}{% endblock %}
+
+{% block modal-body %}
+  <h3>{% trans "Add Rule" %}</h3>
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+{% endblock %}
+
+{% block modal-footer %}
+    <input class="btn primary pull-right" type="submit" value="{% trans "Add Rule" %}" />
+    <a href="{% url horizon:nova:access_and_security:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

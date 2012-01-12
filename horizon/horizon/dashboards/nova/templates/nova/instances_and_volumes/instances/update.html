@@ -3,32 +3,9 @@
 {% block title %}Update Instance{% endblock %}
 
 {% block page_header %}
-  {# to make searchable false, just remove it from the include statement #}
   {% include "horizon/common/_page_header.html" with title=_("Update Instance") %}
 {% endblock page_header %}
 
 {% block dash_main %}
-  {% include 'nova/instances_and_volumes/instances/_update.html' with form=form %}
+  {% include 'nova/instances_and_volumes/instances/_update.html' %}
 {% endblock %}
-
-{% block footer_js %}
-  <script type="text/javascript" charset="utf-8">
-    $(function(){
-      $("#spinner").hide()
-      function loadInstances(){
-        $('#spinner').show();
-        $('#instances').load('{% url horizon:nova:instances_and_volumes:instances:refresh %}', function(){
-          $("#spinner").hide()
-        });
-      }
-      setInterval(function(){
-        loadInstances();
-      }, 15000);
-
-      $("a.refresh").click(function(e){
-        e.preventDefault()
-        loadInstances();
-      })
-    })
-  </script>
-{% endblock footer_js %}

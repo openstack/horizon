@@ -27,174 +27,23 @@ import logging
 from django import http
 from django import shortcuts
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext as _
-import openstackx.api.exceptions as api_exceptions
 
 import horizon
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 from horizon import test
-from horizon.dashboards.nova.instances_and_volumes.instances.forms import (
-    TerminateInstance, PauseInstance, UnpauseInstance, SuspendInstance,
-    ResumeInstance, RebootInstance, UpdateInstance)
+from horizon import views
+from .forms import UpdateInstance
 
 
 LOG = logging.getLogger(__name__)
 
 
-def index(request):
-    tenant_id = request.user.tenant_id
-    for f in (TerminateInstance, RebootInstance):
-        form, handled = f.maybe_handle(request)
-        if handled:
-            return handled
-    instances = []
-    try:
-        instances = api.server_list(request)
-    except Exception as e:
-        LOG.exception(_('Exception in instance index'))
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        messages.error(request, _('Unable to get instance list: %s')
-                       % e.message)
-
-    # Gather our flavors and correlate our instances to them
-    try:
-        flavors = api.flavor_list(request)
-        full_flavors = SortedDict([(str(flavor.id), flavor) for \
-                                    flavor in flavors])
-        for instance in instances:
-            instance.full_flavor = full_flavors[instance.flavor["id"]]
-    except api_exceptions.Unauthorized, e:
-        LOG.exception('Unauthorized attempt to access flavor list.')
-        messages.error(request, _('Unauthorized.'))
-    except Exception, e:
-        LOG.exception('Exception while fetching flavor info')
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        messages.error(request, _('Unable to get flavor info: %s') % e.message)
-
-    # We don't have any way of showing errors for these, so don't bother
-    # trying to reuse the forms from above
-    terminate_form = TerminateInstance()
-    pause_form = PauseInstance()
-    unpause_form = UnpauseInstance()
-    suspend_form = SuspendInstance()
-    resume_form = ResumeInstance()
-    reboot_form = RebootInstance()
-
-    return shortcuts.render(request,
-                        'nova/instances_and_volumes/instances/index.html', {
-                            'instances': instances,
-                            'terminate_form': terminate_form,
-                            'pause_form': pause_form,
-                            'unpause_form': unpause_form,
-                            'suspend_form': suspend_form,
-                            'resume_form': resume_form,
-                            'reboot_form': reboot_form})
-
-
-def refresh(request):
-    tenant_id = request.user.tenant_id
-    instances = []
-    try:
-        instances = api.server_list(request)
-    except Exception as e:
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        messages.error(request,
-                       _('Unable to get instance list: %s') % e.message)
-
-    # We don't have any way of showing errors for these, so don't bother
-    # trying to reuse the forms from above
-    terminate_form = TerminateInstance()
-    pause_form = PauseInstance()
-    unpause_form = UnpauseInstance()
-    suspend_form = SuspendInstance()
-    resume_form = ResumeInstance()
-    reboot_form = RebootInstance()
-
-    return shortcuts.render(request,
-                        'nova/instances_and_volumes/instances/_list.html', {
-                            'instances': instances,
-                            'terminate_form': terminate_form,
-                            'pause_form': pause_form,
-                            'unpause_form': unpause_form,
-                            'suspend_form': suspend_form,
-                            'resume_form': resume_form,
-                            'reboot_form': reboot_form})
-
-
-def usage(request, tenant_id=None):
-    tenant_id = tenant_id or request.user.tenant_id
-    today = test.today()
-    date_start = datetime.date(today.year, today.month, 1)
-    datetime_start = datetime.datetime.combine(date_start, test.time())
-    datetime_end = test.utcnow()
-
-    show_terminated = request.GET.get('show_terminated', False)
-
-    usage = {}
-    if not tenant_id:
-        tenant_id = request.user.tenant_id
-
-    try:
-        usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
-    except api_exceptions.ApiException, e:
-        LOG.exception(_('ApiException in instance usage'))
-
-        messages.error(request, _('Unable to get usage info: %s') % e.message)
-
-    ram_unit = "MB"
-    total_ram = 0
-    if hasattr(usage, 'total_active_ram_size'):
-        total_ram = usage.total_active_ram_size
-        if total_ram > 999:
-            ram_unit = "GB"
-            total_ram /= float(1024)
-
-    running_instances = []
-    terminated_instances = []
-    if hasattr(usage, 'instances'):
-        now = datetime.datetime.now()
-        for i in usage.instances:
-            # this is just a way to phrase uptime in a way that is compatible
-            # with the 'timesince' filter.  Use of local time intentional
-            i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
-            if i['ended_at']:
-                terminated_instances.append(i)
-            else:
-                running_instances.append(i)
-
-    instances = running_instances
-    if show_terminated:
-        instances += terminated_instances
-
-    if request.GET.get('format', 'html') == 'csv':
-        template_name = 'nova/instances_and_volumes/instances/usage.csv'
-        mimetype = "text/csv"
-    else:
-        template_name = 'nova/instances_and_volumes/instances/usage.html'
-        mimetype = "text/html"
-
-    dash_url = horizon.get_dashboard('nova').get_absolute_url()
-
-    return shortcuts.render(request, template_name, {
-                                'usage': usage,
-                                'ram_unit': ram_unit,
-                                'total_ram': total_ram,
-                                'csv_link': '?format=csv',
-                                'show_terminated': show_terminated,
-                                'datetime_start': datetime_start,
-                                'datetime_end': datetime_end,
-                                'instances': instances,
-                                'dash_url': dash_url},
-                            content_type=mimetype)
-
-
 def console(request, instance_id):
-    tenant_id = request.user.tenant_id
     try:
         # TODO(jakedahn): clean this up once the api supports tailing.
         length = request.GET.get('length', None)
@@ -205,100 +54,81 @@ def console(request, instance_id):
         response.write(console)
         response.flush()
         return response
-    except api_exceptions.ApiException, e:
-        LOG.exception(_('ApiException while fetching instance console'))
-        messages.error(request,
-                   _('Unable to get log for instance %(inst)s: %(msg)s') %
-                    {"inst": instance_id, "msg": e.message})
-        return shortcuts.redirect(
-                          'horizon:nova:instances_and_volumes:instances:index')
+    except:
+        msg = _('Unable to get log for instance "%s".') % instance_id
+        redirect = reverse('horizon:nova:instances_and_volumes:index')
+        exceptions.handle(request, msg, redirect=redirect)
 
 
 def vnc(request, instance_id):
-    tenant_id = request.user.tenant_id
     try:
         console = api.console_create(request, instance_id, 'vnc')
         instance = api.server_get(request, instance_id)
         return shortcuts.redirect(console.output +
                 ("&title=%s(%s)" % (instance.name, instance_id)))
-    except api_exceptions.ApiException, e:
-        LOG.exception(_('ApiException while fetching instance vnc connection'))
-        messages.error(request,
-            _('Unable to get vnc console for instance %(inst)s: %(message)s') %
-            {"inst": instance_id, "message": e.message})
-        return shortcuts.redirect(
-                          'horizon:nova:instances_and_volumes:instances:index')
+    except:
+        redirect = reverse("horizon:nova:instances_and_volumes:index")
+        msg = _('Unable to get VNC console for instance "%s".') % instance_id
+        exceptions.handle(request, msg, redirect=redirect)
 
 
-def update(request, instance_id):
-    tenant_id = request.user.tenant_id
-    try:
-        instance = api.server_get(request, instance_id)
-    except api_exceptions.ApiException, e:
-        LOG.exception(_('ApiException while fetching instance info'))
-        messages.error(request,
-            _('Unable to get information for instance %(inst)s: %(message)s') %
-            {"inst": instance_id, "message": e.message})
-        return shortcuts.redirect(
-                          'horizon:nova:instances_and_volumes:instances:index')
+class UpdateView(forms.ModalFormView):
+    form_class = UpdateInstance
+    template_name = 'nova/instances_and_volumes/instances/update.html'
+    context_object_name = 'instance'
 
-    form, handled = UpdateInstance.maybe_handle(request, initial={
-                                'instance': instance_id,
-                                'tenant_id': tenant_id,
-                                'name': instance.name})
+    def get_object(self, *args, **kwargs):
+        if not hasattr(self, "object"):
+            instance_id = self.kwargs['instance_id']
+            try:
+                self.object = api.server_get(self.request, instance_id)
+            except:
+                redirect = reverse("horizon:nova:instances_and_volumes:index")
+                msg = _('Unable to retrieve instance details.')
+                exceptions.handle(self.request, msg, redirect=redirect)
+        return self.object
 
-    if handled:
-        return handled
-
-    return shortcuts.render(request,
-                        'nova/instances_and_volumes/instances/update.html', {
-                            'instance': instance,
-                            'form': form})
+    def get_initial(self):
+        return {'instance': self.kwargs['instance_id'],
+                'tenant_id': self.request.user.tenant_id,
+                'name': getattr(self.object, 'name', '')}
 
 
-def detail(request, instance_id):
-    tenant_id = request.user.tenant_id
-    try:
-        instance = api.server_get(request, instance_id)
-        volumes = api.volume_instance_list(request, instance_id)
+class DetailView(views.APIView):
+    template_name = 'nova/instances_and_volumes/instances/detail.html'
+
+    def get_data(self, request, context, *args, **kwargs):
+        instance_id = kwargs['instance_id']
+        try:
+            instance = api.server_get(request, instance_id)
+            volumes = api.volume_instance_list(request, instance_id)
+        except:
+            instance = None
+            redirect = reverse('horizon:nova:instances_and_volumes:index')
+            exceptions.handle(request,
+                              _('Unable to retrieve details for '
+                                'instance "%s".') % instance_id,
+                                redirect=redirect)
         try:
             console = api.console_create(request, instance_id, 'vnc')
             vnc_url = "%s&title=%s(%s)" % (console.output,
-                                           instance.name,
+                                           getattr(instance, "name", ""),
                                            instance_id)
-        except api_exceptions.ApiException, e:
-            LOG.exception(_('ApiException while fetching instance vnc \
-                           connection'))
-            messages.error(request,
-                _('Unable to get vnc console for instance %(inst)s: %(msg)s') %
-                {"inst": instance_id, "msg": e.message})
-            return shortcuts.redirect(
-                          'horizon:nova:instances_and_volumes:instances:index')
-    except api_exceptions.ApiException, e:
-        LOG.exception(_('ApiException while fetching instance info'))
-        messages.error(request,
-            _('Unable to get information for instance %(inst)s: %(msg)s') %
-            {"inst": instance_id, "msg": e.message})
-        return shortcuts.redirect(
-                          'horizon:nova:instances_and_volumes:instances:index')
+        except:
+            vnc_url = ""
+            exceptions.handle(request,
+                              _('Unable to get vnc console for '
+                                'instance "%s".') % instance_id)
 
-    # Gather our flavors and images and correlate our instances to them
-    try:
+        # Gather our flavors and images and correlate our instances to them
+        # Exception handling happens in the parent class.
         flavors = api.flavor_list(request)
         full_flavors = SortedDict([(str(flavor.id), flavor) for \
                                     flavor in flavors])
         instance.full_flavor = full_flavors[instance.flavor["id"]]
-    except api_exceptions.Unauthorized, e:
-        LOG.exception('Unauthorized attempt to access flavor list.')
-        messages.error(request, _('Unauthorized.'))
-    except Exception, e:
-        LOG.exception('Exception while fetching flavor info')
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        messages.error(request, _('Unable to get flavor info: %s') % e.message)
 
-    return shortcuts.render(request,
-                        'nova/instances_and_volumes/instances/detail.html', {
-                            'instance': instance,
-                            'vnc_url': vnc_url,
-                            'volumes': volumes})
+        context.update({'instance': instance,
+                        'vnc_url': vnc_url,
+                        'volumes': volumes})
+
+        return context

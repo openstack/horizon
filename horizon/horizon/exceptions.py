@@ -18,8 +18,6 @@
 Exceptions raised by the Horizon code and the machinery for handling them.
 """
 
-from __future__ import absolute_import
-
 import logging
 import sys
 
@@ -154,6 +152,8 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
             LOG.debug("Recoverable error: %s" % exc_value)
             messages.error(request, message or exc_value)
             wrap = True
+        if redirect:
+            raise Http302(redirect)
         if not escalate:
             return  # return to normal code flow
 
