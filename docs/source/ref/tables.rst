@@ -62,6 +62,12 @@ Actions
 .. autoclass:: FilterAction
     :members:
 
+.. autoclass:: BatchAction
+    :members:
+
+.. autoclass:: DeleteAction
+    :members:
+
 Class-Based Views
 =================
 
