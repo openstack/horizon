@@ -23,6 +23,8 @@ from django.contrib import messages
 from django.core import urlresolvers
 from django.utils.translation import string_concat
 
+from horizon import exceptions
+
 
 LOG = logging.getLogger(__name__)
 
@@ -382,10 +384,11 @@ class BatchAction(Action):
                 action_success.append(datum_display)
                 LOG.info('%s: "%s"' %
                          (self._conjugate(past=True), datum_display))
-            except Exception, e:
+            except:
+                action_str = self._conjugate().lower()
+                exceptions.handle(request,
+                                  _("Unable to %s.") % action_str)
                 action_failure.append(datum_display)
-                LOG.exception("Unable to %s: %s" %
-                              (self._conjugate().lower(), e))
 
         #Begin with success message class, downgrade to info if problems
         success_message_level = messages.success

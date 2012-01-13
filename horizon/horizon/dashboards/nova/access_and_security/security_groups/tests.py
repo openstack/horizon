@@ -211,7 +211,7 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res, SG_EDIT_RULE_URL)
 
     def test_edit_rules_delete_rule(self):
-        RULE_ID = '1'
+        RULE_ID = 1
 
         self.mox.StubOutWithMock(api, 'security_group_rule_delete')
         api.security_group_rule_delete(IsA(http.HttpRequest), RULE_ID)
@@ -227,7 +227,7 @@ class SecurityGroupsViewTests(test.BaseViewTests):
                          SG_EDIT_RULE_URL)
 
     def test_edit_rules_delete_rule_exception(self):
-        RULE_ID = '1'
+        RULE_ID = 1
 
         self.mox.StubOutWithMock(api, 'security_group_rule_delete')
 
@@ -248,7 +248,7 @@ class SecurityGroupsViewTests(test.BaseViewTests):
 
     def test_delete_group(self):
         self.mox.StubOutWithMock(api, 'security_group_delete')
-        api.security_group_delete(IsA(http.HttpRequest), '2')
+        api.security_group_delete(IsA(http.HttpRequest), 2)
 
         self.mox.ReplayAll()
 
@@ -264,7 +264,7 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'security_group_delete')
         exception = novaclient_exceptions.ClientException('ClientException',
                                                   message='ClientException')
-        api.security_group_delete(IsA(http.HttpRequest), '2').\
+        api.security_group_delete(IsA(http.HttpRequest), 2).\
                                   AndRaise(exception)
 
         self.mox.ReplayAll()

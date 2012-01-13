@@ -23,9 +23,6 @@ Middleware provided and used by Horizon.
 
 from django.contrib import messages
 from django import shortcuts
-from django.utils.translation import ugettext as _
-
-import openstackx
 
 from horizon import exceptions
 from horizon import users
@@ -46,16 +43,10 @@ class HorizonMiddleware(object):
         request.horizon = {'dashboard': None, 'panel': None}
 
     def process_exception(self, request, exception):
-        """ Catch NotAuthorized and handle it gracefully. """
-        if issubclass(exception.__class__, exceptions.NotAuthorized):
-            messages.error(request, _(unicode(exception)))
-            return shortcuts.redirect('/auth/logout')
+        """ Catch NotAuthorized and Http302 and handle them gracefully. """
+        if isinstance(exception, exceptions.NotAuthorized):
+            messages.error(request, unicode(exception))
+            return shortcuts.redirect('/auth/login')
 
-        if type(exception) == openstackx.api.exceptions.Forbidden:
-            # flush other error messages, which are collateral damage
-            # when our token expires
-            for message in messages.get_messages(request):
-                pass
-            messages.error(request,
-                           _('Your token has expired. Please log in again'))
-            return shortcuts.redirect('/auth/logout')
+        if isinstance(exception, exceptions.Http302):
+            return shortcuts.redirect(exception.location)

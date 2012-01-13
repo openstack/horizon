@@ -33,8 +33,8 @@ from novaclient import exceptions as novaclient_exceptions
 from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
-from horizon.dashboards.nova.images_and_snapshots.images.forms import \
-                                    (UpdateImageForm, LaunchForm, DeleteImage)
+from horizon import exceptions
+from .forms import UpdateImageForm, LaunchForm, DeleteImage
 
 
 LOG = logging.getLogger(__name__)
@@ -76,7 +76,6 @@ def index(request):
 
 @login_required
 def launch(request, image_id):
-
     def flavorlist():
         try:
             fl = api.flavor_list(request)
@@ -85,8 +84,9 @@ def launch(request, image_id):
             sel = [(f.id, '%s (%svcpu / %sGB Disk / %sMB Ram )' %
                    (f.name, f.vcpus, f.disk, f.ram)) for f in fl]
             return sorted(sel)
-        except api_exceptions.ApiException:
-            LOG.exception('Unable to retrieve list of instance types')
+        except:
+            exceptions.handle(request,
+                              _('Unable to retrieve list of instance types'))
             return [(1, 'm1.tiny')]
 
     def keynamelist():
@@ -94,8 +94,9 @@ def launch(request, image_id):
             fl = api.keypair_list(request)
             sel = [(f.name, f.name) for f in fl]
             return sel
-        except api_exceptions.ApiException:
-            LOG.exception('Unable to retrieve list of keypairs')
+        except:
+            exceptions.handle(request,
+                              _('Unable to retrieve list of keypairs'))
             return []
 
     def securitygrouplist():

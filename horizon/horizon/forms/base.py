@@ -209,14 +209,8 @@ class SelfHandlingForm(Form):
 
         try:
             return form, form.handle(request, data)
-        except Exception as e:
-            LOG.exception('Error while handling form "%s".' % cls.__name__)
-            if issubclass(e.__class__, exceptions.NotAuthorized):
-                # Let the middleware handle it as intended.
-                raise
-            if not hasattr(e, 'message'):
-                e.message = str(e)
-            messages.error(request, _('%s') % e.message)
+        except:
+            exceptions.handle(request)
             return form, None
 
 

@@ -41,6 +41,8 @@ def user_home(user):
 
 @vary.vary_on_cookie
 def splash(request):
+    if request.user.is_authenticated():
+        return shortcuts.redirect(user_home(request.user))
     form, handled = auth_views.Login.maybe_handle(request)
     if handled:
         return handled

@@ -22,7 +22,7 @@ from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from glance.common import exception as glance_exception
-from openstackx.api import exceptions as api_exceptions
+from keystoneclient import exceptions as keystone_exceptions
 from mox import IgnoreArg, IsA
 
 from horizon import api
@@ -182,7 +182,7 @@ class ImageViewTests(test.BaseViewTests):
         api.tenant_quota_get(IsA(http.HttpRequest),
                              self.TEST_TENANT).AndReturn(FakeQuota)
 
-        exception = api_exceptions.ApiException('apiException')
+        exception = keystone_exceptions.ClientException('Failed.')
         self.mox.StubOutWithMock(api, 'flavor_list')
         api.flavor_list(IsA(http.HttpRequest)).AndRaise(exception)
 
@@ -221,7 +221,7 @@ class ImageViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'flavor_list')
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
 
-        exception = api_exceptions.ApiException('apiException')
+        exception = keystone_exceptions.ClientException('Failed.')
         self.mox.StubOutWithMock(api, 'keypair_list')
         api.keypair_list(IsA(http.HttpRequest)).AndRaise(exception)
 
@@ -243,12 +243,20 @@ class ImageViewTests(test.BaseViewTests):
         form_keyfield = form.fields['key_name']
         self.assertEqual(len(form_keyfield.choices), 0)
 
-    def test_launch_form_apiexception(self):
+    def test_launch_form_keystone_exception(self):
         FLAVOR_ID = self.flavors[0].id
         IMAGE_ID = '1'
         KEY_NAME = self.keypairs[0].name
         SERVER_NAME = 'serverName'
         USER_DATA = 'userData'
+
+        self.mox.StubOutWithMock(api, 'image_get_meta')
+        self.mox.StubOutWithMock(api, 'tenant_quota_get')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        self.mox.StubOutWithMock(api, 'keypair_list')
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        self.mox.StubOutWithMock(api, 'flavor_get')
+        self.mox.StubOutWithMock(api, 'server_create')
 
         form_data = {'method': 'LaunchForm',
                      'flavor': FLAVOR_ID,
@@ -260,39 +268,26 @@ class ImageViewTests(test.BaseViewTests):
                      'security_groups': 'default',
                      }
 
-        self.mox.StubOutWithMock(api, 'image_get_meta')
         api.image_get_meta(IgnoreArg(),
                       IMAGE_ID).AndReturn(self.visibleImage)
-
-        self.mox.StubOutWithMock(api, 'tenant_quota_get')
         api.tenant_quota_get(IsA(http.HttpRequest),
                              self.TEST_TENANT).AndReturn(FakeQuota)
-
-        self.mox.StubOutWithMock(api, 'flavor_list')
         api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
-
-        self.mox.StubOutWithMock(api, 'keypair_list')
         api.keypair_list(IgnoreArg()).AndReturn(self.keypairs)
-
-        self.mox.StubOutWithMock(api, 'security_group_list')
         api.security_group_list(IsA(http.HttpRequest)).AndReturn(
                                     self.security_groups)
-
         # called again by the form
         api.image_get_meta(IgnoreArg(),
                       IMAGE_ID).AndReturn(self.visibleImage)
-
-        self.mox.StubOutWithMock(api, 'flavor_get')
         api.flavor_get(IgnoreArg(),
                        IsA(unicode)).AndReturn(self.flavors[0])
 
-        self.mox.StubOutWithMock(api, 'server_create')
-
-        exception = api_exceptions.ApiException('apiException')
+        exception = keystone_exceptions.ClientException('Failed')
         api.server_create(IsA(http.HttpRequest), SERVER_NAME,
                           self.visibleImage, self.flavors[0],
                           KEY_NAME, USER_DATA,
-                          self.security_groups).AndRaise(exception)
+                          [group.name for group in self.security_groups]) \
+                          .AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
         messages.error(IsA(http.HttpRequest), IsA(basestring))

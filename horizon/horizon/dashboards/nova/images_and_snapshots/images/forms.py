@@ -29,9 +29,9 @@ from django.shortcuts import redirect
 from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext as _
 from glance.common import exception as glance_exception
-from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 
 LOG = logging.getLogger(__name__)
@@ -166,11 +166,8 @@ class LaunchForm(forms.SelfHandlingForm):
             return redirect(
                         'horizon:nova:instances_and_volumes:instances:index')
 
-        except api_exceptions.ApiException, e:
-            LOG.exception('ApiException while creating instances of image "%s"'
-                           % image_id)
-            messages.error(request,
-                           _('Unable to launch instance: %s') % e.message)
+        except:
+            exceptions.handle(request, _('Unable to launch instance.'))
 
 
 class DeleteImage(forms.SelfHandlingForm):

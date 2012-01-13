@@ -27,7 +27,6 @@ import logging
 from django import shortcuts
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-from openstackx.api import exceptions as api_exceptions
 from keystoneclient import exceptions as keystone_exceptions
 
 from horizon import api
@@ -64,81 +63,82 @@ class Login(forms.SelfHandlingForm):
                                widget=forms.PasswordInput(render_value=False))
 
     def handle(self, request, data):
-        try:
-            if data.get('tenant', None):
+        if data.get('tenant', None):
+            try:
                 token = api.token_create(request,
                                          data.get('tenant'),
                                          data['username'],
                                          data['password'])
-
                 tenants = api.tenant_list_for_token(request, token.id)
-                tenant = None
-                for t in tenants:
-                    if t.id == data.get('tenant'):
-                        tenant = t
-                _set_session_data(request, token)
-                user = users.get_user_from_request(request)
-                return shortcuts.redirect(base.Horizon.get_user_home(user))
+            except Exception, e:
+                exceptions.handle(request,
+                                  message=_('Error authenticating: %s') % e,
+                                  escalate=True)
+            tenant = None
+            for t in tenants:
+                if t.id == data.get('tenant'):
+                    tenant = t
+            _set_session_data(request, token)
+            user = users.get_user_from_request(request)
+            return shortcuts.redirect(base.Horizon.get_user_home(user))
 
-            elif data.get('username', None):
+        elif data.get('username', None):
+            try:
+                token = api.token_create(request,
+                                         '',
+                                         data['username'],
+                                         data['password'])
+            except keystone_exceptions.Unauthorized:
+                exceptions.handle(request,
+                                  _('Invalid user name or password.'))
+            except:
+                exceptions.handle(request, escalate=True)
+
+
+            # Unscoped token
+            request.session['unscoped_token'] = token.id
+            request.user.username = data['username']
+
+            # Get the tenant list, and log in using first tenant
+            # FIXME (anthony): add tenant chooser here?
+            try:
+                tenants = api.tenant_list_for_token(request, token.id)
+            except:
+                exceptions.handle(request)
+                tenants = []
+
+            # Abort if there are no valid tenants for this user
+            if not tenants:
+                messages.error(request,
+                               _('No tenants present for user: %(user)s') %
+                                {"user": data['username']},
+                               extra_tags="login")
+                return
+
+            # Create a token.
+            # NOTE(gabriel): Keystone can return tenants that you're
+            # authorized to administer but not to log into as a user, so in
+            # the case of an Unauthorized error we should iterate through
+            # the tenants until one succeeds or we've failed them all.
+            while tenants:
+                tenant = tenants.pop()
                 try:
-                    token = api.token_create(request,
-                                             '',
-                                             data['username'],
-                                             data['password'])
-                except keystone_exceptions.Unauthorized:
-                    LOG.exception("Failed login attempt for %s."
-                                  % data['username'])
-                    messages.error(request, _('Bad user name or password.'),
-                                   extra_tags="login")
-                    return
+                    token = api.token_create_scoped(request,
+                                                    tenant.id,
+                                                    token.id)
+                    break
+                except:
+                    # This will continue for recognized "unauthorized"
+                    # exceptions from keystoneclient.
+                    exceptions.handle(request, ignore=True)
+                    token = None
+            if token is None:
+                raise exceptions.NotAuthorized(
+                    _("You are not authorized for any available tenants."))
 
-                # Unscoped token
-                request.session['unscoped_token'] = token.id
-                request.user.username = data['username']
-
-                # Get the tenant list, and log in using first tenant
-                # FIXME (anthony): add tenant chooser here?
-                tenants = api.tenant_list_for_token(request, token.id)
-
-                # Abort if there are no valid tenants for this user
-                if not tenants:
-                    messages.error(request,
-                                   _('No tenants present for user: %(user)s') %
-                                    {"user": data['username']},
-                                   extra_tags="login")
-                    return
-
-                # Create a token.
-                # NOTE(gabriel): Keystone can return tenants that you're
-                # authorized to administer but not to log into as a user, so in
-                # the case of an Unauthorized error we should iterate through
-                # the tenants until one succeeds or we've failed them all.
-                while tenants:
-                    tenant = tenants.pop()
-                    try:
-                        token = api.token_create_scoped(request,
-                                                        tenant.id,
-                                                        token.id)
-                        break
-                    except api_exceptions.Unauthorized as e:
-                        token = None
-                if token is None:
-                    raise exceptions.NotAuthorized(
-                        _("You are not authorized for any available tenants."))
-
-                _set_session_data(request, token)
-                user = users.get_user_from_request(request)
-                return shortcuts.redirect(base.Horizon.get_user_home(user))
-
-        except api_exceptions.Unauthorized as e:
-            msg = _('Error authenticating: %s') % e.message
-            LOG.exception(msg)
-            messages.error(request, msg, extra_tags="login")
-        except api_exceptions.ApiException as e:
-            messages.error(request,
-                           _('Error authenticating with keystone: %s') %
-                           e.message, extra_tags="login")
+            _set_session_data(request, token)
+            user = users.get_user_from_request(request)
+            return shortcuts.redirect(base.Horizon.get_user_home(user))
 
 
 class LoginWithTenant(Login):

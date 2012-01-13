@@ -53,7 +53,7 @@ def login(request):
     if handled:
         return handled
 
-    # FIXME(gabriel): we don't ship a view named splash
+    # FIXME(gabriel): we don't ship a template named splash.html
     return shortcuts.render(request, 'splash.html', {'form': form})
 
 
@@ -77,14 +77,11 @@ def switch_tenants(request, tenant_id):
             _set_session_data(request, token)
             user = users.User(users.get_user_from_request(request))
             return shortcuts.redirect(Horizon.get_user_home(user))
-        except exceptions.Unauthorized as e:
-            messages.error(_("You are not authorized for that tenant."))
+        except Exception, e:
+            exceptions.handle(request,
+                              _("You are not authorized for that tenant."))
 
-    # FIXME(gabriel): we don't ship switch_tenants.html
-    return shortcuts.render(request,
-                            'switch_tenants.html', {
-                                'to_tenant': tenant_id,
-                                'form': form})
+    return shortcuts.redirect("horizon:auth_login")
 
 
 def logout(request):

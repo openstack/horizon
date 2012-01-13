@@ -21,7 +21,7 @@
 from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
-from openstackx.api import exceptions as api_exceptions
+from keystoneclient import exceptions as keystone_exceptions
 from mox import IsA
 
 from horizon import api
@@ -131,34 +131,35 @@ class AuthViewTests(test.BaseViewTests):
         self.assertRedirectsNoFollow(res, DASH_INDEX_URL)
 
     def test_login_invalid_credentials(self):
-        form_data = {'method': 'Login',
-                    'password': self.PASSWORD,
-                    'username': self.TEST_USER}
-
         self.mox.StubOutWithMock(api, 'token_create')
-        unauthorized = api_exceptions.Unauthorized('unauth', message='unauth')
+        unauthorized = keystone_exceptions.Unauthorized("Invalid")
         api.token_create(IsA(http.HttpRequest), "", self.TEST_USER,
                          self.PASSWORD).AndRaise(unauthorized)
 
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('horizon:auth_login'), form_data)
+        form_data = {'method': 'Login',
+                     'password': self.PASSWORD,
+                     'username': self.TEST_USER}
+        res = self.client.post(reverse('horizon:auth_login'),
+                               form_data,
+                               follow=True)
 
         self.assertTemplateUsed(res, 'splash.html')
 
     def test_login_exception(self):
-        form_data = {'method': 'Login',
-                    'password': self.PASSWORD,
-                    'username': self.TEST_USER}
-
         self.mox.StubOutWithMock(api, 'token_create')
-        api_exception = api_exceptions.ApiException('apiException',
-                                                    message='apiException')
-        api.token_create(IsA(http.HttpRequest), "", self.TEST_USER,
-                         self.PASSWORD).AndRaise(api_exception)
+        ex = keystone_exceptions.BadRequest('Cannot talk to keystone')
+        api.token_create(IsA(http.HttpRequest),
+                         "",
+                         self.TEST_USER,
+                         self.PASSWORD).AndRaise(ex)
 
         self.mox.ReplayAll()
 
+        form_data = {'method': 'Login',
+                    'password': self.PASSWORD,
+                    'username': self.TEST_USER}
         res = self.client.post(reverse('horizon:auth_login'), form_data)
 
         self.assertTemplateUsed(res, 'splash.html')
@@ -167,7 +168,7 @@ class AuthViewTests(test.BaseViewTests):
         res = self.client.get(reverse('horizon:auth_switch',
                                       args=[self.TEST_TENANT]))
 
-        self.assertTemplateUsed(res, 'switch_tenants.html')
+        self.assertRedirects(res, reverse("horizon:auth_login"))
 
     def test_switch_tenants(self):
         NEW_TENANT_ID = '6'
