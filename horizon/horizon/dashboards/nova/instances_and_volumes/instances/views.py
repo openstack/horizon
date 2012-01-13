@@ -27,7 +27,6 @@ import logging
 from django import http
 from django import shortcuts
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext as _
 import openstackx.api.exceptions as api_exceptions
@@ -44,7 +43,6 @@ from horizon.dashboards.nova.instances_and_volumes.instances.forms import (
 LOG = logging.getLogger(__name__)
 
 
-@login_required
 def index(request):
     tenant_id = request.user.tenant_id
     for f in (TerminateInstance, RebootInstance):
@@ -97,7 +95,6 @@ def index(request):
                             'reboot_form': reboot_form})
 
 
-@login_required
 def refresh(request):
     tenant_id = request.user.tenant_id
     instances = []
@@ -129,7 +126,6 @@ def refresh(request):
                             'reboot_form': reboot_form})
 
 
-@login_required
 def usage(request, tenant_id=None):
     tenant_id = tenant_id or request.user.tenant_id
     today = test.today()
@@ -197,7 +193,6 @@ def usage(request, tenant_id=None):
                             content_type=mimetype)
 
 
-@login_required
 def console(request, instance_id):
     tenant_id = request.user.tenant_id
     try:
@@ -219,7 +214,6 @@ def console(request, instance_id):
                           'horizon:nova:instances_and_volumes:instances:index')
 
 
-@login_required
 def vnc(request, instance_id):
     tenant_id = request.user.tenant_id
     try:
@@ -236,7 +230,6 @@ def vnc(request, instance_id):
                           'horizon:nova:instances_and_volumes:instances:index')
 
 
-@login_required
 def update(request, instance_id):
     tenant_id = request.user.tenant_id
     try:
@@ -263,7 +256,6 @@ def update(request, instance_id):
                             'form': form})
 
 
-@login_required
 def detail(request, instance_id):
     tenant_id = request.user.tenant_id
     try:

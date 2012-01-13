@@ -22,7 +22,6 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 from glance.common import exception as glance_exception
 
@@ -34,7 +33,6 @@ from horizon.dashboards.syspanel.images.forms import (DeleteImage,
 LOG = logging.getLogger(__name__)
 
 
-@login_required
 def index(request):
     for f in (DeleteImage, ToggleImage):
         form, handled = f.maybe_handle(request)
@@ -67,7 +65,6 @@ def index(request):
                                 'images': images})
 
 
-@login_required
 def update(request, image_id):
     try:
         image = api.image_get_meta(request, image_id)
@@ -146,7 +143,6 @@ def update(request, image_id):
                                     'form': form})
 
 
-@login_required
 def upload(request):
     if request.method == "POST":
         form = UploadImageForm(request.POST)

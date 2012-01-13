@@ -29,6 +29,7 @@ import logging
 
 from django.conf import settings
 from django.conf.urls.defaults import patterns, url, include
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse, RegexURLPattern
 from django.utils.functional import SimpleLazyObject
@@ -318,6 +319,11 @@ class Dashboard(Registry, HorizonComponent):
         support for projects/tenants. If set to ``True`` this dashboard's
         naviagtion will include a UI element that allows the user to select
         project/tenant. Default: ``False``.
+
+    .. attribute:: public
+
+        Boolean value to determine whether this dashboard can be viewed
+        without being logged in. Defaults to ``False``.
     """
     _registerable_class = Panel
     name = ''
@@ -327,6 +333,7 @@ class Dashboard(Registry, HorizonComponent):
     default_panel = None
     nav = True
     supports_tenants = False
+    public = False
 
     def __repr__(self):
         return "<Dashboard: %s>" % self.__unicode__()
@@ -399,6 +406,9 @@ class Dashboard(Registry, HorizonComponent):
         urlpatterns += patterns('',
                 url(r'', include(default_panel._decorated_urls)))
 
+        # Require login if not public.
+        if not self.public:
+            _decorate_urlconf(urlpatterns, login_required)
         # Apply access controls to all views in the patterns
         roles = getattr(self, 'roles', [])
         _decorate_urlconf(urlpatterns, require_roles, roles)

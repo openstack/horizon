@@ -21,7 +21,6 @@
 import logging
 
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django import shortcuts
 from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions

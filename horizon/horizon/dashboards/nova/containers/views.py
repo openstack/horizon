@@ -26,7 +26,6 @@ import os
 
 from django import http
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django import shortcuts
 
 from horizon import api

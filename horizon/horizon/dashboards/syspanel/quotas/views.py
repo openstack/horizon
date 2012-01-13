@@ -22,7 +22,6 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 
 from horizon import api
 from horizon import tables

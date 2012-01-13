@@ -29,7 +29,6 @@ from django import http
 from django import shortcuts
 from django import template
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 from glance.common import exception as glance_exception
 from openstackx.api import exceptions as api_exceptions
@@ -43,7 +42,6 @@ from horizon.dashboards.nova.images_and_snapshots.snapshots.forms import \
 LOG = logging.getLogger(__name__)
 
 
-@login_required
 def index(request):
     images = []
 
@@ -63,7 +61,6 @@ def index(request):
                             {'images': images})
 
 
-@login_required
 def create(request, instance_id):
     tenant_id = request.user.tenant_id
     form, handled = CreateSnapshot.maybe_handle(request,

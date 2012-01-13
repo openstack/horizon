@@ -25,7 +25,6 @@ from django import template
 from django import http
 from django.conf import settings
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, redirect
 from django.utils.translation import ugettext as _
 

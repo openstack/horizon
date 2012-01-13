@@ -22,7 +22,6 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
 
@@ -34,7 +33,6 @@ from horizon.dashboards.nova.instances_and_volumes.volumes.forms \
 LOG = logging.getLogger(__name__)
 
 
-@login_required
 def index(request):
     delete_form, handled = DeleteForm.maybe_handle(request)
     detach_form, handled = DetachForm.maybe_handle(request)
@@ -59,7 +57,6 @@ def index(request):
                                 'detach_form': detach_form})
 
 
-@login_required
 def detail(request, volume_id):
     try:
         volume = api.volume_get(request, volume_id)
@@ -82,7 +79,6 @@ def detail(request, volume_id):
                                 'instance': instance})
 
 
-@login_required
 def create(request):
     create_form, handled = CreateForm.maybe_handle(request)
 
@@ -94,7 +90,6 @@ def create(request):
                                 'create_form': create_form})
 
 
-@login_required
 def attach(request, volume_id):
     instances = api.server_list(request)
     attach_form, handled = AttachForm.maybe_handle(request,

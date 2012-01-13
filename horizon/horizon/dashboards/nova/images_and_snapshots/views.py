@@ -27,7 +27,6 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 from glance.common import exception as glance_exception
 from novaclient import exceptions as novaclient_exceptions
@@ -41,7 +40,6 @@ from horizon.dashboards.nova.images_and_snapshots.images.forms import \
 LOG = logging.getLogger(__name__)
 
 
-@login_required
 def index(request):
     for f in (DeleteImage, ):
         unused, handled = f.maybe_handle(request)

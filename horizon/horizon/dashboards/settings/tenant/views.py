@@ -15,11 +15,9 @@
 #    under the License.
 
 from django import shortcuts
-from django.contrib.auth.decorators import login_required
 from horizon.dashboards.settings.tenant.forms import DownloadOpenRCForm
 
 
-@login_required
 def index(request):
     form, handled = DownloadOpenRCForm.maybe_handle(request,
                         initial={'tenant': request.user.tenant_id})

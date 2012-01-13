@@ -28,7 +28,6 @@ import logging
 from django import http
 from django import shortcuts
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 from django.utils.datastructures import SortedDict
 from novaclient import exceptions as novaclient_exceptions
@@ -47,7 +46,6 @@ CreateForm, DeleteForm, AttachForm, DetachForm)
 LOG = logging.getLogger(__name__)
 
 
-@login_required
 def index(request):
     for f in (TerminateInstance, PauseInstance, UnpauseInstance,
               SuspendInstance, ResumeInstance, RebootInstance,

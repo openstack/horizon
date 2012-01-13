@@ -21,13 +21,14 @@
 import copy
 
 from django.core.urlresolvers import NoReverseMatch
+from django.test.client import Client
 
 import horizon
 from horizon import base
 from horizon import exceptions
 from horizon import test
+from horizon import users
 from horizon.base import Horizon
-from horizon.users import User
 
 
 class MyDash(horizon.Dashboard):
@@ -91,7 +92,7 @@ class HorizonTests(test.TestCase):
         self.assertEqual(repr(Horizon), "<Site: Horizon>")
         dash = Horizon.get_dashboard('nova')
         self.assertEqual(Horizon.get_default_dashboard(), dash)
-        user = User()
+        user = users.User()
         self.assertEqual(Horizon.get_user_home(user), dash.get_absolute_url())
 
     def test_dashboard(self):
@@ -143,3 +144,19 @@ class HorizonTests(test.TestCase):
         # The following two methods simply should not raise any exceptions
         iter(urlpatterns)
         reversed(urlpatterns)
+
+
+class HorizonBaseViewTests(test.BaseViewTests):
+    def setUp(self):
+        super(HorizonBaseViewTests, self).setUp()
+        users.get_user_from_request = self._real_get_user_from_request
+
+    def test_public(self):
+        settings = horizon.get_dashboard("settings")
+        # Known to have no restrictions on it other than being logged in.
+        user_panel = settings.get_panel("user")
+        url = user_panel.get_absolute_url()
+        client = Client()  # Get a clean, logged out client instance.
+        client.logout()
+        resp = client.get(url)
+        self.assertRedirectsNoFollow(resp, '/accounts/login/?next=/settings/')

@@ -26,7 +26,6 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 from glance.common import exception as glance_exception
 from novaclient import exceptions as novaclient_exceptions
@@ -40,7 +39,6 @@ from .forms import UpdateImageForm, LaunchForm, DeleteImage
 LOG = logging.getLogger(__name__)
 
 
-@login_required
 def index(request):
     for f in (DeleteImage, ):
         unused, handled = f.maybe_handle(request)
@@ -74,7 +72,6 @@ def index(request):
                                 'images': images})
 
 
-@login_required
 def launch(request, image_id):
     def flavorlist():
         try:
@@ -140,7 +137,6 @@ def launch(request, image_id):
                                 'quotas': quotas})
 
 
-@login_required
 def update(request, image_id):
     try:
         image = api.image_get_meta(request, image_id)

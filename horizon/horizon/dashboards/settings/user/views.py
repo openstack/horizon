@@ -15,10 +15,8 @@
 #    under the License.
 
 from django import shortcuts
-from django.contrib.auth.decorators import login_required
 from horizon.dashboards.settings.tenant.forms import DownloadOpenRCForm
 
 
-@login_required
 def index(request):
     return shortcuts.render(request, 'settings/user/settings.html', {})
