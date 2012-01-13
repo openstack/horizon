@@ -16,7 +16,7 @@
       <td>{{image.status|capfirst}}</td>
       <td id="actions">
           <ul>
-      {% if image.owner == request.user.username %}
+      {% if image.owner == request.user.tenant_id %}
             <li class="form">{% include "django_openstack/dash/images/_delete.html" with form=delete_form %}</li>
             <li><a href="{% url dash_images_update request.user.tenant_id image.id %}">Edit</a></li>
       {% endif %}

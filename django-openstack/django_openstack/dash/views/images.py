@@ -68,7 +68,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
             LOG.exception(error_retrieving)
             messages.error(request, error_retrieving)
 
-        if image.owner == request.user.username:
+        if image.owner == request.user.tenant_id:
             try:
                 meta = {
                     'is_public': True,
@@ -185,7 +185,7 @@ class DeleteImage(forms.SelfHandlingForm):
         tenant_id = request.user.tenant_id
         try:
             image = api.image_get(request, image_id)
-            if image.owner == request.user.username:
+            if image.owner == request.user.tenant_id:
                 api.image_delete(request, image_id)
             else:
                 messages.info(request, "Unable to delete image, you are not \
