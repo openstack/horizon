@@ -19,8 +19,8 @@
 #    under the License.
 
 from django.conf.urls.defaults import patterns, url
-
+from .views import IndexView, CreateView
 
 urlpatterns = patterns('horizon.dashboards.syspanel.flavors.views',
-    url(r'^$', 'index', name='index'),
-    url(r'^create/$', 'create', name='create'))
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^create/$', CreateView.as_view(), name='create'))

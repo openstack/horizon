@@ -23,7 +23,6 @@ import logging
 from django import shortcuts
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
 from horizon import forms
@@ -33,6 +32,7 @@ LOG = logging.getLogger(__name__)
 
 
 class CreateFlavor(forms.SelfHandlingForm):
+    #flavorid is required because of openstackx
     flavorid = forms.IntegerField(label=_("Flavor ID"))
     name = forms.CharField(max_length="25", label=_("Name"))
     vcpus = forms.CharField(max_length="5", label=_("VCPUs"))
@@ -50,20 +50,3 @@ class CreateFlavor(forms.SelfHandlingForm):
         LOG.info(msg)
         messages.success(request, msg)
         return shortcuts.redirect('horizon:syspanel:flavors:index')
-
-
-class DeleteFlavor(forms.SelfHandlingForm):
-    flavorid = forms.CharField(required=True)
-
-    def handle(self, request, data):
-        try:
-            flavor_id = data['flavorid']
-            flavor = api.flavor_get(request, flavor_id)
-            LOG.info('Deleting flavor with id "%s"' % flavor_id)
-            api.flavor_delete(request, flavor_id, False)
-            messages.info(request, _('Successfully deleted flavor: %s') %
-                          flavor.name)
-        except api_exceptions.ApiException, e:
-            messages.error(request, _('Unable to delete flavor: %s') %
-                                     e.message)
-        return shortcuts.redirect(request.build_absolute_uri())

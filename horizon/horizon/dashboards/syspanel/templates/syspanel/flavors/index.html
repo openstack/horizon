@@ -9,6 +9,5 @@
 {% endblock page_header %}
 
 {% block syspanel_main %}
-  {% include "syspanel/flavors/_list.html" %}
-  <a id="flavor_create_link" class="btn small" href="{% url horizon:syspanel:flavors:create %}">{% trans "Create New Flavor" %}</a>
+  {{ table.render }}
 {% endblock %}
