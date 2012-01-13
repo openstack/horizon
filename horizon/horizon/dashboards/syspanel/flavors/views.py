@@ -28,55 +28,36 @@ from novaclient import exceptions as api_exceptions
 
 from horizon import api
 from horizon import forms
-from horizon.dashboards.syspanel.flavors.forms import (CreateFlavor,
-        DeleteFlavor)
+from horizon import tables
+from .forms import CreateFlavor
+from .tables import FlavorsTable
 from horizon.dashboards.syspanel.instances import views as instance_views
-
 
 LOG = logging.getLogger(__name__)
 
 
-@login_required
-def index(request):
-    for f in (DeleteFlavor,):
-        form, handled = f.maybe_handle(request)
-        if handled:
-            return handled
+class IndexView(tables.DataTableView):
+    table_class = FlavorsTable
+    template_name = 'syspanel/flavors/index.html'
 
-    delete_form = DeleteFlavor()
-
-    flavors = []
-    try:
-        flavors = api.flavor_list(request)
-    except api_exceptions.Unauthorized, e:
-        LOG.exception('Unauthorized attempt to access flavor list.')
-        messages.error(request, _('Unauthorized.'))
-    except Exception, e:
-        LOG.exception('Exception while fetching usage info')
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        messages.error(request, _('Unable to get flavor list: %s') % e.message)
-
-    flavors.sort(key=lambda x: x.id, reverse=True)
-    return shortcuts.render(request,
-                            'syspanel/flavors/index.html', {
-                                'delete_form': delete_form,
-                                'flavors': flavors})
+    def get_data(self):
+        request = self.request
+        flavors = []
+        try:
+            flavors = api.flavor_list(request)
+        except api_exceptions.Unauthorized, e:
+            LOG.exception('Unauthorized attempt to access flavor list.')
+            messages.error(request, _('Unauthorized.'))
+        except Exception, e:
+            LOG.exception('Exception while fetching usage info')
+            if not hasattr(e, 'message'):
+                e.message = str(e)
+            messages.error(request, _('Unable to get flavor list: %s') %
+                           e.message)
+        flavors.sort(key=lambda x: x.id, reverse=True)
+        return flavors
 
 
-@login_required
-def create(request):
-    form, handled = CreateFlavor.maybe_handle(request)
-    if handled:
-        return handled
-
-    global_summary = instance_views.GlobalSummary(request)
-    global_summary.service()
-    global_summary.avail()
-    global_summary.human_readable('disk_size')
-    global_summary.human_readable('ram_size')
-
-    return shortcuts.render(request,
-                            'syspanel/flavors/create.html', {
-                                'global_summary': global_summary.summary,
-                                'form': form})
+class CreateView(forms.ModalFormView):
+    form_class = CreateFlavor
+    template_name = 'syspanel/flavors/create.html'
