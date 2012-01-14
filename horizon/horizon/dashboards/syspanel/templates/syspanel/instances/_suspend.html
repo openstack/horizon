@@ -1,0 +1,9 @@
+{% load i18n %}
+<form id="form_suspend_{{ instance.id }}" class="form-suspend" method="post">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  <input name="instance" type="hidden" value="{{ instance.id }}" />
+  <input id="suspend_{{ instance.id }}" class="suspend" title="Instance: {{ instance.name }}" type="submit" value="{% trans "Suspend" %}" />
+</form>

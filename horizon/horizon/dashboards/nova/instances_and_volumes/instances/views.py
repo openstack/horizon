@@ -36,8 +36,9 @@ import horizon
 from horizon import api
 from horizon import forms
 from horizon import test
-from horizon.dashboards.nova.instances_and_volumes.instances.forms import \
-                            (TerminateInstance, RebootInstance, UpdateInstance)
+from horizon.dashboards.nova.instances_and_volumes.instances.forms import (
+    TerminateInstance, PauseInstance, UnpauseInstance, SuspendInstance,
+    ResumeInstance, RebootInstance, UpdateInstance)
 
 
 LOG = logging.getLogger(__name__)
@@ -79,12 +80,20 @@ def index(request):
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
     terminate_form = TerminateInstance()
+    pause_form = PauseInstance()
+    unpause_form = UnpauseInstance()
+    suspend_form = SuspendInstance()
+    resume_form = ResumeInstance()
     reboot_form = RebootInstance()
 
     return shortcuts.render(request,
                         'nova/instances_and_volumes/instances/index.html', {
                             'instances': instances,
                             'terminate_form': terminate_form,
+                            'pause_form': pause_form,
+                            'unpause_form': unpause_form,
+                            'suspend_form': suspend_form,
+                            'resume_form': resume_form,
                             'reboot_form': reboot_form})
 
 
@@ -103,12 +112,20 @@ def refresh(request):
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
     terminate_form = TerminateInstance()
+    pause_form = PauseInstance()
+    unpause_form = UnpauseInstance()
+    suspend_form = SuspendInstance()
+    resume_form = ResumeInstance()
     reboot_form = RebootInstance()
 
     return shortcuts.render(request,
                         'nova/instances_and_volumes/instances/_list.html', {
                             'instances': instances,
                             'terminate_form': terminate_form,
+                            'pause_form': pause_form,
+                            'unpause_form': unpause_form,
+                            'suspend_form': suspend_form,
+                            'resume_form': resume_form,
                             'reboot_form': reboot_form})
 
 
