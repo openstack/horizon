@@ -1,27 +1,34 @@
-coverage
-CherryPy
+# horizon
 Django==1.3.1
-django-nose==0.1.2
-django-nose-selenium
-django-registration==0.7
-eventlet
-kombu
-mox
-nose==1.0.0
-paste
-PasteDeploy
-pycrypto==2.3
 python-cloudfiles
 python-dateutil
+
+# docs
+sphinx
+
+# testing
+CherryPy
+coverage
+django-nose==0.1.2
+django-nose-selenium
+mox
+nose==1.0.0
+pep8
+pylint
+
+# glance
+PasteDeploy
+eventlet
+kombu
+paste
+pycrypto==2.3
 routes
 sqlalchemy
 sqlalchemy-migrate
-pep8
-pylint
-sphinx
 webob
 xattr
 
+# horizon non-pip deps
 -e git+https://github.com/openstack/quantum.git@stable/diablo#egg=quantum
 -e git+https://github.com/cloudbuilders/openstackx.git#egg=openstackx
 -e git+https://github.com/openstack/python-novaclient.git#egg=python-novaclient
