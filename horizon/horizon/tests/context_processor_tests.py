@@ -21,9 +21,10 @@
 from django import http
 from mox import IsA
 
-from horizon import context_processors
-from horizon import test
 from horizon import api
+from horizon import context_processors
+from horizon import middleware
+from horizon import test
 
 
 class ContextProcessorTests(test.TestCase):
@@ -38,6 +39,7 @@ class ContextProcessorTests(test.TestCase):
 
     def test_authorized_tenants(self):
         tenant_list = self.TEST_CONTEXT['authorized_tenants']
+        self.request.user.authorized_tenants = None  # Reset from setUp
         self.mox.StubOutWithMock(api, 'tenant_list_for_token')
         api.tenant_list_for_token(IsA(http.HttpRequest),
                                   self.TEST_TOKEN,
@@ -45,6 +47,7 @@ class ContextProcessorTests(test.TestCase):
                                   .AndReturn(tenant_list)
         self.mox.ReplayAll()
 
+        middleware.HorizonMiddleware().process_request(self.request)
         context = context_processors.horizon(self.request)
         self.assertEqual(len(context['authorized_tenants']), 1)
         tenant = context['authorized_tenants'].pop()

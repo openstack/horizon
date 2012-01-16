@@ -96,7 +96,7 @@ class SelectDateWidget(widgets.Widget):
                 self.month_field, value, month_val, choices)
         choices = [(i, i) for i in range(1, 32)]
         day_html = self.create_select(name,
-                self.day_field, value, day_val,  choices)
+                self.day_field, value, day_val, choices)
 
         format = formats.get_format('DATE_FORMAT')
         escaped = False

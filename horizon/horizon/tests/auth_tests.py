@@ -174,16 +174,7 @@ class AuthViewTests(test.BaseViewTests):
         NEW_TENANT_ID = '6'
         NEW_TENANT_NAME = 'FAKENAME'
         TOKEN_ID = 1
-
-        self.setActiveUser(self.TEST_USER_ID, self.TEST_TOKEN, self.TEST_USER,
-                           self.TEST_TENANT, False, self.TEST_SERVICE_CATALOG)
-
-        form_data = {'method': 'LoginWithTenant',
-                     'password': self.PASSWORD,
-                     'tenant': NEW_TENANT_ID,
-                     'username': self.TEST_USER}
-
-        self.mox.StubOutWithMock(api, 'token_create')
+        tenants = self.TEST_CONTEXT['authorized_tenants']
 
         aTenant = self.mox.CreateMock(api.Token)
         aTenant.id = NEW_TENANT_ID
@@ -196,15 +187,27 @@ class AuthViewTests(test.BaseViewTests):
         aToken.serviceCatalog = {}
         aToken.tenant = {'id': aTenant.id, 'name': aTenant.name}
 
+        self.setActiveUser(id=self.TEST_USER_ID,
+                           token=self.TEST_TOKEN,
+                           username=self.TEST_USER,
+                           tenant_id=self.TEST_TENANT,
+                           service_catalog=self.TEST_SERVICE_CATALOG,
+                           authorized_tenants=tenants)
+
+        self.mox.StubOutWithMock(api, 'token_create')
+        self.mox.StubOutWithMock(api, 'tenant_list_for_token')
+
         api.token_create(IsA(http.HttpRequest), NEW_TENANT_ID, self.TEST_USER,
                          self.PASSWORD).AndReturn(aToken)
-
-        self.mox.StubOutWithMock(api, 'tenant_list_for_token')
-        api.tenant_list_for_token(IsA(http.HttpRequest), aToken.id).\
-                                  AndReturn([aTenant])
+        api.tenant_list_for_token(IsA(http.HttpRequest), aToken.id) \
+                                  .AndReturn([aTenant])
 
         self.mox.ReplayAll()
 
+        form_data = {'method': 'LoginWithTenant',
+                     'password': self.PASSWORD,
+                     'tenant': NEW_TENANT_ID,
+                     'username': self.TEST_USER}
         res = self.client.post(reverse('horizon:auth_switch',
                                        args=[NEW_TENANT_ID]), form_data)
 

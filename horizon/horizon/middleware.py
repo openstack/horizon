@@ -21,11 +21,17 @@
 Middleware provided and used by Horizon.
 """
 
+import logging
+
 from django.contrib import messages
 from django import shortcuts
 
+from horizon import api
 from horizon import exceptions
 from horizon import users
+
+
+LOG = logging.getLogger(__name__)
 
 
 class HorizonMiddleware(object):
@@ -41,6 +47,19 @@ class HorizonMiddleware(object):
         """
         request.__class__.user = users.LazyUser()
         request.horizon = {'dashboard': None, 'panel': None}
+        if request.user.is_authenticated() and \
+                request.user.authorized_tenants is None:
+            try:
+                authd = api.tenant_list_for_token(request,
+                                                  request.user.token,
+                                                  endpoint_type='internalURL')
+            except Exception, e:
+                authd = []
+                LOG.exception('Could not retrieve tenant list.')
+                if hasattr(request.user, 'message_set'):
+                    messages.error(request,
+                                   _("Unable to retrieve tenant list."))
+            request.user.authorized_tenants = authd
 
     def process_exception(self, request, exception):
         """ Catch NotAuthorized and Http302 and handle them gracefully. """
