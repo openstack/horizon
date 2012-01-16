@@ -251,6 +251,22 @@ def admin_server_list(request):
     return [Server(s, request) for s in admin_api(request).servers.list()]
 
 
+def server_pause(request, instance_id):
+    novaclient(request).servers.pause(instance_id)
+
+
+def server_unpause(request, instance_id):
+    novaclient(request).servers.unpause(instance_id)
+
+
+def server_suspend(request, instance_id):
+    novaclient(request).servers.suspend(instance_id)
+
+
+def server_resume(request, instance_id):
+    novaclient(request).servers.resume(instance_id)
+
+
 def server_reboot(request,
                   instance_id,
                   hardness=REBOOT_HARD):

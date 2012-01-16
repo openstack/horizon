@@ -31,8 +31,9 @@ from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import forms
-from horizon.dashboards.nova.instances_and_volumes.instances.forms import \
-                                            (TerminateInstance, RebootInstance)
+from horizon.dashboards.nova.instances_and_volumes.instances.forms import (
+    TerminateInstance, PauseInstance, UnpauseInstance, SuspendInstance,
+    ResumeInstance, RebootInstance)
 from openstackx.api import exceptions as api_exceptions
 
 
@@ -253,7 +254,8 @@ def tenant_usage(request):
 
 
 def index(request):
-    for f in (TerminateInstance, RebootInstance):
+    for f in (TerminateInstance, PauseInstance, UnpauseInstance,
+              SuspendInstance, ResumeInstance, RebootInstance):
         form, handled = f.maybe_handle(request)
         if handled:
             return handled
@@ -271,18 +273,27 @@ def index(request):
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
     terminate_form = TerminateInstance()
+    pause_form = PauseInstance()
+    unpause_form = UnpauseInstance()
+    suspend_form = SuspendInstance()
+    resume_form = ResumeInstance()
     reboot_form = RebootInstance()
 
     return render_to_response(
     'syspanel/instances/index.html', {
         'instances': instances,
         'terminate_form': terminate_form,
+        'pause_form': pause_form,
+        'unpause_form': unpause_form,
+        'suspend_form': suspend_form,
+        'resume_form': resume_form,
         'reboot_form': reboot_form,
     }, context_instance=template.RequestContext(request))
 
 
 def refresh(request):
-    for f in (TerminateInstance, RebootInstance):
+    for f in (TerminateInstance, PauseInstance, UnpauseInstance,
+              SuspendInstance, ResumeInstance, RebootInstance):
         form, handled = f.maybe_handle(request)
         if handled:
             return handled
@@ -299,12 +310,20 @@ def refresh(request):
     # We don't have any way of showing errors for these, so don't bother
     # trying to reuse the forms from above
     terminate_form = TerminateInstance()
+    pause_form = PauseInstance()
+    unpause_form = UnpauseInstance()
+    suspend_form = SuspendInstance()
+    resume_form = ResumeInstance()
     reboot_form = RebootInstance()
 
     return render_to_response(
     'syspanel/instances/_list.html', {
         'instances': instances,
         'terminate_form': terminate_form,
+        'pause_form': pause_form,
+        'unpause_form': unpause_form,
+        'suspend_form': suspend_form,
+        'resume_form': resume_form,
         'reboot_form': reboot_form,
     }, context_instance=template.RequestContext(request))
 

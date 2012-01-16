@@ -202,6 +202,60 @@ class ComputeApiTests(APITestCase):
 
         self.assertIsNone(ret_val)
 
+    def test_server_pause(self):
+        INSTANCE = 'anInstance'
+
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.pause(INSTANCE).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        server = self.mox.CreateMock(servers.Server)
+
+        ret_val = api.server_pause(self.request, INSTANCE)
+
+        self.assertIsNone(ret_val)
+
+    def test_server_unpause(self):
+        INSTANCE = 'anInstance'
+
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.unpause(INSTANCE).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_unpause(self.request, INSTANCE)
+
+        self.assertIsNone(ret_val)
+
+    def test_server_suspend(self):
+        INSTANCE = 'anInstance'
+
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.suspend(INSTANCE).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_suspend(self.request, INSTANCE)
+
+        self.assertIsNone(ret_val)
+
+    def test_server_resume(self):
+        INSTANCE = 'anInstance'
+
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.resume(INSTANCE).AndReturn(TEST_RETURN)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.server_resume(self.request, INSTANCE)
+
+        self.assertIsNone(ret_val)
+
     def test_server_reboot(self):
         INSTANCE_ID = '2'
         HARDNESS = servers.REBOOT_HARD

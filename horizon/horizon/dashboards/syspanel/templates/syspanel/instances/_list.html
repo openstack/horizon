@@ -43,10 +43,18 @@
       <td>{{ instance.status|lower|capfirst }}</td>
       <td id="actions">
         <ul>
+          {% if instance.status == 'PAUSED' %}
+            <li>{% include 'nova/instances_and_volumes/instances/_unpause.html' with form=unpause_form %}</li>
+          {% endif %}
+          {% if instance.status == 'SUSPENDED' %}
+            <li>{% include 'nova/instances_and_volumes/instances/_resume.html' with form=resume_form %}</li>
+          {% endif %}
           {% if instance.status == "ACTIVE" %}
-          <li class="form">{% include "syspanel/instances/_reboot.html" with form=reboot_form %}</li>
-          <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances_and_volumes:instances:console instance.id %}">{% trans "Console Log" %}</a></li>
-          <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances_and_volumes:instances:vnc instance.id %}">{% trans "VNC Console" %}</a></li>
+            <li>{% include 'nova/instances_and_volumes/instances/_pause.html' with form=pause_form %}</li>
+            <li>{% include 'nova/instances_and_volumes/instances/_suspend.html' with form=suspend_form %}</li>
+            <li class="form">{% include "syspanel/instances/_reboot.html" with form=reboot_form %}</li>
+            <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances_and_volumes:instances:console instance.id %}">{% trans "Console Log" %}</a></li>
+            <li><a class="btn small" target="_blank" href="{% url horizon:nova:instances_and_volumes:instances:vnc instance.id %}">{% trans "VNC Console" %}</a></li>
           {% endif %}
           <li class="form">{% include "syspanel/instances/_terminate.html" with form=terminate_form %}</li>
         </ul>
