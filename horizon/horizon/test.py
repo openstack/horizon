@@ -137,10 +137,12 @@ class TestCase(django_test.TestCase):
         context_processors.horizon = lambda request: self.TEST_CONTEXT
 
         self._real_get_user_from_request = users.get_user_from_request
+        tenants = self.TEST_CONTEXT['authorized_tenants']
         self.setActiveUser(token=self.TEST_TOKEN,
                            username=self.TEST_USER,
                            tenant_id=self.TEST_TENANT,
-                           service_catalog=self.TEST_SERVICE_CATALOG)
+                           service_catalog=self.TEST_SERVICE_CATALOG,
+                           authorized_tenants=tenants)
         self.request = http.HttpRequest()
         middleware.HorizonMiddleware().process_request(self.request)
 
@@ -152,13 +154,15 @@ class TestCase(django_test.TestCase):
         self.mox.VerifyAll()
 
     def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
-                        service_catalog=None, tenant_name=None, roles=None):
+                        service_catalog=None, tenant_name=None, roles=None,
+                        authorized_tenants=None):
         users.get_user_from_request = lambda x: \
                 users.User(id=id,
                            token=token,
                            user=username,
                            tenant_id=tenant_id,
-                           service_catalog=service_catalog)
+                           service_catalog=service_catalog,
+                           authorized_tenants=authorized_tenants)
 
     def override_times(self):
         now = datetime.datetime.utcnow()
@@ -187,11 +191,13 @@ class BaseViewTests(TestCase):
 
 class BaseAdminViewTests(BaseViewTests):
     def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
-                    service_catalog=None, tenant_name=None, roles=None):
+                      service_catalog=None, tenant_name=None, roles=None,
+                      authorized_tenants=None):
         users.get_user_from_request = lambda x: \
                 users.User(id=self.TEST_USER_ID,
                            token=self.TEST_TOKEN,
                            user=self.TEST_USER,
                            tenant_id=self.TEST_TENANT,
                            service_catalog=self.TEST_SERVICE_CATALOG,
-                           roles=self.TEST_ROLES)
+                           roles=self.TEST_ROLES,
+                           authorized_tenants=None)

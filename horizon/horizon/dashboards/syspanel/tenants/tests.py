@@ -52,7 +52,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
                                cores='1')
         self.quota = FakeQuotaSet(id=self.TEST_TENANT, **self.quota_data)
 
-        self.tenants = [self.tenant,]
+        self.tenants = [self.tenant]
 
     def test_index(self):
         self.mox.StubOutWithMock(api, 'tenant_list')

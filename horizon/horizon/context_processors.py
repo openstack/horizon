@@ -37,8 +37,8 @@ def horizon(request):
 
     Adds three variables to the request context:
 
-    ``tenants``
-        A list of the tenants the current uses is authorized to access.
+    ``authorized_tenants``
+        A list of tenant objects which the current user has access to.
 
     ``object_store_configured``
         Boolean. Will be ``True`` if there is a service of type
@@ -49,6 +49,12 @@ def horizon(request):
 
     Additionally, it sets the names ``True`` and ``False`` in the context
     to their boolean equivalents for convenience.
+
+    .. warning::
+
+        Don't put API calls in context processors; they will be called once
+        for each template/template fragment which takes context that is used
+        to render the complete output.
     """
     context = {"True": True,
                "False": False}
@@ -56,19 +62,7 @@ def horizon(request):
     # Auth/Keystone context
     context.setdefault('authorized_tenants', [])
     if request.user.is_authenticated():
-        try:
-            tenants = api.tenant_list_for_token(request,
-                                                request.user.token,
-                                                endpoint_type='internalURL')
-            context['authorized_tenants'] = tenants
-        except Exception, e:
-            if hasattr(request.user, 'message_set'):
-                if not hasattr(e, 'message'):
-                    e.message = str(e)
-                messages.error(request, _("Unable to retrieve tenant list: %s")
-                               % e.message)
-            else:
-                LOG.exception('Could not retrieve tenant list.')
+        context['authorized_tenants'] = request.user.authorized_tenants
 
     # Object Store/Swift context
     catalog = getattr(request.user, 'service_catalog', [])

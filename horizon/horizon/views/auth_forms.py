@@ -70,9 +70,9 @@ class Login(forms.SelfHandlingForm):
                                          data['username'],
                                          data['password'])
                 tenants = api.tenant_list_for_token(request, token.id)
-            except Exception, e:
+            except:
                 exceptions.handle(request,
-                                  message=_('Error authenticating: %s') % e,
+                                  message=_('Unable to authenticate tenant.'),
                                   escalate=True)
             tenant = None
             for t in tenants:
@@ -93,7 +93,6 @@ class Login(forms.SelfHandlingForm):
                                   _('Invalid user name or password.'))
             except:
                 exceptions.handle(request, escalate=True)
-
 
             # Unscoped token
             request.session['unscoped_token'] = token.id
