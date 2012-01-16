@@ -1,6 +1,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
 # Copyright 2011 Nebula, Inc.
+# Copyright (c) 2011 X.commerce, a business unit of eBay Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -28,25 +29,13 @@ from horizon import tables
 LOG = logging.getLogger(__name__)
 
 
-class AllocateIP(tables.Action):
+class AllocateIP(tables.LinkAction):
     name = "allocate"
     verbose_name = _("Allocate IP To Tenant")
-    requires_input = False
+    attrs = {"class": "ajax-modal btn primary small"}
+    url = "horizon:nova:access_and_security:floating_ips:allocate"
 
     def single(self, data_table, request, *args):
-        tenant_id = request.user.tenant_id
-        try:
-            fip = api.tenant_floating_ip_allocate(request)
-            LOG.info('Allocating Floating IP "%s" to tenant "%s".'
-                     % (fip.ip, tenant_id))
-            messages.success(request, _('Successfully allocated Floating IP '
-                                        '"%(ip)s" to tenant "%(tenant)s".')
-                                        % {"ip": fip.ip, "tenant": tenant_id})
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in FloatingIpAllocate")
-            messages.error(request, _('Unable to allocate Floating IP '
-                                      '"%(ip)s" to tenant "%(tenant)s".')
-                                      % {"ip": fip.ip, "tenant": tenant_id})
         return shortcuts.redirect('horizon:nova:access_and_security:index')
 
 
@@ -102,6 +91,9 @@ class FloatingIPsTable(tables.DataTable):
     instance = tables.Column("instance_id",
                              verbose_name=_("Instance"),
                              empty_value="-")
+    pool = tables.Column("pool",
+                         verbose_name=_("Floating Ip Pool"),
+                         empty_value="-")
 
     def sanitize_id(self, obj_id):
         return int(obj_id)

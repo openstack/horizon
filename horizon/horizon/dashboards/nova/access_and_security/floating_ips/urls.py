@@ -20,11 +20,14 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import AssociateView
+from .views import AssociateView, AllocateView
 
 
 urlpatterns = patterns('',
     url(r'^(?P<ip_id>[^/]+)/associate/$',
         AssociateView.as_view(),
-        name='associate')
+        name='associate'),
+    url(r'^allocate/$',
+        AllocateView.as_view(),
+        name='allocate')
 )

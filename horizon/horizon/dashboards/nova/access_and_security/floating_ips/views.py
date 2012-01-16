@@ -5,6 +5,7 @@
 # All Rights Reserved.
 #
 # Copyright 2011 Nebula, Inc.
+# Copyright (c) 2011 X.commerce, a business unit of eBay Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -28,7 +29,7 @@ from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import forms
-from .forms import FloatingIpAssociate
+from .forms import FloatingIpAssociate, FloatingIpAllocate
 
 
 LOG = logging.getLogger(__name__)
@@ -56,3 +57,19 @@ class AssociateView(forms.ModalFormView):
         return {'floating_ip_id': self.object.id,
                 'floating_ip': self.object.ip,
                 'instances': instances}
+
+
+class AllocateView(forms.ModalFormView):
+    form_class = FloatingIpAllocate
+    template_name = 'nova/access_and_security/floating_ips/allocate.html'
+    context_object_name = 'floating_ip'
+
+    def get_initial(self):
+        pools = api.floating_ip_pools_list(self.request)
+        if pools:
+            pool_list = [(pool.name, pool.name)
+                         for pool in api.floating_ip_pools_list(self.request)]
+        else:
+            pool_list = [(None, _("There are no Floating IP Pools"))]
+        return {'tenant_id': self.request.user.tenant_id,
+                'pool_list': pool_list}

@@ -5,6 +5,7 @@
 # All Rights Reserved.
 #
 # Copyright 2011 Nebula, Inc.
+# Copyright (c) 2011 X.commerce, a business unit of eBay Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -45,8 +46,13 @@ class Flavor(APIResourceWrapper):
 
 
 class FloatingIp(APIResourceWrapper):
+    """Simple wrapper for floating ip pools"""
+    _attrs = ['ip', 'fixed_ip', 'instance_id', 'id', 'pool']
+
+
+class FloatingIpPool(APIResourceWrapper):
     """Simple wrapper for floating ips"""
-    _attrs = ['ip', 'fixed_ip', 'instance_id', 'id']
+    _attrs = ['name']
 
 
 class KeyPair(APIResourceWrapper):
@@ -179,6 +185,13 @@ def tenant_floating_ip_list(request):
     return [FloatingIp(ip) for ip in novaclient(request).floating_ips.list()]
 
 
+def floating_ip_pools_list(request):
+    """
+    Fetches a list of all floating ip pools.
+    """
+    return [FloatingIpPool(pool)
+            for pool in novaclient(request).floating_ip_pools.list()]
+
 def tenant_floating_ip_get(request, floating_ip_id):
     """
     Fetches a floating ip.
@@ -186,11 +199,12 @@ def tenant_floating_ip_get(request, floating_ip_id):
     return novaclient(request).floating_ips.get(floating_ip_id)
 
 
-def tenant_floating_ip_allocate(request):
+def tenant_floating_ip_allocate(request, pool=None):
     """
     Allocates a floating ip to tenant.
+    Optionally you may provide a pool for which you would like the IP.
     """
-    return novaclient(request).floating_ips.create()
+    return novaclient(request).floating_ips.create(pool=pool)
 
 
 def tenant_floating_ip_release(request, floating_ip_id):

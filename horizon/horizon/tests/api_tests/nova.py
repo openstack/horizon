@@ -5,6 +5,7 @@
 # All Rights Reserved.
 #
 # Copyright 2011 Nebula, Inc.
+# Copyright (c) 2011 X.commerce, a business unit of eBay Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -22,7 +23,7 @@ from __future__ import absolute_import
 
 from django import http
 from django.conf import settings
-from mox import IsA
+from mox import IsA, IgnoreArg
 from openstackx import admin as OSAdmin
 from openstackx import auth as OSAuth
 from openstackx import extras as OSExtras
@@ -477,14 +478,27 @@ class APIExtensionTests(APITestCase):
 
         self.assertIsInstance(floating_ip, api.FloatingIp)
 
-    def test_tenant_floating_ip_allocate(self):
+    def test_tenant_floating_ip_allocate_without_pool(self):
         novaclient = self.stub_novaclient()
 
         novaclient.floating_ips = self.mox.CreateMockAnything()
-        novaclient.floating_ips.create().AndReturn(self.floating_ip)
+        novaclient.floating_ips.create(pool=IgnoreArg()).\
+                                                    AndReturn(self.floating_ip)
         self.mox.ReplayAll()
 
         floating_ip = api.tenant_floating_ip_allocate(self.request)
+
+        self.assertIsInstance(floating_ip, api.FloatingIp)
+
+    def test_tenant_floating_ip_allocate_with_pool(self):
+        novaclient = self.stub_novaclient()
+
+        novaclient.floating_ips = self.mox.CreateMockAnything()
+        novaclient.floating_ips.create(pool="nova").AndReturn(self.floating_ip)
+        self.mox.ReplayAll()
+
+        floating_ip = api.tenant_floating_ip_allocate(self.request,
+                                                      pool='nova')
 
         self.assertIsInstance(floating_ip, api.FloatingIp)
 
