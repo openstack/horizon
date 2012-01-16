@@ -34,6 +34,11 @@ from horizon.api.deprecated import check_openstackx
 LOG = logging.getLogger(__name__)
 
 
+def _get_endpoint_url(request):
+    return request.session.get('region_endpoint',
+                               getattr(settings, 'OPENSTACK_KEYSTONE_URL'))
+
+
 class Tenant(APIResourceWrapper):
     """Simple wrapper around keystoneclient.tenants.Tenant"""
     _attrs = ['id', 'description', 'enabled', 'name']
@@ -93,7 +98,7 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
                                       password=password,
                                       tenant_id=tenant_id or user.tenant_id,
                                       token=token_id or user.token,
-                                      auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                                      auth_url=_get_endpoint_url(request),
                                       endpoint=endpoint)
         request._keystone = conn
 
@@ -110,7 +115,7 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
             endpoint = catalog.url_for(service_type='identity',
                                        endpoint_type='publicURL')
     else:
-        endpoint = settings.OPENSTACK_KEYSTONE_URL
+        endpoint = _get_endpoint_url(request)
     conn.management_url = endpoint
 
     return conn
@@ -144,7 +149,7 @@ def tenant_update(request, tenant_id, tenant_name, description, enabled):
 def tenant_list_for_token(request, token, endpoint_type=None):
     c = keystoneclient(request,
                        token_id=token,
-                       endpoint=settings.OPENSTACK_KEYSTONE_URL,
+                       endpoint=_get_endpoint_url(request),
                        endpoint_type=endpoint_type)
     return [Tenant(t) for t in c.tenants.list()]
 
@@ -160,7 +165,7 @@ def token_create(request, tenant, username, password):
                        username=username,
                        password=password,
                        tenant_id=tenant,
-                       endpoint=settings.OPENSTACK_KEYSTONE_URL)
+                       endpoint=_get_endpoint_url(request))
     token = c.tokens.authenticate(username=username,
                                   password=password,
                                   tenant_id=tenant)
@@ -174,8 +179,10 @@ def token_create_scoped(request, tenant, token):
     '''
     if hasattr(request, '_keystone'):
         del request._keystone
-    c = keystoneclient(request, tenant_id=tenant, token_id=token,
-                       endpoint=settings.OPENSTACK_KEYSTONE_URL)
+    c = keystoneclient(request,
+                       tenant_id=tenant,
+                       token_id=token,
+                       endpoint=_get_endpoint_url(request))
     raw_token = c.tokens.authenticate(tenant_id=tenant,
                                       token=token,
                                       return_raw=True)
@@ -247,8 +254,8 @@ def _get_roleref(request, user_id, tenant_id, role):
 def role_add_for_tenant_user(request, tenant_id, user_id, role):
     role = _get_role(request, role)
     return keystoneclient(request).roles.add_user_to_tenant(tenant_id,
-                                                       user_id,
-                                                       role.id)
+                                                            user_id,
+                                                            role.id)
 
 
 def role_delete_for_tenant_user(request, tenant_id, user_id, role):

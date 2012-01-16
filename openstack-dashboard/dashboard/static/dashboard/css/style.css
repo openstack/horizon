@@ -276,6 +276,7 @@ small {
     padding-right: 25px;
     padding-top: 25px;
     color: #888;
+    right: 145px;
 }
 
 #user_info a {
@@ -901,7 +902,41 @@ a.view_full {
   border-bottom: solid 1px #E1E1E1;
   background-image: url(/static/dashboard/images/drop_arrow.png);
 }
+
 form div.clearfix.error {
   width: 330px;
   padding: 10px 10px;
+}
+
+/* Region selector in header */
+
+#region_selector {
+  position: absolute;
+  z-index: 9999;
+  right: 0;
+  top: 24px;
+}
+
+#region_selector a {  margin-left: 0; }
+
+#region_selector ul{
+  float: left;
+  margin-left: 5px;
+  padding-right: 21px;
+  width: 125px;
+}
+#region_selector ul:hover a { display: block; }
+
+#region_selector li a{
+  padding: 3px 3px 3px 5px;
+  display: none;
+  background: #E1E1E1;
+  margin-top: -10px;
+}
+
+#region_selector li:first-child p{
+  background: #EDEDED url(/static/dashboard/images/drop_arrow.png) no-repeat 106px 9px !important;
+  display: block;
+  border: 1px solid #e1e1e1;
+  padding: 5px;
 }

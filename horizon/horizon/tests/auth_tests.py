@@ -55,6 +55,7 @@ class AuthViewTests(test.BaseViewTests):
         TOKEN_ID = 1
 
         form_data = {'method': 'Login',
+                    'region': 'http://localhost:5000/v2.0,local',
                     'password': self.PASSWORD,
                     'username': self.TEST_USER}
 
@@ -94,6 +95,7 @@ class AuthViewTests(test.BaseViewTests):
         TOKEN_ID = 1
 
         form_data = {'method': 'Login',
+                    'region': 'http://localhost:5000/v2.0,local',
                     'password': self.PASSWORD,
                     'username': self.TEST_USER}
 
@@ -125,9 +127,7 @@ class AuthViewTests(test.BaseViewTests):
                                     aToken.id).AndReturn(bToken)
 
         self.mox.ReplayAll()
-
         res = self.client.post(reverse('horizon:auth_login'), form_data)
-
         self.assertRedirectsNoFollow(res, DASH_INDEX_URL)
 
     def test_login_invalid_credentials(self):
@@ -139,6 +139,7 @@ class AuthViewTests(test.BaseViewTests):
         self.mox.ReplayAll()
 
         form_data = {'method': 'Login',
+                     'region': 'http://localhost:5000/v2.0,local',
                      'password': self.PASSWORD,
                      'username': self.TEST_USER}
         res = self.client.post(reverse('horizon:auth_login'),
@@ -158,6 +159,7 @@ class AuthViewTests(test.BaseViewTests):
         self.mox.ReplayAll()
 
         form_data = {'method': 'Login',
+                    'region': 'http://localhost:5000/v2.0,local',
                     'password': self.PASSWORD,
                     'username': self.TEST_USER}
         res = self.client.post(reverse('horizon:auth_login'), form_data)
@@ -205,6 +207,7 @@ class AuthViewTests(test.BaseViewTests):
         self.mox.ReplayAll()
 
         form_data = {'method': 'LoginWithTenant',
+                     'region': 'http://localhost:5000/v2.0,local',
                      'password': self.PASSWORD,
                      'tenant': NEW_TENANT_ID,
                      'username': self.TEST_USER}

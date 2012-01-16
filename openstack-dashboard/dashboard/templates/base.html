@@ -37,7 +37,14 @@
           <a href="{% url horizon:settings:user:index %}">{% trans "Settings" %}</a>
           <a href="{% url horizon:auth_logout %}">{% trans "Sign Out" %}</a>
         </p>
-
+      </div>
+      <div id="region_selector">
+        {% if region.support %}
+          <ul>
+            <li class="odd"><p>{{ region.name }}</p></li>
+            <li><a href="{% url horizon:auth_logout %}">Change Regions</a></li>
+          </ul>
+        {% endif %}
       </div>
     {% endblock %}
     {% block content %}

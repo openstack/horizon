@@ -21,6 +21,7 @@
 import logging
 
 from django import shortcuts
+from django.conf import settings
 from django.utils.translation import ugettext as _
 
 import horizon

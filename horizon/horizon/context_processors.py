@@ -74,4 +74,11 @@ def horizon(request):
     #                supporting keystone integration.
     context['network_configured'] = getattr(settings, 'QUANTUM_ENABLED', None)
 
+    # Region context/support
+    available_regions = getattr(settings, 'AVAILABLE_REGIONS', None)
+    regions = {'support': available_regions > 1,
+               'endpoint': request.session.get('region_endpoint'),
+               'name': request.session.get('region_name')}
+    context['region'] = regions
+
     return context

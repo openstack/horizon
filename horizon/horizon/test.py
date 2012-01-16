@@ -142,6 +142,7 @@ class TestCase(django_test.TestCase):
                            service_catalog=self.TEST_SERVICE_CATALOG,
                            authorized_tenants=tenants)
         self.request = http.HttpRequest()
+        self.request.session = self.client._session()
         middleware.HorizonMiddleware().process_request(self.request)
 
     def tearDown(self):
