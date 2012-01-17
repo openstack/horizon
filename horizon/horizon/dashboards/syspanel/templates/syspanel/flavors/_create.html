@@ -1,0 +1,25 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}create_flavor_form{% endblock %}
+{% block form_action %}{% url horizon:syspanel:flavors:create %}{% endblock %}
+
+{% block modal_id %}create_flavor_modal{% endblock %}
+{% block modal-header %}{% trans "Create Flavor" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% trans "From here you can define the sizing of a new flavor." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn primary pull-right" type="submit" value="{% trans "Create Flavor" %}" />
+  <a href="{% url horizon:syspanel:flavors:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
