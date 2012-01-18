@@ -90,6 +90,12 @@ class VolumesTable(tables.DataTable):
                                 empty_value=_("-"))
     status = tables.Column("status", filters=(title,))
 
+    def sanitize_id(self, obj_id):
+        return int(obj_id)
+
+    def get_object_display(self, obj):
+        return obj.displayName
+
     class Meta:
         name = "volumes"
         verbose_name = _("Volumes")
