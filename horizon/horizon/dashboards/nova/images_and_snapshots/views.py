@@ -33,43 +33,34 @@ from novaclient import exceptions as novaclient_exceptions
 from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
-from horizon.dashboards.nova.images_and_snapshots.images.forms import \
-                                    (UpdateImageForm, LaunchForm, DeleteImage)
+from horizon import exceptions
+from horizon import tables
+from .images.tables import ImagesTable
+from .snapshots.tables import SnapshotsTable
 
 
 LOG = logging.getLogger(__name__)
 
 
-def index(request):
-    for f in (DeleteImage, ):
-        unused, handled = f.maybe_handle(request)
-        if handled:
-            return handled
-    all_images = []
-    snapshots = []
-    try:
-        all_images = api.image_list_detailed(request)
-        snapshots = api.snapshot_list_detailed(request)
-        if not all_images:
-            messages.info(request, _("There are currently no images."))
-    except glance_exception.ClientConnectionError, e:
-        LOG.exception("Error connecting to glance")
-        messages.error(request, _("Error connecting to glance: %s") % str(e))
-    except glance_exception.Error, e:
-        LOG.exception("Error retrieving image list")
-        messages.error(request, _("Unable to fetch images: %s") % str(e))
-    except api_exceptions.ApiException, e:
-        msg = _("Unable to retrieve image info from glance: %s") % str(e)
-        LOG.exception(msg)
-        messages.error(request, msg)
-    images = [im for im in all_images
-              if im['container_format'] not in ['aki', 'ari']]
+class IndexView(tables.MultiTableView):
+    table_classes = (ImagesTable, SnapshotsTable)
+    template_name = 'nova/images_and_snapshots/index.html'
 
-    quotas = api.tenant_quota_get(request, request.user.tenant_id)
+    def get_images_data(self):
+        try:
+            all_images = api.image_list_detailed(self.request)
+            images = [im for im in all_images
+                      if im['container_format'] not in ['aki', 'ari'] and
+                      getattr(im.properties, "image_type", '') != "snapshot"]
+        except:
+            images = []
+            exceptions.handle(self.request, _("Unable to retrieve images."))
+        return images
 
-    return shortcuts.render(request,
-                            'nova/images_and_snapshots/index.html', {
-                                'delete_form': DeleteImage(),
-                                'quotas': quotas,
-                                'images': images,
-                                'snapshots': snapshots})
+    def get_snapshots_data(self):
+        try:
+            snapshots = api.snapshot_list_detailed(self.request)
+        except:
+            snapshots = []
+            exceptions.handle(self.request, _("Unable to retrieve snapshots."))
+        return snapshots
