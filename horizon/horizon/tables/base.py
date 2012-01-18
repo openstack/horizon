@@ -142,8 +142,6 @@ class Column(object):
     def __init__(self, transform, verbose_name=None, sortable=False,
                  link=None, hidden=False, attrs=None, status=False,
                  status_choices=None, empty_value=None, filters=None):
-        self._data_cache = {}
-
         if callable(transform):
             self.transform = transform
             self.name = transform.__name__
@@ -191,8 +189,9 @@ class Column(object):
         or the return value of the attr:`~horizon.tables.Column.transform`
         method for this column.
         """
-        if self.table.get_object_id(datum) in self._data_cache:
-            return self._data_cache[self.table.get_object_id(datum)]
+        datum_id = self.table.get_object_id(datum)
+        if datum_id in self.table._data_cache[self]:
+            return self.table._data_cache[self][datum_id]
 
         # Callable transformations
         if callable(self.transform):
@@ -213,8 +212,8 @@ class Column(object):
             data = None
         for filter_func in self.filters:
             data = filter_func(data)
-        self._data_cache[self.table.get_object_id(datum)] = data
-        return self._data_cache[self.table.get_object_id(datum)]
+        self.table._data_cache[self][datum_id] = data
+        return self.table._data_cache[self][datum_id]
 
     def get_classes(self):
         """ Returns a flattened string of the column's CSS classes. """
@@ -285,10 +284,10 @@ class Row(object):
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
                                      str(table.get_object_id(datum)))
-                column._data_cache[self.table.get_object_id(datum)] = data
+                table._data_cache[column][table.get_object_id(datum)] = data
             elif column.auto == "actions":
                 data = table.render_row_actions(datum)
-                column._data_cache[self.table.get_object_id(datum)] = data
+                table._data_cache[column][table.get_object_id(datum)] = data
             else:
                 data = column.get_data(datum)
             cell = Cell(datum, data, column, self)
@@ -593,6 +592,7 @@ class DataTable(object):
     def __init__(self, request, data, **kwargs):
         self._meta.request = request
         self._meta.data = data
+        self._populate_data_cache()
         self.kwargs = kwargs
 
         for column in self.columns.values():
@@ -634,6 +634,12 @@ class DataTable(object):
                                                     self.data,
                                                     action.filter_string)
         return self._filtered_data
+
+    def _populate_data_cache(self):
+        self._data_cache = {}
+        # Set up hash tables to store data points for each column
+        for column in self.get_columns():
+            self._data_cache[column] = {}
 
     def _filter_action(self, action, request, datum=None):
         try:

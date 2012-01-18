@@ -43,6 +43,10 @@ TEST_DATA = (
     FakeObject('3', 'object_3', 'value_3', 'up'),
 )
 
+TEST_DATA_2 = (
+    FakeObject('1', 'object_1', 'value_1', 'down', 'optional_1', 'excluded_1'),
+)
+
 
 class MyLinkAction(tables.LinkAction):
     name = "login"
@@ -287,6 +291,12 @@ class DataTableTests(test.TestCase):
         self.assertEqual(cell_status, None)
         self.assertEqual(row.cells['id'].get_status_class(cell_status),
                          'status_unknown')
+
+        # Ensure data is not cached on the column across table instances
+        self.table = MyTable(self.request, TEST_DATA_2)
+        row = self.table.get_rows()[0]
+        self.assertTrue("down" in row.cells['status'].value)
+
 
     def test_table_row(self):
         self.table = MyTable(self.request, TEST_DATA)
