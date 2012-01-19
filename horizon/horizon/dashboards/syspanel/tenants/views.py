@@ -79,8 +79,8 @@ class UpdateView(forms.ModalFormView):
             return api.tenant_get(self.request, tenant_id)
         except Exception as e:
             LOG.exception('Error fetching tenant with id "%s"' % tenant_id)
-            messages.error(request, _('Unable to update tenant: %s')
-                                      % e.message)
+            messages.error(self.request, _('Unable to update tenant: %s')
+                                           % e.message)
             raise http.Http404("Tenant with ID %s not found." % tenant_id)
 
     def get_initial(self):
