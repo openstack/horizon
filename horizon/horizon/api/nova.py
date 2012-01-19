@@ -36,11 +36,6 @@ from horizon.api.deprecated import extras_api
 LOG = logging.getLogger(__name__)
 
 
-class Console(APIResourceWrapper):
-    """Simple wrapper around openstackx.extras.consoles.Console"""
-    _attrs = ['id', 'output', 'type']
-
-
 class Flavor(APIResourceWrapper):
     """Simple wrapper around openstackx.admin.flavors.Flavor"""
     _attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
@@ -69,6 +64,11 @@ class Volume(APIResourceWrapper):
     """Nova Volume representation"""
     _attrs = ['id', 'status', 'displayName', 'size', 'volumeType', 'createdAt',
               'attachments', 'displayDescription']
+
+
+class VNCConsole(APIDictWrapper):
+    """Simple wrapper for floating ips"""
+    _attrs = ['url', 'type']
 
 
 class Quota(object):
@@ -176,8 +176,9 @@ def novaclient(request):
     return c
 
 
-def console_create(request, instance_id, kind='text'):
-    return Console(extras_api(request).consoles.create(instance_id, kind))
+def server_vnc_console(request, instance_id, type='novnc'):
+    return VNCConsole(novaclient(request).servers.get_vnc_console(instance_id,
+                                                  type)['console'])
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavor_id):

@@ -25,7 +25,7 @@ from horizon import api
 from horizon import test
 
 
-TEST_CONSOLE_KIND = 'vnc'
+TEST_CONSOLE_TYPE = 'novnc'
 TEST_EMAIL = 'test@test.com'
 TEST_HOSTNAME = 'hostname'
 TEST_INSTANCE_ID = '2'

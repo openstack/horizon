@@ -319,25 +319,26 @@ class ExtrasApiTests(APITestCase):
 
         self.assertIsNotNone(api.nova.extras_api(self.request))
 
-    def test_console_create(self):
-        extras_api = self.stub_extras_api(count=2)
-        extras_api.consoles = self.mox.CreateMockAnything()
-        extras_api.consoles.create(
-                TEST_INSTANCE_ID, TEST_CONSOLE_KIND).AndReturn(TEST_RETURN)
-        extras_api.consoles.create(
-                TEST_INSTANCE_ID, 'text').AndReturn(TEST_RETURN + '2')
+    def test_server_vnc_console(self):
+        fake_console = {'console': {'url': 'http://fake', 'type': ''}}
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.get_vnc_console(
+                TEST_INSTANCE_ID, TEST_CONSOLE_TYPE).AndReturn(fake_console)
+        novaclient.servers.get_vnc_console(
+                TEST_INSTANCE_ID, 'novnc').AndReturn(fake_console)
 
         self.mox.ReplayAll()
 
-        ret_val = api.console_create(self.request,
-                                     TEST_INSTANCE_ID,
-                                     TEST_CONSOLE_KIND)
-        self.assertIsInstance(ret_val, api.Console)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
+        ret_val = api.server_vnc_console(self.request,
+                                         TEST_INSTANCE_ID,
+                                         TEST_CONSOLE_TYPE)
+        self.assertIsInstance(ret_val, api.VNCConsole)
+        self.assertEqual(ret_val._apidict, fake_console['console'])
 
-        ret_val = api.console_create(self.request, TEST_INSTANCE_ID)
-        self.assertIsInstance(ret_val, api.Console)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN + '2')
+        ret_val = api.server_vnc_console(self.request, TEST_INSTANCE_ID)
+        self.assertIsInstance(ret_val, api.VNCConsole)
+        self.assertEqual(ret_val._apidict, fake_console['console'])
 
     def test_flavor_list(self):
         flavors = (TEST_RETURN, TEST_RETURN + '2')

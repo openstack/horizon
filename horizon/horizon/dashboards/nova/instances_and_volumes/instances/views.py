@@ -62,9 +62,9 @@ def console(request, instance_id):
 
 def vnc(request, instance_id):
     try:
-        console = api.console_create(request, instance_id, 'vnc')
+        console = api.server_vnc_console(request, instance_id)
         instance = api.server_get(request, instance_id)
-        return shortcuts.redirect(console.output +
+        return shortcuts.redirect(console.url +
                 ("&title=%s(%s)" % (instance.name, instance_id)))
     except:
         redirect = reverse("horizon:nova:instances_and_volumes:index")
@@ -110,7 +110,7 @@ class DetailView(views.APIView):
                                 'instance "%s".') % instance_id,
                                 redirect=redirect)
         try:
-            console = api.console_create(request, instance_id, 'vnc')
+            console = api.server_vnc_console(request, instance_id)
             vnc_url = "%s&title=%s(%s)" % (console.output,
                                            getattr(instance, "name", ""),
                                            instance_id)

@@ -138,16 +138,15 @@ class InstanceViewTests(test.BaseViewTests):
         INSTANCE_ID = self.servers[0].id
         CONSOLE_OUTPUT = '/vncserver'
 
-        console_mock = self.mox.CreateMock(api.Console)
-        console_mock.output = CONSOLE_OUTPUT
+        console_mock = self.mox.CreateMock(api.VNCConsole)
+        console_mock.url = CONSOLE_OUTPUT
 
-        self.mox.StubOutWithMock(api, 'console_create')
+        self.mox.StubOutWithMock(api, 'server_vnc_console')
         self.mox.StubOutWithMock(api, 'server_get')
         api.server_get(IsA(http.HttpRequest),
                        str(self.servers[0].id)).AndReturn(self.servers[0])
-        api.console_create(IgnoreArg(),
-                           unicode(INSTANCE_ID),
-                           'vnc').AndReturn(console_mock)
+        api.server_vnc_console(IgnoreArg(),
+                               unicode(INSTANCE_ID)).AndReturn(console_mock)
 
         self.mox.ReplayAll()
 
@@ -163,10 +162,9 @@ class InstanceViewTests(test.BaseViewTests):
 
         exception = nova_exceptions.ClientException(500)
 
-        self.mox.StubOutWithMock(api, 'console_create')
-        api.console_create(IsA(http.HttpRequest),
-                           unicode(INSTANCE_ID),
-                           'vnc').AndRaise(exception)
+        self.mox.StubOutWithMock(api, 'server_vnc_console')
+        api.server_vnc_console(IsA(http.HttpRequest),
+                           unicode(INSTANCE_ID)).AndRaise(exception)
 
         self.mox.ReplayAll()
 
