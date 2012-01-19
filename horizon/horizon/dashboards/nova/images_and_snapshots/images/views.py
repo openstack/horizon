@@ -24,13 +24,8 @@ Views for managing Nova images.
 
 import logging
 
-from django import shortcuts
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
-from glance.common import exception as glance_exception
-from novaclient import exceptions as novaclient_exceptions
-from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
 from horizon import exceptions
@@ -51,6 +46,7 @@ class LaunchView(forms.ModalFormView):
         kwargs['flavor_list'] = self.flavor_list()
         kwargs['keypair_list'] = self.keypair_list()
         kwargs['security_group_list'] = self.security_group_list()
+        kwargs['volume_list'] = self.volume_list()
         return kwargs
 
     def get_object(self, *args, **kwargs):
@@ -112,6 +108,17 @@ class LaunchView(forms.ModalFormView):
                               _('Unable to retrieve list of security groups'))
             security_group_list = []
         return security_group_list
+
+    def volume_list(self):
+        try:
+            volumes = [(v.id, ("%s (%s GB)" % (v.displayName, v.size))) \
+                    for v in api.volume_list(self.request)]
+            volumes.insert(0, ("", "Select Volume"))
+        except:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve list of volumes'))
+            volumes = []
+        return volumes
 
 
 class UpdateView(forms.ModalFormView):

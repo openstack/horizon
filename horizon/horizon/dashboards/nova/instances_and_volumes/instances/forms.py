@@ -23,7 +23,6 @@ import logging
 from django import shortcuts
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-import openstackx.api.exceptions as api_exceptions
 
 from horizon import api
 from horizon import exceptions
@@ -40,7 +39,6 @@ class UpdateInstance(forms.SelfHandlingForm):
     name = forms.CharField(required=True)
 
     def handle(self, request, data):
-        tenant_id = data['tenant_id']
         try:
             api.server_update(request, data['instance'], data['name'])
             messages.success(request,
