@@ -94,6 +94,11 @@ class LaunchForm(forms.SelfHandlingForm):
                                 required=False,
                                 help_text=_("Which keypair to use for "
                                             "authentication."))
+    count = forms.CharField(label=_("Instance Count"),
+                            required=True,
+                            initial=1,
+                            widget=forms.TextInput(),
+                            help_text=_("Number of instances to launch."))
     security_groups = forms.MultipleChoiceField(
                                 label=_("Security Groups"),
                                 required=True,
@@ -119,7 +124,8 @@ class LaunchForm(forms.SelfHandlingForm):
                               data['flavor'],
                               data.get('keypair'),
                               normalize_newlines(data.get('user_data')),
-                              data.get('security_groups'))
+                              data.get('security_groups'),
+                              instance_count=int(data.get('count')))
             messages.success(request,
                              _('Instance "%s" launched.') % data["name"])
         except:

@@ -285,13 +285,14 @@ class ComputeApiTests(APITestCase):
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
         novaclient.servers.create(NAME, IMAGE, FLAVOR, userdata=USER_DATA,
-                                  security_groups=[SECGROUP], key_name=KEY)\
-                                  .AndReturn(TEST_RETURN)
+                                  security_groups=[SECGROUP], key_name=KEY,
+                                  min_count=IsA(int)).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
         ret_val = api.server_create(self.request, NAME, IMAGE, FLAVOR,
-                                    KEY, USER_DATA, [SECGROUP])
+                                    KEY, USER_DATA, [SECGROUP],
+                                    instance_count=1)
 
         self.assertIsInstance(ret_val, api.Server)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)

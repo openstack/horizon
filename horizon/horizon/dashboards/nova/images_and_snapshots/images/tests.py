@@ -116,6 +116,7 @@ class ImageViewTests(test.BaseViewTests):
                      'keypair': keypair,
                      'name': SERVER_NAME,
                      'user_data': USER_DATA,
+                     'count': 1,
                      'tenant_id': self.TEST_TENANT,
                      'security_groups': 'default',
                      }
@@ -134,7 +135,8 @@ class ImageViewTests(test.BaseViewTests):
                       IMAGE_ID).AndReturn(self.visibleImage)
         api.server_create(IsA(http.HttpRequest), SERVER_NAME,
                           str(IMAGE_ID), str(FLAVOR_ID),
-                          keypair, USER_DATA, [self.security_groups[0].name])
+                          keypair, USER_DATA, [self.security_groups[0].name],
+                          instance_count=IsA(int))
 
         self.mox.ReplayAll()
 
@@ -230,6 +232,7 @@ class ImageViewTests(test.BaseViewTests):
                      'name': SERVER_NAME,
                      'tenant_id': self.TEST_TENANT,
                      'user_data': USER_DATA,
+                     'count': int(1),
                      'security_groups': 'default'}
 
         api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
@@ -246,8 +249,8 @@ class ImageViewTests(test.BaseViewTests):
                           str(FLAVOR_ID),
                           keypair,
                           USER_DATA,
-                          [group.name for group in self.security_groups]) \
-                          .AndRaise(exception)
+                          [group.name for group in self.security_groups],
+                          instance_count=IsA(int)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
         messages.error(IsA(http.HttpRequest), IsA(basestring))
