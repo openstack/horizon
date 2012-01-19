@@ -27,8 +27,6 @@ from keystoneclient.v2_0 import client as keystone_client
 from keystoneclient.v2_0 import tokens
 
 from horizon.api.base import *
-from horizon.api.deprecated import admin_api
-from horizon.api.deprecated import check_openstackx
 
 
 LOG = logging.getLogger(__name__)

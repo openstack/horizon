@@ -28,7 +28,6 @@ from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.servers import REBOOT_HARD
 
 from horizon.api.base import *
-from horizon.api.deprecated import admin_api
 from horizon.api.deprecated import check_openstackx
 from horizon.api.deprecated import extras_api
 
@@ -182,14 +181,12 @@ def server_vnc_console(request, instance_id, type='novnc'):
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavor_id):
-    # TODO -- convert to novaclient when novaclient adds create support
-    return Flavor(admin_api(request).flavors.create(
+    return Flavor(novaclient(request).flavors.create(
             name, int(memory), int(vcpu), int(disk), flavor_id))
 
 
 def flavor_delete(request, flavor_id, purge=False):
-    # TODO -- convert to novaclient when novaclient adds delete support
-    admin_api(request).flavors.delete(flavor_id, purge)
+    novaclient(request).flavors.delete(flavor_id, purge)
 
 
 def flavor_get(request, flavor_id):

@@ -24,6 +24,5 @@ from horizon.tests.api_tests.glance import GlanceApiTests, ImageWrapperTests
 from horizon.tests.api_tests.keystone import (KeystoneAdminApiTests,
         TokenApiTests, RoleAPITests, TenantAPITests, UserAPITests)
 from horizon.tests.api_tests.nova import (ServerWrapperTests,
-        NovaAdminApiTests, ComputeApiTests, ExtrasApiTests, VolumeTests,
-        APIExtensionTests)
+        ComputeApiTests, ExtrasApiTests, VolumeTests, APIExtensionTests)
 from horizon.tests.api_tests.swift import SwiftApiTests

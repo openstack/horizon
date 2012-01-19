@@ -105,26 +105,7 @@ class ServerWrapperTests(test.TestCase):
         self.assertEqual(image_name, self.IMAGE_NAME)
 
 
-class NovaAdminApiTests(APITestCase):
-    def stub_admin_api(self, count=1):
-        self.mox.StubOutWithMock(api.nova, 'admin_api')
-        admin_api = self.mox.CreateMock(OSAdmin.Admin)
-        for i in range(count):
-            api.nova.admin_api(IsA(http.HttpRequest)) \
-                    .AndReturn(admin_api)
-        return admin_api
-
-    def test_get_admin_api(self):
-        self.mox.StubOutClassWithMocks(OSAdmin, 'Admin')
-        OSAdmin.Admin(auth_token=TEST_TOKEN, management_url=TEST_URL)
-
-        self.mox.StubOutWithMock(api.deprecated, 'url_for')
-        api.deprecated.url_for(IsA(http.HttpRequest),
-                               'compute', True).AndReturn(TEST_URL)
-
-        self.mox.ReplayAll()
-
-        self.assertIsNotNone(api.nova.admin_api(self.request))
+class ComputeApiTests(APITestCase):
 
     def test_flavor_create(self):
         FLAVOR_DISK = 1000
@@ -133,10 +114,10 @@ class NovaAdminApiTests(APITestCase):
         FLAVOR_NAME = 'newFlavor'
         FLAVOR_VCPU = 2
 
-        admin_api = self.stub_admin_api()
+        novaclient = self.stub_novaclient()
 
-        admin_api.flavors = self.mox.CreateMockAnything()
-        admin_api.flavors.create(FLAVOR_NAME, FLAVOR_MEMORY, FLAVOR_VCPU,
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.create(FLAVOR_NAME, FLAVOR_MEMORY, FLAVOR_VCPU,
                                  FLAVOR_DISK, FLAVOR_ID).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
@@ -151,11 +132,11 @@ class NovaAdminApiTests(APITestCase):
     def test_flavor_delete(self):
         FLAVOR_ID = 6
 
-        admin_api = self.stub_admin_api(count=2)
+        novaclient = self.stub_novaclient()
 
-        admin_api.flavors = self.mox.CreateMockAnything()
-        admin_api.flavors.delete(FLAVOR_ID, False).AndReturn(TEST_RETURN)
-        admin_api.flavors.delete(FLAVOR_ID, True).AndReturn(TEST_RETURN)
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.delete(FLAVOR_ID, False).AndReturn(TEST_RETURN)
+        novaclient.flavors.delete(FLAVOR_ID, True).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
@@ -164,9 +145,6 @@ class NovaAdminApiTests(APITestCase):
 
         ret_val = api.flavor_delete(self.request, FLAVOR_ID, purge=True)
         self.assertIsNone(ret_val)
-
-
-class ComputeApiTests(APITestCase):
 
     def test_flavor_get(self):
         FLAVOR_ID = 6

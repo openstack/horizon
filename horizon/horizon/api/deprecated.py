@@ -58,15 +58,6 @@ def check_openstackx(f):
     return inner
 
 
-def admin_api(request):
-    management_url = url_for(request, 'compute', True)
-    LOG.debug('admin_api connection created using token "%s"'
-                    ' and url "%s"' %
-                    (request.user.token, management_url))
-    return openstackx.admin.Admin(auth_token=request.user.token,
-                            management_url=management_url)
-
-
 def extras_api(request):
     management_url = url_for(request, 'compute')
     LOG.debug('extras_api connection created using token "%s"'
