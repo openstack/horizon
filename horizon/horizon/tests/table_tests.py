@@ -297,7 +297,6 @@ class DataTableTests(test.TestCase):
         row = self.table.get_rows()[0]
         self.assertTrue("down" in row.cells['status'].value)
 
-
     def test_table_row(self):
         self.table = MyTable(self.request, TEST_DATA)
         row = self.table.get_rows()[0]

@@ -26,6 +26,7 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from glance.common import exception as glance_exception
 from novaclient import exceptions as novaclient_exceptions
@@ -33,135 +34,106 @@ from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
 from horizon import exceptions
-from .forms import UpdateImageForm, LaunchForm, DeleteImage
+from horizon import forms
+from .forms import UpdateImageForm, LaunchForm
 
 
 LOG = logging.getLogger(__name__)
 
 
-def index(request):
-    for f in (DeleteImage, ):
-        unused, handled = f.maybe_handle(request)
-        if handled:
-            return handled
-    all_images = []
-    try:
-        all_images = api.image_list_detailed(request)
-        if not all_images:
-            messages.info(request, _("There are currently no images."))
-    except glance_exception.ClientConnectionError, e:
-        LOG.exception("Error connecting to glance")
-        messages.error(request, _("Error connecting to glance: %s") % str(e))
-    except glance_exception.GlanceException, e:
-        LOG.exception("Error retrieving image list")
-        messages.error(request, _("Error retrieving image list: %s") % str(e))
-    except Exception, e:
-        msg = _("Unable to retrieve image info from glance: %s") % str(e)
-        LOG.exception(msg)
-        messages.error(request, msg)
+class LaunchView(forms.ModalFormView):
+    form_class = LaunchForm
+    template_name = 'nova/images_and_snapshots/images/launch.html'
+    context_object_name = 'image'
 
-    images = [im for im in all_images
-              if im['container_format'] not in ['aki', 'ari']]
+    def get_form_kwargs(self):
+        kwargs = super(LaunchView, self).get_form_kwargs()
+        kwargs['flavor_list'] = self.flavor_list()
+        kwargs['keypair_list'] = self.keypair_list()
+        kwargs['security_group_list'] = self.security_group_list()
+        return kwargs
 
-    context = {'delete_form': DeleteImage(), 'images': images}
-
-    return shortcuts.render(request,
-                            'nova/images_and_snapshots/images/index.html', {
-                                'delete_form': DeleteImage(),
-                                'quotas': quotas,
-                                'images': images})
-
-
-def launch(request, image_id):
-    def flavorlist():
+    def get_object(self, *args, **kwargs):
+        image_id = self.kwargs["image_id"]
         try:
-            fl = api.flavor_list(request)
-
-            # TODO add vcpu count to flavors
-            sel = [(f.id, '%s (%svcpu / %sGB Disk / %sMB Ram )' %
-                   (f.name, f.vcpus, f.disk, f.ram)) for f in fl]
-            return sorted(sel)
+            self.object = api.image_get_meta(self.request, image_id)
         except:
-            exceptions.handle(request,
-                              _('Unable to retrieve list of instance types'))
-            return [(1, 'm1.tiny')]
+            msg = _('Unable to retrieve image "%s".') % image_id
+            redirect = reverse('horizon:nova:images_and_snapshots:index')
+            exceptions.handle(self.request, msg, redirect=redirect)
+        return self.object
 
-    def keynamelist():
+    def get_context_data(self, **kwargs):
+        context = super(LaunchView, self).get_context_data(**kwargs)
+        tenant_id = self.request.user.tenant_id
         try:
-            fl = api.keypair_list(request)
-            sel = [(f.name, f.name) for f in fl]
-            return sel
+            quotas = api.tenant_quota_get(self.request, tenant_id)
+            quotas.ram = int(quotas.ram)
+            context['quotas'] = quotas
         except:
-            exceptions.handle(request,
-                              _('Unable to retrieve list of keypairs'))
-            return []
+            exceptions.handle(self.request)
+        return context
 
-    def securitygrouplist():
+    def get_initial(self):
+        return {'image_id': self.kwargs["image_id"],
+                'tenant_id': self.request.user.tenant_id}
+
+    def flavor_list(self):
+        display = '%(name)s (%(vcpus)sVCPU / %(disk)sGB Disk / %(ram)sMB Ram )'
         try:
-            fl = api.security_group_list(request)
-            sel = [(f.name, f.name) for f in fl]
-            return sel
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception('Unable to retrieve list of security groups')
-            return []
+            flavors = api.flavor_list(self.request)
+            flavor_list = [(flavor.id, display % {"name": flavor.name,
+                                                  "vcpus": flavor.vcpus,
+                                                  "disk": flavor.disk,
+                                                  "ram": flavor.ram})
+                                                for flavor in flavors]
+        except:
+            flavor_list = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve instance flavors.'))
+        return sorted(flavor_list)
 
-    tenant_id = request.user.tenant_id
-    # TODO(mgius): Any reason why these can't be after the launchform logic?
-    # If The form is valid, we've just wasted these two api calls
-    image = api.image_get_meta(request, image_id)
-    quotas = api.tenant_quota_get(request, request.user.tenant_id)
-    try:
-        quotas.ram = int(quotas.ram)
-    except Exception, e:
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        messages.error(request,
-                _('Error parsing quota  for %(image)s: %(msg)s') %
-                {"image": image_id, "msg": e.message})
-        return shortcuts.redirect(
-                        'horizon:nova:instances_and_volumes:instances:index')
+    def keypair_list(self):
+        try:
+            keypairs = api.keypair_list(self.request)
+            keypair_list = [(kp.name, kp.name) for kp in keypairs]
+        except:
+            keypair_list = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve keypairs.'))
+        return keypair_list
 
-    form, handled = LaunchForm.maybe_handle(
-            request, initial={'flavorlist': flavorlist(),
-                              'keynamelist': keynamelist(),
-                              'securitygrouplist': securitygrouplist(),
-                              'image_id': image_id,
-                              'tenant_id': tenant_id})
-    if handled:
-        return handled
-
-    return shortcuts.render(request,
-                            'nova/images_and_snapshots/images/launch.html', {
-                                'image': image,
-                                'form': form,
-                                'quotas': quotas})
+    def security_group_list(self):
+        try:
+            groups = api.security_group_list(self.request)
+            security_group_list = [(sg.name, sg.name) for sg in groups]
+        except:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve list of security groups'))
+            security_group_list = []
+        return security_group_list
 
 
-def update(request, image_id):
-    try:
-        image = api.image_get_meta(request, image_id)
-    except glance_exception.ClientConnectionError, e:
-        LOG.exception("Error connecting to glance")
-        messages.error(request, _("Error connecting to glance: %s")
-                                 % e.message)
-    except glance_exception.Error, e:
-        LOG.exception('Error retrieving image with id "%s"' % image_id)
-        messages.error(request,
-                _("Error retrieving image %(image)s: %(msg)s")
-                % {"image": image_id, "msg": e.message})
+class UpdateView(forms.ModalFormView):
+    form_class = UpdateImageForm
+    template_name = 'nova/images_and_snapshots/images/update.html'
+    context_object_name = 'image'
 
-    form, handled = UpdateImageForm().maybe_handle(request, initial={
-                 'image_id': image_id,
-                 'name': image.get('name', ''),
-                 'kernel': image['properties'].get('kernel_id', ''),
-                 'ramdisk': image['properties'].get('ramdisk_id', ''),
-                 'architecture': image['properties'].get('architecture', ''),
-                 'container_format': image.get('container_format', ''),
-                 'disk_format': image.get('disk_format', ''), })
-    if handled:
-        return handled
+    def get_object(self, *args, **kwargs):
+        try:
+            self.object = api.image_get_meta(self.request, kwargs['image_id'])
+        except:
+            msg = _('Unable to retrieve image "%s".') % kwargs['image_id']
+            redirect = reverse('horizon:nova:images_and_snapshots:index')
+            exceptions.handle(self.request, msg, redirect=redirect)
+        return self.object
 
-    context = {'form': form, "image": image}
-    template = 'nova/images_and_snapshots/images/update.html'
-
-    return shortcuts.render(request, template, context)
+    def get_initial(self):
+        properties = self.object['properties']
+        return {'image_id': self.kwargs['image_id'],
+                'name': self.object.get('name', ''),
+                'kernel': properties.get('kernel_id', ''),
+                'ramdisk': properties.get('ramdisk_id', ''),
+                'architecture': properties.get('architecture', ''),
+                'container_format': self.object.get('container_format', ''),
+                'disk_format': self.object.get('disk_format', ''), }

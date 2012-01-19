@@ -69,9 +69,7 @@ class CopyObject(forms.SelfHandlingForm):
 
     def __init__(self, *args, **kwargs):
         containers = kwargs.pop('containers')
-
         super(CopyObject, self).__init__(*args, **kwargs)
-
         self.fields['new_container_name'].choices = containers
 
     def handle(self, request, data):

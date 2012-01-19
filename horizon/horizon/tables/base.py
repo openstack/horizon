@@ -31,6 +31,7 @@ from django.utils.html import escape
 from django.utils.translation import ugettext as _
 from django.utils.safestring import mark_safe
 
+from horizon import exceptions
 from .actions import FilterAction, LinkAction
 
 
@@ -687,7 +688,9 @@ class DataTable(object):
             raise ValueError("Multiple matches were returned for that id: %s."
                            % matches)
         if not matches:
-            raise ValueError('No match returned for the id "%s".' % lookup)
+            raise exceptions.Http302(self.get_absolute_url(),
+                                     _('No match returned for the id "%s".')
+                                       % lookup)
         return matches[0]
 
     def get_table_actions(self):
