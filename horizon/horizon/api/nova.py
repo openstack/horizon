@@ -340,6 +340,10 @@ def tenant_quota_get(request, tenant):
     return novaclient(request).quotas.get(tenant)
 
 
+def tenant_quota_update(request, tenant_id, **kwargs):
+    novaclient(request).quotas.update(tenant_id, **kwargs)
+
+
 @check_openstackx
 def usage_get(request, tenant_id, start, end):
     return Usage(extras_api(request).usage.get(tenant_id, start, end))

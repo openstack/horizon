@@ -67,14 +67,14 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
     def test_modify_quota(self):
         self.mox.StubOutWithMock(api.keystone, 'tenant_get')
-        self.mox.StubOutWithMock(api.keystone, 'tenant_quota_get')
-        self.mox.StubOutWithMock(api.keystone, 'tenant_quota_update')
+        self.mox.StubOutWithMock(api.nova, 'tenant_quota_get')
+        self.mox.StubOutWithMock(api.nova, 'tenant_quota_update')
 
         api.keystone.tenant_get(IgnoreArg(), self.TEST_TENANT) \
                     .AndReturn(self.tenant)
-        api.keystone.tenant_quota_get(IgnoreArg(), self.TEST_TENANT) \
+        api.nova.tenant_quota_get(IgnoreArg(), self.TEST_TENANT) \
                     .AndReturn(self.quota)
-        api.keystone.tenant_quota_update(IgnoreArg(),
+        api.nova.tenant_quota_update(IgnoreArg(),
                                          self.TEST_TENANT,
                                          **self.quota_data)
 

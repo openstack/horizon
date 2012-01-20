@@ -121,10 +121,10 @@ class QuotasView(forms.ModalFormView):
         return api.keystone.tenant_get(self.request, kwargs["tenant_id"])
 
     def get_initial(self):
-        quotas = api.keystone.tenant_quota_get(self.request,
+        quotas = api.nova.tenant_quota_get(self.request,
                                                self.kwargs['tenant_id'])
         return {
-            'tenant_id': quotas.id,
+            'tenant_id': self.kwargs['tenant_id'],
             'metadata_items': quotas.metadata_items,
             'injected_file_content_bytes': quotas.injected_file_content_bytes,
             'volumes': quotas.volumes,
