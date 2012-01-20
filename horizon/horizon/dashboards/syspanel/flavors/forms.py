@@ -33,7 +33,7 @@ LOG = logging.getLogger(__name__)
 
 class CreateFlavor(forms.SelfHandlingForm):
     #flavorid is required because of openstackx
-    flavorid = forms.IntegerField(label=_("Flavor ID"))
+    flavor_id = forms.IntegerField(label=_("Flavor ID"))
     name = forms.CharField(max_length="25", label=_("Name"))
     vcpus = forms.CharField(max_length="5", label=_("VCPUs"))
     memory_mb = forms.CharField(max_length="5", label=_("Memory MB"))
@@ -45,7 +45,7 @@ class CreateFlavor(forms.SelfHandlingForm):
                           int(data['memory_mb']),
                           int(data['vcpus']),
                           int(data['disk_gb']),
-                          int(data['flavorid']))
+                          int(data['flavor_id']))
         msg = _('%s was successfully added to flavors.') % data['name']
         LOG.info(msg)
         messages.success(request, msg)

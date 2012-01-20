@@ -20,7 +20,6 @@
 
 import logging
 
-from django import shortcuts
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 from novaclient import exceptions as api_exceptions
@@ -30,7 +29,7 @@ from horizon import forms
 from horizon import tables
 from .forms import CreateFlavor
 from .tables import FlavorsTable
-from horizon.dashboards.syspanel.instances import views as instance_views
+
 
 LOG = logging.getLogger(__name__)
 
@@ -60,3 +59,10 @@ class IndexView(tables.DataTableView):
 class CreateView(forms.ModalFormView):
     form_class = CreateFlavor
     template_name = 'syspanel/flavors/create.html'
+
+    def get_initial(self):
+        # TODO(tres): Get rid of this hacky bit of nonsense after flavors get
+        # converted to nova client.
+        flavors = api.flavor_list(self.request)
+        flavors.sort(key=lambda f: f.id, reverse=True)
+        return {'flavor_id': int(flavors[0].id) + 1}
