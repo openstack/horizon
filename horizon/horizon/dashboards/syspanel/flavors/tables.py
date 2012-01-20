@@ -1,7 +1,5 @@
 import logging
 
-from django import shortcuts
-from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -27,6 +25,7 @@ class CreateFlavor(tables.LinkAction):
 
 
 class FlavorsTable(tables.DataTable):
+    flavor_id = tables.Column('id', verbose_name=('ID'))
     name = tables.Column('name', verbose_name=_('Flavor Name'))
     vcpus = tables.Column('vcpus', verbose_name=_('VCPUs'))
     ram = tables.Column('ram', verbose_name=_('Memory'))
