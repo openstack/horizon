@@ -34,7 +34,6 @@ class BaseAction(object):
     table = None
     handles_multiple = False
     attrs = {}
-    name = None
     requires_input = False
 
     def allowed(self, request, datum):
@@ -72,8 +71,8 @@ class Action(BaseAction):
 
     .. attribute:: name
 
-        The short name or "slug" representing this action. Defaults to the
-        name of the ``Action`` class.
+        Required. The short name or "slug" representing this
+        action. This name should not be changed at runtime.
 
     .. attribute:: verbose_name
 
@@ -120,7 +119,6 @@ class Action(BaseAction):
                  single_func=None, multiple_func=None, handle_func=None,
                  handles_multiple=False, attrs=None, requires_input=True):
         super(Action, self).__init__()
-        self.name = unicode(getattr(self, 'name', self.__class__.__name__))
         verbose_name = verbose_name or self.name.title()
         self.verbose_name = unicode(getattr(self,
                                             "verbose_name",
@@ -182,6 +180,11 @@ class Action(BaseAction):
 class LinkAction(BaseAction):
     """ A table action which is simply a link rather than a form POST.
 
+    .. attribute:: name
+
+        Required. The short name or "slug" representing this
+        action. This name should not be changed at runtime.
+
     .. attribute:: verbose_name
 
         A string which will be rendered as the link text. (Required)
@@ -194,11 +197,8 @@ class LinkAction(BaseAction):
     method = "GET"
     bound_url = None
 
-    def __init__(self, name=None, verbose_name=None, url=None, attrs=None):
+    def __init__(self, verbose_name=None, url=None, attrs=None):
         super(LinkAction, self).__init__()
-        self.name = name or unicode(getattr(self,
-                                            "name",
-                                            self.__class__.__name__))
         verbose_name = verbose_name or self.name.title()
         self.verbose_name = unicode(getattr(self,
                                             "verbose_name",
@@ -257,9 +257,8 @@ class FilterAction(BaseAction):
     method = "GET"
     name = "filter"
 
-    def __init__(self, name=None, verbose_name=None, param_name=None):
+    def __init__(self, verbose_name=None, param_name=None):
         super(FilterAction, self).__init__()
-        self.name = name or self.name
         self.verbose_name = unicode(verbose_name) or self.name
         self.param_name = param_name or 'q'
 
