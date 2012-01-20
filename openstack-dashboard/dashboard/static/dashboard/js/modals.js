@@ -9,7 +9,8 @@ horizon.addInitFunction(function() {
     $.ajax($this.attr('href'), {
       complete: function (jqXHR, status) {
         $('body').append(jqXHR.responseText);
-        $('body .modal:last').modal({'show':true, 'backdrop': true, 'keyboard': true});
+        $('.modal span.help-block').hide();
+        $('.modal:last').modal({'show':true, 'backdrop': true, 'keyboard': true});
 
         // TODO(tres): Find some better way to deal with grouped form fields.
         var volumeField = $("#id_volume");

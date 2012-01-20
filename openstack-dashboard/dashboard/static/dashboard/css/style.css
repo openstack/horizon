@@ -643,8 +643,15 @@ table tfoot tr td {
     width: 372px;
 }
 
-.modal fieldset input, .modal fieldset select, .modal fieldset textarea, .modal fieldset ul {
+.modal .form-field,
+.modal fieldset ul {
     width: 90%;
+}
+
+.modal fieldset .form-field input,
+.modal fieldset .form-field select,
+.modal fieldset .form-field textarea {
+  width: 100%;
 }
 
 .modal .modal-footer input {
