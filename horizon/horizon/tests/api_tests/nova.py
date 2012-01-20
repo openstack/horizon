@@ -281,17 +281,20 @@ class ComputeApiTests(APITestCase):
         USER_DATA = {'nuts': 'berries'}
         KEY = 'user'
         SECGROUP = self.mox.CreateMock(api.SecurityGroup)
+        BLOCK_DEVICE_MAPPING = {'/dev/vda': '1:::0'}
 
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
         novaclient.servers.create(NAME, IMAGE, FLAVOR, userdata=USER_DATA,
                                   security_groups=[SECGROUP], key_name=KEY,
+                                  block_device_mapping=BLOCK_DEVICE_MAPPING,
                                   min_count=IsA(int)).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
         ret_val = api.server_create(self.request, NAME, IMAGE, FLAVOR,
                                     KEY, USER_DATA, [SECGROUP],
+                                    BLOCK_DEVICE_MAPPING,
                                     instance_count=1)
 
         self.assertIsInstance(ret_val, api.Server)

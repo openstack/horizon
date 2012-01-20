@@ -67,6 +67,14 @@ class ImageViewTests(test.BaseViewTests):
         security_group.name = 'default'
         self.security_groups = (security_group,)
 
+        volume = api.Volume(None)
+        volume.id = 1
+        volume.name = 'vol'
+        volume.status = 'available'
+        volume.size = 40
+        volume.displayName = ''
+        self.volumes = (volume,)
+
     def test_launch_get(self):
         IMAGE_ID = 1
 
@@ -109,6 +117,9 @@ class ImageViewTests(test.BaseViewTests):
         keypair = self.keypairs[0].name
         SERVER_NAME = 'serverName'
         USER_DATA = 'userData'
+        volume = self.volumes[0].id
+        device_name = '/dev/vda'
+        BLOCK_DEVICE_MAPPING = {device_name: "1:::0"}
 
         form_data = {'method': 'LaunchForm',
                      'flavor': FLAVOR_ID,
@@ -119,6 +130,8 @@ class ImageViewTests(test.BaseViewTests):
                      'count': 1,
                      'tenant_id': self.TEST_TENANT,
                      'security_groups': 'default',
+                     'volume': volume,
+                     'device_name': device_name
                      }
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
@@ -126,6 +139,7 @@ class ImageViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         self.mox.StubOutWithMock(api, 'server_create')
+        self.mox.StubOutWithMock(api, 'volume_list')
 
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
@@ -133,9 +147,11 @@ class ImageViewTests(test.BaseViewTests):
                                     self.security_groups)
         api.image_get_meta(IsA(http.HttpRequest),
                       IMAGE_ID).AndReturn(self.visibleImage)
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes)
         api.server_create(IsA(http.HttpRequest), SERVER_NAME,
                           str(IMAGE_ID), str(FLAVOR_ID),
                           keypair, USER_DATA, [self.security_groups[0].name],
+                          BLOCK_DEVICE_MAPPING,
                           instance_count=IsA(int))
 
         self.mox.ReplayAll()
@@ -224,6 +240,7 @@ class ImageViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         self.mox.StubOutWithMock(api, 'server_create')
+        self.mox.StubOutWithMock(api, 'volume_list')
 
         form_data = {'method': 'LaunchForm',
                      'flavor': FLAVOR_ID,
@@ -241,6 +258,7 @@ class ImageViewTests(test.BaseViewTests):
                                     self.security_groups)
         api.image_get_meta(IgnoreArg(),
                       IMAGE_ID).AndReturn(self.visibleImage)
+        api.volume_list(IgnoreArg()).AndReturn(self.volumes)
 
         exception = keystone_exceptions.ClientException('Failed')
         api.server_create(IsA(http.HttpRequest),
@@ -250,6 +268,7 @@ class ImageViewTests(test.BaseViewTests):
                           keypair,
                           USER_DATA,
                           [group.name for group in self.security_groups],
+                          None,
                           instance_count=IsA(int)).AndRaise(exception)
 
         self.mox.StubOutWithMock(messages, 'error')
