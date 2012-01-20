@@ -111,7 +111,7 @@ class DetailView(views.APIView):
                                 redirect=redirect)
         try:
             console = api.server_vnc_console(request, instance_id)
-            vnc_url = "%s&title=%s(%s)" % (console.output,
+            vnc_url = "%s&title=%s(%s)" % (console.url,
                                            getattr(instance, "name", ""),
                                            instance_id)
         except:
