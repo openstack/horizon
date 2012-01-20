@@ -56,9 +56,11 @@ def write_autodoc_index():
             'dashboard': DASHBOARD_DIR}
 
     EXCLUDED_MODULES = ('horizon.tests', 'dashboard.tests',)
+    CURRENT_SOURCES = {}
 
     if not(os.path.exists(RSTDIR)):
         os.mkdir(RSTDIR)
+    CURRENT_SOURCES[RSTDIR] = ['autoindex.rst']
 
     INDEXOUT = open(os.path.join(RSTDIR, "autoindex.rst"), "w")
     INDEXOUT.write("=================\n")
@@ -72,14 +74,17 @@ def write_autodoc_index():
         INDEXOUT.write(".. toctree::\n")
         INDEXOUT.write("   :maxdepth: 1\n")
         INDEXOUT.write("\n")
-        if not(os.path.exists(os.path.join(RSTDIR, modulename))):
-            os.mkdir(os.path.join(RSTDIR, modulename))
+
+        MOD_DIR = os.path.join(RSTDIR, modulename)
+        CURRENT_SOURCES[MOD_DIR] = []
+        if not(os.path.exists(MOD_DIR)):
+            os.mkdir(MOD_DIR)
         for module in find_autodoc_modules(modulename, path):
             if any([module.startswith(exclude) for exclude in EXCLUDED_MODULES]):
                 print "Excluded module %s." % module
                 continue
             mod_path = os.path.join(path, *module.split("."))
-            generated_file = os.path.join(RSTDIR, modulename, "%s.rst" % module)
+            generated_file = os.path.join(MOD_DIR, "%s.rst" % module)
 
             INDEXOUT.write("   %s/%s\n" % (modulename, module))
 
@@ -89,6 +94,7 @@ def write_autodoc_index():
             else:
                 source_file = ".".join((os.path.join(mod_path), "py"))
 
+            CURRENT_SOURCES[MOD_DIR].append("%s.rst" % module)
             # Only generate a new file if the source has changed or we don't
             # have a doc file to begin with.
             if not os.access(generated_file, os.F_OK) or \
@@ -107,6 +113,14 @@ def write_autodoc_index():
                 FILEOUT.close()
 
     INDEXOUT.close()
+
+    # Delete auto-generated .rst files for sources which no longer exist
+    for directory, subdirs, files in list(os.walk(RSTDIR)):
+        for old_file in files:
+            if old_file not in CURRENT_SOURCES[directory]:
+                print "Removing outdated file for %s" % old_file
+                os.remove(os.path.join(directory, old_file))
+
 
 write_autodoc_index()
 
