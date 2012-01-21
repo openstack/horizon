@@ -15,33 +15,45 @@ horizon.addInitFunction(function() {
         // TODO(tres): Find some better way to deal with grouped form fields.
         var volumeField = $("#id_volume");
         if(volumeField) {
-          var disclosureElement = $("<div />").addClass("volume_boot_disclosure").text("Boot From Volume");
           var volumeContainer = volumeField.parent().parent();
           var deviceContainer = $("#id_device_name").parent().parent();
           var deleteOnTermContainer = $("#id_delete_on_terminate").parent().parent();
 
-          volumeContainer.before(disclosureElement);
-
-          disclosureElement.click(function() {
-            if(volumeContainer.hasClass("hide")) {
-              disclosureElement.addClass("on");
+          function toggle_fields(show) {
+            if(show) {
               volumeContainer.removeClass("hide");
               deviceContainer.removeClass("hide");
               deleteOnTermContainer.removeClass("hide");
             } else {
-              disclosureElement.removeClass("on");
               volumeContainer.addClass("hide");
               deviceContainer.addClass("hide");
               deleteOnTermContainer.addClass("hide");
             }
-          });
+          }
 
-          volumeContainer.addClass("hide");
-          deviceContainer.addClass("hide");
-          deleteOnTermContainer.addClass("hide");
+          if(volumeField.find("option").length == 1) {
+            toggle_fields(false);
+          } else {
+            var disclosureElement = $("<div />").addClass("volume_boot_disclosure").text("Boot From Volume");
+
+            volumeContainer.before(disclosureElement);
+
+            disclosureElement.click(function() {
+              if(volumeContainer.hasClass("hide")) {
+                disclosureElement.addClass("on");
+                toggle_fields(true);
+              } else {
+                disclosureElement.removeClass("on");
+                toggle_fields(false);
+              }
+            });
+
+            toggle_fields(false);
+          }
         }
       }
     });
+
     return false;
   });
 });

@@ -111,14 +111,16 @@ class LaunchView(forms.ModalFormView):
 
     def volume_list(self):
         try:
-            volumes = [(v.id, ("%s (%s GB)" % (v.displayName, v.size))) \
-                    for v in api.volume_list(self.request)]
-            volumes.insert(0, ("", "Select Volume"))
+            volumes = [v for v in api.volume_list(self.request) \
+                    if v.status == api.VOLUME_STATE_AVAILABLE]
+            volume_sel = [(v.id, ("%s (%s GB)" % (v.displayName, v.size))) \
+                    for v in volumes]
+            volume_sel.insert(0, ("", "Select Volume"))
         except:
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volumes'))
-            volumes = []
-        return volumes
+            volume_sel = []
+        return volume_sel
 
 
 class UpdateView(forms.ModalFormView):

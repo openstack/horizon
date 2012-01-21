@@ -36,7 +36,9 @@ from horizon.api.deprecated import extras_api
 LOG = logging.getLogger(__name__)
 
 
+# API static values
 INSTANCE_ACTIVE_STATE = 'ACTIVE'
+VOLUME_STATE_AVAILABLE = "available"
 
 
 class Flavor(APIResourceWrapper):
