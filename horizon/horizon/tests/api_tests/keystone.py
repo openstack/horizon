@@ -56,50 +56,6 @@ class KeystoneAdminApiTests(APITestCase):
                     .AndReturn(admin_api)
         return admin_api
 
-    def test_service_get(self):
-        NAME = 'serviceName'
-
-        admin_api = self.stub_admin_api()
-        admin_api.services = self.mox.CreateMockAnything()
-        admin_api.services.get(NAME).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.service_get(self.request, NAME)
-
-        self.assertIsInstance(ret_val, api.Services)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-    def test_service_list(self):
-        services = (TEST_RETURN, TEST_RETURN + '2')
-
-        admin_api = self.stub_admin_api()
-        admin_api.services = self.mox.CreateMockAnything()
-        admin_api.services.list().AndReturn(services)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.service_list(self.request)
-
-        for service in ret_val:
-            self.assertIsInstance(service, api.Services)
-            self.assertIn(service._apiresource, services)
-
-    def test_service_update(self):
-        ENABLED = True
-        NAME = 'serviceName'
-
-        admin_api = self.stub_admin_api()
-        admin_api.services = self.mox.CreateMockAnything()
-        admin_api.services.update(NAME, ENABLED).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.service_update(self.request, NAME, ENABLED)
-
-        self.assertIsInstance(ret_val, api.Services)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
 
 class TokenApiTests(APITestCase):
     def setUp(self):

@@ -28,32 +28,13 @@
   </div>
 </form>
 
-<ul class='status_box good'>
-  <li class='status block'><span>Status:</span> Good</li>
-  <li class='block'>
-    <p class='overview'>{{ global_summary.total_vcpus }}<span> Cores</span></p>
-    <p class='used'>{{ global_summary.total_active_vcpus }}<span class='labels'> Used</span></p>
-    <p class='avail'>{{ global_summary.total_avail_vcpus }}<span class='labels'> Avail</span></p>
-  </li>
-  <li class='block'>
-    <p class='overview'>{{ global_summary.total_ram_size_hr|floatformat }}<span> {{ global_summary.unit_ram_size }} Ram</span></p>
-    <p class='used'>{{ global_summary.total_active_ram_size_hr|floatformat }}<span class='unit'> {{ global_summary.unit_ram_size }}</span><span class='labels'> Used</span></p>
-    <p class='avail'>{{ global_summary.total_avail_ram_size_hr|floatformat }}<span class='unit'> {{ global_summary.unit_ram_size }}</span><span class='labels'> Avail</span></p>
-  </li>
-  <li class='block last'>
-    <p class='overview'>{{ global_summary.total_disk_size_hr|floatformat }}<span> {{ global_summary.unit_disk_size }} Disk</span></p>
-    <p class='used'>{{ global_summary.total_active_disk_size_hr|floatformat }}<span class='unit'> {{ global_summary.unit_disk_size }}</span><span class='labels'> Used</span></p>
-    <p class='avail'>{{ global_summary.total_avail_disk_size_hr|floatformat }}<span class='unit'> {{ global_summary.unit_disk_size }}</span><span class='labels'> Avail</span></p>
-  </li>
-</ul>
-
 <p id="activity">
   <span><strong>{% trans "Active Instances" %}:</strong> {{ global_summary.total_active_instances|default:'-' }}</span>
   <span><strong>{% trans "This month's VCPU-Hours" %}:</strong> {{ global_summary.total_cpu_usage|floatformat|default:'-' }}</span>
   <span><strong>{% trans "This month's GB-Hours" %}:</strong> {{ global_summary.total_disk_usage|floatformat|default:'-' }}</span>
 </p>
 
-  {% if usage_list %}
+{% if usage_list %}
   <div id="usage">
     <div class='table_title wide'>
       <a class="csv_download_link pull-right" href="{{ csv_link }}">{% trans "Download CSV" %} &raquo;</a>
@@ -82,7 +63,5 @@
         </tr>
       {% endfor %}
   </div>
-    {% endif %}
-  </div>
-</div>
+{% endif %}
 {% endblock %}

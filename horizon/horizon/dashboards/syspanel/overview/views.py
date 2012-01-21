@@ -48,29 +48,7 @@ class GlobalSummary(object):
             for info in GlobalSummary.node_resource_info:
                 self.summary['total_' + info + rsrc] = 0
         self.request = request
-        self.service_list = []
         self.usage_list = []
-
-    def service(self):
-        try:
-            self.service_list = api.service_list(self.request)
-        except:
-            self.service_list = []
-            exceptions.handle(self.request,
-                              _('Unable to retrieve service information.'))
-
-        for service in self.service_list:
-            if service.type == 'nova-compute':
-                self.summary['total_vcpus'] += min(service.stats['max_vcpus'],
-                        service.stats.get('vcpus', 0))
-                self.summary['total_disk_size'] += min(
-                        service.stats['max_gigabytes'],
-                        service.stats.get('local_gb', 0))
-                self.summary['total_ram_size'] += min(
-                        service.stats['max_ram'],
-                        service.stats['memory_mb']) if 'max_ram' \
-                                in service.stats \
-                                else service.stats.get('memory_mb', 0)
 
     def usage(self, start, end):
         try:
@@ -99,12 +77,6 @@ class GlobalSummary(object):
         for kind in GlobalSummary.node_resource_info:
             self.summary['total_' + kind + rsrc + '_hr'] = \
                     self.summary['total_' + kind + rsrc] / mult
-
-    def avail(self):
-        for rsrc in GlobalSummary.node_resources:
-            self.summary['total_avail_' + rsrc] = \
-                    self.summary['total_' + rsrc] - \
-                    self.summary['total_active_' + rsrc]
 
     @staticmethod
     def next_month(date_start):
@@ -151,12 +123,7 @@ def usage(request):
         date_end = date_start
         datetime_end = datetime_start
     else:
-        global_summary.service()
         global_summary.usage(datetime_start, datetime_end)
-
-    global_summary.avail()
-    global_summary.human_readable('disk_size')
-    global_summary.human_readable('ram_size')
 
     if request.GET.get('format', 'html') == 'csv':
         template = 'syspanel/tenants/usage.csv'

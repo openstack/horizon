@@ -42,28 +42,15 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         services = []
-        try:
-            services = api.service_list(self.request)
-        except api_exceptions.ApiException, e:
-            LOG.exception('ApiException fetching service list')
-            messages.error(self.request,
-                           _('Unable to get service info: %s') % e.message)
-
-        other_services = []
-        for service in self.request.session['serviceCatalog']:
+        for i, service in enumerate(self.request.session['serviceCatalog']):
             url = service['endpoints'][0]['internalURL']
             hostname = urlparse.urlparse(url).hostname
-            row = {'id': None,
+            row = {'id': i,  # id is required for table to render properly
                    'type': service['type'],
                    'internalURL': url,
                    'host': hostname,
                    'region': service['endpoints'][0]['region'],
                    'disabled': None}
-            other_services.append(api.base.APIDictWrapper(row))
+            services.append(api.base.APIDictWrapper(row))
 
-        services = sorted(services, key=lambda svc: (svc.type +
-                                                     svc.host))
-        other_services = sorted(other_services, key=lambda svc: (svc['type'] +
-                                                                 svc['host']))
-        all_services = services + other_services
-        return all_services
+        return services

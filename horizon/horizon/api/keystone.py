@@ -266,16 +266,3 @@ def role_delete_for_tenant_user(request, tenant_id, user_id, role):
     return keystoneclient(request).roles.remove_user_from_tenant(tenant_id,
                                                               user_id,
                                                               roleref.id)
-
-
-def service_get(request, name):
-    return Services(admin_api(request).services.get(name))
-
-
-@check_openstackx
-def service_list(request):
-    return [Services(s) for s in admin_api(request).services.list()]
-
-
-def service_update(request, name, enabled):
-    return Services(admin_api(request).services.update(name, enabled))
