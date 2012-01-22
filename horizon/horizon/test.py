@@ -21,9 +21,7 @@
 import datetime
 
 from django import http
-from django import shortcuts
 from django import test as django_test
-from django import template as django_template
 from django.conf import settings
 from django.contrib.messages.storage import default_storage
 from django.test.client import RequestFactory

@@ -22,7 +22,6 @@
 Template tags for displaying sizes
 """
 
-import datetime
 from django import template
 from django.utils import translation
 from django.utils import formats

@@ -22,6 +22,7 @@ import logging
 import sys
 
 from django.contrib import messages
+from django.utils.translation import ugettext as _
 from glance.common import exception as glanceclient
 from keystoneclient import exceptions as keystoneclient
 from novaclient import exceptions as novaclient

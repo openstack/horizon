@@ -23,8 +23,9 @@ Middleware provided and used by Horizon.
 
 import logging
 
-from django.contrib import messages
 from django import shortcuts
+from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import exceptions

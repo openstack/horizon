@@ -22,7 +22,6 @@ import logging
 
 from django.conf import settings
 
-from keystoneclient import exceptions as keystone_exceptions
 from keystoneclient import service_catalog
 from keystoneclient.v2_0 import client as keystone_client
 from keystoneclient.v2_0 import tokens
