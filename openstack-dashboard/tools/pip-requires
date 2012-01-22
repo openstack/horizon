@@ -17,8 +17,8 @@ xattr
 pep8
 pylint
 coverage
-glance
 
+-e git+https://review.openstack.org/p/openstack/glance.git@stable/diablo#egg=glance
 -e git+https://github.com/openstack/quantum.git#egg=quantum
 -e git+https://github.com/jacobian/openstack.compute.git#egg=openstack
 -e git+https://github.com/cloudbuilders/openstackx.git#egg=openstackx
