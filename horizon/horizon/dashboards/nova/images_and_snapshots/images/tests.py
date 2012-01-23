@@ -118,7 +118,7 @@ class ImageViewTests(test.BaseViewTests):
         SERVER_NAME = 'serverName'
         USER_DATA = 'userData'
         volume = self.volumes[0].id
-        device_name = '/dev/vda'
+        device_name = 'vda'
         BLOCK_DEVICE_MAPPING = {device_name: "1:::0"}
 
         form_data = {'method': 'LaunchForm',

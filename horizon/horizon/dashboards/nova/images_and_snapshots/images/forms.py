@@ -104,7 +104,9 @@ class LaunchForm(forms.SelfHandlingForm):
                                help_text=_("Volume to boot from."))
     device_name = forms.CharField(label=_("Device Name"),
                                   required=False,
-                                  initial="/dev/vda")
+                                  initial="vda",
+                                  help_text=_("Volume mount point (e.g. 'vda' "
+                                              "mounts at '/dev/vda')."))
     delete_on_terminate = forms.BooleanField(
             label=_("Delete on Terminate"),
             initial=False,
