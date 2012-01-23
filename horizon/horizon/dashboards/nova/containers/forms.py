@@ -21,10 +21,12 @@
 import logging
 
 from django import shortcuts
+from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 
 
@@ -35,8 +37,11 @@ class CreateContainer(forms.SelfHandlingForm):
     name = forms.CharField(max_length="255", label=_("Container Name"))
 
     def handle(self, request, data):
-        api.swift_create_container(request, data['name'])
-        messages.success(request, _("Container was successfully created."))
+        try:
+            api.swift_create_container(request, data['name'])
+            messages.success(request, _("Container created successfully."))
+        except:
+            exceptions.handle(request, _('Unable to create container.'))
         return shortcuts.redirect("horizon:nova:containers:index")
 
 
@@ -47,13 +52,16 @@ class UploadObject(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         object_file = self.files['object_file']
-        obj = api.swift_upload_object(request,
-                                      data['container_name'],
-                                      data['name'],
-                                      object_file.read())
-        obj.metadata['orig-filename'] = object_file.name
-        obj.sync_metadata()
-        messages.success(request, _("Object was successfully uploaded."))
+        try:
+            obj = api.swift_upload_object(request,
+                                          data['container_name'],
+                                          data['name'],
+                                          object_file.read())
+            obj.metadata['orig-filename'] = object_file.name
+            obj.sync_metadata()
+            messages.success(request, _("Object was successfully uploaded."))
+        except:
+            exceptions.handle(request, _("Unable to upload object."))
         return shortcuts.redirect("horizon:nova:containers:object_index",
                                   data['container_name'])
 
@@ -73,18 +81,23 @@ class CopyObject(forms.SelfHandlingForm):
         self.fields['new_container_name'].choices = containers
 
     def handle(self, request, data):
-        orig_container_name = data['orig_container_name']
-        orig_object_name = data['orig_object_name']
-        new_container_name = data['new_container_name']
-        new_object_name = data['new_object_name']
-
-        api.swift_copy_object(request, orig_container_name,
-                              orig_object_name, new_container_name,
-                              new_object_name)
-
-        messages.success(request,
-                _('Object was successfully copied to %(container)s\%(obj)s') %
-                {"container": new_container_name, "obj": new_object_name})
-
-        return shortcuts.redirect("horizon:nova:containers:object_index",
-                                  data['new_container_name'])
+        object_index = "horizon:nova:containers:object_index"
+        orig_container = data['orig_container_name']
+        orig_object = data['orig_object_name']
+        new_container = data['new_container_name']
+        new_object = data['new_object_name']
+        try:
+            api.swift_copy_object(request,
+                                  orig_container,
+                                  orig_object,
+                                  new_container,
+                                  new_object)
+            vals = {"container": new_container, "obj": new_object}
+            messages.success(request, _('Object "%(obj)s" copied to container '
+                                        '"%(container)s".') % vals)
+        except:
+            redirect = reverse(object_index, args=(orig_container,))
+            exceptions.handle(request,
+                              _("Unable to copy object."),
+                              redirect=redirect)
+        return shortcuts.redirect(object_index, new_container)
