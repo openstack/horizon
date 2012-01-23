@@ -25,10 +25,11 @@ import logging
 import os
 
 from django import http
-from django.contrib import messages
-from django import shortcuts
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from .forms import CreateContainer, UploadObject, CopyObject
@@ -52,10 +53,9 @@ class IndexView(tables.DataTableView):
         try:
             containers, self._more = api.swift_get_containers(self.request,
                                                               marker=marker)
-        except Exception, e:
+        except:
             msg = _('Unable to retrieve container list.')
-            LOG.exception(msg)
-            messages.error(self.request, msg)
+            exceptions.handle(self.request, msg)
         return containers
 
 
@@ -72,18 +72,17 @@ class ObjectIndexView(tables.DataTableView):
         return self._more
 
     def get_data(self):
-        containers = []
+        objects = []
         self._more = None
         marker = self.request.GET.get('marker', None)
         container_name = self.kwargs['container_name']
         try:
             objects, self._more = api.swift_get_objects(self.request,
-                                                           container_name,
-                                                           marker=marker)
-        except Exception, e:
-            msg = _('Unable to retrieve container list.')
-            LOG.exception(msg)
-            messages.error(self.request, msg)
+                                                        container_name,
+                                                        marker=marker)
+        except:
+            msg = _('Unable to retrieve object list.')
+            exceptions.handle(self.request, msg)
         return objects
 
     def get_context_data(self, **kwargs):
@@ -113,9 +112,15 @@ def object_download(request, container_name, object_name):
     if not os.path.splitext(obj.name)[1]:
         name, ext = os.path.splitext(obj.metadata.get('orig-filename', ''))
         filename = "%s%s" % (object_name, ext)
-    object_data = api.swift_get_object_data(request,
-                                            container_name,
-                                            object_name)
+    try:
+        object_data = api.swift_get_object_data(request,
+                                                container_name,
+                                                object_name)
+    except:
+        redirect = reverse("horizon:nova:containers:index")
+        exceptions.handle(request,
+                          _("Unable to retrieve object."),
+                          redirect=redirect)
     response = http.HttpResponse()
     response['Content-Disposition'] = 'attachment; filename=%s' % filename
     response['Content-Type'] = 'application/octet-stream'
@@ -130,8 +135,14 @@ class CopyView(forms.ModalFormView):
 
     def get_form_kwargs(self):
         kwargs = super(CopyView, self).get_form_kwargs()
-        kwargs['containers'] = [(c.name, c.name) for c in
-                                api.swift_get_containers(self.request)[0]]
+        try:
+            containers = api.swift_get_containers(self.request)
+        except:
+            redirect = reverse("horizon:nova:containers:index")
+            exceptions.handle(self.request,
+                              _('Unable to list containers.'),
+                              redirect=redirect)
+        kwargs['containers'] = [(c.name, c.name) for c in containers[0]]
         return kwargs
 
     def get_initial(self):

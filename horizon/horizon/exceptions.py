@@ -23,6 +23,7 @@ import sys
 
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from cloudfiles import errors as swiftclient
 from glance.common import exception as glanceclient
 from keystoneclient import exceptions as keystoneclient
 from novaclient import exceptions as novaclient
@@ -39,18 +40,23 @@ UNAUTHORIZED = (openstackx.Unauthorized,
                 novaclient.Unauthorized,
                 novaclient.Forbidden,
                 glanceclient.AuthorizationFailure,
-                glanceclient.NotAuthorized)
+                glanceclient.NotAuthorized,
+                swiftclient.AuthenticationFailed,
+                swiftclient.AuthenticationError)
 
 NOT_FOUND = (keystoneclient.NotFound,
              novaclient.NotFound,
              openstackx.NotFound,
-             glanceclient.NotFound)
+             glanceclient.NotFound,
+             swiftclient.NoSuchContainer,
+             swiftclient.NoSuchObject)
 
 # NOTE(gabriel): This is very broad, and may need to be dialed in.
 RECOVERABLE = (keystoneclient.ClientException,
                novaclient.ClientException,
                openstackx.ApiException,
-               glanceclient.GlanceException)
+               glanceclient.GlanceException,
+               swiftclient.Error)
 
 
 class Http302(Exception):
