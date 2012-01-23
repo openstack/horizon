@@ -673,11 +673,12 @@ table tfoot tr td {
   margin-top: 0;
     margin-right: 5px;
     font-size: 12px;
-    color: #999;
+    color: #666;
     font-weight: normal;
   filter: alpha(opacity=100);
   -khtml-opacity: 1;
   -moz-opacity: 1;
+  opacity: 1;
 }
 
 .modal-footer a.close:hover {
