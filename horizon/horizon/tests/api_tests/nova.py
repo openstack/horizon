@@ -74,14 +74,6 @@ class ServerWrapperTests(test.TestCase):
 
         #self.request = self.mox.CreateMock(http.HttpRequest)
 
-    def test_get_attrs(self):
-        server = api.Server(self.inner_server, self.request)
-        attrs = server.attrs
-        # for every attribute in the "inner" object passed to the api wrapper,
-        # see if it can be accessed through the api.ServerAttribute instance
-        for k in self.inner_attrs:
-            self.assertEqual(attrs.__getattr__(k), self.inner_attrs[k])
-
     def test_get_other(self):
         server = api.Server(self.inner_server, self.request)
         self.assertEqual(server.id, self.ID)
@@ -365,7 +357,7 @@ class ExtrasApiTests(APITestCase):
         novaclient = self.stub_novaclient()
 
         novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.list().AndReturn(servers)
+        novaclient.servers.list(True, {'project_id': '1'}).AndReturn(servers)
 
         self.mox.ReplayAll()
 

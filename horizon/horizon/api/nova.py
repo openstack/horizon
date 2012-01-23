@@ -94,12 +94,6 @@ class Server(APIResourceWrapper):
         super(Server, self).__init__(apiresource)
         self.request = request
 
-    def __getattr__(self, attr):
-        if attr == "attrs":
-            return ServerAttributes(super(Server, self).__getattr__(attr))
-        else:
-            return super(Server, self).__getattr__(attr)
-
     @property
     def image_name(self):
         from glance.common import exception as glance_exceptions
@@ -112,18 +106,6 @@ class Server(APIResourceWrapper):
 
     def reboot(self, hardness=REBOOT_HARD):
         novaclient(self.request).servers.reboot(self.id, hardness)
-
-
-class ServerAttributes(APIDictWrapper):
-    """Simple wrapper around openstackx.extras.server.Server attributes
-
-       Preserves the request info so image name can later be retrieved
-    """
-    _attrs = ['disk_gb', 'host', 'image_ref', 'kernel_id',
-              'key_name', 'launched_at', 'mac_address', 'memory_mb', 'name',
-              'os_type', 'tenant_id', 'ramdisk_id', 'scheduled_at',
-              'terminated_at', 'user_data', 'user_id', 'vcpus', 'hostname',
-              'security_groups']
 
 
 class Usage(APIResourceWrapper):
@@ -274,7 +256,11 @@ def server_get(request, instance_id):
 
 
 def server_list(request):
-    return [Server(s, request) for s in novaclient(request).servers.list()]
+    # (sleepsonthefloor) explicitly filter by project id, so admins
+    # can retrieve a list that includes -only- their instances if destired.
+    # admin_server_list() returns all servers.
+    return [Server(s, request) for s in novaclient(request).\
+            servers.list(True, {'project_id': request.user.tenant_id})]
 
 
 def server_console_output(request, instance_id, tail_length=None):
@@ -285,7 +271,7 @@ def server_console_output(request, instance_id, tail_length=None):
 
 @check_openstackx
 def admin_server_list(request):
-    return [Server(s, request) for s in admin_api(request).servers.list()]
+    return [Server(s, request) for s in novaclient(request).servers.list()]
 
 
 def server_pause(request, instance_id):
