@@ -23,7 +23,6 @@ the classes contained therein.
 """
 
 import copy
-import functools
 import inspect
 import logging
 
@@ -31,7 +30,7 @@ from django.conf import settings
 from django.conf.urls.defaults import patterns, url, include
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ImproperlyConfigured
-from django.core.urlresolvers import reverse, RegexURLPattern
+from django.core.urlresolvers import reverse
 from django.utils.functional import SimpleLazyObject
 from django.utils.importlib import import_module
 from django.utils.module_loading import module_has_submodule

@@ -20,16 +20,9 @@
 
 from datetime import date
 import logging
-import re
 
-from django import utils
-from django.conf import settings
-from django.contrib import messages
-from django.forms import *
-from django.forms import widgets
+from django import forms
 from django.utils import dates
-from django.utils import safestring
-from django.utils import formats
 
 from horizon import exceptions
 
@@ -37,7 +30,7 @@ from horizon import exceptions
 LOG = logging.getLogger(__name__)
 
 
-class SelfHandlingForm(Form):
+class SelfHandlingForm(forms.Form):
     """
     A base :class:`Form <django:django.forms.Form>` class which includes
     processing logic in its subclasses and handling errors raised during
@@ -53,7 +46,7 @@ class SelfHandlingForm(Form):
         This is used to determine whether this form should handle the
         input it is given or not.
     """
-    method = CharField(required=True, widget=HiddenInput)
+    method = forms.CharField(required=True, widget=forms.HiddenInput)
 
     def __init__(self, *args, **kwargs):
         initial = kwargs.pop('initial', {})
@@ -100,10 +93,10 @@ class SelfHandlingForm(Form):
             return form, None
 
 
-class DateForm(Form):
+class DateForm(forms.Form):
     """ A simple form for selecting a start date. """
-    month = ChoiceField(choices=dates.MONTHS.items())
-    year = ChoiceField()
+    month = forms.ChoiceField(choices=dates.MONTHS.items())
+    year = forms.ChoiceField()
 
     def __init__(self, *args, **kwargs):
         super(DateForm, self).__init__(*args, **kwargs)

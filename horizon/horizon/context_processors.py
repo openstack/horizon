@@ -24,7 +24,6 @@ Context processors used by Horizon.
 import logging
 
 from django.conf import settings
-from django.contrib import messages
 
 from horizon import api
 

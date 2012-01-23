@@ -21,7 +21,7 @@ from django import shortcuts
 from django.forms.util import flatatt
 from django.contrib import messages
 from django.core import urlresolvers
-from django.utils.translation import string_concat
+from django.utils.translation import string_concat, ugettext as _
 
 from horizon import exceptions
 
@@ -358,7 +358,6 @@ class BatchAction(Action):
         return request.get_full_path()
 
     def handle(self, table, request, obj_ids):
-        tenant_id = request.user.tenant_id
         action_success = []
         action_failure = []
         action_not_allowed = []

@@ -18,10 +18,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import functools
 import logging
-
-from django.utils.decorators import available_attrs
 
 from horizon import exceptions
 

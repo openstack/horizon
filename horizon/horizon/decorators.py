@@ -22,9 +22,7 @@
 General-purpose decorators for use with Horizon.
 """
 import functools
-import logging
 
-from django import http
 from django.utils.decorators import available_attrs
 
 from horizon.exceptions import NotAuthorized
