@@ -141,14 +141,6 @@ def tenant_update(request, tenant_id, tenant_name, description, enabled):
                                                          enabled))
 
 
-def tenant_quota_get(request, tenant_id):
-    return admin_api(request).quota_sets.get(tenant_id)
-
-
-def tenant_quota_update(request, tenant_id, **kwargs):
-    admin_api(request).quota_sets.update(tenant_id, **kwargs)
-
-
 def tenant_list_for_token(request, token, endpoint_type=None):
     c = keystoneclient(request,
                        token_id=token,

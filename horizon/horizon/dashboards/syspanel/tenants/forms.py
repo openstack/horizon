@@ -149,7 +149,7 @@ class UpdateQuotas(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.keystone.tenant_quota_update(request,
+            api.nova.tenant_quota_update(request,
                data['tenant_id'],
                metadata_items=data['metadata_items'],
                injected_file_content_bytes=data['injected_file_content_bytes'],
