@@ -28,7 +28,6 @@ from quantum import client as quantum_client
 
 from horizon.api import nova
 from horizon.api.base import *
-from horizon.api.deprecated import extras_api
 
 
 LOG = logging.getLogger(__name__)
@@ -116,7 +115,7 @@ def get_vif_ids(request):
     # Get virtual interface ids by instance
     for instance in instances:
         id = instance.id
-        instance_vifs = extras_api(request).virtual_interfaces.list(id)
+        instance_vifs = nova.virtual_interfaces_list(request, id)
         for vif in instance_vifs:
             # Check if this VIF is already connected to any port
             if str(vif.id) in attached_vifs:
