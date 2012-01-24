@@ -24,7 +24,7 @@ from django import shortcuts
 from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-from openstackx.api import exceptions as api_exceptions
+from keystoneclient import exceptions as keystone_exceptions
 
 from horizon import api
 from horizon import forms
@@ -47,7 +47,7 @@ class AddUser(forms.SelfHandlingForm):
             messages.success(request,
                             _('%(user)s was successfully added to %(tenant)s.')
                             % {"user": data['user'], "tenant": data['tenant']})
-        except api_exceptions.ApiException, e:
+        except keystone_exceptions.ClientException, e:
             messages.error(request, _('Unable to create user association: %s')
                            % (e.message))
         return shortcuts.redirect('horizon:syspanel:tenants:users',

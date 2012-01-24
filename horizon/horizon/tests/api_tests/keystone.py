@@ -22,8 +22,8 @@ from __future__ import absolute_import
 
 from django import http
 from django.conf import settings
+from keystoneclient.v2_0 import client as keystone_client
 from mox import IsA
-from openstackx import admin as OSAdmin
 
 from horizon.tests.api_tests.utils import *
 
@@ -50,7 +50,7 @@ class Token(object):
 class KeystoneAdminApiTests(APITestCase):
     def stub_admin_api(self, count=1):
         self.mox.StubOutWithMock(api.keystone, 'admin_api')
-        admin_api = self.mox.CreateMock(OSAdmin.Admin)
+        admin_api = self.mox.CreateMock(keystone_client.Client)
         for i in range(count):
             api.keystone.admin_api(IsA(http.HttpRequest)) \
                     .AndReturn(admin_api)

@@ -32,7 +32,7 @@ LOG = logging.getLogger(__name__)
 
 
 class CreateFlavor(forms.SelfHandlingForm):
-    #flavorid is required because of openstackx
+    # flavorid is required in novaclient
     flavor_id = forms.IntegerField(label=_("Flavor ID"))
     name = forms.CharField(max_length="25", label=_("Name"))
     vcpus = forms.CharField(max_length="5", label=_("VCPUs"))

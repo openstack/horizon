@@ -22,7 +22,7 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from openstackx.api import exceptions as api_exceptions
+from novaclient import exceptions as novaclient_exceptions
 
 
 LOG = logging.getLogger('openstack_dashboard')
@@ -30,7 +30,7 @@ LOG = logging.getLogger('openstack_dashboard')
 
 class DashboardLogUnhandledExceptionsMiddleware(object):
     def process_exception(self, request, exception):
-        if isinstance(exception, api_exceptions.NotFound):
+        if isinstance(exception, novaclient_exceptions.Unauthorized):
             try:
                 exception.message.index('reauthenticate')
                 # clear the errors

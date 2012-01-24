@@ -61,7 +61,7 @@ class APIDictWrapper(object):
         dictionary, in addition to attribute accesses.
 
         Attribute access is the preferred method of access, to be
-        consistent with api resource objects from openstackx
+        consistent with api resource objects from novclient.
     """
     def __init__(self, apidict):
         self._apidict = apidict

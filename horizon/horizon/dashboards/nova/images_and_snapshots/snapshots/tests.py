@@ -22,7 +22,7 @@ from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from glance.common import exception as glance_exception
-from openstackx.api import exceptions as api_exceptions
+from novaclient import exceptions as novaclient_exceptions
 from mox import IgnoreArg, IsA
 
 from horizon import api
@@ -98,7 +98,7 @@ class SnapshotsViewTests(test.BaseViewTests):
 
     def test_create_get_server_exception(self):
         self.mox.StubOutWithMock(api, 'server_get')
-        exception = api_exceptions.ApiException('apiException')
+        exception = novaclient_exceptions.ClientException('apiException')
         api.server_get(IsA(http.HttpRequest),
                        str(self.good_server.id)).AndRaise(exception)
 
@@ -158,7 +158,7 @@ class SnapshotsViewTests(test.BaseViewTests):
 
         api.server_get(IsA(http.HttpRequest),
                        str(self.good_server.id)).AndReturn(self.good_server)
-        exception = api_exceptions.ApiException('apiException',
+        exception = novaclient_exceptions.ClientException('apiException',
                                                 message='apiException')
         api.snapshot_create(IsA(http.HttpRequest),
                             str(self.good_server.id), SNAPSHOT_NAME).\

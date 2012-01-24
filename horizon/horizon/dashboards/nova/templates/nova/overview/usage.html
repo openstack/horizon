@@ -8,13 +8,13 @@
 
 {% block dash_main %}
 
-  {% if usage.instances %}
+  {% if usage.server_usages %}
     <div id="usage">
       <div class="usage_block first">
         <h3>CPU</h3>
         <ul>
           <li><span class="quantity">{{ usage.total_active_vcpus|default:0 }}</span><span class="unit">Cores</span> Active</li>
-          <li><span class="quantity">{{ usage.total_cpu_usage|floatformat|default:0 }}</span><span class="unit">CPU-HR</span> Used</li>
+          <li><span class="quantity">{{ usage.total_vcpus_usage|floatformat|default:0 }}</span><span class="unit">CPU-HR</span> Used</li>
         </ul>
       </div>
 
@@ -28,8 +28,8 @@
       <div class="usage_block last">
         <h3>Disk</h3>
         <ul>
-          <li><span class="quantity">{{ usage.total_active_disk_size|default:0 }}</span><span class="unit">GB</span> Active</li>
-          <li><span class="quantity">{{ usage.total_disk_usage|floatformat|default:0 }}</span><span class="unit">GB-HR</span> Used</li>
+          <li><span class="quantity">{{ usage.total_active_local_gb|default:0 }}</span><span class="unit">GB</span> Active</li>
+          <li><span class="quantity">{{ usage.total_local_gb|floatformat|default:0 }}</span><span class="unit">GB-HR</span> Used</li>
         </ul>
       </div>
     </div>
@@ -49,7 +49,6 @@
     <table class="table table-striped table-bordered">
       <tr id='headings'>
         <th>{% trans "Name" %}</th>
-        <th>{% trans "User" %}</th>
         <th>{% trans "Size" %}</th>
         <th>{% trans "Uptime" %}</th>
         <th>{% trans "State" %}</th>
@@ -62,8 +61,7 @@
             <tr class="{% cycle 'odd' 'even' %}">
           {% endif %}
             <td>{{ instance.name }}</td>
-            <td>{{ instance.user_id }}</td>
-            <td>{{ instance.ram_size|mbformat }} Ram | {{ instance.vcpus }} VCPU | {{ instance.disk_size }}GB Disk</td>
+            <td>{{ instance.memory_mb|mbformat }} Ram | {{ instance.vcpus }} VCPU | {{ instance.local_gb }}GB Disk</td>
             <td>{{ instance.uptime_at|timesince }}</td>
             <td>{{ instance.state|lower|capfirst }}</td>
         </tr>

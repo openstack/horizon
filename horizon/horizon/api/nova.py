@@ -28,8 +28,6 @@ from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.servers import REBOOT_HARD
 
 from horizon.api.base import *
-from horizon.api.deprecated import check_openstackx
-from horizon.api.deprecated import extras_api
 
 
 LOG = logging.getLogger(__name__)
@@ -41,7 +39,7 @@ VOLUME_STATE_AVAILABLE = "available"
 
 
 class Flavor(APIResourceWrapper):
-    """Simple wrapper around openstackx.admin.flavors.Flavor"""
+    """Simple wrapper around novaclient.flavors.Flavor"""
     _attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
 
 
@@ -56,7 +54,7 @@ class FloatingIpPool(APIResourceWrapper):
 
 
 class KeyPair(APIResourceWrapper):
-    """Simple wrapper around openstackx.extras.keypairs.Keypair"""
+    """Simple wrapper around novaclient.keypairs.Keypair"""
     _attrs = ['fingerprint', 'name', 'private_key']
 
 
@@ -99,7 +97,7 @@ class QuotaSet(object):
 
 
 class Server(APIResourceWrapper):
-    """Simple wrapper around openstackx.extras.server.Server
+    """Simple wrapper around novaclient.server.Server
 
        Preserves the request info so image name can later be retrieved
     """
@@ -127,15 +125,33 @@ class Server(APIResourceWrapper):
 
 
 class Usage(APIResourceWrapper):
-    """Simple wrapper around openstackx.extras.usage.Usage"""
-    _attrs = ['begin', 'instances', 'stop', 'tenant_id',
-             'total_active_disk_size', 'total_active_instances',
-             'total_active_ram_size', 'total_active_vcpus', 'total_cpu_usage',
-             'total_disk_usage', 'total_hours', 'total_ram_usage']
+    """Simple wrapper around contrib/simple_usage.py"""
+    _attrs = ['start', 'server_usages', 'stop', 'tenant_id',
+             'total_local_gb_usage', 'total_memory_mb_usage',
+             'total_vcpus_usage', 'total_hours']
+
+    @property
+    def total_active_instances(self):
+        return sum(1 for s in self.server_usages if s['ended_at'] == None)
+
+    @property
+    def total_active_vcpus(self):
+        return sum(s['vcpus']\
+            for s in self.server_usages if s['ended_at'] == None)
+
+    @property
+    def total_active_local_gb(self):
+        return sum(s['local_gb']\
+            for s in self.server_usages if s['ended_at'] == None)
+
+    @property
+    def total_active_memory_mb(self):
+        return sum(s['memory_mb']\
+            for s in self.server_usages if s['ended_at'] == None)
 
 
 class SecurityGroup(APIResourceWrapper):
-    """Simple wrapper around openstackx.extras.security_groups.SecurityGroup"""
+    """Simple wrapper around novaclient.security_groups.SecurityGroup"""
     _attrs = ['id', 'name', 'description', 'tenant_id']
 
     @property
@@ -285,7 +301,6 @@ def server_console_output(request, instance_id, tail_length=None):
                                                           length=tail_length)
 
 
-@check_openstackx
 def admin_server_list(request):
     return [Server(s, request) for s in novaclient(request).servers.list()]
 
@@ -349,14 +364,12 @@ def tenant_quota_defaults(request, tenant_id):
     return QuotaSet(novaclient(request).quotas.defaults(tenant_id))
 
 
-@check_openstackx
 def usage_get(request, tenant_id, start, end):
-    return Usage(extras_api(request).usage.get(tenant_id, start, end))
+    return Usage(novaclient(request).usage.get(tenant_id, start, end))
 
 
-@check_openstackx
 def usage_list(request, start, end):
-    return [Usage(u) for u in extras_api(request).usage.list(start, end)]
+    return [Usage(u) for u in novaclient(request).usage.list(start, end, True)]
 
 
 def security_group_list(request):

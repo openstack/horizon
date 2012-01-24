@@ -17,7 +17,6 @@
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IgnoreArg, IsA
-from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
 from horizon import test

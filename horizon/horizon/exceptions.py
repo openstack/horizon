@@ -27,15 +27,12 @@ from cloudfiles import errors as swiftclient
 from glance.common import exception as glanceclient
 from keystoneclient import exceptions as keystoneclient
 from novaclient import exceptions as novaclient
-from openstackx.api import exceptions as openstackx
 
 
 LOG = logging.getLogger(__name__)
 
 
-UNAUTHORIZED = (openstackx.Unauthorized,
-                openstackx.Unauthorized,
-                keystoneclient.Unauthorized,
+UNAUTHORIZED = (keystoneclient.Unauthorized,
                 keystoneclient.Forbidden,
                 novaclient.Unauthorized,
                 novaclient.Forbidden,
@@ -46,7 +43,6 @@ UNAUTHORIZED = (openstackx.Unauthorized,
 
 NOT_FOUND = (keystoneclient.NotFound,
              novaclient.NotFound,
-             openstackx.NotFound,
              glanceclient.NotFound,
              swiftclient.NoSuchContainer,
              swiftclient.NoSuchObject)
@@ -54,7 +50,6 @@ NOT_FOUND = (keystoneclient.NotFound,
 # NOTE(gabriel): This is very broad, and may need to be dialed in.
 RECOVERABLE = (keystoneclient.ClientException,
                novaclient.ClientException,
-               openstackx.ApiException,
                glanceclient.GlanceException,
                swiftclient.Error)
 

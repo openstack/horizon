@@ -21,7 +21,7 @@
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
-from openstackx.api import exceptions as api_exceptions
+from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
 from horizon import test
@@ -62,7 +62,7 @@ class InstancesAndVolumesViewTest(test.BaseViewTests):
     def test_index_server_list_exception(self):
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'volume_list')
-        exception = api_exceptions.ApiException('apiException')
+        exception = novaclient_exceptions.ClientException('apiException')
         api.server_list(IsA(http.HttpRequest)).AndRaise(exception)
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes)
 

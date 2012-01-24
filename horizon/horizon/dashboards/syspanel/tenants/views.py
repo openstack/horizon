@@ -166,9 +166,9 @@ def usage(request, tenant_id):
 
     running_instances = []
     terminated_instances = []
-    if hasattr(usage, 'instances'):
+    if hasattr(usage, 'server_usages'):
         now = datetime.datetime.now()
-        for i in usage.instances:
+        for i in usage.server_usages:
             # this is just a way to phrase uptime in a way that is compatible
             # with the 'timesince' filter.  Use of local time intentional
             i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
@@ -187,7 +187,8 @@ def usage(request, tenant_id):
     context = {'dateform': dateform,
                'datetime_start': datetime_start,
                'datetime_end': datetime_end,
-               'usage': usage,
+               'global_summary': usage,
+               'usage_list': [usage],
                'csv_link': GlobalSummary.csv_link(date_start),
                'instances': running_instances + terminated_instances,
                'tenant_id': tenant_id}

@@ -546,6 +546,7 @@ table form {
   min-width: 735px;
   padding: 5px 0 5px 0;
   border: 1px solid #e6e6e6;
+  clear: both;
 }
 
 #activity.tenant { margin: 0 0 0 0; }
@@ -950,4 +951,12 @@ form div.clearfix.error {
   display: block;
   border: 1px solid #e1e1e1;
   padding: 5px;
+}
+#date_form {
+  width: 100%;
+  float: left;
+}
+#date_form select, #date_form input {
+  float: left;
+  margin-right: 10px;
 }

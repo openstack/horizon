@@ -22,7 +22,6 @@ from django import http
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from glance.common import exception as glance_exception
-from openstackx.api import exceptions as api_exceptions
 from novaclient import exceptions as novaclient_exceptions
 from novaclient.v1_1 import security_group_rules as nova_rules
 from mox import IgnoreArg, IsA

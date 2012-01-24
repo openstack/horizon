@@ -24,7 +24,6 @@ from django import shortcuts
 from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
 from horizon import forms

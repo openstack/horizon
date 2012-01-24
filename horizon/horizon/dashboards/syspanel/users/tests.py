@@ -20,7 +20,7 @@
 
 from django.core.urlresolvers import reverse
 from mox import IgnoreArg
-from openstackx.api import exceptions as api_exceptions
+from keystoneclient import exceptions as keystone_exceptions
 
 from horizon import api
 from horizon import test
@@ -85,7 +85,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         formData = {'action': 'users__enable__%s' % OTHER_USER_ID}
 
         self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
-        api_exception = api_exceptions.ApiException('apiException',
+        api_exception = keystone_exceptions.ClientException('apiException',
                                                     message='apiException')
         api.keystone.user_update_enabled(IgnoreArg(), OTHER_USER_ID, True) \
                     .AndRaise(api_exception)

@@ -58,23 +58,24 @@ def usage(request, tenant_id=None):
         exceptions.handle(request,
                           _('Unable to retrieve usage information.'))
 
+    total_ram = 0
     ram_unit = "MB"
-    total_ram = getattr(usage, 'total_active_ram_size', 0)
-    if total_ram >= 1024:
-        ram_unit = "GB"
-        total_ram /= 1024
 
     instances = []
     terminated = []
-
-    if hasattr(usage, 'instances'):
+    if hasattr(usage, 'server_usages'):
+        total_ram = usage.total_active_memory_mb
         now = datetime.datetime.now()
-        for i in usage.instances:
+        for i in usage.server_usages:
             i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
             if i['ended_at'] and not show_terminated:
                 terminated.append(i)
             else:
                 instances.append(i)
+
+    if total_ram >= 1024:
+        ram_unit = "GB"
+        total_ram /= 1024
 
     if request.GET.get('format', 'html') == 'csv':
         template = 'nova/overview/usage.csv'

@@ -24,9 +24,6 @@ from __future__ import absolute_import
 from django import http
 from django.conf import settings
 from mox import IsA, IgnoreArg
-from openstackx import admin as OSAdmin
-from openstackx import auth as OSAuth
-from openstackx import extras as OSExtras
 from novaclient.v1_1 import servers
 
 
@@ -273,26 +270,6 @@ class ComputeApiTests(APITestCase):
 
 class ExtrasApiTests(APITestCase):
 
-    def stub_extras_api(self, count=1):
-        self.mox.StubOutWithMock(api.nova, 'extras_api')
-        extras_api = self.mox.CreateMock(OSExtras.Extras)
-        for i in range(count):
-            api.nova.extras_api(IsA(http.HttpRequest)) \
-                    .AndReturn(extras_api)
-        return extras_api
-
-    def test_get_extras_api(self):
-        self.mox.StubOutClassWithMocks(OSExtras, 'Extras')
-        OSExtras.Extras(auth_token=TEST_TOKEN, management_url=TEST_URL)
-
-        self.mox.StubOutWithMock(api.deprecated, 'url_for')
-        api.deprecated.url_for(IsA(http.HttpRequest),
-                               'compute').AndReturn(TEST_URL)
-
-        self.mox.ReplayAll()
-
-        self.assertIsNotNone(api.nova.extras_api(self.request))
-
     def test_server_vnc_console(self):
         fake_console = {'console': {'url': 'http://fake', 'type': ''}}
         novaclient = self.stub_novaclient()
@@ -347,10 +324,10 @@ class ExtrasApiTests(APITestCase):
             self.assertIn(server._apiresource, servers)
 
     def test_usage_get(self):
-        extras_api = self.stub_extras_api()
+        novaclient = self.stub_novaclient()
 
-        extras_api.usage = self.mox.CreateMockAnything()
-        extras_api.usage.get(TEST_TENANT_ID, 'start',
+        novaclient.usage = self.mox.CreateMockAnything()
+        novaclient.usage.get(TEST_TENANT_ID, 'start',
                              'end').AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
@@ -363,10 +340,10 @@ class ExtrasApiTests(APITestCase):
     def test_usage_list(self):
         usages = (TEST_RETURN, TEST_RETURN + '2')
 
-        extras_api = self.stub_extras_api()
+        novaclient = self.stub_novaclient()
 
-        extras_api.usage = self.mox.CreateMockAnything()
-        extras_api.usage.list('start', 'end').AndReturn(usages)
+        novaclient.usage = self.mox.CreateMockAnything()
+        novaclient.usage.list('start', 'end', True).AndReturn(usages)
 
         self.mox.ReplayAll()
 

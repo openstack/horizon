@@ -1,0 +1,43 @@
+{% extends 'syspanel/tenants/base_usage.html' %}
+{% load i18n sizeformat %}
+{% block title %}Usage Overview{% endblock %}
+{% block activity_list %}
+  {% if usage_list %}
+    <div id="usage">
+      <table class="table table-striped table-bordered zebra-striped">
+        <thead>
+          <tr>
+            <th>{% trans "Tenant" %}</th>
+            <th>{% trans "Instances" %}</th>
+            <th>{% trans "VCPUs" %}</th>
+            <th>{% trans "Disk" %}</th>
+            <th>{% trans "RAM" %}</th>
+            <th>{% trans "VCPU CPU-Hours" %}</th>
+            <th>{% trans "Disk GB-Hours" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for usage in usage_list %}
+            <tr>
+              <td><a href="{% url horizon:syspanel:tenants:usage usage.tenant_id %}">{{ usage.tenant_id }}</a></td>
+              <td>{{ usage.total_active_instances }}</td>
+              <td>{{ usage.total_active_vcpus }}</td>
+              <td>{{ usage.total_active_local_gb|diskgbformat }}</td>
+              <td>{{ usage.total_active_memory_mb|mbformat }}</td>
+              <td>{{ usage.total_vcpus_usage|floatformat }}</td>
+              <td>{{ usage.total_local_gb_usage|floatformat }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="7">
+              <span>Server Usage Summary</span>
+              <a class="csv_download_link pull-right" href="{{ csv_link }}">{% trans "Download CSV" %} &raquo;</a>
+            </td>
+          </td>
+        </tfoot>
+      </table>
+    </div>
+  {% endif %}
+{% endblock %}

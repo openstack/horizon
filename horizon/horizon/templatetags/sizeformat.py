@@ -66,6 +66,8 @@ def filesizeformat(bytes, filesize_number_format):
 
 @register.filter(name='mbformat')
 def mbformat(mb):
+    if not mb:
+        return 0
     return filesizeformat(mb * 1024 * 1024, int_format).replace(' ', '')
 
 

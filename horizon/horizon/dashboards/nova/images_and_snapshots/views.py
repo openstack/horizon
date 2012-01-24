@@ -30,7 +30,6 @@ from django.contrib import messages
 from django.utils.translation import ugettext as _
 from glance.common import exception as glance_exception
 from novaclient import exceptions as novaclient_exceptions
-from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
 from horizon import exceptions

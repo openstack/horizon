@@ -36,15 +36,8 @@ LOG = logging.getLogger(__name__)
 
 
 class GlobalSummary(object):
-    node_resources = ['vcpus', 'disk_size', 'ram_size']
-    unit_mem_size = {'disk_size': ['GB', 'TB'], 'ram_size': ['MB', 'GB']}
-    node_resource_info = ['', 'active_', 'avail_']
-
     def __init__(self, request):
         self.summary = {}
-        for rsrc in GlobalSummary.node_resources:
-            for info in GlobalSummary.node_resource_info:
-                self.summary['total_' + info + rsrc] = 0
         self.request = request
         self.usage_list = []
 
@@ -57,24 +50,16 @@ class GlobalSummary(object):
                               _('Unable to retrieve usage information on date'
                                 'range %(start)s to %(end)s' % {"start": start,
                                                                 "end": end}))
-        for usage in self.usage_list:
-            for key in usage._attrs:
-                val = getattr(usage, key)
-                if isinstance(val, (float, int)):
-                    self.summary.setdefault(key, 0)
-                    self.summary[key] += val
 
-    def human_readable(self, rsrc):
-        if self.summary['total_' + rsrc] > 1023:
-            self.summary['unit_' + rsrc] = GlobalSummary.unit_mem_size[rsrc][1]
-            mult = 1024.0
-        else:
-            self.summary['unit_' + rsrc] = GlobalSummary.unit_mem_size[rsrc][0]
-            mult = 1.0
+        # List of attrs on the Usage object that we would like to summarize
+        attrs = ['total_local_gb_usage', 'total_memory_mb_usage',
+                 'total_active_memory_mb', 'total_vcpus_usage',
+                 'total_active_instances']
 
-        for kind in GlobalSummary.node_resource_info:
-            self.summary['total_' + kind + rsrc + '_hr'] = \
-                    self.summary['total_' + kind + rsrc] / mult
+        for attr in attrs:
+            for usage in self.usage_list:
+                self.summary.setdefault(attr, 0)
+                self.summary[attr] += getattr(usage, attr)
 
     @staticmethod
     def next_month(date_start):
@@ -126,7 +111,7 @@ def usage(request):
         template = 'syspanel/tenants/usage.csv'
         mimetype = "text/csv"
     else:
-        template = 'syspanel/tenants/usage.html'
+        template = 'syspanel/tenants/global_usage.html'
         mimetype = "text/html"
 
     context = {'dateform': dateform,
