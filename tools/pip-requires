@@ -28,8 +28,11 @@ sqlalchemy-migrate
 webob
 xattr
 
+# quantum
+-e git+https://github.com/openstack/python-quantumclient.git#egg=python-quantumclient-dev
+python-gflags
+
 # horizon non-pip deps
--e git+https://github.com/openstack/quantum.git@stable/diablo#egg=quantum
 -e git+https://github.com/cloudbuilders/openstackx.git#egg=openstackx
 -e git+https://github.com/openstack/python-novaclient.git#egg=python-novaclient
 -e git+https://github.com/openstack/python-keystoneclient.git#egg=python-keystoneclient
