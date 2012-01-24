@@ -14,7 +14,7 @@
     {% url horizon:nova:networks:create as dash_net_url %}
     <a id="network_create_link" class="btn small" href="{{ dash_net_url }}">{% trans "Create New Network" %}</a>
   {% else %}
-    <div class="alert-message block-message info">
+    <div class="alert alert-block alert-info">
       <p><strong>{% trans "Info: " %}</strong>{% trans "There are currently no networks." %}</p>
       <div class="alert-actions">
         <a class="btn small primary" href='{% url horizon:nova:networks:create %}'>{% trans "Create A Network" %}</a>

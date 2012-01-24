@@ -21,10 +21,8 @@
   font-style: normal;
 }
 
-
 a {
   color: #43a1d6;
-
 }
 
 ul {
@@ -32,12 +30,36 @@ ul {
     margin: 0;
 }
 
+.topbar {
+  margin-bottom: 20px;
+}
+
+.topbar .switcher_bar {
+  display: inline-block;
+  height: auto;
+  width: 160px;
+  background-position: 140px center;
+  margin-bottom: 0;
+  font-size: 11px;
+  padding: 0;
+}
+
+.topbar .switcher_bar a{
+  padding: 2px 10px 1px;
+  margin-left: 0;
+  display: block;
+}
+
+.topbar .switcher_bar ul {
+  width: 130px;
+}
+
 .page-header {
     background: #f2f2f2;
     height: 31px;
     display: block;
     border-bottom: 1px solid #e5e5e5;
-    padding: 17px;
+    padding: 17px 25px;
     margin-left: -25px;
     margin-right: -25px;
     font-family: anivers;
@@ -69,36 +91,34 @@ html, #splash{
 
 .nav li a {
     color: #8EACB7;
-    background: transparent !important;
     text-shadow: none;
 }
 
 #container {
-    padding: 0;
-}
-.container-fluid > .content {
-  margin-left: 225px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 0 25px 0 250px;
 }
 
-.sidebar {
+.fluid-sidebar {
     background: #edf9ff;
     border-right: 5px solid #e5e5e5;
     border-bottom: 5px solid #e5e5e5;
 }
 
-.sidebar h4 {
+.sidebar-left .fluid-sidebar {
+  margin-left: -250px;
+}
+
+.fluid-sidebar h4 {
     margin-left: 14px;
     color: #999;
 }
 
 .tabs {
-    margin-top: -40px;
+    margin-top: -34px;
 }
 
 .tabs li.active a {
-    background: #edf9ff;
+    background-color: #edf9ff;
 }
 
 h1.brand {
@@ -137,10 +157,36 @@ a.current_item:hover h3, a.current_item:hover h4 {
     color: #39738c;
 }
 
+.switcher_bar {
+    background-color: #e9f5fa;
+    width: 190px;
+    height: 38px;
+    padding: 5px 0 0 0;
+    border: 1px solid #c0d9e4;
+    margin-left: 14px;
+    margin-bottom: 15px;
+    background-image: url(/static/dashboard/images/drop_arrow.png);
+    background-repeat: no-repeat;
+    background-position: 170px 20px;
+}
+
+.switcher_bar:hover {
+  text-decoration: none;
+  background-color: #cde8f4;
+}
+
+.switcher_bar a:hover {
+  text-decoration: none;
+}
+
+.switcher_bar:focus {
+  outline: none;
+}
+
 .switcher_bar h3 {
     color: #4790ae;
     font-size: 16px;
-    margin: -20px 0 0 10px;
+    margin: -6px 0 0 14px;
     padding: 0;
 }
 
@@ -149,51 +195,19 @@ a.current_item:hover h3, a.current_item:hover h4 {
     font-size: 10px;
     text-transform: uppercase;
     font-weight: normal;
-    margin: -10px 0 0 10px;
     padding: 0;
 }
 
-.switcher_bar {
-    background: #e9f5fa;
-    width: 190px;
-    height: 38px;
-    padding: 5px 0 0 0;
-    border: 1px solid #c0d9e4;
-    margin-left: 14px;
-    margin-bottom: 15px;
-}
 
 .switcher_bar ul {
-    background: #c9e1ea;
-    right: 0px;
     border: 1px solid #c0d9e4;
-    margin: 37px 0 0 -1px;
-    list-style: none;
-    display: none;
+    margin-left: -1px;
     width: 190px;
-    position: relative;
 }
 
-.drop_btn {
-  background: #d4edf7 url(../images/drop_arrow.png) no-repeat center center;
-  padding: 12px 0 0 0;
-  float: left;
-  width: 25px;
-  height: 29px;
-  border: 1px solid #c0d9e4;
-  text-indent: -9999px;
-    margin: -5px 0 0;
+.switcher_bar li a:hover{
+  background: #92d6f1;
 }
-.drop_btn:hover { background-color: #c9e1ea; }
-
-.switcher_bar li a {
-  color: #4891ae;
-  font: 14px;
-  padding: 5px 0 5px 10px;
-  display: block;
-  border-bottom: 1px solid #c0d9e4;
-}
-.switcher_bar li a:hover{ background: #92d6f1; }
 
 
 #usage {
@@ -249,8 +263,9 @@ a.current_item:hover h3, a.current_item:hover h4 {
   padding: 0 0 0 1px;
 }
 
-.table_title, .table_header {
+.table_header {
   overflow: auto; /* Triggers clearing if all contained elements are floated */
+  margin-bottom: 10px;
 }
 
 .table_title h3, .table_header h3 {
@@ -276,10 +291,9 @@ small {
     padding-right: 25px;
     padding-top: 25px;
     color: #888;
-    right: 145px;
 }
 
-#user_info a {
+#user_info > a {
     margin-left: 25px;
     font-size: 11px !important;
 }
@@ -317,16 +331,19 @@ table form {
     margin-bottom: 0;
 }
 
+.alert-block p:last-child {
+  margin-bottom: 0;
+}
+
 #actions.single {
     width: 90px;
 }
 
-.zebra-striped tr td {
+.table-striped tr td {
   transition: background 0.2s;
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
   -o-transition: background 0.2s;
-
 }
 
 .inspect {
@@ -336,19 +353,19 @@ table form {
     margin-right: 25px;
 }
 
-table {
+.table {
     margin-bottom: 50px;
 }
 
-table tr td {
+.table tr td {
     vertical-align: middle;
 }
 
-table tr.empty td {
+.table tr.empty td {
   text-align: center;
 }
 
-table tfoot tr td {
+.table tfoot tr td {
   border-top: 1px solid #DDD;
   background-color: #F1F1F1;
   font-size: 11px;
@@ -365,7 +382,8 @@ table tfoot tr td {
 }
 
 .table_search input {
-    background: url(../images/search.png) no-repeat 137px 5px;
+  background: url(../images/search.png) no-repeat 195px 5px;
+  display: inline-block;
 }
 
 .table_actions a, .table_actions button {
@@ -526,7 +544,6 @@ table tfoot tr td {
   background: #fbfbfb;
   text-align: center;
   min-width: 735px;
-  margin: 0 10px 0 10px;
   padding: 5px 0 5px 0;
   border: 1px solid #e6e6e6;
 }
@@ -609,7 +626,7 @@ table tfoot tr td {
 
 .modal.static_page {
   position: relative;
-  left: 250px;
+  left: 280px;
   top: 10px;
   float: left;
 }
@@ -618,7 +635,6 @@ table tfoot tr td {
     float: left;
     width: 342px;
     margin-right: 25px;
-    margin-left: 10px;
 }
 
 .left form {
@@ -737,68 +753,28 @@ td.actions_column {
   min-height: 20px;
 }
 
-td.actions_column ul.row_actions {
-  border: 1px solid #F9F9F9;
-  margin-bottom: 0;
-  width: 148px;
+.btn-group .btn.small {
+  padding: 7px 9px 6px;
 }
-
-tr.even td.actions_column ul.row_actions {
-  border: 1px solid #FFF;
-}
-
-tr:hover td.actions_column ul.row_actions {
-  border: 1px solid #F5F5F5;
-}
-
-tr td.actions_column ul.row_actions.active,
-tr:hover td.actions_column ul.row_actions.active {
-  background: #FFF;
-  border: 1px solid #cacaca;
-  position: absolute;
-  z-index: 10;
-  top: 10px; /* accounts for padding */
-  left: 10px; /* accounts for padding */
-}
-
-td.actions_column ul.row_actions li {
-  display: none;
-  padding: 0 10px;
-}
-
-td.actions_column ul.row_actions.active li {
-  display: block;
-}
-
-td.actions_column ul.row_actions li.action.primary {
-  display: block;
-  background-image: url(../images/right_droparrow.png);
-  background-repeat: no-repeat;
-  background-position: 130px center;
-}
-
 
 td.actions_column ul.row_actions li:hover {
   background-color: #cdcdcd;
-}
-
-
-td.actions_column ul.row_actions li.action.primary:hover,
-td.actions_column ul.row_actions.active li.action.primary {
-  background-image: url(../images/drop_arrow.png);
-  background-position: 125px center;
 }
 
 td.actions_column ul.row_actions a,
 td.actions_column ul.row_actions input,
 td.actions_column ul.row_actions button {
   background: none;
+  float: none;
   display: block;
-  padding: 10px;
+  padding: 5px 10px;
   color: black;
-  text-decoration: underline;
-  width: 100%;
   text-align: left;
+  border-radius: 0;
+  border: 0 none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 /* Overrides for single-action rows (no dropdown) */
@@ -883,8 +859,8 @@ a.view_full {
   padding-top: 50px;
 }
 
-/* Fix twipsy z-index to show above modals. Bootstrap bug 582*/
-.twipsy {
+/* Fix tooltip z-index to show above modals. Bootstrap bug 582*/
+.tooltip {
   z-index: 12000;
 }
 

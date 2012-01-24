@@ -4,7 +4,7 @@
   {{ table.render_table_actions }}
 </div>
 {% with columns=table.get_columns rows=table.get_rows %}
-<table id="{{ table.name }}" class="zebra-striped">
+<table id="{{ table.name }}" class="table table-bordered table-striped">
   <thead>
     <tr>
       {% for column in columns %}

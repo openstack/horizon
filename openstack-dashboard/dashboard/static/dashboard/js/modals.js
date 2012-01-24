@@ -1,6 +1,6 @@
 horizon.addInitFunction(function() {
   $(document).on('click', '.modal:not(.static_page) .cancel', function (evt) {
-    $(this).closest('.modal').remove();
+    $(this).closest('.modal').modal('hide');
     return false;
   });
 
@@ -10,7 +10,10 @@ horizon.addInitFunction(function() {
       complete: function (jqXHR, status) {
         $('body').append(jqXHR.responseText);
         $('.modal span.help-block').hide();
-        $('.modal:last').modal({'show':true, 'backdrop': true, 'keyboard': true});
+        $('.modal:last').modal();
+        $('.modal:last').on('hidden', function () {
+          $(this).remove();
+        });
 
         // TODO(tres): Find some better way to deal with grouped form fields.
         var volumeField = $("#id_volume");

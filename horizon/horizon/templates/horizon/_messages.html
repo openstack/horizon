@@ -1,22 +1,22 @@
 {% load i18n %}
 {% for message in messages %}
   {% if "info" in message.tags %}
-    <div class="alert-message info">
+    <div class="alert alert-block alert-info">
       <p><strong>{% trans "Info: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
   {% if "warning" in message.tags %}
-    <div class="alert-message warning">
+    <div class="alert alert-block alert-warning">
       <p><strong>{% trans "Warning: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
   {% if "success" in message.tags %}
-    <div class="alert-message success">
+    <div class="alert alert-block alert-success">
       <p><strong>{% trans "Success: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
   {% if "error" in message.tags %}
-    <div class="alert-message error">
+    <div class="alert alert-block alert-error">
       <p><strong>{% trans "Error: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}

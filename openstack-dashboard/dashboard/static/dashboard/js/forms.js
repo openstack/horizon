@@ -13,7 +13,7 @@ horizon.addInitFunction(function () {
   $(document).on("submit", ".modal #create_keypair_form", function (e) {
     var $this = $(this);
     $this.closest(".modal").modal("hide");
-    $('#main_content .page-header').after('<div class="alert-message info">'
+    $('.topbar').after('<div class="alert alert-block alert-info">'
       + '<p><strong>Info: </strong>The data on this page may have changed, '
       + '<a href=".">click here to refresh it</a>.</p>'
       + '</div>');
@@ -60,30 +60,11 @@ horizon.addInitFunction(function () {
   }
 
   // Standard handler for everything but checkboxes
-  $("div.form-field").find("input:not(:checkbox), textarea, select").twipsy({
+  $(document).tooltip({
+    selector: "div.form-field input:not(:checkbox), div.form-field textarea, div.form-field select",
     placement: 'right',
     trigger: 'focus',
-    offset: 4,
-    title: getTwipsyTitle,
-    live: true
-  });
-
-  // Checkbox handler for keyboard nav + hover w/ event handlers (see below)
-  $("div.form-field input:checkbox:first").twipsy({
-    placement: 'right',
-    trigger: 'focus',
-    offset: 315,
-    title: getTwipsyTitle,
-    live: true
-  });
-
-  // Handlers to steal focus from other inputs and prevent
-  // multiple twipsies from opening simultaneously.
-  $("body").on("mouseenter", 'div.form-field', function (evt) {
-    $(this).find(":checkbox:first").focus();
-  });
-  $("body").on("mouseleave", 'div.form-field', function (evt) {
-    $(this).find(":checkbox:first").blur();
+    title: getTwipsyTitle
   });
 
   // Hide the text for js-capable browsers

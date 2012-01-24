@@ -19,7 +19,7 @@
   </div>
 {% endif %}
 
-<form action="" method="get" id="date_form">
+<form action="" method="get" id="date_form" class="form-horizontal">
   <h3>{% trans "Select a month to query its usage" %}: </h3>
   <div class="form-row">
     {{ dateform.month }}
@@ -36,12 +36,14 @@
 
 {% if usage_list %}
   <div id="usage">
-    <div class='table_title wide'>
-      <a class="csv_download_link pull-right" href="{{ csv_link }}">{% trans "Download CSV" %} &raquo;</a>
-      <h3>{% trans "Server Usage Summary" %}</h3>
+    <div class="table_header">
+      <div class='table_title wide'>
+        <a class="csv_download_link pull-right" href="{{ csv_link }}">{% trans "Download CSV" %} &raquo;</a>
+        <h3>{% trans "Server Usage Summary" %}</h3>
+      </div>
     </div>
 
-    <table class="zebra-striped">
+    <table class="table table-striped table-bordered">
       <tr id="headings">
         <th>{% trans "Tenant" %}</th>
         <th>{% trans "Instances" %}</th>

@@ -9,13 +9,18 @@
     <script src='{{ STATIC_URL }}dashboard/js/jquery/jquery.quicksearch.js' type='text/javascript'></script>
     <script src='{{ STATIC_URL }}dashboard/js/jquery/jquery.example.min.js' type='text/javascript'></script>
     <script src="{{ STATIC_URL }}dashboard/js/jquery/jquery.table-sorter.js" type="text/javascript" charset="utf-8"></script>
-    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-twipsy.js" type="text/javascript" charset="utf-8"></script>
-    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-alerts.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-alert.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-button.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-carousel.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-collapse.js" type="text/javascript" charset="utf-8"></script>
     <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
     <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-modal.js" type="text/javascript" charset="utf-8"></script>
-    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-popover.js" type="text/javascript" charset="utf-8"></script>
     <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-scrollspy.js" type="text/javascript" charset="utf-8"></script>
-    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-tabs.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-tab.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-tooltip.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-popover.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-transition.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}dashboard/js/bootstrap/bootstrap-typeahead.js" type="text/javascript" charset="utf-8"></script>
     <script src='{{ STATIC_URL }}dashboard/js/horizon.js' type='text/javascript' charset='utf-8'></script>
     <script src='{{ STATIC_URL }}dashboard/js/plugins.js' type='text/javascript' charset='utf-8'></script>
     <script src='{{ STATIC_URL }}dashboard/js/tables.js' type='text/javascript' charset='utf-8'></script>
@@ -30,29 +35,16 @@
     {% block headercss %}{% endblock %}
   </head>
   <body>
-    {% block topbar %}
-      <div id="user_info" class="pull-right">
-        <p>
-          Logged in as: {{ request.user.username }}.
-          <a href="{% url horizon:settings:user:index %}">{% trans "Settings" %}</a>
-          <a href="{% url horizon:auth_logout %}">{% trans "Sign Out" %}</a>
-        </p>
-      </div>
-      <div id="region_selector">
-        {% if region.support %}
-          <ul>
-            <li class="odd"><p>{{ region.name }}</p></li>
-            <li><a href="{% url horizon:auth_logout %}">Change Regions</a></li>
-          </ul>
-        {% endif %}
-      </div>
-    {% endblock %}
     {% block content %}
-      <div id="container" class="container-fluid">
-        {% block sidebar %}
-        {% endblock %}
-        {% block main %}
-        {% endblock %}
+      <div id="container" class="fluid-container sidebar-left">
+        {% block sidebar %}{% endblock %}
+        <div id='main_content' class="fluid-content">
+          <div class='topbar'>
+          {% include "_header.html" %}
+          {% block page_header %}{% endblock %}
+          </div>
+          {% block main %}{% endblock %}
+        </div>
       </div>
     {% endblock %}
     <div id="footer">

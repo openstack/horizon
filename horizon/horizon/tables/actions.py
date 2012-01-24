@@ -14,10 +14,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import copy
 import logging
 import new
 
 from django import shortcuts
+from django.conf import settings
 from django.forms.util import flatatt
 from django.contrib import messages
 from django.core import urlresolvers
@@ -28,13 +30,19 @@ from horizon import exceptions
 
 LOG = logging.getLogger(__name__)
 
+# For Bootstrap integration, can be overridden in settings.
+ACTION_CSS_CLASSES = ("btn", "small")
+
 
 class BaseAction(object):
     """ Common base class for all ``Action`` classes. """
     table = None
     handles_multiple = False
-    attrs = {}
     requires_input = False
+
+    def __init__(self):
+        self.attrs = getattr(self, "attrs", {})
+        self.classes = []
 
     def allowed(self, request, datum):
         """ Determine whether this action is allowed for the current request.
@@ -60,7 +68,16 @@ class BaseAction(object):
         Returns a flattened string of HTML attributes based on the
         ``attrs`` dict provided to the class.
         """
-        return flatatt(self.attrs)
+        final_attrs = copy.copy(self.attrs)
+        # Handle css class concatenation
+        default = " ".join(getattr(settings,
+                                   "ACTION_CSS_CLASSES",
+                                   ACTION_CSS_CLASSES))
+        defined = self.attrs.get('class', '')
+        additional = " ".join(self.classes)
+        final_classes = " ".join((defined, default, additional)).strip()
+        final_attrs.update({'class': final_classes})
+        return flatatt(final_attrs)
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.name)

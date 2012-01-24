@@ -22,8 +22,6 @@ import datetime
 import logging
 
 from dateutil.relativedelta import relativedelta
-from django import template
-from django import http
 from django import shortcuts
 from django.conf import settings
 from django.contrib import messages
@@ -120,7 +118,6 @@ def usage(request):
     global_summary = GlobalSummary(request)
     if date_start > GlobalSummary.current_month():
         messages.error(request, _('No data for the selected period'))
-        date_end = date_start
         datetime_end = datetime_start
     else:
         global_summary.usage(datetime_start, datetime_end)

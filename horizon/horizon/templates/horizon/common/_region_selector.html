@@ -1,0 +1,11 @@
+{% if region.support %}
+  <div id="region_switcher" class="dropdown switcher_bar" tabindex='1'>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#region_switcher">
+      {{ region.name }}
+      </a>
+    <ul id="region_list" class="dropdown-menu">
+      <li class='divider'></li>
+      <li><a href="{% url horizon:auth_logout %}">Change Regions</a></li>
+    </ul>
+  </div>
+{% endif %}

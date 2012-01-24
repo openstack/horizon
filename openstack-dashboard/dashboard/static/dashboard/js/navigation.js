@@ -6,7 +6,7 @@ horizon.addInitFunction(function() {
   });
 
   // Show/hide image details.
-  $(".details").hide()
+  $(".details").hide();
   $("#images td:not(#actions)").click(function(e) {
     $(this).parent().nextUntil(".even, .odd").fadeToggle("slow");
   });

@@ -1,21 +1,21 @@
 {% load horizon i18n %}
 
-<div class='sidebar'>
+<div class='fluid-sidebar'>
   <h1 class="brand clearfix"><a href="{% url horizon:user_home %}">{% trans "OpenStack Dashboard" %}</a></h1>
   <div class='clearfix'>
-    <ul class="tabs">
+    <ul class="nav tabs">
       {% horizon_main_nav %}
     </ul>
   </div>
 
   {% if request.horizon.dashboard.supports_tenants %}
-  <div id="tenant_switcher" class="switcher_bar">
-    <a id="current_tenant" class="current_item" href="{% url horizon:nova:overview:index %}">
+  <div id="tenant_switcher" class="dropdown switcher_bar" tabindex='1'>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#tenant_switcher">
       <h4>Project</h4>
       <h3>{{ request.user.tenant_name }}</h3>
-    </a>
-    <a class="drop_btn" href="#">&nbsp;</a>
-    <ul id="user_tenant_list" class="item_list">
+      </a>
+    <ul id="tenant_list" class="dropdown-menu">
+      <li class='divider'></li>
       {% for tenant in authorized_tenants %}
         {% if tenant.enabled %}
           <li><a href="{% url horizon:auth_switch tenant.id %}">{{ tenant.name }}</a></li>

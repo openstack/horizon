@@ -18,7 +18,6 @@ from django import http
 from django import shortcuts
 from django.core.urlresolvers import reverse
 
-import horizon
 from horizon import tables
 from horizon import test
 
@@ -323,8 +322,7 @@ class DataTableTests(test.TestCase):
         # Row actions
         row_actions = self.table.render_row_actions(TEST_DATA[0])
         resp = http.HttpResponse(row_actions)
-        self.assertContains(resp, "primary", 1)
-        self.assertContains(resp, "<li", 2)
+        self.assertContains(resp, "<li", 1)
         self.assertContains(resp, "my_table__click__1", 1)
         self.assertContains(resp, "/auth/login/", 1)
         self.assertContains(resp, "ajax-modal", 1)
