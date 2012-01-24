@@ -1,21 +1,11 @@
 {% extends 'nova/base.html' %}
 {% load i18n %}
-{% block title %}Network Detail{% endblock %}
+{% block title %}{% trans "Network Detail" %}{% endblock %}
 
 {% block page_header %}
-  {% url horizon:nova:networks:detail network.id as refresh_link %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "horizon/common/_page_header.html" with title=network.name refresh_link=refresh_link searchable="true" %}
+  {% include "horizon/common/_page_header.html" with title=network.name %}
 {% endblock page_header %}
 
 {% block dash_main %}
-  {% if network.ports %}
-    {% include 'nova/networks/_detail.html' %}
-    <a id="network_create_link" class="btn small" href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports" %}</a>
-  {% else %}
-    <div class="alert alert-block alert-info">
-     <h2>{% trans "Info" %}</h2>
-     <p>{% trans "There are currently no ports in this network." %} <a class='btn small' href="{% url horizon:nova:networks:port_create network.id %}">{% trans "Create Ports" %}</a></p>
-    </div>
-  {% endif %}
+  {{ table.render }}
 {% endblock %}
