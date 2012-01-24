@@ -273,7 +273,7 @@ class ComputeApiTests(APITestCase):
         USER_DATA = {'nuts': 'berries'}
         KEY = 'user'
         SECGROUP = self.mox.CreateMock(api.SecurityGroup)
-        BLOCK_DEVICE_MAPPING = {'/dev/vda': '1:::0'}
+        BLOCK_DEVICE_MAPPING = {'vda': '1:::0'}
 
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
