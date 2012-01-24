@@ -21,21 +21,17 @@
 """
 Views for managing Nova instances.
 """
-import datetime
 import logging
 
 from django import http
 from django import shortcuts
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext as _
 
-import horizon
 from horizon import api
 from horizon import exceptions
 from horizon import forms
-from horizon import test
 from horizon import views
 from .forms import UpdateInstance
 
@@ -99,36 +95,42 @@ class DetailView(views.APIView):
 
     def get_data(self, request, context, *args, **kwargs):
         instance_id = kwargs['instance_id']
+
+        if request.GET.has_key("show"):
+            show_tab = request.GET["show"]
+        else:
+            show_tab = "overview"
+
         try:
             instance = api.server_get(request, instance_id)
             volumes = api.volume_instance_list(request, instance_id)
+
+            # Gather our flavors and images and correlate our instances to
+            # them. Exception handling happens in the parent class.
+            flavors = api.flavor_list(request)
+            full_flavors = SortedDict([(str(flavor.id), flavor) for \
+                                        flavor in flavors])
+            instance.full_flavor = full_flavors[instance.flavor["id"]]
+
+            context.update({'instance': instance, 'volumes': volumes})
         except:
-            instance = None
             redirect = reverse('horizon:nova:instances_and_volumes:index')
             exceptions.handle(request,
                               _('Unable to retrieve details for '
                                 'instance "%s".') % instance_id,
                                 redirect=redirect)
-        try:
-            console = api.server_vnc_console(request, instance_id)
-            vnc_url = "%s&title=%s(%s)" % (console.url,
-                                           getattr(instance, "name", ""),
-                                           instance_id)
-        except:
-            vnc_url = ""
-            exceptions.handle(request,
-                              _('Unable to get vnc console for '
-                                'instance "%s".') % instance_id)
+        if show_tab == "vnc":
+            try:
+                console = api.server_vnc_console(request, instance_id)
+                vnc_url = "%s&title=%s(%s)" % (console.url,
+                                               getattr(instance, "name", ""),
+                                               instance_id)
+                context.update({'vnc_url': vnc_url})
+            except:
+                exceptions.handle(request,
+                                  _('Unable to get vnc console for '
+                                    'instance "%s".') % instance_id)
 
-        # Gather our flavors and images and correlate our instances to them
-        # Exception handling happens in the parent class.
-        flavors = api.flavor_list(request)
-        full_flavors = SortedDict([(str(flavor.id), flavor) for \
-                                    flavor in flavors])
-        instance.full_flavor = full_flavors[instance.flavor["id"]]
-
-        context.update({'instance': instance,
-                        'vnc_url': vnc_url,
-                        'volumes': volumes})
+        context.update({'show_tab': show_tab})
 
         return context
