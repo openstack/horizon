@@ -380,6 +380,10 @@ def security_group_rule_delete(request, security_group_rule_id):
     novaclient(request).security_group_rules.delete(security_group_rule_id)
 
 
+def virtual_interfaces_list(request, instance_id):
+    return novaclient(request).virtual_interfaces.list(instance_id)
+
+
 def volume_list(request):
     return [Volume(vol) for vol in novaclient(request).volumes.list()]
 
