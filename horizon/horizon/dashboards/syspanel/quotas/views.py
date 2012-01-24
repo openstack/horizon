@@ -37,10 +37,9 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         try:
-            quotas = api.admin_api(self.request).quota_sets.get(True)._info
-            quotas['ram'] = int(quotas['ram'])
-            quotas.pop('id')
-            data = [api.nova.Quota(key, val) for key, val in quotas.items()]
+            quota_set = api.tenant_quota_defaults(self.request,
+                                                  self.request.user.tenant_id)
+            data = quota_set.items
         except Exception, e:
             data = []
             LOG.exception('Exception while getting quota info')

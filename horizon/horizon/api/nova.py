@@ -77,13 +77,26 @@ class VNCConsole(APIDictWrapper):
 
 
 class Quota(object):
-    """ Basic wrapper for individual limits in a quota. """
+    """ Basic wrapper for individual limits in a quota."""
     def __init__(self, name, limit):
         self.name = name
         self.limit = limit
 
     def __repr__(self):
         return "<Quota: (%s, %s)>" % (self.name, self.limit)
+
+
+class QuotaSet(object):
+    """ Basic wrapper for quota sets."""
+    def __init__(self, apiresource):
+        self.items = []
+        for k in apiresource._info.keys():
+            if k in ['id']:
+                continue
+            v = int(apiresource._info[k])
+            q = Quota(k, v)
+            self.items.append(q)
+            setattr(self, k, v)
 
 
 class Server(APIResourceWrapper):
@@ -327,12 +340,16 @@ def server_remove_floating_ip(request, server, address):
     return novaclient(request).servers.remove_floating_ip(server, fip)
 
 
-def tenant_quota_get(request, tenant):
-    return novaclient(request).quotas.get(tenant)
+def tenant_quota_get(request, tenant_id):
+    return QuotaSet(novaclient(request).quotas.get(tenant_id))
 
 
 def tenant_quota_update(request, tenant_id, **kwargs):
     novaclient(request).quotas.update(tenant_id, **kwargs)
+
+
+def tenant_quota_defaults(request, tenant_id):
+    return QuotaSet(novaclient(request).quotas.defaults(tenant_id))
 
 
 @check_openstackx
