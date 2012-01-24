@@ -18,12 +18,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import datetime
-
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
-from mox import IsA, IgnoreArg
+from mox import IsA
 from openstackx.api import exceptions as api_exceptions
 
 from horizon import api

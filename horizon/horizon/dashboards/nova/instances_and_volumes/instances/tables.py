@@ -16,12 +16,9 @@
 
 import logging
 
-from django import shortcuts
 from django import template
-from django.contrib import messages
-from django.core.urlresolvers import reverse
 from django.template.defaultfilters import title
-from novaclient import exceptions as novaclient_exceptions
+from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import tables
@@ -137,6 +134,7 @@ class SnapshotLink(tables.LinkAction):
     name = "snapshot"
     verbose_name = _("Snapshot")
     url = "horizon:nova:images_and_snapshots:snapshots:create"
+    attrs = {"class": "ajax-modal"}
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES

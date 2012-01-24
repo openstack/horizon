@@ -21,11 +21,12 @@
 import logging
 
 from django import shortcuts
+from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 
 
@@ -35,24 +36,21 @@ LOG = logging.getLogger(__name__)
 class CreateSnapshot(forms.SelfHandlingForm):
     tenant_id = forms.CharField(widget=forms.HiddenInput())
     instance_id = forms.CharField(widget=forms.TextInput(
-        attrs={'readonly': 'readonly'}))
+                                  attrs={'readonly': 'readonly'}))
     name = forms.CharField(max_length="20", label=_("Snapshot Name"))
 
     def handle(self, request, data):
         try:
-            LOG.info('Creating snapshot "%s"' % data['name'])
-            snapshot = api.snapshot_create(request,
-                    data['instance_id'],
-                    data['name'])
+            api.snapshot_create(request, data['instance_id'], data['name'])
+            # NOTE(gabriel): This API call is only to display a pretty name.
             instance = api.server_get(request, data['instance_id'])
-
-            messages.info(request,
-                     _('Snapshot "%(name)s" created for instance "%(inst)s"') %
-                    {"name": data['name'], "inst": instance.name})
+            vals = {"name": data['name'], "inst": instance.name}
+            messages.success(request, _('Snapshot "%(name)s" created for '
+                                        'instance "%(inst)s"') % vals)
             return shortcuts.redirect('horizon:nova:images_and_snapshots:'
                                       'index')
-        except api_exceptions.ApiException, e:
-            msg = _('Error Creating Snapshot: %s') % e.message
-            LOG.exception(msg)
-            messages.error(request, msg)
-            return shortcuts.redirect(request.build_absolute_uri())
+        except:
+            redirect = reverse("horizon:nova:instances_and_volumes:index")
+            exceptions.handle(request,
+                              _('Unable to create snapshot.'),
+                              redirect=redirect)

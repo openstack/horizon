@@ -1,13 +1,13 @@
 {% extends 'nova/base.html' %}
 {% load i18n %}
-{% block title %}Create Snapshot{% endblock %}
+{% block title %}{% trans "Create Snapshot" %}{% endblock %}
 
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Create a Snapshot") %}
 {% endblock page_header %}
 
 {% block dash_main %}
-    {% include 'nova/images_and_snapshots/snapshots/_create.html' with form=create_form %}
+    {% include 'nova/images_and_snapshots/snapshots/_create.html' %}
 {% endblock %}
 
 

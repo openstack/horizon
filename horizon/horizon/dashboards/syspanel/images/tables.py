@@ -1,10 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2011 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
-# Copyright 2011 Nebula, Inc.
+# Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -18,12 +14,5 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
-
-from .views import IndexView, UpdateView
-
-
-urlpatterns = patterns('horizon.dashboards.syspanel.images.views',
-    url(r'^images/$', IndexView.as_view(), name='index'),
-    url(r'^(?P<image_id>[^/]+)/update/$', UpdateView.as_view(), name='update')
-)
+from horizon.dashboards.nova.images_and_snapshots.images.tables import (
+        ImagesTable, LaunchImage, EditImage, DeleteImage)

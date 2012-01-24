@@ -29,6 +29,9 @@ from horizon import api
 from horizon import test
 
 
+INDEX_URL = reverse('horizon:nova:images_and_snapshots:index')
+
+
 class SnapshotsViewTests(test.BaseViewTests):
     def setUp(self):
         super(SnapshotsViewTests, self).setUp()
@@ -90,8 +93,8 @@ class SnapshotsViewTests(test.BaseViewTests):
                 reverse('horizon:nova:images_and_snapshots:snapshots:create',
                         args=[self.bad_server.id]))
 
-        self.assertRedirectsNoFollow(res,
-                reverse('horizon:nova:instances_and_volumes:index'))
+        url = reverse("horizon:nova:instances_and_volumes:index")
+        self.assertRedirectsNoFollow(res, url)
 
     def test_create_get_server_exception(self):
         self.mox.StubOutWithMock(api, 'server_get')
@@ -105,8 +108,8 @@ class SnapshotsViewTests(test.BaseViewTests):
                 reverse('horizon:nova:images_and_snapshots:snapshots:create',
                         args=[self.good_server.id]))
 
-        self.assertRedirectsNoFollow(res,
-                reverse('horizon:nova:instances_and_volumes:index'))
+        url = reverse("horizon:nova:instances_and_volumes:index")
+        self.assertRedirectsNoFollow(res, url)
 
     def test_create_snapshot_post(self):
         SNAPSHOT_NAME = 'snappy'
@@ -120,13 +123,15 @@ class SnapshotsViewTests(test.BaseViewTests):
                     'name': SNAPSHOT_NAME}
 
         self.mox.StubOutWithMock(api, 'server_get')
+        self.mox.StubOutWithMock(api, 'snapshot_create')
+
         api.server_get(IsA(http.HttpRequest),
                        str(self.good_server.id)).AndReturn(self.good_server)
-
-        self.mox.StubOutWithMock(api, 'snapshot_create')
         api.snapshot_create(IsA(http.HttpRequest),
                             str(self.good_server.id), SNAPSHOT_NAME).\
                             AndReturn(new_snapshot)
+        api.server_get(IsA(http.HttpRequest),
+                       str(self.good_server.id)).AndReturn(self.good_server)
 
         self.mox.ReplayAll()
 
@@ -135,8 +140,7 @@ class SnapshotsViewTests(test.BaseViewTests):
                         args=[self.good_server.id]),
                         formData)
 
-        self.assertRedirectsNoFollow(res,
-                reverse('horizon:nova:images_and_snapshots:index'))
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_create_snapshot_post_exception(self):
         SNAPSHOT_NAME = 'snappy'
@@ -149,7 +153,11 @@ class SnapshotsViewTests(test.BaseViewTests):
                     'instance_id': self.good_server.id,
                     'name': SNAPSHOT_NAME}
 
+        self.mox.StubOutWithMock(api, 'server_get')
         self.mox.StubOutWithMock(api, 'snapshot_create')
+
+        api.server_get(IsA(http.HttpRequest),
+                       str(self.good_server.id)).AndReturn(self.good_server)
         exception = api_exceptions.ApiException('apiException',
                                                 message='apiException')
         api.snapshot_create(IsA(http.HttpRequest),
@@ -163,6 +171,5 @@ class SnapshotsViewTests(test.BaseViewTests):
                         args=[self.good_server.id]),
                         formData)
 
-        self.assertRedirectsNoFollow(res,
-                 reverse('horizon:nova:images_and_snapshots:snapshots:create',
-                 args=[self.good_server.id]))
+        url = reverse("horizon:nova:instances_and_volumes:index")
+        self.assertRedirectsNoFollow(res, url)

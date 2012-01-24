@@ -16,11 +16,8 @@
 
 import logging
 
-from django import shortcuts
-from django.contrib import messages
-from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
-from novaclient import exceptions as novaclient_exceptions
+from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import tables
@@ -60,6 +57,14 @@ def get_image_type(image):
     return getattr(image.properties, "image_type", "Image")
 
 
+def get_container_format(image):
+    container_format = getattr(image, "container_format", "")
+    # The "container_format" attribute can actually be set to None,
+    # which will raise an error if you call upper() on it.
+    if container_format is not None:
+        return container_format.upper()
+
+
 class ImagesTable(tables.DataTable):
     name = tables.Column("name")
     image_type = tables.Column(get_image_type,
@@ -70,9 +75,8 @@ class ImagesTable(tables.DataTable):
                            verbose_name=_("Public"),
                            empty_value=False,
                            filters=(filters.yesno, filters.capfirst))
-    container_format = tables.Column("container_format",
-                                     verbose_name=_("Container Format"),
-                                     filters=(unicode.upper,))
+    container_format = tables.Column(get_container_format,
+                                     verbose_name=_("Container Format"))
 
     class Meta:
         name = "images"

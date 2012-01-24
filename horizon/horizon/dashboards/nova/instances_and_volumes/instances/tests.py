@@ -18,10 +18,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import datetime
-
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from mox import IsA, IgnoreArg
 from novaclient import exceptions as nova_exceptions
@@ -42,12 +39,17 @@ class InstanceViewTests(test.BaseViewTests):
         server.id = "1"
         server.name = 'serverName'
         server.status = "ACTIVE"
+        server.flavor = {'id': '1'}
+
+        flavor = api.nova.Flavor(None)
+        flavor.id = '1'
 
         volume = api.Volume(self.request)
         volume.id = "1"
 
         self.servers = (server,)
         self.volumes = (volume,)
+        self.flavors = (flavor,)
 
     def tearDown(self):
         super(InstanceViewTests, self).tearDown()
@@ -59,7 +61,7 @@ class InstanceViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'server_delete')
 
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-        api.flavor_list(IgnoreArg()).AndReturn([])
+        api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
         api.server_delete(IsA(http.HttpRequest),
                           self.servers[0].id)
 
@@ -76,7 +78,7 @@ class InstanceViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'server_delete')
 
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-        api.flavor_list(IgnoreArg()).AndReturn([])
+        api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
         exception = nova_exceptions.ClientException(500)
         api.server_delete(IsA(http.HttpRequest),
                           self.servers[0].id).AndRaise(exception)

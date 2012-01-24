@@ -96,7 +96,7 @@ class DetailView(views.APIView):
     def get_data(self, request, context, *args, **kwargs):
         instance_id = kwargs['instance_id']
 
-        if request.GET.has_key("show"):
+        if "show" in request.GET:
             show_tab = request.GET["show"]
         else:
             show_tab = "overview"

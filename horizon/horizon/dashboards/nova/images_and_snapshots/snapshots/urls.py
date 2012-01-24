@@ -20,10 +20,11 @@
 
 from django.conf.urls.defaults import patterns, url
 
+from .views import CreateView
 
-VIEWS_MOD = 'horizon.dashboards.nova.images_and_snapshots.snapshots.views'
 
-
-urlpatterns = patterns(VIEWS_MOD,
-    url(r'^$', 'index', name='index'),
-    url(r'^(?P<instance_id>[^/]+)/create', 'create', name='create'))
+urlpatterns = patterns('',
+    url(r'^(?P<instance_id>[^/]+)/create',
+        CreateView.as_view(),
+        name='create')
+)

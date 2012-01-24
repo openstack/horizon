@@ -22,7 +22,7 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import filesizeformat
 from django.utils import http
-from novaclient import exceptions as novaclient_exceptions
+from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import tables

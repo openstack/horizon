@@ -32,7 +32,11 @@ from horizon.api.deprecated import admin_api
 from horizon.api.deprecated import check_openstackx
 from horizon.api.deprecated import extras_api
 
+
 LOG = logging.getLogger(__name__)
+
+
+INSTANCE_ACTIVE_STATE = 'ACTIVE'
 
 
 class Flavor(APIResourceWrapper):

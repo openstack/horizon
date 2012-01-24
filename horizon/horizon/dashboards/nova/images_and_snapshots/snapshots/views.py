@@ -23,70 +23,40 @@ Views for managing Nova instance snapshots.
 """
 
 import logging
-import re
 
-from django import http
-from django import shortcuts
-from django import template
-from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
-from glance.common import exception as glance_exception
-from openstackx.api import exceptions as api_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
-from horizon.dashboards.nova.images_and_snapshots.snapshots.forms import \
-                                                                CreateSnapshot
+from .forms import CreateSnapshot
 
 
 LOG = logging.getLogger(__name__)
 
 
-def index(request):
-    images = []
+class CreateView(forms.ModalFormView):
+    form_class = CreateSnapshot
+    template_name = 'nova/images_and_snapshots/snapshots/create.html'
 
-    try:
-        images = api.snapshot_list_detailed(request)
-    except glance_exception.ClientConnectionError, e:
-        msg = _('Error connecting to glance: %s') % str(e)
-        LOG.exception(msg)
-        messages.error(request, msg)
-    except glance_exception.GlanceException, e:
-        msg = _('Error retrieving image list: %s') % str(e)
-        LOG.exception(msg)
-        messages.error(request, msg)
+    def get_initial(self):
+        redirect = reverse('horizon:nova:instances_and_volumes:index')
+        instance_id = self.kwargs["instance_id"]
+        try:
+            self.instance = api.server_get(self.request, instance_id)
+        except:
+            self.instance = None
+            msg = _("Unable to retrieve instance.")
+            exceptions.handle(self.request, msg, redirect)
+        if self.instance.status != api.nova.INSTANCE_ACTIVE_STATE:
+            msg = _('To create a snapshot, the instance must be in '
+                    'the "%s" state.') % api.nova.INSTANCE_ACTIVE_STATE
+            raise exceptions.Http302(redirect, message=msg)
+        return {"instance_id": instance_id,
+                "tenant_id": self.request.user.tenant_id}
 
-    return shortcuts.render(request,
-                            'nova/images_and_snapshots/snapshots/index.html',
-                            {'images': images})
-
-
-def create(request, instance_id):
-    tenant_id = request.user.tenant_id
-    form, handled = CreateSnapshot.maybe_handle(request,
-                        initial={'tenant_id': tenant_id,
-                                 'instance_id': instance_id})
-    if handled:
-        return handled
-
-    try:
-        instance = api.server_get(request, instance_id)
-    except api_exceptions.ApiException, e:
-        msg = _("Unable to retrieve instance: %s") % e
-        LOG.exception(msg)
-        messages.error(request, msg)
-        return shortcuts.redirect(
-                        'horizon:nova:instances_and_volumes:index')
-
-    valid_states = ['ACTIVE']
-    if instance.status not in valid_states:
-        messages.error(request, _("To snapshot, instance state must be\
-                                  one of the following: %s") %
-                                  ', '.join(valid_states))
-        return shortcuts.redirect(
-                        'horizon:nova:instances_and_volumes:index')
-
-    return shortcuts.render(request,
-                            'nova/images_and_snapshots/snapshots/create.html',
-                            {'instance': instance,
-                             'create_form': form})
+    def get_context_data(self, **kwargs):
+        context = super(CreateView, self).get_context_data(**kwargs)
+        context['instance'] = self.instance
+        return context
