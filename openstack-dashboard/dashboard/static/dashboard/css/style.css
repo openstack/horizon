@@ -595,6 +595,7 @@ table form {
 
 .modal {
     width: 700px;
+    max-height: none; /* Prevents large modals from scrolling unnecessarily */
     top: 80px;
     margin-top: 0;
     position: absolute;
