@@ -32,7 +32,7 @@ LOG = logging.getLogger(__name__)
 class AllocateIP(tables.LinkAction):
     name = "allocate"
     verbose_name = _("Allocate IP To Tenant")
-    attrs = {"class": "ajax-modal btn primary small"}
+    attrs = {"class": "ajax-modal btn small"}
     url = "horizon:nova:access_and_security:floating_ips:allocate"
 
     def single(self, data_table, request, *args):

@@ -42,7 +42,7 @@ class BaseAction(object):
 
     def __init__(self):
         self.attrs = getattr(self, "attrs", {})
-        self.classes = []
+        self.classes = getattr(self, "classes", [])
 
     def allowed(self, request, datum):
         """ Determine whether this action is allowed for the current request.

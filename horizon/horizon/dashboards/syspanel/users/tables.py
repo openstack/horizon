@@ -17,7 +17,7 @@ class CreateUserLink(tables.LinkAction):
     verbose_name = _("Create User")
     url = "horizon:syspanel:users:create"
     attrs = {
-        "class": "ajax-modal btn primary small",
+        "class": "ajax-modal btn small",
     }
 
 
