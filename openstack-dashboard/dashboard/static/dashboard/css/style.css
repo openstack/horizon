@@ -753,8 +753,17 @@ td.actions_column {
   min-height: 20px;
 }
 
-.btn-group .btn.small {
-  padding: 7px 9px 6px;
+/* Makes size consistent across browsers when mixing "btn-group" and "small" */
+.btn-group > .btn.small {
+  height: 12px;
+}
+.btn-group .dropdown-toggle {
+  height: 12px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.btn-group .dropdown-toggle:focus {
+  outline: none;
 }
 
 td.actions_column ul.row_actions li:hover {
