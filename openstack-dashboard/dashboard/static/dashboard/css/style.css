@@ -766,6 +766,9 @@ td.actions_column {
 .btn-group .dropdown-toggle:focus {
   outline: none;
 }
+.dropdown-menu button {
+  line-height: 18px; /* Matches rule for ".dropdown-menu a" in bootstrap */
+}
 
 td.actions_column ul.row_actions li:hover {
   background-color: #cdcdcd;
