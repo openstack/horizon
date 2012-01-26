@@ -37,11 +37,6 @@ def _get_endpoint_url(request):
                                getattr(settings, 'OPENSTACK_KEYSTONE_URL'))
 
 
-class Tenant(APIResourceWrapper):
-    """Simple wrapper around keystoneclient.tenants.Tenant"""
-    _attrs = ['id', 'description', 'enabled', 'name']
-
-
 class Token(APIResourceWrapper):
     """Simple wrapper around keystoneclient.tokens.Tenant"""
     _attrs = ['id', 'user', 'serviceCatalog', 'tenant']
@@ -120,13 +115,13 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
 
 
 def tenant_create(request, tenant_name, description, enabled):
-    return Tenant(keystoneclient(request).tenants.create(tenant_name,
-                                                         description,
-                                                         enabled))
+    return keystoneclient(request).tenants.create(tenant_name,
+                                                  description,
+                                                  enabled)
 
 
 def tenant_get(request, tenant_id):
-    return Tenant(keystoneclient(request).tenants.get(tenant_id))
+    return keystoneclient(request).tenants.get(tenant_id)
 
 
 def tenant_delete(request, tenant_id):
@@ -134,14 +129,14 @@ def tenant_delete(request, tenant_id):
 
 
 def tenant_list(request):
-    return [Tenant(t) for t in keystoneclient(request).tenants.list()]
+    return keystoneclient(request).tenants.list()
 
 
 def tenant_update(request, tenant_id, tenant_name, description, enabled):
-    return Tenant(keystoneclient(request).tenants.update(tenant_id,
-                                                         tenant_name,
-                                                         description,
-                                                         enabled))
+    return keystoneclient(request).tenants.update(tenant_id,
+                                                  tenant_name,
+                                                  description,
+                                                  enabled)
 
 
 def tenant_list_for_token(request, token, endpoint_type=None):
@@ -149,7 +144,7 @@ def tenant_list_for_token(request, token, endpoint_type=None):
                        token_id=token,
                        endpoint=_get_endpoint_url(request),
                        endpoint_type=endpoint_type)
-    return [Tenant(t) for t in c.tenants.list()]
+    return c.tenants.list()
 
 
 def token_create(request, tenant, username, password):

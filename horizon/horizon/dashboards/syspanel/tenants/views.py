@@ -86,7 +86,7 @@ class UpdateView(forms.ModalFormView):
     def get_initial(self):
         return {'id': self.object.id,
                 'name': self.object.name,
-                'description': self.object.description,
+                'description': getattr(self.object, "description", ""),
                 'enabled': self.object.enabled}
 
 

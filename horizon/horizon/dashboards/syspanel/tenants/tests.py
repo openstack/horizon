@@ -25,7 +25,7 @@ from horizon import test
 INDEX_URL = reverse('horizon:syspanel:tenants:index')
 
 
-class FakeQuotaSet(object):
+class FakeResource(object):
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
             setattr(self, key, value)
@@ -35,10 +35,9 @@ class TenantsViewTests(test.BaseAdminViewTests):
     def setUp(self):
         super(TenantsViewTests, self).setUp()
 
-        self.tenant = api.keystone.Tenant(None)
-        self.tenant.id = self.TEST_TENANT
-        self.tenant.name = self.TEST_TENANT_NAME
-        self.tenant.enabled = True
+        self.tenant = FakeResource(id=self.TEST_TENANT,
+                                   name=self.TEST_TENANT_NAME,
+                                   enabled=True)
 
         self.quota_data = dict(metadata_items='1',
                                injected_file_content_bytes='1',
@@ -49,7 +48,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
                                instances='1',
                                injected_files='1',
                                cores='1')
-        self.quota = FakeQuotaSet(id=self.TEST_TENANT, **self.quota_data)
+        self.quota = FakeResource(id=self.TEST_TENANT, **self.quota_data)
 
         self.tenants = [self.tenant]
 
