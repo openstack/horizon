@@ -4,7 +4,8 @@
 {% block form_id %}{% endblock %}
 {% block form_action %}{% url horizon:syspanel:tenants:update tenant.id %}{% endblock %}
 
-{% block modal-header %}{% endblock %}
+{% block modal_id %}update_tenant_modal{% endblock %}
+{% block modal-header %}{% trans "Update Tenant" %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
