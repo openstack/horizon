@@ -30,13 +30,14 @@ from django.utils.datastructures import SortedDict
 from django.utils.html import escape
 from django.utils.translation import ugettext as _
 from django.utils.safestring import mark_safe
+from django.utils import termcolors
 
 from horizon import exceptions
 from .actions import FilterAction, LinkAction
 
 
 LOG = logging.getLogger(__name__)
-
+PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]
 STRING_SEPARATOR = "__"
 
 
@@ -159,7 +160,7 @@ class Column(object):
         self.link = link
         self.hidden = hidden
         self.status = status
-        self.empty_value = empty_value or ''
+        self.empty_value = empty_value or '-'
         self.filters = filters or []
         if status_choices:
             self.status_choices = status_choices
@@ -206,10 +207,10 @@ class Column(object):
             data = datum.get(self.transform)
         else:
             if settings.DEBUG:
-                messages.error(self.table._meta.request,
-                               _("The attribute %(attr)s doesn't exist on "
-                                 "%(obj)s.") % {'attr': self.transform,
-                                                'obj': datum})
+                msg = _("The attribute %(attr)s doesn't exist on "
+                        "%(obj)s.") % {'attr': self.transform, 'obj': datum}
+                msg = termcolors.colorize(msg, **PALETTE['ERROR'])
+                LOG.warning(msg)
             data = None
         for filter_func in self.filters:
             data = filter_func(data)
@@ -347,7 +348,7 @@ class Cell(object):
         """
         try:
             data = self.column.get_data(self.datum) or self.column.empty_value
-        except Exception as ex:
+        except:
             data = None
             exc_info = sys.exc_info()
             raise template.TemplateSyntaxError, exc_info[1], exc_info[2]
@@ -849,7 +850,7 @@ class DataTable(object):
         try:
             for datum in self.filtered_data:
                 rows.append(Row(self, datum))
-        except Exception, e:
+        except:
             # Exceptions can be swallowed at the template level here,
             # re-raising as a TemplateSyntaxError makes them visible.
             LOG.exception("Error while rendering table rows.")
