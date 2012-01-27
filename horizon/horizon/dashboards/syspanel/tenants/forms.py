@@ -24,9 +24,9 @@ from django import shortcuts
 from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-from keystoneclient import exceptions as keystone_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 
 
@@ -47,9 +47,8 @@ class AddUser(forms.SelfHandlingForm):
             messages.success(request,
                             _('%(user)s was successfully added to %(tenant)s.')
                             % {"user": data['user'], "tenant": data['tenant']})
-        except keystone_exceptions.ClientException, e:
-            messages.error(request, _('Unable to create user association: %s')
-                           % (e.message))
+        except:
+            exceptions.handle(request, _('Unable to add user to tenant.'))
         return shortcuts.redirect('horizon:syspanel:tenants:users',
                                   tenant_id=data['tenant'])
 
@@ -68,9 +67,8 @@ class RemoveUser(forms.SelfHandlingForm):
             messages.success(request,
                         _('%(user)s was successfully removed from %(tenant)s.')
                         % {"user": data['user'], "tenant": data['tenant']})
-        except api_exceptions.ApiException, e:
-            messages.error(request, _('Unable to create tenant: %s') %
-                           (e.message))
+        except:
+            exceptions.handle(request, _('Unable to remove user from tenant.'))
         return shortcuts.redirect('horizon:syspanel:tenants:users',
                                   tenant_id=data['tenant'])
 
@@ -93,12 +91,8 @@ class CreateTenant(forms.SelfHandlingForm):
             messages.success(request,
                              _('%s was successfully created.')
                              % data['name'])
-        except api_exceptions.ApiException, e:
-            LOG.exception('ApiException while creating tenant\n'
-                      'Id: "%s", Description: "%s", Enabled "%s"' %
-                      (data['name'], data['description'], data['enabled']))
-            messages.error(request, _('Unable to create tenant: %s') %
-                           (e.message))
+        except:
+            exceptions.handle(request, _('Unable to create tenant.'))
         return shortcuts.redirect('horizon:syspanel:tenants:index')
 
 
@@ -123,13 +117,8 @@ class UpdateTenant(forms.SelfHandlingForm):
             messages.success(request,
                              _('%s was successfully updated.')
                              % data['name'])
-        except api_exceptions.ApiException, e:
-            LOG.exception('ApiException while updating tenant\n'
-                      'Id: "%s", Name: "%s", Description: "%s", Enabled "%s"' %
-                      (data['id'], data['name'],
-                       data['description'], data['enabled']))
-            messages.error(request,
-                           _('Unable to update tenant: %s') % e.message)
+        except:
+            exceptions.handle(request, _('Unable to update tenant.'))
         return shortcuts.redirect('horizon:syspanel:tenants:index')
 
 
@@ -164,7 +153,6 @@ class UpdateQuotas(forms.SelfHandlingForm):
             messages.success(request,
                              _('Quotas for %s were successfully updated.')
                              % data['tenant_id'])
-        except api_exceptions.ApiException, e:
-            messages.error(request,
-                           _('Unable to update quotas: %s') % e.message)
+        except:
+            exceptions.handle(request, _('Unable to update quotas.'))
         return shortcuts.redirect('horizon:syspanel:tenants:index')
