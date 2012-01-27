@@ -34,19 +34,18 @@ import horizon
 from horizon import api
 from horizon import exceptions
 from horizon import forms
-from horizon import test
+from horizon import time
 from horizon import views
-
 
 LOG = logging.getLogger(__name__)
 
 
 def usage(request, tenant_id=None):
     tenant_id = tenant_id or request.user.tenant_id
-    today = test.today()
+    today = time.today()
     date_start = datetime.date(today.year, today.month, 1)
-    datetime_start = datetime.datetime.combine(date_start, test.time())
-    datetime_end = test.utcnow()
+    datetime_start = datetime.datetime.combine(date_start, time.time())
+    datetime_end = time.utcnow()
 
     show_terminated = request.GET.get('show_terminated', False)
 
