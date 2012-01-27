@@ -23,19 +23,14 @@ from __future__ import division
 import datetime
 import logging
 
-from django import http
 from django import shortcuts
-from django.contrib import messages
-from django.core.urlresolvers import reverse
-from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext as _
 
 import horizon
 from horizon import api
 from horizon import exceptions
-from horizon import forms
 from horizon import time
-from horizon import views
+
 
 LOG = logging.getLogger(__name__)
 
@@ -53,7 +48,6 @@ def usage(request, tenant_id=None):
         usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
     except:
         usage = api.nova.Usage(None)
-        redirect = reverse("horizon:nova:overview:index")
         exceptions.handle(request,
                           _('Unable to retrieve usage information.'))
 

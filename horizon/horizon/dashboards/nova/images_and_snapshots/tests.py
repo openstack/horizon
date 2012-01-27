@@ -20,7 +20,6 @@
 #    under the License.
 
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from glance.common import exception as glance_exception
 from mox import IsA

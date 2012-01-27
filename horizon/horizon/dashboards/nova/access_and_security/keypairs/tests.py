@@ -19,7 +19,6 @@
 #    under the License.
 
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from mox import IsA
 from novaclient import exceptions as novaclient_exceptions

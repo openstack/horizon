@@ -21,10 +21,9 @@
 from django import http
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from glance.common import exception as glance_exception
 from novaclient import exceptions as novaclient_exceptions
 from novaclient.v1_1 import security_group_rules as nova_rules
-from mox import IgnoreArg, IsA
+from mox import IsA
 
 from horizon import api
 from horizon import test
@@ -188,7 +187,6 @@ class SecurityGroupsViewTests(test.BaseViewTests):
         exception = novaclient_exceptions.ClientException('ClientException',
                                                   message='ClientException')
 
-        RULE_ID = '1'
         FROM_PORT = '-1'
         TO_PORT = '-1'
         IP_PROTOCOL = 'icmp'

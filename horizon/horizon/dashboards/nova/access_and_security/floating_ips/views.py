@@ -24,6 +24,7 @@ Views for managing Nova floating IPs.
 """
 import logging
 
+from django import http
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 

@@ -21,7 +21,6 @@
 from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
-from glance.common import exception as glance_exception
 from keystoneclient import exceptions as keystone_exceptions
 from mox import IgnoreArg, IsA
 

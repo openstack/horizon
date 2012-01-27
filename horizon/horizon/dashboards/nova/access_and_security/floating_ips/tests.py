@@ -19,18 +19,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import datetime
-
 from django import http
 from django.core.urlresolvers import reverse
-from django.shortcuts import redirect
-from mox import IsA, IgnoreArg
+from mox import IsA
 from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
 from horizon import test
-from horizon.dashboards.nova.access_and_security.floating_ips.forms import \
-                                                            FloatingIpAssociate
 
 
 INDEX_URL = reverse('horizon:nova:access_and_security:index')
@@ -82,8 +77,6 @@ class FloatingIpViewTests(test.BaseViewTests):
                         'nova/access_and_security/floating_ips/associate.html')
 
     def test_associate_post(self):
-        server = self.server
-
         self.mox.StubOutWithMock(api, 'server_list')
         api.server_list = self.mox.CreateMockAnything()
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
@@ -114,8 +107,6 @@ class FloatingIpViewTests(test.BaseViewTests):
         self.assertRedirects(res, INDEX_URL)
 
     def test_associate_post_with_exception(self):
-        server = self.server
-
         self.mox.StubOutWithMock(api, 'server_list')
         api.server_list = self.mox.CreateMockAnything()
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)

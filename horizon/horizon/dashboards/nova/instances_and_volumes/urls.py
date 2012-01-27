@@ -20,11 +20,10 @@
 
 from django.conf.urls.defaults import *
 
-import horizon
-
 from .instances import urls as instance_urls
 from .views import IndexView
 from .volumes import urls as volume_urls
+
 
 urlpatterns = patterns('horizon.dashboards.nova.instances_and_volumes',
     url(r'^$', IndexView.as_view(), name='index'),
