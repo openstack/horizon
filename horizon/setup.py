@@ -41,7 +41,7 @@ setup(
                              + findall('horizon/dashboards/nova/templates') \
                              + findall('horizon/dashboards/syspanel/templates') \
                              + findall('horizon/dashboards/settings/templates')]},
-    install_requires = ['setuptools', 'mox>=0.5.3', 'django_nose'],
+    install_requires = [],
     classifiers = [
         'Development Status :: 4 - Beta',
         'Framework :: Django',
