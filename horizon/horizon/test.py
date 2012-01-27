@@ -24,6 +24,7 @@ from django import http
 from django import test as django_test
 from django.conf import settings
 from django.contrib.messages.storage import default_storage
+from django.core.handlers import wsgi
 from django.test.client import RequestFactory
 import httplib2
 import mox
@@ -35,6 +36,10 @@ from horizon import users
 from .time import time
 from .time import today
 from .time import utcnow
+
+
+# Makes output of failing mox tests much easier to read.
+wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
 
 
 class RequestFactoryWithMessages(RequestFactory):
