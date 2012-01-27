@@ -69,7 +69,8 @@ class TenantFilterAction(tables.FilterAction):
 class TenantsTable(tables.DataTable):
     id = tables.Column('id', verbose_name=_('Id'))
     name = tables.Column('name', verbose_name=_('Name'))
-    description = tables.Column("description", verbose_name=_('Description'))
+    description = tables.Column(lambda obj: getattr(obj, 'description', None),
+                                verbose_name=_('Description'))
     enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True)
 
     class Meta:

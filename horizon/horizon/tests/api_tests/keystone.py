@@ -22,10 +22,13 @@ from __future__ import absolute_import
 
 from django import http
 from django.conf import settings
-from keystoneclient.v2_0 import client as keystone_client
+from keystoneclient.v2_0 import tenants as keystoneclient_tenants
 from mox import IsA
 
-from horizon.tests.api_tests.utils import *
+from horizon import api
+from horizon.tests.api_tests.utils import (APITestCase, APIResource,
+        TEST_RETURN, TEST_URL, TEST_USERNAME, TEST_TENANT_ID, TEST_TOKEN_ID,
+        TEST_TENANT_NAME, TEST_PASSWORD, TEST_EMAIL)
 
 
 class Token(object):
@@ -47,16 +50,6 @@ class Token(object):
         return not self == other
 
 
-class KeystoneAdminApiTests(APITestCase):
-    def stub_admin_api(self, count=1):
-        self.mox.StubOutWithMock(api.keystone, 'admin_api')
-        admin_api = self.mox.CreateMock(keystone_client.Client)
-        for i in range(count):
-            api.keystone.admin_api(IsA(http.HttpRequest)) \
-                    .AndReturn(admin_api)
-        return admin_api
-
-
 class TokenApiTests(APITestCase):
     def setUp(self):
         super(TokenApiTests, self).setUp()
@@ -70,16 +63,6 @@ class TokenApiTests(APITestCase):
         settings.OPENSTACK_KEYSTONE_URL = self._prev_OPENSTACK_KEYSTONE_URL
 
     def test_token_create(self):
-        catalog = {
-                'access': {
-                    'token': {
-                        'id': TEST_TOKEN_ID,
-                    },
-                    'user': {
-                        'roles': [],
-                    }
-                }
-            }
         test_token = Token(TEST_TOKEN_ID, TEST_USERNAME,
                            TEST_TENANT_ID, TEST_TENANT_NAME)
 
@@ -120,74 +103,6 @@ class RoleAPITests(APITestCase):
                                                TEST_USERNAME,
                                                TEST_RETURN)
         self.assertEqual(ret_val, role)
-
-
-class TenantAPITests(APITestCase):
-    def test_tenant_create(self):
-        DESCRIPTION = 'aDescription'
-        ENABLED = True
-
-        keystoneclient = self.stub_keystoneclient()
-
-        keystoneclient.tenants = self.mox.CreateMockAnything()
-        keystoneclient.tenants.create(TEST_TENANT_ID, DESCRIPTION,
-                                   ENABLED).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.tenant_create(self.request, TEST_TENANT_ID,
-                                    DESCRIPTION, ENABLED)
-
-        self.assertIsInstance(ret_val, api.Tenant)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-    def test_tenant_get(self):
-        keystoneclient = self.stub_keystoneclient()
-
-        keystoneclient.tenants = self.mox.CreateMockAnything()
-        keystoneclient.tenants.get(TEST_TENANT_ID).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.tenant_get(self.request, TEST_TENANT_ID)
-
-        self.assertIsInstance(ret_val, api.Tenant)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-    def test_tenant_list(self):
-        tenants = (TEST_RETURN, TEST_RETURN + '2')
-
-        keystoneclient = self.stub_keystoneclient()
-
-        keystoneclient.tenants = self.mox.CreateMockAnything()
-        keystoneclient.tenants.list().AndReturn(tenants)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.tenant_list(self.request)
-
-        self.assertEqual(len(ret_val), len(tenants))
-        for tenant in ret_val:
-            self.assertIsInstance(tenant, api.Tenant)
-            self.assertIn(tenant._apiresource, tenants)
-
-    def test_tenant_update(self):
-        DESCRIPTION = 'aDescription'
-        ENABLED = True
-
-        keystoneclient = self.stub_keystoneclient()
-
-        keystoneclient.tenants = self.mox.CreateMockAnything()
-        keystoneclient.tenants.update(TEST_TENANT_ID, TEST_TENANT_NAME,
-                                   DESCRIPTION, ENABLED).AndReturn(TEST_RETURN)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.tenant_update(self.request, TEST_TENANT_ID,
-                                    TEST_TENANT_NAME, DESCRIPTION, ENABLED)
-
-        self.assertIsInstance(ret_val, api.Tenant)
-        self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
 
 class UserAPITests(APITestCase):
