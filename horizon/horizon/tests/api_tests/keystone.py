@@ -20,13 +20,11 @@
 
 from __future__ import absolute_import
 
-from django import http
 from django.conf import settings
-from keystoneclient.v2_0 import tenants as keystoneclient_tenants
-from mox import IsA
+from keystoneclient.v2_0.roles import Role, RoleManager
 
 from horizon import api
-from horizon.tests.api_tests.utils import (APITestCase, APIResource,
+from horizon.tests.api_tests.utils import (APITestCase,
         TEST_RETURN, TEST_URL, TEST_USERNAME, TEST_TENANT_ID, TEST_TOKEN_ID,
         TEST_TENANT_NAME, TEST_PASSWORD, TEST_EMAIL)
 
@@ -83,26 +81,47 @@ class TokenApiTests(APITestCase):
 
 
 class RoleAPITests(APITestCase):
-    def test_role_add_for_tenant_user(self):
+    def setUp(self):
+        super(RoleAPITests, self).setUp()
+        self.role = Role(RoleManager,
+                         {'id': '2',
+                          'name': settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE})
+        self.roles = (self.role,)
+
+    def test_remove_tenant_user(self):
+        """
+        Tests api.keystone.remove_tenant_user.
+
+        Verifies that remove_tenant_user is called with the right arguments
+        after iterating the user's roles.
+
+        There are no assertions in this test because the checking is handled
+        by mox in the VerifyAll() call in tearDown().
+        """
         keystoneclient = self.stub_keystoneclient()
 
-        role = api.Role(APIResource.get_instance())
-        role.id = TEST_RETURN
-        role.name = TEST_RETURN
-
         keystoneclient.roles = self.mox.CreateMockAnything()
-        keystoneclient.roles.add_user_to_tenant(TEST_TENANT_ID,
-                                                  TEST_USERNAME,
-                                                  TEST_RETURN).AndReturn(role)
-        api.keystone._get_role = self.mox.CreateMockAnything()
-        api.keystone._get_role(IsA(http.HttpRequest), IsA(str)).AndReturn(role)
-
+        keystoneclient.roles.roles_for_user(TEST_USERNAME, TEST_TENANT_ID) \
+                            .AndReturn(self.roles)
+        keystoneclient.roles.remove_user_role(TEST_USERNAME,
+                                              self.role.id,
+                                              TEST_TENANT_ID) \
+                            .AndReturn(self.role)
         self.mox.ReplayAll()
-        ret_val = api.role_add_for_tenant_user(self.request,
-                                               TEST_TENANT_ID,
-                                               TEST_USERNAME,
-                                               TEST_RETURN)
-        self.assertEqual(ret_val, role)
+        api.keystone.remove_tenant_user(self.request,
+                                        TEST_TENANT_ID,
+                                        TEST_USERNAME)
+
+    def test_get_default_role(self):
+        keystoneclient = self.stub_keystoneclient()
+        keystoneclient.roles = self.mox.CreateMockAnything()
+        keystoneclient.roles.list().AndReturn(self.roles)
+        self.mox.ReplayAll()
+        role = api.keystone.get_default_role(self.request)
+        self.assertEqual(role, self.role)
+        # Verify that a second call doesn't hit the API again,
+        # (it would show up in mox as an unexpected method call)
+        role = api.keystone.get_default_role(self.request)
 
 
 class UserAPITests(APITestCase):

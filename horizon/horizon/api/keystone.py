@@ -26,10 +26,12 @@ from keystoneclient import service_catalog
 from keystoneclient.v2_0 import client as keystone_client
 from keystoneclient.v2_0 import tokens
 
-from horizon.api.base import *
+from horizon import exceptions
+from horizon.api import APIResourceWrapper
 
 
 LOG = logging.getLogger(__name__)
+DEFAULT_ROLE = None
 
 
 def _get_endpoint_url(request):
@@ -45,11 +47,6 @@ class Token(APIResourceWrapper):
 class User(APIResourceWrapper):
     """Simple wrapper around keystoneclient.users.User"""
     _attrs = ['email', 'enabled', 'id', 'tenantId', 'name']
-
-
-class Role(APIResourceWrapper):
-    """Wrapper around keystoneclient.roles.role"""
-    _attrs = ['id', 'name', 'description', 'service_id']
 
 
 class Services(APIResourceWrapper):
@@ -226,34 +223,41 @@ def user_update_tenant(request, user_id, tenant_id):
                 .update_tenant(user_id, tenant_id))
 
 
-def _get_role(request, name):
-    roles = keystoneclient(request).roles.list()
+def role_list(request):
+    """ Returns a global list of available roles. """
+    return keystoneclient(request).roles.list()
+
+
+def add_tenant_user_role(request, tenant_id, user_id, role_id):
+    """ Adds a role for a user on a tenant. """
+    return keystoneclient(request).roles.add_user_role(user_id,
+                                                       role_id,
+                                                       tenant_id)
+
+
+def remove_tenant_user(request, tenant_id, user_id):
+    """ Removes all roles from a user on a tenant, removing them from it. """
+    client = keystoneclient(request)
+    roles = client.roles.roles_for_user(user_id, tenant_id)
     for role in roles:
-        if role.name.lower() == name.lower():
-            return role
-
-    raise Exception(_('Role does not exist: %s') % name)
+        client.roles.remove_user_role(user_id, role.id, tenant_id)
 
 
-def _get_roleref(request, user_id, tenant_id, role):
-    rolerefs = keystoneclient(request).roles.get_user_role_refs(user_id)
-    for roleref in rolerefs:
-        if roleref.roleId == role.id and roleref.tenantId == tenant_id:
-            return roleref
-    raise Exception(_('Role "%s" does not exist for that user on this tenant.')
-                         % role.name)
-
-
-def role_add_for_tenant_user(request, tenant_id, user_id, role):
-    role = _get_role(request, role)
-    return keystoneclient(request).roles.add_user_to_tenant(tenant_id,
-                                                            user_id,
-                                                            role.id)
-
-
-def role_delete_for_tenant_user(request, tenant_id, user_id, role):
-    role = _get_role(request, role)
-    roleref = _get_roleref(request, user_id, tenant_id, role)
-    return keystoneclient(request).roles.remove_user_from_tenant(tenant_id,
-                                                              user_id,
-                                                              roleref.id)
+def get_default_role(request):
+    """
+    Gets the default role object from Keystone and saves it as a global
+    since this is configured in settings and should not change from request
+    to request. Supports lookup by name or id.
+    """
+    global DEFAULT_ROLE
+    default = getattr(settings, "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+    if default and DEFAULT_ROLE is None:
+        try:
+            roles = keystoneclient(request).roles.list()
+        except:
+            exceptions.handle(request)
+        for role in roles:
+            if role.id == default or role.name == default:
+                DEFAULT_ROLE = role
+                break
+    return DEFAULT_ROLE

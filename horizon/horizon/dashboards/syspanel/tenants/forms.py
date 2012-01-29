@@ -21,7 +21,6 @@
 import logging
 
 from django import shortcuts
-from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 
@@ -34,43 +33,27 @@ LOG = logging.getLogger(__name__)
 
 
 class AddUser(forms.SelfHandlingForm):
-    user = forms.CharField()
-    tenant = forms.CharField()
+    tenant_id = forms.CharField(widget=forms.widgets.HiddenInput())
+    user_id = forms.CharField(widget=forms.widgets.HiddenInput())
+    role_id = forms.ChoiceField(label=_("Role"))
+
+    def __init__(self, *args, **kwargs):
+        roles = kwargs.pop('roles')
+        super(AddUser, self).__init__(*args, **kwargs)
+        role_choices = [(role.id, role.name) for role in roles]
+        self.fields['role_id'].choices = role_choices
 
     def handle(self, request, data):
         try:
-            api.role_add_for_tenant_user(
-                    request,
-                    data['tenant'],
-                    data['user'],
-                    settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
-            messages.success(request,
-                            _('%(user)s was successfully added to %(tenant)s.')
-                            % {"user": data['user'], "tenant": data['tenant']})
+            api.add_tenant_user_role(request,
+                                     data['tenant_id'],
+                                     data['user_id'],
+                                     data['role_id'])
+            messages.success(request, _('Successfully added user to tenant.'))
         except:
             exceptions.handle(request, _('Unable to add user to tenant.'))
         return shortcuts.redirect('horizon:syspanel:tenants:users',
-                                  tenant_id=data['tenant'])
-
-
-class RemoveUser(forms.SelfHandlingForm):
-    user = forms.CharField()
-    tenant = forms.CharField()
-
-    def handle(self, request, data):
-        try:
-            api.role_delete_for_tenant_user(
-                    request,
-                    data['tenant'],
-                    data['user'],
-                    settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
-            messages.success(request,
-                        _('%(user)s was successfully removed from %(tenant)s.')
-                        % {"user": data['user'], "tenant": data['tenant']})
-        except:
-            exceptions.handle(request, _('Unable to remove user from tenant.'))
-        return shortcuts.redirect('horizon:syspanel:tenants:users',
-                                  tenant_id=data['tenant'])
+                                  tenant_id=data['tenant_id'])
 
 
 class CreateTenant(forms.SelfHandlingForm):

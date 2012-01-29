@@ -21,11 +21,11 @@
 import logging
 
 from django import shortcuts
-from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 
 
@@ -68,29 +68,18 @@ class CreateUserForm(BaseUserForm):
                              _('User "%s" was successfully created.')
                              % data['name'])
             try:
-                api.role_add_for_tenant_user(
-                    request, data['tenant_id'], new_user.id,
-                    settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE)
-            except Exception, e:
-                LOG.exception('Exception while assigning \
-                               role to new user: %s' % new_user.id)
-                if not hasattr(e, 'message'):
-                    e.message = str(e)
-                messages.error(request,
-                               _('Error assigning role to user: %s')
-                               % e.message)
-
+                default_role = api.keystone.get_default_role(request)
+                if default_role:
+                    api.add_tenant_user_role(request,
+                                             data['tenant_id'],
+                                             new_user.id,
+                                             default_role.id)
+            except:
+                exceptions.handle(request,
+                                  _('Unable to add user to primary tenant.'))
             return shortcuts.redirect('horizon:syspanel:users:index')
-
-        except Exception, e:
-            LOG.exception('Exception while creating user\n'
-                      'name: "%s", email: "%s", tenant_id: "%s"' %
-                      (data['name'], data['email'], data['tenant_id']))
-            if not hasattr(e, 'message'):
-                e.message = str(e)
-            messages.error(request,
-                            _('Error creating user: %s')
-                             % e.message)
+        except:
+            exceptions.handle(request, _('Unable to create user.'))
             return shortcuts.redirect('horizon:syspanel:users:index')
 
 

@@ -58,9 +58,9 @@ class MultiTableView(generic.TemplateView):
                 table_func = getattr(self, func_name, None)
                 data = self.get_data()[table._meta.name]
                 if table_func is None:
-                    tbl = table(self.request, data)
+                    tbl = table(self.request, data, **self.kwargs)
                 else:
-                    tbl = table_func(self, self.request, data)
+                    tbl = table_func(self, self.request, data, **self.kwargs)
                 self._tables[table._meta.name] = tbl
         return self._tables
 

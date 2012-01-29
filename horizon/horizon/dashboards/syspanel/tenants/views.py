@@ -20,20 +20,21 @@
 
 import datetime
 import logging
+import operator
 
 from django import shortcuts
 from django import http
-from django.conf import settings
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from keystoneclient import exceptions as api_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 from horizon import tables
-from .forms import (AddUser, RemoveUser, CreateTenant, UpdateTenant,
-                    UpdateQuotas)
-from .tables import TenantsTable
+from .forms import AddUser, CreateTenant, UpdateTenant, UpdateQuotas
+from .tables import TenantsTable, TenantUsersTable, AddUsersTable
 
 from horizon.dashboards.syspanel.overview.views import GlobalSummary
 
@@ -90,26 +91,70 @@ class UpdateView(forms.ModalFormView):
                 'enabled': self.object.enabled}
 
 
-def users(request, tenant_id):
-    for f in (AddUser, RemoveUser,):
-        form, handled = f.maybe_handle(request)
-        if handled:
-            return handled
+class UsersView(tables.MultiTableView):
+    table_classes = (TenantUsersTable, AddUsersTable)
+    template_name = 'syspanel/tenants/users.html'
 
-    add_user_form = AddUser()
-    remove_user_form = RemoveUser()
+    def get_data(self, *args, **kwargs):
+        tenant_id = self.kwargs["tenant_id"]
+        try:
+            self.tenant = api.keystone.tenant_get(self.request, tenant_id)
+            self.all_users = api.keystone.user_list(self.request)
+            self.tenant_users = api.keystone.user_list(self.request, tenant_id)
+        except:
+            redirect = reverse("horizon:syspanel:tenants:index")
+            exceptions.handle(self.request,
+                              _("Unable to retrieve users."),
+                              redirect=redirect)
+        return super(UsersView, self).get_data(*args, **kwargs)
 
-    users = api.user_list(request, tenant_id)
-    all_users = api.user_list(request)
-    user_ids = [u.id for u in users]
-    new_users = [u for u in all_users if not u.id in user_ids]
-    return shortcuts.render(request,
-                            'syspanel/tenants/users.html', {
-                                'add_user_form': add_user_form,
-                                'remove_user_form': remove_user_form,
-                                'tenant_id': tenant_id,
-                                'users': users,
-                                'new_users': new_users})
+    def get_tenant_users_data(self):
+        return self.tenant_users
+
+    def get_add_users_data(self):
+        tenant_user_ids = [user.id for user in self.tenant_users]
+        return [user for user in self.all_users if
+                user.id not in tenant_user_ids]
+
+    def get_context_data(self, **kwargs):
+        context = super(UsersView, self).get_context_data(**kwargs)
+        context['tenant'] = self.tenant
+        return context
+
+
+class AddUserView(forms.ModalFormView):
+    form_class = AddUser
+    template_name = 'syspanel/tenants/add_user.html'
+    context_object_name = 'tenant'
+
+    def get_object(self, *args, **kwargs):
+        return api.keystone.tenant_get(self.request, kwargs["tenant_id"])
+
+    def get_context_data(self, **kwargs):
+        context = super(AddUserView, self).get_context_data(**kwargs)
+        context['tenant_id'] = self.kwargs["tenant_id"]
+        context['user_id'] = self.kwargs["user_id"]
+        return context
+
+    def get_form_kwargs(self):
+        kwargs = super(AddUserView, self).get_form_kwargs()
+        try:
+            roles = api.keystone.role_list(self.request)
+        except:
+            redirect = reverse("horizon:syspanel:tenants:users",
+                               args=(self.kwargs["tenant_id"],))
+            exceptions.handle(self.request,
+                              _("Unable to retrieve roles."),
+                              redirect=redirect)
+        roles.sort(key=operator.attrgetter("id"))
+        kwargs['roles'] = roles
+        return kwargs
+
+    def get_initial(self):
+        default_role = api.keystone.get_default_role(self.request)
+        return {'tenant_id': self.kwargs['tenant_id'],
+                'user_id': self.kwargs['user_id'],
+                'role_id': getattr(default_role, "id", None)}
 
 
 class QuotasView(forms.ModalFormView):
@@ -151,7 +196,6 @@ def usage(request, tenant_id):
 
     if date_start > GlobalSummary.current_month():
         messages.error(request, _('No data for the selected period'))
-        date_end = date_start
         datetime_end = datetime_start
 
     usage = {}

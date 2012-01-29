@@ -1,9 +1,12 @@
 import logging
 
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import tables
+
+from ..users.tables import UsersTable
 
 
 LOG = logging.getLogger(__name__)
@@ -18,7 +21,7 @@ class ModifyQuotasLink(tables.LinkAction):
 
 class ViewMembersLink(tables.LinkAction):
     name = "users"
-    verbose_name = _("View Members")
+    verbose_name = _("Modify Users")
     url = "horizon:syspanel:tenants:users"
 
 
@@ -30,7 +33,7 @@ class UsageLink(tables.LinkAction):
 
 class EditLink(tables.LinkAction):
     name = "update"
-    verbose_name = _("Edit")
+    verbose_name = _("Edit Tenant")
     url = "horizon:syspanel:tenants:update"
     attrs = {"class": "ajax-modal"}
 
@@ -77,3 +80,43 @@ class TenantsTable(tables.DataTable):
         row_actions = (EditLink, UsageLink, ViewMembersLink, ModifyQuotasLink,
                        DeleteTenantsAction)
         table_actions = (TenantFilterAction, CreateLink, DeleteTenantsAction)
+
+
+class RemoveUserAction(tables.BatchAction):
+    name = "remove_user"
+    action_present = _("Remove")
+    action_past = _("Removed")
+    data_type_singular = _("User")
+    data_type_plural = _("Users")
+    classes = ('danger',)
+
+    def action(self, request, user_id):
+        tenant_id = self.table.kwargs['tenant_id']
+        api.keystone.remove_tenant_user(request, tenant_id, user_id)
+
+
+class TenantUsersTable(UsersTable):
+    class Meta:
+        name = "tenant_users"
+        verbose_name = _("Users For Tenant")
+        table_actions = (RemoveUserAction,)
+        row_actions = (RemoveUserAction,)
+
+
+class AddUserAction(tables.LinkAction):
+    name = "add_user"
+    verbose_name = _("Add To Tenant")
+    url = "horizon:syspanel:tenants:add_user"
+    classes = ('ajax-modal',)
+
+    def get_link_url(self, user):
+        tenant_id = self.table.kwargs['tenant_id']
+        return reverse(self.url, args=(tenant_id, user.id))
+
+
+class AddUsersTable(UsersTable):
+    class Meta:
+        name = "add_users"
+        verbose_name = _("Add New Users")
+        table_actions = ()
+        row_actions = (AddUserAction,)
