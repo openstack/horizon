@@ -161,7 +161,7 @@ a.current_item:hover h3, a.current_item:hover h4 {
     background-color: #e9f5fa;
     width: 190px;
     height: 38px;
-    padding: 5px 0 0 0;
+    padding: 5px 0;
     border: 1px solid #c0d9e4;
     margin-left: 14px;
     margin-bottom: 15px;
