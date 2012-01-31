@@ -34,6 +34,8 @@ LOG = logging.getLogger(__name__)
 class DownloadOpenRCForm(forms.SelfHandlingForm):
     tenant = forms.ChoiceField(label=_("Select a Project"))
 
+    # forms.SelfHandlingForm doesn't pass request object as the first argument
+    # to the class __init__ method, which causes form to explode.
     @classmethod
     def _instantiate(cls, request, *args, **kwargs):
         return cls(request, *args, **kwargs)

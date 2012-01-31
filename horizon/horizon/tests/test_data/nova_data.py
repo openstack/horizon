@@ -15,7 +15,7 @@
 import json
 
 from novaclient.v1_1 import (flavors, keypairs, servers, volumes, quotas,
-                             floating_ips, usage,
+                             floating_ips, usage, certs,
                              volume_snapshots as vol_snaps,
                              security_group_rules as rules,
                              security_groups as sec_groups)
@@ -137,6 +137,7 @@ def data(TEST):
     TEST.quotas = TestDataContainer()
     TEST.floating_ips = TestDataContainer()
     TEST.usages = TestDataContainer()
+    TEST.certs = TestDataContainer()
     TEST.volume_snapshots = TestDataContainer()
 
     # Volumes
@@ -261,3 +262,8 @@ def data(TEST):
                                           'status': 'available',
                                           'volumeId': 1})
     TEST.volume_snapshots.add(volume_snapshot)
+
+    cert_data = {'private_key': 'private',
+                 'data': 'certificate_data'}
+    certificate = certs.Certificate(certs.CertificateManager, cert_data)
+    TEST.certs.add(certificate)

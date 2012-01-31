@@ -92,7 +92,8 @@ class TestCase(django_test.TestCase):
 
         self._real_get_user_from_request = users.get_user_from_request
         tenants = self.context['authorized_tenants']
-        self.setActiveUser(token=self.token.id,
+        self.setActiveUser(id=self.user.id,
+                           token=self.token.id,
                            username=self.user.name,
                            tenant_id=self.tenant.id,
                            service_catalog=self.service_catalog,

@@ -13,7 +13,7 @@
 #    under the License.
 
 from django.conf import settings
-from keystoneclient.v2_0 import users, tenants, tokens, roles
+from keystoneclient.v2_0 import users, tenants, tokens, roles, ec2
 
 from .utils import TestDataContainer
 
@@ -73,6 +73,7 @@ def data(TEST):
     TEST.users = TestDataContainer()
     TEST.tenants = TestDataContainer()
     TEST.roles = TestDataContainer()
+    TEST.ec2 = TestDataContainer()
 
     admin_role_dict = {'id': '1',
                        'name': 'admin'}
@@ -99,7 +100,8 @@ def data(TEST):
 
     tenant_dict = {'id': "1",
                    'name': 'test_tenant',
-                   'description': "a test tenant."}
+                   'description': "a test tenant.",
+                   'enabled': True}
     tenant = tenants.Tenant(tenants.TenantManager, tenant_dict)
     TEST.tenants.add(tenant)
     TEST.tenant = tenant  # Your "current" tenant
@@ -124,3 +126,7 @@ def data(TEST):
     TEST.token = scoped_token  # your "current" token.
     TEST.tokens.scoped_token = scoped_token
     TEST.tokens.unscoped_token = unscoped_token
+
+    access_secret = ec2.EC2(ec2.CredentialsManager, {"access": "access",
+                                                     "secret": "secret"})
+    TEST.ec2.add(access_secret)

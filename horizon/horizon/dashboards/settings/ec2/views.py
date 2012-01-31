@@ -1,7 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
 # Copyright 2012 Openstack, LLC
-# Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -15,17 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext as _
+import logging
 
-import horizon
-
-
-class Settings(horizon.Dashboard):
-    name = _("Settings")
-    slug = "settings"
-    panels = ('user', 'project', 'ec2')
-    default_panel = 'user'
-    nav = False
+from horizon import forms
+from horizon.dashboards.settings.ec2.forms import DownloadX509Credentials
 
 
-horizon.register(Settings)
+LOG = logging.getLogger(__name__)
+
+
+class IndexView(forms.ModalFormView):
+    form_class = DownloadX509Credentials
+    template_name = 'settings/ec2/index.html'

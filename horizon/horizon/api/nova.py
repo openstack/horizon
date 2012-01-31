@@ -460,3 +460,11 @@ def volume_snapshot_create(request, volume_id, name, description):
 
 def volume_snapshot_delete(request, snapshot_id):
     cinderclient(request).volume_snapshots.delete(snapshot_id)
+
+
+def get_x509_credentials(request):
+    return novaclient(request).certs.create()
+
+
+def get_x509_root_certificate(request):
+    return novaclient(request).certs.get()

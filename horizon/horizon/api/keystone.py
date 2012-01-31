@@ -260,3 +260,11 @@ def get_default_role(request):
                 DEFAULT_ROLE = role
                 break
     return DEFAULT_ROLE
+
+
+def create_ec2_credentials(request, user_id, tenant_id):
+    return keystoneclient(request).ec2.create(user_id, tenant_id)
+
+
+def get_user_ec2_credentials(request, user_id, access_token):
+    return keystoneclient(request).ec2.get(user_id, access_token)

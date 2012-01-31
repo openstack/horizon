@@ -4,6 +4,7 @@
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
 #
+# Copyright 2012 Openstack, LLC
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -157,6 +158,7 @@ class HorizonTests(BaseHorizonTests):
         self.assertQuerysetEqual(settings_dash.get_panels(),
                                  ['<Panel: User Settings>',
                                   '<Panel: Project Settings>',
+                                  '<Panel: EC2 Credentials>',
                                   '<Panel: My Panel>'])
 
     def test_panels(self):
