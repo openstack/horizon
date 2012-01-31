@@ -952,14 +952,6 @@ form div.clearfix.error {
   border: 1px solid #e1e1e1;
   padding: 5px;
 }
-#date_form {
-  width: 100%;
-  float: left;
-}
-#date_form select, #date_form input {
-  float: left;
-  margin-right: 10px;
-}
 
 .fluid-container {
   min-width: 760px;
