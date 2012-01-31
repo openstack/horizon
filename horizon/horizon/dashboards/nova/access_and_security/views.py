@@ -29,6 +29,7 @@ from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import tables
 from .keypairs.tables import KeypairsTable
 from .floating_ips.tables import FloatingIPsTable
@@ -45,11 +46,10 @@ class IndexView(tables.MultiTableView):
     def get_keypairs_data(self):
         try:
             keypairs = api.nova.keypair_list(self.request)
-        except Exception, e:
+        except:
             keypairs = []
-            LOG.exception("Exception in keypair index")
-            messages.error(self.request,
-                           _('Keypair list is currently unavailable.'))
+            exceptions.handle(self.request,
+                              _('Unable to retrieve keypair list.'))
         return keypairs
 
     def get_security_groups_data(self):

@@ -21,9 +21,8 @@
 import datetime
 
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
-from mox import IsA, IgnoreArg
+from mox import IsA
 from novaclient import exceptions as nova_exceptions
 
 from horizon import api

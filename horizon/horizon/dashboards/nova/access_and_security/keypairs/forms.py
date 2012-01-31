@@ -25,7 +25,6 @@ from django import shortcuts
 from django.contrib import messages
 from django.core import validators
 from django.template.defaultfilters import slugify
-from django.utils.http import urlquote
 from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
 

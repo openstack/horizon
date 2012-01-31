@@ -19,11 +19,9 @@
 #    under the License.
 
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
-from glance.common import exception as glance_exception
 from novaclient import exceptions as novaclient_exceptions
-from mox import IgnoreArg, IsA
+from mox import IsA
 
 from horizon import api
 from horizon import test

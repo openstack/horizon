@@ -25,6 +25,7 @@ from django.utils import http
 from django.utils.translation import ugettext as _
 
 from horizon import api
+from horizon import exceptions
 from horizon import tables
 
 
@@ -44,7 +45,7 @@ class DeleteContainer(tables.Action):
             try:
                 api.swift_delete_container(request, obj_id)
                 deleted.append(obj)
-            except ContainerNotEmpty, e:
+            except ContainerNotEmpty:
                 LOG.exception('Unable to delete container "%s".' % obj.name)
                 messages.error(request,
                                _('Unable to delete non-empty container: %s') %
@@ -126,10 +127,8 @@ class DeleteObject(tables.Action):
             try:
                 api.swift_delete_object(request, container_name, obj_id)
                 deleted.append(obj)
-            except Exception, e:
-                msg = 'Unable to delete object.'
-                LOG.exception(msg)
-                messages.error(request, _(msg))
+            except:
+                exceptions.handle(request, _('Unable to delete object.'))
         if deleted:
             messages.success(request,
                              _('Successfully deleted objects: %s')

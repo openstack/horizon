@@ -16,12 +16,10 @@
 
 import logging
 
-from django import shortcuts
-from django.contrib import messages
 from django.core.urlresolvers import reverse
-from django.template.defaultfilters import filesizeformat, title
+from django.template.defaultfilters import title
 from django.utils import safestring
-from novaclient import exceptions as novaclient_exceptions
+from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import tables

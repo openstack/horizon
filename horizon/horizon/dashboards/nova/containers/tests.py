@@ -22,10 +22,8 @@ import tempfile
 
 from cloudfiles.errors import ContainerNotEmpty
 from django import http
-from django import template
-from django.contrib import messages
 from django.core.urlresolvers import reverse
-from mox import IgnoreArg, IsA
+from mox import IsA
 
 from horizon import api
 from horizon import test
@@ -127,10 +125,10 @@ class ObjectViewTests(test.BaseViewTests):
 
         super(ObjectViewTests, self).setUp()
         swift_object = api.swift.SwiftObject(FakeCloudFile())
-        swift_object.name = "test_object"
+        swift_object.name = u"test_object"
         swift_object.size = '128'
         swift_object.container = api.swift.Container(None)
-        swift_object.container.name = 'container_name'
+        swift_object.container.name = self.CONTAINER_NAME
         self.swift_objects = [swift_object]
 
     def test_index(self):

@@ -67,13 +67,21 @@ class EditAttachmentsView(tables.DataTableView):
     table_class = AttachmentsTable
     template_name = 'nova/instances_and_volumes/volumes/attach.html'
 
+    def get_object(self):
+        if not hasattr(self, "object"):
+            volume_id = self.kwargs['volume_id']
+            try:
+                self.object = api.volume_get(self.request, volume_id)
+            except:
+                self.object = None
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve volume information.'))
+        return self.object
+
     def get_data(self):
-        volume_id = self.kwargs['volume_id']
         try:
-            self.object = api.volume_get(self.request, volume_id)
             attachments = [att for att in self.object.attachments if att]
         except:
-            self.object = None
             attachments = []
             exceptions.handle(self.request,
                               _('Unable to retrieve volume information.'))
@@ -89,8 +97,7 @@ class EditAttachmentsView(tables.DataTableView):
         form, handled = self.handle_form()
         if handled:
             return handled
-        tables = self.get_tables()
-        if not self.object:
+        if not self.get_object():
             return shortcuts.redirect("horizon:nova:instances_and_volumes:"
                                       "index")
         context = self.get_context_data(**kwargs)

@@ -42,9 +42,9 @@ class CreateGroup(forms.SelfHandlingForm):
         try:
             LOG.info('Add security_group: "%s"' % data)
 
-            security_group = api.security_group_create(request,
-                                                       data['name'],
-                                                       data['description'])
+            api.security_group_create(request,
+                                      data['name'],
+                                      data['description'])
             messages.success(request,
                              _('Successfully created security_group: %s')
                                     % data['name'])
@@ -70,7 +70,6 @@ class AddRule(forms.SelfHandlingForm):
     tenant_id = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):
-        tenant_id = data['tenant_id']
         try:
             LOG.info('Add security_group_rule: "%s"' % data)
 
