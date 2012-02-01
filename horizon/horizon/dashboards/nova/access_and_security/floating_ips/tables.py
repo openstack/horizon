@@ -92,7 +92,7 @@ class FloatingIPsTable(tables.DataTable):
                              verbose_name=_("Instance"),
                              empty_value="-")
     pool = tables.Column("pool",
-                         verbose_name=_("Floating Ip Pool"),
+                         verbose_name=_("Floating IP Pool"),
                          empty_value="-")
 
     def sanitize_id(self, obj_id):
