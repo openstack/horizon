@@ -960,3 +960,7 @@ form div.clearfix.error {
   float: left;
   margin-right: 10px;
 }
+
+.fluid-container {
+  min-width: 760px;
+}
