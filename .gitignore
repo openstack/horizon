@@ -2,7 +2,7 @@
 *.swp
 .environment_version
 .selenium_log
-.coverage
+.coverage*
 .noseids
 coverage.xml
 pep8.txt

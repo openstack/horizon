@@ -21,6 +21,8 @@
 
 from django.conf.urls.defaults import *
 
+from .views import ProjectOverview
+
 urlpatterns = patterns('horizon.dashboards.nova.overview.views',
-    url(r'^$', 'usage', name='index'),
+    url(r'^$', ProjectOverview.as_view(), name='index'),
 )

@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=8
+environment_version=10
 #--------------------------------------------------------#
 
 function usage {
@@ -205,6 +205,9 @@ function sanity_check {
       selenium=0
     fi
   fi
+  # Remove .pyc files. This is sanity checking because they can linger
+  # after old files are deleted.
+  find . -name "*.pyc" -exec rm -rf {} \;
 }
 
 function backup_environment {
@@ -249,13 +252,9 @@ function install_venv {
   if [ $quiet -eq 1 ]; then
     export PIP_NO_INPUT=true
   fi
-  INSTALL_FAILED=0
-  python tools/install_venv.py || INSTALL_FAILED=1
-  if [ $INSTALL_FAILED -eq 1 ]; then
-    echo "Error updating environment with pip, trying without src packages..."
-    rm -rf $venv/src
-    python tools/install_venv.py
-  fi
+  echo "Fetching new src packages..."
+  rm -rf $venv/src
+  python tools/install_venv.py
   command_wrapper="$root/${with_venv}"
   # Make sure it worked and record the environment version
   sanity_check

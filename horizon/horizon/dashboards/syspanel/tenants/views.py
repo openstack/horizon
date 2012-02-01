@@ -18,11 +18,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import datetime
 import logging
 import operator
 
-from django import shortcuts
 from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
@@ -33,10 +31,9 @@ from horizon import api
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
+from horizon import usage
 from .forms import AddUser, CreateTenant, UpdateTenant, UpdateQuotas
 from .tables import TenantsTable, TenantUsersTable, AddUsersTable
-
-from horizon.dashboards.syspanel.overview.views import GlobalSummary
 
 
 LOG = logging.getLogger(__name__)
@@ -181,60 +178,11 @@ class QuotasView(forms.ModalFormView):
             'cores': quotas.cores}
 
 
-def usage(request, tenant_id):
-    today = datetime.date.today()
-    dateform = forms.DateForm(request.GET, initial={'year': today.year,
-                                                    "month": today.month})
-    if dateform.is_valid():
-        req_year = int(dateform.cleaned_data['year'])
-        req_month = int(dateform.cleaned_data['month'])
-    else:
-        req_year = today.year
-        req_month = today.month
-    date_start, date_end, datetime_start, datetime_end = \
-            GlobalSummary.get_start_and_end_date(req_year, req_month)
+class TenantUsageView(usage.UsageView):
+    table_class = usage.TenantUsageTable
+    usage_class = usage.TenantUsage
+    template_name = 'syspanel/tenants/usage.html'
 
-    if date_start > GlobalSummary.current_month():
-        messages.error(request, _('No data for the selected period'))
-        datetime_end = datetime_start
-
-    usage = {}
-    try:
-        usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
-    except api_exceptions.ApiException, e:
-        LOG.exception('ApiException getting usage info for tenant "%s"'
-                  ' on date range "%s to %s"' % (tenant_id,
-                                                 datetime_start,
-                                                 datetime_end))
-        messages.error(request, _('Unable to get usage info: %s') % e.message)
-
-    running_instances = []
-    terminated_instances = []
-    if hasattr(usage, 'server_usages'):
-        now = datetime.datetime.now()
-        for i in usage.server_usages:
-            # this is just a way to phrase uptime in a way that is compatible
-            # with the 'timesince' filter.  Use of local time intentional
-            i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
-            if i['ended_at']:
-                terminated_instances.append(i)
-            else:
-                running_instances.append(i)
-
-    if request.GET.get('format', 'html') == 'csv':
-        template = 'syspanel/tenants/usage.csv'
-        mimetype = "text/csv"
-    else:
-        template = 'syspanel/tenants/usage.html'
-        mimetype = "text/html"
-
-    context = {'dateform': dateform,
-               'datetime_start': datetime_start,
-               'datetime_end': datetime_end,
-               'global_summary': usage,
-               'usage_list': [usage],
-               'csv_link': GlobalSummary.csv_link(date_start),
-               'instances': running_instances + terminated_instances,
-               'tenant_id': tenant_id}
-
-    return shortcuts.render(request, template, context, content_type=mimetype)
+    def get_data(self):
+        super(TenantUsageView, self).get_data()
+        return self.usage.get_instances()

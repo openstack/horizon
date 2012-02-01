@@ -1,0 +1,9 @@
+Usage Report For Period:,{{ usage.start|date:"b. d Y" }},/,{{ usage.end|date:"b. d Y" }}
+Active Instances:,{{ usage.summary.instances }}
+CPU-HRs Used:,{{ usage.summary.vcpu_hours }}
+Total Active Memory (MB):,{{ usage.summary.memory_mb }}
+Total Disk Size:,{{ usage.summary.local_gb }}
+Total Disk Usage:,{{ usage.summary.disk_gb_hours }}
+
+Tenant,VCPUs,RamMB,DiskGB,Usage(Hours)
+{% for u in usage.usage_list %}{{ u.tenant_id|addslashes }},{{ u.vcpus|addslashes }},{{ u.memory_mb|addslashes }},{{ u.local_gb|addslashes }},{{ u.vcpu_hours}}{% endfor %}

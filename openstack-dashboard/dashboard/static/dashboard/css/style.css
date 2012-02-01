@@ -551,10 +551,10 @@ table form {
   min-width: 735px;
   padding: 5px 0 5px 0;
   border: 1px solid #e6e6e6;
+  margin-bottom: 25px;
   clear: both;
 }
 
-#activity.tenant { margin: 0 0 0 0; }
 #activity span { margin: 0 0 0 10px; }
 
 #activity strong {
@@ -574,10 +574,10 @@ table form {
 }
 
 #monitoring h3{
-    font-size: 13px;
+    font-size: 14px;
     font-weight: normal;
     float: left;
-    margin-top: -8px;
+    line-height: 18px;
 }
 
 #external_links, #external_links li {

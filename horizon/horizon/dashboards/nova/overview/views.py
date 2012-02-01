@@ -18,75 +18,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from __future__ import division
-
-import datetime
-import logging
-
-from django import shortcuts
-from django.utils.translation import ugettext as _
-
-import horizon
-from horizon import api
-from horizon import exceptions
-from horizon import time
+from horizon import usage
 
 
-LOG = logging.getLogger(__name__)
+class ProjectOverview(usage.UsageView):
+    table_class = usage.TenantUsageTable
+    usage_class = usage.TenantUsage
+    template_name = 'nova/overview/usage.html'
 
-
-def usage(request, tenant_id=None):
-    tenant_id = tenant_id or request.user.tenant_id
-    today = time.today()
-    date_start = datetime.date(today.year, today.month, 1)
-    datetime_start = datetime.datetime.combine(date_start, time.time())
-    datetime_end = time.utcnow()
-
-    show_terminated = request.GET.get('show_terminated', False)
-
-    try:
-        usage = api.usage_get(request, tenant_id, datetime_start, datetime_end)
-    except:
-        usage = api.nova.Usage(None)
-        exceptions.handle(request,
-                          _('Unable to retrieve usage information.'))
-
-    total_ram = 0
-    ram_unit = "MB"
-
-    instances = []
-    terminated = []
-    if hasattr(usage, 'server_usages'):
-        total_ram = usage.total_active_memory_mb
-        now = datetime.datetime.now()
-        for i in usage.server_usages:
-            i['uptime_at'] = now - datetime.timedelta(seconds=i['uptime'])
-            if i['ended_at'] and not show_terminated:
-                terminated.append(i)
-            else:
-                instances.append(i)
-
-    if total_ram >= 1024:
-        ram_unit = "GB"
-        total_ram /= 1024
-
-    if request.GET.get('format', 'html') == 'csv':
-        template = 'nova/overview/usage.csv'
-        mimetype = "text/csv"
-    else:
-        template = 'nova/overview/usage.html'
-        mimetype = "text/html"
-
-    dash_url = horizon.get_dashboard('nova').get_absolute_url()
-
-    return shortcuts.render(request, template, {
-                                'usage': usage,
-                                'ram_unit': ram_unit,
-                                'total_ram': total_ram,
-                                'csv_link': '?format=csv',
-                                'show_terminated': show_terminated,
-                                'datetime_start': datetime_start,
-                                'datetime_end': datetime_end,
-                                'instances': instances,
-                                'dash_url': dash_url},
-                            content_type=mimetype)
+    def get_data(self):
+        super(ProjectOverview, self).get_data()
+        return self.usage.get_instances()

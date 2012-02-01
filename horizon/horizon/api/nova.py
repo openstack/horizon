@@ -130,24 +130,40 @@ class Usage(APIResourceWrapper):
              'total_local_gb_usage', 'total_memory_mb_usage',
              'total_vcpus_usage', 'total_hours']
 
+    def get_summary(self):
+        return {'instances': self.total_active_instances,
+                'memory_mb': self.memory_mb,
+                'vcpus': getattr(self, "total_vcpus_usage", 0),
+                'vcpu_hours': self.vcpu_hours,
+                'local_gb': self.local_gb,
+                'disk_gb_hours': self.disk_gb_hours}
+
     @property
     def total_active_instances(self):
         return sum(1 for s in self.server_usages if s['ended_at'] == None)
 
     @property
-    def total_active_vcpus(self):
-        return sum(s['vcpus']\
-            for s in self.server_usages if s['ended_at'] == None)
+    def vcpus(self):
+        return sum(s['vcpus'] for s in self.server_usages
+                   if s['ended_at'] == None)
 
     @property
-    def total_active_local_gb(self):
-        return sum(s['local_gb']\
-            for s in self.server_usages if s['ended_at'] == None)
+    def vcpu_hours(self):
+        return getattr(self, "total_hours", 0)
 
     @property
-    def total_active_memory_mb(self):
-        return sum(s['memory_mb']\
-            for s in self.server_usages if s['ended_at'] == None)
+    def local_gb(self):
+        return sum(s['local_gb'] for s in self.server_usages
+                   if s['ended_at'] == None)
+
+    @property
+    def memory_mb(self):
+        return sum(s['memory_mb'] for s in self.server_usages
+                   if s['ended_at'] == None)
+
+    @property
+    def disk_gb_hours(self):
+        return getattr(self, "total_local_gb_usage", 0)
 
 
 class SecurityGroup(APIResourceWrapper):

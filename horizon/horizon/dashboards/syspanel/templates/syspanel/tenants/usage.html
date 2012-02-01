@@ -1,39 +1,8 @@
-{% extends 'syspanel/tenants/base_usage.html' %}
+{% extends 'syspanel/base.html' %}
 {% load i18n sizeformat %}
-{% block title %}Usage Overview{% endblock %}
-{% block activity_list %}
-  {% if instances %}
-    <div id="usage">
+{% block title %}{% trans "Tenant Usage Overview" %}{% endblock %}
 
-      <table class="table table-striped table-bordered zebra-striped">
-        <thead>
-          <tr id="headings">
-            <th>{% trans "Instances" %}</th>
-            <th>{% trans "VCPUs" %}</th>
-            <th>{% trans "Disk" %}</th>
-            <th>{% trans "RAM" %}</th>
-            <th>{% trans "Hours" %}</th>
-            <th>{% trans "Uptime" %}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for instance in instances %}
-            <tr>
-              <td>{{ instance.name }}</td>
-              <td>{{ instance.vcpus }}</td>
-              <td>{{ instance.local_gb|diskgbformat }}</td>
-              <td>{{ instance.memory_mb|mbformat }}</td>
-              <td>{{ instance.hours|floatformat}}</td>
-              <td>{{ instance.uptime_at|timesince}}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-        <tfoot>
-          <td colspan="7">
-            <span>Tenant Server Usage Summary.</span>
-            <a class="csv_download_link pull-right" href="{{ csv_link }}">{% trans "Download CSV" %} &raquo;</a>
-          </td>
-        </tfoot>
-    </div>
-  {% endif %}
+{% block syspanel_main %}
+  {% include "horizon/common/_usage_summary.html" %}
+  {{ table.render }}
 {% endblock %}

@@ -21,17 +21,18 @@
 from django.conf.urls.defaults import patterns, url
 
 from .views import (IndexView, CreateView, UpdateView, QuotasView, UsersView,
-                    AddUserView)
+                    AddUserView, TenantUsageView)
 
 
-urlpatterns = patterns('horizon.dashboards.syspanel.tenants.views',
+urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^create$', CreateView.as_view(), name='create'),
     url(r'^(?P<tenant_id>[^/]+)/update/$',
         UpdateView.as_view(), name='update'),
     url(r'^(?P<tenant_id>[^/]+)/quotas/$',
         QuotasView.as_view(), name='quotas'),
-    url(r'^(?P<tenant_id>[^/]+)/usage/$', 'usage', name='usage'),
+    url(r'^(?P<tenant_id>[^/]+)/usage/$',
+        TenantUsageView.as_view(), name='usage'),
     url(r'^(?P<tenant_id>[^/]+)/users/$', UsersView.as_view(), name='users'),
     url(r'^(?P<tenant_id>[^/]+)/users/(?P<user_id>[^/]+)/add/$',
         AddUserView.as_view(), name='add_user')

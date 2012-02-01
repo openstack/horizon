@@ -209,7 +209,8 @@ class LinkAction(BaseAction):
     .. attribute:: url
 
         A string or a callable which resolves to a url to be used as the link
-        target. (Required)
+        target. You must either define the ``url`` attribute or a override
+        the ``get_link_url`` method on the class.
     """
     method = "GET"
     bound_url = None
@@ -224,9 +225,6 @@ class LinkAction(BaseAction):
         if not self.verbose_name:
             raise NotImplementedError('A LinkAction object must have a '
                                       'verbose_name attribute.')
-        if not self.url:
-            raise NotImplementedError('A LinkAction object must have a '
-                                      'url attribute.')
         if attrs:
             self.attrs.update(attrs)
 
@@ -240,6 +238,10 @@ class LinkAction(BaseAction):
         When called for a row action, the current row data object will be
         passed as the first parameter.
         """
+        if not self.url:
+            raise NotImplementedError('A LinkAction class must have a '
+                                      'url attribute or define its own '
+                                      'get_link_url method.')
         if callable(self.url):
             return self.url(datum, **self.kwargs)
         try:
