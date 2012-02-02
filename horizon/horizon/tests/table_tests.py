@@ -46,6 +46,10 @@ TEST_DATA_2 = (
     FakeObject('1', 'object_1', 'value_1', 'down', 'optional_1', 'excluded_1'),
 )
 
+TEST_DATA_3 = (
+    FakeObject('1', 'object_1', 'value_1', 'up', 'optional_1', 'excluded_1'),
+)
+
 
 class MyLinkAction(tables.LinkAction):
     name = "login"
@@ -74,6 +78,27 @@ class MyAction(tables.Action):
 class MyUpdateAction(tables.UpdateAction):
     def get_data(self, request, obj_id):
         return TEST_DATA_2[0]
+
+
+class MyBatchAction(tables.BatchAction):
+    name = "toggle"
+    action_present = ("Down", "Up")
+    action_past = ("Downed", "Upped")
+    data_type_singular = _("Item")
+    data_type_plural = _("Items")
+
+    def allowed(self, request, obj=None):
+        if not obj:
+            return False
+        self.down = getattr(obj, 'status', None) == 'down'
+        if self.down:
+            self.current_present_action = 1
+        return self.down or getattr(obj, 'status', None) == 'up'
+
+    def action(self, request, object_ids):
+        if self.down:
+            #up it
+            self.current_past_action = 1
 
 
 class MyFilterAction(tables.FilterAction):
@@ -113,7 +138,7 @@ class MyTable(tables.DataTable):
         status_column = "status"
         columns = ('id', 'name', 'value', 'optional', 'status')
         table_actions = (MyFilterAction, MyAction,)
-        row_actions = (MyAction, MyLinkAction, MyUpdateAction)
+        row_actions = (MyAction, MyLinkAction, MyUpdateAction, MyBatchAction,)
 
 
 class DataTableTests(test.TestCase):
@@ -144,6 +169,7 @@ class DataTableTests(test.TestCase):
                                  ['<MyAction: delete>',
                                   '<MyFilterAction: filter>',
                                   '<MyLinkAction: login>',
+                                  '<MyBatchAction: toggle>',
                                   '<MyUpdateAction: update>'])
         self.assertQuerysetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
@@ -151,7 +177,8 @@ class DataTableTests(test.TestCase):
         self.assertQuerysetEqual(self.table.get_row_actions(TEST_DATA[0]),
                                  ['<MyAction: delete>',
                                   '<MyLinkAction: login>',
-                                  '<MyUpdateAction: update>'])
+                                  '<MyUpdateAction: update>',
+                                  '<MyBatchAction: toggle>'])
         # Auto-generated columns
         multi_select = self.table.columns['multi_select']
         self.assertEqual(multi_select.auto, "multi_select")
@@ -329,11 +356,12 @@ class DataTableTests(test.TestCase):
         # Row actions
         row_actions = self.table.render_row_actions(TEST_DATA[0])
         resp = http.HttpResponse(row_actions)
-        self.assertContains(resp, "<li", 2)
+        self.assertContains(resp, "<li", 3)
         self.assertContains(resp, "my_table__delete__1", 1)
         self.assertContains(resp,
                             "action=update&amp;table=my_table&amp;obj_id=1", 1)
         self.assertContains(resp, "data-update-interval", 1)
+        self.assertContains(resp, "my_table__toggle__1", 1)
         self.assertContains(resp, "/auth/login/", 1)
         self.assertContains(resp, "ajax-modal", 1)
         # Whole table
@@ -362,6 +390,47 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertEqual(handled.status_code, 302)
         self.assertEqual(handled["location"], "http://example.com/1")
+
+        # Single object batch action
+        # GET page - 'up' to 'down'
+        req = self.factory.get('/my_url/')
+        self.table = MyTable(req, TEST_DATA_3)
+        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_3[0])), 4)
+        toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[3]
+        self.assertEqual(unicode(toggle_action.verbose_name), "Down Item")
+
+        # Toggle from status 'up' to 'down'
+        # POST page
+        action_string = "my_table__toggle__1"
+        req = self.factory.post('/my_url/', {'action': action_string})
+        self.table = MyTable(req, TEST_DATA)
+        self.assertEqual(self.table.parse_action(action_string),
+                         ('my_table', 'toggle', '1'))
+        handled = self.table.maybe_handle()
+        self.assertEqual(handled.status_code, 302)
+        self.assertEqual(handled["location"], "/my_url/")
+        self.assertEqual(list(req._messages)[0].message,
+                        u"Downed Item: object_1")
+
+        # Toggle from status 'down' to 'up'
+        # GET page - 'down' to 'up'
+        req = self.factory.get('/my_url/')
+        self.table = MyTable(req, TEST_DATA_2)
+        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_2[0])), 3)
+        toggle_action = self.table.get_row_actions(TEST_DATA_2[0])[2]
+        self.assertEqual(unicode(toggle_action.verbose_name), "Up Item")
+
+        # POST page
+        action_string = "my_table__toggle__2"
+        req = self.factory.post('/my_url/', {'action': action_string})
+        self.table = MyTable(req, TEST_DATA)
+        self.assertEqual(self.table.parse_action(action_string),
+                         ('my_table', 'toggle', '2'))
+        handled = self.table.maybe_handle()
+        self.assertEqual(handled.status_code, 302)
+        self.assertEqual(handled["location"], "/my_url/")
+        self.assertEqual(list(req._messages)[0].message,
+                        u"Upped Item: object_2")
 
         # Multiple object action
         action_string = "my_table__delete"
@@ -414,3 +483,12 @@ class DataTableTests(test.TestCase):
         self.assertEqual(resp, None)
         resp = self.table.maybe_handle()
         self.assertEqual(resp, None)
+
+        # Verbose names
+        table_actions = self.table.get_table_actions()
+        self.assertEqual(unicode(table_actions[0].verbose_name), "filter")
+        self.assertEqual(unicode(table_actions[1].verbose_name), "Delete Me")
+
+        row_actions = self.table.get_row_actions(TEST_DATA[0])
+        self.assertEqual(unicode(row_actions[0].verbose_name), "Delete Me")
+        self.assertEqual(unicode(row_actions[1].verbose_name), "Log In")
