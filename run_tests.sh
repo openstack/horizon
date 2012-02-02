@@ -268,15 +268,15 @@ function run_tests {
 
   echo "Running Horizon application tests"
   ${command_wrapper} coverage erase
-  ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test horizon --settings=horizon.tests.testsettings $testargs
+  ${command_wrapper} coverage run -p $root/openstack-dashboard/manage.py test horizon --settings=horizon.tests.testsettings $testargs
   # get results of the Horizon tests
   HORIZON_RESULT=$?
 
   echo "Running openstack-dashboard (Django project) tests"
   if [ $selenium -eq 1 ]; then
-      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard --settings=horizon.tests.testsettings --with-selenium --with-cherrypyliveserver $testargs
+      ${command_wrapper} coverage run -p $root/openstack-dashboard/manage.py test dashboard --settings=horizon.tests.testsettings --with-selenium --with-cherrypyliveserver $testargs
     else
-      ${command_wrapper} coverage run $root/openstack-dashboard/manage.py test dashboard --settings=horizon.tests.testsettings $testargs
+      ${command_wrapper} coverage run -p $root/openstack-dashboard/manage.py test dashboard --settings=horizon.tests.testsettings $testargs
   fi
   # get results of the openstack-dashboard tests
   DASHBOARD_RESULT=$?
@@ -284,8 +284,8 @@ function run_tests {
   if [ $with_coverage -eq 1 ]; then
     echo "Generating coverage reports"
     ${command_wrapper} coverage combine
-    ${command_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*'
-    ${command_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*' -d reports
+    ${command_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*,.horizon-venv/*'
+    ${command_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*,.horizon-venv/*' -d reports
   fi
 
   if [ $(($HORIZON_RESULT || $DASHBOARD_RESULT)) -eq 0 ]; then
