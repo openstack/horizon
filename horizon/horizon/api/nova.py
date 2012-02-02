@@ -217,8 +217,8 @@ def flavor_create(request, name, memory, vcpu, disk, flavor_id):
             name, int(memory), int(vcpu), int(disk), flavor_id))
 
 
-def flavor_delete(request, flavor_id, purge=False):
-    novaclient(request).flavors.delete(flavor_id, purge)
+def flavor_delete(request, flavor_id):
+    novaclient(request).flavors.delete(flavor_id)
 
 
 def flavor_get(request, flavor_id):
