@@ -842,7 +842,9 @@ td.actions_column ul.row_actions.single button:hover {
 }
 
 td.multi_select_column {
-  width: 30px;
+  width: 25px;
+  padding-top: 10px;
+  padding-left: 20px;
   text-align: center;
 }
 
