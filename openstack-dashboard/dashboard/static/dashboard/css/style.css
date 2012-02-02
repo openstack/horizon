@@ -326,6 +326,11 @@ table form {
     width: 1px;
 }
 
+.alert-block .alert-actions {
+  margin-top: -23px;
+  margin-right: -23px;
+}
+
 .modal > form,
 .alert-actions > form {
     margin-bottom: 0;
