@@ -286,6 +286,8 @@ function run_tests {
     ${command_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*,.horizon-venv/*'
     ${command_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*,.horizon-venv/*' -d reports
   fi
+  # Remove the leftover coverage files from the -p flag earlier.
+  rm -f .coverage.*
 
   if [ $(($HORIZON_RESULT || $DASHBOARD_RESULT)) -eq 0 ]; then
     echo "Tests completed successfully."
