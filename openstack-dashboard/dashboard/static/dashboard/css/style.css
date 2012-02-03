@@ -302,7 +302,7 @@ small {
     list-style: none;
     width: 222px;
     float: left;
-    margin-bottom: 15px;
+    margin: 10px 0 20px 0;
 }
 
 .main_nav a {
