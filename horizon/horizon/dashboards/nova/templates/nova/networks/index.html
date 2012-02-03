@@ -9,17 +9,5 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-  {% if networks %}
-    {% include 'nova/networks/_list.html' %}
-    {% url horizon:nova:networks:create as dash_net_url %}
-    <a id="network_create_link" class="btn small" href="{{ dash_net_url }}">{% trans "Create New Network" %}</a>
-  {% else %}
-    <div class="alert alert-block alert-info">
-      <p><strong>{% trans "Info: " %}</strong>{% trans "There are currently no networks." %}</p>
-      <div class="alert-actions">
-        <a class="btn small primary" href='{% url horizon:nova:networks:create %}'>{% trans "Create A Network" %}</a>
-      </div>
-    </div>
-  {% endif %}
-  </div>
+    {{ table.render }}
 {% endblock %}

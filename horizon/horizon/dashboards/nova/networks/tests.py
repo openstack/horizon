@@ -22,7 +22,6 @@ from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from mox import IgnoreArg, IsA
-import quantum.client
 
 from horizon import api
 from horizon import test
@@ -69,8 +68,7 @@ class NetworkViewTests(test.BaseViewTests):
         res = self.client.get(reverse('horizon:nova:networks:index'))
 
         self.assertTemplateUsed(res, 'nova/networks/index.html')
-        self.assertIn('networks', res.context)
-        networks = res.context['networks']
+        networks = res.context['table'].data
 
         self.assertEqual(len(networks), 1)
         self.assertEqual(networks[0]['name'], 'test_network')
@@ -80,8 +78,9 @@ class NetworkViewTests(test.BaseViewTests):
         self.assertEqual(networks[0]['available'], 0)
 
     def test_network_create(self):
-        self.mox.StubOutWithMock(api, "quantum_create_network")
-        api.quantum_create_network(IsA(http.HttpRequest), dict).AndReturn(True)
+        self.mox.StubOutWithMock(api.quantum, "quantum_create_network")
+        api.quantum.quantum_create_network(IsA(http.HttpRequest),
+                                           IsA(dict)).AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -116,11 +115,9 @@ class NetworkViewTests(test.BaseViewTests):
 
         self.mox.ReplayAll()
 
-        formData = {'network': 'n1',
-                    'method': 'DeleteNetwork'}
+        formData = {'action': 'networks__delete__n1'}
 
-        res = self.client.post(reverse('horizon:nova:networks:index'),
-                               formData)
+        self.client.post(reverse('horizon:nova:networks:index'), formData)
 
     def test_network_rename(self):
         self.mox.StubOutWithMock(api, 'quantum_network_details')
@@ -177,13 +174,12 @@ class NetworkViewTests(test.BaseViewTests):
         self.assertEqual(network['name'], 'test_network')
         self.assertEqual(network['id'], 'n1')
 
-
-class PortViewTests(test.BaseViewTests):
-    def setUp(self):
-        super(PortViewTests, self).setUp()
-
     def test_port_create(self):
+        self.mox.StubOutWithMock(api, "quantum_network_details")
         self.mox.StubOutWithMock(api, "quantum_create_port")
+        network_details = {'network': {'id': 'n1'}}
+        api.quantum_network_details(IsA(http.HttpRequest),
+                                    'n1').AndReturn(network_details)
         api.quantum_create_port(IsA(http.HttpRequest), 'n1').AndReturn(True)
 
         formData = {'ports_num': 1,
@@ -204,28 +200,49 @@ class PortViewTests(test.BaseViewTests):
                                              args=["n1"]))
 
     def test_port_delete(self):
+        self.mox.StubOutWithMock(api, 'quantum_network_details')
+        self.mox.StubOutWithMock(api, 'quantum_list_ports')
+        self.mox.StubOutWithMock(api, 'quantum_port_attachment')
+        self.mox.StubOutWithMock(api, 'quantum_port_details')
+        self.mox.StubOutWithMock(api, 'get_vif_ids')
         self.mox.StubOutWithMock(api, "quantum_delete_port")
+        network_details = {'network': {'id': 'n1', 'name': 'network1'}}
+        api.quantum_network_details(IsA(http.HttpRequest),
+                                    'n1').AndReturn(network_details)
+
+        api.quantum_list_ports(IsA(http.HttpRequest),
+                               'n1').AndReturn(self.ports)
+
+        api.quantum_port_attachment(IsA(http.HttpRequest),
+                                    'n1', 'p1').AndReturn(self.port_attachment)
+
+        api.quantum_port_details(IsA(http.HttpRequest),
+                                 'n1', 'p1').AndReturn(self.port_details)
+
+        api.get_vif_ids(IsA(http.HttpRequest)).AndReturn(self.vifs)
+
         api.quantum_delete_port(IsA(http.HttpRequest),
                                 'n1', 'p1').AndReturn(True)
 
-        formData = {'port': 'p1',
-                    'network': 'n1',
-                    'method': 'DeletePort'}
+        formData = {'action': 'network_details__delete__p1'}
 
         self.mox.StubOutWithMock(messages, 'success')
         messages.success(IgnoreArg(), IsA(basestring))
 
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('horizon:nova:networks:detail',
-                                       args=["n1"]),
-                               formData)
+        detail_url = reverse('horizon:nova:networks:detail', args=["n1"])
+        self.client.post(detail_url, formData)
 
     def test_port_attach(self):
+        self.mox.StubOutWithMock(api, "quantum_network_details")
         self.mox.StubOutWithMock(api, "quantum_attach_port")
-        api.quantum_attach_port(IsA(http.HttpRequest),
-                                'n1', 'p1', dict).AndReturn(True)
         self.mox.StubOutWithMock(api, "get_vif_ids")
+        network_details = {'network': {'id': 'n1'}}
+        api.quantum_network_details(IsA(http.HttpRequest),
+                                    'n1').AndReturn(network_details)
+        api.quantum_attach_port(IsA(http.HttpRequest),
+                                'n1', 'p1', IsA(dict)).AndReturn(True)
         api.get_vif_ids(IsA(http.HttpRequest)).AndReturn([{
                 'id': 'v1',
                 'instance_name': 'instance1',
@@ -247,19 +264,40 @@ class PortViewTests(test.BaseViewTests):
                                              args=["n1"]))
 
     def test_port_detach(self):
-        self.mox.StubOutWithMock(api, "quantum_detach_port")
-        api.quantum_detach_port(IsA(http.HttpRequest),
-                                'n1', 'p1').AndReturn(True)
+        self.mox.StubOutWithMock(api, 'quantum_network_details')
+        self.mox.StubOutWithMock(api, 'quantum_list_ports')
+        self.mox.StubOutWithMock(api, 'quantum_port_attachment')
+        self.mox.StubOutWithMock(api, 'quantum_port_details')
+        self.mox.StubOutWithMock(api, 'get_vif_ids')
+        self.mox.StubOutWithMock(api, "quantum_set_port_state")
+        network_details = {'network': {'id': 'n1', 'name': 'network1'}}
+        api.quantum_network_details(IsA(http.HttpRequest),
+                                    'n1').AndReturn(network_details)
 
-        formData = {'port': 'p1',
-                    'network': 'n1',
-                    'method': 'DetachPort'}
+        api.quantum_list_ports(IsA(http.HttpRequest),
+                               'n1').AndReturn(self.ports)
+
+        api.quantum_port_attachment(IsA(http.HttpRequest),
+                                    'n1', 'p1').AndReturn(self.port_attachment)
+
+        api.quantum_port_details(IsA(http.HttpRequest),
+                                 'n1', 'p1').AndReturn(self.port_details)
+
+        api.get_vif_ids(IsA(http.HttpRequest)).AndReturn(self.vifs)
+
+        api.quantum_set_port_state(IsA(http.HttpRequest),
+                                   'n1',
+                                   'p1',
+                                   {'port': {'state': 'DOWN'}}).AndReturn(True)
+
+        formData = {'action': "network_details__detach_port__p1"}
 
         self.mox.StubOutWithMock(messages, 'success')
         messages.success(IgnoreArg(), IsA(basestring))
 
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('horizon:nova:networks:detail',
-                                             args=["n1"]),
-                               formData)
+        detail_url = reverse('horizon:nova:networks:detail', args=["n1"])
+        res = self.client.post(detail_url, formData)
+
+        self.assertRedirectsNoFollow(res, detail_url)

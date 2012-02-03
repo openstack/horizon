@@ -23,115 +23,98 @@ Views for managing Quantum networks.
 """
 
 import logging
-import warnings
 
-from django import shortcuts
-from django import template
+from django import http
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
 from horizon import api
+from horizon import exceptions
+from horizon import forms
+from horizon import tables
 from horizon.dashboards.nova.networks.forms import (CreateNetwork,
-        DeleteNetwork, RenameNetwork, AttachPort, CreatePort, DeletePort,
-        DetachPort, TogglePort)
+        RenameNetwork, AttachPort, CreatePort)
+from .tables import NetworksTable, NetworkDetailsTable
 
 
 LOG = logging.getLogger(__name__)
 
 
-def index(request):
-    tenant_id = request.user.tenant_id
-    delete_form, delete_handled = DeleteNetwork.maybe_handle(request)
+class IndexView(tables.DataTableView):
+    table_class = NetworksTable
+    template_name = 'nova/networks/index.html'
 
-    networks = []
-    instances = []
+    def get_data(self):
+        tenant_id = self.request.user.tenant_id
+        networks = []
 
-    try:
-        networks_list = api.quantum_list_networks(request)
-        details = []
-        for network in networks_list['networks']:
-            net_stats = _calc_network_stats(request, network['id'])
-            # Get network details like name and id
-            details = api.quantum_network_details(request, network['id'])
-            networks.append({
-                'name': details['network']['name'],
-                'id': network['id'],
-                'total': net_stats['total'],
-                'available': net_stats['available'],
-                'used': net_stats['used'],
-                'tenant': tenant_id})
-
-    except Exception, e:
-        LOG.exception("Unable to get network list.")
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        messages.error(request,
-                       _('Unable to get network list: %s') % e.message)
-
-    return shortcuts.render(request,
-                            'nova/networks/index.html', {
-                                'networks': networks,
-                                'delete_form': delete_form})
+        try:
+            networks_list = api.quantum_list_networks(self.request)
+            details = []
+            for network in networks_list['networks']:
+                net_stats = _calc_network_stats(self.request, network['id'])
+                # Get network details like name and id
+                details = api.quantum_network_details(self.request,
+                                                      network['id'])
+                networks.append({
+                        'name': details['network']['name'],
+                        'id': network['id'],
+                        'total': net_stats['total'],
+                        'available': net_stats['available'],
+                        'used': net_stats['used'],
+                        'tenant': tenant_id})
+        except Exception, e:
+            LOG.exception("Unable to get network list.")
+            if not hasattr(e, 'message'):
+                e.message = str(e)
+            messages.error(self.request,
+                           _('Unable to get network list: %s') % e.message)
+        return networks
 
 
-def create(request):
-    network_form, handled = CreateNetwork.maybe_handle(request)
-    if handled:
-        return shortcuts.redirect('horizon:nova:networks:index')
-
-    return shortcuts.render(request,
-                            'nova/networks/create.html',
-                            {'network_form': network_form})
+class CreateView(forms.ModalFormView):
+    form_class = CreateNetwork
+    template_name = 'nova/networks/create.html'
 
 
-def detail(request, network_id):
-    tenant_id = request.user.tenant_id
-    delete_port_form, delete_handled = DeletePort.maybe_handle(request,
-                                            initial={"network": network_id})
-    detach_port_form, detach_handled = DetachPort.maybe_handle(request,
-                                            initial={"network": network_id})
-    toggle_port_form, port_toggle_handled = TogglePort.maybe_handle(request,
-                                            initial={"network": network_id})
+class RenameView(forms.ModalFormView):
+    form_class = RenameNetwork
+    template_name = 'nova/networks/rename.html'
+    context_object_name = 'network'
 
-    network = {}
-    network['id'] = network_id
+    def get_object(self, *args, **kwargs):
+        network_id = kwargs['network_id']
+        try:
+            return api.quantum_network_details(self.request,
+                                               network_id)['network']
+        except:
+            redirect = reverse("horizon:nova:networks:detail",
+                               args=(network_id,))
+            exceptions.handle(self.request,
+                              _('Unable to retrieve network information.'),
+                              redirect=redirect)
 
-    try:
-        network_details = api.quantum_network_details(request, network_id)
-        network['name'] = network_details['network']['name']
-        network['ports'] = _get_port_states(request, network_id)
-    except Exception, e:
-        LOG.exception("Unable to get network details.")
-        if not hasattr(e, 'message'):
-            e.message = str(e)
-        messages.error(request,
-                       _('Unable to get network details: %s') % e.message)
-        return shortcuts.redirect("horizon:nova:networks:index")
-
-    return shortcuts.render(request,
-                            'nova/networks/detail.html',
-                            {'network': network,
-                             'tenant': tenant_id,
-                             'delete_port_form': delete_port_form,
-                             'detach_port_form': detach_port_form,
-                             'toggle_port_form': toggle_port_form})
+    def get_initial(self):
+        return {'network': self.object['id']}
 
 
-def rename(request, network_id):
-    network_details = api.quantum_network_details(request, network_id)
-    network = network_details['network']
+class DetailView(tables.DataTableView):
+    table_class = NetworkDetailsTable
+    template_name = 'nova/networks/detail.html'
 
-    rename_form, handled = RenameNetwork.maybe_handle(request, initial={
-                                                'network': network['id'],
-                                                'new_name': network['name']})
+    def get_data(self):
+        network_id = self.kwargs['network_id']
+        network_details = api.quantum_network_details(self.request, network_id)
+        self.network = {'id': network_id,
+                        'name': network_details['network']['name'],
+                        'ports': _get_port_states(self.request, network_id)}
+        return self.network['ports']
 
-    if handled:
-        return shortcuts.redirect('horizon:nova:networks:index')
-
-    return shortcuts.render(request,
-                            'nova/networks/rename.html', {
-                                'network': network,
-                                'rename_form': rename_form})
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        context['network'] = self.network
+        return context
 
 
 def _get_port_states(request, network_id):
@@ -187,31 +170,43 @@ def _calc_network_stats(request, network_id):
     return {'total': total, 'used': used, 'available': available}
 
 
-def port_create(request, network_id):
-    create_form, handled = CreatePort.maybe_handle(request, initial={
-                                                   "network": network_id})
+class CreatePortView(forms.ModalFormView):
+    form_class = CreatePort
+    template_name = 'nova/networks/ports/create.html'
+    context_object_name = 'port'
 
-    if handled:
-        return shortcuts.redirect('horizon:nova:networks:detail',
-                                  network_id=network_id)
+    def get_object(self, *args, **kwargs):
+        network_id = kwargs['network_id']
+        try:
+            return api.quantum_network_details(self.request,
+                                               network_id)['network']
+        except:
+            redirect = reverse("horizon:nova:networks:detail",
+                               args=(network_id,))
+            exceptions.handle(self.request,
+                              _('Unable to retrieve network information.'),
+                              redirect=redirect)
 
-    return shortcuts.render(request,
-                            'nova/ports/create.html', {
-                                'network_id': network_id,
-                                'create_form': create_form})
+    def get_initial(self):
+        return {'network': self.object['id']}
 
 
-def port_attach(request, network_id, port_id):
-    attach_form, handled = AttachPort.maybe_handle(request, initial={
-                                                   "network": network_id,
-                                                   "port": port_id})
+class AttachPortView(forms.ModalFormView):
+    form_class = AttachPort
+    template_name = 'nova/networks/ports/attach.html'
+    context_object_name = 'network'
 
-    if handled:
-        return shortcuts.redirect('horizon:nova:networks:detail',
-                                   network_id=network_id)
+    def get_object(self, *args, **kwargs):
+        network_id = kwargs['network_id']
+        try:
+            return api.quantum_network_details(self.request,
+                                               network_id)['network']
+        except:
+            redirect = reverse("horizon:nova:networks:detail",
+                               args=(network_id,))
+            exceptions.handle(self.request,
+                              _('Unable to attach port.'),
+                              redirect=redirect)
 
-    return shortcuts.render(request,
-                            'nova/ports/attach.html', {
-                                'network': network_id,
-                                'port': port_id,
-                                'attach_form': attach_form})
+    def get_initial(self):
+        return {'network': self.object['id']}
