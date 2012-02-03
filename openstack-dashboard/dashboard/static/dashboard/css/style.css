@@ -846,11 +846,16 @@ td.actions_column ul.row_actions.single button:hover {
   color: black;
 }
 
-td.multi_select_column {
+th.multi_select_column, td.multi_select_column {
   width: 25px;
-  padding-top: 10px;
-  padding-left: 20px;
+}
+
+td.multi_select_column {
   text-align: center;
+}
+
+.table input[type="checkbox"] {
+  display: inline;
 }
 
 div.input input[type="checkbox"] {
