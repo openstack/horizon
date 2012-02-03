@@ -99,7 +99,8 @@
 
   {% if show_tab == "vnc" %}
   <div id="vnc" class="tab_wrapper">
-    <iframe src="{{vnc_url}}" width="720" height="420"></iframe>
+    <p class='alert alert-info'>If VNC console is not responding to keyboard input: click the grey status bar below.</p>
+    <iframe src="{{vnc_url}}" width="720" height="430"></iframe>
   </div>
   {% endif %}
 

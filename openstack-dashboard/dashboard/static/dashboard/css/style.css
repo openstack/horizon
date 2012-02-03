@@ -964,3 +964,8 @@ form div.clearfix.error {
 .fluid-container {
   min-width: 760px;
 }
+
+iframe {
+  border: none;
+}
+
