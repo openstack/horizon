@@ -640,8 +640,8 @@ table form {
 
 .modal .left {
     float: left;
-    width: 342px;
-    margin-right: 25px;
+    width: 347px;
+    margin-right: 15px;
 }
 
 .left form {
@@ -650,7 +650,7 @@ table form {
 
 .modal .right {
     float: left;
-    width: 285px;
+    width: 308px;
 }
 
 .clear {
@@ -680,10 +680,6 @@ table form {
 
 .modal .modal-footer input {
     width: auto;
-}
-
-.modal-body {
-  padding-bottom: 0;
 }
 
 .modal .modal-body .modal-footer {
