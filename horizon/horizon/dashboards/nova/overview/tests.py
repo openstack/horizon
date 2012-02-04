@@ -100,6 +100,7 @@ class UsageViewTests(test.BaseViewTests):
         self.assertTemplateUsed(res, 'nova/overview/usage.html')
 
         self.assertTrue(isinstance(res.context['usage'], usage.TenantUsage))
+        self.assertContains(res, 'form-horizontal')
 
     def test_usage_csv(self):
         now = self.override_times()
