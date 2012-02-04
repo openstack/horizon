@@ -132,15 +132,11 @@ class ComputeApiTests(APITestCase):
         novaclient = self.stub_novaclient()
 
         novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavors.delete(FLAVOR_ID, False).AndReturn(TEST_RETURN)
-        novaclient.flavors.delete(FLAVOR_ID, True).AndReturn(TEST_RETURN)
+        novaclient.flavors.delete(FLAVOR_ID).AndReturn(TEST_RETURN)
 
         self.mox.ReplayAll()
 
         ret_val = api.flavor_delete(self.request, FLAVOR_ID)
-        self.assertIsNone(ret_val)
-
-        ret_val = api.flavor_delete(self.request, FLAVOR_ID, purge=True)
         self.assertIsNone(ret_val)
 
     def test_flavor_get(self):
