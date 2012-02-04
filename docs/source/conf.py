@@ -160,7 +160,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Horizon'
-copyright = u'2011, OpenStack, LLC'
+copyright = u'2012, OpenStack, LLC'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -370,7 +370,7 @@ texinfo_documents = [
 epub_title = u'Horizon'
 epub_author = u'OpenStack'
 epub_publisher = u'OpenStack'
-epub_copyright = u'2011, OpenStack'
+epub_copyright = u'2012, OpenStack'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.

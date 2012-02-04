@@ -3,7 +3,7 @@
 # This initial version of this file was taken from the source tree
 # of GlusterFS. It was not directly attributed, but is assumed to be
 # Copyright (c) 2010-2011 Gluster, Inc and release GPLv3
-# Subsequent modifications are Copyright (c) 2011 OpenStack, LLC.
+# Subsequent modifications are Copyright (c) 2012 OpenStack, LLC.
 #
 # GlusterFS is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published
