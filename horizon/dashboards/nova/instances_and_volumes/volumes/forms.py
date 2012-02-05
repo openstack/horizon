@@ -18,6 +18,7 @@ from horizon import forms
 from horizon import exceptions
 from novaclient import exceptions as novaclient_exceptions
 
+from .tables import ACTIVE_STATES
 
 LOG = logging.getLogger(__name__)
 
@@ -59,8 +60,9 @@ class AttachForm(forms.SelfHandlingForm):
         instance_list = kwargs.get('initial', {}).get('instances', [])
         instances = [('', "Select an instance")]
         for instance in instance_list:
-            instances.append((instance.id, '%s (%s)' % (instance.name,
-                                                        instance.id)))
+            if instance.status in ACTIVE_STATES:
+                instances.append((instance.id, '%s (%s)' % (instance.name,
+                                                            instance.id)))
         self.fields['instance'].choices = instances
 
     def handle(self, request, data):
