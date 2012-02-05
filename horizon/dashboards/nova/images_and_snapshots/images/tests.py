@@ -210,3 +210,17 @@ class ImageViewTests(test.TestCase):
                       args=[image.id])
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, IMAGES_INDEX_URL)
+
+    def test_image_detail_get(self):
+        image = self.images.first()
+        self.mox.StubOutWithMock(api.glance, 'image_get_meta')
+        api.glance.image_get_meta(IsA(http.HttpRequest), str(image.id)) \
+                                 .AndReturn(self.images.first())
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+        reverse('horizon:nova:images_and_snapshots:images:detail',
+                args=[image.id]))
+        self.assertTemplateUsed(res,
+                                'nova/images_and_snapshots/images/detail.html')
+        self.assertEqual(res.context['image'].name, image.name)

@@ -24,12 +24,14 @@ Views for managing Nova images.
 
 import logging
 
+from django import shortcuts
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import exceptions
 from horizon import forms
+from horizon import views
 from .forms import UpdateImageForm, LaunchForm
 
 
@@ -168,3 +170,18 @@ class UpdateView(forms.ModalFormView):
                 'architecture': properties.get('architecture', ''),
                 'container_format': self.object.get('container_format', ''),
                 'disk_format': self.object.get('disk_format', ''), }
+
+
+class DetailView(views.APIView):
+    template_name = 'nova/images_and_snapshots/images/detail.html'
+
+    def get_data(self, request, context, *args, **kwargs):
+        image_id = kwargs['image_id']
+        try:
+            image = api.glance.image_get_meta(self.request, kwargs['image_id'])
+        except:
+            exceptions.handle(request, _('Unable to retrieve details for '
+                                         'instance "%s".') % image_id,
+                                                             redirect=redirect)
+            shortcuts.redirect('horizon:nova:images_and_snapshots:index')
+        return {'image': image}
