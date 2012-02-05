@@ -66,7 +66,8 @@ def get_container_format(image):
 
 
 class ImagesTable(tables.DataTable):
-    name = tables.Column("name")
+    name = tables.Column("name", link="horizon:nova:images_and_snapshots:" \
+                                      "images:detail")
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),
                                filters=(filters.title,))

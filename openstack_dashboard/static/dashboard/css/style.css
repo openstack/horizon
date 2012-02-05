@@ -852,10 +852,11 @@ iframe {
   border: none;
 }
 
-form .error {
-  background: #fce6e6;
-  color: #b94a48;
-  border: 1px solid #E9B1B0;
+.item_detail ul li label {
+  color: #000;
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
 }
 
 .progress_bar {
@@ -901,4 +902,10 @@ form .error {
 
 .header_rule {
   margin: 0 0 10px;
+}
+
+.item_detail .detail_section {
+  margin-bottom: 25px;
+  float: left;
+  margin-right: 50px;
 }
