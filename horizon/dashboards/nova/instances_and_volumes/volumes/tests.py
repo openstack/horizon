@@ -40,4 +40,8 @@ class VolumeViewTests(test.TestCase):
         url = reverse('horizon:nova:instances_and_volumes:volumes:attach',
                       args=[volume.id])
         res = self.client.get(url)
+        # Asserting length of 2 accounts for the one instance option,
+        # and the one 'Choose Instance' option.
+        self.assertEqual(len(res.context['form'].fields['instance']._choices),
+                         2)
         self.assertEqual(res.status_code, 200)
