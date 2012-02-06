@@ -51,8 +51,10 @@ class HorizonMiddleware(object):
         if request.user.is_authenticated() and \
                 request.user.authorized_tenants is None:
             try:
+                token = request.session.get("unscoped_token",
+                                            request.user.token)
                 authd = api.tenant_list_for_token(request,
-                                                  request.user.token,
+                                                  token,
                                                   endpoint_type='internalURL')
             except Exception, e:
                 authd = []
