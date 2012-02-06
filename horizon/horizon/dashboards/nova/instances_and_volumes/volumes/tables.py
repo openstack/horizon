@@ -55,6 +55,15 @@ class EditAttachments(tables.LinkAction):
         return volume.status in ("available", "in-use")
 
 
+class CreateSnapshot(tables.LinkAction):
+    name = "snapshots"
+    verbose_name = _("Create Snapshot")
+    url = "horizon:nova:instances_and_volumes:volumes:create_snapshot"
+
+    def allowed(self, request, volume=None):
+        return volume.status in ("available", "in-use")
+
+
 def get_size(volume):
     return _("%s GB") % volume.size
 
@@ -75,17 +84,11 @@ def get_attachment(volume):
     return safestring.mark_safe(", ".join(attachments))
 
 
-class VolumesTable(tables.DataTable):
-    name = tables.Column("displayName",
-                         verbose_name=_("Name"),
-                         link="horizon:nova:instances_and_volumes:"
-                              "volumes:detail")
+class VolumesTableBase(tables.DataTable):
+    name = tables.Column("displayName", verbose_name=_("Name"))
     description = tables.Column("displayDescription",
-                                verbose_name=("Description"))
+                                verbose_name=_("Description"))
     size = tables.Column(get_size, verbose_name=_("Size"))
-    attachments = tables.Column(get_attachment,
-                                verbose_name=_("Attachments"),
-                                empty_value=_("-"))
     status = tables.Column("status", filters=(title,))
 
     def sanitize_id(self, obj_id):
@@ -94,11 +97,16 @@ class VolumesTable(tables.DataTable):
     def get_object_display(self, obj):
         return obj.displayName
 
+
+class VolumesTable(VolumesTableBase):
+    attachments = tables.Column(get_attachment,
+                                verbose_name=_("Attachments"))
+
     class Meta:
         name = "volumes"
         verbose_name = _("Volumes")
         table_actions = (CreateVolume, DeleteVolume,)
-        row_actions = (EditAttachments, DeleteVolume,)
+        row_actions = (EditAttachments, CreateSnapshot, DeleteVolume)
 
 
 class DetachVolume(tables.BatchAction):

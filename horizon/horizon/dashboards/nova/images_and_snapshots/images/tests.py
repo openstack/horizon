@@ -22,6 +22,7 @@ from django import http
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from keystoneclient import exceptions as keystone_exceptions
+from novaclient.v1_1 import client as nova_client, volume_snapshots
 from mox import IgnoreArg, IsA
 
 from horizon import api
@@ -74,6 +75,16 @@ class ImageViewTests(test.BaseViewTests):
         volume.displayName = ''
         self.volumes = (volume,)
 
+        self.volume_snapshot = volume_snapshots.Snapshot(
+                volume_snapshots.SnapshotManager,
+                {'id': 2,
+                 'displayName': 'test snapshot',
+                 'displayDescription': 'test snapshot description',
+                 'size': 40,
+                 'status': 'available',
+                 'volumeId': 1})
+        self.volume_snapshots = [self.volume_snapshot]
+
     def test_launch_get(self):
         IMAGE_ID = 1
 
@@ -111,14 +122,14 @@ class ImageViewTests(test.BaseViewTests):
                          self.keypairs[0].name)
 
     def test_launch_post(self):
-        FLAVOR_ID = self.flavors[0].id
-        IMAGE_ID = '1'
-        keypair = self.keypairs[0].name
-        SERVER_NAME = 'serverName'
-        USER_DATA = 'userData'
-        volume = self.volumes[0].id
-        device_name = 'vda'
-        BLOCK_DEVICE_MAPPING = {device_name: "1:::0"}
+        FLAVOR_ID = unicode(self.flavors[0].id)
+        IMAGE_ID = u'1'
+        keypair = unicode(self.keypairs[0].name)
+        SERVER_NAME = u'serverName'
+        USER_DATA = u'userData'
+        volume = u'%s:vol' % self.volumes[0].id
+        device_name = u'vda'
+        BLOCK_DEVICE_MAPPING = {device_name: u"1:vol::0"}
 
         form_data = {'method': 'LaunchForm',
                      'flavor': FLAVOR_ID,
@@ -130,8 +141,7 @@ class ImageViewTests(test.BaseViewTests):
                      'tenant_id': self.TEST_TENANT,
                      'security_groups': 'default',
                      'volume': volume,
-                     'device_name': device_name
-                     }
+                     'device_name': device_name}
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
         self.mox.StubOutWithMock(api, 'flavor_list')
@@ -143,9 +153,9 @@ class ImageViewTests(test.BaseViewTests):
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
         api.security_group_list(IsA(http.HttpRequest)).AndReturn(
-                                    self.security_groups)
-        api.image_get_meta(IsA(http.HttpRequest),
-                      IMAGE_ID).AndReturn(self.visibleImage)
+                self.security_groups)
+        api.image_get_meta(IsA(http.HttpRequest), IMAGE_ID).AndReturn(
+                self.visibleImage)
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes)
         api.server_create(IsA(http.HttpRequest), SERVER_NAME,
                           str(IMAGE_ID), str(FLAVOR_ID),
@@ -254,9 +264,8 @@ class ImageViewTests(test.BaseViewTests):
         api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
         api.keypair_list(IgnoreArg()).AndReturn(self.keypairs)
         api.security_group_list(IsA(http.HttpRequest)).AndReturn(
-                                    self.security_groups)
-        api.image_get_meta(IgnoreArg(),
-                      IMAGE_ID).AndReturn(self.visibleImage)
+                self.security_groups)
+        api.image_get_meta(IgnoreArg(), IMAGE_ID).AndReturn(self.visibleImage)
         api.volume_list(IgnoreArg()).AndReturn(self.volumes)
 
         exception = keystone_exceptions.ClientException('Failed')
@@ -269,9 +278,6 @@ class ImageViewTests(test.BaseViewTests):
                           [group.name for group in self.security_groups],
                           None,
                           instance_count=IsA(int)).AndRaise(exception)
-
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest), IsA(basestring))
 
         self.mox.ReplayAll()
         url = reverse('horizon:nova:images_and_snapshots:images:launch',
