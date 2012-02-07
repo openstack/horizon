@@ -18,19 +18,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import datetime
 import logging
 
-from django import template
-from django import http
-from django.conf import settings
-from django.contrib import messages
-from django.shortcuts import render_to_response, redirect
+from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import exceptions
-from horizon import forms
 from horizon import tables
 from horizon.dashboards.nova.instances_and_volumes \
      .instances.tables import InstancesTable
@@ -48,8 +42,18 @@ class AdminIndexView(tables.DataTableView):
     def get_data(self):
         instances = []
         try:
-            instances = api.admin_server_list(self.request)
+            instances = api.nova.server_list(self.request, all_tenants=True)
         except:
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'))
+        if instances:
+            try:
+                flavors = api.nova.flavor_list(self.request)
+                full_flavors = SortedDict([(str(flavor.id), flavor) for \
+                                            flavor in flavors])
+                for instance in instances:
+                    instance.full_flavor = full_flavors[instance.flavor["id"]]
+            except:
+                msg = _('Unable to retrieve instance size information.')
+                exceptions.handle(self.request, msg)
         return instances

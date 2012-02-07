@@ -303,22 +303,21 @@ def server_get(request, instance_id):
     return Server(novaclient(request).servers.get(instance_id), request)
 
 
-def server_list(request):
-    # (sleepsonthefloor) explicitly filter by project id, so admins
-    # can retrieve a list that includes -only- their instances if destired.
-    # admin_server_list() returns all servers.
+def server_list(request, search_opts=None, all_tenants=False):
+    if search_opts is None:
+        search_opts = {}
+    if all_tenants:
+        search_opts['all_tenants'] = True
+    else:
+        search_opts['project_id'] = request.user.tenant_id
     return [Server(s, request) for s in novaclient(request).\
-            servers.list(True, {'project_id': request.user.tenant_id})]
+            servers.list(True, search_opts)]
 
 
 def server_console_output(request, instance_id, tail_length=None):
     """Gets console output of an instance"""
     return novaclient(request).servers.get_console_output(instance_id,
                                                           length=tail_length)
-
-
-def admin_server_list(request):
-    return [Server(s, request) for s in novaclient(request).servers.list()]
 
 
 def server_pause(request, instance_id):

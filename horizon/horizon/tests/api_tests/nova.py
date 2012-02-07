@@ -22,7 +22,6 @@
 from __future__ import absolute_import
 
 from django import http
-from django.conf import settings
 from mox import IsA, IgnoreArg
 from novaclient.v1_1 import servers
 
@@ -103,6 +102,30 @@ class ServerWrapperTests(test.TestCase):
 
 
 class ComputeApiTests(APITestCase):
+
+    def setUp(self):
+        super(ComputeApiTests, self).setUp()
+        keypair = api.KeyPair(APIResource.get_instance())
+        keypair.id = 1
+        keypair.name = TEST_RETURN
+
+        self.keypair = keypair
+        self.keypairs = [keypair, ]
+
+        floating_ip = api.FloatingIp(APIResource.get_instance())
+        floating_ip.id = 1
+        floating_ip.fixed_ip = '10.0.0.4'
+        floating_ip.instance_id = 1
+        floating_ip.ip = '58.58.58.58'
+
+        self.floating_ip = floating_ip
+        self.floating_ips = [floating_ip, ]
+
+        server = api.Server(APIResource.get_instance(), self.request)
+        server.id = 1
+
+        self.server = server
+        self.servers = [server, ]
 
     def test_flavor_create(self):
         FLAVOR_DISK = 1000
@@ -263,9 +286,6 @@ class ComputeApiTests(APITestCase):
         self.assertIsInstance(ret_val, api.Server)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
 
-
-class ExtrasApiTests(APITestCase):
-
     def test_server_vnc_console(self):
         fake_console = {'console': {'url': 'http://fake', 'type': ''}}
         novaclient = self.stub_novaclient()
@@ -363,33 +383,6 @@ class ExtrasApiTests(APITestCase):
 
         self.assertIsInstance(ret_val, api.Server)
         self.assertEqual(ret_val._apiresource, TEST_RETURN)
-
-
-class APIExtensionTests(APITestCase):
-
-    def setUp(self):
-        super(APIExtensionTests, self).setUp()
-        keypair = api.KeyPair(APIResource.get_instance())
-        keypair.id = 1
-        keypair.name = TEST_RETURN
-
-        self.keypair = keypair
-        self.keypairs = [keypair, ]
-
-        floating_ip = api.FloatingIp(APIResource.get_instance())
-        floating_ip.id = 1
-        floating_ip.fixed_ip = '10.0.0.4'
-        floating_ip.instance_id = 1
-        floating_ip.ip = '58.58.58.58'
-
-        self.floating_ip = floating_ip
-        self.floating_ips = [floating_ip, ]
-
-        server = api.Server(APIResource.get_instance(), self.request)
-        server.id = 1
-
-        self.server = server
-        self.servers = [server, ]
 
     def test_server_snapshot_create(self):
         novaclient = self.stub_novaclient()
