@@ -53,7 +53,7 @@ class CreateUserForm(BaseUserForm):
     password = forms.CharField(label=_("Password"),
                                widget=forms.PasswordInput(render_value=False),
                                required=False)
-    tenant_id = forms.ChoiceField(label=_("Primary Tenant"))
+    tenant_id = forms.ChoiceField(label=_("Primary Project"))
 
     def handle(self, request, data):
         try:
@@ -92,7 +92,7 @@ class UpdateUserForm(BaseUserForm):
     password = forms.CharField(label=_("Password"),
                                widget=forms.PasswordInput(render_value=False),
                                required=False)
-    tenant_id = forms.ChoiceField(label=_("Primary Tenant"))
+    tenant_id = forms.ChoiceField(label=_("Primary Project"))
 
     def handle(self, request, data):
         updated = []

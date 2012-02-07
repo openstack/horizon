@@ -1,7 +1,7 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
-{% block form_id %}update_tenant_form{% endblock %}
+{% block form_id %}update_user_form{% endblock %}
 {% block form_action %}{% url horizon:syspanel:users:update user.id %}{% endblock %}
 
 {% block modal-header %}{% trans "Update User" %}{% endblock %}
@@ -14,7 +14,7 @@
 </div>
 <div class="right">
     <h3>{% trans "Description" %}:</h3>
-    <p>{% trans "From here you can edit users by changing their usernames, emails, passwords, and tenants." %}</p>
+    <p>{% trans "From here you can edit the user by changing their username, email, password, and default project." %}</p>
 </div>
 {% endblock %}
 

@@ -14,8 +14,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django import shortcuts
+from .forms import DownloadOpenRCForm
 
 
-urlpatterns = patterns('horizon.dashboards.settings.tenant.views',
-    url(r'^$', 'index', name='index'))
+def index(request):
+    form, handled = DownloadOpenRCForm.maybe_handle(request,
+                        initial={'tenant': request.user.tenant_id})
+    if handled:
+        return handled
+
+    context = {'form': form}
+
+    return shortcuts.render(request, 'settings/project/settings.html', context)

@@ -1,8 +1,0 @@
-{% extends 'syspanel/base.html' %}
-{% load i18n sizeformat %}
-{% block title %}{% trans "Tenant Usage Overview" %}{% endblock %}
-
-{% block syspanel_main %}
-  {% include "horizon/common/_usage_summary.html" %}
-  {{ table.render }}
-{% endblock %}

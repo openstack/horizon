@@ -19,8 +19,8 @@ from horizon.dashboards.settings import dashboard
 
 
 class TenantPanel(horizon.Panel):
-    name = "Tenant Settings"
-    slug = 'tenant'
+    name = "Project Settings"
+    slug = 'project'
 
 
 dashboard.Settings.register(TenantPanel)

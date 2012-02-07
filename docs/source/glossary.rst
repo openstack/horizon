@@ -17,3 +17,8 @@ Panel
     A Python class representing a sub-navigation item (e.g. "instances")
     which contains all the necessary logic (views, forms, tests, etc.) for
     that interface.
+
+Project
+
+    Used in user-facing text in place of the term "Tenant" which is Keystone's
+    word.

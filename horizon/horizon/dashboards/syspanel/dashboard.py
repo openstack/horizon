@@ -23,7 +23,7 @@ class Syspanel(horizon.Dashboard):
     name = "Admin"  # Appears in navigation
     slug = "syspanel"
     panels = {_("System Panel"): ('overview', 'instances', 'services',
-                                  'flavors', 'images', 'tenants', 'users',
+                                  'flavors', 'images', 'projects', 'users',
                                   'quotas',)}
     default_panel = 'overview'
     roles = ('admin',)

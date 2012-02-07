@@ -2,10 +2,10 @@
 {% load i18n %}
 
 {% block form_id %}add_user_form{% endblock %}
-{% block form_action %}{% url horizon:syspanel:tenants:add_user tenant_id user_id %}{% endblock %}
+{% block form_action %}{% url horizon:syspanel:projects:add_user tenant_id user_id %}{% endblock %}
 
 {% block modal_id %}add_user_modal{% endblock %}
-{% block modal-header %}{% trans "Add User To Tenant" %}{% endblock %}
+{% block modal-header %}{% trans "Add User To Project" %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -15,11 +15,11 @@
 </div>
 <div class="right">
     <h3>{% trans "Description" %}:</h3>
-    <p>{% trans "Select the user role for the tenant." %}</p>
+    <p>{% trans "Select the user role for the project." %}</p>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
     <input class="btn primary pull-right" type="submit" value="{% trans "Add" %}" />
-    <a href="{% url horizon:syspanel:tenants:users tenant_id %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+    <a href="{% url horizon:syspanel:projects:users tenant_id %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

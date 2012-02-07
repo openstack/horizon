@@ -41,7 +41,7 @@ LOG = logging.getLogger(__name__)
 
 class IndexView(tables.DataTableView):
     table_class = TenantsTable
-    template_name = 'syspanel/tenants/index.html'
+    template_name = 'syspanel/projects/index.html'
 
     def get_data(self):
         tenants = []
@@ -63,12 +63,12 @@ class IndexView(tables.DataTableView):
 
 class CreateView(forms.ModalFormView):
     form_class = CreateTenant
-    template_name = 'syspanel/tenants/create.html'
+    template_name = 'syspanel/projects/create.html'
 
 
 class UpdateView(forms.ModalFormView):
     form_class = UpdateTenant
-    template_name = 'syspanel/tenants/update.html'
+    template_name = 'syspanel/projects/update.html'
     context_object_name = 'tenant'
 
     def get_object(self, *args, **kwargs):
@@ -79,7 +79,7 @@ class UpdateView(forms.ModalFormView):
             LOG.exception('Error fetching tenant with id "%s"' % tenant_id)
             messages.error(self.request, _('Unable to update tenant: %s')
                                            % e.message)
-            raise http.Http404("Tenant with ID %s not found." % tenant_id)
+            raise http.Http404("Project with ID %s not found." % tenant_id)
 
     def get_initial(self):
         return {'id': self.object.id,
@@ -90,7 +90,7 @@ class UpdateView(forms.ModalFormView):
 
 class UsersView(tables.MultiTableView):
     table_classes = (TenantUsersTable, AddUsersTable)
-    template_name = 'syspanel/tenants/users.html'
+    template_name = 'syspanel/projects/users.html'
 
     def get_data(self, *args, **kwargs):
         tenant_id = self.kwargs["tenant_id"]
@@ -99,7 +99,7 @@ class UsersView(tables.MultiTableView):
             self.all_users = api.keystone.user_list(self.request)
             self.tenant_users = api.keystone.user_list(self.request, tenant_id)
         except:
-            redirect = reverse("horizon:syspanel:tenants:index")
+            redirect = reverse("horizon:syspanel:projects:index")
             exceptions.handle(self.request,
                               _("Unable to retrieve users."),
                               redirect=redirect)
@@ -121,7 +121,7 @@ class UsersView(tables.MultiTableView):
 
 class AddUserView(forms.ModalFormView):
     form_class = AddUser
-    template_name = 'syspanel/tenants/add_user.html'
+    template_name = 'syspanel/projects/add_user.html'
     context_object_name = 'tenant'
 
     def get_object(self, *args, **kwargs):
@@ -138,7 +138,7 @@ class AddUserView(forms.ModalFormView):
         try:
             roles = api.keystone.role_list(self.request)
         except:
-            redirect = reverse("horizon:syspanel:tenants:users",
+            redirect = reverse("horizon:syspanel:projects:users",
                                args=(self.kwargs["tenant_id"],))
             exceptions.handle(self.request,
                               _("Unable to retrieve roles."),
@@ -156,7 +156,7 @@ class AddUserView(forms.ModalFormView):
 
 class QuotasView(forms.ModalFormView):
     form_class = UpdateQuotas
-    template_name = 'syspanel/tenants/quotas.html'
+    template_name = 'syspanel/projects/quotas.html'
     context_object_name = 'tenant'
 
     def get_object(self, *args, **kwargs):
@@ -181,7 +181,7 @@ class QuotasView(forms.ModalFormView):
 class TenantUsageView(usage.UsageView):
     table_class = usage.TenantUsageTable
     usage_class = usage.TenantUsage
-    template_name = 'syspanel/tenants/usage.html'
+    template_name = 'syspanel/projects/usage.html'
 
     def get_data(self):
         super(TenantUsageView, self).get_data()

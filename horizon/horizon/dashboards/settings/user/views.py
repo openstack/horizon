@@ -15,7 +15,6 @@
 #    under the License.
 
 from django import shortcuts
-from horizon.dashboards.settings.tenant.forms import DownloadOpenRCForm
 
 
 def index(request):
