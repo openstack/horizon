@@ -23,8 +23,8 @@ from horizon.dashboards.syspanel import dashboard
 
 
 class Tenants(horizon.Panel):
-    name = "Tenants"
-    slug = 'tenants'
+    name = "Projects"
+    slug = 'projects'
 
 
 dashboard.Syspanel.register(Tenants)

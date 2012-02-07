@@ -128,7 +128,7 @@ class UsersTable(tables.DataTable):
     email = tables.Column(_('email'))
     # Default tenant is not returned from Keystone currently.
     #default_tenant = tables.Column(_('default_tenant'),
-    #                               verbose_name="Default Tenant")
+    #                               verbose_name="Default Project")
     enabled = tables.Column(_('enabled'),
                             status=True,
                             status_choices=STATUS_CHOICES)

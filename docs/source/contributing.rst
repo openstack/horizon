@@ -126,3 +126,16 @@ Be sure to generate the documentation before submitting a patch for review.
 Unexpected warnings often appear when building the documentation, and slight
 reST syntax errors frequently cause links or cross-references not to work
 correctly.
+
+Conventions
+-----------
+
+Simply by convention, we have a few rules about naming:
+
+  * The term "project" is used in place of Keystone's "tenant" terminology
+    in all user-facing text. The term "tenant" is still used in API code to
+    make things more obvious for developers.
+
+  * The term "dashboard" refers to a top-level dashboard class, and "panel" to
+    the sub-items within a dashboard. Referring to a panel as a dashboard is
+    both confusing and incorrect.

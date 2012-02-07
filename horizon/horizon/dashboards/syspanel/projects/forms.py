@@ -52,7 +52,7 @@ class AddUser(forms.SelfHandlingForm):
             messages.success(request, _('Successfully added user to tenant.'))
         except:
             exceptions.handle(request, _('Unable to add user to tenant.'))
-        return shortcuts.redirect('horizon:syspanel:tenants:users',
+        return shortcuts.redirect('horizon:syspanel:projects:users',
                                   tenant_id=data['tenant_id'])
 
 
@@ -76,7 +76,7 @@ class CreateTenant(forms.SelfHandlingForm):
                              % data['name'])
         except:
             exceptions.handle(request, _('Unable to create tenant.'))
-        return shortcuts.redirect('horizon:syspanel:tenants:index')
+        return shortcuts.redirect('horizon:syspanel:projects:index')
 
 
 class UpdateTenant(forms.SelfHandlingForm):
@@ -102,7 +102,7 @@ class UpdateTenant(forms.SelfHandlingForm):
                              % data['name'])
         except:
             exceptions.handle(request, _('Unable to update tenant.'))
-        return shortcuts.redirect('horizon:syspanel:tenants:index')
+        return shortcuts.redirect('horizon:syspanel:projects:index')
 
 
 class UpdateQuotas(forms.SelfHandlingForm):
@@ -138,4 +138,4 @@ class UpdateQuotas(forms.SelfHandlingForm):
                              % data['tenant_id'])
         except:
             exceptions.handle(request, _('Unable to update quotas.'))
-        return shortcuts.redirect('horizon:syspanel:tenants:index')
+        return shortcuts.redirect('horizon:syspanel:projects:index')

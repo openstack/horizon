@@ -32,7 +32,7 @@ LOG = logging.getLogger(__name__)
 
 
 class DownloadOpenRCForm(forms.SelfHandlingForm):
-    tenant = forms.ChoiceField(label=_("Select a Tenant"))
+    tenant = forms.ChoiceField(label=_("Select a Project"))
 
     @classmethod
     def _instantiate(cls, request, *args, **kwargs):
@@ -58,7 +58,7 @@ class DownloadOpenRCForm(forms.SelfHandlingForm):
                        'tenant_id': data['tenant']}
 
             response = shortcuts.render(request,
-                                        'settings/tenant/openrc.sh.template',
+                                        'settings/project/openrc.sh.template',
                                         context,
                                         content_type="text/plain")
             response['Content-Disposition'] = 'attachment; filename=openrc.sh'

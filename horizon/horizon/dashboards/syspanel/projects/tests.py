@@ -22,7 +22,7 @@ from horizon import api
 from horizon import test
 
 
-INDEX_URL = reverse('horizon:syspanel:tenants:index')
+INDEX_URL = reverse('horizon:syspanel:projects:index')
 
 
 class FakeResource(object):
@@ -60,7 +60,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(INDEX_URL)
 
-        self.assertTemplateUsed(res, 'syspanel/tenants/index.html')
+        self.assertTemplateUsed(res, 'syspanel/projects/index.html')
         self.assertItemsEqual(res.context['table'].data, self.tenants)
 
     def test_modify_quota(self):
@@ -78,7 +78,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:syspanel:tenants:quotas',
+        url = reverse('horizon:syspanel:projects:quotas',
                       args=(self.TEST_TENANT,))
         data = {"method": "UpdateQuotas",
                 "tenant_id": self.TEST_TENANT,

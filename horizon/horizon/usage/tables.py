@@ -23,7 +23,7 @@ class BaseUsageTable(tables.DataTable):
 
 
 class GlobalUsageTable(BaseUsageTable):
-    tenant = tables.Column('tenant_id', verbose_name=_("Tenant ID"))
+    tenant = tables.Column('tenant_id', verbose_name=_("Project ID"))
     disk_hours = tables.Column('disk_gb_hours',
                                verbose_name=_("Disk GB Hours"))
 

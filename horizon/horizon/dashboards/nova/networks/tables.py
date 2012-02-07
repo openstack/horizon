@@ -39,7 +39,7 @@ class NetworksTable(tables.DataTable):
     used = tables.Column('used', verbose_name=_('Used'))
     available = tables.Column('available', verbose_name=_('Available'))
     total = tables.Column('total', verbose_name=_('Total'))
-    #tenant = tables.Column('tenant', verbose_name=_('Tenant'))
+    #tenant = tables.Column('tenant', verbose_name=_('Project'))
 
     def get_object_id(self, datum):
         return datum['id']

@@ -20,9 +20,9 @@ import horizon
 
 
 class Settings(horizon.Dashboard):
-    name = "Settings"
+    name = _("Settings")
     slug = "settings"
-    panels = ('user', 'tenant')
+    panels = ('user', 'project')
     default_panel = 'user'
     nav = False
 

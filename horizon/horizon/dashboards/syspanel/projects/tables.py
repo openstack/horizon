@@ -15,39 +15,39 @@ LOG = logging.getLogger(__name__)
 class ModifyQuotasLink(tables.LinkAction):
     name = "quotas"
     verbose_name = _("Modify Quotas")
-    url = "horizon:syspanel:tenants:quotas"
+    url = "horizon:syspanel:projects:quotas"
     attrs = {"class": "ajax-modal"}
 
 
 class ViewMembersLink(tables.LinkAction):
     name = "users"
     verbose_name = _("Modify Users")
-    url = "horizon:syspanel:tenants:users"
+    url = "horizon:syspanel:projects:users"
 
 
 class UsageLink(tables.LinkAction):
     name = "usage"
     verbose_name = _("View Usage")
-    url = "horizon:syspanel:tenants:usage"
+    url = "horizon:syspanel:projects:usage"
 
 
 class EditLink(tables.LinkAction):
     name = "update"
-    verbose_name = _("Edit Tenant")
-    url = "horizon:syspanel:tenants:update"
+    verbose_name = _("Edit Project")
+    url = "horizon:syspanel:projects:update"
     attrs = {"class": "ajax-modal"}
 
 
 class CreateLink(tables.LinkAction):
     name = "create"
-    verbose_name = _("Create New Tenant")
-    url = "horizon:syspanel:tenants:create"
+    verbose_name = _("Create New Project")
+    url = "horizon:syspanel:projects:create"
     attrs = {"class": "ajax-modal btn small"}
 
 
 class DeleteTenantsAction(tables.DeleteAction):
-    data_type_singular = _("Tenant")
-    data_type_plural = _("Tenants")
+    data_type_singular = _("Project")
+    data_type_plural = _("Projects")
 
     def delete(self, request, obj_id):
         api.keystone.tenant_delete(request, obj_id)
@@ -76,7 +76,7 @@ class TenantsTable(tables.DataTable):
 
     class Meta:
         name = "tenants"
-        verbose_name = _("Tenants")
+        verbose_name = _("Projects")
         row_actions = (EditLink, UsageLink, ViewMembersLink, ModifyQuotasLink,
                        DeleteTenantsAction)
         table_actions = (TenantFilterAction, CreateLink, DeleteTenantsAction)
@@ -98,15 +98,15 @@ class RemoveUserAction(tables.BatchAction):
 class TenantUsersTable(UsersTable):
     class Meta:
         name = "tenant_users"
-        verbose_name = _("Users For Tenant")
+        verbose_name = _("Users For Project")
         table_actions = (RemoveUserAction,)
         row_actions = (RemoveUserAction,)
 
 
 class AddUserAction(tables.LinkAction):
     name = "add_user"
-    verbose_name = _("Add To Tenant")
-    url = "horizon:syspanel:tenants:add_user"
+    verbose_name = _("Add To Project")
+    url = "horizon:syspanel:projects:add_user"
     classes = ('ajax-modal',)
 
     def get_link_url(self, user):

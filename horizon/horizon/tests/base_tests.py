@@ -104,7 +104,7 @@ class HorizonTests(test.TestCase):
                                  '<Panel: Services>',
                                  '<Panel: Flavors>',
                                  '<Panel: Images>',
-                                 '<Panel: Tenants>',
+                                 '<Panel: Projects>',
                                  '<Panel: Users>',
                                  '<Panel: Quotas>'])
         self.assertEqual(syspanel.get_absolute_url(), "/syspanel/")
@@ -120,7 +120,7 @@ class HorizonTests(test.TestCase):
         settings_dash.register(MyPanel)
         self.assertQuerysetEqual(settings_dash.get_panels(),
                                  ['<Panel: User Settings>',
-                                  '<Panel: Tenant Settings>',
+                                  '<Panel: Project Settings>',
                                   '<Panel: My Panel>'])
 
     def test_panels(self):
