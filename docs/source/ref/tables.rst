@@ -44,10 +44,13 @@ The following options can be defined in a ``Meta`` class inside a
 .. autoclass:: horizon.tables.base.DataTableOptions
     :members:
 
-Columns
-=======
+Table Components
+================
 
 .. autoclass:: Column
+    :members:
+
+.. autoclass:: Row
     :members:
 
 Actions
@@ -57,6 +60,9 @@ Actions
     :members:
 
 .. autoclass:: LinkAction
+    :members:
+
+.. autoclass:: UpdateAction
     :members:
 
 .. autoclass:: FilterAction

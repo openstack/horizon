@@ -60,15 +60,20 @@ class MyLinkAction(tables.LinkAction):
 
 
 class MyAction(tables.Action):
-    name = "click"
-    verbose_name = "Click Me"
-    verbose_name_plural = "Click Them"
+    name = "delete"
+    verbose_name = "Delete Me"
+    verbose_name_plural = "Delete Them"
 
     def allowed(self, request, obj=None):
         return getattr(obj, 'status', None) != 'down'
 
     def handle(self, data_table, request, object_ids):
         return shortcuts.redirect('http://example.com/%s' % len(object_ids))
+
+
+class MyUpdateAction(tables.UpdateAction):
+    def get_data(self, request, obj_id):
+        return TEST_DATA_2[0]
 
 
 class MyFilterAction(tables.FilterAction):
@@ -108,7 +113,7 @@ class MyTable(tables.DataTable):
         status_column = "status"
         columns = ('id', 'name', 'value', 'optional', 'status')
         table_actions = (MyFilterAction, MyAction,)
-        row_actions = (MyAction, MyLinkAction,)
+        row_actions = (MyAction, MyLinkAction, MyUpdateAction)
 
 
 class DataTableTests(test.TestCase):
@@ -136,15 +141,17 @@ class DataTableTests(test.TestCase):
                                   '<Column: actions>'])
         # Actions (these also test ordering)
         self.assertQuerysetEqual(self.table.base_actions.values(),
-                                 ['<MyAction: click>',
+                                 ['<MyAction: delete>',
                                   '<MyFilterAction: filter>',
-                                  '<MyLinkAction: login>'])
+                                  '<MyLinkAction: login>',
+                                  '<MyUpdateAction: update>'])
         self.assertQuerysetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
-                                  '<MyAction: click>'])
+                                  '<MyAction: delete>'])
         self.assertQuerysetEqual(self.table.get_row_actions(TEST_DATA[0]),
-                                 ['<MyAction: click>',
-                                  '<MyLinkAction: login>'])
+                                 ['<MyAction: delete>',
+                                  '<MyLinkAction: login>',
+                                  '<MyUpdateAction: update>'])
         # Auto-generated columns
         multi_select = self.table.columns['multi_select']
         self.assertEqual(multi_select.auto, "multi_select")
@@ -318,12 +325,15 @@ class DataTableTests(test.TestCase):
         resp = http.HttpResponse(table_actions)
         self.assertContains(resp, "table_search", 1)
         self.assertContains(resp, "my_table__filter__q", 1)
-        self.assertContains(resp, "my_table__click", 1)
+        self.assertContains(resp, "my_table__delete", 1)
         # Row actions
         row_actions = self.table.render_row_actions(TEST_DATA[0])
         resp = http.HttpResponse(row_actions)
-        self.assertContains(resp, "<li", 1)
-        self.assertContains(resp, "my_table__click__1", 1)
+        self.assertContains(resp, "<li", 2)
+        self.assertContains(resp, "my_table__delete__1", 1)
+        self.assertContains(resp,
+                            "action=update&amp;table=my_table&amp;obj_id=1", 1)
+        self.assertContains(resp, "data-update-interval", 1)
         self.assertContains(resp, "/auth/login/", 1)
         self.assertContains(resp, "ajax-modal", 1)
         # Whole table
@@ -344,22 +354,22 @@ class DataTableTests(test.TestCase):
 
     def test_table_actions(self):
         # Single object action
-        action_string = "my_table__click__1"
+        action_string = "my_table__delete__1"
         req = self.factory.post('/my_url/', {'action': action_string})
         self.table = MyTable(req, TEST_DATA)
         self.assertEqual(self.table.parse_action(action_string),
-                         ('my_table', 'click', '1'))
+                         ('my_table', 'delete', '1'))
         handled = self.table.maybe_handle()
         self.assertEqual(handled.status_code, 302)
         self.assertEqual(handled["location"], "http://example.com/1")
 
         # Multiple object action
-        action_string = "my_table__click"
+        action_string = "my_table__delete"
         req = self.factory.post('/my_url/', {'action': action_string,
                                              'object_ids': [1, 2]})
         self.table = MyTable(req, TEST_DATA)
         self.assertEqual(self.table.parse_action(action_string),
-                         ('my_table', 'click', None))
+                         ('my_table', 'delete', None))
         handled = self.table.maybe_handle()
         self.assertEqual(handled.status_code, 302)
         self.assertEqual(handled["location"], "http://example.com/2")
@@ -368,7 +378,7 @@ class DataTableTests(test.TestCase):
         req = self.factory.post('/my_url/', {'action': action_string})
         self.table = MyTable(req, TEST_DATA)
         self.assertEqual(self.table.parse_action(action_string),
-                         ('my_table', 'click', None))
+                         ('my_table', 'delete', None))
         handled = self.table.maybe_handle()
         self.assertEqual(handled, None)
         self.assertEqual(list(req._messages)[0].message,
@@ -382,3 +392,25 @@ class DataTableTests(test.TestCase):
         self.assertEqual(handled, None)
         self.assertQuerysetEqual(self.table.filtered_data,
                                  ['<FakeObject: object_2>'])
+
+        # Updating and preemptive actions
+        params = {"table": "my_table", "action": "update", "obj_id": "1"}
+        req = self.factory.get('/my_url/',
+                               params,
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.table = MyTable(req)
+        resp = self.table.maybe_preempt()
+        self.assertEqual(resp.status_code, 200)
+        # Make sure the data returned differs from the original
+        self.assertContains(resp, "my_table__row__1")
+        self.assertContains(resp, "status_down")
+
+        # Verify that we don't get a response for a valid action with the
+        # wrong method.
+        params = {"table": "my_table", "action": "delete", "obj_id": "1"}
+        req = self.factory.get('/my_url/', params)
+        self.table = MyTable(req)
+        resp = self.table.maybe_preempt()
+        self.assertEqual(resp, None)
+        resp = self.table.maybe_handle()
+        self.assertEqual(resp, None)

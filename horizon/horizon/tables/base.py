@@ -25,6 +25,7 @@ from django import template
 from django.conf import settings
 from django.contrib import messages
 from django.core import urlresolvers
+from django.template.loader import render_to_string
 from django.utils import http
 from django.utils.datastructures import SortedDict
 from django.utils.html import escape
@@ -310,6 +311,10 @@ class Row(object):
         else:
             return ''
 
+    def render(self):
+        return render_to_string("horizon/common/_data_table_row.html",
+                                {"row": self})
+
     def get_cells(self):
         """ Returns the bound cells for this row in order. """
         return self.cells.values()
@@ -464,6 +469,16 @@ class DataTableOptions(object):
 
         This is useful for displaying the enabled/disabled status of a
         service, for example.
+
+    .. attribute:: row_class
+
+        The class which should be used for rendering the rows of this table.
+        Optional. Default: :class:`~horizon.tables.Row`.
+
+    .. attribute:: column_class
+
+        The class which should be used for handling the columns of this table.
+        Optional. Default: :class:`~horizon.tables.Column`.
     """
     def __init__(self, options):
         self.name = getattr(options, 'name', self.__class__.__name__)
@@ -474,6 +489,8 @@ class DataTableOptions(object):
         self.status_column = getattr(options, 'status_column', None)
         self.table_actions = getattr(options, 'table_actions', [])
         self.row_actions = getattr(options, 'row_actions', [])
+        self.row_class = getattr(options, 'row_class', Row)
+        self.column_class = getattr(options, 'column_class', Column)
 
         # Set self.filter if we have any FilterActions
         filter_actions = [action for action in self.table_actions if
@@ -516,7 +533,7 @@ class DataTableMetaclass(type):
         # on the DataTable class and avoids naming conflicts.
         columns = [(column_name, attrs.pop(column_name)) for \
                             column_name, obj in attrs.items() \
-                            if isinstance(obj, Column)]
+                            if isinstance(obj, opts.column_class)]
         # add a name attribute to each column
         for column_name, column in columns:
             column.name = column_name
@@ -537,14 +554,14 @@ class DataTableMetaclass(type):
             columns.sort(key=lambda x: attrs['_meta'].columns.index(x[0]))
         # Add in our auto-generated columns
         if opts.multi_select:
-            multi_select = Column("multi_select",
-                                  verbose_name="",
-                                  attrs={'classes': ('multi_select_column',)})
+            multi_select = opts.column_class("multi_select",
+                                             verbose_name="")
+            multi_select.attrs = {'classes': ('multi_select_column',)}
             multi_select.auto = "multi_select"
             columns.insert(0, ("multi_select", multi_select))
         if opts.actions_column:
-            actions_column = Column("actions",
-                                    attrs={'classes': ('actions_column',)})
+            actions_column = opts.column_class("actions")
+            actions_column.attrs = {'classes': ('actions_column',)}
             actions_column.auto = "actions"
             columns.append(("actions", actions_column))
         attrs['columns'] = SortedDict(columns)
@@ -591,7 +608,7 @@ class DataTable(object):
     """
     __metaclass__ = DataTableMetaclass
 
-    def __init__(self, request, data, **kwargs):
+    def __init__(self, request, data=None, **kwargs):
         self._meta.request = request
         self._meta.data = data
         self._populate_data_cache()
@@ -621,6 +638,10 @@ class DataTable(object):
     @property
     def data(self):
         return self._meta.data
+
+    @data.setter
+    def data(self, data):
+        self._meta.data = data
 
     @property
     def multi_select(self):
@@ -715,7 +736,7 @@ class DataTable(object):
             # Hook for modifying actions based on data. No-op by default.
             bound_action.update(self._meta.request, datum)
             # Pre-create the URL for this link with appropriate parameters
-            if isinstance(bound_action, LinkAction):
+            if issubclass(bound_action.__class__, LinkAction):
                 bound_action.bound_url = bound_action.get_link_url(datum)
             bound_actions.append(bound_action)
         return bound_actions
@@ -771,7 +792,12 @@ class DataTable(object):
         # See if we have a list of ids
         obj_ids = obj_ids or self._meta.request.POST.getlist('object_ids')
         action = self.base_actions.get(action_name, None)
-        if action and (not action.requires_input or obj_id or obj_ids):
+        if not action or action.method != self._meta.request.method:
+            # We either didn't get an action or we're being hacked. Goodbye.
+            return None
+
+        # Meanhile, back in Gotham...
+        if not action.requires_input or obj_id or obj_ids:
             if obj_id:
                 obj_id = self.sanitize_id(obj_id)
             if obj_ids:
@@ -790,15 +816,43 @@ class DataTable(object):
                           _("Please select a row before taking that action."))
         return None
 
-    def maybe_handle(self):
+    def _check_handler(self):
         """ Determine whether the request should be handled by this table. """
         request = self._meta.request
-        if request.method == "POST":
-            action_string = request.POST.get('action', None)
-            if action_string:
-                table_id, action, obj_id = self.parse_action(action_string)
-                if table_id == self.name and action:
-                    return self.take_action(action, obj_id)
+        if request.method == "POST" and "action" in request.POST:
+            table, action, obj_id = self.parse_action(request.POST["action"])
+        elif "table" in request.GET and "action" in request.GET:
+            table = request.GET["table"]
+            action = request.GET["action"]
+            obj_id = request.GET.get("obj_id", None)
+        else:
+            table = action = obj_id = None
+        return table, action, obj_id
+
+    def maybe_preempt(self):
+        """
+        Determine whether the request should be handled by a preemptive action
+        on this table before loading any data.
+        """
+        table_name, action_name, obj_id = self._check_handler()
+        preemptive_actions = [action for action in self.base_actions.values()
+                              if action.preempt]
+        if table_name == self.name and action_name:
+            for action in preemptive_actions:
+                if action.name == action_name:
+                    handled = self.take_action(action_name, obj_id)
+                    if handled:
+                        return handled
+        return None
+
+    def maybe_handle(self):
+        """
+        Determine whether the request should be handled by any action on this
+        table after data has been loaded.
+        """
+        table_name, action_name, obj_id = self._check_handler()
+        if table_name == self.name and action_name:
+            return self.take_action(action_name, obj_id)
         return None
 
     def sanitize_id(self, obj_id):
@@ -849,7 +903,7 @@ class DataTable(object):
         rows = []
         try:
             for datum in self.filtered_data:
-                rows.append(Row(self, datum))
+                rows.append(self._meta.row_class(self, datum))
         except:
             # Exceptions can be swallowed at the template level here,
             # re-raising as a TemplateSyntaxError makes them visible.

@@ -14,11 +14,7 @@
   </thead>
   <tbody>
   {% for row in rows %}
-  <tr id="{{ row.id }}" class="{% cycle 'odd' 'even' %} {{ row.status_class }}">
-    {% for cell in row %}
-    <td class="{{ cell.get_classes }}">{{ cell.value }}</td>
-    {% endfor %}
-  </tr>
+    {{ row.render }}
   {% empty %}
   <tr class="{% cycle 'odd' 'even' %} empty">
     <td colspan="{{ table.get_columns|length }}">{{ table.get_empty_message }}</td>

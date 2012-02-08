@@ -42,6 +42,17 @@ How to use Horizon in your own projects.
    quickstart
 
 
+Topic Guides
+============
+
+Information on how to work with specific areas of Horizon can be found in
+the following topic guides.
+
+.. toctree::
+   :maxdepth: 1
+
+   topics/tables
+
 Developer Reference
 ===================
 

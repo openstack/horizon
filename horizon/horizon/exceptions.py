@@ -59,6 +59,8 @@ class Http302(Exception):
     Error class which can be raised from within a handler to cause an
     early bailout and redirect at the middleware level.
     """
+    status_code = 302
+
     def __init__(self, location, message=None):
         self.location = location
         self.message = message
@@ -74,7 +76,17 @@ class NotAuthorized(Exception):
     ``NotAuthorized`` and handles it gracefully by displaying an error
     message and redirecting the user to a login page.
     """
-    pass
+    status_code = 401
+
+
+class NotFound(Exception):
+    """ Generic error to replace all "Not Found"-type API errors. """
+    status_code = 404
+
+
+class RecoverableError(Exception):
+    """ Generic error to replace any "Recoverable"-type API errors. """
+    status_code = 100  # HTTP status code "Continue"
 
 
 class ServiceCatalogException(Exception):
@@ -118,7 +130,11 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
 
     All other exceptions bubble the stack as normal unless the ``ignore``
     argument is passed in as ``True``, in which case only unrecognized
-    errors are
+    errors are bubbled.
+
+    If the exception is not re-raised, an appropriate wrapper exception
+    class indicating the type of exception that was encountered will be
+    returned.
     """
     exc_type, exc_value, exc_traceback = sys.exc_info()
 
@@ -139,7 +155,7 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
 
     if issubclass(exc_type, UNAUTHORIZED):
         if ignore:
-            return
+            return NotAuthorized
         request.session.clear()
         if not handled:
             LOG.debug("Unauthorized: %s" % exc_value)
@@ -150,24 +166,24 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
         raise NotAuthorized  # Redirect handled in middleware
 
     if issubclass(exc_type, NOT_FOUND):
+        wrap = True
         if not ignore and not handled:
             LOG.debug("Not Found: %s" % exc_value)
             messages.error(request, message or exc_value)
         if redirect:
             raise Http302(redirect)
-        wrap = True
         if not escalate:
-            return  # return to normal code flow
+            return NotFound  # return to normal code flow
 
-    if issubclass(exc_type, RECOVERABLE) and not ignore:
+    if issubclass(exc_type, RECOVERABLE):
+        wrap = True
         if not ignore and not handled:
             LOG.debug("Recoverable error: %s" % exc_value)
             messages.error(request, message or exc_value)
-            wrap = True
         if redirect:
             raise Http302(redirect)
         if not escalate:
-            return  # return to normal code flow
+            return RecoverableError  # return to normal code flow
 
     # If we've gotten here, time to wrap and/or raise our exception.
     if wrap:

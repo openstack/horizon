@@ -64,10 +64,14 @@ class EditRulesView(tables.DataTableView):
         return AddRule.maybe_handle(self.request, initial=initial)
 
     def get(self, request, *args, **kwargs):
+        # Form handling
         form, handled = self.handle_form()
         if handled:
             return handled
-        tables = self.get_tables()
+        # Table action handling
+        handled = self.construct_tables()
+        if handled:
+            return handled
         if not self.object:
             return shortcuts.redirect("horizon:nova:access_and_security:index")
         context = self.get_context_data(**kwargs)
@@ -78,12 +82,6 @@ class EditRulesView(tables.DataTableView):
             self.template_name = ('nova/access_and_security/security_groups'
                                  '/_edit_rules.html')
         return self.render_to_response(context)
-
-    def post(self, request, *args, **kwargs):
-        form, handled = self.handle_form()
-        if handled:
-            return handled
-        return super(EditRulesView, self).post(request, *args, **kwargs)
 
 
 class CreateView(forms.ModalFormView):

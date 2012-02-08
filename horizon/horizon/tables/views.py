@@ -35,7 +35,7 @@ class MultiTableView(generic.TemplateView):
         self._data = {}
         self._tables = {}
 
-    def get_data(self):
+    def _get_data_dict(self):
         if not self._data:
             for table in self.table_classes:
                 func_name = "get_%s_data" % table._meta.name
@@ -56,11 +56,10 @@ class MultiTableView(generic.TemplateView):
             for table in self.table_classes:
                 func_name = "get_%s_table" % table._meta.name
                 table_func = getattr(self, func_name, None)
-                data = self.get_data()[table._meta.name]
                 if table_func is None:
-                    tbl = table(self.request, data, **self.kwargs)
+                    tbl = table(self.request, **self.kwargs)
                 else:
-                    tbl = table_func(self, self.request, data, **self.kwargs)
+                    tbl = table_func(self, self.request, **self.kwargs)
                 self._tables[table._meta.name] = tbl
         return self._tables
 
@@ -68,19 +67,44 @@ class MultiTableView(generic.TemplateView):
         context = super(MultiTableView, self).get_context_data(**kwargs)
         tables = self.get_tables()
         for name, table in tables.items():
+            if table.data is None:
+                raise AttributeError('%s has no data associated with it.'
+                                     % table.__class__.__name__)
             context["%s_table" % name] = table
         return context
 
+    def has_more_data(self, table):
+        return False
+
+    def construct_tables(self):
+        tables = self.get_tables().values()
+        # Early out before data is loaded
+        for table in tables:
+            preempted = table.maybe_preempt()
+            if preempted:
+                return preempted
+        # Load data into each table and check for action handlers
+        data = self._get_data_dict()
+        for table in tables:
+            name = table.name
+            self._tables[name].data = data[table._meta.name]
+            self._tables[name]._meta.has_more_data = self.has_more_data(table)
+            handled = self._tables[name].maybe_handle()
+            if handled:
+                return handled
+        # If we didn't already return a response, returning None continues
+        # with the view as normal.
+        return None
+
     def get(self, request, *args, **kwargs):
+        handled = self.construct_tables()
+        if handled:
+            return handled
         context = self.get_context_data(**kwargs)
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
-        tables = self.get_tables().values()
-        for table in tables:
-            handled = table.maybe_handle()
-            if handled:
-                return handled
+        # GET and POST handling are the same
         return self.get(request, *args, **kwargs)
 
 
@@ -98,16 +122,19 @@ class DataTableView(MultiTableView):
     table_class = None
     context_object_name = 'table'
 
+    def _get_data_dict(self):
+        if not self._data:
+            self._data = {self.table_class._meta.name: self.get_data()}
+        return self._data
+
     def get_data(self):
         raise NotImplementedError('You must define a "get_data" method on %s.'
                                   % self.__class__.__name__)
 
-    def has_more_data(self):
-        return False
-
     def get_tables(self):
-        table = self.get_table()
-        return {table._meta.name: table}
+        if not self._tables:
+            self._tables = {self.table_class._meta.name: self.get_table()}
+        return self._tables
 
     def get_table(self):
         if not self.table_class:
@@ -115,10 +142,7 @@ class DataTableView(MultiTableView):
                                  '"table_class" attribute on %s.'
                                  % self.__class__.__name__)
         if not hasattr(self, "table"):
-            self.table = self.table_class(self.request,
-                                          self.get_data(),
-                                          **self.kwargs)
-            self.table._meta.has_more_data = self.has_more_data()
+            self.table = self.table_class(self.request, **self.kwargs)
         return self.table
 
     def get_context_data(self, **kwargs):

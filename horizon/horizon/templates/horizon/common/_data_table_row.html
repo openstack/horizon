@@ -1,0 +1,3 @@
+<tr id="{{ row.id }}" class="{{ row.status_class }}">
+  {% for cell in row %}<td class="{{ cell.get_classes }}">{{ cell.value }}</td>{% endfor %}
+</tr>

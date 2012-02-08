@@ -418,149 +418,25 @@ table form {
   display: none;
 }
 
-.status_box {
-  font-size: 24px;
-  width: 100%;
-  min-width: 775px;
-  float: left;
-  border: 1px solid;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  font-family: "anivers";
+.table-striped tbody tr.status_unknown:nth-child(odd) td {
+  background-color: #ffffb5;
 }
 
-.status_box.good {
-  background-color: #e9ffe8;
-  color: #7ec67b;
-  border-color: #9edd9b;
+.table-striped tbody tr.status_unknown:nth-child(even) td {
+  background-color: #ffffc6;
 }
 
-.status_box.good li.block {
-    color: #7ec67b;
+.icon.ajax-updating {
+  background: transparent url(../images/spinner.gif) no-repeat center center;
+  padding: 1px;
 }
 
-.status_box.medium {
-  background-color: #ffffe8;
-  color: #eada83;
-  border-color: #ffe37b;
-}
-
-.status_box.bad {
-  background-color: #ffdbdc;
-  color: #ff8080;
-  border-color: #ff9a99;
+td .icon.ajax-updating {
+  margin-right: 5px;
 }
 
 .overview {
     font-size: 24px;
-}
-
-.status_box.medium .status span, .status_box.medium .overview { color: #d1b100; }
-.status_box.bad .status span, .status_box.bad .overview {  color: #eb1400; }
-.status_box.good .status { background: url(../images/status_sprite.png) 6px 8px no-repeat; }
-.status_box.medium .status { background: url(../images/status_sprite.png) no-repeat 6px -90px; }
-.status_box.bad .status { background: url(../images/status_sprite.png) no-repeat 6px -186px; }
-
-.status_box.small {
-  width: 100%;
-  min-width: 360px;
-  margin: 0 0 25px 0;
-  float: left;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-}
-
-.status_box.small p {
-  text-align: center;
-  margin: 0;
-}
-
-.status_box.small p.overview {
-  color: #2a7380;
-  margin: -10px 0 5px 0;
-}
-
-.status_box.small p.avail {
-  width: 100%;
-  margin: 0 ;
-}
-
-.status_box.small li.block {
-  width: 26%;
-}
-
-.status_box .status span, .status_box .overview { color: #2e802b; }
-.status_box p.avail { margin-right: 0; }
-
-.status_box .overview span {
-  text-transform: uppercase;
-  font-size: 11px;
-}
-
-.status_box p.used {
-  font-size: 18px;
-  margin: 0 15px 0 0;
-  float: left;
-  text-align: center;
-}
-
-.status_box p.avail {
-  font-size: 18px;
-  margin: 0 0 0 0;
-  float: left;
-  text-align: center;
-}
-
-.status_box p.avail span, .status_box p.used span {
-  font-size: 10px;
-  margin-top: -5px;
-  text-transform: uppercase;
-}
-
-.status_box li.block {
-  min-width: 135px;
-  width: 17%;
-  height: 61px;
-  float: left;
-  padding: 15px 25px 15px 25px;
-  border-right: 1px solid;
-}
-
-.status_box .good .block { border-color: #c3eec1; }
-.status_box .medium .block { border-color: #fbf665; }
-.status_box .bad .block { border-color: #faa; }
-
-.status_box li.status {
-  height: 44px;
-  min-height: 29px;
-  padding-top: 32px;
-  padding-left: 37px;
-  padding-right: 37px;
-}
-
-.status_box span.label {
-  margin: 2px 0 0 0;
-  display: block;
-}
-
-#activity {
-  background: #fbfbfb;
-  text-align: center;
-  min-width: 735px;
-  padding: 5px 0 5px 0;
-  border: 1px solid #e6e6e6;
-  margin-bottom: 25px;
-  clear: both;
-}
-
-#activity span { margin: 0 0 0 10px; }
-
-#activity strong {
-  color: #afafaf;
-  font-weight: normal;
-  font-size: 11px;
 }
 
 #monitoring {
@@ -772,7 +648,14 @@ td.actions_column .row_actions button {
   box-shadow: none;
 }
 
+td.actions_column .row_actions .hide {
+  display: none;
+}
+
 /* Makes size consistent across browsers when mixing "btn-group" and "small" */
+.btn.hide, .btn-group .hide {
+  display: none;
+}
 .btn-group > .btn.small {
   height: 12px;
 }

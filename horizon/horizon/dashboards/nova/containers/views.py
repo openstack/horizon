@@ -43,7 +43,7 @@ class IndexView(tables.DataTableView):
     table_class = ContainersTable
     template_name = 'nova/containers/index.html'
 
-    def has_more_data(self):
+    def has_more_data(self, table):
         return self._more
 
     def get_data(self):
@@ -68,7 +68,7 @@ class ObjectIndexView(tables.DataTableView):
     table_class = ObjectsTable
     template_name = 'nova/objects/index.html'
 
-    def has_more_data(self):
+    def has_more_data(self, table):
         return self._more
 
     def get_data(self):

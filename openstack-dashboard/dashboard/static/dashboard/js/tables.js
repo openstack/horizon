@@ -24,21 +24,19 @@ horizon.addInitFunction(function() {
       if ($table.find('tbody tr').length) {
         $table.tablesorter();
       }
-    })
+    });
 
-    // Actions button dropdown behavior
-  $('.action.primary').mouseenter(function() {
-    var $trigger = $(this),
-        $column = $trigger.closest('.actions_column');
-    // Set a fixed height on the column to avoid reflow/jumping.
-    $column.height($column.height());
-    $trigger.closest('.row_actions').addClass('active');
+  $('table').on('click', 'tr .ajax-update', function (evt) {
+    var $this = $(this);
+    $.ajax($this.attr('href'), {
+      complete: function (jqXHR, status) {
+        var $new_row = $(jqXHR.responseText);
+        $new_row.find("td.status_unknown").prepend('<i class="icon ajax-updating"></i>');
+        $this.closest('tr').replaceWith($new_row);
+      }
+    });
+    return false;
   });
 
-  $('td.actions_column ul').mouseleave(function(){
-    var $ul = $(this),
-        $column = $ul.closest('.actions_column');
-    $column.height('auto');
-    $ul.removeClass('active');
-  });
+  horizon.datatables.update();
 });

@@ -36,6 +36,7 @@ class UsageView(tables.DataTableView):
 
     def get_context_data(self, **kwargs):
         context = super(UsageView, self).get_context_data(**kwargs)
+        context['table'].kwargs['usage'] = self.usage
         context['form'] = self.usage.form
         context['usage'] = self.usage
         return context
