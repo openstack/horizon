@@ -134,7 +134,6 @@ class AttachmentsTable(tables.DataTable):
 
     def get_object_by_id(self, obj_id):
         for obj in self.data:
-            print self.get_object_id(obj)
             if self.get_object_id(obj) == obj_id:
                 return obj
         raise ValueError('No match found for the id "%s".' % obj_id)
