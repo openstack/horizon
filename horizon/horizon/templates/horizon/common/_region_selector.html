@@ -1,11 +1,13 @@
-{% if region.support %}
+{% if regions.support %}
   <div id="region_switcher" class="dropdown switcher_bar" tabindex='1'>
     <a class="dropdown-toggle" data-toggle="dropdown" href="#region_switcher">
-      {{ region.name }}
+      {{ regions.current.name }}
       </a>
     <ul id="region_list" class="dropdown-menu">
       <li class='divider'></li>
-      <li><a href="{% url horizon:auth_logout %}">Change Regions</a></li>
+      {% for region in regions.available %}
+      <li><a class="ajax-modal" href="{% url horizon:auth_login %}?region={{ region.endpoint }}">{{ region.name }}</a></li>
+      {% endfor %}
     </ul>
   </div>
 {% endif %}

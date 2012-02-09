@@ -684,6 +684,9 @@ td.actions_column .row_actions .hide {
 .dropdown-menu li:hover {
   background: none;
 }
+.dropdown-menu li.divider:hover {
+  background-color: #E5E5E5;
+}
 td.actions_column .dropdown-menu a:hover,
 td.actions_column .dropdown-menu button:hover {
   background-color: #CDCDCD;

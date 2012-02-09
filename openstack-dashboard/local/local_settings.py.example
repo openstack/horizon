@@ -36,10 +36,10 @@ HORIZON_CONFIG = {
     'user_home': 'dashboard.views.user_home',
 }
 
-# For multiple regions uncomment this configuration, and add (title, endpoint).
+# For multiple regions uncomment this configuration, and add (endpoint, title).
 # AVAILABLE_REGIONS = [
-#     ('cluster1', 'http://cluster1.com:5000/v2.0'),
-#     ('cluster2', 'http://cluster2.com:5000/v2.0'),
+#     ('http://cluster1.example.com:5000/v2.0', 'cluster1'),
+#     ('http://cluster2.example.com:5000/v2.0', 'cluster2'),
 # ]
 
 # FIXME: This is only here so quantum still works. It must be refactored to

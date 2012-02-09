@@ -34,7 +34,7 @@
     {% block headerjs %}{% endblock %}
     {% block headercss %}{% endblock %}
   </head>
-  <body>
+  <body id="{% block body_id %}{% endblock %}">
     {% block content %}
       <div id="container" class="fluid-container sidebar-left">
         {% block sidebar %}{% endblock %}

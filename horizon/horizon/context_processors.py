@@ -75,10 +75,12 @@ def horizon(request):
     context['network_configured'] = getattr(settings, 'QUANTUM_ENABLED', None)
 
     # Region context/support
-    available_regions = getattr(settings, 'AVAILABLE_REGIONS', None)
-    regions = {'support': available_regions > 1,
-               'endpoint': request.session.get('region_endpoint'),
-               'name': request.session.get('region_name')}
-    context['region'] = regions
+    available_regions = getattr(settings, 'AVAILABLE_REGIONS', [])
+    regions = {'support': len(available_regions) > 1,
+               'current': {'endpoint': request.session.get('region_endpoint'),
+                           'name': request.session.get('region_name')},
+               'available': [{'endpoint': region[0], 'name':region[1]} for
+                             region in available_regions]}
+    context['regions'] = regions
 
     return context

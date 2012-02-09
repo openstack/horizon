@@ -50,16 +50,6 @@ def _set_session_data(request, token):
     request.session['roles'] = token.user['roles']
 
 
-def _regions_supported():
-    if len(getattr(settings, 'AVAILABLE_REGIONS', [])) > 1:
-        return True
-
-
-region_field = forms.ChoiceField(widget=forms.Select,
-            choices=[('%s,%s' % (region[1], region[0]), region[0])
-                     for region in getattr(settings, 'AVAILABLE_REGIONS', [])])
-
-
 class Login(forms.SelfHandlingForm):
     """ Form used for logging in a user.
 
@@ -69,17 +59,27 @@ class Login(forms.SelfHandlingForm):
 
     Subclass of :class:`~horizon.forms.SelfHandlingForm`.
     """
-    if _regions_supported():
-        region = region_field
+    region = forms.ChoiceField(label=_("Region"))
     username = forms.CharField(max_length="20", label=_("User Name"))
     password = forms.CharField(max_length="20", label=_("Password"),
                                widget=forms.PasswordInput(render_value=False))
 
+    def __init__(self, *args, **kwargs):
+        super(Login, self).__init__(*args, **kwargs)
+        # FIXME(gabriel): When we switch to region-only settings, we can
+        # remove this default region business.
+        default_region = (settings.OPENSTACK_KEYSTONE_URL, "Default Region")
+        regions = getattr(settings, 'AVAILABLE_REGIONS', [default_region])
+        self.fields['region'].choices = regions
+        if len(regions) == 1:
+            self.fields['region'].initial = default_region[0]
+            self.fields['region'].widget = forms.widgets.HiddenInput()
+
     def handle(self, request, data):
-        region = data.get('region', '').split(',')
-        if len(region) > 1:
-            request.session['region_endpoint'] = region[0]
-            request.session['region_name'] = region[1]
+        endpoint = data.get('region')
+        region_name = dict(self.fields['region'].choices)[endpoint]
+        request.session['region_endpoint'] = endpoint
+        request.session['region_name'] = region_name
 
         if data.get('tenant', None):
             try:
@@ -163,8 +163,7 @@ class LoginWithTenant(Login):
     Exactly like :class:`.Login` but includes the tenant id as a field
     so that the process of choosing a default tenant is bypassed.
     """
-    if _regions_supported():
-        region = region_field
+    region = forms.ChoiceField(required=False)
     username = forms.CharField(max_length="20",
                        widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     tenant = forms.CharField(widget=forms.HiddenInput())

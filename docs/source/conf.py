@@ -11,7 +11,8 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os
+import sys
+import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 HORIZON_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "horizon"))

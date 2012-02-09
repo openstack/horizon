@@ -27,6 +27,7 @@ from django.utils.translation import ugettext as _
 import horizon
 from horizon import api
 from horizon import exceptions
+from horizon import forms
 from horizon import users
 from horizon.base import Horizon
 from horizon.views.auth_forms import Login, LoginWithTenant, _set_session_data
@@ -40,21 +41,22 @@ def user_home(request):
     return shortcuts.redirect(horizon.get_user_home(request.user))
 
 
-def login(request):
+class LoginView(forms.ModalFormView):
     """
     Logs in a user and redirects them to the URL specified by
     :func:`horizon.get_user_home`.
     """
-    if request.user.is_authenticated():
-        user = users.User(users.get_user_from_request(request))
-        return shortcuts.redirect(Horizon.get_user_home(user))
+    form_class = Login
+    template_name = "horizon/auth/login.html"
 
-    form, handled = Login.maybe_handle(request)
-    if handled:
-        return handled
-
-    # FIXME(gabriel): we don't ship a template named splash.html
-    return shortcuts.render(request, 'splash.html', {'form': form})
+    def get_initial(self):
+        initial = super(LoginView, self).get_initial()
+        current_region = self.request.session.get('region_endpoint', None)
+        requested_region = self.request.GET.get('region', None)
+        regions = dict(getattr(settings, "AVAILABLE_REGIONS", []))
+        if requested_region in regions and requested_region != current_region:
+            initial.update({'region': requested_region})
+        return initial
 
 
 def switch_tenants(request, tenant_id):

@@ -101,8 +101,8 @@ SWIFT_PASS = 'testing'
 SWIFT_AUTHURL = 'http://swift/swiftapi/v1.0'
 
 AVAILABLE_REGIONS = [
-    ('local', 'http://localhost:5000/v2.0'),
-    ('remote', 'http://remote:5000/v2.0'),
+    ('http://localhost:5000/v2.0', 'local'),
+    ('http://remote:5000/v2.0', 'remote'),
 ]
 
 OPENSTACK_ADDRESS = "localhost"
