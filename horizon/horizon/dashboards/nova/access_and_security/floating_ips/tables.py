@@ -1,7 +1,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2011 Nebula, Inc.
-# Copyright (c) 2011 X.commerce, a business unit of eBay Inc.
+# Copyright 2012 Nebula, Inc.
+# Copyright (c) 2012 X.commerce, a business unit of eBay Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain

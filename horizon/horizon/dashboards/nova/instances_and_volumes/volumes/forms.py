@@ -1,6 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2011 Nebula, Inc.
+# Copyright 2012 Nebula, Inc.
 # All rights reserved.
 
 """
