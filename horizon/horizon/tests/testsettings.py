@@ -71,12 +71,6 @@ NOVA_DEFAULT_REGION = 'test'
 NOVA_ACCESS_KEY = 'test'
 NOVA_SECRET_KEY = 'test'
 
-QUANTUM_URL = '127.0.0.1'
-QUANTUM_PORT = '9696'
-QUANTUM_TENANT = '1234'
-QUANTUM_CLIENT_VERSION = '0.1'
-QUANTUM_ENABLED = True
-
 CREDENTIAL_AUTHORIZATION_DAYS = 2
 CREDENTIAL_DOWNLOAD_URL = TESTSERVER + '/credentials/'
 
@@ -94,11 +88,6 @@ HORIZON_CONFIG = {
     'dashboards': ('nova', 'syspanel', 'settings',),
     'default_dashboard': 'nova',
 }
-
-SWIFT_ACCOUNT = 'test'
-SWIFT_USER = 'tester'
-SWIFT_PASS = 'testing'
-SWIFT_AUTHURL = 'http://swift/swiftapi/v1.0'
 
 AVAILABLE_REGIONS = [
     ('http://localhost:5000/v2.0', 'local'),

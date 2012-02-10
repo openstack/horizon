@@ -36,7 +36,8 @@ from django.utils.importlib import import_module
 from django.utils.module_loading import module_has_submodule
 from django.utils.translation import ugettext as _
 
-from horizon.decorators import require_roles, _current_component
+from horizon.decorators import (require_roles, require_services,
+                                _current_component)
 
 
 LOG = logging.getLogger(__name__)
@@ -108,7 +109,7 @@ class Registry(object):
             raise ValueError('Only classes may be registered.')
         elif not issubclass(cls, self._registerable_class):
             raise ValueError('Only %s classes or subclasses may be registered.'
-                             % self._registerable_class)
+                             % self._registerable_class.__name__)
 
         if cls not in self._registry:
             cls._registered_with = self
@@ -135,9 +136,9 @@ class Registry(object):
 
     def _registered(self, cls):
         if inspect.isclass(cls) and issubclass(cls, self._registerable_class):
-            cls = self._registry.get(cls, None)
-            if cls:
-                return cls
+            found = self._registry.get(cls, None)
+            if found:
+                return found
         else:
             # Allow for fetching by slugs as well.
             for registered in self._registry.values():
@@ -153,9 +154,10 @@ class Registry(object):
                                        "parent": parent,
                                        "name": self.name})
         else:
+            slug = getattr(cls, "slug", cls)
             raise NotRegistered('%(type)s with slug "%(slug)s" is not '
-                                'registered.'
-                                    % {"type": class_name, "slug": cls})
+                                'registered.' % {"type": class_name,
+                                                 "slug": slug})
 
 
 class Panel(HorizonComponent):
@@ -182,6 +184,11 @@ class Panel(HorizonComponent):
         to access any view associated with this panel. This attribute
         is combined cumulatively with any roles required on the
         ``Dashboard`` class with which it is registered.
+
+    .. attribute:: services
+
+        A list of service names, all of which must be in the service catalog
+        in order for this panel to be available.
 
     .. attribute:: urls
 
@@ -235,7 +242,9 @@ class Panel(HorizonComponent):
 
         # Apply access controls to all views in the patterns
         roles = getattr(self, 'roles', [])
+        services = getattr(self, 'services', [])
         _decorate_urlconf(urlpatterns, require_roles, roles)
+        _decorate_urlconf(urlpatterns, require_services, services)
         _decorate_urlconf(urlpatterns, _current_component, panel=self)
 
         # Return the three arguments to django.conf.urls.defaults.include
@@ -295,12 +304,17 @@ class Dashboard(Registry, HorizonComponent):
         for this dashboard, that's the panel that is displayed.
         Default: ``None``.
 
-    .. attribute: roles
+    .. attribute:: roles
 
         A list of role names, all of which a user must possess in order
         to access any panel registered with this dashboard. This attribute
         is combined cumulatively with any roles required on individual
         :class:`~horizon.Panel` classes.
+
+    .. attribute:: services
+
+        A list of service names, all of which must be in the service catalog
+        in order for this dashboard to be available.
 
     .. attribute:: urls
 
@@ -410,7 +424,9 @@ class Dashboard(Registry, HorizonComponent):
             _decorate_urlconf(urlpatterns, login_required)
         # Apply access controls to all views in the patterns
         roles = getattr(self, 'roles', [])
+        services = getattr(self, 'services', [])
         _decorate_urlconf(urlpatterns, require_roles, roles)
+        _decorate_urlconf(urlpatterns, require_services, services)
         _decorate_urlconf(urlpatterns, _current_component, dashboard=self)
 
         # Return the three arguments to django.conf.urls.defaults.include
@@ -437,13 +453,11 @@ class Dashboard(Registry, HorizonComponent):
     @classmethod
     def register(cls, panel):
         """ Registers a :class:`~horizon.Panel` with this dashboard. """
-        from horizon import Horizon
         return Horizon.register_panel(cls, panel)
 
     @classmethod
     def unregister(cls, panel):
         """ Unregisters a :class:`~horizon.Panel` from this dashboard. """
-        from horizon import Horizon
         return Horizon.unregister_panel(cls, panel)
 
 
@@ -465,7 +479,8 @@ class LazyURLPattern(SimpleLazyObject):
 
 
 class Site(Registry, HorizonComponent):
-    """ The core OpenStack Dashboard class. """
+    """ The overarching class which encompasses all dashboards and panels. """
+
     # Required for registry
     _registerable_class = Dashboard
 
@@ -620,9 +635,7 @@ class Site(Registry, HorizonComponent):
     def _urls(self):
         """ Constructs the URLconf for Horizon from registered Dashboards. """
         urlpatterns = self._get_default_urlpatterns()
-
         self._autodiscover()
-
         # Add in each dashboard's views.
         for dash in self._registry.values():
             urlpatterns += patterns('',
@@ -653,5 +666,19 @@ class Site(Registry, HorizonComponent):
                     if module_has_submodule(mod, mod_name):
                         raise
 
+
+class HorizonSite(Site):
+    """
+    A singleton implementation of Site such that all dealings with horizon
+    get the same instance no matter what. There can be only one.
+    """
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(Site, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+
+
 # The one true Horizon
-Horizon = Site()
+Horizon = HorizonSite()

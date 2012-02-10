@@ -25,9 +25,7 @@ from horizon.dashboards.nova import dashboard
 class Networks(horizon.Panel):
     name = "Networks"
     slug = 'networks'
-
-    def nav(self, context):
-        return context.get('network_configured', False)
+    services = ("network",)
 
 
 dashboard.Nova.register(Networks)

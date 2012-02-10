@@ -52,15 +52,3 @@ class ContextProcessorTests(test.TestCase):
         self.assertEqual(len(context['authorized_tenants']), 1)
         tenant = context['authorized_tenants'].pop()
         self.assertEqual(tenant['id'], self.TEST_TENANT)
-
-    def test_object_store(self):
-        # Returns the object store service data when it's in the catalog
-        context = context_processors.horizon(self.request)
-        self.assertNotEqual(None, context['object_store_configured'])
-
-        # Returns None when the object store is not in the catalog
-        new_catalog = [service for service in self.request.user.service_catalog
-                            if service['type'] != 'object-store']
-        self.request.user.service_catalog = new_catalog
-        context = context_processors.horizon(self.request)
-        self.assertEqual(None, context['object_store_configured'])

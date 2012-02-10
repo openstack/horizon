@@ -61,9 +61,7 @@ class TestCase(django_test.TestCase):
     TEST_CONTEXT = {'authorized_tenants': [{'enabled': True,
                                             'name': 'aTenant',
                                             'id': '1',
-                                            'description': "None"}],
-                    'object_store_configured': False,
-                    'network_configured': False}
+                                            'description': "None"}]}
 
     TEST_SERVICE_CATALOG = [
         {"endpoints": [{
@@ -94,6 +92,13 @@ class TestCase(django_test.TestCase):
             "publicURL": "http://cdn.admin-nets.local:5000/v2.0"}],
         "type": "identity",
         "name": "identity"},
+        {"endpoints": [{
+            "adminURL": "http://example.com:9696/quantum",
+            "region": "RegionOne",
+            "internalURL": "http://example.com:9696/quantum",
+            "publicURL": "http://example.com:9696/quantum"}],
+        "type": "network",
+        "name": "quantum"},
         {"endpoints": [{
             "adminURL": "http://swift/swiftapi/admin",
             "region": "RegionOne",

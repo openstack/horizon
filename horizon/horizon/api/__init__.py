@@ -36,5 +36,8 @@ from horizon.api.glance import *
 from horizon.api.keystone import *
 from horizon.api.nova import *
 from horizon.api.swift import *
-if settings.QUANTUM_ENABLED:
+# Quantum is optional. Ignore it if it's not installed.
+try:
     from horizon.api.quantum import *
+except ImportError:
+    pass

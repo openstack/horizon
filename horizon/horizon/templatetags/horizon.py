@@ -28,14 +28,30 @@ register = template.Library()
 
 @register.filter
 def can_haz(user, component):
-    """ Checks if the given user has the necessary roles for the component. """
+    """
+    Checks if the given user meets the requirements for the component. This
+    includes both user roles and services in the service catalog.
+    """
     if hasattr(user, 'roles'):
         user_roles = set([role['name'].lower() for role in user.roles])
     else:
         user_roles = set([])
-    if set(getattr(component, 'roles', [])) <= user_roles:
+    roles_statisfied = set(getattr(component, 'roles', [])) <= user_roles
+
+    if hasattr(user, 'roles'):
+        services = set([service['type'] for service in user.service_catalog])
+    else:
+        services = set([])
+    services_statisfied = set(getattr(component, 'services', [])) <= services
+
+    if roles_statisfied and services_statisfied:
         return True
     return False
+
+
+@register.filter
+def can_haz_list(components, user):
+    return [component for component in components if can_haz(user, component)]
 
 
 @register.inclusion_tag('horizon/_nav_list.html', takes_context=True)

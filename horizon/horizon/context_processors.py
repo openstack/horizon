@@ -34,17 +34,15 @@ LOG = logging.getLogger(__name__)
 def horizon(request):
     """ The main Horizon context processor. Required for Horizon to function.
 
-    Adds three variables to the request context:
+    The following variables are added to the request context:
 
     ``authorized_tenants``
         A list of tenant objects which the current user has access to.
 
-    ``object_store_configured``
-        Boolean. Will be ``True`` if there is a service of type
-        ``object-store`` in the user's ``ServiceCatalog``.
+    ``regions``
 
-    ``network_configured``
-        Boolean. Will be ``True`` if ``settings.QUANTUM_ENABLED`` is ``True``.
+        A dictionary containing information about region support, the current
+        region, and available regions.
 
     Additionally, it sets the names ``True`` and ``False`` in the context
     to their boolean equivalents for convenience.
@@ -62,17 +60,6 @@ def horizon(request):
     context.setdefault('authorized_tenants', [])
     if request.user.is_authenticated():
         context['authorized_tenants'] = request.user.authorized_tenants
-
-    # Object Store/Swift context
-    catalog = getattr(request.user, 'service_catalog', [])
-    object_store = catalog and api.get_service_from_catalog(catalog,
-                                                            'object-store')
-    context['object_store_configured'] = object_store
-
-    # Quantum context
-    # TODO(gabriel): Convert to service catalog check when Quantum starts
-    #                supporting keystone integration.
-    context['network_configured'] = getattr(settings, 'QUANTUM_ENABLED', None)
 
     # Region context/support
     available_regions = getattr(settings, 'AVAILABLE_REGIONS', [])

@@ -23,6 +23,7 @@ Middleware provided and used by Horizon.
 
 import logging
 
+from django import http
 from django import shortcuts
 from django.contrib import messages
 from django.utils.translation import ugettext as _
@@ -56,7 +57,7 @@ class HorizonMiddleware(object):
                 authd = api.tenant_list_for_token(request,
                                                   token,
                                                   endpoint_type='internalURL')
-            except Exception, e:
+            except:
                 authd = []
                 LOG.exception('Could not retrieve tenant list.')
                 if hasattr(request.user, 'message_set'):
@@ -65,10 +66,17 @@ class HorizonMiddleware(object):
             request.user.authorized_tenants = authd
 
     def process_exception(self, request, exception):
-        """ Catch NotAuthorized and Http302 and handle them gracefully. """
+        """
+        Catches internal Horizon exception classes such as NotAuthorized,
+        NotFound and Http302 and handles them gracefully.
+        """
         if isinstance(exception, exceptions.NotAuthorized):
             messages.error(request, unicode(exception))
             return shortcuts.redirect('/auth/login')
+
+        # If an internal "NotFound" error gets this far, return a real 404.
+        if isinstance(exception, exceptions.NotFound):
+            raise http.Http404(exception)
 
         if isinstance(exception, exceptions.Http302):
             if exception.message:

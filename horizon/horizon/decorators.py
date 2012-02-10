@@ -25,7 +25,7 @@ import functools
 
 from django.utils.decorators import available_attrs
 
-from horizon.exceptions import NotAuthorized
+from horizon.exceptions import NotAuthorized, NotFound
 
 
 def _current_component(view_func, dashboard=None, panel=None):
@@ -73,6 +73,46 @@ def require_roles(view_func, required):
                             % request.path)
 
     # If we don't have any roles, just return the original view.
+    if required:
+        return dec
+    else:
+        return view_func
+
+
+def require_services(view_func, required):
+    """ Enforces service-based access controls.
+
+    :param list required: A tuple of service type names, all of which the
+                          must be present in the service catalog in order
+                          access the decorated view.
+
+    Example usage::
+
+        from horizon.decorators import require_services
+
+
+        @require_services(['object-store'])
+        def my_swift_view(request):
+            ...
+
+    Raises a :exc:`~horizon.exceptions.NotFound` exception if the
+    requirements are not met.
+    """
+    # We only need to check each service once for a view, so we'll use a set
+    current_services = getattr(view_func, '_required_services', set([]))
+    view_func._required_services = current_services | set(required)
+
+    @functools.wraps(view_func, assigned=available_attrs(view_func))
+    def dec(request, *args, **kwargs):
+        if request.user.is_authenticated():
+            services = set([service['type'] for service in
+                           request.user.service_catalog])
+            # set operator <= tests that all members of set 1 are in set 2
+            if view_func._required_services <= set(services):
+                return view_func(request, *args, **kwargs)
+        raise NotFound("The services for this view are not available.")
+
+    # If we don't have any services, just return the original view.
     if required:
         return dec
     else:

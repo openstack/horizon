@@ -1,14 +1,16 @@
 {% load horizon %}
 
 {% for heading, panels in components.iteritems %}
-<h4>{{ heading }}</h4>
-<ul class="main_nav">
-{% for panel in panels %}
-    {% if user|can_haz:panel %}
-        <li>
+  {% with panels|can_haz_list:user as filtered_panels %}
+    {% if filtered_panels %}
+      <h4>{{ heading }}</h4>
+      <ul class="main_nav">
+        {% for panel in filtered_panels %}
+          <li>
             <a href="{{ panel.get_absolute_url }}" {% if current == panel.slug %}class="active"{% endif %} tabindex='1'>{{ panel.name }}</a>
-        </li>
+          </li>
+        {% endfor %}
+      </ul>
     {% endif %}
-{% endfor %}
-</ul>
+  {% endwith %}
 {% endfor %}
