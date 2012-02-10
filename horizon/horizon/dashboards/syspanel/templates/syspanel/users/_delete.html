@@ -1,9 +1,0 @@
-{% load i18n %}
-<form id="form_user_delete{{ user.id }}" class="form-user-delete" method="post">
-  {% csrf_token %}
-  {% for hidden in form.hidden_fields %}
-    {{ hidden }}
-  {% endfor %}
-  <input name="user" type="hidden" value="{{ user.id }}" />
-  <input id="enable_{{ user.id }}" class="btn small danger delete" title="User: {{ user.id }}" type="submit" value="{% trans "Delete" %}" />
-</form>

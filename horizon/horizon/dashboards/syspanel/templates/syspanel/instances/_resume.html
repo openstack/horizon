@@ -1,9 +1,0 @@
-{% load i18n %}
-<form id="form_resume_{{ instance.id }}" class="form-resume form-inline" method="post">
-  {% csrf_token %}
-  {% for hidden in form.hidden_fields %}
-    {{ hidden }}
-  {% endfor %}
-  <input name="instance" type="hidden" value="{{ instance.id }}" />
-  <input id="resume_{{ instance.id }}" class="btn small resume" title="Instance: {{ instance.name }}" type="submit" value="{% trans "Resume" %}" />
-</form>

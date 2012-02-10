@@ -1,9 +1,0 @@
-<form id="form_user_enable_disable{{ user.id }}" class="form-enable_disable" method="post">
-  {% csrf_token %}
-  {% for hidden in form.hidden_fields %}
-    {{ hidden }}
-  {% endfor %}
-  <input name="id" type="hidden" value="{{ user.id }}" />
-  <input name="enabled" type="hidden" value="{{ user.enabled|yesno:"disable,enable,None" }}" />
-  <input id="enable_{{ user.id }}" class="btn small {{ user.enabled|yesno:"disable,enable,None" }}" title="User: {{ user.id }}" type="submit" value="{{ user.enabled|yesno:"Disable,Enable,Error" }}" />
-</form>
