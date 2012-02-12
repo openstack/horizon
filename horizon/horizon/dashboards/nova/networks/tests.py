@@ -19,17 +19,18 @@
 #    under the License.
 
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
-from mox import IgnoreArg, IsA
+from mox import IsA
 
 from horizon import api
 from horizon import test
 
 
-class NetworkViewTests(test.BaseViewTests):
+class NetworkViewTests(test.TestCase):
     def setUp(self):
         super(NetworkViewTests, self).setUp()
+        # TODO(gabriel): Move this to horizon.tests.test_data.quantum_data
+        #                after the wrapper classes are added for Quantum.
         self.network = {}
         self.network['networks'] = []
         self.network['networks'].append({'id': 'n1'})
@@ -186,9 +187,6 @@ class NetworkViewTests(test.BaseViewTests):
                     'network': 'n1',
                     'method': 'CreatePort'}
 
-        self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(basestring))
-
         self.mox.ReplayAll()
 
         res = self.client.post(reverse('horizon:nova:networks:port_create',
@@ -225,9 +223,6 @@ class NetworkViewTests(test.BaseViewTests):
                                 'n1', 'p1').AndReturn(True)
 
         formData = {'action': 'network_details__delete__p1'}
-
-        self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(basestring))
 
         self.mox.ReplayAll()
 
@@ -291,9 +286,6 @@ class NetworkViewTests(test.BaseViewTests):
                                    {'port': {'state': 'DOWN'}}).AndReturn(True)
 
         formData = {'action': "network_details__detach_port__p1"}
-
-        self.mox.StubOutWithMock(messages, 'success')
-        messages.success(IgnoreArg(), IsA(basestring))
 
         self.mox.ReplayAll()
 

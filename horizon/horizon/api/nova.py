@@ -27,7 +27,7 @@ from novaclient.v1_1 import client as nova_client
 from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.servers import REBOOT_HARD
 
-from horizon.api.base import *
+from horizon.api.base import APIResourceWrapper, APIDictWrapper, url_for
 
 
 LOG = logging.getLogger(__name__)
@@ -38,43 +38,16 @@ INSTANCE_ACTIVE_STATE = 'ACTIVE'
 VOLUME_STATE_AVAILABLE = "available"
 
 
-class Flavor(APIResourceWrapper):
-    """Simple wrapper around novaclient.flavors.Flavor"""
-    _attrs = ['disk', 'id', 'links', 'name', 'ram', 'vcpus']
-
-
-class FloatingIp(APIResourceWrapper):
-    """Simple wrapper for floating ip pools"""
-    _attrs = ['ip', 'fixed_ip', 'instance_id', 'id', 'pool']
-
-
-class FloatingIpPool(APIResourceWrapper):
-    """Simple wrapper for floating ips"""
-    _attrs = ['name']
-
-
-class KeyPair(APIResourceWrapper):
-    """Simple wrapper around novaclient.keypairs.Keypair"""
-    _attrs = ['fingerprint', 'name', 'private_key']
-
-
-class VirtualInterface(APIResourceWrapper):
-    _attrs = ['id', 'mac_address']
-
-
-class Volume(APIResourceWrapper):
-    """Nova Volume representation"""
-    _attrs = ['id', 'status', 'displayName', 'size', 'volumeType', 'createdAt',
-              'attachments', 'displayDescription']
-
-
 class VNCConsole(APIDictWrapper):
-    """Simple wrapper for floating ips"""
+    """
+    Wrapper for the "console" dictionary returned by the
+    novaclient.servers.get_vnc_console method.
+    """
     _attrs = ['url', 'type']
 
 
 class Quota(object):
-    """ Basic wrapper for individual limits in a quota."""
+    """ Wrapper for individual limits in a quota. """
     def __init__(self, name, limit):
         self.name = name
         self.limit = limit
@@ -84,7 +57,10 @@ class Quota(object):
 
 
 class QuotaSet(object):
-    """ Basic wrapper for quota sets."""
+    """
+    Wrapper for novaclient.quotas.QuotaSet objects which wraps the individual
+    quotas inside Quota objects.
+    """
     def __init__(self, apiresource):
         self.items = []
         for k in apiresource._info.keys():
@@ -167,7 +143,10 @@ class Usage(APIResourceWrapper):
 
 
 class SecurityGroup(APIResourceWrapper):
-    """Simple wrapper around novaclient.security_groups.SecurityGroup"""
+    """
+    Wrapper around novaclient.security_groups.SecurityGroup which wraps its
+    rules in SecurityGroupRule objects and allows access to them.
+    """
     _attrs = ['id', 'name', 'description', 'tenant_id']
 
     @property
@@ -185,7 +164,7 @@ class SecurityGroup(APIResourceWrapper):
 
 
 class SecurityGroupRule(APIResourceWrapper):
-    """ Simple wrapper for individual rules in a SecurityGroup. """
+    """ Wrapper for individual rules in a SecurityGroup. """
     _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range']
 
     def __unicode__(self):
@@ -207,14 +186,14 @@ def novaclient(request):
     return c
 
 
-def server_vnc_console(request, instance_id, type='novnc'):
+def server_vnc_console(request, instance_id, console_type='novnc'):
     return VNCConsole(novaclient(request).servers.get_vnc_console(instance_id,
-                                                  type)['console'])
+                                                  console_type)['console'])
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavor_id):
-    return Flavor(novaclient(request).flavors.create(
-            name, int(memory), int(vcpu), int(disk), flavor_id))
+    return novaclient(request).flavors.create(name, int(memory), int(vcpu),
+                                              int(disk), flavor_id)
 
 
 def flavor_delete(request, flavor_id):
@@ -222,26 +201,25 @@ def flavor_delete(request, flavor_id):
 
 
 def flavor_get(request, flavor_id):
-    return Flavor(novaclient(request).flavors.get(flavor_id))
+    return novaclient(request).flavors.get(flavor_id)
 
 
 def flavor_list(request):
-    return [Flavor(f) for f in novaclient(request).flavors.list()]
+    return novaclient(request).flavors.list()
 
 
 def tenant_floating_ip_list(request):
     """
     Fetches a list of all floating ips.
     """
-    return [FloatingIp(ip) for ip in novaclient(request).floating_ips.list()]
+    return novaclient(request).floating_ips.list()
 
 
 def floating_ip_pools_list(request):
     """
     Fetches a list of all floating ip pools.
     """
-    return [FloatingIpPool(pool)
-            for pool in novaclient(request).floating_ip_pools.list()]
+    return novaclient(request).floating_ip_pools.list()
 
 
 def tenant_floating_ip_get(request, floating_ip_id):
@@ -271,11 +249,11 @@ def snapshot_create(request, instance_id, name):
 
 
 def keypair_create(request, name):
-    return KeyPair(novaclient(request).keypairs.create(name))
+    return novaclient(request).keypairs.create(name)
 
 
 def keypair_import(request, name, public_key):
-    return KeyPair(novaclient(request).keypairs.create(name, public_key))
+    return novaclient(request).keypairs.create(name, public_key)
 
 
 def keypair_delete(request, keypair_id):
@@ -283,7 +261,7 @@ def keypair_delete(request, keypair_id):
 
 
 def keypair_list(request):
-    return [KeyPair(key) for key in novaclient(request).keypairs.list()]
+    return novaclient(request).keypairs.list()
 
 
 def server_create(request, name, image, flavor, key_name, user_data,
@@ -336,9 +314,7 @@ def server_resume(request, instance_id):
     novaclient(request).servers.resume(instance_id)
 
 
-def server_reboot(request,
-                  instance_id,
-                  hardness=REBOOT_HARD):
+def server_reboot(request, instance_id, hardness=REBOOT_HARD):
     server = server_get(request, instance_id)
     server.reboot(hardness)
 
@@ -347,24 +323,22 @@ def server_update(request, instance_id, name):
     return novaclient(request).servers.update(instance_id, name=name)
 
 
-def server_add_floating_ip(request, server, address):
+def server_add_floating_ip(request, server, floating_ip):
     """
     Associates floating IP to server's fixed IP.
     """
     server = novaclient(request).servers.get(server)
-    fip = novaclient(request).floating_ips.get(address)
+    fip = novaclient(request).floating_ips.get(floating_ip)
+    return novaclient(request).servers.add_floating_ip(server.id, fip.id)
 
-    return novaclient(request).servers.add_floating_ip(server, fip)
 
-
-def server_remove_floating_ip(request, server, address):
+def server_remove_floating_ip(request, server, floating_ip):
     """
     Removes relationship between floating and server's fixed ip.
     """
-    fip = novaclient(request).floating_ips.get(address)
+    fip = novaclient(request).floating_ips.get(floating_ip)
     server = novaclient(request).servers.get(fip.instance_id)
-
-    return novaclient(request).servers.remove_floating_ip(server, fip)
+    return novaclient(request).servers.remove_floating_ip(server.id, fip.id)
 
 
 def tenant_quota_get(request, tenant_id):
@@ -427,11 +401,11 @@ def virtual_interfaces_list(request, instance_id):
 
 
 def volume_list(request):
-    return [Volume(vol) for vol in novaclient(request).volumes.list()]
+    return novaclient(request).volumes.list()
 
 
 def volume_get(request, volume_id):
-    return Volume(novaclient(request).volumes.get(volume_id))
+    return novaclient(request).volumes.get(volume_id)
 
 
 def volume_instance_list(request, instance_id):
@@ -439,8 +413,9 @@ def volume_instance_list(request, instance_id):
 
 
 def volume_create(request, size, name, description):
-    return Volume(novaclient(request).volumes.create(
-            size, display_name=name, display_description=description))
+    return novaclient(request).volumes.create(size,
+                                              display_name=name,
+                                              display_description=description)
 
 
 def volume_delete(request, volume_id):
@@ -448,8 +423,9 @@ def volume_delete(request, volume_id):
 
 
 def volume_attach(request, volume_id, instance_id, device):
-    novaclient(request).volumes.create_server_volume(
-            instance_id, volume_id, device)
+    novaclient(request).volumes.create_server_volume(instance_id,
+                                                     volume_id,
+                                                     device)
 
 
 def volume_detach(request, instance_id, attachment_id):

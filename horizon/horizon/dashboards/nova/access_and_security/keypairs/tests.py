@@ -30,97 +30,67 @@ from horizon import test
 INDEX_VIEW_URL = reverse('horizon:nova:access_and_security:index')
 
 
-class KeyPairViewTests(test.BaseViewTests):
-    def setUp(self):
-        super(KeyPairViewTests, self).setUp()
-        keypair = api.KeyPair(None)
-        keypair.name = 'keyName'
-        self.keypairs = (keypair,)
-
+class KeyPairViewTests(test.TestCase):
     def test_delete_keypair(self):
-        KEYPAIR_ID = self.keypairs[0].name
-        formData = {'action': 'keypairs__delete__%s' % KEYPAIR_ID}
+        keypair = self.keypairs.first()
 
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_delete')
-
-        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-        api.nova.keypair_delete(IsA(http.HttpRequest), unicode(KEYPAIR_ID))
-
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name)
         self.mox.ReplayAll()
 
+        formData = {'action': 'keypairs__delete__%s' % keypair.name}
         res = self.client.post(INDEX_VIEW_URL, formData)
-
         self.assertRedirectsNoFollow(res, INDEX_VIEW_URL)
 
     def test_delete_keypair_exception(self):
-        KEYPAIR_ID = self.keypairs[0].name
-        formData = {'action': 'keypairs__delete__%s' % KEYPAIR_ID}
-
+        keypair = self.keypairs.first()
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_delete')
-
-        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-        exception = novaclient_exceptions.ClientException('clientException',
-                                                message='clientException')
-        api.nova.keypair_delete(IsA(http.HttpRequest), unicode(KEYPAIR_ID)) \
-                .AndRaise(exception)
-
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        exc = novaclient_exceptions.ClientException('clientException')
+        api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name) \
+                .AndRaise(exc)
         self.mox.ReplayAll()
 
+        formData = {'action': 'keypairs__delete__%s' % keypair.name}
         res = self.client.post(INDEX_VIEW_URL, formData)
-
         self.assertRedirectsNoFollow(res, INDEX_VIEW_URL)
 
     def test_create_keypair_get(self):
         res = self.client.get(
                 reverse('horizon:nova:access_and_security:keypairs:create'))
-
         self.assertTemplateUsed(res,
                                'nova/access_and_security/keypairs/create.html')
 
     def test_create_keypair_post(self):
-        KEYPAIR_NAME = 'newKeypair'
-        PRIVATE_KEY = 'privateKey'
-
-        newKeyPair = self.mox.CreateMock(api.KeyPair)
-        newKeyPair.name = KEYPAIR_NAME
-        newKeyPair.private_key = PRIVATE_KEY
-
-        formData = {'method': 'CreateKeypair',
-                    'name': KEYPAIR_NAME,
-                    }
+        keypair = self.keypairs.first()
+        keypair.private_key = "secret"
 
         self.mox.StubOutWithMock(api, 'keypair_create')
         api.keypair_create(IsA(http.HttpRequest),
-                           KEYPAIR_NAME).AndReturn(newKeyPair)
-
+                           keypair.name).AndReturn(keypair)
         self.mox.ReplayAll()
 
-        res = self.client.post(
-                   reverse('horizon:nova:access_and_security:keypairs:create'),
-                           formData)
-
+        formData = {'method': 'CreateKeypair',
+                    'name': keypair.name}
+        url = reverse('horizon:nova:access_and_security:keypairs:create')
+        res = self.client.post(url, formData)
         self.assertTrue(res.has_header('Content-Disposition'))
 
     def test_create_keypair_exception(self):
-        KEYPAIR_NAME = 'newKeypair'
-
-        formData = {'method': 'CreateKeypair',
-                    'name': KEYPAIR_NAME,
-                    }
-
-        exception = novaclient_exceptions.ClientException('clientException',
-                                                message='clientException')
+        keypair = self.keypairs.first()
+        exc = novaclient_exceptions.ClientException('clientException')
         self.mox.StubOutWithMock(api, 'keypair_create')
-        api.keypair_create(IsA(http.HttpRequest),
-                           KEYPAIR_NAME).AndRaise(exception)
-
+        api.keypair_create(IsA(http.HttpRequest), keypair.name).AndRaise(exc)
         self.mox.ReplayAll()
 
-        res = self.client.post(
-                   reverse('horizon:nova:access_and_security:keypairs:create'),
-                           formData)
+        formData = {'method': 'CreateKeypair',
+                    'name': keypair.name}
+        url = reverse('horizon:nova:access_and_security:keypairs:create')
+        res = self.client.post(url, formData)
 
-        self.assertRedirectsNoFollow(res,
-                 reverse('horizon:nova:access_and_security:keypairs:create'))
+        self.assertRedirectsNoFollow(res, url)

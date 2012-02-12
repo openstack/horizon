@@ -30,114 +30,87 @@ from horizon import test
 INDEX_URL = reverse('horizon:nova:instances_and_volumes:index')
 
 
-class InstanceViewTests(test.BaseViewTests):
+class InstanceViewTests(test.TestCase):
     def setUp(self):
         super(InstanceViewTests, self).setUp()
         self.now = self.override_times()
-
-        server = api.Server(None, self.request)
-        server.id = "1"
-        server.name = 'serverName'
-        server.status = "ACTIVE"
-        server.flavor = {'id': '1'}
-
-        flavor = api.nova.Flavor(None)
-        flavor.id = '1'
-
-        volume = api.Volume(self.request)
-        volume.id = "1"
-
-        self.servers = (server,)
-        self.volumes = (volume,)
-        self.flavors = (flavor,)
 
     def tearDown(self):
         super(InstanceViewTests, self).tearDown()
         self.reset_times()
 
     def test_terminate_instance(self):
+        server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'server_delete')
-
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-        api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
-        api.server_delete(IsA(http.HttpRequest),
-                          self.servers[0].id)
-
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        api.server_delete(IsA(http.HttpRequest), server.id)
         self.mox.ReplayAll()
 
-        formData = {'action': 'instances__terminate__%s' % self.servers[0].id}
+        formData = {'action': 'instances__terminate__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
-
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_terminate_instance_exception(self):
+        server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'server_delete')
-
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-        api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
-        exception = nova_exceptions.ClientException(500)
-        api.server_delete(IsA(http.HttpRequest),
-                          self.servers[0].id).AndRaise(exception)
-
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        exc = nova_exceptions.ClientException(500)
+        api.server_delete(IsA(http.HttpRequest), server.id).AndRaise(exc)
         self.mox.ReplayAll()
 
-        formData = {'action': 'instances__terminate__%s' % self.servers[0].id}
+        formData = {'action': 'instances__terminate__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
-
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_reboot_instance(self):
+        server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_reboot')
         self.mox.StubOutWithMock(api, 'server_list')
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-        api.server_reboot(IsA(http.HttpRequest), unicode(self.servers[0].id))
-
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.server_reboot(IsA(http.HttpRequest), server.id)
         self.mox.ReplayAll()
 
-        formData = {'action': 'instances__reboot__%s' % self.servers[0].id}
+        formData = {'action': 'instances__reboot__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
-
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_reboot_instance_exception(self):
+        server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_reboot')
         self.mox.StubOutWithMock(api, 'server_list')
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-        exception = nova_exceptions.ClientException(500)
-        api.server_reboot(IsA(http.HttpRequest),
-                          unicode(self.servers[0].id)).AndRaise(exception)
-
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        exc = nova_exceptions.ClientException(500)
+        api.server_reboot(IsA(http.HttpRequest), server.id).AndRaise(exc)
         self.mox.ReplayAll()
 
-        formData = {'action': 'instances__reboot__%s' % self.servers[0].id}
+        formData = {'action': 'instances__reboot__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
-
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_instance_console(self):
+        server = self.servers.first()
         CONSOLE_OUTPUT = 'output'
-        INSTANCE_ID = self.servers[0].id
 
         self.mox.StubOutWithMock(api, 'server_console_output')
         api.server_console_output(IsA(http.HttpRequest),
-                                  unicode(INSTANCE_ID),
+                                  server.id,
                                   tail_length=None).AndReturn(CONSOLE_OUTPUT)
-
         self.mox.ReplayAll()
 
-        res = self.client.get(
-                reverse('horizon:nova:instances_and_volumes:instances:console',
-                        args=[INSTANCE_ID]))
-
+        url = reverse('horizon:nova:instances_and_volumes:instances:console',
+                      args=[server.id])
+        res = self.client.get(url)
         self.assertIsInstance(res, http.HttpResponse)
         self.assertContains(res, CONSOLE_OUTPUT)
 
     def test_instance_vnc(self):
-        INSTANCE_ID = self.servers[0].id
+        server = self.servers.first()
         CONSOLE_OUTPUT = '/vncserver'
 
         console_mock = self.mox.CreateMock(api.VNCConsole)
@@ -145,113 +118,88 @@ class InstanceViewTests(test.BaseViewTests):
 
         self.mox.StubOutWithMock(api, 'server_vnc_console')
         self.mox.StubOutWithMock(api, 'server_get')
-        api.server_get(IsA(http.HttpRequest),
-                       str(self.servers[0].id)).AndReturn(self.servers[0])
-        api.server_vnc_console(IgnoreArg(),
-                               unicode(INSTANCE_ID)).AndReturn(console_mock)
-
+        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.server_vnc_console(IgnoreArg(), server.id).AndReturn(console_mock)
         self.mox.ReplayAll()
 
-        res = self.client.get(
-                    reverse('horizon:nova:instances_and_volumes:instances:vnc',
-                            args=[INSTANCE_ID]))
-
-        self.assertRedirectsNoFollow(res,
-                CONSOLE_OUTPUT + '&title=serverName(1)')
+        url = reverse('horizon:nova:instances_and_volumes:instances:vnc',
+                      args=[server.id])
+        res = self.client.get(url)
+        redirect = CONSOLE_OUTPUT + '&title=%s(1)' % server.name
+        self.assertRedirectsNoFollow(res, redirect)
 
     def test_instance_vnc_exception(self):
-        INSTANCE_ID = self.servers[0].id
-
-        exception = nova_exceptions.ClientException(500)
+        server = self.servers.first()
 
         self.mox.StubOutWithMock(api, 'server_vnc_console')
-        api.server_vnc_console(IsA(http.HttpRequest),
-                           unicode(INSTANCE_ID)).AndRaise(exception)
-
+        exc = nova_exceptions.ClientException(500)
+        api.server_vnc_console(IsA(http.HttpRequest), server.id).AndRaise(exc)
         self.mox.ReplayAll()
 
-        res = self.client.get(
-                    reverse('horizon:nova:instances_and_volumes:instances:vnc',
-                            args=[INSTANCE_ID]))
-
+        url = reverse('horizon:nova:instances_and_volumes:instances:vnc',
+                      args=[server.id])
+        res = self.client.get(url)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_instance_update_get(self):
-        INSTANCE_ID = self.servers[0].id
+        server = self.servers.first()
 
         self.mox.StubOutWithMock(api, 'server_get')
-        api.server_get(IsA(http.HttpRequest),
-                           unicode(INSTANCE_ID)).AndReturn(self.servers[0])
-
+        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         self.mox.ReplayAll()
 
-        res = self.client.get(
-                reverse('horizon:nova:instances_and_volumes:instances:update',
-                        args=[INSTANCE_ID]))
-
+        url = reverse('horizon:nova:instances_and_volumes:instances:update',
+                      args=[server.id])
+        res = self.client.get(url)
         self.assertTemplateUsed(res,
                 'nova/instances_and_volumes/instances/update.html')
 
     def test_instance_update_get_server_get_exception(self):
-        INSTANCE_ID = self.servers[0].id
-
-        exception = nova_exceptions.ClientException(500)
+        server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_get')
-        api.server_get(IsA(http.HttpRequest),
-                           unicode(INSTANCE_ID)).AndRaise(exception)
-
+        exc = nova_exceptions.ClientException(500)
+        api.server_get(IsA(http.HttpRequest), server.id).AndRaise(exc)
         self.mox.ReplayAll()
 
-        res = self.client.get(
-                reverse('horizon:nova:instances_and_volumes:instances:update',
-                        args=[INSTANCE_ID]))
-
+        url = reverse('horizon:nova:instances_and_volumes:instances:update',
+                      args=[server.id])
+        res = self.client.get(url)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_instance_update_post(self):
-        INSTANCE_ID = self.servers[0].id
-        NAME = 'myname'
-        formData = {'method': 'UpdateInstance',
-                    'instance': self.servers[0].id,
-                    'name': NAME,
-                    'tenant_id': self.TEST_TENANT}
+        server = self.servers.first()
 
         self.mox.StubOutWithMock(api, 'server_get')
-        api.server_get(IsA(http.HttpRequest),
-                           unicode(INSTANCE_ID)).AndReturn(self.servers[0])
-
         self.mox.StubOutWithMock(api, 'server_update')
-        api.server_update(IsA(http.HttpRequest),
-                          str(INSTANCE_ID), NAME)
-
+        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.server_update(IsA(http.HttpRequest), server.id, server.name)
         self.mox.ReplayAll()
 
-        res = self.client.post(
-                reverse('horizon:nova:instances_and_volumes:instances:update',
-                        args=[INSTANCE_ID]), formData)
-
+        formData = {'method': 'UpdateInstance',
+                    'instance': server.id,
+                    'name': server.name,
+                    'tenant_id': self.tenant.id}
+        url = reverse('horizon:nova:instances_and_volumes:instances:update',
+                      args=[server.id])
+        res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_instance_update_post_api_exception(self):
-        SERVER = self.servers[0]
+        server = self.servers.first()
 
         self.mox.StubOutWithMock(api, 'server_get')
         self.mox.StubOutWithMock(api, 'server_update')
-
-        api.server_get(IsA(http.HttpRequest), unicode(SERVER.id)) \
-                      .AndReturn(self.servers[0])
-        exception = nova_exceptions.ClientException(500)
-        api.server_update(IsA(http.HttpRequest), str(SERVER.id), SERVER.name) \
-                          .AndRaise(exception)
-
+        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        exc = nova_exceptions.ClientException(500)
+        api.server_update(IsA(http.HttpRequest), server.id, server.name) \
+                          .AndRaise(exc)
         self.mox.ReplayAll()
 
         formData = {'method': 'UpdateInstance',
-                    'instance': SERVER.id,
-                    'name': SERVER.name,
-                    'tenant_id': self.TEST_TENANT}
+                    'instance': server.id,
+                    'name': server.name,
+                    'tenant_id': self.tenant.id}
         url = reverse('horizon:nova:instances_and_volumes:instances:update',
-                      args=[SERVER.id])
+                      args=[server.id])
         res = self.client.post(url, formData)
-
         self.assertRedirectsNoFollow(res, INDEX_URL)

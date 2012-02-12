@@ -43,10 +43,10 @@ class EditRulesView(tables.DataTableView):
     template_name = 'nova/access_and_security/security_groups/edit_rules.html'
 
     def get_data(self):
-        security_group_id = self.kwargs['security_group_id']
+        security_group_id = int(self.kwargs['security_group_id'])
         try:
             self.object = api.security_group_get(self.request,
-                                                security_group_id)
+                                                 security_group_id)
             rules = [api.nova.SecurityGroupRule(rule) for
                      rule in self.object.rules]
         except novaclient_exceptions.ClientException, e:

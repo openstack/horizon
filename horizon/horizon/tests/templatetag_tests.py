@@ -20,7 +20,6 @@
 
 import re
 
-from django import dispatch, http, template
 from django.utils.text import normalize_newlines
 
 from horizon import test
@@ -34,5 +33,4 @@ def single_line(text):
 
 
 class TemplateTagTests(test.TestCase):
-    def setUp(self):
-        super(TemplateTagTests, self).setUp()
+    pass

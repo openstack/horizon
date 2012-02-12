@@ -25,34 +25,42 @@ import urlparse
 
 from glance import client as glance_client
 
-from horizon.api.base import *
+from horizon.api.base import APIDictWrapper, url_for
 
 
 LOG = logging.getLogger(__name__)
 
 
 class Image(APIDictWrapper):
-    """Simple wrapper around glance image dictionary"""
+    """
+    Wrapper around glance image dictionary to make it object-like and provide
+    access to image properties.
+    """
     _attrs = ['checksum', 'container_format', 'created_at', 'deleted',
              'deleted_at', 'disk_format', 'id', 'is_public', 'location',
              'name', 'properties', 'size', 'status', 'updated_at', 'owner']
 
     def __getattr__(self, attrname):
         if attrname == "properties":
-            return ImageProperties(super(Image, self).__getattr__(attrname))
+            if not hasattr(self, "_properties"):
+                properties_dict = super(Image, self).__getattr__(attrname)
+                self._properties = ImageProperties(properties_dict)
+            return self._properties
         else:
             return super(Image, self).__getattr__(attrname)
 
 
 class ImageProperties(APIDictWrapper):
-    """Simple wrapper around glance image properties dictionary"""
+    """
+    Wrapper around glance image properties dictionary to make it object-like.
+    """
     _attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
              'project_id', 'ramdisk_id', 'image_type']
 
 
-def glance_api(request):
+def glanceclient(request):
     o = urlparse.urlparse(url_for(request, 'image'))
-    LOG.debug('glance_api connection created for host "%s:%d"' %
+    LOG.debug('glanceclient connection created for host "%s:%d"' %
                      (o.hostname, o.port))
     return glance_client.Client(o.hostname,
                                 o.port,
@@ -60,11 +68,11 @@ def glance_api(request):
 
 
 def image_create(request, image_meta, image_file):
-    return Image(glance_api(request).add_image(image_meta, image_file))
+    return Image(glanceclient(request).add_image(image_meta, image_file))
 
 
 def image_delete(request, image_id):
-    return glance_api(request).delete_image(image_id)
+    return glanceclient(request).delete_image(image_id)
 
 
 def image_get(request, image_id):
@@ -72,7 +80,7 @@ def image_get(request, image_id):
     Returns the actual image file from Glance for image with
     supplied identifier
     """
-    return glance_api(request).get_image(image_id)[1]
+    return glanceclient(request).get_image(image_id)[1]
 
 
 def image_get_meta(request, image_id):
@@ -80,16 +88,16 @@ def image_get_meta(request, image_id):
     Returns an Image object populated with metadata for image
     with supplied identifier.
     """
-    return Image(glance_api(request).get_image_meta(image_id))
+    return Image(glanceclient(request).get_image_meta(image_id))
 
 
 def image_list_detailed(request):
-    return [Image(i) for i in glance_api(request).get_images_detailed()]
+    return [Image(i) for i in glanceclient(request).get_images_detailed()]
 
 
 def image_update(request, image_id, image_meta=None):
     image_meta = image_meta and image_meta or {}
-    return Image(glance_api(request).update_image(image_id,
+    return Image(glanceclient(request).update_image(image_id,
                                                   image_meta=image_meta))
 
 
@@ -97,5 +105,5 @@ def snapshot_list_detailed(request):
     filters = {}
     filters['property-image_type'] = 'snapshot'
     filters['is_public'] = 'none'
-    return [Image(i) for i in glance_api(request)
+    return [Image(i) for i in glanceclient(request)
                              .get_images_detailed(filters=filters)]

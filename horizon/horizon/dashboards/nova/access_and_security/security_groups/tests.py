@@ -22,257 +22,195 @@ from django import http
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from novaclient import exceptions as novaclient_exceptions
-from novaclient.v1_1 import security_group_rules as nova_rules
 from mox import IsA
 
 from horizon import api
 from horizon import test
 from .tables import SecurityGroupsTable, RulesTable
 
-SECGROUP_ID = '2'
 INDEX_URL = reverse('horizon:nova:access_and_security:index')
 SG_CREATE_URL = \
             reverse('horizon:nova:access_and_security:security_groups:create')
-SG_EDIT_RULE_URL = \
-        reverse('horizon:nova:access_and_security:security_groups:edit_rules',
-                           args=[SECGROUP_ID])
 
 
 def strip_absolute_base(uri):
     return uri.split(settings.TESTSERVER, 1)[-1]
 
 
-class SecurityGroupsViewTests(test.BaseViewTests):
+class SecurityGroupsViewTests(test.TestCase):
     def setUp(self):
         super(SecurityGroupsViewTests, self).setUp()
-
-        sg1 = api.SecurityGroup(None)
-        sg1.id = 1
-        sg1.name = 'default'
-
-        sg2 = api.SecurityGroup(None)
-        sg2.id = 2
-        sg2.name = 'group_2'
-
-        rule = {'id': 1,
-                'ip_protocol': u"tcp",
-                'from_port': "80",
-                'to_port': "80",
-                'parent_group_id': "2",
-                'ip_range': {'cidr': "0.0.0.0/32"}}
-        manager = nova_rules.SecurityGroupRuleManager
-        rule_obj = nova_rules.SecurityGroupRule(manager, rule)
-        self.rules = [rule_obj]
-        sg1.rules = self.rules
-        sg2.rules = self.rules
-
-        self.security_groups = (sg1, sg2)
+        sec_group = self.security_groups.first()
+        self.edit_url = reverse('horizon:nova:access_and_security:'
+                                'security_groups:edit_rules',
+                                args=[sec_group.id])
 
     def test_create_security_groups_get(self):
         res = self.client.get(SG_CREATE_URL)
-
         self.assertTemplateUsed(res,
                         'nova/access_and_security/security_groups/create.html')
 
     def test_create_security_groups_post(self):
-        SECGROUP_NAME = 'fakegroup'
-        SECGROUP_DESC = 'fakegroup_desc'
-
-        new_group = self.mox.CreateMock(api.SecurityGroup)
-        new_group.name = SECGROUP_NAME
-
-        formData = {'method': 'CreateGroup',
-                    'tenant_id': self.TEST_TENANT,
-                    'name': SECGROUP_NAME,
-                    'description': SECGROUP_DESC,
-                   }
-
+        sec_group = self.security_groups.first()
         self.mox.StubOutWithMock(api, 'security_group_create')
         api.security_group_create(IsA(http.HttpRequest),
-                           SECGROUP_NAME, SECGROUP_DESC).AndReturn(new_group)
-
+                                  sec_group.name,
+                                  sec_group.description).AndReturn(sec_group)
         self.mox.ReplayAll()
 
+        formData = {'method': 'CreateGroup',
+                    'tenant_id': self.tenant.id,
+                    'name': sec_group.name,
+                    'description': sec_group.description}
         res = self.client.post(SG_CREATE_URL, formData)
-
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_create_security_groups_post_exception(self):
-        SECGROUP_NAME = 'fakegroup'
-        SECGROUP_DESC = 'fakegroup_desc'
-
-        exception = novaclient_exceptions.ClientException('ClientException',
-                                                  message='ClientException')
+        sec_group = self.security_groups.first()
+        self.mox.StubOutWithMock(api, 'security_group_create')
+        exc = novaclient_exceptions.ClientException('ClientException')
+        api.security_group_create(IsA(http.HttpRequest),
+                                  sec_group.name,
+                                  sec_group.description).AndRaise(exc)
+        self.mox.ReplayAll()
 
         formData = {'method': 'CreateGroup',
-                    'tenant_id': self.TEST_TENANT,
-                    'name': SECGROUP_NAME,
-                    'description': SECGROUP_DESC,
-                   }
-
-        self.mox.StubOutWithMock(api, 'security_group_create')
-        api.security_group_create(IsA(http.HttpRequest),
-                           SECGROUP_NAME, SECGROUP_DESC).AndRaise(exception)
-
-        self.mox.ReplayAll()
-
+                    'tenant_id': self.tenant.id,
+                    'name': sec_group.name,
+                    'description': sec_group.description}
         res = self.client.post(SG_CREATE_URL, formData)
-
-        self.assertTemplateUsed(res,
-                        'nova/access_and_security/security_groups/create.html')
+        self.assertMessageCount(error=1)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_edit_rules_get(self):
+        sec_group = self.security_groups.first()
         self.mox.StubOutWithMock(api, 'security_group_get')
-        api.security_group_get(IsA(http.HttpRequest), SECGROUP_ID).AndReturn(
-                                   self.security_groups[1])
-
+        api.security_group_get(IsA(http.HttpRequest),
+                               sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
 
-        res = self.client.get(SG_EDIT_RULE_URL)
-
+        res = self.client.get(self.edit_url)
         self.assertTemplateUsed(res,
                     'nova/access_and_security/security_groups/edit_rules.html')
         self.assertItemsEqual(res.context['security_group'].name,
-                              self.security_groups[1].name)
+                              sec_group.name)
 
     def test_edit_rules_get_exception(self):
-        exception = novaclient_exceptions.ClientException('ClientException',
-                                                  message='ClientException')
+        sec_group = self.security_groups.first()
 
         self.mox.StubOutWithMock(api, 'security_group_get')
-        api.security_group_get(IsA(http.HttpRequest), SECGROUP_ID) \
-                               .AndRaise(exception)
-
+        exc = novaclient_exceptions.ClientException('ClientException')
+        api.security_group_get(IsA(http.HttpRequest),
+                               sec_group.id).AndRaise(exc)
         self.mox.ReplayAll()
 
-        res = self.client.get(SG_EDIT_RULE_URL)
-
+        res = self.client.get(self.edit_url)
         self.assertRedirects(res, INDEX_URL)
 
     def test_edit_rules_add_rule(self):
-        RULE_ID = '1'
-        FROM_PORT = '-1'
-        TO_PORT = '-1'
-        IP_PROTOCOL = 'icmp'
-        CIDR = '0.0.0.0/0'
-
-        new_rule = self.mox.CreateMock(api.SecurityGroup)
-        new_rule.from_port = FROM_PORT
-        new_rule.to_port = TO_PORT
-        new_rule.ip_protocol = IP_PROTOCOL
-        new_rule.cidr = CIDR
-        new_rule.security_group_id = SECGROUP_ID
-        new_rule.id = RULE_ID
-
-        formData = {'method': 'AddRule',
-                    'tenant_id': self.TEST_TENANT,
-                    'security_group_id': SECGROUP_ID,
-                    'from_port': FROM_PORT,
-                    'to_port': TO_PORT,
-                    'ip_protocol': IP_PROTOCOL,
-                    'cidr': CIDR}
+        sec_group = self.security_groups.first()
+        rule = self.security_group_rules.first()
 
         self.mox.StubOutWithMock(api, 'security_group_rule_create')
         api.security_group_rule_create(IsA(http.HttpRequest),
-                           SECGROUP_ID, IP_PROTOCOL, FROM_PORT, TO_PORT, CIDR)\
-                           .AndReturn(new_rule)
-
+                                       sec_group.id,
+                                       rule.ip_protocol,
+                                       rule.from_port,
+                                       rule.to_port,
+                                       rule.ip_range['cidr']).AndReturn(rule)
         self.mox.ReplayAll()
 
-        res = self.client.post(SG_EDIT_RULE_URL, formData)
-
+        formData = {'method': 'AddRule',
+                    'tenant_id': self.tenant.id,
+                    'security_group_id': sec_group.id,
+                    'from_port': rule.from_port,
+                    'to_port': rule.to_port,
+                    'ip_protocol': rule.ip_protocol,
+                    'cidr': rule.ip_range['cidr']}
+        res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_edit_rules_add_rule_exception(self):
-        exception = novaclient_exceptions.ClientException('ClientException',
-                                                  message='ClientException')
-
-        FROM_PORT = '-1'
-        TO_PORT = '-1'
-        IP_PROTOCOL = 'icmp'
-        CIDR = '0.0.0.0/0'
-
-        formData = {'method': 'AddRule',
-                    'tenant_id': self.TEST_TENANT,
-                    'security_group_id': SECGROUP_ID,
-                    'from_port': FROM_PORT,
-                    'to_port': TO_PORT,
-                    'ip_protocol': IP_PROTOCOL,
-                    'cidr': CIDR}
+        sec_group = self.security_groups.first()
+        rule = self.security_group_rules.first()
+        exc = novaclient_exceptions.ClientException('ClientException')
 
         self.mox.StubOutWithMock(api, 'security_group_rule_create')
         api.security_group_rule_create(IsA(http.HttpRequest),
-                           SECGROUP_ID, IP_PROTOCOL, FROM_PORT,
-                           TO_PORT, CIDR).AndRaise(exception)
-
+                                       sec_group.id,
+                                       rule.ip_protocol,
+                                       rule.from_port,
+                                       rule.to_port,
+                                       rule.ip_range['cidr']).AndRaise(exc)
         self.mox.ReplayAll()
 
-        res = self.client.post(SG_EDIT_RULE_URL, formData)
-
+        formData = {'method': 'AddRule',
+                    'tenant_id': self.tenant.id,
+                    'security_group_id': sec_group.id,
+                    'from_port': rule.from_port,
+                    'to_port': rule.to_port,
+                    'ip_protocol': rule.ip_protocol,
+                    'cidr': rule.ip_range['cidr']}
+        res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_edit_rules_delete_rule(self):
-        RULE_ID = 1
+        sec_group = self.security_groups.first()
+        rule = self.security_group_rules.first()
 
         self.mox.StubOutWithMock(api, 'security_group_rule_delete')
-        api.security_group_rule_delete(IsA(http.HttpRequest), RULE_ID)
-
+        api.security_group_rule_delete(IsA(http.HttpRequest), rule.id)
         self.mox.ReplayAll()
 
-        form_data = {"action": "rules__delete__%s" % RULE_ID}
-        req = self.factory.post(SG_EDIT_RULE_URL, form_data)
-        table = RulesTable(req, self.rules)
+        form_data = {"action": "rules__delete__%s" % rule.id}
+        req = self.factory.post(self.edit_url, form_data)
+        table = RulesTable(req, sec_group.rules)
         handled = table.maybe_handle()
-
-        self.assertEqual(strip_absolute_base(handled['location']),
-                         INDEX_URL)
+        self.assertEqual(strip_absolute_base(handled['location']), INDEX_URL)
 
     def test_edit_rules_delete_rule_exception(self):
-        RULE_ID = 1
+        rule = self.security_group_rules.first()
 
         self.mox.StubOutWithMock(api, 'security_group_rule_delete')
-
-        exception = novaclient_exceptions.ClientException('ClientException',
-                                                  message='ClientException')
-        api.security_group_rule_delete(IsA(http.HttpRequest), RULE_ID) \
-                                       .AndRaise(exception)
-
+        exc = novaclient_exceptions.ClientException('ClientException')
+        api.security_group_rule_delete(IsA(http.HttpRequest),
+                                       rule.id).AndRaise(exc)
         self.mox.ReplayAll()
 
-        form_data = {"action": "rules__delete__%s" % RULE_ID}
-        req = self.factory.post(SG_EDIT_RULE_URL, form_data)
-        table = RulesTable(req, self.rules)
+        form_data = {"action": "rules__delete__%s" % rule.id}
+        req = self.factory.post(self.edit_url, form_data)
+        table = RulesTable(req, self.security_group_rules.list())
         handled = table.maybe_handle()
-
         self.assertEqual(strip_absolute_base(handled['location']),
                          INDEX_URL)
 
     def test_delete_group(self):
-        self.mox.StubOutWithMock(api, 'security_group_delete')
-        api.security_group_delete(IsA(http.HttpRequest), 2)
+        sec_group = self.security_groups.get(name="other_group")
 
+        self.mox.StubOutWithMock(api, 'security_group_delete')
+        api.security_group_delete(IsA(http.HttpRequest), sec_group.id)
         self.mox.ReplayAll()
 
-        form_data = {"action": "security_groups__delete__%s" % '2'}
+        form_data = {"action": "security_groups__delete__%s" % sec_group.id}
         req = self.factory.post(INDEX_URL, form_data)
-        table = SecurityGroupsTable(req, self.security_groups)
+        table = SecurityGroupsTable(req, self.security_groups.list())
         handled = table.maybe_handle()
-
         self.assertEqual(strip_absolute_base(handled['location']),
                          INDEX_URL)
 
     def test_delete_group_exception(self):
+        sec_group = self.security_groups.get(name="other_group")
+
         self.mox.StubOutWithMock(api, 'security_group_delete')
-        exception = novaclient_exceptions.ClientException('ClientException',
-                                                  message='ClientException')
-        api.security_group_delete(IsA(http.HttpRequest), 2).\
-                                  AndRaise(exception)
+        exc = novaclient_exceptions.ClientException('ClientException')
+        api.security_group_delete(IsA(http.HttpRequest),
+                                  sec_group.id).AndRaise(exc)
 
         self.mox.ReplayAll()
 
-        form_data = {"action": "security_groups__delete__%s" % '2'}
+        form_data = {"action": "security_groups__delete__%s" % sec_group.id}
         req = self.factory.post(INDEX_URL, form_data)
-        table = SecurityGroupsTable(req, self.security_groups)
+        table = SecurityGroupsTable(req, self.security_groups.list())
         handled = table.maybe_handle()
 
         self.assertEqual(strip_absolute_base(handled['location']),

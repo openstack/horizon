@@ -19,8 +19,8 @@
 #    under the License.
 
 from django.core.urlresolvers import reverse
-from mox import IgnoreArg
 from keystoneclient import exceptions as keystone_exceptions
+from mox import IgnoreArg
 
 from horizon import api
 from horizon import test
@@ -30,68 +30,50 @@ USERS_INDEX_URL = reverse('horizon:syspanel:users:index')
 
 
 class UsersViewTests(test.BaseAdminViewTests):
-    def setUp(self):
-        super(UsersViewTests, self).setUp()
-
-        self.user = api.User(None)
-        self.user.enabled = True
-        self.user.id = self.TEST_USER_ID
-        self.user.name = self.TEST_USER
-        self.user.roles = self.TEST_ROLES
-        self.user.tenantId = self.TEST_TENANT
-
-        self.users = [self.user]
-
     def test_index(self):
         self.mox.StubOutWithMock(api, 'user_list')
-        api.user_list(IgnoreArg()).AndReturn(self.users)
-
+        api.user_list(IgnoreArg()).AndReturn(self.users.list())
         self.mox.ReplayAll()
 
         res = self.client.get(USERS_INDEX_URL)
-
         self.assertTemplateUsed(res, 'syspanel/users/index.html')
-        self.assertItemsEqual(res.context['table'].data, self.users)
+        self.assertItemsEqual(res.context['table'].data, self.users.list())
 
     def test_enable_user(self):
-        formData = {'action': 'users__enable__%s' % self.user.id}
-
+        user = self.users.get(id="2")
         self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
-        api.keystone.user_update_enabled(IgnoreArg(), self.user.id, True) \
-                    .AndReturn(self.mox.CreateMock(api.User))
-
+        api.keystone.user_update_enabled(IgnoreArg(),
+                                         user.id,
+                                         True).AndReturn(user)
         self.mox.ReplayAll()
 
+        formData = {'action': 'users__enable__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
-
         self.assertRedirects(res, USERS_INDEX_URL)
 
     def test_disable_user(self):
-        OTHER_USER_ID = '5'
-        formData = {'action': 'users__disable__%s' % OTHER_USER_ID}
-
+        user = self.users.get(id="2")
         self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
-        api.keystone.user_update_enabled(IgnoreArg(), OTHER_USER_ID, False) \
-                    .AndReturn(self.mox.CreateMock(api.User))
-
+        api.keystone.user_update_enabled(IgnoreArg(),
+                                         user.id,
+                                         False).AndReturn(user)
         self.mox.ReplayAll()
 
+        formData = {'action': 'users__disable__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
-
         self.assertRedirects(res, USERS_INDEX_URL)
 
     def test_enable_disable_user_exception(self):
-        OTHER_USER_ID = '5'
-        formData = {'action': 'users__enable__%s' % OTHER_USER_ID}
-
+        user = self.users.get(id="2")
         self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
         api_exception = keystone_exceptions.ClientException('apiException',
                                                     message='apiException')
-        api.keystone.user_update_enabled(IgnoreArg(), OTHER_USER_ID, True) \
-                    .AndRaise(api_exception)
-
+        api.keystone.user_update_enabled(IgnoreArg(),
+                                         user.id,
+                                         True).AndRaise(api_exception)
         self.mox.ReplayAll()
 
+        formData = {'action': 'users__enable__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirects(res, USERS_INDEX_URL)
@@ -99,10 +81,10 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_shoot_yourself_in_the_foot(self):
         self.mox.StubOutWithMock(api, 'user_list')
         # Four times... one for each post and one for each followed redirect
-        api.user_list(IgnoreArg()).AndReturn(self.users)
-        api.user_list(IgnoreArg()).AndReturn(self.users)
-        api.user_list(IgnoreArg()).AndReturn(self.users)
-        api.user_list(IgnoreArg()).AndReturn(self.users)
+        api.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.user_list(IgnoreArg()).AndReturn(self.users.list())
 
         self.mox.ReplayAll()
 
@@ -115,4 +97,5 @@ class UsersViewTests(test.BaseAdminViewTests):
         formData = {'action': 'users__delete__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
         self.assertEqual(list(res.context['messages'])[0].message,
-                         u'You do not have permission to delete user: test')
+                         u'You do not have permission to delete user: %s'
+                         % self.request.user.username)

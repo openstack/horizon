@@ -24,11 +24,11 @@ Views for managing Nova floating IPs.
 """
 import logging
 
-from django import http
-from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 from .forms import FloatingIpAssociate, FloatingIpAllocate
 
@@ -42,19 +42,24 @@ class AssociateView(forms.ModalFormView):
     context_object_name = 'floating_ip'
 
     def get_object(self, *args, **kwargs):
-        ip_id = kwargs['ip_id']
+        ip_id = int(kwargs['ip_id'])
         try:
             return api.tenant_floating_ip_get(self.request, ip_id)
-        except Exception as e:
-            LOG.exception('Error fetching floating ip with id "%s".' % ip_id)
-            messages.error(self.request,
-                           _('Unable to associate floating ip: %s') % e)
-            raise http.Http404("Floating IP %s not available." % ip_id)
+        except:
+            redirect = reverse('horizon:nova:access_and_security:index')
+            exceptions.handle(self.request,
+                              _('Unable to associate floating IP.'),
+                              redirect=redirect)
 
     def get_initial(self):
-        instances = [(server.id, 'id: %s, name: %s' %
-                        (server.id, server.name))
-                        for server in api.server_list(self.request)]
+        try:
+            servers = api.server_list(self.request)
+        except:
+            redirect = reverse('horizon:nova:access_and_security:index')
+            exceptions.handle(self.request,
+                              _('Unable to retrieve instance list.'),
+                              redirect=redirect)
+        instances = [(server.id, server.name) for server in servers]
         return {'floating_ip_id': self.object.id,
                 'floating_ip': self.object.ip,
                 'instances': instances}
@@ -71,6 +76,6 @@ class AllocateView(forms.ModalFormView):
             pool_list = [(pool.name, pool.name)
                          for pool in api.floating_ip_pools_list(self.request)]
         else:
-            pool_list = [(None, _("There are no Floating IP Pools"))]
+            pool_list = [(None, _("No floating IP pools available."))]
         return {'tenant_id': self.request.user.tenant_id,
                 'pool_list': pool_list}

@@ -22,25 +22,24 @@
 from __future__ import absolute_import
 
 import logging
+import urlparse
 
-from django.conf import settings
 from quantum import client as quantum_client
 
+from horizon.api.base import url_for
 from horizon.api import nova
-from horizon.api.base import *
 
 
 LOG = logging.getLogger(__name__)
 
 
-def quantum_api(request):
-    if hasattr(request, 'user'):
-        tenant = request.user.tenant_id
-    else:
-        tenant = settings.QUANTUM_TENANT
+# FIXME(gabriel): Add object wrappers for Quantum client. The quantum client
+#                 returns plain dicts (a la Glance) which we should wrap.
 
-    return quantum_client.Client(settings.QUANTUM_URL, settings.QUANTUM_PORT,
-                  False, tenant, 'json')
+def quantum_api(request):
+    tenant = request.user.tenant_id
+    url = urlparse.urlparse(url_for(request, 'network'))
+    return quantum_client.Client(url.hostname, url.port, False, tenant, 'json')
 
 
 def quantum_list_networks(request):

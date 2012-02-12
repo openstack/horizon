@@ -60,6 +60,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'horizon.context_processors.horizon')
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
 ROOT_URLCONF = 'horizon.tests.testurls'
 TEMPLATE_DIRS = (os.path.join(ROOT_PATH, 'tests', 'templates'))
 SITE_ID = 1

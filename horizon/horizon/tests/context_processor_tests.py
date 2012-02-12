@@ -38,11 +38,11 @@ class ContextProcessorTests(test.TestCase):
         self.request.user.service_catalog = self._prev_catalog
 
     def test_authorized_tenants(self):
-        tenant_list = self.TEST_CONTEXT['authorized_tenants']
+        tenant_list = self.context['authorized_tenants']
         self.request.user.authorized_tenants = None  # Reset from setUp
         self.mox.StubOutWithMock(api, 'tenant_list_for_token')
         api.tenant_list_for_token(IsA(http.HttpRequest),
-                                  self.TEST_TOKEN,
+                                  self.token.id,
                                   endpoint_type='internalURL') \
                                   .AndReturn(tenant_list)
         self.mox.ReplayAll()
@@ -51,4 +51,4 @@ class ContextProcessorTests(test.TestCase):
         context = context_processors.horizon(self.request)
         self.assertEqual(len(context['authorized_tenants']), 1)
         tenant = context['authorized_tenants'].pop()
-        self.assertEqual(tenant['id'], self.TEST_TENANT)
+        self.assertEqual(tenant.id, self.tenant.id)

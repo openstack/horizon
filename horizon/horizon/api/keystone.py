@@ -27,7 +27,6 @@ from keystoneclient.v2_0 import client as keystone_client
 from keystoneclient.v2_0 import tokens
 
 from horizon import exceptions
-from horizon.api import APIResourceWrapper
 
 
 LOG = logging.getLogger(__name__)
@@ -37,21 +36,6 @@ DEFAULT_ROLE = None
 def _get_endpoint_url(request):
     return request.session.get('region_endpoint',
                                getattr(settings, 'OPENSTACK_KEYSTONE_URL'))
-
-
-class Token(APIResourceWrapper):
-    """Simple wrapper around keystoneclient.tokens.Tenant"""
-    _attrs = ['id', 'user', 'serviceCatalog', 'tenant']
-
-
-class User(APIResourceWrapper):
-    """Simple wrapper around keystoneclient.users.User"""
-    _attrs = ['email', 'enabled', 'id', 'tenantId', 'name']
-
-
-class Services(APIResourceWrapper):
-    _attrs = ['disabled', 'host', 'id', 'last_update', 'stats', 'type', 'up',
-             'zone']
 
 
 def keystoneclient(request, username=None, password=None, tenant_id=None,
@@ -159,7 +143,7 @@ def token_create(request, tenant, username, password):
     token = c.tokens.authenticate(username=username,
                                   password=password,
                                   tenant_id=tenant)
-    return Token(token)
+    return token
 
 
 def token_create_scoped(request, tenant, token):
@@ -184,17 +168,19 @@ def token_create_scoped(request, tenant, token):
         c.management_url = c.service_catalog.url_for(service_type='identity',
                                                      endpoint_type='publicURL')
     scoped_token = tokens.Token(tokens.TokenManager, raw_token)
-    return Token(scoped_token)
+    return scoped_token
 
 
 def user_list(request, tenant_id=None):
-    return [User(u) for u in
-            keystoneclient(request).users.list(tenant_id=tenant_id)]
+    return keystoneclient(request).users.list(tenant_id=tenant_id)
 
 
 def user_create(request, user_id, email, password, tenant_id, enabled):
-    return User(keystoneclient(request).users.create(
-            user_id, password, email, tenant_id, enabled))
+    return keystoneclient(request).users.create(user_id,
+                                                password,
+                                                email,
+                                                tenant_id,
+                                                enabled)
 
 
 def user_delete(request, user_id):
@@ -202,25 +188,23 @@ def user_delete(request, user_id):
 
 
 def user_get(request, user_id):
-    return User(keystoneclient(request).users.get(user_id))
+    return keystoneclient(request).users.get(user_id)
 
 
 def user_update_email(request, user_id, email):
-    return User(keystoneclient(request).users.update_email(user_id, email))
+    return keystoneclient(request).users.update_email(user_id, email)
 
 
 def user_update_enabled(request, user_id, enabled):
-    return User(keystoneclient(request).users.update_enabled(user_id, enabled))
+    return keystoneclient(request).users.update_enabled(user_id, enabled)
 
 
 def user_update_password(request, user_id, password):
-    return User(keystoneclient(request).users \
-                .update_password(user_id, password))
+    return keystoneclient(request).users.update_password(user_id, password)
 
 
 def user_update_tenant(request, user_id, tenant_id):
-    return User(keystoneclient(request).users \
-                .update_tenant(user_id, tenant_id))
+    return keystoneclient(request).users.update_tenant(user_id, tenant_id)
 
 
 def role_list(request):

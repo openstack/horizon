@@ -32,6 +32,81 @@ from novaclient import exceptions as novaclient
 LOG = logging.getLogger(__name__)
 
 
+class HorizonException(Exception):
+    """ Base exception class for distinguishing our own exception classes. """
+    pass
+
+
+class Http302(HorizonException):
+    """
+    Error class which can be raised from within a handler to cause an
+    early bailout and redirect at the middleware level.
+    """
+    status_code = 302
+
+    def __init__(self, location, message=None):
+        self.location = location
+        self.message = message
+
+
+class NotAuthorized(HorizonException):
+    """
+    Raised whenever a user attempts to access a resource which they do not
+    have role-based access to (such as when failing the
+    :func:`~horizon.decorators.require_roles` decorator).
+
+    The included :class:`~horizon.middleware.HorizonMiddleware` catches
+    ``NotAuthorized`` and handles it gracefully by displaying an error
+    message and redirecting the user to a login page.
+    """
+    status_code = 401
+
+
+class NotFound(HorizonException):
+    """ Generic error to replace all "Not Found"-type API errors. """
+    status_code = 404
+
+
+class RecoverableError(HorizonException):
+    """ Generic error to replace any "Recoverable"-type API errors. """
+    status_code = 100  # HTTP status code "Continue"
+
+
+class ServiceCatalogException(HorizonException):
+    """
+    Raised when a requested service is not available in the ``ServiceCatalog``
+    returned by Keystone.
+    """
+    def __init__(self, service_name):
+        message = 'Invalid service catalog service: %s' % service_name
+        super(ServiceCatalogException, self).__init__(message)
+
+
+class AlreadyExists(HorizonException):
+    """
+    Exception to be raised when trying to create an API resource which
+    already exists.
+    """
+    def __init__(self, name, resource_type):
+        self.attrs = {"name": name, "resource": resource_type}
+        self.msg = 'A %(resource)s with the name "%(name)s" already exists.'
+
+    def __repr__(self):
+        return self.msg % self.attrs
+
+    def __unicode__(self):
+        return _(self.msg) % self.attrs
+
+
+class HandledException(HorizonException):
+    """
+    Used internally to track exceptions that have gone through
+    :func:`horizon.exceptions.handle` more than once.
+    """
+    def __init__(self, wrapped):
+        self.wrapped = wrapped
+
+
 UNAUTHORIZED = (keystoneclient.Unauthorized,
                 keystoneclient.Forbidden,
                 novaclient.Unauthorized,
@@ -51,61 +126,8 @@ NOT_FOUND = (keystoneclient.NotFound,
 RECOVERABLE = (keystoneclient.ClientException,
                novaclient.ClientException,
                glanceclient.GlanceException,
-               swiftclient.Error)
-
-
-class Http302(Exception):
-    """
-    Error class which can be raised from within a handler to cause an
-    early bailout and redirect at the middleware level.
-    """
-    status_code = 302
-
-    def __init__(self, location, message=None):
-        self.location = location
-        self.message = message
-
-
-class NotAuthorized(Exception):
-    """
-    Raised whenever a user attempts to access a resource which they do not
-    have role-based access to (such as when failing the
-    :func:`~horizon.decorators.require_roles` decorator).
-
-    The included :class:`~horizon.middleware.HorizonMiddleware` catches
-    ``NotAuthorized`` and handles it gracefully by displaying an error
-    message and redirecting the user to a login page.
-    """
-    status_code = 401
-
-
-class NotFound(Exception):
-    """ Generic error to replace all "Not Found"-type API errors. """
-    status_code = 404
-
-
-class RecoverableError(Exception):
-    """ Generic error to replace any "Recoverable"-type API errors. """
-    status_code = 100  # HTTP status code "Continue"
-
-
-class ServiceCatalogException(Exception):
-    """
-    Raised when a requested service is not available in the ``ServiceCatalog``
-    returned by Keystone.
-    """
-    def __init__(self, service_name):
-        message = 'Invalid service catalog service: %s' % service_name
-        super(ServiceCatalogException, self).__init__(message)
-
-
-class HandledException(Exception):
-    """
-    Used internally to track exceptions that have gone through
-    :func:`horizon.exceptions.handle` more than once.
-    """
-    def __init__(self, wrapped):
-        self.wrapped = wrapped
+               swiftclient.Error,
+               AlreadyExists)
 
 
 def handle(request, message=None, redirect=None, ignore=False, escalate=False):
@@ -149,8 +171,11 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
         exc_type, exc_value, exc_traceback = exc_value.wrapped
         wrap = True
 
+    # We trust messages from our own exceptions
+    if issubclass(exc_type, HorizonException):
+        message = exc_value
     # If the message has a placeholder for the exception, fill it in
-    if message and "%(exc)s" in message:
+    elif message and "%(exc)s" in message:
         message = message % {"exc": exc_value}
 
     if issubclass(exc_type, UNAUTHORIZED):

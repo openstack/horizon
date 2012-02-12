@@ -20,12 +20,38 @@
 
 from __future__ import absolute_import
 
-from django import http
-from django.conf import settings
-from mox import IsA
-
 from horizon import exceptions
-from horizon.tests.api_tests.utils import *
+from horizon import test
+from horizon.api import base as api_base
+
+
+class APIResource(api_base.APIResourceWrapper):
+    """ Simple APIResource for testing """
+    _attrs = ['foo', 'bar', 'baz']
+
+    @staticmethod
+    def get_instance(innerObject=None):
+        if innerObject is None:
+
+            class InnerAPIResource(object):
+                pass
+
+            innerObject = InnerAPIResource()
+            innerObject.foo = 'foo'
+            innerObject.bar = 'bar'
+        return APIResource(innerObject)
+
+
+class APIDict(api_base.APIDictWrapper):
+    """ Simple APIDict for testing """
+    _attrs = ['foo', 'bar', 'baz']
+
+    @staticmethod
+    def get_instance(innerDict=None):
+        if innerDict is None:
+            innerDict = {'foo': 'foo',
+                         'bar': 'bar'}
+        return APIDict(innerDict)
 
 
 # Wrapper classes that only define _attrs don't need extra testing.
@@ -85,28 +111,25 @@ class ApiHelperTests(test.TestCase):
     """ Tests for functions that don't use one of the api objects """
 
     def test_url_for(self):
-        GLANCE_URL = 'http://glance/glanceapi/'
-        NOVA_URL = 'http://nova/novapi/'
+        url = api_base.url_for(self.request, 'image')
+        self.assertEqual(url, 'http://internal.glance.example.com:9292/v1')
 
-        url = api.url_for(self.request, 'image')
-        self.assertEqual(url, GLANCE_URL + 'internal')
+        url = api_base.url_for(self.request, 'image', admin=False)
+        self.assertEqual(url, 'http://internal.glance.example.com:9292/v1')
 
-        url = api.url_for(self.request, 'image', admin=False)
-        self.assertEqual(url, GLANCE_URL + 'internal')
+        url = api_base.url_for(self.request, 'image', admin=True)
+        self.assertEqual(url, 'http://admin.glance.example.com:9292/v1')
 
-        url = api.url_for(self.request, 'image', admin=True)
-        self.assertEqual(url, GLANCE_URL + 'admin')
+        url = api_base.url_for(self.request, 'compute')
+        self.assertEqual(url, 'http://internal.nova.example.com:8774/v1.0')
 
-        url = api.url_for(self.request, 'compute')
-        self.assertEqual(url, NOVA_URL + 'internal')
+        url = api_base.url_for(self.request, 'compute', admin=False)
+        self.assertEqual(url, 'http://internal.nova.example.com:8774/v1.0')
 
-        url = api.url_for(self.request, 'compute', admin=False)
-        self.assertEqual(url, NOVA_URL + 'internal')
-
-        url = api.url_for(self.request, 'compute', admin=True)
-        self.assertEqual(url, NOVA_URL + 'admin')
+        url = api_base.url_for(self.request, 'compute', admin=True)
+        self.assertEqual(url, 'http://admin.nova.example.com:8774/v1.0')
 
         self.assertNotIn('notAnApi', self.request.user.service_catalog,
                          'Select a new nonexistent service catalog key')
         with self.assertRaises(exceptions.ServiceCatalogException):
-            url = api.url_for(self.request, 'notAnApi')
+            url = api_base.url_for(self.request, 'notAnApi')
