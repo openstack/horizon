@@ -369,18 +369,16 @@ class Cell(object):
         # Deal with status column mechanics based in this cell's data
         if hasattr(self, '_status'):
             return self._status
-        self._status = None
+
         if self.column.status or \
                 self.column.table._meta.status_column == self.column.name:
-            status_matches = [status[1] for status in
-                              self.column.status_choices if
-                              str(self.data).lower() == status[0]]
-            try:
-                self._status = status_matches[0]
-            except IndexError:
-                LOG.exception('The value "%s" of the data in the status '
-                              'column didn\'t match any value in '
-                              'status_choices' % str(self.data).lower())
+            #returns the first matching status found
+            data_value_lower = unicode(self.data).lower()
+            for status_name, status_value in self.column.status_choices:
+                if unicode(status_name).lower() == data_value_lower:
+                    self._status = status_value
+                    return self._status
+        self._status = None
         return self._status
 
     def get_status_class(self, status):
