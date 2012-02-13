@@ -43,6 +43,11 @@ POWER_STATES = {
     9: "BUILDING",
 }
 
+PAUSE = 0
+UNPAUSE = 1
+SUSPEND = 0
+RESUME = 1
+
 
 class TerminateInstance(tables.BatchAction):
     name = "terminate"
@@ -73,48 +78,52 @@ class RebootInstance(tables.BatchAction):
 
 class TogglePause(tables.BatchAction):
     name = "pause"
-    action_present = _("Pause")
-    action_past = _("Paused")
+    action_present = (_("Pause"), _("Unpause"))
+    action_past = (_("Paused"), _("Unpaused"))
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
 
     def allowed(self, request, instance=None):
+        self.paused = False
         if not instance:
-            return True
+            return self.paused
         self.paused = instance.status == "PAUSED"
         if self.paused:
-            self.action_present = _("Unpause")
-            self.action_past = _("Unpaused")
-        return instance.status in ACTIVE_STATES
+            self.current_present_action = UNPAUSE
+        return instance.status in ACTIVE_STATES or self.paused
 
     def action(self, request, obj_id):
-        if getattr(self, 'paused', False):
-            api.server_pause(request, obj_id)
-        else:
+        if self.paused:
             api.server_unpause(request, obj_id)
+            self.current_past_action = UNPAUSE
+        else:
+            api.server_pause(request, obj_id)
+            self.current_past_action = PAUSE
 
 
 class ToggleSuspend(tables.BatchAction):
     name = "suspend"
-    action_present = _("Suspend")
-    action_past = _("Suspended")
+    action_present = (_("Suspend"), _("Resume"))
+    action_past = (_("Suspended"), _("Resumed"))
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
 
     def allowed(self, request, instance=None):
+        self.suspended = False
         if not instance:
-            return True
+            self.suspended
         self.suspended = instance.status == "SUSPENDED"
         if self.suspended:
-            self.action_present = _("Resume")
-            self.action_past = _("Resumed")
-        return instance.status in ACTIVE_STATES
+            self.current_present_action = RESUME
+        return instance.status in ACTIVE_STATES or self.suspended
 
     def action(self, request, obj_id):
-        if getattr(self, 'suspended', False):
-            api.server_suspend(request, obj_id)
-        else:
+        if self.suspended:
             api.server_resume(request, obj_id)
+            self.current_past_action = RESUME
+        else:
+            api.server_suspend(request, obj_id)
+            self.current_past_action = SUSPEND
 
 
 class LaunchLink(tables.LinkAction):

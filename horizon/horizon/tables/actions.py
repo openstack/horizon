@@ -151,14 +151,12 @@ class Action(BaseAction):
                  single_func=None, multiple_func=None, handle_func=None,
                  handles_multiple=False, attrs=None, requires_input=True):
         super(Action, self).__init__()
-        verbose_name = verbose_name or self.name.title()
-        self.verbose_name = unicode(getattr(self,
-                                            "verbose_name",
-                                            verbose_name))
-        verbose_name_plural = verbose_name_plural or "%ss" % self.verbose_name
-        self.verbose_name_plural = unicode(getattr(self,
-                                                   "verbose_name_plural",
-                                                   verbose_name_plural))
+        # Priority: constructor, class-defined, fallback
+        self.verbose_name = verbose_name or getattr(self, 'verbose_name',
+                                                    self.name.title())
+        self.verbose_name_plural = verbose_name_plural or \
+                                    getattr(self, 'verbose_name_plural',
+                                           "%ss" % self.verbose_name)
         self.handles_multiple = getattr(self,
                                         "handles_multiple",
                                         handles_multiple)
@@ -232,10 +230,9 @@ class LinkAction(BaseAction):
 
     def __init__(self, verbose_name=None, url=None, attrs=None):
         super(LinkAction, self).__init__()
-        verbose_name = verbose_name or self.name.title()
-        self.verbose_name = unicode(getattr(self,
+        self.verbose_name = verbose_name or unicode(getattr(self,
                                             "verbose_name",
-                                            verbose_name))
+                                            self.name.title()))
         self.url = getattr(self, "url", url)
         if not self.verbose_name:
             raise NotImplementedError('A LinkAction object must have a '
@@ -364,7 +361,7 @@ class FilterAction(BaseAction):
 
     def __init__(self, verbose_name=None, param_name=None):
         super(FilterAction, self).__init__()
-        self.verbose_name = unicode(verbose_name) or self.name
+        self.verbose_name = unicode(verbose_name or self.name)
         self.param_name = param_name or 'q'
 
     def get_param_name(self):
@@ -396,12 +393,18 @@ class BatchAction(Action):
 
     .. attribute:: action_present
 
-       The display form of the name. Should be a transitive verb,
-       capitalized and translated. ("Delete", "Rotate", etc.)
+       String or tuple/list. The display forms of the name.
+       Should be a transitive verb, capitalized and translated. ("Delete",
+       "Rotate", etc.) If tuple or list - then setting
+       self.current_present_action = n will set the current active item
+       from the list(action_present[n])
 
     .. attribute:: action_past
 
-       The past tense of action_present. ("Deleted", "Rotated", etc.)
+       String or tuple/list. The past tense of action_present. ("Deleted",
+       "Rotated", etc.) If tuple or list - then
+       setting self.current_past_action = n will set the current active item
+       from the list(action_past[n])
 
     .. attribute:: data_type_singular
 
@@ -421,29 +424,35 @@ class BatchAction(Action):
     """
     completion_url = None
 
+    def __init__(self):
+        self.current_present_action = 0
+        self.current_past_action = 0
+        self.data_type_plural = getattr(self, 'data_type_plural',
+                                        self.data_type_singular + 's')
+        self.verbose_name = getattr(self, "verbose_name",
+                                    self._conjugate())
+        self.verbose_name_plural = getattr(self, "verbose_name_plural",
+                                           self._conjugate('plural'))
+        super(BatchAction, self).__init__()
+
     def _conjugate(self, items=None, past=False):
         """
         Builds combinations like 'Delete Object' and 'Deleted
         Objects' based on the number of items and `past` flag.
         """
         if past:
-            action = self.action_past
+            action = self.action_past \
+                    if isinstance(self.action_past, basestring) \
+                    else self.action_past[self.current_past_action]
         else:
-            action = self.action_present
+            action = self.action_present \
+                    if isinstance(self.action_present, basestring) \
+                    else self.action_present[self.current_present_action]
         if items is None or len(items) == 1:
             data_type = self.data_type_singular
         else:
             data_type = self.data_type_plural
         return string_concat(action, ' ', data_type)
-
-    def __init__(self):
-        self.data_type_plural = getattr(self, 'data_type_plural',
-                                        self.data_type_singular + 's')
-        self.verbose_name = getattr(self, 'verbose_name',
-                                    self._conjugate())
-        self.verbose_name_plural = getattr(self, 'verbose_name_plural',
-                                           self._conjugate('plural'))
-        super(BatchAction, self).__init__()
 
     def action(self, request, datum_id):
         """
@@ -453,6 +462,14 @@ class BatchAction(Action):
         """
         raise NotImplementedError('action() must be defined for '
                                   'BatchAction: %s' % self.data_type_singular)
+
+    def update(self, request, datum):
+        """
+        Switches the action verbose name, if needed
+        """
+        if getattr(self, 'action_present', False):
+            self.verbose_name = self._conjugate()
+            self.verbose_name_plural = self._conjugate('plural')
 
     def get_success_url(self, request=None):
         """
@@ -476,6 +493,8 @@ class BatchAction(Action):
                 continue
             try:
                 self.action(request, datum_id)
+                #Call update to invoke changes if needed
+                self.update(request, datum)
                 action_success.append(datum_display)
                 LOG.info('%s: "%s"' %
                          (self._conjugate(past=True), datum_display))
