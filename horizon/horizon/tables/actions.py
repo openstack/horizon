@@ -17,6 +17,8 @@
 import copy
 import logging
 import new
+from urlparse import urlparse
+from urlparse import parse_qs
 
 from django import http
 from django import shortcuts
@@ -280,7 +282,7 @@ class UpdateAction(LinkAction):
     updates based on the row status.
 
     The automatic update interval is determined first by setting the key
-    ``ajax_poll_interval`` in the ``settings.HORIZON_CONFIG`` disctionary.
+    ``ajax_poll_interval`` in the ``settings.HORIZON_CONFIG`` dictionary.
     If that key is not present, it falls back to the value of the
     ``update_interval`` attribute on this class.
     Default: ``2500`` (measured in milliseconds).
@@ -299,10 +301,18 @@ class UpdateAction(LinkAction):
         self.attrs['data-update-interval'] = interval
 
     def get_link_url(self, datum=None):
+        table_url = self.table.get_absolute_url()
+        query = parse_qs(urlparse(table_url).query)
+        # Strip the query off, since we're adding a different action
+        # here, and the existing query may have an action. This is not
+        # ideal because it prevents other uses of the querystring, but
+        # it does prevent runaway compound querystring construction.
+        if 'action' in query:
+            table_url = table_url.partition('?')[0]
         params = urlencode({'table': self.table.name,
                             'action': self.name,
                             'obj_id': self.table.get_object_id(datum)})
-        return "%s?%s" % (self.table.get_absolute_url(), params)
+        return "%s?%s" % (table_url, params)
 
     def get_data(self, request, obj_id):
         """
