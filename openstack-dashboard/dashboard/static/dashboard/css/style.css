@@ -551,7 +551,7 @@ td .icon.ajax-updating {
 .modal fieldset .form-field input,
 .modal fieldset .form-field select,
 .modal fieldset .form-field textarea {
-  width: 100%;
+  width: 96%;
 }
 
 .modal .modal-footer input {
@@ -853,5 +853,11 @@ form div.clearfix.error {
 
 iframe {
   border: none;
+}
+
+form .error {
+  background: #fce6e6;
+  color: #b94a48;
+  border: 1px solid #E9B1B0;
 }
 
