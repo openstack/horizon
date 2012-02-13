@@ -23,7 +23,7 @@ from horizon.dashboards.nova import dashboard
 
 
 class Snapshots(horizon.Panel):
-    name = "Snapshots"
+    name = "Instance Snapshots"
     slug = 'snapshots'
 
 

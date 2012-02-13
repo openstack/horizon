@@ -32,13 +32,14 @@ from horizon import exceptions
 from horizon import tables
 from .images.tables import ImagesTable
 from .snapshots.tables import SnapshotsTable
+from .volume_snapshots.tables import VolumeSnapshotsTable
 
 
 LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.MultiTableView):
-    table_classes = (ImagesTable, SnapshotsTable)
+    table_classes = (ImagesTable, SnapshotsTable, VolumeSnapshotsTable)
     template_name = 'nova/images_and_snapshots/index.html'
 
     def get_images_data(self):
@@ -58,4 +59,13 @@ class IndexView(tables.MultiTableView):
         except:
             snapshots = []
             exceptions.handle(self.request, _("Unable to retrieve snapshots."))
+        return snapshots
+
+    def get_volume_snapshots_data(self):
+        try:
+            snapshots = api.volume_snapshot_list(self.request)
+        except:
+            snapshots = []
+            exceptions.handle(self.request, _("Unable to retrieve "
+                    "volume snapshots."))
         return snapshots

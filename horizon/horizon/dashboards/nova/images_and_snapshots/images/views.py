@@ -110,17 +110,42 @@ class LaunchView(forms.ModalFormView):
         return security_group_list
 
     def volume_list(self):
+        volume_options = [("", _("Select Volume"))]
+
+        def _get_volume_select_item(volume):
+            if hasattr(volume, "volumeId"):
+                vol_type = "snap"
+                visible_label = _("Snapshot")
+            else:
+                vol_type = "vol"
+                visible_label = _("Volume")
+            return (("%s:%s" % (volume.id, vol_type)),
+                    ("%s - %s GB (%s)" % (volume.displayName,
+                                         volume.size,
+                                         visible_label)))
+
+        # First add volumes to the list
         try:
             volumes = [v for v in api.volume_list(self.request) \
-                    if v.status == api.VOLUME_STATE_AVAILABLE]
-            volume_sel = [(v.id, ("%s (%s GB)" % (v.displayName, v.size))) \
-                    for v in volumes]
-            volume_sel.insert(0, ("", "Select Volume"))
+                       if v.status == api.VOLUME_STATE_AVAILABLE]
+            volume_options.extend(
+                    [_get_volume_select_item(vol) for vol in volumes])
         except:
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volumes'))
-            volume_sel = []
-        return volume_sel
+
+        # Next add volume snapshots to the list
+        try:
+            snapshots = api.novaclient(self.request).volume_snapshots.list()
+            snapshots = [s for s in snapshots \
+                         if s.status == api.VOLUME_STATE_AVAILABLE]
+            volume_options.extend(
+                    [_get_volume_select_item(snap) for snap in snapshots])
+        except:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve list of volumes'))
+
+        return volume_options
 
 
 class UpdateView(forms.ModalFormView):

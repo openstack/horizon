@@ -170,7 +170,9 @@ class BaseViewTests(TestCase):
     Base class for view based unit tests.
     """
     def assertRedirectsNoFollow(self, response, expected_url):
-        self.assertEqual(response._headers['location'],
+        if response.status_code / 100 != 3:
+            assert("The response did not return a redirect.")
+        self.assertEqual(response._headers.get('location', None),
                          ('Location', settings.TESTSERVER + expected_url))
         self.assertEqual(response.status_code, 302)
 

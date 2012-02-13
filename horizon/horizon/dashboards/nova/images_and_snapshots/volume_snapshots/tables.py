@@ -18,20 +18,28 @@ import logging
 
 from django.utils.translation import ugettext as _
 
-from ..images.tables import ImagesTable, LaunchImage, EditImage, DeleteImage
+from horizon import api
+from horizon import tables
+from ...instances_and_volumes.volumes import tables as volume_tables
 
 
 LOG = logging.getLogger(__name__)
 
 
-class DeleteSnapshot(DeleteImage):
-    data_type_singular = _("Snapshot")
-    data_type_plural = _("Snapshots")
+class DeleteVolumeSnapshot(tables.DeleteAction):
+    data_type_singular = _("Volume Snapshot")
+    data_type_plural = _("Volume Snaphots")
+    classes = ('danger',)
+
+    def delete(self, request, obj_id):
+        api.volume_snapshot_delete(request, obj_id)
 
 
-class SnapshotsTable(ImagesTable):
+class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
+    volume_id = tables.Column("volumeId", verbose_name=_("Volume ID"))
+
     class Meta:
-        name = "snapshots"
-        verbose_name = _("Instance Snapshots")
-        table_actions = (DeleteSnapshot,)
-        row_actions = (LaunchImage, EditImage, DeleteSnapshot)
+        name = "volume_snapshots"
+        verbose_name = _("Volume Snapshots")
+        table_actions = (DeleteVolumeSnapshot,)
+        row_actions = (DeleteVolumeSnapshot,)

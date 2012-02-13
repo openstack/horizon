@@ -1,6 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2012 Nebula, Inc.
+# Copyright 2011 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -14,24 +14,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
-from django.utils.translation import ugettext as _
-
-from ..images.tables import ImagesTable, LaunchImage, EditImage, DeleteImage
+import horizon
+from horizon.dashboards.nova import dashboard
 
 
-LOG = logging.getLogger(__name__)
+class VolumeSnapshots(horizon.Panel):
+    name = "Volume Snapshots"
+    slug = 'volume_snapshots'
 
 
-class DeleteSnapshot(DeleteImage):
-    data_type_singular = _("Snapshot")
-    data_type_plural = _("Snapshots")
-
-
-class SnapshotsTable(ImagesTable):
-    class Meta:
-        name = "snapshots"
-        verbose_name = _("Instance Snapshots")
-        table_actions = (DeleteSnapshot,)
-        row_actions = (LaunchImage, EditImage, DeleteSnapshot)
+dashboard.Nova.register(VolumeSnapshots)

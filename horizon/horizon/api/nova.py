@@ -455,3 +455,16 @@ def volume_attach(request, volume_id, instance_id, device):
 def volume_detach(request, instance_id, attachment_id):
     novaclient(request).volumes.delete_server_volume(
             instance_id, attachment_id)
+
+
+def volume_snapshot_list(request):
+    return novaclient(request).volume_snapshots.list()
+
+
+def volume_snapshot_create(request, volume_id, name, description):
+    return novaclient(request).volume_snapshots.create(
+            volume_id, display_name=name, display_description=description)
+
+
+def volume_snapshot_delete(request, snapshot_id):
+    novaclient(request).volume_snapshots.delete(snapshot_id)
