@@ -68,9 +68,15 @@ class BaseUsage(object):
 
     def get_form(self):
         if not hasattr(self, 'form'):
-            self.form = forms.DateForm(self.request.GET,
-                                       initial={'year': self.today.year,
-                                                'month': self.today.month})
+            if (any(key in ['month', 'year']
+                    for key in self.request.GET.keys())):
+                # bound form
+                self.form = forms.DateForm(self.request.GET)
+            else:
+                # non-bound form
+                self.form = forms.DateForm(initial={
+                                        'month': self.today.month,
+                                        'year': self.today.year})
         return self.form
 
     def get_usage_list(self, start, end):
