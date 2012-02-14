@@ -76,9 +76,6 @@ class BaseUsage(object):
     def get_usage_list(self, start, end):
         raise NotImplementedError("You must define a get_usage method.")
 
-    def get_summary(self):
-        raise NotImplementedError("You must define a get_summary method.")
-
     def summarize(self, start, end):
         if start <= end <= time.today():
             # Convert to datetime.datetime just for API call.

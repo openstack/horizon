@@ -27,27 +27,12 @@ from horizon import api
 from horizon import test
 
 
-class InstancesAndVolumesViewTest(test.BaseViewTests):
-    def setUp(self):
-        super(InstancesAndVolumesViewTest, self).setUp()
-        server = api.Server(None, self.request)
-        server.id = 1
-        server.name = 'serverName'
-        server.status = "ACTIVE"
-
-        volume = api.Volume(self.request)
-        volume.id = 1
-        volume.size = 10
-        volume.attachments = [{}]
-
-        self.servers = (server,)
-        self.volumes = (volume,)
-
+class InstancesAndVolumesViewTest(test.TestCase):
     def test_index(self):
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'volume_list')
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes)
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
 
         self.mox.ReplayAll()
 
@@ -57,14 +42,14 @@ class InstancesAndVolumesViewTest(test.BaseViewTests):
         self.assertTemplateUsed(res,
             'nova/instances_and_volumes/index.html')
         instances = res.context['instances_table'].data
-        self.assertItemsEqual(instances, self.servers)
+        self.assertItemsEqual(instances, self.servers.list())
 
     def test_index_server_list_exception(self):
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'volume_list')
         exception = novaclient_exceptions.ClientException('apiException')
         api.server_list(IsA(http.HttpRequest)).AndRaise(exception)
-        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes)
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
 
         self.mox.ReplayAll()
 

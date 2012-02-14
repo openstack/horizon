@@ -48,16 +48,18 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
                 label=_("Instance"))
 
     def handle(self, request, data):
+        ip_id = int(data['floating_ip_id'])
         try:
             api.server_add_floating_ip(request,
                                        data['instance_id'],
-                                       data['floating_ip_id'])
+                                       ip_id)
             LOG.info('Associating Floating IP "%s" with Instance "%s"'
                                 % (data['floating_ip'], data['instance_id']))
-            messages.info(request, _('Successfully associated Floating IP \
-                                    %(ip)s with Instance: %(inst)s'
-                                    % {"ip": data['floating_ip'],
-                                       "inst": data['instance_id']}))
+            messages.success(request,
+                             _('Successfully associated Floating IP %(ip)s '
+                               'with Instance: %(inst)s')
+                               % {"ip": data['floating_ip'],
+                                  "inst": data['instance_id']})
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in FloatingIpAssociate")
             messages.error(request, _('Error associating Floating IP: %s') % e)

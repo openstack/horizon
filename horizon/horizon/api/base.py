@@ -69,7 +69,7 @@ class APIDictWrapper(object):
     def __getattr__(self, attr):
         try:
             return self._apidict[attr]
-        except KeyError, e:
+        except KeyError:
             msg = 'Unknown attribute "%(attr)s" on APIResource object ' \
                   'of type "%(cls)s"' % {'attr': attr, 'cls': self.__class__}
             LOG.debug(msg)
@@ -90,9 +90,10 @@ class APIDictWrapper(object):
 
 
 def get_service_from_catalog(catalog, service_type):
-    for service in catalog:
-        if service['type'] == service_type:
-            return service
+    if catalog:
+        for service in catalog:
+            if service['type'] == service_type:
+                return service
     return None
 
 

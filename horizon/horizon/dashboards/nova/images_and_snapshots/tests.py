@@ -31,97 +31,43 @@ from horizon import test
 INDEX_URL = reverse('horizon:nova:images_and_snapshots:index')
 
 
-class ImagesAndSnapshotsTests(test.BaseViewTests):
-    def setUp(self):
-        super(ImagesAndSnapshotsTests, self).setUp()
-        snapshot_properties = api.glance.ImageProperties(None)
-        snapshot_properties.image_type = u'snapshot'
-
-        snapshot_dict = {'name': u'snapshot',
-                         'container_format': u'ami',
-                         'id': 3}
-        snapshot = api.glance.Image(snapshot_dict)
-        snapshot.properties = snapshot_properties
-        self.snapshots = [snapshot]
-
-        image_properties = api.glance.ImageProperties(None)
-        image_properties.image_type = u'image'
-
-        image_dict = {'name': u'visibleImage',
-                      'container_format': u'novaImage'}
-        self.visibleImage = api.glance.Image(image_dict)
-        self.visibleImage.id = '1'
-        self.visibleImage.properties = image_properties
-
-        image_dict = {'name': 'invisibleImage',
-                      'container_format': 'aki'}
-        self.invisibleImage = api.Image(image_dict)
-        self.invisibleImage.id = '2'
-
-        flavor = api.Flavor(None)
-        flavor.id = 1
-        flavor.name = 'm1.massive'
-        flavor.vcpus = 1000
-        flavor.disk = 1024
-        flavor.ram = 10000
-        self.flavors = (flavor,)
-
-        self.images = (self.visibleImage, self.invisibleImage)
-
-        keypair = api.KeyPair(None)
-        keypair.name = 'keyName'
-        self.keypairs = (keypair,)
-
-        security_group = api.SecurityGroup(None)
-        security_group.name = 'default'
-        self.security_groups = (security_group,)
-
+class ImagesAndSnapshotsTests(test.TestCase):
     def test_index(self):
+        images = self.images.list()
+        snapshots = self.snapshots.list()
         self.mox.StubOutWithMock(api, 'image_list_detailed')
-        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn(self.images)
-
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).AndReturn(
-                self.snapshots)
-
+        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn(images)
+        api.snapshot_list_detailed(IsA(http.HttpRequest)).AndReturn(snapshots)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-
-        self.assertTemplateUsed(res,
-                                'nova/images_and_snapshots/index.html')
-
+        self.assertTemplateUsed(res, 'nova/images_and_snapshots/index.html')
         self.assertIn('images_table', res.context)
         images = res.context['images_table'].data
-        self.assertEqual(len(images), 1)
-        self.assertEqual(images[0].name, 'visibleImage')
+        filter_func = lambda im: im.container_format not in ['aki', 'ari']
+        filtered_images = filter(filter_func, images)
+        self.assertItemsEqual(images, filtered_images)
 
     def test_index_no_images(self):
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
         self.mox.StubOutWithMock(api, 'image_list_detailed')
-
         api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).\
-                                   AndReturn(self.snapshots)
-
+        api.snapshot_list_detailed(IsA(http.HttpRequest)) \
+                                   .AndReturn(self.snapshots.list())
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-
         self.assertTemplateUsed(res, 'nova/images_and_snapshots/index.html')
 
     def test_index_client_conn_error(self):
-
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-
-        exception = glance_exception.ClientConnectionError('clientConnError')
-        api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exception)
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).\
-                                   AndReturn(self.snapshots)
-
+        exc = glance_exception.ClientConnectionError('clientConnError')
+        api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exc)
+        api.snapshot_list_detailed(IsA(http.HttpRequest)) \
+                                   .AndReturn(self.snapshots.list())
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-
         self.assertTemplateUsed(res, 'nova/images_and_snapshots/index.html')

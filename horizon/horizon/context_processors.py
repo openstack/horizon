@@ -25,8 +25,6 @@ import logging
 
 from django.conf import settings
 
-from horizon import api
-
 
 LOG = logging.getLogger(__name__)
 

@@ -1,6 +1,7 @@
+==============================
 Change the branding of Horizon
-------------------------------
-=======================
+==============================
+
 Changing the Page Title
 =======================
 
@@ -11,7 +12,6 @@ to ``local_settings.py`` with the value being the desired name.
 The file ``local_settings.py`` can be found at the Horizon directory path of
 ``horizon/openstack-dashboard/local/local_settings.py``.
 
-=======================
 Changing the Page Logo
 =======================
 

@@ -24,37 +24,20 @@ from horizon import test
 
 
 class InstanceViewTest(test.BaseAdminViewTests):
-    def setUp(self):
-        super(InstanceViewTest, self).setUp()
-        self.server = api.Server(None, self.request)
-        self.server.id = 1
-        self.server.name = 'serverName'
-        self.server.status = "ACTIVE"
-        self.server.flavor = {'id': '1'}
-
-        self.flavor = api.nova.Flavor(None)
-        self.flavor.id = '1'
-        self.flavor.ram = 512
-        self.flavor.vcpus = 512
-        self.flavor.disk = 1
-
-        self.servers = (self.server,)
-        self.flavors = (self.flavor,)
-
     def test_index(self):
+        servers = self.servers.list()
+        flavors = self.flavors.list()
         self.mox.StubOutWithMock(api.nova, 'server_list')
         self.mox.StubOutWithMock(api.nova, 'flavor_list')
         api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True).AndReturn(self.servers)
-        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
-
+                             all_tenants=True).AndReturn(servers)
+        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:syspanel:instances:index'))
-
         self.assertTemplateUsed(res, 'syspanel/instances/index.html')
         instances = res.context['table'].data
-        self.assertItemsEqual(instances, self.servers)
+        self.assertItemsEqual(instances, servers)
 
     def test_index_server_list_exception(self):
         self.mox.StubOutWithMock(api.nova, 'server_list')
@@ -66,6 +49,5 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:syspanel:instances:index'))
-
         self.assertTemplateUsed(res, 'syspanel/instances/index.html')
         self.assertEqual(len(res.context['instances_table'].data), 0)

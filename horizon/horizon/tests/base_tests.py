@@ -191,8 +191,6 @@ class HorizonTests(BaseHorizonTests):
         syspanel = horizon.get_dashboard("syspanel")
         self.assertFalse(hasattr(syspanel, "evil"))
 
-
-class HorizonBaseViewTests(BaseHorizonTests, test.BaseViewTests):
     def test_public(self):
         users.get_user_from_request = self._real_get_user_from_request
         settings = horizon.get_dashboard("settings")
@@ -220,10 +218,10 @@ class HorizonBaseViewTests(BaseHorizonTests, test.BaseViewTests):
         # should get a 404.
         new_catalog = [service for service in self.request.user.service_catalog
                        if service['type'] != MyPanel.services[0]]
-        tenants = self.TEST_CONTEXT['authorized_tenants']
-        self.setActiveUser(token=self.TEST_TOKEN,
-                           username=self.TEST_USER,
-                           tenant_id=self.TEST_TENANT,
+        tenants = self.context['authorized_tenants']
+        self.setActiveUser(token=self.token.id,
+                           username=self.user.name,
+                           tenant_id=self.tenant.id,
                            service_catalog=new_catalog,
                            authorized_tenants=tenants)
         resp = self.client.get(panel.get_absolute_url())

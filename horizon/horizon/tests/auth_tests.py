@@ -19,9 +19,7 @@
 #    under the License.
 
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
-from keystoneclient.v2_0 import tenants as keystone_tenants
 from keystoneclient import exceptions as keystone_exceptions
 from mox import IsA
 
@@ -33,59 +31,41 @@ SYSPANEL_INDEX_URL = reverse('horizon:syspanel:overview:index')
 DASH_INDEX_URL = reverse('horizon:nova:overview:index')
 
 
-class AuthViewTests(test.BaseViewTests):
+class AuthViewTests(test.TestCase):
     def setUp(self):
         super(AuthViewTests, self).setUp()
         self.setActiveUser()
-        self.PASSWORD = 'secret'
-        self.tenant = keystone_tenants.Tenant(keystone_tenants.TenantManager,
-                                              {'id': '6',
-                                               'name': 'FAKENAME'})
-        self.tenants = [self.tenant]
 
     def test_login_index(self):
         res = self.client.get(reverse('horizon:auth_login'))
         self.assertTemplateUsed(res, 'horizon/auth/login.html')
 
     def test_login_user_logged_in(self):
-        self.setActiveUser(self.TEST_TOKEN, self.TEST_USER, self.TEST_TENANT,
-                           False, self.TEST_SERVICE_CATALOG)
-
+        self.setActiveUser(self.tokens.first().id,
+                           self.user.name,
+                           self.tenant.id,
+                           False,
+                           self.service_catalog)
         # Hitting the login URL directly should always give you a login page.
         res = self.client.get(reverse('horizon:auth_login'))
         self.assertTemplateUsed(res, 'horizon/auth/login.html')
 
     def test_login_no_tenants(self):
-
-        TOKEN_ID = 1
-
-        form_data = {'method': 'Login',
-                    'region': 'http://localhost:5000/v2.0',
-                    'password': self.PASSWORD,
-                    'username': self.TEST_USER}
+        aToken = self.tokens.first()
 
         self.mox.StubOutWithMock(api, 'token_create')
-
-        class FakeToken(object):
-            id = TOKEN_ID,
-            user = {'roles': [{'name': 'fake'}]},
-            serviceCatalog = {}
-        aToken = api.Token(FakeToken())
-
-        api.token_create(IsA(http.HttpRequest), "", self.TEST_USER,
-                         self.PASSWORD).AndReturn(aToken)
-
         self.mox.StubOutWithMock(api, 'tenant_list_for_token')
+        api.token_create(IsA(http.HttpRequest), "", self.user.name,
+                         self.user.password).AndReturn(aToken)
         api.tenant_list_for_token(IsA(http.HttpRequest), aToken.id).\
                                   AndReturn([])
 
-        self.mox.StubOutWithMock(messages, 'error')
-        messages.error(IsA(http.HttpRequest),
-                       IsA(unicode),
-                       extra_tags=IsA(str))
-
         self.mox.ReplayAll()
 
+        form_data = {'method': 'Login',
+                    'region': 'http://localhost:5000/v2.0',
+                    'password': self.user.password,
+                    'username': self.user.name}
         res = self.client.post(reverse('horizon:auth_login'), form_data)
 
         self.assertTemplateUsed(res, 'horizon/auth/login.html')
@@ -93,28 +73,20 @@ class AuthViewTests(test.BaseViewTests):
     def test_login(self):
         form_data = {'method': 'Login',
                      'region': 'http://localhost:5000/v2.0',
-                     'password': self.PASSWORD,
-                     'username': self.TEST_USER}
+                     'password': self.user.password,
+                     'username': self.user.name}
 
         self.mox.StubOutWithMock(api, 'token_create')
         self.mox.StubOutWithMock(api, 'tenant_list_for_token')
         self.mox.StubOutWithMock(api, 'token_create_scoped')
 
-        class FakeToken(object):
-            id = 1,
-            user = {"id": "1",
-                    "roles": [{"id": "1", "name": "fake"}], "name": "user"}
-            serviceCatalog = {}
-            tenant = None
+        aToken = self.tokens.unscoped_token
+        bToken = self.tokens.scoped_token
 
-        aToken = api.Token(FakeToken())
-        bToken = aToken
-        bToken.tenant = {'id': self.tenant.id, 'name': self.tenant.name}
-
-        api.token_create(IsA(http.HttpRequest), "", self.TEST_USER,
-                         self.PASSWORD).AndReturn(aToken)
+        api.token_create(IsA(http.HttpRequest), "", self.user.name,
+                         self.user.password).AndReturn(aToken)
         api.tenant_list_for_token(IsA(http.HttpRequest),
-                                  aToken.id).AndReturn(self.tenants)
+                                  aToken.id).AndReturn(self.tenants.list())
         api.token_create_scoped(IsA(http.HttpRequest),
                                 self.tenant.id,
                                 aToken.id).AndReturn(bToken)
@@ -127,15 +99,15 @@ class AuthViewTests(test.BaseViewTests):
     def test_login_invalid_credentials(self):
         self.mox.StubOutWithMock(api, 'token_create')
         unauthorized = keystone_exceptions.Unauthorized("Invalid")
-        api.token_create(IsA(http.HttpRequest), "", self.TEST_USER,
-                         self.PASSWORD).AndRaise(unauthorized)
+        api.token_create(IsA(http.HttpRequest), "", self.user.name,
+                         self.user.password).AndRaise(unauthorized)
 
         self.mox.ReplayAll()
 
         form_data = {'method': 'Login',
                      'region': 'http://localhost:5000/v2.0',
-                     'password': self.PASSWORD,
-                     'username': self.TEST_USER}
+                     'password': self.user.password,
+                     'username': self.user.name}
         res = self.client.post(reverse('horizon:auth_login'),
                                form_data,
                                follow=True)
@@ -147,69 +119,62 @@ class AuthViewTests(test.BaseViewTests):
         ex = keystone_exceptions.BadRequest('Cannot talk to keystone')
         api.token_create(IsA(http.HttpRequest),
                          "",
-                         self.TEST_USER,
-                         self.PASSWORD).AndRaise(ex)
+                         self.user.name,
+                         self.user.password).AndRaise(ex)
 
         self.mox.ReplayAll()
 
         form_data = {'method': 'Login',
                     'region': 'http://localhost:5000/v2.0',
-                    'password': self.PASSWORD,
-                    'username': self.TEST_USER}
+                    'password': self.user.password,
+                    'username': self.user.name}
         res = self.client.post(reverse('horizon:auth_login'), form_data)
 
         self.assertTemplateUsed(res, 'horizon/auth/login.html')
 
     def test_switch_tenants_index(self):
         res = self.client.get(reverse('horizon:auth_switch',
-                                      args=[self.TEST_TENANT]))
+                                      args=[self.tenant.id]))
 
         self.assertRedirects(res, reverse("horizon:auth_login"))
 
     def test_switch_tenants(self):
-        NEW_TENANT_ID = '6'
-        NEW_TENANT_NAME = 'FAKENAME'
-        TOKEN_ID = 1
-        tenants = self.TEST_CONTEXT['authorized_tenants']
+        tenants = self.tenants.list()
 
-        aTenant = self.mox.CreateMock(api.Token)
-        aTenant.id = NEW_TENANT_ID
-        aTenant.name = NEW_TENANT_NAME
+        tenant = self.tenants.first()
+        token = self.tokens.unscoped_token
+        scoped_token = self.tokens.scoped_token
+        switch_to = scoped_token.tenant['id']
+        user = self.users.first()
 
-        aToken = self.mox.CreateMock(api.Token)
-        aToken.id = TOKEN_ID
-        aToken.user = {'id': self.TEST_USER_ID,
-                       'name': self.TEST_USER, 'roles': [{'name': 'fake'}]}
-        aToken.serviceCatalog = {}
-        aToken.tenant = {'id': aTenant.id, 'name': aTenant.name}
-
-        self.setActiveUser(id=self.TEST_USER_ID,
-                           token=self.TEST_TOKEN,
-                           username=self.TEST_USER,
-                           tenant_id=self.TEST_TENANT,
-                           service_catalog=self.TEST_SERVICE_CATALOG,
+        self.setActiveUser(id=user.id,
+                           token=token.id,
+                           username=user.name,
+                           tenant_id=tenant.id,
+                           service_catalog=self.service_catalog,
                            authorized_tenants=tenants)
 
         self.mox.StubOutWithMock(api, 'token_create')
         self.mox.StubOutWithMock(api, 'tenant_list_for_token')
 
-        api.token_create(IsA(http.HttpRequest), NEW_TENANT_ID, self.TEST_USER,
-                         self.PASSWORD).AndReturn(aToken)
-        api.tenant_list_for_token(IsA(http.HttpRequest), aToken.id) \
-                                  .AndReturn([aTenant])
-
+        api.token_create(IsA(http.HttpRequest),
+                         switch_to,
+                         user.name,
+                         user.password).AndReturn(scoped_token)
+        api.tenant_list_for_token(IsA(http.HttpRequest),
+                                  token.id).AndReturn(tenants)
         self.mox.ReplayAll()
 
         form_data = {'method': 'LoginWithTenant',
                      'region': 'http://localhost:5000/v2.0',
-                     'password': self.PASSWORD,
-                     'tenant': NEW_TENANT_ID,
-                     'username': self.TEST_USER}
-        res = self.client.post(reverse('horizon:auth_switch',
-                                       args=[NEW_TENANT_ID]), form_data)
-
+                     'username': user.name,
+                     'password': user.password,
+                     'tenant': switch_to}
+        switch_url = reverse('horizon:auth_switch', args=[switch_to])
+        res = self.client.post(switch_url, form_data)
         self.assertRedirectsNoFollow(res, DASH_INDEX_URL)
-        self.assertEqual(self.client.session['tenant'], NEW_TENANT_NAME)
+        self.assertEqual(self.client.session['tenant'],
+                         scoped_token.tenant['name'])
 
     def test_logout(self):
         KEY = 'arbitraryKeyString'

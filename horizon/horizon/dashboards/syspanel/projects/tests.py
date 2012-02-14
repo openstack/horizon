@@ -25,71 +25,39 @@ from horizon import test
 INDEX_URL = reverse('horizon:syspanel:projects:index')
 
 
-class FakeResource(object):
-    def __init__(self, **kwargs):
-        for key, value in kwargs.items():
-            setattr(self, key, value)
-
-
 class TenantsViewTests(test.BaseAdminViewTests):
-    def setUp(self):
-        super(TenantsViewTests, self).setUp()
-
-        self.tenant = FakeResource(id=self.TEST_TENANT,
-                                   name=self.TEST_TENANT_NAME,
-                                   enabled=True)
-
-        self.quota_data = dict(metadata_items='1',
-                               injected_file_content_bytes='1',
-                               volumes='1',
-                               gigabytes='1',
-                               ram=1,
-                               floating_ips='1',
-                               instances='1',
-                               injected_files='1',
-                               cores='1')
-        self.quota = FakeResource(id=self.TEST_TENANT, **self.quota_data)
-
-        self.tenants = [self.tenant]
-
     def test_index(self):
         self.mox.StubOutWithMock(api, 'tenant_list')
-        api.tenant_list(IsA(http.HttpRequest)).AndReturn(self.tenants)
-
+        api.tenant_list(IsA(http.HttpRequest)).AndReturn(self.tenants.list())
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-
         self.assertTemplateUsed(res, 'syspanel/projects/index.html')
-        self.assertItemsEqual(res.context['table'].data, self.tenants)
+        self.assertItemsEqual(res.context['table'].data, self.tenants.list())
 
     def test_modify_quota(self):
+        tenant = self.tenants.first()
+        quota = self.quotas.first()
+        quota_data = {"metadata_items": '1',
+                      "injected_files": '1',
+                      "injected_file_content_bytes": '1',
+                      "cores": '1',
+                      "instances": '1',
+                      "volumes": '1',
+                      "gigabytes": '1',
+                      "ram": 1,
+                      "floating_ips": '1'}
         self.mox.StubOutWithMock(api.keystone, 'tenant_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_quota_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_quota_update')
-
-        api.keystone.tenant_get(IgnoreArg(), self.TEST_TENANT) \
-                    .AndReturn(self.tenant)
-        api.nova.tenant_quota_get(IgnoreArg(), self.TEST_TENANT) \
-                    .AndReturn(self.quota)
-        api.nova.tenant_quota_update(IgnoreArg(),
-                                         self.TEST_TENANT,
-                                         **self.quota_data)
-
+        api.keystone.tenant_get(IgnoreArg(), tenant.id).AndReturn(tenant)
+        api.nova.tenant_quota_get(IgnoreArg(), tenant.id).AndReturn(quota)
+        api.nova.tenant_quota_update(IgnoreArg(), tenant.id, **quota_data)
         self.mox.ReplayAll()
 
         url = reverse('horizon:syspanel:projects:quotas',
-                      args=(self.TEST_TENANT,))
-        data = {"method": "UpdateQuotas",
-                "tenant_id": self.TEST_TENANT,
-                "metadata_items": '1',
-                "injected_files": '1',
-                "injected_file_content_bytes": '1',
-                "cores": '1',
-                "instances": '1',
-                "volumes": '1',
-                "gigabytes": '1',
-                "ram": 1,
-                "floating_ips": '1'}
-        res = self.client.post(url, data)
+                      args=[self.tenant.id])
+        quota_data.update({"method": "UpdateQuotas",
+                           "tenant_id": self.tenant.id})
+        res = self.client.post(url, quota_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)

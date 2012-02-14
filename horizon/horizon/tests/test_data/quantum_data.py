@@ -1,9 +1,3 @@
-# vim: tabstop=4 shiftwidth=4 softtabstop=4
-
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -18,13 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
+from .utils import TestDataContainer
 
 
-def fakeView(request):
-    resp = http.HttpResponse()
-    resp.write('<html><body><p>'
-               'This is a fake httpresponse from a fake view for testing '
-               ' purposes only'
-               '</p></body></html>')
-    return resp
+def data(TEST):
+    TEST.networks = TestDataContainer()
+    TEST.ports = TestDataContainer()
+    # TODO(gabriel): Move quantum test data into this module after it
+    # has been refactored with object wrappers (a la Glance).

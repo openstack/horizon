@@ -23,29 +23,15 @@ import logging
 import cloudfiles
 from django.conf import settings
 
-from horizon.api.base import *
+from horizon import exceptions
+from horizon.api.base import url_for
 
 
 LOG = logging.getLogger(__name__)
 
 
-class Container(APIResourceWrapper):
-    """Simple wrapper around cloudfiles.container.Container"""
-    _attrs = ['name', 'size_used', 'object_count', ]
-
-
-class SwiftObject(APIResourceWrapper):
-    _attrs = ['name', 'container', 'size', 'metadata', 'last_modified',
-              'metadata']
-
-    def sync_metadata(self):
-        self._apiresource.sync_metadata()
-
-
 class SwiftAuthentication(object):
-    """Auth container to pass CloudFiles storage URL and token from
-       session.
-    """
+    """ Auth container in the format CloudFiles expects. """
     def __init__(self, storage_url, auth_token):
         self.storage_url = storage_url
         self.auth_token = auth_token
@@ -55,11 +41,10 @@ class SwiftAuthentication(object):
 
 
 def swift_api(request):
-    LOG.debug('object store connection created using token "%s"'
-                ' and url "%s"' %
-                (request.session['token'], url_for(request, 'object-store')))
-    auth = SwiftAuthentication(url_for(request, 'object-store'),
-                               request.session['token'])
+    endpoint = url_for(request, 'object-store')
+    LOG.debug('Swift connection created using token "%s" and url "%s"'
+              % (request.session['token'], endpoint))
+    auth = SwiftAuthentication(endpoint, request.session['token'])
     return cloudfiles.get_connection(auth=auth)
 
 
@@ -83,9 +68,8 @@ def swift_object_exists(request, container_name, object_name):
 
 def swift_get_containers(request, marker=None):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-    containers = [Container(c) for c in swift_api(request).get_all_containers(
-                    limit=limit + 1,
-                    marker=marker)]
+    containers = swift_api(request).get_all_containers(limit=limit + 1,
+                                                       marker=marker)
     if(len(containers) > limit):
         return (containers[0:-1], True)
     else:
@@ -94,9 +78,8 @@ def swift_get_containers(request, marker=None):
 
 def swift_create_container(request, name):
     if swift_container_exists(request, name):
-        raise Exception('Container with name %s already exists.' % (name))
-
-    return Container(swift_api(request).create_container(name))
+        raise exceptions.AlreadyExists(name, 'container')
+    return swift_api(request).create_container(name)
 
 
 def swift_delete_container(request, name):
@@ -106,9 +89,9 @@ def swift_delete_container(request, name):
 def swift_get_objects(request, container_name, prefix=None, marker=None):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     container = swift_api(request).get_container(container_name)
-    objects = [SwiftObject(o) for o in
-            container.get_objects(prefix=prefix, marker=marker,
-                                  limit=limit + 1)]
+    objects = container.get_objects(prefix=prefix,
+                                    marker=marker,
+                                    limit=limit + 1)
     if(len(objects) > limit):
         return (objects[0:-1], True)
     else:
@@ -120,8 +103,7 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
     container = swift_api(request).get_container(orig_container_name)
 
     if swift_object_exists(request, new_container_name, new_object_name):
-        raise Exception('Object with name %s already exists in container %s'
-        % (new_object_name, new_container_name))
+        raise exceptions.AlreadyExists(new_object_name, 'object')
 
     orig_obj = container.get_object(orig_object_name)
     return orig_obj.copy_to(new_container_name, new_object_name)

@@ -27,6 +27,7 @@ from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 
 
@@ -40,20 +41,15 @@ class CreateGroup(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            LOG.info('Add security_group: "%s"' % data)
-
             api.security_group_create(request,
                                       data['name'],
                                       data['description'])
             messages.success(request,
                              _('Successfully created security_group: %s')
                                     % data['name'])
-            return shortcuts.redirect(
-                    'horizon:nova:access_and_security:index')
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in CreateGroup")
-            messages.error(request, _('Error creating security group: %s') %
-                                     e.message)
+        except:
+            exceptions.handle(request, _('Unable to create security group.'))
+        return shortcuts.redirect('horizon:nova:access_and_security:index')
 
 
 class AddRule(forms.SelfHandlingForm):
@@ -66,7 +62,7 @@ class AddRule(forms.SelfHandlingForm):
     # TODO (anthony) source group support
     # group_id = forms.CharField()
 
-    security_group_id = forms.CharField(widget=forms.HiddenInput())
+    security_group_id = forms.IntegerField(widget=forms.HiddenInput())
     tenant_id = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):

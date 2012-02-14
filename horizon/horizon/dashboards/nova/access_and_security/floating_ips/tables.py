@@ -20,9 +20,9 @@ import logging
 from django import shortcuts
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import tables
 
 
@@ -76,13 +76,12 @@ class DisassociateIP(tables.Action):
             fip = table.get_object_by_id(int(obj_id))
             api.server_remove_floating_ip(request, fip.instance_id, fip.id)
             LOG.info('Disassociating Floating IP "%s".' % obj_id)
-            messages.info(request,
-                          _('Successfully disassociated Floating IP: %s')
-                          % obj_id)
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in FloatingIpAssociate")
-            messages.error(request, _('Error disassociating Floating IP: %s')
-                                     % e.message)
+            messages.success(request,
+                             _('Successfully disassociated Floating IP: %s')
+                             % obj_id)
+        except:
+            exceptions.handle(request,
+                              _('Unable to disassociate floating IP.'))
         return shortcuts.redirect('horizon:nova:access_and_security:index')
 
 

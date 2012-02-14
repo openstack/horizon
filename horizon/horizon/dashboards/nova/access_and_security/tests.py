@@ -26,43 +26,19 @@ from horizon import api
 from horizon import test
 
 
-class AccessAndSecurityTests(test.BaseViewTests):
-    def setUp(self):
-        super(AccessAndSecurityTests, self).setUp()
-        keypair = api.KeyPair(None)
-        keypair.name = 'keyName'
-        self.keypairs = (keypair,)
-
-        server = api.Server(None, self.request)
-        server.id = 1
-        server.name = 'serverName'
-        self.server = server
-        self.servers = (server, )
-
-        floating_ip = api.FloatingIp(None)
-        floating_ip.id = 1
-        floating_ip.fixed_ip = '10.0.0.4'
-        floating_ip.instance_id = 1
-        floating_ip.ip = '58.58.58.58'
-
-        self.floating_ip = floating_ip
-        self.floating_ips = (floating_ip,)
-
-        security_group = api.SecurityGroup(None)
-        security_group.id = '1'
-        security_group.name = 'default'
-        self.security_groups = (security_group,)
-
+class AccessAndSecurityTests(test.TestCase):
     def test_index(self):
+        keypairs = self.keypairs.list()
+        sec_groups = self.security_groups.list()
+        floating_ips = self.floating_ips.list()
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
 
-        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)).\
-                                    AndReturn(self.floating_ips)
-        api.security_group_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.security_groups)
+        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(keypairs)
+        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                                    .AndReturn(floating_ips)
+        api.security_group_list(IsA(http.HttpRequest)).AndReturn(sec_groups)
 
         self.mox.ReplayAll()
 
@@ -70,9 +46,8 @@ class AccessAndSecurityTests(test.BaseViewTests):
                              reverse('horizon:nova:access_and_security:index'))
 
         self.assertTemplateUsed(res, 'nova/access_and_security/index.html')
-        self.assertItemsEqual(res.context['keypairs_table'].data,
-                              self.keypairs)
+        self.assertItemsEqual(res.context['keypairs_table'].data, keypairs)
         self.assertItemsEqual(res.context['security_groups_table'].data,
-                              self.security_groups)
+                              sec_groups)
         self.assertItemsEqual(res.context['floating_ips_table'].data,
-                              self.floating_ips)
+                              floating_ips)

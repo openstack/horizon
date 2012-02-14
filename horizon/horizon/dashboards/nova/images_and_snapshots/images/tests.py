@@ -19,10 +19,8 @@
 #    under the License.
 
 from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from keystoneclient import exceptions as keystone_exceptions
-from novaclient.v1_1 import client as nova_client, volume_snapshots
 from mox import IgnoreArg, IsA
 
 from horizon import api
@@ -32,116 +30,48 @@ from horizon import test
 IMAGES_INDEX_URL = reverse('horizon:nova:images_and_snapshots:index')
 
 
-class FakeQuota:
-    ram = 100
-
-
-class ImageViewTests(test.BaseViewTests):
-    def setUp(self):
-        super(ImageViewTests, self).setUp()
-        image_dict = {'name': 'visibleImage',
-                      'container_format': 'novaImage'}
-        self.visibleImage = api.Image(image_dict)
-        self.visibleImage.id = 1
-
-        image_dict = {'name': 'invisibleImage',
-                      'container_format': 'aki'}
-        self.invisibleImage = api.Image(image_dict)
-        self.invisibleImage.id = 2
-
-        self.images = (self.visibleImage, self.invisibleImage)
-
-        flavor = api.Flavor(None)
-        flavor.id = 1
-        flavor.name = 'm1.massive'
-        flavor.vcpus = 1000
-        flavor.disk = 1024
-        flavor.ram = 10000
-        self.flavors = (flavor,)
-
-        keypair = api.KeyPair(None)
-        keypair.name = 'keyName'
-        self.keypairs = (keypair,)
-
-        security_group = api.SecurityGroup(None)
-        security_group.name = 'default'
-        self.security_groups = (security_group,)
-
-        volume = api.Volume(None)
-        volume.id = 1
-        volume.name = 'vol'
-        volume.status = 'available'
-        volume.size = 40
-        volume.displayName = ''
-        self.volumes = (volume,)
-
-        self.volume_snapshot = volume_snapshots.Snapshot(
-                volume_snapshots.SnapshotManager,
-                {'id': 2,
-                 'displayName': 'test snapshot',
-                 'displayDescription': 'test snapshot description',
-                 'size': 40,
-                 'status': 'available',
-                 'volumeId': 1})
-        self.volume_snapshots = [self.volume_snapshot]
-
+class ImageViewTests(test.TestCase):
     def test_launch_get(self):
-        IMAGE_ID = 1
+        image = self.images.first()
+        tenant = self.tenants.first()
+        quota = self.quotas.first()
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
-
-        api.image_get_meta(IsA(http.HttpRequest), str(IMAGE_ID)) \
-                          .AndReturn(self.visibleImage)
-
-        api.tenant_quota_get(IsA(http.HttpRequest),
-                             self.TEST_TENANT).AndReturn(FakeQuota)
-
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
-
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-
-        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
-                                    self.security_groups)
-
+        api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
+        api.tenant_quota_get(IsA(http.HttpRequest), tenant.id).AndReturn(quota)
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
         self.mox.ReplayAll()
 
-        res = self.client.get(
-                    reverse('horizon:nova:images_and_snapshots:images:launch',
-                            args=[IMAGE_ID]))
+        url = reverse('horizon:nova:images_and_snapshots:images:launch',
+                      args=[image.id])
+        res = self.client.get(url)
         form = res.context['form']
-
         self.assertTemplateUsed(res,
                                 'nova/images_and_snapshots/images/launch.html')
-        self.assertEqual(res.context['image'].name, self.visibleImage.name)
-        self.assertIn('m1.massive', form.fields['flavor'].choices[0][1])
-        self.assertEqual(form.fields['keypair'].choices[0][0],
-                         self.keypairs[0].name)
+        self.assertEqual(res.context['image'].name, image.name)
+        self.assertIn(self.flavors.first().name,
+                      form.fields['flavor'].choices[0][1])
+        self.assertEqual(self.keypairs.first().name,
+                         form.fields['keypair'].choices[0][0])
 
     def test_launch_post(self):
-        FLAVOR_ID = unicode(self.flavors[0].id)
-        IMAGE_ID = u'1'
-        keypair = unicode(self.keypairs[0].name)
-        SERVER_NAME = u'serverName'
-        USER_DATA = u'userData'
-        volume = u'%s:vol' % self.volumes[0].id
+        flavor = self.flavors.first()
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        volume = self.volumes.first()
+        sec_group = self.security_groups.first()
+        USER_DATA = 'user data'
         device_name = u'vda'
-        BLOCK_DEVICE_MAPPING = {device_name: u"1:vol::0"}
-
-        form_data = {'method': 'LaunchForm',
-                     'flavor': FLAVOR_ID,
-                     'image_id': IMAGE_ID,
-                     'keypair': keypair,
-                     'name': SERVER_NAME,
-                     'user_data': USER_DATA,
-                     'count': 1,
-                     'tenant_id': self.TEST_TENANT,
-                     'security_groups': 'default',
-                     'volume': volume,
-                     'device_name': device_name}
+        volume_choice = "%s:vol" % volume.id
+        block_device_mapping = {device_name: u"%s::0" % volume_choice}
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
         self.mox.StubOutWithMock(api, 'flavor_list')
@@ -150,98 +80,97 @@ class ImageViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'server_create')
         self.mox.StubOutWithMock(api, 'volume_list')
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
-                self.security_groups)
-        api.image_get_meta(IsA(http.HttpRequest), IMAGE_ID).AndReturn(
-                self.visibleImage)
-        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes)
-        api.server_create(IsA(http.HttpRequest), SERVER_NAME,
-                          str(IMAGE_ID), str(FLAVOR_ID),
-                          keypair, USER_DATA, [self.security_groups[0].name],
-                          BLOCK_DEVICE_MAPPING,
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
+        api.server_create(IsA(http.HttpRequest),
+                          server.name,
+                          image.id,
+                          flavor.id,
+                          keypair.name,
+                          USER_DATA,
+                          [sec_group.name],
+                          block_device_mapping,
                           instance_count=IsA(int))
-
         self.mox.ReplayAll()
 
-        res = self.client.post(
-                    reverse('horizon:nova:images_and_snapshots:images:launch',
-                            args=[IMAGE_ID]),
-                            form_data)
-
+        form_data = {'method': 'LaunchForm',
+                     'flavor': flavor.id,
+                     'image_id': image.id,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'user_data': USER_DATA,
+                     'tenant_id': self.tenants.first().id,
+                     'security_groups': sec_group.name,
+                     'volume': volume_choice,
+                     'device_name': device_name,
+                     'count': 1}
+        url = reverse('horizon:nova:images_and_snapshots:images:launch',
+                      args=[image.id])
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res,
                  reverse('horizon:nova:instances_and_volumes:index'))
 
     def test_launch_flavorlist_error(self):
-        IMAGE_ID = '1'
+        image = self.images.first()
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
-
         api.image_get_meta(IsA(http.HttpRequest),
-                      IMAGE_ID).AndReturn(self.visibleImage)
+                           image.id).AndReturn(image)
         api.tenant_quota_get(IsA(http.HttpRequest),
-                             self.TEST_TENANT).AndReturn(FakeQuota)
-        exception = keystone_exceptions.ClientException('Failed.')
-        api.flavor_list(IsA(http.HttpRequest)).AndRaise(exception)
-        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
-                                    self.security_groups)
-
+                             self.tenant.id).AndReturn(self.quotas.first())
+        exc = keystone_exceptions.ClientException('Failed.')
+        api.flavor_list(IsA(http.HttpRequest)).AndRaise(exc)
+        api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
         self.mox.ReplayAll()
 
-        res = self.client.get(
-                    reverse('horizon:nova:images_and_snapshots:images:launch',
-                            args=[IMAGE_ID]))
-
+        url = reverse('horizon:nova:images_and_snapshots:images:launch',
+                      args=[image.id])
+        res = self.client.get(url)
         self.assertTemplateUsed(res,
                                 'nova/images_and_snapshots/images/launch.html')
 
     def test_launch_keypairlist_error(self):
-        IMAGE_ID = '2'
+        image = self.images.first()
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
-        api.image_get_meta(IsA(http.HttpRequest),
-                      IMAGE_ID).AndReturn(self.visibleImage)
-
         self.mox.StubOutWithMock(api, 'tenant_quota_get')
-        api.tenant_quota_get(IsA(http.HttpRequest),
-                             self.TEST_TENANT).AndReturn(FakeQuota)
-
         self.mox.StubOutWithMock(api, 'flavor_list')
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors)
-
-        exception = keystone_exceptions.ClientException('Failed.')
         self.mox.StubOutWithMock(api, 'keypair_list')
-        api.keypair_list(IsA(http.HttpRequest)).AndRaise(exception)
-
         self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
-                                    self.security_groups)
-
+        api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
+        api.tenant_quota_get(IsA(http.HttpRequest),
+                             self.tenant.id).AndReturn(self.quotas.first())
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        exception = keystone_exceptions.ClientException('Failed.')
+        api.keypair_list(IsA(http.HttpRequest)).AndRaise(exception)
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
         self.mox.ReplayAll()
 
-        res = self.client.get(
-                    reverse('horizon:nova:images_and_snapshots:images:launch',
-                            args=[IMAGE_ID]))
-
+        url = reverse('horizon:nova:images_and_snapshots:images:launch',
+                      args=[image.id])
+        res = self.client.get(url)
         self.assertTemplateUsed(res,
                                 'nova/images_and_snapshots/images/launch.html')
-
-        form = res.context['form']
-
-        form_keyfield = form.fields['keypair']
-        self.assertEqual(len(form_keyfield.choices), 0)
+        self.assertEqual(len(res.context['form'].fields['keypair'].choices), 0)
 
     def test_launch_form_keystone_exception(self):
-        FLAVOR_ID = self.flavors[0].id
-        IMAGE_ID = '1'
-        keypair = self.keypairs[0].name
-        SERVER_NAME = 'serverName'
+        flavor = self.flavors.first()
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        sec_group = self.security_groups.first()
         USER_DATA = 'userData'
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
@@ -251,37 +180,34 @@ class ImageViewTests(test.BaseViewTests):
         self.mox.StubOutWithMock(api, 'server_create')
         self.mox.StubOutWithMock(api, 'volume_list')
 
-        form_data = {'method': 'LaunchForm',
-                     'flavor': FLAVOR_ID,
-                     'image_id': IMAGE_ID,
-                     'keypair': keypair,
-                     'name': SERVER_NAME,
-                     'tenant_id': self.TEST_TENANT,
-                     'user_data': USER_DATA,
-                     'count': int(1),
-                     'security_groups': 'default'}
-
-        api.flavor_list(IgnoreArg()).AndReturn(self.flavors)
-        api.keypair_list(IgnoreArg()).AndReturn(self.keypairs)
-        api.security_group_list(IsA(http.HttpRequest)).AndReturn(
-                self.security_groups)
-        api.image_get_meta(IgnoreArg(), IMAGE_ID).AndReturn(self.visibleImage)
-        api.volume_list(IgnoreArg()).AndReturn(self.volumes)
-
-        exception = keystone_exceptions.ClientException('Failed')
+        api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        api.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        api.image_get_meta(IgnoreArg(), image.id).AndReturn(image)
+        api.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
+        exc = keystone_exceptions.ClientException('Failed')
         api.server_create(IsA(http.HttpRequest),
-                          SERVER_NAME,
-                          IMAGE_ID,
-                          str(FLAVOR_ID),
-                          keypair,
+                          server.name,
+                          image.id,
+                          flavor.id,
+                          keypair.name,
                           USER_DATA,
-                          [group.name for group in self.security_groups],
+                          [sec_group.name],
                           None,
-                          instance_count=IsA(int)).AndRaise(exception)
-
+                          instance_count=IsA(int)).AndRaise(exc)
         self.mox.ReplayAll()
-        url = reverse('horizon:nova:images_and_snapshots:images:launch',
-                      args=[IMAGE_ID])
-        res = self.client.post(url, form_data)
 
+        form_data = {'method': 'LaunchForm',
+                     'flavor': flavor.id,
+                     'image_id': image.id,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'tenant_id': self.tenant.id,
+                     'user_data': USER_DATA,
+                     'count': 1,
+                     'security_groups': sec_group.name}
+        url = reverse('horizon:nova:images_and_snapshots:images:launch',
+                      args=[image.id])
+        res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, IMAGES_INDEX_URL)

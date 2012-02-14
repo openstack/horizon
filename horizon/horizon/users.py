@@ -23,6 +23,8 @@ Classes and methods related to user handling in Horizon.
 
 import logging
 
+from django.utils.translation import ugettext as _
+
 from horizon import exceptions
 
 
@@ -135,7 +137,8 @@ class User(object):
         return False
 
     def get_and_delete_messages(self):
-        """ Placeholder function for parity with
+        """
+        Placeholder function for parity with
         ``django.contrib.auth.models.User``.
         """
         return []

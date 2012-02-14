@@ -40,10 +40,28 @@ How to use Horizon in your own projects.
 
    intro
    quickstart
+   topics/branding
 
+Developer Docs
+==============
+
+For those wishing to develop Horizon itself, or go in-depth with building
+your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes,
+the following documentation is provided.
+
+General information
+-------------------
+
+Brief guides to areas of interest and importance when developing Horizon.
+
+.. toctree::
+   :maxdepth: 1
+
+   contributing
+   testing
 
 Topic Guides
-============
+------------
 
 Information on how to work with specific areas of Horizon can be found in
 the following topic guides.
@@ -52,25 +70,7 @@ the following topic guides.
    :maxdepth: 1
 
    topics/tables
-
-Developer Reference
-===================
-
-For those wishing to develop Horizon itself, or go in-depth with building
-your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes,
-the following documentation is provided.
-
-Topics
-------
-
-Brief guides to areas of interest and importance when developing Horizon.
-
-.. toctree::
-   :maxdepth: 1
-
-   branding
-   contributing
-   testing
+   topics/testing
 
 API Reference
 -------------
@@ -90,6 +90,7 @@ In-depth documentation for Horizon and it's APIs.
    ref/context_processors
    ref/decorators
    ref/exceptions
+   ref/test
 
 Source Code Reference
 ---------------------

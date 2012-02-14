@@ -29,165 +29,129 @@ from horizon import test
 
 
 INDEX_URL = reverse('horizon:nova:access_and_security:index')
+NAMESPACE = "horizon:nova:access_and_security:floating_ips"
 
 
-class FloatingIpViewTests(test.BaseViewTests):
-
-    def setUp(self):
-        super(FloatingIpViewTests, self).setUp()
-        keypair = api.KeyPair(None)
-        keypair.name = 'keyName'
-        self.keypairs = (keypair,)
-
-        server = api.Server(None, self.request)
-        server.id = 1
-        server.name = 'serverName'
-        self.server = server
-        self.servers = (server, )
-
-        floating_ip = api.FloatingIp(None)
-        floating_ip.id = 1
-        floating_ip.fixed_ip = '10.0.0.4'
-        floating_ip.instance_id = 1
-        floating_ip.ip = '58.58.58.58'
-
-        self.floating_ip = floating_ip
-        self.floating_ips = [floating_ip, ]
-
-        security_group = api.SecurityGroup(None)
-        security_group.id = '1'
-        security_group.name = 'default'
-        self.security_groups = (security_group,)
-
+class FloatingIpViewTests(test.TestCase):
     def test_associate(self):
+        floating_ip = self.floating_ips.first()
         self.mox.StubOutWithMock(api, 'server_list')
-        api.server_list = self.mox.CreateMockAnything()
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
-        api.tenant_floating_ip_get = self.mox.CreateMockAnything()
-        api.tenant_floating_ip_get(IsA(http.HttpRequest), str(1)).\
-                                    AndReturn(self.floating_ip)
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.tenant_floating_ip_get(IsA(http.HttpRequest),
+                                   floating_ip.id).AndReturn(floating_ip)
         self.mox.ReplayAll()
 
-        res = self.client.get(
-            reverse('horizon:nova:access_and_security:floating_ips:associate',
-                    args=[1]))
+        url = reverse('%s:associate' % NAMESPACE, args=[floating_ip.id])
+        res = self.client.get(url)
         self.assertTemplateUsed(res,
                         'nova/access_and_security/floating_ips/associate.html')
 
     def test_associate_post(self):
+        floating_ip = self.floating_ips.first()
+        server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_list')
-        api.server_list = self.mox.CreateMockAnything()
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)).\
-                                    AndReturn(self.floating_ips)
-
         self.mox.StubOutWithMock(api, 'server_add_floating_ip')
-        api.server_add_floating_ip = self.mox.CreateMockAnything()
-        api.server_add_floating_ip(IsA(http.HttpRequest), IsA(unicode),
-                                                          IsA(unicode)).\
-                                                          AndReturn(None)
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
-        api.tenant_floating_ip_get = self.mox.CreateMockAnything()
-        api.tenant_floating_ip_get(IsA(http.HttpRequest), str(1)).\
-                                   AndReturn(self.floating_ip)
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                                    .AndReturn(self.floating_ips.list())
+        api.server_add_floating_ip(IsA(http.HttpRequest),
+                                   server.id,
+                                   floating_ip.id)
+        api.tenant_floating_ip_get(IsA(http.HttpRequest),
+                                   floating_ip.id).AndReturn(floating_ip)
         self.mox.ReplayAll()
 
-        res = self.client.post(
-            reverse('horizon:nova:access_and_security:floating_ips:associate',
-                    args=[1]),
-                               {'instance_id': 1,
-                                'floating_ip_id': self.floating_ip.id,
-                                'floating_ip': self.floating_ip.ip,
-                                'method': 'FloatingIpAssociate'})
-
+        form_data = {'instance_id': server.id,
+                     'floating_ip_id': floating_ip.id,
+                     'floating_ip': floating_ip.ip,
+                     'method': 'FloatingIpAssociate'}
+        url = reverse('%s:associate' % NAMESPACE, args=[floating_ip.id])
+        res = self.client.post(url, form_data)
         self.assertRedirects(res, INDEX_URL)
 
     def test_associate_post_with_exception(self):
+        floating_ip = self.floating_ips.first()
+        server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_list')
-        api.server_list = self.mox.CreateMockAnything()
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers)
-
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)).\
-                                    AndReturn(self.floating_ips)
         self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.security_groups)
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
-        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-
         self.mox.StubOutWithMock(api, 'server_add_floating_ip')
-        api.server_add_floating_ip = self.mox.CreateMockAnything()
-        exception = novaclient_exceptions.ClientException('ClientException',
-                                                    message='clientException')
-        api.server_add_floating_ip(IsA(http.HttpRequest), IsA(unicode),
-                                                          IsA(unicode)).\
-                                                          AndRaise(exception)
-
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
-        api.tenant_floating_ip_get = self.mox.CreateMockAnything()
-        api.tenant_floating_ip_get(IsA(http.HttpRequest), IsA(unicode)).\
-                                   AndReturn(self.floating_ip)
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                                    .AndReturn(self.floating_ips.list())
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                              .AndReturn(self.keypairs.list())
+        exc = novaclient_exceptions.ClientException('ClientException')
+        api.server_add_floating_ip(IsA(http.HttpRequest),
+                                   server.id,
+                                   floating_ip.id).AndRaise(exc)
+        api.tenant_floating_ip_get(IsA(http.HttpRequest),
+                                   floating_ip.id).AndReturn(floating_ip)
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse(
-                'horizon:nova:access_and_security:floating_ips:associate',
-                args=[1]),
+        url = reverse('%s:associate' % NAMESPACE, args=[floating_ip.id])
+        res = self.client.post(url,
                 {'instance_id': 1,
-                 'floating_ip_id': self.floating_ip.id,
-                 'floating_ip': self.floating_ip.ip,
+                 'floating_ip_id': floating_ip.id,
+                 'floating_ip': floating_ip.ip,
                  'method': 'FloatingIpAssociate'})
         self.assertRaises(novaclient_exceptions.ClientException)
-
         self.assertRedirects(res, INDEX_URL)
 
     def test_disassociate_post(self):
+        floating_ip = self.floating_ips.first()
+        server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
         self.mox.StubOutWithMock(api, 'server_remove_floating_ip')
 
-        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-        api.security_group_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.security_groups)
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)).\
-                                    AndReturn(self.floating_ips)
-
-        api.server_remove_floating_ip(IsA(http.HttpRequest), IsA(int),
-                                                             IsA(int)).\
-                                                             AndReturn(None)
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                              .AndReturn(self.keypairs.list())
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                                    .AndReturn(self.floating_ips.list())
+        api.server_remove_floating_ip(IsA(http.HttpRequest),
+                                      server.id,
+                                      floating_ip.id)
         self.mox.ReplayAll()
 
-        action = "floating_ips__disassociate__%s" % self.floating_ip.id
+        action = "floating_ips__disassociate__%s" % floating_ip.id
         res = self.client.post(INDEX_URL, {"action": action})
+        self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_disassociate_post_with_exception(self):
+        floating_ip = self.floating_ips.first()
+        server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
         self.mox.StubOutWithMock(api, 'server_remove_floating_ip')
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                              .AndReturn(self.keypairs.list())
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                                    .AndReturn(self.floating_ips.list())
 
-        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs)
-        api.security_group_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.security_groups)
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)).\
-                                    AndReturn(self.floating_ips)
-
-        exception = novaclient_exceptions.ClientException('ClientException',
-                                                    message='clientException')
+        exc = novaclient_exceptions.ClientException('ClientException')
         api.server_remove_floating_ip(IsA(http.HttpRequest),
-                                      IsA(int),
-                                      IsA(int)).AndRaise(exception)
+                                      server.id,
+                                      floating_ip.id).AndRaise(exc)
         self.mox.ReplayAll()
 
-        action = "floating_ips__disassociate__%s" % self.floating_ip.id
+        action = "floating_ips__disassociate__%s" % floating_ip.id
         res = self.client.post(INDEX_URL, {"action": action})
         self.assertRaises(novaclient_exceptions.ClientException)
         self.assertRedirectsNoFollow(res, INDEX_URL)
