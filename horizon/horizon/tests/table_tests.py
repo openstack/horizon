@@ -17,6 +17,7 @@
 from django import http
 from django import shortcuts
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 from horizon import test
@@ -81,9 +82,20 @@ class MyUpdateAction(tables.UpdateAction):
 
 
 class MyBatchAction(tables.BatchAction):
+    name = "batch"
+    action_present = _("Batch")
+    action_past = _("Batched")
+    data_type_singular = _("Item")
+    data_type_plural = _("Items")
+
+    def action(self, request, object_ids):
+        pass
+
+
+class MyToggleAction(tables.BatchAction):
     name = "toggle"
-    action_present = ("Down", "Up")
-    action_past = ("Downed", "Upped")
+    action_present = (_("Down"), _("Up"))
+    action_past = (_("Downed"), _("Upped"))
     data_type_singular = _("Item")
     data_type_plural = _("Items")
 
@@ -137,8 +149,9 @@ class MyTable(tables.DataTable):
         verbose_name = "My Table"
         status_column = "status"
         columns = ('id', 'name', 'value', 'optional', 'status')
-        table_actions = (MyFilterAction, MyAction,)
-        row_actions = (MyAction, MyLinkAction, MyUpdateAction, MyBatchAction,)
+        table_actions = (MyFilterAction, MyAction, MyBatchAction)
+        row_actions = (MyAction, MyLinkAction, MyUpdateAction,
+                       MyBatchAction, MyToggleAction)
 
 
 class DataTableTests(test.TestCase):
@@ -166,19 +179,22 @@ class DataTableTests(test.TestCase):
                                   '<Column: actions>'])
         # Actions (these also test ordering)
         self.assertQuerysetEqual(self.table.base_actions.values(),
-                                 ['<MyAction: delete>',
+                                 ['<MyBatchAction: batch>',
+                                  '<MyAction: delete>',
                                   '<MyFilterAction: filter>',
                                   '<MyLinkAction: login>',
-                                  '<MyBatchAction: toggle>',
+                                  '<MyToggleAction: toggle>',
                                   '<MyUpdateAction: update>'])
         self.assertQuerysetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
-                                  '<MyAction: delete>'])
+                                  '<MyAction: delete>',
+                                  '<MyBatchAction: batch>'])
         self.assertQuerysetEqual(self.table.get_row_actions(TEST_DATA[0]),
                                  ['<MyAction: delete>',
                                   '<MyLinkAction: login>',
                                   '<MyUpdateAction: update>',
-                                  '<MyBatchAction: toggle>'])
+                                  '<MyBatchAction: batch>',
+                                  '<MyToggleAction: toggle>'])
         # Auto-generated columns
         multi_select = self.table.columns['multi_select']
         self.assertEqual(multi_select.auto, "multi_select")
@@ -356,7 +372,7 @@ class DataTableTests(test.TestCase):
         # Row actions
         row_actions = self.table.render_row_actions(TEST_DATA[0])
         resp = http.HttpResponse(row_actions)
-        self.assertContains(resp, "<li", 3)
+        self.assertContains(resp, "<li", 4)
         self.assertContains(resp, "my_table__delete__1", 1)
         self.assertContains(resp,
                             "action=update&amp;table=my_table&amp;obj_id=1", 1)
@@ -391,12 +407,18 @@ class DataTableTests(test.TestCase):
         self.assertEqual(handled.status_code, 302)
         self.assertEqual(handled["location"], "http://example.com/1")
 
-        # Single object batch action
+        # Batch action (without toggle) conjugation behavior
+        req = self.factory.get('/my_url/')
+        self.table = MyTable(req, TEST_DATA_3)
+        toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[3]
+        self.assertEqual(unicode(toggle_action.verbose_name), "Batch Item")
+
+        # Single object toggle action
         # GET page - 'up' to 'down'
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_3)
-        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_3[0])), 4)
-        toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[3]
+        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_3[0])), 5)
+        toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[4]
         self.assertEqual(unicode(toggle_action.verbose_name), "Down Item")
 
         # Toggle from status 'up' to 'down'
@@ -416,8 +438,8 @@ class DataTableTests(test.TestCase):
         # GET page - 'down' to 'up'
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_2)
-        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_2[0])), 3)
-        toggle_action = self.table.get_row_actions(TEST_DATA_2[0])[2]
+        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_2[0])), 4)
+        toggle_action = self.table.get_row_actions(TEST_DATA_2[0])[3]
         self.assertEqual(unicode(toggle_action.verbose_name), "Up Item")
 
         # POST page

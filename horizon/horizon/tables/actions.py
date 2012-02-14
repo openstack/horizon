@@ -26,6 +26,7 @@ from django.conf import settings
 from django.forms.util import flatatt
 from django.contrib import messages
 from django.core import urlresolvers
+from django.utils.functional import Promise
 from django.utils.http import urlencode
 from django.utils.translation import string_concat, ugettext as _
 
@@ -440,14 +441,13 @@ class BatchAction(Action):
         Builds combinations like 'Delete Object' and 'Deleted
         Objects' based on the number of items and `past` flag.
         """
-        if past:
-            action = self.action_past \
-                    if isinstance(self.action_past, basestring) \
-                    else self.action_past[self.current_past_action]
+        action_type = "past" if past else "present"
+        action_attr = getattr(self, "action_%s" % action_type)
+        if isinstance(action_attr, (basestring, Promise)):
+            action = action_attr
         else:
-            action = self.action_present \
-                    if isinstance(self.action_present, basestring) \
-                    else self.action_present[self.current_present_action]
+            toggle_selection = getattr(self, "current_%s_action" % action_type)
+            action = action_attr[toggle_selection]
         if items is None or len(items) == 1:
             data_type = self.data_type_singular
         else:

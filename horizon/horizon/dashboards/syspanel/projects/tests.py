@@ -61,3 +61,19 @@ class TenantsViewTests(test.BaseAdminViewTests):
                            "tenant_id": self.tenant.id})
         res = self.client.post(url, quota_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_modify_users(self):
+        self.mox.StubOutWithMock(api.keystone, 'tenant_get')
+        self.mox.StubOutWithMock(api.keystone, 'user_list')
+        api.keystone.tenant_get(IgnoreArg(), self.tenant.id) \
+                    .AndReturn(self.tenant)
+        api.keystone.user_list(IsA(http.HttpRequest)) \
+                               .AndReturn(self.users.list())
+        api.keystone.user_list(IsA(http.HttpRequest),
+                               self.tenant.id).AndReturn([self.user])
+        self.mox.ReplayAll()
+        url = reverse('horizon:syspanel:projects:users',
+                      args=(self.tenant.id,))
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertTemplateUsed(res, 'syspanel/projects/users.html')
