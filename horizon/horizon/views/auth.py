@@ -79,7 +79,7 @@ def switch_tenants(request, tenant_id):
             _set_session_data(request, token)
             user = users.User(users.get_user_from_request(request))
             return shortcuts.redirect(Horizon.get_user_home(user))
-        except Exception, e:
+        except:
             exceptions.handle(request,
                               _("You are not authorized for that tenant."))
 

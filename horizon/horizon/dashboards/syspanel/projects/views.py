@@ -21,11 +21,8 @@
 import logging
 import operator
 
-from django import http
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
-from keystoneclient import exceptions as api_exceptions
 
 from horizon import api
 from horizon import exceptions
@@ -46,17 +43,9 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         tenants = []
         try:
-            tenants = api.tenant_list(self.request)
-        except api_exceptions.AuthorizationFailure, e:
-            LOG.exception("Unauthorized attempt to list tenants.")
-            messages.error(self.request, _('Unable to get tenant info: %s')
-                                         % e.message)
-        except Exception, e:
-            LOG.exception('Exception while getting tenant list')
-            if not hasattr(e, 'message'):
-                e.message = str(e)
-            messages.error(self.request, _('Unable to get tenant info: %s')
-                                         % e.message)
+            tenants = api.keystone.tenant_list(self.request, admin=True)
+        except:
+            exceptions.handle(self.request)
         tenants.sort(key=lambda x: x.id, reverse=True)
         return tenants
 
@@ -74,12 +63,12 @@ class UpdateView(forms.ModalFormView):
     def get_object(self, *args, **kwargs):
         tenant_id = kwargs['tenant_id']
         try:
-            return api.tenant_get(self.request, tenant_id)
-        except Exception as e:
-            LOG.exception('Error fetching tenant with id "%s"' % tenant_id)
-            messages.error(self.request, _('Unable to update tenant: %s')
-                                           % e.message)
-            raise http.Http404("Project with ID %s not found." % tenant_id)
+            return api.keystone.tenant_get(self.request, tenant_id, admin=True)
+        except:
+            redirect = reverse("horizon:syspanel:projects:index")
+            exceptions.handle(self.request,
+                              _('Unable to retrieve tenant.'),
+                              redirect=redirect)
 
     def get_initial(self):
         return {'id': self.object.id,
@@ -96,7 +85,9 @@ class UsersView(tables.MultiTableView):
         tenant_id = self.kwargs["tenant_id"]
         if not hasattr(self, "_shared_data"):
             try:
-                tenant = api.keystone.tenant_get(self.request, tenant_id)
+                tenant = api.keystone.tenant_get(self.request,
+                                                 tenant_id,
+                                                 admin=True)
                 all_users = api.keystone.user_list(self.request)
                 tenant_users = api.keystone.user_list(self.request, tenant_id)
                 self._shared_data = {'tenant': tenant,
@@ -130,7 +121,9 @@ class AddUserView(forms.ModalFormView):
     context_object_name = 'tenant'
 
     def get_object(self, *args, **kwargs):
-        return api.keystone.tenant_get(self.request, kwargs["tenant_id"])
+        return api.keystone.tenant_get(self.request,
+                                       kwargs["tenant_id"],
+                                       admin=True)
 
     def get_context_data(self, **kwargs):
         context = super(AddUserView, self).get_context_data(**kwargs)
@@ -165,11 +158,13 @@ class QuotasView(forms.ModalFormView):
     context_object_name = 'tenant'
 
     def get_object(self, *args, **kwargs):
-        return api.keystone.tenant_get(self.request, kwargs["tenant_id"])
+        return api.keystone.tenant_get(self.request,
+                                       kwargs["tenant_id"],
+                                       admin=True)
 
     def get_initial(self):
         quotas = api.nova.tenant_quota_get(self.request,
-                                               self.kwargs['tenant_id'])
+                                           self.kwargs['tenant_id'])
         return {
             'tenant_id': self.kwargs['tenant_id'],
             'metadata_items': quotas.metadata_items,

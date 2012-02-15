@@ -27,8 +27,9 @@ INDEX_URL = reverse('horizon:syspanel:projects:index')
 
 class TenantsViewTests(test.BaseAdminViewTests):
     def test_index(self):
-        self.mox.StubOutWithMock(api, 'tenant_list')
-        api.tenant_list(IsA(http.HttpRequest)).AndReturn(self.tenants.list())
+        self.mox.StubOutWithMock(api.keystone, 'tenant_list')
+        api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
+                    .AndReturn(self.tenants.list())
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -50,7 +51,8 @@ class TenantsViewTests(test.BaseAdminViewTests):
         self.mox.StubOutWithMock(api.keystone, 'tenant_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_quota_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_quota_update')
-        api.keystone.tenant_get(IgnoreArg(), tenant.id).AndReturn(tenant)
+        api.keystone.tenant_get(IgnoreArg(), tenant.id, admin=True) \
+                    .AndReturn(tenant)
         api.nova.tenant_quota_get(IgnoreArg(), tenant.id).AndReturn(quota)
         api.nova.tenant_quota_update(IgnoreArg(), tenant.id, **quota_data)
         self.mox.ReplayAll()
@@ -65,12 +67,12 @@ class TenantsViewTests(test.BaseAdminViewTests):
     def test_modify_users(self):
         self.mox.StubOutWithMock(api.keystone, 'tenant_get')
         self.mox.StubOutWithMock(api.keystone, 'user_list')
-        api.keystone.tenant_get(IgnoreArg(), self.tenant.id) \
+        api.keystone.tenant_get(IgnoreArg(), self.tenant.id, admin=True) \
                     .AndReturn(self.tenant)
         api.keystone.user_list(IsA(http.HttpRequest)) \
-                               .AndReturn(self.users.list())
-        api.keystone.user_list(IsA(http.HttpRequest),
-                               self.tenant.id).AndReturn([self.user])
+                    .AndReturn(self.users.list())
+        api.keystone.user_list(IsA(http.HttpRequest), self.tenant.id) \
+                    .AndReturn([self.user])
         self.mox.ReplayAll()
         url = reverse('horizon:syspanel:projects:users',
                       args=(self.tenant.id,))
