@@ -1,0 +1,22 @@
+{% extends "horizon/client_side/template.html" %}
+{% load horizon %}
+
+{% block id %}modal_template{% endblock %}
+
+{% block template %}
+{% jstemplate %}
+<div class="modal hide fade">
+  <div class='modal-header'>
+    <a class='close' data-dismiss='modal'>&times;</a>
+    <h3>[[title]]</h3>
+  </div>
+  <div class='modal-body'>
+    [[body]]
+  </div>
+  <div class='modal-footer'>
+    <a href='#' class='btn primary'>[[confirm]]</a>
+    <a href='#' class='btn' data-dismiss='modal'>[[cancel]]</a>
+  </div>
+</div>
+{% endjstemplate %}
+{% endblock %}

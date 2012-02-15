@@ -94,3 +94,25 @@ def horizon_dashboard_nav(context):
     return {'components': non_empty_panels,
             'user': context['request'].user,
             'current': context['request'].horizon['panel'].slug}
+
+
+class JSTemplateNode(template.Node):
+    """ Helper node for the ``jstemplate`` template tag. """
+    def __init__(self, nodelist):
+        self.nodelist = nodelist
+
+    def render(self, context, ):
+        output = self.nodelist.render(context)
+        return output.replace('[[', '{{').replace(']]', '}}')
+
+
+@register.tag
+def jstemplate(parser, token):
+    """
+    Replaces ``[[`` and ``]]`` with ``{{`` and ``}}`` to avoid conflicts
+    with Django's template engine when using any of the Mustache-based
+    templating libraries.
+    """
+    nodelist = parser.parse(('endjstemplate',))
+    parser.delete_first_token()
+    return JSTemplateNode(nodelist)
