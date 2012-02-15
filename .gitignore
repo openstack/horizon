@@ -14,3 +14,4 @@ openstack-dashboard/local/dashboard_openstack.sqlite3
 openstack-dashboard/local/local_settings.py
 docs/build/
 docs/source/sourcecode
+.venv
