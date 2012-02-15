@@ -659,6 +659,9 @@ td.actions_column .row_actions .hide {
 .btn-group > .btn.small {
   height: 12px;
 }
+.btn-group > button.btn.small {
+  height: 28px; /* Box model for buttons doesn't respect height + padding in all browsers. */
+}
 .btn-group .dropdown-toggle {
   height: 12px;
   padding-top: 7px;
