@@ -93,6 +93,60 @@ class InstanceViewTests(test.TestCase):
         res = self.client.post(INDEX_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    def test_suspend_instance(self):
+        server = self.servers.first()
+        self.mox.StubOutWithMock(api, 'server_suspend')
+        self.mox.StubOutWithMock(api, 'server_list')
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.server_suspend(IsA(http.HttpRequest), unicode(server.id))
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__suspend__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_suspend_instance_exception(self):
+        server = self.servers.first()
+        self.mox.StubOutWithMock(api, 'server_suspend')
+        self.mox.StubOutWithMock(api, 'server_list')
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        exception = nova_exceptions.ClientException(500)
+        api.server_suspend(IsA(http.HttpRequest),
+                          unicode(server.id)).AndRaise(exception)
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__suspend__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_resume_instance(self):
+        server = self.servers.first()
+        server.status = "SUSPENDED"
+        self.mox.StubOutWithMock(api, 'server_resume')
+        self.mox.StubOutWithMock(api, 'server_list')
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.server_resume(IsA(http.HttpRequest), unicode(server.id))
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__suspend__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_resume_instance_exception(self):
+        server = self.servers.first()
+        server.status = "SUSPENDED"
+        self.mox.StubOutWithMock(api, 'server_resume')
+        self.mox.StubOutWithMock(api, 'server_list')
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        exception = nova_exceptions.ClientException(500)
+        api.server_resume(IsA(http.HttpRequest),
+                          unicode(server.id)).AndRaise(exception)
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__suspend__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     def test_instance_console(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = 'output'
