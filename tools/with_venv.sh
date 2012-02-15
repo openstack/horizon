@@ -1,4 +1,4 @@
 #!/bin/bash
 TOOLS=`dirname $0`
-VENV=$TOOLS/../.horizon-venv
+VENV=$TOOLS/../.venv
 source $VENV/bin/activate && $@

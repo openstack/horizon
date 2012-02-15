@@ -46,7 +46,7 @@ function usage {
 # DEFAULTS FOR RUN_TESTS.SH
 #
 root=`pwd`
-venv=$root/.horizon-venv
+venv=$root/.venv
 with_venv=tools/with_venv.sh
 included_dirs="openstack-dashboard/dashboard horizon/horizon"
 
@@ -238,7 +238,7 @@ function restore_environment {
       return 0
     fi
 
-    cp -r /tmp/.horizon_environment/$JOB_NAME/.horizon-venv ./ || true
+    cp -r /tmp/.horizon_environment/$JOB_NAME/.venv ./ || true
     cp -r /tmp/.horizon_environment/$JOB_NAME/.environment_version ./ || true
 
     echo "Environment restored successfully."
@@ -283,8 +283,8 @@ function run_tests {
   if [ $with_coverage -eq 1 ]; then
     echo "Generating coverage reports"
     ${command_wrapper} coverage combine
-    ${command_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*,.horizon-venv/*'
-    ${command_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*,.horizon-venv/*' -d reports
+    ${command_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*,.venv/*'
+    ${command_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*,.venv/*' -d reports
   fi
   # Remove the leftover coverage files from the -p flag earlier.
   rm -f .coverage.*

@@ -30,7 +30,7 @@ import sys
 
 
 ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-VENV = os.path.join(ROOT, '.horizon-venv')
+VENV = os.path.join(ROOT, '.venv')
 WITH_VENV = os.path.join(ROOT, 'tools', 'with_venv.sh')
 PIP_REQUIRES = os.path.join(ROOT, 'tools', 'pip-requires')
 
@@ -132,7 +132,7 @@ def print_summary():
  To activate the virtualenv for the extent of your current shell session you
  can run:
 
- $ source .horizon-venv/bin/activate
+ $ source .venv/bin/activate
   """
     print summary
 
