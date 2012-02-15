@@ -61,7 +61,7 @@ class CreateSnapshot(tables.LinkAction):
     url = "horizon:nova:instances_and_volumes:volumes:create_snapshot"
 
     def allowed(self, request, volume=None):
-        return volume.status in ("available", "in-use")
+        return volume.status in ("available",)
 
 
 def get_size(volume):

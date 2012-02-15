@@ -110,6 +110,6 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
             messages.info(request, message)
         except:
             exceptions.handle(request,
-                              _('Error Creating Volume Snapshot: %s'))
+                              _('Error Creating Volume Snapshot: %(exc)s'))
 
         return shortcuts.redirect("horizon:nova:images_and_snapshots:index")

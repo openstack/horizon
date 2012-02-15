@@ -99,6 +99,12 @@ class EditAttachmentsView(tables.DataTableView):
                               _('Unable to retrieve volume information.'))
         return attachments
 
+    def get_context_data(self, **kwargs):
+        context = super(EditAttachmentsView, self).get_context_data(**kwargs)
+        context['form'] = self.form
+        context['volume'] = self.get_object()
+        return context
+
     def handle_form(self):
         instances = api.nova.server_list(self.request)
         initial = {'volume_id': self.kwargs["volume_id"],
@@ -106,16 +112,10 @@ class EditAttachmentsView(tables.DataTableView):
         return AttachForm.maybe_handle(self.request, initial=initial)
 
     def get(self, request, *args, **kwargs):
-        form, handled = self.handle_form()
+        self.form, handled = self.handle_form()
         if handled:
             return handled
-        if not self.get_object():
-            return shortcuts.redirect("horizon:nova:instances_and_volumes:"
-                                      "index")
-        context = self.get_context_data(**kwargs)
-        context['form'] = form
-        context['volume'] = self.get_object()
-        return self.render_to_response(context)
+        return super(EditAttachmentsView, self).get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         form, handled = self.handle_form()
