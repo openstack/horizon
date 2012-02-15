@@ -92,30 +92,35 @@ class UsersView(tables.MultiTableView):
     table_classes = (TenantUsersTable, AddUsersTable)
     template_name = 'syspanel/projects/users.html'
 
-    def get_data(self, *args, **kwargs):
+    def _get_shared_data(self, *args, **kwargs):
         tenant_id = self.kwargs["tenant_id"]
-        try:
-            self.tenant = api.keystone.tenant_get(self.request, tenant_id)
-            self.all_users = api.keystone.user_list(self.request)
-            self.tenant_users = api.keystone.user_list(self.request, tenant_id)
-        except:
-            redirect = reverse("horizon:syspanel:projects:index")
-            exceptions.handle(self.request,
-                              _("Unable to retrieve users."),
-                              redirect=redirect)
-        return super(UsersView, self).get_data(*args, **kwargs)
+        if not hasattr(self, "_shared_data"):
+            try:
+                tenant = api.keystone.tenant_get(self.request, tenant_id)
+                all_users = api.keystone.user_list(self.request)
+                tenant_users = api.keystone.user_list(self.request, tenant_id)
+                self._shared_data = {'tenant': tenant,
+                                     'all_users': all_users,
+                                     'tenant_users': tenant_users}
+            except:
+                redirect = reverse("horizon:syspanel:projects:index")
+                exceptions.handle(self.request,
+                                  _("Unable to retrieve users."),
+                                  redirect=redirect)
+        return self._shared_data
 
     def get_tenant_users_data(self):
-        return self.tenant_users
+        return self._get_shared_data()["tenant_users"]
 
     def get_add_users_data(self):
-        tenant_user_ids = [user.id for user in self.tenant_users]
-        return [user for user in self.all_users if
-                user.id not in tenant_user_ids]
+        tenant_users = self._get_shared_data()["tenant_users"]
+        all_users = self._get_shared_data()["all_users"]
+        tenant_user_ids = [user.id for user in tenant_users]
+        return filter(lambda u: u.id not in tenant_user_ids, all_users)
 
     def get_context_data(self, **kwargs):
         context = super(UsersView, self).get_context_data(**kwargs)
-        context['tenant'] = self.tenant
+        context['tenant'] = self._get_shared_data()["tenant"]
         return context
 
 
