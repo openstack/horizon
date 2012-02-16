@@ -68,6 +68,58 @@ class InstanceViewTests(test.TestCase):
         res = self.client.post(INDEX_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    def test_pause_instance(self):
+        server = self.servers.first()
+        self.mox.StubOutWithMock(api, 'server_pause')
+        self.mox.StubOutWithMock(api, 'server_list')
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.server_pause(IsA(http.HttpRequest), server.id)
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__pause__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_pause_instance_exception(self):
+        server = self.servers.first()
+        self.mox.StubOutWithMock(api, 'server_pause')
+        self.mox.StubOutWithMock(api, 'server_list')
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        exc = nova_exceptions.ClientException(500)
+        api.server_pause(IsA(http.HttpRequest), server.id).AndRaise(exc)
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__pause__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_unpause_instance(self):
+        server = self.servers.first()
+        server.status = "PAUSED"
+        self.mox.StubOutWithMock(api, 'server_unpause')
+        self.mox.StubOutWithMock(api, 'server_list')
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.server_unpause(IsA(http.HttpRequest), server.id)
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__pause__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_unpause_instance_exception(self):
+        server = self.servers.first()
+        server.status = "PAUSED"
+        self.mox.StubOutWithMock(api, 'server_unpause')
+        self.mox.StubOutWithMock(api, 'server_list')
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        exc = nova_exceptions.ClientException(500)
+        api.server_unpause(IsA(http.HttpRequest), server.id).AndRaise(exc)
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__pause__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     def test_reboot_instance(self):
         server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_reboot')
