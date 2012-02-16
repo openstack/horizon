@@ -546,6 +546,7 @@ td .icon.ajax-updating {
 .modal .form-field,
 .modal fieldset ul {
     width: 90%;
+    padding: 10px 10px;
 }
 
 .modal fieldset .form-field input,
