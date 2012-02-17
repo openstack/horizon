@@ -161,6 +161,21 @@ class InstanceViewTests(test.TestCase):
         self.assertIsInstance(res, http.HttpResponse)
         self.assertContains(res, CONSOLE_OUTPUT)
 
+    def test_instance_console_exception(self):
+        server = self.servers.first()
+
+        self.mox.StubOutWithMock(api, 'server_console_output')
+        exc = nova_exceptions.ClientException(500)
+        api.server_console_output(IsA(http.HttpRequest),
+                                  server.id,
+                                  tail_length=None).AndRaise(exc)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances_and_volumes:instances:console',
+                      args=[server.id])
+        res = self.client.get(url)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     def test_instance_vnc(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = '/vncserver'
