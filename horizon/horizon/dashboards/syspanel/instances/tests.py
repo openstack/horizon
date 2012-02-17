@@ -27,8 +27,12 @@ class InstanceViewTest(test.BaseAdminViewTests):
     def test_index(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
+        tenants = self.tenants.list()
         self.mox.StubOutWithMock(api.nova, 'server_list')
         self.mox.StubOutWithMock(api.nova, 'flavor_list')
+        self.mox.StubOutWithMock(api.keystone, 'tenant_list')
+        api.keystone.tenant_list(IsA(http.HttpRequest), admin=True).\
+                                 AndReturn(tenants)
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(servers)
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
