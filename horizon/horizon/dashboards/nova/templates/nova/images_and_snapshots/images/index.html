@@ -12,7 +12,8 @@
   {% if images %}
     {% include 'nova/images_and_snapshots/images/_list.html' %}
   {% else %}
-    <div class="alert alert-block alert-info">
+    <div class="alert alert-block alert-info fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
       <p><strong>{% trans "Info: " %}</strong>{% trans "There are currently no images." %}</p>
     </div>
   {% endif %}
