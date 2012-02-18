@@ -57,6 +57,12 @@ class BaseAction(object):
         """
         return True
 
+    def _allowed(self, request, datum):
+        """ Default allowed checks for certain actions """
+        if isinstance(self, BatchAction) and not self.table.data:
+            return False
+        return self.allowed(request, datum)
+
     def update(self, request, datum):
         """ Allows per-action customization based on current conditions.
 

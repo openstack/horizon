@@ -475,6 +475,23 @@ class DataTableTests(test.TestCase):
         self.assertEqual(list(req._messages)[0].message,
                          "Please select a row before taking that action.")
 
+        # At least one object in table
+        # BatchAction is available
+        req = self.factory.get('/my_url/')
+        self.table = MyTable(req, TEST_DATA_2)
+        self.assertQuerysetEqual(self.table.get_table_actions(),
+                                 ['<MyFilterAction: filter>',
+                                  '<MyAction: delete>',
+                                  '<MyBatchAction: batch>'])
+
+        # Zero objects in table
+        # BatchAction not available
+        req = self.factory.get('/my_url/')
+        self.table = MyTable(req, None)
+        self.assertQuerysetEqual(self.table.get_table_actions(),
+                                 ['<MyFilterAction: filter>',
+                                  '<MyAction: delete>'])
+
         # Filtering
         action_string = "my_table__filter__q"
         req = self.factory.post('/my_url/', {action_string: '2'})

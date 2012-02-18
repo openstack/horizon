@@ -665,7 +665,7 @@ class DataTable(object):
     def _filter_action(self, action, request, datum=None):
         try:
             # Catch user errors in permission functions here
-            return action.allowed(request, datum)
+            return action._allowed(request, datum)
         except Exception:
             LOG.exception("Error while checking action permissions.")
             return None
