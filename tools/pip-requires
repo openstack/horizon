@@ -27,6 +27,7 @@ sqlalchemy
 sqlalchemy-migrate
 webob
 xattr
+iso8601
 
 # quantum
 -e git+https://github.com/openstack/python-quantumclient.git#egg=python-quantumclient-dev
