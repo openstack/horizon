@@ -82,8 +82,7 @@ class CreateTenant(forms.SelfHandlingForm):
 class UpdateTenant(forms.SelfHandlingForm):
     id = forms.CharField(label=_("ID"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    name = forms.CharField(label=_("Name"),
-            widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    name = forms.CharField(label=_("Name"))
     description = forms.CharField(
             widget=forms.widgets.Textarea(),
             label=_("Description"))

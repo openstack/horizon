@@ -216,7 +216,8 @@ class APITestCase(TestCase):
         super(APITestCase, self).setUp()
 
         def fake_keystoneclient(request, username=None, password=None,
-                                tenant_id=None, token_id=None, endpoint=None):
+                                tenant_id=None, token_id=None, endpoint=None,
+                                admin=False):
             """
             Wrapper function which returns the stub keystoneclient. Only
             necessary because the function takes too many arguments to

@@ -20,12 +20,13 @@
 
 import logging
 
-from django import shortcuts
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from keystoneclient import exceptions as api_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from .forms import CreateUserForm, UpdateUserForm
@@ -64,15 +65,16 @@ class UpdateView(forms.ModalFormView):
     def get_object(self, *args, **kwargs):
         user_id = kwargs['user_id']
         try:
-            return api.user_get(self.request, user_id)
-        except Exception as e:
-            LOG.exception('Error fetching user with id "%s"' % user_id)
-            messages.error(self.request,
-                           _('Unable to update user: %s') % e.message)
-            raise http.Http404("User with id %s not found." % user_id)
+            return api.user_get(self.request, user_id, admin=True)
+        except:
+            redirect = reverse("horizon:syspanel:users:index")
+            exceptions.handle(self.request,
+                              _('Unable to update user.'),
+                              redirect=redirect)
 
     def get_initial(self):
         return {'id': self.object.id,
+                'name': getattr(self.object, 'name', None),
                 'tenant_id': getattr(self.object, 'tenantId', None),
                 'email': getattr(self.object, 'email', '')}
 
