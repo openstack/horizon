@@ -83,7 +83,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
                      % (fip.ip, data['tenant_id']))
 
             messages.success(request,
-                             _('Successfully allocated Floating IP "%(ip)s"\
+                             _('Successfully allocated Floating IP "%(ip)s" \
                                 to tenant "%(tenant)s"')
                              % {"ip": fip.ip, "tenant": data['tenant_id']})
         except:

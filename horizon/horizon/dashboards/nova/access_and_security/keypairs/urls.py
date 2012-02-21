@@ -20,10 +20,14 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import CreateView, ImportView
+from .views import CreateView, ImportView, DownloadView, GenerateView
 
 
 urlpatterns = patterns('',
     url(r'^create/$', CreateView.as_view(), name='create'),
     url(r'^import/$', ImportView.as_view(), name='import'),
+    url(r'^(?P<keypair_name>[^/]+)/download/$', DownloadView.as_view(),
+            name='download'),
+    url(r'^(?P<keypair_name>[^/]+)/generate/$', GenerateView.as_view(),
+            name='generate'),
 )

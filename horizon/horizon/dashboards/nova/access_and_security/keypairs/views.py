@@ -23,8 +23,16 @@ Views for managing Nova keypairs.
 """
 import logging
 
-from horizon import forms
+from django import http
+from django.core.urlresolvers import reverse
+from django.template.defaultfilters import slugify
+from django.views.generic import View, TemplateView
+from django.utils.translation import ugettext as _
+
 from .forms import CreateKeypair, ImportKeypair
+from horizon import api
+from horizon import forms
+from horizon import exceptions
 
 
 LOG = logging.getLogger(__name__)
@@ -38,3 +46,27 @@ class CreateView(forms.ModalFormView):
 class ImportView(forms.ModalFormView):
     form_class = ImportKeypair
     template_name = 'nova/access_and_security/keypairs/import.html'
+
+
+class DownloadView(TemplateView):
+    def get_context_data(self, keypair_name=None):
+        return {'keypair_name': keypair_name}
+    template_name = 'nova/access_and_security/keypairs/download.html'
+
+
+class GenerateView(View):
+    def get(self, request, keypair_name=None):
+        try:
+            keypair = api.keypair_create(request, keypair_name)
+        except:
+            redirect = reverse('horizon:nova:access_and_security:index')
+            exceptions.handle(self.request,
+                              _('Unable to create keypair: %(exc)s'),
+                              redirect=redirect)
+
+        response = http.HttpResponse(mimetype='application/binary')
+        response['Content-Disposition'] = \
+                'attachment; filename=%s.pem' % slugify(keypair.name)
+        response.write(keypair.private_key)
+        response['Content-Length'] = str(len(response.content))
+        return response

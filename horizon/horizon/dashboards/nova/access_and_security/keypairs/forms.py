@@ -20,11 +20,9 @@
 
 import logging
 
-from django import http
 from django import shortcuts
 from django.contrib import messages
 from django.core import validators
-from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
 
@@ -45,14 +43,9 @@ class CreateKeypair(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            LOG.info('Creating keypair "%s"' % data['name'])
-            keypair = api.keypair_create(request, data['name'])
-            response = http.HttpResponse(mimetype='application/binary')
-            response['Content-Disposition'] = \
-                     'attachment; filename=%s.pem' % slugify(keypair.name)
-            response.write(keypair.private_key)
-            response['Content-Length'] = str(len(response.content))
-            return response
+            return shortcuts.redirect(
+                    'horizon:nova:access_and_security:keypairs:download',
+                    keypair_name=data['name'])
         except novaclient_exceptions.ClientException, e:
             LOG.exception("ClientException in CreateKeyPair")
             messages.error(request,

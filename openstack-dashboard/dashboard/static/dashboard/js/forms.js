@@ -9,17 +9,6 @@ horizon.addInitFunction(function () {
     return true;
   });
 
-  // TODO (tres): WTF?
-  $(document).on("submit", ".modal #create_keypair_form", function (e) {
-    var $this = $(this);
-    $this.closest(".modal").modal("hide");
-    $('.topbar').after('<div class="alert alert-block alert-info">'
-      + '<p><strong>Info: </strong>The data on this page may have changed, '
-      + '<a href=".">click here to refresh it</a>.</p>'
-      + '</div>');
-    return true;
-  });
-
   // Confirmation on deletion of items.
   // TODO (tres): These need to be localizable or to just plain go away in favor
   // of modals.

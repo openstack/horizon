@@ -66,7 +66,16 @@ class KeyPairViewTests(test.TestCase):
         self.assertTemplateUsed(res,
                                'nova/access_and_security/keypairs/create.html')
 
-    def test_create_keypair_post(self):
+    def test_download_keypair_get(self):
+        keypair_name = "keypair"
+        context = {'keypair_name': keypair_name}
+        url = reverse('horizon:nova:access_and_security:keypairs:download',
+                      kwargs={'keypair_name': keypair_name})
+        res = self.client.get(url, context)
+        self.assertTemplateUsed(
+                res, 'nova/access_and_security/keypairs/download.html')
+
+    def test_generate_keypair_get(self):
         keypair = self.keypairs.first()
         keypair.private_key = "secret"
 
@@ -75,22 +84,25 @@ class KeyPairViewTests(test.TestCase):
                            keypair.name).AndReturn(keypair)
         self.mox.ReplayAll()
 
-        formData = {'method': 'CreateKeypair',
-                    'name': keypair.name}
-        url = reverse('horizon:nova:access_and_security:keypairs:create')
-        res = self.client.post(url, formData)
-        self.assertTrue(res.has_header('Content-Disposition'))
+        context = {'keypair_name': keypair.name}
+        url = reverse('horizon:nova:access_and_security:keypairs:generate',
+                      kwargs={'keypair_name': keypair.name})
+        res = self.client.get(url, context)
 
-    def test_create_keypair_exception(self):
+        self.assertTrue(res.has_header('content-disposition'))
+
+    def test_generate_keypair_exception(self):
         keypair = self.keypairs.first()
         exc = novaclient_exceptions.ClientException('clientException')
+
         self.mox.StubOutWithMock(api, 'keypair_create')
         api.keypair_create(IsA(http.HttpRequest), keypair.name).AndRaise(exc)
         self.mox.ReplayAll()
 
-        formData = {'method': 'CreateKeypair',
-                    'name': keypair.name}
-        url = reverse('horizon:nova:access_and_security:keypairs:create')
-        res = self.client.post(url, formData)
+        context = {'keypair_name': keypair.name}
+        url = reverse('horizon:nova:access_and_security:keypairs:generate',
+                      kwargs={'keypair_name': keypair.name})
+        res = self.client.get(url, context)
 
-        self.assertRedirectsNoFollow(res, url)
+        self.assertRedirectsNoFollow(
+                res, reverse('horizon:nova:access_and_security:index'))
