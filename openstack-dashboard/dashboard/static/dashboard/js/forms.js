@@ -42,6 +42,20 @@ horizon.addInitFunction(function () {
     return response;
   });
 
+  $('select.switchable').live("change", (function(e){
+    var type = $(this).val();
+    $(this).closest('fieldset').find('input[type=text]').each(function(index, obj){
+      var label_val = "";
+      if ($(obj).attr("data-"+type)){
+        label_val = $(obj).attr("data-"+type);
+      } else if ($(obj).attr("data")){
+        label_val = $(obj).attr("data");
+      } else
+         return true;
+      $('label[for='+ $(obj).attr('id') + ']').html(label_val);
+      });
+    })).change();
+
   /* Twipsy tooltips */
 
   function getTwipsyTitle() {

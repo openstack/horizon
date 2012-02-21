@@ -115,8 +115,8 @@ class SecurityGroupsViewTests(test.TestCase):
         api.security_group_rule_create(IsA(http.HttpRequest),
                                        sec_group.id,
                                        rule.ip_protocol,
-                                       rule.from_port,
-                                       rule.to_port,
+                                       int(rule.from_port),
+                                       int(rule.to_port),
                                        rule.ip_range['cidr']).AndReturn(rule)
         self.mox.ReplayAll()
 
@@ -139,8 +139,8 @@ class SecurityGroupsViewTests(test.TestCase):
         api.security_group_rule_create(IsA(http.HttpRequest),
                                        sec_group.id,
                                        rule.ip_protocol,
-                                       rule.from_port,
-                                       rule.to_port,
+                                       int(rule.from_port),
+                                       int(rule.to_port),
                                        rule.ip_range['cidr']).AndRaise(exc)
         self.mox.ReplayAll()
 
