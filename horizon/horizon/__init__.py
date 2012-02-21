@@ -39,7 +39,8 @@ except ImportError:
 
 if django:
     # This can be removed once the upstream bug is fixed.
-    from horizon.utils import reverse_bugfix
+    if django.VERSION < (1, 4):
+        from horizon.utils import reverse_bugfix
 
     from horizon.base import Horizon, Dashboard, Panel, Workflow
 
