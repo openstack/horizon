@@ -36,7 +36,7 @@ from horizon import exceptions
 LOG = logging.getLogger(__name__)
 
 # For Bootstrap integration, can be overridden in settings.
-ACTION_CSS_CLASSES = ("btn", "small")
+ACTION_CSS_CLASSES = ("btn", "btn-small")
 
 
 class BaseAction(object):
@@ -528,7 +528,7 @@ class DeleteAction(BatchAction):
     name = "delete"
     action_present = _("Delete")
     action_past = _("Deleted")
-    classes = ('danger',)
+    classes = ('btn-danger',)
 
     def action(self, request, obj_id):
         return self.delete(request, obj_id)

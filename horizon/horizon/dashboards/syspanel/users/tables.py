@@ -2,7 +2,6 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
 from horizon import api
@@ -16,18 +15,14 @@ class CreateUserLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create User")
     url = "horizon:syspanel:users:create"
-    attrs = {
-        "class": "ajax-modal btn small",
-    }
+    classes = ("ajax-modal",)
 
 
 class EditUserLink(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
     url = "horizon:syspanel:users:update"
-    attrs = {
-        "class": "ajax-modal",
-    }
+    classes = ("ajax-modal",)
 
 
 class EnableUsersAction(tables.Action):

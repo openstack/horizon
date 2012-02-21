@@ -42,7 +42,7 @@ class CreateLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create New Project")
     url = "horizon:syspanel:projects:create"
-    attrs = {"class": "ajax-modal btn small"}
+    classes = ("ajax-modal",)
 
 
 class DeleteTenantsAction(tables.DeleteAction):
@@ -88,7 +88,7 @@ class RemoveUserAction(tables.BatchAction):
     action_past = _("Removed")
     data_type_singular = _("User")
     data_type_plural = _("Users")
-    classes = ('danger',)
+    classes = ('btn-danger',)
 
     def action(self, request, user_id):
         tenant_id = self.table.kwargs['tenant_id']

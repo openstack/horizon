@@ -43,7 +43,7 @@ class CreateGroup(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Security Group")
     url = "horizon:nova:access_and_security:security_groups:create"
-    attrs = {"class": "btn small ajax-modal"}
+    classes = ("ajax-modal",)
 
 
 class EditRules(tables.LinkAction):

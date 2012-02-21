@@ -21,7 +21,7 @@ class CreateNetworkLink(tables.LinkAction):
     name = "create_network"
     verbose_name = _("Create New Network")
     url = "horizon:nova:networks:create"
-    attrs = {"class": "ajax-modal btn small"}
+    classes = ("ajax-modal",)
 
 
 class DeleteNetworkAction(tables.DeleteAction):
@@ -58,7 +58,7 @@ class CreatePortLink(tables.LinkAction):
     name = "create_port"
     verbose_name = _("Create Ports")
     url = "horizon:nova:networks:port_create"
-    attrs = {"class": "ajax-modal btn small"}
+    classes = ("ajax-modal",)
 
     def get_link_url(self, datum=None):
         network_id = self.table.kwargs['network_id']

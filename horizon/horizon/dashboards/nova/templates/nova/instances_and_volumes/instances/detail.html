@@ -107,7 +107,9 @@
 </div>
 {% endblock %}
 
-{% block footer_js %}
+{% block js %}
+  {{ block.super }}
+  {# FIXME: This JavaScript should live with the rest of the JS #}
   {% if show_tab == "log" %}
     <script type="text/javascript" charset="utf-8">
       $(function() {
@@ -124,4 +126,4 @@
       });
     </script>
   {% endif %}
-{% endblock footer_js %}
+{% endblock %}

@@ -24,7 +24,7 @@ var Horizon = function() {
     horizon.templates.compile_templates();
 
     // Bind event handlers to confirm dangerous actions.
-    $("body").on("click", "form .btn.danger", function (evt) {
+    $("body").on("click", "form .btn-danger", function (evt) {
       horizon.datatables.confirm(this);
       return false;
     });
@@ -60,7 +60,7 @@ var Horizon = function() {
     body = "Please confirm your selection. This action cannot be undone.";
     modal = horizon.modals.create(title, body, action_string);
     modal.modal('show');
-    modal.find('.btn.primary').click(function (evt) {
+    modal.find('.btn-primary').click(function (evt) {
       form = $action.closest('form');
       form.append("<input type='hidden' name='" + $action.attr('name') + "' value='" + $action.attr('value') + "'/>");
       form.submit();

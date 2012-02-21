@@ -55,7 +55,7 @@ class TerminateInstance(tables.BatchAction):
     action_past = _("Terminated")
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ('danger',)
+    classes = ('btn-danger',)
 
     def action(self, request, obj_id):
         api.server_delete(request, obj_id)
@@ -67,7 +67,7 @@ class RebootInstance(tables.BatchAction):
     action_past = _("Rebooted")
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ('danger',)
+    classes = ('btn-danger',)
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES
@@ -130,7 +130,6 @@ class LaunchLink(tables.LinkAction):
     name = "launch"
     verbose_name = _("Launch Instance")
     url = "horizon:nova:images_and_snapshots:index"
-    attrs = {"class": "btn small"}
 
 
 class EditInstance(tables.LinkAction):

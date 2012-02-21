@@ -21,7 +21,7 @@ class CreateFlavor(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Flavor")
     url = "horizon:syspanel:flavors:create"
-    attrs = {"class": "btn small ajax-modal"}
+    classes = ("ajax-modal",)
 
 
 class FlavorsTable(tables.DataTable):

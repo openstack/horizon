@@ -12,8 +12,8 @@ horizon.addInitFunction(function() {
   $("#image_form input#id_ramdisk").example("123");
 
   // Launch instance form.
-  $("#launch_img input#id_name").example("YetAnotherInstance")
-  $("#launch_img input#id_security_groups").example("group1,group2")
+  $("#launch_img input#id_name").example("YetAnotherInstance");
+  $("#launch_img input#id_security_groups").example("group1,group2");
 
   // Create flavor form.
   $("#flavor_form input#id_flavorid").example("1234");

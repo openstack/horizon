@@ -31,7 +31,7 @@ horizon.addInitFunction(function() {
     $.ajax($this.attr('href'), {
       complete: function (jqXHR, status) {
         var $new_row = $(jqXHR.responseText);
-        $new_row.find("td.status_unknown").prepend('<i class="icon ajax-updating"></i>');
+        $new_row.find("td.status_unknown").prepend('<i class="icon-updating ajax-updating"></i>');
         $this.closest('tr').replaceWith($new_row);
       }
     });

@@ -20,7 +20,7 @@
 {% endblock %}
 
 {% block modal-footer %}
-    <input class="btn primary pull-right" type="submit" value="{% trans "Download RC File" %}" />
+    <input class="btn btn-primary pull-right" type="submit" value="{% trans "Download RC File" %}" />
     {% if hide %}<a href="{% url horizon:settings:project:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
 {% endblock %}
 

@@ -56,7 +56,6 @@ horizon.addInitFunction(function() {
         }
       }
     });
-
-    return false;
+    evt.preventDefault();
   });
 });

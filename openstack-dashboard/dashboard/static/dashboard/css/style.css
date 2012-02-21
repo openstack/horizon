@@ -12,11 +12,11 @@
 
 @font-face {
   font-family: 'anivers';
-  src: url('Anivers_Regular-webfont.eot');
-  src: url('Anivers_Regular-webfont.eot?iefix') format('eot'),
-       url('Anivers_Regular-webfont.woff') format('woff'),
-       url('Anivers_Regular-webfont.ttf') format('truetype'),
-       url('Anivers_Regular-webfont.svg#webfont3JLVF59W') format('svg');
+  src: url('../fonts/Anivers_Regular-webfont.eot');
+  src: url('../fonts/Anivers_Regular-webfont.eot?iefix') format('eot'),
+       url('../fonts/Anivers_Regular-webfont.woff') format('woff'),
+       url('../fonts/Anivers_Regular-webfont.ttf') format('truetype'),
+       url('../fonts/Anivers_Regular-webfont.svg#webfont3JLVF59W') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -30,8 +30,19 @@ ul {
     margin: 0;
 }
 
+#main_content {
+  padding-left: 250px;
+  padding-right: 25px;
+}
+
 .topbar {
+  background: #f2f2f2;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 25px;
+  margin-top: 0;
+  margin-left: -25px;
   margin-bottom: 20px;
+  margin-right: -25px;
 }
 
 .topbar .switcher_bar {
@@ -44,7 +55,7 @@ ul {
   padding: 0;
 }
 
-.topbar .switcher_bar a{
+.topbar .switcher_bar a {
   padding: 2px 10px 1px;
   margin-left: 0;
   display: block;
@@ -54,15 +65,21 @@ ul {
   width: 130px;
 }
 
+#user_info {
+    color: #888;
+    margin: auto 0;
+}
+
+#user_info > a {
+    margin-left: 25px;
+    font-size: 11px !important;
+}
+
 .page-header {
-    background: #f2f2f2;
-    height: 31px;
-    display: block;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 17px 25px;
-    margin-left: -25px;
-    margin-right: -25px;
-    font-family: anivers;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: anivers;
 }
 
 h2 {
@@ -78,11 +95,15 @@ html, #splash{
 }
 
 #splash .modal {
-  background: #fff url(../images/logo.png) no-repeat center 35px;
+  background: #fff url(../img/logo.png) no-repeat center 35px;
   width: 390px;
   padding-top: 170px;
   border: 1px solid #e1e1e1;
   margin-left: -195px;  /*accounts for splash's non-standard width */
+}
+
+#splash .help-block {
+  display: none;
 }
 
 #create_container_form .modal-footer{
@@ -94,30 +115,27 @@ html, #splash{
     text-shadow: none;
 }
 
-#container {
-    padding: 0 25px 0 250px;
+.container-fluid {
+    padding-left: 0;
 }
 
-.fluid-sidebar {
+.sidebar {
     background: #edf9ff;
     border-right: 5px solid #e5e5e5;
     border-bottom: 5px solid #e5e5e5;
+    float: left;
 }
 
-.sidebar-left .fluid-sidebar {
-  margin-left: -250px;
-}
-
-.fluid-sidebar h4 {
+.sidebar h4 {
     margin-left: 14px;
     color: #999;
 }
 
-.tabs {
+.sidebar .nav-tabs {
     margin-top: -34px;
 }
 
-.tabs li.active a {
+.sidebar .nav-tabs li.active a {
     background-color: #edf9ff;
 }
 
@@ -129,7 +147,7 @@ h1.brand {
 }
 
 h1.brand a {
-    background: url(../images/logo.png) top left no-repeat;
+    background: url(../img/logo.png) top left no-repeat;
     display: block;
     float: left;
     width: 116px;
@@ -165,7 +183,7 @@ a.current_item:hover h3, a.current_item:hover h4 {
     border: 1px solid #c0d9e4;
     margin-left: 14px;
     margin-bottom: 15px;
-    background-image: url(/static/dashboard/images/drop_arrow.png);
+    background-image: url(../img/drop_arrow.png);
     background-repeat: no-repeat;
     background-position: 170px 20px;
 }
@@ -284,19 +302,6 @@ small {
     font-size: 11px;
 }
 
-#user_info {
-    position: relative;
-    z-index: 100;
-    padding-right: 25px;
-    padding-top: 25px;
-    color: #888;
-}
-
-#user_info > a {
-    margin-left: 25px;
-    font-size: 11px !important;
-}
-
 .main_nav {
     list-style: none;
     width: 222px;
@@ -309,8 +314,7 @@ small {
   width: 185px;
   padding: 10px;
   display: block;
-  margin-right: -3px;
-  margin-left: 18px;
+  margin-left: 20px;
 }
 
 .main_nav a.active {
@@ -387,8 +391,9 @@ table form {
 }
 
 .table_search input {
-  background: url(../images/search.png) no-repeat 195px 5px;
+  background: url(../img/search.png) no-repeat 195px 5px;
   display: inline-block;
+  margin-bottom: 0;
 }
 
 .table_actions a, .table_actions button {
@@ -426,12 +431,12 @@ table form {
   background-color: #ffffc6;
 }
 
-.icon.ajax-updating {
-  background: transparent url(../images/spinner.gif) no-repeat center center;
+.icon-updating.ajax-updating {
+  background: transparent url(../img/spinner.gif) no-repeat center center;
   padding: 1px;
 }
 
-td .icon.ajax-updating {
+td .icon-updating.ajax-updating {
   margin-right: 5px;
 }
 
@@ -467,12 +472,6 @@ td .icon.ajax-updating {
     text-align: left;
     color: #555;
     font-weight: bold;
-}
-
-.input {
-    width: 100%;
-    float: left;
-    margin: 0 !important;
 }
 
 .modal {
@@ -656,17 +655,6 @@ td.actions_column .row_actions .hide {
 .btn.hide, .btn-group .hide {
   display: none;
 }
-.btn-group > .btn.small {
-  height: 12px;
-}
-.btn-group > button.btn.small {
-  height: 28px; /* Box model for buttons doesn't respect height + padding in all browsers. */
-}
-.btn-group .dropdown-toggle {
-  height: 12px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
 .btn-group .dropdown-toggle:focus {
   outline: none;
 }
@@ -677,11 +665,12 @@ td.actions_column .row_actions .hide {
 .btn-group .dropdown-menu .btn {
   border-radius: 0;
 }
-.dropdown-menu .btn.danger,
-.dropdown-menu .btn.danger:hover,
-.dropdown-menu .btn.success,
-.dropdown-menu .btn.success:hover,
-.dropdown-menu .btn.info, .btn.info:hover {
+.dropdown-menu .btn.btn-danger,
+.dropdown-menu .btn.btn-danger:hover,
+.dropdown-menu .btn.btn-success,
+.dropdown-menu .btn.btn-success:hover,
+.dropdown-menu .btn.btn-info,
+.dropdown-menu .btn.btn-info:hover {
   text-shadow: none; /* remove default bootstrap shadowing from button text. */
 }
 .dropdown-menu li:hover {
@@ -694,10 +683,10 @@ td.actions_column .dropdown-menu a:hover,
 td.actions_column .dropdown-menu button:hover {
   background-color: #CDCDCD;
 }
-.dropdown-menu .btn.danger {
+.dropdown-menu .btn.btn-danger {
   color: #C43C35;
 }
-.dropdown-menu .btn.danger:hover {
+.dropdown-menu .btn.btn-danger:hover {
   background-color: #f6e0df;
 }
 
@@ -800,7 +789,7 @@ a.view_full {
   font-weight: bold;
   color: #555;
   cursor: pointer;
-  background-image: url(/static/dashboard/images/right_droparrow.png);
+  background-image: url(../img/right_droparrow.png);
   background-repeat: no-repeat;
   background-position: 130px center;
 }
@@ -809,7 +798,7 @@ a.view_full {
   width: 334px;
   margin-bottom: 10px;
   border-bottom: solid 1px #E1E1E1;
-  background-image: url(/static/dashboard/images/drop_arrow.png);
+  background-image: url(../img/drop_arrow.png);
 }
 
 form div.clearfix.error {
@@ -844,14 +833,10 @@ form div.clearfix.error {
 }
 
 #region_selector li:first-child p{
-  background: #EDEDED url(/static/dashboard/images/drop_arrow.png) no-repeat 106px 9px !important;
+  background: #EDEDED url(../img/drop_arrow.png) no-repeat 106px 9px !important;
   display: block;
   border: 1px solid #e1e1e1;
   padding: 5px;
-}
-
-.fluid-container {
-  min-width: 760px;
 }
 
 iframe {

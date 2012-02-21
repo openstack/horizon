@@ -33,7 +33,7 @@ ACTIVE_STATES = ("ACTIVE",)
 class DeleteVolume(tables.DeleteAction):
     data_type_singular = _("Volume")
     data_type_plural = _("Volumes")
-    classes = ('danger',)
+    classes = ('btn-danger',)
 
     def delete(self, request, obj_id):
         api.volume_delete(request, obj_id)
@@ -43,7 +43,7 @@ class CreateVolume(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Volume")
     url = "horizon:nova:instances_and_volumes:volumes:create"
-    attrs = {"class": "btn small ajax-modal"}
+    classes = ("ajax-modal",)
 
 
 class EditAttachments(tables.LinkAction):
@@ -115,7 +115,7 @@ class DetachVolume(tables.BatchAction):
     action_past = _("Detached")
     data_type_singular = _("Volume")
     data_type_plural = _("Volumes")
-    classes = ('danger',)
+    classes = ('btn-danger',)
 
     def action(self, request, obj_id):
         instance_id = self.table.get_object_by_id(obj_id)['serverId']

@@ -36,7 +36,7 @@ class DeleteContainer(tables.Action):
     name = "delete"
     verbose_name = _("Delete")
     verbose_name_plural = _("Delete Containers")
-    classes = ('danger',)
+    classes = ('btn-danger',)
 
     def handle(self, table, request, object_ids):
         deleted = []
@@ -61,7 +61,7 @@ class CreateContainer(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Container")
     url = "horizon:nova:containers:create"
-    attrs = {"class": "btn small ajax-modal"}
+    classes = ("ajax-modal",)
 
 
 class ListObjects(tables.LinkAction):
@@ -74,7 +74,7 @@ class UploadObject(tables.LinkAction):
     name = "upload"
     verbose_name = _("Upload Object")
     url = "horizon:nova:containers:object_upload"
-    attrs = {"class": "btn small ajax-modal"}
+    classes = ("ajax-modal",)
 
     def get_link_url(self, datum=None):
         # Usable for both the container and object tables
@@ -117,7 +117,7 @@ class DeleteObject(tables.Action):
     name = "delete"
     verbose_name = _("Delete")
     verbose_name_plural = _("Delete Objects")
-    classes = ('danger',)
+    classes = ('btn-danger',)
 
     def handle(self, table, request, object_ids):
         deleted = []
