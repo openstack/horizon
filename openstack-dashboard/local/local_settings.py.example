@@ -42,8 +42,6 @@ HORIZON_CONFIG = {
 #     ('http://cluster2.example.com:5000/v2.0', 'cluster2'),
 # ]
 
-# FIXME: This is only here so quantum still works. It must be refactored to
-# work with multiple regions.
 OPENSTACK_HOST = "127.0.0.1"
 OPENSTACK_KEYSTONE_URL = "http://%s:5000/v2.0" % OPENSTACK_HOST
 # FIXME: this is only needed until keystone fixes its GET /tenants call

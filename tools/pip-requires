@@ -29,11 +29,9 @@ webob
 xattr
 iso8601
 
-# quantum
--e git+https://github.com/openstack/python-quantumclient.git#egg=python-quantumclient-dev
-python-gflags
 
 # horizon non-pip deps
 -e git+https://github.com/openstack/python-novaclient.git#egg=python-novaclient
 -e git+https://github.com/openstack/python-keystoneclient.git#egg=python-keystoneclient
+-e git+https://github.com/openstack/python-quantumclient.git#egg=python-quantumclient-dev
 -e git+https://github.com/openstack/glance.git#egg=glance
