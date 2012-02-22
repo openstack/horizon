@@ -29,6 +29,9 @@ var Horizon = function() {
       return false;
     });
 
+    // Bind dismiss(x) handlers for alert messages.
+    $(".alert").alert()
+
     $.each(initFunctions, function(ind, fn) {
       fn();
     });
