@@ -466,14 +466,21 @@ class Workflow(object):
         raise NotImplementedError()
 
 
+try:
+    from django.utils.functional import empty
+except ImportError:
+    #Django 1.3 fallback
+    empty = None
+
+
 class LazyURLPattern(SimpleLazyObject):
     def __iter__(self):
-        if self._wrapped is None:
+        if self._wrapped is empty:
             self._setup()
         return iter(self._wrapped)
 
     def __reversed__(self):
-        if self._wrapped is None:
+        if self._wrapped is empty:
             self._setup()
         return reversed(self._wrapped)
 
