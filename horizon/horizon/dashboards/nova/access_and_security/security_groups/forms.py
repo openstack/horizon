@@ -53,12 +53,31 @@ class CreateGroup(forms.SelfHandlingForm):
 
 
 class AddRule(forms.SelfHandlingForm):
-    ip_protocol = forms.ChoiceField(choices=[('tcp', 'tcp'),
+    ip_protocol = forms.ChoiceField(label=_('IP protocol'),
+                                    choices=[('tcp', 'tcp'),
                                              ('udp', 'udp'),
-                                             ('icmp', 'icmp')])
-    from_port = forms.CharField()
-    to_port = forms.CharField()
-    cidr = forms.CharField()
+                                             ('icmp', 'icmp')],
+                                    widget=forms.Select(attrs={'class':
+                                                               'switchable'}))
+    from_port = forms.IntegerField(label=_("From port"),
+                                   help_text=_("TCP/UDP: Enter integer value "
+                                               "between 1 and 65535. ICMP: "
+                                               "enter a value for ICMP type "
+                                               "in the range (-1: 255)"),
+                                   widget=forms.TextInput(
+                                          attrs={'data': _('From port'),
+                                                 'data-icmp': _('Type')}))
+    to_port = forms.IntegerField(label=_("To port"),
+                                 help_text=_("TCP/UDP: Enter integer value "
+                                             "between 1 and 65535. ICMP: "
+                                             "enter a value for ICMP code "
+                                             "in the range (-1: 255)"),
+                                 widget=forms.TextInput(
+                                        attrs={'data': _('To port'),
+                                               'data-icmp': _('Code')}))
+    cidr = forms.CharField(label=_("CIDR"),
+                           help_text=_("Classless Inter-Domain Routing "
+                                       "(i.e. 192.168.0.0/24"))
     # TODO (anthony) source group support
     # group_id = forms.CharField()
 
