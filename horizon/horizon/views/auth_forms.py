@@ -59,7 +59,7 @@ class Login(forms.SelfHandlingForm):
 
     Subclass of :class:`~horizon.forms.SelfHandlingForm`.
     """
-    region = forms.ChoiceField(label=_("Region"))
+    region = forms.ChoiceField(label=_("Region"), required=False)
     username = forms.CharField(max_length="20", label=_("User Name"))
     password = forms.CharField(max_length="20", label=_("Password"),
                                widget=forms.PasswordInput(render_value=False))
@@ -76,7 +76,9 @@ class Login(forms.SelfHandlingForm):
             self.fields['region'].widget = forms.widgets.HiddenInput()
 
     def handle(self, request, data):
-        endpoint = data.get('region')
+        # For now we'll allow fallback to OPENSTACK_KEYSTONE_URL if the
+        # form post doesn't include a region.
+        endpoint = data.get('region', None) or settings.OPENSTACK_KEYSTONE_URL
         region_name = dict(self.fields['region'].choices)[endpoint]
         request.session['region_endpoint'] = endpoint
         request.session['region_name'] = region_name
