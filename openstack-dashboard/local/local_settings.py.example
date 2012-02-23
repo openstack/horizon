@@ -102,6 +102,3 @@ LOGGING = {
             }
         }
 }
-
-# How much ram on each compute host?
-COMPUTE_HOST_RAM_GB = 16
