@@ -70,7 +70,7 @@ class RebootInstance(tables.BatchAction):
     classes = ('btn-danger',)
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES
+        return instance.status in ACTIVE_STATES or instance.status == 'SHUTOFF'
 
     def action(self, request, obj_id):
         api.server_reboot(request, obj_id)
