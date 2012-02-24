@@ -29,7 +29,9 @@ class FlavorsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Flavor Name'))
     vcpus = tables.Column('vcpus', verbose_name=_('VCPUs'))
     ram = tables.Column('ram', verbose_name=_('Memory'))
-    disk = tables.Column('disk', verbose_name=_('Disk'))
+    disk = tables.Column('disk', verbose_name=_('Root Disk'))
+    ephemeral = tables.Column('OS-FLV-EXT-DATA:ephemeral',
+                              verbose_name=_('Ephemeral Disk'))
 
     class Meta:
         name = "flavors"
