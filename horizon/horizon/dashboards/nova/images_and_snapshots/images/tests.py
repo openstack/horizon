@@ -33,16 +33,15 @@ IMAGES_INDEX_URL = reverse('horizon:nova:images_and_snapshots:index')
 class ImageViewTests(test.TestCase):
     def test_launch_get(self):
         image = self.images.first()
-        tenant = self.tenants.first()
-        quota = self.quotas.first()
+        quota_usages = self.quota_usages.first()
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
-        self.mox.StubOutWithMock(api, 'tenant_quota_get')
+        self.mox.StubOutWithMock(api, 'tenant_quota_usages')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
-        api.tenant_quota_get(IsA(http.HttpRequest), tenant.id).AndReturn(quota)
+        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_usages)
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
         api.security_group_list(IsA(http.HttpRequest)) \
@@ -119,14 +118,14 @@ class ImageViewTests(test.TestCase):
         image = self.images.first()
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
-        self.mox.StubOutWithMock(api, 'tenant_quota_get')
+        self.mox.StubOutWithMock(api, 'tenant_quota_usages')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.image_get_meta(IsA(http.HttpRequest),
                            image.id).AndReturn(image)
-        api.tenant_quota_get(IsA(http.HttpRequest),
-                             self.tenant.id).AndReturn(self.quotas.first())
+        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(
+                self.quota_usages.first())
         exc = keystone_exceptions.ClientException('Failed.')
         api.flavor_list(IsA(http.HttpRequest)).AndRaise(exc)
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
@@ -144,13 +143,13 @@ class ImageViewTests(test.TestCase):
         image = self.images.first()
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
-        self.mox.StubOutWithMock(api, 'tenant_quota_get')
+        self.mox.StubOutWithMock(api, 'tenant_quota_usages')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
-        api.tenant_quota_get(IsA(http.HttpRequest),
-                             self.tenant.id).AndReturn(self.quotas.first())
+        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(
+                self.quota_usages.first())
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         exception = keystone_exceptions.ClientException('Failed.')
         api.keypair_list(IsA(http.HttpRequest)).AndRaise(exception)

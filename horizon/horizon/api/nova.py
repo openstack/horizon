@@ -41,15 +41,14 @@ VOLUME_STATE_AVAILABLE = "available"
 
 
 class VNCConsole(APIDictWrapper):
-    """
-    Wrapper for the "console" dictionary returned by the
+    """Wrapper for the "console" dictionary returned by the
     novaclient.servers.get_vnc_console method.
     """
     _attrs = ['url', 'type']
 
 
 class Quota(object):
-    """ Wrapper for individual limits in a quota. """
+    """Wrapper for individual limits in a quota."""
     def __init__(self, name, limit):
         self.name = name
         self.limit = limit
@@ -59,9 +58,8 @@ class Quota(object):
 
 
 class QuotaSet(object):
-    """
-    Wrapper for novaclient.quotas.QuotaSet objects which wraps the individual
-    quotas inside Quota objects.
+    """Wrapper for novaclient.quotas.QuotaSet objects which wraps the
+    individual quotas inside Quota objects.
     """
     def __init__(self, apiresource):
         self.items = []
@@ -78,6 +76,7 @@ class Server(APIResourceWrapper):
     """Simple wrapper around novaclient.server.Server
 
        Preserves the request info so image name can later be retrieved
+
     """
     _attrs = ['addresses', 'attrs', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
@@ -105,7 +104,7 @@ class Server(APIResourceWrapper):
 
 
 class Usage(APIResourceWrapper):
-    """Simple wrapper around contrib/simple_usage.py"""
+    """Simple wrapper around contrib/simple_usage.py."""
     _attrs = ['start', 'server_usages', 'stop', 'tenant_id',
              'total_local_gb_usage', 'total_memory_mb_usage',
              'total_vcpus_usage', 'total_hours']
@@ -147,15 +146,14 @@ class Usage(APIResourceWrapper):
 
 
 class SecurityGroup(APIResourceWrapper):
-    """
-    Wrapper around novaclient.security_groups.SecurityGroup which wraps its
+    """Wrapper around novaclient.security_groups.SecurityGroup which wraps its
     rules in SecurityGroupRule objects and allows access to them.
     """
     _attrs = ['id', 'name', 'description', 'tenant_id']
 
     @property
     def rules(self):
-        """ Wraps transmitted rule info in the novaclient rule class. """
+        """Wraps transmitted rule info in the novaclient rule class."""
         if not hasattr(self, "_rules"):
             manager = nova_rules.SecurityGroupRuleManager
             self._rules = [nova_rules.SecurityGroupRule(manager, rule) for \
@@ -226,38 +224,29 @@ def flavor_list(request):
 
 
 def tenant_floating_ip_list(request):
-    """
-    Fetches a list of all floating ips.
-    """
+    """Fetches a list of all floating ips."""
     return novaclient(request).floating_ips.list()
 
 
 def floating_ip_pools_list(request):
-    """
-    Fetches a list of all floating ip pools.
-    """
+    """Fetches a list of all floating ip pools."""
     return novaclient(request).floating_ip_pools.list()
 
 
 def tenant_floating_ip_get(request, floating_ip_id):
-    """
-    Fetches a floating ip.
-    """
+    """Fetches a floating ip."""
     return novaclient(request).floating_ips.get(floating_ip_id)
 
 
 def tenant_floating_ip_allocate(request, pool=None):
-    """
-    Allocates a floating ip to tenant.
-    Optionally you may provide a pool for which you would like the IP.
+    """Allocates a floating ip to tenant. Optionally you may provide a pool
+    for which you would like the IP.
     """
     return novaclient(request).floating_ips.create(pool=pool)
 
 
 def tenant_floating_ip_release(request, floating_ip_id):
-    """
-    Releases floating ip from the pool of a tenant.
-    """
+    """Releases floating ip from the pool of a tenant."""
     return novaclient(request).floating_ips.delete(floating_ip_id)
 
 
@@ -310,7 +299,7 @@ def server_list(request, search_opts=None, all_tenants=False):
 
 
 def server_console_output(request, instance_id, tail_length=None):
-    """Gets console output of an instance"""
+    """Gets console output of an instance."""
     return novaclient(request).servers.get_console_output(instance_id,
                                                           length=tail_length)
 
@@ -341,8 +330,7 @@ def server_update(request, instance_id, name):
 
 
 def server_add_floating_ip(request, server, floating_ip):
-    """
-    Associates floating IP to server's fixed IP.
+    """Associates floating IP to server's fixed IP.
     """
     server = novaclient(request).servers.get(server)
     fip = novaclient(request).floating_ips.get(floating_ip)
@@ -350,8 +338,7 @@ def server_add_floating_ip(request, server, floating_ip):
 
 
 def server_remove_floating_ip(request, server, floating_ip):
-    """
-    Removes relationship between floating and server's fixed ip.
+    """Removes relationship between floating and server's fixed ip.
     """
     fip = novaclient(request).floating_ips.get(floating_ip)
     server = novaclient(request).servers.get(fip.instance_id)
@@ -376,6 +363,31 @@ def usage_get(request, tenant_id, start, end):
 
 def usage_list(request, start, end):
     return [Usage(u) for u in novaclient(request).usage.list(start, end, True)]
+
+
+def tenant_quota_usages(request):
+    """Builds a dictionary of current usage against quota for the current
+    tenant.
+    """
+    # TODO(tres): Make this capture floating_ips and volumes as well.
+    instances = server_list(request)
+    quotas = tenant_quota_get(request, request.user.tenant_id)
+    flavors = dict([(f.id, f) for f in flavor_list(request)])
+    usages = {'instances': {'flavor_fields': [], 'used': len(instances)},
+              'cores': {'flavor_fields': ['vcpus'], 'used': 0},
+              'gigabytes': {'flavor_fields': ['disk', 'ephemeral'], 'used': 0},
+              'ram': {'flavor_fields': ['ram'], 'used': 0}}
+
+    for usage in usages:
+        for instance in instances:
+            for flavor_field in usages[usage]['flavor_fields']:
+                usages[usage]['used'] += getattr(
+                        flavors[instance.flavor['id']], flavor_field)
+        usages[usage]['quota'] = getattr(quotas, usage)
+        usages[usage]['available'] = usages[usage]['quota'] - \
+                                     usages[usage]['used']
+
+    return usages
 
 
 def security_group_list(request):

@@ -135,6 +135,7 @@ def data(TEST):
     TEST.security_group_rules = TestDataContainer()
     TEST.volumes = TestDataContainer()
     TEST.quotas = TestDataContainer()
+    TEST.quota_usages = TestDataContainer()
     TEST.floating_ips = TestDataContainer()
     TEST.usages = TestDataContainer()
     TEST.certs = TestDataContainer()
@@ -152,17 +153,19 @@ def data(TEST):
 
     # Flavors
     flavor_1 = flavors.Flavor(flavors.FlavorManager,
-                              dict(id="1",
-                                   name='m1.tiny',
-                                   vcpus=1,
-                                   disk=0,
-                                   ram=512))
+                              {'id': "1",
+                               'name': 'm1.tiny',
+                               'vcpus': 1,
+                               'disk': 0,
+                               'ram': 512,
+                               'OS-FLV-EXT-DATA:ephemeral': 0})
     flavor_2 = flavors.Flavor(flavors.FlavorManager,
-                              dict(id="2",
-                                   name='m1.massive',
-                                   vcpus=1000,
-                                   disk=1024,
-                                   ram=10000))
+                              {'id': "2",
+                               'name': 'm1.massive',
+                               'vcpus': 1000,
+                               'disk': 1024,
+                               'ram': 10000,
+                               'OS-FLV-EXT-DATA:ephemeral': 2048})
     TEST.flavors.add(flavor_1, flavor_2)
 
     # Keypairs
@@ -203,14 +206,28 @@ def data(TEST):
     quota_data = dict(metadata_items='1',
                       injected_file_content_bytes='1',
                       volumes='1',
-                      gigabytes='1',
-                      ram=1,
+                      gigabytes='1000',
+                      ram=10000,
                       floating_ips='1',
-                      instances='1',
+                      instances='10',
                       injected_files='1',
-                      cores='1')
+                      cores='10')
     quota = quotas.QuotaSet(quotas.QuotaSetManager, quota_data)
     TEST.quotas.add(quota)
+
+    # Quota Usages
+    TEST.quota_usages.add({'gigabytes': {'available': 1000,
+                                         'used': 0,
+                                         'quota': 1000},
+                           'instances': {'available': 10,
+                                         'used': 0,
+                                         'quota': 10},
+                           'ram': {'available': 10000,
+                                         'used': 0,
+                                         'quota': 10000},
+                           'cores': {'available': 20,
+                                         'used': 0,
+                                         'quota': 20}})
 
     # Servers
     vals = {"host": "http://nova.example.com:8774",

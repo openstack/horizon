@@ -156,3 +156,39 @@ class ComputeApiTests(test.APITestCase):
                                             server.id,
                                             floating_ip.id)
         self.assertIsInstance(server, api.nova.Server)
+
+    def test_tenant_quota_usages(self):
+        servers = self.servers.list()
+        flavors = self.flavors.list()
+        quotas = self.quotas.first()
+        novaclient = self.stub_novaclient()
+
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.list(True, {'project_id': '1'}).AndReturn(servers)
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.list().AndReturn(flavors)
+        novaclient.quotas = self.mox.CreateMockAnything()
+        novaclient.quotas.get(self.tenant.id).AndReturn(quotas)
+        self.mox.ReplayAll()
+
+        quota_usages = api.tenant_quota_usages(self.request)
+
+        self.assertIsInstance(quota_usages, dict)
+        self.assertEquals(quota_usages,
+                          {'gigabytes': {'available': 1000,
+                                         'used': 0,
+                                         'flavor_fields': ['disk',
+                                                           'ephemeral'],
+                                         'quota': 1000},
+                           'instances': {'available': 8,
+                                         'used': 2,
+                                         'flavor_fields': [],
+                                         'quota': 10},
+                           'ram': {'available': 8976,
+                                   'used': 1024,
+                                   'flavor_fields': ['ram'],
+                                   'quota': 10000},
+                           'cores': {'available': 8,
+                                     'used': 2,
+                                     'flavor_fields': ['vcpus'],
+                                     'quota': 10}})

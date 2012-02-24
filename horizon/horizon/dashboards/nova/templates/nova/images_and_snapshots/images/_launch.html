@@ -1,5 +1,6 @@
 {% extends "horizon/common/_modal_form.html" %}
-{% load i18n %}
+
+{% load horizon i18n %}
 
 {% block form_id %}launch_image_form{% endblock %}
 {% block form_action %}{% url horizon:nova:images_and_snapshots:images:launch image.id %}{% endblock %}
@@ -9,39 +10,42 @@
 
 {% block modal-body %}
 <div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description:" %}</h3>
-        <p>{% trans "Specify the details for launching an instance. Also please make note of the table below; all projects have quotas which define the limit of resources they are allowed to provision." %}</p>
-        <table class="table table-striped table-bordered">
-          <tr>
-            <th>{% trans "Quota Name" %}</th>
-            <th>{% trans "Limit" %}</th>
-          </tr>
-          <tr>
-            <td>{% trans "RAM (MB)" %}</td>
-            <td>{{ quotas.ram }}MB</td>
-          </tr>
-          <tr>
-            <td>{% trans "Floating IPs" %}</td>
-            <td>{{ quotas.floating_ips }}</td>
-          </tr>
-          <tr>
-            <td>{% trans "Instances" %}</td>
-            <td>{{ quotas.instances }}</td>
-          </tr>
-          <tr>
-            <td>{% trans "Volumes" %}</td>
-            <td>{{ quotas.volumes }}</td>
-          </tr>
-          <tr>
-            <td>{% trans "Available Disk" %}</td>
-            <td>{{ quotas.gigabytes }}GB</td>
-          </tr>
-        </table>
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Specify the details for launching an instance. The chart below shows the resources used by this project in relation to the project's quotas." %}</p>
+  <h3>{% trans "Project Quotas" %}</h3>
+
+  <div class="quota_title">
+    <strong>{% trans "Instance Count" %} <span>({{ usages.instances.used }})</span></strong>
+    <p>{{ usages.instances.available }} {% trans "Available" %}</p>
+  </div>
+  <div class="clearfix"></div>
+  <div class="quota_bar">{% horizon_progress_bar usages.instances.used usages.instances.quota %}</div>
+
+  <div class="quota_title">
+    <strong>{% trans "VCPUs" %} <span>({{ usages.cores.used }})</span></strong>
+    <p>{{ usages.cores.available }} {% trans "Available" %}</p>
+  </div>
+  <div class="clearfix"></div>
+  <div class="quota_bar">{% horizon_progress_bar usages.cores.used usages.cores.quota %}</div>
+
+  <div class="quota_title">
+    <strong>{% trans "Disk" %} <span>({{ usages.gigabytes.used }} {% trans "GB" %})</span></strong>
+    <p>{{ usages.gigabytes.available }} {% trans "GB" %} {% trans "Available" %}</p>
+  </div>
+  <div class="clearfix"></div>
+  <div class="quota_bar">{% horizon_progress_bar usages.gigabytes.used usages.gigabytes.quota %}</div>
+
+  <div class="quota_title">
+    <strong>{% trans "Memory" %} <span>({{ usages.ram.used }} {% trans "MB" %})</span></strong>
+    <p>{{ usages.ram.available }} {% trans "MB" %} {% trans "Available" %}</p>
+  </div>
+  <div class="clearfix"></div>
+  <div class="quota_bar">{% horizon_progress_bar usages.ram.used usages.ram.quota %}</div>
 </div>
 {% endblock %}
 

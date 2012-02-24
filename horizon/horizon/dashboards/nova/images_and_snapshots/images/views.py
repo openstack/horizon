@@ -61,11 +61,8 @@ class LaunchView(forms.ModalFormView):
 
     def get_context_data(self, **kwargs):
         context = super(LaunchView, self).get_context_data(**kwargs)
-        tenant_id = self.request.user.tenant_id
         try:
-            quotas = api.tenant_quota_get(self.request, tenant_id)
-            quotas.ram = int(quotas.ram)
-            context['quotas'] = quotas
+            context['usages'] = api.tenant_quota_usages(self.request)
         except:
             exceptions.handle(self.request)
         return context
