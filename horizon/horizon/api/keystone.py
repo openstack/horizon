@@ -4,6 +4,7 @@
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
 #
+# Copyright 2012 Openstack, LLC
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -100,6 +101,10 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
     conn.management_url = endpoint
 
     return conn
+
+
+def tenant_name(request, tenant_id):
+    return keystoneclient(request).tenants.get(tenant_id).name
 
 
 def tenant_create(request, tenant_name, description, enabled):

@@ -26,6 +26,7 @@ from .utils import TestDataContainer
 SERVER_DATA = """
 {
     "server": {
+        "OS-EXT-SRV-ATTR:instance_name": "instance-00000005",
         "OS-EXT-STS:task_state": null,
         "addresses": {
             "private": [

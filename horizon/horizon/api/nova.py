@@ -4,6 +4,7 @@
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
 #
+# Copyright 2012 Openstack, LLC
 # Copyright 2012 Nebula, Inc.
 # Copyright (c) 2012 X.commerce, a business unit of eBay Inc.
 #
@@ -27,6 +28,7 @@ from novaclient.v1_1 import client as nova_client
 from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.servers import REBOOT_HARD
 
+from horizon.api import keystone
 from horizon.api.base import APIResourceWrapper, APIDictWrapper, url_for
 
 
@@ -77,10 +79,12 @@ class Server(APIResourceWrapper):
 
        Preserves the request info so image name can later be retrieved
     """
-    _attrs = ['addresses', 'attrs', 'hostId', 'id', 'image', 'links',
+    _attrs = ['addresses', 'attrs', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
              'image_name', 'VirtualInterfaces', 'flavor', 'key_name',
-             'OS-EXT-STS:power_state', 'OS-EXT-STS:task_state']
+             'tenant_id', 'user_id', 'OS-EXT-STS:power_state',
+             'OS-EXT-STS:task_state', 'OS-EXT-SRV-ATTR:instance_name',
+             'OS-EXT-SRV-ATTR:host']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
