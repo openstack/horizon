@@ -121,13 +121,22 @@ class ApiHelperTests(test.TestCase):
         self.assertEqual(url, 'http://admin.glance.example.com:9292/v1')
 
         url = api_base.url_for(self.request, 'compute')
-        self.assertEqual(url, 'http://internal.nova.example.com:8774/v1.0')
+        self.assertEqual(url, 'http://internal.nova.example.com:8774/v2')
 
         url = api_base.url_for(self.request, 'compute', admin=False)
-        self.assertEqual(url, 'http://internal.nova.example.com:8774/v1.0')
+        self.assertEqual(url, 'http://internal.nova.example.com:8774/v2')
 
         url = api_base.url_for(self.request, 'compute', admin=True)
-        self.assertEqual(url, 'http://admin.nova.example.com:8774/v1.0')
+        self.assertEqual(url, 'http://admin.nova.example.com:8774/v2')
+
+        url = api_base.url_for(self.request, 'volume')
+        self.assertEqual(url, 'http://internal.nova.example.com:8776/v1')
+
+        url = api_base.url_for(self.request, 'volume', admin=False)
+        self.assertEqual(url, 'http://internal.nova.example.com:8776/v1')
+
+        url = api_base.url_for(self.request, 'volume', admin=True)
+        self.assertEqual(url, 'http://admin.nova.example.com:8776/v1')
 
         self.assertNotIn('notAnApi', self.request.user.service_catalog,
                          'Select a new nonexistent service catalog key')

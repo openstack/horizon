@@ -190,6 +190,18 @@ def novaclient(request):
     return c
 
 
+def cinderclient(request):
+    LOG.debug('cinderclient connection created using token "%s" and url "%s"' %
+              (request.user.token, url_for(request, 'volume')))
+    c = nova_client.Client(request.user.username,
+                           request.user.token,
+                           project_id=request.user.tenant_id,
+                           auth_url=url_for(request, 'volume'))
+    c.client.auth_token = request.user.token
+    c.client.management_url = url_for(request, 'volume')
+    return c
+
+
 def server_vnc_console(request, instance_id, console_type='novnc'):
     return VNCConsole(novaclient(request).servers.get_vnc_console(instance_id,
                                                   console_type)['console'])
@@ -406,11 +418,11 @@ def virtual_interfaces_list(request, instance_id):
 
 
 def volume_list(request):
-    return novaclient(request).volumes.list()
+    return cinderclient(request).volumes.list()
 
 
 def volume_get(request, volume_id):
-    return novaclient(request).volumes.get(volume_id)
+    return cinderclient(request).volumes.get(volume_id)
 
 
 def volume_instance_list(request, instance_id):
@@ -418,13 +430,12 @@ def volume_instance_list(request, instance_id):
 
 
 def volume_create(request, size, name, description):
-    return novaclient(request).volumes.create(size,
-                                              display_name=name,
-                                              display_description=description)
+    return cinderclient(request).volumes.create(size, display_name=name,
+            display_description=description)
 
 
 def volume_delete(request, volume_id):
-    novaclient(request).volumes.delete(volume_id)
+    cinderclient(request).volumes.delete(volume_id)
 
 
 def volume_attach(request, volume_id, instance_id, device):
@@ -439,13 +450,13 @@ def volume_detach(request, instance_id, attachment_id):
 
 
 def volume_snapshot_list(request):
-    return novaclient(request).volume_snapshots.list()
+    return cinderclient(request).volume_snapshots.list()
 
 
 def volume_snapshot_create(request, volume_id, name, description):
-    return novaclient(request).volume_snapshots.create(
+    return cinderclient(request).volume_snapshots.create(
             volume_id, display_name=name, display_description=description)
 
 
 def volume_snapshot_delete(request, snapshot_id):
-    novaclient(request).volume_snapshots.delete(snapshot_id)
+    cinderclient(request).volume_snapshots.delete(snapshot_id)

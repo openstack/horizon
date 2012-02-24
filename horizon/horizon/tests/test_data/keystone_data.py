@@ -26,9 +26,16 @@ SERVICE_CATALOG = [
      "name": "nova",
      "endpoints": [
         {"region": "RegionOne",
-         "adminURL": "http://admin.nova.example.com:8774/v1.0",
-         "internalURL": "http://internal.nova.example.com:8774/v1.0",
-         "publicURL": "http://public.nova.example.com:8774/v1.0/"}]},
+         "adminURL": "http://admin.nova.example.com:8774/v2",
+         "internalURL": "http://internal.nova.example.com:8774/v2",
+         "publicURL": "http://public.nova.example.com:8774/v2"}]},
+    {"type": "volume",
+     "name": "nova",
+     "endpoints": [
+        {"region": "RegionOne",
+         "adminURL": "http://admin.nova.example.com:8776/v1",
+         "internalURL": "http://internal.nova.example.com:8776/v1",
+         "publicURL": "http://public.nova.example.com:8776/v1"}]},
     {"type": "image",
      "name": "glance",
      "endpoints": [
