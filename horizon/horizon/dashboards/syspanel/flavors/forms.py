@@ -37,7 +37,8 @@ class CreateFlavor(forms.SelfHandlingForm):
     name = forms.CharField(max_length="25", label=_("Name"))
     vcpus = forms.CharField(max_length="5", label=_("VCPUs"))
     memory_mb = forms.CharField(max_length="5", label=_("Memory MB"))
-    disk_gb = forms.CharField(max_length="5", label=_("Disk GB"))
+    disk_gb = forms.CharField(max_length="5", label=_("Root Disk GB"))
+    eph_gb = forms.CharField(max_length="5", label=_("Ephemeral Disk GB"))
 
     def handle(self, request, data):
         api.flavor_create(request,
@@ -45,7 +46,8 @@ class CreateFlavor(forms.SelfHandlingForm):
                           int(data['memory_mb']),
                           int(data['vcpus']),
                           int(data['disk_gb']),
-                          int(data['flavor_id']))
+                          int(data['flavor_id']),
+                          ephemeral=int(data['eph_gb']))
         msg = _('%s was successfully added to flavors.') % data['name']
         LOG.info(msg)
         messages.success(request, msg)
