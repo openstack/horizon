@@ -162,14 +162,22 @@ class TestCase(django_test.TestCase):
         temp_req = self.client.request(**{'wsgi.input': None})
         temp_req.COOKIES = self.client.cookies
         storage = default_storage(temp_req)
+        messages = []
         # To gain early access to the messages we have to decode the
         # cookie on the test client.
         if 'messages' in self.client.cookies:
             messages = storage._decode(self.client.cookies['messages'].value)
-        elif any(kwargs.values()):
+
+        # If we don't have messages and we don't expect messages, we're done.
+        if not any(kwargs.values()) and not messages:
+            return
+
+        # If we expected messages and have none, that's a problem.
+        if any(kwargs.values()) and not messages:
             error_msg = "Messages were expected, but none were set."
             assert 0 == sum(kwargs.values()), error_msg
 
+        # Otherwise, make sure we got the expected messages.
         for msg_type, count in kwargs.items():
             msgs = [m.message for m in messages if msg_type in m.tags]
             assert len(msgs) == count, \

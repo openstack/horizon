@@ -88,6 +88,7 @@ def data(TEST):
     user2 = users.User(users.UserManager, user_dict)
     TEST.users.add(user, user2)
     TEST.user = user  # Your "current" user
+    TEST.user.service_catalog = SERVICE_CATALOG
 
     tenant_dict = {'id': "1",
                    'name': 'test_tenant',
