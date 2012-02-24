@@ -286,7 +286,7 @@ class Row(object):
                 widget = forms.CheckboxInput(check_test=False)
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
-                                     str(table.get_object_id(datum)))
+                                     unicode(table.get_object_id(datum)))
                 table._data_cache[column][table.get_object_id(datum)] = data
             elif column.auto == "actions":
                 data = table.render_row_actions(datum)

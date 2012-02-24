@@ -84,8 +84,8 @@ class SwiftApiTests(test.APITestCase):
         swift_api.get_container(container.name).AndReturn(container)
         self.mox.StubOutWithMock(container, 'create_object')
         container.create_object(obj.name).AndReturn(obj)
-        self.mox.StubOutWithMock(obj, 'write')
-        obj.write(OBJECT_DATA).AndReturn(obj)
+        self.mox.StubOutWithMock(obj, 'send')
+        obj.send(OBJECT_DATA).AndReturn(obj)
         self.mox.ReplayAll()
 
         ret_val = api.swift_upload_object(self.request,
@@ -147,24 +147,37 @@ class SwiftApiTests(test.APITestCase):
         self.assertFalse(api.swift_object_exists(*args))
 
     def test_swift_copy_object(self):
-        container = self.containers.get(name="container_one")
-        container_2 = self.containers.get(name="container_two")
+        container = self.containers.get(name=u"container_one\u6346")
+        container_2 = self.containers.get(name=u"container_two\u6346")
         obj = self.objects.first()
 
         swift_api = self.stub_swiftclient()
         self.mox.StubOutWithMock(api.swift, 'swift_object_exists')
-        swift_api.get_container(container.name).AndReturn(container)
-        api.swift.swift_object_exists(self.request,
-                                      container_2.name,
-                                      obj.name).AndReturn(False)
         self.mox.StubOutWithMock(container, 'get_object')
-        container.get_object(obj.name).AndReturn(obj)
         self.mox.StubOutWithMock(obj, 'copy_to')
-        obj.copy_to(container_2.name, obj.name)
+        # Using the non-unicode names here, see below.
+        swift_api.get_container("no_unicode").AndReturn(container)
+        api.swift.swift_object_exists(self.request,
+                                      "also no unicode",
+                                      "obj_with_no_unicode").AndReturn(False)
+        container.get_object("obj_with_no_unicode").AndReturn(obj)
+        obj.copy_to("also no unicode", "obj_with_no_unicode")
         self.mox.ReplayAll()
+
+        # Unicode fails... we'll get to a successful test in a minute
+        with self.assertRaises(exceptions.HorizonException):
+            api.swift_copy_object(self.request,
+                                  container.name,
+                                  obj.name,
+                                  container_2.name,
+                                  obj.name)
+
         # Verification handled by mox. No assertions needed.
+        container.name = "no_unicode"
+        container_2.name = "also no unicode"
+        obj.name = "obj_with_no_unicode"
         api.swift_copy_object(self.request,
-                              container.name,
-                              obj.name,
-                              container_2.name,
-                              obj.name)
+                                  container.name,
+                                  obj.name,
+                                  container_2.name,
+                                  obj.name)

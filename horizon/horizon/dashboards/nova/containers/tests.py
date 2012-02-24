@@ -22,6 +22,7 @@ import tempfile
 
 from cloudfiles.errors import ContainerNotEmpty
 from django import http
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.urlresolvers import reverse
 from mox import IsA
 
@@ -50,12 +51,12 @@ class ContainerViewTests(test.TestCase):
         self.assertEqual(len(resp_containers), len(containers))
 
     def test_delete_container(self):
-        container = self.containers.get(name="container_two")
+        container = self.containers.get(name=u"container_two\u6346")
         self.mox.StubOutWithMock(api, 'swift_delete_container')
         api.swift_delete_container(IsA(http.HttpRequest), container.name)
         self.mox.ReplayAll()
 
-        action_string = "containers__delete__%s" % container.name
+        action_string = u"containers__delete__%s" % container.name
         form_data = {"action": action_string}
         req = self.factory.post(CONTAINER_INDEX_URL, form_data)
         table = ContainersTable(req, self.containers.list())
@@ -70,7 +71,7 @@ class ContainerViewTests(test.TestCase):
                                    container.name).AndRaise(exc)
         self.mox.ReplayAll()
 
-        action_string = "containers__delete__%s" % container.name
+        action_string = u"containers__delete__%s" % container.name
         form_data = {"action": action_string}
         req = self.factory.post(CONTAINER_INDEX_URL, form_data)
         table = ContainersTable(req, self.containers.list())
@@ -130,7 +131,7 @@ class ObjectViewTests(test.TestCase):
         api.swift_upload_object(IsA(http.HttpRequest),
                                 container.name,
                                 obj.name,
-                                OBJECT_DATA).AndReturn(obj)
+                                IsA(InMemoryUploadedFile)).AndReturn(obj)
         self.mox.StubOutWithMock(obj, 'sync_metadata')
         obj.sync_metadata()
         self.mox.ReplayAll()
@@ -148,6 +149,19 @@ class ObjectViewTests(test.TestCase):
         index_url = reverse('horizon:nova:containers:object_index',
                             args=[container.name])
         self.assertRedirectsNoFollow(res, index_url)
+
+        # Test invalid filename
+        formData['name'] = "contains/a/slash"
+        res = self.client.post(upload_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, "Slash is not an allowed character.")
+
+        # Test invalid container name
+        #formData['container_name'] = "contains/a/slash"
+        #formData['name'] = "no_slash"
+        #res = self.client.post(upload_url, formData)
+        #self.assertNoMessages()
+        #self.assertContains(res, "Slash is not an allowed character.")
 
     def test_delete(self):
         container = self.containers.first()
@@ -201,8 +215,8 @@ class ObjectViewTests(test.TestCase):
         self.assertTemplateUsed(res, 'nova/objects/copy.html')
 
     def test_copy(self):
-        container_1 = self.containers.get(name="container_one")
-        container_2 = self.containers.get(name="container_two")
+        container_1 = self.containers.get(name=u"container_one\u6346")
+        container_2 = self.containers.get(name=u"container_two\u6346")
         obj = self.objects.first()
 
         self.mox.StubOutWithMock(api, 'swift_get_containers')

@@ -122,7 +122,8 @@ def object_download(request, container_name, object_name):
                           _("Unable to retrieve object."),
                           redirect=redirect)
     response = http.HttpResponse()
-    response['Content-Disposition'] = 'attachment; filename=%s' % filename
+    safe_name = filename.encode('utf-8')
+    response['Content-Disposition'] = 'attachment; filename=%s' % safe_name
     response['Content-Type'] = 'application/octet-stream'
     for data in object_data:
         response.write(data)

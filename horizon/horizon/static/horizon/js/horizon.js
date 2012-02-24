@@ -26,11 +26,11 @@ var Horizon = function() {
     // Bind event handlers to confirm dangerous actions.
     $("body").on("click", "form .btn-danger", function (evt) {
       horizon.datatables.confirm(this);
-      return false;
+      evt.preventDefault();
     });
 
     // Bind dismiss(x) handlers for alert messages.
-    $(".alert").alert()
+    $(".alert").alert();
 
     $.each(initFunctions, function(ind, fn) {
       fn();

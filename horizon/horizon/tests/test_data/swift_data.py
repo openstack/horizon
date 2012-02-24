@@ -14,8 +14,11 @@
 
 import new
 
+from django import http
+
 from cloudfiles import container, storage_object
 
+from horizon.api import base
 from .utils import TestDataContainer
 
 
@@ -23,21 +26,27 @@ def data(TEST):
     TEST.containers = TestDataContainer()
     TEST.objects = TestDataContainer()
 
+    request = http.HttpRequest()
+    request.user = TEST.user
+
     class FakeConnection(object):
         def __init__(self):
             self.cdn_enabled = False
+            self.uri = base.url_for(request, "object-store")
+            self.token = TEST.token
+            self.user_agent = "python-cloudfiles"
 
     conn = FakeConnection()
 
-    container_1 = container.Container(conn, name="container_one")
-    container_2 = container.Container(conn, name="container_two")
+    container_1 = container.Container(conn, name=u"container_one\u6346")
+    container_2 = container.Container(conn, name=u"container_two\u6346")
     TEST.containers.add(container_1, container_2)
 
-    object_dict = {"name": "test_object",
-                   "content_type": "text/plain",
+    object_dict = {"name": u"test_object\u6346",
+                   "content_type": u"text/plain",
                    "bytes": 128,
                    "last_modified": None,
-                   "hash": "object_hash"}
+                   "hash": u"object_hash"}
     obj_dicts = [object_dict]
     for obj_dict in obj_dicts:
         swift_object = storage_object.Object(container_1,

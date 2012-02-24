@@ -22,6 +22,7 @@ import logging
 
 import cloudfiles
 from django.conf import settings
+from django.utils.translation import ugettext as _
 
 from horizon import exceptions
 from horizon.api.base import url_for
@@ -100,6 +101,18 @@ def swift_get_objects(request, container_name, prefix=None, marker=None):
 
 def swift_copy_object(request, orig_container_name, orig_object_name,
                       new_container_name, new_object_name):
+    try:
+        # FIXME(gabriel): Cloudfiles currently fails at unicode in the
+        # copy_to method, so to provide a better experience we check for
+        # unicode here and pre-empt with an error message rather than
+        # letting the call fail.
+        str(orig_container_name)
+        str(orig_object_name)
+        str(new_container_name)
+        str(new_object_name)
+    except UnicodeEncodeError:
+        raise exceptions.HorizonException(_("Unicode is not currently "
+                                            "supported for object copy."))
     container = swift_api(request).get_container(orig_container_name)
 
     if swift_object_exists(request, new_container_name, new_object_name):
@@ -109,10 +122,10 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
     return orig_obj.copy_to(new_container_name, new_object_name)
 
 
-def swift_upload_object(request, container_name, object_name, object_data):
+def swift_upload_object(request, container_name, object_name, object_file):
     container = swift_api(request).get_container(container_name)
     obj = container.create_object(object_name)
-    obj.write(object_data)
+    obj.send(object_file)
     return obj
 
 
