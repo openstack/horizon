@@ -46,7 +46,7 @@ class AttachForm(forms.SelfHandlingForm):
     instance = forms.ChoiceField(label="Attach to Instance",
                                  help_text=_("Select an instance to "
                                              "attach to."))
-    device = forms.CharField(label="Device Name", initial="/dev/vdb")
+    device = forms.CharField(label="Device Name", initial="/dev/vdc")
 
     def __init__(self, *args, **kwargs):
         super(AttachForm, self).__init__(*args, **kwargs)
