@@ -1,0 +1,5 @@
+{% load i18n %}
+
+<h3>{% trans "Instance VNC Console" %}</h3>
+<p class='alert alert-info'>{% blocktrans %}If VNC console is not responding to keyboard input: click the grey status bar below.{% endblocktrans %}</p>
+<iframe src="{{ vnc_url }}" width="720" height="430"></iframe>

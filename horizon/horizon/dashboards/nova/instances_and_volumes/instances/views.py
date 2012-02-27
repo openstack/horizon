@@ -32,8 +32,9 @@ from django.utils.translation import ugettext as _
 from horizon import api
 from horizon import exceptions
 from horizon import forms
-from horizon import views
+from horizon import tabs
 from .forms import UpdateInstance
+from .tabs import InstanceDetailTabs
 
 
 LOG = logging.getLogger(__name__)
@@ -42,18 +43,14 @@ LOG = logging.getLogger(__name__)
 def console(request, instance_id):
     try:
         # TODO(jakedahn): clean this up once the api supports tailing.
-        length = request.GET.get('length', None)
-        console = api.server_console_output(request,
-                                            instance_id,
-                                            tail_length=length)
-        response = http.HttpResponse(mimetype='text/plain')
-        response.write(console)
-        response.flush()
-        return response
+        data = api.server_console_output(request, instance_id)
     except:
-        msg = _('Unable to get log for instance "%s".') % instance_id
-        redirect = reverse('horizon:nova:instances_and_volumes:index')
-        exceptions.handle(request, msg, redirect=redirect)
+        data = _('Unable to get log for instance "%s".') % instance_id
+        exceptions.handle(request, ignore=True)
+    response = http.HttpResponse(mimetype='text/plain')
+    response.write(data)
+    response.flush()
+    return response
 
 
 def vnc(request, instance_id):
@@ -90,47 +87,37 @@ class UpdateView(forms.ModalFormView):
                 'name': getattr(self.object, 'name', '')}
 
 
-class DetailView(views.APIView):
+class DetailView(tabs.TabView):
+    tab_group_class = InstanceDetailTabs
     template_name = 'nova/instances_and_volumes/instances/detail.html'
 
-    def get_data(self, request, context, *args, **kwargs):
-        instance_id = kwargs['instance_id']
-
-        if "show" in request.GET:
-            show_tab = request.GET["show"]
-        else:
-            show_tab = "overview"
-
-        try:
-            instance = api.server_get(request, instance_id)
-            volumes = api.volume_instance_list(request, instance_id)
-
-            # Gather our flavors and images and correlate our instances to
-            # them. Exception handling happens in the parent class.
-            flavors = api.flavor_list(request)
-            full_flavors = SortedDict([(str(flavor.id), flavor) for \
-                                        flavor in flavors])
-            instance.full_flavor = full_flavors[instance.flavor["id"]]
-
-            context.update({'instance': instance, 'volumes': volumes})
-        except:
-            redirect = reverse('horizon:nova:instances_and_volumes:index')
-            exceptions.handle(request,
-                              _('Unable to retrieve details for '
-                                'instance "%s".') % instance_id,
-                                redirect=redirect)
-        if show_tab == "vnc":
-            try:
-                console = api.server_vnc_console(request, instance_id)
-                vnc_url = "%s&title=%s(%s)" % (console.url,
-                                               getattr(instance, "name", ""),
-                                               instance_id)
-                context.update({'vnc_url': vnc_url})
-            except:
-                exceptions.handle(request,
-                                  _('Unable to get vnc console for '
-                                    'instance "%s".') % instance_id)
-
-        context.update({'show_tab': show_tab})
-
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        context["instance"] = self.get_data()
         return context
+
+    def get_data(self):
+        if not hasattr(self, "_instance"):
+            try:
+                instance_id = self.kwargs['instance_id']
+                instance = api.server_get(self.request, instance_id)
+                instance.volumes = api.volume_instance_list(self.request,
+                                                            instance_id)
+                # Gather our flavors and images and correlate our instances to
+                # them. Exception handling happens in the parent class.
+                flavors = api.flavor_list(self.request)
+                full_flavors = SortedDict([(str(flavor.id), flavor) for \
+                                            flavor in flavors])
+                instance.full_flavor = full_flavors[instance.flavor["id"]]
+            except:
+                redirect = reverse('horizon:nova:instances_and_volumes:index')
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve details for '
+                                    'instance "%s".') % instance_id,
+                                    redirect=redirect)
+            self._instance = instance
+        return self._instance
+
+    def get_tabs(self, request, *args, **kwargs):
+        instance = self.get_data()
+        return self.tab_group_class(request, instance=instance, **kwargs)

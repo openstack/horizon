@@ -25,6 +25,7 @@ from novaclient import exceptions as nova_exceptions
 
 from horizon import api
 from horizon import test
+from .tabs import InstanceDetailTabs
 
 
 INDEX_URL = reverse('horizon:nova:instances_and_volumes:index')
@@ -199,36 +200,38 @@ class InstanceViewTests(test.TestCase):
         res = self.client.post(INDEX_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    def test_instance_console(self):
+    def test_instance_log(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = 'output'
 
         self.mox.StubOutWithMock(api, 'server_console_output')
         api.server_console_output(IsA(http.HttpRequest),
-                                  server.id,
-                                  tail_length=None).AndReturn(CONSOLE_OUTPUT)
+                                  server.id).AndReturn(CONSOLE_OUTPUT)
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:instances_and_volumes:instances:console',
                       args=[server.id])
-        res = self.client.get(url)
+        tg = InstanceDetailTabs(self.request)
+        qs = "?%s=%s" % (tg.param_name, tg.get_tab("log").get_id())
+        res = self.client.get(url + qs)
         self.assertIsInstance(res, http.HttpResponse)
         self.assertContains(res, CONSOLE_OUTPUT)
 
-    def test_instance_console_exception(self):
+    def test_instance_log_exception(self):
         server = self.servers.first()
 
         self.mox.StubOutWithMock(api, 'server_console_output')
         exc = nova_exceptions.ClientException(500)
         api.server_console_output(IsA(http.HttpRequest),
-                                  server.id,
-                                  tail_length=None).AndRaise(exc)
+                                  server.id).AndRaise(exc)
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:instances_and_volumes:instances:console',
                       args=[server.id])
-        res = self.client.get(url)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        tg = InstanceDetailTabs(self.request)
+        qs = "?%s=%s" % (tg.param_name, tg.get_tab("log").get_id())
+        res = self.client.get(url + qs)
+        self.assertContains(res, "Unable to get log for")
 
     def test_instance_vnc(self):
         server = self.servers.first()

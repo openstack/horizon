@@ -14,7 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import copy
 import logging
 import new
 from urlparse import urlparse
@@ -23,7 +22,6 @@ from urlparse import parse_qs
 from django import http
 from django import shortcuts
 from django.conf import settings
-from django.forms.util import flatatt
 from django.contrib import messages
 from django.core import urlresolvers
 from django.utils.functional import Promise
@@ -31,6 +29,7 @@ from django.utils.http import urlencode
 from django.utils.translation import string_concat, ugettext as _
 
 from horizon import exceptions
+from horizon.utils import html
 
 
 LOG = logging.getLogger(__name__)
@@ -39,16 +38,12 @@ LOG = logging.getLogger(__name__)
 ACTION_CSS_CLASSES = ("btn", "btn-small")
 
 
-class BaseAction(object):
+class BaseAction(html.HTMLElement):
     """ Common base class for all ``Action`` classes. """
     table = None
     handles_multiple = False
     requires_input = False
     preempt = False
-
-    def __init__(self):
-        self.attrs = getattr(self, "attrs", {})
-        self.classes = getattr(self, "classes", [])
 
     def allowed(self, request, datum):
         """ Determine whether this action is allowed for the current request.
@@ -74,22 +69,12 @@ class BaseAction(object):
         """
         pass
 
-    @property
-    def attr_string(self):
+    def get_default_classes(self):
         """
-        Returns a flattened string of HTML attributes based on the
-        ``attrs`` dict provided to the class.
+        Returns a list of the default classes for the tab. Defaults to
+        ``["btn", "btn-small"]``.
         """
-        final_attrs = copy.copy(self.attrs)
-        # Handle css class concatenation
-        default = " ".join(getattr(settings,
-                                   "ACTION_CSS_CLASSES",
-                                   ACTION_CSS_CLASSES))
-        defined = self.attrs.get('class', '')
-        additional = " ".join(self.classes)
-        final_classes = " ".join((defined, default, additional)).strip()
-        final_attrs.update({'class': final_classes})
-        return flatatt(final_attrs)
+        return getattr(settings, "ACTION_CSS_CLASSES", ACTION_CSS_CLASSES)
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.name)

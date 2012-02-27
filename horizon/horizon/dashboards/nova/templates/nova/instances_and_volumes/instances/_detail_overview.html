@@ -1,0 +1,65 @@
+{% load i18n sizeformat %}
+
+<h3>{% trans "Instance Overview" %}</h3>
+
+<div class="status row-fluid">
+  <h4>{% trans "Status" %}</h4>
+  <hr class="header_rule">
+  <ul>
+    <li><strong>{% trans "Status" %}:</strong>&nbsp;{{ instance.status }}</li>
+    <li><strong>{% trans "Instance Name" %}:</strong>&nbsp;{{ instance.name }}</li>
+    <li><strong>{% trans "Instance ID" %}:</strong>&nbsp;{{ instance.id }}</li>
+  </ul>
+</div>
+
+<div class="specs row-fluid">
+  <h4>{% trans "Specs" %}</h4>
+  <hr class="header_rule">
+  <ul>
+    <li><strong>{% trans "RAM" %}:</strong>&nbsp;{{ instance.full_flavor.ram|mbformat }}</li>
+    <li><strong>{% trans "VCPUs" %}:</strong>&nbsp;{{ instance.full_flavor.vcpus }} {% trans "VCPU" %}</li>
+    <li><strong>{% trans "Disk" %}:</strong>&nbsp;{{ instance.full_flavor.disk }}{% trans "GB" %}</li>
+  </ul>
+</div>
+
+<div class="addresses row-fluid">
+  <h4>{% trans "IP Addresses" %}</h4>
+  <hr class="header_rule">
+  <ul>
+    {% for network, ip_list in instance.addresses.items %}
+    <li><strong>{{ network|title }}:</strong>
+      {% for ip in ip_list %}
+        {% if not forloop.last %}{{ ip.addr}},&nbsp;{% else %}{{ip.addr}}{% endif %}
+      {% endfor %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="meta row-fluid">
+  <h4>{% trans "Meta" %}</h4>
+  <hr class="header_rule">
+  <ul>
+    <li><strong>{% trans "Key name" %}:</strong>&nbsp;{% if instance.key_name %}{{ instance.key_name }}{% else %}<em>None</em>{% endif %}</li>
+    <li><strong>{% trans "Image Name" %}:</strong>&nbsp;{{ instance.image_name }}</li>
+  </ul>
+</div>
+
+<div class="volumes row-fluid">
+  <h4>{% trans "Volumes" %}</h4>
+  <hr class="header_rule">
+  <ul>
+    {% if volumes %}
+      {% for volume in instance.volumes %}
+      <li>
+        <strong>{% trans "Volume" %}:</strong>
+        <a href="{% url horizon:nova:instances_and_volumes:volumes:detail volume.volumeId %}">
+          {{ volume.volumeId }}&nbsp;({{ volume.device }})
+        </a>
+      </li>
+      {% endfor %}
+    {% else %}
+    <li><em>{% trans "No volumes attached." %}</em></li>
+    {% endif %}
+  </ul>
+</div>

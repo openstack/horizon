@@ -8,122 +8,30 @@
 {% endblock page_header %}
 
 {% block dash_main %}
-<ul id="instance_tabs">
-  <li{% if show_tab == "overview" %} class="active"{% endif %}><a class="overview" href="?show=overview">{% trans "Overview" %}</a></li>
-  <li{% if show_tab == "log" %} class="active"{% endif %}><a class="log" href="?show=log">{% trans "Log" %}</a></li>
-  <li{% if show_tab == "vnc" %} class="active"{% endif %}><a class="vnc" href="?show=vnc">{% trans "VNC" %}</a></li>
-</ul>
-
-<div class="dash_block">
-  {% if show_tab == "overview" %}
-  <div id="overview" class="tab_wrapper">
-    <ul>
-      <li>
-        <div class="status">
-          <h4>{% trans "Status" %}</h4>
-          <ul>
-            <li><span>{% trans "Status:" %}</span> {{ instance.status }}</li>
-            <li><span>{% trans "Instance Name:" %}</span> {{ instance.name }}</li>
-            <li><span>{% trans "Instance ID:" %}</span> {{ instance.id }}</li>
-          </ul>
-        </div>
-      </li>
-
-      <li>
-        <div class="specs">
-          <h4>{% trans "Specs" %}</h4>
-          <ul>
-            <li><span>{% trans "RAM:" %}</span> {{ instance.full_flavor.ram|mbformat }}</li>
-            <li><span>{% trans "VCPUs:" %}</span> {{ instance.full_flavor.vcpus }} {% trans "VCPU" %}</li>
-            <li><span>{% trans "Disk:" %}</span> {{ instance.full_flavor.disk }}{% trans "GB" %}</li>
-          </ul>
-        </div>
-      </li>
-
-      <li>
-        <div class="addresses">
-          <h4>{% trans "IP Addresses" %}</h4>
-          <ul>
-            {% for network, ip_list in instance.addresses.items %}
-            <li><span>{{ network|title }}:</span>
-              {% for ip in ip_list %}
-                  {% if not forloop.last %}{{ ip.addr}}, {% else %}{{ip.addr}}{% endif %}
-              {% endfor %}
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </li>
-
-      <li>
-        <div class="meta">
-          <h4>{% trans "Meta" %}</h4>
-          <ul>
-            <li><span>{% trans "Key name:" %}</span> {{ instance.key_name }}</li>
-            {% comment %} Security Groups aren't sent back from Nova anymore...
-            <li><span>{% trans "Security Group(s):" %}</span> {% for group in instance.attrs.security_groups %}{{group}}, {% endfor %}</li>
-            {% endcomment %}
-            <li><span>{% trans "Image Name:" %}</span> {{ instance.image_name }}</li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h4>{% trans "Volumes" %}</h4>
-          <ul>
-            {% if volumes %}
-              {% for volume in volumes %}
-              <li>
-                <span>{% trans "Volume:" %}</span>
-                <a href="{% url horizon:nova:instances_and_volumes:volumes:detail volume.volumeId %}">
-                  {{ volume.volumeId }} ({{ volume.device }})
-                </a>
-              </li>
-              {% endfor %}
-            {% else %}
-            <li><span>{% trans "None Attached" %}</span></li>
-            {% endif %}
-          </ul>
-        </div>
-      </li>
-    </ul>
+<div class="row-fluid">
+  <div class="span12">
+  {{ tab_group.render }}
   </div>
-  {% endif %}
-
-  {% if show_tab == "log" %}
-  <div id="log" class="tab_wrapper">
-    <a class="view_full" target="_blank" href="{% url horizon:nova:instances_and_volumes:instances:console instance.id %}">{% trans "View Full Log" %}</a>
-    <pre class="logs"></pre>
-  </div>
-  {% endif %}
-
-  {% if show_tab == "vnc" %}
-  <div id="vnc" class="tab_wrapper">
-    <p class='alert alert-info'>If VNC console is not responding to keyboard input: click the grey status bar below.</p>
-    <iframe src="{{vnc_url}}" width="720" height="430"></iframe>
-  </div>
-  {% endif %}
-
 </div>
 {% endblock %}
 
 {% block js %}
   {{ block.super }}
   {# FIXME: This JavaScript should live with the rest of the JS #}
-  {% if show_tab == "log" %}
     <script type="text/javascript" charset="utf-8">
       $(function() {
         function getLog() {
-          $.get("{% url horizon:nova:instances_and_volumes:instances:console instance.id %}?length=25", function(data) {
-            $("#log .logs").html(data);
-          });
+          if ($("#instance_details__log .logs").length) {
+            $.get("{% url horizon:nova:instances_and_volumes:instances:console instance.id %}?length=25", function(data) {
+              $("#instance_details__log .logs").html(data);
+            });
+          }
         }
         getLog();
 
         setInterval(function() {
           getLog();
-        }, 3000);
+        }, 10000); // This value has to stay under Nova's API rate limiting.
       });
     </script>
-  {% endif %}
 {% endblock %}

@@ -1,0 +1,23 @@
+{% with tab_group.get_tabs as tabs %}
+{% if tabs %}
+
+  {# Tab Navigation #}
+  <ul id="{{ tab_group.get_id }}" {{ tab_group.attr_string|safe }}>
+    {% for tab in tabs %}
+    <li {{ tab.attr_string|safe }}>
+      <a href="?{{ tab_group.param_name}}={{ tab.get_id }}" data-toggle="tab" data-target="#{{ tab.get_id }}" data-loaded='{{ tab.load|yesno:"true,false" }}'>{{ tab.name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  {# Tab Content #}
+  <div class="tab-content">
+    {% for tab in tabs %}
+    <div id="{{ tab.get_id }}" class="tab-pane{% if tab.is_active %} active{% endif %}">
+      {{ tab.render }}
+    </div>
+    {% endfor %}
+  </div>
+
+{% endif %}
+{% endwith %}

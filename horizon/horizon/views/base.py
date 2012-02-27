@@ -29,7 +29,7 @@ class APIView(generic.TemplateView):
     the :func:`horizon.exceptions.handle` error handler if not otherwise
     caught.
     """
-    def get_data(request, context, *args, **kwargs):
+    def get_data(self, request, context, *args, **kwargs):
         """
         This method should handle any necessary API calls, update the
         context object, and return the context object at the end.

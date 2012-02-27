@@ -1,0 +1,9 @@
+{% load i18n %}
+<div class="clearfix">
+    <h3 class="pull-left">Instance Console Log</h3>
+    <p class="pull-right">
+        {% url horizon:nova:instances_and_volumes:instances:console instance.id as console_url %}
+        <a class="btn btn-small" target="_blank" href="{{ console_url }}">{% trans "View Full Log" %}</a>
+    </p>
+</div>
+<pre class="logs">{{ console_log }}</pre>
