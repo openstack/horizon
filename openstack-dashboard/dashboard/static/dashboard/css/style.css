@@ -88,9 +88,13 @@ h2 {
     font-weight: normal;
 }
 
+body {
+  background-color: #fff;
+}
+
 /* Login Splash Page */
 
-html, #splash{
+#splash{
   background: #fafafa;
 }
 
