@@ -24,6 +24,7 @@ General-purpose decorators for use with Horizon.
 import functools
 
 from django.utils.decorators import available_attrs
+from django.utils.translation import ugettext as _
 
 from horizon.exceptions import NotAuthorized, NotFound
 
@@ -37,6 +38,25 @@ def _current_component(view_func, dashboard=None, panel=None):
         if panel:
             request.horizon['panel'] = panel
         return view_func(request, *args, **kwargs)
+    return dec
+
+
+def require_auth(view_func):
+    """ Performs user authentication check.
+
+    Similar to Django's `login_required` decorator, except that this
+    throws NotAuthorized exception if the user is not signed-in.
+
+    Raises a :exc:`~horizon.exceptions.NotAuthorized` exception if the
+    user is not authenticated.
+    """
+
+    @functools.wraps(view_func, assigned=available_attrs(view_func))
+    def dec(request, *args, **kwargs):
+        if request.user.is_authenticated():
+            return view_func(request, *args, **kwargs)
+        raise NotAuthorized(_("You are not authorized to access %s")
+                            % request.path)
     return dec
 
 
@@ -69,7 +89,7 @@ def require_roles(view_func, required):
             # set operator <= tests that all members of set 1 are in set 2
             if view_func._required_roles <= set(roles):
                 return view_func(request, *args, **kwargs)
-        raise NotAuthorized("You are not authorized to access %s"
+        raise NotAuthorized(_("You are not authorized to access %s")
                             % request.path)
 
     # If we don't have any roles, just return the original view.
@@ -110,7 +130,7 @@ def require_services(view_func, required):
             # set operator <= tests that all members of set 1 are in set 2
             if view_func._required_services <= set(services):
                 return view_func(request, *args, **kwargs)
-        raise NotFound("The services for this view are not available.")
+        raise NotFound(_("The services for this view are not available."))
 
     # If we don't have any services, just return the original view.
     if required:

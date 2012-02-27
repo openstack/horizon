@@ -25,8 +25,12 @@ import logging
 
 from django import http
 from django import shortcuts
+
+from django.core.urlresolvers import reverse
 from django.contrib import messages
+from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.utils.translation import ugettext as _
+from django.utils.encoding import iri_to_uri
 
 from horizon import api
 from horizon import exceptions
@@ -71,8 +75,19 @@ class HorizonMiddleware(object):
         NotFound and Http302 and handles them gracefully.
         """
         if isinstance(exception, exceptions.NotAuthorized):
+            auth_url = reverse("horizon:auth_login")
+            next_url = iri_to_uri(request.get_full_path())
+            if next_url != auth_url:
+                param = "?%s=%s" % (REDIRECT_FIELD_NAME, next_url)
+                redirect_to = "".join((auth_url, param))
+            else:
+                redirect_to = auth_url
             messages.error(request, unicode(exception))
-            return shortcuts.redirect('/auth/login')
+            if request.is_ajax():
+                response_401 = http.HttpResponse(status=401)
+                response_401["REDIRECT_URL"] = redirect_to
+                return response_401
+            return shortcuts.redirect(redirect_to)
 
         # If an internal "NotFound" error gets this far, return a real 404.
         if isinstance(exception, exceptions.NotFound):

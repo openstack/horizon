@@ -21,10 +21,13 @@
 
 from django.conf import settings
 from django.core import urlresolvers
+from django import http
 from django.test.client import Client
 from django.utils.importlib import import_module
+from mox import IsA
 
 import horizon
+from horizon import api
 from horizon import base
 from horizon import test
 from horizon import users
@@ -203,7 +206,16 @@ class HorizonTests(BaseHorizonTests):
         client = Client()
         client.logout()
         resp = client.get(url)
-        self.assertRedirectsNoFollow(resp, '/accounts/login/?next=/settings/')
+        redirect_url = "?".join([urlresolvers.reverse("horizon:auth_login"),
+                                 "next=%s" % url])
+        self.assertRedirectsNoFollow(resp, redirect_url)
+        # Simulate ajax call
+        resp = client.get(url, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        # Response should be HTTP 401 with redirect header
+        self.assertEquals(resp.status_code, 401)
+        self.assertEquals(resp["REDIRECT_URL"],
+                          "?".join([urlresolvers.reverse("horizon:auth_login"),
+                                    "next=%s" % url]))
 
     def test_required_services(self):
         horizon.register(MyDash)
@@ -228,3 +240,46 @@ class HorizonTests(BaseHorizonTests):
                            authorized_tenants=tenants)
         resp = self.client.get(panel.get_absolute_url())
         self.assertEqual(resp.status_code, 404)
+
+    def test_required_roles(self):
+        syspanel = horizon.get_dashboard("syspanel")
+        user_panel = syspanel.get_panel("users")
+
+        # Non-admin user
+        self.setActiveUser(token=self.token.id,
+                           username=self.user.name,
+                           tenant_id=self.tenant.id,
+                           roles=[])
+
+        resp = self.client.get(user_panel.get_absolute_url())
+        self.assertEqual(resp.status_code, 302)
+
+        resp = self.client.get(user_panel.get_absolute_url(),
+                               follow=False,
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(resp.status_code, 401)
+
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        self.mox.ReplayAll()
+
+        # Set roles for admin user
+        self.setActiveUser(token=self.token.id,
+                           username=self.user.name,
+                           tenant_id=self.tenant.id,
+                           service_catalog=self.request.user.service_catalog,
+                           roles=[{'name': 'admin'}])
+
+        resp = self.client.get(
+                    urlresolvers.reverse('horizon:syspanel:flavors:create'))
+        self.assertEqual(resp.status_code, 200)
+        self.assertTemplateUsed(resp, "syspanel/flavors/create.html")
+
+        # Test modal form
+        resp = self.client.get(
+                    urlresolvers.reverse('horizon:syspanel:flavors:create'),
+                    follow=False,
+                    HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(resp.status_code, 200)
+        self.assertTemplateUsed(resp, "syspanel/flavors/_create.html")

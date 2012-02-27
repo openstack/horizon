@@ -28,7 +28,6 @@ import logging
 
 from django.conf import settings
 from django.conf.urls.defaults import patterns, url, include
-from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse
 from django.utils.functional import SimpleLazyObject
@@ -36,8 +35,8 @@ from django.utils.importlib import import_module
 from django.utils.module_loading import module_has_submodule
 from django.utils.translation import ugettext as _
 
-from horizon.decorators import (require_roles, require_services,
-                                _current_component)
+from horizon.decorators import (require_auth, require_roles,
+                                require_services, _current_component)
 
 
 LOG = logging.getLogger(__name__)
@@ -421,7 +420,7 @@ class Dashboard(Registry, HorizonComponent):
 
         # Require login if not public.
         if not self.public:
-            _decorate_urlconf(urlpatterns, login_required)
+            _decorate_urlconf(urlpatterns, require_auth)
         # Apply access controls to all views in the patterns
         roles = getattr(self, 'roles', [])
         services = getattr(self, 'services', [])

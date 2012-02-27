@@ -22,6 +22,7 @@ import logging
 
 from django import shortcuts
 from django.conf import settings
+from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.utils.translation import ugettext as _
 
 import horizon
@@ -48,6 +49,13 @@ class LoginView(forms.ModalFormView):
     """
     form_class = Login
     template_name = "horizon/auth/login.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(LoginView, self).get_context_data(**kwargs)
+        redirect_to = self.request.REQUEST.get(REDIRECT_FIELD_NAME, "")
+        context["redirect_field_name"] = REDIRECT_FIELD_NAME
+        context["next"] = redirect_to
+        return context
 
     def get_initial(self):
         initial = super(LoginView, self).get_initial()

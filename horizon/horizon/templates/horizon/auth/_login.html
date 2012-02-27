@@ -1,7 +1,7 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
-{% block modal-header %}Log In{% endblock %}
+{% block modal-header %}{% trans "Log In" %}{% endblock %}
 {% block modal_class %}modal login{% endblock %}
 
 {% block form_action %}{% url horizon:auth_login %}{% endblock %}
@@ -9,10 +9,11 @@
 {% block modal-body %}
   {% include "horizon/_messages.html" %}
   <fieldset>
+    {% if next %}<input type="hidden" name="{{ redirect_field_name }}" value="{{ next }}" />{% endif %}
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>
 {% endblock %}
 
 {% block modal-footer %}
-  <input type="submit" class="btn btn-primary pull-right" value="{% trans "Login" %}" />
+  <input type="submit" class="btn btn-primary pull-right" value="{% trans "Log In" %}" />
 {% endblock %}

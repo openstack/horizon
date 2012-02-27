@@ -27,6 +27,7 @@ import logging
 from django import shortcuts
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.utils.translation import ugettext as _
 from keystoneclient import exceptions as keystone_exceptions
 
@@ -83,6 +84,8 @@ class Login(forms.SelfHandlingForm):
         request.session['region_endpoint'] = endpoint
         request.session['region_name'] = region_name
 
+        redirect_to = request.REQUEST.get(REDIRECT_FIELD_NAME, "")
+
         if data.get('tenant', None):
             try:
                 token = api.token_create(request,
@@ -100,7 +103,8 @@ class Login(forms.SelfHandlingForm):
                     tenant = t
             _set_session_data(request, token)
             user = users.get_user_from_request(request)
-            return shortcuts.redirect(base.Horizon.get_user_home(user))
+            redirect = redirect_to or base.Horizon.get_user_home(user)
+            return shortcuts.redirect(redirect)
 
         elif data.get('username', None):
             try:
@@ -157,7 +161,8 @@ class Login(forms.SelfHandlingForm):
 
             _set_session_data(request, token)
             user = users.get_user_from_request(request)
-        return shortcuts.redirect(base.Horizon.get_user_home(user))
+        redirect = redirect_to or base.Horizon.get_user_home(user)
+        return shortcuts.redirect(redirect)
 
 
 class LoginWithTenant(Login):

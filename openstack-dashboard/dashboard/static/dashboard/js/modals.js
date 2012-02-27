@@ -7,8 +7,18 @@ horizon.addInitFunction(function() {
   $('.ajax-modal').click(function (evt) {
     var $this = $(this);
     $.ajax($this.attr('href'), {
-      complete: function (jqXHR, status) {
-        $('body').append(jqXHR.responseText);
+      error: function(jqXHR, status, errorThrown){
+        if (jqXHR.status === 401){
+          var redir_url = jqXHR.getResponseHeader("REDIRECT_URL");
+          if (redir_url){
+            location.href = redir_url;
+          } else {
+            location.reload(true);
+          }
+        }
+      },
+      success: function (data, status, jqXHR) {
+        $('body').append(data);
         $('.modal span.help-block').hide();
         $('.modal:last').modal();
         $('.modal:last').on('hidden', function () {

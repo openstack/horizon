@@ -119,6 +119,7 @@ class TestCase(django_test.TestCase):
                            user=username,
                            tenant_id=tenant_id,
                            service_catalog=service_catalog,
+                           roles=roles,
                            authorized_tenants=authorized_tenants)
 
     def override_times(self):
