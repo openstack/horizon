@@ -130,7 +130,7 @@ class ComputeApiTests(test.APITestCase):
         novaclient.floating_ips = self.mox.CreateMockAnything()
         novaclient.servers.get(server.id).AndReturn(server)
         novaclient.floating_ips.get(floating_ip.id).AndReturn(floating_ip)
-        novaclient.servers.remove_floating_ip(server.id, floating_ip.id) \
+        novaclient.servers.remove_floating_ip(server.id, floating_ip.ip) \
                           .AndReturn(server)
         self.mox.ReplayAll()
 
@@ -148,7 +148,7 @@ class ComputeApiTests(test.APITestCase):
         novaclient.servers = self.mox.CreateMockAnything()
         novaclient.servers.get(server.id).AndReturn(server)
         novaclient.floating_ips.get(floating_ip.id).AndReturn(floating_ip)
-        novaclient.servers.add_floating_ip(server.id, floating_ip.id) \
+        novaclient.servers.add_floating_ip(server.id, floating_ip.ip) \
                           .AndReturn(server)
         self.mox.ReplayAll()
 

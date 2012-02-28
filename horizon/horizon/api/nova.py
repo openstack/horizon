@@ -346,7 +346,7 @@ def server_add_floating_ip(request, server, floating_ip):
     """
     server = novaclient(request).servers.get(server)
     fip = novaclient(request).floating_ips.get(floating_ip)
-    return novaclient(request).servers.add_floating_ip(server.id, fip.id)
+    return novaclient(request).servers.add_floating_ip(server.id, fip.ip)
 
 
 def server_remove_floating_ip(request, server, floating_ip):
@@ -355,7 +355,7 @@ def server_remove_floating_ip(request, server, floating_ip):
     """
     fip = novaclient(request).floating_ips.get(floating_ip)
     server = novaclient(request).servers.get(fip.instance_id)
-    return novaclient(request).servers.remove_floating_ip(server.id, fip.id)
+    return novaclient(request).servers.remove_floating_ip(server.id, fip.ip)
 
 
 def tenant_quota_get(request, tenant_id):
