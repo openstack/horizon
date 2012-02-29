@@ -130,6 +130,26 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    def test_edit_rules_invalid_port_range(self):
+        sec_group = self.security_groups.first()
+        rule = self.security_group_rules.first()
+
+        self.mox.StubOutWithMock(api, 'security_group_get')
+        api.security_group_get(IsA(http.HttpRequest),
+                               sec_group.id).AndReturn(sec_group)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'tenant_id': self.tenant.id,
+                    'security_group_id': sec_group.id,
+                    'from_port': rule.from_port,
+                    'to_port': int(rule.from_port) - 1,
+                    'ip_protocol': rule.ip_protocol,
+                    'cidr': rule.ip_range['cidr']}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, "greater than or equal to")
+
     def test_edit_rules_add_rule_exception(self):
         sec_group = self.security_groups.first()
         rule = self.security_group_rules.first()

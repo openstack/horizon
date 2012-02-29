@@ -23,12 +23,11 @@ Views for managing Nova instances.
 """
 import logging
 
-from django.contrib import messages
 from django import shortcuts
 from django.utils.translation import ugettext as _
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from .forms import CreateGroup, AddRule
@@ -49,12 +48,11 @@ class EditRulesView(tables.DataTableView):
                                                  security_group_id)
             rules = [api.nova.SecurityGroupRule(rule) for
                      rule in self.object.rules]
-        except novaclient_exceptions.ClientException, e:
+        except:
             self.object = None
             rules = []
-            LOG.exception("ClientException in security_groups rules edit")
-            messages.error(self.request,
-                           _('Error getting security_group: %s') % e)
+            exceptions.handle(self.request,
+                              _('Unable to retrieve security group.'))
         return rules
 
     def handle_form(self):
