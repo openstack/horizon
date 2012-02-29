@@ -136,7 +136,7 @@ class LaunchView(forms.ModalFormView):
 
         # Next add volume snapshots to the list
         try:
-            snapshots = api.novaclient(self.request).volume_snapshots.list()
+            snapshots = api.volume_snapshot_list(self.request)
             snapshots = [s for s in snapshots \
                          if s.status == api.VOLUME_STATE_AVAILABLE]
             volume_options.extend(
