@@ -1,6 +1,11 @@
 {% for hidden in form.hidden_fields %}
   {{ hidden }}
 {% endfor %}
+{% if form.non_field_errors %}
+  <div class="alert alert-message error">
+    {{ form.non_field_errors }}
+  </div>
+{% endif %}
 {% for field in form.visible_fields %}
   <div class="form-field clearfix{% if field.errors %} error{% endif %}">
     {{ field.label_tag }}

@@ -23,6 +23,7 @@ import logging
 from django import shortcuts
 from django.contrib import messages
 from django.core import validators
+from django.forms import ValidationError
 from django.utils.translation import ugettext as _
 from novaclient import exceptions as novaclient_exceptions
 
@@ -84,10 +85,16 @@ class AddRule(forms.SelfHandlingForm):
     security_group_id = forms.IntegerField(widget=forms.HiddenInput())
     tenant_id = forms.CharField(widget=forms.HiddenInput())
 
+    def clean(self):
+        cleaned_data = super(AddRule, self).clean()
+        if cleaned_data["to_port"] < cleaned_data["from_port"]:
+            msg = _('The "to" port number must be greater than or equal to '
+                    'the "from" port number.')
+            raise ValidationError(msg)
+        return cleaned_data
+
     def handle(self, request, data):
         try:
-            LOG.info('Add security_group_rule: "%s"' % data)
-
             rule = api.security_group_rule_create(request,
                                                   data['security_group_id'],
                                                   data['ip_protocol'],
