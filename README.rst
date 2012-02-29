@@ -1,17 +1,12 @@
-OpenStack Dashboard (Horizon)
------------------------------
+=============================
+Horizon (OpenStack Dashboard)
+=============================
 
-The OpenStack Dashboard is a Django based reference implementation of a web
-based management interface for OpenStack.
-
-It is based on the ``horizon`` module, which is designed to be a generic Django
-app that can be re-used in other projects.
-
-For more information about how to get started with the OpenStack Dashboard,
-view the README file in the openstack-dashboard folder.
-
-For more information about working directly with ``horizon``, see the
-README file in the ``horizon`` folder.
+Horizon is a Django-based project aimed at providing a complete OpenStack
+Dashboard along with an extensible framework for building new dashboards
+from reusable components. The ``openstack_dashboard`` module is a reference
+implementation of a Django site that uses the ``horizon`` app to provide
+web-based interactions with the various OpenStack projects.
 
 For release management:
 
@@ -25,38 +20,62 @@ For issue tracking:
 
  * https://bugs.launchpad.net/horizon
 
+Getting Started
+===============
 
-Project Structure and Testing:
-------------------------------
+For local development, first create a virtualenv for the project.
+In the ``tools`` directory there is a script to create one for you:
 
-This project is a bit different from other OpenStack projects in that it has
-two very distinct components underneath it: ``horizon``, and
-``openstack-dashboard``.
+  $ python tools/install_venv.py
 
-The ``horizon`` directory holds the generic libraries and components that can
-be used in any Django project.
+Alternatively, the ``run_tests.sh`` script will also install the environment
+for you and then run the full test suite to verify everything is installed
+and functioning correctly.
 
-The ``openstack-dashboard`` directory contains a reference Django project that
-uses ``horizon``.
+Now that the virtualenv is created, you need to configure your local
+environment.  To do this, create a ``local_settings.py`` file in the ``local/``
+directory.  There is a ``local_settings.py.example`` file there that may be
+used as a template.
 
-For development, both pieces share an environment which (by default) is
-built with the ``tools/install_venv.py`` script. That script creates a
-virtualenv and installs all the necessary packages.
+If all is well you should able to run the development server locally:
+
+  $ tools/with_venv.sh manage.py runserver
+
+or, as a shortcut::
+
+  $ ./run_tests.sh --runserver
+
+
+Settings Up OpenStack
+=====================
+
+The recommended tool for installing and configuring the core OpenStack
+components is `Devstack`_. Refer to their documentation for getting
+Nova, Keystone, Glance, etc. up and running.
+
+.. _Devstack: http://devstack.org/
+
+
+Development
+===========
+
+For development, start with the getting started instructions above.
+Once you have a working virtualenv and all the necessary packages, read on.
 
 If dependencies are added to either ``horizon`` or ``openstack-dashboard``,
 they should be added to ``tools/pip-requires``.
 
 The ``run_tests.sh`` script invokes tests and analyses on both of these
-components in its process, and is what Jenkins uses to verify the
+components in its process, and it is what Jenkins uses to verify the
 stability of the project. If run before an environment is set up, it will
 ask if you wish to install one.
 
-To run the tests::
+To run the unit tests::
 
     $ ./run_tests.sh
 
 Building Contributor Documentation
-----------------------------------
+==================================
 
 This documentation is written by contributors, for contributors.
 

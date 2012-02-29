@@ -8,10 +8,8 @@ coverage.xml
 pep8.txt
 pylint.txt
 reports
-horizon/horizon.egg-info
-.horizon-venv
-openstack-dashboard/local/dashboard_openstack.sqlite3
-openstack-dashboard/local/local_settings.py
+horizon.egg-info
+openstack_dashboard/local/local_settings.py
 docs/build/
 docs/source/sourcecode
 .venv

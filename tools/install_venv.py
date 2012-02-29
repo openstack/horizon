@@ -33,6 +33,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 VENV = os.path.join(ROOT, '.venv')
 WITH_VENV = os.path.join(ROOT, 'tools', 'with_venv.sh')
 PIP_REQUIRES = os.path.join(ROOT, 'tools', 'pip-requires')
+TEST_REQUIRES = os.path.join(ROOT, 'tools', 'test-requires')
 
 
 def die(message, *args):
@@ -70,9 +71,9 @@ HAS_VIRTUALENV = bool(run_command(['which', 'virtualenv'],
 def check_dependencies():
     """Make sure virtualenv is in the path."""
 
-    print 'checking dependencies...'
+    print 'Checking dependencies...'
     if not HAS_VIRTUALENV:
-        print 'not found.'
+        print 'Virtual environment not found.'
         # Try installing it via easy_install...
         if HAS_EASY_INSTALL:
             print 'Installing virtualenv via easy_install...',
@@ -106,11 +107,16 @@ def create_virtualenv(venv=VENV):
     print 'done.'
 
 
+def pip_install(*args):
+    args = [WITH_VENV, 'pip', 'install', '--upgrade'] + list(args)
+    run_command(args, redirect_output=False)
+
+
 def install_dependencies(venv=VENV):
     print "Installing dependencies..."
     print "(This may take several minutes, don't panic)"
-    run_command([WITH_VENV, 'pip', 'install', '-r', PIP_REQUIRES],
-                redirect_output=False)
+    pip_install('-r', PIP_REQUIRES)
+    pip_install('-r', TEST_REQUIRES)
 
     # Tell the virtual env how to "import dashboard"
     py = 'python%d.%d' % (sys.version_info[0], sys.version_info[1])
@@ -119,21 +125,20 @@ def install_dependencies(venv=VENV):
     f.write("%s\n" % ROOT)
 
 
-def install_django_openstack():
+def install_horizon():
     print 'Installing horizon module in development mode...'
-    path = os.path.join(ROOT, 'horizon')
-    run_command([WITH_VENV, 'python', 'setup.py', 'develop'], cwd=path)
+    run_command([WITH_VENV, 'python', 'setup.py', 'develop'], cwd=ROOT)
 
 
 def print_summary():
     summary = """
- Horizon development environment setup is complete.
+Horizon development environment setup is complete.
 
- To activate the virtualenv for the extent of your current shell session you
- can run:
+To activate the virtualenv for the extent of your current shell session you
+can run:
 
- $ source .venv/bin/activate
-  """
+$ source .venv/bin/activate
+"""
     print summary
 
 
@@ -141,7 +146,7 @@ def main():
     check_dependencies()
     create_virtualenv()
     install_dependencies()
-    install_django_openstack()
+    install_horizon()
     print_summary()
 
 if __name__ == '__main__':

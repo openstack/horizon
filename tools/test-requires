@@ -1,0 +1,12 @@
+# Testing Requirements
+CherryPy
+coverage
+django-nose==0.1.2
+django-nose-selenium
+mox
+nose==1.0.0
+pep8
+pylint
+
+# Docs Requirements
+sphinx

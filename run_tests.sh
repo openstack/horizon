@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=12
+environment_version=13
 #--------------------------------------------------------#
 
 function usage {
@@ -28,7 +28,7 @@ function usage {
   echo "                           Implies -V if -N is not set."
   echo "  --with-selenium          Run unit tests including Selenium tests"
   echo "  --runserver              Run the Django development server for"
-  echo "                           openstack-dashboard in the virtual"
+  echo "                           openstack_dashboard in the virtual"
   echo "                           environment."
   echo "  --docs                   Just build the documentation"
   echo "  --backup-environment     Make a backup of the environment on exit"
@@ -48,7 +48,7 @@ function usage {
 root=`pwd`
 venv=$root/.venv
 with_venv=tools/with_venv.sh
-included_dirs="openstack-dashboard/dashboard horizon/horizon"
+included_dirs="openstack_dashboard horizon"
 
 always_venv=0
 backup_env=0
@@ -93,13 +93,13 @@ function process_option {
 
 function run_server {
   echo "Starting Django development server..."
-  ${command_wrapper} python $root/openstack-dashboard/manage.py runserver $testargs
+  ${command_wrapper} python $root/manage.py runserver $testargs
   echo "Server stopped."
 }
 
 function run_pylint {
   echo "Running pylint ..."
-  PYTHONPATH=$root/openstack-dashboard ${command_wrapper} pylint --rcfile=.pylintrc -f parseable $included_dirs > pylint.txt || true
+  PYTHONPATH=$root ${command_wrapper} pylint --rcfile=.pylintrc -f parseable $included_dirs > pylint.txt || true
   CODE=$?
   grep Global -A2 pylint.txt
   if [ $CODE -lt 32 ]; then
@@ -130,7 +130,7 @@ function run_pep8 {
 
 function run_sphinx {
     echo "Building sphinx..."
-    export DJANGO_SETTINGS_MODULE=dashboard.settings
+    export DJANGO_SETTINGS_MODULE=openstack_dashboard.settings
     ${command_wrapper} sphinx-build -b html docs/source docs/build/html
     echo "Build complete."
 }
@@ -246,7 +246,7 @@ function restore_environment {
 }
 
 function install_venv {
-  # Install openstack-dashboard with install_venv.py
+  # Install with install_venv.py
   export PIP_DOWNLOAD_CACHE=${PIP_DOWNLOAD_CACHE-/tmp/.pip_download_cache}
   export PIP_USE_MIRRORS=true
   if [ $quiet -eq 1 ]; then
@@ -267,17 +267,17 @@ function run_tests {
 
   echo "Running Horizon application tests"
   ${command_wrapper} coverage erase
-  ${command_wrapper} coverage run -p $root/openstack-dashboard/manage.py test horizon --settings=horizon.tests.testsettings $testargs
+  ${command_wrapper} coverage run -p $root/manage.py test horizon --settings=horizon.tests.testsettings $testargs
   # get results of the Horizon tests
   HORIZON_RESULT=$?
 
-  echo "Running openstack-dashboard (Django project) tests"
+  echo "Running openstack_dashboard tests"
   if [ $selenium -eq 1 ]; then
-      ${command_wrapper} coverage run -p $root/openstack-dashboard/manage.py test dashboard --settings=horizon.tests.testsettings --with-selenium --with-cherrypyliveserver $testargs
+      ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=horizon.tests.testsettings --with-selenium --with-cherrypyliveserver $testargs
     else
-      ${command_wrapper} coverage run -p $root/openstack-dashboard/manage.py test dashboard --settings=horizon.tests.testsettings $testargs
+      ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=horizon.tests.testsettings $testargs
   fi
-  # get results of the openstack-dashboard tests
+  # get results of the openstack_dashboard tests
   DASHBOARD_RESULT=$?
 
   if [ $with_coverage -eq 1 ]; then
