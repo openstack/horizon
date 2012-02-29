@@ -29,6 +29,7 @@ from novaclient import exceptions as novaclient_exceptions
 from horizon import api
 from horizon import exceptions
 from horizon import forms
+from horizon.utils.validators import validate_ipv4_cidr
 
 
 LOG = logging.getLogger(__name__)
@@ -77,7 +78,8 @@ class AddRule(forms.SelfHandlingForm):
                                                'data-icmp': _('Code')}))
     cidr = forms.CharField(label=_("CIDR"),
                            help_text=_("Classless Inter-Domain Routing "
-                                       "(i.e. 192.168.0.0/24"))
+                                       "(i.e. 192.168.0.0/24"),
+                           validators=[validate_ipv4_cidr])
     # TODO (anthony) source group support
     # group_id = forms.CharField()
 
