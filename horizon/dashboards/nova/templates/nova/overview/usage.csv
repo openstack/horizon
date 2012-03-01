@@ -1,4 +1,4 @@
-Usage Report For Period:,{{ usage.start|date:"b. d Y" }},/,{{ usage.end|date:"b. d Y" }}
+Usage Report For Period:,{{ usage.start|date:"b. d Y" }},{{ usage.end|date:"b. d Y" }}
 Tenant ID:,{{ usage.tenant_id }}
 Total Active VCPUs:,{{ usage.summary.instances }}
 CPU-HRs Used:,{{ usage.summary.vcpu_hours }}
