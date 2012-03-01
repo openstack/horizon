@@ -59,7 +59,20 @@ class AssociateView(forms.ModalFormView):
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'),
                               redirect=redirect)
-        instances = [(server.id, server.name) for server in servers]
+        instances = []
+        for server in servers:
+            # FIXME(ttrifonov): show IP in case of non-unique names
+            # to be removed when nova can support unique names
+            server_name = server.name
+            if any(s.id != server.id and
+                   s.name == server.name for s in servers):
+                # duplicate instance name
+                server_name = "%s [%s]" % (server.name, server.id)
+            instances.append((server.id, server_name))
+
+        # Sort instances for easy browsing
+        instances = sorted(instances, key=lambda x: x[1])
+
         return {'floating_ip_id': self.object.id,
                 'floating_ip': self.object.ip,
                 'instances': instances}
