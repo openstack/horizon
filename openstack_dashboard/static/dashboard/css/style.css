@@ -343,6 +343,11 @@ table form {
     margin-bottom: 0;
 }
 
+.alert-block p {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
 .alert-block p:last-child {
   margin-bottom: 0;
 }
