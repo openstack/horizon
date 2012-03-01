@@ -20,12 +20,13 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import UpdateView, LaunchView
+from .views import UpdateView, LaunchView, DetailView
 
 VIEWS_MOD = 'horizon.dashboards.nova.images_and_snapshots.images.views'
 
 
 urlpatterns = patterns(VIEWS_MOD,
     url(r'^(?P<image_id>[^/]+)/launch/$', LaunchView.as_view(), name='launch'),
-    url(r'^(?P<image_id>[^/]+)/update/$', UpdateView.as_view(), name='update')
+    url(r'^(?P<image_id>[^/]+)/update/$', UpdateView.as_view(), name='update'),
+    url(r'^(?P<image_id>[^/]+)/$', DetailView.as_view(), name='detail'),
 )

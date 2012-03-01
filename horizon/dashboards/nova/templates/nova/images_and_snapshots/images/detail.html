@@ -1,0 +1,55 @@
+{% extends 'nova/base.html' %}
+{% load i18n sizeformat %}
+{% block title %}{% trans "Image Detail "%}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title="Image Detail: "|add:image.name %}
+{% endblock page_header %}
+
+{% block dash_main %}
+  <ul class="item_detail dash_block">
+    <li class="status detail_section">
+      <h3>{% trans "Status" %}</h3>
+      <ul>
+        <li><label>{% trans "Image ID:" %}</label>{{ image.id|default:"None" }}</li>
+        <li><label>{% trans "Image Status:" %}</label> {{ image.status|default:"None" }}</li>
+        <li><label>{% trans "Image Name:" %}</label> {{ image.name|default:"None" }}</li>
+        <li><label>{% trans "Public:" %}</label> {{ image.is_public }}</li>
+        <li><label>{% trans "Checksum:" %}</label> {{ image.checksum|default:"None" }}</li>
+        <li><label>{% trans "Created At:" %}</label> {{ image.created_at|default:"None" }}</li>
+        <li><label>{% trans "Last Updated At:" %}</label> {{ image.updated_app|default:"None" }}</li>
+      </ul>
+    </li>
+    <li class="specs detail_section">
+        <h3>{% trans "Specs" %}</h3>
+        <ul>
+          <li><label>{% trans "Size:" %}</label> {{ image.size|filesizeformat }}</li>
+          <li><label>{% trans "Container Format:" %}</label> {{ image.container_format|default:"None" }}</li>
+          <li><label>{% trans "Disk Format:" %}</label> {{ image.disk_format|default:"None" }}</li>
+        </ul>
+    </li>
+    <li class="custom_properties detail_section">
+        <h3>{% trans "Custom Properties" %}</h3>
+        <ul>
+          {% if image.properties.architecture %}
+            <li><label>{% trans "Architecture:" %}</label> {{ image.properties.architecture }}</li>
+          {% endif %}
+          {% if image.properties.kernel_id %}
+            <li><label>{% trans "Kernel ID:" %}</label> {{ image.properties.kernel_id }}</li>
+          {% endif %}
+          {% if image.properties.ramdisk_id %}
+            <li><label>{% trans "Ramdisk ID:" %}</label> {{ image.properties.ramdisk_id }}</li>
+          {% endif %}
+          {% if image.properties.image_state %}
+            <li><label>{% trans "Euca2ools state:" %}</label> {{ image.properties.image_state }}</li>
+          {% endif %}
+          {% if image.properties.project_id %}
+            <li><label>{% trans "Project ID:" %}</label> {{ image.properties.project_id }}</li>
+          {% endif %}
+          {% if image.properties.image_type %}
+            <li><label>{% trans "Image Type:" %}</label> {{ image.properties.image_type }}</li>
+          {% endif %}
+        </ul>
+    </li>
+  </ul>
+{% endblock %}
