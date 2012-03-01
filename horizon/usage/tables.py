@@ -1,5 +1,5 @@
 from django.utils.translation import ugettext as _
-from django.template.defaultfilters import timesince
+from django.template.defaultfilters import timesince, floatformat
 
 from horizon import tables
 from horizon.templatetags.sizeformat import mbformat
@@ -19,13 +19,15 @@ class BaseUsageTable(tables.DataTable):
     memory = tables.Column('memory_mb',
                            verbose_name=_("RAM"),
                            filters=(mbformat,))
-    hours = tables.Column('vcpu_hours', verbose_name=_("VCPU Hours"))
+    hours = tables.Column('vcpu_hours', verbose_name=_("VCPU Hours"),
+                          filters=(lambda v: floatformat(v, 2),))
 
 
 class GlobalUsageTable(BaseUsageTable):
     tenant = tables.Column('tenant_id', verbose_name=_("Project ID"))
     disk_hours = tables.Column('disk_gb_hours',
-                               verbose_name=_("Disk GB Hours"))
+                               verbose_name=_("Disk GB Hours"),
+                               filters=(lambda v: floatformat(v, 2),))
 
     def get_object_id(self, datum):
         return datum.tenant_id
