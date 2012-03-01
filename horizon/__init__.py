@@ -24,25 +24,25 @@ methods like :func:`~horizon.register` and :func:`~horizon.unregister`.
 # Because this module is compiled by setup.py before Django may be installed
 # in the environment we try importing Django and issue a warning but move on
 # should that fail.
-django = None
+Horizon = None
 try:
-    import django
+    from horizon.base import Horizon, Dashboard, Panel, Workflow
 except ImportError:
     import warnings
 
     def simple_warn(message, category, filename, lineno, file=None, line=None):
         return '%s: %s' % (category.__name__, message)
 
-    msg = ("Could not import Django. This is normal during installation.\n")
+    msg = ("Could not import Horizon dependencies. "
+           "This is normal during installation.\n")
     warnings.formatwarning = simple_warn
     warnings.warn(msg, Warning)
 
-if django:
+if Horizon:
     # This can be removed once the upstream bug is fixed.
+    import django
     if django.VERSION < (1, 4):
         from horizon.utils import reverse_bugfix
-
-    from horizon.base import Horizon, Dashboard, Panel, Workflow
 
     register = Horizon.register
     unregister = Horizon.unregister
