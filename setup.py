@@ -19,12 +19,52 @@
 #    under the License.
 
 import os
-from setuptools import setup, find_packages, findall
+import re
+from setuptools import setup, find_packages
 from horizon import version
 
 
+ROOT = os.path.dirname(__file__)
+PIP_REQUIRES = os.path.join(ROOT, "tools", "pip-requires")
+TEST_REQUIRES = os.path.join(ROOT, "tools", "test-requires")
+
+
+"""
+We generate our install_requires and dependency_links from the
+files listed in pip-requires and test-requires so that we don't have
+to maintain the dependency definitions in two places.
+"""
+
+
+def parse_requirements(*filenames):
+    requirements = []
+    for f in filenames:
+        for line in open(f, 'r').read().split('\n'):
+            if re.match(r'(\s*#)|(\s*$)', line):
+                continue
+            if re.match(r'\s*-e\s+', line):
+                requirements.append(re.sub(r'\s*-e\s+.*#egg=(.*)$', r'\1', line))
+            elif re.match(r'\s*-f\s+', line):
+                pass
+            else:
+                requirements.append(line)
+    return requirements
+
+
+def parse_dependency_links(*filenames):
+    dependency_links = []
+    for f in filenames:
+        for line in open(f, 'r').read().split('\n'):
+            if re.match(r'\s*-[ef]\s+', line):
+                line = re.sub(r'\s*-[ef]\s+', '', line)
+                line = re.sub(r'\s*git\+https', 'http', line)
+                line = re.sub(r'\.git#', '/tarball/master#', line)
+                dependency_links.append(line)
+    return dependency_links
+
+
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    return open(os.path.join(ROOT, fname)).read()
 
 
 setup(name="horizon",
@@ -36,12 +76,9 @@ setup(name="horizon",
       author='Devin Carlen',
       author_email='devin.carlen@gmail.com',
       packages=find_packages(),
-      package_data={'horizon': [s[len('horizon/'):] for s in
-                                findall('horizon/templates') \
-                                + findall('horizon/dashboards/nova/templates') \
-                                + findall('horizon/dashboards/syspanel/templates') \
-                                + findall('horizon/dashboards/settings/templates')]},
-      install_requires=[],
+      zip_safe=False,
+      install_requires=parse_requirements(PIP_REQUIRES, TEST_REQUIRES),
+      dependency_links=parse_dependency_links(PIP_REQUIRES, TEST_REQUIRES),
       classifiers=['Development Status :: 4 - Beta',
                    'Framework :: Django',
                    'Intended Audience :: Developers',
