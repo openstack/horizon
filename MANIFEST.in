@@ -1,1 +1,16 @@
+recursive-include docs *.py *.rst *.css *.js *.html *.conf
 recursive-include horizon *.html *.js *.csv *.template *.mo
+recursive-include openstack_dashboard *.html *.js *.css *.less *.csv *.template *.mo *.example *.eot *.svg *.ttf *.woff *.png *.gif *.ico *.wsgi
+recursive-include tools *.py *.sh
+
+include AUTHORS
+include LICENSE
+include Makefile
+include manage.py
+include README.rst
+include run_tests.sh
+include docs/Makefile
+include tools/pip-requires
+include tools/test-requires
+
+exclude openstack_dashboard/local/local_settings.py
