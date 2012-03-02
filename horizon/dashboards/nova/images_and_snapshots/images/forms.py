@@ -40,14 +40,26 @@ LOG = logging.getLogger(__name__)
 class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length="25", label=_("Name"))
-    kernel = forms.CharField(max_length="25", label=_("Kernel ID"),
-                             required=False)
-    ramdisk = forms.CharField(max_length="25", label=_("Ramdisk ID"),
-                              required=False)
-    architecture = forms.CharField(label=_("Architecture"), required=False)
+    kernel = forms.CharField(max_length="36", label=_("Kernel ID"),
+                             widget=forms.TextInput(
+                                attrs={'readonly': 'readonly'}
+                             ))
+    ramdisk = forms.CharField(max_length="36", label=_("Ramdisk ID"),
+                              widget=forms.TextInput(
+                                attrs={'readonly': 'readonly'}
+                              ))
+    architecture = forms.CharField(label=_("Architecture"), required=False,
+                                   widget=forms.TextInput(
+                                    attrs={'readonly': 'readonly'}
+                                   ))
     container_format = forms.CharField(label=_("Container Format"),
-                                       required=False)
-    disk_format = forms.CharField(label=_("Disk Format"))
+                                       widget=forms.TextInput(
+                                        attrs={'readonly': 'readonly'}
+                                       ))
+    disk_format = forms.CharField(label=_("Disk Format"),
+                                  widget=forms.TextInput(
+                                    attrs={'readonly': 'readonly'}
+                                  ))
 
     def handle(self, request, data):
         # TODO add public flag to image meta properties
