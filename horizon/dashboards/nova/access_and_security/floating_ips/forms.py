@@ -67,7 +67,7 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
 
 
 class FloatingIpAllocate(forms.SelfHandlingForm):
-    tenant_id = forms.CharField(widget=forms.HiddenInput())
+    tenant_name = forms.CharField(widget=forms.HiddenInput())
     pool = forms.ChoiceField()
 
     def __init__(self, *args, **kwargs):
@@ -79,13 +79,13 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
         try:
             fip = api.tenant_floating_ip_allocate(request,
                                                   pool=data.get('pool', None))
-            LOG.info('Allocating Floating IP "%s" to tenant "%s"'
-                     % (fip.ip, data['tenant_id']))
+            LOG.info('Allocating Floating IP "%s" to project "%s"'
+                     % (fip.ip, data['tenant_name']))
 
             messages.success(request,
                              _('Successfully allocated Floating IP "%(ip)s" \
-                                to tenant "%(tenant)s"')
-                             % {"ip": fip.ip, "tenant": data['tenant_id']})
+                                to project "%(project)s"')
+                             % {"ip": fip.ip, "project": data['tenant_name']})
         except:
             exceptions.handle(request, _('Unable to allocate Floating IP.'))
         return shortcuts.redirect(
