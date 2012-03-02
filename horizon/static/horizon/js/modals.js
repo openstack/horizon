@@ -25,6 +25,22 @@ horizon.addInitFunction(function() {
           $(this).remove();
         });
 
+        var $form = $('.modal:last').find('form');
+        if($form) {
+          var checkboxes = $form.find(":checkbox")
+          if(checkboxes.length != 0 && checkboxes.filter(":checked").length == 0) {
+            $form.find(".table_actions button.btn-danger").addClass("disabled");
+          }
+          $form.find(":checkbox").on("click", function (evt) {
+            var any_checked = $form.find(":checkbox").is(":checked");
+            if(any_checked) {
+              $form.find(".table_actions button.btn-danger").removeClass("disabled");
+            }else {
+              $form.find(".table_actions button.btn-danger").addClass("disabled");
+            }
+          });
+        }
+
         // TODO(tres): Find some better way to deal with grouped form fields.
         var volumeField = $("#id_volume");
         if(volumeField) {

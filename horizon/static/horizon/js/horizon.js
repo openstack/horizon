@@ -58,6 +58,9 @@ var Horizon = function() {
   horizon.datatables.confirm = function (action) {
     var $action = $(action),
         action_string, title, body, modal, form;
+    if($action.hasClass("disabled")) {
+      return;
+    }
     action_string = $action.text();
     title = "Confirm " + action_string;
     body = "Please confirm your selection. This action cannot be undone.";
