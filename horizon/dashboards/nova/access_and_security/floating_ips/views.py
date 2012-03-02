@@ -77,5 +77,5 @@ class AllocateView(forms.ModalFormView):
                          for pool in api.floating_ip_pools_list(self.request)]
         else:
             pool_list = [(None, _("No floating IP pools available."))]
-        return {'tenant_id': self.request.user.tenant_id,
+        return {'tenant_name': self.request.user.tenant_name,
                 'pool_list': pool_list}
