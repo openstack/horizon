@@ -42,9 +42,7 @@ def parse_requirements(*filenames):
         for line in open(f, 'r').read().split('\n'):
             if re.match(r'(\s*#)|(\s*$)', line):
                 continue
-            if re.match(r'\s*-e\s+', line):
-                requirements.append(re.sub(r'\s*-e\s+.*#egg=(.*)$', r'\1', line))
-            elif re.match(r'\s*-f\s+', line):
+            elif re.match(r'\s*-[ef]\s+', line):
                 pass
             else:
                 requirements.append(line)
