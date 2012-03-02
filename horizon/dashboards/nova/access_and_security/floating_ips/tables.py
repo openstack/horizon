@@ -45,6 +45,7 @@ class ReleaseIPs(tables.BatchAction):
     action_past = _("Released")
     data_type_singular = _("Floating IP")
     data_type_plural = _("Floating IPs")
+    classes = ('btn-danger',)
 
     def action(self, request, obj_id):
         api.tenant_floating_ip_release(request, obj_id)
