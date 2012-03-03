@@ -12,6 +12,6 @@
 <p id="activity">
   <span><strong>{% trans "Active Instances" %}:</strong> {{ usage.summary.instances|default:'-' }}</span>
   <span><strong>{% trans "Active Memory" %}:</strong> {{ usage.summary.memory_mb|mbformat|default:'-' }}</span>
-  <span><strong>{% trans "This Month's VCPU-Hours" %}:</strong> {{ usage.summary.vcpu_hours|floatformat|default:'-' }}</span>
-  <span><strong>{% trans "This Month's GB-Hours" %}:</strong> {{ usage.summary.disk_gb_hours|floatformat|default:'-' }}</span>
+  <span><strong>{% trans "This Month's VCPU-Hours" %}:</strong> {{ usage.summary.vcpu_hours|floatformat:2|default:'-' }}</span>
+  <span><strong>{% trans "This Month's GB-Hours" %}:</strong> {{ usage.summary.disk_gb_hours|floatformat:2|default:'-' }}</span>
 </p>
