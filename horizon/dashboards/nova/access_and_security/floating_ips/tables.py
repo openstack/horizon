@@ -79,7 +79,7 @@ class DisassociateIP(tables.Action):
             LOG.info('Disassociating Floating IP "%s".' % obj_id)
             messages.success(request,
                              _('Successfully disassociated Floating IP: %s')
-                             % obj_id)
+                             % fip.ip)
         except:
             exceptions.handle(request,
                               _('Unable to disassociate floating IP.'))
