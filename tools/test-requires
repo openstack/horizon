@@ -1,7 +1,6 @@
 # Testing Requirements
 CherryPy
 coverage
-django-nose
 django-nose-selenium
 mox
 nose
