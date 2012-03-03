@@ -59,6 +59,7 @@ class CreateSnapshot(tables.LinkAction):
     name = "snapshots"
     verbose_name = _("Create Snapshot")
     url = "horizon:nova:instances_and_volumes:volumes:create_snapshot"
+    attrs = {"class": "ajax-modal"}
 
     def allowed(self, request, volume=None):
         return volume.status in ("available",)
