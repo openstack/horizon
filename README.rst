@@ -33,9 +33,9 @@ for you and then run the full test suite to verify everything is installed
 and functioning correctly.
 
 Now that the virtualenv is created, you need to configure your local
-environment.  To do this, create a ``local_settings.py`` file in the ``local/``
-directory.  There is a ``local_settings.py.example`` file there that may be
-used as a template.
+environment.  To do this, create a ``local_settings.py`` file in the
+``openstack_dashboard/local/`` directory.  There is a
+``local_settings.py.example`` file there that may be used as a template.
 
 If all is well you should able to run the development server locally:
 
