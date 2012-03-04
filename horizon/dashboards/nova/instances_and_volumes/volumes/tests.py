@@ -45,3 +45,19 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(len(res.context['form'].fields['instance']._choices),
                          2)
         self.assertEqual(res.status_code, 200)
+
+    def test_detail_view(self):
+        volume = self.volumes.first()
+        server = self.servers.first()
+        volume.attachments = [{"serverId": server.id}]
+        self.mox.StubOutWithMock(api.nova, 'volume_get')
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        api.nova.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances_and_volumes:volumes:detail',
+                      args=[volume.id])
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertNoMessages()

@@ -36,8 +36,9 @@ def get_enabled(service, reverse=False):
 
 def get_service_name(service):
     if(service.type == "identity"):
-        return _("%s (%s backend)") % (service.type,
-                                       api.keystone_backend_name())
+        return _("%(type)s (%(backend)s backend)") \
+                 % {"type": service.type,
+                    "backend": api.keystone_backend_name()}
     else:
         return service.type
 

@@ -1,46 +1,15 @@
 {% extends 'nova/base.html' %}
-{% load i18n parse_date %}
-{% block title %}Volume Details{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Volume Details" %}{% endblock %}
 
 {% block page_header %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "horizon/common/_page_header.html" with title="Volume Detail: "|add:volume.displayName %}
+  {% include "horizon/common/_page_header.html" with title=_("Volume Detail") %}
 {% endblock page_header %}
 
 {% block dash_main %}
-<ul id="instance_tabs">
-    <li class="active"><a class="overview" href="#">{% trans "Overview" %}</a></li>
-</ul>
-
-  <div class="dash_block">
-    <div id="overview" class="tab_wrapper">
-      <ul>
-        <li>
-          <div class="status">
-            <h4>{% trans "Details" %}</h4>
-            <ul>
-              <li><span>{% trans "ID:" %}</span> {{ volume.id }}</li>
-              <li><span>{% trans "Name:" %}</span> {{ volume.displayName }}</li>
-              <li><span>{% trans "Size:" %}</span> {{ volume.size }} {% trans "GB" %}</li>
-              <li><span>{% trans "Description:" %}</span> {{ volume.displayDescription }}</li>
-              <li><span>{% trans "Status:" %}</span> {{ volume.status|capfirst }}</li>
-              <li><span>{% trans "Created:" %}</span> {{ volume.createdAt|parse_date }}</li>
-              <li>
-                <span>{% trans "Attached To:" %}</span>
-                {% if instance %}
-                <a href="{% url horizon:nova:instances_and_volumes:volumes:detail attachment.serverId %}">
-                  {% trans "Instance" %} {{ instance.id }}
-                  ({{ instance.name }})
-                </a>
-                {% trans "on" %} {{ attachment.device }}
-                {% else %}
-                {% trans "Not Attached" %}
-                {% endif %}
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
+<div class="row-fluid">
+  <div class="span12">
+  {{ tab_group.render }}
   </div>
+</div>
 {% endblock %}

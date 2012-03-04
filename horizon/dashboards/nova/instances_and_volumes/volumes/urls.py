@@ -16,7 +16,8 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import CreateView, EditAttachmentsView, CreateSnapshotView
+from .views import (CreateView, EditAttachmentsView, DetailView,
+                    CreateSnapshotView)
 
 
 urlpatterns = patterns(
@@ -28,5 +29,7 @@ urlpatterns = patterns(
     url(r'^(?P<volume_id>[^/]+)/create_snapshot/$',
         CreateSnapshotView.as_view(),
         name='create_snapshot'),
-    url(r'^(?P<volume_id>[^/]+)/detail/$', 'detail', name='detail'),
+    url(r'^(?P<volume_id>[^/]+)/detail/$',
+        DetailView.as_view(),
+        name='detail'),
 )

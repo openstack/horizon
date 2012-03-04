@@ -19,13 +19,7 @@
 #    under the License.
 
 import logging
-import os
-import subprocess
 import urlparse
-
-from django import shortcuts
-from django.contrib import messages
-from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import tables
