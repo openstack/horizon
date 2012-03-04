@@ -31,6 +31,7 @@ from horizon import api
 from horizon import exceptions
 from horizon import forms
 from horizon.utils.validators import validate_ipv4_cidr
+from horizon.utils.validators import validate_port_range
 
 
 LOG = logging.getLogger(__name__)
@@ -68,7 +69,8 @@ class AddRule(forms.SelfHandlingForm):
                                                "in the range (-1: 255)"),
                                    widget=forms.TextInput(
                                           attrs={'data': _('From port'),
-                                                 'data-icmp': _('Type')}))
+                                                 'data-icmp': _('Type')}),
+                                   validators=[validate_port_range])
     to_port = forms.IntegerField(label=_("To port"),
                                  help_text=_("TCP/UDP: Enter integer value "
                                              "between 1 and 65535. ICMP: "
@@ -76,7 +78,8 @@ class AddRule(forms.SelfHandlingForm):
                                              "in the range (-1: 255)"),
                                  widget=forms.TextInput(
                                         attrs={'data': _('To port'),
-                                               'data-icmp': _('Code')}))
+                                               'data-icmp': _('Code')}),
+                                 validators=[validate_port_range])
     cidr = forms.CharField(label=_("CIDR"),
                            help_text=_("Classless Inter-Domain Routing "
                                        "(i.e. 192.168.0.0/24"),
@@ -89,7 +92,15 @@ class AddRule(forms.SelfHandlingForm):
 
     def clean(self):
         cleaned_data = super(AddRule, self).clean()
-        if cleaned_data["to_port"] < cleaned_data["from_port"]:
+        to_port = cleaned_data.get("to_port", None)
+        from_port = cleaned_data.get("from_port", None)
+        if to_port == None:
+            msg = _('The "to" port number must not be empty.')
+            raise ValidationError(msg)
+        if from_port == None:
+            msg = _('The "from" port number must not be empty.')
+            raise ValidationError(msg)
+        if to_port < from_port:
             msg = _('The "to" port number must be greater than or equal to '
                     'the "from" port number.')
             raise ValidationError(msg)
