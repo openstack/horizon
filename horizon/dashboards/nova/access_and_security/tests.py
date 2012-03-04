@@ -21,6 +21,7 @@
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
+from copy import deepcopy
 
 from horizon import api
 from horizon import test
@@ -51,3 +52,36 @@ class AccessAndSecurityTests(test.TestCase):
                               sec_groups)
         self.assertItemsEqual(res.context['floating_ips_table'].data,
                               floating_ips)
+
+    def test_association(self):
+        floating_ip = self.floating_ips.first()
+        servers = self.servers.list()
+
+        # Add duplicate instance name to test instance name with [IP]
+        # change id and private IP
+        server3 = api.nova.Server(self.servers.first(), self.request)
+        server3.id = 101
+        server3.addresses = deepcopy(server3.addresses)
+        server3.addresses['private'][0]['addr'] = "10.0.0.5"
+        self.servers.add(server3)
+
+        self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
+        self.mox.StubOutWithMock(api, 'server_list')
+        api.tenant_floating_ip_get(IsA(http.HttpRequest),
+                                   floating_ip.id).AndReturn(floating_ip)
+        api.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+                             reverse("horizon:nova:access_and_security:"
+                                     "floating_ips:associate",
+                                     args=[floating_ip.id]))
+        self.assertTemplateUsed(res,
+                                'nova/access_and_security/'
+                                'floating_ips/associate.html')
+
+        self.assertContains(res, '<option value="1">server_1 [1]'
+                            '</option>')
+        self.assertContains(res, '<option value="101">server_1 [101]'
+                            '</option>')
+        self.assertContains(res, '<option value="2">server_2</option>')
