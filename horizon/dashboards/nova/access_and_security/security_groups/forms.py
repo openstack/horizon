@@ -80,21 +80,34 @@ class AddRule(forms.SelfHandlingForm):
                                         attrs={'data': _('To port'),
                                                'data-icmp': _('Code')}),
                                  validators=[validate_port_range])
-    cidr = forms.CharField(label=_("CIDR"),
+
+    source_group = forms.ChoiceField(label=_('Source Group'), required=False)
+    cidr = forms.CharField(label=_("CIDR"), required=False,
                            help_text=_("Classless Inter-Domain Routing "
                                        "(i.e. 192.168.0.0/24"),
                            validators=[validate_ipv4_cidr])
-    # TODO (anthony) source group support
-    # group_id = forms.CharField()
 
     security_group_id = forms.IntegerField(widget=forms.HiddenInput())
     tenant_id = forms.CharField(widget=forms.HiddenInput())
+
+    def __init__(self, *args, **kwargs):
+        super(AddRule, self).__init__(*args, **kwargs)
+        initials = kwargs.get("initial", {})
+        current_group_id = initials.get('security_group_id', 0)
+        security_groups = initials.get('security_group_list', [])
+        security_groups_choices = [("", "CIDR")]  # default choice is CIDR
+        group_choices = [s for s in security_groups
+                         if str(s[0]) != current_group_id]
+        if len(group_choices):  # add group choice if available
+            security_groups_choices.append(('Security Group', group_choices))
+        self.fields['source_group'].choices = security_groups_choices
 
     def clean(self):
         cleaned_data = super(AddRule, self).clean()
         from_port = cleaned_data.get("from_port", None)
         to_port = cleaned_data.get("to_port", None)
         cidr = cleaned_data.get("cidr", None)
+        source_group = cleaned_data.get("source_group", None)
 
         if from_port == None:
             msg = _('The "from" port number is invalid.')
@@ -107,9 +120,12 @@ class AddRule(forms.SelfHandlingForm):
                     'the "from" port number.')
             raise ValidationError(msg)
 
-        if cidr == None:
-            msg = _('The "CIDR" is invalid')
+        if cidr and source_group:
+            msg = _('Only either "CIDR" or "Source Group" may be specified')
             raise ValidationError(msg)
+        if cidr:
+            # if only cidr is specified, make sure source_group is cleaned
+            cleaned_data['source_group'] = None
 
         return cleaned_data
 
@@ -120,7 +136,8 @@ class AddRule(forms.SelfHandlingForm):
                                                   data['ip_protocol'],
                                                   data['from_port'],
                                                   data['to_port'],
-                                                  data['cidr'])
+                                                  data['cidr'],
+                                                  data['source_group'])
             messages.success(request, _('Successfully added rule: %s') \
                                     % unicode(rule))
         except novaclient_exceptions.ClientException, e:

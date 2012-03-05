@@ -30,6 +30,7 @@ from novaclient.v1_1.servers import REBOOT_HARD
 
 from horizon.api.base import APIResourceWrapper, APIDictWrapper, url_for
 
+from django.utils.translation import ugettext as _
 
 LOG = logging.getLogger(__name__)
 
@@ -166,13 +167,19 @@ class SecurityGroup(APIResourceWrapper):
 
 class SecurityGroupRule(APIResourceWrapper):
     """ Wrapper for individual rules in a SecurityGroup. """
-    _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range']
+    _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range', 'group']
 
     def __unicode__(self):
-        vals = {'from': self.from_port,
-                'to': self.to_port,
-                'cidr': self.ip_range['cidr']}
-        return 'ALLOW %(from)s:%(to)s from %(cidr)s' % vals
+        if 'name' in self.group:
+            vals = {'from': self.from_port,
+                    'to': self.to_port,
+                    'group': self.group['name']}
+            return _('ALLOW %(from)s:%(to)s from %(group)s') % vals
+        else:
+            vals = {'from': self.from_port,
+                    'to': self.to_port,
+                    'cidr': self.ip_range['cidr']}
+            return _('ALLOW %(from)s:%(to)s from %(cidr)s') % vals
 
 
 def novaclient(request):

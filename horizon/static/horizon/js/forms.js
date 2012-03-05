@@ -11,6 +11,8 @@ horizon.addInitFunction(function () {
 
   horizon.datatables.validate_button();
 
+  horizon.forms.handle_source_group();
+
   // Confirmation on deletion of items.
   // TODO (tres): These need to be localizable or to just plain go away in favor
   // of modals.

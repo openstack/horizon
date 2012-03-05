@@ -78,8 +78,13 @@ class DeleteRule(tables.DeleteAction):
         return reverse("horizon:nova:access_and_security:index")
 
 
-def get_cidr(rule):
-    return rule.ip_range['cidr']
+def get_source(rule):
+    if 'cidr' in rule.ip_range:
+        return rule.ip_range['cidr'] + ' (CIDR)'
+    elif 'name' in rule.group:
+        return rule.group['name']
+    else:
+        return None
 
 
 class RulesTable(tables.DataTable):
@@ -88,7 +93,7 @@ class RulesTable(tables.DataTable):
                              filters=(unicode.upper,))
     from_port = tables.Column("from_port", verbose_name=_("From Port"))
     to_port = tables.Column("to_port", verbose_name=_("To Port"))
-    cidr = tables.Column(get_cidr, verbose_name=_("CIDR"))
+    source = tables.Column(get_source, verbose_name=_("Source"))
 
     def sanitize_id(self, obj_id):
         return int(obj_id)

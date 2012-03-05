@@ -503,6 +503,10 @@ td .icon-updating.ajax-updating {
     width: 167px; /* Fits 4 fields to a row */
 }
 
+.modal form.horizontal.split_five .form-field {
+    width: 133px; /* Fits 5 fields to a row */
+}
+
 .modal form.horizontal fieldset {
     width: 100%;
 }
@@ -551,7 +555,6 @@ td .icon-updating.ajax-updating {
     width: 372px;
 }
 
-.modal .form-field,
 .modal fieldset ul {
     width: 90%;
 }
@@ -559,7 +562,7 @@ td .icon-updating.ajax-updating {
 .modal fieldset .form-field input,
 .modal fieldset .form-field select,
 .modal fieldset .form-field textarea {
-  width: 96%;
+  width: 90%;
 }
 
 .modal .modal-footer input {

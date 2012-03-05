@@ -3,7 +3,7 @@
 
 {% block form_id %}security_group_rule_form{% endblock %}
 {% block form_action %}{% url horizon:nova:access_and_security:security_groups:edit_rules security_group.id %}{% endblock %}
-{% block form_class %}{{ block.super }} horizontal split_quarter{% endblock %}
+{% block form_class %}{{ block.super }} horizontal split_five{% endblock %}
 
 {% block modal_id %}security_group_rule_modal{% endblock %}
 {% block modal-header %}{% trans "Edit Security Group Rules" %}{% endblock %}
