@@ -36,7 +36,7 @@ class BaseUserForm(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(BaseUserForm, self).__init__(*args, **kwargs)
         # Populate tenant choices
-        tenant_choices = [('', "Select a tenant")]
+        tenant_choices = [('', _("Select a project"))]
         for tenant in api.tenant_list(request, admin=True):
             if tenant.enabled:
                 tenant_choices.append((tenant.id, tenant.name))
@@ -76,7 +76,7 @@ class CreateUserForm(BaseUserForm):
                                              default_role.id)
             except:
                 exceptions.handle(request,
-                                  _('Unable to add user to primary tenant.'))
+                                  _('Unable to add user to primary project.'))
             return shortcuts.redirect('horizon:syspanel:users:index')
         except:
             exceptions.handle(request, _('Unable to create user.'))
