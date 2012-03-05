@@ -21,10 +21,3 @@ export OS_USERNAME={{ user.username }}
 echo "Please enter your OpenStack Password: "
 read -s OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT
-
-# FIXME: Set Glance API variables as well (needed until we implement
-# http://wiki.openstack.org/CLIAuth)
-export OS_AUTH_USER={{ user.username }}
-export OS_AUTH_KEY=$OS_PASSWORD_INPUT
-export OS_AUTH_TENANT={{ tenant_id }}
-export OS_AUTH_STRATEGY=keystone
