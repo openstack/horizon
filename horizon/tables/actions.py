@@ -498,19 +498,22 @@ class BatchAction(Action):
         #Begin with success message class, downgrade to info if problems
         success_message_level = messages.success
         if action_not_allowed:
-            messages.error(request, _('You do not have permission to %s: %s') %
-                           (self._conjugate(action_not_allowed).lower(),
-                            ", ".join(action_not_allowed)))
+            msg = _('You do not have permission to %(action)s: %(objs)s')
+            params = {"action": self._conjugate(action_not_allowed).lower(),
+                      "objs": ", ".join(action_not_allowed)}
+            messages.error(request, msg % params)
             success_message_level = messages.info
         if action_failure:
-            messages.error(request, _('Unable to %s: %s') % (
-                    self._conjugate(action_failure).lower(),
-                    ", ".join(action_failure)))
+            msg = _('Unable to %(action)s: %(objs)s')
+            params = {"action": self._conjugate(action_failure).lower(),
+                      "objs": ", ".join(action_failure)}
+            messages.error(request, msg % params)
             success_message_level = messages.info
         if action_success:
-            success_message_level(request, _('%s: %s') % (
-                    self._conjugate(action_success, True),
-                    ", ".join(action_success)))
+            msg = _('%(action)s: %(objs)s')
+            params = {"action": self._conjugate(action_success, True),
+                      "objs": ", ".join(action_success)}
+            success_message_level(request, msg % params)
 
         return shortcuts.redirect(self.get_success_url(request))
 
