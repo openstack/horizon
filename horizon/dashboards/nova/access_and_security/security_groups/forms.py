@@ -92,18 +92,25 @@ class AddRule(forms.SelfHandlingForm):
 
     def clean(self):
         cleaned_data = super(AddRule, self).clean()
-        to_port = cleaned_data.get("to_port", None)
         from_port = cleaned_data.get("from_port", None)
-        if to_port == None:
-            msg = _('The "to" port number must not be empty.')
-            raise ValidationError(msg)
+        to_port = cleaned_data.get("to_port", None)
+        cidr = cleaned_data.get("cidr", None)
+
         if from_port == None:
-            msg = _('The "from" port number must not be empty.')
+            msg = _('The "from" port number is invalid.')
+            raise ValidationError(msg)
+        if to_port == None:
+            msg = _('The "to" port number is invalid.')
             raise ValidationError(msg)
         if to_port < from_port:
             msg = _('The "to" port number must be greater than or equal to '
                     'the "from" port number.')
             raise ValidationError(msg)
+
+        if cidr == None:
+            msg = _('The "CIDR" is invalid')
+            raise ValidationError(msg)
+
         return cleaned_data
 
     def handle(self, request, data):
