@@ -64,7 +64,7 @@ class VNCTab(tabs.Tab):
         except:
             vnc_url = None
             exceptions.handle(request,
-                              _('Unable to get vnc console for '
+                              _('Unable to get VNC console for '
                                 'instance "%s".') % instance.id)
         return {'vnc_url': vnc_url}
 

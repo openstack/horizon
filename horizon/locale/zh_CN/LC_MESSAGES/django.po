@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-06 13:07+0800\n"
+"POT-Creation-Date: 2012-03-06 13:31+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -870,10 +870,6 @@ msgid "VNC"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/instances/tabs.py:67
-#, python-format
-msgid "Unable to get vnc console for instance \"%s\"."
-msgstr ""
-
 #: dashboards/nova/instances_and_volumes/instances/views.py:64
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."

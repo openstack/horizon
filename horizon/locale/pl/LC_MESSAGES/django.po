@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-06 13:07+0800\n"
+"POT-Creation-Date: 2012-03-06 13:31+0800\n"
 "PO-Revision-Date: 2011-09-24 14:41+0100\n"
 "Last-Translator: Tomasz 'Zen' Napierala <tomasz@napierala.org>\n"
 "Language-Team: Polish OpenStack translations team <tomasz+openstack-"
@@ -928,10 +928,6 @@ msgid "VNC"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/instances/tabs.py:67
-#, fuzzy, python-format
-msgid "Unable to get vnc console for instance \"%s\"."
-msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
-
 #: dashboards/nova/instances_and_volumes/instances/views.py:64
 #, fuzzy, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
@@ -2516,6 +2512,10 @@ msgstr ""
 #: views/auth_forms.py:160
 msgid "You are not authorized for any available tenants."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Unable to get vnc console for instance \"%s\"."
+#~ msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
 
 #, fuzzy
 #~ msgid "Volume Snaphots"
