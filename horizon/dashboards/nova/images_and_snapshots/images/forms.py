@@ -123,7 +123,7 @@ class LaunchForm(forms.SelfHandlingForm):
             label=_("Delete on Terminate"),
             initial=False,
             required=False,
-            help_text=_("Delete volume on instance termiante"))
+            help_text=_("Delete volume on instance terminate"))
 
     def __init__(self, *args, **kwargs):
         flavor_list = kwargs.pop('flavor_list')

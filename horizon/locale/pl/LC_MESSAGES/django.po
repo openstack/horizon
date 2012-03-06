@@ -628,7 +628,7 @@ msgid "Delete on Terminate"
 msgstr "Usuń projekt"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:114
-msgid "Delete volume on instance termiante"
+msgid "Delete volume on instance terminate"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:149
