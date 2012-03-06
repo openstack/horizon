@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-05 09:48-0800\n"
+"POT-Creation-Date: 2012-03-06 13:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,7 +79,7 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/instances/tables.py:68
 #: dashboards/nova/instances_and_volumes/instances/tables.py:83
 #: dashboards/nova/instances_and_volumes/instances/tables.py:108
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:129
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:130
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/detail.html:32
 msgid "Instance"
 msgstr ""
@@ -164,7 +164,7 @@ msgstr ""
 msgid "Unable to retrieve instance list."
 msgstr ""
 
-#: dashboards/nova/access_and_security/floating_ips/views.py:79
+#: dashboards/nova/access_and_security/floating_ips/views.py:92
 msgid "No floating IP pools available."
 msgstr ""
 
@@ -198,7 +198,7 @@ msgid "Error Importing Keypair: %s"
 msgstr ""
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:29
-#: dashboards/nova/images_and_snapshots/images/forms.py:86
+#: dashboards/nova/images_and_snapshots/images/forms.py:98
 msgid "Keypair"
 msgstr ""
 
@@ -226,71 +226,83 @@ msgstr ""
 msgid "Unable to create keypair: %(exc)s"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:50
+#: dashboards/nova/access_and_security/security_groups/forms.py:51
 #, python-format
 msgid "Successfully created security_group: %s"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:53
+#: dashboards/nova/access_and_security/security_groups/forms.py:54
 msgid "Unable to create security group."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:58
+#: dashboards/nova/access_and_security/security_groups/forms.py:59
 msgid "IP protocol"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:64
-#: dashboards/nova/access_and_security/security_groups/forms.py:70
+#: dashboards/nova/access_and_security/security_groups/forms.py:65
+#: dashboards/nova/access_and_security/security_groups/forms.py:71
 msgid "From port"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:65
+#: dashboards/nova/access_and_security/security_groups/forms.py:66
 msgid ""
 "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
 "ICMP type in the range (-1: 255)"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:71
+#: dashboards/nova/access_and_security/security_groups/forms.py:72
 #: dashboards/nova/images_and_snapshots/images/tables.py:72
 msgid "Type"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:72
-#: dashboards/nova/access_and_security/security_groups/forms.py:78
+#: dashboards/nova/access_and_security/security_groups/forms.py:74
+#: dashboards/nova/access_and_security/security_groups/forms.py:80
 msgid "To port"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:73
+#: dashboards/nova/access_and_security/security_groups/forms.py:75
 msgid ""
 "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
 "ICMP code in the range (-1: 255)"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:79
+#: dashboards/nova/access_and_security/security_groups/forms.py:81
 msgid "Code"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:80
+#: dashboards/nova/access_and_security/security_groups/forms.py:83
 #: dashboards/nova/access_and_security/security_groups/tables.py:91
 msgid "CIDR"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:81
+#: dashboards/nova/access_and_security/security_groups/forms.py:84
 msgid "Classless Inter-Domain Routing (i.e. 192.168.0.0/24"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:93
+#: dashboards/nova/access_and_security/security_groups/forms.py:100
+msgid "The \"from\" port number is invalid."
+msgstr ""
+
+#: dashboards/nova/access_and_security/security_groups/forms.py:103
+msgid "The \"to\" port number is invalid."
+msgstr ""
+
+#: dashboards/nova/access_and_security/security_groups/forms.py:106
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:106
+#: dashboards/nova/access_and_security/security_groups/forms.py:111
+msgid "The \"CIDR\" is invalid"
+msgstr ""
+
+#: dashboards/nova/access_and_security/security_groups/forms.py:124
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:110
+#: dashboards/nova/access_and_security/security_groups/forms.py:128
 #, python-format
 msgid "Error adding rule security group: %s"
 msgstr ""
@@ -301,7 +313,7 @@ msgstr ""
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:31
 #: dashboards/nova/access_and_security/security_groups/tables.py:65
-#: dashboards/nova/images_and_snapshots/images/forms.py:96
+#: dashboards/nova/images_and_snapshots/images/forms.py:108
 msgid "Security Groups"
 msgstr ""
 
@@ -441,7 +453,7 @@ msgstr ""
 #: dashboards/nova/containers/tables.py:104
 #: dashboards/nova/containers/tables.py:182
 #: dashboards/nova/instances_and_volumes/instances/tables.py:207
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:91
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:92
 #: dashboards/syspanel/instances/tables.py:49
 msgid "Size"
 msgstr ""
@@ -496,7 +508,7 @@ msgid "Unable to retrieve volume snapshots."
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:42
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:88
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:89
 #: dashboards/nova/networks/tables.py:38
 #: dashboards/syspanel/flavors/forms.py:37
 #: dashboards/syspanel/projects/forms.py:60
@@ -510,96 +522,96 @@ msgstr ""
 msgid "Kernel ID"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:45
+#: dashboards/nova/images_and_snapshots/images/forms.py:47
 msgid "Ramdisk ID"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:47
+#: dashboards/nova/images_and_snapshots/images/forms.py:51
 msgid "Architecture"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:48
+#: dashboards/nova/images_and_snapshots/images/forms.py:55
 #: dashboards/nova/images_and_snapshots/images/tables.py:80
 msgid "Container Format"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:50
+#: dashboards/nova/images_and_snapshots/images/forms.py:59
 msgid "Disk Format"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:55
+#: dashboards/nova/images_and_snapshots/images/forms.py:67
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:71
+#: dashboards/nova/images_and_snapshots/images/forms.py:83
 msgid "Image was successfully updated."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:78
+#: dashboards/nova/images_and_snapshots/images/forms.py:90
 msgid "Server Name"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:82
+#: dashboards/nova/images_and_snapshots/images/forms.py:94
 msgid "User Data"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:84
+#: dashboards/nova/images_and_snapshots/images/forms.py:96
 #: dashboards/syspanel/flavors/tables.py:13
 msgid "Flavor"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:85
+#: dashboards/nova/images_and_snapshots/images/forms.py:97
 msgid "Size of image to launch."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:88
+#: dashboards/nova/images_and_snapshots/images/forms.py:100
 msgid "Which keypair to use for authentication."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:90
+#: dashboards/nova/images_and_snapshots/images/forms.py:102
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:23
 msgid "Instance Count"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:94
+#: dashboards/nova/images_and_snapshots/images/forms.py:106
 msgid "Number of instances to launch."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:100
+#: dashboards/nova/images_and_snapshots/images/forms.py:112
 msgid "Launch instance in these security groups."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:102
+#: dashboards/nova/images_and_snapshots/images/forms.py:114
 msgid "Volume or Volume Snapshot"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:104
+#: dashboards/nova/images_and_snapshots/images/forms.py:116
 msgid "Volume to boot from."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:105
+#: dashboards/nova/images_and_snapshots/images/forms.py:117
 msgid "Device Name"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:108
+#: dashboards/nova/images_and_snapshots/images/forms.py:120
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:111
+#: dashboards/nova/images_and_snapshots/images/forms.py:123
 msgid "Delete on Terminate"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:114
+#: dashboards/nova/images_and_snapshots/images/forms.py:126
 msgid "Delete volume on instance terminate"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:149
+#: dashboards/nova/images_and_snapshots/images/forms.py:161
 #, python-format
 msgid "Instance \"%s\" launched."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:153
+#: dashboards/nova/images_and_snapshots/images/forms.py:165
 #, python-format
 msgid "Unable to launch instance: %(exc)s"
 msgstr ""
@@ -658,7 +670,7 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/views.py:120
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:34
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:116
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:117
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:55
 msgid "Volume"
 msgstr ""
@@ -710,15 +722,12 @@ msgid "Volume Snapshot"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:31
-msgid "Volume Snaphots"
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:43
+msgid "Volume Snapshots"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:39
 msgid "Volume ID"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:43
-msgid "Volume Snapshots"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/views.py:52
@@ -877,7 +886,7 @@ msgstr ""
 
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:29
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:93
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:90
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:91
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:16
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:16
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:17
@@ -933,8 +942,8 @@ msgid "Error Creating Volume Snapshot: %(exc)s"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:35
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:107
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:117
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:108
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:118
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:49
 #: dashboards/syspanel/projects/forms.py:116
 msgid "Volumes"
@@ -956,22 +965,22 @@ msgstr ""
 msgid "Create Snapshot"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:68
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:69
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:103
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:104
 msgid "Attachments"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:114
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:115
 #: dashboards/nova/networks/tables.py:80
 msgid "Detach"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:115
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:116
 #: dashboards/nova/networks/tables.py:81
 msgid "Detached"
 msgstr ""
@@ -2001,6 +2010,10 @@ msgid ""
 "and default project."
 msgstr ""
 
+#: dashboards/syspanel/users/forms.py:39
+msgid "Select a project"
+msgstr ""
+
 #: dashboards/syspanel/users/forms.py:52 dashboards/syspanel/users/forms.py:89
 msgid "Email"
 msgstr ""
@@ -2020,7 +2033,7 @@ msgid "User \"%s\" was successfully created."
 msgstr ""
 
 #: dashboards/syspanel/users/forms.py:79
-msgid "Unable to add user to primary tenant."
+msgid "Unable to add user to primary project."
 msgstr ""
 
 #: dashboards/syspanel/users/forms.py:82
@@ -2318,19 +2331,19 @@ msgstr ""
 msgid "VCPU Hours"
 msgstr ""
 
-#: usage/tables.py:26
+#: usage/tables.py:27
 msgid "Project ID"
 msgstr ""
 
-#: usage/tables.py:28
+#: usage/tables.py:29
 msgid "Disk GB Hours"
 msgstr ""
 
-#: usage/tables.py:35 usage/tables.py:53
+#: usage/tables.py:37 usage/tables.py:55
 msgid "Usage Summary"
 msgstr ""
 
-#: usage/tables.py:45
+#: usage/tables.py:47
 msgid "Uptime"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-05 11:40-0800\n"
+"POT-Creation-Date: 2012-03-06 13:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -278,26 +278,30 @@ msgstr ""
 msgid "Classless Inter-Domain Routing (i.e. 192.168.0.0/24"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:98
-msgid "The \"to\" port number must not be empty."
+#: dashboards/nova/access_and_security/security_groups/forms.py:100
+msgid "The \"from\" port number is invalid."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:101
-msgid "The \"from\" port number must not be empty."
+#: dashboards/nova/access_and_security/security_groups/forms.py:103
+msgid "The \"to\" port number is invalid."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:104
+#: dashboards/nova/access_and_security/security_groups/forms.py:106
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:117
+#: dashboards/nova/access_and_security/security_groups/forms.py:111
+msgid "The \"CIDR\" is invalid"
+msgstr ""
+
+#: dashboards/nova/access_and_security/security_groups/forms.py:124
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:121
+#: dashboards/nova/access_and_security/security_groups/forms.py:128
 #, python-format
 msgid "Error adding rule security group: %s"
 msgstr ""
@@ -717,15 +721,12 @@ msgid "Volume Snapshot"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:31
-msgid "Volume Snaphots"
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:43
+msgid "Volume Snapshots"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:39
 msgid "Volume ID"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:43
-msgid "Volume Snapshots"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/views.py:52
