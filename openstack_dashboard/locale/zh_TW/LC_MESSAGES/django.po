@@ -55,50 +55,50 @@ msgstr ""
 
 #: templates/403.html:4 templates/403.html.py:9
 msgid "Forbidden"
-msgstr ""
+msgstr "禁止"
 
 #: templates/403.html:20 templates/404.html:19 templates/500.html:19
 msgid "Home"
-msgstr ""
+msgstr "主頁"
 
 #: templates/403.html:24 templates/404.html:23 templates/500.html:23
 msgid "Projects"
-msgstr ""
+msgstr "專案"
 
 #: templates/404.html:4
 msgid "Page Not Found"
-msgstr ""
+msgstr "頁面不存在"
 
 #: templates/404.html:9
 msgid "The page you were looking for doesn't exist"
-msgstr ""
+msgstr "您所查看的頁面並不存在"
 
 #: templates/404.html:10
 msgid "You may have mistyped the address or the page may have moved."
-msgstr ""
+msgstr "您可能輸入錯的位址或此頁面已被移除"
 
 #: templates/500.html:4 templates/500.html.py:9
 msgid "Internal Server Error"
-msgstr ""
+msgstr "內部伺服器錯誤"
 
 #: templates/500.html:10
 msgid ""
 "An unexpected error occurred while processing your request.  Please try your "
 "request again."
-msgstr ""
+msgstr "處理過程中發生無法預期的錯誤。請再嘗試。"
 
 #: templates/_header.html:4
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: templates/_header.html:5
 msgid "Sign Out"
-msgstr ""
+msgstr "登出"
 
 #: templates/_login.html:5 templates/_switch.html:6
 msgid "Sign In"
-msgstr ""
+msgstr "登入"
 
 #: templates/switch_tenants.html:12
 msgid "Log-in to tenant"
-msgstr ""
+msgstr "登入到租戶"
