@@ -21,6 +21,7 @@ Exceptions raised by the Horizon code and the machinery for handling them.
 import logging
 import sys
 
+from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 from cloudfiles import errors as swiftclient
@@ -107,6 +108,10 @@ class HandledException(HorizonException):
         self.wrapped = wrapped
 
 
+HORIZON_CONFIG = getattr(settings, "HORIZON_CONFIG", {})
+EXCEPTION_CONFIG = HORIZON_CONFIG.get("exceptions", {})
+
+
 UNAUTHORIZED = (keystoneclient.Unauthorized,
                 keystoneclient.Forbidden,
                 novaclient.Unauthorized,
@@ -115,12 +120,15 @@ UNAUTHORIZED = (keystoneclient.Unauthorized,
                 glanceclient.NotAuthorized,
                 swiftclient.AuthenticationFailed,
                 swiftclient.AuthenticationError)
+UNAUTHORIZED += tuple(EXCEPTION_CONFIG.get('unauthorized', []))
 
 NOT_FOUND = (keystoneclient.NotFound,
              novaclient.NotFound,
              glanceclient.NotFound,
              swiftclient.NoSuchContainer,
              swiftclient.NoSuchObject)
+NOT_FOUND += tuple(EXCEPTION_CONFIG.get('not_found', []))
+
 
 # NOTE(gabriel): This is very broad, and may need to be dialed in.
 RECOVERABLE = (keystoneclient.ClientException,
@@ -128,6 +136,7 @@ RECOVERABLE = (keystoneclient.ClientException,
                glanceclient.GlanceException,
                swiftclient.Error,
                AlreadyExists)
+RECOVERABLE += tuple(EXCEPTION_CONFIG.get('recoverable', []))
 
 
 def handle(request, message=None, redirect=None, ignore=False, escalate=False):

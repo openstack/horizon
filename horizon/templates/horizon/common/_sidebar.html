@@ -1,12 +1,7 @@
 {% load horizon i18n %}
 
 <div class='sidebar'>
-  <h1 class="brand clearfix"><a href="{% url horizon:user_home %}">{% trans "OpenStack Dashboard" %}</a></h1>
-  <div class='clearfix'>
-    <ul class="nav nav-tabs">
-      {% horizon_main_nav %}
-    </ul>
-  </div>
+  {% horizon_main_nav %}
 
   {% if request.horizon.dashboard.supports_tenants %}
   <div id="tenant_switcher" class="dropdown switcher_bar" tabindex='1'>
