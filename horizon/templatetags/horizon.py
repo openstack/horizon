@@ -68,7 +68,8 @@ def horizon_main_nav(context):
             dashboards.append(dash)
     return {'components': dashboards,
             'user': context['request'].user,
-            'current': getattr(current_dashboard, 'slug', None)}
+            'current': getattr(current_dashboard, 'slug', None),
+            'request': context['request']}
 
 
 @register.inclusion_tag('horizon/_subnav_list.html', takes_context=True)
@@ -93,7 +94,8 @@ def horizon_dashboard_nav(context):
     non_empty_panels = dict([(k, v) for k, v in panels.items() if len(v) > 0])
     return {'components': non_empty_panels,
             'user': context['request'].user,
-            'current': context['request'].horizon['panel'].slug}
+            'current': context['request'].horizon['panel'].slug,
+            'request': context['request']}
 
 
 @register.inclusion_tag('horizon/common/_progress_bar.html')

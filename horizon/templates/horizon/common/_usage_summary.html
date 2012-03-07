@@ -1,17 +1,19 @@
 {% load i18n sizeformat %}
 
-<form action="" method="get" id="date_form" class="form-horizontal">
-  <h3>{% trans "Select a month to query its usage" %}: </h3>
-  <div class="form-row">
-    {{ form.month }}
-    {{ form.year }}
-    <input class="btn btn-small" type="submit"/>
-  </div>
-</form>
+<div class="usage_info_wrapper">
+  <form action="" method="get" id="date_form" class="form-horizontal">
+    <h3>{% trans "Select a month to query its usage" %}: </h3>
+    <div class="form-row">
+      {{ form.month }}
+      {{ form.year }}
+      <input class="btn btn-small" type="submit"/>
+    </div>
+  </form>
 
-<p id="activity">
-  <span><strong>{% trans "Active Instances" %}:</strong> {{ usage.summary.instances|default:'-' }}</span>
-  <span><strong>{% trans "Active Memory" %}:</strong> {{ usage.summary.memory_mb|mbformat|default:'-' }}</span>
-  <span><strong>{% trans "This Month's VCPU-Hours" %}:</strong> {{ usage.summary.vcpu_hours|floatformat:2|default:'-' }}</span>
-  <span><strong>{% trans "This Month's GB-Hours" %}:</strong> {{ usage.summary.disk_gb_hours|floatformat:2|default:'-' }}</span>
-</p>
+  <p id="activity">
+    <span><strong>{% trans "Active Instances" %}:</strong> {{ usage.summary.instances|default:'-' }}</span>
+    <span><strong>{% trans "Active Memory" %}:</strong> {{ usage.summary.memory_mb|mbformat|default:'-' }}</span>
+    <span><strong>{% trans "This Month's VCPU-Hours" %}:</strong> {{ usage.summary.vcpu_hours|floatformat:2|default:'-' }}</span>
+    <span><strong>{% trans "This Month's GB-Hours" %}:</strong> {{ usage.summary.disk_gb_hours|floatformat:2|default:'-' }}</span>
+  </p>
+</div>
