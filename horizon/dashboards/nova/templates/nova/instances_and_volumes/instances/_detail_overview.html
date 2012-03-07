@@ -36,6 +36,25 @@
   </ul>
 </div>
 
+<div class="security_groups row-fluid">
+  <h4>{% trans "Security Groups" %}</h4>
+  <hr class="header_rule">
+  {% for group in instance.security_groups %}
+  <ul>
+    <li>
+      <strong>{{ group.name }}</strong>
+      <ul>
+      {% for rule in group.rules %}
+        <li>{{ rule }}</li>
+        {% empty %}
+        <li><em>{% trans "No rules defined." %}</em></li>
+      {% endfor %}
+      </ul>
+    </li>
+  </ul>
+  {% endfor %}
+</div>
+
 <div class="meta row-fluid">
   <h4>{% trans "Meta" %}</h4>
   <hr class="header_rule">

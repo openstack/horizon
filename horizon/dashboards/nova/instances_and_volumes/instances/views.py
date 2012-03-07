@@ -109,6 +109,8 @@ class DetailView(tabs.TabView):
                 full_flavors = SortedDict([(str(flavor.id), flavor) for \
                                             flavor in flavors])
                 instance.full_flavor = full_flavors[instance.flavor["id"]]
+                instance.security_groups = api.server_security_groups(
+                                           self.request, instance_id)
             except:
                 redirect = reverse('horizon:nova:instances_and_volumes:index')
                 exceptions.handle(self.request,
