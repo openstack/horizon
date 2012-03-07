@@ -1,5 +1,5 @@
 horizon.addInitFunction(function() {
-  $('.table_search input').quicksearch('tr.odd, tr.even', {
+  $('.table_search input').quicksearch('tbody tr', {
     'delay': 300,
     'loader': 'span.loading',
     'bind': 'keyup click',
