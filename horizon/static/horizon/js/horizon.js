@@ -51,6 +51,32 @@ var Horizon = function() {
         // Poll until there are no rows in an "unknown" state on the page.
         setTimeout(horizon.datatables.update, $updaters.attr('data-update-interval'));
       }
+    },
+    validate_button: function () {
+      // Disable form button if checkbox are not checked
+      $("form").each(function (i) {
+        var checkboxes = $(this).find(":checkbox")
+        if(checkboxes.length == 0) {
+          // Do nothing if no checkboxes in this form
+          return;
+        }
+        if(checkboxes.filter(":checked").length == 0) {
+          $(this).find(".table_actions button.btn-danger").addClass("disabled");
+        }
+      });
+
+      $("form :checkbox").on("click", function (evt) {
+        var $form = $(this).closest("form");
+        var any_checked = $form.find(":checkbox").is(":checked");
+
+        // Enable the button if any checkbox is checked,
+        // Disable if all checkbox is cleared
+        if(any_checked) {
+          $form.find(".table_actions button.btn-danger").removeClass("disabled");
+        }else {
+          $form.find(".table_actions button.btn-danger").addClass("disabled");
+        }
+      });
     }
   };
 
