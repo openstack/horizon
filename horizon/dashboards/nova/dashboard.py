@@ -26,7 +26,6 @@ class Nova(horizon.Dashboard):
                                     'instances_and_volumes',
                                     'access_and_security',
                                     'images_and_snapshots'),
-              _("Network"): ('networks',),
               _("Object Store"): ('containers',)}
     default_panel = 'overview'
     supports_tenants = True
