@@ -1,37 +1,39 @@
-<form action="{{ table.get_absolute_url }}" method="POST">{% csrf_token %}
-<div class='table_header'>
-  <h3 class='table_title'>{{ table }}</h3>
-  {{ table.render_table_actions }}
-</div>
-{% with columns=table.get_columns rows=table.get_rows %}
-<table id="{{ table.name }}" class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      {% for column in columns %}
-        <th class="{{ column.get_classes }}">{{ column }}</th>
-      {% endfor %}
+<div class="table_wrapper">
+  <form action="{{ table.get_absolute_url }}" method="POST">{% csrf_token %}
+  <div class='table_header'>
+    <h3 class='table_title'>{{ table }}</h3>
+    {{ table.render_table_actions }}
+  </div>
+  {% with columns=table.get_columns rows=table.get_rows %}
+  <table id="{{ table.name }}" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        {% for column in columns %}
+          <th class="{{ column.get_classes }}">{{ column }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+      {{ row.render }}
+    {% empty %}
+    <tr class="{% cycle 'odd' 'even' %} empty">
+      <td colspan="{{ table.get_columns|length }}">{{ table.get_empty_message }}</td>
     </tr>
-  </thead>
-  <tbody>
-  {% for row in rows %}
-    {{ row.render }}
-  {% empty %}
-  <tr class="{% cycle 'odd' 'even' %} empty">
-    <td colspan="{{ table.get_columns|length }}">{{ table.get_empty_message }}</td>
-  </tr>
-  {% endfor %}
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="{{ table.get_columns|length }}">
-        <span>Displaying {{ rows|length }} item{{ rows|pluralize }}</span>
-        {% if table.has_more_data %}
-        <span class="spacer">|</span>
-        <a href="?marker={{ table.get_marker }}">More&nbsp;&raquo;</a>
-        {% endif %}
+    {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="{{ table.get_columns|length }}">
+          <span>Displaying {{ rows|length }} item{{ rows|pluralize }}</span>
+          {% if table.has_more_data %}
+          <span class="spacer">|</span>
+          <a href="?marker={{ table.get_marker }}">More&nbsp;&raquo;</a>
+          {% endif %}
+        </td>
       </td>
-    </td>
-  </tfoot>
-</table>
-{% endwith %}
-</form>
+    </tfoot>
+  </table>
+  {% endwith %}
+  </form>
+</div>

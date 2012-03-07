@@ -1,9 +1,13 @@
-{% load horizon %}
-{% for component in components %}
+{% load horizon i18n %}
+<h1 class="brand clearfix"><a href="{% url horizon:user_home %}">{% trans "OpenStack Dashboard" %}</a></h1>
+<div class='clearfix'>
+  <ul class="nav nav-tabs">
+    {% for component in components %}
     {% if user|can_haz:component %}
         <li{% if current == component.slug %} class="active"{% endif %}>
             <a href="{{ component.get_absolute_url }}" tabindex='1'>{{ component.name }}</a>
         </li>
     {% endif %}
-{% endfor %}
-
+  {% endfor %}
+  </ul>
+</div>

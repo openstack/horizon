@@ -49,6 +49,9 @@ HORIZON_CONFIG = {
     # Name of a default dashboard; defaults to first alphabetically if None
     'default_dashboard': None,
     'user_home': None,
+    'exceptions': {'unauthorized': [],
+                   'not_found': [],
+                   'recoverable': []}
 }
 
 
