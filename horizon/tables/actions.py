@@ -53,9 +53,6 @@ class BaseAction(html.HTMLElement):
         return True
 
     def _allowed(self, request, datum):
-        """ Default allowed checks for certain actions """
-        if isinstance(self, BatchAction) and not self.table.data:
-            return False
         return self.allowed(request, datum)
 
     def update(self, request, datum):
@@ -426,6 +423,13 @@ class BatchAction(Action):
         self.verbose_name_plural = getattr(self, "verbose_name_plural",
                                            self._conjugate('plural'))
         super(BatchAction, self).__init__()
+
+    def _allowed(self, request, datum=None):
+        # Override the default internal action method to prevent batch
+        # actions from appearing on tables with no data.
+        if not self.table.data and not datum:
+            return False
+        return super(BatchAction, self)._allowed(request, datum)
 
     def _conjugate(self, items=None, past=False):
         """
