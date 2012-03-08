@@ -31,4 +31,6 @@ urlpatterns = patterns('horizon.views.auth',
         name='auth_switch'))
 
 urlpatterns += patterns('',
+    url(r'^i18n/setlang/$', 'django.views.i18n.set_language',
+        name="set_language"),
     url(r'^i18n/', include('django.conf.urls.i18n')))
