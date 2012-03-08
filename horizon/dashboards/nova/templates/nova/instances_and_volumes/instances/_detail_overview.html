@@ -49,7 +49,7 @@
   <h4>{% trans "Volumes" %}</h4>
   <hr class="header_rule">
   <ul>
-    {% if volumes %}
+    {% if instance.volumes %}
       {% for volume in instance.volumes %}
       <li>
         <strong>{% trans "Volume" %}:</strong>
