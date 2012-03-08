@@ -39,6 +39,17 @@ OPENSTACK_KEYSTONE_URL = "http://%s:5000/v2.0" % OPENSTACK_HOST
 OPENSTACK_KEYSTONE_ADMIN_URL = "http://%s:35357/v2.0" % OPENSTACK_HOST
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
+# The OPENSTACK_KEYSTONE_BACKEND settings can be used to identify the
+# capabilities of the auth backend for Keystone.
+# If Keystone has been configured to use LDAP as the auth backend then set
+# can_edit_user to False and name to 'ldap'.
+#
+# TODO(tres): Remove these once Keystone has an API to identify auth backend.
+OPENSTACK_KEYSTONE_BACKEND = {
+    'name': 'native',
+    'can_edit_user': True
+}
+
 # The number of Swift containers and objects to display on a single page before
 # providing a paging element (a "more" link) to paginate results.
 API_RESULT_LIMIT = 1000

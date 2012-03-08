@@ -131,6 +131,11 @@ class UsersTable(tables.DataTable):
     class Meta:
         name = "users"
         verbose_name = _("Users")
-        row_actions = (EditUserLink, EnableUsersAction, DisableUsersAction,
-                       DeleteUsersAction)
-        table_actions = (UserFilterAction, CreateUserLink, DeleteUsersAction)
+        if api.keystone_can_edit_user():
+            row_actions = (EditUserLink, EnableUsersAction, DisableUsersAction,
+                           DeleteUsersAction)
+            table_actions = (UserFilterAction, CreateUserLink,
+                             DeleteUsersAction)
+        else:
+            row_actions = (EnableUsersAction, DisableUsersAction)
+            table_actions = (UserFilterAction,)

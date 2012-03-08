@@ -27,6 +27,7 @@ from horizon import test
 
 
 USERS_INDEX_URL = reverse('horizon:syspanel:users:index')
+USER_CREATE_URL = reverse('horizon:syspanel:users:create')
 
 
 class UsersViewTests(test.BaseAdminViewTests):
@@ -38,6 +39,53 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.get(USERS_INDEX_URL)
         self.assertTemplateUsed(res, 'syspanel/users/index.html')
         self.assertItemsEqual(res.context['table'].data, self.users.list())
+
+    def test_create_user(self):
+        user = self.users.get(id="1")
+        role = self.roles.first()
+        self.mox.StubOutWithMock(api, 'user_create')
+        self.mox.StubOutWithMock(api, 'tenant_list')
+        self.mox.StubOutWithMock(api.keystone, 'get_default_role')
+        self.mox.StubOutWithMock(api, 'add_tenant_user_role')
+        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+        api.user_create(IgnoreArg(),
+                        user.name,
+                        user.email,
+                        user.password,
+                        self.tenant.id,
+                        True).AndReturn(user)
+        api.keystone.get_default_role(IgnoreArg()).AndReturn(role)
+        api.add_tenant_user_role(IgnoreArg(), self.tenant.id, user.id, role.id)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'CreateUserForm',
+                    'name': user.name,
+                    'email': user.email,
+                    'password': user.password,
+                    'tenant_id': self.tenant.id,
+                    'confirm_password': user.password}
+        res = self.client.post(USER_CREATE_URL, formData)
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(success=1)
+
+    def test_create_user_password_mismatch(self):
+        user = self.users.get(id="1")
+        self.mox.StubOutWithMock(api, 'tenant_list')
+        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+        self.mox.ReplayAll()
+
+        formData = {'method': 'CreateUserForm',
+                    'name': user.name,
+                    'email': user.email,
+                    'password': user.password,
+                    'tenant_id': self.tenant.id,
+                    'confirm_password': "doesntmatch"}
+
+        res = self.client.post(USER_CREATE_URL, formData)
+        self.assertFormError(res,
+                             "form",
+                             None,
+                             ['Passwords do not match.'])
 
     def test_enable_user(self):
         user = self.users.get(id="2")

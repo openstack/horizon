@@ -268,3 +268,17 @@ def create_ec2_credentials(request, user_id, tenant_id):
 
 def get_user_ec2_credentials(request, user_id, access_token):
     return keystoneclient(request).ec2.get(user_id, access_token)
+
+
+def keystone_can_edit_user():
+    if hasattr(settings, "OPENSTACK_KEYSTONE_BACKEND"):
+        return settings.OPENSTACK_KEYSTONE_BACKEND['can_edit_user']
+    else:
+        return False
+
+
+def keystone_backend_name():
+    if hasattr(settings, "OPENSTACK_KEYSTONE_BACKEND"):
+        return settings.OPENSTACK_KEYSTONE_BACKEND['name']
+    else:
+        return 'unknown'

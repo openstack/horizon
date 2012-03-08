@@ -102,6 +102,11 @@ OPENSTACK_KEYSTONE_URL = "http://%s:5000/v2.0" % OPENSTACK_ADDRESS
 OPENSTACK_KEYSTONE_ADMIN_URL = "http://%s:35357/v2.0" % OPENSTACK_ADDRESS
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
+OPENSTACK_KEYSTONE_BACKEND = {
+    'name': 'native',
+    'can_edit_user': True
+}
+
 # Silence logging output during tests.
 LOGGING = {
     'version': 1,
