@@ -90,7 +90,8 @@ class VolumesTableBase(tables.DataTable):
     description = tables.Column("displayDescription",
                                 verbose_name=_("Description"))
     size = tables.Column(get_size, verbose_name=_("Size"))
-    status = tables.Column("status", filters=(title,))
+    status = tables.Column("status", filters=(title,),
+                           verbose_name=_("Status"))
 
     def sanitize_id(self, obj_id):
         return int(obj_id)

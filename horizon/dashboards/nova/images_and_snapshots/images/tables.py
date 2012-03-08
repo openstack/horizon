@@ -71,7 +71,8 @@ class ImagesTable(tables.DataTable):
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),
                                filters=(filters.title,))
-    status = tables.Column("status", filters=(filters.title,))
+    status = tables.Column("status", filters=(filters.title,),
+                           verbose_name=_("Status"))
     public = tables.Column("is_public",
                            verbose_name=_("Public"),
                            empty_value=False,

@@ -558,7 +558,8 @@ class DataTableMetaclass(type):
             multi_select.auto = "multi_select"
             columns.insert(0, ("multi_select", multi_select))
         if opts.actions_column:
-            actions_column = opts.column_class("actions")
+            actions_column = opts.column_class("actions",
+                                               verbose_name=_("Actions"))
             actions_column.attrs = {'classes': ('actions_column',)}
             actions_column.auto = "actions"
             columns.append(("actions", actions_column))

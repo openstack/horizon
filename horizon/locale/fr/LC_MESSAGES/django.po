@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-06 13:31+0800\n"
+"POT-Creation-Date: 2012-03-08 02:28-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 
-#: base.py:375
+#: base.py:378
 msgid "Other"
 msgstr ""
 
@@ -31,7 +31,7 @@ msgstr ""
 msgid "The services for this view are not available."
 msgstr ""
 
-#: exceptions.py:189
+#: exceptions.py:198
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
@@ -51,11 +51,7 @@ msgstr ""
 msgid "Manage Compute"
 msgstr ""
 
-#: dashboards/nova/dashboard.py:29 dashboards/nova/networks/tables.py:28
-msgid "Network"
-msgstr ""
-
-#: dashboards/nova/dashboard.py:30
+#: dashboards/nova/dashboard.py:29
 msgid "Object Store"
 msgstr ""
 
@@ -79,7 +75,7 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/instances/tables.py:68
 #: dashboards/nova/instances_and_volumes/instances/tables.py:83
 #: dashboards/nova/instances_and_volumes/instances/tables.py:108
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:130
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:131
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/detail.html:32
 msgid "Instance"
 msgstr ""
@@ -219,6 +215,10 @@ msgstr ""
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:23
 #: dashboards/nova/templates/nova/access_and_security/keypairs/create.html:6
 msgid "Create Keypair"
+msgstr ""
+
+#: dashboards/nova/access_and_security/keypairs/tables.py:52
+msgid "Fingerprint"
 msgstr ""
 
 #: dashboards/nova/access_and_security/keypairs/views.py:64
@@ -509,7 +509,6 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:42
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:89
-#: dashboards/nova/networks/tables.py:38
 #: dashboards/syspanel/flavors/forms.py:37
 #: dashboards/syspanel/projects/forms.py:60
 #: dashboards/syspanel/projects/forms.py:85
@@ -531,7 +530,7 @@ msgid "Architecture"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:55
-#: dashboards/nova/images_and_snapshots/images/tables.py:80
+#: dashboards/nova/images_and_snapshots/images/tables.py:81
 msgid "Container Format"
 msgstr ""
 
@@ -621,7 +620,7 @@ msgid "Image"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:31
-#: dashboards/nova/images_and_snapshots/images/tables.py:84
+#: dashboards/nova/images_and_snapshots/images/tables.py:85
 #: dashboards/syspanel/templates/syspanel/images/index.html:3
 #: dashboards/syspanel/templates/syspanel/images/index.html:6
 msgid "Images"
@@ -636,7 +635,16 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:76
+#: dashboards/nova/images_and_snapshots/images/tables.py:75
+#: dashboards/nova/instances_and_volumes/instances/tables.py:209
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:94
+#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:12
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
+msgid "Status"
+msgstr ""
+
+#: dashboards/nova/images_and_snapshots/images/tables.py:77
 msgid "Public"
 msgstr ""
 
@@ -670,7 +678,7 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/views.py:120
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:34
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:117
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:118
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:55
 msgid "Volume"
 msgstr ""
@@ -765,7 +773,7 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/instances/tables.py:69
 #: dashboards/nova/instances_and_volumes/instances/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:109
-#: dashboards/nova/instances_and_volumes/instances/tables.py:220
+#: dashboards/nova/instances_and_volumes/instances/tables.py:221
 #: dashboards/syspanel/instances/tables.py:62
 #: dashboards/syspanel/projects/forms.py:115
 #: dashboards/syspanel/templates/syspanel/instances/index.html:3
@@ -839,12 +847,12 @@ msgstr ""
 msgid "Not available"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:210
+#: dashboards/nova/instances_and_volumes/instances/tables.py:211
 #: dashboards/syspanel/instances/tables.py:52
 msgid "Task"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:216
+#: dashboards/nova/instances_and_volumes/instances/tables.py:217
 #: dashboards/syspanel/instances/tables.py:58
 msgid "Power State"
 msgstr ""
@@ -889,7 +897,6 @@ msgstr ""
 #: dashboards/nova/templates/nova/containers/_create.html:16
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:17
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:17
-#: dashboards/nova/templates/nova/networks/_create.html:16
 #: dashboards/nova/templates/nova/objects/_copy.html:16
 #: dashboards/nova/templates/nova/objects/_upload.html:17
 #: dashboards/syspanel/projects/forms.py:63
@@ -938,8 +945,8 @@ msgid "Error Creating Volume Snapshot: %(exc)s"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:35
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:108
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:118
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:109
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:119
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:49
 #: dashboards/syspanel/projects/forms.py:116
 msgid "Volumes"
@@ -967,17 +974,15 @@ msgstr ""
 msgid "%s GB"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:104
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:105
 msgid "Attachments"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:115
-#: dashboards/nova/networks/tables.py:80
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:116
 msgid "Detach"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:116
-#: dashboards/nova/networks/tables.py:81
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:117
 msgid "Detached"
 msgstr ""
 
@@ -989,131 +994,6 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/volumes/views.py:89
 #: dashboards/nova/instances_and_volumes/volumes/views.py:99
 msgid "Unable to retrieve volume information."
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:36
-msgid "Network Name"
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:44
-#, python-format
-msgid "Network %s has been created."
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:46
-msgid "Unable to create network."
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:64
-#, python-format
-msgid "Unable to rename network %(network)s: %(msg)s"
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:67
-#, python-format
-msgid "Network %(net)s has been renamed to %(new_name)s."
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:77
-msgid "Number of Ports"
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:89
-#, python-format
-msgid "Unable to create ports on network %(network)s: %(msg)s"
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:92
-#, python-format
-msgid "%(num_ports)s ports created on network %(network)s."
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:104
-msgid "Select VIF to connect"
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:127
-msgid "Port attached."
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:129 dashboards/nova/networks/views.py:208
-msgid "Unable to attach port."
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:15
-#: dashboards/nova/templates/nova/networks/_rename.html:22
-#: dashboards/nova/templates/nova/networks/rename.html:7
-msgid "Rename Network"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:22
-msgid "Create New Network"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:29 dashboards/nova/networks/tables.py:52
-#: dashboards/nova/templates/nova/networks/index.html:8
-msgid "Networks"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:36
-msgid "Network Id"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:39
-msgid "Used"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:40
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:24
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:31
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:38
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:45
-msgid "Available"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:41
-msgid "Total"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:59
-msgid "Create Ports"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:69 dashboards/nova/networks/tables.py:82
-msgid "Port"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:70 dashboards/nova/networks/tables.py:83
-msgid "Ports"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:94
-msgid "Attach Port"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:104
-msgid "Port Id"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:105
-msgid "State"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:106
-msgid "Attachment"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:116
-msgid "Network Port Details"
-msgstr ""
-
-#: dashboards/nova/networks/views.py:72
-#, python-format
-msgid "Unable to get network list: %s"
-msgstr ""
-
-#: dashboards/nova/networks/views.py:95 dashboards/nova/networks/views.py:187
-msgid "Unable to retrieve network information."
 msgstr ""
 
 #: dashboards/nova/templates/nova/access_and_security/index.html:6
@@ -1160,8 +1040,6 @@ msgstr ""
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_attach.html:20
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:24
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:24
-#: dashboards/nova/templates/nova/networks/_create.html:23
-#: dashboards/nova/templates/nova/networks/_rename.html:23
 #: dashboards/nova/templates/nova/objects/_copy.html:23
 #: dashboards/nova/templates/nova/objects/_upload.html:24
 #: dashboards/settings/templates/settings/ec2/download_form.html:24
@@ -1261,6 +1139,13 @@ msgstr ""
 msgid "Project Quotas"
 msgstr ""
 
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:24
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:31
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:38
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:45
+msgid "Available"
+msgstr ""
+
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:30
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:20
 #: dashboards/syspanel/flavors/forms.py:38
@@ -1309,12 +1194,6 @@ msgstr ""
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:3
 msgid "Image Detail "
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:12
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
-msgid "Status"
 msgstr ""
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:14
@@ -1530,27 +1409,6 @@ msgstr ""
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/detail.html:37
 msgid "Not Attached"
-msgstr ""
-
-#: dashboards/nova/templates/nova/networks/_create.html:17
-msgid "Networks provide layer 2 connectivity to your instances."
-msgstr ""
-
-#: dashboards/nova/templates/nova/networks/_create.html:22
-#: dashboards/nova/templates/nova/networks/create.html:7
-msgid "Create Network"
-msgstr ""
-
-#: dashboards/nova/templates/nova/networks/_rename.html:16
-msgid "Rename"
-msgstr ""
-
-#: dashboards/nova/templates/nova/networks/_rename.html:17
-msgid "Enter a new name for your network."
-msgstr ""
-
-#: dashboards/nova/templates/nova/networks/detail.html:3
-msgid "Network Detail"
 msgstr ""
 
 #: dashboards/nova/templates/nova/objects/_copy.html:17
@@ -2168,16 +2026,20 @@ msgstr ""
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:695
+#: tables/base.py:562
+msgid "Actions"
+msgstr ""
+
+#: tables/base.py:696
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:712
+#: tables/base.py:713
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:814
+#: tables/base.py:815
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -2209,23 +2071,23 @@ msgstr ""
 msgid "OpenStack Dashboard"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:4
+#: templates/horizon/common/_usage_summary.html:5
 msgid "Select a month to query its usage"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:13
+#: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:14
+#: templates/horizon/common/_usage_summary.html:15
 msgid "Active Memory"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:15
+#: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:16
+#: templates/horizon/common/_usage_summary.html:17
 msgid "This Month's GB-Hours"
 msgstr ""
 
