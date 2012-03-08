@@ -160,6 +160,7 @@ class ComputeApiTests(test.APITestCase):
     def test_tenant_quota_usages(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
+        floating_ips = self.floating_ips.list()
         quotas = self.quotas.first()
         novaclient = self.stub_novaclient()
 
@@ -167,6 +168,8 @@ class ComputeApiTests(test.APITestCase):
         novaclient.servers.list(True, {'project_id': '1'}).AndReturn(servers)
         novaclient.flavors = self.mox.CreateMockAnything()
         novaclient.flavors.list().AndReturn(flavors)
+        novaclient.floating_ips = self.mox.CreateMockAnything()
+        novaclient.floating_ips.list().AndReturn(floating_ips)
         novaclient.quotas = self.mox.CreateMockAnything()
         novaclient.quotas.get(self.tenant.id).AndReturn(quotas)
         self.mox.ReplayAll()
@@ -191,4 +194,9 @@ class ComputeApiTests(test.APITestCase):
                            'cores': {'available': 8,
                                      'used': 2,
                                      'flavor_fields': ['vcpus'],
-                                     'quota': 10}})
+                                     'quota': 10},
+                           'floating_ips': {'available': 0,
+                                            'used': 1,
+                                            'flavor_fields': [],
+                                            'quota': 1}
+                          })

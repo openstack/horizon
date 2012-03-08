@@ -83,6 +83,14 @@ class AllocateView(forms.ModalFormView):
     template_name = 'nova/access_and_security/floating_ips/allocate.html'
     context_object_name = 'floating_ip'
 
+    def get_context_data(self, **kwargs):
+        context = super(AllocateView, self).get_context_data(**kwargs)
+        try:
+            context['usages'] = api.tenant_quota_usages(self.request)
+        except:
+            exceptions.handle(self.request)
+        return context
+
     def get_initial(self):
         pools = api.floating_ip_pools_list(self.request)
         if pools:

@@ -371,12 +371,14 @@ def tenant_quota_usages(request):
     """
     # TODO(tres): Make this capture floating_ips and volumes as well.
     instances = server_list(request)
+    floating_ips = tenant_floating_ip_list(request)
     quotas = tenant_quota_get(request, request.user.tenant_id)
     flavors = dict([(f.id, f) for f in flavor_list(request)])
     usages = {'instances': {'flavor_fields': [], 'used': len(instances)},
               'cores': {'flavor_fields': ['vcpus'], 'used': 0},
               'gigabytes': {'flavor_fields': ['disk', 'ephemeral'], 'used': 0},
-              'ram': {'flavor_fields': ['ram'], 'used': 0}}
+              'ram': {'flavor_fields': ['ram'], 'used': 0},
+              'floating_ips': {'flavor_fields': [], 'used': len(floating_ips)}}
 
     for usage in usages:
         for instance in instances:
