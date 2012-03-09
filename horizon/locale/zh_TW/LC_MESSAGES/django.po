@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-08 02:28-0800\n"
+"POT-Creation-Date: 2012-03-09 12:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andy Chong <andycjw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "這頁面的服務並不存在"
 
 #: exceptions.py:198
 msgid "Unauthorized. Please try logging in again."
-msgstr "權限不足。 請再嘗試登入。"
+msgstr "權限不足。 請重新登入。"
 
 #: middleware.py:69 dashboards/settings/ec2/forms.py:50
 msgid "Unable to retrieve tenant list."
@@ -40,7 +40,7 @@ msgstr "無法取得租戶列表"
 
 #: users.py:61
 msgid "Your session has expired. Please log in again."
-msgstr "您的登入時效已逾期。 請再登入。"
+msgstr "您的登入時效已逾期。 請重新登入。"
 
 #: api/swift.py:114
 msgid "Unicode is not currently supported for object copy."
@@ -61,7 +61,7 @@ msgstr "無法取得金鑰列表。"
 #: dashboards/nova/access_and_security/views.py:62
 #, python-format
 msgid "Error fetching security_groups: %s"
-msgstr "安全性權限群組 取得錯誤： %s"
+msgstr "安全性群組 取得錯誤： %s"
 
 #: dashboards/nova/access_and_security/views.py:72
 #, python-format
@@ -141,8 +141,8 @@ msgid "Unable to disassociate floating IP."
 msgstr "無法釋放浮動IP。"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:90
-#: dashboards/nova/instances_and_volumes/instances/tables.py:206
-#: dashboards/syspanel/instances/tables.py:48
+#: dashboards/nova/instances_and_volumes/instances/tables.py:207
+#: dashboards/syspanel/instances/tables.py:49
 msgid "IP Address"
 msgstr "IP位址"
 
@@ -165,6 +165,7 @@ msgstr "沒有任何存在的浮動IP集"
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:38
 #: dashboards/nova/access_and_security/keypairs/forms.py:57
+#: dashboards/nova/access_and_security/keypairs/tables.py:51
 msgid "Keypair Name"
 msgstr "金鑰名稱"
 
@@ -228,11 +229,11 @@ msgstr "無法建立金鑰： %(exc)s"
 #: dashboards/nova/access_and_security/security_groups/forms.py:51
 #, python-format
 msgid "Successfully created security_group: %s"
-msgstr "已成功建立安全性權限群組： %s"
+msgstr "已成功建立安全性群組： %s"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:54
 msgid "Unable to create security group."
-msgstr "無法建立安全性權限群組"
+msgstr "無法建立安全性群組"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:59
 msgid "IP protocol"
@@ -252,7 +253,7 @@ msgstr ""
 "號"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:72
-#: dashboards/nova/images_and_snapshots/images/tables.py:72
+#: dashboards/nova/images_and_snapshots/images/tables.py:73
 msgid "Type"
 msgstr "類別"
 
@@ -308,28 +309,65 @@ msgstr "已成功新增規則： %s"
 #: dashboards/nova/access_and_security/security_groups/forms.py:128
 #, python-format
 msgid "Error adding rule security group: %s"
-msgstr "新增安全性權限群組規則錯誤： %s"
+msgstr "新增安全性群組規則錯誤： %s"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:30
 msgid "Security Group"
-msgstr "安全性權限群組"
+msgstr "安全性群組"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:31
 #: dashboards/nova/access_and_security/security_groups/tables.py:65
 #: dashboards/nova/images_and_snapshots/images/forms.py:108
 msgid "Security Groups"
-msgstr "安全性權限群組"
+msgstr "安全性群組"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:44
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:7
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:23
 #: dashboards/nova/templates/nova/access_and_security/security_groups/create.html:6
 msgid "Create Security Group"
-msgstr "建立安全性權限群組"
+msgstr "建立安全性群組"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:51
 msgid "Edit Rules"
 msgstr "編輯規則"
+
+#: dashboards/nova/access_and_security/security_groups/tables.py:57
+#: dashboards/nova/images_and_snapshots/images/forms.py:42
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:89
+#: dashboards/syspanel/flavors/forms.py:37
+#: dashboards/syspanel/projects/forms.py:60
+#: dashboards/syspanel/projects/forms.py:85
+#: dashboards/syspanel/projects/tables.py:72
+#: dashboards/syspanel/users/forms.py:51
+msgid "Name"
+msgstr "名稱"
+
+#: dashboards/nova/access_and_security/security_groups/tables.py:58
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:29
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:93
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:91
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:16
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:16
+#: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:17
+#: dashboards/nova/templates/nova/containers/_create.html:16
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:17
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:17
+#: dashboards/nova/templates/nova/objects/_copy.html:16
+#: dashboards/nova/templates/nova/objects/_upload.html:17
+#: dashboards/syspanel/projects/forms.py:63
+#: dashboards/syspanel/projects/forms.py:88
+#: dashboards/syspanel/projects/tables.py:74
+#: dashboards/syspanel/templates/syspanel/flavors/_create.html:17
+#: dashboards/syspanel/templates/syspanel/images/_update.html:17
+#: dashboards/syspanel/templates/syspanel/projects/_add_user.html:17
+#: dashboards/syspanel/templates/syspanel/projects/_create.html:17
+#: dashboards/syspanel/templates/syspanel/projects/_quotas.html:16
+#: dashboards/syspanel/templates/syspanel/projects/_update.html:17
+#: dashboards/syspanel/templates/syspanel/users/_create.html:16
+#: dashboards/syspanel/templates/syspanel/users/_update.html:16
+msgid "Description"
+msgstr "敘述"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:71
 msgid "Rule"
@@ -353,17 +391,18 @@ msgstr "到端口"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:101
 msgid "Security Group Rules"
-msgstr "安全性權限群組規則"
+msgstr "安全性群組規則"
 
 #: dashboards/nova/access_and_security/security_groups/views.py:55
 msgid "Unable to retrieve security group."
-msgstr "無法取得安全性權限群組"
+msgstr "無法取得安全性群組"
 
 #: dashboards/nova/containers/forms.py:38
 msgid "Slash is not an allowed character."
 msgstr "斜線符號不能被接受"
 
 #: dashboards/nova/containers/forms.py:45
+#: dashboards/nova/containers/tables.py:101
 msgid "Container Name"
 msgstr "容器名稱"
 
@@ -376,6 +415,7 @@ msgid "Unable to create container."
 msgstr "無法建立容器"
 
 #: dashboards/nova/containers/forms.py:59
+#: dashboards/nova/containers/tables.py:182
 msgid "Object Name"
 msgstr "物件名稱"
 
@@ -409,13 +449,13 @@ msgid "Unable to copy object."
 msgstr "無法複製物件"
 
 #: dashboards/nova/containers/panel.py:28
-#: dashboards/nova/containers/tables.py:111
+#: dashboards/nova/containers/tables.py:112
 #: dashboards/nova/templates/nova/containers/index.html:8
 msgid "Containers"
 msgstr "容器"
 
 #: dashboards/nova/containers/tables.py:37
-#: dashboards/nova/containers/tables.py:118 tables/actions.py:523
+#: dashboards/nova/containers/tables.py:119 tables/actions.py:523
 msgid "Delete"
 msgstr "刪除"
 
@@ -448,37 +488,37 @@ msgstr "列出物件"
 msgid "Upload Object"
 msgstr "上傳物件"
 
-#: dashboards/nova/containers/tables.py:102
-#: dashboards/nova/containers/tables.py:189
+#: dashboards/nova/containers/tables.py:103
+#: dashboards/nova/containers/tables.py:190
 msgid "Objects"
 msgstr "物件"
 
-#: dashboards/nova/containers/tables.py:104
-#: dashboards/nova/containers/tables.py:182
-#: dashboards/nova/instances_and_volumes/instances/tables.py:207
+#: dashboards/nova/containers/tables.py:105
+#: dashboards/nova/containers/tables.py:183
+#: dashboards/nova/instances_and_volumes/instances/tables.py:208
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:92
-#: dashboards/syspanel/instances/tables.py:49
+#: dashboards/syspanel/instances/tables.py:50
 msgid "Size"
 msgstr "大小"
 
-#: dashboards/nova/containers/tables.py:119
+#: dashboards/nova/containers/tables.py:120
 msgid "Delete Objects"
 msgstr "刪除物件"
 
-#: dashboards/nova/containers/tables.py:131
+#: dashboards/nova/containers/tables.py:132
 msgid "Unable to delete object."
 msgstr "無法刪除物件"
 
-#: dashboards/nova/containers/tables.py:134
+#: dashboards/nova/containers/tables.py:135
 #, python-format
 msgid "Successfully deleted objects: %s"
 msgstr "已成功刪除物件： %s"
 
-#: dashboards/nova/containers/tables.py:142
+#: dashboards/nova/containers/tables.py:143
 msgid "Copy"
 msgstr "複製"
 
-#: dashboards/nova/containers/tables.py:153
+#: dashboards/nova/containers/tables.py:154
 msgid "Download"
 msgstr "下載"
 
@@ -510,16 +550,6 @@ msgstr "無法取得快照。"
 msgid "Unable to retrieve volume snapshots."
 msgstr "無法取得空間快照"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:42
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:89
-#: dashboards/syspanel/flavors/forms.py:37
-#: dashboards/syspanel/projects/forms.py:60
-#: dashboards/syspanel/projects/forms.py:85
-#: dashboards/syspanel/projects/tables.py:72
-#: dashboards/syspanel/users/forms.py:51
-msgid "Name"
-msgstr "名稱"
-
 #: dashboards/nova/images_and_snapshots/images/forms.py:43
 msgid "Kernel ID"
 msgstr ""
@@ -533,7 +563,7 @@ msgid "Architecture"
 msgstr "系統架構"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:55
-#: dashboards/nova/images_and_snapshots/images/tables.py:81
+#: dashboards/nova/images_and_snapshots/images/tables.py:82
 msgid "Container Format"
 msgstr "容器格式"
 
@@ -582,7 +612,7 @@ msgstr "要啟動的執行個體數量"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:112
 msgid "Launch instance in these security groups."
-msgstr "在這些安全性權限群組中啟動執行個體"
+msgstr "在這些安全性群組中啟動執行個體"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:114
 msgid "Volume or Volume Snapshot"
@@ -623,7 +653,7 @@ msgid "Image"
 msgstr "映像"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:31
-#: dashboards/nova/images_and_snapshots/images/tables.py:85
+#: dashboards/nova/images_and_snapshots/images/tables.py:86
 #: dashboards/syspanel/templates/syspanel/images/index.html:3
 #: dashboards/syspanel/templates/syspanel/images/index.html:6
 msgid "Images"
@@ -638,16 +668,22 @@ msgstr "啟動"
 msgid "Edit"
 msgstr "編輯"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:75
-#: dashboards/nova/instances_and_volumes/instances/tables.py:209
+#: dashboards/nova/images_and_snapshots/images/tables.py:71
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:44
+msgid "Image Name"
+msgstr "映像名稱"
+
+#: dashboards/nova/images_and_snapshots/images/tables.py:76
+#: dashboards/nova/instances_and_volumes/instances/tables.py:210
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:94
 #: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:12
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
+#: dashboards/syspanel/instances/tables.py:52
 msgid "Status"
 msgstr "狀態"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:77
+#: dashboards/nova/images_and_snapshots/images/tables.py:78
 msgid "Public"
 msgstr "公開"
 
@@ -667,7 +703,7 @@ msgstr "無法取得金鑰。"
 
 #: dashboards/nova/images_and_snapshots/images/views.py:107
 msgid "Unable to retrieve list of security groups"
-msgstr "無法取得安全性權限群組列表。"
+msgstr "無法取得安全性群組列表。"
 
 #: dashboards/nova/images_and_snapshots/images/views.py:112
 msgid "Select Volume"
@@ -776,8 +812,8 @@ msgstr "已終止執行"
 #: dashboards/nova/instances_and_volumes/instances/tables.py:69
 #: dashboards/nova/instances_and_volumes/instances/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:109
-#: dashboards/nova/instances_and_volumes/instances/tables.py:221
-#: dashboards/syspanel/instances/tables.py:62
+#: dashboards/nova/instances_and_volumes/instances/tables.py:222
+#: dashboards/syspanel/instances/tables.py:64
 #: dashboards/syspanel/projects/forms.py:115
 #: dashboards/syspanel/templates/syspanel/instances/index.html:3
 msgid "Instances"
@@ -850,13 +886,19 @@ msgstr "%(RAM)s 記憶體 | %(VCPU)s 虛擬處理器 | %(disk)s 磁碟"
 msgid "Not available"
 msgstr "不存在"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:211
-#: dashboards/syspanel/instances/tables.py:52
+#: dashboards/nova/instances_and_volumes/instances/tables.py:206
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:10
+#: dashboards/syspanel/instances/tables.py:48 usage/tables.py:45
+msgid "Instance Name"
+msgstr "執行個體名稱"
+
+#: dashboards/nova/instances_and_volumes/instances/tables.py:212
+#: dashboards/syspanel/instances/tables.py:54
 msgid "Task"
 msgstr "工作"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:217
-#: dashboards/syspanel/instances/tables.py:58
+#: dashboards/nova/instances_and_volumes/instances/tables.py:218
+#: dashboards/syspanel/instances/tables.py:60
 msgid "Power State"
 msgstr "電源狀態"
 
@@ -890,31 +932,6 @@ msgstr "無法取得執行個體的VNC界面\"%s\"。"
 #: dashboards/nova/instances_and_volumes/instances/views.py:80
 msgid "Unable to retrieve instance details."
 msgstr "無法取得執行個體的詳細資料"
-
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:29
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:93
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:91
-#: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:16
-#: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:16
-#: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:17
-#: dashboards/nova/templates/nova/containers/_create.html:16
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:17
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:17
-#: dashboards/nova/templates/nova/objects/_copy.html:16
-#: dashboards/nova/templates/nova/objects/_upload.html:17
-#: dashboards/syspanel/projects/forms.py:63
-#: dashboards/syspanel/projects/forms.py:88
-#: dashboards/syspanel/projects/tables.py:74
-#: dashboards/syspanel/templates/syspanel/flavors/_create.html:17
-#: dashboards/syspanel/templates/syspanel/images/_update.html:17
-#: dashboards/syspanel/templates/syspanel/projects/_add_user.html:17
-#: dashboards/syspanel/templates/syspanel/projects/_create.html:17
-#: dashboards/syspanel/templates/syspanel/projects/_quotas.html:16
-#: dashboards/syspanel/templates/syspanel/projects/_update.html:17
-#: dashboards/syspanel/templates/syspanel/users/_create.html:16
-#: dashboards/syspanel/templates/syspanel/users/_update.html:16
-msgid "Description"
-msgstr "詳述"
 
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:42
 #, python-format
@@ -1001,7 +1018,7 @@ msgstr "無法取得容量資訊"
 
 #: dashboards/nova/templates/nova/access_and_security/index.html:6
 msgid "Access &amp; Security"
-msgstr "連線 &amp; 安全性"
+msgstr "存取 &amp; 安全性"
 
 #: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:7
 #: dashboards/nova/templates/nova/access_and_security/floating_ips/allocate.html:3
@@ -1102,12 +1119,12 @@ msgstr "下載金鑰&quot;%(keypair_name)s&quot;"
 
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:18
 msgid "From here you can create a new security group"
-msgstr "您可以在這裡建立一個新的安全性權限群組"
+msgstr "您可以在這裡建立一個新的安全性群組"
 
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_edit_rules.html:9
 #: dashboards/nova/templates/nova/access_and_security/security_groups/edit_rules.html:6
 msgid "Edit Security Group Rules"
-msgstr "編輯安全性權限群組規則"
+msgstr "編輯安全性群組規則"
 
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_edit_rules.html:12
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_edit_rules.html:19
@@ -1301,10 +1318,6 @@ msgstr "檢視完整記錄檔"
 msgid "Instance Overview"
 msgstr "執行個體大綱"
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:10
-msgid "Instance Name"
-msgstr "執行個體名稱"
-
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:11
 #: dashboards/syspanel/instances/tables.py:44
 msgid "Instance ID"
@@ -1330,10 +1343,6 @@ msgstr "相關資料"
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:43
 msgid "Key name"
 msgstr "金鑰名稱"
-
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:44
-msgid "Image Name"
-msgstr "映像名稱"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:62
 msgid "No volumes attached."

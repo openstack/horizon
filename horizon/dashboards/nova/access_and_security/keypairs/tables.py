@@ -48,7 +48,7 @@ class CreateKeyPair(tables.LinkAction):
 
 
 class KeypairsTable(tables.DataTable):
-    name = tables.Column("name")
+    name = tables.Column("name", verbose_name=_("Keypair Name"))
     fingerprint = tables.Column("fingerprint", verbose_name=_("Fingerprint"))
 
     def get_object_id(self, keypair):

@@ -44,10 +44,12 @@ class SyspanelInstancesTable(tables.DataTable):
                                   verbose_name=_("Instance ID"))
     host = tables.Column("OS-EXT-SRV-ATTR:host", verbose_name=_("Host"))
     name = tables.Column("name", link="horizon:nova:instances_and_volumes:" \
-                                      "instances:detail")
+                                      "instances:detail",
+                         verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
     size = tables.Column(get_size, verbose_name=_("Size"))
-    status = tables.Column("status", filters=(title,))
+    status = tables.Column("status", filters=(title,),
+                           verbose_name=_("Status"))
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
                          filters=(title,),

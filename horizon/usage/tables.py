@@ -42,7 +42,7 @@ class GlobalUsageTable(BaseUsageTable):
 
 
 class TenantUsageTable(BaseUsageTable):
-    instance = tables.Column('name')
+    instance = tables.Column('name', verbose_name=_("Instance Name"))
     uptime = tables.Column('uptime_at',
                            verbose_name=_("Uptime"),
                            filters=(timesince,))

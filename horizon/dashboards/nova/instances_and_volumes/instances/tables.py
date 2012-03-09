@@ -202,7 +202,8 @@ class InstancesTable(tables.DataTable):
         ("none", True)
     )
     name = tables.Column("name", link="horizon:nova:instances_and_volumes:" \
-                                      "instances:detail")
+                                      "instances:detail",
+                         verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
     size = tables.Column(get_size, verbose_name=_("Size"))
     status = tables.Column("status", filters=(title,),

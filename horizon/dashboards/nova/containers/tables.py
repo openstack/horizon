@@ -97,7 +97,8 @@ def get_size_used(container):
 
 
 class ContainersTable(tables.DataTable):
-    name = tables.Column("name", link='horizon:nova:containers:object_index')
+    name = tables.Column("name", link='horizon:nova:containers:object_index',
+                         verbose_name=_("Container Name"))
     objects = tables.Column("object_count",
                             verbose_name=_('Objects'),
                             empty_value="0")
@@ -178,7 +179,7 @@ def get_size(obj):
 
 
 class ObjectsTable(tables.DataTable):
-    name = tables.Column("name")
+    name = tables.Column("name", verbose_name=_("Object Name"))
     size = tables.Column(get_size, verbose_name=_('Size'))
 
     def get_object_id(self, obj):
