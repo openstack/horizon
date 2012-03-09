@@ -54,8 +54,8 @@ class EditRules(tables.LinkAction):
 
 
 class SecurityGroupsTable(tables.DataTable):
-    name = tables.Column("name")
-    description = tables.Column("description")
+    name = tables.Column("name", verbose_name=_("Name"))
+    description = tables.Column("description", verbose_name=_("Description"))
 
     def sanitize_id(self, obj_id):
         return int(obj_id)
