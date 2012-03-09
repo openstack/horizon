@@ -45,17 +45,40 @@ var Horizon = function() {
     update: function () {
       var rows_to_update = $('tr.status_unknown');
       if (rows_to_update.length) {
-        // Trigger the update handler.
         var $updaters = rows_to_update.find('.ajax-update');
+        var interval = $updaters.attr('data-update-interval');
+        var $table = rows_to_update.closest('table');
+        var decay_constant = $table.attr('decay_constant');
+
+        // Do not update this row if the action column is expanded
+        if (rows_to_update.find('.actions_column .btn-group.open').length) {
+          // Wait and try to update again in next interval instead
+          setTimeout(horizon.datatables.update, interval);
+          // Remove interval decay, since this will not hit server
+          $table.removeAttr('decay_constant');
+          return;
+        }
+        // Trigger the update handler.
         $updaters.click();
+
+        // Set interval decay to this table, and increase if it already exist
+        if(decay_constant === undefined) {
+          decay_constant = 1;
+        } else {
+          decay_constant++;
+        }
+        $table.attr('decay_constant', decay_constant);
         // Poll until there are no rows in an "unknown" state on the page.
-        setTimeout(horizon.datatables.update, $updaters.attr('data-update-interval'));
+        next_poll = interval*decay_constant;
+        // Limit the interval to 30 secs
+        if(next_poll > 30*1000) next_poll = 30*1000;
+        setTimeout(horizon.datatables.update, next_poll);
       }
     },
     validate_button: function () {
       // Disable form button if checkbox are not checked
       $("form").each(function (i) {
-        var checkboxes = $(this).find(":checkbox")
+        var checkboxes = $(this).find(":checkbox");
         if(checkboxes.length == 0) {
           // Do nothing if no checkboxes in this form
           return;
