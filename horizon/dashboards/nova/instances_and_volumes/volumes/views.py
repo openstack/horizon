@@ -115,7 +115,16 @@ class EditAttachmentsView(tables.DataTableView):
         self.form, handled = self.handle_form()
         if handled:
             return handled
-        return super(EditAttachmentsView, self).get(request, *args, **kwargs)
+        handled = self.construct_tables()
+        if handled:
+            return handled
+        context = self.get_context_data(**kwargs)
+        context['form'] = self.form
+        if request.is_ajax():
+            context['hide'] = True
+            self.template_name = ('nova/instances_and_volumes/volumes'
+                                 '/_attach.html')
+        return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
         form, handled = self.handle_form()

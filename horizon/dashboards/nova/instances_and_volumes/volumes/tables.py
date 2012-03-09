@@ -50,6 +50,7 @@ class EditAttachments(tables.LinkAction):
     name = "attachments"
     verbose_name = _("Edit Attachments")
     url = "horizon:nova:instances_and_volumes:volumes:attach"
+    attrs = {"class": "ajax-modal"}
 
     def allowed(self, request, volume=None):
         return volume.status in ("available", "in-use")
