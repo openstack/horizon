@@ -28,7 +28,6 @@ from novaclient.v1_1 import client as nova_client
 from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.servers import REBOOT_HARD
 
-from horizon.api import keystone
 from horizon.api.base import APIResourceWrapper, APIDictWrapper, url_for
 
 
