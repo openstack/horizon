@@ -116,7 +116,12 @@ class Login(forms.SelfHandlingForm):
                 exceptions.handle(request,
                                   _('Invalid user name or password.'))
             except:
-                exceptions.handle(request, escalate=True)
+                # If we get here we don't want to show a stack trace to the
+                # user.
+                exceptions.handle(request,
+                                  message=_("An error occurred authenticating."
+                                            " Please try again later."),
+                                  escalate=True)
 
             # Unscoped token
             request.session['unscoped_token'] = token.id
