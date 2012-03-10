@@ -38,6 +38,14 @@ class DeleteVolume(tables.DeleteAction):
     def delete(self, request, obj_id):
         api.volume_delete(request, obj_id)
 
+    def allowed(self, request, volume=None):
+        # TODO(tres): Why does this get called n+1 times where n is the number
+        # of volumes? The extra time this is called volume is not passed.
+        if volume:
+            return volume.status == "available"
+        else:
+            return False
+
 
 class CreateVolume(tables.LinkAction):
     name = "create"
@@ -63,7 +71,7 @@ class CreateSnapshot(tables.LinkAction):
     attrs = {"class": "ajax-modal"}
 
     def allowed(self, request, volume=None):
-        return volume.status in ("available",)
+        return volume.status == "available"
 
 
 def get_size(volume):
@@ -93,9 +101,6 @@ class VolumesTableBase(tables.DataTable):
     size = tables.Column(get_size, verbose_name=_("Size"))
     status = tables.Column("status", filters=(title,),
                            verbose_name=_("Status"))
-
-    def sanitize_id(self, obj_id):
-        return int(obj_id)
 
     def get_object_display(self, obj):
         return obj.displayName
@@ -131,9 +136,6 @@ class DetachVolume(tables.BatchAction):
 class AttachmentsTable(tables.DataTable):
     instance = tables.Column("serverId", verbose_name=_("Instance"))
     device = tables.Column("device")
-
-    def sanitize_id(self, obj_id):
-        return int(obj_id)
 
     def get_object_id(self, obj):
         return obj['id']
