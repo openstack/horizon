@@ -28,6 +28,7 @@ from django.forms import ValidationError
 from horizon import api
 from horizon import exceptions
 from horizon import forms
+from horizon.utils import validators
 
 
 LOG = logging.getLogger(__name__)
@@ -61,10 +62,14 @@ class BaseUserForm(forms.SelfHandlingForm):
 class CreateUserForm(BaseUserForm):
     name = forms.CharField(label=_("Name"))
     email = forms.EmailField(label=_("Email"))
-    password = forms.CharField(label=_("Password"),
-                               widget=forms.PasswordInput(render_value=False))
+    password = forms.RegexField(
+            label=_("Password"),
+            widget=forms.PasswordInput(render_value=False),
+            regex=validators.password_validator(),
+            error_messages={'invalid': validators.password_validator_msg()})
     confirm_password = forms.CharField(
             label=_("Confirm Password"),
+            required=False,
             widget=forms.PasswordInput(render_value=False))
     tenant_id = forms.ChoiceField(label=_("Primary Project"))
 

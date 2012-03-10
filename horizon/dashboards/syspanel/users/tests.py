@@ -82,10 +82,25 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'confirm_password': "doesntmatch"}
 
         res = self.client.post(USER_CREATE_URL, formData)
-        self.assertFormError(res,
-                             "form",
-                             None,
-                             ['Passwords do not match.'])
+        self.assertFormError(res, "form", None, ['Passwords do not match.'])
+
+    def test_user_password_validation(self):
+        user = self.users.get(id="1")
+        self.mox.StubOutWithMock(api, 'tenant_list')
+        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+        self.mox.ReplayAll()
+
+        formData = {'method': 'CreateUserForm',
+                    'name': user.name,
+                    'email': user.email,
+                    'password': 'four',
+                    'tenant_id': self.tenant.id,
+                    'confirm_password': "four"}
+
+        res = self.client.post(USER_CREATE_URL, formData)
+        self.assertFormError(
+                res, "form", 'password',
+                ['Your password must be at least 6 characters long.'])
 
     def test_enable_user(self):
         user = self.users.get(id="2")

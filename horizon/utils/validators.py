@@ -16,6 +16,8 @@
 
 import re
 
+from django.conf import settings
+
 from django.core import validators
 from django.core.exceptions import ValidationError
 
@@ -31,3 +33,15 @@ validate_ipv4_cidr = validators.RegexValidator(ipv4_cidr_re)
 def validate_port_range(port):
     if port not in range(-1, 65535):
         raise ValidationError("Not a valid port number")
+
+
+def password_validator():
+    config = getattr(settings, "HORIZON_CONFIG", {})
+    password_config = config.get("password_validator", {})
+    return password_config.get("regex", ".*")
+
+
+def password_validator_msg():
+    config = getattr(settings, "HORIZON_CONFIG", {})
+    password_config = config.get("password_validator", {})
+    return password_config.get("help_text", None)

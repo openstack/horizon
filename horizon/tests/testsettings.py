@@ -89,6 +89,10 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 HORIZON_CONFIG = {
     'dashboards': ('nova', 'syspanel', 'settings',),
     'default_dashboard': 'nova',
+    "password_validator": {
+        "regex": '.{6,}',
+        "help_text": "Your password must be at least 6 characters long."
+    },
 }
 
 AVAILABLE_REGIONS = [
