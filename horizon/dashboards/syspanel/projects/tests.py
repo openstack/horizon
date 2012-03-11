@@ -39,15 +39,15 @@ class TenantsViewTests(test.BaseAdminViewTests):
     def test_modify_quota(self):
         tenant = self.tenants.first()
         quota = self.quotas.first()
-        quota_data = {"metadata_items": '1',
-                      "injected_files": '1',
-                      "injected_file_content_bytes": '1',
-                      "cores": '1',
-                      "instances": '1',
-                      "volumes": '1',
-                      "gigabytes": '1',
+        quota_data = {"metadata_items": 1,
+                      "injected_files": 1,
+                      "injected_file_content_bytes": 1,
+                      "cores": 1,
+                      "instances": 1,
+                      "volumes": 1,
+                      "gigabytes": 1,
                       "ram": 1,
-                      "floating_ips": '1'}
+                      "floating_ips": 1}
         self.mox.StubOutWithMock(api.keystone, 'tenant_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_quota_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_quota_update')

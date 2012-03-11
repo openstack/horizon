@@ -35,19 +35,19 @@ class CreateFlavor(forms.SelfHandlingForm):
     # flavorid is required in novaclient
     flavor_id = forms.IntegerField(label=_("Flavor ID"))
     name = forms.CharField(max_length="25", label=_("Name"))
-    vcpus = forms.CharField(max_length="5", label=_("VCPUs"))
-    memory_mb = forms.CharField(max_length="5", label=_("Memory MB"))
-    disk_gb = forms.CharField(max_length="5", label=_("Root Disk GB"))
-    eph_gb = forms.CharField(max_length="5", label=_("Ephemeral Disk GB"))
+    vcpus = forms.IntegerField(label=_("VCPUs"))
+    memory_mb = forms.IntegerField(label=_("Memory MB"))
+    disk_gb = forms.IntegerField(label=_("Root Disk GB"))
+    eph_gb = forms.IntegerField(label=_("Ephemeral Disk GB"))
 
     def handle(self, request, data):
         api.flavor_create(request,
                           data['name'],
-                          int(data['memory_mb']),
-                          int(data['vcpus']),
-                          int(data['disk_gb']),
-                          int(data['flavor_id']),
-                          ephemeral=int(data['eph_gb']))
+                          data['memory_mb'],
+                          data['vcpus'],
+                          data['disk_gb'],
+                          data['flavor_id'],
+                          ephemeral=data['eph_gb'])
         msg = _('%s was successfully added to flavors.') % data['name']
         LOG.info(msg)
         messages.success(request, msg)
