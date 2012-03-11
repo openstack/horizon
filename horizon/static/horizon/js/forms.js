@@ -71,6 +71,9 @@ horizon.addInitFunction(function () {
     trigger: 'focus',
     title: getTwipsyTitle
   });
+  $(document).on('change', '.form-field select', function() {
+    $(this).tooltip('hide');
+  });
 
   // Hide the text for js-capable browsers
   $('span.help-block').hide();
