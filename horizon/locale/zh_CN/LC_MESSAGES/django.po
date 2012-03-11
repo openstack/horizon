@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-09 12:55+0800\n"
+"POT-Creation-Date: 2012-03-10 09:27+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1612,6 +1612,7 @@ msgstr ""
 #: dashboards/syspanel/projects/forms.py:89
 #: dashboards/syspanel/projects/tables.py:75
 #: dashboards/syspanel/services/tables.py:44
+#: dashboards/syspanel/users/tables.py:127
 msgid "Enabled"
 msgstr ""
 
@@ -1626,6 +1627,7 @@ msgstr ""
 
 #: dashboards/syspanel/projects/forms.py:83
 #: dashboards/syspanel/users/forms.py:87
+#: dashboards/syspanel/users/tables.py:121
 msgid "ID"
 msgstr ""
 
@@ -1877,6 +1879,7 @@ msgid "Select a project"
 msgstr ""
 
 #: dashboards/syspanel/users/forms.py:52 dashboards/syspanel/users/forms.py:89
+#: dashboards/syspanel/users/tables.py:123
 msgid "Email"
 msgstr ""
 
@@ -1902,17 +1905,16 @@ msgstr ""
 msgid "Unable to create user."
 msgstr ""
 
-#: dashboards/syspanel/users/forms.py:88 views/auth_forms.py:64
+#: dashboards/syspanel/users/forms.py:88
+#: dashboards/syspanel/users/tables.py:122 views/auth_forms.py:64
 msgid "User Name"
 msgstr ""
 
 #: dashboards/syspanel/users/forms.py:104
-#: dashboards/syspanel/users/tables.py:122
 msgid "name"
 msgstr ""
 
 #: dashboards/syspanel/users/forms.py:104
-#: dashboards/syspanel/users/tables.py:123
 msgid "email"
 msgstr ""
 
@@ -1982,14 +1984,6 @@ msgstr ""
 #: dashboards/syspanel/users/tables.py:84
 #, python-format
 msgid "Successfully disabled users: %s"
-msgstr ""
-
-#: dashboards/syspanel/users/tables.py:121
-msgid "id"
-msgstr ""
-
-#: dashboards/syspanel/users/tables.py:127
-msgid "enabled"
 msgstr ""
 
 #: dashboards/syspanel/users/views.py:50 dashboards/syspanel/users/views.py:56

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-09 12:55+0800\n"
+"POT-Creation-Date: 2012-03-10 09:27+0800\n"
 "PO-Revision-Date: 2011-09-24 14:41+0100\n"
 "Last-Translator: Tomasz 'Zen' Napierala <tomasz@napierala.org>\n"
 "Language-Team: Polish OpenStack translations team <tomasz+openstack-"
@@ -1712,6 +1712,7 @@ msgstr "Nie można utworzyć klucza: %s"
 #: dashboards/syspanel/projects/forms.py:89
 #: dashboards/syspanel/projects/tables.py:75
 #: dashboards/syspanel/services/tables.py:44
+#: dashboards/syspanel/users/tables.py:127
 msgid "Enabled"
 msgstr ""
 
@@ -1727,6 +1728,7 @@ msgstr "Nie można utworzyć klucza: %s"
 
 #: dashboards/syspanel/projects/forms.py:83
 #: dashboards/syspanel/users/forms.py:87
+#: dashboards/syspanel/users/tables.py:121
 msgid "ID"
 msgstr ""
 
@@ -2004,6 +2006,7 @@ msgid "Select a project"
 msgstr "Usuń projekt"
 
 #: dashboards/syspanel/users/forms.py:52 dashboards/syspanel/users/forms.py:89
+#: dashboards/syspanel/users/tables.py:123
 msgid "Email"
 msgstr ""
 
@@ -2031,17 +2034,16 @@ msgstr "Nie można zaktualizować obrazu: %s"
 msgid "Unable to create user."
 msgstr "Nie można utworzyć wolumenu: %s"
 
-#: dashboards/syspanel/users/forms.py:88 views/auth_forms.py:64
+#: dashboards/syspanel/users/forms.py:88
+#: dashboards/syspanel/users/tables.py:122 views/auth_forms.py:64
 msgid "User Name"
 msgstr ""
 
 #: dashboards/syspanel/users/forms.py:104
-#: dashboards/syspanel/users/tables.py:122
 msgid "name"
 msgstr ""
 
 #: dashboards/syspanel/users/forms.py:104
-#: dashboards/syspanel/users/tables.py:123
 msgid "email"
 msgstr ""
 
@@ -2113,14 +2115,6 @@ msgstr "Nie można usunąć klucza: %s"
 #, fuzzy, python-format
 msgid "Successfully disabled users: %s"
 msgstr "Pomyślnie zmodyfikowano projekt %(proj)s."
-
-#: dashboards/syspanel/users/tables.py:121
-msgid "id"
-msgstr ""
-
-#: dashboards/syspanel/users/tables.py:127
-msgid "enabled"
-msgstr ""
 
 #: dashboards/syspanel/users/views.py:50 dashboards/syspanel/users/views.py:56
 #, fuzzy, python-format

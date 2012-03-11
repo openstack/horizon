@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-09 12:55+0800\n"
+"POT-Creation-Date: 2012-03-10 09:27+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andy Chong <andycjw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1630,6 +1630,7 @@ msgstr "無法將使用者加入租戶"
 #: dashboards/syspanel/projects/forms.py:89
 #: dashboards/syspanel/projects/tables.py:75
 #: dashboards/syspanel/services/tables.py:44
+#: dashboards/syspanel/users/tables.py:127
 msgid "Enabled"
 msgstr "已啟用"
 
@@ -1644,6 +1645,7 @@ msgstr "無法建立租戶"
 
 #: dashboards/syspanel/projects/forms.py:83
 #: dashboards/syspanel/users/forms.py:87
+#: dashboards/syspanel/users/tables.py:121
 msgid "ID"
 msgstr "ID"
 
@@ -1895,6 +1897,7 @@ msgid "Select a project"
 msgstr "選擇專案"
 
 #: dashboards/syspanel/users/forms.py:52 dashboards/syspanel/users/forms.py:89
+#: dashboards/syspanel/users/tables.py:123
 msgid "Email"
 msgstr "電子郵件"
 
@@ -1920,17 +1923,16 @@ msgstr "無法將使用者加入主要專案。"
 msgid "Unable to create user."
 msgstr "無法建立使用者。"
 
-#: dashboards/syspanel/users/forms.py:88 views/auth_forms.py:64
+#: dashboards/syspanel/users/forms.py:88
+#: dashboards/syspanel/users/tables.py:122 views/auth_forms.py:64
 msgid "User Name"
 msgstr "使用者名稱"
 
 #: dashboards/syspanel/users/forms.py:104
-#: dashboards/syspanel/users/tables.py:122
 msgid "name"
 msgstr "名稱"
 
 #: dashboards/syspanel/users/forms.py:104
-#: dashboards/syspanel/users/tables.py:123
 msgid "email"
 msgstr "電子郵件"
 
@@ -2001,14 +2003,6 @@ msgstr "已停用以下使用者： %s"
 #, python-format
 msgid "Successfully disabled users: %s"
 msgstr "已成功停用使用者： %s"
-
-#: dashboards/syspanel/users/tables.py:121
-msgid "id"
-msgstr ""
-
-#: dashboards/syspanel/users/tables.py:127
-msgid "enabled"
-msgstr "已啟用"
 
 #: dashboards/syspanel/users/views.py:50 dashboards/syspanel/users/views.py:56
 #, python-format
@@ -2255,6 +2249,9 @@ msgstr "這使用者沒有租戶： %(user)s"
 #: views/auth_forms.py:160
 msgid "You are not authorized for any available tenants."
 msgstr "您沒有任何租戶的權限。"
+
+#~ msgid "enabled"
+#~ msgstr "已啟用"
 
 #~ msgid "Network"
 #~ msgstr "網路"
