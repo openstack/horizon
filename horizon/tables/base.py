@@ -264,8 +264,8 @@ class Row(object):
 
     .. attribute:: status
 
-        Boolean value representing the status of this row according
-        to the value of the table's ``status_column`` value if it is set.
+        Boolean value representing the status of this row calculated from
+        the values of the table's ``status_columns`` if they are set.
 
     .. attribute:: status_class
 
@@ -299,15 +299,17 @@ class Row(object):
 
     @property
     def status(self):
-        column_name = self.table._meta.status_column
-        if column_name:
-            return self.cells[column_name].status
+        column_names = self.table._meta.status_columns
+        if column_names:
+            statuses = dict([(column_name, self.cells[column_name].status) for
+                             column_name in column_names])
+            return self.table.calculate_row_status(statuses)
 
     @property
     def status_class(self):
-        column_name = self.table._meta.status_column
-        if column_name:
-            return self.cells[column_name].get_status_class(self.status)
+        column_names = self.table._meta.status_columns
+        if column_names:
+            return self.table.get_row_status_class(self.status)
         else:
             return ''
 
@@ -371,7 +373,7 @@ class Cell(object):
             return self._status
 
         if self.column.status or \
-                self.column.table._meta.status_column == self.column.name:
+                self.column.name in self.column.table._meta.status_columns:
             #returns the first matching status found
             data_value_lower = unicode(self.data).lower()
             for status_name, status_value in self.column.status_choices:
@@ -453,20 +455,18 @@ class DataTableOptions(object):
         The name of the context variable which will contain the table when
         it is rendered. Defaults to ``"table"``.
 
-    .. attribute:: status_column
+    .. attribute:: status_columns
 
-        The name of a column on this table which represents the "state"
-        of the data object being represented. The collumn must already be
-        designated as a status column by passing the ``status=True``
-        parameter to the column.
+        A list or tuple of column names which represents the "state"
+        of the data object being represented.
 
-        If ``status_column`` is set, when the rows are rendered the value
+        If ``status_columns`` is set, when the rows are rendered the value
         of this column will be used to add an extra class to the row in
         the form of ``"status_up"`` or ``"status_down"`` for that row's
         data.
 
-        This is useful for displaying the enabled/disabled status of a
-        service, for example.
+        The row status is used by other Horizon components to trigger tasks
+        such as dynamic AJAX updating.
 
     .. attribute:: row_class
 
@@ -484,7 +484,7 @@ class DataTableOptions(object):
                                     or self.name.title()
         self.verbose_name = unicode(verbose_name)
         self.columns = getattr(options, 'columns', None)
-        self.status_column = getattr(options, 'status_column', None)
+        self.status_columns = getattr(options, 'status_columns', [])
         self.table_actions = getattr(options, 'table_actions', [])
         self.row_actions = getattr(options, 'row_actions', [])
         self.row_class = getattr(options, 'row_class', Row)
@@ -892,6 +892,46 @@ class DataTable(object):
         for APIs that use marker/limit-based paging.
         """
         return http.urlquote_plus(self.get_object_id(self.data[-1]))
+
+    def calculate_row_status(self, statuses):
+        """
+        Returns a boolean value determining the overall row status
+        based on the dictionary of column name to status mappings passed in.
+
+        By default, it uses the following logic:
+
+        #. If any statuses are ``False``, return ``False``.
+        #. If no statuses are ``False`` but any or ``None``, return ``None``.
+        #. If all statuses are ``True``, return ``True``.
+
+        This provides the greatest protection against false positives without
+        weighting any particular columns.
+
+        The ``statuses`` parameter is passed in as a dictionary mapping
+        column names to their statuses in order to allow this function to
+        be overridden in such a way as to weight one column's status over
+        another should that behavior be desired.
+        """
+        values = statuses.values()
+        if any([status is False for status in values]):
+            return False
+        elif any([status is None for status in values]):
+            return None
+        else:
+            return True
+
+    def get_row_status_class(self, status):
+        """
+        Returns a css class name determined by the status value. This class
+        name is used to indicate the status of the rows in the table if
+        any ``status_columns`` have been specified.
+        """
+        if status is True:
+            return "status_up"
+        elif status is False:
+            return "status_down"
+        else:
+            return "status_unknown"
 
     def get_columns(self):
         """ Returns this table's columns including auto-generated ones."""

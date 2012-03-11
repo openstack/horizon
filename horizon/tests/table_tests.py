@@ -147,7 +147,7 @@ class MyTable(tables.DataTable):
     class Meta:
         name = "my_table"
         verbose_name = "My Table"
-        status_column = "status"
+        status_columns = ["status"]
         columns = ('id', 'name', 'value', 'optional', 'status')
         table_actions = (MyFilterAction, MyAction, MyBatchAction)
         row_actions = (MyAction, MyLinkAction, MyUpdateAction,

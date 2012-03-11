@@ -74,6 +74,12 @@ class CreateSnapshot(tables.LinkAction):
         return volume.status == "available"
 
 
+class UpdateRow(tables.UpdateAction):
+    def get_data(self, request, volume_id):
+        volume = api.volume_get(request, volume_id)
+        return volume
+
+
 def get_size(volume):
     return _("%s GB") % volume.size
 
@@ -95,12 +101,21 @@ def get_attachment(volume):
 
 
 class VolumesTableBase(tables.DataTable):
+    STATUS_CHOICES = (
+        ("in-use", True),
+        ("available", True),
+        ("creating", None),
+        ("error", False),
+    )
     name = tables.Column("displayName", verbose_name=_("Name"))
     description = tables.Column("displayDescription",
                                 verbose_name=_("Description"))
     size = tables.Column(get_size, verbose_name=_("Size"))
-    status = tables.Column("status", filters=(title,),
-                           verbose_name=_("Status"))
+    status = tables.Column("status",
+                           filters=(title,),
+                           verbose_name=_("Status"),
+                           status=True,
+                           status_choices=STATUS_CHOICES)
 
     def get_object_display(self, obj):
         return obj.displayName
@@ -113,8 +128,10 @@ class VolumesTable(VolumesTableBase):
     class Meta:
         name = "volumes"
         verbose_name = _("Volumes")
+        status_columns = ["status"]
         table_actions = (CreateVolume, DeleteVolume,)
-        row_actions = (EditAttachments, CreateSnapshot, DeleteVolume)
+        row_actions = (EditAttachments, CreateSnapshot,
+                       DeleteVolume, UpdateRow)
 
 
 class DetachVolume(tables.BatchAction):

@@ -38,6 +38,10 @@ class SyspanelInstancesTable(tables.DataTable):
         (None, True),
         ("none", True)
     )
+    STATUS_CHOICES = (
+        ("active", True),
+        ("error", False),
+    )
     tenant = tables.Column("tenant_name", verbose_name=_("Tenant"))
     user = tables.Column("user_id", verbose_name=_("User"))
     internal_id = tables.Column("internal_identifier",
@@ -48,8 +52,11 @@ class SyspanelInstancesTable(tables.DataTable):
                          verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
     size = tables.Column(get_size, verbose_name=_("Size"))
-    status = tables.Column("status", filters=(title,),
-                           verbose_name=_("Status"))
+    status = tables.Column("status",
+                           filters=(title,),
+                           verbose_name=_("Status"),
+                           status=True,
+                           status_choices=STATUS_CHOICES)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
                          filters=(title,),
@@ -62,8 +69,8 @@ class SyspanelInstancesTable(tables.DataTable):
     class Meta:
         name = "instances"
         verbose_name = _("Instances")
-        status_column = "task"
-        table_actions = (LaunchLink, TerminateInstance)
+        status_columns = ["status", "task"]
+        table_actions = (TerminateInstance,)
         row_actions = (EditInstance, ConsoleLink, LogLink, SnapshotLink,
                        TogglePause, ToggleSuspend, RebootInstance,
                        TerminateInstance, UpdateRow)

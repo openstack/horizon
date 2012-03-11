@@ -55,4 +55,4 @@ class ServicesTable(tables.DataTable):
         verbose_name = _("Services")
         table_actions = (ServiceFilterAction,)
         multi_select = False
-        status_column = "enabled"
+        status_columns = ["enabled"]
