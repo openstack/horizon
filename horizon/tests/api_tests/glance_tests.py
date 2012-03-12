@@ -18,6 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from glance.common import exception as glance_exception
+
 from horizon import api
 from horizon import test
 
@@ -55,6 +57,35 @@ class GlanceApiTests(test.APITestCase):
         for image in ret_val:
             self.assertIsInstance(image, api.glance.Image)
             self.assertIn(image._apidict, images)
+
+    def test_glance_exception_wrapping_for_internal_server_errors(self):
+        """
+        Verify that generic "Exception" classed exceptions from the glance
+        client's HTTP Internal Service Errors get converted to
+        ClientConnectionError's.
+        """
+        # TODO(johnp): Remove once Bug 952618 is fixed in the glance client.
+        glanceclient = self.stub_glanceclient()
+        glanceclient.get_images_detailed().AndRaise(
+                Exception("Internal Server error: "))
+        self.mox.ReplayAll()
+
+        with self.assertRaises(glance_exception.ClientConnectionError):
+            api.image_list_detailed(self.request)
+
+    def test_glance_exception_wrapping_for_generic_http_errors(self):
+        """
+        Verify that generic "Exception" classed exceptions from the glance
+        client's HTTP errors get converted to ClientConnectionError's.
+        """
+        # TODO(johnp): Remove once Bug 952618 is fixed in the glance client.
+        glanceclient = self.stub_glanceclient()
+        glanceclient.get_images_detailed().AndRaise(
+                Exception("Unknown error occurred! 503 Service Unavailable"))
+        self.mox.ReplayAll()
+
+        with self.assertRaises(glance_exception.ClientConnectionError):
+            api.image_list_detailed(self.request)
 
 
 class ImageWrapperTests(test.TestCase):
