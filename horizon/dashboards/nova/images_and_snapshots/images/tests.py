@@ -20,11 +20,15 @@
 
 from django import http
 from django.core.urlresolvers import reverse
-from keystoneclient import exceptions as keystone_exceptions
-from mox import IgnoreArg, IsA
+
+from glance.common import exception as glance_exception
 
 from horizon import api
 from horizon import test
+
+from keystoneclient import exceptions as keystone_exceptions
+
+from mox import IgnoreArg, IsA
 
 
 IMAGES_INDEX_URL = reverse('horizon:nova:images_and_snapshots:index')
@@ -219,8 +223,20 @@ class ImageViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(
-        reverse('horizon:nova:images_and_snapshots:images:detail',
+                reverse('horizon:nova:images_and_snapshots:images:detail',
                 args=[image.id]))
         self.assertTemplateUsed(res,
                                 'nova/images_and_snapshots/images/detail.html')
         self.assertEqual(res.context['image'].name, image.name)
+
+    def test_image_detail_get_with_exception(self):
+        image = self.images.first()
+        self.mox.StubOutWithMock(api.glance, 'image_get_meta')
+        api.glance.image_get_meta(IsA(http.HttpRequest), str(image.id)) \
+                                 .AndRaise(glance_exception.NotFound)
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+                reverse('horizon:nova:images_and_snapshots:images:detail',
+                args=[image.id]))
+        self.assertRedirectsNoFollow(res, IMAGES_INDEX_URL)
