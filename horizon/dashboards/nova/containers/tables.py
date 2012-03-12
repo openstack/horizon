@@ -32,18 +32,20 @@ from horizon import tables
 LOG = logging.getLogger(__name__)
 
 
-class DeleteContainer(tables.Action):
-    name = "delete"
-    verbose_name = _("Delete")
-    verbose_name_plural = _("Delete Containers")
-    classes = ('btn-danger',)
+class DeleteContainer(tables.DeleteAction):
+    data_type_singular = _("Container")
+    data_type_plural = _("Containers")
+
+    def delete(self, request, obj_id):
+        api.swift_delete_container(request, obj_id)
 
     def handle(self, table, request, object_ids):
+        # Overriden to show clearer error messages instead of generic message
         deleted = []
         for obj_id in object_ids:
             obj = table.get_object_by_id(obj_id)
             try:
-                api.swift_delete_container(request, obj_id)
+                self.delete(request, obj_id)
                 deleted.append(obj)
             except ContainerNotEmpty:
                 LOG.exception('Unable to delete container "%s".' % obj.name)
@@ -114,28 +116,14 @@ class ContainersTable(tables.DataTable):
         row_actions = (ListObjects, UploadObject, DeleteContainer)
 
 
-class DeleteObject(tables.Action):
-    name = "delete"
-    verbose_name = _("Delete")
-    verbose_name_plural = _("Delete Objects")
-    classes = ('btn-danger',)
+class DeleteObject(tables.DeleteAction):
+    data_type_singular = _("Object")
+    data_type_plural = _("Objects")
 
-    def handle(self, table, request, object_ids):
-        deleted = []
-        for obj_id in object_ids:
-            obj = table.get_object_by_id(obj_id)
-            container_name = obj.container.name
-            try:
-                api.swift_delete_object(request, container_name, obj_id)
-                deleted.append(obj)
-            except:
-                exceptions.handle(request, _('Unable to delete object.'))
-        if deleted:
-            messages.success(request,
-                             _('Successfully deleted objects: %s')
-                               % ", ".join([obj.name for obj in deleted]))
-        return shortcuts.redirect('horizon:nova:containers:object_index',
-                                  table.kwargs['container_name'])
+    def delete(self, request, obj_id):
+        obj = self.table.get_object_by_id(obj_id)
+        container_name = obj.container.name
+        api.swift_delete_object(request, container_name, obj_id)
 
 
 class CopyObject(tables.LinkAction):
