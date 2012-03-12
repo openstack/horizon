@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 18:36-0700\n"
+"POT-Creation-Date: 2012-03-14 13:53-0700\n"
 "PO-Revision-Date: 2011-09-24 14:41+0100\n"
 "Last-Translator: Tomasz 'Zen' Napierala <tomasz@napierala.org>\n"
 "Language-Team: Polish OpenStack translations team <tomasz+openstack-"
@@ -37,12 +37,7 @@ msgstr ""
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
-#: middleware.py:69 dashboards/settings/ec2/forms.py:50
-#, fuzzy
-msgid "Unable to retrieve tenant list."
-msgstr "Nie można utworzyć klucza: %s"
-
-#: users.py:61
+#: users.py:63
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
@@ -79,7 +74,7 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/instances/tables.py:68
 #: dashboards/nova/instances_and_volumes/instances/tables.py:83
 #: dashboards/nova/instances_and_volumes/instances/tables.py:108
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:164
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:168
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:42
 #, fuzzy
 msgid "Instance"
@@ -151,8 +146,8 @@ msgid "Unable to disassociate floating IP."
 msgstr "Nie można zaktualizować obrazu: %s"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:90
-#: dashboards/nova/instances_and_volumes/instances/tables.py:211
-#: dashboards/syspanel/instances/tables.py:53
+#: dashboards/nova/instances_and_volumes/instances/tables.py:214
+#: dashboards/syspanel/instances/tables.py:49
 msgid "IP Address"
 msgstr ""
 
@@ -348,8 +343,8 @@ msgstr "Edytuj role użytkowników"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:57
 #: dashboards/nova/images_and_snapshots/images/forms.py:42
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:117
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:133
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:120
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:137
 #: dashboards/syspanel/flavors/forms.py:37
 #: dashboards/syspanel/projects/forms.py:60
 #: dashboards/syspanel/projects/forms.py:85
@@ -361,7 +356,7 @@ msgstr ""
 #: dashboards/nova/access_and_security/security_groups/tables.py:58
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:29
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:93
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:120
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:123
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:16
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:16
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:17
@@ -515,9 +510,9 @@ msgstr ""
 
 #: dashboards/nova/containers/tables.py:107
 #: dashboards/nova/containers/tables.py:170
-#: dashboards/nova/instances_and_volumes/instances/tables.py:212
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:121
-#: dashboards/syspanel/instances/tables.py:54
+#: dashboards/nova/instances_and_volumes/instances/tables.py:215
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:124
+#: dashboards/syspanel/instances/tables.py:50
 msgid "Size"
 msgstr ""
 
@@ -710,14 +705,14 @@ msgid "Image Name"
 msgstr "Obrazy"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:76
-#: dashboards/nova/instances_and_volumes/instances/tables.py:215
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:124
+#: dashboards/nova/instances_and_volumes/instances/tables.py:218
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:127
 #: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:12
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:18
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:21
-#: dashboards/syspanel/instances/tables.py:57
+#: dashboards/syspanel/instances/tables.py:53
 msgid "Status"
 msgstr ""
 
@@ -760,7 +755,7 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/views.py:118
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:35
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:151
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:155
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:74
 #, fuzzy
 msgid "Volume"
@@ -867,8 +862,8 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/instances/tables.py:69
 #: dashboards/nova/instances_and_volumes/instances/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:109
-#: dashboards/nova/instances_and_volumes/instances/tables.py:229
-#: dashboards/syspanel/instances/tables.py:71
+#: dashboards/nova/instances_and_volumes/instances/tables.py:232
+#: dashboards/syspanel/instances/tables.py:67
 #: dashboards/syspanel/projects/forms.py:115
 #: dashboards/syspanel/templates/syspanel/instances/index.html:3
 msgid "Instances"
@@ -933,30 +928,30 @@ msgstr ""
 msgid "View Log"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:187
+#: dashboards/nova/instances_and_volumes/instances/tables.py:190
 #, python-format
 msgid "%(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:192
+#: dashboards/nova/instances_and_volumes/instances/tables.py:195
 #, fuzzy
 msgid "Not available"
 msgstr "brak dostępnych"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:210
+#: dashboards/nova/instances_and_volumes/instances/tables.py:213
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:10
-#: dashboards/syspanel/instances/tables.py:52 usage/tables.py:45
+#: dashboards/syspanel/instances/tables.py:48 usage/tables.py:45
 #, fuzzy
 msgid "Instance Name"
 msgstr "Instancje"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:219
-#: dashboards/syspanel/instances/tables.py:61
+#: dashboards/nova/instances_and_volumes/instances/tables.py:222
+#: dashboards/syspanel/instances/tables.py:57
 msgid "Task"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:225
-#: dashboards/syspanel/instances/tables.py:67
+#: dashboards/nova/instances_and_volumes/instances/tables.py:228
+#: dashboards/syspanel/instances/tables.py:63
 msgid "Power State"
 msgstr ""
 
@@ -1024,8 +1019,8 @@ msgid "Error Creating Volume Snapshot: %(exc)s"
 msgstr "tworzenie użytkownika %s..."
 
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:36
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:140
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:152
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:144
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:156
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:68
 #: dashboards/syspanel/projects/forms.py:116
 msgid "Volumes"
@@ -1053,23 +1048,23 @@ msgstr "Dołącz wolumen"
 msgid "Create Snapshot"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:91
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:94
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:136
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:140
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:35
 #, fuzzy
 msgid "Attachments"
 msgstr "Dołącz wolumen"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:149
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:153
 msgid "Detach"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:150
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:154
 msgid "Detached"
 msgstr ""
 
@@ -1078,8 +1073,8 @@ msgstr ""
 msgid "Unable to retrieve volume details."
 msgstr "Nie można utworzyć wolumenu: %s"
 
-#: dashboards/nova/instances_and_volumes/volumes/views.py:72
-#: dashboards/nova/instances_and_volumes/volumes/views.py:82
+#: dashboards/nova/instances_and_volumes/volumes/views.py:71
+#: dashboards/nova/instances_and_volumes/volumes/views.py:81
 #, fuzzy
 msgid "Unable to retrieve volume information."
 msgstr "Nie można wyrejestrować obrazu: %s"
@@ -1401,7 +1396,7 @@ msgid "Instance Overview"
 msgstr "Instancje"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:11
-#: dashboards/syspanel/instances/tables.py:48
+#: dashboards/syspanel/instances/tables.py:44
 #, fuzzy
 msgid "Instance ID"
 msgstr "ID instancji:"
@@ -1573,6 +1568,11 @@ msgstr ""
 msgid "Select a Project"
 msgstr "Usuń projekt"
 
+#: dashboards/settings/ec2/forms.py:50
+#, fuzzy
+msgid "Unable to retrieve tenant list."
+msgstr "Nie można utworzyć klucza: %s"
+
 #: dashboards/settings/ec2/forms.py:71
 #, fuzzy
 msgid "Unable to fetch EC2 credentials."
@@ -1608,14 +1608,18 @@ msgid ""
 msgstr ""
 
 #: dashboards/settings/templates/settings/project/_openrc.html:8
-#: dashboards/settings/templates/settings/project/_openrc.html:23
-msgid "Download RC File"
-msgstr ""
+#, fuzzy
+msgid "Download OpenStack RC File"
+msgstr "Nie można zaktualizować obrazu: %s"
 
 #: dashboards/settings/templates/settings/project/_openrc.html:18
 msgid ""
 "Download the RC file for the selected project, then type \"source openrc\" "
 "in the terminal to configure your environment to communicate with OpenStack."
+msgstr ""
+
+#: dashboards/settings/templates/settings/project/_openrc.html:23
+msgid "Download RC File"
 msgstr ""
 
 #: dashboards/settings/templates/settings/project/settings.html:6
@@ -1709,17 +1713,17 @@ msgstr "Nie można cofnąć: %s"
 msgid "Unable to retrieve image list."
 msgstr "Nie można utworzyć klucza: %s"
 
-#: dashboards/syspanel/instances/tables.py:45
+#: dashboards/syspanel/instances/tables.py:41
 msgid "Tenant"
 msgstr ""
 
-#: dashboards/syspanel/instances/tables.py:46
+#: dashboards/syspanel/instances/tables.py:42
 #: dashboards/syspanel/projects/tables.py:89
 #: dashboards/syspanel/users/tables.py:90
 msgid "User"
 msgstr ""
 
-#: dashboards/syspanel/instances/tables.py:49
+#: dashboards/syspanel/instances/tables.py:45
 #: dashboards/syspanel/services/tables.py:49
 msgid "Host"
 msgstr ""
@@ -2172,55 +2176,50 @@ msgstr "Nie można ustawić widoczności obrazu na publiczną: %s"
 msgid "Unable to update user."
 msgstr "Nie można zaktualizować obrazu: %s"
 
-#: tables/actions.py:277
-#, fuzzy
-msgid "Update"
-msgstr "Aktualizuj obraz"
-
-#: tables/actions.py:506
+#: tables/actions.py:431
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:512
+#: tables/actions.py:437
 #, fuzzy, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Nie można usunąć klucza: %s"
 
-#: tables/actions.py:518
+#: tables/actions.py:443
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:528
+#: tables/actions.py:453
 msgid "Delete"
 msgstr "Usuń"
 
-#: tables/actions.py:529
+#: tables/actions.py:454
 #, fuzzy
 msgid "Deleted"
 msgstr "Usuń"
 
-#: tables/base.py:211
+#: tables/base.py:214
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:562
+#: tables/base.py:616
 #, fuzzy
 msgid "Actions"
 msgstr "Położenie"
 
-#: tables/base.py:696
+#: tables/base.py:750
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:713
+#: tables/base.py:767
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:815
+#: tables/base.py:870
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -2307,35 +2306,35 @@ msgstr ""
 msgid "%s PB"
 msgstr ""
 
-#: tests/table_tests.py:86
+#: tests/table_tests.py:89
 msgid "Batch"
 msgstr ""
 
-#: tests/table_tests.py:87
+#: tests/table_tests.py:90
 msgid "Batched"
 msgstr ""
 
-#: tests/table_tests.py:88 tests/table_tests.py:99
+#: tests/table_tests.py:91 tests/table_tests.py:102
 msgid "Item"
 msgstr ""
 
-#: tests/table_tests.py:89 tests/table_tests.py:100
+#: tests/table_tests.py:92 tests/table_tests.py:103
 msgid "Items"
 msgstr ""
 
-#: tests/table_tests.py:97
+#: tests/table_tests.py:100
 msgid "Down"
 msgstr ""
 
-#: tests/table_tests.py:97
+#: tests/table_tests.py:100
 msgid "Up"
 msgstr ""
 
-#: tests/table_tests.py:98
+#: tests/table_tests.py:101
 msgid "Downed"
 msgstr ""
 
-#: tests/table_tests.py:98
+#: tests/table_tests.py:101
 msgid "Upped"
 msgstr ""
 
@@ -2417,6 +2416,10 @@ msgstr ""
 #: views/auth_forms.py:165
 msgid "You are not authorized for any available tenants."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Update"
+#~ msgstr "Aktualizuj obraz"
 
 #, fuzzy
 #~ msgid "Delete Objects"

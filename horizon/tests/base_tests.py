@@ -160,7 +160,7 @@ class HorizonTests(BaseHorizonTests):
         settings_dash.register(MyPanel)
         self.assertQuerysetEqual(settings_dash.get_panels(),
                                  ['<Panel: User Settings>',
-                                  '<Panel: Project Settings>',
+                                  '<Panel: OpenStack Credentials>',
                                   '<Panel: EC2 Credentials>',
                                   '<Panel: My Panel>'])
 
