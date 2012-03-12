@@ -107,16 +107,16 @@ class UpdateTenant(forms.SelfHandlingForm):
 class UpdateQuotas(forms.SelfHandlingForm):
     tenant_id = forms.CharField(label=_("ID (name)"),
             widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    metadata_items = forms.CharField(label=_("Metadata Items"))
-    injected_files = forms.CharField(label=_("Injected Files"))
-    injected_file_content_bytes = forms.CharField(label=_("Injected File "
+    metadata_items = forms.IntegerField(label=_("Metadata Items"))
+    injected_files = forms.IntegerField(label=_("Injected Files"))
+    injected_file_content_bytes = forms.IntegerField(label=_("Injected File "
                                                           "Content Bytes"))
-    cores = forms.CharField(label=_("VCPUs"))
-    instances = forms.CharField(label=_("Instances"))
-    volumes = forms.CharField(label=_("Volumes"))
-    gigabytes = forms.CharField(label=_("Gigabytes"))
-    ram = forms.CharField(label=_("RAM (in MB)"))
-    floating_ips = forms.CharField(label=_("Floating IPs"))
+    cores = forms.IntegerField(label=_("VCPUs"))
+    instances = forms.IntegerField(label=_("Instances"))
+    volumes = forms.IntegerField(label=_("Volumes"))
+    gigabytes = forms.IntegerField(label=_("Gigabytes"))
+    ram = forms.IntegerField(label=_("RAM (in MB)"))
+    floating_ips = forms.IntegerField(label=_("Floating IPs"))
 
     def handle(self, request, data):
         try:
@@ -126,7 +126,7 @@ class UpdateQuotas(forms.SelfHandlingForm):
                injected_file_content_bytes=data['injected_file_content_bytes'],
                volumes=data['volumes'],
                gigabytes=data['gigabytes'],
-               ram=int(data['ram']),
+               ram=data['ram'],
                floating_ips=data['floating_ips'],
                instances=data['instances'],
                injected_files=data['injected_files'],
