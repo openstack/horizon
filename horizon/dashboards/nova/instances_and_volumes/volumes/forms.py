@@ -18,7 +18,7 @@ from horizon import forms
 from horizon import exceptions
 from novaclient import exceptions as novaclient_exceptions
 
-from .tables import ACTIVE_STATES
+from ..instances.tables import ACTIVE_STATES
 
 LOG = logging.getLogger(__name__)
 
