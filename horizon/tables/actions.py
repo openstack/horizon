@@ -494,9 +494,10 @@ class BatchAction(Action):
                 LOG.info('%s: "%s"' %
                          (self._conjugate(past=True), datum_display))
             except:
-                action_str = self._conjugate().lower()
-                exceptions.handle(request,
-                                  _("Unable to %s.") % action_str)
+                # Handle the exception but silence it since we'll display
+                # an aggregate error message later. Otherwise we'd get
+                # multiple error messages displayed to the user.
+                exceptions.handle(request, ignore=True)
                 action_failure.append(datum_display)
 
         #Begin with success message class, downgrade to info if problems
