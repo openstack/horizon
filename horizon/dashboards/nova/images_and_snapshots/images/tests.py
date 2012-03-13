@@ -62,7 +62,7 @@ class ImageViewTests(test.TestCase):
         self.assertIn(self.flavors.first().name,
                       form.fields['flavor'].choices[0][1])
         self.assertEqual(self.keypairs.first().name,
-                         form.fields['keypair'].choices[0][0])
+                         form.fields['keypair'].choices[1][0])
 
     def test_launch_post(self):
         flavor = self.flavors.first()
@@ -166,7 +166,7 @@ class ImageViewTests(test.TestCase):
         res = self.client.get(url)
         self.assertTemplateUsed(res,
                                 'nova/images_and_snapshots/images/launch.html')
-        self.assertEqual(len(res.context['form'].fields['keypair'].choices), 0)
+        self.assertEqual(len(res.context['form'].fields['keypair'].choices), 1)
 
     def test_launch_form_keystone_exception(self):
         flavor = self.flavors.first()

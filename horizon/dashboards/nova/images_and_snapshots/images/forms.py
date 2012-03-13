@@ -127,6 +127,10 @@ class LaunchForm(forms.SelfHandlingForm):
     def __init__(self, *args, **kwargs):
         flavor_list = kwargs.pop('flavor_list')
         keypair_list = kwargs.pop('keypair_list')
+        if keypair_list:
+            keypair_list.insert(0, ("", _("Select a keypair")))
+        else:
+            keypair_list = (("", _("No keypairs available.")),)
         security_group_list = kwargs.pop('security_group_list')
         volume_list = kwargs.pop('volume_list')
         super(LaunchForm, self).__init__(*args, **kwargs)
