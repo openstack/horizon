@@ -27,7 +27,8 @@ from horizon import tables
 
 LOG = logging.getLogger(__name__)
 
-ACTIVE_STATES = ("ACTIVE",)
+URL_PREFIX = "horizon:nova:instances_and_volumes"
+DELETABLE_STATES = ("available", "error")
 
 
 class DeleteVolume(tables.DeleteAction):
@@ -39,25 +40,31 @@ class DeleteVolume(tables.DeleteAction):
         api.volume_delete(request, obj_id)
 
     def allowed(self, request, volume=None):
-        # TODO(tres): Why does this get called n+1 times where n is the number
-        # of volumes? The extra time this is called volume is not passed.
         if volume:
-            return volume.status == "available"
-        else:
-            return False
+            return volume.status in DELETABLE_STATES
+        return True
+
+    def update(self, request, volume=None):
+        # TODO(gabriel): This can be removed once the Nova Volume API supports
+        # deleting volumes in error states.
+        if volume and getattr(volume, "status", None) == "error":
+            self.classes += ("disabled",)
+            self.attrs['disabled'] = 'disabled'
+            self.attrs['title'] = _("Volumes in error states cannot be "
+                                    "deleted via the Nova API.")
 
 
 class CreateVolume(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Volume")
-    url = "horizon:nova:instances_and_volumes:volumes:create"
+    url = "%s:volumes:create" % URL_PREFIX
     classes = ("ajax-modal",)
 
 
 class EditAttachments(tables.LinkAction):
     name = "attachments"
     verbose_name = _("Edit Attachments")
-    url = "horizon:nova:instances_and_volumes:volumes:attach"
+    url = "%s:volumes:attach" % URL_PREFIX
     attrs = {"class": "ajax-modal"}
 
     def allowed(self, request, volume=None):
@@ -67,7 +74,7 @@ class EditAttachments(tables.LinkAction):
 class CreateSnapshot(tables.LinkAction):
     name = "snapshots"
     verbose_name = _("Create Snapshot")
-    url = "horizon:nova:instances_and_volumes:volumes:create_snapshot"
+    url = "%s:volumes:create_snapshot" % URL_PREFIX
     attrs = {"class": "ajax-modal"}
 
     def allowed(self, request, volume=None):
@@ -90,7 +97,7 @@ def get_attachment(volume):
            '<small>(%(dev)s)</small></a>'
     # Filter out "empty" attachments which the client returns...
     for attachment in [att for att in volume.attachments if att]:
-        url = reverse("horizon:nova:instances_and_volumes:instances:detail",
+        url = reverse("%s:instances:detail" % URL_PREFIX,
                       args=(attachment["serverId"],))
         # TODO(jake): Make "instance" the instance name
         vals = {"url": url,
@@ -107,7 +114,8 @@ class VolumesTableBase(tables.DataTable):
         ("creating", None),
         ("error", False),
     )
-    name = tables.Column("displayName", verbose_name=_("Name"))
+    name = tables.Column("displayName", verbose_name=_("Name"),
+                         link="%s:volumes:detail" % URL_PREFIX)
     description = tables.Column("displayDescription",
                                 verbose_name=_("Description"))
     size = tables.Column(get_size, verbose_name=_("Size"))
@@ -147,7 +155,7 @@ class DetachVolume(tables.BatchAction):
         api.volume_detach(request, instance_id, obj_id)
 
     def get_success_url(self, request):
-        return reverse('horizon:nova:instances_and_volumes:index')
+        return reverse('%s:index' % URL_PREFIX)
 
 
 class AttachmentsTable(tables.DataTable):
