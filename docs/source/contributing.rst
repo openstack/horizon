@@ -12,29 +12,70 @@ Before you dive into writing patches, here are some of the basics:
 * Source code: https://github.com/openstack/horizon
 * Code review: https://review.openstack.org/#q,status:open+project:openstack/horizon,n,z
 * Jenkins build status: https://jenkins.openstack.org/view/Horizon/
+* IRC Channel: #openstack-horizon on Freenode.
 
 Making Contributions
 ====================
+
+Getting Started
+---------------
 
 We'll start by assuming you've got a working checkout of the repository (if
 not then please see the :doc:`quickstart`).
 
 Second, you'll need to take care of a couple administrative tasks:
 
-1. Create an account on Launchpad.
-2. Sign the `OpenStack Contributor License Agreement`_ and follow the associated
+#. Create an account on Launchpad.
+#. Sign the `OpenStack Contributor License Agreement`_ and follow the associated
    instructions to verify your signature.
-3. Request to join the `OpenStack Contributors`_ team on Launchpad.
-4. Join the `Horizon Developers`_ team on Launchpad.
-5. Follow the `instructions for setting up git-review`_ in your
+#. Request to join the `OpenStack Contributors`_ team on Launchpad.
+#. Join the `Horizon Developers`_ team on Launchpad.
+#. Follow the `instructions for setting up git-review`_ in your
    development environment.
 
 Whew! Got that all that? Okay! You're good to go.
+
+Ways To Contribute
+------------------
 
 The easiest way to get started with Horizon's code is to pick a bug on
 Launchpad that interests you, and start working on that. Alternatively, if
 there's an OpenStack API feature you would like to see implemented in Horizon
 feel free to try building it.
+
+If those are too big, there are lots of great ways to get involved without
+plunging in head-first:
+
+* Report bugs, triage new tickets, and review old tickets on
+  the `bug tracker`_.
+* Propose ideas for improvements via Launchpad Blueprints, via the
+  mailing list on the project page, or on IRC.
+* Write documentation!
+* Write unit tests for untested code!
+
+.. _`bug tracker`: https://bugs.launchpad.net/horizon
+
+Choosing Issues To Work On
+--------------------------
+
+In general, if you want to write code, there are three cases for issues
+you might want to work on:
+
+#. Confirmed bugs
+#. Approved blueprints (features)
+#. New bugs you've discovered
+
+If you have an idea for a new feature that isn't in a blueprint yet, it's
+a good idea to write the blueprint first so you don't end up writing a bunch
+of code that may not go in the direction the community wants.
+
+For bugs, open the bug first, but if you can reproduce the bug reliably and
+identify it's cause then it's usually safe to start working on it. However,
+getting independent confirmation (and verifying that it's not a duplicate)
+is always a good idea if you can be patient.
+
+After You Write Your Patch
+--------------------------
 
 Once you've made your changes, there are a few things to do:
 
@@ -53,6 +94,28 @@ merged to the master repository and it's time to celebrate!
 .. _`OpenStack Contributors`: https://launchpad.net/~openstack-cla
 .. _`Horizon Developers`: https://launchpad.net/~horizon
 .. _`instructions for setting up git-review`: http://wiki.openstack.org/GerritWorkflow
+
+Etiquette
+=========
+
+The community's guidelines for etiquette are fairly simple:
+
+* Treat everyone respectfully and professionally.
+* If a bug is "in progress" in the bug tracker, don't start working on it
+  without contacting the author. Try on IRC, or via the launchpad email
+  contact link. If you don't get a response after a reasonable time, then go
+  ahead. Checking first avoids duplicate work and makes sure nobody's toes
+  get stepped on.
+* If a blueprint is assigned, even if it hasn't been started, be sure you
+  contact the assignee before taking it on. These larger issues often have a
+  history of discussion or specific implementation details that the assignee
+  may be aware of that you are not.
+* Please don't re-open tickets closed by a core developer. If you disagree with
+  the decision on the ticket, the appropriate solution is to take it up on
+  IRC or the mailing list.
+* Give credit where credit is due; if someone helps you substantially with
+  a piece of code, it's polite (though not required) to thank them in your
+  commit message.
 
 Code Style
 ==========
