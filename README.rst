@@ -55,6 +55,17 @@ Nova, Keystone, Glance, etc. up and running.
 
 .. _Devstack: http://devstack.org/
 
+.. note::
+
+    The minimum required set of OpenStack services running includes the
+    following:
+
+    * Nova (compute, api, scheduler, *and* volume services)
+    * Glance
+    * Keystone
+
+    Optional support is provided for Swift.
+
 
 Development
 ===========
