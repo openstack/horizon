@@ -38,7 +38,7 @@ def can_haz(user, component):
         user_roles = set([])
     roles_statisfied = set(getattr(component, 'roles', [])) <= user_roles
 
-    if hasattr(user, 'roles'):
+    if hasattr(user, 'service_catalog'):
         services = set([service['type'] for service in user.service_catalog])
     else:
         services = set([])

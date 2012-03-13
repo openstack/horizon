@@ -120,7 +120,8 @@ class TestCase(django_test.TestCase):
                            tenant_id=tenant_id,
                            service_catalog=service_catalog,
                            roles=roles,
-                           authorized_tenants=authorized_tenants)
+                           authorized_tenants=authorized_tenants,
+                           request=self.request)
 
     def override_times(self):
         """ Overrides the "current" time with immutable values. """
@@ -214,7 +215,8 @@ class BaseAdminViewTests(TestCase):
                            tenant_id=self.tenant.id,
                            service_catalog=self.service_catalog,
                            roles=[self.roles.admin._info],
-                           authorized_tenants=None)
+                           authorized_tenants=None,
+                           request=self.request)
 
 
 class APITestCase(TestCase):

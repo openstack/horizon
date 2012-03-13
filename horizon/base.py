@@ -332,7 +332,7 @@ class Dashboard(Registry, HorizonComponent):
 
         Optional boolean that indicates whether or not this dashboard includes
         support for projects/tenants. If set to ``True`` this dashboard's
-        naviagtion will include a UI element that allows the user to select
+        navigation will include a UI element that allows the user to select
         project/tenant. Default: ``False``.
 
     .. attribute:: public

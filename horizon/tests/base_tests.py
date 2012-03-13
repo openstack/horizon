@@ -249,6 +249,7 @@ class HorizonTests(BaseHorizonTests):
         self.setActiveUser(token=self.token.id,
                            username=self.user.name,
                            tenant_id=self.tenant.id,
+                           service_catalog=self.service_catalog,
                            roles=[])
 
         resp = self.client.get(user_panel.get_absolute_url())
