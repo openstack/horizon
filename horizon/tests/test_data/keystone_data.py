@@ -88,7 +88,8 @@ def data(TEST):
     user_dict = {'id': "1",
                  'name': 'test_user',
                  'email': 'test@example.com',
-                 'password': 'password'}
+                 'password': 'password',
+                 'token': 'test_token'}
     user = users.User(users.UserManager, user_dict)
     user_dict.update({'id': "2",
                       'name': 'user_two',

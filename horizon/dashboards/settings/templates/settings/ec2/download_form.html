@@ -5,7 +5,7 @@
 {% block form_action %}{% url horizon:settings:ec2:index %}{% endblock %}
 
 {% block modal_id %}x509_download_modal{% endblock %}
-{% block modal-header %}{% trans "Download x509 Credentials" %}{% endblock %}
+{% block modal-header %}{% trans "Download EC2 Credentials" %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -15,11 +15,11 @@
 </div>
 <div class="right">
     <h3>{% trans "Description:" %}</h3>
-    <p>{% trans 'Clicking "Download x509 Credentials" will download a zip file which contains your x509 private key and certificate.' %}</p>
+    <p>{% trans 'Clicking "Download EC2 Credentials" will download a zip file which includes an rc file with your access/secret keys, as well as your x509 private key and certificate.' %}</p>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
-    <input class="btn primary pull-right" type="submit" value="{% trans "Download x509 Credentials" %}" />
+    <input class="btn primary pull-right" type="submit" value="{% trans "Download EC2 Credentials" %}" />
     {% if hide %}<a href="{% url horizon:settings:ec2:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
 {% endblock %}
