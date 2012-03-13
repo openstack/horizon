@@ -149,17 +149,16 @@ class DownloadObject(tables.LinkAction):
 
 
 class ObjectFilterAction(tables.FilterAction):
-    def filter(self, table, users, filter_string):
+    def filter(self, table, objects, filter_string):
         """ Really naive case-insensitive search. """
-        # FIXME(gabriel): This should be smarter. Written for demo purposes.
         q = filter_string.lower()
 
-        def comp(user):
-            if q in user.name.lower() or q in user.email.lower():
+        def comp(object):
+            if q in object.name.lower():
                 return True
             return False
 
-        return filter(comp, users)
+        return filter(comp, objects)
 
 
 def get_size(obj):
