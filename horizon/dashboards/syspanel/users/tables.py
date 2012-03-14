@@ -15,20 +15,21 @@ class CreateUserLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create User")
     url = "horizon:syspanel:users:create"
-    classes = ("ajax-modal",)
+    classes = ("ajax-modal", "btn-create")
 
 
 class EditUserLink(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
     url = "horizon:syspanel:users:update"
-    classes = ("ajax-modal",)
+    classes = ("ajax-modal", "btn-edit")
 
 
 class EnableUsersAction(tables.Action):
     name = "enable"
     verbose_name = _("Enable")
     verbose_name_plural = _("Enable Users")
+    classes = ("btn-enable",)
 
     def allowed(self, request, user):
         return not user.enabled
@@ -57,6 +58,7 @@ class DisableUsersAction(tables.Action):
     name = "disable"
     verbose_name = _("Disable")
     verbose_name_plural = _("Disable Users")
+    classes = ("btn-disable",)
 
     def allowed(self, request, user):
         return user.enabled

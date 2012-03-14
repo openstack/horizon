@@ -16,13 +16,17 @@ class HTMLElement(object):
         """
         return []
 
+    def get_default_attrs(self):
+        return {}
+
     @property
     def attr_string(self):
         """
         Returns a flattened string of HTML attributes based on the
         ``attrs`` dict provided to the class.
         """
-        final_attrs = copy.copy(self.attrs)
+        final_attrs = copy.copy(self.get_default_attrs())
+        final_attrs.update(self.attrs)
         # Handle css class concatenation
         default = " ".join(self.get_default_classes())
         defined = self.attrs.get('class', '')

@@ -1,10 +1,7 @@
 import logging
 
-from django import shortcuts
-from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import api
 from horizon import tables
 
 

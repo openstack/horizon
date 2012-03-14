@@ -32,6 +32,7 @@ LOG = logging.getLogger(__name__)
 
 # For Bootstrap integration; can be overridden in settings.
 ACTION_CSS_CLASSES = ("btn", "btn-small")
+STRING_SEPARATOR = "__"
 
 
 class BaseAction(html.HTMLElement):
@@ -40,6 +41,10 @@ class BaseAction(html.HTMLElement):
     handles_multiple = False
     requires_input = False
     preempt = False
+
+    def __init__(self):
+        super(BaseAction, self).__init__()
+        self.id_counter = 0
 
     def allowed(self, request, datum):
         """ Determine whether this action is allowed for the current request.
@@ -64,10 +69,20 @@ class BaseAction(html.HTMLElement):
 
     def get_default_classes(self):
         """
-        Returns a list of the default classes for the tab. Defaults to
+        Returns a list of the default classes for the action. Defaults to
         ``["btn", "btn-small"]``.
         """
         return getattr(settings, "ACTION_CSS_CLASSES", ACTION_CSS_CLASSES)
+
+    def get_default_attrs(self):
+        """
+        Returns a list of the default HTML attributes for the action. Defaults
+        to returning an ``id`` attribute with the value
+        ``{{ table.name }}__action_{{ action.name }}__{{ creation counter }}``.
+        """
+        bits = (self.table.name, "action_%s" % self.name, str(self.id_counter))
+        self.id_counter += 1
+        return {"id": STRING_SEPARATOR.join(bits)}
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.name)
@@ -286,6 +301,11 @@ class FilterAction(BaseAction):
         """
         return "__".join([self.table.name, self.name, self.param_name])
 
+    def get_default_classes(self):
+        classes = super(FilterAction, self).get_default_classes()
+        classes += ("btn-search",)
+        return classes
+
     def filter(self, table, data, filter_string):
         """ Provides the actual filtering logic.
 
@@ -452,10 +472,14 @@ class DeleteAction(BatchAction):
     name = "delete"
     action_present = _("Delete")
     action_past = _("Deleted")
-    classes = ('btn-danger',)
 
     def action(self, request, obj_id):
         return self.delete(request, obj_id)
 
     def delete(self, request, obj_id):
         raise NotImplementedError("DeleteAction must define a delete method.")
+
+    def get_default_classes(self):
+        classes = super(DeleteAction, self).get_default_classes()
+        classes += ("btn-danger", "btn-delete")
+        return classes

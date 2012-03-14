@@ -16,26 +16,28 @@ class ModifyQuotasLink(tables.LinkAction):
     name = "quotas"
     verbose_name = _("Modify Quotas")
     url = "horizon:syspanel:projects:quotas"
-    attrs = {"class": "ajax-modal"}
+    classes = ("ajax-modal", "btn-edit")
 
 
 class ViewMembersLink(tables.LinkAction):
     name = "users"
     verbose_name = _("Modify Users")
     url = "horizon:syspanel:projects:users"
+    classes = ("btn-download",)
 
 
 class UsageLink(tables.LinkAction):
     name = "usage"
     verbose_name = _("View Usage")
     url = "horizon:syspanel:projects:usage"
+    classes = ("btn-stats",)
 
 
 class EditLink(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Project")
     url = "horizon:syspanel:projects:update"
-    attrs = {"class": "ajax-modal"}
+    classes = ("ajax-modal", "btn-edit")
 
 
 class CreateLink(tables.LinkAction):

@@ -8,6 +8,7 @@ from horizon.templatetags.sizeformat import mbformat
 class CSVSummary(tables.LinkAction):
     name = "csv_summary"
     verbose_name = _("Download CSV Summary")
+    classes = ("btn-download",)
 
     def get_link_url(self, usage=None):
         return self.table.kwargs['usage'].csv_link()

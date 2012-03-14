@@ -32,7 +32,7 @@ LOG = logging.getLogger(__name__)
 class AllocateIP(tables.LinkAction):
     name = "allocate"
     verbose_name = _("Allocate IP To Project")
-    classes = ("ajax-modal",)
+    classes = ("ajax-modal", "btn-allocate")
     url = "horizon:nova:access_and_security:floating_ips:allocate"
 
     def single(self, data_table, request, *args):
@@ -45,7 +45,7 @@ class ReleaseIPs(tables.BatchAction):
     action_past = _("Released")
     data_type_singular = _("Floating IP")
     data_type_plural = _("Floating IPs")
-    classes = ('btn-danger',)
+    classes = ('btn-danger', 'btn-release')
 
     def action(self, request, obj_id):
         api.tenant_floating_ip_release(request, obj_id)
@@ -55,7 +55,7 @@ class AssociateIP(tables.LinkAction):
     name = "associate"
     verbose_name = _("Associate IP")
     url = "horizon:nova:access_and_security:floating_ips:associate"
-    attrs = {"class": "ajax-modal"}
+    classes = ("ajax-modal", "btn-associate")
 
     def allowed(self, request, fip):
         if fip.instance_id:
@@ -66,6 +66,7 @@ class AssociateIP(tables.LinkAction):
 class DisassociateIP(tables.Action):
     name = "disassociate"
     verbose_name = _("Disassociate IP")
+    classes = ("btn-disassociate", "btn-danger")
 
     def allowed(self, request, fip):
         if fip.instance_id:

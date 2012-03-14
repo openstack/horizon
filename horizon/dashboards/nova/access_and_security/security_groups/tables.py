@@ -43,14 +43,14 @@ class CreateGroup(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Security Group")
     url = "horizon:nova:access_and_security:security_groups:create"
-    classes = ("ajax-modal",)
+    classes = ("ajax-modal", "btn-create")
 
 
 class EditRules(tables.LinkAction):
     name = "edit_rules"
     verbose_name = _("Edit Rules")
     url = "horizon:nova:access_and_security:security_groups:edit_rules"
-    attrs = {"class": "ajax-modal"}
+    classes = ("ajax-modal", "btn-edit")
 
 
 class SecurityGroupsTable(tables.DataTable):
