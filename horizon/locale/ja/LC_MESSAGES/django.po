@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-14 14:44-0700\n"
+"POT-Creation-Date: 2012-03-15 14:27+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Takeshi Nakajima <tnakaji@midokura.jp>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,6 +39,16 @@ msgstr ""
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
+#: api/nova.py:178
+#, python-format
+msgid "ALLOW %(from)s:%(to)s from %(group)s"
+msgstr ""
+
+#: api/nova.py:183
+#, python-format
+msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
+msgstr ""
+
 #: api/swift.py:114
 msgid "Unicode is not currently supported for object copy."
 msgstr ""
@@ -67,7 +77,19 @@ msgstr "セキュリティグループ%sを作成できません。"
 msgid "Error fetching floating ips: %s"
 msgstr ""
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:48
+#: dashboards/nova/access_and_security/floating_ips/forms.py:47
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:67
+#, fuzzy
+msgid "Select an instance"
+msgstr "言語を選択"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:49
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:69
+#, fuzzy
+msgid "No instances available"
+msgstr "現在イメージがありません。"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:52
 #: dashboards/nova/access_and_security/floating_ips/tables.py:93
 #: dashboards/nova/instances_and_volumes/instances/tables.py:56
 #: dashboards/nova/instances_and_volumes/instances/tables.py:68
@@ -79,24 +101,24 @@ msgstr ""
 msgid "Instance"
 msgstr "インスタンス"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:59
+#: dashboards/nova/access_and_security/floating_ips/forms.py:63
 #, python-format
 msgid "Successfully associated Floating IP %(ip)s with Instance: %(inst)s"
 msgstr ""
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:65
+#: dashboards/nova/access_and_security/floating_ips/forms.py:69
 #, fuzzy, python-format
 msgid "Error associating Floating IP: %s"
 msgstr "イメージ%sを更新できません。"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:86
+#: dashboards/nova/access_and_security/floating_ips/forms.py:90
 #, python-format
 msgid ""
 "Successfully allocated Floating IP \"%(ip)s"
 "\"                                 to project \"%(project)s\""
 msgstr ""
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:90
+#: dashboards/nova/access_and_security/floating_ips/forms.py:94
 #, fuzzy
 msgid "Unable to allocate Floating IP."
 msgstr "キー%sを作成できません。"
@@ -281,39 +303,43 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:83
-#: dashboards/nova/access_and_security/security_groups/tables.py:91
+#: dashboards/nova/access_and_security/security_groups/forms.py:84
+#, fuzzy
+msgid "Source Group"
+msgstr "セキュリティグループ"
+
+#: dashboards/nova/access_and_security/security_groups/forms.py:85
 msgid "CIDR"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:84
+#: dashboards/nova/access_and_security/security_groups/forms.py:86
 msgid "Classless Inter-Domain Routing (i.e. 192.168.0.0/24"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:100
+#: dashboards/nova/access_and_security/security_groups/forms.py:113
 msgid "The \"from\" port number is invalid."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:103
+#: dashboards/nova/access_and_security/security_groups/forms.py:116
 msgid "The \"to\" port number is invalid."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:106
+#: dashboards/nova/access_and_security/security_groups/forms.py:119
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:111
-msgid "The \"CIDR\" is invalid"
+#: dashboards/nova/access_and_security/security_groups/forms.py:124
+msgid "Only either \"CIDR\" or \"Source Group\" may be specified"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:124
+#: dashboards/nova/access_and_security/security_groups/forms.py:141
 #, fuzzy, python-format
 msgid "Successfully added rule: %s"
 msgstr "プロジェクト%(proj)sを正常に修正しました。"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:128
+#: dashboards/nova/access_and_security/security_groups/forms.py:145
 #, fuzzy, python-format
 msgid "Error adding rule security group: %s"
 msgstr "セキュリティグループ%sを削除できません"
@@ -357,7 +383,7 @@ msgstr "名前"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:58
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:29
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:93
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:97
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:122
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:16
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:16
@@ -390,19 +416,23 @@ msgstr ""
 msgid "Rules"
 msgstr "ユーザ資格の編集"
 
-#: dashboards/nova/access_and_security/security_groups/tables.py:87
+#: dashboards/nova/access_and_security/security_groups/tables.py:92
 msgid "IP Protocol"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/tables.py:89
+#: dashboards/nova/access_and_security/security_groups/tables.py:94
 msgid "From Port"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/tables.py:90
+#: dashboards/nova/access_and_security/security_groups/tables.py:95
 msgid "To Port"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/tables.py:101
+#: dashboards/nova/access_and_security/security_groups/tables.py:96
+msgid "Source"
+msgstr ""
+
+#: dashboards/nova/access_and_security/security_groups/tables.py:106
 #, fuzzy
 msgid "Security Group Rules"
 msgstr "セキュリティグループ"
@@ -782,7 +812,7 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "%sをリボーク(無効化)できません。"
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:40
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:91
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:95
 #, fuzzy
 msgid "Snapshot Name"
 msgstr "スナップショット"
@@ -1007,24 +1037,24 @@ msgstr "ユーザ%sを作成中..."
 msgid "Select an instance to attach to."
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:76
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:80
 #, python-format
 msgid ""
 "Attaching volume %(vol)s to instance                             %(inst)s at "
 "%(dev)s"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:85
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:89
 #, fuzzy, python-format
 msgid "Error attaching volume: %s"
 msgstr "ユーザ%sを作成中..."
 
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:110
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:114
 #, fuzzy, python-format
 msgid "Creating volume snapshot \"%s\""
 msgstr "ユーザ%sを作成中..."
 
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:115
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:119
 #, fuzzy, python-format
 msgid "Error Creating Volume Snapshot: %(exc)s"
 msgstr "ユーザ%sを作成中..."

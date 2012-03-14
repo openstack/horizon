@@ -58,11 +58,15 @@ class AttachForm(forms.SelfHandlingForm):
 
         # Populate instance choices
         instance_list = kwargs.get('initial', {}).get('instances', [])
-        instances = [('', "Select an instance")]
+        instances = []
         for instance in instance_list:
             if instance.status in ACTIVE_STATES:
                 instances.append((instance.id, '%s (%s)' % (instance.name,
                                                             instance.id)))
+        if instances:
+            instances.insert(0, ("", _("Select an instance")))
+        else:
+            instances = (("", _("No instances available")),)
         self.fields['instance'].choices = instances
 
     def handle(self, request, data):

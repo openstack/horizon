@@ -43,6 +43,10 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
     def __init__(self, *args, **kwargs):
         super(FloatingIpAssociate, self).__init__(*args, **kwargs)
         instancelist = kwargs.get('initial', {}).get('instances', [])
+        if instancelist:
+            instancelist.insert(0, ("", _("Select an instance")))
+        else:
+            instancelist = (("", _("No instances available")),)
         self.fields['instance_id'] = forms.ChoiceField(
                 choices=instancelist,
                 label=_("Instance"))
