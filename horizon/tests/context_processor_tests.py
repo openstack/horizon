@@ -25,6 +25,7 @@ from horizon import api
 from horizon import context_processors
 from horizon import middleware
 from horizon import test
+from horizon import Dashboard
 
 
 class ContextProcessorTests(test.TestCase):
@@ -41,13 +42,21 @@ class ContextProcessorTests(test.TestCase):
         tenant_list = self.context['authorized_tenants']
         self.request.user.authorized_tenants = None  # Reset from setUp
         self.mox.StubOutWithMock(api, 'tenant_list_for_token')
-        api.tenant_list_for_token(IsA(http.HttpRequest),
-                                  self.token.id,
-                                  endpoint_type='internalURL') \
+        api.tenant_list_for_token(IsA(http.HttpRequest), self.token.id) \
                                   .AndReturn(tenant_list)
         self.mox.ReplayAll()
 
         middleware.HorizonMiddleware().process_request(self.request)
+        # Without dashboard that has "supports_tenants = True"
+        context = context_processors.horizon(self.request)
+        self.assertEqual(len(context['authorized_tenants']), 0)
+
+        # With dashboard that has "supports_tenants = True"
+        class ProjectDash(Dashboard):
+            supports_tenants = True
+
+        self.request.horizon['dashboard'] = ProjectDash
+        self.assertTrue(self.request.user.is_authenticated())
         context = context_processors.horizon(self.request)
         self.assertEqual(len(context['authorized_tenants']), 1)
         tenant = context['authorized_tenants'].pop()

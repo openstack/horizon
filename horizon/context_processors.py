@@ -56,7 +56,9 @@ def horizon(request):
 
     # Auth/Keystone context
     context.setdefault('authorized_tenants', [])
-    if request.user.is_authenticated():
+    current_dash = request.horizon['dashboard']
+    needs_tenants = getattr(current_dash, 'supports_tenants', False)
+    if request.user.is_authenticated() and needs_tenants:
         context['authorized_tenants'] = request.user.authorized_tenants
 
     # Region context/support

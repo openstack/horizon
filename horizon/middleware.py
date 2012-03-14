@@ -53,21 +53,6 @@ class HorizonMiddleware(object):
         """
         request.__class__.user = users.LazyUser()
         request.horizon = {'dashboard': None, 'panel': None}
-        if request.user.is_authenticated() and \
-                request.user.authorized_tenants is None:
-            try:
-                token = request.session.get("unscoped_token",
-                                            request.user.token)
-                authd = api.tenant_list_for_token(request,
-                                                  token,
-                                                  endpoint_type='internalURL')
-            except:
-                authd = []
-                LOG.exception('Could not retrieve tenant list.')
-                if hasattr(request.user, 'message_set'):
-                    messages.error(request,
-                                   _("Unable to retrieve tenant list."))
-            request.user.authorized_tenants = authd
 
     def process_exception(self, request, exception):
         """
