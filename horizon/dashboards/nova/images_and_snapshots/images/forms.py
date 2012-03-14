@@ -101,6 +101,7 @@ class LaunchForm(forms.SelfHandlingForm):
                                             "authentication."))
     count = forms.IntegerField(label=_("Instance Count"),
                             required=True,
+                            min_value=1,
                             initial=1,
                             help_text=_("Number of instances to launch."))
     security_groups = forms.MultipleChoiceField(
