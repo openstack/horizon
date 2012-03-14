@@ -25,7 +25,6 @@ from django.utils import http
 from django.utils.translation import ugettext as _
 
 from horizon import api
-from horizon import exceptions
 from horizon import tables
 
 
@@ -63,20 +62,21 @@ class CreateContainer(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Container")
     url = "horizon:nova:containers:create"
-    classes = ("ajax-modal",)
+    classes = ("ajax-modal", "btn-create")
 
 
 class ListObjects(tables.LinkAction):
     name = "list_objects"
     verbose_name = _("List Objects")
     url = "horizon:nova:containers:object_index"
+    classes = ("btn-list",)
 
 
 class UploadObject(tables.LinkAction):
     name = "upload"
     verbose_name = _("Upload Object")
     url = "horizon:nova:containers:object_upload"
-    classes = ("ajax-modal",)
+    classes = ("ajax-modal", "btn-upload")
 
     def get_link_url(self, datum=None):
         # Usable for both the container and object tables
@@ -130,7 +130,7 @@ class CopyObject(tables.LinkAction):
     name = "copy"
     verbose_name = _("Copy")
     url = "horizon:nova:containers:object_copy"
-    attrs = {"class": "ajax-modal"}
+    classes = ("ajax-modal", "btn-copy")
 
     def get_link_url(self, obj):
         return reverse(self.url, args=(http.urlquote(obj.container.name),
@@ -141,6 +141,7 @@ class DownloadObject(tables.LinkAction):
     name = "download"
     verbose_name = _("Download")
     url = "horizon:nova:containers:object_download"
+    classes = ("btn-download",)
 
     def get_link_url(self, obj):
         #assert False, obj.__dict__['_apiresource'].__dict__

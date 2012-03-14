@@ -28,8 +28,10 @@ Alternately specify the listen IP and port::
 Once the Horizon server is running point a web browser to http://localhost:8000
 or to the IP and port the server is listening.
 
-.. note:: The ``DevStack`` project (http://devstack.org/) can be used to install
-an OpenStack development environment from scratch.
+.. note::
+
+    The ``DevStack`` project (http://devstack.org/) can be used to install
+    an OpenStack development environment from scratch.
 
 .. note::
 

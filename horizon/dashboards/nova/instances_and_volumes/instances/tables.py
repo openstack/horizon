@@ -55,7 +55,7 @@ class TerminateInstance(tables.BatchAction):
     action_past = _("Terminated")
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ('btn-danger',)
+    classes = ('btn-danger', 'btn-terminate')
 
     def action(self, request, obj_id):
         api.server_delete(request, obj_id)
@@ -67,7 +67,7 @@ class RebootInstance(tables.BatchAction):
     action_past = _("Rebooted")
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ('btn-danger',)
+    classes = ('btn-danger', 'btn-reboot')
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES or instance.status == 'SHUTOFF'
@@ -82,6 +82,7 @@ class TogglePause(tables.BatchAction):
     action_past = (_("Paused"), _("Unpaused"))
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
+    classes = ("btn-pause")
 
     def allowed(self, request, instance=None):
         self.paused = False
@@ -107,6 +108,7 @@ class ToggleSuspend(tables.BatchAction):
     action_past = (_("Suspended"), _("Resumed"))
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
+    classes = ("btn-suspend")
 
     def allowed(self, request, instance=None):
         self.suspended = False
@@ -130,20 +132,21 @@ class LaunchLink(tables.LinkAction):
     name = "launch"
     verbose_name = _("Launch Instance")
     url = "horizon:nova:images_and_snapshots:index"
+    classes = ("btn-launch",)
 
 
 class EditInstance(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Instance")
     url = "horizon:nova:instances_and_volumes:instances:update"
-    attrs = {"class": "ajax-modal"}
+    classes = ("ajax-modal", "btn-edit")
 
 
 class SnapshotLink(tables.LinkAction):
     name = "snapshot"
     verbose_name = _("Snapshot")
     url = "horizon:nova:images_and_snapshots:snapshots:create"
-    attrs = {"class": "ajax-modal"}
+    classes = ("ajax-modal", "btn-camera")
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES
@@ -153,6 +156,7 @@ class ConsoleLink(tables.LinkAction):
     name = "console"
     verbose_name = _("VNC Console")
     url = "horizon:nova:instances_and_volumes:instances:vnc"
+    classes = ("btn-console",)
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES
@@ -162,6 +166,7 @@ class LogLink(tables.LinkAction):
     name = "log"
     verbose_name = _("View Log")
     url = "horizon:nova:instances_and_volumes:instances:console"
+    classes = ("btn-log",)
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES

@@ -41,7 +41,7 @@ How to use Horizon in your own projects.
    intro
    quickstart
    topics/deployment
-   topics/branding
+   topics/customizing
 
 Developer Docs
 ==============

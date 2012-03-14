@@ -43,14 +43,14 @@ class LaunchImage(tables.LinkAction):
     name = "launch"
     verbose_name = _("Launch")
     url = "horizon:nova:images_and_snapshots:images:launch"
-    attrs = {"class": "ajax-modal"}
+    classes = ("ajax-modal", "btn-launch")
 
 
 class EditImage(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
     url = "horizon:nova:images_and_snapshots:images:update"
-    attrs = {"class": "ajax-modal"}
+    classes = ("ajax-modal", "btn-edit")
 
 
 def get_image_type(image):
