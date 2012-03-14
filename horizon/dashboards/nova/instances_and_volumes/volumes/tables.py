@@ -81,8 +81,11 @@ class CreateSnapshot(tables.LinkAction):
         return volume.status == "available"
 
 
-class UpdateRow(tables.UpdateAction):
-    def get_data(self, request, volume_id):
+class UpdateRow(tables.Row):
+    ajax = True
+
+    @classmethod
+    def get_data(cls, request, volume_id):
         volume = api.volume_get(request, volume_id)
         return volume
 
@@ -137,9 +140,9 @@ class VolumesTable(VolumesTableBase):
         name = "volumes"
         verbose_name = _("Volumes")
         status_columns = ["status"]
+        row_class = UpdateRow
         table_actions = (CreateVolume, DeleteVolume,)
-        row_actions = (EditAttachments, CreateSnapshot,
-                       DeleteVolume, UpdateRow)
+        row_actions = (EditAttachments, CreateSnapshot, DeleteVolume)
 
 
 class DetachVolume(tables.BatchAction):

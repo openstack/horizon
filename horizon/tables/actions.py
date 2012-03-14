@@ -16,16 +16,12 @@
 
 import logging
 import new
-from urlparse import urlparse
-from urlparse import parse_qs
 
-from django import http
 from django import shortcuts
 from django.conf import settings
 from django.contrib import messages
 from django.core import urlresolvers
 from django.utils.functional import Promise
-from django.utils.http import urlencode
 from django.utils.translation import string_concat, ugettext as _
 
 from horizon import exceptions
@@ -34,7 +30,7 @@ from horizon.utils import html
 
 LOG = logging.getLogger(__name__)
 
-# For Bootstrap integration, can be overridden in settings.
+# For Bootstrap integration; can be overridden in settings.
 ACTION_CSS_CLASSES = ("btn", "btn-small")
 
 
@@ -254,77 +250,6 @@ class LinkAction(BaseAction):
         except urlresolvers.NoReverseMatch, ex:
             LOG.info('No reverse found for "%s": %s' % (self.url, ex))
             return self.url
-
-
-class UpdateAction(LinkAction):
-    """ A base class for handling updating rows on tables with new data.
-
-    Subclasses need to define a ``get_data`` method which returns a data
-    object appropriate for consumption by the table (effectively the "get"
-    lookup versus the table's "list" lookup).
-
-    By default, this action is meant to be a row-level action, and is hidden
-    from the row's action list. It is instead triggered via automatic AJAX
-    updates based on the row status.
-
-    The automatic update interval is determined first by setting the key
-    ``ajax_poll_interval`` in the ``settings.HORIZON_CONFIG`` dictionary.
-    If that key is not present, it falls back to the value of the
-    ``update_interval`` attribute on this class.
-    Default: ``2500`` (measured in milliseconds).
-    """
-    name = "update"
-    verbose_name = _("Update")
-    method = "GET"
-    classes = ('ajax-update', 'hide')
-    preempt = True
-    update_interval = 2500
-
-    def __init__(self, *args, **kwargs):
-        super(UpdateAction, self).__init__(*args, **kwargs)
-        interval = settings.HORIZON_CONFIG.get('ajax_poll_interval',
-                                               self.update_interval)
-        self.attrs['data-update-interval'] = interval
-
-    def get_link_url(self, datum=None):
-        table_url = self.table.get_absolute_url()
-        query = parse_qs(urlparse(table_url).query)
-        # Strip the query off, since we're adding a different action
-        # here, and the existing query may have an action. This is not
-        # ideal because it prevents other uses of the querystring, but
-        # it does prevent runaway compound querystring construction.
-        if 'action' in query:
-            table_url = table_url.partition('?')[0]
-        params = urlencode({'table': self.table.name,
-                            'action': self.name,
-                            'obj_id': self.table.get_object_id(datum)})
-        return "%s?%s" % (table_url, params)
-
-    def get_data(self, request, obj_id):
-        """
-        Fetches the updated data for the row based on the object id
-        passed in. Must be implemented by a subclass.
-        """
-        raise NotImplementedError("You must define a get_data method on %s"
-                                  % self.__class__.__name__)
-
-    def single(self, data_table, request, obj_id):
-        try:
-            datum = self.get_data(request, obj_id)
-            error = False
-        except:
-            datum = None
-            error = exceptions.handle(request, ignore=True)
-        if request.is_ajax():
-            if not error:
-                row = data_table._meta.row_class(data_table, datum)
-                return http.HttpResponse(row.render())
-            else:
-                return http.HttpResponse(status=error.status_code)
-        # NOTE(gabriel): returning None from the action continues
-        # with the view as normal. This will generally be the equivalent
-        # of refreshing the page.
-        return None
 
 
 class FilterAction(BaseAction):

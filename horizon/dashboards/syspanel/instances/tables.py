@@ -17,18 +17,14 @@
 
 import logging
 
-from django import template
 from django.template.defaultfilters import title
-from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext as _
 
-from horizon import api
 from horizon import tables
 from horizon.dashboards.nova.instances_and_volumes.instances.tables import \
          (LaunchLink, TerminateInstance, EditInstance, ConsoleLink, LogLink,
           SnapshotLink, TogglePause, ToggleSuspend, RebootInstance, get_size,
           TerminateInstance, UpdateRow, get_ips, get_power_state)
-from horizon.templatetags import sizeformat
 
 LOG = logging.getLogger(__name__)
 
@@ -71,6 +67,7 @@ class SyspanelInstancesTable(tables.DataTable):
         verbose_name = _("Instances")
         status_columns = ["status", "task"]
         table_actions = (TerminateInstance,)
+        row_class = UpdateRow
         row_actions = (EditInstance, ConsoleLink, LogLink, SnapshotLink,
                        TogglePause, ToggleSuspend, RebootInstance,
-                       TerminateInstance, UpdateRow)
+                       TerminateInstance)

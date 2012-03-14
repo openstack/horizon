@@ -108,15 +108,13 @@ Shortcut actions
 ----------------
 
 There are several common tasks for which Horizon provides pre-built shortcut
-classes. These include :class:`~horizon.tables.BatchAction`,
-:class:`~horizon.tables.DeleteAction`, and
-:class:`~horizon.tables.UpdateAction`. Each of these abstracts away nearly
+classes. These include :class:`~horizon.tables.BatchAction`, and
+:class:`~horizon.tables.DeleteAction`. Each of these abstracts away nearly
 all of the boilerplate associated with writing these types of actions and
 provides consistent error handling, logging, and user-facing interaction.
 
 It is worth noting that ``BatchAction`` and ``DeleteAction`` are extensions
-of the standard ``Action`` class, while ``UpdateAction`` is a specialized
-version of the ``LinkAction`` class.
+of the standard ``Action`` class.
 
 Preemptive actions
 ------------------
@@ -129,7 +127,3 @@ require data, such as :meth:`~horizon.tables.DataTable.get_object_display` or
 actions is that you can avoid having to do all the processing, API calls, etc.
 associated with loading data into the table for actions which don't require
 access to that information.
-
-A very notable example of this is the
-``UpdateAction`` type of action, which only needs information on a single
-object and can do a single-object query rather than loading all the data.

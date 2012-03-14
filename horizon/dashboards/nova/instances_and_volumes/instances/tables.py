@@ -167,8 +167,11 @@ class LogLink(tables.LinkAction):
         return instance.status in ACTIVE_STATES
 
 
-class UpdateRow(tables.UpdateAction):
-    def get_data(self, request, instance_id):
+class UpdateRow(tables.Row):
+    ajax = True
+
+    @classmethod
+    def get_data(cls, request, instance_id):
         instance = api.server_get(request, instance_id)
         flavors = api.flavor_list(request)
         keyed_flavors = [(str(flavor.id), flavor) for flavor in flavors]
@@ -228,7 +231,8 @@ class InstancesTable(tables.DataTable):
         name = "instances"
         verbose_name = _("Instances")
         status_columns = ["status", "task"]
+        row_class = UpdateRow
         table_actions = (LaunchLink, TerminateInstance)
         row_actions = (EditInstance, ConsoleLink, LogLink, SnapshotLink,
                        TogglePause, ToggleSuspend, RebootInstance,
-                       TerminateInstance, UpdateRow)
+                       TerminateInstance)

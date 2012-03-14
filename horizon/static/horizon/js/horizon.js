@@ -43,23 +43,41 @@ var Horizon = function() {
   /* Namespace for core functionality related to DataTables. */
   horizon.datatables = {
     update: function () {
-      var rows_to_update = $('tr.status_unknown');
-      if (rows_to_update.length) {
-        var $updaters = rows_to_update.find('.ajax-update');
-        var interval = $updaters.attr('data-update-interval');
-        var $table = rows_to_update.closest('table');
-        var decay_constant = $table.attr('decay_constant');
+      var $rows_to_update = $('tr.status_unknown.ajax-update');
+      if ($rows_to_update.length) {
+        var interval = $rows_to_update.attr('data-update-interval'),
+            $table = $rows_to_update.closest('table'),
+            decay_constant = $table.attr('decay_constant');
 
         // Do not update this row if the action column is expanded
-        if (rows_to_update.find('.actions_column .btn-group.open').length) {
+        if ($rows_to_update.find('.actions_column .btn-group.open').length) {
           // Wait and try to update again in next interval instead
           setTimeout(horizon.datatables.update, interval);
           // Remove interval decay, since this will not hit server
           $table.removeAttr('decay_constant');
           return;
         }
-        // Trigger the update handler.
-        $updaters.click();
+        // Trigger the update handlers.
+        $rows_to_update.each(function(index, row) {
+          var $row = $(this);
+          $.ajax($row.attr('data-update-url'), {
+            complete: function (jqXHR, status) {
+              var $new_row = $(jqXHR.responseText);
+              $new_row.find("td.status_unknown").prepend('<i class="icon-updating ajax-updating"></i>');
+              // Only replace row if the html content has changed
+              if($new_row.html() != $row.html()) {
+                if($row.find(':checkbox').is(':checked')) {
+                  // Preserve the checkbox if it's already clicked
+                  $new_row.find(':checkbox').prop('checked', true);
+                }
+                $row.replaceWith($new_row);
+                $table.removeAttr('decay_constant');
+              }
+              // Revalidate the button check for updated table
+              horizon.datatables.validate_button();
+            }
+          });
+        });
 
         // Set interval decay to this table, and increase if it already exist
         if(decay_constant === undefined) {
@@ -69,9 +87,9 @@ var Horizon = function() {
         }
         $table.attr('decay_constant', decay_constant);
         // Poll until there are no rows in an "unknown" state on the page.
-        next_poll = interval*decay_constant;
+        next_poll = interval * decay_constant;
         // Limit the interval to 30 secs
-        if(next_poll > 30*1000) next_poll = 30*1000;
+        if(next_poll > 30 * 1000) next_poll = 30 * 1000;
         setTimeout(horizon.datatables.update, next_poll);
       }
     },
@@ -79,11 +97,11 @@ var Horizon = function() {
       // Disable form button if checkbox are not checked
       $("form").each(function (i) {
         var checkboxes = $(this).find(":checkbox");
-        if(checkboxes.length == 0) {
+        if(!checkboxes.length) {
           // Do nothing if no checkboxes in this form
           return;
         }
-        if(checkboxes.filter(":checked").length == 0) {
+        if(!checkboxes.filter(":checked").length) {
           $(this).find(".table_actions button.btn-danger").addClass("disabled");
         }
       });
@@ -113,7 +131,7 @@ var Horizon = function() {
     action_string = $action.text();
     title = "Confirm " + action_string;
     body = "Please confirm your selection. This action cannot be undone.";
-    var use_backdrop = $('.modal').length == 0; // check if already has a modal
+    var use_backdrop = !$('.modal').length; // check if already has a modal
     modal = horizon.modals.create(title, body, action_string);
     modal.modal({backdrop: use_backdrop});
     modal.find('.btn-primary').click(function (evt) {

@@ -62,9 +62,6 @@ Actions
 .. autoclass:: LinkAction
     :members:
 
-.. autoclass:: UpdateAction
-    :members:
-
 .. autoclass:: FilterAction
     :members:
 

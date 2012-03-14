@@ -76,8 +76,11 @@ class MyAction(tables.Action):
         return shortcuts.redirect('http://example.com/%s' % len(object_ids))
 
 
-class MyUpdateAction(tables.UpdateAction):
-    def get_data(self, request, obj_id):
+class MyRow(tables.Row):
+    ajax = True
+
+    @classmethod
+    def get_data(cls, request, obj_id):
         return TEST_DATA_2[0]
 
 
@@ -149,9 +152,9 @@ class MyTable(tables.DataTable):
         verbose_name = "My Table"
         status_columns = ["status"]
         columns = ('id', 'name', 'value', 'optional', 'status')
+        row_class = MyRow
         table_actions = (MyFilterAction, MyAction, MyBatchAction)
-        row_actions = (MyAction, MyLinkAction, MyUpdateAction,
-                       MyBatchAction, MyToggleAction)
+        row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction)
 
 
 class DataTableTests(test.TestCase):
@@ -183,8 +186,7 @@ class DataTableTests(test.TestCase):
                                   '<MyAction: delete>',
                                   '<MyFilterAction: filter>',
                                   '<MyLinkAction: login>',
-                                  '<MyToggleAction: toggle>',
-                                  '<MyUpdateAction: update>'])
+                                  '<MyToggleAction: toggle>'])
         self.assertQuerysetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
                                   '<MyAction: delete>',
@@ -192,7 +194,6 @@ class DataTableTests(test.TestCase):
         self.assertQuerysetEqual(self.table.get_row_actions(TEST_DATA[0]),
                                  ['<MyAction: delete>',
                                   '<MyLinkAction: login>',
-                                  '<MyUpdateAction: update>',
                                   '<MyBatchAction: batch>',
                                   '<MyToggleAction: toggle>'])
         # Auto-generated columns
@@ -281,9 +282,9 @@ class DataTableTests(test.TestCase):
                                            '<Column: actions>'])
         # Verify we retrieve the right rows from our data
         rows = self.table.get_rows()
-        self.assertQuerysetEqual(rows, ['<Row: my_table__row__1>',
-                                        '<Row: my_table__row__2>',
-                                        '<Row: my_table__row__3>'])
+        self.assertQuerysetEqual(rows, ['<MyRow: my_table__row__1>',
+                                        '<MyRow: my_table__row__2>',
+                                        '<MyRow: my_table__row__3>'])
         # Verify each row contains the right cells
         self.assertQuerysetEqual(rows[0].get_cells(),
                                  ['<Cell: multi_select, my_table__row__1>',
@@ -372,11 +373,8 @@ class DataTableTests(test.TestCase):
         # Row actions
         row_actions = self.table.render_row_actions(TEST_DATA[0])
         resp = http.HttpResponse(row_actions)
-        self.assertContains(resp, "<li", 4)
+        self.assertContains(resp, "<li", 3)
         self.assertContains(resp, "my_table__delete__1", 1)
-        self.assertContains(resp,
-                            "action=update&amp;table=my_table&amp;obj_id=1", 1)
-        self.assertContains(resp, "data-update-interval", 1)
         self.assertContains(resp, "my_table__toggle__1", 1)
         self.assertContains(resp, "/auth/login/", 1)
         self.assertContains(resp, "ajax-modal", 1)
@@ -384,9 +382,12 @@ class DataTableTests(test.TestCase):
         resp = http.HttpResponse(self.table.render())
         self.assertContains(resp, '<table id="my_table"', 1)
         self.assertContains(resp, '<th ', 7)
-        self.assertContains(resp, '<tr id="my_table__row__1"', 1)
-        self.assertContains(resp, '<tr id="my_table__row__2"', 1)
-        self.assertContains(resp, '<tr id="my_table__row__3"', 1)
+        self.assertContains(resp, 'id="my_table__row__1"', 1)
+        self.assertContains(resp, 'id="my_table__row__2"', 1)
+        self.assertContains(resp, 'id="my_table__row__3"', 1)
+        update_string = "action=row_update&amp;table=my_table&amp;obj_id="
+        self.assertContains(resp, update_string, 3)
+        self.assertContains(resp, "data-update-interval", 3)
         # Verify our XSS protection
         self.assertContains(resp, '<a href="http://example.com/">'
                                   '&lt;strong&gt;evil&lt;/strong&gt;</a>', 1)
@@ -410,15 +411,15 @@ class DataTableTests(test.TestCase):
         # Batch action (without toggle) conjugation behavior
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_3)
-        toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[3]
+        toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[2]
         self.assertEqual(unicode(toggle_action.verbose_name), "Batch Item")
 
         # Single object toggle action
         # GET page - 'up' to 'down'
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_3)
-        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_3[0])), 5)
-        toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[4]
+        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_3[0])), 4)
+        toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[3]
         self.assertEqual(unicode(toggle_action.verbose_name), "Down Item")
 
         # Toggle from status 'up' to 'down'
@@ -438,8 +439,8 @@ class DataTableTests(test.TestCase):
         # GET page - 'down' to 'up'
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_2)
-        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_2[0])), 4)
-        toggle_action = self.table.get_row_actions(TEST_DATA_2[0])[3]
+        self.assertEqual(len(self.table.get_row_actions(TEST_DATA_2[0])), 3)
+        toggle_action = self.table.get_row_actions(TEST_DATA_2[0])[2]
         self.assertEqual(unicode(toggle_action.verbose_name), "Up Item")
 
         # POST page
@@ -502,7 +503,7 @@ class DataTableTests(test.TestCase):
                                  ['<FakeObject: object_2>'])
 
         # Updating and preemptive actions
-        params = {"table": "my_table", "action": "update", "obj_id": "1"}
+        params = {"table": "my_table", "action": "row_update", "obj_id": "1"}
         req = self.factory.get('/my_url/',
                                params,
                                HTTP_X_REQUESTED_WITH='XMLHttpRequest')

@@ -21,6 +21,7 @@ from operator import attrgetter
 import sys
 
 from django import forms
+from django.http import HttpResponse
 from django import template
 from django.conf import settings
 from django.contrib import messages
@@ -29,11 +30,13 @@ from django.template.loader import render_to_string
 from django.utils import http
 from django.utils.datastructures import SortedDict
 from django.utils.html import escape
+from django.utils.http import urlencode
 from django.utils.translation import ugettext as _
 from django.utils.safestring import mark_safe
 from django.utils import termcolors
 
 from horizon import exceptions
+from horizon.utils import html
 from .actions import FilterAction, LinkAction
 
 
@@ -239,10 +242,21 @@ class Column(object):
             return self.link
 
 
-class Row(object):
+class Row(html.HTMLElement):
     """ Represents a row in the table.
 
     When iterated, the ``Row`` instance will yield each of its cells.
+
+    Rows are capable of AJAX updating, with a little added work:
+
+    The ``ajax`` property needs to be set to ``True``, and
+    subclasses need to define a ``get_data`` method which returns a data
+    object appropriate for consumption by the table (effectively the "get"
+    lookup versus the table's "list" lookup).
+
+    The automatic update interval is configurable by setting the key
+    ``ajax_poll_interval`` in the ``settings.HORIZON_CONFIG`` dictionary.
+    Default: ``2500`` (measured in milliseconds).
 
     .. attribute:: table
 
@@ -270,16 +284,36 @@ class Row(object):
     .. attribute:: status_class
 
         Returns a css class for the status of the row based on ``status``.
+
+    .. attribute:: ajax
+
+        Boolean value to determine whether ajax updating for this row is
+        enabled.
+
+    .. attribute:: ajax_action_name
+
+        String that is used for the query parameter key to request AJAX
+        updates. Generally you won't need to change this value.
+        Default: ``"row_update"``.
     """
+    ajax = False
+    ajax_action_name = "row_update"
+
     def __init__(self, table, datum):
+        super(Row, self).__init__()
         self.table = table
         self.datum = datum
         id_vals = {"table": self.table.name,
                    "sep": STRING_SEPARATOR,
                    "id": table.get_object_id(datum)}
         self.id = "%(table)s%(sep)srow%(sep)s%(id)s" % id_vals
+        if self.ajax:
+            interval = settings.HORIZON_CONFIG.get('ajax_poll_interval', 2500)
+            self.attrs['data-update-interval'] = interval
+            self.attrs['data-update-url'] = self.get_ajax_update_url()
+            self.classes.append("ajax-update")
 
-        # Compile all the cells on instantiation
+        # Compile all the cells on instantiation.
         cells = []
         for column in table.columns.values():
             if column.auto == "multi_select":
@@ -296,6 +330,16 @@ class Row(object):
             cell = Cell(datum, data, column, self)
             cells.append((column.name or column.auto, cell))
         self.cells = SortedDict(cells)
+
+        # Add the row's status class and id to the attributes to be rendered.
+        self.classes.append(self.status_class)
+        self.attrs['id'] = self.id
+
+    def __repr__(self):
+        return '<%s: %s>' % (self.__class__.__name__, self.id)
+
+    def __iter__(self):
+        return iter(self.cells.values())
 
     @property
     def status(self):
@@ -321,11 +365,21 @@ class Row(object):
         """ Returns the bound cells for this row in order. """
         return self.cells.values()
 
-    def __repr__(self):
-        return '<%s: %s>' % (self.__class__.__name__, self.id)
+    def get_ajax_update_url(self):
+        table_url = self.table.get_absolute_url()
+        params = urlencode({"table": self.table.name,
+                            "action": self.ajax_action_name,
+                            "obj_id": self.table.get_object_id(self.datum)})
+        return "%s?%s" % (table_url, params)
 
-    def __iter__(self):
-        return iter(self.cells.values())
+    @classmethod
+    def get_data(cls, request, obj_id):
+        """
+        Fetches the updated data for the row based on the object id
+        passed in. Must be implemented by a subclass to allow AJAX updating.
+        """
+        raise NotImplementedError("You must define a get_data method on %s"
+                                  % cls.__name__)
 
 
 class Cell(object):
@@ -686,10 +740,10 @@ class DataTable(object):
         after a successful action on the table.
 
         For convenience it defaults to the value of
-        ``request.get_full_path()``, e.g. the path at which the table
-        was requested.
+        ``request.get_full_path()`` with any query string stripped off,
+         e.g. the path at which the table was requested.
         """
-        return self._meta.request.get_full_path()
+        return self._meta.request.get_full_path().partition('?')[0]
 
     def get_empty_message(self):
         """ Returns the message to be displayed when there is no data. """
@@ -727,6 +781,7 @@ class DataTable(object):
         for action in self._meta.row_actions:
             # Copy to allow modifying properties per row
             bound_action = copy.copy(self.base_actions[action.name])
+            bound_action.attrs = copy.copy(bound_action.attrs)
             # Remove disallowed actions.
             if not self._filter_action(bound_action,
                                        self._meta.request,
@@ -818,6 +873,7 @@ class DataTable(object):
     def _check_handler(self):
         """ Determine whether the request should be handled by this table. """
         request = self._meta.request
+
         if request.method == "POST" and "action" in request.POST:
             table, action, obj_id = self.parse_action(request.POST["action"])
         elif "table" in request.GET and "action" in request.GET:
@@ -831,17 +887,35 @@ class DataTable(object):
     def maybe_preempt(self):
         """
         Determine whether the request should be handled by a preemptive action
-        on this table before loading any data.
+        on this table or by an AJAX row update before loading any data.
         """
         table_name, action_name, obj_id = self._check_handler()
-        preemptive_actions = [action for action in self.base_actions.values()
-                              if action.preempt]
-        if table_name == self.name and action_name:
-            for action in preemptive_actions:
-                if action.name == action_name:
-                    handled = self.take_action(action_name, obj_id)
-                    if handled:
-                        return handled
+
+        if table_name == self.name:
+            # Handle AJAX row updating.
+            row_class = self._meta.row_class
+            if row_class.ajax and row_class.ajax_action_name == action_name:
+                try:
+                    datum = row_class.get_data(self._meta.request, obj_id)
+                    error = False
+                except:
+                    datum = None
+                    error = exceptions.handle(self._meta.request, ignore=True)
+                if self._meta.request.is_ajax():
+                    if not error:
+                        row = row_class(self, datum)
+                        return HttpResponse(row.render())
+                    else:
+                        return HttpResponse(status=error.status_code)
+
+            preemptive_actions = [action for action in
+                                  self.base_actions.values() if action.preempt]
+            if action_name:
+                for action in preemptive_actions:
+                    if action.name == action_name:
+                        handled = self.take_action(action_name, obj_id)
+                        if handled:
+                            return handled
         return None
 
     def maybe_handle(self):
