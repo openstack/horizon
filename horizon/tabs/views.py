@@ -20,8 +20,8 @@ class TabView(generic.TemplateView):
 
     def __init__(self):
         if not self.tab_group_class:
-            raise AttributeError("You must set the tab_group attribute on %s."
-                                 % self.__class__.__name__)
+            raise AttributeError("You must set the tab_group_class attribute "
+                                 "on %s." % self.__class__.__name__)
 
     def get_tabs(self, request, *args, **kwargs):
         return self.tab_group_class(request, **kwargs)

@@ -14,6 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import sys
+
 from django.template import TemplateSyntaxError
 from django.template.loader import render_to_string
 from django.utils.datastructures import SortedDict
@@ -261,8 +263,9 @@ class Tab(html.HTMLElement):
             return ''
         try:
             context = self.get_context_data(self.request)
-        except Exception as exc:
-            raise TemplateSyntaxError(exc)
+        except:
+            exc_type, exc_value, exc_traceback = sys.exc_info()
+            raise TemplateSyntaxError, exc_value, exc_traceback
         return render_to_string(self.get_template_name(self.request), context)
 
     def get_id(self):

@@ -133,6 +133,9 @@ class VolumesTableBase(tables.DataTable):
 
 
 class VolumesTable(VolumesTableBase):
+    name = tables.Column("displayName",
+                         verbose_name=_("Name"),
+                         link="%s:volumes:detail" % URL_PREFIX)
     attachments = tables.Column(get_attachment,
                                 verbose_name=_("Attachments"))
 
