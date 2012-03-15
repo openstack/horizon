@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 14:27+0800\n"
+"POT-Creation-Date: 2012-03-15 11:39-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andy Chong <andycjw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -340,8 +340,8 @@ msgstr "安全性群組"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:31
 #: dashboards/nova/access_and_security/security_groups/tables.py:65
-#: dashboards/nova/images_and_snapshots/images/forms.py:107
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:40
+#: dashboards/nova/images_and_snapshots/images/forms.py:108
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:47
 msgid "Security Groups"
 msgstr "安全性群組"
 
@@ -360,6 +360,9 @@ msgstr "編輯規則"
 #: dashboards/nova/images_and_snapshots/images/forms.py:42
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:119
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:136
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:9
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:9
 #: dashboards/syspanel/flavors/forms.py:37
 #: dashboards/syspanel/projects/forms.py:60
 #: dashboards/syspanel/projects/forms.py:85
@@ -378,6 +381,7 @@ msgstr "名稱"
 #: dashboards/nova/templates/nova/containers/_create.html:16
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:17
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:17
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:12
 #: dashboards/nova/templates/nova/objects/_copy.html:16
 #: dashboards/nova/templates/nova/objects/_upload.html:17
 #: dashboards/syspanel/projects/forms.py:63
@@ -524,6 +528,8 @@ msgstr "物件"
 #: dashboards/nova/containers/tables.py:171
 #: dashboards/nova/instances_and_volumes/instances/tables.py:220
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:123
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
 #: dashboards/syspanel/instances/tables.py:50
 msgid "Size"
 msgstr "大小"
@@ -570,23 +576,28 @@ msgid "Unable to retrieve volume snapshots."
 msgstr "無法取得空間快照"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:43
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:44
 msgid "Kernel ID"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:47
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:47
 msgid "Ramdisk ID"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:51
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:41
 msgid "Architecture"
 msgstr "系統架構"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:55
 #: dashboards/nova/images_and_snapshots/images/tables.py:82
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:31
 msgid "Container Format"
 msgstr "容器格式"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:59
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:32
 msgid "Disk Format"
 msgstr "磁碟格式"
 
@@ -625,54 +636,54 @@ msgstr "認證用的金鑰選擇"
 msgid "Instance Count"
 msgstr "執行個體數量"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:105
+#: dashboards/nova/images_and_snapshots/images/forms.py:106
 msgid "Number of instances to launch."
 msgstr "要啟動的執行個體數量"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:111
+#: dashboards/nova/images_and_snapshots/images/forms.py:112
 msgid "Launch instance in these security groups."
 msgstr "在這些安全性群組中啟動執行個體"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:113
+#: dashboards/nova/images_and_snapshots/images/forms.py:114
 msgid "Volume or Volume Snapshot"
 msgstr "容量或容量快照"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:115
+#: dashboards/nova/images_and_snapshots/images/forms.py:116
 msgid "Volume to boot from."
 msgstr "開機啟動的容量"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:116
+#: dashboards/nova/images_and_snapshots/images/forms.py:117
 msgid "Device Name"
 msgstr "裝置名稱"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:119
+#: dashboards/nova/images_and_snapshots/images/forms.py:120
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
 msgstr "容量掛載點 （例如： ‘vda’掛載在‘/dev/vda’）"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:122
+#: dashboards/nova/images_and_snapshots/images/forms.py:123
 msgid "Delete on Terminate"
 msgstr "終止執行時刪除"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:125
+#: dashboards/nova/images_and_snapshots/images/forms.py:126
 msgid "Delete volume on instance terminate"
 msgstr "執行個體終止執行時刪除容量"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:131
+#: dashboards/nova/images_and_snapshots/images/forms.py:132
 #, fuzzy
 msgid "Select a keypair"
 msgstr "選擇專案"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:133
+#: dashboards/nova/images_and_snapshots/images/forms.py:134
 #, fuzzy
 msgid "No keypairs available."
 msgstr "不存在"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:164
+#: dashboards/nova/images_and_snapshots/images/forms.py:165
 #, python-format
 msgid "Instance \"%s\" launched."
 msgstr "執行個體\"%s\"已啟動"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:168
+#: dashboards/nova/images_and_snapshots/images/forms.py:169
 #, python-format
 msgid "Unable to launch instance: %(exc)s"
 msgstr "無法啟動執行個體： %(exc)s"
@@ -698,16 +709,17 @@ msgid "Edit"
 msgstr "編輯"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:71
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:63
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:71
 msgid "Image Name"
 msgstr "映像名稱"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:76
 #: dashboards/nova/instances_and_volumes/instances/tables.py:223
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:126
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:12
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:18
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:15
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:18
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:18
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:21
 #: dashboards/syspanel/instances/tables.py:53
@@ -715,54 +727,62 @@ msgid "Status"
 msgstr "狀態"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:78
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:19
 msgid "Public"
 msgstr "公開"
 
-#: dashboards/nova/images_and_snapshots/images/views.py:57
-#: dashboards/nova/images_and_snapshots/images/views.py:157
+#: dashboards/nova/images_and_snapshots/images/tabs.py:26
+#: dashboards/nova/instances_and_volumes/instances/tabs.py:25
+#: dashboards/nova/instances_and_volumes/volumes/tabs.py:26
+#: dashboards/nova/templates/nova/overview/usage.html:6
+#: dashboards/syspanel/templates/syspanel/overview/usage.html:6
+msgid "Overview"
+msgstr "大綱"
+
+#: dashboards/nova/images_and_snapshots/images/tabs.py:37
+#, fuzzy
+msgid "Unable to retrieve image details."
+msgstr "無法取得執行個體的詳細資料"
+
+#: dashboards/nova/images_and_snapshots/images/views.py:58
+#: dashboards/nova/images_and_snapshots/images/views.py:158
 #, python-format
 msgid "Unable to retrieve image \"%s\"."
 msgstr "無法取得映像\"%s\"。"
 
-#: dashboards/nova/images_and_snapshots/images/views.py:86
+#: dashboards/nova/images_and_snapshots/images/views.py:87
 msgid "Unable to retrieve instance flavors."
 msgstr "無法取得執行個體規格。"
 
-#: dashboards/nova/images_and_snapshots/images/views.py:96
+#: dashboards/nova/images_and_snapshots/images/views.py:97
 msgid "Unable to retrieve keypairs."
 msgstr "無法取得金鑰。"
 
-#: dashboards/nova/images_and_snapshots/images/views.py:105
+#: dashboards/nova/images_and_snapshots/images/views.py:106
 msgid "Unable to retrieve list of security groups"
 msgstr "無法取得安全性群組列表。"
 
-#: dashboards/nova/images_and_snapshots/images/views.py:110
+#: dashboards/nova/images_and_snapshots/images/views.py:111
 msgid "Select Volume"
 msgstr "選擇容量"
 
-#: dashboards/nova/images_and_snapshots/images/views.py:115
+#: dashboards/nova/images_and_snapshots/images/views.py:116
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:28
 #: dashboards/nova/instances_and_volumes/instances/tables.py:147
 msgid "Snapshot"
 msgstr "快照"
 
-#: dashboards/nova/images_and_snapshots/images/views.py:118
+#: dashboards/nova/images_and_snapshots/images/views.py:119
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:35
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:154
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:74
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:82
 msgid "Volume"
 msgstr "容量"
 
-#: dashboards/nova/images_and_snapshots/images/views.py:132
-#: dashboards/nova/images_and_snapshots/images/views.py:143
+#: dashboards/nova/images_and_snapshots/images/views.py:133
+#: dashboards/nova/images_and_snapshots/images/views.py:144
 msgid "Unable to retrieve list of volumes"
 msgstr "無法取得容量列表"
-
-#: dashboards/nova/images_and_snapshots/images/views.py:182
-#: dashboards/nova/instances_and_volumes/instances/views.py:117
-#, python-format
-msgid "Unable to retrieve details for instance \"%s\"."
-msgstr "無法取得執行個體\"%s\"詳細資料。"
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:40
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:95
@@ -805,7 +825,6 @@ msgid "Volume Snapshots"
 msgstr "容量快照"
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:38
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:10
 msgid "Volume ID"
 msgstr "容量ID"
 
@@ -919,7 +938,6 @@ msgid "Not available"
 msgstr "不存在"
 
 #: dashboards/nova/instances_and_volumes/instances/tables.py:218
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:10
 #: dashboards/syspanel/instances/tables.py:48 usage/tables.py:46
 msgid "Instance Name"
 msgstr "執行個體名稱"
@@ -933,13 +951,6 @@ msgstr "工作"
 #: dashboards/syspanel/instances/tables.py:63
 msgid "Power State"
 msgstr "電源狀態"
-
-#: dashboards/nova/instances_and_volumes/instances/tabs.py:25
-#: dashboards/nova/instances_and_volumes/volumes/tabs.py:26
-#: dashboards/nova/templates/nova/overview/usage.html:6
-#: dashboards/syspanel/templates/syspanel/overview/usage.html:6
-msgid "Overview"
-msgstr "大綱"
 
 #: dashboards/nova/instances_and_volumes/instances/tabs.py:35
 msgid "Log"
@@ -964,6 +975,11 @@ msgstr "無法取得執行個體的VNC界面\"%s\"。"
 #: dashboards/nova/instances_and_volumes/instances/views.py:80
 msgid "Unable to retrieve instance details."
 msgstr "無法取得執行個體的詳細資料"
+
+#: dashboards/nova/instances_and_volumes/instances/views.py:117
+#, python-format
+msgid "Unable to retrieve details for instance \"%s\"."
+msgstr "無法取得執行個體\"%s\"詳細資料。"
 
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:42
 #, python-format
@@ -999,7 +1015,7 @@ msgstr "建立容量快照錯誤： %(exc)s"
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:36
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:143
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:155
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:68
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:76
 #: dashboards/syspanel/projects/forms.py:116
 msgid "Volumes"
 msgstr "容量"
@@ -1068,7 +1084,6 @@ msgstr "分配浮動IP"
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:16
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:17
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:16
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:12
 #: dashboards/settings/templates/settings/ec2/download_form.html:17
 #: dashboards/settings/templates/settings/project/_openrc.html:17
 #: dashboards/settings/templates/settings/user/_language.html:30
@@ -1201,6 +1216,68 @@ msgstr ""
 msgid "Images &amp; Snapshots"
 msgstr "映像 &amp; 快照"
 
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:3
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:3
+msgid "Instance Overview"
+msgstr "執行個體大綱"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:6
+#, fuzzy
+msgid "Info"
+msgstr "資訊： "
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:10
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:10
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:10
+#: dashboards/syspanel/projects/forms.py:83
+#: dashboards/syspanel/users/forms.py:105
+#: dashboards/syspanel/users/tables.py:123
+msgid "ID"
+msgstr "ID"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:20
+#, fuzzy
+msgid "Checksum"
+msgstr "校驗碼："
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:21
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:30
+#, fuzzy
+msgid "Created"
+msgstr "建立於："
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:22
+#, fuzzy
+msgid "Updated"
+msgstr "更新"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:27
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:23
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:26
+msgid "Specs"
+msgstr "規格"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:37
+msgid "Custom Properties"
+msgstr "專門屬性"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:50
+#, fuzzy
+msgid "Euca2ools state"
+msgstr "Euca2ools狀態："
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:53
+#: usage/tables.py:28
+msgid "Project ID"
+msgstr "專案ID"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:56
+#, fuzzy
+msgid "Image Type"
+msgstr "映像類型："
+
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:9
 msgid "Launch Instances"
 msgstr "啟動執行個體"
@@ -1214,7 +1291,7 @@ msgstr ""
 "的資源"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:30
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:20
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:27
 #: dashboards/syspanel/flavors/forms.py:38
 #: dashboards/syspanel/flavors/tables.py:30
 #: dashboards/syspanel/projects/forms.py:114 usage/tables.py:18
@@ -1222,14 +1299,14 @@ msgid "VCPUs"
 msgstr "虛擬處理器"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:37
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:21
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:28
 #: usage/tables.py:19
 msgid "Disk"
 msgstr "磁碟"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:37
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:38
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:21
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:28
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
 msgid "GB"
 msgstr ""
@@ -1259,84 +1336,9 @@ msgstr "您可以在這裡修改映像的各個屬性內容"
 msgid "Update Image"
 msgstr "更新映像"
 
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:3
+#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:4
 msgid "Image Detail "
 msgstr "映像詳細資料"
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:14
-msgid "Image ID:"
-msgstr "映像ID："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:15
-msgid "Image Status:"
-msgstr "映像狀態："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:16
-msgid "Image Name:"
-msgstr "映像名稱："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:17
-msgid "Public:"
-msgstr "公開："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:18
-msgid "Checksum:"
-msgstr "校驗碼："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:19
-msgid "Created At:"
-msgstr "建立時間："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:20
-msgid "Last Updated At:"
-msgstr "最後更新時間："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:24
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:16
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:26
-msgid "Specs"
-msgstr "規格"
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:26
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
-msgid "Size:"
-msgstr "大小"
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:27
-msgid "Container Format:"
-msgstr "容器格式："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:28
-msgid "Disk Format:"
-msgstr "磁碟格式："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:32
-msgid "Custom Properties"
-msgstr "專門屬性"
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:35
-msgid "Architecture:"
-msgstr "系統架構："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:38
-msgid "Kernel ID:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:41
-msgid "Ramdisk ID:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:44
-msgid "Euca2ools state:"
-msgstr "Euca2ools狀態："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:47
-msgid "Project ID:"
-msgstr "專案ID："
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:50
-msgid "Image Type:"
-msgstr "映像類型："
 
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:18
 msgid "Snapshots preserve the disk state of a running instance."
@@ -1354,41 +1356,32 @@ msgstr "執行個體 &amp; 容量"
 msgid "View Full Log"
 msgstr "檢視完整記錄檔"
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:3
-msgid "Instance Overview"
-msgstr "執行個體大綱"
-
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:11
-#: dashboards/syspanel/instances/tables.py:44
-msgid "Instance ID"
-msgstr "執行個體ID"
-
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:19
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:26
 #: usage/tables.py:21
 msgid "RAM"
 msgstr "記憶體"
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:20
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:27
 msgid "VCPU"
 msgstr "虛擬處理器"
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:26
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:33
 msgid "IP Addresses"
 msgstr "IP位址"
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:50
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:57
 msgid "No rules defined."
 msgstr ""
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:59
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:66
 msgid "Meta"
 msgstr "相關資料"
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:62
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:69
 msgid "Key name"
 msgstr "金鑰名稱"
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:81
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:89
 msgid "No volumes attached."
 msgstr "沒有掛載的容量"
 
@@ -1446,23 +1439,9 @@ msgstr "建立容量快照"
 msgid "Volume Overview"
 msgstr "大綱"
 
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:6
-#, fuzzy
-msgid "Info"
-msgstr "資訊： "
-
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:9
-#, fuzzy
-msgid "Volume Name:"
-msgstr "映像名稱："
-
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:30
-#, fuzzy
-msgid "Created at:"
-msgstr "建立時間："
-
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:40
-msgid "Attached To:"
+#, fuzzy
+msgid "Attached To"
 msgstr "掛載到："
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:43
@@ -1681,6 +1660,10 @@ msgstr "租戶"
 msgid "User"
 msgstr "使用者"
 
+#: dashboards/syspanel/instances/tables.py:44
+msgid "Instance ID"
+msgstr "執行個體ID"
+
 #: dashboards/syspanel/instances/tables.py:45
 #: dashboards/syspanel/services/tables.py:49
 msgid "Host"
@@ -1714,12 +1697,6 @@ msgstr "以成功建立%s"
 #: dashboards/syspanel/projects/forms.py:78
 msgid "Unable to create tenant."
 msgstr "無法建立租戶"
-
-#: dashboards/syspanel/projects/forms.py:83
-#: dashboards/syspanel/users/forms.py:105
-#: dashboards/syspanel/users/tables.py:123
-msgid "ID"
-msgstr "ID"
 
 #: dashboards/syspanel/projects/forms.py:100
 #, python-format
@@ -2293,10 +2270,6 @@ msgstr "下載CSV摘要"
 msgid "VCPU Hours"
 msgstr "虛擬處理器時數"
 
-#: usage/tables.py:28
-msgid "Project ID"
-msgstr "專案ID"
-
 #: usage/tables.py:30
 msgid "Disk GB Hours"
 msgstr "磁碟GB時數"
@@ -2338,8 +2311,46 @@ msgstr "這使用者沒有租戶： %(user)s"
 msgid "You are not authorized for any available tenants."
 msgstr "您沒有任何租戶的權限。"
 
-#~ msgid "Update"
-#~ msgstr "更新"
+#~ msgid "Image ID:"
+#~ msgstr "映像ID："
+
+#~ msgid "Image Status:"
+#~ msgstr "映像狀態："
+
+#~ msgid "Image Name:"
+#~ msgstr "映像名稱："
+
+#~ msgid "Public:"
+#~ msgstr "公開："
+
+#~ msgid "Created At:"
+#~ msgstr "建立時間："
+
+#~ msgid "Last Updated At:"
+#~ msgstr "最後更新時間："
+
+#~ msgid "Size:"
+#~ msgstr "大小"
+
+#~ msgid "Container Format:"
+#~ msgstr "容器格式："
+
+#~ msgid "Disk Format:"
+#~ msgstr "磁碟格式："
+
+#~ msgid "Architecture:"
+#~ msgstr "系統架構："
+
+#~ msgid "Project ID:"
+#~ msgstr "專案ID："
+
+#, fuzzy
+#~ msgid "Volume Name:"
+#~ msgstr "映像名稱："
+
+#, fuzzy
+#~ msgid "Created at:"
+#~ msgstr "建立時間："
 
 #~ msgid "Delete Containers"
 #~ msgstr "刪除容器"
@@ -2364,9 +2375,6 @@ msgstr "您沒有任何租戶的權限。"
 
 #~ msgid "Status:"
 #~ msgstr "狀態："
-
-#~ msgid "Created:"
-#~ msgstr "建立於："
 
 #~ msgid "Unable to %s."
 #~ msgstr "無法%s。"

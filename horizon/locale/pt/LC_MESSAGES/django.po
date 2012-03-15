@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 14:27+0800\n"
+"POT-Creation-Date: 2012-03-15 11:39-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -333,8 +333,8 @@ msgstr ""
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:31
 #: dashboards/nova/access_and_security/security_groups/tables.py:65
-#: dashboards/nova/images_and_snapshots/images/forms.py:107
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:40
+#: dashboards/nova/images_and_snapshots/images/forms.py:108
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:47
 msgid "Security Groups"
 msgstr ""
 
@@ -353,6 +353,9 @@ msgstr ""
 #: dashboards/nova/images_and_snapshots/images/forms.py:42
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:119
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:136
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:9
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:9
 #: dashboards/syspanel/flavors/forms.py:37
 #: dashboards/syspanel/projects/forms.py:60
 #: dashboards/syspanel/projects/forms.py:85
@@ -371,6 +374,7 @@ msgstr ""
 #: dashboards/nova/templates/nova/containers/_create.html:16
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:17
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:17
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:12
 #: dashboards/nova/templates/nova/objects/_copy.html:16
 #: dashboards/nova/templates/nova/objects/_upload.html:17
 #: dashboards/syspanel/projects/forms.py:63
@@ -516,6 +520,8 @@ msgstr ""
 #: dashboards/nova/containers/tables.py:171
 #: dashboards/nova/instances_and_volumes/instances/tables.py:220
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:123
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
 #: dashboards/syspanel/instances/tables.py:50
 msgid "Size"
 msgstr ""
@@ -561,23 +567,28 @@ msgid "Unable to retrieve volume snapshots."
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:43
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:44
 msgid "Kernel ID"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:47
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:47
 msgid "Ramdisk ID"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:51
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:41
 msgid "Architecture"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:55
 #: dashboards/nova/images_and_snapshots/images/tables.py:82
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:31
 msgid "Container Format"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:59
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:32
 msgid "Disk Format"
 msgstr ""
 
@@ -616,52 +627,52 @@ msgstr ""
 msgid "Instance Count"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:105
+#: dashboards/nova/images_and_snapshots/images/forms.py:106
 msgid "Number of instances to launch."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:111
+#: dashboards/nova/images_and_snapshots/images/forms.py:112
 msgid "Launch instance in these security groups."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:113
+#: dashboards/nova/images_and_snapshots/images/forms.py:114
 msgid "Volume or Volume Snapshot"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:115
+#: dashboards/nova/images_and_snapshots/images/forms.py:116
 msgid "Volume to boot from."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:116
+#: dashboards/nova/images_and_snapshots/images/forms.py:117
 msgid "Device Name"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:119
+#: dashboards/nova/images_and_snapshots/images/forms.py:120
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:122
+#: dashboards/nova/images_and_snapshots/images/forms.py:123
 msgid "Delete on Terminate"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:125
+#: dashboards/nova/images_and_snapshots/images/forms.py:126
 msgid "Delete volume on instance terminate"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:131
+#: dashboards/nova/images_and_snapshots/images/forms.py:132
 msgid "Select a keypair"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:133
+#: dashboards/nova/images_and_snapshots/images/forms.py:134
 msgid "No keypairs available."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:164
+#: dashboards/nova/images_and_snapshots/images/forms.py:165
 #, python-format
 msgid "Instance \"%s\" launched."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:168
+#: dashboards/nova/images_and_snapshots/images/forms.py:169
 #, python-format
 msgid "Unable to launch instance: %(exc)s"
 msgstr ""
@@ -687,16 +698,17 @@ msgid "Edit"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:71
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:63
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:71
 msgid "Image Name"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:76
 #: dashboards/nova/instances_and_volumes/instances/tables.py:223
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:126
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:12
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:18
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:15
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:18
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:18
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:21
 #: dashboards/syspanel/instances/tables.py:53
@@ -704,53 +716,60 @@ msgid "Status"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:78
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:19
 msgid "Public"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/views.py:57
-#: dashboards/nova/images_and_snapshots/images/views.py:157
+#: dashboards/nova/images_and_snapshots/images/tabs.py:26
+#: dashboards/nova/instances_and_volumes/instances/tabs.py:25
+#: dashboards/nova/instances_and_volumes/volumes/tabs.py:26
+#: dashboards/nova/templates/nova/overview/usage.html:6
+#: dashboards/syspanel/templates/syspanel/overview/usage.html:6
+msgid "Overview"
+msgstr ""
+
+#: dashboards/nova/images_and_snapshots/images/tabs.py:37
+msgid "Unable to retrieve image details."
+msgstr ""
+
+#: dashboards/nova/images_and_snapshots/images/views.py:58
+#: dashboards/nova/images_and_snapshots/images/views.py:158
 #, python-format
 msgid "Unable to retrieve image \"%s\"."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/views.py:86
+#: dashboards/nova/images_and_snapshots/images/views.py:87
 msgid "Unable to retrieve instance flavors."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/views.py:96
+#: dashboards/nova/images_and_snapshots/images/views.py:97
 msgid "Unable to retrieve keypairs."
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/views.py:105
+#: dashboards/nova/images_and_snapshots/images/views.py:106
 msgid "Unable to retrieve list of security groups"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/views.py:110
+#: dashboards/nova/images_and_snapshots/images/views.py:111
 msgid "Select Volume"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/views.py:115
+#: dashboards/nova/images_and_snapshots/images/views.py:116
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:28
 #: dashboards/nova/instances_and_volumes/instances/tables.py:147
 msgid "Snapshot"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/views.py:118
+#: dashboards/nova/images_and_snapshots/images/views.py:119
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:35
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:154
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:74
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:82
 msgid "Volume"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/images/views.py:132
-#: dashboards/nova/images_and_snapshots/images/views.py:143
+#: dashboards/nova/images_and_snapshots/images/views.py:133
+#: dashboards/nova/images_and_snapshots/images/views.py:144
 msgid "Unable to retrieve list of volumes"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/images/views.py:182
-#: dashboards/nova/instances_and_volumes/instances/views.py:117
-#, python-format
-msgid "Unable to retrieve details for instance \"%s\"."
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:40
@@ -794,7 +813,6 @@ msgid "Volume Snapshots"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:38
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:10
 msgid "Volume ID"
 msgstr ""
 
@@ -908,7 +926,6 @@ msgid "Not available"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/instances/tables.py:218
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:10
 #: dashboards/syspanel/instances/tables.py:48 usage/tables.py:46
 msgid "Instance Name"
 msgstr ""
@@ -921,13 +938,6 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/instances/tables.py:233
 #: dashboards/syspanel/instances/tables.py:63
 msgid "Power State"
-msgstr ""
-
-#: dashboards/nova/instances_and_volumes/instances/tabs.py:25
-#: dashboards/nova/instances_and_volumes/volumes/tabs.py:26
-#: dashboards/nova/templates/nova/overview/usage.html:6
-#: dashboards/syspanel/templates/syspanel/overview/usage.html:6
-msgid "Overview"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/instances/tabs.py:35
@@ -952,6 +962,11 @@ msgstr ""
 
 #: dashboards/nova/instances_and_volumes/instances/views.py:80
 msgid "Unable to retrieve instance details."
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/views.py:117
+#, python-format
+msgid "Unable to retrieve details for instance \"%s\"."
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:42
@@ -988,7 +1003,7 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:36
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:143
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:155
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:68
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:76
 #: dashboards/syspanel/projects/forms.py:116
 msgid "Volumes"
 msgstr ""
@@ -1056,7 +1071,6 @@ msgstr ""
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:16
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:17
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:16
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:12
 #: dashboards/settings/templates/settings/ec2/download_form.html:17
 #: dashboards/settings/templates/settings/project/_openrc.html:17
 #: dashboards/settings/templates/settings/user/_language.html:30
@@ -1183,6 +1197,62 @@ msgstr ""
 msgid "Images &amp; Snapshots"
 msgstr ""
 
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:3
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:3
+msgid "Instance Overview"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:6
+msgid "Info"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:10
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:10
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:10
+#: dashboards/syspanel/projects/forms.py:83
+#: dashboards/syspanel/users/forms.py:105
+#: dashboards/syspanel/users/tables.py:123
+msgid "ID"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:20
+msgid "Checksum"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:21
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:30
+msgid "Created"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:22
+msgid "Updated"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:27
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:23
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:26
+msgid "Specs"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:37
+msgid "Custom Properties"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:50
+msgid "Euca2ools state"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:53
+#: usage/tables.py:28
+msgid "Project ID"
+msgstr ""
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:56
+msgid "Image Type"
+msgstr ""
+
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:9
 msgid "Launch Instances"
 msgstr ""
@@ -1194,7 +1264,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:30
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:20
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:27
 #: dashboards/syspanel/flavors/forms.py:38
 #: dashboards/syspanel/flavors/tables.py:30
 #: dashboards/syspanel/projects/forms.py:114 usage/tables.py:18
@@ -1202,14 +1272,14 @@ msgid "VCPUs"
 msgstr ""
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:37
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:21
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:28
 #: usage/tables.py:19
 msgid "Disk"
 msgstr ""
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:37
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:38
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:21
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:28
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
 msgid "GB"
 msgstr ""
@@ -1239,83 +1309,8 @@ msgstr ""
 msgid "Update Image"
 msgstr ""
 
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:3
+#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:4
 msgid "Image Detail "
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:14
-msgid "Image ID:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:15
-msgid "Image Status:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:16
-msgid "Image Name:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:17
-msgid "Public:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:18
-msgid "Checksum:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:19
-msgid "Created At:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:20
-msgid "Last Updated At:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:24
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:16
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:26
-msgid "Specs"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:26
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
-msgid "Size:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:27
-msgid "Container Format:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:28
-msgid "Disk Format:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:32
-msgid "Custom Properties"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:35
-msgid "Architecture:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:38
-msgid "Kernel ID:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:41
-msgid "Ramdisk ID:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:44
-msgid "Euca2ools state:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:47
-msgid "Project ID:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:50
-msgid "Image Type:"
 msgstr ""
 
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:18
@@ -1334,41 +1329,32 @@ msgstr ""
 msgid "View Full Log"
 msgstr ""
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:3
-msgid "Instance Overview"
-msgstr ""
-
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:11
-#: dashboards/syspanel/instances/tables.py:44
-msgid "Instance ID"
-msgstr ""
-
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:19
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:26
 #: usage/tables.py:21
 msgid "RAM"
 msgstr ""
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:20
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:27
 msgid "VCPU"
 msgstr ""
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:26
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:33
 msgid "IP Addresses"
 msgstr ""
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:50
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:57
 msgid "No rules defined."
 msgstr ""
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:59
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:66
 msgid "Meta"
 msgstr ""
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:62
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:69
 msgid "Key name"
 msgstr ""
 
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:81
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:89
 msgid "No volumes attached."
 msgstr ""
 
@@ -1424,20 +1410,8 @@ msgstr ""
 msgid "Volume Overview"
 msgstr ""
 
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:6
-msgid "Info"
-msgstr ""
-
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:9
-msgid "Volume Name:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:30
-msgid "Created at:"
-msgstr ""
-
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:40
-msgid "Attached To:"
+msgid "Attached To"
 msgstr ""
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:43
@@ -1644,6 +1618,10 @@ msgstr ""
 msgid "User"
 msgstr ""
 
+#: dashboards/syspanel/instances/tables.py:44
+msgid "Instance ID"
+msgstr ""
+
 #: dashboards/syspanel/instances/tables.py:45
 #: dashboards/syspanel/services/tables.py:49
 msgid "Host"
@@ -1676,12 +1654,6 @@ msgstr ""
 
 #: dashboards/syspanel/projects/forms.py:78
 msgid "Unable to create tenant."
-msgstr ""
-
-#: dashboards/syspanel/projects/forms.py:83
-#: dashboards/syspanel/users/forms.py:105
-#: dashboards/syspanel/users/tables.py:123
-msgid "ID"
 msgstr ""
 
 #: dashboards/syspanel/projects/forms.py:100
@@ -2253,10 +2225,6 @@ msgstr ""
 
 #: usage/tables.py:23
 msgid "VCPU Hours"
-msgstr ""
-
-#: usage/tables.py:28
-msgid "Project ID"
 msgstr ""
 
 #: usage/tables.py:30

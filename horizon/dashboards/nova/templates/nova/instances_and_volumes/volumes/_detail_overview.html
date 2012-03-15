@@ -6,10 +6,10 @@
   <h4>{% trans "Info" %}</h4>
   <hr class="header_rule">
   <ul>
-    <li><strong>{% trans "Volume Name:" %}</strong>&nbsp;{{ volume.displayName }}</li>
-    <li><strong>{% trans "Volume ID" %}:</strong>&nbsp;{{ volume.id }}</li>
+    <li><strong>{% trans "Name" %}:</strong>&nbsp;{{ volume.displayName }}</li>
+    <li><strong>{% trans "ID" %}:</strong>&nbsp;{{ volume.id }}</li>
     {% if volume.displayDescription %}
-    <li><strong>{% trans "Description:" %}</strong>&nbsp;{{ volume.displayDescription }}</li>
+    <li><strong>{% trans "Description" %}:</strong>&nbsp;{{ volume.displayDescription }}</li>
     {% endif %}
   </ul>
 </div>
@@ -26,8 +26,8 @@
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
   <ul>
-    <li><strong>{% trans "Size:" %}</strong>&nbsp;{{ volume.size }} {% trans "GB" %}</li>
-    <li><strong>{% trans "Created at:" %}</strong>&nbsp;{{ volume.createdAt|parse_date }}</li>
+    <li><strong>{% trans "Size" %}:</strong>&nbsp;{{ volume.size }} {% trans "GB" %}</li>
+    <li><strong>{% trans "Created" %}:</strong>&nbsp;{{ volume.createdAt|parse_date }}</li>
   </ul>
 </div>
 
@@ -37,7 +37,7 @@
   <ul>
     {% for attachment in volume.attachments %}
     <li>
-      <strong>{% trans "Attached To:" %}</strong>
+      <strong>{% trans "Attached To" %}:</strong>
       {% url horizon:nova:instances_and_volumes:volumes:detail attachment.serverId as instance_url%}
       <a href="{{ instance_url }}">{% trans "Instance" %}&nbsp;{{ attachment.instance.id }} ({{ attachment.instance.name }})</a>
       <span>{% trans "on" %}&nbsp;{{ attachment.device }}</span>

@@ -40,3 +40,13 @@ class TabView(generic.TemplateView):
             else:
                 return http.HttpResponse(tab_group.render())
         return self.render_to_response(context)
+
+    def render_to_response(self, *args, **kwargs):
+        response = super(TabView, self).render_to_response(*args, **kwargs)
+        # Because Django's TemplateView uses the TemplateResponse class
+        # to provide deferred rendering (which is usually helpful), if
+        # a tab group raises an Http302 redirect (from exceptions.handle for
+        # example) the exception is actually raised *after* the final pass
+        # of the exception-handling middleware.
+        response.render()
+        return response

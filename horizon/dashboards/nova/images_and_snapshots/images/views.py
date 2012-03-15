@@ -29,8 +29,9 @@ from django.utils.translation import ugettext as _
 from horizon import api
 from horizon import exceptions
 from horizon import forms
-from horizon import views
+from horizon import tabs
 from .forms import UpdateImageForm, LaunchForm
+from .tabs import ImageDetailTabs
 
 
 LOG = logging.getLogger(__name__)
@@ -170,16 +171,6 @@ class UpdateView(forms.ModalFormView):
                 'disk_format': self.object.get('disk_format', ''), }
 
 
-class DetailView(views.APIView):
+class DetailView(tabs.TabView):
+    tab_group_class = ImageDetailTabs
     template_name = 'nova/images_and_snapshots/images/detail.html'
-
-    def get_data(self, request, context, *args, **kwargs):
-        image_id = kwargs['image_id']
-        try:
-            image = api.glance.image_get_meta(self.request, kwargs['image_id'])
-        except:
-            redirect = reverse('horizon:nova:images_and_snapshots:index')
-            exceptions.handle(request, _('Unable to retrieve details for '
-                                         'instance "%s".') % image_id,
-                                                             redirect=redirect)
-        return {'image': image}

@@ -29,10 +29,8 @@ from django import shortcuts
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
-from django.utils.translation import ugettext as _
 from django.utils.encoding import iri_to_uri
 
-from horizon import api
 from horizon import exceptions
 from horizon import users
 

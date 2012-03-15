@@ -107,6 +107,18 @@ You can build Horizon's documentation automatically by running::
 
 The output is stored in ``./docs/build/html/``.
 
+Updating the translation files
+==============================
+
+You can update all of the translation files for both the ``horizon`` app and
+``openstack_dashboard`` project with a single command:
+
+    ./run_tests.sh --makemessages
+
+or, more compactly:
+
+    ./run_tests.sh --m
+
 Starting clean
 ==============
 

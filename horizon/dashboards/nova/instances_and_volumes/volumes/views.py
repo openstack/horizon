@@ -29,14 +29,14 @@ from horizon import tables
 from horizon import tabs
 from .forms import CreateForm, AttachForm, CreateSnapshotForm
 from .tables import AttachmentsTable
-from .tabs import ImageDetailTabs
+from .tabs import VolumeDetailTabs
 
 
 LOG = logging.getLogger(__name__)
 
 
 class DetailView(tabs.TabView):
-    tab_group_class = ImageDetailTabs
+    tab_group_class = VolumeDetailTabs
     template_name = 'nova/instances_and_volumes/volumes/detail.html'
 
 

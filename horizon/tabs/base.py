@@ -20,6 +20,7 @@ from django.template import TemplateSyntaxError
 from django.template.loader import render_to_string
 from django.utils.datastructures import SortedDict
 
+from horizon import exceptions
 from horizon.utils import html
 
 SEPARATOR = "__"
@@ -263,6 +264,8 @@ class Tab(html.HTMLElement):
             return ''
         try:
             context = self.get_context_data(self.request)
+        except exceptions.Http302:
+            raise
         except:
             exc_type, exc_value, exc_traceback = sys.exc_info()
             raise TemplateSyntaxError, exc_value, exc_traceback

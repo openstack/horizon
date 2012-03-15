@@ -21,6 +21,7 @@ function usage {
   echo "  -f, --force              Force a clean re-build of the virtual"
   echo "                           environment. Useful when dependencies have"
   echo "                           been added."
+  echo "  -m, --makemessages       Update all translation files."
   echo "  -p, --pep8               Just run pep8"
   echo "  -t, --tabs               Check for tab characters in files."
   echo "  -y, --pylint             Just run pylint"
@@ -66,6 +67,7 @@ runserver=0
 selenium=0
 testargs=""
 with_coverage=0
+makemessages=0
 
 # Jenkins sets a "JOB_NAME" variable, if it's not set, we'll make it "default"
 [ "$JOB_NAME" ] || JOB_NAME="default"
@@ -81,6 +83,7 @@ function process_option {
     -t|--tabs) just_tabs=1;;
     -q|--quiet) quiet=1;;
     -c|--coverage) with_coverage=1;;
+    -m|--makemessages) makemessages=1;;
     --with-selenium) selenium=1;;
     --docs) just_docs=1;;
     --runserver) runserver=1;;
@@ -297,6 +300,17 @@ function run_tests {
   exit $(($HORIZON_RESULT || $DASHBOARD_RESULT))
 }
 
+function run_makemessages {
+  cd horizon
+  ${command_wrapper} $root/manage.py makemessages --all
+  HORIZON_RESULT=$?
+  cd ../openstack_dashboard
+  ${command_wrapper} $root/manage.py makemessages --all
+  DASHBOARD_RESULT=$?
+  cd ..
+  exit $(($HORIZON_RESULT || $DASHBOARD_RESULT))
+}
+
 
 # ---------PREPARE THE ENVIRONMENT------------ #
 
@@ -343,6 +357,12 @@ fi
 # Build the docs
 if [ $just_docs -eq 1 ]; then
     run_sphinx
+    exit $?
+fi
+
+# Update translation files
+if [ $makemessages -eq 1 ]; then
+    run_makemessages
     exit $?
 fi
 

@@ -1,0 +1,59 @@
+{% load i18n sizeformat %}
+
+<h3>{% trans "Instance Overview" %}</h3>
+
+<div class="info row-fluid">
+  <h4>{% trans "Info" %}</h4>
+  <hr class="header_rule">
+  <ul>
+    <li><strong>{% trans "Name" %}:</strong>&nbsp;{{ image.name|default:"None" }}</li>
+    <li><strong>{% trans "ID" %}:</strong>&nbsp;{{ image.id|default:"None" }}</li>
+  </ul>
+</div>
+
+<div class="status row-fluid">
+  <h4>{% trans "Status" %}</h4>
+  <hr class="header_rule">
+  <ul>
+    <li><strong>{% trans "Status" %}:</strong>&nbsp;{{ image.status|default:"Unknown"|title }}</li>
+    <li><strong>{% trans "Public" %}:</strong>&nbsp;{{ image.is_public }}</li>
+    <li><strong>{% trans "Checksum" %}:</strong>&nbsp;{{ image.checksum }}</li>
+    <li><strong>{% trans "Created" %}:</strong>&nbsp;{{ image.created_at|default:"Unknown" }}</li>
+    <li><strong>{% trans "Updated" %}:</strong>&nbsp;{{ image.updated_app|default:"Never updated" }}</li>
+  </ul>
+</div>
+
+<div class="specs row-fluid">
+  <h4>{% trans "Specs" %}</h4>
+  <hr class="header_rule">
+  <ul>
+    <li><strong>{% trans "Size" %}:</strong>&nbsp;{{ image.size|filesizeformat }}</li>
+    <li><strong>{% trans "Container Format" %}:</strong>&nbsp;{{ image.container_format|default:"None"|upper }}</li>
+    <li><strong>{% trans "Disk Format" %}:</strong>&nbsp;{{ image.disk_format|default:"None"|upper }}</li>
+  </ul>
+</div>
+
+<div class="properties row-fluid">
+  <h4>{% trans "Custom Properties" %}</h4>
+  <hr class="header_rule">
+  <ul>
+    {% if image.properties.architecture %}
+      <li><strong>{% trans "Architecture" %}:</strong>&nbsp;{{ image.properties.architecture }}</li>
+    {% endif %}
+    {% if image.properties.kernel_id %}
+      <li><strong>{% trans "Kernel ID" %}:</strong>&nbsp;{{ image.properties.kernel_id }}</li>
+    {% endif %}
+    {% if image.properties.ramdisk_id %}
+      <li><strong>{% trans "Ramdisk ID" %}:</strong>&nbsp;{{ image.properties.ramdisk_id }}</li>
+    {% endif %}
+    {% if image.properties.image_state %}
+      <li><strong>{% trans "Euca2ools state" %}:</strong>&nbsp;{{ image.properties.image_state }}</li>
+    {% endif %}
+    {% if image.properties.project_id %}
+      <li><strong>{% trans "Project ID" %}:</strong>&nbsp;{{ image.properties.project_id }}</li>
+    {% endif %}
+    {% if image.properties.image_type %}
+      <li><strong>{% trans "Image Type" %}:</strong>&nbsp;{{ image.properties.image_type }}</li>
+    {% endif %}
+  </ul>
+</div>

@@ -25,23 +25,20 @@ from horizon import tabs
 class OverviewTab(tabs.Tab):
     name = _("Overview")
     slug = "overview"
-    template_name = ("nova/instances_and_volumes/volumes/"
-                     "_detail_overview.html")
+    template_name = "nova/images_and_snapshots/images/_detail_overview.html"
 
     def get_context_data(self, request):
-        volume_id = self.tab_group.kwargs['volume_id']
+        image_id = self.tab_group.kwargs['image_id']
         try:
-            volume = api.nova.volume_get(request, volume_id)
-            for att in volume.attachments:
-                att['instance'] = api.nova.server_get(request, att['serverId'])
+            image = api.glance.image_get_meta(self.request, image_id)
         except:
-            redirect = reverse('horizon:nova:instances_and_volumes:index')
-            exceptions.handle(self.request,
-                              _('Unable to retrieve volume details.'),
+            redirect = reverse('horizon:nova:images_and_snapshots:index')
+            exceptions.handle(request,
+                              _('Unable to retrieve image details.'),
                               redirect=redirect)
-        return {'volume': volume}
+        return {'image': image}
 
 
-class VolumeDetailTabs(tabs.TabGroup):
-    slug = "volume_details"
+class ImageDetailTabs(tabs.TabGroup):
+    slug = "image_details"
     tabs = (OverviewTab,)
