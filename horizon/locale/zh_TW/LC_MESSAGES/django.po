@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-14 13:53-0700\n"
+"POT-Creation-Date: 2012-03-14 14:44-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andy Chong <andycjw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,12 +65,12 @@ msgid "Error fetching floating ips: %s"
 msgstr "浮動IP 取得錯誤： %s"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:48
-#: dashboards/nova/access_and_security/floating_ips/tables.py:92
+#: dashboards/nova/access_and_security/floating_ips/tables.py:93
 #: dashboards/nova/instances_and_volumes/instances/tables.py:56
 #: dashboards/nova/instances_and_volumes/instances/tables.py:68
 #: dashboards/nova/instances_and_volumes/instances/tables.py:83
-#: dashboards/nova/instances_and_volumes/instances/tables.py:108
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:168
+#: dashboards/nova/instances_and_volumes/instances/tables.py:109
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:167
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:42
 msgid "Instance"
 msgstr "執行個體"
@@ -114,7 +114,7 @@ msgid "Floating IP"
 msgstr "浮動IP"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:47
-#: dashboards/nova/access_and_security/floating_ips/tables.py:106
+#: dashboards/nova/access_and_security/floating_ips/tables.py:107
 #: dashboards/syspanel/projects/forms.py:119
 msgid "Floating IPs"
 msgstr "浮動IP"
@@ -128,22 +128,22 @@ msgstr "配給IP"
 msgid "Disassociate IP"
 msgstr "釋放IP"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:81
+#: dashboards/nova/access_and_security/floating_ips/tables.py:82
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
 msgstr "已成功釋放浮動IP： %s"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:85
+#: dashboards/nova/access_and_security/floating_ips/tables.py:86
 msgid "Unable to disassociate floating IP."
 msgstr "無法釋放浮動IP。"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:90
-#: dashboards/nova/instances_and_volumes/instances/tables.py:214
+#: dashboards/nova/access_and_security/floating_ips/tables.py:91
+#: dashboards/nova/instances_and_volumes/instances/tables.py:219
 #: dashboards/syspanel/instances/tables.py:49
 msgid "IP Address"
 msgstr "IP位址"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:95
+#: dashboards/nova/access_and_security/floating_ips/tables.py:96
 msgid "Floating IP Pool"
 msgstr "浮動IP集"
 
@@ -332,12 +332,12 @@ msgstr "編輯規則"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:57
 #: dashboards/nova/images_and_snapshots/images/forms.py:42
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:120
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:137
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:119
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:136
 #: dashboards/syspanel/flavors/forms.py:37
 #: dashboards/syspanel/projects/forms.py:60
 #: dashboards/syspanel/projects/forms.py:85
-#: dashboards/syspanel/projects/tables.py:72
+#: dashboards/syspanel/projects/tables.py:74
 #: dashboards/syspanel/users/forms.py:63
 msgid "Name"
 msgstr "名稱"
@@ -345,7 +345,7 @@ msgstr "名稱"
 #: dashboards/nova/access_and_security/security_groups/tables.py:58
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:29
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:93
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:123
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:122
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:16
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:16
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:17
@@ -356,7 +356,7 @@ msgstr "名稱"
 #: dashboards/nova/templates/nova/objects/_upload.html:17
 #: dashboards/syspanel/projects/forms.py:63
 #: dashboards/syspanel/projects/forms.py:88
-#: dashboards/syspanel/projects/tables.py:74
+#: dashboards/syspanel/projects/tables.py:76
 #: dashboards/syspanel/templates/syspanel/flavors/_create.html:17
 #: dashboards/syspanel/templates/syspanel/images/_update.html:17
 #: dashboards/syspanel/templates/syspanel/projects/_add_user.html:17
@@ -414,7 +414,7 @@ msgid "Unable to create container."
 msgstr "無法建立容器"
 
 #: dashboards/nova/containers/forms.py:59
-#: dashboards/nova/containers/tables.py:169
+#: dashboards/nova/containers/tables.py:170
 msgid "Object Name"
 msgstr "物件名稱"
 
@@ -448,34 +448,34 @@ msgid "Unable to copy object."
 msgstr "無法複製物件"
 
 #: dashboards/nova/containers/panel.py:28
-#: dashboards/nova/containers/tables.py:37
+#: dashboards/nova/containers/tables.py:36
 #: dashboards/nova/containers/tables.py:114
 #: dashboards/nova/templates/nova/containers/index.html:8
 msgid "Containers"
 msgstr "容器"
 
-#: dashboards/nova/containers/tables.py:36
+#: dashboards/nova/containers/tables.py:35
 #, fuzzy
 msgid "Container"
 msgstr "容器"
 
-#: dashboards/nova/containers/tables.py:53
+#: dashboards/nova/containers/tables.py:52
 #, python-format
 msgid "Unable to delete non-empty container: %s"
 msgstr "無法刪除還沒清空的容器： %s"
 
-#: dashboards/nova/containers/tables.py:57
+#: dashboards/nova/containers/tables.py:56
 #, python-format
 msgid "Successfully deleted containers: %s"
 msgstr "已成功刪除容器： %s"
 
-#: dashboards/nova/containers/tables.py:64
+#: dashboards/nova/containers/tables.py:63
 #: dashboards/nova/templates/nova/containers/_create.html:22
 #: dashboards/nova/templates/nova/containers/create.html:6
 msgid "Create Container"
 msgstr "建立容器"
 
-#: dashboards/nova/containers/tables.py:71
+#: dashboards/nova/containers/tables.py:70
 msgid "List Objects"
 msgstr "列出物件"
 
@@ -486,14 +486,14 @@ msgstr "上傳物件"
 
 #: dashboards/nova/containers/tables.py:105
 #: dashboards/nova/containers/tables.py:121
-#: dashboards/nova/containers/tables.py:177
+#: dashboards/nova/containers/tables.py:178
 msgid "Objects"
 msgstr "物件"
 
 #: dashboards/nova/containers/tables.py:107
-#: dashboards/nova/containers/tables.py:170
-#: dashboards/nova/instances_and_volumes/instances/tables.py:215
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:124
+#: dashboards/nova/containers/tables.py:171
+#: dashboards/nova/instances_and_volumes/instances/tables.py:220
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:123
 #: dashboards/syspanel/instances/tables.py:50
 msgid "Size"
 msgstr "大小"
@@ -673,8 +673,8 @@ msgid "Image Name"
 msgstr "映像名稱"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:76
-#: dashboards/nova/instances_and_volumes/instances/tables.py:218
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:127
+#: dashboards/nova/instances_and_volumes/instances/tables.py:223
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:126
 #: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:12
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
@@ -712,13 +712,13 @@ msgstr "選擇容量"
 
 #: dashboards/nova/images_and_snapshots/images/views.py:115
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:28
-#: dashboards/nova/instances_and_volumes/instances/tables.py:144
+#: dashboards/nova/instances_and_volumes/instances/tables.py:147
 msgid "Snapshot"
 msgstr "快照"
 
 #: dashboards/nova/images_and_snapshots/images/views.py:118
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:35
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:155
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:154
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:74
 msgid "Volume"
 msgstr "容量"
@@ -770,11 +770,11 @@ msgid "Volume Snapshot"
 msgstr "容量快照"
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:31
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:43
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:42
 msgid "Volume Snapshots"
 msgstr "容量快照"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:39
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:38
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:10
 msgid "Volume ID"
 msgstr "容量ID"
@@ -813,8 +813,8 @@ msgstr "已終止執行"
 #: dashboards/nova/instances_and_volumes/instances/tables.py:57
 #: dashboards/nova/instances_and_volumes/instances/tables.py:69
 #: dashboards/nova/instances_and_volumes/instances/tables.py:84
-#: dashboards/nova/instances_and_volumes/instances/tables.py:109
-#: dashboards/nova/instances_and_volumes/instances/tables.py:232
+#: dashboards/nova/instances_and_volumes/instances/tables.py:110
+#: dashboards/nova/instances_and_volumes/instances/tables.py:237
 #: dashboards/syspanel/instances/tables.py:67
 #: dashboards/syspanel/projects/forms.py:115
 #: dashboards/syspanel/templates/syspanel/instances/index.html:3
@@ -845,61 +845,61 @@ msgstr "已暫停"
 msgid "Unpaused"
 msgstr "已取消暫停"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:106
+#: dashboards/nova/instances_and_volumes/instances/tables.py:107
 msgid "Suspend"
 msgstr "休眠"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:106
+#: dashboards/nova/instances_and_volumes/instances/tables.py:107
 msgid "Resume"
 msgstr "喚醒"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:107
+#: dashboards/nova/instances_and_volumes/instances/tables.py:108
 msgid "Suspended"
 msgstr "已休眠"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:107
+#: dashboards/nova/instances_and_volumes/instances/tables.py:108
 msgid "Resumed"
 msgstr "已喚醒"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:131
+#: dashboards/nova/instances_and_volumes/instances/tables.py:133
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:53
 #: dashboards/nova/templates/nova/images_and_snapshots/images/launch.html:13
 msgid "Launch Instance"
 msgstr "啟動執行個體"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:137
+#: dashboards/nova/instances_and_volumes/instances/tables.py:140
 msgid "Edit Instance"
 msgstr "編輯執行個體"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:154
+#: dashboards/nova/instances_and_volumes/instances/tables.py:157
 msgid "VNC Console"
 msgstr "VNC界面"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:163
+#: dashboards/nova/instances_and_volumes/instances/tables.py:167
 msgid "View Log"
 msgstr "檢視記錄檔"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:190
+#: dashboards/nova/instances_and_volumes/instances/tables.py:195
 #, python-format
 msgid "%(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 msgstr "%(RAM)s 記憶體 | %(VCPU)s 虛擬處理器 | %(disk)s 磁碟"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:195
+#: dashboards/nova/instances_and_volumes/instances/tables.py:200
 msgid "Not available"
 msgstr "不存在"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:213
+#: dashboards/nova/instances_and_volumes/instances/tables.py:218
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:10
-#: dashboards/syspanel/instances/tables.py:48 usage/tables.py:45
+#: dashboards/syspanel/instances/tables.py:48 usage/tables.py:46
 msgid "Instance Name"
 msgstr "執行個體名稱"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:222
+#: dashboards/nova/instances_and_volumes/instances/tables.py:227
 #: dashboards/syspanel/instances/tables.py:57
 msgid "Task"
 msgstr "工作"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:228
+#: dashboards/nova/instances_and_volumes/instances/tables.py:233
 #: dashboards/syspanel/instances/tables.py:63
 msgid "Power State"
 msgstr "電源狀態"
@@ -967,49 +967,49 @@ msgid "Error Creating Volume Snapshot: %(exc)s"
 msgstr "建立容量快照錯誤： %(exc)s"
 
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:36
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:144
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:156
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:143
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:155
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:68
 #: dashboards/syspanel/projects/forms.py:116
 msgid "Volumes"
 msgstr "容量"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:53
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:52
 msgid "Volumes in error states cannot be deleted via the Nova API."
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:59
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:58
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:23
 msgid "Create Volume"
 msgstr "建立容量"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:66
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:65
 msgid "Edit Attachments"
 msgstr "編輯掛載"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:76
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:75
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:8
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:23
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/create.html:3
 msgid "Create Snapshot"
 msgstr "建立快照"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:94
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:93
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:140
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:139
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:35
 msgid "Attachments"
 msgstr "掛載"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:153
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:152
 msgid "Detach"
 msgstr "卸載"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:154
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:153
 msgid "Detached"
 msgstr "已卸載"
 
@@ -1187,13 +1187,13 @@ msgstr ""
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:20
 #: dashboards/syspanel/flavors/forms.py:38
 #: dashboards/syspanel/flavors/tables.py:30
-#: dashboards/syspanel/projects/forms.py:114 usage/tables.py:17
+#: dashboards/syspanel/projects/forms.py:114 usage/tables.py:18
 msgid "VCPUs"
 msgstr "虛擬處理器"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:37
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:21
-#: usage/tables.py:18
+#: usage/tables.py:19
 msgid "Disk"
 msgstr "磁碟"
 
@@ -1334,7 +1334,7 @@ msgid "Instance ID"
 msgstr "執行個體ID"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:19
-#: usage/tables.py:20
+#: usage/tables.py:21
 msgid "RAM"
 msgstr "記憶體"
 
@@ -1501,11 +1501,11 @@ msgstr "選擇專案"
 msgid "Unable to retrieve tenant list."
 msgstr "無法取得租戶列表"
 
-#: dashboards/settings/ec2/forms.py:71
+#: dashboards/settings/ec2/forms.py:85
 msgid "Unable to fetch EC2 credentials."
 msgstr "無法讀取EC2認證憑據資料"
 
-#: dashboards/settings/ec2/forms.py:84
+#: dashboards/settings/ec2/forms.py:98
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "寫入壓縮檔錯誤： %(exc)s"
@@ -1523,13 +1523,16 @@ msgstr "下載RC檔案錯誤： %s"
 #: dashboards/settings/templates/settings/ec2/download_form.html:23
 #: dashboards/settings/templates/settings/ec2/index.html:3
 #: dashboards/settings/templates/settings/ec2/index.html:6
-msgid "Download x509 Credentials"
+#, fuzzy
+msgid "Download EC2 Credentials"
 msgstr "下載x509認證憑據資料"
 
 #: dashboards/settings/templates/settings/ec2/download_form.html:18
+#, fuzzy
 msgid ""
-"Clicking \"Download x509 Credentials\" will download a zip file which "
-"contains your x509 private key and certificate."
+"Clicking \"Download EC2 Credentials\" will download a zip file which "
+"includes an rc file with your access/secret keys, as well as your x509 "
+"private key and certificate."
 msgstr ""
 "點擊\"下載x509認證憑據資料\"會下載一個壓縮檔，裡面含有您的x509私鑰和憑證"
 
@@ -1643,8 +1646,8 @@ msgid "Tenant"
 msgstr "租戶"
 
 #: dashboards/syspanel/instances/tables.py:42
-#: dashboards/syspanel/projects/tables.py:89
-#: dashboards/syspanel/users/tables.py:90
+#: dashboards/syspanel/projects/tables.py:91
+#: dashboards/syspanel/users/tables.py:92
 msgid "User"
 msgstr "使用者"
 
@@ -1667,9 +1670,9 @@ msgstr "無法將使用者加入租戶"
 
 #: dashboards/syspanel/projects/forms.py:64
 #: dashboards/syspanel/projects/forms.py:89
-#: dashboards/syspanel/projects/tables.py:75
+#: dashboards/syspanel/projects/tables.py:77
 #: dashboards/syspanel/services/tables.py:51
-#: dashboards/syspanel/users/tables.py:127
+#: dashboards/syspanel/users/tables.py:129
 msgid "Enabled"
 msgstr "已啟用"
 
@@ -1684,7 +1687,7 @@ msgstr "無法建立租戶"
 
 #: dashboards/syspanel/projects/forms.py:83
 #: dashboards/syspanel/users/forms.py:105
-#: dashboards/syspanel/users/tables.py:121
+#: dashboards/syspanel/users/tables.py:123
 msgid "ID"
 msgstr "ID"
 
@@ -1738,57 +1741,57 @@ msgstr "修改配額"
 msgid "Modify Users"
 msgstr "修改使用者"
 
-#: dashboards/syspanel/projects/tables.py:30
+#: dashboards/syspanel/projects/tables.py:31
 msgid "View Usage"
 msgstr "檢視使用量"
 
-#: dashboards/syspanel/projects/tables.py:36
+#: dashboards/syspanel/projects/tables.py:38
 msgid "Edit Project"
 msgstr "編輯專案"
 
-#: dashboards/syspanel/projects/tables.py:43
+#: dashboards/syspanel/projects/tables.py:45
 msgid "Create New Project"
 msgstr "建立新專案"
 
-#: dashboards/syspanel/projects/tables.py:49
+#: dashboards/syspanel/projects/tables.py:51
 msgid "Project"
 msgstr "專案"
 
-#: dashboards/syspanel/projects/tables.py:50
-#: dashboards/syspanel/projects/tables.py:79
+#: dashboards/syspanel/projects/tables.py:52
+#: dashboards/syspanel/projects/tables.py:81
 #: dashboards/syspanel/templates/syspanel/projects/index.html:8
 msgid "Projects"
 msgstr "專案"
 
-#: dashboards/syspanel/projects/tables.py:71
+#: dashboards/syspanel/projects/tables.py:73
 #: dashboards/syspanel/services/tables.py:47
 msgid "Id"
 msgstr "Id"
 
-#: dashboards/syspanel/projects/tables.py:87
+#: dashboards/syspanel/projects/tables.py:89
 msgid "Remove"
 msgstr "移除"
 
-#: dashboards/syspanel/projects/tables.py:88
+#: dashboards/syspanel/projects/tables.py:90
 msgid "Removed"
 msgstr "已移除"
 
-#: dashboards/syspanel/projects/tables.py:90
+#: dashboards/syspanel/projects/tables.py:92
 #: dashboards/syspanel/templates/syspanel/users/index.html:8
-#: dashboards/syspanel/users/tables.py:91
-#: dashboards/syspanel/users/tables.py:133
+#: dashboards/syspanel/users/tables.py:93
+#: dashboards/syspanel/users/tables.py:135
 msgid "Users"
 msgstr "使用者"
 
-#: dashboards/syspanel/projects/tables.py:101
+#: dashboards/syspanel/projects/tables.py:103
 msgid "Users For Project"
 msgstr "專案使用者"
 
-#: dashboards/syspanel/projects/tables.py:108
+#: dashboards/syspanel/projects/tables.py:110
 msgid "Add To Project"
 msgstr "加入專案"
 
-#: dashboards/syspanel/projects/tables.py:120
+#: dashboards/syspanel/projects/tables.py:122
 msgid "Add New Users"
 msgstr "新增使用者"
 
@@ -1804,15 +1807,15 @@ msgstr "無法取得使用者"
 msgid "Unable to retrieve roles."
 msgstr "無法取得角色"
 
-#: dashboards/syspanel/quotas/tables.py:27
+#: dashboards/syspanel/quotas/tables.py:24
 msgid "Quota Name"
 msgstr "配額名稱"
 
-#: dashboards/syspanel/quotas/tables.py:28
+#: dashboards/syspanel/quotas/tables.py:25
 msgid "Limit"
 msgstr "限制"
 
-#: dashboards/syspanel/quotas/tables.py:35
+#: dashboards/syspanel/quotas/tables.py:32
 msgid "Quotas"
 msgstr "配額"
 
@@ -1946,7 +1949,7 @@ msgstr ""
 
 #: dashboards/syspanel/users/forms.py:64
 #: dashboards/syspanel/users/forms.py:107
-#: dashboards/syspanel/users/tables.py:123
+#: dashboards/syspanel/users/tables.py:125
 msgid "Email"
 msgstr "電子郵件"
 
@@ -1980,7 +1983,7 @@ msgid "Unable to create user."
 msgstr "無法建立使用者。"
 
 #: dashboards/syspanel/users/forms.py:106
-#: dashboards/syspanel/users/tables.py:122 views/auth_forms.py:64
+#: dashboards/syspanel/users/tables.py:124 views/auth_forms.py:64
 msgid "User Name"
 msgstr "使用者名稱"
 
@@ -2018,44 +2021,44 @@ msgstr "啟用"
 msgid "Enable Users"
 msgstr "啟用使用者"
 
-#: dashboards/syspanel/users/tables.py:45
+#: dashboards/syspanel/users/tables.py:46
 #, python-format
 msgid "Error enabling user: %s"
 msgstr "啟用使用者錯誤： %s"
 
-#: dashboards/syspanel/users/tables.py:48
+#: dashboards/syspanel/users/tables.py:49
 #, python-format
 msgid "Enabled the following users: %s"
 msgstr "已啟用以下使用者： %s"
 
-#: dashboards/syspanel/users/tables.py:51
+#: dashboards/syspanel/users/tables.py:52
 #, python-format
 msgid "Successfully enabled users: %s"
 msgstr "已成功啟用使用者： %s"
 
-#: dashboards/syspanel/users/tables.py:58
+#: dashboards/syspanel/users/tables.py:59
 msgid "Disable"
 msgstr "停用"
 
-#: dashboards/syspanel/users/tables.py:59
+#: dashboards/syspanel/users/tables.py:60
 msgid "Disable Users"
 msgstr "停用使用者"
 
-#: dashboards/syspanel/users/tables.py:69
+#: dashboards/syspanel/users/tables.py:71
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "您不能停用您目前登入使用的使用者"
 
-#: dashboards/syspanel/users/tables.py:77
+#: dashboards/syspanel/users/tables.py:79
 #, python-format
 msgid "Error disabling user: %s"
 msgstr "停用使用者錯誤： %s"
 
-#: dashboards/syspanel/users/tables.py:80
+#: dashboards/syspanel/users/tables.py:82
 #, python-format
 msgid "Disabled the following users: %s"
 msgstr "已停用以下使用者： %s"
 
-#: dashboards/syspanel/users/tables.py:84
+#: dashboards/syspanel/users/tables.py:86
 #, python-format
 msgid "Successfully disabled users: %s"
 msgstr "已成功停用使用者： %s"
@@ -2069,26 +2072,26 @@ msgstr "無法取得使用者資訊： %s"
 msgid "Unable to update user."
 msgstr "無法更新使用者。"
 
-#: tables/actions.py:431
+#: tables/actions.py:451
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr "您沒有權限使用%(action)s: %(objs)s"
 
-#: tables/actions.py:437
+#: tables/actions.py:457
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "無法%(action)s: %(objs)s"
 
-#: tables/actions.py:443
+#: tables/actions.py:463
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:453
+#: tables/actions.py:473
 msgid "Delete"
 msgstr "刪除"
 
-#: tables/actions.py:454
+#: tables/actions.py:474
 msgid "Deleted"
 msgstr "已刪除"
 
@@ -2256,23 +2259,23 @@ msgstr "您正在查看未來的資料，它可能並不存在"
 msgid "Download CSV Summary"
 msgstr "下載CSV摘要"
 
-#: usage/tables.py:22
+#: usage/tables.py:23
 msgid "VCPU Hours"
 msgstr "虛擬處理器時數"
 
-#: usage/tables.py:27
+#: usage/tables.py:28
 msgid "Project ID"
 msgstr "專案ID"
 
-#: usage/tables.py:29
+#: usage/tables.py:30
 msgid "Disk GB Hours"
 msgstr "磁碟GB時數"
 
-#: usage/tables.py:37 usage/tables.py:55
+#: usage/tables.py:38 usage/tables.py:56
 msgid "Usage Summary"
 msgstr "使用量摘要"
 
-#: usage/tables.py:47
+#: usage/tables.py:48
 msgid "Uptime"
 msgstr "上機時間"
 

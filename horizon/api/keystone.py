@@ -262,6 +262,10 @@ def get_default_role(request):
     return DEFAULT_ROLE
 
 
+def list_ec2_credentials(request, user_id):
+    return keystoneclient(request).ec2.list(user_id)
+
+
 def create_ec2_credentials(request, user_id, tenant_id):
     return keystoneclient(request).ec2.create(user_id, tenant_id)
 

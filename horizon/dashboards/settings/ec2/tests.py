@@ -32,6 +32,8 @@ class EC2SettingsTest(test.TestCase):
         cert = self.certs.first()
 
         self.mox.StubOutWithMock(api.keystone, "tenant_list")
+        self.mox.StubOutWithMock(api.keystone, "token_create_scoped")
+        self.mox.StubOutWithMock(api.keystone, "list_ec2_credentials")
         self.mox.StubOutWithMock(api.nova, "get_x509_credentials")
         self.mox.StubOutWithMock(api.nova, "get_x509_root_certificate")
         self.mox.StubOutWithMock(api.keystone, "create_ec2_credentials")
@@ -41,8 +43,14 @@ class EC2SettingsTest(test.TestCase):
                     .AndReturn(self.tenants.list())
 
         # POST request
+        api.keystone.token_create_scoped(IsA(HttpRequest),
+                                         self.tenant.id,
+                                         IsA(str)) \
+                                         .AndReturn(self.tokens.scoped_token)
         api.keystone.tenant_list(IsA(HttpRequest)) \
                     .AndReturn(self.tenants.list())
+        api.keystone.list_ec2_credentials(IsA(HttpRequest), self.user.id) \
+                    .AndReturn([])
         api.nova.get_x509_credentials(IsA(HttpRequest)).AndReturn(cert)
         api.nova.get_x509_root_certificate(IsA(HttpRequest)) \
                 .AndReturn(cert)
