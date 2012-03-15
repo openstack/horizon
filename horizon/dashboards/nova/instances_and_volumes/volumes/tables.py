@@ -43,15 +43,6 @@ class DeleteVolume(tables.DeleteAction):
             return volume.status in DELETABLE_STATES
         return True
 
-    def update(self, request, volume=None):
-        # TODO(gabriel): This can be removed once the Nova Volume API supports
-        # deleting volumes in error states.
-        if volume and getattr(volume, "status", None) == "error":
-            self.classes += ("disabled",)
-            self.attrs['disabled'] = 'disabled'
-            self.attrs['title'] = _("Volumes in error states cannot be "
-                                    "deleted via the Nova API.")
-
 
 class CreateVolume(tables.LinkAction):
     name = "create"
