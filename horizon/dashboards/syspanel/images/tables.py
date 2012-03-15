@@ -14,5 +14,20 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import ugettext as _
+
 from horizon.dashboards.nova.images_and_snapshots.images.tables import (
-        ImagesTable, LaunchImage, EditImage, DeleteImage)
+        ImagesTable, EditImage, DeleteImage)
+
+
+class AdminDeleteImage(DeleteImage):
+    def allowed(self, request, image=None):
+        return True
+
+
+class AdminImagesTable(ImagesTable):
+    class Meta:
+        name = "images"
+        verbose_name = _("Images")
+        table_actions = (AdminDeleteImage,)
+        row_actions = (EditImage, AdminDeleteImage)
