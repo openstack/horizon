@@ -143,8 +143,8 @@ class TestCase(django_test.TestCase):
         Asserts that the given response issued a 302 redirect without
         processing the view which is redirected to.
         """
-        if response.status_code / 100 != 3:
-            assert("The response did not return a redirect.")
+        assert (response.status_code / 100 == 3), \
+            "The response did not return a redirect."
         self.assertEqual(response._headers.get('location', None),
                          ('Location', settings.TESTSERVER + expected_url))
         self.assertEqual(response.status_code, 302)
@@ -198,6 +198,23 @@ class TestCase(django_test.TestCase):
         errors = response.context[context_name]._errors
         assert len(errors) == 0, \
                "Unexpected errors were found on the form: %s" % errors
+
+    def assertFormErrors(self, response, count=0, context_name="form"):
+        """
+        Asserts that the response does contain a form in it's
+        context, and that form has errors, if count were given,
+        it must match the exact numbers of errors
+        """
+        context = getattr(response, "context", {})
+        assert (context and context_name in context), \
+            "The response did not contain a form."
+        errors = response.context[context_name]._errors
+        if count:
+            assert len(errors) == count, \
+               "%d errors were found on the form, %d expected" % \
+               (len(errors), count)
+        else:
+            assert len(errors) > 0, "No errors were found on the form"
 
 
 class BaseAdminViewTests(TestCase):
