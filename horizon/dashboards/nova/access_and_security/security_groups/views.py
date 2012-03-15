@@ -57,8 +57,12 @@ class EditRulesView(tables.DataTableView):
 
     def handle_form(self):
         tenant_id = self.request.user.tenant_id
+        security_groups = [(group.id, group.name)
+                            for group in api.security_group_list(self.request)]
+
         initial = {'tenant_id': tenant_id,
-                   'security_group_id': self.kwargs['security_group_id']}
+                   'security_group_id': self.kwargs['security_group_id'],
+                   'security_group_list': security_groups}
         return AddRule.maybe_handle(self.request, initial=initial)
 
     def get(self, request, *args, **kwargs):

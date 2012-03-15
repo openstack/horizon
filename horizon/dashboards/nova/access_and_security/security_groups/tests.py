@@ -84,9 +84,14 @@ class SecurityGroupsViewTests(test.TestCase):
 
     def test_edit_rules_get(self):
         sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+
         self.mox.StubOutWithMock(api, 'security_group_get')
         api.security_group_get(IsA(http.HttpRequest),
                                sec_group.id).AndReturn(sec_group)
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         res = self.client.get(self.edit_url)
@@ -97,18 +102,25 @@ class SecurityGroupsViewTests(test.TestCase):
 
     def test_edit_rules_get_exception(self):
         sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
 
         self.mox.StubOutWithMock(api, 'security_group_get')
         exc = novaclient_exceptions.ClientException('ClientException')
         api.security_group_get(IsA(http.HttpRequest),
                                sec_group.id).AndRaise(exc)
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         res = self.client.get(self.edit_url)
         self.assertRedirects(res, INDEX_URL)
 
-    def test_edit_rules_add_rule(self):
+    def test_edit_rules_add_rule_cidr(self):
         sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
         self.mox.StubOutWithMock(api, 'security_group_rule_create')
@@ -117,7 +129,11 @@ class SecurityGroupsViewTests(test.TestCase):
                                        rule.ip_protocol,
                                        int(rule.from_port),
                                        int(rule.to_port),
-                                       rule.ip_range['cidr']).AndReturn(rule)
+                                       rule.ip_range['cidr'],
+                                       None).AndReturn(rule)
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -126,17 +142,22 @@ class SecurityGroupsViewTests(test.TestCase):
                     'from_port': rule.from_port,
                     'to_port': rule.to_port,
                     'ip_protocol': rule.ip_protocol,
-                    'cidr': rule.ip_range['cidr']}
+                    'cidr': rule.ip_range['cidr'],
+                    'source_group': ''}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_edit_rules_invalid_port_range(self):
         sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
         self.mox.StubOutWithMock(api, 'security_group_get')
         api.security_group_get(IsA(http.HttpRequest),
                                sec_group.id).AndReturn(sec_group)
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -145,13 +166,15 @@ class SecurityGroupsViewTests(test.TestCase):
                     'from_port': rule.from_port,
                     'to_port': int(rule.from_port) - 1,
                     'ip_protocol': rule.ip_protocol,
-                    'cidr': rule.ip_range['cidr']}
+                    'cidr': rule.ip_range['cidr'],
+                    'source_group': ''}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
         self.assertContains(res, "greater than or equal to")
 
     def test_edit_rules_add_rule_exception(self):
         sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
         exc = novaclient_exceptions.ClientException('ClientException')
 
@@ -161,7 +184,11 @@ class SecurityGroupsViewTests(test.TestCase):
                                        rule.ip_protocol,
                                        int(rule.from_port),
                                        int(rule.to_port),
-                                       rule.ip_range['cidr']).AndRaise(exc)
+                                       rule.ip_range['cidr'],
+                                       None).AndRaise(exc)
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -170,7 +197,8 @@ class SecurityGroupsViewTests(test.TestCase):
                     'from_port': rule.from_port,
                     'to_port': rule.to_port,
                     'ip_protocol': rule.ip_protocol,
-                    'cidr': rule.ip_range['cidr']}
+                    'cidr': rule.ip_range['cidr'],
+                    'source_group': ''}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
