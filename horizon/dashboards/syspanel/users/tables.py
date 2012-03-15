@@ -108,7 +108,8 @@ class UserFilterAction(tables.FilterAction):
         q = filter_string.lower()
 
         def comp(user):
-            if q in user.name.lower() or q in user.email.lower():
+            if any([q in (user.name or "").lower(),
+                    q in (user.email or "").lower()]):
                 return True
             return False
 
