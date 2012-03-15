@@ -26,14 +26,14 @@ from horizon import api
 from horizon import exceptions
 from horizon import tables
 from horizon.dashboards.nova.images_and_snapshots.images import views
-from .tables import ImagesTable
+from .tables import AdminImagesTable
 
 
 LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
-    table_class = ImagesTable
+    table_class = AdminImagesTable
     template_name = 'syspanel/images/index.html'
 
     def get_data(self):
