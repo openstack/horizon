@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 11:39-0700\n"
+"POT-Creation-Date: 2012-03-16 13:51-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andy Chong <andycjw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "不存在"
 #: dashboards/nova/instances_and_volumes/instances/tables.py:68
 #: dashboards/nova/instances_and_volumes/instances/tables.py:83
 #: dashboards/nova/instances_and_volumes/instances/tables.py:109
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:167
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:158
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:42
 msgid "Instance"
 msgstr "執行個體"
@@ -358,8 +358,8 @@ msgstr "編輯規則"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:57
 #: dashboards/nova/images_and_snapshots/images/forms.py:42
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:119
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:136
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:110
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:127
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:9
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:9
@@ -374,7 +374,7 @@ msgstr "名稱"
 #: dashboards/nova/access_and_security/security_groups/tables.py:58
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:29
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:97
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:122
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:113
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:16
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:16
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:17
@@ -527,7 +527,7 @@ msgstr "物件"
 #: dashboards/nova/containers/tables.py:107
 #: dashboards/nova/containers/tables.py:171
 #: dashboards/nova/instances_and_volumes/instances/tables.py:220
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:123
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:114
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
 #: dashboards/syspanel/instances/tables.py:50
@@ -694,6 +694,7 @@ msgstr "映像"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:31
 #: dashboards/nova/images_and_snapshots/images/tables.py:86
+#: dashboards/syspanel/images/tables.py:31
 #: dashboards/syspanel/templates/syspanel/images/index.html:3
 #: dashboards/syspanel/templates/syspanel/images/index.html:6
 msgid "Images"
@@ -715,7 +716,7 @@ msgstr "映像名稱"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:76
 #: dashboards/nova/instances_and_volumes/instances/tables.py:223
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:126
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:117
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:18
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:15
@@ -774,7 +775,7 @@ msgstr "快照"
 
 #: dashboards/nova/images_and_snapshots/images/views.py:119
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:35
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:154
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:145
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:82
 msgid "Volume"
 msgstr "容量"
@@ -1013,49 +1014,46 @@ msgid "Error Creating Volume Snapshot: %(exc)s"
 msgstr "建立容量快照錯誤： %(exc)s"
 
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:36
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:143
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:155
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:134
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:146
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:76
 #: dashboards/syspanel/projects/forms.py:116
 msgid "Volumes"
 msgstr "容量"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:52
-msgid "Volumes in error states cannot be deleted via the Nova API."
-msgstr ""
-
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:58
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:49
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:8
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:23
 msgid "Create Volume"
 msgstr "建立容量"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:65
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:56
 msgid "Edit Attachments"
 msgstr "編輯掛載"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:75
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:66
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:8
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:23
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/create.html:3
 msgid "Create Snapshot"
 msgstr "建立快照"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:93
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:84
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:139
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:130
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:35
 msgid "Attachments"
 msgstr "掛載"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:152
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:143
 msgid "Detach"
 msgstr "卸載"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:153
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:144
 msgid "Detached"
 msgstr "已卸載"
 
