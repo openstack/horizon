@@ -222,18 +222,10 @@ class BaseAdminViewTests(TestCase):
     A ``TestCase`` subclass which sets an active user with the "admin" role
     for testing admin-only views and functionality.
     """
-    def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
-                      service_catalog=None, tenant_name=None, roles=None,
-                      authorized_tenants=None):
-        users.get_user_from_request = lambda x: \
-                users.User(id=self.user.id,
-                           token=self.token.id,
-                           user=self.user.name,
-                           tenant_id=self.tenant.id,
-                           service_catalog=self.service_catalog,
-                           roles=[self.roles.admin._info],
-                           authorized_tenants=None,
-                           request=self.request)
+    def setActiveUser(self, *args, **kwargs):
+        if "roles" not in kwargs:
+            kwargs['roles'] = [self.roles.admin._info]
+        super(BaseAdminViewTests, self).setActiveUser(*args, **kwargs)
 
 
 class APITestCase(TestCase):
