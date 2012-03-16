@@ -413,7 +413,7 @@ def tenant_quota_usages(request):
         for instance in instances:
             for flavor_field in usages[usage]['flavor_fields']:
                 usages[usage]['used'] += getattr(
-                        flavors[instance.flavor['id']], flavor_field)
+                        flavors[instance.flavor['id']], flavor_field, 0)
         usages[usage]['quota'] = getattr(quotas, usage)
         usages[usage]['available'] = usages[usage]['quota'] - \
                                      usages[usage]['used']
