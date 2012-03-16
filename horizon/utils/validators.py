@@ -31,7 +31,7 @@ validate_ipv4_cidr = validators.RegexValidator(ipv4_cidr_re)
 
 
 def validate_port_range(port):
-    if port not in range(-1, 65535):
+    if port not in range(-1, 65536):
         raise ValidationError("Not a valid port number")
 
 
