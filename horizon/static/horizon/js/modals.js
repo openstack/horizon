@@ -4,6 +4,11 @@ horizon.addInitFunction(function() {
     return false;
   });
 
+  // Handle all modal hidden event to remove them as default
+  $(document).on('hidden', '.modal', function () {
+    $(this).remove();
+  });
+
   $('.ajax-modal').click(function (evt) {
     var $this = $(this);
     $.ajax($this.attr('href'), {
@@ -21,9 +26,6 @@ horizon.addInitFunction(function() {
         $('body').append(data);
         $('.modal span.help-block').hide();
         $('.modal:last').modal();
-        $('.modal:last').on('hidden', function () {
-          $(this).remove();
-        });
 
         horizon.datatables.validate_button();
 
