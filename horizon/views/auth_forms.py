@@ -113,7 +113,9 @@ class Login(forms.SelfHandlingForm):
                                   _('Invalid user name or password.'))
             except:
                 # If we get here we don't want to show a stack trace to the
-                # user.
+                # user. However, if we fail here, there may be bad session
+                # data that's been cached already.
+                request.session.clear()
                 exceptions.handle(request,
                                   message=_("An error occurred authenticating."
                                             " Please try again later."),
