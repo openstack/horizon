@@ -97,10 +97,6 @@ class Login(forms.SelfHandlingForm):
                 exceptions.handle(request,
                                   message=_('Unable to authenticate tenant.'),
                                   escalate=True)
-            tenant = None
-            for t in tenants:
-                if t.id == data.get('tenant'):
-                    tenant = t
             _set_session_data(request, token)
             user = users.get_user_from_request(request)
             redirect = redirect_to or base.Horizon.get_user_home(user)
