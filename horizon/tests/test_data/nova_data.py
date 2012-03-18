@@ -142,7 +142,7 @@ def data(TEST):
     TEST.volume_snapshots = TestDataContainer()
 
     # Volumes
-    volume = volumes.Volume(volumes.VolumeManager,
+    volume = volumes.Volume(volumes.VolumeManager(None),
                             dict(id="1",
                                  name='test_volume',
                                  status='available',
@@ -152,14 +152,14 @@ def data(TEST):
     TEST.volumes.add(volume)
 
     # Flavors
-    flavor_1 = flavors.Flavor(flavors.FlavorManager,
+    flavor_1 = flavors.Flavor(flavors.FlavorManager(None),
                               {'id': "1",
                                'name': 'm1.tiny',
                                'vcpus': 1,
                                'disk': 0,
                                'ram': 512,
                                'OS-FLV-EXT-DATA:ephemeral': 0})
-    flavor_2 = flavors.Flavor(flavors.FlavorManager,
+    flavor_2 = flavors.Flavor(flavors.FlavorManager(None),
                               {'id': "2",
                                'name': 'm1.massive',
                                'vcpus': 1000,
@@ -169,18 +169,19 @@ def data(TEST):
     TEST.flavors.add(flavor_1, flavor_2)
 
     # Keypairs
-    keypair = keypairs.Keypair(keypairs.KeypairManager,
+    keypair = keypairs.Keypair(keypairs.KeypairManager(None),
                                dict(name='keyName'))
     TEST.keypairs.add(keypair)
 
     # Security Groups
-    sec_group_1 = sec_groups.SecurityGroup(sec_groups.SecurityGroupManager,
+    sg_manager = sec_groups.SecurityGroupManager(None)
+    sec_group_1 = sec_groups.SecurityGroup(sg_manager,
                                            {"rules": [],
                                             "tenant_id": TEST.tenant.id,
                                             "id": 1,
                                             "name": u"default",
                                             "description": u"default"})
-    sec_group_2 = sec_groups.SecurityGroup(sec_groups.SecurityGroupManager,
+    sec_group_2 = sec_groups.SecurityGroup(sg_manager,
                                            {"rules": [],
                                             "tenant_id": TEST.tenant.id,
                                             "id": 2,
@@ -193,7 +194,8 @@ def data(TEST):
             'to_port': u"80",
             'parent_group_id': 1,
             'ip_range': {'cidr': u"0.0.0.0/32"}}
-    rule_obj = rules.SecurityGroupRule(rules.SecurityGroupRuleManager, rule)
+    rule_obj = rules.SecurityGroupRule(rules.SecurityGroupRuleManager(None),
+                                       rule)
     TEST.security_group_rules.add(rule_obj)
 
     sec_group_1.rules = [rule_obj]
@@ -212,7 +214,7 @@ def data(TEST):
                       instances='10',
                       injected_files='1',
                       cores='10')
-    quota = quotas.QuotaSet(quotas.QuotaSetManager, quota_data)
+    quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
     TEST.quotas.add(quota)
 
     # Quota Usages
@@ -239,12 +241,12 @@ def data(TEST):
             "flavor_id": flavor_1.id,
             "image_id": TEST.images.first().id,
             "key_name": keypair.name}
-    server_1 = servers.Server(servers.ServerManager,
+    server_1 = servers.Server(servers.ServerManager(None),
                               json.loads(SERVER_DATA % vals)['server'])
     vals.update({"name": "server_2",
                  "status": "BUILD",
                  "server_id": "2"})
-    server_2 = servers.Server(servers.ServerManager,
+    server_2 = servers.Server(servers.ServerManager(None),
                               json.loads(SERVER_DATA % vals)['server'])
     TEST.servers.add(server_1, server_2)
 
@@ -253,7 +255,7 @@ def data(TEST):
                             u'type': u'novnc'}}
     TEST.servers.console_data = console
     # Floating IPs
-    fip_1 = floating_ips.FloatingIP(floating_ips.FloatingIPManager,
+    fip_1 = floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
                                     {'id': 1,
                                      'fixed_ip': '10.0.0.4',
                                      'instance_id': server_1.id,
@@ -267,11 +269,11 @@ def data(TEST):
                   "flavor_vcpus": flavor_1.vcpus,
                   "flavor_disk": flavor_1.disk,
                   "flavor_ram": flavor_1.ram}
-    usage_obj = usage.Usage(usage.UsageManager,
+    usage_obj = usage.Usage(usage.UsageManager(None),
                             json.loads(USAGE_DATA % usage_vals))
     TEST.usages.add(usage_obj)
 
-    volume_snapshot = vol_snaps.Snapshot(vol_snaps.SnapshotManager,
+    volume_snapshot = vol_snaps.Snapshot(vol_snaps.SnapshotManager(None),
                                          {'id': 2,
                                           'displayName': 'test snapshot',
                                           'displayDescription': 'vol snap!',
@@ -282,5 +284,5 @@ def data(TEST):
 
     cert_data = {'private_key': 'private',
                  'data': 'certificate_data'}
-    certificate = certs.Certificate(certs.CertificateManager, cert_data)
+    certificate = certs.Certificate(certs.CertificateManager(None), cert_data)
     TEST.certs.add(certificate)
