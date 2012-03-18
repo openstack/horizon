@@ -19,7 +19,6 @@
 #    under the License.
 
 import logging
-import urlparse
 
 from horizon import api
 from horizon import tables
@@ -35,15 +34,7 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         services = []
-        for i, service in enumerate(self.request.session['serviceCatalog']):
-            url = service['endpoints'][0]['internalURL']
-            hostname = urlparse.urlparse(url).hostname
-            row = {'id': i,  # id is required for table to render properly
-                   'type': service['type'],
-                   'internalURL': url,
-                   'host': hostname,
-                   'region': service['endpoints'][0]['region'],
-                   'disabled': None}
-            services.append(api.base.APIDictWrapper(row))
-
+        for i, service in enumerate(self.request.user.service_catalog):
+            service['id'] = i
+            services.append(api.keystone.Service(service))
         return services

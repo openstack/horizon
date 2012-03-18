@@ -20,8 +20,10 @@
 #    under the License.
 
 import logging
+import urlparse
 
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from keystoneclient import service_catalog
 from keystoneclient.v2_0 import client as keystone_client
@@ -33,6 +35,29 @@ from horizon import exceptions
 
 LOG = logging.getLogger(__name__)
 DEFAULT_ROLE = None
+
+
+class Service(base.APIDictWrapper):
+    """ Wrapper for a dict based on the service data from keystone. """
+    _attrs = ['id', 'type', 'name']
+
+    def __init__(self, service, *args, **kwargs):
+        super(Service, self).__init__(service, *args, **kwargs)
+        self.url = service['endpoints'][0]['internalURL']
+        self.host = urlparse.urlparse(self.url).hostname
+        self.region = service['endpoints'][0]['region']
+        self.disabled = None
+
+    def __unicode__(self):
+        if(self.type == "identity"):
+            return _("%(type)s (%(backend)s backend)") \
+                     % {"type": self.type,
+                        "backend": keystone_backend_name()}
+        else:
+            return self.type
+
+    def __repr__(self):
+        return "<Service: %s>" % unicode(self)
 
 
 def _get_endpoint_url(request, endpoint_type, catalog=None):

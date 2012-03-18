@@ -173,3 +173,17 @@ class RoleAPITests(test.APITestCase):
         # Verify that a second call doesn't hit the API again,
         # (it would show up in mox as an unexpected method call)
         role = api.keystone.get_default_role(self.request)
+
+
+class ServiceAPITests(test.APITestCase):
+    def test_service_wrapper(self):
+        catalog = self.service_catalog
+        identity_data = api.base.get_service_from_catalog(catalog, "identity")
+        identity_data['id'] = 1
+        service = api.keystone.Service(identity_data)
+        self.assertEqual(unicode(service), u"identity (native backend)")
+        self.assertEqual(service.region,
+                         identity_data["endpoints"][0]["region"])
+        self.assertEqual(service.url,
+                         "http://int.keystone.example.com:5000/v2.0")
+        self.assertEqual(service.host, "int.keystone.example.com")
