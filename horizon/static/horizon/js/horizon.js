@@ -75,7 +75,8 @@ var Horizon = function() {
         }
         // Trigger the update handlers.
         $rows_to_update.each(function(index, row) {
-          var $row = $(this);
+          var $row = $(this),
+              $table = $row.closest('table');
           $.ajax($row.attr('data-update-url'), {
             complete: function (jqXHR, status) {
               var $new_row = $(jqXHR.responseText);
@@ -85,6 +86,26 @@ var Horizon = function() {
                 if($row.find(':checkbox').is(':checked')) {
                   // Preserve the checkbox if it's already clicked
                   $new_row.find(':checkbox').prop('checked', true);
+                }
+                if($new_row.length == 0) {
+                  // Update the footer count and reset to default empty row if needed
+                  var $footer = $table.find('tr:last');
+
+                  // remove one row from existing count
+                  var row_count = $table.find('tbody tr').length -1;
+                  var footer_text = "Displaying " + row_count + " item";
+
+                  if(row_count > 1) { footer_text += 's'; }
+                  $footer.find('span').text(footer_text);
+
+                  if(row_count == 0) {
+                    var colspan = $footer.find('td').attr('colspan'),
+                        template = horizon.templates.compiled_templates["#empty_row_template"],
+                        params = {colspan: colspan},
+                        empty_row = $(template.render(params));
+
+                    $new_row = $(empty_row);
+                  }
                 }
                 $row.replaceWith($new_row);
                 $table.removeAttr('decay_constant');
@@ -168,7 +189,7 @@ var Horizon = function() {
 
   /* Namespace for core functionality related to client-side templating. */
   horizon.templates = {
-    template_ids: ["#modal_template"],
+    template_ids: ["#modal_template", "#empty_row_template"],
     compiled_templates: {}
   };
 
