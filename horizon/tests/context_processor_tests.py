@@ -58,6 +58,4 @@ class ContextProcessorTests(test.TestCase):
         self.request.horizon['dashboard'] = ProjectDash
         self.assertTrue(self.request.user.is_authenticated())
         context = context_processors.horizon(self.request)
-        self.assertEqual(len(context['authorized_tenants']), 1)
-        tenant = context['authorized_tenants'].pop()
-        self.assertEqual(tenant.id, self.tenant.id)
+        self.assertItemsEqual(context['authorized_tenants'], tenant_list)

@@ -86,7 +86,7 @@ class AuthViewTests(test.TestCase):
         api.token_create(IsA(http.HttpRequest), "", self.user.name,
                          self.user.password).AndReturn(aToken)
         api.tenant_list_for_token(IsA(http.HttpRequest),
-                                  aToken.id).AndReturn(self.tenants.list())
+                                  aToken.id).AndReturn([self.tenants.first()])
         api.token_create_scoped(IsA(http.HttpRequest),
                                 self.tenant.id,
                                 aToken.id).AndReturn(bToken)
@@ -94,6 +94,40 @@ class AuthViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.post(reverse('horizon:auth_login'), form_data)
+        self.assertRedirectsNoFollow(res, DASH_INDEX_URL)
+
+    def test_login_first_tenant_invalid(self):
+        form_data = {'method': 'Login',
+                     'region': 'http://localhost:5000/v2.0',
+                     'password': self.user.password,
+                     'username': self.user.name}
+
+        self.mox.StubOutWithMock(api, 'token_create')
+        self.mox.StubOutWithMock(api, 'tenant_list_for_token')
+        self.mox.StubOutWithMock(api, 'token_create_scoped')
+
+        aToken = self.tokens.unscoped_token
+        bToken = self.tokens.scoped_token
+        disabled_tenant = self.tenants.get(name="disabled_tenant")
+        tenant = self.tenants.get(name="test_tenant")
+        tenants = [tenant, disabled_tenant]
+        api.token_create(IsA(http.HttpRequest), "", self.user.name,
+                         self.user.password).AndReturn(aToken)
+        api.tenant_list_for_token(IsA(http.HttpRequest),
+                                  aToken.id).AndReturn(tenants)
+        exc = keystone_exceptions.Unauthorized("Not authorized.")
+        api.token_create_scoped(IsA(http.HttpRequest),
+                                disabled_tenant.id,
+                                aToken.id).AndRaise(exc)
+        api.token_create_scoped(IsA(http.HttpRequest),
+                                tenant.id,
+                                aToken.id).AndReturn(bToken)
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(reverse('horizon:auth_login'), form_data)
+        self.assertNoFormErrors(res)
+        self.assertNoMessages()
         self.assertRedirectsNoFollow(res, DASH_INDEX_URL)
 
     def test_login_invalid_credentials(self):

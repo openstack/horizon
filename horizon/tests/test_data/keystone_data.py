@@ -117,8 +117,13 @@ def data(TEST):
                    'name': 'test_tenant',
                    'description': "a test tenant.",
                    'enabled': True}
+    tenant_dict_2 = {'id': "2",
+                     'name': 'disabled_tenant',
+                     'description': "a disabled test tenant.",
+                     'enabled': False}
     tenant = tenants.Tenant(tenants.TenantManager, tenant_dict)
-    TEST.tenants.add(tenant)
+    disabled_tenant = tenants.Tenant(tenants.TenantManager, tenant_dict_2)
+    TEST.tenants.add(tenant, disabled_tenant)
     TEST.tenant = tenant  # Your "current" tenant
 
     scoped_token = tokens.Token(tokens.TokenManager,

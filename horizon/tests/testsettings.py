@@ -67,6 +67,7 @@ SITE_NAME = 'openstack'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture',
+             '--nologcapture',
              '--cover-package=horizon',
              '--cover-inclusive']
 # For nose-selenium integration

@@ -94,8 +94,9 @@ class Login(forms.SelfHandlingForm):
                                          data['password'])
                 tenants = api.tenant_list_for_token(request, token.id)
             except:
+                msg = _('Unable to authenticate for that project.')
                 exceptions.handle(request,
-                                  message=_('Unable to authenticate tenant.'),
+                                  message=msg,
                                   escalate=True)
             _set_session_data(request, token)
             user = users.get_user_from_request(request)
@@ -104,10 +105,10 @@ class Login(forms.SelfHandlingForm):
 
         elif data.get('username', None):
             try:
-                token = api.token_create(request,
-                                         '',
-                                         data['username'],
-                                         data['password'])
+                unscoped_token = api.token_create(request,
+                                                  '',
+                                                  data['username'],
+                                                  data['password'])
             except keystone_exceptions.Unauthorized:
                 exceptions.handle(request,
                                   _('Invalid user name or password.'))
@@ -122,13 +123,13 @@ class Login(forms.SelfHandlingForm):
                                   escalate=True)
 
             # Unscoped token
-            request.session['unscoped_token'] = token.id
+            request.session['unscoped_token'] = unscoped_token.id
             request.user.username = data['username']
 
             # Get the tenant list, and log in using first tenant
             # FIXME (anthony): add tenant chooser here?
             try:
-                tenants = api.tenant_list_for_token(request, token.id)
+                tenants = api.tenant_list_for_token(request, unscoped_token.id)
             except:
                 exceptions.handle(request)
                 tenants = []
@@ -136,7 +137,7 @@ class Login(forms.SelfHandlingForm):
             # Abort if there are no valid tenants for this user
             if not tenants:
                 messages.error(request,
-                               _('No tenants present for user: %(user)s') %
+                               _('You are not authorized for any projects.') %
                                 {"user": data['username']},
                                extra_tags="login")
                 return
@@ -151,16 +152,16 @@ class Login(forms.SelfHandlingForm):
                 try:
                     token = api.token_create_scoped(request,
                                                     tenant.id,
-                                                    token.id)
+                                                    unscoped_token.id)
                     break
                 except:
-                    # This will continue for recognized "unauthorized"
+                    # This will continue for recognized Unauthorized
                     # exceptions from keystoneclient.
                     exceptions.handle(request, ignore=True)
                     token = None
             if token is None:
                 raise exceptions.NotAuthorized(
-                    _("You are not authorized for any available tenants."))
+                    _("You are not authorized for any available projects."))
 
             _set_session_data(request, token)
             user = users.get_user_from_request(request)
