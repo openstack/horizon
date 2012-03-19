@@ -673,10 +673,6 @@ class DataTable(object):
         # Associate these actions with this table
         for action in self.base_actions.values():
             action.table = self
-        if self._meta._filter_action:
-            param_name = self._meta._filter_action.get_param_name()
-            q = self._meta.request.POST.get(param_name, '')
-            self._meta._filter_action.filter_string = q
 
     def __unicode__(self):
         return self._meta.verbose_name
@@ -706,10 +702,19 @@ class DataTable(object):
             self._filtered_data = self.data
             if self._meta.filter and self._meta._filter_action:
                 action = self._meta._filter_action
-                self._filtered_data = action.filter(self,
-                                                    self.data,
-                                                    action.filter_string)
+                filter_string = self.get_filter_string()
+                request_method = self._meta.request.method
+                if filter_string and request_method == action.method:
+                    self._filtered_data = action.filter(self,
+                                                        self.data,
+                                                        filter_string)
         return self._filtered_data
+
+    def get_filter_string(self):
+        filter_action = self._meta._filter_action
+        param_name = filter_action.get_param_name()
+        filter_string = self._meta.request.POST.get(param_name, '')
+        return filter_string
 
     def _populate_data_cache(self):
         self._data_cache = {}

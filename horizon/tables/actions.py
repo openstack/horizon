@@ -285,7 +285,11 @@ class FilterAction(BaseAction):
         A string representing the name of the request parameter used for the
         search term. Default: ``"q"``.
     """
-    method = "GET"
+    # TODO(gabriel): The method for a filter action should be a GET,
+    # but given the form structure of the table that's currently impossible.
+    # At some future date this needs to be reworked to get the filter action
+    # separated from the table's POST form.
+    method = "POST"
     name = "filter"
 
     def __init__(self, verbose_name=None, param_name=None):
