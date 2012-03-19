@@ -502,6 +502,16 @@ class DataTableTests(test.TestCase):
         self.assertQuerysetEqual(self.table.filtered_data,
                                  ['<FakeObject: object_2>'])
 
+        # Ensure fitering respects the request method, e.g. no filter here
+        req = self.factory.get('/my_url/', {action_string: '2'})
+        self.table = MyTable(req, TEST_DATA)
+        handled = self.table.maybe_handle()
+        self.assertEqual(handled, None)
+        self.assertQuerysetEqual(self.table.filtered_data,
+                                 ['<FakeObject: object_1>',
+                                  '<FakeObject: object_2>',
+                                  '<FakeObject: object_3>'])
+
         # Updating and preemptive actions
         params = {"table": "my_table", "action": "row_update", "obj_id": "1"}
         req = self.factory.get('/my_url/',
