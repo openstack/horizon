@@ -145,7 +145,7 @@ var Horizon = function() {
 
       $("form :checkbox").on("click", function (evt) {
         var $form = $(this).closest("form");
-        var any_checked = $form.find(":checkbox").is(":checked");
+        var any_checked = $form.find("tbody :checkbox").is(":checked");
 
         // Enable the button if any checkbox is checked,
         // Disable if all checkbox is cleared

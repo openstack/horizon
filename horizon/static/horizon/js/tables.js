@@ -26,5 +26,15 @@ horizon.addInitFunction(function() {
       }
     });
 
+  // Add a select all checkbox at table header
+  $('table thead .multi_select_column').append('<input type="checkbox">');
+  $('table thead .multi_select_column :checkbox').click(function(evt) {
+    var $this = $(this),
+        $table = $this.closest('table'),
+        is_checked = $this.prop('checked'),
+        checkboxes = $table.find('tbody :checkbox');
+    checkboxes.prop('checked', is_checked);
+  });
+
   horizon.datatables.update();
 });

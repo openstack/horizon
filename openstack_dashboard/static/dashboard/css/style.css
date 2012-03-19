@@ -738,7 +738,7 @@ th.multi_select_column, td.multi_select_column {
   width: 25px;
 }
 
-td.multi_select_column {
+th.multi_select_column, td.multi_select_column {
   text-align: center;
 }
 
