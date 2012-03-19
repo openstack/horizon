@@ -211,9 +211,10 @@ class InstanceViewTests(test.TestCase):
 
         url = reverse('horizon:nova:instances_and_volumes:instances:console',
                       args=[server.id])
-        tg = InstanceDetailTabs(self.request)
+        tg = InstanceDetailTabs(self.request, instance=server)
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("log").get_id())
         res = self.client.get(url + qs)
+        self.assertNoMessages()
         self.assertIsInstance(res, http.HttpResponse)
         self.assertContains(res, CONSOLE_OUTPUT)
 
@@ -228,7 +229,7 @@ class InstanceViewTests(test.TestCase):
 
         url = reverse('horizon:nova:instances_and_volumes:instances:console',
                       args=[server.id])
-        tg = InstanceDetailTabs(self.request)
+        tg = InstanceDetailTabs(self.request, instance=server)
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("log").get_id())
         res = self.client.get(url + qs)
         self.assertContains(res, "Unable to get log for")
