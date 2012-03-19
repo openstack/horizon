@@ -59,7 +59,6 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateGroup',
-                    'tenant_id': self.tenant.id,
                     'name': sec_group.name,
                     'description': sec_group.description}
         res = self.client.post(SG_CREATE_URL, formData)
@@ -75,7 +74,6 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateGroup',
-                    'tenant_id': self.tenant.id,
                     'name': sec_group.name,
                     'description': sec_group.description}
         res = self.client.post(SG_CREATE_URL, formData)
@@ -137,7 +135,6 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
-                    'tenant_id': self.tenant.id,
                     'security_group_id': sec_group.id,
                     'from_port': rule.from_port,
                     'to_port': rule.to_port,
@@ -146,6 +143,32 @@ class SecurityGroupsViewTests(test.TestCase):
                     'source_group': ''}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_edit_rules_add_rule_cidr_and_source_group(self):
+        sec_group = self.security_groups.first()
+        sec_group_other = self.security_groups.get(id=2)
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.first()
+
+        self.mox.StubOutWithMock(api, 'security_group_get')
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        api.security_group_get(IsA(http.HttpRequest),
+                               sec_group.id).AndReturn(sec_group)
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'security_group_id': sec_group.id,
+                    'from_port': rule.from_port,
+                    'to_port': rule.to_port,
+                    'ip_protocol': rule.ip_protocol,
+                    'cidr': "127.0.0.1/32",
+                    'source_group': sec_group_other.id}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        msg = 'Either CIDR or Source Group may be specified, but not both.'
+        self.assertFormErrors(res, count=1, message=msg)
 
     def test_edit_rules_invalid_port_range(self):
         sec_group = self.security_groups.first()
@@ -161,7 +184,6 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
-                    'tenant_id': self.tenant.id,
                     'security_group_id': sec_group.id,
                     'from_port': rule.from_port,
                     'to_port': int(rule.from_port) - 1,
@@ -192,7 +214,6 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
-                    'tenant_id': self.tenant.id,
                     'security_group_id': sec_group.id,
                     'from_port': rule.from_port,
                     'to_port': rule.to_port,
