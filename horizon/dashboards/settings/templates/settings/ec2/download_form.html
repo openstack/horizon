@@ -20,6 +20,6 @@
 {% endblock %}
 
 {% block modal-footer %}
-    <input class="btn primary pull-right" type="submit" value="{% trans "Download EC2 Credentials" %}" />
+    <input class="btn btn-primary pull-right" type="submit" value="{% trans "Download EC2 Credentials" %}" />
     {% if hide %}<a href="{% url horizon:settings:ec2:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
 {% endblock %}
