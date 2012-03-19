@@ -1,0 +1,13 @@
+{% extends "horizon/client_side/template.html" %}
+{% load horizon %}
+
+{% block id %}alert_message_template{% endblock %}
+
+{% block template %}
+{% jstemplate %}
+<div class="alert alert-block fade in alert-[[type]]">
+  <a class="close" data-dismiss="alert" href="#">&times;</a>
+  <p><strong>[[type_capitalized]]: </strong>[[message]]</p>
+</div>
+{% endjstemplate %}
+{% endblock %}

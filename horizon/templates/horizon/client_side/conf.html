@@ -1,0 +1,9 @@
+<script type='text/javascript' charset='utf-8'>
+/* Storage for backend configuration variables which the frontend
+ * should be aware of.
+ */
+horizon.conf = {
+    debug: {{ debug|yesno:"true,false" }},
+    static_url: "{{ STATIC_URL }}"
+}
+</script>

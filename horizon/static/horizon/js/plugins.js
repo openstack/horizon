@@ -10,7 +10,7 @@
     }, opt);
 
     $(this).bind(options.trigger, function(e) {
-      options.container.find( options.selector + $(this).attr(options.retrieve) ).toggleClass(options.selected_class)
+      options.container.find( options.selector + $(this).attr(options.retrieve) ).toggleClass(options.selected_class);
     });
   };
 } (jQuery, this, document));

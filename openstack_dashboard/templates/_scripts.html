@@ -12,9 +12,13 @@
 
 {% comment %} Horizon-specific JS {% endcomment %}
 <script src='{{ STATIC_URL }}horizon/js/horizon.js' type='text/javascript' charset='utf-8'></script>
+{% include "horizon/client_side/conf.html" %}
 <script src='{{ STATIC_URL }}horizon/js/tabs.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/plugins.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/tables.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/modals.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/forms.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/form_examples.js' type='text/javascript' charset='utf-8'></script>
+
+{% comment %} Client-side Templates {% endcomment %}
+{% include "horizon/client_side/templates.html" %}
