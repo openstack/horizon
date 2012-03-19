@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-16 13:50-0700\n"
+"POT-Creation-Date: 2012-03-19 14:32-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,12 +38,17 @@ msgstr ""
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
-#: api/nova.py:178
+#: api/keystone.py:53
+#, python-format
+msgid "%(type)s (%(backend)s backend)"
+msgstr ""
+
+#: api/nova.py:182
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr ""
 
-#: api/nova.py:183
+#: api/nova.py:187
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr ""
@@ -159,7 +164,7 @@ msgstr ""
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:91
 #: dashboards/nova/instances_and_volumes/instances/tables.py:219
-#: dashboards/syspanel/instances/tables.py:49
+#: dashboards/syspanel/instances/tables.py:52
 msgid "IP Address"
 msgstr ""
 
@@ -243,59 +248,68 @@ msgstr ""
 msgid "Unable to create keypair: %(exc)s"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:51
+#: dashboards/nova/access_and_security/security_groups/forms.py:50
 #, python-format
 msgid "Successfully created security_group: %s"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:54
+#: dashboards/nova/access_and_security/security_groups/forms.py:53
 msgid "Unable to create security group."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:59
-msgid "IP protocol"
+#: dashboards/nova/access_and_security/security_groups/forms.py:58
+#: dashboards/nova/access_and_security/security_groups/tables.py:92
+msgid "IP Protocol"
+msgstr ""
+
+#: dashboards/nova/access_and_security/security_groups/forms.py:64
+#: dashboards/nova/access_and_security/security_groups/tables.py:94
+msgid "From Port"
 msgstr ""
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:65
-#: dashboards/nova/access_and_security/security_groups/forms.py:71
-msgid "From port"
-msgstr ""
-
-#: dashboards/nova/access_and_security/security_groups/forms.py:66
 msgid ""
 "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
 "ICMP type in the range (-1: 255)"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:72
+#: dashboards/nova/access_and_security/security_groups/forms.py:70
+msgid "From port"
+msgstr ""
+
+#: dashboards/nova/access_and_security/security_groups/forms.py:71
 #: dashboards/nova/images_and_snapshots/images/tables.py:73
 msgid "Type"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:74
-#: dashboards/nova/access_and_security/security_groups/forms.py:80
-msgid "To port"
+#: dashboards/nova/access_and_security/security_groups/forms.py:73
+#: dashboards/nova/access_and_security/security_groups/tables.py:95
+msgid "To Port"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:75
+#: dashboards/nova/access_and_security/security_groups/forms.py:74
 msgid ""
 "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
 "ICMP code in the range (-1: 255)"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:81
+#: dashboards/nova/access_and_security/security_groups/forms.py:79
+msgid "To port"
+msgstr ""
+
+#: dashboards/nova/access_and_security/security_groups/forms.py:80
 msgid "Code"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:84
+#: dashboards/nova/access_and_security/security_groups/forms.py:83
 msgid "Source Group"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:85
+#: dashboards/nova/access_and_security/security_groups/forms.py:84
 msgid "CIDR"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:86
+#: dashboards/nova/access_and_security/security_groups/forms.py:87
 msgid "Classless Inter-Domain Routing (i.e. 192.168.0.0/24"
 msgstr ""
 
@@ -313,16 +327,16 @@ msgid ""
 "number."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:124
-msgid "Only either \"CIDR\" or \"Source Group\" may be specified"
+#: dashboards/nova/access_and_security/security_groups/forms.py:125
+msgid "Either CIDR or Source Group may be specified, but not both."
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:141
+#: dashboards/nova/access_and_security/security_groups/forms.py:146
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:145
+#: dashboards/nova/access_and_security/security_groups/forms.py:150
 #, python-format
 msgid "Error adding rule security group: %s"
 msgstr ""
@@ -360,6 +374,7 @@ msgstr ""
 #: dashboards/syspanel/projects/forms.py:60
 #: dashboards/syspanel/projects/forms.py:85
 #: dashboards/syspanel/projects/tables.py:74
+#: dashboards/syspanel/services/tables.py:38
 #: dashboards/syspanel/users/forms.py:63
 msgid "Name"
 msgstr ""
@@ -399,18 +414,6 @@ msgstr ""
 msgid "Rules"
 msgstr ""
 
-#: dashboards/nova/access_and_security/security_groups/tables.py:92
-msgid "IP Protocol"
-msgstr ""
-
-#: dashboards/nova/access_and_security/security_groups/tables.py:94
-msgid "From Port"
-msgstr ""
-
-#: dashboards/nova/access_and_security/security_groups/tables.py:95
-msgid "To Port"
-msgstr ""
-
 #: dashboards/nova/access_and_security/security_groups/tables.py:96
 msgid "Source"
 msgstr ""
@@ -421,6 +424,10 @@ msgstr ""
 
 #: dashboards/nova/access_and_security/security_groups/views.py:55
 msgid "Unable to retrieve security group."
+msgstr ""
+
+#: dashboards/nova/access_and_security/security_groups/views.py:64
+msgid "Unable to retrieve security groups."
 msgstr ""
 
 #: dashboards/nova/containers/forms.py:38
@@ -522,7 +529,7 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:114
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
-#: dashboards/syspanel/instances/tables.py:50
+#: dashboards/syspanel/instances/tables.py:53
 msgid "Size"
 msgstr ""
 
@@ -712,7 +719,7 @@ msgstr ""
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:18
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:18
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:21
-#: dashboards/syspanel/instances/tables.py:53
+#: dashboards/syspanel/instances/tables.py:56
 msgid "Status"
 msgstr ""
 
@@ -822,7 +829,7 @@ msgid "Unable to retrieve instances."
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/views.py:62
-#: dashboards/syspanel/instances/views.py:64
+#: dashboards/syspanel/instances/views.py:55
 msgid "Unable to retrieve instance size information."
 msgstr ""
 
@@ -853,7 +860,7 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/instances/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:110
 #: dashboards/nova/instances_and_volumes/instances/tables.py:237
-#: dashboards/syspanel/instances/tables.py:67
+#: dashboards/syspanel/instances/tables.py:70
 #: dashboards/syspanel/projects/forms.py:115
 #: dashboards/syspanel/templates/syspanel/instances/index.html:3
 msgid "Instances"
@@ -927,17 +934,17 @@ msgid "Not available"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/instances/tables.py:218
-#: dashboards/syspanel/instances/tables.py:48 usage/tables.py:46
+#: dashboards/syspanel/instances/tables.py:51 usage/tables.py:46
 msgid "Instance Name"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/instances/tables.py:227
-#: dashboards/syspanel/instances/tables.py:57
+#: dashboards/syspanel/instances/tables.py:60
 msgid "Task"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/instances/tables.py:233
-#: dashboards/syspanel/instances/tables.py:63
+#: dashboards/syspanel/instances/tables.py:66
 msgid "Power State"
 msgstr ""
 
@@ -1505,6 +1512,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/settings/templates/settings/project/_openrc.html:8
+#: dashboards/settings/templates/settings/project/settings.html:6
 msgid "Download OpenStack RC File"
 msgstr ""
 
@@ -1516,10 +1524,6 @@ msgstr ""
 
 #: dashboards/settings/templates/settings/project/_openrc.html:23
 msgid "Download RC File"
-msgstr ""
-
-#: dashboards/settings/templates/settings/project/settings.html:6
-msgid "Project Settings"
 msgstr ""
 
 #: dashboards/settings/templates/settings/user/_language.html:8
@@ -1606,23 +1610,17 @@ msgstr ""
 msgid "Unable to retrieve image list."
 msgstr ""
 
-#: dashboards/syspanel/instances/tables.py:41
+#: dashboards/syspanel/instances/tables.py:42
 msgid "Tenant"
 msgstr ""
 
-#: dashboards/syspanel/instances/tables.py:42
-#: dashboards/syspanel/projects/tables.py:91
-#: dashboards/syspanel/users/tables.py:92
-msgid "User"
-msgstr ""
-
-#: dashboards/syspanel/instances/tables.py:44
-msgid "Instance ID"
-msgstr ""
-
-#: dashboards/syspanel/instances/tables.py:45
-#: dashboards/syspanel/services/tables.py:49
+#: dashboards/syspanel/instances/tables.py:48
+#: dashboards/syspanel/services/tables.py:40
 msgid "Host"
+msgstr ""
+
+#: dashboards/syspanel/instances/views.py:62
+msgid "Unable to retrieve instance tenant information."
 msgstr ""
 
 #: dashboards/syspanel/projects/forms.py:38
@@ -1640,7 +1638,7 @@ msgstr ""
 #: dashboards/syspanel/projects/forms.py:64
 #: dashboards/syspanel/projects/forms.py:89
 #: dashboards/syspanel/projects/tables.py:77
-#: dashboards/syspanel/services/tables.py:51
+#: dashboards/syspanel/services/tables.py:42
 #: dashboards/syspanel/users/tables.py:129
 msgid "Enabled"
 msgstr ""
@@ -1727,7 +1725,7 @@ msgid "Projects"
 msgstr ""
 
 #: dashboards/syspanel/projects/tables.py:73
-#: dashboards/syspanel/services/tables.py:47
+#: dashboards/syspanel/services/tables.py:37
 msgid "Id"
 msgstr ""
 
@@ -1737,6 +1735,11 @@ msgstr ""
 
 #: dashboards/syspanel/projects/tables.py:90
 msgid "Removed"
+msgstr ""
+
+#: dashboards/syspanel/projects/tables.py:91
+#: dashboards/syspanel/users/tables.py:92
+msgid "User"
 msgstr ""
 
 #: dashboards/syspanel/projects/tables.py:92
@@ -1788,15 +1791,10 @@ msgid "Unable to get quota info: %s"
 msgstr ""
 
 #: dashboards/syspanel/services/tables.py:39
-#, python-format
-msgid "%(type)s (%(backend)s backend)"
-msgstr ""
-
-#: dashboards/syspanel/services/tables.py:48
 msgid "Service"
 msgstr ""
 
-#: dashboards/syspanel/services/tables.py:56
+#: dashboards/syspanel/services/tables.py:47
 #: dashboards/syspanel/templates/syspanel/services/index.html:8
 msgid "Services"
 msgstr ""
@@ -2034,26 +2032,26 @@ msgstr ""
 msgid "Unable to update user."
 msgstr ""
 
-#: tables/actions.py:451
+#: tables/actions.py:455
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:457
+#: tables/actions.py:461
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:463
+#: tables/actions.py:467
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:473
+#: tables/actions.py:477
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:474
+#: tables/actions.py:478
 msgid "Deleted"
 msgstr ""
 
@@ -2066,32 +2064,32 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:750
+#: tables/base.py:755
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:767
+#: tables/base.py:772
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:870
+#: tables/base.py:875
 msgid "Please select a row before taking that action."
 msgstr ""
 
-#: templates/horizon/_messages.html:6
+#: templates/horizon/_messages.html:7
 msgid "Info: "
 msgstr ""
 
-#: templates/horizon/_messages.html:12
+#: templates/horizon/_messages.html:13
 msgid "Warning: "
 msgstr ""
 
-#: templates/horizon/_messages.html:18
+#: templates/horizon/_messages.html:19
 msgid "Success: "
 msgstr ""
 
-#: templates/horizon/_messages.html:24
+#: templates/horizon/_messages.html:25
 msgid "Error: "
 msgstr ""
 
@@ -2245,23 +2243,22 @@ msgstr ""
 msgid "Region"
 msgstr ""
 
-#: views/auth_forms.py:98
-msgid "Unable to authenticate tenant."
+#: views/auth_forms.py:97
+msgid "Unable to authenticate for that project."
 msgstr ""
 
-#: views/auth_forms.py:117
+#: views/auth_forms.py:114
 msgid "Invalid user name or password."
 msgstr ""
 
-#: views/auth_forms.py:122
+#: views/auth_forms.py:121
 msgid "An error occurred authenticating. Please try again later."
 msgstr ""
 
-#: views/auth_forms.py:141
-#, python-format
-msgid "No tenants present for user: %(user)s"
+#: views/auth_forms.py:140
+msgid "You are not authorized for any projects."
 msgstr ""
 
-#: views/auth_forms.py:165
-msgid "You are not authorized for any available tenants."
+#: views/auth_forms.py:164
+msgid "You are not authorized for any available projects."
 msgstr ""

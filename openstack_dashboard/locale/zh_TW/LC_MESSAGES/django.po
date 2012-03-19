@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-16 13:51-0700\n"
+"POT-Creation-Date: 2012-03-19 14:32-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,10 +51,6 @@ msgstr ""
 
 #: settings.py:120
 msgid "Traditional Chinese"
-msgstr ""
-
-#: local/local_settings.py:17
-msgid "Your password must be at least 6 characters long."
 msgstr ""
 
 #: templates/403.html:4 templates/403.html.py:9
