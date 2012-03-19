@@ -1,4 +1,5 @@
 {% load i18n %}
+<div class="messages">
 {% for message in messages %}
   {% if "info" in message.tags %}
     <div class="alert alert-block alert-info fade in">
@@ -25,3 +26,4 @@
     </div>
   {% endif %}
 {% endfor %}
+</div>

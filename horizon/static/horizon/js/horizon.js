@@ -47,7 +47,7 @@ var Horizon = function() {
       $("form").live("change", "#id_source_group", function(evt) {
         var $sourceGroup = $(this).find('#id_source_group');
         var $cidrContainer = $(this).find('#id_cidr').parent().parent();
-        if($sourceGroup.val() == "") {
+        if($sourceGroup.val() === "") {
           $cidrContainer.removeClass("hide");
         } else {
           $cidrContainer.addClass("hide");
@@ -78,8 +78,45 @@ var Horizon = function() {
           var $row = $(this),
               $table = $row.closest('table');
           $.ajax($row.attr('data-update-url'), {
-            complete: function (jqXHR, status) {
-              var $new_row = $(jqXHR.responseText);
+            error: function (jqXHR, textStatus, errorThrown) {
+              switch (jqXHR.status) {
+                // A 404 indicates the object is gone, and should be removed from the table
+                case 404:
+                  // Update the footer count and reset to default empty row if needed
+                  var $footer = $table.find('tr:last'),
+                      row_count, footer_text, colspan, template, params, $empty_row;
+
+                  // existing count minus one for the row we're removing
+                  row_count = $table.find('tbody tr').length - 1;
+                  footer_text = "Displaying " + row_count + " item";
+                  if(row_count !== 1) {
+                      footer_text += 's';
+                  }
+                  $footer.find('span').text(footer_text);
+
+                  if(row_count === 0) {
+                    colspan = $footer.find('td').attr('colspan');
+                    template = horizon.templates.compiled_templates["#empty_row_template"];
+                    console.log(template);
+                    params = {"colspan": colspan};
+                    empty_row = template.render(params);
+                    console.log(empty_row);
+                    $row.replaceWith(empty_row);
+                  } else {
+                    $row.remove();
+                  }
+                  break;
+                default:
+                  if (horizon.conf.debug) {
+                    horizon.alert("error", "An error occurred while updating.");
+                  }
+                  $row.removeClass("ajax-update");
+                  $row.find("i.ajax-updating").remove();
+                  break;
+              }
+            },
+            success: function (data, textStatus, jqXHR) {
+              var $new_row = $(data);
               $new_row.find("td.status_unknown").prepend('<i class="icon-updating ajax-updating"></i>');
               // Only replace row if the html content has changed
               if($new_row.html() != $row.html()) {
@@ -87,30 +124,13 @@ var Horizon = function() {
                   // Preserve the checkbox if it's already clicked
                   $new_row.find(':checkbox').prop('checked', true);
                 }
-                if($new_row.length == 0) {
-                  // Update the footer count and reset to default empty row if needed
-                  var $footer = $table.find('tr:last');
-
-                  // remove one row from existing count
-                  var row_count = $table.find('tbody tr').length -1;
-                  var footer_text = "Displaying " + row_count + " item";
-
-                  if(row_count > 1) { footer_text += 's'; }
-                  $footer.find('span').text(footer_text);
-
-                  if(row_count == 0) {
-                    var colspan = $footer.find('td').attr('colspan'),
-                        template = horizon.templates.compiled_templates["#empty_row_template"],
-                        params = {colspan: colspan},
-                        empty_row = $(template.render(params));
-
-                    $new_row = $(empty_row);
-                  }
-                }
                 $row.replaceWith($new_row);
-                $table.removeAttr('decay_constant');
               }
-              // Revalidate the button check for updated table
+            },
+            complete: function (jqXHR, textStatus) {
+              // Reset decay constant.
+              $table.removeAttr('decay_constant');
+              // Revalidate the button check for the updated table
               horizon.datatables.validate_button();
             }
           });
@@ -130,6 +150,7 @@ var Horizon = function() {
         setTimeout(horizon.datatables.update, next_poll);
       }
     },
+
     validate_button: function () {
       // Disable form button if checkbox are not checked
       $("form").each(function (i) {
@@ -189,7 +210,7 @@ var Horizon = function() {
 
   /* Namespace for core functionality related to client-side templating. */
   horizon.templates = {
-    template_ids: ["#modal_template", "#empty_row_template"],
+    template_ids: ["#modal_template", "#empty_row_template", "#alert_message_template"],
     compiled_templates: {}
   };
 
@@ -212,6 +233,21 @@ var Horizon = function() {
         params = {title: title, body: body, confirm: confirm, cancel: cancel},
         modal = $(template.render(params)).appendTo("body");
     return modal;
+  };
+
+  /* Utilities for common needs which aren't JS builtins. */
+  horizon.utils = {
+    capitalize: function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  };
+
+  horizon.alert = function (type, message) {
+    var template = horizon.templates.compiled_templates["#alert_message_template"],
+        params = {"type": type,
+                  "type_capitalized": horizon.utils.capitalize(type),
+                  "message": message};
+    return $(template.render(params)).prependTo("#main_content .messages");
   };
 
   return horizon;
