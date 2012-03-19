@@ -149,14 +149,14 @@ class TestCase(django_test.TestCase):
                          ('Location', settings.TESTSERVER + expected_url))
         self.assertEqual(response.status_code, 302)
 
-    def assertNoMessages(self):
+    def assertNoMessages(self, response=None):
         """
         Asserts that no messages have been attached by the ``contrib.messages``
         framework.
         """
-        self.assertMessageCount(success=0, warn=0, info=0, error=0)
+        self.assertMessageCount(response, success=0, warn=0, info=0, error=0)
 
-    def assertMessageCount(self, **kwargs):
+    def assertMessageCount(self, response=None, **kwargs):
         """
         Asserts that the specified number of messages have been attached
         for various message types. Usage would look like
@@ -166,10 +166,15 @@ class TestCase(django_test.TestCase):
         temp_req.COOKIES = self.client.cookies
         storage = default_storage(temp_req)
         messages = []
-        # To gain early access to the messages we have to decode the
-        # cookie on the test client.
-        if 'messages' in self.client.cookies:
-            messages = storage._decode(self.client.cookies['messages'].value)
+
+        if response is None:
+            # To gain early access to the messages we have to decode the
+            # cookie on the test client.
+            if 'messages' in self.client.cookies:
+                message_cookie = self.client.cookies['messages'].value
+                messages = storage._decode(message_cookie)
+        elif "messages" in response.context:
+            messages = response.context["messages"]
 
         # If we don't have messages and we don't expect messages, we're done.
         if not any(kwargs.values()) and not messages:
