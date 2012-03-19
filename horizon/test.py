@@ -199,7 +199,8 @@ class TestCase(django_test.TestCase):
         assert len(errors) == 0, \
                "Unexpected errors were found on the form: %s" % errors
 
-    def assertFormErrors(self, response, count=0, context_name="form"):
+    def assertFormErrors(self, response, count=0, message=None,
+                         context_name="form"):
         """
         Asserts that the response does contain a form in it's
         context, and that form has errors, if count were given,
@@ -213,6 +214,10 @@ class TestCase(django_test.TestCase):
             assert len(errors) == count, \
                "%d errors were found on the form, %d expected" % \
                (len(errors), count)
+            if message and message not in unicode(errors):
+                self.fail("Expected message not found, instead found: %s"
+                          % ["%s: %s" % (key, [e for e in field_errors]) for
+                             (key, field_errors) in errors.items()])
         else:
             assert len(errors) > 0, "No errors were found on the form"
 

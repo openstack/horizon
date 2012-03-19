@@ -40,7 +40,6 @@ LOG = logging.getLogger(__name__)
 class CreateGroup(forms.SelfHandlingForm):
     name = forms.CharField(validators=[validators.validate_slug])
     description = forms.CharField()
-    tenant_id = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):
         try:
@@ -56,13 +55,13 @@ class CreateGroup(forms.SelfHandlingForm):
 
 
 class AddRule(forms.SelfHandlingForm):
-    ip_protocol = forms.ChoiceField(label=_('IP protocol'),
-                                    choices=[('tcp', 'tcp'),
-                                             ('udp', 'udp'),
-                                             ('icmp', 'icmp')],
+    ip_protocol = forms.ChoiceField(label=_('IP Protocol'),
+                                    choices=[('tcp', 'TCP'),
+                                             ('udp', 'UDP'),
+                                             ('icmp', 'ICMP')],
                                     widget=forms.Select(attrs={'class':
                                                                'switchable'}))
-    from_port = forms.IntegerField(label=_("From port"),
+    from_port = forms.IntegerField(label=_("From Port"),
                                    help_text=_("TCP/UDP: Enter integer value "
                                                "between 1 and 65535. ICMP: "
                                                "enter a value for ICMP type "
@@ -71,7 +70,7 @@ class AddRule(forms.SelfHandlingForm):
                                           attrs={'data': _('From port'),
                                                  'data-icmp': _('Type')}),
                                    validators=[validate_port_range])
-    to_port = forms.IntegerField(label=_("To port"),
+    to_port = forms.IntegerField(label=_("To Port"),
                                  help_text=_("TCP/UDP: Enter integer value "
                                              "between 1 and 65535. ICMP: "
                                              "enter a value for ICMP code "
@@ -82,13 +81,14 @@ class AddRule(forms.SelfHandlingForm):
                                  validators=[validate_port_range])
 
     source_group = forms.ChoiceField(label=_('Source Group'), required=False)
-    cidr = forms.CharField(label=_("CIDR"), required=False,
+    cidr = forms.CharField(label=_("CIDR"),
+                           required=False,
+                           initial="0.0.0.0/0",
                            help_text=_("Classless Inter-Domain Routing "
                                        "(i.e. 192.168.0.0/24"),
                            validators=[validate_ipv4_cidr])
 
     security_group_id = forms.IntegerField(widget=forms.HiddenInput())
-    tenant_id = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
         super(AddRule, self).__init__(*args, **kwargs)
@@ -120,11 +120,16 @@ class AddRule(forms.SelfHandlingForm):
                     'the "from" port number.')
             raise ValidationError(msg)
 
-        if cidr and source_group:
-            msg = _('Only either "CIDR" or "Source Group" may be specified')
+        if source_group and cidr != self.fields['cidr'].initial:
+            # Specifying a source group *and* a custom CIDR is invalid.
+            msg = _('Either CIDR or Source Group may be specified, '
+                    'but not both.')
             raise ValidationError(msg)
-        if cidr:
-            # if only cidr is specified, make sure source_group is cleaned
+        elif source_group:
+            # If a source group is specified, clear the CIDR from its default
+            cleaned_data['cidr'] = None
+        else:
+            # If only cidr is specified, clear the source_group entirely
             cleaned_data['source_group'] = None
 
         return cleaned_data

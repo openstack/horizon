@@ -84,10 +84,8 @@ class SelfHandlingForm(forms.Form):
         if not form.is_valid():
             return form, None
 
-        data = form.clean()
-
         try:
-            return form, form.handle(request, data)
+            return form, form.handle(request, form.cleaned_data)
         except:
             exceptions.handle(request)
             return form, None
