@@ -24,46 +24,60 @@ from .utils import TestDataContainer
 SERVICE_CATALOG = [
     {"type": "compute",
      "name": "nova",
+     "endpoints_links": [],
      "endpoints": [
         {"region": "RegionOne",
          "adminURL": "http://admin.nova.example.com:8774/v2",
-         "internalURL": "http://internal.nova.example.com:8774/v2",
+         "internalURL": "http://int.nova.example.com:8774/v2",
          "publicURL": "http://public.nova.example.com:8774/v2"}]},
     {"type": "volume",
      "name": "nova",
+     "endpoints_links": [],
      "endpoints": [
         {"region": "RegionOne",
          "adminURL": "http://admin.nova.example.com:8776/v1",
-         "internalURL": "http://internal.nova.example.com:8776/v1",
+         "internalURL": "http://int.nova.example.com:8776/v1",
          "publicURL": "http://public.nova.example.com:8776/v1"}]},
     {"type": "image",
      "name": "glance",
+     "endpoints_links": [],
      "endpoints": [
         {"region": "RegionOne",
          "adminURL": "http://admin.glance.example.com:9292/v1",
-         "internalURL": "http://internal.glance.example.com:9292/v1",
+         "internalURL": "http://int.glance.example.com:9292/v1",
          "publicURL": "http://public.glance.example.com:9292/v1"}]},
     {"type": "identity",
      "name": "keystone",
+     "endpoints_links": [],
      "endpoints": [
         {"region": "RegionOne",
          "adminURL": "http://admin.keystone.example.com:35357/v2.0",
-         "internalURL": "http://internal.keystone.example.com:5000/v2.0",
+         "internalURL": "http://int.keystone.example.com:5000/v2.0",
          "publicURL": "http://public.keystone.example.com:5000/v2.0"}]},
     {"type": "object-store",
      "name": "swift",
+     "endpoints_links": [],
      "endpoints": [
         {"region": "RegionOne",
          "adminURL": "http://admin.swift.example.com:8080/",
-         "internalURL": "http://internal.swift.example.com:8080/",
+         "internalURL": "http://int.swift.example.com:8080/",
          "publicURL": "http://public.swift.example.com:8080/"}]},
     {"type": "network",
      "name": "quantum",
+     "endpoints_links": [],
      "endpoints": [
         {"region": "RegionOne",
          "adminURL": "http://admin.quantum.example.com:9696/",
-         "internalURL": "http://internal.quantum.example.com:9696/",
+         "internalURL": "http://int.quantum.example.com:9696/",
          "publicURL": "http://public.quantum.example.com:9696/"}]},
+    {"type": "ec2",
+     "name": "EC2 Service",
+     "endpoints_links": [],
+     "endpoints": [
+        {"region": "RegionOne",
+         "adminURL": "http://admin.nova.example.com:8773/services/Admin",
+         "publicURL": "http://public.nova.example.com:8773/services/Cloud",
+         "internalURL": "http://int.nova.example.com:8773/services/Cloud"}]}
 ]
 
 
