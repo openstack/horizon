@@ -100,6 +100,10 @@ class Server(APIResourceWrapper):
         except glance_exceptions.NotFound:
             return "(not found)"
 
+    @property
+    def internal_name(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:instance_name', "")
+
     def reboot(self, hardness=REBOOT_HARD):
         novaclient(self.request).servers.reboot(self.id, hardness)
 
