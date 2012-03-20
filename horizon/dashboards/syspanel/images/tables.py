@@ -25,9 +25,14 @@ class AdminDeleteImage(DeleteImage):
         return True
 
 
+class AdminEditImage(EditImage):
+    def allowed(self, request, image=None):
+        return True
+
+
 class AdminImagesTable(ImagesTable):
     class Meta:
         name = "images"
         verbose_name = _("Images")
         table_actions = (AdminDeleteImage,)
-        row_actions = (EditImage, AdminDeleteImage)
+        row_actions = (AdminEditImage, AdminDeleteImage)

@@ -32,7 +32,8 @@ class DeleteImage(tables.DeleteAction):
 
     def allowed(self, request, image=None):
         if image:
-            return image.owner == request.user.id
+            return image.owner == request.user.tenant_id
+        # Return True to allow table-level bulk delete action to appear.
         return True
 
     def delete(self, request, obj_id):
@@ -51,6 +52,13 @@ class EditImage(tables.LinkAction):
     verbose_name = _("Edit")
     url = "horizon:nova:images_and_snapshots:images:update"
     classes = ("ajax-modal", "btn-edit")
+
+    def allowed(self, request, image=None):
+        if image:
+            return image.owner == request.user.tenant_id
+        # We don't have bulk editing, so if there isn't an image that's
+        # authorized, don't allow the action.
+        return False
 
 
 def get_image_type(image):
