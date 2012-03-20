@@ -17,6 +17,7 @@
 import logging
 import tempfile
 import zipfile
+from contextlib import closing
 
 from django import http
 from django.template.loader import render_to_string
@@ -87,7 +88,7 @@ class DownloadX509Credentials(forms.SelfHandlingForm):
 
         try:
             temp_zip = tempfile.NamedTemporaryFile(delete=True)
-            with zipfile.ZipFile(temp_zip.name, mode='w') as archive:
+            with closing(zipfile.ZipFile(temp_zip.name, mode='w')) as archive:
                 archive.writestr('pk.pem', credentials.private_key)
                 archive.writestr('cert.pem', credentials.data)
                 archive.writestr('cacert.pem', cacert.data)
