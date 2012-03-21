@@ -286,7 +286,7 @@ a.current_item:hover h3, a.current_item:hover h4 {
 }
 
 .table_header {
-  height: 30px;
+  min-height: 35px;
   padding: 5px 0;
 }
 
