@@ -68,7 +68,7 @@ class HorizonMiddleware(object):
             messages.error(request, unicode(exception))
             if request.is_ajax():
                 response_401 = http.HttpResponse(status=401)
-                response_401["REDIRECT_URL"] = redirect_to
+                response_401['X-Horizon-Location'] = redirect_to
                 return response_401
             return shortcuts.redirect(redirect_to)
 

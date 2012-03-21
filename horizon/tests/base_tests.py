@@ -213,7 +213,7 @@ class HorizonTests(BaseHorizonTests):
         resp = client.get(url, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         # Response should be HTTP 401 with redirect header
         self.assertEquals(resp.status_code, 401)
-        self.assertEquals(resp["REDIRECT_URL"],
+        self.assertEquals(resp["X-Horizon-Location"],
                           "?".join([urlresolvers.reverse("horizon:auth_login"),
                                     "next=%s" % url]))
 
