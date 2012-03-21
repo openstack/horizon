@@ -26,6 +26,8 @@ class AdminDeleteImage(DeleteImage):
 
 
 class AdminEditImage(EditImage):
+    url = "horizon:syspanel:images:update"
+
     def allowed(self, request, image=None):
         return True
 

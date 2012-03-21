@@ -22,6 +22,7 @@ from datetime import date
 import logging
 
 from django import forms
+from django.core.urlresolvers import reverse
 from django.utils import dates
 
 from horizon import exceptions
@@ -53,6 +54,16 @@ class SelfHandlingForm(forms.Form):
         initial['method'] = self.__class__.__name__
         kwargs['initial'] = initial
         super(SelfHandlingForm, self).__init__(*args, **kwargs)
+
+    def get_success_url(self, request=None):
+        """
+        Returns the URL to redirect to after a successful handling.
+        """
+        if self.completion_view:
+            return reverse(self.completion_view)
+        if self.completion_url:
+            return self.completion_url
+        return request.get_full_path()
 
     @classmethod
     def _instantiate(cls, request, *args, **kwargs):

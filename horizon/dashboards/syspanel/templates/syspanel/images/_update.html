@@ -1,8 +1,8 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
-{% block form_id %}udate_image_form{% endblock %}
-{% block form_action %}{% url horizon:syspanel:images:update %}{% endblock %}
+{% block form_id %}update_image_form{% endblock %}
+{% block form_action %}{% url horizon:syspanel:images:update image.id %}{% endblock %}
 
 {% block modal_id %}update_image_modal{% endblock %}
 {% block modal-header %}{% trans "Update Image" %}{% endblock %}
