@@ -21,6 +21,8 @@
 import os
 import socket
 
+from django.utils.translation import ugettext_lazy as _
+
 socket.setdefaulttimeout(1)
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -80,8 +82,8 @@ HORIZON_CONFIG = {
     'dashboards': ('nova', 'syspanel', 'settings',),
     'default_dashboard': 'nova',
     "password_validator": {
-        "regex": '.{6,}',
-        "help_text": "Your password must be at least 6 characters long."
+        "regex": '^.{8,18}$',
+        "help_text": _("Password must be between 8 and 18 characters.")
     },
 }
 
