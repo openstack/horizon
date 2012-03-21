@@ -46,3 +46,11 @@ class HTMLElement(object):
         ``attrs`` dict provided to the class.
         """
         return flatatt(self.get_final_attrs())
+
+    @property
+    def class_string(self):
+        """
+        Returns a list of class name of HTML Element in string
+        """
+        classes_str = " ".join(self.classes)
+        return classes_str

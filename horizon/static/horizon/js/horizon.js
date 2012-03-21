@@ -24,7 +24,7 @@ var Horizon = function() {
     horizon.templates.compile_templates();
 
     // Bind event handlers to confirm dangerous actions.
-    $("body").on("click", "form .btn-danger", function (evt) {
+    $("body").on("click", "form button.btn-danger", function (evt) {
       horizon.datatables.confirm(this);
       evt.preventDefault();
     });
