@@ -16,6 +16,7 @@
 
 import os
 
+from django import http
 from django.views import generic
 
 
@@ -62,6 +63,14 @@ class ModalFormView(generic.TemplateView):
         self.object = self.get_object(*args, **kwargs)
         form, handled = self.maybe_handle()
         if handled:
+            if self.request.is_ajax():
+                # TODO(gabriel): This is not a long-term solution to how
+                # AJAX should be handled, but it's an expedient solution
+                # until the blueprint for AJAX handling is architected
+                # and implemented.
+                response = http.HttpResponse()
+                response['X-Horizon-Location'] = handled['location']
+                return response
             return handled
         context = self.get_context_data(**kwargs)
         context[self.context_form_name] = form
