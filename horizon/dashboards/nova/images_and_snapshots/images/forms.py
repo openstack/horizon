@@ -41,10 +41,12 @@ class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length="25", label=_("Name"))
     kernel = forms.CharField(max_length="36", label=_("Kernel ID"),
+                             required=False,
                              widget=forms.TextInput(
                                 attrs={'readonly': 'readonly'}
                              ))
     ramdisk = forms.CharField(max_length="36", label=_("Ramdisk ID"),
+                              required=False,
                               widget=forms.TextInput(
                                 attrs={'readonly': 'readonly'}
                               ))
