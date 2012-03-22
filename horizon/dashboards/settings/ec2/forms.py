@@ -21,7 +21,7 @@ from contextlib import closing
 
 from django import http
 from django.template.loader import render_to_string
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions

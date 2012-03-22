@@ -75,7 +75,8 @@ class HorizonComponent(object):
                                        % self.__class__)
 
     def __unicode__(self):
-        return getattr(self, 'name', u"Unnamed %s" % self.__class__.__name__)
+        name = getattr(self, 'name', u"Unnamed %s" % self.__class__.__name__)
+        return unicode(name)
 
     def _get_default_urlpatterns(self):
         package_string = '.'.join(self.__module__.split('.')[:-1])
@@ -154,7 +155,7 @@ class Registry(object):
                                     % {"type": class_name,
                                        "slug": cls,
                                        "parent": parent,
-                                       "name": self.name})
+                                       "name": self.slug})
         else:
             slug = getattr(cls, "slug", cls)
             raise NotRegistered('%(type)s with slug "%(slug)s" is not '
@@ -220,7 +221,7 @@ class Panel(HorizonComponent):
     index_url_name = "index"
 
     def __repr__(self):
-        return "<Panel: %s>" % self.__unicode__()
+        return "<Panel: %s>" % self.slug
 
     def get_absolute_url(self):
         """ Returns the default URL for this panel.
@@ -351,7 +352,7 @@ class Dashboard(Registry, HorizonComponent):
     public = False
 
     def __repr__(self):
-        return "<Dashboard: %s>" % self.__unicode__()
+        return "<Dashboard: %s>" % self.slug
 
     def get_panel(self, panel):
         """
@@ -499,7 +500,7 @@ class Site(Registry, HorizonComponent):
     urls = 'horizon.site_urls'
 
     def __repr__(self):
-        return u"<Site: %s>" % self.__unicode__()
+        return u"<Site: %s>" % self.slug
 
     @property
     def _conf(self):

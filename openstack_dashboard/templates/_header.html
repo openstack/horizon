@@ -1,6 +1,6 @@
 {% load i18n %}
 <div id="user_info" class="pull-right">
-  <span>Logged in as: {{ request.user.username }}</span>
+  <span>{% trans "Logged in as" %}: {{ request.user.username }}</span>
   <a href="{% url horizon:settings:user:index %}">{% trans "Settings" %}</a>
   <a href="{% url horizon:auth_logout %}">{% trans "Sign Out" %}</a>
   {% include "horizon/common/_region_selector.html" %}

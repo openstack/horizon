@@ -8,7 +8,7 @@
   {% if request.horizon.dashboard.supports_tenants %}
   <div id="tenant_switcher" class="dropdown switcher_bar" tabindex='1'>
     <a class="dropdown-toggle" data-toggle="dropdown" href="#tenant_switcher">
-      <h4>Project</h4>
+      <h4>{% trans "Project" %}</h4>
       <h3>{{ request.user.tenant_name }}</h3>
       </a>
     <ul id="tenant_list" class="dropdown-menu">

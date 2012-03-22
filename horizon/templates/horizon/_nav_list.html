@@ -3,7 +3,7 @@
   <ul class="nav nav-tabs">
     {% for component in components %}
     {% if user|can_haz:component %}
-        <li{% if current == component.slug %} class="active"{% endif %}>
+        <li{% if current.slug == component.slug %} class="active"{% endif %}>
             <a href="{{ component.get_absolute_url }}" tabindex='1'>{{ component.name }}</a>
         </li>
     {% endif %}

@@ -68,7 +68,7 @@ def horizon_main_nav(context):
             dashboards.append(dash)
     return {'components': dashboards,
             'user': context['request'].user,
-            'current': getattr(current_dashboard, 'slug', None),
+            'current': current_dashboard,
             'request': context['request']}
 
 

@@ -4,7 +4,7 @@
 {% block form_id %}copy_object_form{% endblock %}
 {% block form_action %}{% url horizon:nova:containers:object_copy container_name object_name %}{% endblock %}
 
-{% block modal-header %}Copy Object: {{ object_name }}{% endblock %}
+{% block modal-header %}{% trans "Copy Object" %}: {{ object_name }}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
