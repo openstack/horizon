@@ -91,6 +91,8 @@ class TogglePause(tables.BatchAction):
         self.paused = instance.status == "PAUSED"
         if self.paused:
             self.current_present_action = UNPAUSE
+        else:
+            self.current_present_action = PAUSE
         return instance.status in ACTIVE_STATES or self.paused
 
     def action(self, request, obj_id):
@@ -117,6 +119,8 @@ class ToggleSuspend(tables.BatchAction):
         self.suspended = instance.status == "SUSPENDED"
         if self.suspended:
             self.current_present_action = RESUME
+        else:
+            self.current_present_action = SUSPEND
         return instance.status in ACTIVE_STATES or self.suspended
 
     def action(self, request, obj_id):
@@ -211,6 +215,8 @@ class InstancesTable(tables.DataTable):
     )
     STATUS_CHOICES = (
         ("active", True),
+        ("suspended", True),
+        ("paused", True),
         ("error", False),
     )
     name = tables.Column("name", link="horizon:nova:instances_and_volumes:" \
