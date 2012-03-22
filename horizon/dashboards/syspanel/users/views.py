@@ -22,7 +22,7 @@ import logging
 
 from django.contrib import messages
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from keystoneclient import exceptions as api_exceptions
 
 from horizon import api

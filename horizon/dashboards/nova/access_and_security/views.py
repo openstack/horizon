@@ -25,7 +25,7 @@ Views for Instances and Volumes.
 import logging
 
 from django.contrib import messages
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api

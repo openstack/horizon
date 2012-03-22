@@ -22,7 +22,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.core import urlresolvers
 from django.utils.functional import Promise
-from django.utils.translation import string_concat, ugettext as _
+from django.utils.translation import string_concat, ugettext_lazy as _
 
 from horizon import exceptions
 from horizon.utils import html
@@ -230,9 +230,9 @@ class LinkAction(BaseAction):
 
     def __init__(self, verbose_name=None, url=None, attrs=None):
         super(LinkAction, self).__init__()
-        self.verbose_name = verbose_name or unicode(getattr(self,
+        self.verbose_name = verbose_name or getattr(self,
                                             "verbose_name",
-                                            self.name.title()))
+                                            self.name.title())
         self.url = getattr(self, "url", url)
         if not self.verbose_name:
             raise NotImplementedError('A LinkAction object must have a '
@@ -295,7 +295,7 @@ class FilterAction(BaseAction):
 
     def __init__(self, verbose_name=None, param_name=None):
         super(FilterAction, self).__init__()
-        self.verbose_name = unicode(verbose_name or self.name)
+        self.verbose_name = verbose_name or self.name
         self.param_name = param_name or 'q'
 
     def get_param_name(self):

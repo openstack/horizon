@@ -24,7 +24,7 @@ from django import shortcuts
 from django.contrib import messages
 from django.core import validators
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
