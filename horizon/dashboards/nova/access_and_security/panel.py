@@ -15,12 +15,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import ugettext as _
+
 import horizon
 from horizon.dashboards.nova import dashboard
 
 
 class AccessAndSecurity(horizon.Panel):
-    name = "Access & Security"
+    name = _("Access & Security")
     slug = 'access_and_security'
 
 
