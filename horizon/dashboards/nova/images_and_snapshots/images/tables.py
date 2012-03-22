@@ -46,6 +46,11 @@ class LaunchImage(tables.LinkAction):
     url = "horizon:nova:images_and_snapshots:images:launch"
     classes = ("ajax-modal", "btn-launch")
 
+    def allowed(self, request, image=None):
+        if image:
+            return image.status in ('active',)
+        return False
+
 
 class EditImage(tables.LinkAction):
     name = "edit"
