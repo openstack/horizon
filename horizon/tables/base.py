@@ -45,7 +45,7 @@ PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]
 STRING_SEPARATOR = "__"
 
 
-class Column(object):
+class Column(html.HTMLElement):
     """ A class which represents a single column in a :class:`.DataTable`.
 
     .. attribute:: transform
@@ -120,6 +120,16 @@ class Column(object):
         A list of functions (often template filters) to be applied to the
         value of the data for this column prior to output. This is effectively
         a shortcut for writing a custom ``transform`` function in simple cases.
+
+    .. attribute:: classes
+
+        An iterable of CSS classes which should be added to this column.
+        Example: ``classes=('foo', 'bar')``.
+
+    .. attribute:: attrs
+
+        A dict of HTML attribute strings which should be added to this column.
+        Example: ``attrs={"data-foo": "bar"}``.
     """
     # Used to retain order when instantiating columns on a table
     creation_counter = 0
@@ -147,7 +157,12 @@ class Column(object):
 
     def __init__(self, transform, verbose_name=None, sortable=False,
                  link=None, hidden=False, attrs=None, status=False,
-                 status_choices=None, empty_value=None, filters=None):
+                 status_choices=None, empty_value=None, filters=None,
+                 classes=None):
+        self.classes = classes or getattr(self, "classes", [])
+        super(Column, self).__init__()
+        self.attrs.update(attrs or {})
+
         if callable(transform):
             self.transform = transform
             self.name = transform.__name__
@@ -172,14 +187,10 @@ class Column(object):
         self.creation_counter = Column.creation_counter
         Column.creation_counter += 1
 
-        self.attrs = {"classes": []}
-        self.attrs.update(attrs or {})
-        # Make sure we have a mutable list.
-        self.attrs['classes'] = list(self.attrs['classes'])
         if self.sortable:
-            self.attrs['classes'].append("sortable")
+            self.classes.append("sortable")
         if self.hidden:
-            self.attrs['classes'].append("hide")
+            self.classes.append("hide")
 
     def __unicode__(self):
         return self.verbose_name
@@ -220,10 +231,6 @@ class Column(object):
             data = filter_func(data)
         self.table._data_cache[self][datum_id] = data
         return self.table._data_cache[self][datum_id]
-
-    def get_classes(self):
-        """ Returns a flattened string of the column's CSS classes. """
-        return " ".join(self.attrs['classes'])
 
     def get_link_url(self, datum):
         """ Returns the final value for the column's ``link`` property.
@@ -382,15 +389,17 @@ class Row(html.HTMLElement):
                                   % cls.__name__)
 
 
-class Cell(object):
+class Cell(html.HTMLElement):
     """ Represents a single cell in the table. """
-    def __init__(self, datum, data, column, row, attrs=None):
+    def __init__(self, datum, data, column, row, attrs=None, classes=None):
+        self.classes = classes or getattr(self, "classes", [])
+        super(Cell, self).__init__()
+        self.attrs.update(attrs or {})
+
         self.datum = datum
         self.data = data
         self.column = column
         self.row = row
-        self.attrs = {'classes': []}
-        self.attrs.update(attrs or {})
 
     def __repr__(self):
         return '<%s: %s, %s>' % (self.__class__.__name__,
@@ -446,12 +455,13 @@ class Cell(object):
         else:
             return "status_unknown"
 
-    def get_classes(self):
+    def get_default_classes(self):
         """ Returns a flattened string of the cell's CSS classes. """
-        union = set(self.attrs['classes']) | set(self.column.attrs['classes'])
+        column_class_string = self.column.get_final_attrs().get('class', "")
+        classes = set(column_class_string.split(" "))
         if self.column.status:
-            union.add(self.get_status_class(self.status))
-        return " ".join(union)
+            classes.add(self.get_status_class(self.status))
+        return list(classes)
 
 
 class DataTableOptions(object):
@@ -583,9 +593,9 @@ class DataTableMetaclass(type):
 
         # Gather columns; this prevents the column from being an attribute
         # on the DataTable class and avoids naming conflicts.
-        columns = [(column_name, attrs.pop(column_name)) for \
-                            column_name, obj in attrs.items() \
-                            if isinstance(obj, opts.column_class)]
+        columns = [(column_name, attrs.pop(column_name)) for
+                   column_name, obj in attrs.items()
+                   if issubclass(type(obj), (opts.column_class, Column))]
         # add a name attribute to each column
         for column_name, column in columns:
             column.name = column_name
@@ -608,13 +618,13 @@ class DataTableMetaclass(type):
         if opts.multi_select:
             multi_select = opts.column_class("multi_select",
                                              verbose_name="")
-            multi_select.attrs = {'classes': ('multi_select_column',)}
+            multi_select.classes.append('multi_select_column')
             multi_select.auto = "multi_select"
             columns.insert(0, ("multi_select", multi_select))
         if opts.actions_column:
             actions_column = opts.column_class("actions",
                                                verbose_name=_("Actions"))
-            actions_column.attrs = {'classes': ('actions_column',)}
+            actions_column.classes.append('actions_column')
             actions_column.auto = "actions"
             columns.append(("actions", actions_column))
         attrs['columns'] = SortedDict(columns)

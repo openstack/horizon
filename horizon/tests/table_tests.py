@@ -76,6 +76,10 @@ class MyAction(tables.Action):
         return shortcuts.redirect('http://example.com/%s' % len(object_ids))
 
 
+class MyColumn(tables.Column):
+    pass
+
+
 class MyRow(tables.Row):
     ajax = True
 
@@ -142,7 +146,7 @@ class MyTable(tables.DataTable):
     value = tables.Column('value',
                           sortable=True,
                           link='http://example.com/',
-                          attrs={'classes': ('green', 'blue')})
+                          attrs={'class': 'green blue'})
     status = tables.Column('status', link=get_link)
     optional = tables.Column('optional', empty_value='N/A')
     excluded = tables.Column('excluded')
@@ -153,6 +157,7 @@ class MyTable(tables.DataTable):
         status_columns = ["status"]
         columns = ('id', 'name', 'value', 'optional', 'status')
         row_class = MyRow
+        column_class = MyColumn
         table_actions = (MyFilterAction, MyAction, MyBatchAction)
         row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction)
 
@@ -172,14 +177,16 @@ class DataTableTests(test.TestCase):
         # Column ordering and exclusion.
         # This should include auto-columns for multi_select and actions,
         # but should not contain the excluded column.
+        # Additionally, auto-generated columns should use the custom
+        # column class specified on the table.
         self.assertQuerysetEqual(self.table.columns.values(),
-                                 ['<Column: multi_select>',
+                                 ['<MyColumn: multi_select>',
                                   '<Column: id>',
                                   '<Column: name>',
                                   '<Column: value>',
                                   '<Column: optional>',
                                   '<Column: status>',
-                                  '<Column: actions>'])
+                                  '<MyColumn: actions>'])
         # Actions (these also test ordering)
         self.assertQuerysetEqual(self.table.base_actions.values(),
                                  ['<MyBatchAction: batch>',
@@ -199,10 +206,12 @@ class DataTableTests(test.TestCase):
         # Auto-generated columns
         multi_select = self.table.columns['multi_select']
         self.assertEqual(multi_select.auto, "multi_select")
-        self.assertEqual(multi_select.get_classes(), "multi_select_column")
+        self.assertEqual(multi_select.get_final_attrs().get('class', ""),
+                         "multi_select_column")
         actions = self.table.columns['actions']
         self.assertEqual(actions.auto, "actions")
-        self.assertEqual(actions.get_classes(), "actions_column")
+        self.assertEqual(actions.get_final_attrs().get('class', ""),
+                         "actions_column")
 
     def test_table_force_no_multiselect(self):
         class TempTable(MyTable):
@@ -273,13 +282,13 @@ class DataTableTests(test.TestCase):
         self.table = MyTable(self.request, TEST_DATA)
         # Verify we retrieve the right columns for headers
         columns = self.table.get_columns()
-        self.assertQuerysetEqual(columns, ['<Column: multi_select>',
+        self.assertQuerysetEqual(columns, ['<MyColumn: multi_select>',
                                            '<Column: id>',
                                            '<Column: name>',
                                            '<Column: value>',
                                            '<Column: optional>',
                                            '<Column: status>',
-                                           '<Column: actions>'])
+                                           '<MyColumn: actions>'])
         # Verify we retrieve the right rows from our data
         rows = self.table.get_rows()
         self.assertQuerysetEqual(rows, ['<MyRow: my_table__row__1>',
@@ -310,21 +319,22 @@ class DataTableTests(test.TestCase):
         self.assertEqual(unicode(name_col), "Verbose Name")
         # sortable
         self.assertEqual(id_col.sortable, False)
-        self.assertNotIn("sortable", id_col.get_classes())
+        self.assertNotIn("sortable", id_col.get_final_attrs().get('class', ""))
         self.assertEqual(name_col.sortable, True)
-        self.assertIn("sortable", name_col.get_classes())
+        self.assertIn("sortable", name_col.get_final_attrs().get('class', ""))
         # hidden
         self.assertEqual(id_col.hidden, True)
-        self.assertIn("hide", id_col.get_classes())
+        self.assertIn("hide", id_col.get_final_attrs().get('class', ""))
         self.assertEqual(name_col.hidden, False)
-        self.assertNotIn("hide", name_col.get_classes())
+        self.assertNotIn("hide", name_col.get_final_attrs().get('class', ""))
         # link and get_link_url
         self.assertIn('href="http://example.com/"', row.cells['value'].value)
         self.assertIn('href="/auth/login/"', row.cells['status'].value)
         # empty_value
         self.assertEqual(row3.cells['optional'].value, "N/A")
-        # get_classes
-        self.assertEqual(value_col.get_classes(), "green blue sortable")
+        # classes
+        self.assertEqual(value_col.get_final_attrs().get('class', ""),
+                         "green blue sortable")
         # status
         cell_status = row.cells['status'].status
         self.assertEqual(cell_status, True)

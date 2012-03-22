@@ -9,7 +9,7 @@
     <thead>
       <tr>
         {% for column in columns %}
-          <th class="{{ column.get_classes }}">{{ column }}</th>
+          <th {{ column.attr_string|safe }}>{{ column }}</th>
         {% endfor %}
       </tr>
     </thead>
