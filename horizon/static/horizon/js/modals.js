@@ -9,6 +9,12 @@ horizon.addInitFunction(function() {
     $(this).remove();
   });
 
+  $(document).on('show', '.modal', function(evt) {
+    var scrollShift = $('body').scrollTop();
+    var topVal = $(this).css('top');
+    $(this).css('top', scrollShift + parseInt(topVal, 10));
+  });
+
   $('.ajax-modal').click(function (evt) {
     var $this = $(this);
     $.ajax($this.attr('href'), {
