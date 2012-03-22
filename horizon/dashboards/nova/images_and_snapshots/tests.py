@@ -19,6 +19,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from copy import deepcopy
 from django import http
 from django.core.urlresolvers import reverse
 from glance.common import exception as glance_exception
@@ -71,3 +72,39 @@ class ImagesAndSnapshotsTests(test.TestCase):
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'nova/images_and_snapshots/index.html')
+
+    def test_queued_snapshot_actions(self):
+        images = self.images.list()
+        snapshots = self.snapshots.list()
+        snapshot1 = deepcopy(snapshots[0])
+        snapshot1.status = 'active'
+        snapshot2 = deepcopy(snapshots[0])
+        snapshot2.id = 4
+        snapshot2.name = "snap2"
+        snapshot2.status = "queued"
+        snapshot2.owner = '1'
+        new_snapshots = [snapshot1, snapshot2]
+        self.mox.StubOutWithMock(api, 'image_list_detailed')
+        self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
+        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn(images)
+        api.snapshot_list_detailed(IsA(http.HttpRequest)).\
+                AndReturn(new_snapshots)
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'nova/images_and_snapshots/index.html')
+        self.assertIn('snapshots_table', res.context)
+        snaps = res.context['snapshots_table']
+        self.assertEqual(len(snaps.get_rows()), 2)
+
+        row_actions = snaps.get_row_actions(snaps.data[0])
+
+        #first instance - status active, not owned
+        self.assertEqual(row_actions[0].verbose_name, u"Launch")
+        self.assertEqual(len(row_actions), 1)
+
+        row_actions = snaps.get_row_actions(snaps.data[1])
+        #first instance - status queued, but editable
+        self.assertEqual(row_actions[0].verbose_name, u"Edit")
+        self.assertEqual(str(row_actions[1]), "<DeleteSnapshot: delete>")
+        self.assertEqual(len(row_actions), 2)
