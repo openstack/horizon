@@ -14,12 +14,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import ugettext as _
+
 import horizon
 from horizon.dashboards.settings import dashboard
 
 
 class UserPanel(horizon.Panel):
-    name = "User Settings"
+    name = _("User Settings")
     slug = 'user'
 
 

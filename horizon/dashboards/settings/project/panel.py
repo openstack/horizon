@@ -14,12 +14,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import ugettext as _
+
 import horizon
 from horizon.dashboards.settings import dashboard
 
 
 class TenantPanel(horizon.Panel):
-    name = "OpenStack Credentials"
+    name = _("OpenStack Credentials")
     slug = 'project'
 
 
