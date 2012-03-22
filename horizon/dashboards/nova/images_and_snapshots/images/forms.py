@@ -27,6 +27,7 @@ import logging
 from django import shortcuts
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.forms import ValidationError
 from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext as _
 
@@ -139,6 +140,18 @@ class LaunchForm(forms.SelfHandlingForm):
         self.fields['keypair'].choices = keypair_list
         self.fields['security_groups'].choices = security_group_list
         self.fields['volume'].choices = volume_list
+
+    def clean(self):
+        cleaned_data = super(LaunchForm, self).clean()
+        count = cleaned_data.get('count', 1)
+        volume = cleaned_data.get('volume', None)
+
+        if volume and count > 1:
+            msg = _('Cannot launch more than one instance if volume \
+                    is specified.')
+            raise ValidationError(msg)
+
+        return cleaned_data
 
     def handle(self, request, data):
         try:
