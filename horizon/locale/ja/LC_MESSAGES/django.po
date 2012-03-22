@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-19 14:31-0700\n"
+"POT-Creation-Date: 2012-03-22 23:15+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Takeshi Nakajima <tnakaji@midokura.jp>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,6 +66,10 @@ msgstr ""
 #, fuzzy
 msgid "Object Store"
 msgstr "ユーザ名"
+
+#: dashboards/nova/access_and_security/panel.py:24
+msgid "Access & Security"
+msgstr ""
 
 #: dashboards/nova/access_and_security/views.py:52
 #, fuzzy
@@ -294,7 +298,7 @@ msgid "From port"
 msgstr ""
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:71
-#: dashboards/nova/images_and_snapshots/images/tables.py:73
+#: dashboards/nova/images_and_snapshots/images/tables.py:81
 msgid "Type"
 msgstr ""
 
@@ -598,6 +602,11 @@ msgstr "キー%sを作成できません。"
 msgid "Unable to list containers."
 msgstr "キー%sを削除できません。"
 
+#: dashboards/nova/images_and_snapshots/panel.py:24
+#, fuzzy
+msgid "Images & Snapshots"
+msgstr "スナップショット"
+
 #: dashboards/nova/images_and_snapshots/views.py:53
 #, fuzzy
 msgid "Unable to retrieve images."
@@ -629,7 +638,7 @@ msgid "Architecture"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:55
-#: dashboards/nova/images_and_snapshots/images/tables.py:82
+#: dashboards/nova/images_and_snapshots/images/tables.py:90
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:31
 msgid "Container Format"
 msgstr ""
@@ -739,30 +748,31 @@ msgid "Image"
 msgstr "イメージ"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:31
-#: dashboards/nova/images_and_snapshots/images/tables.py:86
-#: dashboards/syspanel/images/tables.py:31
+#: dashboards/nova/images_and_snapshots/images/tables.py:94
+#: dashboards/syspanel/images/panel.py:27
+#: dashboards/syspanel/images/tables.py:36
 #: dashboards/syspanel/templates/syspanel/images/index.html:3
 #: dashboards/syspanel/templates/syspanel/images/index.html:6
 msgid "Images"
 msgstr "イメージ"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:44
+#: dashboards/nova/images_and_snapshots/images/tables.py:45
 #, fuzzy
 msgid "Launch"
 msgstr "イメージを起動します。"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:51
+#: dashboards/nova/images_and_snapshots/images/tables.py:52
 #: dashboards/syspanel/users/tables.py:23
 msgid "Edit"
 msgstr "編集"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:71
+#: dashboards/nova/images_and_snapshots/images/tables.py:79
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:71
 #, fuzzy
 msgid "Image Name"
 msgstr "ユーザ名"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:76
+#: dashboards/nova/images_and_snapshots/images/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:223
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:117
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
@@ -775,7 +785,7 @@ msgstr "ユーザ名"
 msgid "Status"
 msgstr "ステータス"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:78
+#: dashboards/nova/images_and_snapshots/images/tables.py:86
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:19
 #, fuzzy
 msgid "Public"
@@ -784,7 +794,9 @@ msgstr "公開する"
 #: dashboards/nova/images_and_snapshots/images/tabs.py:26
 #: dashboards/nova/instances_and_volumes/instances/tabs.py:25
 #: dashboards/nova/instances_and_volumes/volumes/tabs.py:26
+#: dashboards/nova/overview/panel.py:27
 #: dashboards/nova/templates/nova/overview/usage.html:6
+#: dashboards/syspanel/overview/panel.py:27
 #: dashboards/syspanel/templates/syspanel/overview/usage.html:6
 msgid "Overview"
 msgstr "概要"
@@ -891,6 +903,11 @@ msgstr "スナップショット"
 msgid "Volume ID"
 msgstr "ボリューム"
 
+#: dashboards/nova/instances_and_volumes/panel.py:23
+#, fuzzy
+msgid "Instances & Volumes"
+msgstr "インスタンス"
+
 #: dashboards/nova/instances_and_volumes/views.py:52
 #, fuzzy
 msgid "Unable to retrieve instances."
@@ -931,6 +948,7 @@ msgstr "削除"
 #: dashboards/nova/instances_and_volumes/instances/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:110
 #: dashboards/nova/instances_and_volumes/instances/tables.py:237
+#: dashboards/syspanel/instances/panel.py:27
 #: dashboards/syspanel/instances/tables.py:70
 #: dashboards/syspanel/projects/forms.py:115
 #: dashboards/syspanel/templates/syspanel/instances/index.html:3
@@ -1576,27 +1594,27 @@ msgstr ""
 msgid "Upload Objects"
 msgstr ""
 
-#: dashboards/settings/dashboard.py:24
+#: dashboards/settings/dashboard.py:23
 #, fuzzy
 msgid "Settings"
 msgstr "ダッシュボードの設定"
 
-#: dashboards/settings/ec2/forms.py:34 dashboards/settings/project/forms.py:35
+#: dashboards/settings/ec2/forms.py:35 dashboards/settings/project/forms.py:35
 #, fuzzy
 msgid "Select a Project"
 msgstr "プロジェクトを削除"
 
-#: dashboards/settings/ec2/forms.py:50
+#: dashboards/settings/ec2/forms.py:51
 #, fuzzy
 msgid "Unable to retrieve tenant list."
 msgstr "キー%sを作成できません。"
 
-#: dashboards/settings/ec2/forms.py:85
+#: dashboards/settings/ec2/forms.py:86
 #, fuzzy
 msgid "Unable to fetch EC2 credentials."
 msgstr "X509資格情報生成する。"
 
-#: dashboards/settings/ec2/forms.py:98
+#: dashboards/settings/ec2/forms.py:99
 #, fuzzy, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "ユーザ%sを作成中..."
@@ -1610,6 +1628,11 @@ msgstr "認証情報を送信"
 #, fuzzy, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "イメージ%sを更新できません。"
+
+#: dashboards/settings/project/panel.py:23
+#, fuzzy
+msgid "OpenStack Credentials"
+msgstr "認証情報を送信"
 
 #: dashboards/settings/templates/settings/ec2/download_form.html:8
 #: dashboards/settings/templates/settings/ec2/download_form.html:23
@@ -1665,6 +1688,11 @@ msgstr "ここより、ユーザとその資格を管理できます。"
 msgid "Dashboard Settings"
 msgstr "ダッシュボードの設定"
 
+#: dashboards/settings/user/panel.py:23
+#, fuzzy
+msgid "User Settings"
+msgstr "ダッシュボードの設定"
+
 #: dashboards/syspanel/dashboard.py:25
 msgid "System Panel"
 msgstr ""
@@ -1691,6 +1719,7 @@ msgstr ""
 msgid "%s was successfully added to flavors."
 msgstr "キー%sは正常に削除されました。"
 
+#: dashboards/syspanel/flavors/panel.py:27
 #: dashboards/syspanel/flavors/tables.py:14
 #: dashboards/syspanel/flavors/tables.py:38
 #: dashboards/syspanel/templates/syspanel/flavors/index.html:8
@@ -1822,6 +1851,14 @@ msgstr "セキュリティグループ%sが正常に削除されました。"
 msgid "Unable to update quotas."
 msgstr "イメージ%sを更新できません。"
 
+#: dashboards/syspanel/projects/panel.py:27
+#: dashboards/syspanel/projects/tables.py:52
+#: dashboards/syspanel/projects/tables.py:81
+#: dashboards/syspanel/templates/syspanel/projects/index.html:8
+#, fuzzy
+msgid "Projects"
+msgstr "プロジェクトを削除"
+
 #: dashboards/syspanel/projects/tables.py:17
 msgid "Modify Quotas"
 msgstr ""
@@ -1849,13 +1886,6 @@ msgstr "新規ボリュームを作成する。"
 msgid "Project"
 msgstr "プロジェクトを削除"
 
-#: dashboards/syspanel/projects/tables.py:52
-#: dashboards/syspanel/projects/tables.py:81
-#: dashboards/syspanel/templates/syspanel/projects/index.html:8
-#, fuzzy
-msgid "Projects"
-msgstr "プロジェクトを削除"
-
 #: dashboards/syspanel/projects/tables.py:73
 #: dashboards/syspanel/services/tables.py:37
 msgid "Id"
@@ -1878,6 +1908,7 @@ msgstr ""
 
 #: dashboards/syspanel/projects/tables.py:92
 #: dashboards/syspanel/templates/syspanel/users/index.html:8
+#: dashboards/syspanel/users/panel.py:27
 #: dashboards/syspanel/users/tables.py:93
 #: dashboards/syspanel/users/tables.py:135
 msgid "Users"
@@ -1912,6 +1943,11 @@ msgstr "%sをリボーク(無効化)できません。"
 msgid "Unable to retrieve roles."
 msgstr "ボリューム%sを作成できません。"
 
+#: dashboards/syspanel/quotas/panel.py:27
+#: dashboards/syspanel/quotas/tables.py:32
+msgid "Quotas"
+msgstr "クォータ"
+
 #: dashboards/syspanel/quotas/tables.py:24
 msgid "Quota Name"
 msgstr ""
@@ -1920,23 +1956,20 @@ msgstr ""
 msgid "Limit"
 msgstr ""
 
-#: dashboards/syspanel/quotas/tables.py:32
-msgid "Quotas"
-msgstr "クォータ"
-
 #: dashboards/syspanel/quotas/views.py:47
 #, fuzzy, python-format
 msgid "Unable to get quota info: %s"
 msgstr "イメージ%sを公開できません。"
 
-#: dashboards/syspanel/services/tables.py:39
-msgid "Service"
-msgstr ""
-
+#: dashboards/syspanel/services/panel.py:27
 #: dashboards/syspanel/services/tables.py:47
 #: dashboards/syspanel/templates/syspanel/services/index.html:8
 msgid "Services"
 msgstr "サービス"
+
+#: dashboards/syspanel/services/tables.py:39
+msgid "Service"
+msgstr ""
 
 #: dashboards/syspanel/templates/syspanel/flavors/_create.html:18
 #, fuzzy
@@ -2216,25 +2249,25 @@ msgstr "削除"
 msgid "Deleted"
 msgstr "削除"
 
-#: tables/base.py:214
+#: tables/base.py:225
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:616
+#: tables/base.py:626
 msgid "Actions"
 msgstr "アクション"
 
-#: tables/base.py:755
+#: tables/base.py:765
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:772
+#: tables/base.py:782
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:875
+#: tables/base.py:885
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -2320,35 +2353,35 @@ msgstr ""
 msgid "%s PB"
 msgstr ""
 
-#: tests/table_tests.py:89
+#: tests/table_tests.py:93
 msgid "Batch"
 msgstr ""
 
-#: tests/table_tests.py:90
+#: tests/table_tests.py:94
 msgid "Batched"
 msgstr ""
 
-#: tests/table_tests.py:91 tests/table_tests.py:102
+#: tests/table_tests.py:95 tests/table_tests.py:106
 msgid "Item"
 msgstr ""
 
-#: tests/table_tests.py:92 tests/table_tests.py:103
+#: tests/table_tests.py:96 tests/table_tests.py:107
 msgid "Items"
 msgstr ""
 
-#: tests/table_tests.py:100
+#: tests/table_tests.py:104
 msgid "Down"
 msgstr ""
 
-#: tests/table_tests.py:100
+#: tests/table_tests.py:104
 msgid "Up"
 msgstr ""
 
-#: tests/table_tests.py:101
+#: tests/table_tests.py:105
 msgid "Downed"
 msgstr ""
 
-#: tests/table_tests.py:101
+#: tests/table_tests.py:105
 msgid "Upped"
 msgstr ""
 

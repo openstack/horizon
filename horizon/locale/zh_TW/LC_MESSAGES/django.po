@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-19 14:32-0700\n"
+"POT-Creation-Date: 2012-03-22 23:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andy Chong <andycjw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,6 +64,10 @@ msgstr "運算管理"
 #: dashboards/nova/dashboard.py:29
 msgid "Object Store"
 msgstr "物件儲存"
+
+#: dashboards/nova/access_and_security/panel.py:24
+msgid "Access & Security"
+msgstr "存取 & 安全性"
 
 #: dashboards/nova/access_and_security/views.py:52
 msgid "Unable to retrieve keypair list."
@@ -282,7 +286,7 @@ msgid "From port"
 msgstr "從端口"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:71
-#: dashboards/nova/images_and_snapshots/images/tables.py:73
+#: dashboards/nova/images_and_snapshots/images/tables.py:81
 msgid "Type"
 msgstr "類別"
 
@@ -571,6 +575,10 @@ msgstr "無法取得物件。"
 msgid "Unable to list containers."
 msgstr "無法列出容器。"
 
+#: dashboards/nova/images_and_snapshots/panel.py:24
+msgid "Images & Snapshots"
+msgstr "映像 & 快照"
+
 #: dashboards/nova/images_and_snapshots/views.py:53
 msgid "Unable to retrieve images."
 msgstr "無法取得映像。"
@@ -599,7 +607,7 @@ msgid "Architecture"
 msgstr "系統架構"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:55
-#: dashboards/nova/images_and_snapshots/images/tables.py:82
+#: dashboards/nova/images_and_snapshots/images/tables.py:90
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:31
 msgid "Container Format"
 msgstr "容器格式"
@@ -701,28 +709,29 @@ msgid "Image"
 msgstr "映像"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:31
-#: dashboards/nova/images_and_snapshots/images/tables.py:86
-#: dashboards/syspanel/images/tables.py:31
+#: dashboards/nova/images_and_snapshots/images/tables.py:94
+#: dashboards/syspanel/images/panel.py:27
+#: dashboards/syspanel/images/tables.py:36
 #: dashboards/syspanel/templates/syspanel/images/index.html:3
 #: dashboards/syspanel/templates/syspanel/images/index.html:6
 msgid "Images"
 msgstr "映像"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:44
+#: dashboards/nova/images_and_snapshots/images/tables.py:45
 msgid "Launch"
 msgstr "啟動"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:51
+#: dashboards/nova/images_and_snapshots/images/tables.py:52
 #: dashboards/syspanel/users/tables.py:23
 msgid "Edit"
 msgstr "編輯"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:71
+#: dashboards/nova/images_and_snapshots/images/tables.py:79
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:71
 msgid "Image Name"
 msgstr "映像名稱"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:76
+#: dashboards/nova/images_and_snapshots/images/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:223
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:117
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
@@ -735,7 +744,7 @@ msgstr "映像名稱"
 msgid "Status"
 msgstr "狀態"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:78
+#: dashboards/nova/images_and_snapshots/images/tables.py:86
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:19
 msgid "Public"
 msgstr "公開"
@@ -743,7 +752,9 @@ msgstr "公開"
 #: dashboards/nova/images_and_snapshots/images/tabs.py:26
 #: dashboards/nova/instances_and_volumes/instances/tabs.py:25
 #: dashboards/nova/instances_and_volumes/volumes/tabs.py:26
+#: dashboards/nova/overview/panel.py:27
 #: dashboards/nova/templates/nova/overview/usage.html:6
+#: dashboards/syspanel/overview/panel.py:27
 #: dashboards/syspanel/templates/syspanel/overview/usage.html:6
 msgid "Overview"
 msgstr "大綱"
@@ -837,6 +848,10 @@ msgstr "容量快照"
 msgid "Volume ID"
 msgstr "容量ID"
 
+#: dashboards/nova/instances_and_volumes/panel.py:23
+msgid "Instances & Volumes"
+msgstr "執行個體 & 容量"
+
 #: dashboards/nova/instances_and_volumes/views.py:52
 msgid "Unable to retrieve instances."
 msgstr "無法取得執行個體。"
@@ -873,6 +888,7 @@ msgstr "已終止執行"
 #: dashboards/nova/instances_and_volumes/instances/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:110
 #: dashboards/nova/instances_and_volumes/instances/tables.py:237
+#: dashboards/syspanel/instances/panel.py:27
 #: dashboards/syspanel/instances/tables.py:70
 #: dashboards/syspanel/projects/forms.py:115
 #: dashboards/syspanel/templates/syspanel/instances/index.html:3
@@ -1504,43 +1520,46 @@ msgstr ""
 msgid "Upload Objects"
 msgstr "上傳物件"
 
-#: dashboards/settings/dashboard.py:24
+#: dashboards/settings/dashboard.py:23
 msgid "Settings"
 msgstr "設定"
 
-#: dashboards/settings/ec2/forms.py:34 dashboards/settings/project/forms.py:35
+#: dashboards/settings/ec2/forms.py:35 dashboards/settings/project/forms.py:35
 msgid "Select a Project"
 msgstr "選擇專案"
 
-#: dashboards/settings/ec2/forms.py:50
+#: dashboards/settings/ec2/forms.py:51
 msgid "Unable to retrieve tenant list."
 msgstr "無法取得租戶列表"
 
-#: dashboards/settings/ec2/forms.py:85
+#: dashboards/settings/ec2/forms.py:86
 msgid "Unable to fetch EC2 credentials."
-msgstr "無法讀取EC2認證憑據資料"
+msgstr "無法讀取EC2憑證資料"
 
-#: dashboards/settings/ec2/forms.py:98
+#: dashboards/settings/ec2/forms.py:99
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "寫入壓縮檔錯誤： %(exc)s"
 
 #: dashboards/settings/ec2/panel.py:24
 msgid "EC2 Credentials"
-msgstr "EC2認證憑據資料"
+msgstr "EC2憑證資料"
 
 #: dashboards/settings/project/forms.py:72
 #, python-format
 msgid "Error Downloading RC File: %s"
-msgstr "下載RC檔案錯誤： %s"
+msgstr "RC檔下載錯誤： %s"
+
+#: dashboards/settings/project/panel.py:23
+msgid "OpenStack Credentials"
+msgstr "OpenStack憑證資料"
 
 #: dashboards/settings/templates/settings/ec2/download_form.html:8
 #: dashboards/settings/templates/settings/ec2/download_form.html:23
 #: dashboards/settings/templates/settings/ec2/index.html:3
 #: dashboards/settings/templates/settings/ec2/index.html:6
-#, fuzzy
 msgid "Download EC2 Credentials"
-msgstr "下載x509認證憑據資料"
+msgstr "下載EC2憑證資料"
 
 #: dashboards/settings/templates/settings/ec2/download_form.html:18
 #, fuzzy
@@ -1553,9 +1572,8 @@ msgstr ""
 
 #: dashboards/settings/templates/settings/project/_openrc.html:8
 #: dashboards/settings/templates/settings/project/settings.html:6
-#, fuzzy
 msgid "Download OpenStack RC File"
-msgstr "下載RC檔案"
+msgstr "下載OpenStack RC檔"
 
 #: dashboards/settings/templates/settings/project/_openrc.html:18
 msgid ""
@@ -1567,7 +1585,7 @@ msgstr ""
 
 #: dashboards/settings/templates/settings/project/_openrc.html:23
 msgid "Download RC File"
-msgstr "下載RC檔案"
+msgstr "下載RC檔"
 
 #: dashboards/settings/templates/settings/user/_language.html:8
 #: dashboards/settings/templates/settings/user/_language.html:36
@@ -1589,6 +1607,10 @@ msgstr "您可以在這裡修改控制台的不同設定"
 #: dashboards/settings/templates/settings/user/settings.html:6
 msgid "Dashboard Settings"
 msgstr "控制台設定"
+
+#: dashboards/settings/user/panel.py:23
+msgid "User Settings"
+msgstr "使用者設定"
 
 #: dashboards/syspanel/dashboard.py:25
 msgid "System Panel"
@@ -1615,6 +1637,7 @@ msgstr "暫用磁碟 GB"
 msgid "%s was successfully added to flavors."
 msgstr "%s已成功被加入規格中"
 
+#: dashboards/syspanel/flavors/panel.py:27
 #: dashboards/syspanel/flavors/tables.py:14
 #: dashboards/syspanel/flavors/tables.py:38
 #: dashboards/syspanel/templates/syspanel/flavors/index.html:8
@@ -1738,6 +1761,13 @@ msgstr "已順利更新%s的配額"
 msgid "Unable to update quotas."
 msgstr "無法更新配額"
 
+#: dashboards/syspanel/projects/panel.py:27
+#: dashboards/syspanel/projects/tables.py:52
+#: dashboards/syspanel/projects/tables.py:81
+#: dashboards/syspanel/templates/syspanel/projects/index.html:8
+msgid "Projects"
+msgstr "專案"
+
 #: dashboards/syspanel/projects/tables.py:17
 msgid "Modify Quotas"
 msgstr "修改配額"
@@ -1762,12 +1792,6 @@ msgstr "建立新專案"
 msgid "Project"
 msgstr "專案"
 
-#: dashboards/syspanel/projects/tables.py:52
-#: dashboards/syspanel/projects/tables.py:81
-#: dashboards/syspanel/templates/syspanel/projects/index.html:8
-msgid "Projects"
-msgstr "專案"
-
 #: dashboards/syspanel/projects/tables.py:73
 #: dashboards/syspanel/services/tables.py:37
 msgid "Id"
@@ -1788,6 +1812,7 @@ msgstr "使用者"
 
 #: dashboards/syspanel/projects/tables.py:92
 #: dashboards/syspanel/templates/syspanel/users/index.html:8
+#: dashboards/syspanel/users/panel.py:27
 #: dashboards/syspanel/users/tables.py:93
 #: dashboards/syspanel/users/tables.py:135
 msgid "Users"
@@ -1817,6 +1842,11 @@ msgstr "無法取得使用者"
 msgid "Unable to retrieve roles."
 msgstr "無法取得角色"
 
+#: dashboards/syspanel/quotas/panel.py:27
+#: dashboards/syspanel/quotas/tables.py:32
+msgid "Quotas"
+msgstr "配額"
+
 #: dashboards/syspanel/quotas/tables.py:24
 msgid "Quota Name"
 msgstr "配額名稱"
@@ -1825,22 +1855,19 @@ msgstr "配額名稱"
 msgid "Limit"
 msgstr "限制"
 
-#: dashboards/syspanel/quotas/tables.py:32
-msgid "Quotas"
-msgstr "配額"
-
 #: dashboards/syspanel/quotas/views.py:47
 #, python-format
 msgid "Unable to get quota info: %s"
 msgstr "無法取得配額資料： %s"
 
-#: dashboards/syspanel/services/tables.py:39
-msgid "Service"
-msgstr "服務"
-
+#: dashboards/syspanel/services/panel.py:27
 #: dashboards/syspanel/services/tables.py:47
 #: dashboards/syspanel/templates/syspanel/services/index.html:8
 msgid "Services"
+msgstr "服務"
+
+#: dashboards/syspanel/services/tables.py:39
+msgid "Service"
 msgstr "服務"
 
 #: dashboards/syspanel/templates/syspanel/flavors/_create.html:18
@@ -2100,25 +2127,25 @@ msgstr "刪除"
 msgid "Deleted"
 msgstr "已刪除"
 
-#: tables/base.py:214
+#: tables/base.py:225
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "此屬性%(attr)s並不在%(obj)s上存在。"
 
-#: tables/base.py:616
+#: tables/base.py:626
 msgid "Actions"
 msgstr "動作"
 
-#: tables/base.py:755
+#: tables/base.py:765
 msgid "No items to display."
 msgstr "沒有任何相關項目"
 
-#: tables/base.py:772
+#: tables/base.py:782
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "找不到id \"%s\"的相關項目"
 
-#: tables/base.py:875
+#: tables/base.py:885
 msgid "Please select a row before taking that action."
 msgstr "請選擇一個欄位後才執行動作"
 
@@ -2204,35 +2231,35 @@ msgstr ""
 msgid "%s PB"
 msgstr ""
 
-#: tests/table_tests.py:89
+#: tests/table_tests.py:93
 msgid "Batch"
 msgstr ""
 
-#: tests/table_tests.py:90
+#: tests/table_tests.py:94
 msgid "Batched"
 msgstr ""
 
-#: tests/table_tests.py:91 tests/table_tests.py:102
+#: tests/table_tests.py:95 tests/table_tests.py:106
 msgid "Item"
 msgstr ""
 
-#: tests/table_tests.py:92 tests/table_tests.py:103
+#: tests/table_tests.py:96 tests/table_tests.py:107
 msgid "Items"
 msgstr ""
 
-#: tests/table_tests.py:100
+#: tests/table_tests.py:104
 msgid "Down"
 msgstr ""
 
-#: tests/table_tests.py:100
+#: tests/table_tests.py:104
 msgid "Up"
 msgstr ""
 
-#: tests/table_tests.py:101
+#: tests/table_tests.py:105
 msgid "Downed"
 msgstr ""
 
-#: tests/table_tests.py:101
+#: tests/table_tests.py:105
 msgid "Upped"
 msgstr ""
 

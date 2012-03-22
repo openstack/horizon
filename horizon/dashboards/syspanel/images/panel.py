@@ -18,12 +18,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import ugettext as _
+
 import horizon
 from horizon.dashboards.syspanel import dashboard
 
 
 class Images(horizon.Panel):
-    name = "Images"
+    name = _("Images")
     slug = 'images'
 
 

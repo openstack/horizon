@@ -15,12 +15,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import ugettext as _
+
 import horizon
 from horizon.dashboards.nova import dashboard
 
 
 class ImagesAndSnapshots(horizon.Panel):
-    name = "Images & Snapshots"
+    name = _("Images & Snapshots")
     slug = 'images_and_snapshots'
 
 
