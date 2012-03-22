@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="table_wrapper">
   <form action="{{ table.get_absolute_url }}" method="POST">{% csrf_token %}
   {% with columns=table.get_columns rows=table.get_rows %}
@@ -25,7 +26,7 @@
     <tfoot>
       <tr>
         <td colspan="{{ table.get_columns|length }}">
-          <span>Displaying {{ rows|length }} item{{ rows|pluralize }}</span>
+          <span>{% blocktrans count counter=rows|length %}Displaying {{ counter }} item{% plural %}Displaying {{ counter }} items{% endblocktrans %}</span>
           {% if table.has_more_data %}
           <span class="spacer">|</span>
           <a href="?marker={{ table.get_marker }}">More&nbsp;&raquo;</a>

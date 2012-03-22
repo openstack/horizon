@@ -291,6 +291,7 @@ class FilterAction(BaseAction):
     # separated from the table's POST form.
     method = "POST"
     name = "filter"
+    verbose_name = _("Filter")
 
     def __init__(self, verbose_name=None, param_name=None):
         super(FilterAction, self).__init__()

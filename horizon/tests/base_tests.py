@@ -114,10 +114,10 @@ class HorizonTests(BaseHorizonTests):
         with self.assertRaises(base.NotRegistered):
             horizon.get_dashboard("fake")
         self.assertQuerysetEqual(horizon.get_dashboards(),
-                                 ['<Dashboard: Project>',
-                                  '<Dashboard: Admin>',
-                                  '<Dashboard: Settings>',
-                                  '<Dashboard: My Dashboard>'])
+                                 ['<Dashboard: nova>',
+                                  '<Dashboard: syspanel>',
+                                  '<Dashboard: settings>',
+                                  '<Dashboard: mydash>'])
 
         # Removal
         self.assertEqual(len(base.Horizon._registry), 4)
@@ -128,7 +128,7 @@ class HorizonTests(BaseHorizonTests):
 
     def test_site(self):
         self.assertEqual(unicode(base.Horizon), "Horizon")
-        self.assertEqual(repr(base.Horizon), "<Site: Horizon>")
+        self.assertEqual(repr(base.Horizon), "<Site: horizon>")
         dash = base.Horizon.get_dashboard('nova')
         self.assertEqual(base.Horizon.get_default_dashboard(), dash)
         user = users.User()
@@ -138,31 +138,31 @@ class HorizonTests(BaseHorizonTests):
     def test_dashboard(self):
         syspanel = horizon.get_dashboard("syspanel")
         self.assertEqual(syspanel._registered_with, base.Horizon)
-        self.assertQuerysetEqual(syspanel.get_panels()['System Panel'],
-                                 ['<Panel: Overview>',
-                                 '<Panel: Instances>',
-                                 '<Panel: Services>',
-                                 '<Panel: Flavors>',
-                                 '<Panel: Images>',
-                                 '<Panel: Projects>',
-                                 '<Panel: Users>',
-                                 '<Panel: Quotas>'])
+        self.assertQuerysetEqual(syspanel.get_panels().values()[0],
+                                 ['<Panel: overview>',
+                                 '<Panel: instances>',
+                                 '<Panel: services>',
+                                 '<Panel: flavors>',
+                                 '<Panel: images>',
+                                 '<Panel: projects>',
+                                 '<Panel: users>',
+                                 '<Panel: quotas>'])
         self.assertEqual(syspanel.get_absolute_url(), "/syspanel/")
         # Test registering a module with a dashboard that defines panels
         # as a dictionary.
         syspanel.register(MyPanel)
         self.assertQuerysetEqual(syspanel.get_panels()['Other'],
-                                 ['<Panel: My Panel>'])
+                                 ['<Panel: myslug>'])
 
         # Test registering a module with a dashboard that defines panels
         # as a tuple.
         settings_dash = horizon.get_dashboard("settings")
         settings_dash.register(MyPanel)
         self.assertQuerysetEqual(settings_dash.get_panels(),
-                                 ['<Panel: User Settings>',
-                                  '<Panel: OpenStack Credentials>',
-                                  '<Panel: EC2 Credentials>',
-                                  '<Panel: My Panel>'])
+                                 ['<Panel: user>',
+                                  '<Panel: project>',
+                                  '<Panel: ec2>',
+                                  '<Panel: myslug>'])
 
     def test_panels(self):
         syspanel = horizon.get_dashboard("syspanel")

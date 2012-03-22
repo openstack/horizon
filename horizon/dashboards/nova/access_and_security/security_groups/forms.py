@@ -38,8 +38,9 @@ LOG = logging.getLogger(__name__)
 
 
 class CreateGroup(forms.SelfHandlingForm):
-    name = forms.CharField(validators=[validators.validate_slug])
-    description = forms.CharField()
+    name = forms.CharField(label=_("Name"),
+                           validators=[validators.validate_slug])
+    description = forms.CharField(label=_("Description"))
 
     def handle(self, request, data):
         try:

@@ -14,13 +14,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
 
 class Syspanel(horizon.Dashboard):
-    name = "Admin"  # Appears in navigation
+    name = _("Admin")
     slug = "syspanel"
     panels = {_("System Panel"): ('overview', 'instances', 'services',
                                   'flavors', 'images', 'projects', 'users',

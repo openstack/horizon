@@ -14,13 +14,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
 
 class Nova(horizon.Dashboard):
-    name = "Project"
+    name = _("Project")
     slug = "nova"
     panels = {_("Manage Compute"): ('overview',
                                     'instances_and_volumes',
