@@ -87,7 +87,7 @@ horizon.addInitFunction(function() {
     $(this).css('top', scrollShift + parseInt(topVal, 10));
   });
 
-  $('.ajax-modal').click(function (evt) {
+  $('.ajax-modal').live('click', function (evt) {
     var $this = $(this);
     $.ajax($this.attr('href'), {
       error: function(jqXHR, status, errorThrown) {
