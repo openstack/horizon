@@ -80,3 +80,15 @@ class HorizonMiddleware(object):
             if exception.message:
                 messages.error(request, exception.message)
             return shortcuts.redirect(exception.location)
+
+    def process_response(self, request, response):
+        """
+        Convert HttpResponseRedirect to HttpResponse if request is via ajax
+        to allow ajax request to redirect url
+        """
+        if request.is_ajax():
+            if type(response) == http.HttpResponseRedirect:
+                redirect_response = http.HttpResponse()
+                redirect_response['X-Horizon-Location'] = response['location']
+                return redirect_response
+        return response
