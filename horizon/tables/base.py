@@ -31,7 +31,7 @@ from django.utils import http
 from django.utils.datastructures import SortedDict
 from django.utils.html import escape
 from django.utils.http import urlencode
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 from django.utils import termcolors
 
@@ -175,7 +175,7 @@ class Column(html.HTMLElement):
             verbose_name = self.transform.title()
         else:
             verbose_name = verbose_name
-        self.verbose_name = unicode(verbose_name)
+        self.verbose_name = verbose_name
         self.link = link
         self.hidden = hidden
         self.status = status
@@ -193,7 +193,7 @@ class Column(html.HTMLElement):
             self.classes.append("hide")
 
     def __unicode__(self):
-        return self.verbose_name
+        return unicode(self.verbose_name)
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.name)
@@ -546,7 +546,7 @@ class DataTableOptions(object):
         self.name = getattr(options, 'name', self.__class__.__name__)
         verbose_name = getattr(options, 'verbose_name', None) \
                                     or self.name.title()
-        self.verbose_name = unicode(verbose_name)
+        self.verbose_name = verbose_name
         self.columns = getattr(options, 'columns', None)
         self.status_columns = getattr(options, 'status_columns', [])
         self.table_actions = getattr(options, 'table_actions', [])
@@ -685,7 +685,7 @@ class DataTable(object):
             action.table = self
 
     def __unicode__(self):
-        return self._meta.verbose_name
+        return unicode(self._meta.verbose_name)
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.name)

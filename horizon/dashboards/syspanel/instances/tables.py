@@ -18,7 +18,7 @@
 import logging
 
 from django.template.defaultfilters import title
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 from horizon.dashboards.nova.instances_and_volumes.instances.tables import (

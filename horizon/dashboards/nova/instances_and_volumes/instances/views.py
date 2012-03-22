@@ -27,7 +27,7 @@ from django import http
 from django import shortcuts
 from django.core.urlresolvers import reverse
 from django.utils.datastructures import SortedDict
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions

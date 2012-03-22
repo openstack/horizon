@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import timesince, floatformat
 
 from horizon import tables
