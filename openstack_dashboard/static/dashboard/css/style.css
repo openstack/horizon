@@ -920,9 +920,8 @@ iframe {
 }
 
 .error .help-inline {
-	background: #efdfdf;
-	border: 1px solid #ead5d8;
-	padding: 10px;
-	display: block;
-	width: 304px;
+  background: #efdfdf;
+  border: 1px solid #ead5d8;
+  padding: 10px;
+  display: block;
 }
