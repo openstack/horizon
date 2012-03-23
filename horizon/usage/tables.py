@@ -49,7 +49,7 @@ class TenantUsageTable(BaseUsageTable):
                            filters=(timesince,))
 
     def get_object_id(self, datum):
-        return datum['name']
+        return id(datum)
 
     class Meta:
         name = "tenant_usage"
