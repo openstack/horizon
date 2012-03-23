@@ -97,10 +97,8 @@ var Horizon = function() {
                   if(row_count === 0) {
                     colspan = $footer.find('td').attr('colspan');
                     template = horizon.templates.compiled_templates["#empty_row_template"];
-                    console.log(template);
                     params = {"colspan": colspan};
                     empty_row = template.render(params);
-                    console.log(empty_row);
                     $row.replaceWith(empty_row);
                   } else {
                     $row.remove();
