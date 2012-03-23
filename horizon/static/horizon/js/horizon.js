@@ -115,7 +115,11 @@ var Horizon = function() {
             },
             success: function (data, textStatus, jqXHR) {
               var $new_row = $(data);
-              $new_row.find("td.status_unknown").prepend('<i class="icon-updating ajax-updating"></i>');
+              if($new_row.hasClass('status_unknown')) {
+                // only add spinning animation if row needs update
+                var spinner = '<i class="icon-updating ajax-updating"></i>';
+                $new_row.find("td.status_unknown").prepend(spinner);
+              }
               // Only replace row if the html content has changed
               if($new_row.html() != $row.html()) {
                 if($row.find(':checkbox').is(':checked')) {
