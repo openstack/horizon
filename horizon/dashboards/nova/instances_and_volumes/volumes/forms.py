@@ -77,8 +77,8 @@ class AttachForm(forms.SelfHandlingForm):
                               data['device'])
             vol_name = api.volume_get(request, data['volume_id']).displayName
 
-            message = (_('Attaching volume %(vol)s to instance \
-                            %(inst)s at %(dev)s') %
+            message = (_('Attaching volume %(vol)s to instance '
+                         '%(inst)s at %(dev)s') %
                             {"vol": vol_name, "inst": data['instance'],
                             "dev": data['device']})
             LOG.info(message)
