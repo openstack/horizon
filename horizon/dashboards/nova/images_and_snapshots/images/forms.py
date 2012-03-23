@@ -149,8 +149,8 @@ class LaunchForm(forms.SelfHandlingForm):
         volume = cleaned_data.get('volume', None)
 
         if volume and count > 1:
-            msg = _('Cannot launch more than one instance if volume \
-                    is specified.')
+            msg = _('Cannot launch more than one instance if '
+                    'volume is specified.')
             raise ValidationError(msg)
 
         return cleaned_data

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 16:59-0700\n"
+"POT-Creation-Date: 2012-03-23 14:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,8 +138,7 @@ msgstr ""
 #: dashboards/nova/access_and_security/floating_ips/forms.py:91
 #, python-format
 msgid ""
-"Successfully allocated Floating IP \"%(ip)s"
-"\"                                 to project \"%(project)s\""
+"Successfully allocated Floating IP \"%(ip)s\" to project \"%(project)s\""
 msgstr ""
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:95
@@ -704,9 +703,7 @@ msgid "No keypairs available."
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:152
-msgid ""
-"Cannot launch more than one instance if volume                     is "
-"specified."
+msgid "Cannot launch more than one instance if volume is specified."
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:180
@@ -1031,9 +1028,7 @@ msgstr ""
 
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:80
 #, python-format
-msgid ""
-"Attaching volume %(vol)s to instance                             %(inst)s at "
-"%(dev)s"
+msgid "Attaching volume %(vol)s to instance %(inst)s at %(dev)s"
 msgstr ""
 
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:89
