@@ -11,7 +11,7 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import forms
@@ -77,8 +77,8 @@ class AttachForm(forms.SelfHandlingForm):
                               data['device'])
             vol_name = api.volume_get(request, data['volume_id']).displayName
 
-            message = (_('Attaching volume %(vol)s to instance \
-                            %(inst)s at %(dev)s') %
+            message = (_('Attaching volume %(vol)s to instance '
+                         '%(inst)s at %(dev)s') %
                             {"vol": vol_name, "inst": data['instance'],
                             "dev": data['device']})
             LOG.info(message)

@@ -23,7 +23,7 @@ import logging
 
 from django.contrib import messages
 from django import shortcuts
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
@@ -88,8 +88,8 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
                      % (fip.ip, data['tenant_name']))
 
             messages.success(request,
-                             _('Successfully allocated Floating IP "%(ip)s" \
-                                to project "%(project)s"')
+                             _('Successfully allocated Floating IP "%(ip)s" '
+                               'to project "%(project)s"')
                              % {"ip": fip.ip, "project": data['tenant_name']})
         except:
             exceptions.handle(request, _('Unable to allocate Floating IP.'))

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 16:59-0700\n"
+"POT-Creation-Date: 2012-03-23 13:37+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgstr "處理過程中發生無法預期的錯誤。請再嘗試。"
 
 #: templates/_header.html:3
 msgid "Logged in as"
-msgstr ""
+msgstr "目前登入者"
 
 #: templates/_header.html:4
 msgid "Settings"

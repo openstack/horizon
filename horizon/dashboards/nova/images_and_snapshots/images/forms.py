@@ -29,7 +29,7 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.forms import ValidationError
 from django.utils.text import normalize_newlines
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
@@ -149,8 +149,8 @@ class LaunchForm(forms.SelfHandlingForm):
         volume = cleaned_data.get('volume', None)
 
         if volume and count > 1:
-            msg = _('Cannot launch more than one instance if volume \
-                    is specified.')
+            msg = _('Cannot launch more than one instance if '
+                    'volume is specified.')
             raise ValidationError(msg)
 
         return cleaned_data

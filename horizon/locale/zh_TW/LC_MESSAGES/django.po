@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 16:59-0700\n"
+"POT-Creation-Date: 2012-03-23 14:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andy Chong <andycjw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,17 +41,17 @@ msgstr "您的登入時效已逾期。 請重新登入。"
 #: api/keystone.py:53
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
-msgstr ""
+msgstr "%(type)s (%(backend)s 後端)"
 
 #: api/nova.py:182
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr ""
+msgstr "允许 %(from)s:%(to)s 從群組%(group)s的連線"
 
 #: api/nova.py:187
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr ""
+msgstr "允许 %(from)s:%(to)s 從網段%(cidr)s的連線"
 
 #: api/swift.py:114
 msgid "Unicode is not currently supported for object copy."
@@ -101,15 +101,13 @@ msgstr "執行個體ID"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:48
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:67
-#, fuzzy
 msgid "Select an instance"
-msgstr "選擇掛載的執行個體"
+msgstr "選擇一個執行個體"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:50
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:69
-#, fuzzy
 msgid "No instances available"
-msgstr "不存在"
+msgstr "沒有可用的執行個體"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:53
 #: dashboards/nova/access_and_security/floating_ips/tables.py:93
@@ -134,13 +132,12 @@ msgstr "配給浮動IP出現錯誤： %s"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:76
 msgid "Pool"
-msgstr ""
+msgstr "储备池"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:91
 #, python-format
 msgid ""
-"Successfully allocated Floating IP \"%(ip)s"
-"\"                                 to project \"%(project)s\""
+"Successfully allocated Floating IP \"%(ip)s\" to project \"%(project)s\""
 msgstr "已成功將浮動IP\"%(ip)s\"分配到專案\"%(project)s\""
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:95
@@ -372,7 +369,6 @@ msgid "Code"
 msgstr "代號"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:84
-#, fuzzy
 msgid "Source Group"
 msgstr "安全性群組"
 
@@ -400,7 +396,7 @@ msgstr "\"到端口\"必須是大於或等於\"從端口\"的整數"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:126
 msgid "Either CIDR or Source Group may be specified, but not both."
-msgstr ""
+msgstr "只能指定CIDR或安全性群組，不能同時全選。"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:147
 #, python-format
@@ -444,7 +440,7 @@ msgstr "規則"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:96
 msgid "Source"
-msgstr ""
+msgstr "來源"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:106
 msgid "Security Group Rules"
@@ -455,7 +451,6 @@ msgid "Unable to retrieve security group."
 msgstr "無法取得安全性群組"
 
 #: dashboards/nova/access_and_security/security_groups/views.py:64
-#, fuzzy
 msgid "Unable to retrieve security groups."
 msgstr "無法取得安全性群組"
 
@@ -518,7 +513,6 @@ msgid "Containers"
 msgstr "容器"
 
 #: dashboards/nova/containers/tables.py:35
-#, fuzzy
 msgid "Container"
 msgstr "容器"
 
@@ -567,7 +561,6 @@ msgid "Size"
 msgstr "大小"
 
 #: dashboards/nova/containers/tables.py:120
-#, fuzzy
 msgid "Object"
 msgstr "物件"
 
@@ -705,20 +698,16 @@ msgid "Delete volume on instance terminate"
 msgstr "執行個體終止執行時刪除容量"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:135
-#, fuzzy
 msgid "Select a keypair"
-msgstr "選擇專案"
+msgstr "選擇金鑰"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:137
-#, fuzzy
 msgid "No keypairs available."
-msgstr "不存在"
+msgstr "沒有可用的金鑰"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:152
-msgid ""
-"Cannot launch more than one instance if volume                     is "
-"specified."
-msgstr ""
+msgid "Cannot launch more than one instance if volume is specified."
+msgstr "無法以特定容量 啟動一台以上執行個體"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:180
 #, python-format
@@ -783,10 +772,9 @@ msgstr "公開"
 #: dashboards/syspanel/overview/panel.py:28
 #: dashboards/syspanel/templates/syspanel/overview/usage.html:6
 msgid "Overview"
-msgstr "大綱"
+msgstr "總覽"
 
 #: dashboards/nova/images_and_snapshots/images/tabs.py:37
-#, fuzzy
 msgid "Unable to retrieve image details."
 msgstr "無法取得執行個體的詳細資料"
 
@@ -1043,9 +1031,7 @@ msgstr "選擇掛載的執行個體"
 
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:80
 #, python-format
-msgid ""
-"Attaching volume %(vol)s to instance                             %(inst)s at "
-"%(dev)s"
+msgid "Attaching volume %(vol)s to instance %(inst)s at %(dev)s"
 msgstr "正在掛載容量%(vol)s到執行個體%(inst)s的%(dev)s"
 
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:89
@@ -1108,9 +1094,8 @@ msgid "Detached"
 msgstr "已卸載"
 
 #: dashboards/nova/instances_and_volumes/volumes/tabs.py:40
-#, fuzzy
 msgid "Unable to retrieve volume details."
-msgstr "無法取得空間快照"
+msgstr "無法取得容量快照"
 
 #: dashboards/nova/instances_and_volumes/volumes/views.py:71
 #: dashboards/nova/instances_and_volumes/volumes/views.py:81
@@ -1267,14 +1252,13 @@ msgstr "映像 &amp; 快照"
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:3
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:3
 msgid "Instance Overview"
-msgstr "執行個體大綱"
+msgstr "執行個體總覽"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:6
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:6
-#, fuzzy
 msgid "Info"
-msgstr "資訊： "
+msgstr "資訊"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:10
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:10
@@ -1286,20 +1270,17 @@ msgid "ID"
 msgstr "ID"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:20
-#, fuzzy
 msgid "Checksum"
-msgstr "校驗碼："
+msgstr "校驗碼"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:21
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:30
-#, fuzzy
 msgid "Created"
-msgstr "建立於："
+msgstr "建立於"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:22
-#, fuzzy
 msgid "Updated"
-msgstr "更新"
+msgstr "更新於"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:27
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:23
@@ -1312,9 +1293,8 @@ msgid "Custom Properties"
 msgstr "專門屬性"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:50
-#, fuzzy
 msgid "Euca2ools state"
-msgstr "Euca2ools狀態："
+msgstr "Euca2ools狀態"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:53
 #: usage/tables.py:28
@@ -1322,9 +1302,8 @@ msgid "Project ID"
 msgstr "專案ID"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:56
-#, fuzzy
 msgid "Image Type"
-msgstr "映像類型："
+msgstr "映像類型"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:9
 msgid "Launch Instances"
@@ -1419,7 +1398,7 @@ msgstr "IP位址"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:57
 msgid "No rules defined."
-msgstr ""
+msgstr "沒有規則被制定"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:66
 msgid "Meta"
@@ -1454,9 +1433,8 @@ msgid "Update Instance"
 msgstr "更新執行個體"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/detail.html:3
-#, fuzzy
 msgid "Instance Detail"
-msgstr "執行個體ID"
+msgstr "執行個體詳述"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_attach.html:9
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/attach.html:6
@@ -1483,21 +1461,18 @@ msgid "Create Volume Snapshot"
 msgstr "建立容量快照"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:3
-#, fuzzy
 msgid "Volume Overview"
-msgstr "大綱"
+msgstr "容量總覽"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:40
-#, fuzzy
 msgid "Attached To"
-msgstr "掛載到："
+msgstr "掛載到"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:43
 msgid "on"
 msgstr "在"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:46
-#, fuzzy
 msgid "Not attached"
 msgstr "沒有掛載"
 
@@ -1510,14 +1485,12 @@ msgid "Create a Volume Snapshot"
 msgstr "建立容量快照"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/detail.html:3
-#, fuzzy
 msgid "Volume Details"
-msgstr "容量ID"
+msgstr "容量詳述"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/detail.html:6
-#, fuzzy
 msgid "Volume Detail"
-msgstr "容量ID"
+msgstr "容量詳述"
 
 #: dashboards/nova/templates/nova/objects/_copy.html:7
 #: dashboards/nova/templates/nova/objects/_copy.html:22
@@ -1533,9 +1506,8 @@ msgid ""
 msgstr "您可以複製一份已存在的物件，儲存到這個或其它的容器。"
 
 #: dashboards/nova/templates/nova/objects/_upload.html:8
-#, fuzzy
 msgid "Upload Object To Container"
-msgstr "上傳物件"
+msgstr "上傳物件到容器"
 
 #: dashboards/nova/templates/nova/objects/_upload.html:18
 msgid ""
@@ -1595,13 +1567,12 @@ msgid "Download EC2 Credentials"
 msgstr "下載EC2憑證資料"
 
 #: dashboards/settings/templates/settings/ec2/download_form.html:18
-#, fuzzy
 msgid ""
 "Clicking \"Download EC2 Credentials\" will download a zip file which "
 "includes an rc file with your access/secret keys, as well as your x509 "
 "private key and certificate."
 msgstr ""
-"點擊\"下載x509認證憑據資料\"會下載一個壓縮檔，裡面含有您的x509私鑰和憑證"
+"點擊\"下載EC2認證憑據資料\"會下載一個壓縮檔，裡面含有您的x509私鑰和憑證"
 
 #: dashboards/settings/templates/settings/project/_openrc.html:8
 #: dashboards/settings/templates/settings/project/settings.html:6
@@ -1647,7 +1618,7 @@ msgstr "使用者設定"
 
 #: dashboards/syspanel/dashboard.py:23
 msgid "Admin"
-msgstr ""
+msgstr "管理者"
 
 #: dashboards/syspanel/dashboard.py:25
 msgid "System Panel"
@@ -1723,9 +1694,8 @@ msgid "Host"
 msgstr "主機"
 
 #: dashboards/syspanel/instances/views.py:62
-#, fuzzy
 msgid "Unable to retrieve instance tenant information."
-msgstr "無法取得執行個體大小資訊"
+msgstr "無法取得執行個體的專案資訊"
 
 #: dashboards/syspanel/projects/forms.py:38
 msgid "Role"
@@ -1913,7 +1883,7 @@ msgstr "所有執行個體"
 
 #: dashboards/syspanel/templates/syspanel/overview/usage.html:3
 msgid "Usage Overview"
-msgstr "使用量大綱"
+msgstr "使用量總覽"
 
 #: dashboards/syspanel/templates/syspanel/overview/usage.html:12
 msgid "Monitoring"
@@ -1967,7 +1937,7 @@ msgstr "您可以在這編輯專案"
 
 #: dashboards/syspanel/templates/syspanel/projects/usage.html:3
 msgid "Project Usage Overview"
-msgstr "專案使用量大綱"
+msgstr "專案使用量總覽"
 
 #: dashboards/syspanel/templates/syspanel/projects/usage.html:7
 msgid "Project Usage"
@@ -2010,7 +1980,7 @@ msgstr "選擇專案"
 
 #: dashboards/syspanel/users/forms.py:58
 msgid "Passwords do not match."
-msgstr ""
+msgstr "密碼不符"
 
 #: dashboards/syspanel/users/forms.py:64
 #: dashboards/syspanel/users/forms.py:107
@@ -2025,9 +1995,8 @@ msgstr "密碼"
 
 #: dashboards/syspanel/users/forms.py:71
 #: dashboards/syspanel/users/forms.py:112
-#, fuzzy
 msgid "Confirm Password"
-msgstr "密碼"
+msgstr "密碼確認"
 
 #: dashboards/syspanel/users/forms.py:74
 #: dashboards/syspanel/users/forms.py:114
@@ -2139,7 +2108,7 @@ msgstr "無法更新使用者。"
 
 #: tables/actions.py:294
 msgid "Filter"
-msgstr ""
+msgstr "搜尋"
 
 #: tables/actions.py:456
 #, python-format
@@ -2214,8 +2183,8 @@ msgstr "登入"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "正顯示%(counter)s個項目"
+msgstr[1] "正顯示%(counter)s個項目"
 
 #: templates/horizon/common/_sidebar.html:4
 msgid "OpenStack Dashboard"
@@ -2227,7 +2196,7 @@ msgstr "請選擇一個月份以查詢使用量"
 
 #: templates/horizon/common/_usage_summary.html:9
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
@@ -2249,8 +2218,8 @@ msgstr "本月的GB-時數"
 #, python-format
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(size)d 位元組"
+msgstr[1] "%(size)d 位元組"
 
 #: templatetags/sizeformat.py:49
 #, python-format
@@ -2364,9 +2333,8 @@ msgid "Region"
 msgstr "區域"
 
 #: views/auth_forms.py:97
-#, fuzzy
 msgid "Unable to authenticate for that project."
-msgstr "無法認證租戶"
+msgstr "無法認證到專案權限"
 
 #: views/auth_forms.py:114
 msgid "Invalid user name or password."
@@ -2374,17 +2342,15 @@ msgstr "不合法的使用者名稱或密碼"
 
 #: views/auth_forms.py:121
 msgid "An error occurred authenticating. Please try again later."
-msgstr ""
+msgstr "發生認證錯誤。 請稍候再試"
 
 #: views/auth_forms.py:140
-#, fuzzy
 msgid "You are not authorized for any projects."
-msgstr "您沒有該租戶的權限。"
+msgstr "您沒有任何專案的權限。"
 
 #: views/auth_forms.py:164
-#, fuzzy
 msgid "You are not authorized for any available projects."
-msgstr "您沒有任何租戶的權限。"
+msgstr "您沒有任何現有專案的權限。"
 
 #~ msgid "IP protocol"
 #~ msgstr "IP協定"
@@ -2428,11 +2394,9 @@ msgstr "您沒有任何租戶的權限。"
 #~ msgid "Project ID:"
 #~ msgstr "專案ID："
 
-#, fuzzy
 #~ msgid "Volume Name:"
 #~ msgstr "映像名稱："
 
-#, fuzzy
 #~ msgid "Created at:"
 #~ msgstr "建立時間："
 

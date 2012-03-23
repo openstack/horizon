@@ -25,7 +25,7 @@ Views for managing Images and Snapshots.
 
 import logging
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
