@@ -306,21 +306,36 @@ class Row(html.HTMLElement):
     ajax = False
     ajax_action_name = "row_update"
 
-    def __init__(self, table, datum):
+    def __init__(self, table, datum=None):
         super(Row, self).__init__()
         self.table = table
         self.datum = datum
-        id_vals = {"table": self.table.name,
-                   "sep": STRING_SEPARATOR,
-                   "id": table.get_object_id(datum)}
-        self.id = "%(table)s%(sep)srow%(sep)s%(id)s" % id_vals
-        if self.ajax:
-            interval = settings.HORIZON_CONFIG.get('ajax_poll_interval', 2500)
-            self.attrs['data-update-interval'] = interval
-            self.attrs['data-update-url'] = self.get_ajax_update_url()
-            self.classes.append("ajax-update")
+        if self.datum:
+            self.load_cells()
+        else:
+            self.id = None
+            self.cells = []
 
+    def load_cells(self, datum=None):
+        """
+        Load the row's data (either provided at initialization or as an
+        argument to this function), initiailize all the cells contained
+        by this row, and set the appropriate row properties which require
+        the row's data to be determined.
+
+        This function is called automatically by
+        :meth:`~horizon.tables.Row.__init__` if the ``datum`` argument is
+        provided. However, by not providing the data during initialization
+        this function allows for the possibility of a two-step loading
+        pattern when you need a row instance but don't yet have the data
+        available.
+        """
         # Compile all the cells on instantiation.
+        table = self.table
+        if datum:
+            self.datum = datum
+        else:
+            datum = self.datum
         cells = []
         for column in table.columns.values():
             if column.auto == "multi_select":
@@ -338,8 +353,18 @@ class Row(html.HTMLElement):
             cells.append((column.name or column.auto, cell))
         self.cells = SortedDict(cells)
 
+        if self.ajax:
+            interval = settings.HORIZON_CONFIG.get('ajax_poll_interval', 2500)
+            self.attrs['data-update-interval'] = interval
+            self.attrs['data-update-url'] = self.get_ajax_update_url()
+            self.classes.append("ajax-update")
+
         # Add the row's status class and id to the attributes to be rendered.
         self.classes.append(self.status_class)
+        id_vals = {"table": self.table.name,
+                   "sep": STRING_SEPARATOR,
+                   "id": table.get_object_id(datum)}
+        self.id = "%(table)s%(sep)srow%(sep)s%(id)s" % id_vals
         self.attrs['id'] = self.id
 
     def __repr__(self):
@@ -379,14 +404,13 @@ class Row(html.HTMLElement):
                             "obj_id": self.table.get_object_id(self.datum)})
         return "%s?%s" % (table_url, params)
 
-    @classmethod
-    def get_data(cls, request, obj_id):
+    def get_data(self, request, obj_id):
         """
         Fetches the updated data for the row based on the object id
         passed in. Must be implemented by a subclass to allow AJAX updating.
         """
         raise NotImplementedError("You must define a get_data method on %s"
-                                  % cls.__name__)
+                                  % self.__class__.__name__)
 
 
 class Cell(html.HTMLElement):
@@ -756,7 +780,7 @@ class DataTable(object):
 
         For convenience it defaults to the value of
         ``request.get_full_path()`` with any query string stripped off,
-         e.g. the path at which the table was requested.
+        e.g. the path at which the table was requested.
         """
         return self._meta.request.get_full_path().partition('?')[0]
 
@@ -833,7 +857,8 @@ class DataTable(object):
         context = template.RequestContext(self._meta.request, extra_context)
         return row_actions_template.render(context)
 
-    def parse_action(self, action_string):
+    @staticmethod
+    def parse_action(action_string):
         """
         Parses the ``action`` parameter (a string) sent back with the
         POST data. By default this parses a string formatted as
@@ -885,12 +910,11 @@ class DataTable(object):
                           _("Please select a row before taking that action."))
         return None
 
-    def _check_handler(self):
+    @classmethod
+    def check_handler(cls, request):
         """ Determine whether the request should be handled by this table. """
-        request = self._meta.request
-
         if request.method == "POST" and "action" in request.POST:
-            table, action, obj_id = self.parse_action(request.POST["action"])
+            table, action, obj_id = cls.parse_action(request.POST["action"])
         elif "table" in request.GET and "action" in request.GET:
             table = request.GET["table"]
             action = request.GET["action"]
@@ -904,22 +928,23 @@ class DataTable(object):
         Determine whether the request should be handled by a preemptive action
         on this table or by an AJAX row update before loading any data.
         """
-        table_name, action_name, obj_id = self._check_handler()
+        request = self._meta.request
+        table_name, action_name, obj_id = self.check_handler(request)
 
         if table_name == self.name:
             # Handle AJAX row updating.
-            row_class = self._meta.row_class
-            if row_class.ajax and row_class.ajax_action_name == action_name:
+            new_row = self._meta.row_class(self)
+            if new_row.ajax and new_row.ajax_action_name == action_name:
                 try:
-                    datum = row_class.get_data(self._meta.request, obj_id)
+                    datum = new_row.get_data(request, obj_id)
+                    new_row.load_cells(datum)
                     error = False
                 except:
                     datum = None
-                    error = exceptions.handle(self._meta.request, ignore=True)
-                if self._meta.request.is_ajax():
+                    error = exceptions.handle(request, ignore=True)
+                if request.is_ajax():
                     if not error:
-                        row = row_class(self, datum)
-                        return HttpResponse(row.render())
+                        return HttpResponse(new_row.render())
                     else:
                         return HttpResponse(status=error.status_code)
 
@@ -938,7 +963,8 @@ class DataTable(object):
         Determine whether the request should be handled by any action on this
         table after data has been loaded.
         """
-        table_name, action_name, obj_id = self._check_handler()
+        request = self._meta.request
+        table_name, action_name, obj_id = self.check_handler(request)
         if table_name == self.name and action_name:
             return self.take_action(action_name, obj_id)
         return None

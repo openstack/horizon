@@ -14,5 +14,5 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from .base import TabGroup, Tab
-from .views import TabView
+from .base import TabGroup, Tab, TableTab
+from .views import TabView, TabbedTableView

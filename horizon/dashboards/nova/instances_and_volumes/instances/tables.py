@@ -179,8 +179,7 @@ class LogLink(tables.LinkAction):
 class UpdateRow(tables.Row):
     ajax = True
 
-    @classmethod
-    def get_data(cls, request, instance_id):
+    def get_data(self, request, instance_id):
         instance = api.server_get(request, instance_id)
         flavors = api.flavor_list(request)
         keyed_flavors = [(str(flavor.id), flavor) for flavor in flavors]
