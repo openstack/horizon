@@ -18,4 +18,4 @@
 from .actions import (Action, BatchAction, DeleteAction,
                       LinkAction, FilterAction)
 from .base import DataTable, Column, Row
-from .views import DataTableView, MultiTableView
+from .views import DataTableView, MultiTableView, MultiTableMixin

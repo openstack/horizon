@@ -2,6 +2,8 @@ from django import http
 from django.views import generic
 
 from horizon import exceptions
+from horizon import tables
+from .base import TableTab
 
 
 class TabView(generic.TemplateView):
@@ -17,29 +19,44 @@ class TabView(generic.TemplateView):
         inherits from :class:`horizon.tabs.TabGroup`.
     """
     tab_group_class = None
+    _tab_group = None
 
     def __init__(self):
         if not self.tab_group_class:
             raise AttributeError("You must set the tab_group_class attribute "
                                  "on %s." % self.__class__.__name__)
 
-    def get_tabs(self, request, *args, **kwargs):
-        return self.tab_group_class(request, **kwargs)
+    def get_tabs(self, request, **kwargs):
+        """ Returns the initialized tab group for this view. """
+        if self._tab_group is None:
+            self._tab_group = self.tab_group_class(request, **kwargs)
+        return self._tab_group
 
-    def get(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        """ Adds the ``tab_group`` variable to the context data. """
+        context = super(TabView, self).get_context_data(**kwargs)
         try:
-            tab_group = self.get_tabs(request, *args, **kwargs)
+            tab_group = self.get_tabs(self.request, **kwargs)
             context["tab_group"] = tab_group
         except:
-            exceptions.handle(request)
+            exceptions.handle(self.request)
+        return context
 
-        if request.is_ajax():
+    def handle_tabbed_response(self, tab_group, context):
+        """
+        Sends back an AJAX-appropriate response for the tab group if
+        required, otherwise renders the response as normal.
+        """
+        if self.request.is_ajax():
             if tab_group.selected:
                 return http.HttpResponse(tab_group.selected.render())
             else:
                 return http.HttpResponse(tab_group.render())
         return self.render_to_response(context)
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.handle_tabbed_response(context["tab_group"], context)
 
     def render_to_response(self, *args, **kwargs):
         response = super(TabView, self).render_to_response(*args, **kwargs)
@@ -50,3 +67,79 @@ class TabView(generic.TemplateView):
         # of the exception-handling middleware.
         response.render()
         return response
+
+
+class TabbedTableView(tables.MultiTableMixin, TabView):
+    def __init__(self, *args, **kwargs):
+        super(TabbedTableView, self).__init__(*args, **kwargs)
+        self.table_classes = []
+        self._table_dict = {}
+
+    def load_tabs(self):
+        """
+        Loads the tab group, and compiles the table instances for each
+        table attached to any :class:`horizon.tabs.TableTab` instances on
+        the tab group. This step is necessary before processing any
+        tab or table actions.
+        """
+        tab_group = self.get_tabs(self.request, **self.kwargs)
+        tabs = tab_group.get_tabs()
+        for tab in [t for t in tabs if issubclass(t.__class__, TableTab)]:
+            self.table_classes.extend(tab.table_classes)
+            for table in tab._tables.values():
+                self._table_dict[table._meta.name] = {'table': table,
+                                                      'tab': tab}
+
+    def get_tables(self):
+        """ A no-op on this class. Tables are handled at the tab level. """
+        # Override the base class implementation so that the MultiTableMixin
+        # doesn't freak out. We do the processing at the TableTab level.
+        return {}
+
+    def handle_table(self, table_dict):
+        """
+        For the given dict containing a ``DataTable`` and a ``TableTab``
+        instance, it loads the table data for that tab and calls the
+        table's :meth:`~horizon.tables.DataTable.maybe_handle` method. The
+        return value will be the result of ``maybe_handle``.
+        """
+        table = table_dict['table']
+        tab = table_dict['tab']
+        tab.load_table_data()
+        table_name = table._meta.name
+        tab._tables[table_name]._meta.has_more_data = self.has_more_data(table)
+        handled = tab._tables[table_name].maybe_handle()
+        return handled
+
+    def get_context_data(self, **kwargs):
+        """ Adds the ``tab_group`` variable to the context data. """
+        context = super(TabbedTableView, self).get_context_data(**kwargs)
+        context['tab_group'].load_tab_data()
+        return context
+
+    def get(self, request, *args, **kwargs):
+        self.load_tabs()
+        # Gather our table instances. It's important that they're the
+        # actual instances and not the classes!
+        table_instances = [t['table'] for t in self._table_dict.values()]
+        # Early out before any tab or table data is loaded
+        for table in table_instances:
+            preempted = table.maybe_preempt()
+            if preempted:
+                return preempted
+
+        # If we have an action, determine if it belongs to one of our tables.
+        # We don't iterate through all of the tables' maybes_handle
+        # methods; just jump to the one that's got the matching name.
+        table_name, action, obj_id = tables.DataTable.check_handler(request)
+        if table_name in self._table_dict:
+            handled = self.handle_table(self._table_dict[table_name])
+            if handled:
+                return handled
+
+        context = self.get_context_data(**kwargs)
+        return self.handle_tabbed_response(context["tab_group"], context)
+
+    def post(self, request, *args, **kwargs):
+        # GET and POST handling are the same
+        return self.get(request, *args, **kwargs)
