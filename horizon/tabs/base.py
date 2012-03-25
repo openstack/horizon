@@ -89,6 +89,7 @@ class TabGroup(html.HTMLElement):
                                       % self.__class__)
         self.request = request
         self.kwargs = kwargs
+        self._data = None
         tab_instances = []
         for tab in self.tabs:
             tab_instances.append((tab.slug, tab(self, request)))
@@ -105,7 +106,11 @@ class TabGroup(html.HTMLElement):
         """
         for tab in self._tabs.values():
             if tab.load and not tab.data_loaded:
-                tab._data = tab.get_context_data(self.request)
+                try:
+                    tab._data = tab.get_context_data(self.request)
+                except:
+                    tab._data = False
+                    exceptions.handle(self.request)
 
     def get_id(self):
         """
@@ -262,7 +267,7 @@ class Tab(html.HTMLElement):
 
     @property
     def data(self):
-        if not getattr(self, "_data", None):
+        if getattr(self, "_data", None) is None:
             self._data = self.get_context_data(self.request)
         return self._data
 
