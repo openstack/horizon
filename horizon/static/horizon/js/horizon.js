@@ -127,11 +127,11 @@ var Horizon = function() {
                   $new_row.find(':checkbox').prop('checked', true);
                 }
                 $row.replaceWith($new_row);
+                // Reset decay constant.
+                $table.removeAttr('decay_constant');
               }
             },
             complete: function (jqXHR, textStatus) {
-              // Reset decay constant.
-              $table.removeAttr('decay_constant');
               // Revalidate the button check for the updated table
               horizon.datatables.validate_button();
             }
