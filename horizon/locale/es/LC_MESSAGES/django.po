@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-24 18:19-0700\n"
+"POT-Creation-Date: 2012-03-25 13:51-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2121,20 +2121,20 @@ msgstr ""
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:650
+#: tables/base.py:651
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:789
+#: tables/base.py:796
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:806
+#: tables/base.py:813
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:910
+#: tables/base.py:917
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -2154,11 +2154,15 @@ msgstr ""
 msgid "Error: "
 msgstr ""
 
-#: templates/horizon/auth/_login.html:4 templates/horizon/auth/_login.html:18
+#: templates/horizon/auth/_login.html:4
 msgid "Log In"
 msgstr ""
 
-#: templates/horizon/auth/_switch.html:23 templates/horizon/auth/login.html:4
+#: templates/horizon/auth/_login.html:18
+msgid "Sign In"
+msgstr ""
+
+#: templates/horizon/auth/login.html:4
 msgid "Login"
 msgstr ""
 
@@ -2263,24 +2267,28 @@ msgstr ""
 msgid "Upped"
 msgstr ""
 
-#: tests/tabs_tests.py:33
+#: tests/tabs_tests.py:36
 msgid "Tab One"
 msgstr ""
 
-#: tests/tabs_tests.py:39
+#: tests/tabs_tests.py:42
 msgid "Delayed Tab"
 msgstr ""
 
-#: tests/tabs_tests.py:46
+#: tests/tabs_tests.py:49
 msgid "Disabled Tab"
 msgstr ""
 
-#: tests/tabs_tests.py:55
+#: tests/tabs_tests.py:58
 msgid "Disallowed Tab"
 msgstr ""
 
-#: tests/tabs_tests.py:72
+#: tests/tabs_tests.py:75
 msgid "Tab With My Table"
+msgstr ""
+
+#: tests/tabs_tests.py:84
+msgid "Recoverable Error Tab"
 msgstr ""
 
 #: tests/testsettings.py:86

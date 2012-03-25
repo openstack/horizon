@@ -94,16 +94,36 @@ body {
 
 /* Login Splash Page */
 
-#splash{
+#splash {
   background: #fafafa;
 }
 
-#splash .modal {
+#splash .login {
   background: #fff url(../img/logo.png) no-repeat center 35px;
-  width: 390px;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  margin: 0 0 0 -195px;
   padding-top: 170px;
+  width: 390px;
   border: 1px solid #e1e1e1;
-  margin-left: -195px;  /*accounts for splash's non-standard width */
+  max-height: none;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+#splash .login input {
+  width: 350px;
+}
+#splash .login select {
+  width: 360px;
 }
 
 #splash .help-block {
@@ -340,6 +360,7 @@ table form {
 }
 
 .modal > form,
+.login > form,
 .alert-actions > form {
     margin-bottom: 0;
 }
@@ -478,7 +499,7 @@ td .icon-updating.ajax-updating {
 
 /* Forms */
 
-.modal label {
+form label {
     text-align: left;
     color: #555;
     font-weight: bold;
@@ -492,27 +513,27 @@ td .icon-updating.ajax-updating {
     position: absolute;
 }
 
-.modal form.horizontal .form-field {
+form.horizontal .form-field {
     float: left;
   }
 
-.modal form.horizontal.split_half .form-field {
+form.horizontal.split_half .form-field {
     width: 334px; /* Fits 2 fields to a row */
 }
 
-.modal form.horizontal.split_quarter .form-field {
+form.horizontal.split_quarter .form-field {
     width: 167px; /* Fits 4 fields to a row */
 }
 
-.modal form.horizontal.split_five .form-field {
+form.horizontal.split_five .form-field {
     width: 133px; /* Fits 5 fields to a row */
 }
 
-.modal form.horizontal fieldset {
+form.horizontal fieldset {
     width: 100%;
 }
 
-.modal table {
+.modal-body table {
   margin-bottom: 30px;
 }
 
@@ -520,14 +541,17 @@ td .icon-updating.ajax-updating {
   margin-bottom: 0;
 }
 
-.modal.static_page {
-  position: relative;
-  left: 280px;
-  top: 10px;
+.static_page {
   float: left;
+  width: 700px;
+  background-color: #FFF;
+  border: 1px solid #DDD;
+}
+.static_page > form {
+  margin-bottom: 0;
 }
 
-.modal .left {
+.left {
     float: left;
     width: 347px;
     margin-right: 15px;
@@ -537,7 +561,7 @@ td .icon-updating.ajax-updating {
   margin: 0;
 }
 
-.modal .right {
+.right {
     float: left;
     width: 308px;
 }
@@ -550,27 +574,27 @@ td .icon-updating.ajax-updating {
     margin: 0;
 }
 
-.modal fieldset {
+.modal-body fieldset {
     margin: 0;
     padding: 0;
     width: 372px;
 }
 
-.modal fieldset ul {
+.modal-body fieldset ul {
     width: 90%;
 }
 
-.modal fieldset .form-field input,
-.modal fieldset .form-field select,
-.modal fieldset .form-field textarea {
+.modal-body fieldset .form-field input,
+.modal-body fieldset .form-field select,
+.modal-body fieldset .form-field textarea {
   width: 90%;
 }
 
-.modal .modal-footer input {
+.modal-footer input {
     width: auto;
 }
 
-.modal .modal-body .modal-footer {
+.modal-body .modal-footer {
     width: 670px;
     margin-left: -25px;
     margin-right: -15px;
@@ -593,7 +617,7 @@ td .icon-updating.ajax-updating {
     text-decoration: underline;
 }
 
-.modal .help-block {
+.modal-body .help-block {
     text-align: left;
     float: left;
     width: 100%;
