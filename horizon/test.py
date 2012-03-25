@@ -49,6 +49,12 @@ wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
 
 
 class RequestFactoryWithMessages(RequestFactory):
+    def get(self, *args, **kwargs):
+        req = super(RequestFactoryWithMessages, self).get(*args, **kwargs)
+        req.session = []
+        req._messages = default_storage(req)
+        return req
+
     def post(self, *args, **kwargs):
         req = super(RequestFactoryWithMessages, self).post(*args, **kwargs)
         req.session = []
@@ -173,8 +179,13 @@ class TestCase(django_test.TestCase):
             if 'messages' in self.client.cookies:
                 message_cookie = self.client.cookies['messages'].value
                 messages = storage._decode(message_cookie)
-        elif "messages" in response.context:
+        # Check for messages in the context
+        elif hasattr(response, "context") and  "messages" in response.context:
             messages = response.context["messages"]
+        # Check for messages attached to the request on a TemplateResponse
+        elif hasattr(response, "_request") and hasattr(response._request,
+                                                       "_messages"):
+            messages = response._request._messages._queued_messages
 
         # If we don't have messages and we don't expect messages, we're done.
         if not any(kwargs.values()) and not messages:

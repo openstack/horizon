@@ -38,6 +38,8 @@ class TabView(generic.TemplateView):
         try:
             tab_group = self.get_tabs(self.request, **kwargs)
             context["tab_group"] = tab_group
+            # Make sure our data is pre-loaded to capture errors.
+            context["tab_group"].load_tab_data()
         except:
             exceptions.handle(self.request)
         return context
@@ -110,12 +112,6 @@ class TabbedTableView(tables.MultiTableMixin, TabView):
         tab._tables[table_name]._meta.has_more_data = self.has_more_data(table)
         handled = tab._tables[table_name].maybe_handle()
         return handled
-
-    def get_context_data(self, **kwargs):
-        """ Adds the ``tab_group`` variable to the context data. """
-        context = super(TabbedTableView, self).get_context_data(**kwargs)
-        context['tab_group'].load_tab_data()
-        return context
 
     def get(self, request, *args, **kwargs):
         self.load_tabs()
