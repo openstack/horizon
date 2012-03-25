@@ -54,6 +54,10 @@ horizon.addInitFunction(function() {
 
   $(document).on('submit', '.modal:not(.static_page) form', function (evt) {
     var $form = $(this);
+    if ($form.attr("enctype") === "multipart/form-data") {
+      // AJAX-upload for files is not currently supported.
+      return;
+    }
     evt.preventDefault();
     $.ajax({
       type: "POST",
