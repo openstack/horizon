@@ -17,20 +17,10 @@
 from django.views import generic
 
 
-class MultiTableView(generic.TemplateView):
-    """
-    A class-based generic view to handle the display and processing of
-    multiple :class:`~horizon.tables.DataTable` classes in a single view.
-
-    Three steps are required to use this view: set the ``table_classes``
-    attribute with a tuple of the desired
-    :class:`~horizon.tables.DataTable` classes;
-    define a ``get_{{ table_name }}_data`` method for each table class
-    which returns a set of data for that table; and specify a template for
-    the ``template_name`` attribute.
-    """
+class MultiTableMixin(object):
+    """ A generic mixin which provides methods for handling DataTables. """
     def __init__(self, *args, **kwargs):
-        super(MultiTableView, self).__init__(*args, **kwargs)
+        super(MultiTableMixin, self).__init__(*args, **kwargs)
         self.table_classes = getattr(self, "table_classes", [])
         self._data = {}
         self._tables = {}
@@ -64,18 +54,36 @@ class MultiTableView(generic.TemplateView):
         return self._tables
 
     def get_context_data(self, **kwargs):
-        context = super(MultiTableView, self).get_context_data(**kwargs)
+        context = super(MultiTableMixin, self).get_context_data(**kwargs)
         tables = self.get_tables()
         for name, table in tables.items():
-            if table.data is None:
-                raise AttributeError('%s has no data associated with it.'
-                                     % table.__class__.__name__)
             context["%s_table" % name] = table
         return context
 
     def has_more_data(self, table):
         return False
 
+    def handle_table(self, table):
+        name = table.name
+        data = self._get_data_dict()
+        self._tables[name].data = data[table._meta.name]
+        self._tables[name]._meta.has_more_data = self.has_more_data(table)
+        handled = self._tables[name].maybe_handle()
+        return handled
+
+
+class MultiTableView(MultiTableMixin, generic.TemplateView):
+    """
+    A class-based generic view to handle the display and processing of
+    multiple :class:`~horizon.tables.DataTable` classes in a single view.
+
+    Three steps are required to use this view: set the ``table_classes``
+    attribute with a tuple of the desired
+    :class:`~horizon.tables.DataTable` classes;
+    define a ``get_{{ table_name }}_data`` method for each table class
+    which returns a set of data for that table; and specify a template for
+    the ``template_name`` attribute.
+    """
     def construct_tables(self):
         tables = self.get_tables().values()
         # Early out before data is loaded
@@ -84,14 +92,11 @@ class MultiTableView(generic.TemplateView):
             if preempted:
                 return preempted
         # Load data into each table and check for action handlers
-        data = self._get_data_dict()
         for table in tables:
-            name = table.name
-            self._tables[name].data = data[table._meta.name]
-            self._tables[name]._meta.has_more_data = self.has_more_data(table)
-            handled = self._tables[name].maybe_handle()
+            handled = self.handle_table(table)
             if handled:
                 return handled
+
         # If we didn't already return a response, returning None continues
         # with the view as normal.
         return None

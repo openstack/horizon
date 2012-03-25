@@ -74,8 +74,7 @@ class CreateSnapshot(tables.LinkAction):
 class UpdateRow(tables.Row):
     ajax = True
 
-    @classmethod
-    def get_data(cls, request, volume_id):
+    def get_data(self, request, volume_id):
         volume = api.volume_get(request, volume_id)
         return volume
 

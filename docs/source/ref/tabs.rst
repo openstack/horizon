@@ -27,6 +27,11 @@ view of data.
 .. autoclass:: Tab
     :members:
 
+.. autoclass:: TableTab
+    :members:
+
+
+
 TabView
 =======
 
@@ -34,4 +39,7 @@ There is also a useful and simple generic class-based view for handling
 the display of a :class:`~horizon.tabs.TabGroup` class.
 
 .. autoclass:: TabView
+    :members:
+
+.. autoclass:: TabbedTableView
     :members:

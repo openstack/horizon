@@ -95,13 +95,17 @@ class TabGroup(html.HTMLElement):
         self._tabs = SortedDict(tab_instances)
         if not self._set_active_tab():
             self.tabs_not_available()
-        # Preload all data that will be loaded to allow errors to be displayed
-        for tab in self._tabs.values():
-            if tab.load:
-                tab._context_data = tab.get_context_data(request)
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
+
+    def load_tab_data(self):
+        """
+        Preload all data that for the tabs that will be displayed.
+        """
+        for tab in self._tabs.values():
+            if tab.load and not tab.data_loaded:
+                tab._data = tab.get_context_data(self.request)
 
     def get_id(self):
         """
@@ -170,6 +174,9 @@ class TabGroup(html.HTMLElement):
         if tab and tab._allowed and (tab._enabled or allow_disabled):
             return tab
         return None
+
+    def get_loaded_tabs(self):
+        return filter(lambda t: self.get_tab(t.slug), self._tabs.values())
 
     def get_selected_tab(self):
         """ Returns the tab specific by the GET request parameter.
@@ -254,15 +261,20 @@ class Tab(html.HTMLElement):
         return load_preloaded and self._allowed and self._enabled
 
     @property
-    def context_data(self):
-        if not getattr(self, "_context_data", None):
-            self._context_data = self.get_context_data(self.request)
-        return self._context_data
+    def data(self):
+        if not getattr(self, "_data", None):
+            self._data = self.get_context_data(self.request)
+        return self._data
+
+    @property
+    def data_loaded(self):
+        return getattr(self, "_data", None) is not None
 
     def render(self):
         """
-        Renders the tab to HTML using the :meth:`~horizon.tabs.Tab.get_data`
-        method and the :meth:`~horizon.tabs.Tab.get_template_name` method.
+        Renders the tab to HTML using the
+        :meth:`~horizon.tabs.Tab.get_context_data` method and
+        the :meth:`~horizon.tabs.Tab.get_template_name` method.
 
         If :attr:`~horizon.tabs.Tab.preload` is ``False`` and ``force_load``
         is not ``True``, or
@@ -273,7 +285,7 @@ class Tab(html.HTMLElement):
         if not self.load:
             return ''
         try:
-            context = self.context_data
+            context = self.data
         except exceptions.Http302:
             raise
         except:
@@ -350,3 +362,76 @@ class Tab(html.HTMLElement):
         The default behavior is to return ``True`` for all cases.
         """
         return True
+
+
+class TableTab(Tab):
+    """
+    A :class:`~horizon.tabs.Tab` class which knows how to deal with
+    :class:`~horizon.tables.DataTable` classes rendered inside of it.
+
+    This distinct class is required due to the complexity involved in handling
+    both dynamic tab loading, dynamic table updating and table actions all
+    within one view.
+
+    .. attribute:: table_classes
+
+        An iterable containing the :class:`~horizon.tables.DataTable` classes
+        which this tab will contain. Equivalent to the
+        :attr:`~horizon.tables.MultiTableView.table_classes` attribute on
+        :class:`~horizon.tables.MultiTableView`. For each table class you
+        need to define a corresponding ``get_{{ table_name }}_data`` method
+        as with :class:`~horizon.tables.MultiTableView`.
+    """
+    table_classes = None
+
+    def __init__(self, tab_group, request):
+        super(TableTab, self).__init__(tab_group, request)
+        if not self.table_classes:
+            class_name = self.__class__.__name__
+            raise NotImplementedError("You must define a table_class "
+                                      "attribute on %s" % class_name)
+        # Instantiate our table classes but don't assign data yet
+        table_instances = [(table._meta.name,
+                            table(request, **tab_group.kwargs))
+                           for table in self.table_classes]
+        self._tables = SortedDict(table_instances)
+        self._table_data_loaded = False
+
+    def load_table_data(self):
+        """
+        Calls the ``get_{{ table_name }}_data`` methods for each table class
+        and sets the data on the tables.
+        """
+        # We only want the data to be loaded once, so we track if we have...
+        if not self._table_data_loaded:
+            for table_name, table in self._tables.items():
+                # Fetch the data function.
+                func_name = "get_%s_data" % table_name
+                data_func = getattr(self, func_name, None)
+                if data_func is None:
+                    cls_name = self.__class__.__name__
+                    raise NotImplementedError("You must define a %s method "
+                                              "on %s." % (func_name, cls_name))
+                # Load the data.
+                table.data = data_func()
+            # Mark our data as loaded so we don't run the loaders again.
+            self._table_data_loaded = True
+
+    def get_context_data(self, request):
+        """
+        Adds a ``{{ table_name }}_table`` item to the context for each table
+        in the :attr:`~horizon.tabs.TableTab.table_classes` attribute.
+
+        If only one table class is provided, a shortcut ``table`` context
+        variable is also added containing the single table.
+        """
+        context = {}
+        # If the data hasn't been manually loaded before now,
+        # make certain it's loaded before setting the context.
+        self.load_table_data()
+        for table_name, table in self._tables.items():
+            # If there's only one table class, add a shortcut name as well.
+            if len(self.table_classes) == 1:
+                context["table"] = table
+            context["%s_table" % table_name] = table
+        return context
