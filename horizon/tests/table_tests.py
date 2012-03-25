@@ -308,9 +308,9 @@ class DataTableTests(test.TestCase):
         self.table = MyTable(self.request, TEST_DATA)
         row = self.table.get_rows()[0]
         row3 = self.table.get_rows()[2]
-        id_col = self.table.base_columns['id']
-        name_col = self.table.base_columns['name']
-        value_col = self.table.base_columns['value']
+        id_col = self.table.columns['id']
+        name_col = self.table.columns['name']
+        value_col = self.table.columns['value']
         # transform
         self.assertEqual(row.cells['id'].data, '1')  # Standard attr access
         self.assertEqual(row.cells['name'].data, 'custom object_1')  # Callable
@@ -552,3 +552,18 @@ class DataTableTests(test.TestCase):
         row_actions = self.table.get_row_actions(TEST_DATA[0])
         self.assertEqual(unicode(row_actions[0].verbose_name), "Delete Me")
         self.assertEqual(unicode(row_actions[1].verbose_name), "Log In")
+
+    def test_column_uniqueness(self):
+        table1 = MyTable(self.request)
+        table2 = MyTable(self.request)
+        # Regression test for launchpad bug 964345.
+        self.assertNotEqual(id(table1), id(table2))
+        self.assertNotEqual(id(table1.columns), id(table2.columns))
+        t1cols = table1.columns.values()
+        t2cols = table2.columns.values()
+        self.assertEqual(t1cols[0].name, t2cols[0].name)
+        self.assertNotEqual(id(t1cols[0]), id(t2cols[0]))
+        self.assertNotEqual(id(t1cols[0].table),
+                            id(t2cols[0].table))
+        self.assertNotEqual(id(t1cols[0].table._data_cache),
+                            id(t2cols[0].table._data_cache))

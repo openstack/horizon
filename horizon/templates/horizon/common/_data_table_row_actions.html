@@ -1,5 +1,6 @@
 {% load horizon %}
 
+{% spaceless %} {# This makes sure whitespace doesn't affect positioning for dropdown. #}
 {% if row_actions|length > 1 %}
 <div class="btn-group">
     {% for action in row_actions %}
@@ -25,3 +26,4 @@
     {% include "horizon/common/_data_table_row_action.html" %}
   {% endfor %}
 {% endif %}
+{% endspaceless %}
