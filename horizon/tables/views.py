@@ -39,7 +39,7 @@ class MultiTableMixin(object):
 
     def get_tables(self):
         if not self.table_classes:
-            raise AttributeError('You must specify a one or more DataTable '
+            raise AttributeError('You must specify one or more DataTable '
                                  'classes for the "table_classes" attribute '
                                  'on %s.' % self.__class__.__name__)
         if not self._tables:

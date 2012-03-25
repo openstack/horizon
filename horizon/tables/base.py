@@ -617,13 +617,14 @@ class DataTableMetaclass(type):
 
         # Gather columns; this prevents the column from being an attribute
         # on the DataTable class and avoids naming conflicts.
-        columns = [(column_name, attrs.pop(column_name)) for
-                   column_name, obj in attrs.items()
-                   if issubclass(type(obj), (opts.column_class, Column))]
-        # add a name attribute to each column
-        for column_name, column in columns:
-            column.name = column_name
+        columns = []
+        for name, obj in attrs.items():
+            if issubclass(type(obj), (opts.column_class, Column)):
+                column_instance = attrs.pop(name)
+                column_instance.name = name
+                columns.append((name, column_instance))
         columns.sort(key=lambda x: x[1].creation_counter)
+
         # Iterate in reverse to preserve final order
         for base in bases[::-1]:
             if hasattr(base, 'base_columns'):
@@ -651,7 +652,8 @@ class DataTableMetaclass(type):
             actions_column.classes.append('actions_column')
             actions_column.auto = "actions"
             columns.append(("actions", actions_column))
-        attrs['columns'] = SortedDict(columns)
+        # Store this set of columns internally so we can copy them per-instance
+        attrs['_columns'] = SortedDict(columns)
 
         # Gather and register actions for later access since we only want
         # to instantiate them once.
@@ -698,11 +700,16 @@ class DataTable(object):
     def __init__(self, request, data=None, **kwargs):
         self._meta.request = request
         self._meta.data = data
-        self._populate_data_cache()
         self.kwargs = kwargs
 
-        for column in self.columns.values():
+        # Create a new set
+        columns = []
+        for key, _column in self._columns.items():
+            column = copy.copy(_column)
             column.table = self
+            columns.append((key, column))
+        self.columns = SortedDict(columns)
+        self._populate_data_cache()
 
         # Associate these actions with this table
         for action in self.base_actions.values():
