@@ -1,8 +1,0 @@
-{% extends 'horizon/auth/_switch.html' %}
-{%load i18n%}
-{% block submit %}
-  <input type="hidden" name="next" value="/" />
-  <div class="button">
-    <input id="home_login_btn" type="submit" value="{% trans "Sign In" %}">
-  </div>
-{% endblock %}

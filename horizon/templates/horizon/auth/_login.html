@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block modal-header %}{% trans "Log In" %}{% endblock %}
-{% block modal_class %}modal login{% endblock %}
+{% block modal_class %}login{% endblock %}
 
 {% block form_action %}{% url horizon:auth_login %}{% endblock %}
 
@@ -15,5 +15,5 @@
 {% endblock %}
 
 {% block modal-footer %}
-  <input type="submit" class="btn btn-primary pull-right" value="{% trans "Log In" %}" />
+  <button type="submit" class="btn btn-primary pull-right">{% trans "Sign In" %}</button>
 {% endblock %}

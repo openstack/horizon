@@ -1,4 +1,4 @@
-<div id="{% block modal_id %}{% endblock %}" class="{% block modal_class %}modal{% if hide %} hide {% else %} static_page{% endif %}{% endblock %}">
+<div id="{% block modal_id %}{% endblock %}" class="{% block modal_class %}{% if hide %}modal hide{% else %}static_page{% endif %}{% endblock %}">
   <div class="modal-header">
     {% if hide %}<a href="#" class="close" data-dismiss="modal">&times;</a>{% endif %}
     <h3>{% block modal-header %}{% endblock %}</h3>
