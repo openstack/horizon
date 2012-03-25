@@ -61,8 +61,8 @@ class Login(forms.SelfHandlingForm):
     Subclass of :class:`~horizon.forms.SelfHandlingForm`.
     """
     region = forms.ChoiceField(label=_("Region"), required=False)
-    username = forms.CharField(max_length="20", label=_("User Name"))
-    password = forms.CharField(max_length="20", label=_("Password"),
+    username = forms.CharField(label=_("User Name"))
+    password = forms.CharField(label=_("Password"),
                                widget=forms.PasswordInput(render_value=False))
 
     def __init__(self, *args, **kwargs):
