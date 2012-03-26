@@ -207,6 +207,10 @@ def get_power_state(instance):
     return POWER_STATES.get(getattr(instance, "OS-EXT-STS:power_state", 0), '')
 
 
+def replace_underscores(string):
+    return string.replace("_", " ")
+
+
 class InstancesTable(tables.DataTable):
     TASK_STATUS_CHOICES = (
         (None, True),
@@ -224,17 +228,17 @@ class InstancesTable(tables.DataTable):
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
     size = tables.Column(get_size, verbose_name=_("Size"))
     status = tables.Column("status",
-                           filters=(title,),
+                           filters=(title, replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
                            status_choices=STATUS_CHOICES)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
-                         filters=(title,),
+                         filters=(title, replace_underscores),
                          status=True,
                          status_choices=TASK_STATUS_CHOICES)
     state = tables.Column(get_power_state,
-                          filters=(title,),
+                          filters=(title, replace_underscores),
                           verbose_name=_("Power State"))
 
     class Meta:
