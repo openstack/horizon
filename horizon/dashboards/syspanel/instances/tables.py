@@ -56,12 +56,16 @@ class SyspanelInstancesTable(tables.DataTable):
     # techniques isn't practical. It can be added back in when we have names
     # returned in a practical manner by the API.
     #user = tables.Column("user_id", verbose_name=_("User"))
-    host = tables.Column("OS-EXT-SRV-ATTR:host", verbose_name=_("Host"))
+    host = tables.Column("OS-EXT-SRV-ATTR:host",
+                         verbose_name=_("Host"),
+                         classes=('nowrap-col',))
     name = tables.Column("name", link="horizon:nova:instances_and_volumes:" \
                                       "instances:detail",
                          verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
-    size = tables.Column(get_size, verbose_name=_("Size"))
+    size = tables.Column(get_size,
+                         verbose_name=_("Size"),
+                         classes=('nowrap-col',))
     status = tables.Column("status",
                            filters=(title,),
                            verbose_name=_("Status"),
