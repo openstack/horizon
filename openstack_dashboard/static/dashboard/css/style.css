@@ -510,6 +510,10 @@ table form {
   background-color: #ffffc6;
 }
 
+.nowrap-col {
+  white-space: nowrap;
+}
+
 .icon-updating.ajax-updating {
   background: transparent url(../img/spinner.gif) no-repeat center center;
   padding: 1px;
