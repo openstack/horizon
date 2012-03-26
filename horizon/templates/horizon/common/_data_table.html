@@ -3,11 +3,13 @@
   <form action="{{ table.get_absolute_url }}" method="POST">{% csrf_token %}
   {% with columns=table.get_columns rows=table.get_rows %}
   <table id="{{ table.name }}" class="table table-bordered table-striped">
-    <caption class='table_header'>
-      <h3 class='table_title'>{{ table }}</h3>
-      {{ table.render_table_actions }}
-    </caption>
     <thead>
+      <tr class='table_caption'>
+        <th class='table_header' colspan='{{ columns|length }}'>
+          <h3 class='table_title'>{{ table }}</h3>
+          {{ table.render_table_actions }}
+        </th>
+      </tr>
       <tr>
         {% for column in columns %}
           <th {{ column.attr_string|safe }}>{{ column }}</th>
