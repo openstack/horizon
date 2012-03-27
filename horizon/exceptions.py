@@ -63,6 +63,17 @@ class NotAuthorized(HorizonException):
     status_code = 401
 
 
+class NotAuthenticated(HorizonException):
+    """
+    Raised when a user is trying to make requests and they are not logged in.
+
+    The included :class:`~horizon.middleware.HorizonMiddleware` catches
+    ``NotAuthenticated`` and handles it gracefully by displaying an error
+    message and redirecting the user to a login page.
+    """
+    status_code = 403
+
+
 class NotFound(HorizonException):
     """ Generic error to replace all "Not Found"-type API errors. """
     status_code = 404
