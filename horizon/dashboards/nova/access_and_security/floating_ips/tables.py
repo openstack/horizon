@@ -19,6 +19,7 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
+from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -87,9 +88,18 @@ class DisassociateIP(tables.Action):
         return shortcuts.redirect('horizon:nova:access_and_security:index')
 
 
+def get_instance_link(datum):
+    view = "horizon:nova:instances_and_volumes:instances:detail"
+    if datum.instance_id:
+        return urlresolvers.reverse(view, args=(datum.instance_id,))
+    else:
+        return None
+
+
 class FloatingIPsTable(tables.DataTable):
     ip = tables.Column("ip", verbose_name=_("IP Address"))
     instance = tables.Column("instance_id",
+                             link=get_instance_link,
                              verbose_name=_("Instance"),
                              empty_value="-")
     pool = tables.Column("pool",

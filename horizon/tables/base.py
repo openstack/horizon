@@ -448,8 +448,9 @@ class Cell(html.HTMLElement):
             raise template.TemplateSyntaxError, exc_info[1], exc_info[2]
         if self.column.link:
             url = self.column.get_link_url(self.datum)
-            # Escape the data inside while allowing our HTML to render
-            data = mark_safe('<a href="%s">%s</a>' % (url, escape(data)))
+            if url:
+                # Escape the data inside while allowing our HTML to render
+                data = mark_safe('<a href="%s">%s</a>' % (url, escape(data)))
         return data
 
     @property
