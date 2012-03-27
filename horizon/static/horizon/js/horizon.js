@@ -101,7 +101,8 @@ var Horizon = function() {
         $rows_to_update.each(function(index, row) {
           var $row = $(this),
               $table = $row.closest('table');
-          $.ajax($row.attr('data-update-url'), {
+          horizon.ajax.queue({
+            url: $row.attr('data-update-url'),
             error: function (jqXHR, textStatus, errorThrown) {
               switch (jqXHR.status) {
                 // A 404 indicates the object is gone, and should be removed from the table
@@ -274,6 +275,55 @@ var Horizon = function() {
                   "type_capitalized": horizon.utils.capitalize(type),
                   "message": message};
     return $(template.render(params)).prependTo("#main_content .messages");
+  };
+
+  /* Queued ajax handling for Horizon.
+   *
+   * Note: The number of concurrent AJAX connections hanlded in the queue
+   * can be configured by setting an "ajax_queue_limit" key in
+   * settings.HORIZON_CONFIG to the desired number (or None to disable queue
+   * limiting).
+   */
+  horizon.ajax = {
+    // This will be our jQuery queue container.
+    _queue: [],
+    _active: [],
+    // Function to add a new call to the queue.
+    queue: function(opts) {
+      var complete = opts.complete,
+          active = horizon.ajax._active;
+
+      opts.complete = function () {
+        var index = $.inArray(request, active);
+        if (index > -1) {
+          active.splice(index, 1);
+        }
+        horizon.ajax.next();
+        if (complete) {
+          complete.apply(this, arguments);
+        }
+      };
+
+      function request() {
+        return $.ajax(opts);
+      }
+
+      // Queue the request
+      horizon.ajax._queue.push(request);
+
+      // Start up the queue handler in case it's stopped.
+      horizon.ajax.next();
+    },
+    next: function () {
+      var queue = horizon.ajax._queue,
+          limit = horizon.conf.ajax.queue_limit,
+          request;
+      if (queue.length && (!limit || horizon.ajax._active.length < limit)) {
+        request = queue.pop();
+        horizon.ajax._active.push(request);
+        return request();
+      }
+    }
   };
 
   return horizon;

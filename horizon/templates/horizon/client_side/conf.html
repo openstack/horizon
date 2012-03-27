@@ -4,6 +4,9 @@
  */
 horizon.conf = {
     debug: {{ debug|yesno:"true,false" }},
-    static_url: "{{ STATIC_URL }}"
+    static_url: "{{ STATIC_URL }}",
+    ajax: {
+        queue_limit: {{ HORIZON_CONFIG.ajax_queue_limit|default:"null" }}
+    }
 }
 </script>

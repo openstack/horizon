@@ -51,7 +51,8 @@ def horizon(request):
         for each template/template fragment which takes context that is used
         to render the complete output.
     """
-    context = {"True": True,
+    context = {"HORIZON_CONFIG": getattr(settings, "HORIZON_CONFIG", {}),
+               "True": True,
                "False": False}
 
     # Auth/Keystone context
