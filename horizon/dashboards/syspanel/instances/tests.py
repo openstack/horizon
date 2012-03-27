@@ -55,3 +55,34 @@ class InstanceViewTest(test.BaseAdminViewTests):
         res = self.client.get(reverse('horizon:syspanel:instances:index'))
         self.assertTemplateUsed(res, 'syspanel/instances/index.html')
         self.assertEqual(len(res.context['instances_table'].data), 0)
+
+    def test_ajax_loading_instances(self):
+        server = self.servers.first()
+        flavor = self.flavors.list()[0]
+        tenant = self.tenants.list()[0]
+
+        self.mox.StubOutWithMock(api, 'server_get')
+        self.mox.StubOutWithMock(api, 'flavor_get')
+        self.mox.StubOutWithMock(api.keystone, 'tenant_get')
+        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.flavor_get(IsA(http.HttpRequest),
+                       server.flavor['id']).AndReturn(flavor)
+        api.keystone.tenant_get(IsA(http.HttpRequest),
+                                server.tenant_id,
+                                admin=True).AndReturn(tenant)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:syspanel:instances:index') + \
+                "?action=row_update&table=instances&obj_id=" + server.id
+
+        res = self.client.get(url, {},
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertTemplateUsed(res, "horizon/common/_data_table_row.html")
+
+        self.assertContains(res, "test_tenant", 1, 200)
+        self.assertContains(res, "instance-host", 1, 200)
+        self.assertContains(res, "server_1", 1, 200)
+        self.assertContains(res, "10.0.0.1", 1, 200)
+        self.assertContains(res, "512MB RAM | 1 VCPU | 0 Disk", 1, 200)
+        self.assertContains(res, "Active", 1, 200)
+        self.assertContains(res, "Running", 1, 200)
