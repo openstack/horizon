@@ -57,7 +57,8 @@ class HorizonMiddleware(object):
         Catches internal Horizon exception classes such as NotAuthorized,
         NotFound and Http302 and handles them gracefully.
         """
-        if isinstance(exception, exceptions.NotAuthorized):
+        if isinstance(exception,
+                (exceptions.NotAuthorized, exceptions.NotAuthenticated)):
             auth_url = reverse("horizon:auth_login")
             next_url = iri_to_uri(request.get_full_path())
             if next_url != auth_url:

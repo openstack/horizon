@@ -26,7 +26,7 @@ import functools
 from django.utils.decorators import available_attrs
 from django.utils.translation import ugettext as _
 
-from horizon.exceptions import NotAuthorized, NotFound
+from horizon.exceptions import NotAuthorized, NotFound, NotAuthenticated
 
 
 def _current_component(view_func, dashboard=None, panel=None):
@@ -44,19 +44,16 @@ def _current_component(view_func, dashboard=None, panel=None):
 def require_auth(view_func):
     """ Performs user authentication check.
 
-    Similar to Django's `login_required` decorator, except that this
-    throws NotAuthorized exception if the user is not signed-in.
-
-    Raises a :exc:`~horizon.exceptions.NotAuthorized` exception if the
-    user is not authenticated.
+    Similar to Django's `login_required` decorator, except that this throws
+    :exc:`~horizon.exceptions.NotAuthenticated` exception if the user is not
+    signed-in.
     """
 
     @functools.wraps(view_func, assigned=available_attrs(view_func))
     def dec(request, *args, **kwargs):
         if request.user.is_authenticated():
             return view_func(request, *args, **kwargs)
-        raise NotAuthorized(_("You are not authorized to access %s")
-                            % request.path)
+        raise NotAuthenticated(_("Please log in to continue."))
     return dec
 
 

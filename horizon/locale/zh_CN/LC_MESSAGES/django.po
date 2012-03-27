@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-25 13:51-0700\n"
+"POT-Creation-Date: 2012-03-26 17:59-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,16 +21,20 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: decorators.py:58 decorators.py:92
+#: decorators.py:56
+msgid "Please log in to continue."
+msgstr ""
+
+#: decorators.py:89
 #, python-format
 msgid "You are not authorized to access %s"
 msgstr ""
 
-#: decorators.py:133
+#: decorators.py:130
 msgid "The services for this view are not available."
 msgstr ""
 
-#: exceptions.py:198
+#: exceptions.py:209
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
@@ -181,7 +185,7 @@ msgid "Unable to disassociate floating IP."
 msgstr ""
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:91
-#: dashboards/nova/instances_and_volumes/instances/tables.py:224
+#: dashboards/nova/instances_and_volumes/instances/tables.py:228
 #: dashboards/syspanel/instances/tables.py:52
 msgid "IP Address"
 msgstr ""
@@ -547,7 +551,7 @@ msgstr ""
 
 #: dashboards/nova/containers/tables.py:107
 #: dashboards/nova/containers/tables.py:171
-#: dashboards/nova/instances_and_volumes/instances/tables.py:225
+#: dashboards/nova/instances_and_volumes/instances/tables.py:229
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:113
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
@@ -742,7 +746,7 @@ msgid "Image Name"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:89
-#: dashboards/nova/instances_and_volumes/instances/tables.py:228
+#: dashboards/nova/instances_and_volumes/instances/tables.py:232
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:116
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:18
@@ -896,7 +900,7 @@ msgstr ""
 #: dashboards/nova/instances_and_volumes/instances/tables.py:69
 #: dashboards/nova/instances_and_volumes/instances/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:112
-#: dashboards/nova/instances_and_volumes/instances/tables.py:242
+#: dashboards/nova/instances_and_volumes/instances/tables.py:246
 #: dashboards/syspanel/instances/panel.py:28
 #: dashboards/syspanel/instances/tables.py:70
 #: dashboards/syspanel/projects/forms.py:115
@@ -971,17 +975,17 @@ msgstr ""
 msgid "Not available"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:223
+#: dashboards/nova/instances_and_volumes/instances/tables.py:227
 #: dashboards/syspanel/instances/tables.py:51 usage/tables.py:46
 msgid "Instance Name"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:232
+#: dashboards/nova/instances_and_volumes/instances/tables.py:236
 #: dashboards/syspanel/instances/tables.py:60
 msgid "Task"
 msgstr ""
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:238
+#: dashboards/nova/instances_and_volumes/instances/tables.py:242
 #: dashboards/syspanel/instances/tables.py:66
 msgid "Power State"
 msgstr ""
@@ -2165,7 +2169,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:29
+#: templates/horizon/common/_data_table.html:31
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"

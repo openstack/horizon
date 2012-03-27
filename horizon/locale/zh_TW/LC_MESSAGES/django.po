@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-25 13:51-0700\n"
+"POT-Creation-Date: 2012-03-26 17:59-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andy Chong <andycjw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,16 +21,21 @@ msgstr ""
 msgid "Other"
 msgstr "其它"
 
-#: decorators.py:58 decorators.py:92
+#: decorators.py:56
+#, fuzzy
+msgid "Please log in to continue."
+msgstr "無法列出容器。"
+
+#: decorators.py:89
 #, python-format
 msgid "You are not authorized to access %s"
 msgstr "您的權限不足 無法查看%s"
 
-#: decorators.py:133
+#: decorators.py:130
 msgid "The services for this view are not available."
 msgstr "這頁面的服務並不存在"
 
-#: exceptions.py:198
+#: exceptions.py:209
 msgid "Unauthorized. Please try logging in again."
 msgstr "權限不足。 請重新登入。"
 
@@ -181,7 +186,7 @@ msgid "Unable to disassociate floating IP."
 msgstr "無法釋放浮動IP。"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:91
-#: dashboards/nova/instances_and_volumes/instances/tables.py:224
+#: dashboards/nova/instances_and_volumes/instances/tables.py:228
 #: dashboards/syspanel/instances/tables.py:52
 msgid "IP Address"
 msgstr "IP位址"
@@ -551,7 +556,7 @@ msgstr "物件"
 
 #: dashboards/nova/containers/tables.py:107
 #: dashboards/nova/containers/tables.py:171
-#: dashboards/nova/instances_and_volumes/instances/tables.py:225
+#: dashboards/nova/instances_and_volumes/instances/tables.py:229
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:113
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:29
@@ -746,7 +751,7 @@ msgid "Image Name"
 msgstr "映像名稱"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:89
-#: dashboards/nova/instances_and_volumes/instances/tables.py:228
+#: dashboards/nova/instances_and_volumes/instances/tables.py:232
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:116
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:18
@@ -900,7 +905,7 @@ msgstr "已終止執行"
 #: dashboards/nova/instances_and_volumes/instances/tables.py:69
 #: dashboards/nova/instances_and_volumes/instances/tables.py:84
 #: dashboards/nova/instances_and_volumes/instances/tables.py:112
-#: dashboards/nova/instances_and_volumes/instances/tables.py:242
+#: dashboards/nova/instances_and_volumes/instances/tables.py:246
 #: dashboards/syspanel/instances/panel.py:28
 #: dashboards/syspanel/instances/tables.py:70
 #: dashboards/syspanel/projects/forms.py:115
@@ -975,17 +980,17 @@ msgstr "%(RAM)s 記憶體 | %(VCPU)s 虛擬處理器 | %(disk)s 磁碟"
 msgid "Not available"
 msgstr "不存在"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:223
+#: dashboards/nova/instances_and_volumes/instances/tables.py:227
 #: dashboards/syspanel/instances/tables.py:51 usage/tables.py:46
 msgid "Instance Name"
 msgstr "執行個體名稱"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:232
+#: dashboards/nova/instances_and_volumes/instances/tables.py:236
 #: dashboards/syspanel/instances/tables.py:60
 msgid "Task"
 msgstr "工作"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:238
+#: dashboards/nova/instances_and_volumes/instances/tables.py:242
 #: dashboards/syspanel/instances/tables.py:66
 msgid "Power State"
 msgstr "電源狀態"
@@ -2183,7 +2188,7 @@ msgstr ""
 msgid "Login"
 msgstr "登入"
 
-#: templates/horizon/common/_data_table.html:29
+#: templates/horizon/common/_data_table.html:31
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
