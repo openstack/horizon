@@ -66,7 +66,7 @@ class VNCTab(tabs.Tab):
             exceptions.handle(request,
                               _('Unable to get VNC console for '
                                 'instance "%s".') % instance.id)
-        return {'vnc_url': vnc_url}
+        return {'vnc_url': vnc_url, 'instance_id': instance.id}
 
 
 class InstanceDetailTabs(tabs.TabGroup):
