@@ -26,7 +26,7 @@ methods like :func:`~horizon.register` and :func:`~horizon.unregister`.
 # should that fail.
 Horizon = None
 try:
-    from horizon.base import Horizon, Dashboard, Panel, Workflow
+    from horizon.base import Horizon, Dashboard, Panel, PanelGroup
 except ImportError:
     import warnings
 

@@ -138,7 +138,7 @@ class HorizonTests(BaseHorizonTests):
     def test_dashboard(self):
         syspanel = horizon.get_dashboard("syspanel")
         self.assertEqual(syspanel._registered_with, base.Horizon)
-        self.assertQuerysetEqual(syspanel.get_panels().values()[0],
+        self.assertQuerysetEqual(syspanel.get_panels(),
                                  ['<Panel: overview>',
                                  '<Panel: instances>',
                                  '<Panel: services>',
@@ -148,11 +148,17 @@ class HorizonTests(BaseHorizonTests):
                                  '<Panel: users>',
                                  '<Panel: quotas>'])
         self.assertEqual(syspanel.get_absolute_url(), "/syspanel/")
+
         # Test registering a module with a dashboard that defines panels
         # as a dictionary.
         syspanel.register(MyPanel)
-        self.assertQuerysetEqual(syspanel.get_panels()['Other'],
+        self.assertQuerysetEqual(syspanel.get_panel_groups()['other'],
                                  ['<Panel: myslug>'])
+
+        # Test that panels defined as a tuple still return a PanelGroup
+        settings_dash = horizon.get_dashboard("settings")
+        self.assertQuerysetEqual(settings_dash.get_panel_groups().values(),
+                                 ['<PanelGroup: default>'])
 
         # Test registering a module with a dashboard that defines panels
         # as a tuple.
