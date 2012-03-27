@@ -52,6 +52,7 @@ HORIZON_CONFIG = {
     'dashboards': ('nova', 'syspanel', 'settings',),
     'default_dashboard': 'nova',
     'user_home': 'openstack_dashboard.views.user_home',
+    'ajax_queue_limit': 10
 }
 
 MIDDLEWARE_CLASSES = (
