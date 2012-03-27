@@ -11,5 +11,22 @@ horizon.tabs.load_tab = function (evt) {
 };
 
 horizon.addInitFunction(function () {
-  $(document).on("click", ".ajax-tabs a[data-loaded='false']", horizon.tabs.load_tab);
+  var data = horizon.cookies.read('tabs');
+
+  $(document).on("show", ".ajax-tabs a[data-loaded='false']", horizon.tabs.load_tab);
+
+  $(document).on("shown", ".nav-tabs a[data-toggle='tab']", function (evt) {
+    var $tab = $(evt.target);
+    horizon.cookies.update("tabs", $tab.closest(".nav-tabs").attr("id"), $tab.attr('data-target'));
+  });
+
+  // Initialize stored tab state for tab groups on this page.
+  $(".nav-tabs[data-sticky-tabs='sticky']").each(function (index, item) {
+    var $this = $(this),
+        id = $this.attr("id"),
+        active_tab = data[id];
+    if (active_tab) {
+      $this.find("a[data-target='" + active_tab + "']").tab('show');
+    }
+  });
 });
