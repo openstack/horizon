@@ -28,6 +28,28 @@ To override the OpenStack Logo image, replace the image at the directory path
 
 The dimensions should be ``width: 108px, height: 121px``.
 
+Modifying Existing Dashboards and Panels
+========================================
+
+If you wish to alter dashboards or panels which are not part of your codebase,
+you can specify a custom python module which will be loaded after the entire
+Horizon site has been initialized, but prior to the URLconf construction.
+This allows for common site-customization requirements such as:
+
+* Registering or unregistering panels from an existing dashboard.
+* Changing the names of dashboards and panels.
+* Re-ordering panels within a dashboard or panel group.
+
+To specify the python module containing your modifications, add the key
+``customization_module`` to your ``settings.HORIZON_CONFIG`` dictionary.
+The value should be a string containing the path to your module in dotted
+python path notation. Example::
+
+    HORIZON_CONFIG = {
+        "customization_module": "my_project.overrides"
+    }
+
+
 Button Icons
 ============
 

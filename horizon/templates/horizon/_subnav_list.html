@@ -3,7 +3,7 @@
 {% for heading, panels in components.iteritems %}
   {% with panels|can_haz_list:user as filtered_panels %}
     {% if filtered_panels %}
-      <h4>{{ heading }}</h4>
+      {% if heading %}<h4>{{ heading }}</h4>{% endif %}
       <ul class="main_nav">
         {% for panel in filtered_panels %}
           <li>
