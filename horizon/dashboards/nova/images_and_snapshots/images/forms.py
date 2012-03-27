@@ -39,6 +39,8 @@ LOG = logging.getLogger(__name__)
 
 
 class UpdateImageForm(forms.SelfHandlingForm):
+    completion_view = 'horizon:nova:images_and_snapshots:index'
+
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length="255", label=_("Name"))
     kernel = forms.CharField(max_length="36", label=_("Kernel ID"),
@@ -86,7 +88,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
             messages.success(request, _('Image was successfully updated.'))
         except:
             exceptions.handle(request, error_updating % image_id)
-        return shortcuts.redirect('horizon:nova:images_and_snapshots:index')
+        return shortcuts.redirect(self.get_success_url())
 
 
 class LaunchForm(forms.SelfHandlingForm):
