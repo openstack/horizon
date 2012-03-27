@@ -27,6 +27,7 @@ SERVER_DATA = """
 {
     "server": {
         "OS-EXT-SRV-ATTR:instance_name": "instance-00000005",
+        "OS-EXT-SRV-ATTR:host": "instance-host",
         "OS-EXT-STS:task_state": null,
         "addresses": {
             "private": [
