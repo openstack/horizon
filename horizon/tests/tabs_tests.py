@@ -65,6 +65,7 @@ class TabDisallowed(BaseTestTab):
 class Group(horizon_tabs.TabGroup):
     slug = "tab_group"
     tabs = (TabOne, TabDelayed, TabDisabled, TabDisallowed)
+    sticky = True
 
     def tabs_not_available(self):
         self._assert_tabs_not_available = True
@@ -203,6 +204,9 @@ class TabTests(test.TestCase):
         output = tg.render()
         res = http.HttpResponse(output.strip())
         self.assertContains(res, "<li", 3)
+
+        # stickiness
+        self.assertContains(res, 'data-sticky-tabs="sticky"', 1)
 
         # tab
         output = tab_one.render()

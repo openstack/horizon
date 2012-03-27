@@ -43,6 +43,12 @@ class TabGroup(html.HTMLElement):
         The name of the template which will be used to render this tab group.
         Default: ``"horizon/common/_tab_group.html"``
 
+    .. attribute:: sticky
+
+        Boolean to control whether the active tab state should be stored
+        across requests for a given user. (State storage is all done
+        client-side.)
+
     .. attribute:: param_name
 
         The name of the GET request parameter which will be used when
@@ -71,6 +77,7 @@ class TabGroup(html.HTMLElement):
     slug = None
     template_name = "horizon/common/_tab_group.html"
     param_name = 'tab'
+    sticky = False
     _selected = None
     _active = None
 
@@ -94,6 +101,8 @@ class TabGroup(html.HTMLElement):
         for tab in self.tabs:
             tab_instances.append((tab.slug, tab(self, request)))
         self._tabs = SortedDict(tab_instances)
+        if self.sticky:
+            self.attrs['data-sticky-tabs'] = 'sticky'
         if not self._set_active_tab():
             self.tabs_not_available()
 
