@@ -40,3 +40,6 @@ Panel
 
 .. autoclass:: Panel
     :members:
+
+.. autoclass:: PanelGroup
+    :members:
