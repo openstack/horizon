@@ -147,7 +147,7 @@ def data(TEST):
                                  name='test_volume',
                                  status='available',
                                  size=40,
-                                 displayName='',
+                                 display_name='',
                                  attachments={}))
     TEST.volumes.add(volume)
 
@@ -275,11 +275,11 @@ def data(TEST):
 
     volume_snapshot = vol_snaps.Snapshot(vol_snaps.SnapshotManager(None),
                                          {'id': 2,
-                                          'displayName': 'test snapshot',
-                                          'displayDescription': 'vol snap!',
+                                          'display_name': 'test snapshot',
+                                          'display_description': 'vol snap!',
                                           'size': 40,
                                           'status': 'available',
-                                          'volumeId': 1})
+                                          'volume_id': 1})
     TEST.volume_snapshots.add(volume_snapshot)
 
     cert_data = {'private_key': 'private',

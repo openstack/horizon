@@ -35,7 +35,7 @@ class DeleteVolumeSnapshot(tables.DeleteAction):
 
 
 class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
-    volume_id = tables.Column("volumeId", verbose_name=_("Volume ID"))
+    volume_id = tables.Column("volume_id", verbose_name=_("Volume ID"))
 
     class Meta:
         name = "volume_snapshots"

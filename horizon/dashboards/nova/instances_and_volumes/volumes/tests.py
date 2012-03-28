@@ -49,7 +49,7 @@ class VolumeViewTests(test.TestCase):
     def test_detail_view(self):
         volume = self.volumes.first()
         server = self.servers.first()
-        volume.attachments = [{"serverId": server.id}]
+        volume.attachments = [{"server_id": server.id}]
         self.mox.StubOutWithMock(api.nova, 'volume_get')
         self.mox.StubOutWithMock(api.nova, 'server_get')
         api.nova.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)

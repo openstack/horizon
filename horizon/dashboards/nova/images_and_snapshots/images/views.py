@@ -111,14 +111,14 @@ class LaunchView(forms.ModalFormView):
         volume_options = [("", _("Select Volume"))]
 
         def _get_volume_select_item(volume):
-            if hasattr(volume, "volumeId"):
+            if hasattr(volume, "volume_id"):
                 vol_type = "snap"
                 visible_label = _("Snapshot")
             else:
                 vol_type = "vol"
                 visible_label = _("Volume")
             return (("%s:%s" % (volume.id, vol_type)),
-                    ("%s - %s GB (%s)" % (volume.displayName,
+                    ("%s - %s GB (%s)" % (volume.display_name,
                                          volume.size,
                                          visible_label)))
 
