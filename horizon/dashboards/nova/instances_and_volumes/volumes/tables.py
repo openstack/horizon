@@ -90,10 +90,10 @@ def get_attachment(volume):
     # Filter out "empty" attachments which the client returns...
     for attachment in [att for att in volume.attachments if att]:
         url = reverse("%s:instances:detail" % URL_PREFIX,
-                      args=(attachment["serverId"],))
+                      args=(attachment["server_id"],))
         # TODO(jake): Make "instance" the instance name
         vals = {"url": url,
-                "instance": attachment["serverId"],
+                "instance": attachment["server_id"],
                 "dev": attachment["device"]}
         attachments.append(link % vals)
     return safestring.mark_safe(", ".join(attachments))
@@ -106,9 +106,9 @@ class VolumesTableBase(tables.DataTable):
         ("creating", None),
         ("error", False),
     )
-    name = tables.Column("displayName", verbose_name=_("Name"),
+    name = tables.Column("display_name", verbose_name=_("Name"),
                          link="%s:volumes:detail" % URL_PREFIX)
-    description = tables.Column("displayDescription",
+    description = tables.Column("display_description",
                                 verbose_name=_("Description"))
     size = tables.Column(get_size, verbose_name=_("Size"))
     status = tables.Column("status",
@@ -118,11 +118,11 @@ class VolumesTableBase(tables.DataTable):
                            status_choices=STATUS_CHOICES)
 
     def get_object_display(self, obj):
-        return obj.displayName
+        return obj.display_name
 
 
 class VolumesTable(VolumesTableBase):
-    name = tables.Column("displayName",
+    name = tables.Column("display_name",
                          verbose_name=_("Name"),
                          link="%s:volumes:detail" % URL_PREFIX)
     attachments = tables.Column(get_attachment,
@@ -146,7 +146,7 @@ class DetachVolume(tables.BatchAction):
     classes = ('btn-danger', 'btn-detach')
 
     def action(self, request, obj_id):
-        instance_id = self.table.get_object_by_id(obj_id)['serverId']
+        instance_id = self.table.get_object_by_id(obj_id)['server_id']
         api.volume_detach(request, instance_id, obj_id)
 
     def get_success_url(self, request):
@@ -154,7 +154,7 @@ class DetachVolume(tables.BatchAction):
 
 
 class AttachmentsTable(tables.DataTable):
-    instance = tables.Column("serverId", verbose_name=_("Instance"))
+    instance = tables.Column("server_id", verbose_name=_("Instance"))
     device = tables.Column("device")
 
     def get_object_id(self, obj):
@@ -162,7 +162,7 @@ class AttachmentsTable(tables.DataTable):
 
     def get_object_display(self, obj):
         vals = {"dev": obj['device'],
-                "instance": obj['serverId']}
+                "instance": obj['server_id']}
         return "Attachment %(dev)s on %(instance)s" % vals
 
     def get_object_by_id(self, obj_id):

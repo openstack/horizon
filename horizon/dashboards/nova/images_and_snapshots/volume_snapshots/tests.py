@@ -46,16 +46,16 @@ class VolumeSnapshotsViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'volume_snapshot_create')
         api.volume_snapshot_create(IsA(http.HttpRequest),
                                    volume.id,
-                                   snapshot.displayName,
-                                   snapshot.displayDescription) \
+                                   snapshot.display_name,
+                                   snapshot.display_description) \
                                    .AndReturn(snapshot)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateSnapshotForm',
                     'tenant_id': self.tenant.id,
                     'volume_id': volume.id,
-                    'name': snapshot.displayName,
-                    'description': snapshot.displayDescription}
+                    'name': snapshot.display_name,
+                    'description': snapshot.display_description}
         url = reverse('horizon:nova:instances_and_volumes:volumes:'
                       'create_snapshot', args=[volume.id])
         res = self.client.post(url, formData)

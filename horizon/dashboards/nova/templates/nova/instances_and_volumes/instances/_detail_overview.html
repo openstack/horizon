@@ -80,8 +80,8 @@
       {% for volume in instance.volumes %}
       <li>
         <strong>{% trans "Volume" %}:</strong>
-        <a href="{% url horizon:nova:instances_and_volumes:volumes:detail volume.volumeId %}">
-          {{ volume.volumeId }}&nbsp;({{ volume.device }})
+        <a href="{% url horizon:nova:instances_and_volumes:volumes:detail volume.volume_id %}">
+          {{ volume.volume_id }}&nbsp;({{ volume.device }})
         </a>
       </li>
       {% endfor %}
