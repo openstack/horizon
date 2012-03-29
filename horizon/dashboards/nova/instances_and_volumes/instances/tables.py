@@ -181,9 +181,12 @@ class UpdateRow(tables.Row):
 
     def get_data(self, request, instance_id):
         instance = api.server_get(request, instance_id)
-        flavors = api.flavor_list(request)
-        keyed_flavors = [(str(flavor.id), flavor) for flavor in flavors]
-        instance.full_flavor = SortedDict(keyed_flavors)[instance.flavor["id"]]
+        instance.full_flavor = api.flavor_get(request, instance.flavor["id"])
+        tenant = api.keystone.tenant_get(request,
+                                         instance.tenant_id,
+                                         admin=True)
+        instance.tenant_name = getattr(tenant, "name", None)
+
         return instance
 
 
