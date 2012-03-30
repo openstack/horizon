@@ -73,7 +73,8 @@ class MyAction(tables.Action):
         return getattr(obj, 'status', None) != 'down'
 
     def handle(self, data_table, request, object_ids):
-        return shortcuts.redirect('http://example.com/%s' % len(object_ids))
+        return shortcuts.redirect('http://example.com/?ids=%s'
+                                  % ",".join(object_ids))
 
 
 class MyColumn(tables.Column):
@@ -416,7 +417,7 @@ class DataTableTests(test.TestCase):
                          ('my_table', 'delete', '1'))
         handled = self.table.maybe_handle()
         self.assertEqual(handled.status_code, 302)
-        self.assertEqual(handled["location"], "http://example.com/1")
+        self.assertEqual(handled["location"], "http://example.com/?ids=1")
 
         # Batch action (without toggle) conjugation behavior
         req = self.factory.get('/my_url/')
@@ -474,7 +475,7 @@ class DataTableTests(test.TestCase):
                          ('my_table', 'delete', None))
         handled = self.table.maybe_handle()
         self.assertEqual(handled.status_code, 302)
-        self.assertEqual(handled["location"], "http://example.com/2")
+        self.assertEqual(handled["location"], "http://example.com/?ids=1,2")
 
         # Action with nothing selected
         req = self.factory.post('/my_url/', {'action': action_string})
@@ -485,6 +486,18 @@ class DataTableTests(test.TestCase):
         self.assertEqual(handled, None)
         self.assertEqual(list(req._messages)[0].message,
                          "Please select a row before taking that action.")
+
+        # Action with specific id and multiple ids favors single id
+        action_string = "my_table__delete__3"
+        req = self.factory.post('/my_url/', {'action': action_string,
+                                             'object_ids': [1, 2]})
+        self.table = MyTable(req, TEST_DATA)
+        self.assertEqual(self.table.parse_action(action_string),
+                         ('my_table', 'delete', '3'))
+        handled = self.table.maybe_handle()
+        self.assertEqual(handled.status_code, 302)
+        self.assertEqual(handled["location"],
+                         "http://example.com/?ids=3")
 
         # At least one object in table
         # BatchAction is available
