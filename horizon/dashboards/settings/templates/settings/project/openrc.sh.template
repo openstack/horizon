@@ -11,7 +11,8 @@ export OS_AUTH_URL={{ auth_url }}
 
 # With the addition of Keystone we have standardized on the term **tenant**
 # as the entity that owns the resources.
-export OS_TENANT_NAME={{ tenant_id }}
+export OS_TENANT_ID={{ tenant_id }}
+export OS_TENANT_NAME={{ tenant_name }}
 
 # In addition to the owning entity (tenant), openstack stores the entity
 # performing the action as the **user**.
