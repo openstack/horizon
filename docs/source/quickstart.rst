@@ -38,7 +38,7 @@ or to the IP and port the server is listening.
     The minimum required set of OpenStack services running includes the
     following:
 
-    * Nova (compute, api, scheduler, *and* volume services)
+    * Nova (compute, api, scheduler, network, *and* volume services)
     * Glance
     * Keystone
 
