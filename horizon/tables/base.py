@@ -909,7 +909,9 @@ class DataTable(object):
                 response = action.single(self, self._meta.request, obj_id)
             # Otherwise figure out what to pass along
             else:
-                if obj_id and not obj_ids:
+                # Preference given to a specific id, since that implies
+                # the user selected an action for just one row.
+                if obj_id:
                     obj_ids = [obj_id]
                 response = action.multiple(self, self._meta.request, obj_ids)
             return response
