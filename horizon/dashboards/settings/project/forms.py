@@ -51,13 +51,17 @@ class DownloadOpenRCForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            tenant_id = data['tenant']
+            tenant_name = dict(self.fields['tenant'].choices)[tenant_id]
+
             keystone_url = api.url_for(request,
                                        'identity',
                                        endpoint_type='publicURL')
 
             context = {'user': request.user,
                        'auth_url': keystone_url,
-                       'tenant_id': data['tenant']}
+                       'tenant_id': tenant_id,
+                       'tenant_name': tenant_name}
 
             response = shortcuts.render(request,
                                         'settings/project/openrc.sh.template',
