@@ -30,6 +30,10 @@ ul {
     margin: 0;
 }
 
+dt {
+  font-weight: bold;
+}
+
 #main_content {
   padding-left: 250px;
   padding-right: 25px;

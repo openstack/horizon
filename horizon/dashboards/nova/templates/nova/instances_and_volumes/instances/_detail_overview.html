@@ -5,51 +5,51 @@
 <div class="status row-fluid">
   <h4>{% trans "Info" %}</h4>
   <hr class="header_rule">
-  <ul>
-    <li><strong>{% trans "Name" %}:</strong>&nbsp;{{ instance.name }}</li>
-    <li><strong>{% trans "ID" %}:</strong>&nbsp;{{ instance.id }}</li>
-  </ul>
-</div>
-
-<div class="status row-fluid">
-  <h4>{% trans "Status" %}</h4>
-  <hr class="header_rule">
-  <ul>
-    <li><strong>{% trans "Status" %}:</strong>&nbsp;{{ instance.status|title }}</li>
-  </ul>
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ instance.name }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ instance.id }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ instance.status|title }}</dd>
+  </dl>
 </div>
 
 <div class="specs row-fluid">
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
-  <ul>
-    <li><strong>{% trans "RAM" %}:</strong>&nbsp;{{ instance.full_flavor.ram|mbformat }}</li>
-    <li><strong>{% trans "VCPUs" %}:</strong>&nbsp;{{ instance.full_flavor.vcpus }} {% trans "VCPU" %}</li>
-    <li><strong>{% trans "Disk" %}:</strong>&nbsp;{{ instance.full_flavor.disk }}{% trans "GB" %}</li>
-  </ul>
+  <dl>
+    <dt>{% trans "RAM" %}</dt>
+    <dd>{{ instance.full_flavor.ram|mbformat }}</dd>
+    <dt>{% trans "VCPUs" %}</dt>
+    <dd>{{ instance.full_flavor.vcpus }} {% trans "VCPU" %}</dd>
+    <dt>{% trans "Disk" %}</dt>
+    <dd>{{ instance.full_flavor.disk }}{% trans "GB" %}</dd>
+  </dl>
 </div>
 
 <div class="addresses row-fluid">
   <h4>{% trans "IP Addresses" %}</h4>
   <hr class="header_rule">
-  <ul>
+  <dl>
     {% for network, ip_list in instance.addresses.items %}
-    <li><strong>{{ network|title }}:</strong>
+    <dt>{{ network|title }}</dt>
+    <dd>
       {% for ip in ip_list %}
         {% if not forloop.last %}{{ ip.addr}},&nbsp;{% else %}{{ip.addr}}{% endif %}
       {% endfor %}
-    </li>
+    </dd>
     {% endfor %}
-  </ul>
+  </dl>
 </div>
 
 <div class="security_groups row-fluid">
   <h4>{% trans "Security Groups" %}</h4>
   <hr class="header_rule">
+  <dl>
   {% for group in instance.security_groups %}
-  <ul>
-    <li>
-      <strong>{{ group.name }}</strong>
+    <dt>{{ group.name }}</dt>
+    <dd>
       <ul>
       {% for rule in group.rules %}
         <li>{{ rule }}</li>
@@ -57,36 +57,41 @@
         <li><em>{% trans "No rules defined." %}</em></li>
       {% endfor %}
       </ul>
-    </li>
-  </ul>
+    </dd>
   {% endfor %}
+  </dl>
 </div>
 
 <div class="meta row-fluid">
   <h4>{% trans "Meta" %}</h4>
   <hr class="header_rule">
-  <ul>
-    <li><strong>{% trans "Key name" %}:</strong>&nbsp;{% if instance.key_name %}{{ instance.key_name }}{% else %}<em>None</em>{% endif %}</li>
+  <dl>
+    <dt>{% trans "Key Name" %}</dt>
+    <dd>{% if instance.key_name %}{{ instance.key_name }}{% else %}<em>None</em>{% endif %}</dd>
     {% url horizon:nova:images_and_snapshots:images:detail instance.image.id as image_url %}
-    <li><strong>{% trans "Image Name" %}:</strong>&nbsp;<a href="{{ image_url }}">{{ instance.image_name }}</a></li>
-  </ul>
+    <dt>{% trans "Image Name" %}</dt>
+    <dd><a href="{{ image_url }}">{{ instance.image_name }}</a></dd>
+  </dl>
 </div>
 
 <div class="volumes row-fluid">
   <h4>{% trans "Volumes" %}</h4>
   <hr class="header_rule">
-  <ul>
     {% if instance.volumes %}
-      {% for volume in instance.volumes %}
-      <li>
-        <strong>{% trans "Volume" %}:</strong>
-        <a href="{% url horizon:nova:instances_and_volumes:volumes:detail volume.volume_id %}">
-          {{ volume.volume_id }}&nbsp;({{ volume.device }})
-        </a>
-      </li>
-      {% endfor %}
+      <dl>
+        {% for volume in instance.volumes %}
+          <dt>{% trans "Volume" %}</dt>
+          <dd>
+            <a href="{% url horizon:nova:instances_and_volumes:volumes:detail volume.volume_id %}">
+              {{ volume.volume_id }}&nbsp;({{ volume.device }})
+            </a>
+          </dd>
+        {% endfor %}
+      </dl>
     {% else %}
-    <li><em>{% trans "No volumes attached." %}</em></li>
+      <ul>
+        <li><em>{% trans "No volumes attached." %}</em></li>
+      </ul>
     {% endif %}
-  </ul>
+  </dl>
 </div>

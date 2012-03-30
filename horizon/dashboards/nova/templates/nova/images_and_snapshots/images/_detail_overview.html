@@ -5,55 +5,64 @@
 <div class="info row-fluid">
   <h4>{% trans "Info" %}</h4>
   <hr class="header_rule">
-  <ul>
-    <li><strong>{% trans "Name" %}:</strong>&nbsp;{{ image.name|default:"None" }}</li>
-    <li><strong>{% trans "ID" %}:</strong>&nbsp;{{ image.id|default:"None" }}</li>
-  </ul>
-</div>
-
-<div class="status row-fluid">
-  <h4>{% trans "Status" %}</h4>
-  <hr class="header_rule">
-  <ul>
-    <li><strong>{% trans "Status" %}:</strong>&nbsp;{{ image.status|default:"Unknown"|title }}</li>
-    <li><strong>{% trans "Public" %}:</strong>&nbsp;{{ image.is_public }}</li>
-    <li><strong>{% trans "Checksum" %}:</strong>&nbsp;{{ image.checksum }}</li>
-    <li><strong>{% trans "Created" %}:</strong>&nbsp;{{ image.created_at|default:"Unknown" }}</li>
-    <li><strong>{% trans "Updated" %}:</strong>&nbsp;{{ image.updated_app|default:"Never updated" }}</li>
-  </ul>
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ image.name|default:"None" }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ image.id|default:"None" }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ image.status|default:"Unknown"|title }}</dd>
+    <dt>{% trans "Public" %}</dt>
+    <dd>{{ image.is_public }}</dd>
+    <dt>{% trans "Checksum" %}</dt>
+    <dd>{{ image.checksum }}</dd>
+    <dt>{% trans "Created" %}</dt>
+    <dd>{{ image.created_at|default:"Unknown" }}</dd>
+    <dt>{% trans "Updated" %}</dt>
+    <dd>{{ image.updated_app|default:"Never updated" }}</dd>
+  </dl>
 </div>
 
 <div class="specs row-fluid">
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
-  <ul>
-    <li><strong>{% trans "Size" %}:</strong>&nbsp;{{ image.size|filesizeformat }}</li>
-    <li><strong>{% trans "Container Format" %}:</strong>&nbsp;{{ image.container_format|default:"None"|upper }}</li>
-    <li><strong>{% trans "Disk Format" %}:</strong>&nbsp;{{ image.disk_format|default:"None"|upper }}</li>
-  </ul>
+  <dl>
+    <dt>{% trans "Size" %}</dt>
+    <dd>{{ image.size|filesizeformat }}</dd>
+    <dt>{% trans "Container Format" %}</dt>
+    <dd>{{ image.container_format|default:"None"|upper }}</dd>
+    <dt>{% trans "Disk Format" %}</dt>
+    <dd>{{ image.disk_format|default:"None"|upper }}</dd>
+  </dl>
 </div>
 
 <div class="properties row-fluid">
   <h4>{% trans "Custom Properties" %}</h4>
   <hr class="header_rule">
-  <ul>
+  <dl>
     {% if image.properties.architecture %}
-      <li><strong>{% trans "Architecture" %}:</strong>&nbsp;{{ image.properties.architecture }}</li>
+      <dt>{% trans "Architecture" %}</dt>
+      <dd>{{ image.properties.architecture }}</dd>
     {% endif %}
     {% if image.properties.kernel_id %}
-      <li><strong>{% trans "Kernel ID" %}:</strong>&nbsp;{{ image.properties.kernel_id }}</li>
+      <dt>{% trans "Kernel ID" %}</dt>
+      <dd>{{ image.properties.kernel_id }}</dd>
     {% endif %}
     {% if image.properties.ramdisk_id %}
-      <li><strong>{% trans "Ramdisk ID" %}:</strong>&nbsp;{{ image.properties.ramdisk_id }}</li>
+      <dt>{% trans "Ramdisk ID" %}</dt>
+      <dd>{{ image.properties.ramdisk_id }}</dd>
     {% endif %}
     {% if image.properties.image_state %}
-      <li><strong>{% trans "Euca2ools state" %}:</strong>&nbsp;{{ image.properties.image_state }}</li>
+      <dt>{% trans "Euca2ools state" %}</dt>
+      <dd>{{ image.properties.image_state }}</dd>
     {% endif %}
     {% if image.properties.project_id %}
-      <li><strong>{% trans "Project ID" %}:</strong>&nbsp;{{ image.properties.project_id }}</li>
+      <dt>{% trans "Project ID" %}</dt>
+      <dd>{{ image.properties.project_id }}</dd>
     {% endif %}
     {% if image.properties.image_type %}
-      <li><strong>{% trans "Image Type" %}:</strong>&nbsp;{{ image.properties.image_type }}</li>
+      <dt>{% trans "Image Type" %}</dt>
+      <dd>{{ image.properties.image_type }}</dd>
     {% endif %}
-  </ul>
+  </dl>
 </div>
