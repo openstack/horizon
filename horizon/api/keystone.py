@@ -70,7 +70,7 @@ def _get_endpoint_url(request, endpoint_type, catalog=None):
 
 
 def keystoneclient(request, username=None, password=None, tenant_id=None,
-                   token_id=None, endpoint=None, endpoint_type='publicURL',
+                   token_id=None, endpoint=None, endpoint_type='internalURL',
                    admin=False):
     """Returns a client connected to the Keystone backend.
 
@@ -157,7 +157,7 @@ def tenant_update(request, tenant_id, tenant_name, description, enabled):
                                                               enabled)
 
 
-def tenant_list_for_token(request, token, endpoint_type='publicURL'):
+def tenant_list_for_token(request, token, endpoint_type='internalURL'):
     c = keystoneclient(request,
                        token_id=token,
                        endpoint=_get_endpoint_url(request, endpoint_type),
@@ -176,7 +176,7 @@ def token_create(request, tenant, username, password):
                        username=username,
                        password=password,
                        tenant_id=tenant,
-                       endpoint=_get_endpoint_url(request, 'publicURL'))
+                       endpoint=_get_endpoint_url(request, 'internalURL'))
     token = c.tokens.authenticate(username=username,
                                   password=password,
                                   tenant_id=tenant)
@@ -193,7 +193,7 @@ def token_create_scoped(request, tenant, token):
     c = keystoneclient(request,
                        tenant_id=tenant,
                        token_id=token,
-                       endpoint=_get_endpoint_url(request, 'publicURL'))
+                       endpoint=_get_endpoint_url(request, 'internalURL'))
     raw_token = c.tokens.authenticate(tenant_id=tenant,
                                       token=token,
                                       return_raw=True)
@@ -203,7 +203,7 @@ def token_create_scoped(request, tenant, token):
                                                      endpoint_type='adminURL')
     else:
         c.management_url = c.service_catalog.url_for(service_type='identity',
-                                                     endpoint_type='publicURL')
+                                             endpoint_type='internalURL')
     scoped_token = tokens.Token(tokens.TokenManager, raw_token)
     return scoped_token
 
