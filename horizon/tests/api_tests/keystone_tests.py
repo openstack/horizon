@@ -39,16 +39,16 @@ class ClientConnectionTests(test.TestCase):
                                     user=self.user.name,
                                     service_catalog=self.service_catalog)
         self.request.user = self.test_user
-        self.public_url = api.base.url_for(self.request,
+        self.internal_url = api.base.url_for(self.request,
                                            'identity',
-                                           endpoint_type='publicURL')
+                                           endpoint_type='internalURL')
         self.admin_url = api.base.url_for(self.request,
                                           'identity',
                                           endpoint_type='adminURL')
         self.conn = FakeConnection()
 
     def test_connect(self):
-        keystone_client.Client(auth_url=self.public_url,
+        keystone_client.Client(auth_url=self.internal_url,
                                endpoint=None,
                                password=self.user.password,
                                tenant_id=None,
@@ -58,7 +58,7 @@ class ClientConnectionTests(test.TestCase):
         client = api.keystone.keystoneclient(self.request,
                                              username=self.user.name,
                                              password=self.user.password)
-        self.assertEqual(client.management_url, self.public_url)
+        self.assertEqual(client.management_url, self.internal_url)
 
     def test_connect_admin(self):
         self.test_user.roles = [{'name': 'admin'}]
@@ -78,7 +78,7 @@ class ClientConnectionTests(test.TestCase):
     def connection_caching(self):
         self.test_user.roles = [{'name': 'admin'}]
         # Regular connection
-        keystone_client.Client(auth_url=self.public_url,
+        keystone_client.Client(auth_url=self.internal_url,
                                endpoint=None,
                                password=self.user.password,
                                tenant_id=None,
@@ -98,7 +98,7 @@ class ClientConnectionTests(test.TestCase):
         client = api.keystone.keystoneclient(self.request,
                                              username=self.user.name,
                                              password=self.user.password)
-        self.assertEqual(client.management_url, self.public_url)
+        self.assertEqual(client.management_url, self.internal_url)
         client = api.keystone.keystoneclient(self.request,
                                              username=self.user.name,
                                              password=self.user.password,
@@ -107,7 +107,7 @@ class ClientConnectionTests(test.TestCase):
         client = api.keystone.keystoneclient(self.request,
                                              username=self.user.name,
                                              password=self.user.password)
-        self.assertEqual(client.management_url, self.public_url)
+        self.assertEqual(client.management_url, self.internal_url)
         client = api.keystone.keystoneclient(self.request,
                                              username=self.user.name,
                                              password=self.user.password,
