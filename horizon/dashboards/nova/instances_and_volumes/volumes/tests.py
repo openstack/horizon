@@ -59,5 +59,14 @@ class VolumeViewTests(test.TestCase):
         url = reverse('horizon:nova:instances_and_volumes:volumes:detail',
                       args=[volume.id])
         res = self.client.get(url)
-        self.assertEqual(res.status_code, 200)
+
+        self.assertContains(res, "<dd>Volume name</dd>", 1, 200)
+        self.assertContains(res, "<dd>1</dd>", 1, 200)
+        self.assertContains(res, "<dd>Available</dd>", 1, 200)
+        self.assertContains(res, "<dd>40 GB</dd>", 1, 200)
+        self.assertContains(res, "<dd>04/01/12 at 10:30:00</dd>", 1, 200)
+        self.assertContains(res, "<a href=\"/nova/instances_and_volumes/"
+                            "instances/1/detail\">Instance server_1 "
+                            "(1)</a>", 1, 200)
+
         self.assertNoMessages()

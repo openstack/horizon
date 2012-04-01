@@ -103,12 +103,8 @@ class DetailView(tabs.TabView):
                 instance = api.server_get(self.request, instance_id)
                 instance.volumes = api.volume_instance_list(self.request,
                                                             instance_id)
-                # Gather our flavors and images and correlate our instances to
-                # them. Exception handling happens in the parent class.
-                flavors = api.flavor_list(self.request)
-                full_flavors = SortedDict([(str(flavor.id), flavor) for \
-                                            flavor in flavors])
-                instance.full_flavor = full_flavors[instance.flavor["id"]]
+                instance.full_flavor = api.flavor_get(self.request,
+                                                      instance.flavor["id"])
                 instance.security_groups = api.server_security_groups(
                                            self.request, instance_id)
             except:
