@@ -34,8 +34,8 @@ USER_UPDATE_URL = reverse('horizon:syspanel:users:update', args=[1])
 
 class UsersViewTests(test.BaseAdminViewTests):
     def test_index(self):
-        self.mox.StubOutWithMock(api, 'user_list')
-        api.user_list(IgnoreArg()).AndReturn(self.users.list())
+        self.mox.StubOutWithMock(api.keystone, 'user_list')
+        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
         self.mox.ReplayAll()
 
         res = self.client.get(USERS_INDEX_URL)
@@ -176,6 +176,8 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_enable_user(self):
         user = self.users.get(id="2")
         self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
+        self.mox.StubOutWithMock(api.keystone, 'user_list')
+        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
                                          True).AndReturn(user)
@@ -183,11 +185,14 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         formData = {'action': 'users__enable__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
-        self.assertRedirects(res, USERS_INDEX_URL)
+        self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
     def test_disable_user(self):
         user = self.users.get(id="2")
+
         self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
+        self.mox.StubOutWithMock(api.keystone, 'user_list')
+        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
                                          False).AndReturn(user)
@@ -195,11 +200,13 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         formData = {'action': 'users__disable__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
-        self.assertRedirects(res, USERS_INDEX_URL)
+        self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
     def test_enable_disable_user_exception(self):
         user = self.users.get(id="2")
         self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
+        self.mox.StubOutWithMock(api.keystone, 'user_list')
+        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
         api_exception = keystone_exceptions.ClientException('apiException',
                                                     message='apiException')
         api.keystone.user_update_enabled(IgnoreArg(),
@@ -210,15 +217,15 @@ class UsersViewTests(test.BaseAdminViewTests):
         formData = {'action': 'users__enable__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
 
-        self.assertRedirects(res, USERS_INDEX_URL)
+        self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
     def test_shoot_yourself_in_the_foot(self):
-        self.mox.StubOutWithMock(api, 'user_list')
+        self.mox.StubOutWithMock(api.keystone, 'user_list')
         # Four times... one for each post and one for each followed redirect
-        api.user_list(IgnoreArg()).AndReturn(self.users.list())
-        api.user_list(IgnoreArg()).AndReturn(self.users.list())
-        api.user_list(IgnoreArg()).AndReturn(self.users.list())
-        api.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
 
         self.mox.ReplayAll()
 
