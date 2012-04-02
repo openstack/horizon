@@ -20,10 +20,8 @@
 
 import logging
 
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from keystoneclient import exceptions as api_exceptions
 
 from horizon import api
 from horizon import exceptions
@@ -43,17 +41,10 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         users = []
         try:
-            users = api.user_list(self.request)
-        except api_exceptions.AuthorizationFailure, e:
-            LOG.exception("Unauthorized attempt to list users.")
-            messages.error(self.request,
-                           _('Unable to get user info: %s') % e.message)
-        except Exception, e:
-            LOG.exception('Exception while getting user list')
-            if not hasattr(e, 'message'):
-                e.message = str(e)
-            messages.error(self.request,
-                           _('Unable to get user info: %s') % e.message)
+            users = api.keystone.user_list(self.request)
+        except:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve user list.'))
         return users
 
 

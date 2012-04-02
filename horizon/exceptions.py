@@ -143,6 +143,8 @@ NOT_FOUND += tuple(EXCEPTION_CONFIG.get('not_found', []))
 
 # NOTE(gabriel): This is very broad, and may need to be dialed in.
 RECOVERABLE = (keystoneclient.ClientException,
+               # AuthorizationFailure is raised when Keystone is "unavailable".
+               keystoneclient.AuthorizationFailure,
                novaclient.ClientException,
                glanceclient.GlanceException,
                swiftclient.Error,

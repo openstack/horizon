@@ -45,7 +45,8 @@ class IndexView(tables.DataTableView):
         try:
             tenants = api.keystone.tenant_list(self.request, admin=True)
         except:
-            exceptions.handle(self.request)
+            exceptions.handle(self.request,
+                              _("Unable to retrieve project list."))
         tenants.sort(key=lambda x: x.id, reverse=True)
         return tenants
 
@@ -67,7 +68,7 @@ class UpdateView(forms.ModalFormView):
         except:
             redirect = reverse("horizon:syspanel:projects:index")
             exceptions.handle(self.request,
-                              _('Unable to retrieve tenant.'),
+                              _('Unable to retrieve project.'),
                               redirect=redirect)
 
     def get_initial(self):
