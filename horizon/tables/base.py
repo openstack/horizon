@@ -829,6 +829,7 @@ class DataTable(object):
             # Copy to allow modifying properties per row
             bound_action = copy.copy(self.base_actions[action.name])
             bound_action.attrs = copy.copy(bound_action.attrs)
+            bound_action.datum = datum
             # Remove disallowed actions.
             if not self._filter_action(bound_action,
                                        self._meta.request,

@@ -42,9 +42,9 @@ class BaseAction(html.HTMLElement):
     requires_input = False
     preempt = False
 
-    def __init__(self):
+    def __init__(self, datum=None):
         super(BaseAction, self).__init__()
-        self.id_counter = 0
+        self.datum = datum
 
     def allowed(self, request, datum):
         """ Determine whether this action is allowed for the current request.
@@ -80,8 +80,12 @@ class BaseAction(html.HTMLElement):
         to returning an ``id`` attribute with the value
         ``{{ table.name }}__action_{{ action.name }}__{{ creation counter }}``.
         """
-        bits = (self.table.name, "action_%s" % self.name, str(self.id_counter))
-        self.id_counter += 1
+        if self.datum is not None:
+            bits = (self.table.name,
+                    "row_%s" % self.table.get_object_id(self.datum),
+                    "action_%s" % self.name)
+        else:
+            bits = (self.table.name, "action_%s" % self.name)
         return {"id": STRING_SEPARATOR.join(bits)}
 
     def __repr__(self):
@@ -149,8 +153,9 @@ class Action(BaseAction):
 
     def __init__(self, verbose_name=None, verbose_name_plural=None,
                  single_func=None, multiple_func=None, handle_func=None,
-                 handles_multiple=False, attrs=None, requires_input=True):
-        super(Action, self).__init__()
+                 handles_multiple=False, attrs=None, requires_input=True,
+                 datum=None):
+        super(Action, self).__init__(datum=datum)
         # Priority: constructor, class-defined, fallback
         self.verbose_name = verbose_name or getattr(self, 'verbose_name',
                                                     self.name.title())

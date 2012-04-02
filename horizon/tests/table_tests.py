@@ -381,6 +381,7 @@ class DataTableTests(test.TestCase):
         self.assertContains(resp, "table_search", 1)
         self.assertContains(resp, "my_table__filter__q", 1)
         self.assertContains(resp, "my_table__delete", 1)
+        self.assertContains(resp, 'id="my_table__action_delete"', 1)
         # Row actions
         row_actions = self.table.render_row_actions(TEST_DATA[0])
         resp = http.HttpResponse(row_actions)
@@ -389,6 +390,7 @@ class DataTableTests(test.TestCase):
         self.assertContains(resp, "my_table__toggle__1", 1)
         self.assertContains(resp, "/auth/login/", 1)
         self.assertContains(resp, "ajax-modal", 1)
+        self.assertContains(resp, 'id="my_table__row_1__action_delete"', 1)
         # Whole table
         resp = http.HttpResponse(self.table.render())
         self.assertContains(resp, '<table id="my_table"', 1)
