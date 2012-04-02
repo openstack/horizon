@@ -1,3 +1,6 @@
+// Storage for our current jqXHR object.
+horizon.modals._request = null;
+
 horizon.modals.success = function (data, textStatus, jqXHR) {
   $('body').append(data);
   $('.modal span.help-block').hide();
@@ -47,22 +50,30 @@ horizon.modals.success = function (data, textStatus, jqXHR) {
 };
 
 horizon.addInitFunction(function() {
-  $(document).on('click', '.modal:not(.static_page) .cancel', function (evt) {
+  $(document).on('click', '.modal .cancel', function (evt) {
     $(this).closest('.modal').modal('hide');
-    return false;
+    evt.preventDefault();
   });
 
-  $(document).on('submit', '.modal:not(.static_page) form', function (evt) {
-    var $form = $(this);
+  $(document).on('submit', '.modal form', function (evt) {
+    var $form = $(this),
+        $button = $form.find(".modal-footer .btn-primary");
     if ($form.attr("enctype") === "multipart/form-data") {
       // AJAX-upload for files is not currently supported.
       return;
     }
     evt.preventDefault();
+
+    // Prevent duplicate form POSTs
+    $button.prop("disabled", true);
+
     $.ajax({
       type: "POST",
       url: $form.attr('action'),
       data: $form.serialize(),
+      complete: function () {
+        $button.prop("disabled", false);
+      },
       success: function (data, textStatus, jqXHR) {
         // TODO(gabriel): This isn't a long-term solution for AJAX redirects.
         // https://blueprints.launchpad.net/horizon/+spec/global-ajax-communication
@@ -93,7 +104,17 @@ horizon.addInitFunction(function() {
 
   $('.ajax-modal').live('click', function (evt) {
     var $this = $(this);
-    $.ajax($this.attr('href'), {
+
+    // If there's an existing modal request open, cancel it out.
+    if (horizon.modals._request && typeof(horizon.modals._request.abort) !== undefined) {
+      horizon.modals._request.abort();
+    }
+
+    horizon.modals._request = $.ajax($this.attr('href'), {
+      complete: function () {
+        // Clear the global storage;
+        horizon.modals._request = null;
+      },
       error: function(jqXHR, status, errorThrown) {
         if (jqXHR.status === 401){
           var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
