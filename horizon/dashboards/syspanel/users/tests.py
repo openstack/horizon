@@ -125,7 +125,6 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
-                                 confirm_password=u'normalpwd',
                                  email=u'test@example.com',
                                  name=u'test_user').AndReturn(None)
         api.user_update_tenant(IsA(http.HttpRequest),
