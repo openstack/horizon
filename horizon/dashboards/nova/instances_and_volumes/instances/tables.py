@@ -18,7 +18,6 @@ import logging
 
 from django import template
 from django.template.defaultfilters import title
-from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -182,11 +181,6 @@ class UpdateRow(tables.Row):
     def get_data(self, request, instance_id):
         instance = api.server_get(request, instance_id)
         instance.full_flavor = api.flavor_get(request, instance.flavor["id"])
-        tenant = api.keystone.tenant_get(request,
-                                         instance.tenant_id,
-                                         admin=True)
-        instance.tenant_name = getattr(tenant, "name", None)
-
         return instance
 
 
