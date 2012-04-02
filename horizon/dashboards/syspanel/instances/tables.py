@@ -20,6 +20,7 @@ import logging
 from django.template.defaultfilters import title
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import api
 from horizon import tables
 from horizon.dashboards.nova.instances_and_volumes.instances.tables import (
         TerminateInstance, EditInstance, ConsoleLink, LogLink, SnapshotLink,
@@ -28,6 +29,16 @@ from horizon.dashboards.nova.instances_and_volumes.instances.tables import (
 
 
 LOG = logging.getLogger(__name__)
+
+
+class AdminUpdateRow(UpdateRow):
+    def get_data(self, request, instance_id):
+        instance = super(AdminUpdateRow, self).get_data(request, instance_id)
+        tenant = api.keystone.tenant_get(request,
+                                         instance.tenant_id,
+                                         admin=True)
+        instance.tenant_name = getattr(tenant, "name", None)
+        return instance
 
 
 class SyspanelInstancesTable(tables.DataTable):
@@ -70,7 +81,7 @@ class SyspanelInstancesTable(tables.DataTable):
         verbose_name = _("Instances")
         status_columns = ["status", "task"]
         table_actions = (TerminateInstance,)
-        row_class = UpdateRow
+        row_class = AdminUpdateRow
         row_actions = (EditInstance, ConsoleLink, LogLink, SnapshotLink,
                        TogglePause, ToggleSuspend, RebootInstance,
                        TerminateInstance)
