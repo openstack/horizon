@@ -148,7 +148,8 @@ def data(TEST):
                                  name='test_volume',
                                  status='available',
                                  size=40,
-                                 display_name='',
+                                 display_name='Volume name',
+                                 created_at='2012-04-01 10:30:00',
                                  attachments={}))
     TEST.volumes.add(volume)
 

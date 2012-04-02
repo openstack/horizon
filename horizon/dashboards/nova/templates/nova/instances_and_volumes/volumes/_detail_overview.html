@@ -9,7 +9,7 @@
     <dt>{% trans "Name" %}</dt>
     <dd>{{ volume.display_name }}</dd>
     <dt>{% trans "ID" %}</dt>
-    <dd>{{ volume.id }}</d>
+    <dd>{{ volume.id }}</dd>
     {% if volume.display_description %}
     <dt>{% trans "Description" %}</dt>
     <dd>{{ volume.display_description }}</dd>
@@ -26,7 +26,7 @@
     <dt>{% trans "Size" %}</dt>
     <dd>{{ volume.size }} {% trans "GB" %}</dd>
     <dt>{% trans "Created" %}</dt>
-    <dd>{{ volume.createdAt|parse_date }}</dd>
+    <dd>{{ volume.created_at|parse_date }}</dd>
   </dl>
 </div>
 
@@ -37,9 +37,9 @@
     <dl>
       <dt>{% trans "Attached To" %}<dt>
       <dd>
-        {% url horizon:nova:instances_and_volumes:volumes:detail attachment.server_id as instance_url%}
-        <a href="{{ instance_url }}">{% trans "Instance" %}&nbsp;{{ attachment.instance.id }} ({{ attachment.instance.name }})</a>
-        <span>{% trans "on" %}&nbsp;{{ attachment.device }}</span>
+        {% url horizon:nova:instances_and_volumes:instances:detail attachment.server_id as instance_url%}
+        <a href="{{ instance_url }}">{% trans "Instance" %} {{ attachment.instance.name }} ({{ attachment.instance.id }})</a>
+        <span> {% trans "on" %} {{ attachment.device }}</span>
       </dd>
     </dl>
   {% empty %}
