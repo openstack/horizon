@@ -86,7 +86,7 @@ class AddRule(forms.SelfHandlingForm):
                            required=False,
                            initial="0.0.0.0/0",
                            help_text=_("Classless Inter-Domain Routing "
-                                       "(i.e. 192.168.0.0/24"),
+                                       "(e.g. 192.168.0.0/24)"),
                            validators=[validate_ipv4_cidr])
 
     security_group_id = forms.IntegerField(widget=forms.HiddenInput())

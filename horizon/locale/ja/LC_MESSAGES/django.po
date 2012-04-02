@@ -396,7 +396,7 @@ msgid "CIDR"
 msgstr ""
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:88
-msgid "Classless Inter-Domain Routing (i.e. 192.168.0.0/24"
+msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr ""
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:114
