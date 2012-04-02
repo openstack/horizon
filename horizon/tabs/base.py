@@ -247,7 +247,7 @@ class Tab(html.HTMLElement):
     preload = True
     _active = None
 
-    def __init__(self, tab_group, request):
+    def __init__(self, tab_group, request=None):
         super(Tab, self).__init__()
         # Priority: constructor, class-defined, fallback
         if not self.name:
@@ -255,10 +255,11 @@ class Tab(html.HTMLElement):
         self.name = unicode(self.name)  # Force unicode.
         if not self.slug:
             raise ValueError("%s must have a slug." % self.__class__.__name__)
-        self.request = request
         self.tab_group = tab_group
-        self._allowed = self.allowed(request)
-        self._enabled = self.enabled(request)
+        self.request = request
+        if request:
+            self._allowed = self.allowed(request)
+            self._enabled = self.enabled(request)
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
@@ -313,6 +314,9 @@ class Tab(html.HTMLElement):
         ``"{{ tab_group.slug }}__{{ tab.slug }}"``.
         """
         return SEPARATOR.join([self.tab_group.slug, self.slug])
+
+    def get_query_string(self):
+        return "=".join((self.tab_group.param_name, self.get_id()))
 
     def get_default_classes(self):
         """
