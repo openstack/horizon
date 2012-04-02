@@ -24,6 +24,8 @@ from horizon import api
 from horizon import tables
 from horizon.templatetags import sizeformat
 
+from .tabs import InstanceDetailTabs, LogTab, VNCTab
+
 
 LOG = logging.getLogger(__name__)
 
@@ -158,21 +160,31 @@ class SnapshotLink(tables.LinkAction):
 class ConsoleLink(tables.LinkAction):
     name = "console"
     verbose_name = _("VNC Console")
-    url = "horizon:nova:instances_and_volumes:instances:vnc"
+    url = "horizon:nova:instances_and_volumes:instances:detail"
     classes = ("btn-console",)
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES
 
+    def get_link_url(self, datum):
+        base_url = super(ConsoleLink, self).get_link_url(datum)
+        tab_query_string = VNCTab(InstanceDetailTabs).get_query_string()
+        return "?".join([base_url, tab_query_string])
+
 
 class LogLink(tables.LinkAction):
     name = "log"
     verbose_name = _("View Log")
-    url = "horizon:nova:instances_and_volumes:instances:console"
+    url = "horizon:nova:instances_and_volumes:instances:detail"
     classes = ("btn-log",)
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES
+
+    def get_link_url(self, datum):
+        base_url = super(LogLink, self).get_link_url(datum)
+        tab_query_string = LogTab(InstanceDetailTabs).get_query_string()
+        return "?".join([base_url, tab_query_string])
 
 
 class UpdateRow(tables.Row):
