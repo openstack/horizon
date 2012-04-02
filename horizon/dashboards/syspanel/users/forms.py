@@ -50,13 +50,11 @@ class BaseUserForm(forms.SelfHandlingForm):
 
     def clean(self):
         '''Check to make sure password fields match.'''
-        super(forms.Form, self).clean()
-        if 'password' in self.cleaned_data and \
-                'confirm_password' in self.cleaned_data:
-            if self.cleaned_data['password'] != \
-                    self.cleaned_data['confirm_password']:
+        data = super(forms.Form, self).clean()
+        if 'password' in data:
+            if data['password'] != data.get('confirm_password', None):
                 raise ValidationError(_('Passwords do not match.'))
-        return self.cleaned_data
+        return data
 
 
 class CreateUserForm(BaseUserForm):
@@ -121,8 +119,9 @@ class UpdateUserForm(BaseUserForm):
         user = data.pop('id')
         password = data.pop('password')
         tenant = data.pop('tenant_id')
-        # Discard the "method" param so we can pass kwargs to keystoneclient
+        # Discard the extra fields so we can pass kwargs to keystoneclient
         data.pop('method')
+        data.pop('confirm_password', None)
 
         # Update user details
         msg_bits = (_('name'), _('email'))
