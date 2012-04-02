@@ -124,6 +124,10 @@ horizon.addInitFunction(function() {
             location.reload(true);
           }
         }
+        else {
+          // Generic error handler. Really generic.
+          horizon.alert("error", "An error occurred. Please try again.");
+        }
       },
       success: horizon.modals.success
     });
