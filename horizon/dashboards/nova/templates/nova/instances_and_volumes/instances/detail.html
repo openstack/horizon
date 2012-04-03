@@ -16,21 +16,16 @@
 
 {% block js %}
   {{ block.super }}
-  {# FIXME: This JavaScript should live with the rest of the JS #}
-    <script type="text/javascript" charset="utf-8">
-      $(function() {
-        function getLog() {
-          if ($("#instance_details__log .logs").length) {
-            $.get("{% url horizon:nova:instances_and_volumes:instances:console instance.id %}?length=25", function(data) {
-              $("#instance_details__log .logs").html(data);
-            });
-          }
-        }
-        getLog();
+  <script type="text/javascript" charset="utf-8">
+    $(document).on('submit', '#tail_length', function (evt) {
+      horizon.instances.user_decided_length = true;
+      horizon.instances.getConsoleLog(this, true);
 
-        setInterval(function() {
-          getLog();
-        }, 10000); // This value has to stay under Nova's API rate limiting.
-      });
-    </script>
+      evt.preventDefault();
+    });
+
+    setInterval(function() {
+      horizon.instances.getConsoleLog($("#tail_length"), false);
+    }, 10000);
+  </script>
 {% endblock %}

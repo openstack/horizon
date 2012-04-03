@@ -206,7 +206,8 @@ class InstanceViewTests(test.TestCase):
 
         self.mox.StubOutWithMock(api, 'server_console_output')
         api.server_console_output(IsA(http.HttpRequest),
-                                  server.id).AndReturn(CONSOLE_OUTPUT)
+                                  server.id, tail_length=None) \
+                                  .AndReturn(CONSOLE_OUTPUT)
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:instances_and_volumes:instances:console',
@@ -224,7 +225,7 @@ class InstanceViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'server_console_output')
         exc = nova_exceptions.ClientException(500)
         api.server_console_output(IsA(http.HttpRequest),
-                                  server.id).AndRaise(exc)
+                                  server.id, tail_length=None).AndRaise(exc)
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:instances_and_volumes:instances:console',

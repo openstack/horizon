@@ -1001,3 +1001,8 @@ iframe {
   padding: 10px;
   display: block;
 }
+
+label.log-length {
+  line-height: 28px;
+  margin-right: 10px;
+}
