@@ -20,10 +20,10 @@
 
 import logging
 
-from django import shortcuts
-from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 from horizon import api
+from horizon import exceptions
 from horizon import tables
 from .tables import QuotasTable
 
@@ -40,9 +40,6 @@ class IndexView(tables.DataTableView):
             quota_set = api.tenant_quota_defaults(self.request,
                                                   self.request.user.tenant_id)
             data = quota_set.items
-        except Exception, e:
-            data = []
-            LOG.exception('Exception while getting quota info')
-            messages.error(self.request,
-                           _('Unable to get quota info: %s') % e)
+        except:
+            exceptions.handle(self.request, _('Unable to get quota info.'))
         return data

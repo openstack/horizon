@@ -20,7 +20,7 @@
     <h3>{% trans "Project Quotas" %}</h3>
     <div class="quota_title">
       <strong>{% trans "Floating IP" %} <span>({{ usages.floating_ips.used }})</span></strong>
-      <p>{{ usages.floating_ips.available }} {% trans "Available" %}</p>
+      <p>{{ usages.floating_ips.available|quota }}</p>
     </div>
     <div class="clearfix"></div>
     <div class="quota_bar">{% horizon_progress_bar usages.floating_ips.used usages.floating_ips.quota %}</div>

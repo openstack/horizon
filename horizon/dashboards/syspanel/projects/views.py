@@ -172,7 +172,7 @@ class QuotasView(forms.ModalFormView):
             'injected_file_content_bytes': quotas.injected_file_content_bytes,
             'volumes': quotas.volumes,
             'gigabytes': quotas.gigabytes,
-            'ram': int(quotas.ram),
+            'ram': quotas.ram,
             'floating_ips': quotas.floating_ips,
             'instances': quotas.instances,
             'injected_files': quotas.injected_files,

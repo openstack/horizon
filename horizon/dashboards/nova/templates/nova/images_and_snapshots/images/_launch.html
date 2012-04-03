@@ -21,28 +21,28 @@
 
   <div class="quota_title">
     <strong>{% trans "Instance Count" %} <span>({{ usages.instances.used }})</span></strong>
-    <p>{{ usages.instances.available }} {% trans "Available" %}</p>
+    <p>{{ usages.instances.available|quota }}</p>
   </div>
   <div class="clearfix"></div>
   <div class="quota_bar">{% horizon_progress_bar usages.instances.used usages.instances.quota %}</div>
 
   <div class="quota_title">
     <strong>{% trans "VCPUs" %} <span>({{ usages.cores.used }})</span></strong>
-    <p>{{ usages.cores.available }} {% trans "Available" %}</p>
+    <p>{{ usages.cores.available|quota }}</p>
   </div>
   <div class="clearfix"></div>
   <div class="quota_bar">{% horizon_progress_bar usages.cores.used usages.cores.quota %}</div>
 
   <div class="quota_title">
     <strong>{% trans "Disk" %} <span>({{ usages.gigabytes.used }} {% trans "GB" %})</span></strong>
-    <p>{{ usages.gigabytes.available }} {% trans "GB" %} {% trans "Available" %}</p>
+    <p>{{ usages.gigabytes.available|quota:"GB" }}</p>
   </div>
   <div class="clearfix"></div>
   <div class="quota_bar">{% horizon_progress_bar usages.gigabytes.used usages.gigabytes.quota %}</div>
 
   <div class="quota_title">
     <strong>{% trans "Memory" %} <span>({{ usages.ram.used }} {% trans "MB" %})</span></strong>
-    <p>{{ usages.ram.available }} {% trans "MB" %} {% trans "Available" %}</p>
+    <p>{{ usages.ram.available|quota:"MB" }}</p>
   </div>
   <div class="clearfix"></div>
   <div class="quota_bar">{% horizon_progress_bar usages.ram.used usages.ram.quota %}</div>
