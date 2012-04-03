@@ -17,6 +17,7 @@
 from __future__ import absolute_import
 
 from django import template
+from django.utils.translation import ugettext as _
 from django.utils.datastructures import SortedDict
 
 from horizon.base import Horizon
@@ -112,6 +113,16 @@ def horizon_progress_bar(current_val, max_val):
     """
     return {'current_val': current_val,
             'max_val': max_val}
+
+
+@register.filter
+def quota(val, units=None):
+    if val == float("inf"):
+        return _("No Limit")
+    elif units is not None:
+        return "%s %s %s" % (val, units, _("Available"))
+    else:
+        return "%s %s" % (val, _("Available"))
 
 
 class JSTemplateNode(template.Node):
