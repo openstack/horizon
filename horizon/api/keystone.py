@@ -70,7 +70,7 @@ def _get_endpoint_url(request, endpoint_type, catalog=None):
 
 
 def keystoneclient(request, username=None, password=None, tenant_id=None,
-                   token_id=None, endpoint=None, endpoint_type='internalURL',
+                   token_id=None, endpoint=None, endpoint_type=None,
                    admin=False):
     """Returns a client connected to the Keystone backend.
 
@@ -98,6 +98,10 @@ def keystoneclient(request, username=None, password=None, tenant_id=None,
         if not user.is_admin():
             raise exceptions.NotAuthorized
         endpoint_type = 'adminURL'
+    else:
+        endpoint_type = endpoint_type or getattr(settings,
+                                                 'OPENSTACK_ENDPOINT_TYPE',
+                                                 'internalURL')
 
     # Take care of client connection caching/fetching a new client.
     # Admin vs. non-admin clients are cached separately for token matching.
@@ -157,7 +161,10 @@ def tenant_update(request, tenant_id, tenant_name, description, enabled):
                                                               enabled)
 
 
-def tenant_list_for_token(request, token, endpoint_type='internalURL'):
+def tenant_list_for_token(request, token, endpoint_type=None):
+    endpoint_type = endpoint_type or getattr(settings,
+                                             'OPENSTACK_ENDPOINT_TYPE',
+                                             'internalURL')
     c = keystoneclient(request,
                        token_id=token,
                        endpoint=_get_endpoint_url(request, endpoint_type),
@@ -202,8 +209,11 @@ def token_create_scoped(request, tenant, token):
         c.management_url = c.service_catalog.url_for(service_type='identity',
                                                      endpoint_type='adminURL')
     else:
-        c.management_url = c.service_catalog.url_for(service_type='identity',
-                                             endpoint_type='internalURL')
+        endpoint_type = getattr(settings,
+                                'OPENSTACK_ENDPOINT_TYPE',
+                                'internalURL')
+        c.management_url = c.service_catalog.url_for(
+                service_type='identity', endpoint_type=endpoint_type)
     scoped_token = tokens.Token(tokens.TokenManager, raw_token)
     return scoped_token
 
