@@ -43,7 +43,10 @@ LOG = logging.getLogger(__name__)
 def console(request, instance_id):
     try:
         # TODO(jakedahn): clean this up once the api supports tailing.
-        data = api.server_console_output(request, instance_id)
+        tail = request.GET.get('length', None)
+        data = api.server_console_output(request,
+                                        instance_id,
+                                        tail_length=tail)
     except:
         data = _('Unable to get log for instance "%s".') % instance_id
         exceptions.handle(request, ignore=True)

@@ -269,12 +269,44 @@ var Horizon = function() {
     }
   };
 
+  horizon.instances = {
+    user_decided_length: false,
+
+    getConsoleLog: function(form_element, via_user_submit) {
+      if(this.user_decided_length) {
+        var data = $(form_element).serialize();
+      } else {
+        var data = "length=35";
+      }
+
+      $.ajax({
+        url: $(form_element).attr('action'),
+        data: data,
+        method: 'get',
+        success: function(response_body) {
+          $('pre.logs').html(response_body);
+        },
+        error: function(response) {
+          if(via_user_submit) {
+            horizon.clearErrorMessages();
+
+            horizon.alert('error', 'There was a problem communicating with the server, please try again.');
+          }
+        }
+      });
+    }
+  };
+
   horizon.alert = function (type, message) {
     var template = horizon.templates.compiled_templates["#alert_message_template"],
         params = {"type": type,
                   "type_capitalized": horizon.utils.capitalize(type),
                   "message": message};
     return $(template.render(params)).prependTo("#main_content .messages");
+  };
+
+  horizon.clearErrorMessages = function() {
+    $('#main_content .messages .alert.alert-error').remove()
   };
 
   /* Queued ajax handling for Horizon.
