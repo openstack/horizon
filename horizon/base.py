@@ -743,12 +743,13 @@ class Site(Registry, HorizonComponent):
             bits = customization_module.split('.')
             mod_name = bits.pop()
             package = '.'.join(bits)
+            mod = import_module(package)
             try:
                 before_import_registry = copy.copy(self._registry)
                 import_module('%s.%s' % (package, mod_name))
             except:
                 self._registry = before_import_registry
-                if module_has_submodule(package, mod_name):
+                if module_has_submodule(mod, mod_name):
                     raise
 
         # Compile the dynamic urlconf.
