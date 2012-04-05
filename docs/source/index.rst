@@ -104,6 +104,14 @@ Auto-generated reference for the complete source code.
 
    sourcecode/autoindex
 
+Release Notes
+=============
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   releases/*
 
 Information
 ===========
