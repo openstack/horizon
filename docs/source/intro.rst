@@ -14,7 +14,7 @@ Values
 
     -- Frank Lloyd Wright
 
-Horizon holds several key values at the core of it's design and architecture:
+Horizon holds several key values at the core of its design and architecture:
 
     * Core Support: Out-of-the-box support for all core OpenStack projects.
     * Extensible: Anyone can add a new component as a "first-class citizen".
@@ -48,8 +48,8 @@ modular future.
 The Current Architecture & How It Meets Our Values
 ==================================================
 
-At it's core, **Horizon should be a registration pattern for
-applications to hook into**. Here's what that means and how it's
+At its core, **Horizon should be a registration pattern for
+applications to hook into**. Here's what that means and how it is
 implemented in terms of our values:
 
 Core Support

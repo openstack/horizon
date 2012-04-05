@@ -70,7 +70,7 @@ a good idea to write the blueprint first so you don't end up writing a bunch
 of code that may not go in the direction the community wants.
 
 For bugs, open the bug first, but if you can reproduce the bug reliably and
-identify it's cause then it's usually safe to start working on it. However,
+identify its cause then it's usually safe to start working on it. However,
 getting independent confirmation (and verifying that it's not a duplicate)
 is always a good idea if you can be patient.
 

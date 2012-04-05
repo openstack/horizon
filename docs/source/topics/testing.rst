@@ -242,7 +242,7 @@ Some common things to look for:
 Understanding the output from ``mox``
 -------------------------------------
 
-Horizon uses ``mox`` as it's mocking framework of choice, and while it
+Horizon uses ``mox`` as its mocking framework of choice, and while it
 offers many nice features, its output when a test fails can be quite
 mysterious.
 

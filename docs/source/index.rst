@@ -76,7 +76,7 @@ the following topic guides.
 API Reference
 -------------
 
-In-depth documentation for Horizon and it's APIs.
+In-depth documentation for Horizon and its APIs.
 
 .. toctree::
    :maxdepth: 1
