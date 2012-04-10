@@ -284,7 +284,7 @@ var Horizon = function() {
         data: data,
         method: 'get',
         success: function(response_body) {
-          $('pre.logs').html(response_body);
+          $('pre.logs').text(response_body);
         },
         error: function(response) {
           if(via_user_submit) {
