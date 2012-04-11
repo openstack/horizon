@@ -58,6 +58,11 @@ class TerminateInstance(tables.BatchAction):
     data_type_plural = _("Instances")
     classes = ('btn-danger', 'btn-terminate')
 
+    def allowed(self, request, instance=None):
+        if instance:
+            return instance.status != "PAUSED"
+        return True
+
     def action(self, request, obj_id):
         api.server_delete(request, obj_id)
 

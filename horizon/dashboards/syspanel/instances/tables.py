@@ -48,6 +48,8 @@ class SyspanelInstancesTable(tables.DataTable):
     )
     STATUS_CHOICES = (
         ("active", True),
+        ("suspended", True),
+        ("paused", True),
         ("error", False),
     )
     tenant = tables.Column("tenant_name", verbose_name=_("Tenant"))
