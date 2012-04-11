@@ -94,19 +94,20 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_nose',
     'horizon',
     'horizon.dashboards.nova',
     'horizon.dashboards.syspanel',
     'horizon.dashboards.settings',
 )
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_SECURE = False
+
 TIME_ZONE = None
 gettext_noop = lambda s: s
 LANGUAGES = (
@@ -123,12 +124,7 @@ LANGUAGES = (
 LANGUAGE_CODE = 'en'
 USE_I18N = True
 
-ACCOUNT_ACTIVATION_DAYS = 7
-
-TOTAL_CLOUD_RAM_GB = 10
-
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'Member'
-LIVE_SERVER_PORT = 8000
 
 try:
     from local.local_settings import *
@@ -137,13 +133,3 @@ except ImportError:
 
 if DEBUG:
     logging.basicConfig(level=logging.DEBUG)
-
-    try:
-        import debug_toolbar
-
-        INSTALLED_APPS += ('debug_toolbar',)
-        MIDDLEWARE_CLASSES += (
-                'debug_toolbar.middleware.DebugToolbarMiddleware',)
-    except ImportError:
-        _logger = logging.getLogger(__name__)
-        _logger.debug('Running in debug mode without debug_toolbar.')

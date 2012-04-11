@@ -22,7 +22,7 @@
 URL patterns for testing Horizon views.
 """
 
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns, url, include
 
 import horizon
 

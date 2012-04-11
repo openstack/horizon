@@ -1,12 +1,12 @@
 # Testing Requirements
-CherryPy
 coverage
-django-nose-selenium
+django-nose
 mox
 nose
 pep8
 pylint
 distribute>=0.6.24
+selenium
 
 # Docs Requirements
 sphinx

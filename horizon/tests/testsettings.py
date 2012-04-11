@@ -59,6 +59,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'horizon.context_processors.horizon')
 
+STATIC_URL = '/static/'
+
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 ROOT_URLCONF = 'horizon.tests.testurls'
@@ -72,11 +74,12 @@ NOSE_ARGS = ['--nocapture',
              '--nologcapture',
              '--cover-package=horizon',
              '--cover-inclusive']
-# For nose-selenium integration
-LIVE_SERVER_PORT = 8000
 
 EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_HTTPONLY = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_SECURE = False
 
 HORIZON_CONFIG = {
     'dashboards': ('nova', 'syspanel', 'settings',),

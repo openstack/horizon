@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=14
+environment_version=15
 #--------------------------------------------------------#
 
 function usage {
@@ -201,13 +201,6 @@ function sanity_check {
       exit 1
     fi
   fi
-  if [ $selenium -eq 1 ]; then
-    SELENIUM_JOB=`ps -elf | grep "selenium" | grep -v grep`
-    if [ $? -eq 0 ]; then
-      echo "WARNING: Selenium doesn't appear to be running. Please start a selenium server process."
-      selenium=0
-    fi
-  fi
   # Remove .pyc files. This is sanity checking because they can linger
   # after old files are deleted.
   find . -name "*.pyc" -exec rm -rf {} \;
@@ -276,10 +269,9 @@ function run_tests {
 
   echo "Running openstack_dashboard tests"
   if [ $selenium -eq 1 ]; then
-      ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=horizon.tests.testsettings --with-selenium --with-cherrypyliveserver $testargs
-    else
-      ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=horizon.tests.testsettings $testargs
+    export WITH_SELENIUM=1
   fi
+  ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=openstack_dashboard.test.settings $testargs
   # get results of the openstack_dashboard tests
   DASHBOARD_RESULT=$?
 
