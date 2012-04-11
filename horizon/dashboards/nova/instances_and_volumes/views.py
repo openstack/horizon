@@ -46,7 +46,7 @@ class IndexView(tables.MultiTableView):
     def get_instances_data(self):
         # Gather our instances
         try:
-            instances = api.server_list(self.request)
+            instances = self._get_instances()
         except:
             instances = []
             exceptions.handle(self.request, _('Unable to retrieve instances.'))
@@ -67,8 +67,18 @@ class IndexView(tables.MultiTableView):
         # Gather our volumes
         try:
             volumes = api.volume_list(self.request)
+            instances = SortedDict([(inst.id, inst) for inst in
+                                    self._get_instances()])
+            for volume in volumes:
+                for att in volume.attachments:
+                    att['instance'] = instances[att['server_id']]
         except novaclient_exceptions.ClientException, e:
             volumes = []
             LOG.exception("ClientException in volume index")
             messages.error(self.request, _('Unable to fetch volumes: %s') % e)
         return volumes
+
+    def _get_instances(self):
+        if not hasattr(self, "_instances_list"):
+            self._instances_list = api.server_list(self.request)
+        return self._instances_list
