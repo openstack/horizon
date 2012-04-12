@@ -24,29 +24,39 @@
     <p>{{ usages.instances.available|quota }}</p>
   </div>
   <div class="clearfix"></div>
-  <div class="quota_bar">{% horizon_progress_bar usages.instances.used usages.instances.quota %}</div>
+  <div id="quota_instances" class="quota_bar">{% horizon_progress_bar usages.instances.used usages.instances.quota %}</div>
 
   <div class="quota_title">
     <strong>{% trans "VCPUs" %} <span>({{ usages.cores.used }})</span></strong>
     <p>{{ usages.cores.available|quota }}</p>
   </div>
   <div class="clearfix"></div>
-  <div class="quota_bar">{% horizon_progress_bar usages.cores.used usages.cores.quota %}</div>
+  <div id="quota_cores" class="quota_bar">{% horizon_progress_bar usages.cores.used usages.cores.quota %}</div>
 
   <div class="quota_title">
     <strong>{% trans "Disk" %} <span>({{ usages.gigabytes.used }} {% trans "GB" %})</span></strong>
     <p>{{ usages.gigabytes.available|quota:"GB" }}</p>
   </div>
   <div class="clearfix"></div>
-  <div class="quota_bar">{% horizon_progress_bar usages.gigabytes.used usages.gigabytes.quota %}</div>
+  <div id="quota_disk" class="quota_bar">{% horizon_progress_bar usages.gigabytes.used usages.gigabytes.quota %}</div>
 
   <div class="quota_title">
     <strong>{% trans "Memory" %} <span>({{ usages.ram.used }} {% trans "MB" %})</span></strong>
     <p>{{ usages.ram.available|quota:"MB" }}</p>
   </div>
   <div class="clearfix"></div>
-  <div class="quota_bar">{% horizon_progress_bar usages.ram.used usages.ram.quota %}</div>
+  <div id="quota_ram" class="quota_bar">{% horizon_progress_bar usages.ram.used usages.ram.quota %}</div>
 </div>
+<script type="text/javascript" charset="utf-8">
+  var horizon_flavors = {{ flavors|safe }};
+  var horizon_usages = {{ usages_json|safe }};
+
+  horizon.updateQuotaUsages(horizon_flavors, horizon_usages);
+
+  $("#id_flavor, #id_count").change(function() {
+    horizon.updateQuotaUsages(horizon_flavors, horizon_usages);
+  });
+</script>
 {% endblock %}
 
 {% block modal-footer %}

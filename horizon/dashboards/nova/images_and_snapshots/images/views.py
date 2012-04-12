@@ -23,6 +23,8 @@ Views for managing Nova images.
 """
 
 import logging
+import json
+
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -64,6 +66,10 @@ class LaunchView(forms.ModalFormView):
         context = super(LaunchView, self).get_context_data(**kwargs)
         try:
             context['usages'] = api.tenant_quota_usages(self.request)
+            context['usages_json'] = json.dumps(context['usages'])
+            flavors = json.dumps(
+                    [f._info for f in api.flavor_list(self.request)])
+            context['flavors'] = flavors
         except:
             exceptions.handle(self.request)
         return context

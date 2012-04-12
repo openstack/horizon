@@ -30,8 +30,10 @@ from novaclient.v1_1.security_groups import SecurityGroup as NovaSecurityGroup
 from novaclient.v1_1.servers import REBOOT_HARD
 
 from horizon.api.base import APIResourceWrapper, APIDictWrapper, url_for
+from horizon.utils.memoized import memoized
 
 from django.utils.translation import ugettext as _
+
 
 LOG = logging.getLogger(__name__)
 
@@ -231,7 +233,9 @@ def flavor_get(request, flavor_id):
     return novaclient(request).flavors.get(flavor_id)
 
 
+@memoized
 def flavor_list(request):
+    """Get the list of available instance sizes (flavors)."""
     return novaclient(request).flavors.list()
 
 
@@ -399,6 +403,7 @@ def usage_list(request, start, end):
     return [Usage(u) for u in novaclient(request).usage.list(start, end, True)]
 
 
+@memoized
 def tenant_quota_usages(request):
     """Builds a dictionary of current usage against quota for the current
     tenant.

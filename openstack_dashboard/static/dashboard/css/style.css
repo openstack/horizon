@@ -951,13 +951,29 @@ iframe {
   background-color: #CCC;
 }
 
-.progress_bar_fill {
+.progress_bar_fill,
+.progress_bar_selected {
   height: 100%;
+  float: left;
+}
+
+.progress_bar_fill {
   background-color: #666;
+}
+
+.progress_bar_selected {
+  background-color: #4790AE;
+  width: 0;
+}
+
+.progress_bar_over {
+  background-color: red;
 }
 
 .quota_title {
   color: #999;
+  padding-bottom: 0;
+  margin-bottom: 8px;
 }
 
 .quota_title strong {
@@ -970,6 +986,7 @@ iframe {
 
 .quota_title p {
   float: right;
+  margin-bottom: 0;
 }
 
 .quota_bar {
