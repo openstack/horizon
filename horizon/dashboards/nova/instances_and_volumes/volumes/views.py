@@ -89,7 +89,7 @@ class EditAttachmentsView(tables.DataTableView):
 
     def handle_form(self):
         instances = api.nova.server_list(self.request)
-        initial = {'volume_id': self.kwargs["volume_id"],
+        initial = {'volume': self.get_object(),
                    'instances': instances}
         return AttachForm.maybe_handle(self.request, initial=initial)
 

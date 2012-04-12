@@ -52,7 +52,11 @@ class AttachForm(forms.SelfHandlingForm):
     def __init__(self, *args, **kwargs):
         super(AttachForm, self).__init__(*args, **kwargs)
         # populate volume_id
-        volume_id = kwargs.get('initial', {}).get('volume_id', [])
+        volume = kwargs.get('initial', {}).get("volume", None)
+        if volume:
+            volume_id = volume.id
+        else:
+            volume_id = None
         self.fields['volume_id'] = forms.CharField(widget=forms.HiddenInput(),
                                                    initial=volume_id)
 
@@ -60,7 +64,9 @@ class AttachForm(forms.SelfHandlingForm):
         instance_list = kwargs.get('initial', {}).get('instances', [])
         instances = []
         for instance in instance_list:
-            if instance.status in ACTIVE_STATES:
+            if instance.status in ACTIVE_STATES and \
+                        not any(instance.id == att["server_id"]
+                                for att in volume.attachments):
                 instances.append((instance.id, '%s (%s)' % (instance.name,
                                                             instance.id)))
         if instances:
