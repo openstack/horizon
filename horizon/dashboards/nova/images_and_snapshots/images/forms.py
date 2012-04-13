@@ -66,13 +66,15 @@ class UpdateImageForm(forms.SelfHandlingForm):
                                   widget=forms.TextInput(
                                     attrs={'readonly': 'readonly'}
                                   ))
+    public = forms.BooleanField(label=_("Public"),
+                                required=False)
 
     def handle(self, request, data):
         # TODO add public flag to image meta properties
         image_id = data['image_id']
         error_updating = _('Unable to update image "%s".')
 
-        meta = {'is_public': True,
+        meta = {'is_public': data['public'],
                 'disk_format': data['disk_format'],
                 'container_format': data['container_format'],
                 'name': data['name'],
@@ -85,7 +87,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
             meta['properties']['architecture'] = data['architecture']
 
         try:
-            api.image_update(request, image_id, meta)
+            api.image_update(request, image_id, **meta)
             messages.success(request, _('Image was successfully updated.'))
         except:
             exceptions.handle(request, error_updating % image_id)

@@ -6,4 +6,4 @@ python-dateutil
 # Horizon Non-pip Requirements
 -e git+https://github.com/openstack/python-novaclient.git#egg=python-novaclient
 -e git+https://github.com/openstack/python-keystoneclient.git#egg=python-keystoneclient
--e git+https://github.com/openstack/glance.git#egg=glance
+-e git+https://github.com/openstack/python-glanceclient.git#egg=python-glanceclient

@@ -101,11 +101,19 @@ LOGGING = {
                 'handlers': ['console'],
                 'propagate': False,
             },
+            'openstack_dashboard': {
+                'handlers': ['console'],
+                'propagate': False,
+            },
             'novaclient': {
                 'handlers': ['console'],
                 'propagate': False,
             },
             'keystoneclient': {
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'glanceclient': {
                 'handlers': ['console'],
                 'propagate': False,
             },

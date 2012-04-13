@@ -12,7 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon.api import glance
+from glanceclient.v1.images import Image, ImageManager
+
 from .utils import TestDataContainer
 
 
@@ -23,24 +24,21 @@ def data(TEST):
     # Snapshots
     snapshot_dict = {'name': u'snapshot',
                      'container_format': u'ami',
-                     'id': 3}
-    snapshot = glance.Image(snapshot_dict)
-    snapshot_properties_dict = {'image_type': u'snapshot'}
-    snapshot.properties = glance.ImageProperties(snapshot_properties_dict)
+                     'id': 3,
+                     'properties': {'image_type': u'snapshot'}}
+    snapshot = Image(ImageManager(None), snapshot_dict)
     TEST.snapshots.add(snapshot)
 
     # Images
-    image_properties_dict = {'image_type': u'image'}
     image_dict = {'id': '1',
                   'name': 'public_image',
-                  'container_format': 'novaImage'}
-    public_image = glance.Image(image_dict)
-    public_image.properties = glance.ImageProperties(image_properties_dict)
+                  'container_format': 'novaImage',
+                  'properties': {'image_type': u'image'}}
+    public_image = Image(ImageManager(None), image_dict)
 
     image_dict = {'id': '2',
                   'name': 'private_image',
                   'container_format': 'aki'}
-    private_image = glance.Image(image_dict)
-    private_image.properties = glance.ImageProperties(image_properties_dict)
+    private_image = Image(ImageManager(None), image_dict)
 
     TEST.images.add(public_image, private_image)

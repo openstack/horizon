@@ -30,7 +30,7 @@ class OverviewTab(tabs.Tab):
     def get_context_data(self, request):
         image_id = self.tab_group.kwargs['image_id']
         try:
-            image = api.glance.image_get_meta(self.request, image_id)
+            image = api.glance.image_get(self.request, image_id)
         except:
             redirect = reverse('horizon:nova:images_and_snapshots:index')
             exceptions.handle(request,

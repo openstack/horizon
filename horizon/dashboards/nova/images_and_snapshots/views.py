@@ -46,8 +46,8 @@ class IndexView(tables.MultiTableView):
         try:
             all_images = api.image_list_detailed(self.request)
             images = [im for im in all_images
-                      if im['container_format'] not in ['aki', 'ari'] and
-                      getattr(im.properties, "image_type", '') != "snapshot"]
+                      if im.container_format not in ['aki', 'ari'] and
+                      im.properties.get("image_type", '') != "snapshot"]
         except:
             images = []
             exceptions.handle(self.request, _("Unable to retrieve images."))

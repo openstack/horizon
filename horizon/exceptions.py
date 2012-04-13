@@ -25,7 +25,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 from cloudfiles import errors as swiftclient
-from glance.common import exception as glanceclient
+from glanceclient.common import exceptions as glanceclient
 from keystoneclient import exceptions as keystoneclient
 from novaclient import exceptions as novaclient
 
@@ -128,7 +128,7 @@ UNAUTHORIZED = (keystoneclient.Unauthorized,
                 novaclient.Unauthorized,
                 novaclient.Forbidden,
                 glanceclient.AuthorizationFailure,
-                glanceclient.NotAuthorized,
+                glanceclient.Unauthorized,
                 swiftclient.AuthenticationFailed,
                 swiftclient.AuthenticationError)
 UNAUTHORIZED += tuple(EXCEPTION_CONFIG.get('unauthorized', []))
@@ -146,7 +146,7 @@ RECOVERABLE = (keystoneclient.ClientException,
                # AuthorizationFailure is raised when Keystone is "unavailable".
                keystoneclient.AuthorizationFailure,
                novaclient.ClientException,
-               glanceclient.GlanceException,
+               glanceclient.ClientException,
                swiftclient.Error,
                AlreadyExists)
 RECOVERABLE += tuple(EXCEPTION_CONFIG.get('recoverable', []))

@@ -22,7 +22,7 @@
 from copy import deepcopy
 from django import http
 from django.core.urlresolvers import reverse
-from glance.common import exception as glance_exception
+from glanceclient.common import exceptions as glance_exception
 from mox import IsA
 
 from horizon import api
@@ -61,10 +61,10 @@ class ImagesAndSnapshotsTests(test.TestCase):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'nova/images_and_snapshots/index.html')
 
-    def test_index_client_conn_error(self):
+    def test_index_error(self):
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-        exc = glance_exception.ClientConnectionError('clientConnError')
+        exc = glance_exception.ClientException('error')
         api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exc)
         api.snapshot_list_detailed(IsA(http.HttpRequest)) \
                                    .AndReturn(self.snapshots.list())

@@ -95,12 +95,12 @@ class Server(APIResourceWrapper):
 
     @property
     def image_name(self):
-        from glance.common import exception as glance_exceptions
+        from glanceclient.common import exceptions as glance_exceptions
         from horizon.api import glance
         try:
-            image = glance.image_get_meta(self.request, self.image['id'])
+            image = glance.image_get(self.request, self.image['id'])
             return image.name
-        except glance_exceptions.NotFound:
+        except glance_exceptions.ClientException:
             return "(not found)"
 
     @property

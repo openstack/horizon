@@ -20,123 +20,45 @@
 
 from __future__ import absolute_import
 
-import functools
 import logging
 import urlparse
 
-from django.utils.decorators import available_attrs
+from glanceclient.v1 import client as glance_client
 
-from glance import client as glance_client
-from glance.common import exception as glance_exception
-
-from horizon.api.base import APIDictWrapper, url_for
+from horizon.api.base import url_for
 
 
 LOG = logging.getLogger(__name__)
 
 
-def catch_glance_exception(func):
-    """
-    The glance client sometimes throws ``Exception`` classed exceptions for
-    HTTP communication issues. Catch those, and rethrow them as
-    ``glance_client.ClientConnectionErrors`` so that we can do something
-    useful with them.
-    """
-    # TODO(johnp): Remove this once Bug 952618 is fixed in the glance client.
-    @functools.wraps(func, assigned=available_attrs(func))
-    def inner_func(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
-        except Exception as exc:
-            exc_message = str(exc)
-            if('Unknown error occurred' in exc_message or
-                    'Internal Server error' in exc_message):
-                raise glance_exception.ClientConnectionError(exc_message)
-            raise
-    return inner_func
-
-
-class Image(APIDictWrapper):
-    """
-    Wrapper around glance image dictionary to make it object-like and provide
-    access to image properties.
-    """
-    _attrs = ['checksum', 'container_format', 'created_at', 'deleted',
-             'deleted_at', 'disk_format', 'id', 'is_public', 'location',
-             'name', 'properties', 'size', 'status', 'updated_at', 'owner']
-
-    def __getattr__(self, attrname):
-        if attrname == "properties":
-            if not hasattr(self, "_properties"):
-                properties_dict = super(Image, self).__getattr__(attrname)
-                self._properties = ImageProperties(properties_dict)
-            return self._properties
-        else:
-            return super(Image, self).__getattr__(attrname)
-
-
-class ImageProperties(APIDictWrapper):
-    """
-    Wrapper around glance image properties dictionary to make it object-like.
-    """
-    _attrs = ['architecture', 'image_location', 'image_state', 'kernel_id',
-             'project_id', 'ramdisk_id', 'image_type']
-
-
-@catch_glance_exception
 def glanceclient(request):
     o = urlparse.urlparse(url_for(request, 'image'))
-    LOG.debug('glanceclient connection created for host "%s:%d"' %
-                     (o.hostname, o.port))
-    return glance_client.Client(o.hostname,
-                                o.port,
-                                auth_tok=request.user.token)
+    url = "://".join((o.scheme, o.netloc))
+    LOG.debug('glanceclient connection created using token "%s" and url "%s"' %
+              (request.user.token, url))
+    return glance_client.Client(endpoint=url, token=request.user.token)
 
 
-@catch_glance_exception
-def image_create(request, image_meta, image_file):
-    return Image(glanceclient(request).add_image(image_meta, image_file))
-
-
-@catch_glance_exception
 def image_delete(request, image_id):
-    return glanceclient(request).delete_image(image_id)
+    return glanceclient(request).images.delete(image_id)
 
 
-@catch_glance_exception
 def image_get(request, image_id):
-    """
-    Returns the actual image file from Glance for image with
-    supplied identifier
-    """
-    return glanceclient(request).get_image(image_id)[1]
-
-
-@catch_glance_exception
-def image_get_meta(request, image_id):
     """
     Returns an Image object populated with metadata for image
     with supplied identifier.
     """
-    return Image(glanceclient(request).get_image_meta(image_id))
+    return glanceclient(request).images.get(image_id)
 
 
-@catch_glance_exception
 def image_list_detailed(request):
-    return [Image(i) for i in glanceclient(request).get_images_detailed()]
+    return glanceclient(request).images.list()
 
 
-@catch_glance_exception
-def image_update(request, image_id, image_meta=None):
-    image_meta = image_meta and image_meta or {}
-    return Image(glanceclient(request).update_image(image_id,
-                                                  image_meta=image_meta))
+def image_update(request, image_id, **kwargs):
+    return glanceclient(request).images.update(image_id, **kwargs)
 
 
-@catch_glance_exception
 def snapshot_list_detailed(request):
-    filters = {}
-    filters['property-image_type'] = 'snapshot'
-    filters['is_public'] = 'none'
-    return [Image(i) for i in glanceclient(request)
-                             .get_images_detailed(filters=filters)]
+    filters = {'property-image_type': 'snapshot'}
+    return glanceclient(request).images.list(filters=filters)

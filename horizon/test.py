@@ -27,7 +27,7 @@ from django.conf import settings
 from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django.test.client import RequestFactory
-from glance import client as glance_client
+from glanceclient.v1 import client as glance_client
 from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
 import httplib2
@@ -299,7 +299,6 @@ class APITestCase(TestCase):
         if not hasattr(self, "glanceclient"):
             self.mox.StubOutWithMock(glance_client, 'Client')
             self.glanceclient = self.mox.CreateMock(glance_client.Client)
-            self.glanceclient.token = self.tokens.first().id
         return self.glanceclient
 
     def stub_swiftclient(self, expected_calls=1):

@@ -35,9 +35,9 @@ class ServerWrapperTests(test.TestCase):
         self.assertEqual(server.id, self.servers.first().id)
 
     def test_image_name(self):
-        image = api.Image(self.images.first())
-        self.mox.StubOutWithMock(api.glance, 'image_get_meta')
-        api.glance.image_get_meta(IsA(http.HttpRequest),
+        image = self.images.first()
+        self.mox.StubOutWithMock(api.glance, 'image_get')
+        api.glance.image_get(IsA(http.HttpRequest),
                                   image.id).AndReturn(image)
         self.mox.ReplayAll()
 

@@ -55,7 +55,7 @@ class LaunchView(forms.ModalFormView):
     def get_object(self, *args, **kwargs):
         image_id = self.kwargs["image_id"]
         try:
-            self.object = api.image_get_meta(self.request, image_id)
+            self.object = api.image_get(self.request, image_id)
         except:
             msg = _('Unable to retrieve image "%s".') % image_id
             redirect = reverse('horizon:nova:images_and_snapshots:index')
@@ -155,22 +155,26 @@ class UpdateView(forms.ModalFormView):
 
     def get_object(self, *args, **kwargs):
         try:
-            self.object = api.image_get_meta(self.request, kwargs['image_id'])
+            self.object = api.image_get(self.request, kwargs['image_id'])
         except:
-            msg = _('Unable to retrieve image "%s".') % kwargs['image_id']
+            msg = _('Unable to retrieve image.')
             redirect = reverse('horizon:nova:images_and_snapshots:index')
             exceptions.handle(self.request, msg, redirect=redirect)
         return self.object
 
     def get_initial(self):
-        properties = self.object['properties']
+        properties = self.object.properties
+        # NOTE(gabriel): glanceclient currently treats "is_public" as a string
+        # rather than a boolean. This should be fixed in the client.
+        public = self.object.is_public == "True"
         return {'image_id': self.kwargs['image_id'],
-                'name': self.object.get('name', ''),
+                'name': self.object.name,
                 'kernel': properties.get('kernel_id', ''),
                 'ramdisk': properties.get('ramdisk_id', ''),
                 'architecture': properties.get('architecture', ''),
-                'container_format': self.object.get('container_format', ''),
-                'disk_format': self.object.get('disk_format', ''), }
+                'container_format': self.object.container_format,
+                'disk_format': self.object.disk_format,
+                'public': public}
 
 
 class DetailView(tabs.TabView):

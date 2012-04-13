@@ -21,7 +21,7 @@
 from django import http
 from django.core.urlresolvers import reverse
 
-from glance.common import exception as glance_exception
+from glanceclient.common import exceptions as glance_exception
 
 from horizon import api
 from horizon import test
@@ -39,14 +39,14 @@ class ImageViewTests(test.TestCase):
         image = self.images.first()
         quota_usages = self.quota_usages.first()
 
-        self.mox.StubOutWithMock(api, 'image_get_meta')
+        self.mox.StubOutWithMock(api, 'image_get')
         self.mox.StubOutWithMock(api, 'tenant_quota_usages')
         # Two flavor_list calls, however, flavor_list is now memoized.
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
-        api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
+        api.image_get(IsA(http.HttpRequest), image.id).AndReturn(image)
         api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_usages)
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
@@ -79,7 +79,7 @@ class ImageViewTests(test.TestCase):
         volume_choice = "%s:vol" % volume.id
         block_device_mapping = {device_name: u"%s::0" % volume_choice}
 
-        self.mox.StubOutWithMock(api, 'image_get_meta')
+        self.mox.StubOutWithMock(api, 'image_get')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
@@ -90,7 +90,7 @@ class ImageViewTests(test.TestCase):
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
         api.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
-        api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
+        api.image_get(IsA(http.HttpRequest), image.id).AndReturn(image)
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_create(IsA(http.HttpRequest),
                           server.name,
@@ -124,13 +124,13 @@ class ImageViewTests(test.TestCase):
     def test_launch_flavorlist_error(self):
         image = self.images.first()
 
-        self.mox.StubOutWithMock(api, 'image_get_meta')
+        self.mox.StubOutWithMock(api, 'image_get')
         self.mox.StubOutWithMock(api, 'tenant_quota_usages')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
-        api.image_get_meta(IsA(http.HttpRequest),
+        api.image_get(IsA(http.HttpRequest),
                            image.id).AndReturn(image)
         api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(
                 self.quota_usages.first())
@@ -151,13 +151,13 @@ class ImageViewTests(test.TestCase):
     def test_launch_keypairlist_error(self):
         image = self.images.first()
 
-        self.mox.StubOutWithMock(api, 'image_get_meta')
+        self.mox.StubOutWithMock(api, 'image_get')
         self.mox.StubOutWithMock(api, 'tenant_quota_usages')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
-        api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
+        api.image_get(IsA(http.HttpRequest), image.id).AndReturn(image)
         api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(
                 self.quota_usages.first())
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
@@ -183,7 +183,7 @@ class ImageViewTests(test.TestCase):
         sec_group = self.security_groups.first()
         USER_DATA = 'userData'
 
-        self.mox.StubOutWithMock(api, 'image_get_meta')
+        self.mox.StubOutWithMock(api, 'image_get')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
@@ -194,7 +194,7 @@ class ImageViewTests(test.TestCase):
         api.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
         api.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
-        api.image_get_meta(IgnoreArg(), image.id).AndReturn(image)
+        api.image_get(IgnoreArg(), image.id).AndReturn(image)
         api.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         exc = keystone_exceptions.ClientException('Failed')
         api.server_create(IsA(http.HttpRequest),
@@ -233,7 +233,7 @@ class ImageViewTests(test.TestCase):
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
 
-        self.mox.StubOutWithMock(api, 'image_get_meta')
+        self.mox.StubOutWithMock(api, 'image_get')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
@@ -247,7 +247,7 @@ class ImageViewTests(test.TestCase):
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
         api.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
-        api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
+        api.image_get(IsA(http.HttpRequest), image.id).AndReturn(image)
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
         api.tenant_quota_usages(IsA(http.HttpRequest)) \
@@ -272,8 +272,8 @@ class ImageViewTests(test.TestCase):
 
     def test_image_detail_get(self):
         image = self.images.first()
-        self.mox.StubOutWithMock(api.glance, 'image_get_meta')
-        api.glance.image_get_meta(IsA(http.HttpRequest), str(image.id)) \
+        self.mox.StubOutWithMock(api.glance, 'image_get')
+        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
                                  .AndReturn(self.images.first())
         self.mox.ReplayAll()
 
@@ -286,12 +286,12 @@ class ImageViewTests(test.TestCase):
 
     def test_image_detail_get_with_exception(self):
         image = self.images.first()
-        self.mox.StubOutWithMock(api.glance, 'image_get_meta')
-        api.glance.image_get_meta(IsA(http.HttpRequest), str(image.id)) \
-                                 .AndRaise(glance_exception.NotFound)
+        self.mox.StubOutWithMock(api.glance, 'image_get')
+        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
+                  .AndRaise(glance_exception.ClientException('Error'))
         self.mox.ReplayAll()
 
-        res = self.client.get(
-                reverse('horizon:nova:images_and_snapshots:images:detail',
-                args=[image.id]))
+        url = reverse('horizon:nova:images_and_snapshots:images:detail',
+                      args=[image.id])
+        res = self.client.get(url)
         self.assertRedirectsNoFollow(res, IMAGES_INDEX_URL)
