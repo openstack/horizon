@@ -70,4 +70,18 @@ class IndexView(tables.MultiTableView):
             LOG.exception("ClientException in floating ip index")
             messages.error(self.request,
                         _('Error fetching floating ips: %s') % e)
+
+        instances = []
+        try:
+            instances = api.nova.server_list(self.request, all_tenants=True)
+        except:
+            exceptions.handle(self.request,
+                        _('Unable to retrieve instance list.'))
+
+        instances_dict = {obj.id: obj for obj in instances}
+
+        for ip in floating_ips:
+            ip.instance_name = instances_dict[ip.instance_id].name \
+                if ip.instance_id in instances_dict else None
+
         return floating_ips
