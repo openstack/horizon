@@ -24,7 +24,6 @@ from keystoneclient.v2_0 import client as keystone_client
 
 from horizon import api
 from horizon import test
-from horizon import users
 
 
 class FakeConnection(object):
@@ -35,10 +34,6 @@ class ClientConnectionTests(test.TestCase):
     def setUp(self):
         super(ClientConnectionTests, self).setUp()
         self.mox.StubOutWithMock(keystone_client, "Client")
-        self.test_user = users.User(id=self.user.id,
-                                    user=self.user.name,
-                                    service_catalog=self.service_catalog)
-        self.request.user = self.test_user
         self.internal_url = api.base.url_for(self.request,
                                            'identity',
                                            endpoint_type='internalURL')
@@ -46,92 +41,6 @@ class ClientConnectionTests(test.TestCase):
                                           'identity',
                                           endpoint_type='adminURL')
         self.conn = FakeConnection()
-
-    def test_connect(self):
-        keystone_client.Client(auth_url=self.internal_url,
-                               endpoint=None,
-                               password=self.user.password,
-                               tenant_id=None,
-                               token=None,
-                               username=self.user.name).AndReturn(self.conn)
-        self.mox.ReplayAll()
-        client = api.keystone.keystoneclient(self.request,
-                                             username=self.user.name,
-                                             password=self.user.password)
-        self.assertEqual(client.management_url, self.internal_url)
-
-    def test_connect_admin(self):
-        self.test_user.roles = [{'name': 'admin'}]
-        keystone_client.Client(auth_url=self.admin_url,
-                               endpoint=None,
-                               password=self.user.password,
-                               tenant_id=None,
-                               token=None,
-                               username=self.user.name).AndReturn(self.conn)
-        self.mox.ReplayAll()
-        client = api.keystone.keystoneclient(self.request,
-                                             username=self.user.name,
-                                             password=self.user.password,
-                                             admin=True)
-        self.assertEqual(client.management_url, self.admin_url)
-
-    def connection_caching(self):
-        self.test_user.roles = [{'name': 'admin'}]
-        # Regular connection
-        keystone_client.Client(auth_url=self.internal_url,
-                               endpoint=None,
-                               password=self.user.password,
-                               tenant_id=None,
-                               token=None,
-                               username=self.user.name).AndReturn(self.conn)
-        # Admin connection
-        keystone_client.Client(auth_url=self.admin_url,
-                               endpoint=None,
-                               password=self.user.password,
-                               tenant_id=None,
-                               token=None,
-                               username=self.user.name).AndReturn(self.conn)
-        self.mox.ReplayAll()
-        # Request both admin and regular connections out of order,
-        # If the caching fails we would see UnexpectedMethodCall errors
-        # from mox.
-        client = api.keystone.keystoneclient(self.request,
-                                             username=self.user.name,
-                                             password=self.user.password)
-        self.assertEqual(client.management_url, self.internal_url)
-        client = api.keystone.keystoneclient(self.request,
-                                             username=self.user.name,
-                                             password=self.user.password,
-                                             admin=True)
-        self.assertEqual(client.management_url, self.admin_url)
-        client = api.keystone.keystoneclient(self.request,
-                                             username=self.user.name,
-                                             password=self.user.password)
-        self.assertEqual(client.management_url, self.internal_url)
-        client = api.keystone.keystoneclient(self.request,
-                                             username=self.user.name,
-                                             password=self.user.password,
-                                             admin=True)
-        self.assertEqual(client.management_url, self.admin_url)
-
-
-class TokenApiTests(test.APITestCase):
-    def test_token_create(self):
-        token = self.tokens.scoped_token
-        keystoneclient = self.stub_keystoneclient()
-
-        keystoneclient.tokens = self.mox.CreateMockAnything()
-        keystoneclient.tokens.authenticate(username=self.user.name,
-                                           password=self.user.password,
-                                           tenant_id=token.tenant['id'])\
-                                           .AndReturn(token)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.token_create(self.request, token.tenant['id'],
-                                   self.user.name, self.user.password)
-
-        self.assertEqual(token.tenant['id'], ret_val.tenant['id'])
 
 
 class RoleAPITests(test.APITestCase):

@@ -18,26 +18,31 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from functools import wraps
 import os
 
 import cloudfiles as swift_client
+
 from django import http
 from django import test as django_test
 from django.conf import settings
 from django.contrib.messages.storage import default_storage
+from django.contrib.auth.middleware import AuthenticationMiddleware
 from django.core.handlers import wsgi
 from django.test.client import RequestFactory
-from functools import wraps
+
 from glanceclient.v1 import client as glance_client
 from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
+
 import httplib2
 import mox
+
+from openstack_auth import utils, user
 
 from horizon import api
 from horizon import context_processors
 from horizon import middleware
-from horizon import users
 from horizon.tests.test_data.utils import load_test_data
 
 
@@ -71,12 +76,14 @@ def create_stubs(stubs_to_create={}):
 class RequestFactoryWithMessages(RequestFactory):
     def get(self, *args, **kwargs):
         req = super(RequestFactoryWithMessages, self).get(*args, **kwargs)
+        req.user = utils.get_user(req)
         req.session = []
         req._messages = default_storage(req)
         return req
 
     def post(self, *args, **kwargs):
         req = super(RequestFactoryWithMessages, self).post(*args, **kwargs)
+        req.user = utils.get_user(req)
         req.session = []
         req._messages = default_storage(req)
         return req
@@ -116,10 +123,10 @@ class TestCase(django_test.TestCase):
         self._real_horizon_context_processor = context_processors.horizon
         context_processors.horizon = lambda request: self.context
 
-        self._real_get_user_from_request = users.get_user_from_request
+        self._real_get_user = utils.get_user
         tenants = self.context['authorized_tenants']
         self.setActiveUser(id=self.user.id,
-                           token=self.token.id,
+                           token=self.token,
                            username=self.user.name,
                            tenant_id=self.tenant.id,
                            service_catalog=self.service_catalog,
@@ -128,28 +135,31 @@ class TestCase(django_test.TestCase):
         self.request.session = self.client._session()
         self.request.session['token'] = self.token.id
         middleware.HorizonMiddleware().process_request(self.request)
+        AuthenticationMiddleware().process_request(self.request)
         os.environ["HORIZON_TEST_RUN"] = "True"
 
     def tearDown(self):
         self.mox.UnsetStubs()
         httplib2.Http._conn_request = self._real_conn_request
         context_processors.horizon = self._real_horizon_context_processor
-        users.get_user_from_request = self._real_get_user_from_request
+        utils.get_user = self._real_get_user
         self.mox.VerifyAll()
         del os.environ["HORIZON_TEST_RUN"]
 
     def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
                         service_catalog=None, tenant_name=None, roles=None,
-                        authorized_tenants=None):
-        users.get_user_from_request = lambda x: \
-                users.User(id=id,
-                           token=token,
-                           user=username,
-                           tenant_id=tenant_id,
-                           service_catalog=service_catalog,
-                           roles=roles,
-                           authorized_tenants=authorized_tenants,
-                           request=self.request)
+                        authorized_tenants=None, enabled=True):
+        def get_user(request):
+            return user.User(id=id,
+                             token=token,
+                             user=username,
+                             tenant_id=tenant_id,
+                             service_catalog=service_catalog,
+                             roles=roles,
+                             enabled=enabled,
+                             authorized_tenants=authorized_tenants,
+                             endpoint=settings.OPENSTACK_KEYSTONE_URL)
+        utils.get_user = get_user
 
     def assertRedirectsNoFollow(self, response, expected_url):
         """
@@ -264,9 +274,7 @@ class APITestCase(TestCase):
     def setUp(self):
         super(APITestCase, self).setUp()
 
-        def fake_keystoneclient(request, username=None, password=None,
-                                tenant_id=None, token_id=None, endpoint=None,
-                                admin=False):
+        def fake_keystoneclient(request, admin=False):
             """
             Wrapper function which returns the stub keystoneclient. Only
             necessary because the function takes too many arguments to

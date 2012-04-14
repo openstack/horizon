@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-29 11:47-0700\n"
+"POT-Creation-Date: 2012-07-09 02:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,44 +17,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: settings.py:115
+#: settings.py:136
 msgid "English"
 msgstr ""
 
-#: settings.py:116
+#: settings.py:137
 msgid "Italiano"
 msgstr ""
 
-#: settings.py:117
+#: settings.py:138
 msgid "Spanish"
 msgstr ""
 
-#: settings.py:118
+#: settings.py:139
 msgid "French"
 msgstr ""
 
-#: settings.py:119
+#: settings.py:140
 msgid "Japanese"
 msgstr ""
 
-#: settings.py:120
+#: settings.py:141
 msgid "Portuguese"
 msgstr ""
 
-#: settings.py:121
+#: settings.py:142
 msgid "Polish"
 msgstr ""
 
-#: settings.py:122
+#: settings.py:143
 msgid "Simplified Chinese"
 msgstr ""
 
-#: settings.py:123
+#: settings.py:144
 msgid "Traditional Chinese"
-msgstr ""
-
-#: local/local_settings.py:17
-msgid "Your password must be at least 6 characters long."
 msgstr ""
 
 #: templates/403.html:4 templates/403.html.py:9
@@ -103,13 +99,14 @@ msgstr "設定"
 msgid "Sign Out"
 msgstr "登出"
 
-#: templates/_scripts.html:39
-msgid "Loading&hellip;"
+#: templates/splash.html:7 templates/auth/login.html:4
+msgid "Login"
 msgstr ""
 
-#: templates/switch_tenants.html:12
-msgid "Log-in to tenant"
-msgstr "登入到租戶"
+#: templates/auth/_login.html:4
+msgid "Log In"
+msgstr ""
 
-#~ msgid "Sign In"
-#~ msgstr "登入"
+#: templates/auth/_login.html:17
+msgid "Sign In"
+msgstr "登入"

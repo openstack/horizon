@@ -8,7 +8,7 @@ from horizon.tests.test_dashboards.cats import dashboard
 class Kittens(horizon.Panel):
     name = _("Kittens")
     slug = "kittens"
-    require_roles = ("admin",)
+    permissions = ("openstack.roles.admin",)
 
 
 dashboard.Cats.register(Kittens)

@@ -32,7 +32,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SITE_ID = 1
-SITE_BRANDING = 'OpenStack'
+SITE_BRANDING = 'OpenStack Dashboard'
 
 LOGIN_URL = '/auth/login/'
 LOGOUT_URL = '/auth/logout/'
@@ -60,8 +60,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'openstack_dashboard.middleware.DashboardLogUnhandledExceptionsMiddleware',
     'horizon.middleware.HorizonMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -108,6 +108,8 @@ COMPRESS_PARSER = 'compressor.parser.HtmlParser'
 
 INSTALLED_APPS = (
     'openstack_dashboard',
+    'django.contrib.contenttypes',
+    'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -117,9 +119,11 @@ INSTALLED_APPS = (
     'horizon.dashboards.nova',
     'horizon.dashboards.syspanel',
     'horizon.dashboards.settings',
+    'openstack_auth',
 )
 
-AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'

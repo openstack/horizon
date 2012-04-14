@@ -45,7 +45,7 @@ class SelectProjectUserAction(workflows.Action):
 
     class Meta:
         name = _("Project & User")
-        roles = ("admin",)
+        permissions = ("openstack.roles.admin",)
         help_text = _("Admin users may optionally select the project and "
                       "user for whom the instance should be created.")
 
@@ -82,7 +82,7 @@ class VolumeOptionsAction(workflows.Action):
 
     class Meta:
         name = _("Volume Options")
-        services = ('volume',)
+        permissions = ('openstack.services.volume',)
         help_text_template = ("nova/instances/"
                               "_launch_volumes_help.html")
 
@@ -392,8 +392,8 @@ class LaunchInstance(workflows.Workflow):
     slug = "launch_instance"
     name = _("Launch Instance")
     finalize_button_name = _("Launch")
-    success_message = _('Launched %s named "%s".')
-    failure_message = _('Unable to launch %s named "%s".')
+    success_message = _('Launched %(count)s named "%(name)s".')
+    failure_message = _('Unable to launch %(count)s named "%(name)s".')
     success_url = "horizon:nova:instances:index"
     default_steps = (SelectProjectUser,
                      SetInstanceDetails,
@@ -405,9 +405,10 @@ class LaunchInstance(workflows.Workflow):
         name = self.context.get('name', 'unknown instance')
         count = self.context.get('count', 1)
         if int(count) > 1:
-            return message % (_("%s instances") % count, name)
+            return message % {"count": _("%s instances") % count,
+                              "name": name}
         else:
-            return message % (_("instance"), name)
+            return message % {"count": _("instance"), "name": name}
 
     def handle(self, request, context):
         custom_script = context.get('customization_script', '')

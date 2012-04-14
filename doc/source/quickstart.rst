@@ -15,7 +15,7 @@ the local host (127.0.0.1). If this is not the case change the
 ``openstack_dashboard/local`` folder, to the actual IP address of the
 OpenStack end-point Horizon should use.
 
-To start the Horizon development server use the Django ``manage.py`` utility 
+To start the Horizon development server use the Django ``manage.py`` utility
 with the context of the virtual environment::
 
     > tools/with_venv.sh ./manage.py runserver
@@ -37,7 +37,7 @@ or to the IP and port the server is listening.
     The minimum required set of OpenStack services running includes the
     following:
 
-    * Nova (compute, api, scheduler, network, *and* volume services)
+    * Nova (compute, api, scheduler, and network)
     * Glance
     * Keystone
 
@@ -162,7 +162,7 @@ process::
         panels = ('overview', 'services', 'instances', 'flavors', 'images',
                   'tenants', 'users', 'quotas',)
         default_panel = 'overview'
-        roles = ('admin',) # Provides RBAC at the dashboard-level
+        permissions = ('openstack.roles.admin',)
         ...
 
 
@@ -182,7 +182,7 @@ you register it in a ``panels.py`` file like so::
     class Images(horizon.Panel):
         name = "Images"
         slug = 'images'
-        roles = ('admin', 'my_other_role',) # Fine-grained RBAC per-panel
+        permissions = ('openstack.roles.admin', 'my.other.permission',)
 
 
     # You could also register your panel with another application's dashboard

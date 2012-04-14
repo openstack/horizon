@@ -65,7 +65,7 @@ TEST_DATA_5 = (
 class MyLinkAction(tables.LinkAction):
     name = "login"
     verbose_name = "Log In"
-    url = "horizon:auth_login"
+    url = "login"
     attrs = {
         "class": "ajax-modal",
     }
@@ -148,7 +148,7 @@ def get_name(obj):
 
 
 def get_link(obj):
-    return reverse('horizon:auth_login')
+    return reverse('login')
 
 
 class MyTable(tables.DataTable):

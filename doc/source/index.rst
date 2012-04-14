@@ -87,9 +87,7 @@ In-depth documentation for Horizon and its APIs.
    ref/workflows
    ref/tables
    ref/tabs
-   ref/users
    ref/forms
-   ref/views
    ref/middleware
    ref/context_processors
    ref/decorators

@@ -25,11 +25,11 @@ from django import shortcuts
 from django.views.decorators import vary
 
 import horizon
-from horizon.views import auth_forms
+from openstack_auth.views import Login
 
 
 def user_home(user):
-    if user.admin:
+    if user.is_superuser:
         return horizon.get_dashboard('syspanel').get_absolute_url()
     return horizon.get_dashboard('nova').get_absolute_url()
 
@@ -38,6 +38,7 @@ def user_home(user):
 def splash(request):
     if request.user.is_authenticated():
         return shortcuts.redirect(user_home(request.user))
-    form = auth_forms.Login()
+    form = Login(request)
     request.session.clear()
+    request.session.set_test_cookie()
     return shortcuts.render(request, 'splash.html', {'form': form})

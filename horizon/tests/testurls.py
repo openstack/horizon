@@ -29,5 +29,6 @@ import horizon
 
 urlpatterns = patterns('',
     url(r'^$', 'horizon.tests.views.fakeView', name='splash'),
+    url(r'^auth/', include('openstack_auth.urls')),
     url(r'', include(horizon.urls)),
 )

@@ -31,7 +31,7 @@ class Syspanel(horizon.Dashboard):
     slug = "syspanel"
     panels = (SystemPanels,)
     default_panel = 'overview'
-    roles = ('admin',)
+    permissions = ('openstack.roles.admin',)
 
 
 horizon.register(Syspanel)

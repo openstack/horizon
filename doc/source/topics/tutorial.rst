@@ -86,8 +86,8 @@ defining nothing more than a name and a slug::
         name = _("Visualizations")
         slug = "visualizations"
 
-In practice, a dashboard class will usually contain more information, such
-as a list of panels, which panel is the default, and any roles required to
+In practice, a dashboard class will usually contain more information, such as a
+list of panels, which panel is the default, and any permissions required to
 access this dashboard::
 
     class VizDash(horizon.Dashboard):
@@ -95,7 +95,7 @@ access this dashboard::
         slug = "visualizations"
         panels = ('flocking',)
         default_panel = 'flocking'
-        roles = ('admin',)
+        permissions = ('openstack.roles.admin',)
 
 Building from that previous example we may also want to define a grouping of
 panels which share a common theme and have a sub-heading in the navigation::
@@ -111,7 +111,7 @@ panels which share a common theme and have a sub-heading in the navigation::
         slug = "visualizations"
         panels = (InstanceVisualizations,)
         default_panel = 'flocking'
-        roles = ('admin',)
+        permissions = ('openstack.roles.admin',)
 
 The ``PanelGroup`` can be added to the dashboard class' ``panels`` list
 just like the slug of the panel can.

@@ -2,16 +2,10 @@
 Horizon Forms
 =============
 
-Horizon ships with a number of form classes, some generic and some specific.
+Horizon ships with a number of generic form classes.
 
 Generic Forms
 =============
 
 .. automodule:: horizon.forms
-    :members:
-
-Auth Forms
-==========
-
-.. automodule:: horizon.views.auth_forms
     :members:

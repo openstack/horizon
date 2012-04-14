@@ -8,7 +8,7 @@ from horizon.dashboards.syspanel import dashboard
 class Volumes(horizon.Panel):
     name = _("Volumes")
     slug = "volumes"
-    services = ('volume',)
+    permissions = ('openstack.services.volume',)
 
 
 dashboard.Syspanel.register(Volumes)

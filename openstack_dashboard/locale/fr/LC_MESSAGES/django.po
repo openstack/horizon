@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-29 11:47-0700\n"
+"POT-Creation-Date: 2012-07-09 02:29+0000\n"
 "PO-Revision-Date: 2012-05-08 00:20+0100\n"
 "Last-Translator: Erwan Gallen <erwan@zinux.com>\n"
 "Language-Team: French <fr@zinux.com>\n"
@@ -16,45 +16,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: settings.py:115
+#: settings.py:136
 msgid "English"
 msgstr "Anglais"
 
-#: settings.py:116
+#: settings.py:137
 msgid "Italiano"
 msgstr "Italien"
 
-#: settings.py:117
+#: settings.py:138
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: settings.py:118
+#: settings.py:139
 msgid "French"
 msgstr "Français"
 
-#: settings.py:119
+#: settings.py:140
 msgid "Japanese"
 msgstr "Japonais"
 
-#: settings.py:120
+#: settings.py:141
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: settings.py:121
+#: settings.py:142
 msgid "Polish"
 msgstr "Polonais"
 
-#: settings.py:122
+#: settings.py:143
 msgid "Simplified Chinese"
 msgstr "Chinois simplifié"
 
-#: settings.py:123
+#: settings.py:144
 msgid "Traditional Chinese"
 msgstr "Chinois traditionnel"
-
-#: local/local_settings.py:17
-msgid "Your password must be at least 6 characters long."
-msgstr ""
 
 #: templates/403.html:4 templates/403.html.py:9
 msgid "Forbidden"
@@ -105,10 +101,15 @@ msgstr "Réglages"
 msgid "Sign Out"
 msgstr "Déconnexion"
 
-#: templates/_scripts.html:39
-msgid "Loading&hellip;"
+#: templates/splash.html:7 templates/auth/login.html:4
+msgid "Login"
 msgstr ""
 
-#: templates/switch_tenants.html:12
-msgid "Log-in to tenant"
-msgstr "Se connecter au tenant"
+#: templates/auth/_login.html:4
+msgid "Log In"
+msgstr ""
+
+#: templates/auth/_login.html:17
+#, fuzzy
+msgid "Sign In"
+msgstr "Déconnexion"

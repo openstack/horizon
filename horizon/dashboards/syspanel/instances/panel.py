@@ -27,7 +27,7 @@ from horizon.dashboards.syspanel import dashboard
 class Instances(horizon.Panel):
     name = _("Instances")
     slug = 'instances'
-    roles = ('admin',)
+    permissions = ('openstack.roles.admin',)
 
 
 dashboard.Syspanel.register(Instances)

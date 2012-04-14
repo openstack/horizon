@@ -26,7 +26,7 @@ import functools
 from django.utils.decorators import available_attrs
 from django.utils.translation import ugettext as _
 
-from horizon.exceptions import NotAuthorized, NotFound, NotAuthenticated
+from horizon.exceptions import NotAuthorized, NotAuthenticated
 
 
 def _current_component(view_func, dashboard=None, panel=None):
@@ -57,85 +57,38 @@ def require_auth(view_func):
     return dec
 
 
-def require_roles(view_func, required):
-    """ Enforces role-based access controls.
+def require_perms(view_func, required):
+    """ Enforces permission-based access controls.
 
-    :param list required: A tuple of role names, all of which the request user
-                          must possess in order access the decorated view.
+    :param list required: A tuple of permission names, all of which the request
+                          user must possess in order access the decorated view.
 
     Example usage::
 
-        from horizon.decorators import require_roles
+        from horizon.decorators import require_perms
 
 
-        @require_roles(['admin', 'member'])
+        @require_perms(['foo.admin', 'foo.member'])
         def my_view(request):
             ...
 
     Raises a :exc:`~horizon.exceptions.NotAuthorized` exception if the
     requirements are not met.
     """
-    # We only need to check each role once for a view, so we'll use a set
-    current_roles = getattr(view_func, '_required_roles', set([]))
-    view_func._required_roles = current_roles | set(required)
+    # We only need to check each permission once for a view, so we'll use a set
+    current_perms = getattr(view_func, '_required_perms', set([]))
+    view_func._required_perms = current_perms | set(required)
 
     @functools.wraps(view_func, assigned=available_attrs(view_func))
     def dec(request, *args, **kwargs):
         if request.user.is_authenticated():
-            roles = set([role['name'].lower() for role in request.user.roles])
-            # set operator <= tests that all members of set 1 are in set 2
-            if view_func._required_roles <= set(roles):
+            if request.user.has_perms(view_func._required_perms):
                 return view_func(request, *args, **kwargs)
         raise NotAuthorized(_("You are not authorized to access %s")
                             % request.path)
 
-    # If we don't have any roles, just return the original view.
+    # If we don't have any permissions, just return the original view.
     if required:
         return dec
     else:
         return view_func
-
-
-def require_services(view_func, required):
-    """ Enforces service-based access controls.
-
-    :param list required: A tuple of service type names, all of which the
-                          must be present in the service catalog in order
-                          access the decorated view.
-
-    Example usage::
-
-        from horizon.decorators import require_services
-
-
-        @require_services(['object-store'])
-        def my_swift_view(request):
-            ...
-
-    Raises a :exc:`~horizon.exceptions.NotFound` exception if the
-    requirements are not met.
-    """
-    # We only need to check each service once for a view, so we'll use a set
-    current_services = getattr(view_func, '_required_services', set([]))
-    view_func._required_services = current_services | set(required)
-
-    @functools.wraps(view_func, assigned=available_attrs(view_func))
-    def dec(request, *args, **kwargs):
-        if request.user.is_authenticated():
-            services = set([service['type'] for service in
-                           request.user.service_catalog])
-            # set operator <= tests that all members of set 1 are in set 2
-            if view_func._required_services <= set(services):
-                return view_func(request, *args, **kwargs)
-        raise NotFound(_("The services for this view are not available."))
-
-    # If we don't have any services, just return the original view.
-    if required:
-        return dec
-    else:
-        return view_func
-
-
-def enforce_admin_access(view_func):
-    """ Marks a view as requiring the ``"admin"`` role for access. """
-    return require_roles(view_func, ('admin',))
