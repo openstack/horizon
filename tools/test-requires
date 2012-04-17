@@ -6,6 +6,7 @@ mox
 nose
 pep8
 pylint
+distribute>=0.6.24
 
 # Docs Requirements
 sphinx
