@@ -13,7 +13,7 @@ pycrypto==2.3
 routes
 sqlalchemy
 sqlalchemy-migrate
-webob
+webob==1.0.8
 xattr
 iso8601
 
