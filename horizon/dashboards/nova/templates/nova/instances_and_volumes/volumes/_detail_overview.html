@@ -35,7 +35,7 @@
   <hr class="header_rule">
   {% for attachment in volume.attachments %}
     <dl>
-      <dt>{% trans "Attached To" %}<dt>
+      <dt>{% trans "Attached To" %}</dt>
       <dd>
         {% url horizon:nova:instances_and_volumes:instances:detail attachment.server_id as instance_url%}
         <a href="{{ instance_url }}">{% trans "Instance" %} {{ attachment.instance.name }} ({{ attachment.instance.id }})</a>
