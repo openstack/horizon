@@ -994,6 +994,20 @@ iframe {
   margin: -8px 0 8px;
 }
 
+div .flavor_table {
+  border: 1px solid #AAA;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.flavor_table .flavor_name {
+  white-space: nowrap;
+  font-weight: bold;
+  text-align: left;
+  padding: 7px 12px 7px 7px;
+  width: 160px;
+}
+
 #main_content .row-fluid {
   margin: 10px 0 20px;
 }

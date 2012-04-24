@@ -79,14 +79,10 @@ class LaunchView(forms.ModalFormView):
                 'tenant_id': self.request.user.tenant_id}
 
     def flavor_list(self):
-        display = '%(name)s (%(vcpus)sVCPU / %(disk)sGB Disk / %(ram)sMB Ram )'
         try:
             flavors = api.flavor_list(self.request)
-            flavor_list = [(flavor.id, display % {"name": flavor.name,
-                                                  "vcpus": flavor.vcpus,
-                                                  "disk": flavor.disk,
-                                                  "ram": flavor.ram})
-                                                for flavor in flavors]
+            flavor_list = [(flavor.id,
+                            "%s" % flavor.name) for flavor in flavors]
         except:
             flavor_list = []
             exceptions.handle(self.request,

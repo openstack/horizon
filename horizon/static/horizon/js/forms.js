@@ -128,4 +128,12 @@ horizon.updateQuotaUsages = function(flavors, usages) {
 
     el.animate({width: width + "%"}, 300);
   });
+
+  // Also update flavor details
+  $("#flavor_name").html(horizon.utils.truncate(selectedFlavor.name, 14, true));
+  $("#flavor_vcpus").text(selectedFlavor.vcpus);
+  $("#flavor_disk").text(selectedFlavor.disk);
+  $("#flavor_ephemeral").text(selectedFlavor["OS-FLV-EXT-DATA:ephemeral"]);
+  $("#flavor_disk_total").text(selectedFlavor.disk + selectedFlavor["OS-FLV-EXT-DATA:ephemeral"]);
+  $("#flavor_ram").text(selectedFlavor.ram);
 };
