@@ -217,8 +217,7 @@ html_theme = '_theme'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    "nosidebar": "false",
-    "sidebarwidth": "500px"
+    "nosidebar": "false"
 }
 
 # Add any paths that contain custom themes here, relative to this directory.

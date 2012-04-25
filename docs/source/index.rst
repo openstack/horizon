@@ -40,6 +40,7 @@ How to use Horizon in your own projects.
 
    intro
    quickstart
+   topics/tutorial
    topics/deployment
    topics/customizing
 
