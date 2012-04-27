@@ -3,6 +3,7 @@ coverage
 django-nose
 mox
 nose
+nose-exclude
 pep8
 pylint
 distribute>=0.6.24

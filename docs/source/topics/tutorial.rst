@@ -31,6 +31,17 @@ Creating a dashboard
     incorporate it into an existing dashboard. See the section
     :ref:`overrides <overrides>` later in this document.
 
+The quick version
+-----------------
+
+Horizon provides a custom management command to create a typical base
+dashboard structure for you. The following command generates most of the
+boilerplate code explained below::
+
+    ./run_tests.sh -m startdash visualizations
+
+It's still recommended that you read the rest of this section to understand
+what that command creates and why.
 
 Structure
 ---------
@@ -116,12 +127,31 @@ but it could also go elsewhere, such as in an override file (see below).
 Creating a panel
 ================
 
-Now that we have our dashboard written, we can also create our panel.
+Now that we have our dashboard written, we can also create our panel. We'll
+call it "flocking".
 
 .. note::
 
     You don't need to write a custom dashboard to add a panel. The structure
     here is for the sake of completeness in the tutorial.
+
+The quick version
+-----------------
+
+Horizon provides a custom management command to create a typical base
+panel structure for you. The following command generates most of the
+boilerplate code explained below::
+
+    ./run_tests.sh -m startpanel flocking --dashboard=visualizations --target=auto
+
+The ``dashboard`` argument is required, and tells the command which dashboard
+this panel will be registered with. The ``target`` argument is optional, and
+respects ``auto`` as a special value which means that the files for the panel
+should be created inside the dashboard module as opposed to the current
+directory (the default).
+
+It's still recommended that you read the rest of this section to understand
+what that command creates and why.
 
 Structure
 ---------

@@ -26,6 +26,7 @@ import collections
 import copy
 import inspect
 import logging
+import os
 
 from django.conf import settings
 from django.conf.urls.defaults import patterns, url, include
@@ -37,6 +38,7 @@ from django.utils.importlib import import_module
 from django.utils.module_loading import module_has_submodule
 from django.utils.translation import ugettext as _
 
+from horizon import loaders
 from horizon.decorators import (require_auth, require_roles,
                                 require_services, _current_component)
 
@@ -541,12 +543,26 @@ class Dashboard(Registry, HorizonComponent):
     @classmethod
     def register(cls, panel):
         """ Registers a :class:`~horizon.Panel` with this dashboard. """
-        return Horizon.register_panel(cls, panel)
+        panel_class = Horizon.register_panel(cls, panel)
+        # Support template loading from panel template directories.
+        panel_mod = import_module(panel.__module__)
+        panel_dir = os.path.dirname(panel_mod.__file__)
+        template_dir = os.path.join(panel_dir, "templates")
+        if os.path.exists(template_dir):
+            key = os.path.join(cls.slug, panel.slug)
+            loaders.panel_template_dirs[key] = template_dir
+        return panel_class
 
     @classmethod
     def unregister(cls, panel):
         """ Unregisters a :class:`~horizon.Panel` from this dashboard. """
-        return Horizon.unregister_panel(cls, panel)
+        success = Horizon.unregister_panel(cls, panel)
+        if success:
+            # Remove the panel's template directory.
+            key = os.path.join(cls.slug, panel.slug)
+            if key in loaders.panel_template_dirs:
+                del loaders.panel_template_dirs[key]
+        return success
 
 
 class Workflow(object):

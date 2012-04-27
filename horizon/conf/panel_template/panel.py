@@ -1,0 +1,13 @@
+from django.utils.translation import ugettext_lazy as _
+
+import horizon
+
+from {{ dash_path }} import dashboard
+
+
+class {{ panel_name|title }}(horizon.Panel):
+    name = _("{{ panel_name|title }}")
+    slug = "{{ panel_name|slugify }}"
+
+
+dashboard.register({{ panel_name|title }})

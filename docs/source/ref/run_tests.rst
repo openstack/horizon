@@ -43,6 +43,48 @@ tests by using the ``--skip-selenium`` flag::
 This isn't recommended, but can be a timesaver when you only need to run
 the code tests and not the frontend tests during development.
 
+Using Dashboard and Panel Templates
+===================================
+
+Horizon has a set of convenient management commands for creating new
+dashboards and panels based on basic templates.
+
+Dashboards
+----------
+
+To create a new dashboard, run the following:
+
+    ./run_tests.sh -m startdash <dash_name>
+
+This will create a directory with the given dashboard name, a ``dashboard.py``
+module with the basic dashboard code filled in, and various other common
+"boilerplate" code.
+
+Available options:
+
+* --target: the directory in which the dashboard files should be created.
+  Default: A new directory within the current directory.
+
+Panels
+------
+
+To create a new panel, run the following:
+
+    ./run_tests -m startpanel <panel_name> --dashboard=<dashboard_path>
+
+This will create a directory with the given panel name, and ``panel.py``
+module with the basic panel code filled in, and various other common
+"boilerplate" code.
+
+Available options:
+
+* -d, --dashboard: The dotted python path to your dashboard app (the module
+  which containers the ``dashboard.py`` file.).
+* --target: the directory in which the panel files should be created.
+  If the value is ``auto`` the panel will be created as a new directory inside
+  the dashboard module's directory structure. Default: A new directory within
+  the current directory.
+
 Give me metrics!
 ================
 

@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=16
+environment_version=17
 #--------------------------------------------------------#
 
 function usage {
@@ -21,7 +21,8 @@ function usage {
   echo "  -f, --force              Force a clean re-build of the virtual"
   echo "                           environment. Useful when dependencies have"
   echo "                           been added."
-  echo "  -m, --makemessages       Update all translation files."
+  echo "  -m, --manage             Run a Django management command."
+  echo "  --makemessages           Update all translation files."
   echo "  -p, --pep8               Just run pep8"
   echo "  -t, --tabs               Check for tab characters in files."
   echo "  -y, --pylint             Just run pylint"
@@ -68,6 +69,7 @@ selenium=0
 testargs=""
 with_coverage=0
 makemessages=0
+manage=0
 
 # Jenkins sets a "JOB_NAME" variable, if it's not set, we'll make it "default"
 [ "$JOB_NAME" ] || JOB_NAME="default"
@@ -83,7 +85,8 @@ function process_option {
     -t|--tabs) just_tabs=1;;
     -q|--quiet) quiet=1;;
     -c|--coverage) with_coverage=1;;
-    -m|--makemessages) makemessages=1;;
+    -m|--manage) manage=1;;
+    --makemessages) makemessages=1;;
     --with-selenium) selenium=1;;
     --docs) just_docs=1;;
     --runserver) runserver=1;;
@@ -92,6 +95,10 @@ function process_option {
     --destroy-environment) destroy=1;;
     *) testargs="$testargs $1"
   esac
+}
+
+function run_management_command {
+  ${command_wrapper} python $root/manage.py $testargs
 }
 
 function run_server {
@@ -117,7 +124,7 @@ function run_pylint {
 function run_pep8 {
   echo "Running pep8 ..."
   rm -f pep8.txt
-  PEP8_EXCLUDE=vcsversion.py
+  PEP8_EXCLUDE=vcsversion.py,panel_template,dash_template
   PEP8_IGNORE=W602
   PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --ignore=$PEP8_IGNORE --repeat"
   ${command_wrapper} pep8 $PEP8_OPTIONS $included_dirs | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt || true
@@ -188,6 +195,9 @@ function environment_check {
     read update_env
     if [ "x$update_env" = "xY" -o "x$update_env" = "x" -o "x$update_env" = "xy" ]; then
       install_venv
+    else
+      # Set our command wrapper anyway.
+      command_wrapper="${root}/${with_venv}"
     fi
   fi
 }
@@ -345,6 +355,12 @@ if [ $never_venv -eq 0 ]; then
 fi
 
 # ---------EXERCISE THE CODE------------ #
+
+# Run management commands
+if [ $manage -eq 1 ]; then
+    run_management_command
+    exit $?
+fi
 
 # Build the docs
 if [ $just_docs -eq 1 ]; then
