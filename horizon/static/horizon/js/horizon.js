@@ -80,6 +80,16 @@ var Horizon = function() {
     }
   };
 
+  horizon.spinner_options = {
+    lines:  10,
+    length: 5,
+    width:  2,
+    radius: 3,
+    color:  '#000',
+    speed:  0.8,
+    trail:  50
+  };
+
   /* Namespace for core functionality related to DataTables. */
   horizon.datatables = {
     update: function () {
@@ -140,11 +150,17 @@ var Horizon = function() {
             },
             success: function (data, textStatus, jqXHR) {
               var $new_row = $(data);
+
               if($new_row.hasClass('status_unknown')) {
-                // only add spinning animation if row needs update
-                var spinner = '<i class="icon-updating ajax-updating"></i>';
-                $new_row.find("td.status_unknown").prepend(spinner);
+                var spinner_elm = $new_row.find("td.status_unknown:last");
+
+                spinner_elm.css('padding-left', '32px');
+                spinner_elm.spin(horizon.spinner_options);
+
+                $(spinner_elm.data().spinner.el).css('top', '9px');
+                $(spinner_elm.data().spinner.el).css('left', '-15px');
               }
+
               // Only replace row if the html content has changed
               if($new_row.html() != $row.html()) {
                 if($row.find(':checkbox').is(':checked')) {

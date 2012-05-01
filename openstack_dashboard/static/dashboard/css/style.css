@@ -514,17 +514,8 @@ table form {
   white-space: nowrap;
 }
 
-.icon-updating.ajax-updating {
-  background: transparent url(../img/spinner.gif) no-repeat center center;
-  padding: 1px;
-}
-
-td .icon-updating.ajax-updating {
-  margin-right: 5px;
-}
-
 .overview {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 #monitoring {
