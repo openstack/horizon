@@ -17,6 +17,11 @@ class CreateUserLink(tables.LinkAction):
     url = "horizon:syspanel:users:create"
     classes = ("ajax-modal", "btn-create")
 
+    def allowed(self, request, user):
+        if api.keystone_can_edit_user():
+            return True
+        return False
+
 
 class EditUserLink(tables.LinkAction):
     name = "edit"
@@ -93,7 +98,8 @@ class DeleteUsersAction(tables.DeleteAction):
     data_type_plural = _("Users")
 
     def allowed(self, request, datum):
-        if datum and datum.id == request.user.id:
+        if not api.keystone_can_edit_user() or \
+                (datum and datum.id == request.user.id):
             return False
         return True
 
@@ -134,11 +140,6 @@ class UsersTable(tables.DataTable):
     class Meta:
         name = "users"
         verbose_name = _("Users")
-        if api.keystone_can_edit_user():
-            row_actions = (EditUserLink, EnableUsersAction, DisableUsersAction,
-                           DeleteUsersAction)
-            table_actions = (UserFilterAction, CreateUserLink,
-                             DeleteUsersAction)
-        else:
-            row_actions = (EnableUsersAction, DisableUsersAction)
-            table_actions = (UserFilterAction,)
+        row_actions = (EditUserLink, EnableUsersAction, DisableUsersAction,
+                       DeleteUsersAction)
+        table_actions = (UserFilterAction, CreateUserLink, DeleteUsersAction)

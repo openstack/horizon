@@ -33,22 +33,25 @@ USER_UPDATE_URL = reverse('horizon:syspanel:users:update', args=[1])
 
 
 class UsersViewTests(test.BaseAdminViewTests):
+    @test.create_stubs({api.keystone: ('user_list',)})
     def test_index(self):
-        self.mox.StubOutWithMock(api.keystone, 'user_list')
         api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+
         self.mox.ReplayAll()
 
         res = self.client.get(USERS_INDEX_URL)
+
         self.assertTemplateUsed(res, 'syspanel/users/index.html')
         self.assertItemsEqual(res.context['table'].data, self.users.list())
 
-    def test_create_user(self):
+    @test.create_stubs({api: ('user_create',
+                              'tenant_list',
+                              'add_tenant_user_role'),
+                        api.keystone: ('get_default_role',)})
+    def test_create(self):
         user = self.users.get(id="1")
         role = self.roles.first()
-        self.mox.StubOutWithMock(api, 'user_create')
-        self.mox.StubOutWithMock(api, 'tenant_list')
-        self.mox.StubOutWithMock(api.keystone, 'get_default_role')
-        self.mox.StubOutWithMock(api, 'add_tenant_user_role')
+
         api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
         api.user_create(IgnoreArg(),
                         user.name,
@@ -58,6 +61,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                         True).AndReturn(user)
         api.keystone.get_default_role(IgnoreArg()).AndReturn(role)
         api.add_tenant_user_role(IgnoreArg(), self.tenant.id, user.id, role.id)
+
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateUserForm',
@@ -67,13 +71,16 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'tenant_id': self.tenant.id,
                     'confirm_password': user.password}
         res = self.client.post(USER_CREATE_URL, formData)
+
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
-    def test_create_user_password_mismatch(self):
+    @test.create_stubs({api: ('tenant_list',)})
+    def test_create_with_password_mismatch(self):
         user = self.users.get(id="1")
-        self.mox.StubOutWithMock(api, 'tenant_list')
+
         api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateUserForm',
@@ -84,13 +91,15 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'confirm_password': "doesntmatch"}
 
         res = self.client.post(USER_CREATE_URL, formData)
+
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
 
-    def test_create_user_field_validation(self):
+    @test.create_stubs({api: ('tenant_list',)})
+    def test_create_validation_for_password_too_short(self):
         user = self.users.get(id="1")
-        self.mox.StubOutWithMock(api, 'tenant_list')
+
         api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
-        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+
         self.mox.ReplayAll()
 
         # check password min-len verification
@@ -102,27 +111,45 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'confirm_password': 'four'}
 
         res = self.client.post(USER_CREATE_URL, formData)
+
         self.assertFormError(
             res, "form", 'password',
             ['Password must be between 8 and 18 characters.'])
 
-        # check password max-len verification
-        formData['password'] = 'MoreThanEighteenChars'
-        formData['confirm_password'] = 'MoreThanEighteenChars'
+    @test.create_stubs({api: ('tenant_list',)})
+    def test_create_validation_for_password_too_long(self):
+        user = self.users.get(id="1")
+
+        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+
+        self.mox.ReplayAll()
+
+        # check password min-len verification
+        formData = {'method': 'CreateUserForm',
+                    'name': user.name,
+                    'email': user.email,
+                    'password': 'MoreThanEighteenChars',
+                    'tenant_id': self.tenant.id,
+                    'confirm_password': 'MoreThanEighteenChars'}
 
         res = self.client.post(USER_CREATE_URL, formData)
+
         self.assertFormError(
             res, "form", 'password',
             ['Password must be between 8 and 18 characters.'])
 
-    def test_update_user_field_validation(self):
+    @test.create_stubs({api: ('user_get',
+                              'tenant_list',
+                              'user_update_tenant',
+                              'user_update_password'),
+                        api.keystone: ('user_update',)})
+    def test_update(self):
         user = self.users.get(id="1")
-        self.mox.StubOutWithMock(api, 'tenant_list')
-        self.mox.StubOutWithMock(api, 'user_get')
-        self.mox.StubOutWithMock(api.keystone, 'user_update')
-        self.mox.StubOutWithMock(api, 'user_update_tenant')
-        self.mox.StubOutWithMock(api, 'user_update_password')
 
+        api.user_get(IsA(http.HttpRequest), '1',
+                     admin=True).AndReturn(user)
+        api.tenant_list(IgnoreArg(),
+                        admin=True).AndReturn(self.tenants.list())
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
                                  email=u'test@example.com',
@@ -131,86 +158,143 @@ class UsersViewTests(test.BaseAdminViewTests):
                                user.id,
                                self.tenant.id).AndReturn(None)
         api.user_update_password(IsA(http.HttpRequest),
-                               user.id,
-                               IgnoreArg()).AndReturn(None)
-        api.user_get(IsA(http.HttpRequest), '1', admin=True).AndReturn(user)
-        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
-        api.user_get(IsA(http.HttpRequest), '1', admin=True).AndReturn(user)
-        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
-        api.user_get(IsA(http.HttpRequest), '1', admin=True).AndReturn(user)
-        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+                                 user.id,
+                                 IgnoreArg()).AndReturn(None)
+
         self.mox.ReplayAll()
-        user.tenantId = 1
 
         formData = {'method': 'UpdateUserForm',
-                    'id': 1,
+                    'id': user.id,
                     'name': user.name,
                     'email': user.email,
                     'password': 'normalpwd',
                     'tenant_id': self.tenant.id,
                     'confirm_password': 'normalpwd'}
 
-        # check successful update
         res = self.client.post(USER_UPDATE_URL, formData)
+
         self.assertNoFormErrors(res)
 
-        # check password min-len verification
-        formData['password'] = 'four'
-        formData['confirm_password'] = 'four'
+    @test.create_stubs({api: ('user_get',
+                              'tenant_list',
+                              'user_update_tenant',
+                              'keystone_can_edit_user')})
+    def test_update_with_keystone_can_edit_user_false(self):
+        user = self.users.get(id="1")
+
+        api.user_get(IsA(http.HttpRequest),
+                     '1',
+                     admin=True).AndReturn(user)
+        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+        api.keystone_can_edit_user().AndReturn(False)
+        api.keystone_can_edit_user().AndReturn(False)
+        api.user_update_tenant(IsA(http.HttpRequest),
+                               user.id,
+                               self.tenant.id).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateUserForm',
+                    'tenant_id': self.tenant.id,
+                    'id': user.id}
 
         res = self.client.post(USER_UPDATE_URL, formData)
-        self.assertFormError(
-            res, "form", 'password',
-            ['Password must be between 8 and 18 characters.'])
 
-        # check password max-len verification
-        formData['password'] = 'MoreThanEighteenChars'
-        formData['confirm_password'] = 'MoreThanEighteenChars'
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api: ('user_get', 'tenant_list')})
+    def test_update_validation_for_password_too_short(self):
+        user = self.users.get(id="1")
+
+        api.user_get(IsA(http.HttpRequest), '1',
+                     admin=True).AndReturn(user)
+        api.tenant_list(IgnoreArg(),
+                        admin=True).AndReturn(self.tenants.list())
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateUserForm',
+                    'id': user.id,
+                    'name': user.name,
+                    'email': user.email,
+                    'password': 't',
+                    'tenant_id': self.tenant.id,
+                    'confirm_password': 't'}
 
         res = self.client.post(USER_UPDATE_URL, formData)
-        self.assertFormError(
-            res, "form", 'password',
-            ['Password must be between 8 and 18 characters.'])
 
+        self.assertFormError(
+                res, "form", 'password',
+                ['Password must be between 8 and 18 characters.'])
+
+    @test.create_stubs({api: ('user_get', 'tenant_list')})
+    def test_update_validation_for_password_too_long(self):
+        user = self.users.get(id="1")
+
+        api.user_get(IsA(http.HttpRequest), '1',
+                     admin=True).AndReturn(user)
+        api.tenant_list(IgnoreArg(),
+                        admin=True).AndReturn(self.tenants.list())
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateUserForm',
+                    'id': user.id,
+                    'name': user.name,
+                    'email': user.email,
+                    'password': 'ThisIsASuperLongPassword',
+                    'tenant_id': self.tenant.id,
+                    'confirm_password': 'ThisIsASuperLongPassword'}
+
+        res = self.client.post(USER_UPDATE_URL, formData)
+
+        self.assertFormError(
+                res, "form", 'password',
+                ['Password must be between 8 and 18 characters.'])
+
+    @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_enable_user(self):
         user = self.users.get(id="2")
-        self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
-        self.mox.StubOutWithMock(api.keystone, 'user_list')
+
         api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
                                          True).AndReturn(user)
+
         self.mox.ReplayAll()
 
         formData = {'action': 'users__enable__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
+
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
+    @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_disable_user(self):
         user = self.users.get(id="2")
 
-        self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
-        self.mox.StubOutWithMock(api.keystone, 'user_list')
         api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
                                          False).AndReturn(user)
+
         self.mox.ReplayAll()
 
         formData = {'action': 'users__disable__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
+
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
+    @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_enable_disable_user_exception(self):
         user = self.users.get(id="2")
-        self.mox.StubOutWithMock(api.keystone, 'user_update_enabled')
-        self.mox.StubOutWithMock(api.keystone, 'user_list')
+
         api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
         api_exception = keystone_exceptions.ClientException('apiException',
                                                     message='apiException')
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
                                          True).AndRaise(api_exception)
+
         self.mox.ReplayAll()
 
         formData = {'action': 'users__enable__%s' % user.id}
@@ -218,24 +302,30 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
-    def test_shoot_yourself_in_the_foot(self):
-        self.mox.StubOutWithMock(api.keystone, 'user_list')
-        # Four times... one for each post and one for each followed redirect
-        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
-        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
-        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
-        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+    @test.create_stubs({api.keystone: ('user_list',)})
+    def test_disabling_current_user(self):
+        for i in range(0, 2):
+            api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
 
         self.mox.ReplayAll()
 
         formData = {'action': 'users__disable__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
+
         self.assertEqual(list(res.context['messages'])[0].message,
                          u'You cannot disable the user you are currently '
                          u'logged in as.')
 
+    @test.create_stubs({api.keystone: ('user_list',)})
+    def test_delete_user_with_improper_permissions(self):
+        for i in range(0, 2):
+            api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+
+        self.mox.ReplayAll()
+
         formData = {'action': 'users__delete__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
+
         self.assertEqual(list(res.context['messages'])[0].message,
                          u'You do not have permission to delete user: %s'
                          % self.request.user.username)

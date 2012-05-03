@@ -104,11 +104,11 @@ def data(TEST):
                  'email': 'test@example.com',
                  'password': 'password',
                  'token': 'test_token'}
-    user = users.User(users.UserManager, user_dict)
+    user = users.User(users.UserManager(None), user_dict)
     user_dict.update({'id': "2",
                       'name': 'user_two',
                       'email': 'two@example.com'})
-    user2 = users.User(users.UserManager, user_dict)
+    user2 = users.User(users.UserManager(None), user_dict)
     TEST.users.add(user, user2)
     TEST.user = user  # Your "current" user
     TEST.user.service_catalog = SERVICE_CATALOG

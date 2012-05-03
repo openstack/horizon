@@ -39,6 +39,7 @@ class BaseUserForm(forms.SelfHandlingForm):
         super(BaseUserForm, self).__init__(*args, **kwargs)
         # Populate tenant choices
         tenant_choices = [('', _("Select a project"))]
+
         for tenant in api.tenant_list(request, admin=True):
             if tenant.enabled:
                 tenant_choices.append((tenant.id, tenant.name))
@@ -107,30 +108,41 @@ class UpdateUserForm(BaseUserForm):
             widget=forms.PasswordInput(render_value=False),
             regex=validators.password_validator(),
             required=False,
-            error_messages={'invalid': validators.password_validator_msg()})
+            error_messages={'invalid':
+                    validators.password_validator_msg()})
     confirm_password = forms.CharField(
             label=_("Confirm Password"),
             widget=forms.PasswordInput(render_value=False),
             required=False)
     tenant_id = forms.ChoiceField(label=_("Primary Project"))
 
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateUserForm, self).__init__(request, *args, **kwargs)
+
+        if api.keystone_can_edit_user() == False:
+            for field in ('name', 'email', 'password', 'confirm_password'):
+                self.fields.pop(field)
+
     def handle(self, request, data):
         failed, succeeded = [], []
+        user_is_editable = api.keystone_can_edit_user()
         user = data.pop('id')
-        password = data.pop('password')
         tenant = data.pop('tenant_id')
-        # Discard the extra fields so we can pass kwargs to keystoneclient
         data.pop('method')
-        data.pop('confirm_password', None)
 
-        # Update user details
-        msg_bits = (_('name'), _('email'))
-        try:
-            api.keystone.user_update(request, user, **data)
-            succeeded.extend(msg_bits)
-        except:
-            failed.extend(msg_bits)
-            exceptions.handle(request, ignore=True)
+        if user_is_editable:
+            password = data.pop('password')
+            data.pop('confirm_password', None)
+
+        if user_is_editable:
+            # Update user details
+            msg_bits = (_('name'), _('email'))
+            try:
+                api.keystone.user_update(request, user, **data)
+                succeeded.extend(msg_bits)
+            except:
+                failed.extend(msg_bits)
+                exceptions.handle(request, ignore=True)
 
         # Update default tenant
         msg_bits = (_('primary project'),)
@@ -141,27 +153,23 @@ class UpdateUserForm(BaseUserForm):
             failed.append(msg_bits)
             exceptions.handle(request, ignore=True)
 
-        # If present, update password
-        # FIXME(gabriel): password change should be its own form and view
-        if password:
-            msg_bits = (_('password'),)
-            try:
-                api.user_update_password(request, user, password)
-                succeeded.extend(msg_bits)
-            except:
-                failed.extend(msg_bits)
-                exceptions.handle(request, ignore=True)
+        if user_is_editable:
+            # If present, update password
+            # FIXME(gabriel): password change should be its own form and view
+            if password:
+                msg_bits = (_('password'),)
+                try:
+                    api.user_update_password(request, user, password)
+                    succeeded.extend(msg_bits)
+                except:
+                    failed.extend(msg_bits)
+                    exceptions.handle(request, ignore=True)
 
         if succeeded:
-            succeeded = map(force_unicode, succeeded)
-            messages.success(request,
-                             _('Updated %(attributes)s for "%(user)s".')
-                               % {"user": data["name"],
-                                  "attributes": ", ".join(succeeded)})
+            messages.success(request, _('User has been updated successfully.'))
         if failed:
             failed = map(force_unicode, failed)
             messages.error(request,
-                           _('Unable to update %(attributes)s for "%(user)s".')
-                             % {"user": data["name"],
-                                "attributes": ", ".join(failed)})
+                           _('Unable to update %(attributes)s for the user.')
+                             % {"attributes": ", ".join(failed)})
         return shortcuts.redirect('horizon:syspanel:users:index')

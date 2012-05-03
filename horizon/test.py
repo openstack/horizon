@@ -27,6 +27,7 @@ from django.conf import settings
 from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django.test.client import RequestFactory
+from functools import wraps
 from glanceclient.v1 import client as glance_client
 from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
@@ -46,6 +47,28 @@ from .time import utcnow
 
 # Makes output of failing mox tests much easier to read.
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
+
+
+def create_stubs(stubs_to_create={}):
+    if not isinstance(stubs_to_create, dict):
+        raise TypeError, ("create_stub must be passed a dict, but a %s was " \
+                "given." % type(stubs_to_create).__name__)
+
+    def inner_stub_out(fn):
+        @wraps(fn)
+        def instance_stub_out(self):
+            for key in stubs_to_create:
+                if not (isinstance(stubs_to_create[key], tuple) or \
+                        isinstance(stubs_to_create[key], list)):
+                    raise TypeError, ("The values of the create_stub " \
+                            "dict must be lists or tuples, but is a %s." %
+                            type(stubs_to_create[key]).__name__)
+
+                for value in stubs_to_create[key]:
+                    self.mox.StubOutWithMock(key, value)
+            return fn(self)
+        return instance_stub_out
+    return inner_stub_out
 
 
 class RequestFactoryWithMessages(RequestFactory):
