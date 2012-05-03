@@ -112,28 +112,32 @@ class ApiHelperTests(test.TestCase):
 
     def test_url_for(self):
         url = api_base.url_for(self.request, 'image')
-        self.assertEqual(url, 'http://int.glance.example.com:9292/v1')
+        self.assertEqual(url, 'http://public.glance.example.com:9292/v1')
 
         url = api_base.url_for(self.request, 'image', admin=False)
-        self.assertEqual(url, 'http://int.glance.example.com:9292/v1')
+        self.assertEqual(url, 'http://public.glance.example.com:9292/v1')
 
         url = api_base.url_for(self.request, 'image', admin=True)
         self.assertEqual(url, 'http://admin.glance.example.com:9292/v1')
 
         url = api_base.url_for(self.request, 'compute')
-        self.assertEqual(url, 'http://int.nova.example.com:8774/v2')
+        self.assertEqual(url, 'http://public.nova.example.com:8774/v2')
 
         url = api_base.url_for(self.request, 'compute', admin=False)
-        self.assertEqual(url, 'http://int.nova.example.com:8774/v2')
+        self.assertEqual(url, 'http://public.nova.example.com:8774/v2')
 
         url = api_base.url_for(self.request, 'compute', admin=True)
         self.assertEqual(url, 'http://admin.nova.example.com:8774/v2')
 
         url = api_base.url_for(self.request, 'volume')
+        self.assertEqual(url, 'http://public.nova.example.com:8776/v1')
+
+        url = api_base.url_for(self.request, 'volume',
+                               endpoint_type="internalURL")
         self.assertEqual(url, 'http://int.nova.example.com:8776/v1')
 
         url = api_base.url_for(self.request, 'volume', admin=False)
-        self.assertEqual(url, 'http://int.nova.example.com:8776/v1')
+        self.assertEqual(url, 'http://public.nova.example.com:8776/v1')
 
         url = api_base.url_for(self.request, 'volume', admin=True)
         self.assertEqual(url, 'http://admin.nova.example.com:8776/v1')

@@ -20,6 +20,8 @@
 
 import logging
 
+from django.conf import settings
+
 from horizon import exceptions
 
 
@@ -97,7 +99,10 @@ def get_service_from_catalog(catalog, service_type):
     return None
 
 
-def url_for(request, service_type, admin=False, endpoint_type='internalURL'):
+def url_for(request, service_type, admin=False, endpoint_type=None):
+    endpoint_type = endpoint_type or getattr(settings,
+                                             'OPENSTACK_ENDPOINT_TYPE',
+                                             'publicURL')
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)
     if service:
