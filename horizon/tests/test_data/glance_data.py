@@ -31,16 +31,20 @@ def data(TEST):
 
     # Images
     image_properties_dict = {'image_type': u'image'}
-    image_dict = {'id': '1',
-                  'name': 'public_image',
-                  'container_format': 'novaImage'}
+    image_dict = {'id': u'1',
+                  'name': u'public_image',
+                  'container_format': u'ami',
+                  'is_public': True,
+                  'disk_format': u'ami',
+                  'properties': glance.ImageProperties(image_properties_dict)}
     public_image = glance.Image(image_dict)
-    public_image.properties = glance.ImageProperties(image_properties_dict)
 
-    image_dict = {'id': '2',
+    image_dict = {'id': u'2',
                   'name': 'private_image',
-                  'container_format': 'aki'}
+                  'container_format': 'aki',
+                  'is_public': False,
+                  'disk_format': 'aki',
+                  'properties': glance.ImageProperties(image_properties_dict)}
     private_image = glance.Image(image_dict)
-    private_image.properties = glance.ImageProperties(image_properties_dict)
 
     TEST.images.add(public_image, private_image)

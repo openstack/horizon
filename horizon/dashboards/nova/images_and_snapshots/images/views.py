@@ -168,7 +168,8 @@ class UpdateView(forms.ModalFormView):
                 'ramdisk': properties.get('ramdisk_id', ''),
                 'architecture': properties.get('architecture', ''),
                 'container_format': self.object.get('container_format', ''),
-                'disk_format': self.object.get('disk_format', ''), }
+                'disk_format': self.object.get('disk_format', ''),
+                'public': self.object.get('is_public')}
 
 
 class DetailView(tabs.TabView):

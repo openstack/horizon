@@ -43,35 +43,34 @@ class UpdateImageForm(forms.SelfHandlingForm):
 
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length="255", label=_("Name"))
-    kernel = forms.CharField(max_length="36", label=_("Kernel ID"),
+    kernel = forms.CharField(max_length="36",
+                             label=_("Kernel ID"),
                              required=False,
                              widget=forms.TextInput(
-                                attrs={'readonly': 'readonly'}
-                             ))
-    ramdisk = forms.CharField(max_length="36", label=_("Ramdisk ID"),
+                                 attrs={'readonly': 'readonly'}))
+    ramdisk = forms.CharField(max_length="36",
+                              label=_("Ramdisk ID"),
                               required=False,
                               widget=forms.TextInput(
-                                attrs={'readonly': 'readonly'}
-                              ))
-    architecture = forms.CharField(label=_("Architecture"), required=False,
+                                  attrs={'readonly': 'readonly'}))
+    architecture = forms.CharField(label=_("Architecture"),
+                                   required=False,
                                    widget=forms.TextInput(
-                                    attrs={'readonly': 'readonly'}
-                                   ))
+                                       attrs={'readonly': 'readonly'}))
     container_format = forms.CharField(label=_("Container Format"),
                                        widget=forms.TextInput(
-                                        attrs={'readonly': 'readonly'}
-                                       ))
+                                           attrs={'readonly': 'readonly'}))
     disk_format = forms.CharField(label=_("Disk Format"),
                                   widget=forms.TextInput(
-                                    attrs={'readonly': 'readonly'}
-                                  ))
+                                      attrs={'readonly': 'readonly'}))
+    public = forms.BooleanField(label=_("Public"), required=False)
 
     def handle(self, request, data):
         # TODO add public flag to image meta properties
         image_id = data['image_id']
         error_updating = _('Unable to update image "%s".')
 
-        meta = {'is_public': True,
+        meta = {'is_public': data['public'],
                 'disk_format': data['disk_format'],
                 'container_format': data['container_format'],
                 'name': data['name'],

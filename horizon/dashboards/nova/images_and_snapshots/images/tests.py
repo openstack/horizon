@@ -35,6 +35,51 @@ IMAGES_INDEX_URL = reverse('horizon:nova:images_and_snapshots:index')
 
 
 class ImageViewTests(test.TestCase):
+    def test_update_get(self):
+        image = self.images.first()
+
+        self.mox.StubOutWithMock(api, 'image_get_meta')
+        api.image_get_meta(IsA(http.HttpRequest), image.id).AndReturn(image)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:images_and_snapshots:images:update',
+                      args=[image.id])
+        res = self.client.get(url)
+        self.assertTemplateUsed(res,
+                                'nova/images_and_snapshots/images/update.html')
+
+    def test_update_post(self):
+        image_to_update = self.images.first()
+        image_updated = {'name': u'new_name',
+                         'container_format': u'new_format',
+                         'is_public': False,
+                         'disk_format': u'new_disk_format',
+                         'properties': {}}
+
+        self.mox.StubOutWithMock(api, 'image_get_meta')
+        self.mox.StubOutWithMock(api, 'image_update')
+        api.image_get_meta(IsA(http.HttpRequest),
+                           image_to_update.id).AndReturn(image_to_update)
+        api.image_update(IsA(http.HttpRequest),
+                         image_to_update.id,
+                         image_updated)
+        self.mox.ReplayAll()
+
+        form_data = {'method': 'UpdateImageForm',
+                     'image_id': image_to_update.id,
+                     'name': image_updated['name'],
+                     'container_format': image_updated['container_format'],
+                     'disk_format': image_updated['disk_format'],
+                     'public': image_updated['is_public']}
+
+        url = reverse('horizon:nova:images_and_snapshots:images:update',
+                      args=[image_to_update.id])
+
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(
+                res, reverse('horizon:nova:images_and_snapshots:index'))
+
     def test_launch_get(self):
         image = self.images.first()
         quota_usages = self.quota_usages.first()
@@ -225,7 +270,6 @@ class ImageViewTests(test.TestCase):
         USER_DATA = 'user data'
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
-        block_device_mapping = {device_name: u"%s::0" % volume_choice}
 
         self.mox.StubOutWithMock(api, 'image_get_meta')
         self.mox.StubOutWithMock(api, 'flavor_list')
