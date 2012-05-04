@@ -49,6 +49,15 @@ class HorizonMiddleware(object):
 
         Adds a :class:`~horizon.users.User` object to ``request.user``.
         """
+        # A quick and dirty way to log users out
+        def user_logout(request):
+            if hasattr(request, '_cached_user'):
+                del request._cached_user
+            # Use flush instead of clear, so we rotate session keys in
+            # addition to clearing all the session data
+            request.session.flush()
+        request.__class__.user_logout = user_logout
+
         request.__class__.user = users.LazyUser()
         request.horizon = {'dashboard': None, 'panel': None}
 

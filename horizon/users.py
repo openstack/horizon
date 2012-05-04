@@ -59,7 +59,7 @@ def get_user_from_request(request):
         # If any of those keys are missing from the session it is
         # overwhelmingly likely that we're dealing with an outdated session.
         LOG.exception("Error while creating User from session.")
-        request.session.clear()
+        request.user_logout()
         raise exceptions.NotAuthorized(_("Your session has expired. "
                                          "Please log in again."))
 

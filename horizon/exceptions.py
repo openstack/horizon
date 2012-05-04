@@ -203,7 +203,7 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
     if issubclass(exc_type, UNAUTHORIZED):
         if ignore:
             return NotAuthorized
-        request.session.clear()
+        request.user_logout()
         if not handled:
             LOG.debug("Unauthorized: %s" % exc_value)
             # We get some pretty useless error messages back from

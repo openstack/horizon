@@ -96,6 +96,6 @@ def switch_tenants(request, tenant_id):
 
 def logout(request):
     """ Clears the session and logs the current user out. """
-    request.session.clear()
+    request.user_logout()
     # FIXME(gabriel): we don't ship a view named splash
     return shortcuts.redirect('splash')

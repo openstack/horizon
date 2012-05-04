@@ -77,6 +77,16 @@ class Login(forms.SelfHandlingForm):
             self.fields['region'].widget = forms.widgets.HiddenInput()
 
     def handle(self, request, data):
+        if 'user_name' in request.session:
+            if request.session['user_name'] != data['username']:
+                # To avoid reusing another user's session, create a
+                # new, empty session if the existing session
+                # corresponds to a different authenticated user.
+                request.session.flush()
+        # Always cycle the session key when viewing the login form to
+        # prevent session fixation
+        request.session.cycle_key()
+
         # For now we'll allow fallback to OPENSTACK_KEYSTONE_URL if the
         # form post doesn't include a region.
         endpoint = data.get('region', None) or settings.OPENSTACK_KEYSTONE_URL
@@ -116,7 +126,7 @@ class Login(forms.SelfHandlingForm):
                 # If we get here we don't want to show a stack trace to the
                 # user. However, if we fail here, there may be bad session
                 # data that's been cached already.
-                request.session.clear()
+                request.user_logout()
                 exceptions.handle(request,
                                   message=_("An error occurred authenticating."
                                             " Please try again later."),
