@@ -18,6 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import time
+
 from django import http
 from django.core.urlresolvers import reverse
 from keystoneclient import exceptions as keystone_exceptions
@@ -220,3 +222,53 @@ class AuthViewTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, reverse('splash'))
         self.assertNotIn(KEY, self.client.session)
+
+    def test_session_fixation(self):
+        session_ids = []
+        form_data = {'method': 'Login',
+                     'region': 'http://localhost:5000/v2.0',
+                     'password': self.user.password,
+                     'username': self.user.name}
+
+        self.mox.StubOutWithMock(api, 'token_create')
+        self.mox.StubOutWithMock(api, 'tenant_list_for_token')
+        self.mox.StubOutWithMock(api, 'token_create_scoped')
+
+        aToken = self.tokens.unscoped_token
+        bToken = self.tokens.scoped_token
+
+        api.token_create(IsA(http.HttpRequest), "", self.user.name,
+                         self.user.password).AndReturn(aToken)
+        api.tenant_list_for_token(IsA(http.HttpRequest),
+                                  aToken.id).AndReturn([self.tenants.first()])
+        api.token_create_scoped(IsA(http.HttpRequest),
+                                self.tenant.id,
+                                aToken.id).AndReturn(bToken)
+
+        api.token_create(IsA(http.HttpRequest), "", self.user.name,
+                         self.user.password).AndReturn(aToken)
+        api.tenant_list_for_token(IsA(http.HttpRequest),
+                                  aToken.id).AndReturn([self.tenants.first()])
+        api.token_create_scoped(IsA(http.HttpRequest),
+                                self.tenant.id,
+                                aToken.id).AndReturn(bToken)
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:auth_login'))
+        self.assertEqual(res.cookies.get('sessionid'), None)
+        res = self.client.post(reverse('horizon:auth_login'), form_data)
+        session_ids.append(res.cookies['sessionid'].value)
+
+        self.assertEquals(self.client.session['user_name'],
+                          self.user.name)
+        self.client.session['foobar'] = 'MY TEST VALUE'
+        res = self.client.get(reverse('horizon:auth_logout'))
+        session_ids.append(res.cookies['sessionid'].value)
+        self.assertEqual(len(self.client.session.items()), 0)
+        # Sleep for 1 second so the session values are different if
+        # using the signed_cookies backend.
+        time.sleep(1)
+        res = self.client.post(reverse('horizon:auth_login'), form_data)
+        session_ids.append(res.cookies['sessionid'].value)
+        # Make sure all 3 session id values are different
+        self.assertEqual(len(session_ids), len(set(session_ids)))
