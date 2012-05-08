@@ -88,6 +88,15 @@ class DisassociateIP(tables.Action):
         return shortcuts.redirect('horizon:nova:access_and_security:index')
 
 
+def get_instance_info(instance):
+    info_string = _("%(INSTANCE_NAME)s (%(INSTANCE_ID)s)")
+    if instance.instance_id and instance.instance_name:
+        vals = {'INSTANCE_NAME': instance.instance_name,
+                'INSTANCE_ID': instance.instance_id}
+        return info_string % vals
+    return _("Not available")
+
+
 def get_instance_link(datum):
     view = "horizon:nova:instances_and_volumes:instances:detail"
     if datum.instance_id:
@@ -98,7 +107,7 @@ def get_instance_link(datum):
 
 class FloatingIPsTable(tables.DataTable):
     ip = tables.Column("ip", verbose_name=_("IP Address"))
-    instance = tables.Column("instance_id",
+    instance = tables.Column(get_instance_info,
                              link=get_instance_link,
                              verbose_name=_("Instance"),
                              empty_value="-")
