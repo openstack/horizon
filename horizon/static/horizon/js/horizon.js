@@ -29,6 +29,11 @@ var Horizon = function() {
       evt.preventDefault();
     });
 
+    // Dismiss alert messages when moving on to a new type of action.
+    $('a.ajax-modal').click(function() {
+      horizon.clearAllMessages();
+    });
+
     // Bind dismiss(x) handlers for alert messages.
     $(".alert").alert();
 
@@ -335,6 +340,15 @@ var Horizon = function() {
 
   horizon.clearErrorMessages = function() {
     $('#main_content .messages .alert.alert-error').remove()
+  };
+
+  horizon.clearSuccessMessages = function() {
+    $('#main_content .messages .alert.alert-success').remove()
+  };
+
+  horizon.clearAllMessages = function() {
+    horizon.clearErrorMessages();
+    horizon.clearSuccessMessages();
   };
 
   /* Queued ajax handling for Horizon.
