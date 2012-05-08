@@ -43,7 +43,6 @@ class ImageViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'tenant_quota_usages')
         # Two flavor_list calls, however, flavor_list is now memoized.
         self.mox.StubOutWithMock(api, 'flavor_list')
-        self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.image_get(IsA(http.HttpRequest), image.id).AndReturn(image)
@@ -127,7 +126,6 @@ class ImageViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'image_get')
         self.mox.StubOutWithMock(api, 'tenant_quota_usages')
         self.mox.StubOutWithMock(api, 'flavor_list')
-        self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
         api.image_get(IsA(http.HttpRequest),
@@ -153,7 +151,6 @@ class ImageViewTests(test.TestCase):
 
         self.mox.StubOutWithMock(api, 'image_get')
         self.mox.StubOutWithMock(api, 'tenant_quota_usages')
-        self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
@@ -234,7 +231,6 @@ class ImageViewTests(test.TestCase):
         volume_choice = "%s:vol" % volume.id
 
         self.mox.StubOutWithMock(api, 'image_get')
-        self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
