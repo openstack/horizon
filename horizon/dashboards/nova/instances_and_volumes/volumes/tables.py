@@ -85,14 +85,15 @@ def get_size(volume):
 
 def get_attachment(volume):
     attachments = []
-    link = '<a href="%(url)s">Instance %(instance)s&nbsp;' \
-           '<small>(%(dev)s)</small></a>'
+    link = '<a href="%(url)s">Instance %(name)s (%(instance)s)</a>&nbsp;' \
+           'on %(dev)s'
     # Filter out "empty" attachments which the client returns...
     for attachment in [att for att in volume.attachments if att]:
         url = reverse("%s:instances:detail" % URL_PREFIX,
                       args=(attachment["server_id"],))
         # TODO(jake): Make "instance" the instance name
         vals = {"url": url,
+                "name": attachment["instance"].name,
                 "instance": attachment["server_id"],
                 "dev": attachment["device"]}
         attachments.append(link % vals)
