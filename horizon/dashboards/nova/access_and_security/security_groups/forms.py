@@ -30,8 +30,8 @@ from novaclient import exceptions as novaclient_exceptions
 from horizon import api
 from horizon import exceptions
 from horizon import forms
-from horizon.utils.validators import validate_ipv4_cidr
 from horizon.utils.validators import validate_port_range
+from horizon.utils import fields
 
 
 LOG = logging.getLogger(__name__)
@@ -82,12 +82,13 @@ class AddRule(forms.SelfHandlingForm):
                                  validators=[validate_port_range])
 
     source_group = forms.ChoiceField(label=_('Source Group'), required=False)
-    cidr = forms.CharField(label=_("CIDR"),
+    cidr = fields.IPField(label=_("CIDR"),
                            required=False,
                            initial="0.0.0.0/0",
                            help_text=_("Classless Inter-Domain Routing "
                                        "(e.g. 192.168.0.0/24)"),
-                           validators=[validate_ipv4_cidr])
+                           version=fields.IPv4 | fields.IPv6,
+                           mask=True)
 
     security_group_id = forms.IntegerField(widget=forms.HiddenInput())
 

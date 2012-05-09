@@ -14,19 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import re
-
 from django.conf import settings
-from django.core import validators
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext as _
 
-ipv4_cidr_re = re.compile(r'^(25[0-5]|2[0-4]\d|[0-1]?\d?\d)'   # 0-255
-                           '(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}'  # 3x .0-255
-                           '/(3[0-2]|[1-2]?\d)$')  # /0-32
-
-
-validate_ipv4_cidr = validators.RegexValidator(ipv4_cidr_re)
 horizon_config = getattr(settings, "HORIZON_CONFIG", {})
 password_config = horizon_config.get("password_validator", {})
 
