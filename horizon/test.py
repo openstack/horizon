@@ -19,6 +19,7 @@
 #    under the License.
 
 import datetime
+import os
 
 import cloudfiles as swift_client
 from django import http
@@ -131,6 +132,7 @@ class TestCase(django_test.TestCase):
         self.request.session = self.client._session()
         self.request.session['token'] = self.token.id
         middleware.HorizonMiddleware().process_request(self.request)
+        os.environ["HORIZON_TEST_RUN"] = "True"
 
     def tearDown(self):
         self.mox.UnsetStubs()
@@ -138,6 +140,7 @@ class TestCase(django_test.TestCase):
         context_processors.horizon = self._real_horizon_context_processor
         users.get_user_from_request = self._real_get_user_from_request
         self.mox.VerifyAll()
+        del os.environ["HORIZON_TEST_RUN"]
 
     def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
                         service_catalog=None, tenant_name=None, roles=None,

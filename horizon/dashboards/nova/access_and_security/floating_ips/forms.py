@@ -24,7 +24,6 @@ import logging
 from django.contrib import messages
 from django import shortcuts
 from django.utils.translation import ugettext_lazy as _
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
 from horizon import exceptions
@@ -65,9 +64,9 @@ class FloatingIpAssociate(forms.SelfHandlingForm):
                                'with Instance: %(inst)s')
                                % {"ip": data['floating_ip'],
                                   "inst": data['instance_id']})
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in FloatingIpAssociate")
-            messages.error(request, _('Error associating Floating IP: %s') % e)
+        except:
+            exceptions.handle(request,
+                              _('Unable to associate floating IP.'))
         return shortcuts.redirect('horizon:nova:access_and_security:index')
 
 

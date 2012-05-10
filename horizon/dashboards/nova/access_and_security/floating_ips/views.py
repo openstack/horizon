@@ -53,7 +53,7 @@ class AssociateView(forms.ModalFormView):
 
     def get_initial(self):
         try:
-            servers = api.server_list(self.request)
+            servers = api.nova.server_list(self.request)
         except:
             redirect = reverse('horizon:nova:access_and_security:index')
             exceptions.handle(self.request,

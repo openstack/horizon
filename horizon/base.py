@@ -237,10 +237,10 @@ class Panel(HorizonComponent):
             return reverse('horizon:%s:%s:%s' % (self._registered_with.slug,
                                                  self.slug,
                                                  self.index_url_name))
-        except:
+        except Exception as exc:
             # Logging here since this will often be called in a template
             # where the exception would be hidden.
-            LOG.exception("Error reversing absolute URL for %s." % self)
+            LOG.info("Error reversing absolute URL for %s: %s" % (self, exc))
             raise
 
     @property

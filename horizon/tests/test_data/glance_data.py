@@ -25,6 +25,8 @@ def data(TEST):
     snapshot_dict = {'name': u'snapshot',
                      'container_format': u'ami',
                      'id': 3,
+                     'status': "active",
+                     'owner': TEST.tenant.id,
                      'properties': {'image_type': u'snapshot'}}
     snapshot = Image(ImageManager(None), snapshot_dict)
     TEST.snapshots.add(snapshot)
@@ -32,12 +34,16 @@ def data(TEST):
     # Images
     image_dict = {'id': '1',
                   'name': 'public_image',
+                  'status': "active",
+                  'owner': TEST.tenant.id,
                   'container_format': 'novaImage',
                   'properties': {'image_type': u'image'}}
     public_image = Image(ImageManager(None), image_dict)
 
     image_dict = {'id': '2',
                   'name': 'private_image',
+                  'status': "active",
+                  'owner': TEST.tenant.id,
                   'container_format': 'aki'}
     private_image = Image(ImageManager(None), image_dict)
 

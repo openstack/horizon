@@ -46,9 +46,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
     def test_index_server_list_exception(self):
         self.mox.StubOutWithMock(api.nova, 'server_list')
         self.mox.StubOutWithMock(api.nova, 'flavor_list')
-        exception = novaclient_exceptions.ClientException('apiException')
         api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True).AndRaise(exception)
+                             all_tenants=True).AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 

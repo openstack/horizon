@@ -115,6 +115,10 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'django.utils.log.NullHandler',
             },
+        'test': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            }
         },
     'loggers': {
         'django.db.backends': {
@@ -122,19 +126,23 @@ LOGGING = {
             'propagate': False,
             },
         'horizon': {
-            'handlers': ['null'],
+            'handlers': ['test'],
             'propagate': False,
         },
         'novaclient': {
-            'handlers': ['null'],
+            'handlers': ['test'],
             'propagate': False,
         },
         'keystoneclient': {
-            'handlers': ['null'],
+            'handlers': ['test'],
+            'propagate': False,
+        },
+        'glanceclient': {
+            'handlers': ['test'],
             'propagate': False,
         },
         'quantum': {
-            'handlers': ['null'],
+            'handlers': ['test'],
             'propagate': False,
         },
         'nose.plugins.manager': {

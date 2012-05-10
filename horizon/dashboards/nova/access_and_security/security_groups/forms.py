@@ -146,8 +146,7 @@ class AddRule(forms.SelfHandlingForm):
                                                   data['source_group'])
             messages.success(request, _('Successfully added rule: %s') \
                                     % unicode(rule))
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in AddRule")
-            messages.error(request, _('Error adding rule security group: %s')
-                                     % e.message)
+        except:
+            exceptions.handle(request,
+                              _('Unable to add rule to security group.'))
         return shortcuts.redirect("horizon:nova:access_and_security:index")

@@ -21,7 +21,6 @@
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
 from horizon import test
@@ -36,6 +35,16 @@ class KeyPairViewTests(test.TestCase):
 
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_delete')
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.nova, 'server_list')
+
+        api.nova.server_list(IsA(http.HttpRequest),
+                             all_tenants=True).AndReturn(self.servers.list())
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                                   .AndReturn(self.floating_ips.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
         api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name)
@@ -49,11 +58,20 @@ class KeyPairViewTests(test.TestCase):
         keypair = self.keypairs.first()
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_delete')
+        self.mox.StubOutWithMock(api, 'security_group_list')
+        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.nova, 'server_list')
+
+        api.nova.server_list(IsA(http.HttpRequest),
+                             all_tenants=True).AndReturn(self.servers.list())
+        api.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                                   .AndReturn(self.floating_ips.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
-        exc = novaclient_exceptions.ClientException('clientException')
         api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name) \
-                .AndRaise(exc)
+                .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'action': 'keypairs__delete__%s' % keypair.name}
@@ -93,10 +111,10 @@ class KeyPairViewTests(test.TestCase):
 
     def test_generate_keypair_exception(self):
         keypair = self.keypairs.first()
-        exc = novaclient_exceptions.ClientException('clientException')
 
         self.mox.StubOutWithMock(api, 'keypair_create')
-        api.keypair_create(IsA(http.HttpRequest), keypair.name).AndRaise(exc)
+        api.keypair_create(IsA(http.HttpRequest), keypair.name) \
+                        .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         context = {'keypair_name': keypair.name}

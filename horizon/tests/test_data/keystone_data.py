@@ -103,7 +103,8 @@ def data(TEST):
                  'name': 'test_user',
                  'email': 'test@example.com',
                  'password': 'password',
-                 'token': 'test_token'}
+                 'token': 'test_token',
+                 'enabled': True}
     user = users.User(users.UserManager(None), user_dict)
     user_dict.update({'id': "2",
                       'name': 'user_two',

@@ -19,10 +19,12 @@ Exceptions raised by the Horizon code and the machinery for handling them.
 """
 
 import logging
+import os
 import sys
 
 from django.conf import settings
 from django.contrib import messages
+from django.utils import termcolors
 from django.utils.translation import ugettext as _
 from cloudfiles import errors as swiftclient
 from glanceclient.common import exceptions as glanceclient
@@ -31,6 +33,7 @@ from novaclient import exceptions as novaclient
 
 
 LOG = logging.getLogger(__name__)
+PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]
 
 
 class HorizonException(Exception):
@@ -106,6 +109,9 @@ class AlreadyExists(HorizonException):
     def __repr__(self):
         return self.msg % self.attrs
 
+    def __str__(self):
+        return self.msg % self.attrs
+
     def __unicode__(self):
         return _(self.msg) % self.attrs
 
@@ -152,7 +158,12 @@ RECOVERABLE = (keystoneclient.ClientException,
 RECOVERABLE += tuple(EXCEPTION_CONFIG.get('recoverable', []))
 
 
-def handle(request, message=None, redirect=None, ignore=False, escalate=False):
+def _error_color(msg):
+    return termcolors.colorize(msg, **PALETTE['ERROR'])
+
+
+def handle(request, message=None, redirect=None, ignore=False,
+           escalate=False, log_level=None, force_log=None):
     """ Centralized error handling for Horizon.
 
     Because Horizon consumes so many different APIs with completely
@@ -181,6 +192,9 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
     returned.
     """
     exc_type, exc_value, exc_traceback = sys.exc_info()
+    log_method = getattr(LOG, log_level or "exception")
+    force_log = force_log or os.environ.get("HORIZON_TEST_RUN", False)
+    force_silence = getattr(exc_value, "silence_logging", False)
 
     # Because the same exception may travel through this method more than
     # once (if it's re-raised) we may want to treat it differently
@@ -204,8 +218,9 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
         if ignore:
             return NotAuthorized
         request.user_logout()
+        if not force_silence and not handled:
+            log_method(_error_color("Unauthorized: %s" % exc_value))
         if not handled:
-            LOG.debug("Unauthorized: %s" % exc_value)
             # We get some pretty useless error messages back from
             # some clients, so let's define our own fallback.
             fallback = _("Unauthorized. Please try logging in again.")
@@ -214,8 +229,9 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
 
     if issubclass(exc_type, NOT_FOUND):
         wrap = True
+        if not force_silence and not handled and (not ignore or force_log):
+            log_method(_error_color("Not Found: %s" % exc_value))
         if not ignore and not handled:
-            LOG.debug("Not Found: %s" % exc_value)
             messages.error(request, message or exc_value)
         if redirect:
             raise Http302(redirect)
@@ -224,8 +240,9 @@ def handle(request, message=None, redirect=None, ignore=False, escalate=False):
 
     if issubclass(exc_type, RECOVERABLE):
         wrap = True
+        if not force_silence and not handled and (not ignore or force_log):
+            log_method(_error_color("Recoverable error: %s" % exc_value))
         if not ignore and not handled:
-            LOG.debug("Recoverable error: %s" % exc_value)
             messages.error(request, message or exc_value)
         if redirect:
             raise Http302(redirect)

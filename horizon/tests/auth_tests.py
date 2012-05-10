@@ -118,6 +118,7 @@ class AuthViewTests(test.TestCase):
         api.tenant_list_for_token(IsA(http.HttpRequest),
                                   aToken.id).AndReturn(tenants)
         exc = keystone_exceptions.Unauthorized("Not authorized.")
+        exc.silence_logging = True
         api.token_create_scoped(IsA(http.HttpRequest),
                                 disabled_tenant.id,
                                 aToken.id).AndRaise(exc)
@@ -135,6 +136,7 @@ class AuthViewTests(test.TestCase):
     def test_login_invalid_credentials(self):
         self.mox.StubOutWithMock(api, 'token_create')
         unauthorized = keystone_exceptions.Unauthorized("Invalid")
+        unauthorized.silence_logging = True
         api.token_create(IsA(http.HttpRequest), "", self.user.name,
                          self.user.password).AndRaise(unauthorized)
 
@@ -152,11 +154,10 @@ class AuthViewTests(test.TestCase):
 
     def test_login_exception(self):
         self.mox.StubOutWithMock(api, 'token_create')
-        ex = keystone_exceptions.BadRequest('Cannot talk to keystone')
         api.token_create(IsA(http.HttpRequest),
                          "",
                          self.user.name,
-                         self.user.password).AndRaise(ex)
+                         self.user.password).AndRaise(self.exceptions.keystone)
 
         self.mox.ReplayAll()
 

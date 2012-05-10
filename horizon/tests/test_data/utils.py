@@ -14,13 +14,15 @@
 
 
 def load_test_data(load_onto=None):
+    from . import exceptions
     from . import glance_data
     from . import keystone_data
     from . import nova_data
     from . import swift_data
 
     # The order of these loaders matters, some depend on others.
-    loaders = (keystone_data.data,
+    loaders = (exceptions.data,
+               keystone_data.data,
                glance_data.data,
                nova_data.data,
                swift_data.data)

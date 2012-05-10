@@ -36,26 +36,12 @@ class DeleteContainer(tables.DeleteAction):
     data_type_plural = _("Containers")
 
     def delete(self, request, obj_id):
-        api.swift_delete_container(request, obj_id)
-
-    def handle(self, table, request, object_ids):
-        # Overriden to show clearer error messages instead of generic message
-        deleted = []
-        for obj_id in object_ids:
-            obj = table.get_object_by_id(obj_id)
-            try:
-                self.delete(request, obj_id)
-                deleted.append(obj)
-            except ContainerNotEmpty:
-                LOG.exception('Unable to delete container "%s".' % obj.name)
-                messages.error(request,
-                               _('Unable to delete non-empty container: %s') %
-                               obj.name)
-        if deleted:
-            messages.success(request,
-                             _('Successfully deleted containers: %s')
-                               % ", ".join([obj.name for obj in deleted]))
-        return shortcuts.redirect('horizon:nova:containers:index')
+        try:
+            api.swift_delete_container(request, obj_id)
+        except ContainerNotEmpty:
+            messages.error(request,
+                           _('Containers must be empty before deletion.'))
+            raise
 
 
 class CreateContainer(tables.LinkAction):

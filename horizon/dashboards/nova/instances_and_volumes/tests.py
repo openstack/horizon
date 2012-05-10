@@ -22,7 +22,6 @@ from copy import deepcopy
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
 from horizon import test
@@ -30,8 +29,10 @@ from horizon import test
 
 class InstancesAndVolumesViewTest(test.TestCase):
     def test_index(self):
+        self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'volume_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
 
@@ -61,6 +62,8 @@ class InstancesAndVolumesViewTest(test.TestCase):
 
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
 
@@ -91,8 +94,7 @@ class InstancesAndVolumesViewTest(test.TestCase):
     def test_index_server_list_exception(self):
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'volume_list')
-        exception = novaclient_exceptions.ClientException('apiException')
-        api.server_list(IsA(http.HttpRequest)).AndRaise(exception)
+        api.server_list(IsA(http.HttpRequest)).AndRaise(self.exceptions.nova)
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
 

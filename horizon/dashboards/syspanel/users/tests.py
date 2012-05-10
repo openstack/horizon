@@ -20,7 +20,6 @@
 
 from django import http
 from django.core.urlresolvers import reverse
-from keystoneclient import exceptions as keystone_exceptions
 from mox import IgnoreArg, IsA
 
 from horizon import api
@@ -255,7 +254,7 @@ class UsersViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_enable_user(self):
         user = self.users.get(id="2")
-
+        user.enabled = False
         api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
@@ -271,6 +270,7 @@ class UsersViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_disable_user(self):
         user = self.users.get(id="2")
+        self.assertTrue(user.enabled)
 
         api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
         api.keystone.user_update_enabled(IgnoreArg(),
@@ -279,7 +279,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        formData = {'action': 'users__disable__%s' % user.id}
+        formData = {'action': 'users__enable__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
@@ -287,14 +287,10 @@ class UsersViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_enable_disable_user_exception(self):
         user = self.users.get(id="2")
-
+        user.enabled = False
         api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
-        api_exception = keystone_exceptions.ClientException('apiException',
-                                                    message='apiException')
-        api.keystone.user_update_enabled(IgnoreArg(),
-                                         user.id,
-                                         True).AndRaise(api_exception)
-
+        api.keystone.user_update_enabled(IgnoreArg(), user.id, True) \
+                    .AndRaise(self.exceptions.keystone)
         self.mox.ReplayAll()
 
         formData = {'action': 'users__enable__%s' % user.id}
@@ -309,7 +305,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        formData = {'action': 'users__disable__%s' % self.request.user.id}
+        formData = {'action': 'users__enable__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
 
         self.assertEqual(list(res.context['messages'])[0].message,

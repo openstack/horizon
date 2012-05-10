@@ -83,7 +83,7 @@ class TogglePause(tables.BatchAction):
     action_past = (_("Paused"), _("Unpaused"))
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ("btn-pause")
+    classes = ("btn-pause",)
 
     def allowed(self, request, instance=None):
         self.paused = False
@@ -111,7 +111,7 @@ class ToggleSuspend(tables.BatchAction):
     action_past = (_("Suspended"), _("Resumed"))
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ("btn-suspend")
+    classes = ("btn-suspend",)
 
     def allowed(self, request, instance=None):
         self.suspended = False

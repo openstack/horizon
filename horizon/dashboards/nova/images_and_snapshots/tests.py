@@ -22,7 +22,6 @@
 from copy import deepcopy
 from django import http
 from django.core.urlresolvers import reverse
-from glanceclient.common import exceptions as glance_exception
 from mox import IsA
 
 from horizon import api
@@ -38,6 +37,9 @@ class ImagesAndSnapshotsTests(test.TestCase):
         snapshots = self.snapshots.list()
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
+        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
         api.image_list_detailed(IsA(http.HttpRequest)).AndReturn(images)
         api.snapshot_list_detailed(IsA(http.HttpRequest)).AndReturn(snapshots)
         self.mox.ReplayAll()
@@ -53,6 +55,9 @@ class ImagesAndSnapshotsTests(test.TestCase):
     def test_index_no_images(self):
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
         self.mox.StubOutWithMock(api, 'image_list_detailed')
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
+        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
         api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
         api.snapshot_list_detailed(IsA(http.HttpRequest)) \
                                    .AndReturn(self.snapshots.list())
@@ -64,8 +69,11 @@ class ImagesAndSnapshotsTests(test.TestCase):
     def test_index_error(self):
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-        exc = glance_exception.ClientException('error')
-        api.image_list_detailed(IsA(http.HttpRequest)).AndRaise(exc)
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
+        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
+        api.image_list_detailed(IsA(http.HttpRequest)) \
+                                .AndRaise(self.exceptions.glance)
         api.snapshot_list_detailed(IsA(http.HttpRequest)) \
                                    .AndReturn(self.snapshots.list())
         self.mox.ReplayAll()
@@ -75,17 +83,25 @@ class ImagesAndSnapshotsTests(test.TestCase):
 
     def test_queued_snapshot_actions(self):
         images = self.images.list()
+
         snapshots = self.snapshots.list()
         snapshot1 = deepcopy(snapshots[0])
         snapshot1.status = 'active'
+        snapshot1.owner = None
+
         snapshot2 = deepcopy(snapshots[0])
         snapshot2.id = 4
         snapshot2.name = "snap2"
         snapshot2.status = "queued"
         snapshot2.owner = '1'
+
         new_snapshots = [snapshot1, snapshot2]
+
         self.mox.StubOutWithMock(api, 'image_list_detailed')
         self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
+        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
         api.image_list_detailed(IsA(http.HttpRequest)).AndReturn(images)
         api.snapshot_list_detailed(IsA(http.HttpRequest)).\
                 AndReturn(new_snapshots)

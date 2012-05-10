@@ -80,13 +80,12 @@ class UsageViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'usage_get')
         timestamp = datetime.datetime(now.year, now.month, 1, now.hour,
                                       now.minute, now.second)
-        exception = nova_exceptions.ClientException(500)
         api.usage_get(IsA(http.HttpRequest),
                       self.tenant.id,
                       timestamp,
                       datetime.datetime(now.year, now.month, now.day, now.hour,
                                         now.minute, now.second)) \
-                      .AndRaise(exception)
+                      .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:nova:overview:index'))

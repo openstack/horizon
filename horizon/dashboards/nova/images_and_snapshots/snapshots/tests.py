@@ -20,7 +20,6 @@
 
 from django import http
 from django.core.urlresolvers import reverse
-from novaclient import exceptions as novaclient_exceptions
 from mox import IsA
 
 from horizon import api
@@ -58,8 +57,8 @@ class SnapshotsViewTests(test.TestCase):
     def test_create_get_server_exception(self):
         server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_get')
-        exc = novaclient_exceptions.ClientException('apiException')
-        api.server_get(IsA(http.HttpRequest), server.id).AndRaise(exc)
+        api.server_get(IsA(http.HttpRequest), server.id) \
+                    .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:images_and_snapshots:snapshots:create',
@@ -97,9 +96,8 @@ class SnapshotsViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'server_get')
         self.mox.StubOutWithMock(api, 'snapshot_create')
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        exc = novaclient_exceptions.ClientException('apiException')
         api.snapshot_create(IsA(http.HttpRequest), server.id, snapshot.name) \
-                            .AndRaise(exc)
+                            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateSnapshot',

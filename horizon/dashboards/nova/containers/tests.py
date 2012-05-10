@@ -67,6 +67,7 @@ class ContainerViewTests(test.TestCase):
         container = self.containers.first()
         self.mox.StubOutWithMock(api, 'swift_delete_container')
         exc = ContainerNotEmpty('containerNotEmpty')
+        exc.silence_logging = True
         api.swift_delete_container(IsA(http.HttpRequest),
                                    container.name).AndRaise(exc)
         self.mox.ReplayAll()

@@ -21,7 +21,6 @@
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA, IgnoreArg
-from novaclient import exceptions as nova_exceptions
 
 from horizon import api
 from horizon import test
@@ -45,6 +44,8 @@ class InstanceViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'server_delete')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.server_delete(IsA(http.HttpRequest), server.id)
@@ -59,10 +60,12 @@ class InstanceViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'server_list')
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'server_delete')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
-        exc = nova_exceptions.ClientException(500)
-        api.server_delete(IsA(http.HttpRequest), server.id).AndRaise(exc)
+        api.server_delete(IsA(http.HttpRequest), server.id) \
+                          .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'action': 'instances__terminate__%s' % server.id}
@@ -73,6 +76,10 @@ class InstanceViewTests(test.TestCase):
         server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_pause')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.server_pause(IsA(http.HttpRequest), server.id)
         self.mox.ReplayAll()
@@ -83,11 +90,15 @@ class InstanceViewTests(test.TestCase):
 
     def test_pause_instance_exception(self):
         server = self.servers.first()
+        self.mox.StubOutWithMock(api, 'volume_list')
         self.mox.StubOutWithMock(api, 'server_pause')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        exc = nova_exceptions.ClientException(500)
-        api.server_pause(IsA(http.HttpRequest), server.id).AndRaise(exc)
+        api.server_pause(IsA(http.HttpRequest), server.id) \
+                        .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'action': 'instances__pause__%s' % server.id}
@@ -97,8 +108,12 @@ class InstanceViewTests(test.TestCase):
     def test_unpause_instance(self):
         server = self.servers.first()
         server.status = "PAUSED"
+        self.mox.StubOutWithMock(api, 'volume_list')
         self.mox.StubOutWithMock(api, 'server_unpause')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.server_unpause(IsA(http.HttpRequest), server.id)
         self.mox.ReplayAll()
@@ -110,11 +125,15 @@ class InstanceViewTests(test.TestCase):
     def test_unpause_instance_exception(self):
         server = self.servers.first()
         server.status = "PAUSED"
-        self.mox.StubOutWithMock(api, 'server_unpause')
+        self.mox.StubOutWithMock(api, 'volume_list')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'server_unpause')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        exc = nova_exceptions.ClientException(500)
-        api.server_unpause(IsA(http.HttpRequest), server.id).AndRaise(exc)
+        api.server_unpause(IsA(http.HttpRequest), server.id) \
+                          .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'action': 'instances__pause__%s' % server.id}
@@ -125,6 +144,10 @@ class InstanceViewTests(test.TestCase):
         server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_reboot')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.server_reboot(IsA(http.HttpRequest), server.id)
         self.mox.ReplayAll()
@@ -137,9 +160,13 @@ class InstanceViewTests(test.TestCase):
         server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_reboot')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        exc = nova_exceptions.ClientException(500)
-        api.server_reboot(IsA(http.HttpRequest), server.id).AndRaise(exc)
+        api.server_reboot(IsA(http.HttpRequest), server.id) \
+                        .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'action': 'instances__reboot__%s' % server.id}
@@ -150,6 +177,10 @@ class InstanceViewTests(test.TestCase):
         server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_suspend')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.server_suspend(IsA(http.HttpRequest), unicode(server.id))
         self.mox.ReplayAll()
@@ -162,10 +193,13 @@ class InstanceViewTests(test.TestCase):
         server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_suspend')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        exception = nova_exceptions.ClientException(500)
         api.server_suspend(IsA(http.HttpRequest),
-                          unicode(server.id)).AndRaise(exception)
+                          unicode(server.id)).AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'action': 'instances__suspend__%s' % server.id}
@@ -177,6 +211,10 @@ class InstanceViewTests(test.TestCase):
         server.status = "SUSPENDED"
         self.mox.StubOutWithMock(api, 'server_resume')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.server_resume(IsA(http.HttpRequest), unicode(server.id))
         self.mox.ReplayAll()
@@ -190,10 +228,13 @@ class InstanceViewTests(test.TestCase):
         server.status = "SUSPENDED"
         self.mox.StubOutWithMock(api, 'server_resume')
         self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        exception = nova_exceptions.ClientException(500)
         api.server_resume(IsA(http.HttpRequest),
-                          unicode(server.id)).AndRaise(exception)
+                          unicode(server.id)).AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'action': 'instances__suspend__%s' % server.id}
@@ -223,9 +264,9 @@ class InstanceViewTests(test.TestCase):
         server = self.servers.first()
 
         self.mox.StubOutWithMock(api, 'server_console_output')
-        exc = nova_exceptions.ClientException(500)
         api.server_console_output(IsA(http.HttpRequest),
-                                  server.id, tail_length=None).AndRaise(exc)
+                                  server.id, tail_length=None) \
+                                .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:instances_and_volumes:instances:console',
@@ -258,8 +299,8 @@ class InstanceViewTests(test.TestCase):
         server = self.servers.first()
 
         self.mox.StubOutWithMock(api, 'server_vnc_console')
-        exc = nova_exceptions.ClientException(500)
-        api.server_vnc_console(IsA(http.HttpRequest), server.id).AndRaise(exc)
+        api.server_vnc_console(IsA(http.HttpRequest), server.id) \
+                        .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:instances_and_volumes:instances:vnc',
@@ -283,8 +324,8 @@ class InstanceViewTests(test.TestCase):
     def test_instance_update_get_server_get_exception(self):
         server = self.servers.first()
         self.mox.StubOutWithMock(api, 'server_get')
-        exc = nova_exceptions.ClientException(500)
-        api.server_get(IsA(http.HttpRequest), server.id).AndRaise(exc)
+        api.server_get(IsA(http.HttpRequest), server.id) \
+                        .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:instances_and_volumes:instances:update',
@@ -316,9 +357,8 @@ class InstanceViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'server_get')
         self.mox.StubOutWithMock(api, 'server_update')
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        exc = nova_exceptions.ClientException(500)
         api.server_update(IsA(http.HttpRequest), server.id, server.name) \
-                          .AndRaise(exc)
+                          .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'method': 'UpdateInstance',

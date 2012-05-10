@@ -88,7 +88,9 @@ class RecoverableErrorTab(horizon_tabs.Tab):
 
     def get_context_data(self, request):
         # Raise a known recoverable error.
-        raise exceptions.AlreadyExists("Recoverable!", None)
+        exc = exceptions.AlreadyExists("Recoverable!", horizon_tabs.Tab)
+        exc.silence_logging = True
+        raise exc
 
 
 class TableTabGroup(horizon_tabs.TabGroup):

@@ -21,12 +21,8 @@
 from django import http
 from django.core.urlresolvers import reverse
 
-from glanceclient.common import exceptions as glance_exception
-
 from horizon import api
 from horizon import test
-
-from keystoneclient import exceptions as keystone_exceptions
 
 from mox import IgnoreArg, IsA
 
@@ -45,6 +41,12 @@ class ImageViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
+        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
         api.image_get(IsA(http.HttpRequest), image.id).AndReturn(image)
         api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_usages)
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
@@ -84,7 +86,10 @@ class ImageViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'security_group_list')
         self.mox.StubOutWithMock(api, 'server_create')
         self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
 
+        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
         api.security_group_list(IsA(http.HttpRequest)) \
@@ -128,13 +133,18 @@ class ImageViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
+        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
         api.image_get(IsA(http.HttpRequest),
                            image.id).AndReturn(image)
         api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(
                 self.quota_usages.first())
-        exc = keystone_exceptions.ClientException('Failed.')
-        api.flavor_list(IsA(http.HttpRequest)).AndRaise(exc)
-        api.flavor_list(IsA(http.HttpRequest)).AndRaise(exc)
+        api.flavor_list(IsA(http.HttpRequest)).AndRaise(self.exceptions.nova)
+        api.flavor_list(IsA(http.HttpRequest)).AndRaise(self.exceptions.nova)
         api.keypair_list(IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
         api.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
@@ -154,13 +164,18 @@ class ImageViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'flavor_list')
         self.mox.StubOutWithMock(api, 'keypair_list')
         self.mox.StubOutWithMock(api, 'security_group_list')
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
+        self.mox.StubOutWithMock(api, 'volume_list')
+
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
+        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
         api.image_get(IsA(http.HttpRequest), image.id).AndReturn(image)
         api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(
                 self.quota_usages.first())
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        exception = keystone_exceptions.ClientException('Failed.')
-        api.keypair_list(IsA(http.HttpRequest)).AndRaise(exception)
+        api.keypair_list(IsA(http.HttpRequest)).AndRaise(self.exceptions.nova)
         api.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
         self.mox.ReplayAll()
@@ -186,14 +201,16 @@ class ImageViewTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'security_group_list')
         self.mox.StubOutWithMock(api, 'server_create')
         self.mox.StubOutWithMock(api, 'volume_list')
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
 
+        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
         api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
         api.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
         api.image_get(IgnoreArg(), image.id).AndReturn(image)
         api.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
-        exc = keystone_exceptions.ClientException('Failed')
         api.server_create(IsA(http.HttpRequest),
                           server.name,
                           image.id,
@@ -202,7 +219,8 @@ class ImageViewTests(test.TestCase):
                           USER_DATA,
                           [sec_group.name],
                           None,
-                          instance_count=IsA(int)).AndRaise(exc)
+                          instance_count=IsA(int)) \
+                      .AndRaise(self.exceptions.keystone)
         self.mox.ReplayAll()
 
         form_data = {'method': 'LaunchForm',
@@ -284,7 +302,7 @@ class ImageViewTests(test.TestCase):
         image = self.images.first()
         self.mox.StubOutWithMock(api.glance, 'image_get')
         api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-                  .AndRaise(glance_exception.ClientException('Error'))
+                  .AndRaise(self.exceptions.glance)
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:images_and_snapshots:images:detail',
