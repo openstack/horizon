@@ -3,15 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-24 16:41-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2012-05-08 00:20+0100\n"
+"Last-Translator: Erwan Gallen <dev@zinux.com>\n"
+"Language-Team: French <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,86 +19,91 @@ msgstr ""
 
 #: settings.py:114
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: settings.py:115
 msgid "Italiano"
-msgstr ""
+msgstr "Italien"
 
 #: settings.py:116
 msgid "Spanish"
-msgstr ""
+msgstr "Espagnol"
 
 #: settings.py:117
 msgid "French"
-msgstr ""
+msgstr "Français"
 
 #: settings.py:118
 msgid "Japanese"
-msgstr ""
+msgstr "Japonais"
 
 #: settings.py:119
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugais"
 
 #: settings.py:120
 msgid "Polish"
-msgstr ""
+msgstr "Polonais"
 
 #: settings.py:121
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "Chinois simplifié"
 
 #: settings.py:122
 msgid "Traditional Chinese"
-msgstr ""
+msgstr "Chinois traditionnel"
 
-#: templates/403.html:4 templates/403.html.py:9
+#: templates/403.html:4
+#: templates/403.html.py:9
 msgid "Forbidden"
-msgstr ""
+msgstr "Interdit"
 
-#: templates/403.html:20 templates/404.html:19 templates/500.html:19
+#: templates/403.html:20
+#: templates/404.html:19
+#: templates/500.html:19
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
-#: templates/403.html:24 templates/404.html:23 templates/500.html:23
+#: templates/403.html:24
+#: templates/404.html:23
+#: templates/500.html:23
 msgid "Projects"
-msgstr ""
+msgstr "Projets"
 
 #: templates/404.html:4
 msgid "Page Not Found"
-msgstr ""
+msgstr "Page non trouvée"
 
 #: templates/404.html:9
 msgid "The page you were looking for doesn't exist"
-msgstr ""
+msgstr "La page que vous recherchez n'existe pas"
 
 #: templates/404.html:10
 msgid "You may have mistyped the address or the page may have moved."
-msgstr ""
+msgstr "Vous avez peut-être mal tapé l'adresse ou la page a peut-être été déplacée."
 
-#: templates/500.html:4 templates/500.html.py:9
+#: templates/500.html:4
+#: templates/500.html.py:9
 msgid "Internal Server Error"
-msgstr ""
+msgstr "Erreur de serveur interne"
 
 #: templates/500.html:10
-msgid ""
-"An unexpected error occurred while processing your request.  Please try your "
-"request again."
-msgstr ""
+msgid "An unexpected error occurred while processing your request.  Please try your request again."
+msgstr "Une erreur inattendue s'est produite lors du traitement de votre demande. Veuillez essayer à nouveau votre demande."
 
 #: templates/_header.html:3
 msgid "Logged in as"
-msgstr ""
+msgstr "Connecté"
 
 #: templates/_header.html:4
 msgid "Settings"
-msgstr ""
+msgstr "Réglages"
 
 #: templates/_header.html:5
 msgid "Sign Out"
-msgstr ""
+msgstr "Déconnexion"
 
 #: templates/switch_tenants.html:12
 msgid "Log-in to tenant"
-msgstr ""
+msgstr "Se connecter au tenant"
+
