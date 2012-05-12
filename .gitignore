@@ -4,6 +4,7 @@
 .selenium_log
 .coverage*
 .noseids
+.DS_STORE
 coverage.xml
 nosetests.xml
 pep8.txt
@@ -13,6 +14,7 @@ horizon.egg-info
 openstack_dashboard/local/local_settings.py
 docs/build/
 docs/source/sourcecode
+/static/
 .venv
 .tox
 build

@@ -1,5 +1,6 @@
 # Horizon Core Requirements
 Django>=1.4
+django_compressor
 python-cloudfiles
 python-dateutil
 

@@ -86,15 +86,31 @@ TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'templates'),
 )
 
-STATICFILES_DIRS = (
-    os.path.join(ROOT_PATH, 'static'),
+STATICFILES_FINDERS = (
+    'compressor.finders.CompressorFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+less_binary = os.path.join(
+        os.path.dirname(__file__), '..', 'bin', 'less', 'lessc')
+COMPRESS_PRECOMPILERS = (
+    ('text/less', (less_binary + ' {infile} {outfile}')),
+)
+
+COMPRESS_CSS_FILTERS = (
+    'compressor.filters.css_default.CssAbsoluteFilter',
+)
+
+COMPRESS_ENABLED = True
+COMPRESS_OUTPUT_DIR = 'dashboard'
+COMPRESS_CSS_HASHING_METHOD = 'hash'
 
 INSTALLED_APPS = (
     'openstack_dashboard',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',
     'horizon',
     'horizon.dashboards.nova',
     'horizon.dashboards.syspanel',

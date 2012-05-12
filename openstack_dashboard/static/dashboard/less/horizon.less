@@ -12,11 +12,11 @@
 
 @font-face {
   font-family: 'anivers';
-  src: url('../fonts/Anivers_Regular-webfont.eot');
-  src: url('../fonts/Anivers_Regular-webfont.eot?iefix') format('eot'),
-       url('../fonts/Anivers_Regular-webfont.woff') format('woff'),
-       url('../fonts/Anivers_Regular-webfont.ttf') format('truetype'),
-       url('../fonts/Anivers_Regular-webfont.svg#webfont3JLVF59W') format('svg');
+  src: url('/static/dashboard/fonts/Anivers_Regular-webfont.eot');
+  src: url('/static/dashboard/fonts/Anivers_Regular-webfont.eot?iefix') format('eot'),
+       url('/static/dashboard/fonts/Anivers_Regular-webfont.woff') format('woff'),
+       url('/static/dashboard/fonts/Anivers_Regular-webfont.ttf') format('truetype'),
+       url('/static/dashboard/fonts/Anivers_Regular-webfont.svg#webfont3JLVF59W') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -105,7 +105,7 @@ body {
 }
 
 #splash .login {
-  background: #fff url(../img/logo.png) no-repeat center 35px;
+  background: #fff url(/static/dashboard/img/logo.png) no-repeat center 35px;
   position: absolute;
   top: 80px;
   left: 50%;
@@ -177,7 +177,7 @@ h1.brand {
 }
 
 h1.brand a {
-    background: url(../img/logo.png) top left no-repeat;
+    background: url(/static/dashboard/img/logo.png) top left no-repeat;
     display: block;
     float: left;
     width: 116px;
@@ -213,7 +213,7 @@ a.current_item:hover h3, a.current_item:hover h4 {
     border: 1px solid #c0d9e4;
     margin-left: 14px;
     margin-bottom: 15px;
-    background-image: url(../img/drop_arrow.png);
+    background-image: url(/static/dashboard/img/drop_arrow.png);
     background-repeat: no-repeat;
     background-position: 170px 20px;
 }
@@ -504,7 +504,7 @@ table form {
 }
 
 .table_search input {
-  background: url(../img/search.png) no-repeat 195px 5px;
+  background: url(/static/dashboard/img/search.png) no-repeat 195px 5px;
   display: inline-block;
   margin-bottom: 0;
 }
@@ -622,6 +622,11 @@ form.horizontal.split_five .form-field {
 
 form.horizontal fieldset {
     width: 100%;
+}
+
+.modal-body {
+  overflow-y: visible;
+  max-height: none;
 }
 
 .modal-body table {
@@ -960,7 +965,7 @@ tr.terminated {
   font-weight: bold;
   color: #555;
   cursor: pointer;
-  background-image: url(../img/right_droparrow.png);
+  background-image: url(/static/dashboard/img/right_droparrow.png);
   background-repeat: no-repeat;
   background-position: 130px center;
 }
@@ -969,7 +974,7 @@ tr.terminated {
   width: 334px;
   margin-bottom: 10px;
   border-bottom: solid 1px #E1E1E1;
-  background-image: url(../img/drop_arrow.png);
+  background-image: url(/static/dashboard/img/drop_arrow.png);
 }
 
 form div.clearfix.error {
@@ -1015,7 +1020,7 @@ form div.clearfix.error {
 }
 
 #region_selector li:first-child p{
-  background: #EDEDED url(../img/drop_arrow.png) no-repeat 106px 9px !important;
+  background: #EDEDED url(/static/dashboard/img/drop_arrow.png) no-repeat 106px 9px !important;
   display: block;
   border: 1px solid #e1e1e1;
   padding: 5px;
