@@ -10,4 +10,4 @@ class {{ panel_name|title }}(horizon.Panel):
     slug = "{{ panel_name|slugify }}"
 
 
-dashboard.register({{ panel_name|title }})
+dashboard.{{ dash_name|title }}.register({{ panel_name|title }})
