@@ -17,18 +17,20 @@ class TemplateLoader(BaseLoader):
     is_usable = True
 
     def get_template_sources(self, template_name):
-        dash_name, panel_name, remainder = template_name.split(os.path.sep, 2)
-        key = os.path.join(dash_name, panel_name)
-        if key in panel_template_dirs:
-            template_dir = panel_template_dirs[key]
-            try:
-                yield safe_join(template_dir, panel_name, remainder)
-            except UnicodeDecodeError:
-                # The template dir name wasn't valid UTF-8.
-                raise
-            except ValueError:
-                # The joined path was located outside of template_dir.
-                pass
+        bits = template_name.split(os.path.sep, 2)
+        if len(bits) == 3:
+            dash_name, panel_name, remainder = bits
+            key = os.path.join(dash_name, panel_name)
+            if key in panel_template_dirs:
+                template_dir = panel_template_dirs[key]
+                try:
+                    yield safe_join(template_dir, panel_name, remainder)
+                except UnicodeDecodeError:
+                    # The template dir name wasn't valid UTF-8.
+                    raise
+                except ValueError:
+                    # The joined path was located outside of template_dir.
+                    pass
 
     def load_template_source(self, template_name, template_dirs=None):
         for path in self.get_template_sources(template_name):
