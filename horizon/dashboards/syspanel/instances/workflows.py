@@ -1,9 +1,5 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -18,14 +14,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
-
-from .views import UpdateView, DetailView
-
-VIEWS_MOD = 'horizon.dashboards.nova.images_and_snapshots.images.views'
+from horizon.dashboards.nova.instances_and_volumes.instances.workflows import (
+    LaunchInstance)
 
 
-urlpatterns = patterns(VIEWS_MOD,
-    url(r'^(?P<image_id>[^/]+)/update/$', UpdateView.as_view(), name='update'),
-    url(r'^(?P<image_id>[^/]+)/$', DetailView.as_view(), name='detail'),
-)
+class AdminLaunchInstance(LaunchInstance):
+    success_url = "horizon:syspanel:instances:index"

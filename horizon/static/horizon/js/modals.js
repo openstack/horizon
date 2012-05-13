@@ -7,46 +7,6 @@ horizon.modals.success = function (data, textStatus, jqXHR) {
   $('.modal:last').modal();
 
   horizon.datatables.validate_button();
-
-  // TODO(tres): Find some better way to deal with grouped form fields.
-  var volumeField = $("#id_volume");
-  if(volumeField) {
-    var volumeContainer = volumeField.parent().parent();
-    var deviceContainer = $("#id_device_name").parent().parent();
-    var deleteOnTermContainer = $("#id_delete_on_terminate").parent().parent();
-
-    function toggle_fields(show) {
-      if(show) {
-        volumeContainer.removeClass("hide");
-        deviceContainer.removeClass("hide");
-        deleteOnTermContainer.removeClass("hide");
-      } else {
-        volumeContainer.addClass("hide");
-        deviceContainer.addClass("hide");
-        deleteOnTermContainer.addClass("hide");
-      }
-    }
-
-    if(volumeField.find("option").length == 1) {
-      toggle_fields(false);
-    } else {
-      var disclosureElement = $("<div />").addClass("volume_boot_disclosure").text("Boot From Volume");
-
-      volumeContainer.before(disclosureElement);
-
-      disclosureElement.click(function() {
-        if(volumeContainer.hasClass("hide")) {
-          disclosureElement.addClass("on");
-          toggle_fields(true);
-        } else {
-          disclosureElement.removeClass("on");
-          toggle_fields(false);
-        }
-      });
-
-      toggle_fields(false);
-    }
-  }
 };
 
 horizon.addInitFunction(function() {
@@ -91,15 +51,21 @@ horizon.addInitFunction(function() {
     });
   });
 
-  // Handle all modal hidden event to remove them as default
+  // After a modal has been fully hidden, remove it to avoid confusion.
   $(document).on('hidden', '.modal', function () {
     $(this).remove();
   });
 
   $(document).on('show', '.modal', function(evt) {
-    var scrollShift = $('body').scrollTop();
-    var topVal = $(this).css('top');
-    $(this).css('top', scrollShift + parseInt(topVal, 10));
+    var scrollShift = $('body').scrollTop(),
+        $this = $(this),
+        topVal = $this.css('top');
+    $this.css('top', scrollShift + parseInt(topVal, 10));
+  });
+
+  // Focus the first usable form field in the modal for accessibility.
+  $(document).on('shown', '.modal', function(evt) {
+    $(this).find("input, select, textarea").filter(":visible:first").focus();
   });
 
   $('.ajax-modal').live('click', function (evt) {

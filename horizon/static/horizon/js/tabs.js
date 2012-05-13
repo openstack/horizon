@@ -29,4 +29,35 @@ horizon.addInitFunction(function () {
       $this.find("a[data-target='" + active_tab + "']").tab('show');
     }
   });
+
+  // Enable keyboard navigation between tabs in a form.
+  $(document).on("keydown", ".tab-pane :input:visible:last", function (evt) {
+    var $this = $(this),
+        next_pane = $this.closest(".tab-pane").next(".tab-pane");
+      // Capture the forward-tab keypress if we have a next tab to go to.
+      if (evt.which === 9 && !event.shiftKey && next_pane.length) {
+        evt.preventDefault();
+        $(".nav-tabs a[data-target='#" + next_pane.attr("id") + "']").tab('show');
+      }
+  });
+  $(document).on("keydown", ".tab-pane :input:visible:first", function (evt) {
+    var $this = $(this),
+        prev_pane = $this.closest(".tab-pane").prev(".tab-pane");
+      // Capture the forward-tab keypress if we have a next tab to go to.
+      if (event.shiftKey && evt.which === 9 && prev_pane.length) {
+        evt.preventDefault();
+        $(".nav-tabs a[data-target='#" + prev_pane.attr("id") + "']").tab('show');
+        prev_pane.find(":input:last").focus();
+        console.log(prev_pane);
+      }
+  });
+
+  $(document).on("focus", ".tab-content :input", function () {
+    var $this = $(this),
+        tab_pane = $this.closest(".tab-pane"),
+        tab_id = tab_pane.attr('id');
+    if (!tab_pane.hasClass("active")) {
+      $(".nav-tabs a[data-target='#" + tab_id + "']").tab('show');
+    }
+  });
 });

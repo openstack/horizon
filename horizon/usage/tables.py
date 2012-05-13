@@ -43,7 +43,10 @@ class GlobalUsageTable(BaseUsageTable):
 
 
 class TenantUsageTable(BaseUsageTable):
-    instance = tables.Column('name', verbose_name=_("Instance Name"))
+    instance = tables.Column('name',
+                             verbose_name=_("Instance Name"),
+                             link=("horizon:nova:instances_and_volumes:"
+                                   "instances:detail"))
     uptime = tables.Column('uptime_at',
                            verbose_name=_("Uptime"),
                            filters=(timesince,))

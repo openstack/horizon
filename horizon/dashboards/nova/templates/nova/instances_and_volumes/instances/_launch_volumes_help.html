@@ -1,0 +1,22 @@
+{% load i18n horizon %}
+
+<p>{% blocktrans %}An instance can be launched with varying types of attached storage. You may select from those options here.{% endblocktrans %}</p>
+
+<script type="text/javascript" charset="utf-8">
+  // FIXME(gabriel): move this function into a horizon primitive when we have
+  // one constructed at the head of the document. :-/
+  (function () {
+    function fire_change(el) {
+      if ("fireEvent" in el) {
+        el.fireEvent("onchange");
+      }
+      else
+      {
+        var evt = document.createEvent("HTMLEvents");
+        evt.initEvent("change", true, true);
+        el.dispatchEvent(evt);
+      }
+    }
+    fire_change(document.getElementById('id_volume_type'));
+  })();
+</script>

@@ -405,7 +405,8 @@ def usage_list(request, start, end):
 
 @memoized
 def tenant_quota_usages(request):
-    """Builds a dictionary of current usage against quota for the current
+    """
+    Builds a dictionary of current usage against quota for the current
     tenant.
     """
     # TODO(tres): Make this capture floating_ips and volumes as well.

@@ -1,0 +1,33 @@
+{% load i18n %}
+{% with workflow.get_entry_point as entry_point %}
+<div class="workflow {% if modal %}modal hide{% else %}static_page{% endif %}">
+  <form {{ workflow.attr_string|safe }} action="{{ workflow.get_absolute_url }}" method="POST">{% csrf_token %}
+    <div class="modal-header">
+      {% if modal %}<a href="#" class="close" data-dismiss="modal">&times;</a>{% endif %}
+      <h3>{{ workflow.name }}</h3>
+    </div>
+    <div class="modal-body clearfix">
+    {% block modal-body %}
+      <ul class="nav nav-tabs">
+        {% for step in workflow.steps %}
+        <li class="{% if entry_point == step.slug %}active{% endif %}{% if step.has_errors %} error{% endif %}">
+          <a data-toggle="tab" data-target="#{{ step.get_id }}">{{ step }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="tab-content">
+        {% for step in workflow.steps %}
+        <fieldset id="{{ step.get_id }}" class="tab-pane{% if entry_point == step.slug %} active{% endif %}">
+          {{ step.render }}
+        </fieldset>
+        {% endfor %}
+      </div>
+    {% endblock %}
+    </div>
+    <div class="modal-footer">
+      <input class="btn btn-primary pull-right" type="submit" value="{{ workflow.finalize_button_name }}" />
+      {% if modal %}<a class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+    </div>
+  </form>
+</div>
+{% endwith %}

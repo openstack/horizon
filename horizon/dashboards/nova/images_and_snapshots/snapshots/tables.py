@@ -16,12 +16,31 @@
 
 import logging
 
+from django.core.urlresolvers import reverse
+from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
-from ..images.tables import ImagesTable, LaunchImage, EditImage, DeleteImage
+from horizon import tables
+from ..images.tables import ImagesTable, EditImage, DeleteImage
 
 
 LOG = logging.getLogger(__name__)
+
+
+class LaunchSnapshot(tables.LinkAction):
+    name = "launch_snapshot"
+    verbose_name = _("Launch")
+    url = "horizon:nova:instances_and_volumes:instances:launch"
+    classes = ("btn-launch", "ajax-modal")
+
+    def get_link_url(self, datum):
+        base_url = reverse(self.url)
+        params = urlencode({"source_type": "instance_snapshot_id",
+                            "source_id": self.table.get_object_id(datum)})
+        return "?".join([base_url, params])
+
+    def allowed(self, request, snapshot):
+        return snapshot.status in ("active",)
 
 
 class DeleteSnapshot(DeleteImage):
@@ -34,4 +53,4 @@ class SnapshotsTable(ImagesTable):
         name = "snapshots"
         verbose_name = _("Instance Snapshots")
         table_actions = (DeleteSnapshot,)
-        row_actions = (LaunchImage, EditImage, DeleteSnapshot)
+        row_actions = (LaunchSnapshot, EditImage, DeleteSnapshot)

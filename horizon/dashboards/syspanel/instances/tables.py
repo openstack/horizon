@@ -25,10 +25,14 @@ from horizon import tables
 from horizon.dashboards.nova.instances_and_volumes.instances.tables import (
         TerminateInstance, EditInstance, ConsoleLink, LogLink, SnapshotLink,
         TogglePause, ToggleSuspend, RebootInstance, get_size, UpdateRow,
-        get_ips, get_power_state)
+        LaunchLink, get_ips, get_power_state)
 from horizon.utils.filters import replace_underscores
 
 LOG = logging.getLogger(__name__)
+
+
+class AdminLaunchLink(LaunchLink):
+    url = "horizon:syspanel:instances:launch"
 
 
 class AdminUpdateRow(UpdateRow):
@@ -90,7 +94,7 @@ class SyspanelInstancesTable(tables.DataTable):
         name = "instances"
         verbose_name = _("Instances")
         status_columns = ["status", "task"]
-        table_actions = (TerminateInstance,)
+        table_actions = (AdminLaunchLink, TerminateInstance,)
         row_class = AdminUpdateRow
         row_actions = (EditInstance, ConsoleLink, LogLink, SnapshotLink,
                        TogglePause, ToggleSuspend, RebootInstance,

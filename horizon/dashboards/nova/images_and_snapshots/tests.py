@@ -121,6 +121,6 @@ class ImagesAndSnapshotsTests(test.TestCase):
 
         row_actions = snaps.get_row_actions(snaps.data[1])
         #first instance - status queued, but editable
-        self.assertEqual(row_actions[0].verbose_name, u"Edit")
+        self.assertEqual(unicode(row_actions[0].verbose_name), u"Edit")
         self.assertEqual(str(row_actions[1]), "<DeleteSnapshot: delete>")
         self.assertEqual(len(row_actions), 2)

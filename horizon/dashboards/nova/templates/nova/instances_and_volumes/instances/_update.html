@@ -4,7 +4,7 @@
 {% block form_id %}update_instance_form{% endblock %}
 {% block form_action %}{% url horizon:nova:instances_and_volumes:instances:update instance.id %}{% endblock %}
 
-{% block modal-header %}Update Instance{% endblock %}
+{% block modal-header %}{% trans "Edit Instance" %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -14,11 +14,11 @@
 </div>
 <div class="right">
     <h3>{% trans "Description:" %}</h3>
-    <p>{% trans "Update the name of your instance" %}</p>
+    <p>{% trans "You may update the editable properties of your instance here." %}</p>
 </div>
 {% endblock %}
 
 {% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Update Instance" %}" />
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Save Changes" %}" />
   <a href="{% url horizon:nova:instances_and_volumes:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

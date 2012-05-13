@@ -609,6 +609,27 @@ form.horizontal fieldset {
     width: 308px;
 }
 
+.workflow ul.nav-tabs {
+  padding: 0 10px;
+}
+
+.workflow td.actions {
+  vertical-align: top;
+  width: 308px;
+  padding-left: 10px;
+}
+
+.workflow td.help_text {
+  vertical-align: top;
+  width: 340px;
+  padding-right: 10px;
+  border-right: 1px solid #DDD;
+}
+
+.workflow fieldset > table {
+  margin-bottom: 0;
+}
+
 .clear {
     clear: both;
     width: 0;
@@ -620,7 +641,6 @@ form.horizontal fieldset {
 .modal-body fieldset {
     margin: 0;
     padding: 0;
-    width: 372px;
 }
 
 .modal-body fieldset ul {
@@ -628,9 +648,11 @@ form.horizontal fieldset {
 }
 
 .modal-body fieldset .form-field input,
-.modal-body fieldset .form-field select,
 .modal-body fieldset .form-field textarea {
-  width: 90%;
+  width: 298px;
+}
+.modal-body fieldset .form-field select {
+  width: 308px;
 }
 
 .modal-footer input {
@@ -809,6 +831,10 @@ th.multi_select_column, td.multi_select_column {
   text-align: center;
 }
 
+.table-fixed {
+  table-layout: fixed;
+}
+
 .table input[type="checkbox"] {
   display: inline;
 }
@@ -862,6 +888,17 @@ tr.terminated {
   padding: 10px;
 }
 
+#main_content .workflow .modal-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#main_content .workflow .modal-body .tab-content {
+  border-left: 0 none;
+  border-right: 0 none;
+  border-bottom: 0 none;
+}
+
 .tab_wrapper {
   padding-top: 50px;
 }
@@ -889,6 +926,18 @@ tr.terminated {
 
 form div.clearfix.error {
   width: 330px;
+}
+
+.nav-tabs a {
+  cursor: pointer;
+}
+
+.nav-tabs li.error a {
+  color: #B94A48;
+}
+
+.nav-tabs li.error a:after {
+  content: "*";
 }
 
 /* Region selector in header */
