@@ -112,8 +112,8 @@ class Column(html.HTMLElement):
 
     .. attribute:: empty_value
 
-        A string to be used for cells which have no data. Defaults to an
-        empty string.
+        A string or callable to be used for cells which have no data.
+        Defaults to the string ``"-"``.
 
     .. attribute:: filters
 
@@ -441,7 +441,12 @@ class Cell(html.HTMLElement):
         attributes.
         """
         try:
-            data = self.column.get_data(self.datum) or self.column.empty_value
+            data = self.column.get_data(self.datum)
+            if data is None:
+                if callable(self.column.empty_value):
+                    data = self.column.empty_value(self.datum)
+                else:
+                    data = self.column.empty_value
         except:
             data = None
             exc_info = sys.exc_info()
