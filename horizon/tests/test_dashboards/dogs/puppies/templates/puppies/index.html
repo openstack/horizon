@@ -1,0 +1,12 @@
+{% extends 'dogs/base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Puppies" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Puppies") %}
+{% endblock page_header %}
+
+{% block dogs_main %}
+{% endblock %}
+
+

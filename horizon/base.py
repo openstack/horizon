@@ -185,7 +185,7 @@ class Panel(HorizonComponent):
         A unique "short name" for the panel. The slug is used as
         a component of the URL path for the panel. Default: ``''``.
 
-    .. attribute: roles
+    .. attribute:: roles
 
         A list of role names, all of which a user must possess in order
         to access any view associated with this panel. This attribute

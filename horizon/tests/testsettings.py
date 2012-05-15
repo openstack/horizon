@@ -39,7 +39,10 @@ INSTALLED_APPS = (
     'horizon.tests',
     'horizon.dashboards.nova',
     'horizon.dashboards.syspanel',
-    'horizon.dashboards.settings')
+    'horizon.dashboards.settings',
+    'horizon.tests.test_dashboards.cats',
+    'horizon.tests.test_dashboards.dogs'
+)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -58,6 +61,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     'horizon.context_processors.horizon')
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'horizon.loaders.TemplateLoader'
+)
 
 STATIC_URL = '/static/'
 
@@ -83,7 +92,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
 
 HORIZON_CONFIG = {
-    'dashboards': ('nova', 'syspanel', 'settings',),
+    'dashboards': ('nova', 'syspanel', 'settings'),
     'default_dashboard': 'nova',
     "password_validator": {
         "regex": '^.{8,18}$',
@@ -106,7 +115,6 @@ OPENSTACK_KEYSTONE_BACKEND = {
     'can_edit_user': True
 }
 
-# Silence logging output during tests.
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

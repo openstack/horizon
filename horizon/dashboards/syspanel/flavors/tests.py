@@ -3,10 +3,10 @@ from django.core import urlresolvers
 from mox import IsA
 
 from horizon import api
-from horizon.tests.base_tests import BaseHorizonTests
+from horizon import test
 
 
-class FlavorsTests(BaseHorizonTests):
+class FlavorsTests(test.TestCase):
     def test_create_new_flavor_when_none_exist(self):
         # Set admin role
         self.setActiveUser(token=self.token.id,

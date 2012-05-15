@@ -21,34 +21,57 @@
 
 from django.conf import settings
 from django.core import urlresolvers
-from django import http
 from django.test.client import Client
 from django.utils.importlib import import_module
-from mox import IsA
+from django.utils.translation import ugettext_lazy as _
 
 import horizon
-from horizon import api
 from horizon import base
 from horizon import test
 from horizon import users
+from horizon.dashboards.nova.dashboard import Nova
+from horizon.dashboards.syspanel.dashboard import Syspanel
+from horizon.dashboards.settings.dashboard import Settings
+from horizon.tests.test_dashboards.cats.dashboard import Cats
+from horizon.tests.test_dashboards.cats.kittens.panel import Kittens
+from horizon.tests.test_dashboards.cats.tigers.panel import Tigers
+from horizon.tests.test_dashboards.dogs.dashboard import Dogs
+from horizon.tests.test_dashboards.dogs.puppies.panel import Puppies
 
 
 class MyDash(horizon.Dashboard):
-    name = "My Dashboard"
+    name = _("My Dashboard")
     slug = "mydash"
     default_panel = "myslug"
 
 
 class MyPanel(horizon.Panel):
-    name = "My Panel"
+    name = _("My Panel")
     slug = "myslug"
     services = ("compute",)
+    urls = 'horizon.tests.test_panel_urls'
+
+
+class AdminPanel(horizon.Panel):
+    name = _("Admin Panel")
+    slug = "admin_panel"
+    roles = ("admin",)
     urls = 'horizon.tests.test_panel_urls'
 
 
 class BaseHorizonTests(test.TestCase):
     def setUp(self):
         super(BaseHorizonTests, self).setUp()
+        # Adjust our horizon config and register our custom dashboards/panels.
+        self.old_default_dash = settings.HORIZON_CONFIG['default_dashboard']
+        settings.HORIZON_CONFIG['default_dashboard'] = 'cats'
+        self.old_dashboards = settings.HORIZON_CONFIG['dashboards']
+        settings.HORIZON_CONFIG['dashboards'] = ('cats', 'dogs')
+        base.Horizon.register(Cats)
+        base.Horizon.register(Dogs)
+        Cats.register(Kittens)
+        Cats.register(Tigers)
+        Dogs.register(Puppies)
         # Trigger discovery, registration, and URLconf generation if it
         # hasn't happened yet.
         base.Horizon._urls()
@@ -59,19 +82,32 @@ class BaseHorizonTests(test.TestCase):
         for dash in self._discovered_dashboards:
             panels = base.Horizon._registry[dash]._registry.keys()
             self._discovered_panels[dash] = panels
+        # Remove the OpenStack dashboards for test isolation.
+        base.Horizon.unregister(Nova)
+        base.Horizon.unregister(Syspanel)
+        base.Horizon.unregister(Settings)
 
     def tearDown(self):
         super(BaseHorizonTests, self).tearDown()
+        # Restore our settings
+        settings.HORIZON_CONFIG['default_dashboard'] = self.old_default_dash
+        settings.HORIZON_CONFIG['dashboards'] = self.old_dashboards
         # Destroy our singleton and re-create it.
         base.HorizonSite._instance = None
         del base.Horizon
         base.Horizon = base.HorizonSite()
+        # Re-register the OpenStack dashboards that we removed.
+        base.Horizon.register(Nova)
+        base.Horizon.register(Syspanel)
+        base.Horizon.register(Settings)
         # Reload the convenience references to Horizon stored in __init__
         reload(import_module("horizon"))
         # Re-register our original dashboards and panels.
         # This is necessary because autodiscovery only works on the first
         # import, and calling reload introduces innumerable additional
         # problems. Manual re-registration is the only good way for testing.
+        self._discovered_dashboards.remove(Cats)
+        self._discovered_dashboards.remove(Dogs)
         for dash in self._discovered_dashboards:
             base.Horizon.register(dash)
             for panel in self._discovered_panels[dash]:
@@ -98,9 +134,9 @@ class HorizonTests(BaseHorizonTests):
         ``settings.INSTALLED_APPS`` are loaded from the start.
         """
         # Registration
-        self.assertEqual(len(base.Horizon._registry), 3)
+        self.assertEqual(len(base.Horizon._registry), 2)
         horizon.register(MyDash)
-        self.assertEqual(len(base.Horizon._registry), 4)
+        self.assertEqual(len(base.Horizon._registry), 3)
         with self.assertRaises(ValueError):
             horizon.register(MyPanel)
         with self.assertRaises(ValueError):
@@ -114,76 +150,67 @@ class HorizonTests(BaseHorizonTests):
         with self.assertRaises(base.NotRegistered):
             horizon.get_dashboard("fake")
         self.assertQuerysetEqual(horizon.get_dashboards(),
-                                 ['<Dashboard: nova>',
-                                  '<Dashboard: syspanel>',
-                                  '<Dashboard: settings>',
+                                 ['<Dashboard: cats>',
+                                  '<Dashboard: dogs>',
                                   '<Dashboard: mydash>'])
 
         # Removal
-        self.assertEqual(len(base.Horizon._registry), 4)
-        horizon.unregister(MyDash)
         self.assertEqual(len(base.Horizon._registry), 3)
+        horizon.unregister(MyDash)
+        self.assertEqual(len(base.Horizon._registry), 2)
         with self.assertRaises(base.NotRegistered):
             horizon.get_dashboard(MyDash)
 
     def test_site(self):
         self.assertEqual(unicode(base.Horizon), "Horizon")
         self.assertEqual(repr(base.Horizon), "<Site: horizon>")
-        dash = base.Horizon.get_dashboard('nova')
+        dash = base.Horizon.get_dashboard('cats')
         self.assertEqual(base.Horizon.get_default_dashboard(), dash)
         user = users.User()
         self.assertEqual(base.Horizon.get_user_home(user),
                          dash.get_absolute_url())
 
     def test_dashboard(self):
-        syspanel = horizon.get_dashboard("syspanel")
-        self.assertEqual(syspanel._registered_with, base.Horizon)
-        self.assertQuerysetEqual(syspanel.get_panels(),
-                                 ['<Panel: overview>',
-                                 '<Panel: instances>',
-                                 '<Panel: services>',
-                                 '<Panel: flavors>',
-                                 '<Panel: images>',
-                                 '<Panel: projects>',
-                                 '<Panel: users>',
-                                 '<Panel: quotas>'])
-        self.assertEqual(syspanel.get_absolute_url(), "/syspanel/")
+        cats = horizon.get_dashboard("cats")
+        self.assertEqual(cats._registered_with, base.Horizon)
+        self.assertQuerysetEqual(cats.get_panels(),
+                                 ['<Panel: kittens>',
+                                  '<Panel: tigers>'])
+        self.assertEqual(cats.get_absolute_url(), "/cats/")
 
         # Test registering a module with a dashboard that defines panels
-        # as a dictionary.
-        syspanel.register(MyPanel)
-        self.assertQuerysetEqual(syspanel.get_panel_groups()['other'],
+        # as a panel group.
+        cats.register(MyPanel)
+        self.assertQuerysetEqual(cats.get_panel_groups()['other'],
                                  ['<Panel: myslug>'])
 
         # Test that panels defined as a tuple still return a PanelGroup
-        settings_dash = horizon.get_dashboard("settings")
-        self.assertQuerysetEqual(settings_dash.get_panel_groups().values(),
+        dogs = horizon.get_dashboard("dogs")
+        self.assertQuerysetEqual(dogs.get_panel_groups().values(),
                                  ['<PanelGroup: default>'])
 
         # Test registering a module with a dashboard that defines panels
         # as a tuple.
-        settings_dash = horizon.get_dashboard("settings")
-        settings_dash.register(MyPanel)
-        self.assertQuerysetEqual(settings_dash.get_panels(),
-                                 ['<Panel: user>',
-                                  '<Panel: project>',
-                                  '<Panel: ec2>',
+        dogs = horizon.get_dashboard("dogs")
+        dogs.register(MyPanel)
+        self.assertQuerysetEqual(dogs.get_panels(),
+                                 ['<Panel: puppies>',
                                   '<Panel: myslug>'])
 
     def test_panels(self):
-        syspanel = horizon.get_dashboard("syspanel")
-        instances = syspanel.get_panel("instances")
-        self.assertEqual(instances._registered_with, syspanel)
-        self.assertEqual(instances.get_absolute_url(), "/syspanel/instances/")
+        cats = horizon.get_dashboard("cats")
+        tigers = cats.get_panel("tigers")
+        self.assertEqual(tigers._registered_with, cats)
+        self.assertEqual(tigers.get_absolute_url(), "/cats/tigers/")
 
     def test_index_url_name(self):
-        syspanel = horizon.get_dashboard("syspanel")
-        instances = syspanel.get_panel("instances")
-        instances.index_url_name = "does_not_exist"
+        cats = horizon.get_dashboard("cats")
+        tigers = cats.get_panel("tigers")
+        tigers.index_url_name = "does_not_exist"
         with self.assertRaises(urlresolvers.NoReverseMatch):
-            instances.get_absolute_url()
-        instances.index_url_name = "index"
-        self.assertEqual(instances.get_absolute_url(), "/syspanel/instances/")
+            tigers.get_absolute_url()
+        tigers.index_url_name = "index"
+        self.assertEqual(tigers.get_absolute_url(), "/cats/tigers/")
 
     def test_lazy_urls(self):
         urlpatterns = horizon.urls[0]
@@ -194,20 +221,20 @@ class HorizonTests(BaseHorizonTests):
 
     def test_horizon_test_isolation_1(self):
         """ Isolation Test Part 1: sets a value. """
-        syspanel = horizon.get_dashboard("syspanel")
-        syspanel.evil = True
+        cats = horizon.get_dashboard("cats")
+        cats.evil = True
 
     def test_horizon_test_isolation_2(self):
         """ Isolation Test Part 2: The value set in part 1 should be gone. """
-        syspanel = horizon.get_dashboard("syspanel")
-        self.assertFalse(hasattr(syspanel, "evil"))
+        cats = horizon.get_dashboard("cats")
+        self.assertFalse(hasattr(cats, "evil"))
 
     def test_public(self):
         users.get_user_from_request = self._real_get_user_from_request
-        settings = horizon.get_dashboard("settings")
+        dogs = horizon.get_dashboard("dogs")
         # Known to have no restrictions on it other than being logged in.
-        user_panel = settings.get_panel("user")
-        url = user_panel.get_absolute_url()
+        puppies = dogs.get_panel("puppies")
+        url = puppies.get_absolute_url()
         # Get a clean, logged out client instance.
         client = Client()
         client.logout()
@@ -248,8 +275,8 @@ class HorizonTests(BaseHorizonTests):
         self.assertEqual(resp.status_code, 404)
 
     def test_required_roles(self):
-        syspanel = horizon.get_dashboard("syspanel")
-        user_panel = syspanel.get_panel("users")
+        dash = horizon.get_dashboard("cats")
+        panel = dash.get_panel('tigers')
 
         # Non-admin user
         self.setActiveUser(token=self.token.id,
@@ -258,18 +285,13 @@ class HorizonTests(BaseHorizonTests):
                            service_catalog=self.service_catalog,
                            roles=[])
 
-        resp = self.client.get(user_panel.get_absolute_url())
+        resp = self.client.get(panel.get_absolute_url())
         self.assertEqual(resp.status_code, 302)
 
-        resp = self.client.get(user_panel.get_absolute_url(),
+        resp = self.client.get(panel.get_absolute_url(),
                                follow=False,
                                HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertEqual(resp.status_code, 401)
-
-        self.mox.StubOutWithMock(api, 'flavor_list')
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        self.mox.ReplayAll()
 
         # Set roles for admin user
         self.setActiveUser(token=self.token.id,
@@ -278,15 +300,11 @@ class HorizonTests(BaseHorizonTests):
                            service_catalog=self.request.user.service_catalog,
                            roles=[{'name': 'admin'}])
 
-        resp = self.client.get(
-                    urlresolvers.reverse('horizon:syspanel:flavors:create'))
+        resp = self.client.get(panel.get_absolute_url())
         self.assertEqual(resp.status_code, 200)
-        self.assertTemplateUsed(resp, "syspanel/flavors/create.html")
 
         # Test modal form
-        resp = self.client.get(
-                    urlresolvers.reverse('horizon:syspanel:flavors:create'),
-                    follow=False,
-                    HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        resp = self.client.get(panel.get_absolute_url(),
+                               follow=False,
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertEqual(resp.status_code, 200)
-        self.assertTemplateUsed(resp, "syspanel/flavors/_create.html")
