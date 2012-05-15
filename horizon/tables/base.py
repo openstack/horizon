@@ -110,6 +110,11 @@ class Column(html.HTMLElement):
                     ('off', False),
                 )
 
+    .. attribute::  display_choices
+
+        A tuple of tuples representing the possible values to substitute
+        the data when displayed in the column cell.
+
     .. attribute:: empty_value
 
         A string or callable to be used for cells which have no data.
@@ -157,8 +162,8 @@ class Column(html.HTMLElement):
 
     def __init__(self, transform, verbose_name=None, sortable=False,
                  link=None, hidden=False, attrs=None, status=False,
-                 status_choices=None, empty_value=None, filters=None,
-                 classes=None):
+                 status_choices=None, display_choices=None,
+                 empty_value=None, filters=None, classes=None):
         self.classes = classes or getattr(self, "classes", [])
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
@@ -183,6 +188,7 @@ class Column(html.HTMLElement):
         self.filters = filters or []
         if status_choices:
             self.status_choices = status_choices
+        self.display_choices = display_choices
 
         self.creation_counter = Column.creation_counter
         Column.creation_counter += 1
@@ -227,8 +233,16 @@ class Column(html.HTMLElement):
                 msg = termcolors.colorize(msg, **PALETTE['ERROR'])
                 LOG.warning(msg)
             data = None
-        for filter_func in self.filters:
-            data = filter_func(data)
+        display_value = None
+        if self.display_choices:
+            display_value = [display for (value, display) in
+                             self.display_choices
+                             if value.lower() == (data or '').lower()]
+        if display_value:
+            data = display_value[0]
+        else:
+            for filter_func in self.filters:
+                data = filter_func(data)
         self.table._data_cache[self][datum_id] = data
         return self.table._data_cache[self][datum_id]
 

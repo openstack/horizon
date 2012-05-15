@@ -21,6 +21,7 @@
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA, IgnoreArg
+from copy import deepcopy
 
 from horizon import api
 from horizon import test
@@ -307,6 +308,47 @@ class InstanceViewTests(test.TestCase):
                       args=[server.id])
         res = self.client.get(url)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_create_instance_snapshot(self):
+        server = self.servers.first()
+        snapshot_server = deepcopy(server)
+        setattr(snapshot_server, 'OS-EXT-STS:task_state',
+                "IMAGE_SNAPSHOT")
+        self.mox.StubOutWithMock(api, 'server_get')
+        self.mox.StubOutWithMock(api, 'snapshot_create')
+        self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
+        self.mox.StubOutWithMock(api, 'image_list_detailed')
+        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
+        self.mox.StubOutWithMock(api, 'server_list')
+        self.mox.StubOutWithMock(api, 'flavor_list')
+        self.mox.StubOutWithMock(api, 'server_delete')
+        self.mox.StubOutWithMock(api, 'volume_list')
+        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.snapshot_create(IsA(http.HttpRequest),
+                            server.id,
+                            "snapshot1")
+        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.snapshot_list_detailed(IsA(http.HttpRequest)).AndReturn([])
+        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
+        api.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
+        api.server_list(IsA(http.HttpRequest)).AndReturn([snapshot_server])
+        api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        self.mox.ReplayAll()
+
+        formData = {'instance_id': server.id,
+                    'method': 'CreateSnapshot',
+                    'tenant_id': server.tenant_id,
+                    'name': 'snapshot1'}
+        url = reverse('horizon:nova:images_and_snapshots:snapshots:create',
+                      args=[server.id])
+        redir_url = reverse('horizon:nova:images_and_snapshots:index')
+        res = self.client.post(url, formData)
+        self.assertRedirects(res, redir_url)
+        res = self.client.get(INDEX_URL)
+        self.assertContains(res, "<td  class=\"status_unknown\">"
+                                 "Snapshotting</td>", 1)
 
     def test_instance_update_get(self):
         server = self.servers.first()
