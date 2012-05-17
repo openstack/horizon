@@ -23,6 +23,9 @@ import re
 from django.utils.text import normalize_newlines
 
 from horizon import test
+from horizon.templatetags import branding
+from django.template import Context, Template
+from django.conf import settings
 
 
 def single_line(text):
@@ -33,4 +36,15 @@ def single_line(text):
 
 
 class TemplateTagTests(test.TestCase):
-    pass
+    '''Test Custom Template Tag'''
+    def render_template_tag(self, tag_name, tag_require=''):
+        '''Render a Custom Template Tag to string'''
+        template = Template("{%% load %s %%}{%% %s %%}"
+                            % (tag_require, tag_name))
+        return template.render(Context())
+
+    def test_site_branding_tag(self):
+        '''Test if site_branding tag renders the correct setting'''
+        rendered_str = self.render_template_tag("site_branding", "branding")
+        self.assertEqual(settings.SITE_BRANDING, rendered_str.strip(),
+                        "tag site_branding renders %s" % rendered_str.strip())
