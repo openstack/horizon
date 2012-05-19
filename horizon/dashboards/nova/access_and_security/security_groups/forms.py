@@ -25,7 +25,6 @@ from django.contrib import messages
 from django.core import validators
 from django.forms import ValidationError
 from django.utils.translation import ugettext_lazy as _
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
 from horizon import exceptions
@@ -48,7 +47,7 @@ class CreateGroup(forms.SelfHandlingForm):
                                       data['name'],
                                       data['description'])
             messages.success(request,
-                             _('Successfully created security_group: %s')
+                             _('Successfully created security group: %s')
                                     % data['name'])
         except:
             exceptions.handle(request, _('Unable to create security group.'))
