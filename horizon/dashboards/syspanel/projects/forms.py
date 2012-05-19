@@ -49,9 +49,9 @@ class AddUser(forms.SelfHandlingForm):
                                      data['tenant_id'],
                                      data['user_id'],
                                      data['role_id'])
-            messages.success(request, _('Successfully added user to tenant.'))
+            messages.success(request, _('Successfully added user to project.'))
         except:
-            exceptions.handle(request, _('Unable to add user to tenant.'))
+            exceptions.handle(request, _('Unable to add user to project.'))
         return shortcuts.redirect('horizon:syspanel:projects:users',
                                   tenant_id=data['tenant_id'])
 
@@ -66,7 +66,7 @@ class CreateTenant(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            LOG.info('Creating tenant with name "%s"' % data['name'])
+            LOG.info('Creating project with name "%s"' % data['name'])
             api.tenant_create(request,
                               data['name'],
                               data['description'],
@@ -75,7 +75,7 @@ class CreateTenant(forms.SelfHandlingForm):
                              _('%s was successfully created.')
                              % data['name'])
         except:
-            exceptions.handle(request, _('Unable to create tenant.'))
+            exceptions.handle(request, _('Unable to create project.'))
         return shortcuts.redirect('horizon:syspanel:projects:index')
 
 
@@ -90,7 +90,7 @@ class UpdateTenant(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            LOG.info('Updating tenant with id "%s"' % data['id'])
+            LOG.info('Updating project with id "%s"' % data['id'])
             api.tenant_update(request,
                               data['id'],
                               data['name'],
@@ -100,7 +100,7 @@ class UpdateTenant(forms.SelfHandlingForm):
                              _('%s was successfully updated.')
                              % data['name'])
         except:
-            exceptions.handle(request, _('Unable to update tenant.'))
+            exceptions.handle(request, _('Unable to update project.'))
         return shortcuts.redirect('horizon:syspanel:projects:index')
 
 
