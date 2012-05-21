@@ -78,7 +78,7 @@ class IndexView(tables.MultiTableView):
             exceptions.handle(self.request,
                         _('Unable to retrieve instance list.'))
 
-        instances_dict = {obj.id: obj for obj in instances}
+        instances_dict = dict([(obj.id, obj) for obj in instances])
 
         for ip in floating_ips:
             ip.instance_name = instances_dict[ip.instance_id].name \
