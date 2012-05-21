@@ -64,7 +64,7 @@ var Horizon = function() {
       data[key] = value;
       horizon.cookies.write(cookie_name, data);
     },
-    delete: function (cookie_name) {
+    remove: function (cookie_name) {
       $.cookie("horizon." + cookie_name, null);
     }
   };
