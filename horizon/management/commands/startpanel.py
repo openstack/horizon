@@ -1,3 +1,4 @@
+import glob
 from optparse import make_option
 import os
 
@@ -74,7 +75,7 @@ class Command(TemplateCommand):
             options["template"] = self.template
 
         # We have html templates as well, so make sure those are included.
-        options["extensions"].extend(["html"])
+        options["extensions"].extend(["tmpl", "html"])
 
         # Check that the app_name cannot be imported.
         try:
@@ -87,3 +88,11 @@ class Command(TemplateCommand):
                                "name. Please try another name." % panel_name)
 
         super(Command, self).handle('panel', panel_name, target, **options)
+
+        if not target:
+            target = os.path.join(os.curdir, panel_name)
+
+        # Rename our python template files.
+        file_names = glob.glob(os.path.join(target, "*.py.tmpl"))
+        for filename in file_names:
+            os.rename(filename, filename[:-5])
