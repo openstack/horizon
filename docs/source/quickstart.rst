@@ -12,18 +12,17 @@ repository at http://github.com/openstack/horizon and execute the
 Horizon assumes a single end-point for OpenStack services which defaults to
 the local host (127.0.0.1). If this is not the case change the
 ``OPENSTACK_HOST`` setting in the ``local_settings.py`` file, located in the
-``openstack-dashboard/local`` folder, to the actual IP address of the
+``openstack_dashboard/local`` folder, to the actual IP address of the
 OpenStack end-point Horizon should use.
 
-To start the Horizon development server use the Django ``manage.py`` utility
-from the ``openstack-dashboard`` directory with the context of the virtual
-environment::
+To start the Horizon development server use the Django ``manage.py`` utility 
+with the context of the virtual environment::
 
-    > tools/with_venv.sh dashboard/manage.py runserver
+    > tools/with_venv.sh ./manage.py runserver
 
 Alternately specify the listen IP and port::
 
-    > tools/with_venv.sh dashboard/manage.py runserver 0.0.0.0:8080
+    > tools/with_venv.sh ./manage.py runserver 0.0.0.0:8080
 
 Once the Horizon server is running point a web browser to http://localhost:8000
 or to the IP and port the server is listening.
@@ -49,19 +48,19 @@ Horizon's Structure
 
 This project is a bit different from other OpenStack projects in that it has
 two very distinct components underneath it: ``horizon``, and
-``openstack-dashboard``.
+``openstack_dashboard``.
 
 The ``horizon`` directory holds the generic libraries and components that can
 be used in any Django project.
 
-The ``openstack-dashboard`` directory contains a reference Django project that
+The ``openstack_dashboard`` directory contains a reference Django project that
 uses ``horizon``.
 
 For development, both pieces share an environment which (by default) is
 built with the ``tools/install_venv.py`` script. That script creates a
 virtualenv and installs all the necessary packages.
 
-If dependencies are added to either ``horizon`` or ``openstack-dashboard``,
+If dependencies are added to either ``horizon`` or ``openstack_dashboard``,
 they should be added to ``tools/pip-requires``.
 
   .. important::
