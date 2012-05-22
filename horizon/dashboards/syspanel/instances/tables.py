@@ -48,6 +48,8 @@ class SyspanelInstancesTable(tables.DataTable):
     )
     STATUS_CHOICES = (
         ("active", True),
+        ("suspended", True),
+        ("paused", True),
         ("error", False),
     )
     TASK_DISPLAY_CHOICES = (
