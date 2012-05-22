@@ -1,3 +1,4 @@
+import glob
 from optparse import make_option
 import os
 
@@ -34,7 +35,7 @@ class Command(TemplateCommand):
             options["template"] = self.template
 
         # We have html templates as well, so make sure those are included.
-        options["extensions"].extend(["html", "js", "css"])
+        options["extensions"].extend(["tmpl", "html", "js", "css"])
 
         # Check that the app_name cannot be imported.
         try:
@@ -47,3 +48,12 @@ class Command(TemplateCommand):
                                "name. Please try another name." % dash_name)
 
         super(Command, self).handle('dash', dash_name, **options)
+
+        target = options.pop("target", None)
+        if not target:
+            target = os.path.join(os.curdir, dash_name)
+
+        # Rename our python template files.
+        file_names = glob.glob(os.path.join(target, "*.py.tmpl"))
+        for filename in file_names:
+            os.rename(filename, filename[:-5])
