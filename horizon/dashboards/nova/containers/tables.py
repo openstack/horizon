@@ -17,7 +17,6 @@
 import logging
 
 from cloudfiles.errors import ContainerNotEmpty
-from django import shortcuts
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import filesizeformat

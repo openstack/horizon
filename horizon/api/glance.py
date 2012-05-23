@@ -23,6 +23,8 @@ from __future__ import absolute_import
 import logging
 import urlparse
 
+from django.conf import settings
+
 from glanceclient.v1 import client as glance_client
 
 from horizon.api.base import url_for
@@ -51,16 +53,30 @@ def image_get(request, image_id):
     return glanceclient(request).images.get(image_id)
 
 
-def image_list_detailed(request, filters=None):
+def image_list_detailed(request, marker=None, filters=None):
     filters = filters or {}
-    return glanceclient(request).images.list(filters=filters)
+    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    images = glanceclient(request).images.list(limit=limit + 1,
+                                               marker=marker,
+                                               filters=filters)
+    if(len(images) > limit):
+        return (images[0:-1], True)
+    else:
+        return (images, False)
 
 
 def image_update(request, image_id, **kwargs):
     return glanceclient(request).images.update(image_id, **kwargs)
 
 
-def snapshot_list_detailed(request, extra_filters=None):
+def snapshot_list_detailed(request, marker=None, extra_filters=None):
     filters = {'property-image_type': 'snapshot'}
     filters.update(extra_filters or {})
-    return glanceclient(request).images.list(filters=filters)
+    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    images = glanceclient(request).images.list(limit=limit + 1,
+                                               marker=marker,
+                                               filters=filters)
+    if(len(images) > limit):
+        return (images[0:-1], True)
+    else:
+        return (images, False)

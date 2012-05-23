@@ -329,8 +329,10 @@ class InstanceViewTests(test.TestCase):
                             server.id,
                             "snapshot1")
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).AndReturn([])
-        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
+        api.snapshot_list_detailed(IsA(http.HttpRequest),
+                                marker=None).AndReturn([[], False])
+        api.image_list_detailed(IsA(http.HttpRequest),
+                                marker=None).AndReturn([[], False])
         api.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
 
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
@@ -414,7 +416,6 @@ class InstanceViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_launch_get(self):
-        image = self.images.first()
         quota_usages = self.quota_usages.first()
 
         self.mox.StubOutWithMock(api.glance, 'image_list_detailed')
@@ -432,10 +433,10 @@ class InstanceViewTests(test.TestCase):
                                 .AndReturn(self.volumes.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True}) \
-                  .AndReturn(self.images.list())
+                  .AndReturn([self.images.list(), False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
-                  .AndReturn([])
+                  .AndReturn([[], False])
         api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -489,10 +490,10 @@ class InstanceViewTests(test.TestCase):
                 .AndReturn(self.security_groups.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True}) \
-                  .AndReturn(self.images.list())
+                  .AndReturn([self.images.list(), False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
-                  .AndReturn([])
+                  .AndReturn([[], False])
         api.nova.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -541,10 +542,10 @@ class InstanceViewTests(test.TestCase):
                 .AndReturn(self.volumes.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True}) \
-                  .AndReturn(self.images.list())
+                  .AndReturn([self.images.list(), False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
-                  .AndReturn([])
+                  .AndReturn([[], False])
         api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(self.quota_usages.first())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -586,10 +587,10 @@ class InstanceViewTests(test.TestCase):
                                 .AndReturn(self.security_groups.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True}) \
-                  .AndReturn(self.images.list())
+                  .AndReturn([self.images.list(), False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
-                  .AndReturn([])
+                  .AndReturn([[], False])
         api.nova.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
@@ -639,21 +640,22 @@ class InstanceViewTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
         api.nova.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True}) \
-                  .AndReturn(self.images.list())
+                  .AndReturn([self.images.list(), False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
-                  .AndReturn([])
+                  .AndReturn([[], False])
         api.nova.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
         api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(self.quota_usages.first())
         self.mox.ReplayAll()

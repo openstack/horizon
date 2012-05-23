@@ -40,8 +40,10 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'volume_snapshot_list')
         api.volume_snapshot_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.volumes.list())
-        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn(images)
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).AndReturn(snapshots)
+        api.image_list_detailed(IsA(http.HttpRequest),
+                                marker=None).AndReturn([images, False])
+        api.snapshot_list_detailed(IsA(http.HttpRequest),
+                                marker=None).AndReturn([snapshots, False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -58,9 +60,10 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'volume_snapshot_list')
         api.volume_snapshot_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.volumes.list())
-        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
-        api.snapshot_list_detailed(IsA(http.HttpRequest)) \
-                                   .AndReturn(self.snapshots.list())
+        api.image_list_detailed(IsA(http.HttpRequest),
+                                marker=None).AndReturn([(), False])
+        api.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
+                                .AndReturn([self.snapshots.list(), False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -72,10 +75,10 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'volume_snapshot_list')
         api.volume_snapshot_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.volumes.list())
-        api.image_list_detailed(IsA(http.HttpRequest)) \
-                                .AndRaise(self.exceptions.glance)
-        api.snapshot_list_detailed(IsA(http.HttpRequest)) \
-                                   .AndReturn(self.snapshots.list())
+        api.image_list_detailed(IsA(http.HttpRequest),
+                                marker=None).AndRaise(self.exceptions.glance)
+        api.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
+                                .AndReturn([self.snapshots.list(), False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -102,9 +105,10 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.mox.StubOutWithMock(api, 'volume_snapshot_list')
         api.volume_snapshot_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.volumes.list())
-        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn(images)
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).\
-                AndReturn(new_snapshots)
+        api.image_list_detailed(IsA(http.HttpRequest),
+                                marker=None).AndReturn([images, False])
+        api.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
+                                .AndReturn([new_snapshots, False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
