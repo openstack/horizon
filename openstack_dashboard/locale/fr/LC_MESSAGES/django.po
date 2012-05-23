@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-24 16:41-0700\n"
+"POT-Creation-Date: 2012-05-23 11:08-0700\n"
 "PO-Revision-Date: 2012-05-08 00:20+0100\n"
 "Last-Translator: Erwan Gallen <erwan@zinux.com>\n"
 "Language-Team: French <fr@zinux.com>\n"
@@ -16,56 +16,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: settings.py:114
+#: settings.py:115
 msgid "English"
 msgstr "Anglais"
 
-#: settings.py:115
+#: settings.py:116
 msgid "Italiano"
 msgstr "Italien"
 
-#: settings.py:116
+#: settings.py:117
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: settings.py:117
+#: settings.py:118
 msgid "French"
 msgstr "Français"
 
-#: settings.py:118
+#: settings.py:119
 msgid "Japanese"
 msgstr "Japonais"
 
-#: settings.py:119
+#: settings.py:120
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: settings.py:120
+#: settings.py:121
 msgid "Polish"
 msgstr "Polonais"
 
-#: settings.py:121
+#: settings.py:122
 msgid "Simplified Chinese"
 msgstr "Chinois simplifié"
 
-#: settings.py:122
+#: settings.py:123
 msgid "Traditional Chinese"
 msgstr "Chinois traditionnel"
 
-#: templates/403.html:4
-#: templates/403.html.py:9
+#: templates/403.html:4 templates/403.html.py:9
 msgid "Forbidden"
 msgstr "Interdit"
 
-#: templates/403.html:20
-#: templates/404.html:19
-#: templates/500.html:19
+#: templates/403.html:20 templates/404.html:19 templates/500.html:19
 msgid "Home"
 msgstr "Accueil"
 
-#: templates/403.html:24
-#: templates/404.html:23
-#: templates/500.html:23
+#: templates/403.html:24 templates/404.html:23 templates/500.html:23
 msgid "Projects"
 msgstr "Projets"
 
@@ -79,16 +74,20 @@ msgstr "La page que vous recherchez n'existe pas"
 
 #: templates/404.html:10
 msgid "You may have mistyped the address or the page may have moved."
-msgstr "Vous avez peut-être mal tapé l'adresse ou la page a peut-être été déplacée."
+msgstr ""
+"Vous avez peut-être mal tapé l'adresse ou la page a peut-être été déplacée."
 
-#: templates/500.html:4
-#: templates/500.html.py:9
+#: templates/500.html:4 templates/500.html.py:9
 msgid "Internal Server Error"
 msgstr "Erreur de serveur interne"
 
 #: templates/500.html:10
-msgid "An unexpected error occurred while processing your request.  Please try your request again."
-msgstr "Une erreur inattendue s'est produite lors du traitement de votre demande. Veuillez essayer à nouveau votre demande."
+msgid ""
+"An unexpected error occurred while processing your request.  Please try your "
+"request again."
+msgstr ""
+"Une erreur inattendue s'est produite lors du traitement de votre demande. "
+"Veuillez essayer à nouveau votre demande."
 
 #: templates/_header.html:3
 msgid "Logged in as"
@@ -105,4 +104,3 @@ msgstr "Déconnexion"
 #: templates/switch_tenants.html:12
 msgid "Log-in to tenant"
 msgstr "Se connecter au tenant"
-

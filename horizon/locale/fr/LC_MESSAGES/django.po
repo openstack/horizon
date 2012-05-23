@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-24 16:40-0700\n"
+"POT-Creation-Date: 2012-05-23 11:08-0700\n"
 "PO-Revision-Date: 2012-05-10 16:05+0100\n"
 "Last-Translator: Erwan Gallen <erwan@zinux.com>\n"
 "Language-Team: French <fr@zinux.com>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 
-#: base.py:447
+#: base.py:449
 msgid "Other"
 msgstr "Autre"
 
@@ -33,7 +33,7 @@ msgstr "Vous n'êtes pas autorisé à accéder à %s"
 msgid "The services for this view are not available."
 msgstr "Les service de cette vue n'est pas disponible."
 
-#: exceptions.py:211
+#: exceptions.py:239
 msgid "Unauthorized. Please try logging in again."
 msgstr "Accès non autorisé. Merci de vous reconnecter."
 
@@ -69,12 +69,14 @@ msgid "Object Store"
 msgstr "Stockage d'objet"
 
 #: dashboards/nova/dashboard.py:38
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:33
 #: dashboards/syspanel/projects/tables.py:51
-#: templates/horizon/common/_sidebar.html:11
+#: templates/horizon/common/_sidebar.html:11 tests/workflows_tests.py:39
 msgid "Project"
 msgstr "Projet"
 
 #: dashboards/nova/access_and_security/panel.py:25
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:311
 msgid "Access & Security"
 msgstr "Accès & Sécurité"
 
@@ -92,58 +94,69 @@ msgstr "Erreur de récupération des groupes de sécurité : %s"
 msgid "Error fetching floating ips: %s"
 msgstr "Erreur de récupération des adresses IP flottantes : %s"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:39
+#: dashboards/nova/access_and_security/views.py:79
+#: dashboards/nova/access_and_security/floating_ips/views.py:60
+#: dashboards/syspanel/instances/views.py:58
+msgid "Unable to retrieve instance list."
+msgstr "Impossible de récupérer la liste des instances."
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:38
 #: dashboards/nova/access_and_security/floating_ips/tables.py:47
 #: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:22
 msgid "Floating IP"
 msgstr "IP flottante"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:42
+#: dashboards/nova/access_and_security/floating_ips/forms.py:41
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:38
 msgid "Instance ID"
 msgstr "ID d'instance"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:48
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:67
+#: dashboards/nova/access_and_security/floating_ips/forms.py:47
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:73
 msgid "Select an instance"
 msgstr "Sélectionnez une instance"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:50
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:69
+#: dashboards/nova/access_and_security/floating_ips/forms.py:49
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:75
 msgid "No instances available"
 msgstr "Aucune instance disponible"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:53
-#: dashboards/nova/access_and_security/floating_ips/tables.py:103
-#: dashboards/nova/instances_and_volumes/instances/tables.py:57
-#: dashboards/nova/instances_and_volumes/instances/tables.py:69
-#: dashboards/nova/instances_and_volumes/instances/tables.py:84
-#: dashboards/nova/instances_and_volumes/instances/tables.py:112
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:157
+#: dashboards/nova/access_and_security/floating_ips/forms.py:52
+#: dashboards/nova/access_and_security/floating_ips/tables.py:112
+#: dashboards/nova/instances_and_volumes/instances/tables.py:58
+#: dashboards/nova/instances_and_volumes/instances/tables.py:75
+#: dashboards/nova/instances_and_volumes/instances/tables.py:90
+#: dashboards/nova/instances_and_volumes/instances/tables.py:118
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:158
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:41
+#: tests/workflows_tests.py:58
 msgid "Instance"
 msgstr "Instance"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:64
+#: dashboards/nova/access_and_security/floating_ips/forms.py:63
 #, python-format
 msgid "Successfully associated Floating IP %(ip)s with Instance: %(inst)s"
-msgstr "Succès de l'association de l'adresse IP flottante %(ip)s avec l'instance : %(inst)s"
+msgstr ""
+"Succès de l'association de l'adresse IP flottante %(ip)s avec l'instance : "
+"%(inst)s"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:70
-#, python-format
-msgid "Error associating Floating IP: %s"
-msgstr "Erreur d'association de l'adresse IP flottante : %s"
+#: dashboards/nova/access_and_security/floating_ips/forms.py:69
+#: dashboards/nova/access_and_security/floating_ips/views.py:51
+msgid "Unable to associate floating IP."
+msgstr "Impossible d'associer l'adresse IP flottante."
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:76
+#: dashboards/nova/access_and_security/floating_ips/forms.py:75
 msgid "Pool"
 msgstr "Pool"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:91
+#: dashboards/nova/access_and_security/floating_ips/forms.py:90
 #, python-format
-msgid "Successfully allocated Floating IP \"%(ip)s\" to project \"%(project)s\""
-msgstr "Succès de l'allocation de l'IP flottante \"%(ip)s\" au projet \"%(project)s\""
+msgid ""
+"Successfully allocated Floating IP \"%(ip)s\" to project \"%(project)s\""
+msgstr ""
+"Succès de l'allocation de l'IP flottante \"%(ip)s\" au projet \"%(project)s\""
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:95
+#: dashboards/nova/access_and_security/floating_ips/forms.py:94
 msgid "Unable to allocate Floating IP."
 msgstr "Impossible d'allouer une adresse IP flottante."
 
@@ -160,7 +173,7 @@ msgid "Released"
 msgstr "Versioné"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:48
-#: dashboards/nova/access_and_security/floating_ips/tables.py:117
+#: dashboards/nova/access_and_security/floating_ips/tables.py:126
 #: dashboards/syspanel/projects/forms.py:119
 msgid "Floating IPs"
 msgstr "IPs flottantes"
@@ -183,24 +196,25 @@ msgstr "Succès de désassociation de l'adresse IP flottante : %s"
 msgid "Unable to disassociate floating IP."
 msgstr "Impossible de désassocier l'adresse IP flottante."
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:100
-#: dashboards/nova/instances_and_volumes/instances/tables.py:237
-#: dashboards/syspanel/instances/tables.py:65
+#: dashboards/nova/access_and_security/floating_ips/tables.py:92
+#, python-format
+msgid "%(INSTANCE_NAME)s (%(INSTANCE_ID)s)"
+msgstr ""
+
+#: dashboards/nova/access_and_security/floating_ips/tables.py:97
+#: dashboards/nova/instances_and_volumes/instances/tables.py:218
+msgid "Not available"
+msgstr "Non disponible"
+
+#: dashboards/nova/access_and_security/floating_ips/tables.py:109
+#: dashboards/nova/instances_and_volumes/instances/tables.py:242
+#: dashboards/syspanel/instances/tables.py:74
 msgid "IP Address"
 msgstr "Adresse IP"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:106
+#: dashboards/nova/access_and_security/floating_ips/tables.py:115
 msgid "Floating IP Pool"
 msgstr "Adresse IP flottante"
-
-#: dashboards/nova/access_and_security/floating_ips/views.py:51
-msgid "Unable to associate floating IP."
-msgstr "Impossible d'associer l'adresse IP flottante."
-
-#: dashboards/nova/access_and_security/floating_ips/views.py:60
-#: dashboards/syspanel/instances/views.py:48
-msgid "Unable to retrieve instance list."
-msgstr "Impossible de récupérer la liste des instances."
 
 #: dashboards/nova/access_and_security/floating_ips/views.py:100
 msgid "No floating IP pools available."
@@ -213,8 +227,11 @@ msgid "Keypair Name"
 msgstr "Nom de paire de clés."
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:40
-msgid "Keypair names may only contain letters, numbers, underscores and hyphens."
-msgstr "Les noms des paires de clés ne peuvent que contenir que des lettres, nombres, underscore et tirets."
+msgid ""
+"Keypair names may only contain letters, numbers, underscores and hyphens."
+msgstr ""
+"Les noms des paires de clés ne peuvent que contenir que des lettres, "
+"nombres, underscore et tirets."
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:52
 #, python-format
@@ -236,7 +253,7 @@ msgid "Error Importing Keypair: %s"
 msgstr "Echec de l'import de la paire de clés : %s"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:29
-#: dashboards/nova/images_and_snapshots/images/forms.py:104
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:299
 msgid "Keypair"
 msgstr "Paire de clés"
 
@@ -270,11 +287,12 @@ msgstr "Impossible de créer la paire de clés : %(exc)s"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:41
 #: dashboards/nova/access_and_security/security_groups/tables.py:57
-#: dashboards/nova/images_and_snapshots/images/forms.py:46
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:109
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:126
+#: dashboards/nova/images_and_snapshots/images/forms.py:43
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:110
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:127
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:9
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:9
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:9
 #: dashboards/syspanel/flavors/forms.py:37
 #: dashboards/syspanel/projects/forms.py:60
@@ -287,8 +305,8 @@ msgstr "Nom"
 #: dashboards/nova/access_and_security/security_groups/forms.py:43
 #: dashboards/nova/access_and_security/security_groups/tables.py:58
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:29
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:97
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:112
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:103
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:113
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:16
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:16
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:17
@@ -333,11 +351,15 @@ msgid "From Port"
 msgstr "Du port"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:66
-msgid "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for ICMP type in the range (-1: 255)"
-msgstr "TCP/UDP : Saisissez un nombre entier entre 1 et 65535. ICMP : Saisissez une valeur dans la plage (-1:255)"
+msgid ""
+"TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
+"ICMP type in the range (-1: 255)"
+msgstr ""
+"TCP/UDP : Saisissez un nombre entier entre 1 et 65535. ICMP : Saisissez une "
+"valeur dans la plage (-1:255)"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:72
-#: dashboards/nova/images_and_snapshots/images/tables.py:86
+#: dashboards/nova/images_and_snapshots/images/tables.py:89
 msgid "Type"
 msgstr "Type"
 
@@ -348,8 +370,12 @@ msgid "To Port"
 msgstr "Jusqu'au port"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:75
-msgid "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for ICMP code in the range (-1: 255)"
-msgstr "TCP/UDP : Saisissez un entier entre 1 et 65535. ICMP : Saisissez une valeur dans la plage (-1:255)"
+msgid ""
+"TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
+"ICMP code in the range (-1: 255)"
+msgstr ""
+"TCP/UDP : Saisissez un entier entre 1 et 65535. ICMP : Saisissez une valeur "
+"dans la plage (-1:255)"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:81
 msgid "Code"
@@ -367,31 +393,36 @@ msgstr "Adresse IP en notation CIDR"
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Adresse IP en notation CIDR (par exemple 192.168.0.0/24)"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:114
+#: dashboards/nova/access_and_security/security_groups/forms.py:115
 msgid "The \"from\" port number is invalid."
 msgstr "Le numéro de port \"from\" est invalide."
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:117
+#: dashboards/nova/access_and_security/security_groups/forms.py:118
 msgid "The \"to\" port number is invalid."
 msgstr "Le numéro de port \"to\" est invalide."
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:120
-msgid "The \"to\" port number must be greater than or equal to the \"from\" port number."
-msgstr "Le numéro de port \"to\" doit être supérieur ou égal au numéro de port \"from\""
+#: dashboards/nova/access_and_security/security_groups/forms.py:121
+msgid ""
+"The \"to\" port number must be greater than or equal to the \"from\" port "
+"number."
+msgstr ""
+"Le numéro de port \"to\" doit être supérieur ou égal au numéro de port \"from"
+"\""
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:126
+#: dashboards/nova/access_and_security/security_groups/forms.py:127
 msgid "Either CIDR or Source Group may be specified, but not both."
-msgstr "Soit le CIDR ou le groupe source doivent être spécifiés, mais pas les deux."
+msgstr ""
+"Soit le CIDR ou le groupe source doivent être spécifiés, mais pas les deux."
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:147
+#: dashboards/nova/access_and_security/security_groups/forms.py:148
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "Succès de l'ajout de la règle : %s"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:151
-#, python-format
-msgid "Error adding rule security group: %s"
-msgstr "Echec de l'ajout de la règle de groupe de sécurité : %s"
+#: dashboards/nova/access_and_security/security_groups/forms.py:152
+#, fuzzy
+msgid "Unable to add rule to security group."
+msgstr "Impossible de créer le groupe de sécurité."
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:30
 msgid "Security Group"
@@ -399,7 +430,7 @@ msgstr "Groupe de sécurité"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:31
 #: dashboards/nova/access_and_security/security_groups/tables.py:65
-#: dashboards/nova/images_and_snapshots/images/forms.py:114
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:303
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:47
 msgid "Security Groups"
 msgstr "Groupes de sécurité"
@@ -444,7 +475,7 @@ msgid "Slash is not an allowed character."
 msgstr "Le caractère barre oblique n'est pas autorisé."
 
 #: dashboards/nova/containers/forms.py:45
-#: dashboards/nova/containers/tables.py:103
+#: dashboards/nova/containers/tables.py:89
 msgid "Container Name"
 msgstr "Nom de conteneur"
 
@@ -457,7 +488,7 @@ msgid "Unable to create container."
 msgstr "Impossible de créer le conteneur."
 
 #: dashboards/nova/containers/forms.py:59
-#: dashboards/nova/containers/tables.py:170
+#: dashboards/nova/containers/tables.py:156
 msgid "Object Name"
 msgstr "Nom de l'objet"
 
@@ -492,7 +523,7 @@ msgstr "Impossible de copier l'objet."
 
 #: dashboards/nova/containers/panel.py:28
 #: dashboards/nova/containers/tables.py:36
-#: dashboards/nova/containers/tables.py:114
+#: dashboards/nova/containers/tables.py:100
 #: dashboards/nova/templates/nova/containers/index.html:8
 msgid "Containers"
 msgstr "Conteneurs"
@@ -501,59 +532,53 @@ msgstr "Conteneurs"
 msgid "Container"
 msgstr "Conteneur"
 
-#: dashboards/nova/containers/tables.py:52
-#, python-format
-msgid "Unable to delete non-empty container: %s"
-msgstr "Impossible de supprimer un conteneur non vide : %s"
+#: dashboards/nova/containers/tables.py:43
+msgid "Containers must be empty before deletion."
+msgstr ""
 
-#: dashboards/nova/containers/tables.py:56
-#, python-format
-msgid "Successfully deleted containers: %s"
-msgstr "Succès de suppression des conteneurs : %s"
-
-#: dashboards/nova/containers/tables.py:63
+#: dashboards/nova/containers/tables.py:49
 #: dashboards/nova/templates/nova/containers/_create.html:7
 #: dashboards/nova/templates/nova/containers/_create.html:22
 #: dashboards/nova/templates/nova/containers/create.html:6
 msgid "Create Container"
 msgstr "Création d'un conteneur"
 
-#: dashboards/nova/containers/tables.py:70
+#: dashboards/nova/containers/tables.py:56
 msgid "List Objects"
 msgstr "Liste des objets"
 
-#: dashboards/nova/containers/tables.py:77
+#: dashboards/nova/containers/tables.py:63
 #: dashboards/nova/templates/nova/objects/_upload.html:23
 #: dashboards/nova/templates/nova/objects/upload.html:3
 msgid "Upload Object"
 msgstr "Uploader un objet"
 
-#: dashboards/nova/containers/tables.py:105
-#: dashboards/nova/containers/tables.py:121
-#: dashboards/nova/containers/tables.py:178
+#: dashboards/nova/containers/tables.py:91
+#: dashboards/nova/containers/tables.py:107
+#: dashboards/nova/containers/tables.py:164
 #: dashboards/nova/templates/nova/objects/index.html:3
 msgid "Objects"
 msgstr "Objets"
 
-#: dashboards/nova/containers/tables.py:107
-#: dashboards/nova/containers/tables.py:171
-#: dashboards/nova/instances_and_volumes/instances/tables.py:238
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:113
+#: dashboards/nova/containers/tables.py:93
+#: dashboards/nova/containers/tables.py:157
+#: dashboards/nova/instances_and_volumes/instances/tables.py:243
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:114
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:26
-#: dashboards/syspanel/instances/tables.py:67
+#: dashboards/syspanel/instances/tables.py:76
 msgid "Size"
 msgstr "Taille"
 
-#: dashboards/nova/containers/tables.py:120
+#: dashboards/nova/containers/tables.py:106
 msgid "Object"
 msgstr "Objet"
 
-#: dashboards/nova/containers/tables.py:131
+#: dashboards/nova/containers/tables.py:117
 msgid "Copy"
 msgstr "Copie"
 
-#: dashboards/nova/containers/tables.py:142
+#: dashboards/nova/containers/tables.py:128
 msgid "Download"
 msgstr "Télécharger"
 
@@ -589,127 +614,61 @@ msgstr "Impossible de récupérer les instantanés."
 msgid "Unable to retrieve volume snapshots."
 msgstr "Impossible de récupérer les instantanés de volume."
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:47
+#: dashboards/nova/images_and_snapshots/images/forms.py:44
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:48
 msgid "Kernel ID"
 msgstr "ID de Kernel"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:52
+#: dashboards/nova/images_and_snapshots/images/forms.py:49
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:52
 msgid "Ramdisk ID"
 msgstr "ID de Ramdisk"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:57
+#: dashboards/nova/images_and_snapshots/images/forms.py:54
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:44
 msgid "Architecture"
 msgstr "Architecture"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:61
-#: dashboards/nova/images_and_snapshots/images/tables.py:95
+#: dashboards/nova/images_and_snapshots/images/forms.py:58
+#: dashboards/nova/images_and_snapshots/images/tables.py:98
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:32
 msgid "Container Format"
 msgstr "Format de conteneur"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:65
+#: dashboards/nova/images_and_snapshots/images/forms.py:62
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:34
 msgid "Disk Format"
 msgstr "Formatage de disque"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:73
+#: dashboards/nova/images_and_snapshots/images/forms.py:66
+#: dashboards/nova/images_and_snapshots/images/tables.py:94
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
+msgid "Public"
+msgstr "Publique"
+
+#: dashboards/nova/images_and_snapshots/images/forms.py:72
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "Impossible de mettre à jour l'image \"%s\"."
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:89
+#: dashboards/nova/images_and_snapshots/images/forms.py:88
 msgid "Image was successfully updated."
 msgstr "L'image a été mise à jour avec succès."
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:96
-msgid "Server Name"
-msgstr "Nom du serveur"
+#: dashboards/nova/images_and_snapshots/images/tables.py:33
+#: dashboards/nova/images_and_snapshots/snapshots/tables.py:32
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:377
+msgid "Launch"
+msgstr "Lancer"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:100
-msgid "User Data"
-msgstr "Données de l'utilisateur"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:102
-#: dashboards/syspanel/flavors/tables.py:13
-msgid "Flavor"
-msgstr "Type d'instance"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:103
-msgid "Size of image to launch."
-msgstr "Taille de l'image à lancer."
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:106
-msgid "Which keypair to use for authentication."
-msgstr "Quelle paire de clés utiliser pour l'authentification."
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:108
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:23
-msgid "Instance Count"
-msgstr "Nombre d'instances"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:112
-msgid "Number of instances to launch."
-msgstr "Nombre d'instances à lancer."
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:118
-msgid "Launch instance in these security groups."
-msgstr "Lancer une instance dans ce groupe de sécurité."
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:120
-msgid "Volume or Volume Snapshot"
-msgstr "Volume ou Volume d'instantané"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:122
-msgid "Volume to boot from."
-msgstr "Volume à utiliser pour le boot."
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:123
-msgid "Device Name"
-msgstr "Nom de périphérique"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:126
-msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
-msgstr "Point de montage de volume (exemple monter 'vda' à partir de '/dev/vda')."
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:129
-msgid "Delete on Terminate"
-msgstr "Supprimer après la mise à l'arrêt"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:132
-msgid "Delete volume on instance terminate"
-msgstr "Supprimer le volume lors de la mise à l'arrêt de l'instance"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:138
-msgid "Select a keypair"
-msgstr "Sélectionnez une paire de clés"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:140
-msgid "No keypairs available."
-msgstr "Pas de paires de clés disponibles."
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:155
-msgid "Cannot launch more than one instance if volume is specified."
-msgstr "Impossible de lancer plus d'une instance si un volume est spécifié."
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:183
-#, python-format
-msgid "Instance \"%s\" launched."
-msgstr "Instance \"%s\" lancée."
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:187
-#, python-format
-msgid "Unable to launch instance: %(exc)s"
-msgstr "Impossible de lancer l'instance: %(exc)s"
-
-#: dashboards/nova/images_and_snapshots/images/tables.py:30
+#: dashboards/nova/images_and_snapshots/images/tables.py:45
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:161
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:166
 msgid "Image"
 msgstr "Image"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:31
-#: dashboards/nova/images_and_snapshots/images/tables.py:99
+#: dashboards/nova/images_and_snapshots/images/tables.py:46
+#: dashboards/nova/images_and_snapshots/images/tables.py:102
 #: dashboards/syspanel/images/panel.py:28
 #: dashboards/syspanel/images/tables.py:38
 #: dashboards/syspanel/templates/syspanel/images/index.html:3
@@ -717,34 +676,25 @@ msgstr "Image"
 msgid "Images"
 msgstr "Images"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:45
-msgid "Launch"
-msgstr "Lancer"
-
-#: dashboards/nova/images_and_snapshots/images/tables.py:57
-#: dashboards/syspanel/users/tables.py:23
+#: dashboards/nova/images_and_snapshots/images/tables.py:60
+#: dashboards/syspanel/users/tables.py:30
 msgid "Edit"
 msgstr "Editer"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:84
+#: dashboards/nova/images_and_snapshots/images/tables.py:87
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:72
 msgid "Image Name"
 msgstr "Nom d'image"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:89
-#: dashboards/nova/instances_and_volumes/instances/tables.py:241
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:116
+#: dashboards/nova/images_and_snapshots/images/tables.py:92
+#: dashboards/nova/instances_and_volumes/instances/tables.py:246
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:117
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:13
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:13
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:17
-#: dashboards/syspanel/instances/tables.py:71
+#: dashboards/syspanel/instances/tables.py:80
 msgid "Status"
 msgstr "Etat"
-
-#: dashboards/nova/images_and_snapshots/images/tables.py:91
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
-msgid "Public"
-msgstr "Publique"
 
 #: dashboards/nova/images_and_snapshots/images/tabs.py:26
 #: dashboards/nova/instances_and_volumes/instances/tabs.py:25
@@ -760,48 +710,13 @@ msgstr "Vue d'ensemble"
 msgid "Unable to retrieve image details."
 msgstr "Impossible de récupérer les détails de l'image."
 
-#: dashboards/nova/images_and_snapshots/images/views.py:60
-#: dashboards/nova/images_and_snapshots/images/views.py:164
-#, python-format
-msgid "Unable to retrieve image \"%s\"."
-msgstr "Impossible de récupérer l'image \"%s\"."
-
-#: dashboards/nova/images_and_snapshots/images/views.py:93
-msgid "Unable to retrieve instance flavors."
-msgstr "Impossible de récupérer la liste des types d'instance."
-
-#: dashboards/nova/images_and_snapshots/images/views.py:103
-msgid "Unable to retrieve keypairs."
-msgstr "Impossible récupérer les paires de clé."
-
-#: dashboards/nova/images_and_snapshots/images/views.py:112
-msgid "Unable to retrieve list of security groups"
-msgstr "Impossible de récupérer la liste des groupes de sécurité"
-
-#: dashboards/nova/images_and_snapshots/images/views.py:117
-msgid "Select Volume"
-msgstr "Sélectionner un volume"
-
-#: dashboards/nova/images_and_snapshots/images/views.py:122
-#: dashboards/nova/images_and_snapshots/snapshots/tables.py:28
-#: dashboards/nova/instances_and_volumes/instances/tables.py:152
-msgid "Snapshot"
-msgstr "Instantané"
-
-#: dashboards/nova/images_and_snapshots/images/views.py:125
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:35
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:144
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:83
-msgid "Volume"
-msgstr "Volume"
-
-#: dashboards/nova/images_and_snapshots/images/views.py:139
-#: dashboards/nova/images_and_snapshots/images/views.py:150
-msgid "Unable to retrieve list of volumes"
-msgstr "Echec de récupération de la liste des volumes"
+#: dashboards/nova/images_and_snapshots/images/views.py:50
+#, fuzzy
+msgid "Unable to retrieve image."
+msgstr "Impossible de récupérer les images."
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:41
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:95
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:101
 msgid "Snapshot Name"
 msgstr "Nom d'instantané"
 
@@ -814,11 +729,18 @@ msgstr "Instantané \"%(name)s\" créé pour l'instance \"%(inst)s\""
 msgid "Unable to create snapshot."
 msgstr "Impossible de créer l'instantané."
 
-#: dashboards/nova/images_and_snapshots/snapshots/tables.py:29
+#: dashboards/nova/images_and_snapshots/snapshots/tables.py:47
+#: dashboards/nova/instances_and_volumes/instances/tables.py:158
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:101
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:162
+msgid "Snapshot"
+msgstr "Instantané"
+
+#: dashboards/nova/images_and_snapshots/snapshots/tables.py:48
 msgid "Snapshots"
 msgstr "Instantanés"
 
-#: dashboards/nova/images_and_snapshots/snapshots/tables.py:35
+#: dashboards/nova/images_and_snapshots/snapshots/tables.py:54
 msgid "Instance Snapshots"
 msgstr "Instantané d'instance"
 
@@ -832,6 +754,7 @@ msgid "To create a snapshot, the instance must be in the \"%s\" state."
 msgstr "Pour créer un instantané, l'instance doit être dans l'état \"%s\"."
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:30
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:71
 msgid "Volume Snapshot"
 msgstr "Instantané de volume"
 
@@ -853,125 +776,123 @@ msgid "Unable to retrieve instances."
 msgstr "Echec de récupération des instances."
 
 #: dashboards/nova/instances_and_volumes/views.py:62
-#: dashboards/syspanel/instances/views.py:55
+#: dashboards/syspanel/instances/views.py:65
 msgid "Unable to retrieve instance size information."
 msgstr "Impossible de récupérer la taille de l'instance."
 
-#: dashboards/nova/instances_and_volumes/views.py:73
+#: dashboards/nova/instances_and_volumes/views.py:78
 #, python-format
 msgid "Unable to fetch volumes: %s"
 msgstr "Echec de parcours des volumes : %s"
 
-#: dashboards/nova/instances_and_volumes/instances/forms.py:45
+#: dashboards/nova/instances_and_volumes/instances/forms.py:44
 #, python-format
 msgid "Instance \"%s\" updated."
 msgstr "Instance \"%s\" mise à jour."
 
-#: dashboards/nova/instances_and_volumes/instances/forms.py:47
+#: dashboards/nova/instances_and_volumes/instances/forms.py:46
 msgid "Unable to update instance."
 msgstr "Impossible de mettre à jour l'instance."
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:55
+#: dashboards/nova/instances_and_volumes/instances/tables.py:56
 msgid "Terminate"
 msgstr "Arrêt"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:56
+#: dashboards/nova/instances_and_volumes/instances/tables.py:57
 msgid "Terminated"
 msgstr "Arrêté"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:58
-#: dashboards/nova/instances_and_volumes/instances/tables.py:70
-#: dashboards/nova/instances_and_volumes/instances/tables.py:85
-#: dashboards/nova/instances_and_volumes/instances/tables.py:113
-#: dashboards/nova/instances_and_volumes/instances/tables.py:255
+#: dashboards/nova/instances_and_volumes/instances/tables.py:59
+#: dashboards/nova/instances_and_volumes/instances/tables.py:76
+#: dashboards/nova/instances_and_volumes/instances/tables.py:91
+#: dashboards/nova/instances_and_volumes/instances/tables.py:119
+#: dashboards/nova/instances_and_volumes/instances/tables.py:261
 #: dashboards/syspanel/instances/panel.py:28
-#: dashboards/syspanel/instances/tables.py:85
+#: dashboards/syspanel/instances/tables.py:95
 #: dashboards/syspanel/projects/forms.py:115
 #: dashboards/syspanel/templates/syspanel/instances/index.html:3
 msgid "Instances"
 msgstr "Instances"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:67
+#: dashboards/nova/instances_and_volumes/instances/tables.py:73
 msgid "Reboot"
 msgstr "Redémarrage"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:68
+#: dashboards/nova/instances_and_volumes/instances/tables.py:74
 msgid "Rebooted"
 msgstr "Redémarré"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:82
+#: dashboards/nova/instances_and_volumes/instances/tables.py:88
 msgid "Pause"
 msgstr "Pause"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:82
+#: dashboards/nova/instances_and_volumes/instances/tables.py:88
 msgid "Unpause"
 msgstr "Annuler la pause"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:83
+#: dashboards/nova/instances_and_volumes/instances/tables.py:89
 msgid "Paused"
 msgstr "Mis en pause"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:83
+#: dashboards/nova/instances_and_volumes/instances/tables.py:89
 msgid "Unpaused"
 msgstr "Pause annulée"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:110
+#: dashboards/nova/instances_and_volumes/instances/tables.py:116
 msgid "Suspend"
 msgstr "Suspendre"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:110
+#: dashboards/nova/instances_and_volumes/instances/tables.py:116
 msgid "Resume"
 msgstr "Reprendre"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:111
+#: dashboards/nova/instances_and_volumes/instances/tables.py:117
 msgid "Suspended"
 msgstr "Suspendu"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:111
+#: dashboards/nova/instances_and_volumes/instances/tables.py:117
 msgid "Resumed"
 msgstr "Repris"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:138
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:63
+#: dashboards/nova/instances_and_volumes/instances/tables.py:144
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:376
 #: dashboards/nova/templates/nova/images_and_snapshots/images/launch.html:13
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:3
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:6
 #, fuzzy
 msgid "Launch Instance"
 msgstr "Démarrer l'instance"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:145
+#: dashboards/nova/instances_and_volumes/instances/tables.py:151
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:7
 msgid "Edit Instance"
 msgstr "Modifier l'instance"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:162
+#: dashboards/nova/instances_and_volumes/instances/tables.py:168
 msgid "VNC Console"
 msgstr "Console VNC"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:177
+#: dashboards/nova/instances_and_volumes/instances/tables.py:183
 msgid "View Log"
 msgstr "Afficher le journal"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:207
+#: dashboards/nova/instances_and_volumes/instances/tables.py:213
 #, python-format
 msgid "%(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 msgstr "%(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disque"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:212
-msgid "Not available"
-msgstr "Non disponible"
-
-#: dashboards/nova/instances_and_volumes/instances/tables.py:236
-#: dashboards/syspanel/instances/tables.py:64
-#: usage/tables.py:46
+#: dashboards/nova/instances_and_volumes/instances/tables.py:241
+#: dashboards/syspanel/instances/tables.py:73 usage/tables.py:47
 msgid "Instance Name"
 msgstr "Nom de l'instance"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:245
-#: dashboards/syspanel/instances/tables.py:75
+#: dashboards/nova/instances_and_volumes/instances/tables.py:250
+#: dashboards/syspanel/instances/tables.py:84
 msgid "Task"
 msgstr "Tâche"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:251
-#: dashboards/syspanel/instances/tables.py:81
+#: dashboards/nova/instances_and_volumes/instances/tables.py:257
+#: dashboards/syspanel/instances/tables.py:91
 msgid "Power State"
 msgstr "Etat d'alimentation"
 
@@ -980,7 +901,7 @@ msgid "Log"
 msgstr "Journal"
 
 #: dashboards/nova/instances_and_volumes/instances/tabs.py:47
-#: dashboards/nova/instances_and_volumes/instances/views.py:50
+#: dashboards/nova/instances_and_volumes/instances/views.py:63
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Impossible de récupérer le journal de log pour l'instance \"%s\"."
@@ -990,19 +911,211 @@ msgid "VNC"
 msgstr "VNC"
 
 #: dashboards/nova/instances_and_volumes/instances/tabs.py:69
-#: dashboards/nova/instances_and_volumes/instances/views.py:66
+#: dashboards/nova/instances_and_volumes/instances/views.py:79
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Impossible de récupérer la console VNC pour l'instance \"%s\"."
 
-#: dashboards/nova/instances_and_volumes/instances/views.py:82
+#: dashboards/nova/instances_and_volumes/instances/views.py:95
 msgid "Unable to retrieve instance details."
 msgstr "Impossible de récupérer le détail de l'instance."
 
-#: dashboards/nova/instances_and_volumes/instances/views.py:115
+#: dashboards/nova/instances_and_volumes/instances/views.py:128
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Impossible de récupérer les informations sur l'instance \"%s\"."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:34
+#: dashboards/syspanel/projects/tables.py:91
+#: dashboards/syspanel/users/tables.py:39
+#: dashboards/syspanel/users/tables.py:73 tests/workflows_tests.py:40
+msgid "User"
+msgstr "Utilisateur"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:48
+#, fuzzy
+msgid "Project & User"
+msgstr "Utilisation du projet"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:50
+msgid ""
+"Admin users may optionally select the project and user for whom the instance "
+"should be created."
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:61
+msgid "Don't boot from a volume."
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:62
+msgid "Boot from volume."
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:63
+msgid "Boot from volume snapshot (creates a new volume)."
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:67
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:85
+#, fuzzy
+msgid "Volume Options"
+msgstr "Détails du volume"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:70
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:104
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:35
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:145
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:83
+msgid "Volume"
+msgstr "Volume"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:73
+msgid "Device Name"
+msgstr "Nom de périphérique"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:76
+msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
+msgstr ""
+"Point de montage de volume (exemple monter 'vda' à partir de '/dev/vda')."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:78
+msgid "Delete on Terminate"
+msgstr "Supprimer après la mise à l'arrêt"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:81
+msgid "Delete volume on instance terminate"
+msgstr "Supprimer le volume lors de la mise à l'arrêt de l'instance"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:111
+msgid "Select Volume"
+msgstr "Sélectionner un volume"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:119
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:132
+msgid "Unable to retrieve list of volumes"
+msgstr "Echec de récupération de la liste des volumes"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:123
+#, fuzzy
+msgid "Select Volume Snapshot"
+msgstr "Créer un instantané de Volume"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:164
+#, fuzzy
+msgid "Instance Source"
+msgstr "Nombre d'instances"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:167
+#, fuzzy
+msgid "Instance Snapshot"
+msgstr "Instantané d'instance"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:169
+msgid "Server Name"
+msgstr "Nom du serveur"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:170
+#: dashboards/syspanel/flavors/tables.py:13
+msgid "Flavor"
+msgstr "Type d'instance"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:171
+msgid "Size of image to launch."
+msgstr "Taille de l'image à lancer."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:172
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:21
+msgid "Instance Count"
+msgstr "Nombre d'instances"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:175
+msgid "Number of instances to launch."
+msgstr "Nombre d'instances à lancer."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:178
+#, fuzzy
+msgid "Details"
+msgstr "Détails du volume"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:197
+msgid ""
+"Launching multiple instances is only supported for images and instance "
+"snapshots."
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:240
+#, fuzzy
+msgid "Select Image"
+msgstr "Sélectionnez la langue"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:242
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
+#, fuzzy
+msgid "No images available."
+msgstr "Aucune instance disponible"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:251
+#, fuzzy
+msgid "Select Instance Snapshot"
+msgstr "Instantané d'instance"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:264
+msgid "Unable to retrieve instance flavors."
+msgstr "Impossible de récupérer la liste des types d'instance."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:301
+msgid "Which keypair to use for authentication."
+msgstr "Quelle paire de clés utiliser pour l'authentification."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:307
+msgid "Launch instance in these security groups."
+msgstr "Lancer une instance dans ce groupe de sécurité."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:312
+msgid ""
+"Control access to your instance via keypairs, security groups, and other "
+"mechanisms."
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:322
+msgid "Unable to retrieve keypairs."
+msgstr "Impossible récupérer les paires de clé."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:324
+msgid "Select a keypair"
+msgstr "Sélectionnez une paire de clés"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:326
+msgid "No keypairs available."
+msgstr "Pas de paires de clés disponibles."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:335
+msgid "Unable to retrieve list of security groups"
+msgstr "Impossible de récupérer la liste des groupes de sécurité"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:355
+msgid "Customization Script"
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:357
+msgid ""
+"A script or set of commands to be executed after the instance has been built "
+"(max 16kb)."
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:364
+msgid "Post-Creation"
+msgstr ""
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:378
+#, python-format
+msgid "Instance \"%s\" launched."
+msgstr "Instance \"%s\" lancée."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:379
+#, fuzzy, python-format
+msgid "Unable to launch instance \"%s\"."
+msgstr "Impossible de lancer l'instance: %(exc)s"
 
 #: dashboards/nova/instances_and_volumes/volumes/forms.py:42
 #, python-format
@@ -1013,29 +1126,29 @@ msgstr "Echec de création du volume : %s"
 msgid "Select an instance to attach to."
 msgstr "Sélectionnez une instance à attacher."
 
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:80
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:86
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s at %(dev)s"
 msgstr "Attache le volume %(vol)s à l'instance %(inst)s à partir de %(dev)s"
 
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:89
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:95
 #, python-format
 msgid "Error attaching volume: %s"
 msgstr "Erreur d'attachement du volume : %s"
 
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:114
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:120
 #, python-format
 msgid "Creating volume snapshot \"%s\""
 msgstr "Création de l'instantané de volume \"%s\""
 
-#: dashboards/nova/instances_and_volumes/volumes/forms.py:119
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:125
 #, python-format
 msgid "Error Creating Volume Snapshot: %(exc)s"
 msgstr "Echec de création de l'instantané du volume %(exc)s"
 
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:36
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:133
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:145
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:134
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:146
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:78
 #: dashboards/syspanel/projects/forms.py:116
 msgid "Volumes"
@@ -1064,16 +1177,16 @@ msgstr "Créer un instantané"
 msgid "%s GB"
 msgstr "%s GB"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:129
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:130
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:34
 msgid "Attachments"
 msgstr "Attachements"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:142
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:143
 msgid "Detach"
 msgstr "Détacher"
 
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:143
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:144
 msgid "Detached"
 msgstr "Détaché"
 
@@ -1097,7 +1210,6 @@ msgstr "Allouer une adresse IP flottante"
 
 #: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:17
 #: dashboards/nova/templates/nova/access_and_security/floating_ips/_associate.html:16
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:18
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:16
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:17
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:16
@@ -1109,10 +1221,11 @@ msgstr "Description :"
 
 #: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:18
 msgid "Allocate a floating IP from a given floating ip pool."
-msgstr "Allouer une adresse IP flottante à partir d'un pool donné d'adresses IP."
+msgstr ""
+"Allouer une adresse IP flottante à partir d'un pool donné d'adresses IP."
 
 #: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:20
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:20
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:19
 msgid "Project Quotas"
 msgstr "Quotas de projet"
 
@@ -1127,7 +1240,6 @@ msgstr "Allouer une adresse IP"
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:24
 #: dashboards/nova/templates/nova/access_and_security/security_groups/_edit_rules.html:20
 #: dashboards/nova/templates/nova/containers/_create.html:23
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:64
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:23
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:24
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:23
@@ -1147,6 +1259,7 @@ msgstr "Allouer une adresse IP"
 #: dashboards/syspanel/templates/syspanel/projects/_update.html:24
 #: dashboards/syspanel/templates/syspanel/users/_create.html:23
 #: dashboards/syspanel/templates/syspanel/users/_update.html:23
+#: templates/horizon/common/_workflow.html:29
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -1161,13 +1274,22 @@ msgstr "Associer une adresse IP flottante à une instance."
 
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:17
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:17
-msgid "Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)."
-msgstr "Les Paires de clés sont des informations d'identification ssh qui sont injectées dans les images lorsqu'elles sont lancées. La création d'une nouvelle paire de clés enregistre la clé publique et vous permet de télécharger la clé privée (un fichier .pem)."
+msgid ""
+"Keypairs are ssh credentials which are injected into images when they are "
+"launched. Creating a new key pair registers the public key and downloads the "
+"private key (a .pem file)."
+msgstr ""
+"Les Paires de clés sont des informations d'identification ssh qui sont "
+"injectées dans les images lorsqu'elles sont lancées. La création d'une "
+"nouvelle paire de clés enregistre la clé publique et vous permet de "
+"télécharger la clé privée (un fichier .pem)."
 
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:18
 #: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:18
 msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "Protégez et utilisez la clé comme vous le feriez pour n'importe quelle utilisation de clé privée ssh."
+msgstr ""
+"Protégez et utilisez la clé comme vous le feriez pour n'importe quelle "
+"utilisation de clé privée ssh."
 
 #: dashboards/nova/templates/nova/access_and_security/keypairs/download.html:3
 #: dashboards/nova/templates/nova/access_and_security/keypairs/download.html:6
@@ -1176,8 +1298,12 @@ msgstr "Télécharger la paire de clés"
 
 #: dashboards/nova/templates/nova/access_and_security/keypairs/download.html:11
 #, python-format
-msgid "The keypair &quot;%(keypair_name)s&quot; should download automatically. If not use the link below."
-msgstr "Le téléchargement de la paire de clés \"%(keypair_name)s\" doit se lancer automatiquement, sinon utilisez le lien ci-dessous."
+msgid ""
+"The keypair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not use the link below."
+msgstr ""
+"Le téléchargement de la paire de clés \"%(keypair_name)s\" doit se lancer "
+"automatiquement, sinon utilisez le lien ci-dessous."
 
 #: dashboards/nova/templates/nova/access_and_security/keypairs/download.html:15
 #, python-format
@@ -1199,8 +1325,23 @@ msgid "Add Rule"
 msgstr "Ajouter une règle"
 
 #: dashboards/nova/templates/nova/containers/_create.html:17
-msgid "A container is a storage compartment for your data and provides a way for you to organize your data. You can think of a container as a folder in Windows &reg; or a directory in UNIX &reg;. The primary difference between a container and these other file system concepts is that containers cannot be nested. You can, however, create an unlimited number of containers within your account. Data must be stored in a container so you must have at least one container defined in your account prior to uploading data."
-msgstr "Un conteneur est un espace de stockage qui vous permet d'organiser vos données. Cet espace peut se rapprocher de la notion de dossier dans Windows ® ou de répertoire sous UNIX ®. La principale différence entre un conteneur et ces autres concepts de système de fichiers est que les conteneurs ne peuvent pas être imbriqués. Vous pouvez toutefois créer un nombre illimité de conteneurs dans votre compte. Les données devant être impérativement stockées dans un conteneur, vous devez donc avoir au moins un conteneur défini dans votre compte avant tout téléchargement de données."
+msgid ""
+"A container is a storage compartment for your data and provides a way for "
+"you to organize your data. You can think of a container as a folder in "
+"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
+"container and these other file system concepts is that containers cannot be "
+"nested. You can, however, create an unlimited number of containers within "
+"your account. Data must be stored in a container so you must have at least "
+"one container defined in your account prior to uploading data."
+msgstr ""
+"Un conteneur est un espace de stockage qui vous permet d'organiser vos "
+"données. Cet espace peut se rapprocher de la notion de dossier dans Windows "
+"® ou de répertoire sous UNIX ®. La principale différence entre un conteneur "
+"et ces autres concepts de système de fichiers est que les conteneurs ne "
+"peuvent pas être imbriqués. Vous pouvez toutefois créer un nombre illimité "
+"de conteneurs dans votre compte. Les données devant être impérativement "
+"stockées dans un conteneur, vous devez donc avoir au moins un conteneur "
+"défini dans votre compte avant tout téléchargement de données."
 
 #: dashboards/nova/templates/nova/images_and_snapshots/index.html:3
 #: dashboards/nova/templates/nova/images_and_snapshots/index.html:6
@@ -1221,8 +1362,8 @@ msgstr "Info"
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:11
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:11
 #: dashboards/syspanel/projects/forms.py:83
-#: dashboards/syspanel/users/forms.py:103
-#: dashboards/syspanel/users/tables.py:124
+#: dashboards/syspanel/users/forms.py:104
+#: dashboards/syspanel/users/tables.py:106
 msgid "ID"
 msgstr "ID"
 
@@ -1262,44 +1403,6 @@ msgstr "ID projet"
 msgid "Image Type"
 msgstr "Type d'image"
 
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:9
-msgid "Launch Instances"
-msgstr "Lancement des instances"
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:19
-msgid "Specify the details for launching an instance. The chart below shows the resources used by this project in relation to the project's quotas."
-msgstr "Spécifiez les détails pour le lancement d'une instance. Le tableau ci-dessous montre les ressources utilisées par ce projet par rapport aux quotas du projet."
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:30
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:24
-#: dashboards/syspanel/flavors/forms.py:38
-#: dashboards/syspanel/flavors/tables.py:30
-#: dashboards/syspanel/projects/forms.py:114
-#: usage/tables.py:18
-msgid "VCPUs"
-msgstr "VCPUs"
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:37
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:26
-#: usage/tables.py:19
-msgid "Disk"
-msgstr "Disque"
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:37
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:27
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:27
-msgid "GB"
-msgstr "Go"
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:44
-#: dashboards/syspanel/flavors/tables.py:31
-msgid "Memory"
-msgstr "Mémoire"
-
-#: dashboards/nova/templates/nova/images_and_snapshots/images/_launch.html:44
-msgid "MB"
-msgstr "Mo"
-
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:7
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:22
 #: dashboards/nova/templates/nova/images_and_snapshots/images/update.html:3
@@ -1322,7 +1425,9 @@ msgstr "Détail d'une image"
 
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:18
 msgid "Snapshots preserve the disk state of a running instance."
-msgstr "Les instantanés préservent l'état du disque pour une instance en cours d'exécution."
+msgstr ""
+"Les instantanés préservent l'état du disque pour une instance en cours "
+"d'exécution."
 
 #: dashboards/nova/templates/nova/images_and_snapshots/snapshots/create.html:6
 msgid "Create a Snapshot"
@@ -1341,13 +1446,38 @@ msgid "Instance Overview"
 msgstr "Vue d'ensemble de l'instance"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:22
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:14
 #: usage/tables.py:21
 msgid "RAM"
 msgstr "Mémoire"
 
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:24
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:10
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:28
+#: dashboards/syspanel/flavors/forms.py:38
+#: dashboards/syspanel/flavors/tables.py:30
+#: dashboards/syspanel/projects/forms.py:114 usage/tables.py:18
+msgid "VCPUs"
+msgstr "VCPUs"
+
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:25
 msgid "VCPU"
 msgstr "VCPU"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:26
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:35
+#: usage/tables.py:19
+msgid "Disk"
+msgstr "Disque"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:27
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:11
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:12
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:13
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:35
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:27
+msgid "GB"
+msgstr "Go"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:32
 msgid "IP Addresses"
@@ -1374,30 +1504,106 @@ msgid "Instance VNC Console"
 msgstr "Console VNC de l'instance"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_vnc.html:5
-msgid "If VNC console is not responding to keyboard input: click the grey status bar below."
-msgstr "Si la console VNC ne répond pas au clavier : cliquez sur la barre grise ci-dessous."
+msgid ""
+"If VNC console is not responding to keyboard input: click the grey status "
+"bar below."
+msgstr ""
+"Si la console VNC ne répond pas au clavier : cliquez sur la barre grise ci-"
+"dessous."
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_vnc.html:5
+msgid "Click here to show only VNC"
+msgstr ""
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_vnc.html:8
 msgid "VNC console is currently unavailabe. Please try again later."
-msgstr "La console VNC n'est actuellement pas disponible. Merci de réessayez plus tard."
+msgstr ""
+"La console VNC n'est actuellement pas disponible. Merci de réessayez plus "
+"tard."
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_vnc.html:9
 msgid "Reload"
 msgstr "Recharger"
 
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_customize_help.html:2
+msgid ""
+"You can customize your instance after it's launched using the options "
+"available here."
+msgstr ""
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_customize_help.html:3
+msgid ""
+"The \"Customization Script\" field is analogous to \"User Data\" in other "
+"systems."
+msgstr ""
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:3
+msgid "Specify the details for launching an instance."
+msgstr ""
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:4
+#, fuzzy
+msgid ""
+"The chart below shows the resources used by this project in relation to the "
+"project's quotas."
+msgstr ""
+"Spécifiez les détails pour le lancement d'une instance. Le tableau ci-"
+"dessous montre les ressources utilisées par ce projet par rapport aux quotas "
+"du projet."
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:6
+#, fuzzy
+msgid "Flavor Details"
+msgstr "ID de type d'instance"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:11
+#: dashboards/syspanel/flavors/tables.py:32
+msgid "Root Disk"
+msgstr "Disque racine"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:12
+#: dashboards/syspanel/flavors/tables.py:34
+msgid "Ephemeral Disk"
+msgstr "Disque éphémère"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:13
+#, fuzzy
+msgid "Total Disk"
+msgstr "Disque racine"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:14
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:42
+msgid "MB"
+msgstr "Mo"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:42
+#: dashboards/syspanel/flavors/tables.py:31
+msgid "Memory"
+msgstr "Mémoire"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_volumes_help.html:3
+msgid ""
+"An instance can be launched with varying types of attached storage. You may "
+"select from those options here."
+msgstr ""
+
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:17
-msgid "Update the name of your instance"
+#, fuzzy
+msgid "You may update the editable properties of your instance here."
 msgstr "Mise à jour du nom de votre instance"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:22
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/update.html:3
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/update.html:6
-msgid "Update Instance"
-msgstr "Mettre à jour l'instance"
+msgid "Save Changes"
+msgstr ""
 
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/detail.html:3
 msgid "Instance Detail"
 msgstr "Détail de l'instance"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/update.html:3
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/update.html:6
+msgid "Update Instance"
+msgstr "Mettre à jour l'instance"
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_attach.html:9
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/attach.html:6
@@ -1415,7 +1621,8 @@ msgstr "Attacher un volume"
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:18
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:18
 msgid "Volumes are block devices that can be attached to instances."
-msgstr "Les volumes sont des blocks devices qui peuvent être attachés aux instances."
+msgstr ""
+"Les volumes sont des blocks devices qui peuvent être attachés aux instances."
 
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:8
 #: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:23
@@ -1463,16 +1670,32 @@ msgid "Copy Object"
 msgstr "Copier l'objet"
 
 #: dashboards/nova/templates/nova/objects/_copy.html:17
-msgid "You may make a new copy of an existing object to store in this or another container."
-msgstr "Vous pouvez utiliser une nouvelle copie d'un objet existant ou un conteneur pour le stockage."
+msgid ""
+"You may make a new copy of an existing object to store in this or another "
+"container."
+msgstr ""
+"Vous pouvez utiliser une nouvelle copie d'un objet existant ou un conteneur "
+"pour le stockage."
 
 #: dashboards/nova/templates/nova/objects/_upload.html:8
 msgid "Upload Object To Container"
 msgstr "Uploader l'objet dans un conteneur"
 
 #: dashboards/nova/templates/nova/objects/_upload.html:18
-msgid "An object is the basic storage entity and any optional metadata that represents the files you store in the OpenStack Object Storage system. When you upload data to OpenStack Object Storage, the data is stored as-is (no compression or encryption) and consists of a location (container), the object's name, and any metadata consisting of key/value pairs."
-msgstr "Un objet est l'entité de stockage de base. Dans le système de stockage d'objets OpenStack, un objet est associé aux métadonnées optionnelles qui permettent de représenter la notion de fichiers. Quand vous uploadez des données dans le système de stockage d'objets d'OpenStack, les données sont stockées en l'état (pas de compression ou de chiffrement) et se compose d'un emplacement (conteneur), le nom de l'objet, et toutes les métadonnées constituées de paires clé/valeur."
+msgid ""
+"An object is the basic storage entity and any optional metadata that "
+"represents the files you store in the OpenStack Object Storage system. When "
+"you upload data to OpenStack Object Storage, the data is stored as-is (no "
+"compression or encryption) and consists of a location (container), the "
+"object's name, and any metadata consisting of key/value pairs."
+msgstr ""
+"Un objet est l'entité de stockage de base. Dans le système de stockage "
+"d'objets OpenStack, un objet est associé aux métadonnées optionnelles qui "
+"permettent de représenter la notion de fichiers. Quand vous uploadez des "
+"données dans le système de stockage d'objets d'OpenStack, les données sont "
+"stockées en l'état (pas de compression ou de chiffrement) et se compose d'un "
+"emplacement (conteneur), le nom de l'objet, et toutes les métadonnées "
+"constituées de paires clé/valeur."
 
 #: dashboards/nova/templates/nova/objects/upload.html:6
 msgid "Upload Objects"
@@ -1482,8 +1705,7 @@ msgstr "Upload d'objets"
 msgid "Settings"
 msgstr "Réglages"
 
-#: dashboards/settings/ec2/forms.py:35
-#: dashboards/settings/project/forms.py:35
+#: dashboards/settings/ec2/forms.py:35 dashboards/settings/project/forms.py:35
 msgid "Select a Project"
 msgstr "Sélectionnez un projet"
 
@@ -1491,11 +1713,11 @@ msgstr "Sélectionnez un projet"
 msgid "Unable to retrieve tenant list."
 msgstr "Impossible de récupérer la liste des tenants."
 
-#: dashboards/settings/ec2/forms.py:86
+#: dashboards/settings/ec2/forms.py:95
 msgid "Unable to fetch EC2 credentials."
 msgstr "Impossible de récupérer les informations d'identification d'EC2."
 
-#: dashboards/settings/ec2/forms.py:99
+#: dashboards/settings/ec2/forms.py:108
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Erreur d'écriture du fichier zip : %(exc)s"
@@ -1521,8 +1743,14 @@ msgid "Download EC2 Credentials"
 msgstr "Télécharger les informations d'identification d'EC2"
 
 #: dashboards/settings/templates/settings/ec2/download_form.html:18
-msgid "Clicking \"Download EC2 Credentials\" will download a zip file which includes an rc file with your access/secret keys, as well as your x509 private key and certificate."
-msgstr "Cliquer sur \"Télécharger les informations d'identification d'EC2\" va télécharger un fichier zip qui contient un fichier RC avec vos informations d'accès/clés secrètes, ainsi que votre clé privée et le certificat X509."
+msgid ""
+"Clicking \"Download EC2 Credentials\" will download a zip file which "
+"includes an rc file with your access/secret keys, as well as your x509 "
+"private key and certificate."
+msgstr ""
+"Cliquer sur \"Télécharger les informations d'identification d'EC2\" va "
+"télécharger un fichier zip qui contient un fichier RC avec vos informations "
+"d'accès/clés secrètes, ainsi que votre clé privée et le certificat X509."
 
 #: dashboards/settings/templates/settings/project/_openrc.html:8
 #: dashboards/settings/templates/settings/project/settings.html:6
@@ -1530,8 +1758,13 @@ msgid "Download OpenStack RC File"
 msgstr "Télécharger le fichier RC d'OpenStack"
 
 #: dashboards/settings/templates/settings/project/_openrc.html:18
-msgid "Download the RC file for the selected project, then type \"source openrc\" in the terminal to configure your environment to communicate with OpenStack."
-msgstr "Téléchargez le fichier RC pour le projet sélectionné, tapez ensuite \"source openrc \" dans la console pour configurer votre environnement à communiquer avec OpenStack."
+msgid ""
+"Download the RC file for the selected project, then type \"source openrc\" "
+"in the terminal to configure your environment to communicate with OpenStack."
+msgstr ""
+"Téléchargez le fichier RC pour le projet sélectionné, tapez ensuite \"source "
+"openrc \" dans la console pour configurer votre environnement à communiquer "
+"avec OpenStack."
 
 #: dashboards/settings/templates/settings/project/_openrc.html:23
 msgid "Download RC File"
@@ -1552,7 +1785,9 @@ msgstr "Réglages de langue"
 
 #: dashboards/settings/templates/settings/user/_language.html:31
 msgid "From here you can modify different settings for your dashboard."
-msgstr "A partir de là, vous pouvez modifier différents paramètres de votre tableau de bord."
+msgstr ""
+"A partir de là, vous pouvez modifier différents paramètres de votre tableau "
+"de bord."
 
 #: dashboards/settings/templates/settings/user/settings.html:6
 msgid "Dashboard Settings"
@@ -1566,7 +1801,7 @@ msgstr "Paramètres utilisateur"
 msgid "System Panel"
 msgstr "Panneau de configuration"
 
-#: dashboards/syspanel/dashboard.py:30
+#: dashboards/syspanel/dashboard.py:30 tests/workflows_tests.py:74
 msgid "Admin"
 msgstr "Administration"
 
@@ -1609,14 +1844,6 @@ msgstr "Créer un type d'instance"
 msgid "Flavor Name"
 msgstr "Nom de type d'instance"
 
-#: dashboards/syspanel/flavors/tables.py:32
-msgid "Root Disk"
-msgstr "Disque racine"
-
-#: dashboards/syspanel/flavors/tables.py:34
-msgid "Ephemeral Disk"
-msgstr "Disque éphémère"
-
 #: dashboards/syspanel/flavors/views.py:48
 msgid "Unauthorized."
 msgstr "Non autorisé."
@@ -1630,16 +1857,16 @@ msgstr "Impossible de récupérer la liste des types d'instance : %s"
 msgid "Unable to retrieve image list."
 msgstr "Impossible de récupérer la liste des images."
 
-#: dashboards/syspanel/instances/tables.py:53
+#: dashboards/syspanel/instances/tables.py:62
 msgid "Tenant"
 msgstr "Tenant"
 
-#: dashboards/syspanel/instances/tables.py:60
+#: dashboards/syspanel/instances/tables.py:69
 #: dashboards/syspanel/services/tables.py:40
 msgid "Host"
 msgstr "Hôte"
 
-#: dashboards/syspanel/instances/views.py:62
+#: dashboards/syspanel/instances/views.py:72
 msgid "Unable to retrieve instance tenant information."
 msgstr "Impossible de récupérer les informations des tenants d'instance."
 
@@ -1659,7 +1886,8 @@ msgstr "Impossible d'ajouter un utilisateur au tenant."
 #: dashboards/syspanel/projects/forms.py:89
 #: dashboards/syspanel/projects/tables.py:77
 #: dashboards/syspanel/services/tables.py:42
-#: dashboards/syspanel/users/tables.py:130
+#: dashboards/syspanel/users/tables.py:38
+#: dashboards/syspanel/users/tables.py:112
 msgid "Enabled"
 msgstr "Activé"
 
@@ -1754,16 +1982,12 @@ msgstr "Supprimer"
 msgid "Removed"
 msgstr "Supprimé"
 
-#: dashboards/syspanel/projects/tables.py:91
-#: dashboards/syspanel/users/tables.py:92
-msgid "User"
-msgstr "Utilisateur"
-
 #: dashboards/syspanel/projects/tables.py:92
 #: dashboards/syspanel/templates/syspanel/users/index.html:8
 #: dashboards/syspanel/users/panel.py:28
-#: dashboards/syspanel/users/tables.py:93
-#: dashboards/syspanel/users/tables.py:136
+#: dashboards/syspanel/users/tables.py:40
+#: dashboards/syspanel/users/tables.py:74
+#: dashboards/syspanel/users/tables.py:119
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -1824,7 +2048,8 @@ msgstr "Service"
 
 #: dashboards/syspanel/templates/syspanel/flavors/_create.html:18
 msgid "From here you can define the sizing of a new flavor."
-msgstr "D'ici vous pouvez définir la configuration d'un nouveau type d'instance."
+msgstr ""
+"D'ici vous pouvez définir la configuration d'un nouveau type d'instance."
 
 #: dashboards/syspanel/templates/syspanel/instances/index.html:6
 msgid "All Instances"
@@ -1860,7 +2085,8 @@ msgstr "Créer un projet"
 
 #: dashboards/syspanel/templates/syspanel/projects/_create.html:18
 msgid "From here you can create a new project to organize users."
-msgstr "D'ici vous pouvez créer un nouveau projet pour organiser les utilisateurs."
+msgstr ""
+"D'ici vous pouvez créer un nouveau projet pour organiser les utilisateurs."
 
 #: dashboards/syspanel/templates/syspanel/projects/_quotas.html:7
 #: dashboards/syspanel/templates/syspanel/projects/_quotas.html:22
@@ -1869,8 +2095,11 @@ msgstr "Mettre à jour les quotas"
 
 #: dashboards/syspanel/templates/syspanel/projects/_quotas.html:17
 #, python-format
-msgid "From here you can edit quotas (max limits) for the project %(tenant.name)s."
-msgstr "D'ici vous pouvez modifier les quotas (limite maximum) pour le projet %(tenant.name)s."
+msgid ""
+"From here you can edit quotas (max limits) for the project %(tenant.name)s."
+msgstr ""
+"D'ici vous pouvez modifier les quotas (limite maximum) pour le projet "
+"%(tenant.name)s."
 
 #: dashboards/syspanel/templates/syspanel/projects/_update.html:8
 #: dashboards/syspanel/templates/syspanel/projects/_update.html:23
@@ -1902,13 +2131,14 @@ msgstr "Quotas par défaut"
 #: dashboards/syspanel/templates/syspanel/users/_create.html:7
 #: dashboards/syspanel/templates/syspanel/users/_create.html:22
 #: dashboards/syspanel/templates/syspanel/users/create.html:7
-#: dashboards/syspanel/users/tables.py:16
+#: dashboards/syspanel/users/tables.py:18
 msgid "Create User"
 msgstr "Créer un utilisateur"
 
 #: dashboards/syspanel/templates/syspanel/users/_create.html:17
 msgid "From here you can create a new user and assign them to a project."
-msgstr "D'ici vous pouvez créer un nouvel utilisateur et l'assigner à un projet."
+msgstr ""
+"D'ici vous pouvez créer un nouvel utilisateur et l'assigner à un projet."
 
 #: dashboards/syspanel/templates/syspanel/users/_update.html:7
 #: dashboards/syspanel/templates/syspanel/users/_update.html:22
@@ -1917,134 +2147,104 @@ msgid "Update User"
 msgstr "Mettre à jour l'utilisateur"
 
 #: dashboards/syspanel/templates/syspanel/users/_update.html:17
-msgid "From here you can edit the user by changing their username, email, password, and default project."
-msgstr "D'ici vous pouvez modifier l'utilisateur en changeant son nom, email, mot de passe et projet par défaut."
+#, fuzzy
+msgid ""
+"From here you can edit the user's details, including their default project."
+msgstr ""
+"D'ici vous pouvez modifier l'utilisateur en changeant son nom, email, mot de "
+"passe et projet par défaut."
 
 #: dashboards/syspanel/users/forms.py:41
 msgid "Select a project"
 msgstr "Sélectionnez un projet"
 
-#: dashboards/syspanel/users/forms.py:56
+#: dashboards/syspanel/users/forms.py:57
 msgid "Passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
 
-#: dashboards/syspanel/users/forms.py:61
-#: dashboards/syspanel/users/forms.py:104
-#: dashboards/syspanel/users/tables.py:125
-#: views/auth_forms.py:64
+#: dashboards/syspanel/users/forms.py:62
+#: dashboards/syspanel/users/forms.py:105
+#: dashboards/syspanel/users/tables.py:107 views/auth_forms.py:64
 msgid "User Name"
 msgstr "Nom d'utilisateur"
 
-#: dashboards/syspanel/users/forms.py:62
-#: dashboards/syspanel/users/forms.py:105
-#: dashboards/syspanel/users/tables.py:126
+#: dashboards/syspanel/users/forms.py:63
+#: dashboards/syspanel/users/forms.py:106
+#: dashboards/syspanel/users/tables.py:108
 msgid "Email"
 msgstr "Email"
 
-#: dashboards/syspanel/users/forms.py:64
-#: dashboards/syspanel/users/forms.py:106
-#: views/auth_forms.py:65
+#: dashboards/syspanel/users/forms.py:65
+#: dashboards/syspanel/users/forms.py:107 views/auth_forms.py:65
 msgid "Password"
 msgstr "Mot de passe"
 
-#: dashboards/syspanel/users/forms.py:69
-#: dashboards/syspanel/users/forms.py:112
+#: dashboards/syspanel/users/forms.py:70
+#: dashboards/syspanel/users/forms.py:114
 msgid "Confirm Password"
 msgstr "Confirmez le mot de passe"
 
-#: dashboards/syspanel/users/forms.py:72
-#: dashboards/syspanel/users/forms.py:115
+#: dashboards/syspanel/users/forms.py:73
+#: dashboards/syspanel/users/forms.py:117
 msgid "Primary Project"
 msgstr "Projet principal."
 
-#: dashboards/syspanel/users/forms.py:84
+#: dashboards/syspanel/users/forms.py:85
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "L'utilisateur \"%s\" a été créé avec succès."
 
-#: dashboards/syspanel/users/forms.py:95
+#: dashboards/syspanel/users/forms.py:96
 msgid "Unable to add user to primary project."
 msgstr "Impossible d'ajouter un utilisateur au projet principal."
 
-#: dashboards/syspanel/users/forms.py:98
+#: dashboards/syspanel/users/forms.py:99
 msgid "Unable to create user."
 msgstr "Impossible de créer un utilisateur."
 
-#: dashboards/syspanel/users/forms.py:127
+#: dashboards/syspanel/users/forms.py:139
 msgid "name"
 msgstr "nom"
 
-#: dashboards/syspanel/users/forms.py:127
+#: dashboards/syspanel/users/forms.py:139
 msgid "email"
 msgstr "email"
 
-#: dashboards/syspanel/users/forms.py:136
+#: dashboards/syspanel/users/forms.py:148
 msgid "primary project"
 msgstr "projet principal"
 
-#: dashboards/syspanel/users/forms.py:147
+#: dashboards/syspanel/users/forms.py:160
 msgid "password"
 msgstr "mot de passe"
 
-#: dashboards/syspanel/users/forms.py:158
-#, python-format
-msgid "Updated %(attributes)s for \"%(user)s\"."
-msgstr "%(attributes)s mis à jour pour \"%(user)s\"."
+#: dashboards/syspanel/users/forms.py:169
+#, fuzzy
+msgid "User has been updated successfully."
+msgstr "Succès de création du conteneur."
 
-#: dashboards/syspanel/users/forms.py:164
-#, python-format
-msgid "Unable to update %(attributes)s for \"%(user)s\"."
+#: dashboards/syspanel/users/forms.py:173
+#, fuzzy, python-format
+msgid "Unable to update %(attributes)s for the user."
 msgstr "Impossible de mettre à jour %(attributes)s pour \"%(user)s\"."
 
-#: dashboards/syspanel/users/tables.py:30
+#: dashboards/syspanel/users/tables.py:37
 msgid "Enable"
 msgstr "Activer"
 
-#: dashboards/syspanel/users/tables.py:31
-msgid "Enable Users"
-msgstr "Activer les utilisateurs"
-
-#: dashboards/syspanel/users/tables.py:46
-#, python-format
-msgid "Error enabling user: %s"
-msgstr "Erreur d'activation de l'utilisateur : %s"
-
-#: dashboards/syspanel/users/tables.py:49
-#, python-format
-msgid "Enabled the following users: %s"
-msgstr "Activation des utilisateurs sélectionnés : %s"
-
-#: dashboards/syspanel/users/tables.py:52
-#, python-format
-msgid "Successfully enabled users: %s"
-msgstr "Succès de l'activation des utilisateurs : %s"
-
-#: dashboards/syspanel/users/tables.py:59
+#: dashboards/syspanel/users/tables.py:37
 msgid "Disable"
 msgstr "Désactiver"
 
-#: dashboards/syspanel/users/tables.py:60
-msgid "Disable Users"
-msgstr "Utilisateurs désactivés"
+#: dashboards/syspanel/users/tables.py:38
+#, fuzzy
+msgid "Disabled"
+msgstr "Désactiver"
 
-#: dashboards/syspanel/users/tables.py:71
+#: dashboards/syspanel/users/tables.py:61
 msgid "You cannot disable the user you are currently logged in as."
-msgstr "Vous ne pouvez pas désactiver l'utilisateur avec lequel vous êtes connecté."
-
-#: dashboards/syspanel/users/tables.py:79
-#, python-format
-msgid "Error disabling user: %s"
-msgstr "Erreur de désactivation de l'utilisateur : %s"
-
-#: dashboards/syspanel/users/tables.py:82
-#, python-format
-msgid "Disabled the following users: %s"
-msgstr "Désactivation des utilisateurs sélectionnés : %s"
-
-#: dashboards/syspanel/users/tables.py:86
-#, python-format
-msgid "Successfully disabled users: %s"
-msgstr "Succès de la désactivation des utilisateurs : %s"
+msgstr ""
+"Vous ne pouvez pas désactiver l'utilisateur avec lequel vous êtes connecté."
 
 #: dashboards/syspanel/users/views.py:47
 msgid "Unable to retrieve user list."
@@ -2081,25 +2281,25 @@ msgstr "Supprimer"
 msgid "Deleted"
 msgstr "Supprimé"
 
-#: tables/base.py:225
+#: tables/base.py:231
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "L'attribut %(attr)s n'existe pas sur %(obj)s."
 
-#: tables/base.py:652
+#: tables/base.py:671
 msgid "Actions"
 msgstr "Actions"
 
-#: tables/base.py:797
+#: tables/base.py:816
 msgid "No items to display."
 msgstr "Aucun élément à afficher."
 
-#: tables/base.py:814
+#: tables/base.py:833
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Aucun résultat retourné pour l'id  \"%s\"."
 
-#: tables/base.py:921
+#: tables/base.py:940
 msgid "Please select a row before taking that action."
 msgstr "Merci de sélectionner une ligne avant de faire cette action."
 
@@ -2138,10 +2338,6 @@ msgid_plural "Displaying %(counter)s items"
 msgstr[0] "Affichage de l'élément %(counter)s"
 msgstr[1] "Affichage des éléments %(counter)s"
 
-#: templates/horizon/common/_sidebar.html:4
-msgid "OpenStack Dashboard"
-msgstr "Tableau de bord OpenStack"
-
 #: templates/horizon/common/_usage_summary.html:5
 msgid "Select a month to query its usage"
 msgstr "Sélectionnez un mois pour détailler son utilisation"
@@ -2170,8 +2366,7 @@ msgstr "Heures-Go de ce mois"
 msgid "No Limit"
 msgstr "Pas de limite"
 
-#: templatetags/horizon.py:123
-#: templatetags/horizon.py:125
+#: templatetags/horizon.py:123 templatetags/horizon.py:125
 msgid "Available"
 msgstr "Disponible"
 
@@ -2209,6 +2404,21 @@ msgstr "%s To"
 msgid "%s PB"
 msgstr "%s Po"
 
+#: tests/base_tests.py:43
+#, fuzzy
+msgid "My Dashboard"
+msgstr "Tableau de bord OpenStack"
+
+#: tests/base_tests.py:49
+#, fuzzy
+msgid "My Panel"
+msgstr "Panneau de configuration"
+
+#: tests/base_tests.py:56
+#, fuzzy
+msgid "Admin Panel"
+msgstr "Administration"
+
 #: tests/table_tests.py:94
 msgid "Batch"
 msgstr "Lot"
@@ -2217,13 +2427,11 @@ msgstr "Lot"
 msgid "Batched"
 msgstr "En lots"
 
-#: tests/table_tests.py:96
-#: tests/table_tests.py:107
+#: tests/table_tests.py:96 tests/table_tests.py:107
 msgid "Item"
 msgstr "Elément"
 
-#: tests/table_tests.py:97
-#: tests/table_tests.py:108
+#: tests/table_tests.py:97 tests/table_tests.py:108
 msgid "Items"
 msgstr "Eléments"
 
@@ -2267,9 +2475,60 @@ msgstr "Onglet avec mon tableau"
 msgid "Recoverable Error Tab"
 msgstr "Onglet avec erreur récupérable"
 
-#: tests/testsettings.py:89
+#: tests/testsettings.py:99
 msgid "Password must be between 8 and 18 characters."
 msgstr "Le mot de passe doit être entre 8 et 18 caractères."
+
+#: tests/workflows_tests.py:43
+msgid "Test Action One"
+msgstr ""
+
+#: tests/workflows_tests.py:61
+msgid "Test Action Two"
+msgstr ""
+
+#: tests/workflows_tests.py:69
+msgid "Test Action Three"
+msgstr ""
+
+#: tests/workflows_tests.py:77
+#, fuzzy
+msgid "Admin Action"
+msgstr "Actions"
+
+#: tests/test_dashboards/cats/dashboard.py:8
+msgid "Cute Cats"
+msgstr ""
+
+#: tests/test_dashboards/cats/dashboard.py:14
+msgid "Fierce Cats"
+msgstr ""
+
+#: tests/test_dashboards/cats/dashboard.py:19
+msgid "Cats"
+msgstr ""
+
+#: tests/test_dashboards/cats/kittens/panel.py:9
+#: tests/test_dashboards/cats/kittens/templates/kittens/index.html:3
+#: tests/test_dashboards/cats/kittens/templates/kittens/index.html:6
+msgid "Kittens"
+msgstr ""
+
+#: tests/test_dashboards/cats/tigers/panel.py:9
+#: tests/test_dashboards/cats/tigers/templates/tigers/index.html:3
+#: tests/test_dashboards/cats/tigers/templates/tigers/index.html:6
+msgid "Tigers"
+msgstr ""
+
+#: tests/test_dashboards/dogs/dashboard.py:7
+msgid "Dogs"
+msgstr ""
+
+#: tests/test_dashboards/dogs/puppies/panel.py:9
+#: tests/test_dashboards/dogs/puppies/templates/puppies/index.html:3
+#: tests/test_dashboards/dogs/puppies/templates/puppies/index.html:6
+msgid "Puppies"
+msgstr ""
 
 #: usage/base.py:94
 msgid "Unable to retrieve usage information."
@@ -2277,7 +2536,9 @@ msgstr "Impossible de récupérer les informations d'utilisation."
 
 #: usage/base.py:97
 msgid "You are viewing data for the future, which may or may not exist."
-msgstr "Vous visualisez des données avec une date dans le futur qui pourraient ne pas exister."
+msgstr ""
+"Vous visualisez des données avec une date dans le futur qui pourraient ne "
+"pas exister."
 
 #: usage/tables.py:10
 msgid "Download CSV Summary"
@@ -2291,16 +2552,28 @@ msgstr "Heures-VCPU"
 msgid "Disk GB Hours"
 msgstr "Heures-Go disque"
 
-#: usage/tables.py:38
-#: usage/tables.py:56
+#: usage/tables.py:38 usage/tables.py:59
 msgid "Usage Summary"
 msgstr "Synthèse d'utilisation"
 
-#: usage/tables.py:48
+#: usage/tables.py:51
 msgid "Uptime"
 msgstr "Temps de fonctionnement"
 
-#: utils/validators.py:44
+#: utils/fields.py:43
+msgid "Incorrect format for IP address"
+msgstr ""
+
+#: utils/fields.py:44
+#, fuzzy
+msgid "Invalid version for IP address"
+msgstr "Nom d'utilisateur ou mot de passe invalide."
+
+#: utils/fields.py:45
+msgid "Invalid subnet mask"
+msgstr ""
+
+#: utils/validators.py:35
 msgid "Password is not accepted"
 msgstr "Le mot de passe n'est pas accepté"
 
@@ -2312,23 +2585,98 @@ msgstr "Vous n'êtes pas autorisé pour ce tenant."
 msgid "Region"
 msgstr "Région"
 
-#: views/auth_forms.py:97
+#: views/auth_forms.py:107
 msgid "Unable to authenticate for that project."
 msgstr "Impossible de s'authentifier pour ce projet."
 
-#: views/auth_forms.py:114
+#: views/auth_forms.py:124
 msgid "Invalid user name or password."
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
-#: views/auth_forms.py:121
+#: views/auth_forms.py:131
 msgid "An error occurred authenticating. Please try again later."
-msgstr "Une erreur s'est produite à l'authentification. Merci de réessayer plus tard."
+msgstr ""
+"Une erreur s'est produite à l'authentification. Merci de réessayer plus tard."
 
-#: views/auth_forms.py:140
+#: views/auth_forms.py:150
 msgid "You are not authorized for any projects."
 msgstr "Vous n'êtes pas autorisé pour tous les projets."
 
-#: views/auth_forms.py:164
+#: views/auth_forms.py:174
 msgid "You are not authorized for any available projects."
 msgstr "Vous n'êtes pas autorisé pour tous les projets disponibles."
 
+#: workflows/base.py:65
+msgid "Processing..."
+msgstr ""
+
+#: workflows/base.py:478
+msgid "Save"
+msgstr ""
+
+#: workflows/base.py:479
+#, fuzzy, python-format
+msgid "%s completed successfully."
+msgstr "Succès de création du conteneur."
+
+#: workflows/base.py:480
+#, python-format
+msgid "%s did not complete."
+msgstr ""
+
+#~ msgid "Error associating Floating IP: %s"
+#~ msgstr "Erreur d'association de l'adresse IP flottante : %s"
+
+#~ msgid "Error adding rule security group: %s"
+#~ msgstr "Echec de l'ajout de la règle de groupe de sécurité : %s"
+
+#~ msgid "Unable to delete non-empty container: %s"
+#~ msgstr "Impossible de supprimer un conteneur non vide : %s"
+
+#~ msgid "Successfully deleted containers: %s"
+#~ msgstr "Succès de suppression des conteneurs : %s"
+
+#~ msgid "User Data"
+#~ msgstr "Données de l'utilisateur"
+
+#~ msgid "Volume or Volume Snapshot"
+#~ msgstr "Volume ou Volume d'instantané"
+
+#~ msgid "Volume to boot from."
+#~ msgstr "Volume à utiliser pour le boot."
+
+#~ msgid "Cannot launch more than one instance if volume is specified."
+#~ msgstr "Impossible de lancer plus d'une instance si un volume est spécifié."
+
+#~ msgid "Unable to retrieve image \"%s\"."
+#~ msgstr "Impossible de récupérer l'image \"%s\"."
+
+#~ msgid "Launch Instances"
+#~ msgstr "Lancement des instances"
+
+#~ msgid "Updated %(attributes)s for \"%(user)s\"."
+#~ msgstr "%(attributes)s mis à jour pour \"%(user)s\"."
+
+#~ msgid "Enable Users"
+#~ msgstr "Activer les utilisateurs"
+
+#~ msgid "Error enabling user: %s"
+#~ msgstr "Erreur d'activation de l'utilisateur : %s"
+
+#~ msgid "Enabled the following users: %s"
+#~ msgstr "Activation des utilisateurs sélectionnés : %s"
+
+#~ msgid "Successfully enabled users: %s"
+#~ msgstr "Succès de l'activation des utilisateurs : %s"
+
+#~ msgid "Disable Users"
+#~ msgstr "Utilisateurs désactivés"
+
+#~ msgid "Error disabling user: %s"
+#~ msgstr "Erreur de désactivation de l'utilisateur : %s"
+
+#~ msgid "Disabled the following users: %s"
+#~ msgstr "Désactivation des utilisateurs sélectionnés : %s"
+
+#~ msgid "Successfully disabled users: %s"
+#~ msgstr "Succès de la désactivation des utilisateurs : %s"
