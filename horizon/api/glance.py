@@ -51,14 +51,16 @@ def image_get(request, image_id):
     return glanceclient(request).images.get(image_id)
 
 
-def image_list_detailed(request):
-    return glanceclient(request).images.list()
+def image_list_detailed(request, filters=None):
+    filters = filters or {}
+    return glanceclient(request).images.list(filters=filters)
 
 
 def image_update(request, image_id, **kwargs):
     return glanceclient(request).images.update(image_id, **kwargs)
 
 
-def snapshot_list_detailed(request):
+def snapshot_list_detailed(request, extra_filters=None):
     filters = {'property-image_type': 'snapshot'}
+    filters.update(extra_filters or {})
     return glanceclient(request).images.list(filters=filters)

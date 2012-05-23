@@ -84,6 +84,7 @@ In-depth documentation for Horizon and its APIs.
 
    ref/run_tests
    ref/horizon
+   ref/workflows
    ref/tables
    ref/tabs
    ref/users

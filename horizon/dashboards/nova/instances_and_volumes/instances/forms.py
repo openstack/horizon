@@ -33,9 +33,8 @@ LOG = logging.getLogger(__name__)
 
 
 class UpdateInstance(forms.SelfHandlingForm):
-    tenant_id = forms.CharField(widget=forms.HiddenInput())
-    instance = forms.CharField(widget=forms.TextInput(
-                               attrs={'readonly': 'readonly'}))
+    tenant_id = forms.CharField(widget=forms.HiddenInput)
+    instance = forms.CharField(widget=forms.HiddenInput)
     name = forms.CharField(required=True)
 
     def handle(self, request, data):

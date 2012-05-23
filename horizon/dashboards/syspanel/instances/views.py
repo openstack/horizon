@@ -28,11 +28,21 @@ from horizon import api
 from horizon import exceptions
 from horizon import tables
 from horizon.dashboards.syspanel.instances.tables import SyspanelInstancesTable
-from horizon.dashboards.nova.instances_and_volumes .instances.views import (
-        console, DetailView, vnc)
+from horizon.dashboards.nova.instances_and_volumes.instances.views import (
+        console, DetailView, vnc, LaunchInstanceView)
+from .workflows import AdminLaunchInstance
 
 
 LOG = logging.getLogger(__name__)
+
+
+class AdminLaunchView(LaunchInstanceView):
+    workflow_class = AdminLaunchInstance
+
+    def get_initial(self):
+        initial = super(LaunchInstanceView, self).get_initial()
+        initial['user_id'] = self.request.user.id
+        return initial
 
 
 class AdminIndexView(tables.DataTableView):

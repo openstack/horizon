@@ -26,6 +26,7 @@ from copy import deepcopy
 from horizon import api
 from horizon import test
 from .tabs import InstanceDetailTabs
+from .workflows import LaunchInstance
 
 
 INDEX_URL = reverse('horizon:nova:instances_and_volumes:index')
@@ -411,3 +412,265 @@ class InstanceViewTests(test.TestCase):
                       args=[server.id])
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_launch_get(self):
+        image = self.images.first()
+        quota_usages = self.quota_usages.first()
+
+        self.mox.StubOutWithMock(api.glance, 'image_list_detailed')
+        self.mox.StubOutWithMock(api.nova, 'tenant_quota_usages')
+        # Two flavor_list calls, however, flavor_list is now memoized.
+        self.mox.StubOutWithMock(api.nova, 'flavor_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_snapshot_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_list')
+
+        api.nova.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        api.nova.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True}) \
+                  .AndReturn(self.images.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id}) \
+                  .AndReturn([])
+        api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(quota_usages)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances_and_volumes:instances:launch')
+        res = self.client.get(url)
+        self.assertTemplateUsed(res,
+                        'nova/instances_and_volumes/instances/launch.html')
+        workflow = res.context['workflow']
+        self.assertEqual(workflow.name, LaunchInstance.name)
+        self.assertQuerysetEqual(workflow.steps,
+                            ['<SetInstanceDetails: setinstancedetailsaction>',
+                             '<SetAccessControls: setaccesscontrolsaction>',
+                             '<VolumeOptions: volumeoptionsaction>',
+                             '<PostCreationStep: customizeaction>'])
+
+    def test_launch_post(self):
+        flavor = self.flavors.first()
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        volume = self.volumes.first()
+        sec_group = self.security_groups.first()
+        customization_script = 'user data'
+        device_name = u'vda'
+        volume_choice = "%s:vol" % volume.id
+        block_device_mapping = {device_name: u"%s::0" % volume_choice}
+
+        self.mox.StubOutWithMock(api.glance, 'image_list_detailed')
+        self.mox.StubOutWithMock(api.nova, 'flavor_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_snapshot_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.nova, 'server_create')
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True}) \
+                  .AndReturn(self.images.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id}) \
+                  .AndReturn([])
+        api.nova.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        api.nova.server_create(IsA(http.HttpRequest),
+                               server.name,
+                               image.id,
+                               flavor.id,
+                               keypair.name,
+                               customization_script,
+                               [sec_group.name],
+                               block_device_mapping,
+                               instance_count=IsA(int))
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'image_id',
+                     'image_id': image.id,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'customization_script': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'volume_type': 'volume_id',
+                     'volume_id': volume_choice,
+                     'device_name': device_name,
+                     'count': 1}
+        url = reverse('horizon:nova:instances_and_volumes:instances:launch')
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res,
+                 reverse('horizon:nova:instances_and_volumes:index'))
+
+    def test_launch_flavorlist_error(self):
+        self.mox.StubOutWithMock(api.glance, 'image_list_detailed')
+        self.mox.StubOutWithMock(api.nova, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.nova, 'flavor_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_snapshot_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_list')
+
+        api.nova.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        api.nova.volume_snapshot_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True}) \
+                  .AndReturn(self.images.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id}) \
+                  .AndReturn([])
+        api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(self.quota_usages.first())
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndRaise(self.exceptions.nova)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndRaise(self.exceptions.nova)
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances_and_volumes:instances:launch')
+        res = self.client.get(url)
+        self.assertTemplateUsed(res,
+                        'nova/instances_and_volumes/instances/launch.html')
+
+    def test_launch_form_keystone_exception(self):
+        flavor = self.flavors.first()
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        sec_group = self.security_groups.first()
+        customization_script = 'userData'
+
+        self.mox.StubOutWithMock(api.glance, 'image_list_detailed')
+        self.mox.StubOutWithMock(api.nova, 'flavor_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'server_create')
+        self.mox.StubOutWithMock(api.nova, 'volume_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_snapshot_list')
+
+        api.nova.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
+        api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        api.nova.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True}) \
+                  .AndReturn(self.images.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id}) \
+                  .AndReturn([])
+        api.nova.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
+        api.nova.server_create(IsA(http.HttpRequest),
+                               server.name,
+                               image.id,
+                               flavor.id,
+                               keypair.name,
+                               customization_script,
+                               [sec_group.name],
+                               None,
+                               instance_count=IsA(int)) \
+                      .AndRaise(self.exceptions.keystone)
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'image_id',
+                     'image_id': image.id,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'customization_script': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'volume_type': '',
+                     'count': 1}
+        url = reverse('horizon:nova:instances_and_volumes:instances:launch')
+        res = self.client.post(url, form_data)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_launch_form_instance_count_error(self):
+        flavor = self.flavors.first()
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        volume = self.volumes.first()
+        sec_group = self.security_groups.first()
+        customization_script = 'user data'
+        device_name = u'vda'
+        volume_choice = "%s:vol" % volume.id
+
+        self.mox.StubOutWithMock(api.glance, 'image_list_detailed')
+        self.mox.StubOutWithMock(api.nova, 'flavor_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_snapshot_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_quota_usages')
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True}) \
+                  .AndReturn(self.images.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id}) \
+                  .AndReturn([])
+        api.nova.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(self.quota_usages.first())
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'image_id',
+                     'image_id': image.id,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'customization_script': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'volume_type': 'volume_id',
+                     'volume_id': volume_choice,
+                     'device_name': device_name,
+                     'count': 0}
+        url = reverse('horizon:nova:instances_and_volumes:instances:launch')
+        res = self.client.post(url, form_data)
+        self.assertContains(res, "greater than or equal to 1")

@@ -116,6 +116,19 @@ class AlreadyExists(HorizonException):
         return _(self.msg) % self.attrs
 
 
+class WorkflowError(HorizonException):
+    """ Exception to be raised when something goes wrong in a workflow. """
+    pass
+
+
+class WorkflowValidationError(HorizonException):
+    """
+    Exception raised during workflow validation if required data is missing,
+    or existing data is not valid.
+    """
+    pass
+
+
 class HandledException(HorizonException):
     """
     Used internally to track exceptions that have gone through

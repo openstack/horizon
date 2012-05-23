@@ -526,9 +526,9 @@ class DataTableOptions(object):
 
     .. attribute:: table_actions
 
-        A list of action classes derived from the :class:`.Action` class.
-        These actions will handle tasks such as bulk deletion, etc. for
-        multiple objects at once.
+        A list of action classes derived from the
+        :class:`~horizon.tables.Action` class. These actions will handle tasks
+        such as bulk deletion, etc. for multiple objects at once.
 
     .. attribute:: row_actions
 
