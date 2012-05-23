@@ -6,7 +6,9 @@
     <ul id="region_list" class="dropdown-menu">
       <li class='divider'></li>
       {% for region in regions.available %}
-      <li><a class="ajax-modal" href="{% url horizon:auth_login %}?region={{ region.endpoint }}">{{ region.name }}</a></li>
+        {% if region.name != regions.current.name %}
+          <li><a class="ajax-modal" href="{% url horizon:auth_login %}?region={{ region.endpoint }}">{{ region.name }}</a></li>
+        {% endif %}
       {% endfor %}
     </ul>
   </div>
