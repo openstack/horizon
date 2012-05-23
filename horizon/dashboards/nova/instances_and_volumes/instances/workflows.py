@@ -204,7 +204,7 @@ class SetInstanceDetailsAction(workflows.Action):
         project_id = context.get('project_id', None)
         if not hasattr(self, "_public_images"):
             public = {"is_public": True}
-            public_images = api.glance.image_list_detailed(request,
+            public_images, _more = api.glance.image_list_detailed(request,
                                                            filters=public)
             self._public_images = public_images
 
@@ -214,7 +214,7 @@ class SetInstanceDetailsAction(workflows.Action):
 
         if not hasattr(self, "_images_for_%s" % project_id):
             owner = {"property-owner_id": project_id}
-            owned_images = api.glance.image_list_detailed(request,
+            owned_images, _more = api.glance.image_list_detailed(request,
                                                           filters=owner)
             setattr(self, "_images_for_%s" % project_id, owned_images)
 
@@ -223,12 +223,12 @@ class SetInstanceDetailsAction(workflows.Action):
 
         # Remove duplicate images.
         image_ids = []
+        final_images = []
         for image in images:
             if image.id not in image_ids:
                 image_ids.append(image.id)
-            else:
-                images.remove(image)
-        return [image for image in images
+                final_images.append(image)
+        return [image for image in final_images
                 if image.container_format not in ('aki', 'ari')]
 
     def populate_image_id_choices(self, request, context):
@@ -250,7 +250,7 @@ class SetInstanceDetailsAction(workflows.Action):
         if choices:
             choices.insert(0, ("", _("Select Instance Snapshot")))
         else:
-            choices.insert(0, ("", _("No images available.")))
+            choices.insert(0, ("", _("No snapshots available.")))
         return choices
 
     def populate_flavor_choices(self, request, context):

@@ -18,6 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
+
 from horizon import api
 from horizon import test
 
@@ -26,10 +28,13 @@ class GlanceApiTests(test.APITestCase):
     def test_snapshot_list_detailed(self):
         images = self.images.list()
         filters = {'property-image_type': 'snapshot'}
+        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
         glanceclient = self.stub_glanceclient()
         glanceclient.images = self.mox.CreateMockAnything()
-        glanceclient.images.list(filters=filters).AndReturn(images)
+        glanceclient.images.list(filters=filters,
+                                 limit=limit + 1,
+                                 marker=None).AndReturn(images)
         self.mox.ReplayAll()
 
         # No assertions are necessary. Verification is handled by mox.

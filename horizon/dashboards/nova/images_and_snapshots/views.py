@@ -42,9 +42,16 @@ class IndexView(tables.MultiTableView):
     table_classes = (ImagesTable, SnapshotsTable, VolumeSnapshotsTable)
     template_name = 'nova/images_and_snapshots/index.html'
 
+    def has_more_data(self, table):
+        return getattr(self, "_more_%s" % table.name, False)
+
     def get_images_data(self):
+        marker = self.request.GET.get(ImagesTable._meta.pagination_param, None)
         try:
-            all_images = api.image_list_detailed(self.request)
+            # FIXME(gabriel): The paging is going to be strange here due to
+            # our filtering after the fact.
+            all_images, _more_images = api.image_list_detailed(self.request,
+                                                                marker=marker)
             images = [im for im in all_images
                       if im.container_format not in ['aki', 'ari'] and
                       im.properties.get("image_type", '') != "snapshot"]
@@ -54,12 +61,15 @@ class IndexView(tables.MultiTableView):
         return images
 
     def get_snapshots_data(self):
+        req = self.request
+        marker = req.GET.get(SnapshotsTable._meta.pagination_param, None)
         try:
-            snapshots = api.snapshot_list_detailed(self.request)
+            snaps, self._more_snapshots = api.snapshot_list_detailed(req,
+                                                                marker=marker)
         except:
-            snapshots = []
-            exceptions.handle(self.request, _("Unable to retrieve snapshots."))
-        return snapshots
+            snaps = []
+            exceptions.handle(req, _("Unable to retrieve snapshots."))
+        return snaps
 
     def get_volume_snapshots_data(self):
         try:
