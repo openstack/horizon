@@ -118,6 +118,8 @@ class DetailView(tabs.TabView):
                 instance = api.server_get(self.request, instance_id)
                 instance.volumes = api.volume_instance_list(self.request,
                                                             instance_id)
+                # Sort by device name
+                instance.volumes.sort(key=lambda vol: vol.device)
                 instance.full_flavor = api.flavor_get(self.request,
                                                       instance.flavor["id"])
                 instance.security_groups = api.server_security_groups(

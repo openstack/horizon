@@ -243,6 +243,37 @@ class InstanceViewTests(test.TestCase):
         res = self.client.post(INDEX_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api: ("server_get", "volume_instance_list",
+                              "flavor_get", "server_security_groups")})
+    def test_instance_details_volumes(self):
+        server = self.servers.first()
+        volumes = deepcopy(self.volumes.list())
+        volumes[0].device = "/dev/hdk"
+        second_vol = deepcopy(volumes[0])
+        second_vol.id = 2
+        second_vol.device = "/dev/hdb"
+        volumes.append(second_vol)
+
+        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.volume_instance_list(IsA(http.HttpRequest),
+                               server.id).AndReturn(volumes)
+        api.flavor_get(IsA(http.HttpRequest),
+                       server.flavor['id']).AndReturn(self.flavors.first())
+        api.server_security_groups(IsA(http.HttpRequest),
+                       server.id).AndReturn(self.security_groups.first())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances_and_volumes:instances:detail',
+                      args=[server.id])
+        res = self.client.get(url)
+        self.assertItemsEqual(res.context['instance'].volumes, volumes)
+        # Test device ordering
+        self.assertEquals(res.context['instance'].volumes[0].device,
+                          "/dev/hdb")
+        self.assertEquals(res.context['instance'].volumes[1].device,
+                          "/dev/hdk")
+
     def test_instance_log(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = 'output'
