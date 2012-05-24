@@ -52,18 +52,19 @@ wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
 
 def create_stubs(stubs_to_create={}):
     if not isinstance(stubs_to_create, dict):
-        raise TypeError, ("create_stub must be passed a dict, but a %s was " \
-                "given." % type(stubs_to_create).__name__)
+        raise TypeError("create_stub must be passed a dict, but a %s was "
+                        "given." % type(stubs_to_create).__name__)
 
     def inner_stub_out(fn):
         @wraps(fn)
         def instance_stub_out(self):
             for key in stubs_to_create:
-                if not (isinstance(stubs_to_create[key], tuple) or \
+                if not (isinstance(stubs_to_create[key], tuple) or
                         isinstance(stubs_to_create[key], list)):
-                    raise TypeError, ("The values of the create_stub " \
-                            "dict must be lists or tuples, but is a %s." %
-                            type(stubs_to_create[key]).__name__)
+                    raise TypeError("The values of the create_stub "
+                                    "dict must be lists or tuples, but "
+                                    "is a %s."
+                                    % type(stubs_to_create[key]).__name__)
 
                 for value in stubs_to_create[key]:
                     self.mox.StubOutWithMock(key, value)
@@ -206,7 +207,7 @@ class TestCase(django_test.TestCase):
                 message_cookie = self.client.cookies['messages'].value
                 messages = storage._decode(message_cookie)
         # Check for messages in the context
-        elif hasattr(response, "context") and  "messages" in response.context:
+        elif hasattr(response, "context") and "messages" in response.context:
             messages = response.context["messages"]
         # Check for messages attached to the request on a TemplateResponse
         elif hasattr(response, "_request") and hasattr(response._request,
