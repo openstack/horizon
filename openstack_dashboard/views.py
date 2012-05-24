@@ -25,7 +25,7 @@ from django import shortcuts
 from django.views.decorators import vary
 
 import horizon
-from horizon.views import auth as auth_views
+from horizon.views import auth_forms
 
 
 def qunit_tests(request):
@@ -42,8 +42,6 @@ def user_home(user):
 def splash(request):
     if request.user.is_authenticated():
         return shortcuts.redirect(user_home(request.user))
-    form, handled = auth_views.Login.maybe_handle(request)
-    if handled:
-        return handled
+    form = auth_forms.Login()
     request.session.clear()
     return shortcuts.render(request, 'splash.html', {'form': form})

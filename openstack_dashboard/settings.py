@@ -127,6 +127,8 @@ USE_I18N = True
 
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'Member'
 
+DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
+
 try:
     from local.local_settings import *
 except ImportError:

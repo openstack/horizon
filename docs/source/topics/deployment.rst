@@ -5,6 +5,34 @@ Deploying Horizon
 This guide aims to cover some common questions, concerns and pitfalls you
 may encounter when deploying Horizon in a production environment.
 
+Logging
+=======
+
+Logging is an important concern for prouction deployments, and the intricacies
+of good logging configuration go far beyond what can be covered here. However
+there are a few points worth noting about the logging included with Horizon,
+how to customize it, and where other components may take over:
+
+* Horizon's logging uses Django's logging configuration mechanism, which
+  can be customized in your ``local_settings.py`` file through the
+  ``LOGGING`` dictionary.
+* Horizon's default logging example sets the log level to ``"INFO"``, which is
+  a reasonable choice for production deployments. For development, however,
+  you may want to change the log level to ``"DEBUG"``.
+* Horizon also uses a number of 3rd-party clients which log separately. The
+  log level for these can still be controlled through Horizon's ``LOGGING``
+  config, however behaviors may vary beyond Horizon's control.
+
+.. warning::
+
+    At this time there is `a known bug in python-keystoneclient`_ where it will
+    log the complete request body of any request sent to Keystone through it
+    (including logging passwords in plain text) when the log level is set to
+    ``"DEBUG"``. If this behavior is not desired, make sure your log level is
+    ``"INFO"`` or higher.
+
+.. _a known bug in python-keystoneclient: https://bugs.launchpad.net/keystone/+bug/1004114
+
 Session Storage
 ===============
 
