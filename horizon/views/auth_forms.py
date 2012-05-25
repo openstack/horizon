@@ -90,9 +90,11 @@ class Login(forms.SelfHandlingForm):
         # For now we'll allow fallback to OPENSTACK_KEYSTONE_URL if the
         # form post doesn't include a region.
         endpoint = data.get('region', None) or settings.OPENSTACK_KEYSTONE_URL
-        region_name = dict(self.fields['region'].choices)[endpoint]
-        request.session['region_endpoint'] = endpoint
-        request.session['region_name'] = region_name
+        if endpoint != request.session.get('region_endpoint', None):
+            region_name = dict(self.fields['region'].choices)[endpoint]
+            request.session['region_endpoint'] = endpoint
+            request.session['region_name'] = region_name
+            request.user.service_catalog = None
 
         redirect_to = request.REQUEST.get(REDIRECT_FIELD_NAME, "")
 
