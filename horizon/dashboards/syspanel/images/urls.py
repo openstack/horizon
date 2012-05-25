@@ -20,10 +20,11 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import IndexView, UpdateView
+from .views import IndexView, UpdateView, DetailView
 
 
 urlpatterns = patterns('horizon.dashboards.syspanel.images.views',
     url(r'^images/$', IndexView.as_view(), name='index'),
-    url(r'^(?P<image_id>[^/]+)/update/$', UpdateView.as_view(), name='update')
+    url(r'^(?P<image_id>[^/]+)/update/$', UpdateView.as_view(), name='update'),
+    url(r'^(?P<image_id>[^/]+)/detail/$', DetailView.as_view(), name='detail')
 )

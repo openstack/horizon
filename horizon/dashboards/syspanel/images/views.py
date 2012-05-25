@@ -57,3 +57,8 @@ class IndexView(tables.DataTableView):
 class UpdateView(views.UpdateView):
     template_name = 'syspanel/images/update.html'
     form_class = AdminUpdateImageForm
+
+
+class DetailView(views.DetailView):
+    """ Admin placeholder for image detail view. """
+    pass

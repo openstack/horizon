@@ -16,6 +16,7 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import tables
 from horizon.dashboards.nova.images_and_snapshots.images.tables import (
         ImagesTable, EditImage, DeleteImage)
 
@@ -33,6 +34,10 @@ class AdminEditImage(EditImage):
 
 
 class AdminImagesTable(ImagesTable):
+    name = tables.Column("name",
+                         link="horizon:syspanel:images:detail",
+                         verbose_name=_("Image Name"))
+
     class Meta:
         name = "images"
         verbose_name = _("Images")
