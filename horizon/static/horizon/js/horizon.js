@@ -92,7 +92,8 @@ var Horizon = function() {
     radius: 3,
     color:  '#000',
     speed:  0.8,
-    trail:  50
+    trail:  50,
+    zIndex: 100
   };
 
   /* Namespace for core functionality related to DataTables. */
