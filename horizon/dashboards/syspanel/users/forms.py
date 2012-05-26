@@ -22,8 +22,9 @@ import logging
 
 from django import shortcuts
 from django.contrib import messages
-from django.utils.translation import force_unicode, ugettext_lazy as _
 from django.forms import ValidationError
+from django.utils.translation import force_unicode, ugettext_lazy as _
+from django.views.decorators.debug import sensitive_variables
 
 from horizon import api
 from horizon import exceptions
@@ -72,6 +73,9 @@ class CreateUserForm(BaseUserForm):
             widget=forms.PasswordInput(render_value=False))
     tenant_id = forms.ChoiceField(label=_("Primary Project"))
 
+    # We have to protect the entire "data" dict because it contains the
+    # password and confirm_password strings.
+    @sensitive_variables('data')
     def handle(self, request, data):
         try:
             LOG.info('Creating user with name "%s"' % data['name'])
@@ -123,6 +127,9 @@ class UpdateUserForm(BaseUserForm):
             for field in ('name', 'email', 'password', 'confirm_password'):
                 self.fields.pop(field)
 
+    # We have to protect the entire "data" dict because it contains the
+    # password and confirm_password strings.
+    @sensitive_variables('data', 'password')
     def handle(self, request, data):
         failed, succeeded = [], []
         user_is_editable = api.keystone_can_edit_user()

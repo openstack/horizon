@@ -23,7 +23,9 @@ import logging
 from django import shortcuts
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext as _
+from django.views.decorators.debug import sensitive_post_parameters
 
 import horizon
 from horizon import api
@@ -50,6 +52,10 @@ class LoginView(forms.ModalFormView):
     form_class = Login
     template_name = "horizon/auth/login.html"
 
+    @method_decorator(sensitive_post_parameters('password'))
+    def dispatch(self, *args, **kwargs):
+        return super(LoginView, self).dispatch(*args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super(LoginView, self).get_context_data(**kwargs)
         redirect_to = self.request.REQUEST.get(REDIRECT_FIELD_NAME, "")
@@ -67,6 +73,7 @@ class LoginView(forms.ModalFormView):
         return initial
 
 
+@sensitive_post_parameters("password")
 def switch_tenants(request, tenant_id):
     """
     Swaps a user from one tenant to another using the unscoped token from

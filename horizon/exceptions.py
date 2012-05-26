@@ -24,8 +24,11 @@ import sys
 
 from django.conf import settings
 from django.contrib import messages
+from django.http import HttpRequest
 from django.utils import termcolors
 from django.utils.translation import ugettext as _
+from django.views.debug import SafeExceptionReporterFilter, CLEANSED_SUBSTITUTE
+
 from cloudfiles import errors as swiftclient
 from glanceclient.common import exceptions as glanceclient
 from keystoneclient import exceptions as keystoneclient
@@ -34,6 +37,51 @@ from novaclient import exceptions as novaclient
 
 LOG = logging.getLogger(__name__)
 PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]
+
+
+class HorizonReporterFilter(SafeExceptionReporterFilter):
+    """ Error report filter that's always active, even in DEBUG mode. """
+    def is_active(self, request):
+        return True
+
+    # TODO(gabriel): When Django bug #18379 is fixed, this whole method
+    # can be removed: https://code.djangoproject.com/ticket/18379
+    def get_traceback_frame_variables(self, request, tb_frame):
+        """
+        Replaces the values of variables marked as sensitive with
+        stars (*********).
+        """
+        func_name = tb_frame.f_code.co_name
+        func = tb_frame.f_globals.get(func_name)
+        # Methods won't be in the global namespace, func could be None here...
+        if func is None and "self" in tb_frame.f_locals:
+            func = getattr(tb_frame.f_locals.get('self'), func_name, None)
+        sensitive_variables = getattr(func, 'sensitive_variables', [])
+        cleansed = []
+        if self.is_active(request) and sensitive_variables:
+            if sensitive_variables == '__ALL__':
+                # Cleanse all variables
+                for name, value in tb_frame.f_locals.items():
+                    cleansed.append((name, CLEANSED_SUBSTITUTE))
+                return cleansed
+            else:
+                # Cleanse specified variables
+                for name, value in tb_frame.f_locals.items():
+                    if name in sensitive_variables:
+                        value = CLEANSED_SUBSTITUTE
+                    elif isinstance(value, HttpRequest):
+                        # Cleanse the request's POST parameters.
+                        value = self.get_request_repr(value)
+                    cleansed.append((name, value))
+                return cleansed
+        else:
+            # Cleanse only the request if it's one of the frame variables.
+            for name, value in tb_frame.f_locals.items():
+                if isinstance(value, HttpRequest):
+                    # Cleanse the request's POST parameters.
+                    value = self.get_request_repr(value)
+                cleansed.append((name, value))
+            return cleansed
 
 
 class HorizonException(Exception):

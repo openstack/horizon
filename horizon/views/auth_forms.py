@@ -29,6 +29,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.utils.translation import ugettext as _
+from django.views.decorators.debug import sensitive_variables
+
 from keystoneclient import exceptions as keystone_exceptions
 
 from horizon import api
@@ -76,6 +78,7 @@ class Login(forms.SelfHandlingForm):
             self.fields['region'].initial = default_region[0]
             self.fields['region'].widget = forms.widgets.HiddenInput()
 
+    @sensitive_variables("data")
     def handle(self, request, data):
         if 'user_name' in request.session:
             if request.session['user_name'] != data['username']:

@@ -21,7 +21,9 @@
 import logging
 
 from django.core.urlresolvers import reverse
+from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
+from django.views.decorators.debug import sensitive_post_parameters
 
 from horizon import api
 from horizon import exceptions
@@ -53,6 +55,11 @@ class UpdateView(forms.ModalFormView):
     template_name = 'syspanel/users/update.html'
     context_object_name = 'user'
 
+    @method_decorator(sensitive_post_parameters('password',
+                                                'confirm_password'))
+    def dispatch(self, *args, **kwargs):
+        return super(UpdateView, self).dispatch(*args, **kwargs)
+
     def get_object(self, *args, **kwargs):
         user_id = kwargs['user_id']
         try:
@@ -73,3 +80,8 @@ class UpdateView(forms.ModalFormView):
 class CreateView(forms.ModalFormView):
     form_class = CreateUserForm
     template_name = 'syspanel/users/create.html'
+
+    @method_decorator(sensitive_post_parameters('password',
+                                                'confirm_password'))
+    def dispatch(self, *args, **kwargs):
+        return super(CreateView, self).dispatch(*args, **kwargs)
