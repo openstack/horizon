@@ -4,6 +4,7 @@ recursive-include openstack_dashboard *.html *.js *.css *.less *.csv *.template 
 recursive-include tools *.py *.sh
 
 include AUTHORS
+include ChangeLog
 include LICENSE
 include Makefile
 include manage.py

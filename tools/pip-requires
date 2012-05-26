@@ -4,6 +4,6 @@ python-cloudfiles
 python-dateutil
 
 # Horizon Non-pip Requirements
--e git+https://github.com/openstack/python-novaclient.git#egg=python-novaclient
--e git+https://github.com/openstack/python-keystoneclient.git#egg=python-keystoneclient
--e git+https://github.com/openstack/python-glanceclient.git#egg=python-glanceclient
+https://github.com/openstack/python-novaclient/zipball/master#egg=python-novaclient
+https://github.com/openstack/python-keystoneclient/zipball/master#egg=python-keystoneclient
+https://github.com/openstack/python-glanceclient/zipball/master#egg=python-glanceclient

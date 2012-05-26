@@ -5,6 +5,7 @@
 .coverage*
 .noseids
 coverage.xml
+nosetests.xml
 pep8.txt
 pylint.txt
 reports
@@ -13,5 +14,8 @@ openstack_dashboard/local/local_settings.py
 docs/build/
 docs/source/sourcecode
 .venv
+.tox
 build
 dist
+AUTHORS
+ChangeLog

@@ -1,14 +1,17 @@
+distribute>=0.6.24
+
 # Testing Requirements
 coverage
 django-nose
 mox
+netaddr
 nose
 nose-exclude
+nosexcover
+openstack.nose_plugin
 pep8
 pylint
-distribute>=0.6.24
 selenium
-netaddr
 
 # Docs Requirements
 sphinx
