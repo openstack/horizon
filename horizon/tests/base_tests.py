@@ -308,3 +308,28 @@ class HorizonTests(BaseHorizonTests):
                                follow=False,
                                HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertEqual(resp.status_code, 200)
+
+    def test_ssl_redirect_by_proxy(self):
+        users.get_user_from_request = self._real_get_user_from_request
+        dogs = horizon.get_dashboard("dogs")
+        puppies = dogs.get_panel("puppies")
+        url = puppies.get_absolute_url()
+        redirect_url = "?".join([urlresolvers.reverse("horizon:auth_login"),
+                                 "next=%s" % url])
+
+        client = Client()
+        client.logout()
+        resp = client.get(url)
+        self.assertRedirectsNoFollow(resp, redirect_url)
+
+        # Set SSL settings for test server
+        settings.TESTSERVER = 'https://testserver:80'
+        settings.SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL',
+                                            'https')
+
+        resp = client.get(url, HTTP_X_FORWARDED_PROTOCOL="https")
+        self.assertRedirectsNoFollow(resp, redirect_url)
+
+        # Restore settings
+        settings.TESTSERVER = 'http://testserver'
+        settings.SECURE_PROXY_SSL_HEADER = None
