@@ -259,7 +259,7 @@ var Horizon = function() {
 
   /* Namespace for core functionality related to client-side templating. */
   horizon.templates = {
-    template_ids: ["#modal_template", "#empty_row_template", "#alert_message_template"],
+    template_ids: ["#modal_template", "#empty_row_template", "#alert_message_template", "#spinner-modal"],
     compiled_templates: {}
   };
 
@@ -268,20 +268,6 @@ var Horizon = function() {
     $.each(horizon.templates.template_ids, function (ind, template_id) {
       horizon.templates.compiled_templates[template_id] = Hogan.compile($(template_id).text());
     });
-  };
-
-  /* Namespace for core functionality related to modal dialogs. */
-  horizon.modals = {};
-
-  /* Creates a modal dialog from the client-side template. */
-  horizon.modals.create = function (title, body, confirm, cancel) {
-    if (!cancel) {
-      cancel = "Cancel";
-    }
-    var template = horizon.templates.compiled_templates["#modal_template"],
-      params = {title: title, body: body, confirm: confirm, cancel: cancel},
-      modal = $(template.render(params)).appendTo("body");
-    return modal;
   };
 
   /* Utilities for common needs which aren't JS builtins. */

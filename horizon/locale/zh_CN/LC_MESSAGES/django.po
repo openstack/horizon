@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-23 11:07-0700\n"
+"POT-Creation-Date: 2012-05-29 11:47-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: ZHANG Hua <zhuadl@cn.ibm.com>\n"
 "Language-Team: Simplified Chinese \n"
@@ -468,7 +468,7 @@ msgid "Slash is not an allowed character."
 msgstr "斜线不是合法字符"
 
 #: dashboards/nova/containers/forms.py:45
-#: dashboards/nova/containers/tables.py:89
+#: dashboards/nova/containers/tables.py:88
 msgid "Container Name"
 msgstr "容器名称"
 
@@ -481,7 +481,7 @@ msgid "Unable to create container."
 msgstr "无法创建容器"
 
 #: dashboards/nova/containers/forms.py:59
-#: dashboards/nova/containers/tables.py:156
+#: dashboards/nova/containers/tables.py:155
 msgid "Object Name"
 msgstr "对象名称"
 
@@ -515,46 +515,46 @@ msgid "Unable to copy object."
 msgstr "无法拷贝对象。"
 
 #: dashboards/nova/containers/panel.py:28
-#: dashboards/nova/containers/tables.py:36
-#: dashboards/nova/containers/tables.py:100
+#: dashboards/nova/containers/tables.py:35
+#: dashboards/nova/containers/tables.py:99
 #: dashboards/nova/templates/nova/containers/index.html:8
 msgid "Containers"
 msgstr "容器"
 
-#: dashboards/nova/containers/tables.py:35
+#: dashboards/nova/containers/tables.py:34
 msgid "Container"
 msgstr "容器"
 
-#: dashboards/nova/containers/tables.py:43
+#: dashboards/nova/containers/tables.py:42
 msgid "Containers must be empty before deletion."
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:49
+#: dashboards/nova/containers/tables.py:48
 #: dashboards/nova/templates/nova/containers/_create.html:7
 #: dashboards/nova/templates/nova/containers/_create.html:22
 #: dashboards/nova/templates/nova/containers/create.html:6
 msgid "Create Container"
 msgstr "创建容器"
 
-#: dashboards/nova/containers/tables.py:56
+#: dashboards/nova/containers/tables.py:55
 msgid "List Objects"
 msgstr "列出对象"
 
-#: dashboards/nova/containers/tables.py:63
+#: dashboards/nova/containers/tables.py:62
 #: dashboards/nova/templates/nova/objects/_upload.html:23
 #: dashboards/nova/templates/nova/objects/upload.html:3
 msgid "Upload Object"
 msgstr "上传对象"
 
-#: dashboards/nova/containers/tables.py:91
-#: dashboards/nova/containers/tables.py:107
-#: dashboards/nova/containers/tables.py:164
+#: dashboards/nova/containers/tables.py:90
+#: dashboards/nova/containers/tables.py:106
+#: dashboards/nova/containers/tables.py:163
 #: dashboards/nova/templates/nova/objects/index.html:3
 msgid "Objects"
 msgstr "对象"
 
-#: dashboards/nova/containers/tables.py:93
-#: dashboards/nova/containers/tables.py:157
+#: dashboards/nova/containers/tables.py:92
+#: dashboards/nova/containers/tables.py:156
 #: dashboards/nova/instances_and_volumes/instances/tables.py:243
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:114
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
@@ -563,15 +563,15 @@ msgstr "对象"
 msgid "Size"
 msgstr "大小"
 
-#: dashboards/nova/containers/tables.py:106
+#: dashboards/nova/containers/tables.py:105
 msgid "Object"
 msgstr "对象"
 
-#: dashboards/nova/containers/tables.py:117
+#: dashboards/nova/containers/tables.py:116
 msgid "Copy"
 msgstr "拷贝"
 
-#: dashboards/nova/containers/tables.py:128
+#: dashboards/nova/containers/tables.py:127
 msgid "Download"
 msgstr "下载"
 
@@ -595,15 +595,15 @@ msgstr "无法列出容器"
 msgid "Images & Snapshots"
 msgstr "镜像和快照"
 
-#: dashboards/nova/images_and_snapshots/views.py:53
+#: dashboards/nova/images_and_snapshots/views.py:60
 msgid "Unable to retrieve images."
 msgstr "无法获取镜像"
 
-#: dashboards/nova/images_and_snapshots/views.py:61
+#: dashboards/nova/images_and_snapshots/views.py:71
 msgid "Unable to retrieve snapshots."
 msgstr "无法获取快照"
 
-#: dashboards/nova/images_and_snapshots/views.py:69
+#: dashboards/nova/images_and_snapshots/views.py:79
 msgid "Unable to retrieve volume snapshots."
 msgstr "无法获取卷快照"
 
@@ -849,7 +849,6 @@ msgstr "已恢复"
 
 #: dashboards/nova/instances_and_volumes/instances/tables.py:144
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:376
-#: dashboards/nova/templates/nova/images_and_snapshots/images/launch.html:13
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:3
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:6
 msgid "Launch Instance"
@@ -912,7 +911,7 @@ msgstr "无法获得实例 \"%s\" 的VNC控制台"
 msgid "Unable to retrieve instance details."
 msgstr "无法获取实例详情。"
 
-#: dashboards/nova/instances_and_volumes/instances/views.py:128
+#: dashboards/nova/instances_and_volumes/instances/views.py:130
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "无法获取实例 \"%s\" 的详情。"
@@ -1040,7 +1039,6 @@ msgid "Select Image"
 msgstr "选择语言"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:242
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
 #, fuzzy
 msgid "No images available."
 msgstr "无可用实例"
@@ -1049,6 +1047,11 @@ msgstr "无可用实例"
 #, fuzzy
 msgid "Select Instance Snapshot"
 msgstr "实例快照"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
+#, fuzzy
+msgid "No snapshots available."
+msgstr "无可用实例"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:264
 msgid "Unable to retrieve instance flavors."
@@ -1816,7 +1819,7 @@ msgstr "未授权"
 msgid "Unable to get flavor list: %s"
 msgstr "无法获得类型列表： %s"
 
-#: dashboards/syspanel/images/views.py:45
+#: dashboards/syspanel/images/views.py:52
 msgid "Unable to retrieve image list."
 msgstr "无法获得镜像列表。"
 
@@ -2241,20 +2244,20 @@ msgstr "被删除"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
 
-#: tables/base.py:671
+#: tables/base.py:679
 msgid "Actions"
 msgstr "动作"
 
-#: tables/base.py:816
+#: tables/base.py:824
 msgid "No items to display."
 msgstr "没有条目显示。"
 
-#: tables/base.py:833
+#: tables/base.py:841
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "id \"%s\" 没有匹配返回。"
 
-#: tables/base.py:940
+#: tables/base.py:948
 msgid "Please select a row before taking that action."
 msgstr "请在执行前选择一行。"
 

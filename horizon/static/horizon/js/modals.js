@@ -1,5 +1,32 @@
-// Storage for our current jqXHR object.
-horizon.modals._request = null;
+/* Namespace for core functionality related to modal dialogs. */
+horizon.modals = {
+  // Storage for our current jqXHR object.
+  _request: null,
+  spinner: null,
+
+  spinner_options: {
+    lines:  10,
+    length: 15,
+    width:  4,
+    radius: 10,
+    color:  '#000',
+    speed:  0.8,
+    trail:  50
+  }
+};
+
+
+/* Creates a modal dialog from the client-side template. */
+horizon.modals.create = function (title, body, confirm, cancel) {
+  if (!cancel) {
+    cancel = "Cancel";
+  }
+  var template = horizon.templates.compiled_templates["#modal_template"],
+    params = {title: title, body: body, confirm: confirm, cancel: cancel},
+    modal = $(template.render(params)).appendTo("body");
+  return modal;
+};
+
 
 horizon.modals.success = function (data, textStatus, jqXHR) {
   $('body').append(data);
@@ -77,9 +104,18 @@ horizon.addInitFunction(function() {
     }
 
     horizon.modals._request = $.ajax($this.attr('href'), {
+      beforeSend: function() {
+        var template = horizon.templates.compiled_templates["#spinner-modal"];
+        horizon.modals.spinner = $(template.render());
+
+        horizon.modals.spinner.appendTo("body");
+        horizon.modals.spinner.modal({backdrop: 'static'});
+        horizon.modals.spinner.spin(horizon.modals.spinner_options);
+      },
       complete: function () {
         // Clear the global storage;
         horizon.modals._request = null;
+        horizon.modals.spinner.modal('hide');
       },
       error: function(jqXHR, status, errorThrown) {
         if (jqXHR.status === 401){

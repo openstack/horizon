@@ -556,6 +556,20 @@ form label {
     position: absolute;
 }
 
+.modal.loading {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.modal.loading p {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 150px;
+}
+
 form.horizontal .form-field {
     float: left;
   }

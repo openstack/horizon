@@ -1,0 +1,12 @@
+{% extends "horizon/client_side/template.html" %}
+{% load i18n horizon %}
+
+{% block id %}spinner-modal{% endblock %}
+
+{% block template %}
+{% jstemplate %}
+<div class="modal loading hide">
+  <p>{% trans "Loading&hellip;" %}</p>
+</div>
+{% endjstemplate %}
+{% endblock %}

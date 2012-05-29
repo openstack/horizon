@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-23 11:08-0700\n"
+"POT-Creation-Date: 2012-05-29 11:47-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andy Chong <andycjw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -469,7 +469,7 @@ msgid "Slash is not an allowed character."
 msgstr "斜線符號不能被接受"
 
 #: dashboards/nova/containers/forms.py:45
-#: dashboards/nova/containers/tables.py:89
+#: dashboards/nova/containers/tables.py:88
 msgid "Container Name"
 msgstr "容器名稱"
 
@@ -482,7 +482,7 @@ msgid "Unable to create container."
 msgstr "無法建立容器"
 
 #: dashboards/nova/containers/forms.py:59
-#: dashboards/nova/containers/tables.py:156
+#: dashboards/nova/containers/tables.py:155
 msgid "Object Name"
 msgstr "物件名稱"
 
@@ -516,46 +516,46 @@ msgid "Unable to copy object."
 msgstr "無法複製物件"
 
 #: dashboards/nova/containers/panel.py:28
-#: dashboards/nova/containers/tables.py:36
-#: dashboards/nova/containers/tables.py:100
+#: dashboards/nova/containers/tables.py:35
+#: dashboards/nova/containers/tables.py:99
 #: dashboards/nova/templates/nova/containers/index.html:8
 msgid "Containers"
 msgstr "容器"
 
-#: dashboards/nova/containers/tables.py:35
+#: dashboards/nova/containers/tables.py:34
 msgid "Container"
 msgstr "容器"
 
-#: dashboards/nova/containers/tables.py:43
+#: dashboards/nova/containers/tables.py:42
 msgid "Containers must be empty before deletion."
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:49
+#: dashboards/nova/containers/tables.py:48
 #: dashboards/nova/templates/nova/containers/_create.html:7
 #: dashboards/nova/templates/nova/containers/_create.html:22
 #: dashboards/nova/templates/nova/containers/create.html:6
 msgid "Create Container"
 msgstr "建立容器"
 
-#: dashboards/nova/containers/tables.py:56
+#: dashboards/nova/containers/tables.py:55
 msgid "List Objects"
 msgstr "列出物件"
 
-#: dashboards/nova/containers/tables.py:63
+#: dashboards/nova/containers/tables.py:62
 #: dashboards/nova/templates/nova/objects/_upload.html:23
 #: dashboards/nova/templates/nova/objects/upload.html:3
 msgid "Upload Object"
 msgstr "上傳物件"
 
-#: dashboards/nova/containers/tables.py:91
-#: dashboards/nova/containers/tables.py:107
-#: dashboards/nova/containers/tables.py:164
+#: dashboards/nova/containers/tables.py:90
+#: dashboards/nova/containers/tables.py:106
+#: dashboards/nova/containers/tables.py:163
 #: dashboards/nova/templates/nova/objects/index.html:3
 msgid "Objects"
 msgstr "物件"
 
-#: dashboards/nova/containers/tables.py:93
-#: dashboards/nova/containers/tables.py:157
+#: dashboards/nova/containers/tables.py:92
+#: dashboards/nova/containers/tables.py:156
 #: dashboards/nova/instances_and_volumes/instances/tables.py:243
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:114
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
@@ -564,15 +564,15 @@ msgstr "物件"
 msgid "Size"
 msgstr "大小"
 
-#: dashboards/nova/containers/tables.py:106
+#: dashboards/nova/containers/tables.py:105
 msgid "Object"
 msgstr "物件"
 
-#: dashboards/nova/containers/tables.py:117
+#: dashboards/nova/containers/tables.py:116
 msgid "Copy"
 msgstr "複製"
 
-#: dashboards/nova/containers/tables.py:128
+#: dashboards/nova/containers/tables.py:127
 msgid "Download"
 msgstr "下載"
 
@@ -596,15 +596,15 @@ msgstr "無法列出容器。"
 msgid "Images & Snapshots"
 msgstr "映像 & 快照"
 
-#: dashboards/nova/images_and_snapshots/views.py:53
+#: dashboards/nova/images_and_snapshots/views.py:60
 msgid "Unable to retrieve images."
 msgstr "無法取得映像。"
 
-#: dashboards/nova/images_and_snapshots/views.py:61
+#: dashboards/nova/images_and_snapshots/views.py:71
 msgid "Unable to retrieve snapshots."
 msgstr "無法取得快照。"
 
-#: dashboards/nova/images_and_snapshots/views.py:69
+#: dashboards/nova/images_and_snapshots/views.py:79
 msgid "Unable to retrieve volume snapshots."
 msgstr "無法取得空間快照"
 
@@ -850,7 +850,6 @@ msgstr "已喚醒"
 
 #: dashboards/nova/instances_and_volumes/instances/tables.py:144
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:376
-#: dashboards/nova/templates/nova/images_and_snapshots/images/launch.html:13
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:3
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:6
 msgid "Launch Instance"
@@ -913,7 +912,7 @@ msgstr "無法取得執行個體的VNC界面\"%s\"。"
 msgid "Unable to retrieve instance details."
 msgstr "無法取得執行個體的詳細資料"
 
-#: dashboards/nova/instances_and_volumes/instances/views.py:128
+#: dashboards/nova/instances_and_volumes/instances/views.py:130
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "無法取得執行個體\"%s\"詳細資料。"
@@ -1040,7 +1039,6 @@ msgid "Select Image"
 msgstr "選擇語言"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:242
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
 #, fuzzy
 msgid "No images available."
 msgstr "沒有可用的執行個體"
@@ -1049,6 +1047,11 @@ msgstr "沒有可用的執行個體"
 #, fuzzy
 msgid "Select Instance Snapshot"
 msgstr "執行個體快照"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
+#, fuzzy
+msgid "No snapshots available."
+msgstr "沒有可用的執行個體"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:264
 msgid "Unable to retrieve instance flavors."
@@ -1817,7 +1820,7 @@ msgstr "權限不足"
 msgid "Unable to get flavor list: %s"
 msgstr "無法取得規格列表： %s"
 
-#: dashboards/syspanel/images/views.py:45
+#: dashboards/syspanel/images/views.py:52
 msgid "Unable to retrieve image list."
 msgstr "無法取得映像列表"
 
@@ -2246,20 +2249,20 @@ msgstr "已刪除"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "此屬性%(attr)s並不在%(obj)s上存在。"
 
-#: tables/base.py:671
+#: tables/base.py:679
 msgid "Actions"
 msgstr "動作"
 
-#: tables/base.py:816
+#: tables/base.py:824
 msgid "No items to display."
 msgstr "沒有任何相關項目"
 
-#: tables/base.py:833
+#: tables/base.py:841
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "找不到id \"%s\"的相關項目"
 
-#: tables/base.py:940
+#: tables/base.py:948
 msgid "Please select a row before taking that action."
 msgstr "請選擇一個欄位後才執行動作"
 
