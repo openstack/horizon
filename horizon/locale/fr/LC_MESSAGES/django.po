@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-23 11:08-0700\n"
+"POT-Creation-Date: 2012-05-29 11:46-0700\n"
 "PO-Revision-Date: 2012-05-10 16:05+0100\n"
 "Last-Translator: Erwan Gallen <erwan@zinux.com>\n"
 "Language-Team: French <fr@zinux.com>\n"
@@ -475,7 +475,7 @@ msgid "Slash is not an allowed character."
 msgstr "Le caractère barre oblique n'est pas autorisé."
 
 #: dashboards/nova/containers/forms.py:45
-#: dashboards/nova/containers/tables.py:89
+#: dashboards/nova/containers/tables.py:88
 msgid "Container Name"
 msgstr "Nom de conteneur"
 
@@ -488,7 +488,7 @@ msgid "Unable to create container."
 msgstr "Impossible de créer le conteneur."
 
 #: dashboards/nova/containers/forms.py:59
-#: dashboards/nova/containers/tables.py:156
+#: dashboards/nova/containers/tables.py:155
 msgid "Object Name"
 msgstr "Nom de l'objet"
 
@@ -522,46 +522,46 @@ msgid "Unable to copy object."
 msgstr "Impossible de copier l'objet."
 
 #: dashboards/nova/containers/panel.py:28
-#: dashboards/nova/containers/tables.py:36
-#: dashboards/nova/containers/tables.py:100
+#: dashboards/nova/containers/tables.py:35
+#: dashboards/nova/containers/tables.py:99
 #: dashboards/nova/templates/nova/containers/index.html:8
 msgid "Containers"
 msgstr "Conteneurs"
 
-#: dashboards/nova/containers/tables.py:35
+#: dashboards/nova/containers/tables.py:34
 msgid "Container"
 msgstr "Conteneur"
 
-#: dashboards/nova/containers/tables.py:43
+#: dashboards/nova/containers/tables.py:42
 msgid "Containers must be empty before deletion."
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:49
+#: dashboards/nova/containers/tables.py:48
 #: dashboards/nova/templates/nova/containers/_create.html:7
 #: dashboards/nova/templates/nova/containers/_create.html:22
 #: dashboards/nova/templates/nova/containers/create.html:6
 msgid "Create Container"
 msgstr "Création d'un conteneur"
 
-#: dashboards/nova/containers/tables.py:56
+#: dashboards/nova/containers/tables.py:55
 msgid "List Objects"
 msgstr "Liste des objets"
 
-#: dashboards/nova/containers/tables.py:63
+#: dashboards/nova/containers/tables.py:62
 #: dashboards/nova/templates/nova/objects/_upload.html:23
 #: dashboards/nova/templates/nova/objects/upload.html:3
 msgid "Upload Object"
 msgstr "Uploader un objet"
 
-#: dashboards/nova/containers/tables.py:91
-#: dashboards/nova/containers/tables.py:107
-#: dashboards/nova/containers/tables.py:164
+#: dashboards/nova/containers/tables.py:90
+#: dashboards/nova/containers/tables.py:106
+#: dashboards/nova/containers/tables.py:163
 #: dashboards/nova/templates/nova/objects/index.html:3
 msgid "Objects"
 msgstr "Objets"
 
-#: dashboards/nova/containers/tables.py:93
-#: dashboards/nova/containers/tables.py:157
+#: dashboards/nova/containers/tables.py:92
+#: dashboards/nova/containers/tables.py:156
 #: dashboards/nova/instances_and_volumes/instances/tables.py:243
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:114
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
@@ -570,15 +570,15 @@ msgstr "Objets"
 msgid "Size"
 msgstr "Taille"
 
-#: dashboards/nova/containers/tables.py:106
+#: dashboards/nova/containers/tables.py:105
 msgid "Object"
 msgstr "Objet"
 
-#: dashboards/nova/containers/tables.py:117
+#: dashboards/nova/containers/tables.py:116
 msgid "Copy"
 msgstr "Copie"
 
-#: dashboards/nova/containers/tables.py:128
+#: dashboards/nova/containers/tables.py:127
 msgid "Download"
 msgstr "Télécharger"
 
@@ -602,15 +602,15 @@ msgstr "Impossible de lister les conteneurs."
 msgid "Images & Snapshots"
 msgstr "Images & Instantanés"
 
-#: dashboards/nova/images_and_snapshots/views.py:53
+#: dashboards/nova/images_and_snapshots/views.py:60
 msgid "Unable to retrieve images."
 msgstr "Impossible de récupérer les images."
 
-#: dashboards/nova/images_and_snapshots/views.py:61
+#: dashboards/nova/images_and_snapshots/views.py:71
 msgid "Unable to retrieve snapshots."
 msgstr "Impossible de récupérer les instantanés."
 
-#: dashboards/nova/images_and_snapshots/views.py:69
+#: dashboards/nova/images_and_snapshots/views.py:79
 msgid "Unable to retrieve volume snapshots."
 msgstr "Impossible de récupérer les instantanés de volume."
 
@@ -856,7 +856,6 @@ msgstr "Repris"
 
 #: dashboards/nova/instances_and_volumes/instances/tables.py:144
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:376
-#: dashboards/nova/templates/nova/images_and_snapshots/images/launch.html:13
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:3
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:6
 #, fuzzy
@@ -920,7 +919,7 @@ msgstr "Impossible de récupérer la console VNC pour l'instance \"%s\"."
 msgid "Unable to retrieve instance details."
 msgstr "Impossible de récupérer le détail de l'instance."
 
-#: dashboards/nova/instances_and_volumes/instances/views.py:128
+#: dashboards/nova/instances_and_volumes/instances/views.py:130
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Impossible de récupérer les informations sur l'instance \"%s\"."
@@ -1049,7 +1048,6 @@ msgid "Select Image"
 msgstr "Sélectionnez la langue"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:242
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
 #, fuzzy
 msgid "No images available."
 msgstr "Aucune instance disponible"
@@ -1058,6 +1056,11 @@ msgstr "Aucune instance disponible"
 #, fuzzy
 msgid "Select Instance Snapshot"
 msgstr "Instantané d'instance"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
+#, fuzzy
+msgid "No snapshots available."
+msgstr "Aucune instance disponible"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:264
 msgid "Unable to retrieve instance flavors."
@@ -1853,7 +1856,7 @@ msgstr "Non autorisé."
 msgid "Unable to get flavor list: %s"
 msgstr "Impossible de récupérer la liste des types d'instance : %s"
 
-#: dashboards/syspanel/images/views.py:45
+#: dashboards/syspanel/images/views.py:52
 msgid "Unable to retrieve image list."
 msgstr "Impossible de récupérer la liste des images."
 
@@ -2286,20 +2289,20 @@ msgstr "Supprimé"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "L'attribut %(attr)s n'existe pas sur %(obj)s."
 
-#: tables/base.py:671
+#: tables/base.py:679
 msgid "Actions"
 msgstr "Actions"
 
-#: tables/base.py:816
+#: tables/base.py:824
 msgid "No items to display."
 msgstr "Aucun élément à afficher."
 
-#: tables/base.py:833
+#: tables/base.py:841
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Aucun résultat retourné pour l'id  \"%s\"."
 
-#: tables/base.py:940
+#: tables/base.py:948
 msgid "Please select a row before taking that action."
 msgstr "Merci de sélectionner une ligne avant de faire cette action."
 

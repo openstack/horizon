@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-23 11:08-0700\n"
+"POT-Creation-Date: 2012-05-29 11:47-0700\n"
 "PO-Revision-Date: 2011-09-24 14:41+0100\n"
 "Last-Translator: Tomasz 'Zen' Napierala <tomasz@napierala.org>\n"
 "Language-Team: Polish OpenStack translations team <tomasz+openstack-"
@@ -490,7 +490,7 @@ msgid "Slash is not an allowed character."
 msgstr ""
 
 #: dashboards/nova/containers/forms.py:45
-#: dashboards/nova/containers/tables.py:89
+#: dashboards/nova/containers/tables.py:88
 msgid "Container Name"
 msgstr ""
 
@@ -505,7 +505,7 @@ msgid "Unable to create container."
 msgstr "Nie można utworzyć klucza: %s"
 
 #: dashboards/nova/containers/forms.py:59
-#: dashboards/nova/containers/tables.py:156
+#: dashboards/nova/containers/tables.py:155
 msgid "Object Name"
 msgstr ""
 
@@ -541,47 +541,47 @@ msgid "Unable to copy object."
 msgstr ""
 
 #: dashboards/nova/containers/panel.py:28
-#: dashboards/nova/containers/tables.py:36
-#: dashboards/nova/containers/tables.py:100
+#: dashboards/nova/containers/tables.py:35
+#: dashboards/nova/containers/tables.py:99
 #: dashboards/nova/templates/nova/containers/index.html:8
 msgid "Containers"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:35
+#: dashboards/nova/containers/tables.py:34
 #, fuzzy
 msgid "Container"
 msgstr "Utwórz nowy wolumen."
 
-#: dashboards/nova/containers/tables.py:43
+#: dashboards/nova/containers/tables.py:42
 msgid "Containers must be empty before deletion."
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:49
+#: dashboards/nova/containers/tables.py:48
 #: dashboards/nova/templates/nova/containers/_create.html:7
 #: dashboards/nova/templates/nova/containers/_create.html:22
 #: dashboards/nova/templates/nova/containers/create.html:6
 msgid "Create Container"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:56
+#: dashboards/nova/containers/tables.py:55
 msgid "List Objects"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:63
+#: dashboards/nova/containers/tables.py:62
 #: dashboards/nova/templates/nova/objects/_upload.html:23
 #: dashboards/nova/templates/nova/objects/upload.html:3
 msgid "Upload Object"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:91
-#: dashboards/nova/containers/tables.py:107
-#: dashboards/nova/containers/tables.py:164
+#: dashboards/nova/containers/tables.py:90
+#: dashboards/nova/containers/tables.py:106
+#: dashboards/nova/containers/tables.py:163
 #: dashboards/nova/templates/nova/objects/index.html:3
 msgid "Objects"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:93
-#: dashboards/nova/containers/tables.py:157
+#: dashboards/nova/containers/tables.py:92
+#: dashboards/nova/containers/tables.py:156
 #: dashboards/nova/instances_and_volumes/instances/tables.py:243
 #: dashboards/nova/instances_and_volumes/volumes/tables.py:114
 #: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
@@ -590,16 +590,16 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:106
+#: dashboards/nova/containers/tables.py:105
 #, fuzzy
 msgid "Object"
 msgstr "Usuń projekt"
 
-#: dashboards/nova/containers/tables.py:117
+#: dashboards/nova/containers/tables.py:116
 msgid "Copy"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:128
+#: dashboards/nova/containers/tables.py:127
 msgid "Download"
 msgstr ""
 
@@ -628,17 +628,17 @@ msgstr "Nie można usunąć klucza: %s"
 msgid "Images & Snapshots"
 msgstr "Instancje"
 
-#: dashboards/nova/images_and_snapshots/views.py:53
+#: dashboards/nova/images_and_snapshots/views.py:60
 #, fuzzy
 msgid "Unable to retrieve images."
 msgstr "Nie można cofnąć: %s"
 
-#: dashboards/nova/images_and_snapshots/views.py:61
+#: dashboards/nova/images_and_snapshots/views.py:71
 #, fuzzy
 msgid "Unable to retrieve snapshots."
 msgstr "Nie można utworzyć klucza: %s"
 
-#: dashboards/nova/images_and_snapshots/views.py:69
+#: dashboards/nova/images_and_snapshots/views.py:79
 #, fuzzy
 msgid "Unable to retrieve volume snapshots."
 msgstr "Nie można utworzyć wolumenu: %s"
@@ -901,7 +901,6 @@ msgstr ""
 
 #: dashboards/nova/instances_and_volumes/instances/tables.py:144
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:376
-#: dashboards/nova/templates/nova/images_and_snapshots/images/launch.html:13
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:3
 #: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:6
 #, fuzzy
@@ -967,7 +966,7 @@ msgstr "Nie można zaktualizować instancji %(inst)s: %(msg)s"
 msgid "Unable to retrieve instance details."
 msgstr "Nie można cofnąć: %s"
 
-#: dashboards/nova/instances_and_volumes/instances/views.py:128
+#: dashboards/nova/instances_and_volumes/instances/views.py:130
 #, fuzzy, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Nie można cofnąć: %s"
@@ -1100,7 +1099,6 @@ msgid "Select Image"
 msgstr "Wolumeny"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:242
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
 #, fuzzy
 msgid "No images available."
 msgstr "brak dostępnych"
@@ -1109,6 +1107,11 @@ msgstr "brak dostępnych"
 #, fuzzy
 msgid "Select Instance Snapshot"
 msgstr "Instancje"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
+#, fuzzy
+msgid "No snapshots available."
+msgstr "brak dostępnych"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:264
 #, fuzzy
@@ -1903,7 +1906,7 @@ msgstr "Nie można autoryzować: %s"
 msgid "Unable to get flavor list: %s"
 msgstr "Nie można cofnąć: %s"
 
-#: dashboards/syspanel/images/views.py:45
+#: dashboards/syspanel/images/views.py:52
 #, fuzzy
 msgid "Unable to retrieve image list."
 msgstr "Nie można utworzyć klucza: %s"
@@ -2364,21 +2367,21 @@ msgstr "Usuń"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:671
+#: tables/base.py:679
 #, fuzzy
 msgid "Actions"
 msgstr "Położenie"
 
-#: tables/base.py:816
+#: tables/base.py:824
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:833
+#: tables/base.py:841
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:940
+#: tables/base.py:948
 msgid "Please select a row before taking that action."
 msgstr ""
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-23 11:08-0700\n"
+"POT-Creation-Date: 2012-05-29 11:47-0700\n"
 "PO-Revision-Date: 2012-05-08 00:20+0100\n"
 "Last-Translator: Erwan Gallen <erwan@zinux.com>\n"
 "Language-Team: French <fr@zinux.com>\n"
@@ -51,6 +51,10 @@ msgstr "Chinois simplifié"
 #: settings.py:123
 msgid "Traditional Chinese"
 msgstr "Chinois traditionnel"
+
+#: local/local_settings.py:17
+msgid "Your password must be at least 6 characters long."
+msgstr ""
 
 #: templates/403.html:4 templates/403.html.py:9
 msgid "Forbidden"
@@ -100,6 +104,10 @@ msgstr "Réglages"
 #: templates/_header.html:5
 msgid "Sign Out"
 msgstr "Déconnexion"
+
+#: templates/_scripts.html:39
+msgid "Loading&hellip;"
+msgstr ""
 
 #: templates/switch_tenants.html:12
 msgid "Log-in to tenant"
