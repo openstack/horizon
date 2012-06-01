@@ -68,7 +68,9 @@ class SwiftApiTests(test.APITestCase):
         self.mox.StubOutWithMock(container, 'get_objects')
         container.get_objects(limit=1001,
                               marker=None,
-                              prefix=None).AndReturn(objects)
+                              prefix=None,
+                              delimiter='/',
+                              path=None).AndReturn(objects)
         self.mox.ReplayAll()
 
         (objs, more) = api.swift_get_objects(self.request, container.name)

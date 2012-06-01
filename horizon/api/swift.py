@@ -87,12 +87,15 @@ def swift_delete_container(request, name):
     swift_api(request).delete_container(name)
 
 
-def swift_get_objects(request, container_name, prefix=None, marker=None):
+def swift_get_objects(request, container_name, prefix=None, path=None,
+                      marker=None):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     container = swift_api(request).get_container(container_name)
     objects = container.get_objects(prefix=prefix,
                                     marker=marker,
-                                    limit=limit + 1)
+                                    limit=limit + 1,
+                                    delimiter="/",
+                                    path=path)
     if(len(objects) > limit):
         return (objects[0:-1], True)
     else:
@@ -120,6 +123,16 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
 
     orig_obj = container.get_object(orig_object_name)
     return orig_obj.copy_to(new_container_name, new_object_name)
+
+
+def swift_create_subfolder(request, container_name, folder_name):
+    container = swift_api(request).get_container(container_name)
+    obj = container.create_object(folder_name)
+    obj.headers = {'content-type': 'application/directory',
+                   'content-length': 0}
+    obj.send('')
+    obj.sync_metadata()
+    return obj
 
 
 def swift_upload_object(request, container_name, object_name, object_file):

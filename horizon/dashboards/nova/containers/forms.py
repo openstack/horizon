@@ -41,21 +41,47 @@ no_slash_validator = validators.RegexValidator(r'^(?u)[^/]+$',
 
 
 class CreateContainer(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255",
+    parent = forms.CharField(max_length=255,
+                             required=False,
+                             widget=forms.HiddenInput)
+    name = forms.CharField(max_length=255,
                            label=_("Container Name"),
                            validators=[no_slash_validator])
 
     def handle(self, request, data):
         try:
-            api.swift_create_container(request, data['name'])
-            messages.success(request, _("Container created successfully."))
+            if not data['parent']:
+                # Create a container
+                api.swift_create_container(request, data["name"])
+                messages.success(request, _("Container created successfully."))
+            else:
+                # Create a pseudo-folder
+                container, slash, remainder = data['parent'].partition("/")
+                remainder = remainder.rstrip("/")
+                subfolder_name = "/".join([bit for bit
+                                           in (remainder, data['name'])
+                                           if bit])
+                api.swift_create_subfolder(request,
+                                           container,
+                                           subfolder_name)
+                messages.success(request, _("Folder created successfully."))
+                url = "horizon:nova:containers:object_index"
+                if remainder:
+                    remainder = remainder.rstrip("/")
+                    remainder += "/"
+                return shortcuts.redirect(url, container, remainder)
+
         except:
             exceptions.handle(request, _('Unable to create container.'))
+
         return shortcuts.redirect("horizon:nova:containers:index")
 
 
 class UploadObject(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255",
+    path = forms.CharField(max_length=255,
+                           required=False,
+                           widget=forms.HiddenInput)
+    name = forms.CharField(max_length=255,
                            label=_("Object Name"),
                            validators=[no_slash_validator])
     object_file = forms.FileField(label=_("File"))
@@ -63,10 +89,14 @@ class UploadObject(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         object_file = self.files['object_file']
+        if data['path']:
+            object_path = "/".join([data['path'].rstrip("/"), data['name']])
+        else:
+            object_path = data['name']
         try:
             obj = api.swift_upload_object(request,
                                           data['container_name'],
-                                          data['name'],
+                                          object_path,
                                           object_file)
             obj.metadata['orig-filename'] = object_file.name
             obj.sync_metadata()
@@ -74,13 +104,14 @@ class UploadObject(forms.SelfHandlingForm):
         except:
             exceptions.handle(request, _("Unable to upload object."))
         return shortcuts.redirect("horizon:nova:containers:object_index",
-                                  data['container_name'])
+                                  data['container_name'], data['path'])
 
 
 class CopyObject(forms.SelfHandlingForm):
     new_container_name = forms.ChoiceField(label=_("Destination container"),
                                            validators=[no_slash_validator])
-    new_object_name = forms.CharField(max_length="255",
+    path = forms.CharField(max_length=255, required=False)
+    new_object_name = forms.CharField(max_length=255,
                                       label=_("Destination object name"),
                                       validators=[no_slash_validator])
     orig_container_name = forms.CharField(widget=forms.HiddenInput())
@@ -97,15 +128,38 @@ class CopyObject(forms.SelfHandlingForm):
         orig_object = data['orig_object_name']
         new_container = data['new_container_name']
         new_object = data['new_object_name']
+        new_path = "%s%s" % (data['path'], new_object)
+
+        # Iteratively make sure all the directory markers exist.
+        if data['path']:
+            path_component = ""
+            for bit in data['path'].split("/"):
+                path_component += bit
+                try:
+                    api.swift.swift_create_subfolder(request,
+                                                     new_container,
+                                                     path_component)
+                except:
+                    redirect = reverse(object_index, args=(orig_container,))
+                    exceptions.handle(request,
+                                      _("Unable to copy object."),
+                                      redirect=redirect)
+                path_component += "/"
+
+        # Now copy the object itself.
         try:
             api.swift_copy_object(request,
                                   orig_container,
                                   orig_object,
                                   new_container,
-                                  new_object)
-            vals = {"container": new_container, "obj": new_object}
-            messages.success(request, _('Object "%(obj)s" copied to container '
-                                        '"%(container)s".') % vals)
+                                  new_path)
+            dest = "%s/%s" % (new_container, data['path'])
+            vals = {"dest": dest.rstrip("/"),
+                    "orig": orig_object.split("/")[-1],
+                    "new": new_object}
+            messages.success(request,
+                             _('Copied "%(orig)s" to "%(dest)s" as "%(new)s".')
+                             % vals)
         except exceptions.HorizonException, exc:
             messages.error(request, exc)
             return shortcuts.redirect(object_index, orig_container)
@@ -114,4 +168,4 @@ class CopyObject(forms.SelfHandlingForm):
             exceptions.handle(request,
                               _("Unable to copy object."),
                               redirect=redirect)
-        return shortcuts.redirect(object_index, new_container)
+        return shortcuts.redirect(object_index, new_container, data['path'])

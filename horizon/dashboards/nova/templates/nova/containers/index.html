@@ -3,9 +3,7 @@
 {% block title %}Containers{% endblock %}
 
 {% block page_header %}
-  {% url horizon:nova:images_and_snapshots:images:index as refresh_link %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "horizon/common/_page_header.html" with title=_("Containers") refresh_link=refresh_link searchable="true" %}
+  {% include "horizon/common/_page_header.html" with title=_("Containers") %}
 {% endblock page_header %}
 
 {% block dash_main %}

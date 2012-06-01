@@ -23,16 +23,29 @@ from django.conf.urls.defaults import patterns, url
 from .views import IndexView, CreateView, UploadView, ObjectIndexView, CopyView
 
 
-OBJECTS = r'^(?P<container_name>[^/]+)/%s$'
-
-
 # Swift containers and objects.
 urlpatterns = patterns('horizon.dashboards.nova.containers.views',
     url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^create/$', CreateView.as_view(), name='create'),
-    url(OBJECTS % r'$', ObjectIndexView.as_view(), name='object_index'),
-    url(OBJECTS % r'upload$', UploadView.as_view(), name='object_upload'),
-    url(OBJECTS % r'(?P<object_name>[^/]+)/copy$',
-        CopyView.as_view(), name='object_copy'),
-    url(OBJECTS % r'(?P<object_name>[^/]+)/download$',
-        'object_download', name='object_download'))
+
+    url(r'^(?P<container_name>(.+/)+)?create$',
+        CreateView.as_view(),
+        name='create'),
+
+    url(r'^(?P<container_name>[^/]+)/(?P<subfolder_path>(.+/)+)?$',
+        ObjectIndexView.as_view(),
+        name='object_index'),
+
+    url(r'^(?P<container_name>[^/]+)/(?P<subfolder_path>(.+/)+)?upload$',
+        UploadView.as_view(),
+        name='object_upload'),
+
+    url(r'^(?P<container_name>[^/]+)/'
+         r'(?P<subfolder_path>(.+/)+)?'
+         r'(?P<object_name>.+)/copy$',
+        CopyView.as_view(),
+        name='object_copy'),
+
+    url(r'^(?P<container_name>[^/]+)/(?P<object_path>.+)/download$',
+        'object_download',
+        name='object_download')
+)

@@ -4,10 +4,15 @@
 
 {% block page_header %}
   <div class='page-header'>
-    <h2>Objects <small>Container: {{ container_name }}</small></h2>
+    <h2>{% trans "Container" %}: {{ container_name }}<small>/{{ subfolder_path|default:"" }}</small></h2>
   </div>
 {% endblock page_header %}
 
 {% block dash_main %}
-  {{ table.render }}
+  <div id="subfolders">
+      {{ subfolders_table.render  }}
+  </div>
+  <div id="objects">
+      {{ objects_table.render }}
+  </div>
 {% endblock %}

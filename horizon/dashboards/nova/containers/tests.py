@@ -102,16 +102,18 @@ class ObjectViewTests(test.TestCase):
         ret = (self.objects.list(), False)
         api.swift_get_objects(IsA(http.HttpRequest),
                               self.containers.first().name,
-                              marker=None).AndReturn(ret)
+                              marker=None,
+                              path=None).AndReturn(ret)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:nova:containers:object_index',
                                       args=[self.containers.first().name]))
         self.assertTemplateUsed(res, 'nova/objects/index.html')
-        expected = [obj.name for obj in self.objects.list()]
-        self.assertQuerysetEqual(res.context['table'].data,
+        # UTF8 encoding here to ensure there aren't problems with Nose output.
+        expected = [obj.name.encode('utf8') for obj in self.objects.list()]
+        self.assertQuerysetEqual(res.context['objects_table'].data,
                                  expected,
-                                 lambda obj: obj.name)
+                                 lambda obj: obj.name.encode('utf8'))
 
     def test_upload_index(self):
         res = self.client.get(reverse('horizon:nova:containers:object_upload',

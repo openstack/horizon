@@ -52,7 +52,7 @@ class CreateContainer(tables.LinkAction):
 
 class ListObjects(tables.LinkAction):
     name = "list_objects"
-    verbose_name = _("List Objects")
+    verbose_name = _("View Container")
     url = "horizon:nova:containers:object_index"
     classes = ("btn-list",)
 
@@ -71,7 +71,10 @@ class UploadObject(tables.LinkAction):
         else:
             # This is a table action and we already have the container name
             container_name = self.table.kwargs['container_name']
-        return reverse(self.url, args=(container_name,))
+        subfolders = self.table.kwargs.get('subfolder_path', '')
+        args = (http.urlquote(bit) for bit in
+                (container_name, subfolders) if bit)
+        return reverse(self.url, args=args)
 
     def update(self, request, obj):
         # This will only be called for the row, so we can remove the button
@@ -129,7 +132,6 @@ class DownloadObject(tables.LinkAction):
     classes = ("btn-download",)
 
     def get_link_url(self, obj):
-        #assert False, obj.__dict__['_apiresource'].__dict__
         return reverse(self.url, args=(http.urlquote(obj.container.name),
                                        http.urlquote(obj.name)))
 
@@ -147,12 +149,18 @@ class ObjectFilterAction(tables.FilterAction):
         return filter(comp, objects)
 
 
+def sanitize_name(name):
+    return name.split("/")[-1]
+
+
 def get_size(obj):
     return filesizeformat(obj.size)
 
 
 class ObjectsTable(tables.DataTable):
-    name = tables.Column("name", verbose_name=_("Object Name"))
+    name = tables.Column("name",
+                         verbose_name=_("Object Name"),
+                         filters=(sanitize_name,))
     size = tables.Column(get_size, verbose_name=_('Size'))
 
     def get_object_id(self, obj):
@@ -163,3 +171,42 @@ class ObjectsTable(tables.DataTable):
         verbose_name = _("Objects")
         table_actions = (ObjectFilterAction, UploadObject, DeleteObject)
         row_actions = (DownloadObject, CopyObject, DeleteObject)
+
+
+def get_link_subfolder(subfolder):
+    return reverse("horizon:nova:containers:object_index",
+                    args=(http.urlquote(subfolder.container.name),
+                            http.urlquote(subfolder.name + "/")))
+
+
+class CreateSubfolder(CreateContainer):
+    verbose_name = _("Create Folder")
+    url = "horizon:nova:containers:create"
+
+    def get_link_url(self):
+        container = self.table.kwargs['container_name']
+        subfolders = self.table.kwargs['subfolder_path']
+        parent = "/".join((bit for bit in [container, subfolders] if bit))
+        parent = parent.rstrip("/")
+        return reverse(self.url, args=(http.urlquote(parent + "/"),))
+
+
+class DeleteSubfolder(DeleteObject):
+    data_type_singular = _("Folder")
+    data_type_plural = _("Folders")
+
+
+class ContainerSubfoldersTable(tables.DataTable):
+    name = tables.Column("name",
+                         link=get_link_subfolder,
+                         verbose_name=_("Subfolder Name"),
+                         filters=(sanitize_name,))
+
+    def get_object_id(self, obj):
+        return obj.name
+
+    class Meta:
+        name = "subfolders"
+        verbose_name = _("Subfolders")
+        table_actions = (CreateSubfolder, DeleteSubfolder)
+        row_actions = (DeleteSubfolder,)
