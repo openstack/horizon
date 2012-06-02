@@ -120,6 +120,13 @@ class Column(html.HTMLElement):
         A string or callable to be used for cells which have no data.
         Defaults to the string ``"-"``.
 
+    .. attribute:: summation
+
+        A string containing the name of a summation method to be used in
+        the generation of a summary row for this column. By default the
+        options are ``"sum"`` or ``"average"``, which behave as expected.
+        Optional.
+
     .. attribute:: filters
 
         A list of functions (often template filters) to be applied to the
@@ -136,6 +143,10 @@ class Column(html.HTMLElement):
         A dict of HTML attribute strings which should be added to this column.
         Example: ``attrs={"data-foo": "bar"}``.
     """
+    summation_methods = {
+        "sum": sum,
+        "average": lambda data: sum(data, 0.0) / len(data)
+    }
     # Used to retain order when instantiating columns on a table
     creation_counter = 0
     # Used for special auto-generated columns
@@ -162,8 +173,8 @@ class Column(html.HTMLElement):
 
     def __init__(self, transform, verbose_name=None, sortable=False,
                  link=None, hidden=False, attrs=None, status=False,
-                 status_choices=None, display_choices=None,
-                 empty_value=None, filters=None, classes=None):
+                 status_choices=None, display_choices=None, empty_value=None,
+                 filters=None, classes=None, summation=None):
         self.classes = classes or getattr(self, "classes", [])
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
@@ -190,6 +201,12 @@ class Column(html.HTMLElement):
             self.status_choices = status_choices
         self.display_choices = display_choices
 
+        if summation is not None and summation not in self.summation_methods:
+            raise ValueError("Summation method %s must be one of %s."
+                             % (summation,
+                                ", ".join(self.summation_methods.keys())))
+        self.summation = summation
+
         self.creation_counter = Column.creation_counter
         Column.creation_counter += 1
 
@@ -204,18 +221,12 @@ class Column(html.HTMLElement):
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.name)
 
-    def get_data(self, datum):
+    def get_raw_data(self, datum):
         """
-        Returns the appropriate data for this column from the given input.
-
-        The return value will be either the attribute specified for this column
-        or the return value of the attr:`~horizon.tables.Column.transform`
-        method for this column.
+        Returns the raw data for this column, before any filters or formatting
+        are applied to it. This is useful when doing calculations on data in
+        the table.
         """
-        datum_id = self.table.get_object_id(datum)
-        if datum_id in self.table._data_cache[self]:
-            return self.table._data_cache[self][datum_id]
-
         # Callable transformations
         if callable(self.transform):
             data = self.transform(datum)
@@ -233,6 +244,20 @@ class Column(html.HTMLElement):
                 msg = termcolors.colorize(msg, **PALETTE['ERROR'])
                 LOG.warning(msg)
             data = None
+        return data
+
+    def get_data(self, datum):
+        """
+        Returns the final display data for this column from the given inputs.
+
+        The return value will be either the attribute specified for this column
+        or the return value of the attr:`~horizon.tables.Column.transform`
+        method for this column.
+        """
+        datum_id = self.table.get_object_id(datum)
+        if datum_id in self.table._data_cache[self]:
+            return self.table._data_cache[self][datum_id]
+        data = self.get_raw_data(datum)
         display_value = None
         if self.display_choices:
             display_value = [display for (value, display) in
@@ -261,6 +286,20 @@ class Column(html.HTMLElement):
             return urlresolvers.reverse(self.link, args=(obj_id,))
         except urlresolvers.NoReverseMatch:
             return self.link
+
+    def get_summation(self):
+        """
+        Returns the summary value for the data in this column if a
+        valid summation method is specified for it. Otherwise returns ``None``.
+        """
+        if self.summation not in self.summation_methods:
+            return None
+        summation_function = self.summation_methods[self.summation]
+        data = [self.get_raw_data(datum) for datum in self.table.data]
+        summation = summation_function(data)
+        for filter_func in self.filters:
+            summation = filter_func(summation)
+        return summation
 
 
 class Row(html.HTMLElement):
@@ -742,6 +781,9 @@ class DataTable(object):
         # Associate these actions with this table
         for action in self.base_actions.values():
             action.table = self
+
+        self.needs_summary_row = any([col.summation
+                                      for col in self.columns.values()])
 
     def __unicode__(self):
         return unicode(self._meta.verbose_name)

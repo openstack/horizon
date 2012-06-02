@@ -51,6 +51,11 @@ TEST_DATA_3 = (
     FakeObject('1', 'object_1', 'value_1', 'up', 'optional_1', 'excluded_1'),
 )
 
+TEST_DATA_4 = (
+    FakeObject('1', 'object_1', 2, 'up'),
+    FakeObject('2', 'object_2', 4, 'up'),
+)
+
 
 class MyLinkAction(tables.LinkAction):
     name = "login"
@@ -147,7 +152,8 @@ class MyTable(tables.DataTable):
     value = tables.Column('value',
                           sortable=True,
                           link='http://example.com/',
-                          attrs={'class': 'green blue'})
+                          attrs={'class': 'green blue'},
+                          summation="average")
     status = tables.Column('status', link=get_link)
     optional = tables.Column('optional', empty_value='N/A')
     excluded = tables.Column('excluded')
@@ -582,3 +588,26 @@ class DataTableTests(test.TestCase):
                             id(t2cols[0].table))
         self.assertNotEqual(id(t1cols[0].table._data_cache),
                             id(t2cols[0].table._data_cache))
+
+    def test_summation_row(self):
+        # Test with the "average" method.
+        table = MyTable(self.request, TEST_DATA_4)
+        res = http.HttpResponse(table.render())
+        self.assertContains(res, '<tr class="summation"', 1)
+        self.assertContains(res, '<td>Summary</td>', 1)
+        self.assertContains(res, '<td>3.0</td>', 1)
+
+        # Test again with the "sum" method.
+        table.columns['value'].summation = "sum"
+        res = http.HttpResponse(table.render())
+        self.assertContains(res, '<tr class="summation"', 1)
+        self.assertContains(res, '<td>Summary</td>', 1)
+        self.assertContains(res, '<td>6</td>', 1)
+
+        # One last test with no summation.
+        table.columns['value'].summation = None
+        table.needs_summary_row = False
+        res = http.HttpResponse(table.render())
+        self.assertNotContains(res, '<tr class="summation"')
+        self.assertNotContains(res, '<td>3.0</td>')
+        self.assertNotContains(res, '<td>6</td>')

@@ -26,6 +26,17 @@
     {% endfor %}
     </tbody>
     <tfoot>
+      {% if table.needs_summary_row %}
+      <tr class="summation">
+        {% for column in columns %}
+          {% if forloop.first %}
+          <td>{% trans "Summary" %}</td>
+          {% else %}
+          <td>{{ column.get_summation|default:"&ndash;"}}</td>
+          {% endif %}
+        {% endfor %}
+      </tr>
+      {% endif %}
       <tr>
         <td colspan="{{ table.get_columns|length }}">
           <span>{% blocktrans count counter=rows|length %}Displaying {{ counter }} item{% plural %}Displaying {{ counter }} items{% endblocktrans %}</span>
