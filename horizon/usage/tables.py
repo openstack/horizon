@@ -25,7 +25,7 @@ class BaseUsageTable(tables.DataTable):
 
 
 class GlobalUsageTable(BaseUsageTable):
-    tenant = tables.Column('tenant_id', verbose_name=_("Project ID"))
+    tenant = tables.Column('tenant_name', verbose_name=_("Project Name"))
     disk_hours = tables.Column('disk_gb_hours',
                                verbose_name=_("Disk GB Hours"),
                                filters=(lambda v: floatformat(v, 2),))
