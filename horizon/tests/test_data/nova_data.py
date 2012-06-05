@@ -81,7 +81,9 @@ SERVER_DATA = """
         "name": "%(name)s",
         "created": "2012-02-28T19:51:17Z",
         "tenant_id": "%(tenant_id)s",
-        "metadata": {}
+        "metadata": {"someMetaLabel": "someMetaData",
+                     "some<b>html</b>label": "<!--",
+                     "empty": ""}
     }
 }
 """

@@ -274,6 +274,38 @@ class InstanceViewTests(test.TestCase):
         self.assertEquals(res.context['instance'].volumes[1].device,
                           "/dev/hdk")
 
+    @test.create_stubs({api: ("server_get", "volume_instance_list",
+                              "flavor_get", "server_security_groups")})
+    def test_instance_details_metadata(self):
+        server = self.servers.first()
+
+        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.volume_instance_list(IsA(http.HttpRequest),
+                               server.id).AndReturn([])
+        api.flavor_get(IsA(http.HttpRequest),
+                       server.flavor['id']).AndReturn(self.flavors.first())
+        api.server_security_groups(IsA(http.HttpRequest),
+                       server.id).AndReturn(self.security_groups.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances_and_volumes:instances:detail',
+                      args=[server.id])
+        tg = InstanceDetailTabs(self.request, instance=server)
+        qs = "?%s=%s" % (tg.param_name, tg.get_tab("overview").get_id())
+        res = self.client.get(url + qs)
+        # Key name
+        self.assertContains(res, "<dd>keyName</dd>", 1)
+        # Meta data
+        self.assertContains(res, "<dt>someMetaLabel</dt>", 1)
+        self.assertContains(res, "<dd>someMetaData</dd>", 1)
+        # Test escaping of html characters in names
+        self.assertContains(res, "<dt>some&lt;b&gt;html&lt;/b&gt;label</dt>",
+                            1)
+        self.assertContains(res, "<dd>&lt;!--</dd>", 1)
+        self.assertContains(res, "<dt>empty</dt>", 1)
+        self.assertContains(res, "<dd><em>N/A</em></dd>", 1)
+
     def test_instance_log(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = 'output'
