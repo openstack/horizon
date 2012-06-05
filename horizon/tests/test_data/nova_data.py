@@ -262,7 +262,12 @@ def data(TEST):
                                      'fixed_ip': '10.0.0.4',
                                      'instance_id': server_1.id,
                                      'ip': '58.58.58.58'})
-    TEST.floating_ips.add(fip_1)
+    fip_2 = floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
+                                    {'id': 2,
+                                     'fixed_ip': None,
+                                     'instance_id': None,
+                                     'ip': '58.58.58.58'})
+    TEST.floating_ips.add(fip_1, fip_2)
 
     # Usage
     usage_vals = {"tenant_id": TEST.tenant.id,

@@ -85,3 +85,69 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertContains(res, "512MB RAM | 1 VCPU | 0 Disk", 1, 200)
         self.assertContains(res, "Active", 1, 200)
         self.assertContains(res, "Running", 1, 200)
+
+    def test_launch_post(self):
+        flavor = self.flavors.first()
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        volume = self.volumes.first()
+        sec_group = self.security_groups.first()
+        customization_script = 'user data'
+        device_name = u'vda'
+        volume_choice = "%s:vol" % volume.id
+        block_device_mapping = {device_name: u"%s::0" % volume_choice}
+
+        self.mox.StubOutWithMock(api.glance, 'image_list_detailed')
+        self.mox.StubOutWithMock(api.nova, 'flavor_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_list')
+        self.mox.StubOutWithMock(api.nova, 'volume_snapshot_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.nova, 'server_create')
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id}) \
+                  .AndReturn([[], False])
+        api.nova.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        api.nova.server_create(IsA(http.HttpRequest),
+                               server.name,
+                               image.id,
+                               flavor.id,
+                               keypair.name,
+                               customization_script,
+                               [sec_group.name],
+                               block_device_mapping,
+                               instance_count=IsA(int))
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'image_id',
+                     'image_id': image.id,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'customization_script': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'volume_type': 'volume_id',
+                     'volume_id': volume_choice,
+                     'device_name': device_name,
+                     'count': 1}
+        url = reverse('horizon:syspanel:instances:launch')
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res,
+                 reverse('horizon:syspanel:instances:index'))

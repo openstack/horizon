@@ -16,6 +16,7 @@
 
 import copy
 import inspect
+import logging
 
 from django import forms
 from django import template
@@ -30,6 +31,9 @@ from horizon import base
 from horizon import exceptions
 from horizon.templatetags.horizon import can_haz
 from horizon.utils import html
+
+
+LOG = logging.getLogger(__name__)
 
 
 class WorkflowContext(dict):
@@ -156,7 +160,7 @@ class Action(forms.Form):
             context = template.RequestContext(self.request, extra_context)
             text += tmpl.render(context)
         else:
-            text += linebreaks(self.help_text)
+            text += linebreaks(force_unicode(self.help_text))
         return safe(text)
 
     def handle(self, request, context):
@@ -254,7 +258,7 @@ class Step(object):
 
         Inherited from the ``Action`` class.
     """
-    action = None
+    action_class = None
     depends_on = ()
     contributes = ()
     connections = None
@@ -274,13 +278,12 @@ class Step(object):
         self.workflow = workflow
 
         cls = self.__class__.__name__
-        if not (self.action and issubclass(self.action, Action)):
+        if not (self.action_class and issubclass(self.action_class, Action)):
             raise AttributeError("You must specify an action for %s." % cls)
 
-        self._action = None
-        self.slug = self.action.slug
-        self.name = self.action.name
-        self.roles = self.action.roles
+        self.slug = self.action_class.slug
+        self.name = self.action_class.name
+        self.roles = self.action_class.roles
         self.has_errors = False
         self._handlers = {}
 
@@ -339,8 +342,16 @@ class Step(object):
                                              % (bits[-1], module_name, cls))
                 self._handlers[key].append(handler)
 
-    def _init_action(self, request, data):
-        self._action = self.action(request, data)
+    @property
+    def action(self):
+        if not getattr(self, "_action", None):
+            try:
+                self._action = self.action_class(self.workflow.request,
+                                                 self.workflow.context)
+            except:
+                LOG.exception("Problem instantiating action class.")
+                raise
+        return self._action
 
     def get_id(self):
         """ Returns the ID for this step. Suitable for use in HTML markup. """
@@ -350,7 +361,7 @@ class Step(object):
         for key in self.contributes:
             # Make sure we don't skip steps based on weird behavior of
             # POST query dicts.
-            field = self._action.fields.get(key, None)
+            field = self.action.fields.get(key, None)
             if field and field.required and not context.get(key):
                 context.pop(key, None)
         failed_to_contribute = set(self.contributes)
@@ -381,15 +392,15 @@ class Step(object):
     def render(self):
         """ Renders the step. """
         step_template = template.loader.get_template(self.template_name)
-        extra_context = {"form": self._action,
+        extra_context = {"form": self.action,
                          "step": self}
         context = template.RequestContext(self.workflow.request, extra_context)
         return step_template.render(context)
 
     def get_help_text(self):
         """ Returns the help text for this step. """
-        text = linebreaks(self.help_text)
-        text += self._action.get_help_text()
+        text = linebreaks(force_unicode(self.help_text))
+        text += self.action.get_help_text()
         return safe(text)
 
 
@@ -470,6 +481,12 @@ class Workflow(html.HTMLElement):
         Path to the template which should be used to render this workflow.
         In general the default common template should be used. Default:
         ``"horizon/common/_workflow.html"``.
+
+    .. attribute:: redirect_param_name
+
+        The name of a parameter used for tracking the URL to redirect to upon
+        completion of the workflow. Defaults to ``"next"``.
+
     """
     __metaclass__ = WorkflowMetaclass
     slug = None
@@ -478,6 +495,7 @@ class Workflow(html.HTMLElement):
     finalize_button_name = _("Save")
     success_message = _("%s completed successfully.")
     failure_message = _("%s did not complete.")
+    redirect_param_name = "next"
     _registerable_class = Step
 
     def __unicode__(self):
@@ -517,11 +535,18 @@ class Workflow(html.HTMLElement):
         clean_seed = dict([(key, val)
                            for key, val in context_seed.items()
                            if key in self.contributions | self.depends_on])
+        self.context_seed = clean_seed
         self.context.update(clean_seed)
 
-        for step in self.steps:
-            self.context = step.contribute(request.POST, self.context)
-            step._init_action(request, self.context)
+        if request and request.method == "POST":
+            for step in self.steps:
+                valid = step.action.is_valid()
+                # Be sure to use the CLEANED data if the workflow is valid.
+                if valid:
+                    data = step.action.cleaned_data
+                else:
+                    data = request.POST
+                self.context = step.contribute(data, self.context)
 
     @property
     def steps(self):
@@ -634,7 +659,7 @@ class Workflow(html.HTMLElement):
         # in one pass before returning.
         steps_valid = True
         for step in self.steps:
-            if not step._action.is_valid():
+            if not step.action.is_valid():
                 steps_valid = False
                 step.has_errors = True
         if not steps_valid:
@@ -651,7 +676,7 @@ class Workflow(html.HTMLElement):
         partial = False
         for step in self.steps:
             try:
-                data = step._action.handle(self.request, self.context)
+                data = step.action.handle(self.request, self.context)
                 if data is True or data is None:
                     continue
                 elif data is False:

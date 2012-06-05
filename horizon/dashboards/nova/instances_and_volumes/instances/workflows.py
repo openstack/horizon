@@ -52,7 +52,7 @@ class SelectProjectUserAction(workflows.Action):
 
 
 class SelectProjectUser(workflows.Step):
-    action = SelectProjectUserAction
+    action_class = SelectProjectUserAction
     contributes = ("project_id", "user_id")
 
 
@@ -135,7 +135,7 @@ class VolumeOptionsAction(workflows.Action):
 
 
 class VolumeOptions(workflows.Step):
-    action = VolumeOptionsAction
+    action_class = VolumeOptionsAction
     depends_on = ("project_id", "user_id")
     contributes = ("volume_type",
                    "volume_id",
@@ -278,7 +278,7 @@ class SetInstanceDetailsAction(workflows.Action):
 
 
 class SetInstanceDetails(workflows.Step):
-    action = SetInstanceDetailsAction
+    action_class = SetInstanceDetailsAction
     contributes = ("source_type", "source_id", "name", "count", "flavor")
 
     def contribute(self, data, context):
@@ -338,7 +338,7 @@ class SetAccessControlsAction(workflows.Action):
 
 
 class SetAccessControls(workflows.Step):
-    action = SetAccessControlsAction
+    action_class = SetAccessControlsAction
     depends_on = ("project_id", "user_id")
     contributes = ("keypair_id", "security_group_ids")
 
@@ -367,7 +367,7 @@ class CustomizeAction(workflows.Action):
 
 
 class PostCreationStep(workflows.Step):
-    action = CustomizeAction
+    action_class = CustomizeAction
     contributes = ("customization_script",)
 
 

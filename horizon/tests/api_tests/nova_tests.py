@@ -195,8 +195,8 @@ class ComputeApiTests(test.APITestCase):
                          'used': 2,
                          'flavor_fields': ['vcpus'],
                          'quota': 10},
-               'floating_ips': {'available': 0,
-                                'used': 1,
+               'floating_ips': {'available': -1,
+                                'used': 2,
                                 'flavor_fields': [],
                                 'quota': 1}
               })

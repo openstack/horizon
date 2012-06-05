@@ -20,6 +20,7 @@ import logging
 from django import shortcuts
 from django.contrib import messages
 from django.core import urlresolvers
+from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -63,6 +64,11 @@ class AssociateIP(tables.LinkAction):
             return False
         return True
 
+    def get_link_url(self, datum):
+        base_url = urlresolvers.reverse(self.url)
+        params = urlencode({"ip_id": self.table.get_object_id(datum)})
+        return "?".join([base_url, params])
+
 
 class DisassociateIP(tables.Action):
     name = "disassociate"
@@ -94,7 +100,7 @@ def get_instance_info(instance):
         vals = {'INSTANCE_NAME': instance.instance_name,
                 'INSTANCE_ID': instance.instance_id}
         return info_string % vals
-    return _("Not available")
+    return None
 
 
 def get_instance_link(datum):
