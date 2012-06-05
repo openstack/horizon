@@ -32,10 +32,17 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tabs
 from .forms import UpdateImageForm
+from .forms import CreateImageForm
 from .tabs import ImageDetailTabs
 
 
 LOG = logging.getLogger(__name__)
+
+
+class CreateView(forms.ModalFormView):
+    form_class = CreateImageForm
+    template_name = 'nova/images_and_snapshots/images/create.html'
+    context_object_name = 'image'
 
 
 class UpdateView(forms.ModalFormView):
