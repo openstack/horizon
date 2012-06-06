@@ -67,10 +67,14 @@
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Key Name" %}</dt>
-    <dd>{% if instance.key_name %}{{ instance.key_name }}{% else %}<em>None</em>{% endif %}</dd>
+    <dd>{{ instance.key_name|default:"<em>None</em>" }}</dd>
     {% url horizon:nova:images_and_snapshots:images:detail instance.image.id as image_url %}
     <dt>{% trans "Image Name" %}</dt>
     <dd><a href="{{ image_url }}">{{ instance.image_name }}</a></dd>
+    {% for key, value in instance.metadata.items %}
+    <dt>{{ key|force_escape }}</dt>
+    <dd>{{ value|force_escape|default:"<em>N/A</em>" }}</dd>
+    {% endfor%}
   </dl>
 </div>
 
