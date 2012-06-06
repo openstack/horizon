@@ -214,6 +214,8 @@ class Column(html.HTMLElement):
             self.classes.append("sortable")
         if self.hidden:
             self.classes.append("hide")
+        if self.link is not None:
+            self.classes.append('anchor')
 
     def __unicode__(self):
         return unicode(self.verbose_name)

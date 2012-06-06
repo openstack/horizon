@@ -372,6 +372,10 @@ a.current_item:hover h3, a.current_item:hover h4 {
 .table th.header:hover {
   background-color: #e8e8e8;
 }
+.table tbody td.anchor a {
+  display: block;
+  padding: 8px;
+}
 .table tr.table_caption th.header:hover {
   background-color: transparent;
   cursor: default;
@@ -395,6 +399,9 @@ a.current_item:hover h3, a.current_item:hover h4 {
 
 th {
   background: #f1f1f1;
+}
+td.anchor {
+  padding: 0;
 }
 
 
@@ -555,7 +562,7 @@ table form {
   font-family: "anivers";
 }
 
-#monitoring h3{
+#monitoring h3 {
     font-size: 14px;
     font-weight: normal;
     float: left;
