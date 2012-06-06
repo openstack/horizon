@@ -59,7 +59,7 @@ class SyspanelInstancesTable(tables.DataTable):
     TASK_DISPLAY_CHOICES = (
         ("image_snapshot", "Snapshotting"),
     )
-    tenant = tables.Column("tenant_name", verbose_name=_("Tenant"))
+    tenant = tables.Column("tenant_name", verbose_name=_("Project Name"))
     # NOTE(gabriel): Commenting out the user column because all we have
     # is an ID, and correlating that at production scale using our current
     # techniques isn't practical. It can be added back in when we have names

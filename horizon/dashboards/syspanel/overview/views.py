@@ -20,6 +20,7 @@
 
 from django.conf import settings
 
+from horizon import api
 from horizon import usage
 
 
@@ -32,3 +33,16 @@ class GlobalOverview(usage.UsageView):
         context = super(GlobalOverview, self).get_context_data(**kwargs)
         context['monitoring'] = getattr(settings, 'EXTERNAL_MONITORING', [])
         return context
+
+    def get_data(self):
+        data = super(GlobalOverview, self).get_data()
+        # Pre-fill tenant names
+        tenants = api.keystone.tenant_list(self.request,
+                                           admin=True)
+        for instance in data:
+            tenant = filter(lambda t: t.id == instance.tenant_id, tenants)
+            if tenant:
+                instance.tenant_name = getattr(tenant[0], "name", None)
+            else:
+                instance.tenant_name = None
+        return data
