@@ -37,4 +37,5 @@ horizon.addInitFunction(function() {
   });
 
   horizon.datatables.update();
+  $("table.table").tablesorter();
 });

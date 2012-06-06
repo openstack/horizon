@@ -366,6 +366,19 @@ a.current_item:hover h3, a.current_item:hover h4 {
     margin-bottom: 5px;
     float: left;
 }
+.table th.headerSortUp,
+.table th.headerSortDown {
+  background-color: #DFDFDF;
+  background-repeat: no-repeat;
+  background-position: 98% center;
+}
+.table th.headerSortDown {
+  background-image: url(../img/drop_arrow.png);
+}
+.table th.headerSortUp {
+  background-image: url(../img/up_arrow.png);
+}
+
 th {
     background: #f1f1f1;
 }
