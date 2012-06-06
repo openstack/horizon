@@ -93,7 +93,8 @@ def get_attachment(volume):
                       args=(attachment["server_id"],))
         # TODO(jake): Make "instance" the instance name
         vals = {"url": url,
-                "name": attachment["instance"].name,
+                "name": attachment["instance"].name
+                        if "instance" in attachment else None,
                 "instance": attachment["server_id"],
                 "dev": attachment["device"]}
         attachments.append(link % vals)
