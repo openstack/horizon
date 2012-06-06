@@ -55,6 +55,13 @@ class DeleteImage(tables.DeleteAction):
         api.image_delete(request, obj_id)
 
 
+class CreateImage(tables.LinkAction):
+    name = "create"
+    verbose_name = _("Create Image")
+    url = "horizon:nova:images_and_snapshots:images:create"
+    classes = ("ajax-modal", "btn-create")
+
+
 class EditImage(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
@@ -73,33 +80,53 @@ def get_image_type(image):
     return getattr(image.properties, "image_type", "Image")
 
 
-def get_container_format(image):
-    container_format = getattr(image, "container_format", "")
+def get_format(image):
+    format = getattr(image, "disk_format", "")
     # The "container_format" attribute can actually be set to None,
     # which will raise an error if you call upper() on it.
-    if container_format is not None:
-        return container_format.upper()
+    if format is not None:
+        return format.upper()
+
+
+class UpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, image_id):
+        image = api.image_get(request, image_id)
+        return image
 
 
 class ImagesTable(tables.DataTable):
+    STATUS_CHOICES = (
+        ("active", True),
+        ("saving", None),
+        ("queued", None),
+        ("pending_delete", None),
+        ("killed", False),
+        ("deleted", False),
+    )
     name = tables.Column("name", link="horizon:nova:images_and_snapshots:" \
                                       "images:detail",
                          verbose_name=_("Image Name"))
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),
                                filters=(filters.title,))
-    status = tables.Column("status", filters=(filters.title,),
-                           verbose_name=_("Status"))
+    status = tables.Column("status",
+                           filters=(filters.title,),
+                           verbose_name=_("Status"),
+                           status=True,
+                           status_choices=STATUS_CHOICES)
     public = tables.Column("is_public",
                            verbose_name=_("Public"),
                            empty_value=False,
                            filters=(filters.yesno, filters.capfirst))
-    container_format = tables.Column(get_container_format,
-                                     verbose_name=_("Container Format"))
+    disk_format = tables.Column(get_format, verbose_name=_("Format"))
 
     class Meta:
         name = "images"
+        row_class = UpdateRow
+        status_columns = ["status"]
         verbose_name = _("Images")
-        table_actions = (DeleteImage,)
-        row_actions = (LaunchImage, EditImage, DeleteImage)
+        table_actions = (CreateImage, DeleteImage,)
+        row_actions = (LaunchImage, EditImage, DeleteImage,)
         pagination_param = "image_marker"

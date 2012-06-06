@@ -36,6 +36,69 @@ from horizon import forms
 LOG = logging.getLogger(__name__)
 
 
+class CreateImageForm(forms.SelfHandlingForm):
+    completion_view = 'horizon:nova:images_and_snapshots:index'
+
+    name = forms.CharField(max_length="255", label=_("Name"), required=True)
+    copy_from = forms.CharField(max_length="255",
+                                label=_("Image Location"),
+                                help_text=_("An external (HTTP) URL where"
+                                    " the image should be loaded from."),
+                                required=True)
+    disk_format = forms.ChoiceField(label=_('Format'),
+                                    required=True,
+                                    choices=[('', ''),
+                                             ('aki',
+                                                'Amazon Kernel Image (AKI)'),
+                                             ('ami',
+                                                'Amazon Machine Image (AMI)'),
+                                             ('ari',
+                                                'Amazon Ramdisk Image (ARI)'),
+                                             ('iso',
+                                                'Optical Disk Image (ISO)'),
+                                             ('qcow2',
+                                                'QEMU Emulator (QCOW2)'),
+                                             ('raw', 'Raw'),
+                                             ('vdi', 'VDI'),
+                                             ('vhd', 'VHD'),
+                                             ('vmdk', 'VMDK')],
+                                    widget=forms.Select(attrs={'class':
+                                                               'switchable'}))
+    minimum_disk = forms.IntegerField(label=_("Minimum Disk (GB)"),
+                                    help_text=_('The minimum disk size'
+                                            ' required to boot the'
+                                            ' image. If unspecified, this'
+                                            ' value defaults to 0'
+                                            ' (no minimum).'),
+                                    required=False)
+    minimum_ram = forms.IntegerField(label=_("Minimum Ram (MB)"),
+                                    help_text=_('The minimum disk size'
+                                            ' required to boot the'
+                                            ' image. If unspecified, this'
+                                            ' value defaults to 0 (no'
+                                            ' minimum).'),
+                                    required=False)
+    is_public = forms.BooleanField(label=_("Public"), required=False)
+
+    def handle(self, request, data):
+        meta = {'is_public': data['is_public'],
+                'disk_format': data['disk_format'],
+                'container_format': 'bare',  # Not used in Glance ATM.
+                'copy_from': data['copy_from'],
+                'min_disk': (data['minimum_disk'] or 0),
+                'min_ram': (data['minimum_ram'] or 0),
+                'name': data['name']}
+
+        try:
+            api.glance.image_create(request, **meta)
+            messages.success(request,
+                _('Your image %s has been queued for creation.' %
+                    data['name']))
+        except:
+            exceptions.handle(request, _('Unable to create new image.'))
+        return shortcuts.redirect(self.get_success_url())
+
+
 class UpdateImageForm(forms.SelfHandlingForm):
     completion_view = 'horizon:nova:images_and_snapshots:index'
 
@@ -55,16 +118,11 @@ class UpdateImageForm(forms.SelfHandlingForm):
                                    widget=forms.TextInput(
                                     attrs={'readonly': 'readonly'}
                                    ))
-    container_format = forms.CharField(label=_("Container Format"),
-                                       widget=forms.TextInput(
-                                        attrs={'readonly': 'readonly'}
-                                       ))
-    disk_format = forms.CharField(label=_("Disk Format"),
+    disk_format = forms.CharField(label=_("Format"),
                                   widget=forms.TextInput(
                                     attrs={'readonly': 'readonly'}
                                   ))
-    public = forms.BooleanField(label=_("Public"),
-                                required=False)
+    public = forms.BooleanField(label=_("Public"), required=False)
 
     def handle(self, request, data):
         # TODO add public flag to image meta properties
@@ -73,7 +131,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
 
         meta = {'is_public': data['public'],
                 'disk_format': data['disk_format'],
-                'container_format': data['container_format'],
+                'container_format': 'bare',
                 'name': data['name'],
                 'properties': {}}
         if data['kernel']:

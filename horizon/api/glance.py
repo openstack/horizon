@@ -21,6 +21,7 @@
 from __future__ import absolute_import
 
 import logging
+import thread
 import urlparse
 
 from django.conf import settings
@@ -67,6 +68,22 @@ def image_list_detailed(request, marker=None, filters=None):
 
 def image_update(request, image_id, **kwargs):
     return glanceclient(request).images.update(image_id, **kwargs)
+
+
+def image_create(request, **kwargs):
+    copy_from = None
+
+    if kwargs.get('copy_from'):
+        copy_from = kwargs.pop('copy_from')
+
+    image = glanceclient(request).images.create(**kwargs)
+
+    if copy_from:
+        thread.start_new_thread(image_update,
+                                (request, image.id),
+                                {'copy_from': copy_from})
+
+    return image
 
 
 def snapshot_list_detailed(request, marker=None, extra_filters=None):
