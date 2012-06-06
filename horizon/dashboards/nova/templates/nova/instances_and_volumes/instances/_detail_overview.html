@@ -2,7 +2,7 @@
 
 <h3>{% trans "Instance Overview" %}</h3>
 
-<div class="status row-fluid">
+<div class="status row-fluid detail">
   <h4>{% trans "Info" %}</h4>
   <hr class="header_rule">
   <dl>
@@ -15,7 +15,7 @@
   </dl>
 </div>
 
-<div class="specs row-fluid">
+<div class="specs row-fluid detail">
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
   <dl>
@@ -28,7 +28,7 @@
   </dl>
 </div>
 
-<div class="addresses row-fluid">
+<div class="addresses row-fluid detail">
   <h4>{% trans "IP Addresses" %}</h4>
   <hr class="header_rule">
   <dl>
@@ -43,7 +43,7 @@
   </dl>
 </div>
 
-<div class="security_groups row-fluid">
+<div class="security_groups row-fluid detail">
   <h4>{% trans "Security Groups" %}</h4>
   <hr class="header_rule">
   <dl>
@@ -62,7 +62,7 @@
   </dl>
 </div>
 
-<div class="meta row-fluid">
+<div class="meta row-fluid detail">
   <h4>{% trans "Meta" %}</h4>
   <hr class="header_rule">
   <dl>
@@ -74,24 +74,21 @@
   </dl>
 </div>
 
-<div class="volumes row-fluid">
+<div class="volumes row-fluid detail">
   <h4>{% trans "Volumes" %}</h4>
   <hr class="header_rule">
-    {% if instance.volumes %}
-      <dl>
-        {% for volume in instance.volumes %}
+    <dl>
+      {% for volume in instance.volumes %}
+        <dt>{% trans "Volume" %}</dt>
+        <dd>
+          <a href="{% url horizon:nova:instances_and_volumes:volumes:detail volume.volumeId %}">
+            {{ volume.volumeId }}&nbsp;({{ volume.device }})
+          </a>
+        </dd>
+        {% empty %}
           <dt>{% trans "Volume" %}</dt>
-          <dd>
-            <a href="{% url horizon:nova:instances_and_volumes:volumes:detail volume.volumeId %}">
-              {{ volume.volumeId }}&nbsp;({{ volume.device }})
-            </a>
-          </dd>
-        {% endfor %}
-      </dl>
-    {% else %}
-      <ul>
-        <li><em>{% trans "No volumes attached." %}</em></li>
-      </ul>
-    {% endif %}
+          <dd><em>{% trans "No volumes attached." %}</em></dd>
+      {% endfor %}
+    </dl>
   </dl>
 </div>

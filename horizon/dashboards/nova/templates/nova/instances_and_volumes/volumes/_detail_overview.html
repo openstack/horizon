@@ -2,7 +2,7 @@
 
 <h3>{% trans "Volume Overview" %}: {{volume.display_name }}</h3>
 
-<div class="info row-fluid">
+<div class="info row-fluid detail">
   <h4>{% trans "Info" %}</h4>
   <hr class="header_rule">
   <dl>
@@ -19,7 +19,7 @@
   </dl>
 </div>
 
-<div class="specs row-fluid">
+<div class="specs row-fluid detail">
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
   <dl>
@@ -30,21 +30,20 @@
   </dl>
 </div>
 
-<div class="status row-fluid">
+<div class="status row-fluid detail">
   <h4>{% trans "Attachments" %}</h4>
   <hr class="header_rule">
+  <dl>
   {% for attachment in volume.attachments %}
-    <dl>
       <dt>{% trans "Attached To" %}</dt>
       <dd>
         {% url horizon:nova:instances_and_volumes:instances:detail attachment.server_id as instance_url%}
         <a href="{{ instance_url }}">{% trans "Instance" %} {{ attachment.instance.name }} ({{ attachment.instance.id }})</a>
         <span> {% trans "on" %} {{ attachment.device }}</span>
       </dd>
-    </dl>
   {% empty %}
-    <ul>
-      <li><em>{% trans "Not attached" %}</em></li>
-    </ul>
+      <dt>{% trans "Attached To" %}</dt>
+      <dd><em>{% trans "Not attached" %}</em></dd>
   {% endfor %}
+  </dl>
 </div>
