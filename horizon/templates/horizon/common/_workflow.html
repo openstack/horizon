@@ -2,6 +2,7 @@
 {% with workflow.get_entry_point as entry_point %}
 <div class="workflow {% if modal %}modal hide{% else %}static_page{% endif %}">
   <form {{ workflow.attr_string|safe }} action="{{ workflow.get_absolute_url }}" method="POST">{% csrf_token %}
+    {% if REDIRECT_URL %}<input type="hidden" name="{{ workflow.redirect_param_name }}" value="{{ REDIRECT_URL }}"/>{% endif %}
     <div class="modal-header">
       {% if modal %}<a href="#" class="close" data-dismiss="modal">&times;</a>{% endif %}
       <h3>{{ workflow.name }}</h3>

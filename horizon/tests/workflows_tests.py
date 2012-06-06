@@ -80,12 +80,12 @@ class AdminAction(workflows.Action):
 
 
 class TestStepOne(workflows.Step):
-    action = TestActionOne
+    action_class = TestActionOne
     contributes = ("project_id", "user_id")
 
 
 class TestStepTwo(workflows.Step):
-    action = TestActionTwo
+    action_class = TestActionTwo
     depends_on = ("project_id",)
     contributes = ("instance_id",)
     connections = {"project_id": (local_callback_func,
@@ -93,7 +93,7 @@ class TestStepTwo(workflows.Step):
 
 
 class TestExtraStep(workflows.Step):
-    action = TestActionThree
+    action_class = TestActionThree
     depends_on = ("project_id",)
     contributes = ("extra_data",)
     connections = {"project_id": (extra_callback_func,)}
@@ -102,7 +102,7 @@ class TestExtraStep(workflows.Step):
 
 
 class AdminStep(workflows.Step):
-    action = AdminAction
+    action_class = AdminAction
     contributes = ("admin_id",)
     after = TestStepOne
     before = TestStepTwo
@@ -188,10 +188,11 @@ class WorkflowsTests(test.TestCase):
                 "user_id": self.user.id,
                 "instance_id": self.servers.first().id}
         req = self.factory.post("/", seed)
-        flow = TestWorkflow(req)
+        flow = TestWorkflow(req, context_seed={"project_id": self.tenant.id})
         for step in flow.steps:
-            if not step._action.is_valid():
-                self.fail("Step %s was unexpectedly invalid." % step.slug)
+            if not step.action.is_valid():
+                self.fail("Step %s was unexpectedly invalid: %s"
+                          % (step.slug, step.action.errors))
         self.assertTrue(flow.is_valid())
 
         # Additional items shouldn't affect validation

@@ -26,7 +26,6 @@ import logging
 
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
 from horizon import exceptions
@@ -55,21 +54,19 @@ class IndexView(tables.MultiTableView):
     def get_security_groups_data(self):
         try:
             security_groups = api.security_group_list(self.request)
-        except novaclient_exceptions.ClientException, e:
+        except:
             security_groups = []
-            LOG.exception("ClientException in security_groups index")
-            messages.error(self.request,
-                           _('Error fetching security_groups: %s') % e)
+            exceptions.handle(self.request,
+                              _('Unable to retrieve security groups.'))
         return security_groups
 
     def get_floating_ips_data(self):
         try:
             floating_ips = api.tenant_floating_ip_list(self.request)
-        except novaclient_exceptions.ClientException, e:
+        except:
             floating_ips = []
-            LOG.exception("ClientException in floating ip index")
-            messages.error(self.request,
-                        _('Error fetching floating ips: %s') % e)
+            exceptions.handle(self.request,
+                              _('Unable to retrieve floating IP addresses.'))
 
         instances = []
         try:

@@ -24,10 +24,6 @@ from .views import AssociateView, AllocateView
 
 
 urlpatterns = patterns('',
-    url(r'^(?P<ip_id>[^/]+)/associate/$',
-        AssociateView.as_view(),
-        name='associate'),
-    url(r'^allocate/$',
-        AllocateView.as_view(),
-        name='allocate')
+    url(r'^associate/$', AssociateView.as_view(), name='associate'),
+    url(r'^allocate/$', AllocateView.as_view(), name='allocate')
 )

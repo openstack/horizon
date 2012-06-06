@@ -82,7 +82,10 @@ class WorkflowView(generic.TemplateView):
         context data to the template.
         """
         context = super(WorkflowView, self).get_context_data(**kwargs)
-        context[self.context_object_name] = self.get_workflow()
+        workflow = self.get_workflow()
+        context[self.context_object_name] = workflow
+        next = self.request.REQUEST.get(workflow.redirect_param_name, None)
+        context['REDIRECT_URL'] = next
         if self.request.is_ajax():
             context['modal'] = True
         return context
@@ -110,13 +113,13 @@ class WorkflowView(generic.TemplateView):
             except:
                 success = False
                 exceptions.handle(request)
+            next = self.request.REQUEST.get(workflow.redirect_param_name, None)
             if success:
                 msg = workflow.format_status_message(workflow.success_message)
                 messages.success(request, msg)
-                return shortcuts.redirect(workflow.get_success_url())
             else:
                 msg = workflow.format_status_message(workflow.failure_message)
                 messages.error(request, msg)
-                return shortcuts.redirect(workflow.get_success_url())
+            return shortcuts.redirect(next or workflow.get_success_url())
         else:
             return self.render_to_response(context)

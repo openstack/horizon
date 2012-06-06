@@ -33,43 +33,6 @@ from horizon import forms
 LOG = logging.getLogger(__name__)
 
 
-class FloatingIpAssociate(forms.SelfHandlingForm):
-    floating_ip_id = forms.CharField(widget=forms.HiddenInput())
-    floating_ip = forms.CharField(label=_("Floating IP"),
-                                  widget=forms.TextInput(
-                                            attrs={'readonly': 'readonly'}))
-    instance_id = forms.ChoiceField(label=_("Instance ID"))
-
-    def __init__(self, *args, **kwargs):
-        super(FloatingIpAssociate, self).__init__(*args, **kwargs)
-        instancelist = kwargs.get('initial', {}).get('instances', [])
-        if instancelist:
-            instancelist.insert(0, ("", _("Select an instance")))
-        else:
-            instancelist = (("", _("No instances available")),)
-        self.fields['instance_id'] = forms.ChoiceField(
-                choices=instancelist,
-                label=_("Instance"))
-
-    def handle(self, request, data):
-        ip_id = int(data['floating_ip_id'])
-        try:
-            api.server_add_floating_ip(request,
-                                       data['instance_id'],
-                                       ip_id)
-            LOG.info('Associating Floating IP "%s" with Instance "%s"'
-                                % (data['floating_ip'], data['instance_id']))
-            messages.success(request,
-                             _('Successfully associated Floating IP %(ip)s '
-                               'with Instance: %(inst)s')
-                               % {"ip": data['floating_ip'],
-                                  "inst": data['instance_id']})
-        except:
-            exceptions.handle(request,
-                              _('Unable to associate floating IP.'))
-        return shortcuts.redirect('horizon:nova:access_and_security:index')
-
-
 class FloatingIpAllocate(forms.SelfHandlingForm):
     tenant_name = forms.CharField(widget=forms.HiddenInput())
     pool = forms.ChoiceField(label=_("Pool"))

@@ -17,7 +17,9 @@
 import logging
 
 from django import template
+from django.core import urlresolvers
 from django.template.defaultfilters import title
+from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -25,6 +27,8 @@ from horizon import tables
 from horizon.templatetags import sizeformat
 from horizon.utils.filters import replace_underscores
 
+from horizon.dashboards.nova.access_and_security \
+        .floating_ips.workflows import IPAssociationWorkflow
 from .tabs import InstanceDetailTabs, LogTab, VNCTab
 
 
@@ -193,6 +197,21 @@ class LogLink(tables.LinkAction):
         return "?".join([base_url, tab_query_string])
 
 
+class AssociateIP(tables.LinkAction):
+    name = "associate"
+    verbose_name = _("Associate IP")
+    url = "horizon:nova:access_and_security:floating_ips:associate"
+    classes = ("ajax-modal", "btn-associate")
+
+    def get_link_url(self, datum):
+        base_url = urlresolvers.reverse(self.url)
+        next = urlresolvers.reverse("horizon:nova:instances_and_volumes:index")
+        params = {"instance_id": self.table.get_object_id(datum),
+                  IPAssociationWorkflow.redirect_param_name: next}
+        params = urlencode(params)
+        return "?".join([base_url, params])
+
+
 class UpdateRow(tables.Row):
     ajax = True
 
@@ -262,6 +281,6 @@ class InstancesTable(tables.DataTable):
         status_columns = ["status", "task"]
         row_class = UpdateRow
         table_actions = (LaunchLink, TerminateInstance)
-        row_actions = (SnapshotLink, EditInstance, ConsoleLink, LogLink,
-                       TogglePause, ToggleSuspend, RebootInstance,
+        row_actions = (SnapshotLink, AssociateIP, EditInstance, ConsoleLink,
+                       LogLink, TogglePause, ToggleSuspend, RebootInstance,
                        TerminateInstance)
