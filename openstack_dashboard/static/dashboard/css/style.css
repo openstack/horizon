@@ -366,21 +366,35 @@ a.current_item:hover h3, a.current_item:hover h4 {
     margin-bottom: 5px;
     float: left;
 }
+.table th.header {
+  cursor: pointer;
+}
+.table th.header:hover {
+  background-color: #e8e8e8;
+}
+.table tr.table_caption th.header:hover {
+  background-color: transparent;
+  cursor: default;
+}
+.table th.headerSortUp:hover,
+.table th.headerSortDown:hover {
+  background-color: #dfdfdf;
+}
 .table th.headerSortUp,
 .table th.headerSortDown {
-  background-color: #DFDFDF;
+  background-color: #dfdfdf;
   background-repeat: no-repeat;
   background-position: 98% center;
 }
 .table th.headerSortDown {
-  background-image: url(../img/drop_arrow.png);
+  background-image: url(/static/dashboard/img/drop_arrow.png);
 }
 .table th.headerSortUp {
-  background-image: url(../img/up_arrow.png);
+  background-image: url(/static/dashboard/img/up_arrow.png);
 }
 
 th {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 
