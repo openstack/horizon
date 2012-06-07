@@ -162,11 +162,11 @@ class SecurityGroup(APIResourceWrapper):
     @property
     def rules(self):
         """Wraps transmitted rule info in the novaclient rule class."""
-        if not hasattr(self, "_rules"):
+        if "_rules" not in self.__dict__:
             manager = nova_rules.SecurityGroupRuleManager
             self._rules = [nova_rules.SecurityGroupRule(manager, rule) for \
                            rule in self._apiresource.rules]
-        return self._rules
+        return self.__dict__['_rules']
 
     @rules.setter
     def rules(self, value):
@@ -330,11 +330,11 @@ def server_security_groups(request, instance_id):
                                     % instance_id)
     if body:
         # Wrap data in SG objects as novaclient would.
-        sg_objects = [NovaSecurityGroup(nclient.security_groups, sg) for
-                      sg in body.get('security_groups', [])]
+        sg_objs = [NovaSecurityGroup(nclient.security_groups, sg, loaded=True)
+                   for sg in body.get('security_groups', [])]
         # Then wrap novaclient's object with our own. Yes, sadly wrapping
         # with two layers of objects is necessary.
-        security_groups = [SecurityGroup(sg) for sg in sg_objects]
+        security_groups = [SecurityGroup(sg) for sg in sg_objs]
         # Package up the rules, as well.
         for sg in security_groups:
             rule_objects = [SecurityGroupRule(rule) for rule in sg.rules]
