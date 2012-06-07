@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import json
+from horizon.openstack.common import jsonutils
 
 from novaclient.v1_1 import (flavors, keypairs, servers, volumes, quotas,
                              floating_ips, usage, certs,
@@ -246,12 +246,12 @@ def data(TEST):
             "image_id": TEST.images.first().id,
             "key_name": keypair.name}
     server_1 = servers.Server(servers.ServerManager(None),
-                              json.loads(SERVER_DATA % vals)['server'])
+                              jsonutils.loads(SERVER_DATA % vals)['server'])
     vals.update({"name": "server_2",
                  "status": "BUILD",
                  "server_id": "2"})
     server_2 = servers.Server(servers.ServerManager(None),
-                              json.loads(SERVER_DATA % vals)['server'])
+                              jsonutils.loads(SERVER_DATA % vals)['server'])
     TEST.servers.add(server_1, server_2)
 
     # VNC Console Data
@@ -279,7 +279,7 @@ def data(TEST):
                   "flavor_disk": flavor_1.disk,
                   "flavor_ram": flavor_1.ram}
     usage_obj = usage.Usage(usage.UsageManager(None),
-                            json.loads(USAGE_DATA % usage_vals))
+                            jsonutils.loads(USAGE_DATA % usage_vals))
     TEST.usages.add(usage_obj)
 
     volume_snapshot = vol_snaps.Snapshot(vol_snaps.SnapshotManager(None),
