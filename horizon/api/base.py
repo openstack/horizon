@@ -48,10 +48,11 @@ class APIResourceWrapper(object):
             # __getattr__ won't find properties
             return self._apiresource.__getattribute__(attr)
         else:
-            LOG.debug('Attempted to access unknown attribute "%s" on'
-                      ' APIResource object of type "%s" wrapping resource of'
-                      ' type "%s"' % (attr, self.__class__,
-                                      self._apiresource.__class__))
+            msg = ('Attempted to access unknown attribute "%s" on '
+                   'APIResource object of type "%s" wrapping resource of '
+                   'type "%s".') % (attr, self.__class__,
+                                    self._apiresource.__class__)
+            LOG.debug(exceptions.error_color(msg))
             raise AttributeError(attr)
 
 
@@ -74,7 +75,7 @@ class APIDictWrapper(object):
         except KeyError:
             msg = 'Unknown attribute "%(attr)s" on APIResource object ' \
                   'of type "%(cls)s"' % {'attr': attr, 'cls': self.__class__}
-            LOG.debug(msg)
+            LOG.debug(exceptions.error_color(msg))
             raise AttributeError(msg)
 
     def __getitem__(self, item):

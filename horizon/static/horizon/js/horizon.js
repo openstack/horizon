@@ -293,10 +293,11 @@ var Horizon = function() {
     user_decided_length: false,
 
     getConsoleLog: function(form_element, via_user_submit) {
+      var data;
       if(this.user_decided_length) {
-        var data = $(form_element).serialize();
+        data = $(form_element).serialize();
       } else {
-        var data = "length=35";
+        data = "length=35";
       }
 
       $.ajax({

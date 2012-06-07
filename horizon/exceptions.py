@@ -219,7 +219,7 @@ RECOVERABLE = (keystoneclient.ClientException,
 RECOVERABLE += tuple(EXCEPTION_CONFIG.get('recoverable', []))
 
 
-def _error_color(msg):
+def error_color(msg):
     return termcolors.colorize(msg, **PALETTE['ERROR'])
 
 
@@ -280,7 +280,7 @@ def handle(request, message=None, redirect=None, ignore=False,
             return NotAuthorized
         request.user_logout()
         if not force_silence and not handled:
-            log_method(_error_color("Unauthorized: %s" % exc_value))
+            log_method(error_color("Unauthorized: %s" % exc_value))
         if not handled:
             # We get some pretty useless error messages back from
             # some clients, so let's define our own fallback.
@@ -291,7 +291,7 @@ def handle(request, message=None, redirect=None, ignore=False,
     if issubclass(exc_type, NOT_FOUND):
         wrap = True
         if not force_silence and not handled and (not ignore or force_log):
-            log_method(_error_color("Not Found: %s" % exc_value))
+            log_method(error_color("Not Found: %s" % exc_value))
         if not ignore and not handled:
             messages.error(request, message or exc_value)
         if redirect:
@@ -302,7 +302,7 @@ def handle(request, message=None, redirect=None, ignore=False,
     if issubclass(exc_type, RECOVERABLE):
         wrap = True
         if not force_silence and not handled and (not ignore or force_log):
-            log_method(_error_color("Recoverable error: %s" % exc_value))
+            log_method(error_color("Recoverable error: %s" % exc_value))
         if not ignore and not handled:
             messages.error(request, message or exc_value)
         if redirect:
