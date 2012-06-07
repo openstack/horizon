@@ -147,7 +147,7 @@ def get_link(obj):
 
 
 class MyTable(tables.DataTable):
-    id = tables.Column('id', hidden=True)
+    id = tables.Column('id', hidden=True, sortable=False)
     name = tables.Column(get_name, verbose_name="Verbose Name", sortable=True)
     value = tables.Column('value',
                           sortable=True,

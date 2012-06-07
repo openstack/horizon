@@ -1,3 +1,19 @@
+horizon.datatables.init_sorting = function () {
+  // Function to initialize the tablesorter plugin strictly on sortable columns.
+  $("table.table").each(function () {
+    var $this = $(this),
+        options = {};
+    $this.find("thead th").each(function (i, val) {
+      if (!$(this).hasClass('sortable')) {
+        options[i] = {sorter: false};
+      }
+    });
+    $this.tablesorter({
+      headers: options
+    });
+  });
+};
+
 horizon.addInitFunction(function() {
   $('.table_search input').quicksearch('tbody tr', {
     'delay': 300,
@@ -37,5 +53,5 @@ horizon.addInitFunction(function() {
   });
 
   horizon.datatables.update();
-  $("table.table").tablesorter();
+  horizon.datatables.init_sorting();
 });

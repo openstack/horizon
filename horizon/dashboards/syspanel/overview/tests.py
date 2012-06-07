@@ -55,10 +55,13 @@ class UsageViewTests(test.BaseAdminViewTests):
         res = self.client.get(reverse('horizon:syspanel:overview:index'))
         self.assertTemplateUsed(res, 'syspanel/overview/usage.html')
         self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
-        self.assertContains(res, '<td  class="">test_tenant</td>'
-                            '<td  class="">%s</td><td  class="">%s</td>'
-                            '<td  class="">%s</td><td  class="">%.2f</td>'
-                            '<td  class="">%.2f</td>' %
+        self.assertContains(res,
+                            '<td class="sortable">test_tenant</td>'
+                            '<td class="sortable">%s</td>'
+                            '<td class="sortable">%s</td>'
+                            '<td class="sortable">%s</td>'
+                            '<td class="sortable">%.2f</td>'
+                            '<td class="sortable">%.2f</td>' %
                             (usage_obj.vcpus,
                              usage_obj.disk_gb_hours,
                              mbformat(usage_obj.memory_mb),

@@ -65,7 +65,7 @@ class Column(html.HTMLElement):
     .. attribute:: sortable
 
         Boolean to determine whether this column should be sortable or not.
-        Defaults to False.
+        Defaults to ``True``.
 
     .. attribute:: hidden
 
@@ -149,8 +149,6 @@ class Column(html.HTMLElement):
     }
     # Used to retain order when instantiating columns on a table
     creation_counter = 0
-    # Used for special auto-generated columns
-    auto = None
 
     transform = None
     name = None
@@ -171,13 +169,15 @@ class Column(html.HTMLElement):
         ('off', False),
     )
 
-    def __init__(self, transform, verbose_name=None, sortable=False,
+    def __init__(self, transform, verbose_name=None, sortable=True,
                  link=None, hidden=False, attrs=None, status=False,
                  status_choices=None, display_choices=None, empty_value=None,
-                 filters=None, classes=None, summation=None):
-        self.classes = classes or getattr(self, "classes", [])
+                 filters=None, classes=None, summation=None, auto=None):
+        self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
+
+        self.auto = auto
 
         if callable(transform):
             self.transform = transform
@@ -210,7 +210,7 @@ class Column(html.HTMLElement):
         self.creation_counter = Column.creation_counter
         Column.creation_counter += 1
 
-        if self.sortable:
+        if self.sortable and not self.auto:
             self.classes.append("sortable")
         if self.hidden:
             self.classes.append("hide")
@@ -709,15 +709,15 @@ class DataTableMetaclass(type):
         # Add in our auto-generated columns
         if opts.multi_select:
             multi_select = opts.column_class("multi_select",
-                                             verbose_name="")
+                                             verbose_name="",
+                                             auto="multi_select")
             multi_select.classes.append('multi_select_column')
-            multi_select.auto = "multi_select"
             columns.insert(0, ("multi_select", multi_select))
         if opts.actions_column:
             actions_column = opts.column_class("actions",
-                                               verbose_name=_("Actions"))
+                                               verbose_name=_("Actions"),
+                                               auto="actions")
             actions_column.classes.append('actions_column')
-            actions_column.auto = "actions"
             columns.append(("actions", actions_column))
         # Store this set of columns internally so we can copy them per-instance
         attrs['_columns'] = SortedDict(columns)

@@ -413,8 +413,8 @@ class InstanceViewTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirects(res, redir_url)
         res = self.client.get(INDEX_URL)
-        self.assertContains(res, "<td  class=\"status_unknown\">"
-                                 "Snapshotting</td>", 1)
+        self.assertContains(res, '<td class="status_unknown sortable">'
+                                 'Snapshotting</td>', 1)
 
     def test_instance_update_get(self):
         server = self.servers.first()
