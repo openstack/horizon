@@ -106,7 +106,7 @@ Building Contributor Documentation
 
 This documentation is written by contributors, for contributors.
 
-The source is maintained in the ``docs/source`` folder using
+The source is maintained in the ``doc/source`` folder using
 `reStructuredText`_ and built by `Sphinx`_
 
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
