@@ -23,13 +23,13 @@ horizon.modals.create = function (title, body, confirm, cancel) {
   }
   var template = horizon.templates.compiled_templates["#modal_template"],
     params = {title: title, body: body, confirm: confirm, cancel: cancel},
-    modal = $(template.render(params)).appendTo("body");
+    modal = $(template.render(params)).appendTo("div.modal_wrapper");
   return modal;
 };
 
 
 horizon.modals.success = function (data, textStatus, jqXHR) {
-  $('body').append(data);
+  $('div.modal_wrapper').append(data);
   $('.modal span.help-block').hide();
   $('.modal:last').modal();
 
@@ -91,8 +91,8 @@ horizon.addInitFunction(function() {
   });
 
   // Focus the first usable form field in the modal for accessibility.
-  $(document).on('shown', '.modal', function(evt) {
-    $(this).find("input, select, textarea").filter(":visible:first").focus();
+  $('div.modal_wrapper').on('shown', '.modal', function(evt) {
+    $(this).find(":text, select, textarea").filter(":visible:first").focus();
   });
 
   $('.ajax-modal').live('click', function (evt) {
@@ -108,7 +108,7 @@ horizon.addInitFunction(function() {
         var template = horizon.templates.compiled_templates["#spinner-modal"];
         horizon.modals.spinner = $(template.render());
 
-        horizon.modals.spinner.appendTo("body");
+        horizon.modals.spinner.appendTo("div.modal_wrapper");
         horizon.modals.spinner.modal({backdrop: 'static'});
         horizon.modals.spinner.spin(horizon.modals.spinner_options);
       },
