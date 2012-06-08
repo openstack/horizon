@@ -80,13 +80,12 @@ class UpdateRow(tables.Row):
 
 
 def get_size(volume):
-    return _("%s GB") % volume.size
+    return _("%sGB") % volume.size
 
 
 def get_attachment(volume):
     attachments = []
-    link = '<a href="%(url)s">Instance %(name)s (%(instance)s)</a>&nbsp;' \
-           'on %(dev)s'
+    link = '<a href="%(url)s">%(name)s</a>&nbsp; (%(dev)s)'
     # Filter out "empty" attachments which the client returns...
     for attachment in [att for att in volume.attachments if att]:
         url = reverse("%s:instances:detail" % URL_PREFIX,
@@ -128,7 +127,7 @@ class VolumesTable(VolumesTableBase):
                          verbose_name=_("Name"),
                          link="%s:volumes:detail" % URL_PREFIX)
     attachments = tables.Column(get_attachment,
-                                verbose_name=_("Attachments"))
+                                verbose_name=_("Attached To"))
 
     class Meta:
         name = "volumes"
@@ -156,7 +155,7 @@ class DetachVolume(tables.BatchAction):
 
 
 class AttachmentsTable(tables.DataTable):
-    instance = tables.Column("server_id", verbose_name=_("Instance"))
+    instance = tables.Column("instance_name", verbose_name=_("Instance Name"))
     device = tables.Column("device")
 
     def get_object_id(self, obj):

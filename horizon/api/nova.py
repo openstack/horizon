@@ -482,11 +482,23 @@ def volume_list(request):
 
 
 def volume_get(request, volume_id):
-    return cinderclient(request).volumes.get(volume_id)
+    volume_data = cinderclient(request).volumes.get(volume_id)
+
+    for attachment in volume_data.attachments:
+        instance = server_get(request, attachment['server_id'])
+        attachment[u'instance_name'] = instance.name
+
+    return volume_data
 
 
 def volume_instance_list(request, instance_id):
-    return novaclient(request).volumes.get_server_volumes(instance_id)
+    volumes = novaclient(request).volumes.get_server_volumes(instance_id)
+
+    for volume in volumes:
+        volume_data = cinderclient(request).volumes.get(volume.id)
+        volume.name = volume_data.display_name
+
+    return volumes
 
 
 def volume_create(request, size, name, description):

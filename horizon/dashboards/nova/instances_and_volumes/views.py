@@ -22,6 +22,7 @@
 """
 Views for Instances and Volumes.
 """
+import re
 import logging
 
 from django.contrib import messages
@@ -70,6 +71,17 @@ class IndexView(tables.MultiTableView):
             instances = SortedDict([(inst.id, inst) for inst in
                                     self._get_instances()])
             for volume in volumes:
+                # Truncate the description for proper display.
+                if len(getattr(volume, 'display_description', '')) > 33:
+                    truncated_string = volume.display_description[:30].strip()
+                    # Remove non-word, and underscore characters, from the end
+                    # of the string before we add the ellepsis.
+                    truncated_string = re.sub(ur'[^\w\s]+$',
+                                              '',
+                                              truncated_string)
+
+                    volume.display_description = truncated_string + u'...'
+
                 for att in volume.attachments:
                     att['instance'] = instances[att['server_id']]
         except novaclient_exceptions.ClientException, e:
