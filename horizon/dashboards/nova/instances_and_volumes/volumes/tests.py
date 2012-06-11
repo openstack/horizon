@@ -104,7 +104,7 @@ class VolumeViewTests(test.TestCase):
         self.assertContains(res, "<dd>40 GB</dd>", 1, 200)
         self.assertContains(res, "<dd>04/01/12 at 10:30:00</dd>", 1, 200)
         self.assertContains(res, "<a href=\"/nova/instances_and_volumes/"
-                            "instances/1/detail\">Instance server_1 "
+                            "instances/1/detail\"><strong>server_1</strong> "
                             "(1)</a>", 1, 200)
 
         self.assertNoMessages()

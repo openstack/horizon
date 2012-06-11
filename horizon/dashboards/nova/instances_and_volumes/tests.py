@@ -81,15 +81,14 @@ class InstancesAndVolumesViewTest(test.TestCase):
         self.assertItemsEqual(resp_volumes, volumes)
 
         self.assertContains(res, ">Volume name<", 1, 200)
-        self.assertContains(res, ">40 GB<", 1, 200)
+        self.assertContains(res, ">40GB<", 1, 200)
         self.assertContains(res, ">Available<", 1, 200)
 
         self.assertContains(res, ">Volume2 name<", 1, 200)
-        self.assertContains(res, ">80 GB<", 1, 200)
+        self.assertContains(res, ">80GB<", 1, 200)
         self.assertContains(res, ">In-Use<", 1, 200)
-        self.assertContains(res,
-                            ">Instance server_1 (1)</a>&nbsp;on /dev/hdn",
-                            1, 200)
+        self.assertContains(res, ">server_1<", 2, 200)
+        self.assertContains(res, "(/dev/hdn)", 1, 200)
 
     def test_index_server_list_exception(self):
         self.mox.StubOutWithMock(api, 'server_list')

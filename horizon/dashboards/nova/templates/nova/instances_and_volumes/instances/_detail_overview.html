@@ -79,14 +79,14 @@
 </div>
 
 <div class="volumes row-fluid detail">
-  <h4>{% trans "Volumes" %}</h4>
+  <h4>{% trans "Volumes Attached" %}</h4>
   <hr class="header_rule">
     <dl>
       {% for volume in instance.volumes %}
-        <dt>{% trans "Volume" %}</dt>
+        <dt>{% trans "Attached On" %} {{ volume.device }}</dt>
         <dd>
           <a href="{% url horizon:nova:instances_and_volumes:volumes:detail volume.volumeId %}">
-            {{ volume.volumeId }}&nbsp;({{ volume.device }})
+             <strong>{{ volume.name }}</strong> ({{ volume.id }})
           </a>
         </dd>
         {% empty %}
