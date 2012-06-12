@@ -88,7 +88,7 @@ class InstancesAndVolumesViewTest(test.TestCase):
         self.assertContains(res, ">80GB<", 1, 200)
         self.assertContains(res, ">In-Use<", 1, 200)
         self.assertContains(res, ">server_1<", 2, 200)
-        self.assertContains(res, "(/dev/hdn)", 1, 200)
+        self.assertContains(res, "on /dev/hdn", 1, 200)
 
     def test_index_server_list_exception(self):
         self.mox.StubOutWithMock(api, 'server_list')

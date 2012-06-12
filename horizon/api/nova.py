@@ -485,9 +485,14 @@ def volume_get(request, volume_id):
     volume_data = cinderclient(request).volumes.get(volume_id)
 
     for attachment in volume_data.attachments:
-        instance = server_get(request, attachment['server_id'])
-        attachment[u'instance_name'] = instance.name
-
+        if "server_id" in attachment:
+            instance = server_get(request, attachment['server_id'])
+            attachment['instance_name'] = instance.name
+        else:
+            # Nova volume can occasionally send back error'd attachments
+            # the lack a server_id property; to work around that we'll
+            # give the attached instance a generic name.
+            attachment['instance_name'] = _("Unknown instance")
     return volume_data
 
 
@@ -516,9 +521,12 @@ def volume_attach(request, volume_id, instance_id, device):
                                                      device)
 
 
-def volume_detach(request, instance_id, attachment_id):
-    novaclient(request).volumes.delete_server_volume(
-            instance_id, attachment_id)
+def volume_detach(request, instance_id, att_id):
+    novaclient(request).volumes.delete_server_volume(instance_id, att_id)
+
+
+def volume_snapshot_get(request, snapshot_id):
+    return cinderclient(request).volume_snapshots.get(snapshot_id)
 
 
 def volume_snapshot_list(request):

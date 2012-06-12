@@ -34,11 +34,23 @@ class DeleteVolumeSnapshot(tables.DeleteAction):
         api.volume_snapshot_delete(request, obj_id)
 
 
+class UpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, snapshot_id):
+        snapshot = api.nova.volume_snapshot_get(request, snapshot_id)
+        return snapshot
+
+
 class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
-    volume_id = tables.Column("volume_id", verbose_name=_("Volume ID"))
+    name = tables.Column("display_name", verbose_name=_("Name"))
+    volume_id = tables.Column("volume_id",
+                              verbose_name=_("Volume ID"))
 
     class Meta:
         name = "volume_snapshots"
         verbose_name = _("Volume Snapshots")
         table_actions = (DeleteVolumeSnapshot,)
         row_actions = (DeleteVolumeSnapshot,)
+        row_class = UpdateRow
+        status_columns = ("status",)

@@ -24,9 +24,9 @@ from django import shortcuts
 from django.contrib import messages
 from django.core import validators
 from django.utils.translation import ugettext_lazy as _
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 
 
@@ -46,10 +46,9 @@ class CreateKeypair(forms.SelfHandlingForm):
             return shortcuts.redirect(
                     'horizon:nova:access_and_security:keypairs:download',
                     keypair_name=data['name'])
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in CreateKeyPair")
-            messages.error(request,
-                           _('Error Creating Keypair: %s') % e.message)
+        except:
+            exceptions.handle(request,
+                              _('Unable to create keypair.'))
             return shortcuts.redirect(request.build_absolute_uri())
 
 
@@ -66,8 +65,7 @@ class ImportKeypair(forms.SelfHandlingForm):
                                        % data['name'])
             return shortcuts.redirect(
                             'horizon:nova:access_and_security:index')
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in ImportKeypair")
-            messages.error(request,
-                           _('Error Importing Keypair: %s') % e.message)
+        except:
+            exceptions.handle(request,
+                              _('Unable to import keypair.'))
             return shortcuts.redirect(request.build_absolute_uri())

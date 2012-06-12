@@ -7,8 +7,6 @@
 Views for managing Nova volumes.
 """
 
-import logging
-
 from django import shortcuts
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
@@ -16,11 +14,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import api
 from horizon import forms
 from horizon import exceptions
-from novaclient import exceptions as novaclient_exceptions
 
 from ..instances.tables import ACTIVE_STATES
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateForm(forms.SelfHandlingForm):
@@ -34,12 +29,10 @@ class CreateForm(forms.SelfHandlingForm):
             api.volume_create(request, data['size'], data['name'],
                               data['description'])
             message = 'Creating volume "%s"' % data['name']
-            LOG.info(message)
             messages.info(request, message)
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in CreateVolume")
-            messages.error(request,
-                           _('Error Creating Volume: %s') % e.message)
+        except:
+            exceptions.handle(request,
+                              _("Unable to create volume."))
         return shortcuts.redirect("horizon:nova:instances_and_volumes:index")
 
 
@@ -76,6 +69,12 @@ class AttachForm(forms.SelfHandlingForm):
         self.fields['instance'].choices = instances
 
     def handle(self, request, data):
+        instance_choices = dict(self.fields['instance'].choices)
+        instance_name = instance_choices.get(data['instance'],
+                                             _("Unknown instance (None)"))
+        # The name of the instance in the choices list has the ID appended to
+        # it, so let's slice that off...
+        instance_name = instance_name.rsplit(" (")[0]
         try:
             api.volume_attach(request,
                               data['volume_id'],
@@ -83,16 +82,14 @@ class AttachForm(forms.SelfHandlingForm):
                               data['device'])
             vol_name = api.volume_get(request, data['volume_id']).display_name
 
-            message = (_('Attaching volume %(vol)s to instance '
-                         '%(inst)s at %(dev)s') %
-                            {"vol": vol_name, "inst": data['instance'],
-                            "dev": data['device']})
-            LOG.info(message)
+            message = _('Attaching volume %(vol)s to instance '
+                         '%(inst)s on %(dev)s.') % {"vol": vol_name,
+                                                    "inst": instance_name,
+                                                    "dev": data['device']}
             messages.info(request, message)
-        except novaclient_exceptions.ClientException, e:
-            LOG.exception("ClientException in AttachVolume")
-            messages.error(request,
-                           _('Error attaching volume: %s') % e.message)
+        except:
+            exceptions.handle(request,
+                              _('Unable to attach volume.'))
         return shortcuts.redirect(
                             "horizon:nova:instances_and_volumes:index")
 
@@ -118,10 +115,9 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
                                        data['description'])
 
             message = _('Creating volume snapshot "%s"') % data['name']
-            LOG.info(message)
             messages.info(request, message)
         except:
             exceptions.handle(request,
-                              _('Error Creating Volume Snapshot: %(exc)s'))
+                              _('Unable to create volume snapshot.'))
 
         return shortcuts.redirect("horizon:nova:images_and_snapshots:index")

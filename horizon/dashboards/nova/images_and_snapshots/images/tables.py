@@ -77,7 +77,7 @@ class EditImage(tables.LinkAction):
 
 
 def get_image_type(image):
-    return getattr(image.properties, "image_type", "Image")
+    return getattr(image, "properties", {}).get("image_type", _("Image"))
 
 
 def get_format(image):

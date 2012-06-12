@@ -38,7 +38,7 @@
       <dt>{% trans "Attached To" %}</dt>
       <dd>
         {% url horizon:nova:instances_and_volumes:instances:detail attachment.server_id as instance_url%}
-        <a href="{{ instance_url }}"><strong>{{ attachment.instance.name }}</strong> ({{ attachment.instance.id }})</a>
+        <a href="{{ instance_url }}">{{ attachment.instance.name }}</a>
         <span> {% trans "on" %} {{ attachment.device }}</span>
       </dd>
   {% empty %}

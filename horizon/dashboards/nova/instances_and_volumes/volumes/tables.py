@@ -16,12 +16,14 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, NoReverseMatch
 from django.template.defaultfilters import title
 from django.utils import safestring
+from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
+from horizon import exceptions
 from horizon import tables
 
 
@@ -83,21 +85,44 @@ def get_size(volume):
     return _("%sGB") % volume.size
 
 
-def get_attachment(volume):
-    attachments = []
-    link = '<a href="%(url)s">%(name)s</a>&nbsp; (%(dev)s)'
-    # Filter out "empty" attachments which the client returns...
-    for attachment in [att for att in volume.attachments if att]:
-        url = reverse("%s:instances:detail" % URL_PREFIX,
-                      args=(attachment["server_id"],))
-        # TODO(jake): Make "instance" the instance name
-        vals = {"url": url,
-                "name": attachment["instance"].name
-                        if "instance" in attachment else None,
-                "instance": attachment["server_id"],
-                "dev": attachment["device"]}
-        attachments.append(link % vals)
-    return safestring.mark_safe(", ".join(attachments))
+def get_attachment_name(request, attachment):
+    server_id = attachment.get("server_id", None)
+    if "instance" in attachment:
+        name = attachment["instance"].name
+    else:
+        try:
+            server = api.nova.server_get(request, server_id)
+            name = server.name
+        except:
+            name = None
+            exceptions.handle(request, _("Unable to retrieve "
+                                         "attachment information."))
+    try:
+        url = reverse("%s:instances:detail" % URL_PREFIX, args=(server_id,))
+        instance = '<a href="%s">%s</a>' % (url, name)
+    except NoReverseMatch:
+        instance = name
+    return instance
+
+
+class AttachmentColumn(tables.Column):
+    """
+    Customized column class that does complex processing on the attachments
+    for a volume instance.
+    """
+    def get_raw_data(self, volume):
+        request = self.table._meta.request
+        link = _('Attached to %(instance)s on %(dev)s')
+        attachments = []
+        # Filter out "empty" attachments which the client returns...
+        for attachment in [att for att in volume.attachments if att]:
+            # When a volume is first attached it may return the server_id
+            # without the server name...
+            instance = get_attachment_name(request, attachment)
+            vals = {"instance": instance,
+                    "dev": attachment["device"]}
+            attachments.append(link % vals)
+        return safestring.mark_safe(", ".join(attachments))
 
 
 class VolumesTableBase(tables.DataTable):
@@ -126,7 +151,7 @@ class VolumesTable(VolumesTableBase):
     name = tables.Column("display_name",
                          verbose_name=_("Name"),
                          link="%s:volumes:detail" % URL_PREFIX)
-    attachments = tables.Column(get_attachment,
+    attachments = AttachmentColumn("attachments",
                                 verbose_name=_("Attached To"))
 
     class Meta:
@@ -141,30 +166,42 @@ class VolumesTable(VolumesTableBase):
 class DetachVolume(tables.BatchAction):
     name = "detach"
     action_present = _("Detach")
-    action_past = _("Detached")
+    action_past = _("Detaching")  # This action is asynchronous.
     data_type_singular = _("Volume")
     data_type_plural = _("Volumes")
     classes = ('btn-danger', 'btn-detach')
 
     def action(self, request, obj_id):
-        instance_id = self.table.get_object_by_id(obj_id)['server_id']
-        api.volume_detach(request, instance_id, obj_id)
+        attachment = self.table.get_object_by_id(obj_id)
+        api.volume_detach(request, attachment.get('server_id', None), obj_id)
 
     def get_success_url(self, request):
         return reverse('%s:index' % URL_PREFIX)
 
 
+class AttachedInstanceColumn(tables.Column):
+    """
+    Customized column class that does complex processing on the attachments
+    for a volume instance.
+    """
+    def get_raw_data(self, attachment):
+        request = self.table._meta.request
+        return safestring.mark_safe(get_attachment_name(request, attachment))
+
+
 class AttachmentsTable(tables.DataTable):
-    instance = tables.Column("instance_name", verbose_name=_("Instance Name"))
+    instance = AttachedInstanceColumn(get_attachment_name,
+                                      verbose_name=_("Instance"))
     device = tables.Column("device")
 
     def get_object_id(self, obj):
         return obj['id']
 
-    def get_object_display(self, obj):
-        vals = {"dev": obj['device'],
-                "instance": obj['server_id']}
-        return "Attachment %(dev)s on %(instance)s" % vals
+    def get_object_display(self, attachment):
+        instance_name = get_attachment_name(self._meta.request, attachment)
+        vals = {"dev": attachment['device'],
+                "instance_name": strip_tags(instance_name)}
+        return _("%(dev)s on instance %(instance_name)s") % vals
 
     def get_object_by_id(self, obj_id):
         for obj in self.data:

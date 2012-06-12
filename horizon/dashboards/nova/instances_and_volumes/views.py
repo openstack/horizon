@@ -25,10 +25,8 @@ Views for Instances and Volumes.
 import re
 import logging
 
-from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.utils.datastructures import SortedDict
-from novaclient import exceptions as novaclient_exceptions
 
 from horizon import api
 from horizon import exceptions
@@ -45,24 +43,28 @@ class IndexView(tables.MultiTableView):
     template_name = 'nova/instances_and_volumes/index.html'
 
     def get_instances_data(self):
-        # Gather our instances
-        try:
-            instances = self._get_instances()
-        except:
-            instances = []
-            exceptions.handle(self.request, _('Unable to retrieve instances.'))
-        # Gather our flavors and correlate our instances to them
-        if instances:
+        if not hasattr(self, "_instances"):
+            # Gather our instances
             try:
-                flavors = api.flavor_list(self.request)
-                full_flavors = SortedDict([(str(flavor.id), flavor) for \
-                                            flavor in flavors])
-                for instance in instances:
-                    instance.full_flavor = full_flavors[instance.flavor["id"]]
+                instances = self._get_instances()
             except:
-                msg = _('Unable to retrieve instance size information.')
-                exceptions.handle(self.request, msg)
-        return instances
+                instances = []
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve instances.'))
+            # Gather our flavors and correlate our instances to them
+            if instances:
+                try:
+                    flavors = api.flavor_list(self.request)
+                    full_flavors = SortedDict([(str(flavor.id), flavor) for \
+                                                flavor in flavors])
+                    for instance in instances:
+                        flavor_id = instance.flavor["id"]
+                        instance.full_flavor = full_flavors[flavor_id]
+                except:
+                    msg = _('Unable to retrieve instance size information.')
+                    exceptions.handle(self.request, msg)
+            self._instances = instances
+        return self._instances
 
     def get_volumes_data(self):
         # Gather our volumes
@@ -83,11 +85,12 @@ class IndexView(tables.MultiTableView):
                     volume.display_description = truncated_string + u'...'
 
                 for att in volume.attachments:
-                    att['instance'] = instances[att['server_id']]
-        except novaclient_exceptions.ClientException, e:
+                    server_id = att.get('server_id', None)
+                    att['instance'] = instances.get(server_id, None)
+        except:
             volumes = []
-            LOG.exception("ClientException in volume index")
-            messages.error(self.request, _('Unable to fetch volumes: %s') % e)
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume list.'))
         return volumes
 
     def _get_instances(self):

@@ -21,7 +21,7 @@ from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
-from ..images.tables import ImagesTable, EditImage, DeleteImage
+from ..images.tables import ImagesTable, EditImage, DeleteImage, UpdateRow
 
 
 LOG = logging.getLogger(__name__)
@@ -55,3 +55,5 @@ class SnapshotsTable(ImagesTable):
         table_actions = (DeleteSnapshot,)
         row_actions = (LaunchSnapshot, EditImage, DeleteSnapshot)
         pagination_param = "snapshot_marker"
+        row_class = UpdateRow
+        status_columns = ["status"]
