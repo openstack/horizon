@@ -108,18 +108,33 @@ class AddRule(forms.SelfHandlingForm):
         from_port = cleaned_data.get("from_port", None)
         to_port = cleaned_data.get("to_port", None)
         cidr = cleaned_data.get("cidr", None)
+        ip_proto = cleaned_data.get('ip_protocol', None)
         source_group = cleaned_data.get("source_group", None)
 
-        if from_port == None:
-            msg = _('The "from" port number is invalid.')
-            raise ValidationError(msg)
-        if to_port == None:
-            msg = _('The "to" port number is invalid.')
-            raise ValidationError(msg)
-        if to_port < from_port:
-            msg = _('The "to" port number must be greater than or equal to '
-                    'the "from" port number.')
-            raise ValidationError(msg)
+        if ip_proto == 'icmp':
+            if from_port == None:
+                msg = _('The ICMP type is invalid.')
+                raise ValidationError(msg)
+            if to_port == None:
+                msg = _('The ICMP code is invalid.')
+                raise ValidationError(msg)
+            if from_port not in xrange(-1, 256):
+                msg = _('The ICMP type not in range (-1, 255)')
+                raise ValidationError(msg)
+            if to_port not in xrange(-1, 256):
+                msg = _('The ICMP code not in range (-1, 255)')
+                raise ValidationError(msg)
+        else:
+            if from_port == None:
+                msg = _('The "from" port number is invalid.')
+                raise ValidationError(msg)
+            if to_port == None:
+                msg = _('The "to" port number is invalid.')
+                raise ValidationError(msg)
+            if to_port < from_port:
+                msg = _('The "to" port number must be greater than '
+                        'or equal to the "from" port number.')
+                raise ValidationError(msg)
 
         if source_group and cidr != self.fields['cidr'].initial:
             # Specifying a source group *and* a custom CIDR is invalid.

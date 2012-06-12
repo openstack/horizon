@@ -203,6 +203,74 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertNoMessages()
         self.assertContains(res, "greater than or equal to")
 
+    @test.create_stubs({api: ('security_group_get', 'security_group_list')})
+    def test_edit_rules_invalid_icmp_rule(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        icmp_rule = self.security_group_rules.list()[1]
+
+        api.security_group_get(IsA(http.HttpRequest),
+                               sec_group.id).AndReturn(sec_group)
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        api.security_group_get(IsA(http.HttpRequest),
+                               sec_group.id).AndReturn(sec_group)
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        api.security_group_get(IsA(http.HttpRequest),
+                               sec_group.id).AndReturn(sec_group)
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        api.security_group_get(IsA(http.HttpRequest),
+                               sec_group.id).AndReturn(sec_group)
+        api.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'security_group_id': sec_group.id,
+                    'from_port': 256,
+                    'to_port': icmp_rule.to_port,
+                    'ip_protocol': icmp_rule.ip_protocol,
+                    'cidr': icmp_rule.ip_range['cidr'],
+                    'source_group': ''}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, "The ICMP type not in range (-1, 255)")
+
+        formData = {'method': 'AddRule',
+                    'security_group_id': sec_group.id,
+                    'from_port': icmp_rule.from_port,
+                    'to_port': 256,
+                    'ip_protocol': icmp_rule.ip_protocol,
+                    'cidr': icmp_rule.ip_range['cidr'],
+                    'source_group': ''}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, "The ICMP code not in range (-1, 255)")
+
+        formData = {'method': 'AddRule',
+                    'security_group_id': sec_group.id,
+                    'from_port': icmp_rule.from_port,
+                    'to_port': None,
+                    'ip_protocol': icmp_rule.ip_protocol,
+                    'cidr': icmp_rule.ip_range['cidr'],
+                    'source_group': ''}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, "The ICMP code is invalid")
+
+        formData = {'method': 'AddRule',
+                    'security_group_id': sec_group.id,
+                    'from_port': None,
+                    'to_port': icmp_rule.to_port,
+                    'ip_protocol': icmp_rule.ip_protocol,
+                    'cidr': icmp_rule.ip_range['cidr'],
+                    'source_group': ''}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, "The ICMP type is invalid")
+
     def test_edit_rules_add_rule_exception(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()

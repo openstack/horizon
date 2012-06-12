@@ -25,7 +25,11 @@ horizon.addInitFunction(function () {
          return true;
       $('label[for='+ $(obj).attr('id') + ']').html(label_val);
       });
-    })).change();
+    }));
+    $('select.switchable').trigger('change');
+    $('body').on('shown', '.modal', function(evt) {
+      $('select.switchable').trigger('change');
+    });
 
   /* Twipsy tooltips */
 
