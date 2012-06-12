@@ -46,7 +46,8 @@ class UsersViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api: ('user_create',
                               'tenant_list',
                               'add_tenant_user_role'),
-                        api.keystone: ('get_default_role',)})
+                        api.keystone: ('get_default_role',
+                                       'role_list')})
     def test_create(self):
         user = self.users.get(id="1")
         role = self.roles.first()
@@ -58,6 +59,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                         user.password,
                         self.tenant.id,
                         True).AndReturn(user)
+        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()).AndReturn(role)
         api.add_tenant_user_role(IgnoreArg(), self.tenant.id, user.id, role.id)
 
@@ -68,17 +70,22 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'email': user.email,
                     'password': user.password,
                     'tenant_id': self.tenant.id,
+                    'role_id': self.roles.first().id,
                     'confirm_password': user.password}
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api: ('tenant_list',)})
+    @test.create_stubs({api: ('tenant_list',),
+                        api.keystone: ('role_list', 'get_default_role')})
     def test_create_with_password_mismatch(self):
         user = self.users.get(id="1")
 
         api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+        api.keystone.get_default_role(IgnoreArg()) \
+                    .AndReturn(self.roles.first())
 
         self.mox.ReplayAll()
 
@@ -87,17 +94,22 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'email': user.email,
                     'password': user.password,
                     'tenant_id': self.tenant.id,
+                    'role_id': self.roles.first().id,
                     'confirm_password': "doesntmatch"}
 
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
 
-    @test.create_stubs({api: ('tenant_list',)})
+    @test.create_stubs({api: ('tenant_list',),
+                        api.keystone: ('role_list', 'get_default_role')})
     def test_create_validation_for_password_too_short(self):
         user = self.users.get(id="1")
 
         api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+        api.keystone.get_default_role(IgnoreArg()) \
+                    .AndReturn(self.roles.first())
 
         self.mox.ReplayAll()
 
@@ -107,6 +119,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'email': user.email,
                     'password': 'four',
                     'tenant_id': self.tenant.id,
+                    'role_id': self.roles.first().id,
                     'confirm_password': 'four'}
 
         res = self.client.post(USER_CREATE_URL, formData)
@@ -115,11 +128,15 @@ class UsersViewTests(test.BaseAdminViewTests):
             res, "form", 'password',
             ['Password must be between 8 and 18 characters.'])
 
-    @test.create_stubs({api: ('tenant_list',)})
+    @test.create_stubs({api: ('tenant_list',),
+                        api.keystone: ('role_list', 'get_default_role')})
     def test_create_validation_for_password_too_long(self):
         user = self.users.get(id="1")
 
         api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+        api.keystone.get_default_role(IgnoreArg()) \
+                    .AndReturn(self.roles.first())
 
         self.mox.ReplayAll()
 
@@ -129,6 +146,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'email': user.email,
                     'password': 'MoreThanEighteenChars',
                     'tenant_id': self.tenant.id,
+                    'role_id': self.roles.first().id,
                     'confirm_password': 'MoreThanEighteenChars'}
 
         res = self.client.post(USER_CREATE_URL, formData)

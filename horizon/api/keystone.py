@@ -262,6 +262,11 @@ def role_list(request):
     return keystoneclient(request, admin=True).roles.list()
 
 
+def roles_for_user(request, user, project):
+    return keystoneclient(request, admin=True).roles.roles_for_user(user,
+                                                                    project)
+
+
 def add_tenant_user_role(request, tenant_id, user_id, role_id):
     """ Adds a role for a user on a tenant. """
     return keystoneclient(request, admin=True).roles.add_user_role(user_id,
@@ -289,6 +294,7 @@ def get_default_role(request):
         try:
             roles = keystoneclient(request, admin=True).roles.list()
         except:
+            roles = []
             exceptions.handle(request)
         for role in roles:
             if role.id == default or role.name == default:

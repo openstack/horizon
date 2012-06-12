@@ -18,7 +18,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
+import operator
 
 from django.core.urlresolvers import reverse
 from django.utils.decorators import method_decorator
@@ -31,9 +31,6 @@ from horizon import forms
 from horizon import tables
 from .forms import CreateUserForm, UpdateUserForm
 from .tables import UsersTable
-
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
@@ -85,3 +82,20 @@ class CreateView(forms.ModalFormView):
                                                 'confirm_password'))
     def dispatch(self, *args, **kwargs):
         return super(CreateView, self).dispatch(*args, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super(CreateView, self).get_form_kwargs()
+        try:
+            roles = api.keystone.role_list(self.request)
+        except:
+            redirect = reverse("horizon:syspanel:users:index")
+            exceptions.handle(self.request,
+                              _("Unable to retrieve user roles."),
+                              redirect=redirect)
+        roles.sort(key=operator.attrgetter("id"))
+        kwargs['roles'] = roles
+        return kwargs
+
+    def get_initial(self):
+        default_role = api.keystone.get_default_role(self.request)
+        return {'role_id': getattr(default_role, "id", None)}
