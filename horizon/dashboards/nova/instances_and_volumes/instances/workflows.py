@@ -18,14 +18,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import json
-
 from django import forms
 from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import exceptions
+from horizon.openstack.common import jsonutils
 from horizon import workflows
 
 
@@ -268,9 +267,9 @@ class SetInstanceDetailsAction(workflows.Action):
         extra = {}
         try:
             extra['usages'] = api.nova.tenant_quota_usages(self.request)
-            extra['usages_json'] = json.dumps(extra['usages'])
-            flavors = json.dumps([f._info
-                                  for f in api.nova.flavor_list(self.request)])
+            extra['usages_json'] = jsonutils.dumps(extra['usages'])
+            flavors = jsonutils.dumps([f._info for f in
+                                       api.nova.flavor_list(self.request)])
             extra['flavors'] = flavors
         except:
             exceptions.handle(self.request)
