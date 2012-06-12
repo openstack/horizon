@@ -72,6 +72,13 @@ class CreateUserForm(BaseUserForm):
             required=False,
             widget=forms.PasswordInput(render_value=False))
     tenant_id = forms.ChoiceField(label=_("Primary Project"))
+    role_id = forms.ChoiceField(label=_("Role"))
+
+    def __init__(self, *args, **kwargs):
+        roles = kwargs.pop('roles')
+        super(CreateUserForm, self).__init__(*args, **kwargs)
+        role_choices = [(role.id, role.name) for role in roles]
+        self.fields['role_id'].choices = role_choices
 
     # We have to protect the entire "data" dict because it contains the
     # password and confirm_password strings.
@@ -89,12 +96,10 @@ class CreateUserForm(BaseUserForm):
                              _('User "%s" was successfully created.')
                              % data['name'])
             try:
-                default_role = api.keystone.get_default_role(request)
-                if default_role:
-                    api.add_tenant_user_role(request,
-                                             data['tenant_id'],
-                                             new_user.id,
-                                             default_role.id)
+                api.add_tenant_user_role(request,
+                                         data['tenant_id'],
+                                         new_user.id,
+                                         data['role_id'])
             except:
                 exceptions.handle(request,
                                   _('Unable to add user to primary project.'))

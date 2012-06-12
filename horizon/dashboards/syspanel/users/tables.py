@@ -103,12 +103,12 @@ class UsersTable(tables.DataTable):
         ("true", True),
         ("false", False)
     )
-    id = tables.Column('id', verbose_name=_('ID'))
     name = tables.Column('name', verbose_name=_('User Name'))
     email = tables.Column('email', verbose_name=_('Email'))
     # Default tenant is not returned from Keystone currently.
     #default_tenant = tables.Column('default_tenant',
     #                               verbose_name=_('Default Project'))
+    id = tables.Column('id', verbose_name=_('User ID'))
     enabled = tables.Column('enabled', verbose_name=_('Enabled'),
                             status=True,
                             status_choices=STATUS_CHOICES,

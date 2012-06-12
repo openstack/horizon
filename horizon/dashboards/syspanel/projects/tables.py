@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
+from horizon import exceptions
 from horizon import tables
 
 from ..users.tables import UsersTable
@@ -70,16 +71,16 @@ class TenantFilterAction(tables.FilterAction):
 
 
 class TenantsTable(tables.DataTable):
-    id = tables.Column('id', verbose_name=_('Id'))
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
+    id = tables.Column('id', verbose_name=_('Project ID'))
     enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True)
 
     class Meta:
         name = "tenants"
         verbose_name = _("Projects")
-        row_actions = (EditLink, UsageLink, ViewMembersLink, ModifyQuotasLink,
+        row_actions = (ViewMembersLink, EditLink, UsageLink, ModifyQuotasLink,
                        DeleteTenantsAction)
         table_actions = (TenantFilterAction, CreateLink, DeleteTenantsAction)
 
@@ -97,12 +98,29 @@ class RemoveUserAction(tables.BatchAction):
         api.keystone.remove_tenant_user(request, tenant_id, user_id)
 
 
+class ProjectUserRolesColumn(tables.Column):
+    def get_raw_data(self, user):
+        request = self.table._meta.request
+        try:
+            roles = api.keystone.roles_for_user(request,
+                                                user.id,
+                                                self.table.kwargs["tenant_id"])
+        except:
+            roles = []
+            exceptions.handle(request,
+                              _("Unable to retrieve role information."))
+        return ", ".join([role.name for role in roles])
+
+
 class TenantUsersTable(UsersTable):
+    roles = ProjectUserRolesColumn("roles", verbose_name=_("Roles"))
+
     class Meta:
         name = "tenant_users"
         verbose_name = _("Users For Project")
         table_actions = (RemoveUserAction,)
         row_actions = (RemoveUserAction,)
+        columns = ("name", "email", "id", "roles", "enabled")
 
 
 class AddUserAction(tables.LinkAction):
@@ -122,3 +140,4 @@ class AddUsersTable(UsersTable):
         verbose_name = _("Add New Users")
         table_actions = ()
         row_actions = (AddUserAction,)
+        columns = ("name", "email", "id", "enabled")

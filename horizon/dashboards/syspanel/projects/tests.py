@@ -67,12 +67,17 @@ class TenantsViewTests(test.BaseAdminViewTests):
     def test_modify_users(self):
         self.mox.StubOutWithMock(api.keystone, 'tenant_get')
         self.mox.StubOutWithMock(api.keystone, 'user_list')
+        self.mox.StubOutWithMock(api.keystone, 'roles_for_user')
         api.keystone.tenant_get(IgnoreArg(), self.tenant.id, admin=True) \
                     .AndReturn(self.tenant)
         api.keystone.user_list(IsA(http.HttpRequest)) \
                     .AndReturn(self.users.list())
         api.keystone.user_list(IsA(http.HttpRequest), self.tenant.id) \
                     .AndReturn([self.user])
+        api.keystone.roles_for_user(IsA(http.HttpRequest),
+                                    self.user.id,
+                                    self.tenant.id) \
+                    .AndReturn(self.roles.list())
         self.mox.ReplayAll()
         url = reverse('horizon:syspanel:projects:users',
                       args=(self.tenant.id,))
