@@ -147,7 +147,7 @@ You can build Horizon's documentation automatically by running::
 
     ./run_tests.sh --docs
 
-The output is stored in ``./docs/build/html/``.
+The output is stored in ``./doc/build/html/``.
 
 Updating the translation files
 ==============================
