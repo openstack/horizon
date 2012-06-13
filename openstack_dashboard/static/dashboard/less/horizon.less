@@ -1,3 +1,5 @@
+@import "../../bootstrap/less/bootstrap.less";
+
 /* new clearfix */
 .clearfix:after {
     visibility: hidden;
@@ -434,6 +436,25 @@ small {
 table form {
     margin-bottom: 0;
     width: 1px;
+}
+
+.messages {
+  position: absolute;
+  z-index: 9999;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  .alert-block {
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    &.alert-error {
+      border: 1px solid @red;
+    }
+    &.alert-success {
+      border: 1px solid @green;
+    }
+  }
 }
 
 .alert-block .alert-actions {

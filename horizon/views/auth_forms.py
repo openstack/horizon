@@ -26,7 +26,6 @@ import logging
 
 from django import shortcuts
 from django.conf import settings
-from django.contrib import messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.utils.translation import ugettext as _
 from django.views.decorators.debug import sensitive_variables
@@ -80,6 +79,14 @@ class Login(forms.SelfHandlingForm):
 
     @sensitive_variables("data")
     def handle(self, request, data):
+        """ Process the user's login via Keystone.
+
+        Note: We don't use the messages framework here (including messages
+        created by ``exceptions.handle`` beause they will not be displayed
+        on the login page (intentionally). Instead we add all error messages
+        to the form's ``non_field_errors``, causing them to appear as
+        errors on the form itself.
+        """
         if 'user_name' in request.session:
             if request.session['user_name'] != data['username']:
                 # To avoid reusing another user's session, create a
@@ -110,9 +117,8 @@ class Login(forms.SelfHandlingForm):
                 tenants = api.tenant_list_for_token(request, token.id)
             except:
                 msg = _('Unable to authenticate for that project.')
-                exceptions.handle(request,
-                                  message=msg,
-                                  escalate=True)
+                exceptions.handle(request, ignore=True)
+                return self.api_error(msg)
             _set_session_data(request, token)
             user = users.get_user_from_request(request)
             redirect = redirect_to or base.Horizon.get_user_home(user)
@@ -125,17 +131,18 @@ class Login(forms.SelfHandlingForm):
                                                   data['username'],
                                                   data['password'])
             except keystone_exceptions.Unauthorized:
-                exceptions.handle(request,
-                                  _('Invalid user name or password.'))
+                msg = _('Invalid user name or password.')
+                exceptions.handle(request, ignore=True)
+                return self.api_error(msg)
             except:
                 # If we get here we don't want to show a stack trace to the
                 # user. However, if we fail here, there may be bad session
                 # data that's been cached already.
                 request.user_logout()
-                exceptions.handle(request,
-                                  message=_("An error occurred authenticating."
-                                            " Please try again later."),
-                                  escalate=True)
+                msg = _("An error occurred authenticating. "
+                        "Please try again later.")
+                exceptions.handle(request, ignore=True)
+                return self.api_error(msg)
 
             # Unscoped token
             request.session['unscoped_token'] = unscoped_token.id
@@ -146,16 +153,13 @@ class Login(forms.SelfHandlingForm):
             try:
                 tenants = api.tenant_list_for_token(request, unscoped_token.id)
             except:
-                exceptions.handle(request)
+                exceptions.handle(request, ignore=True)
                 tenants = []
 
             # Abort if there are no valid tenants for this user
             if not tenants:
-                messages.error(request,
-                               _('You are not authorized for any projects.') %
-                                {"user": data['username']},
-                               extra_tags="login")
-                return
+                msg = _('You are not authorized for any projects.')
+                return self.api_error(msg)
 
             # Create a token.
             # NOTE(gabriel): Keystone can return tenants that you're
@@ -175,8 +179,8 @@ class Login(forms.SelfHandlingForm):
                     exceptions.handle(request, ignore=True)
                     token = None
             if token is None:
-                raise exceptions.NotAuthorized(
-                    _("You are not authorized for any available projects."))
+                msg = _("You are not authorized for any available projects.")
+                return self.api_error(msg)
 
             _set_session_data(request, token)
             user = users.get_user_from_request(request)

@@ -149,8 +149,11 @@ class AuthViewTests(test.TestCase):
         res = self.client.post(reverse('horizon:auth_login'),
                                form_data,
                                follow=True)
-
         self.assertTemplateUsed(res, 'horizon/auth/login.html')
+        # Verify that API error messages are rendered, but not using the
+        # messages framework.
+        self.assertContains(res, "Invalid user name or password.")
+        self.assertNotContains(res, 'class="messages"')
 
     def test_login_exception(self):
         self.mox.StubOutWithMock(api, 'token_create')

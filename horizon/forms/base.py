@@ -22,6 +22,7 @@ from datetime import date
 import logging
 
 from django import forms
+from django.forms.forms import NON_FIELD_ERRORS
 from django.core.urlresolvers import reverse
 from django.utils import dates
 
@@ -54,6 +55,15 @@ class SelfHandlingForm(forms.Form):
         initial['method'] = self.__class__.__name__
         kwargs['initial'] = initial
         super(SelfHandlingForm, self).__init__(*args, **kwargs)
+
+    def api_error(self, message):
+        """
+        Adds an error to the form's error dictionary after validation
+        based on problems reported via the API. This is useful when you
+        wish for API errors to appear as errors on the form rather than
+        using the messages framework.
+        """
+        self._errors[NON_FIELD_ERRORS] = self.error_class([message])
 
     def get_success_url(self, request=None):
         """

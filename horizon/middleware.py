@@ -33,6 +33,7 @@ from django.utils.encoding import iri_to_uri
 
 from horizon import exceptions
 from horizon import users
+from horizon.openstack.common import jsonutils
 
 
 LOG = logging.getLogger(__name__)
@@ -59,7 +60,9 @@ class HorizonMiddleware(object):
         request.__class__.user_logout = user_logout
 
         request.__class__.user = users.LazyUser()
-        request.horizon = {'dashboard': None, 'panel': None}
+        request.horizon = {'dashboard': None,
+                           'panel': None,
+                           'async_messages': []}
 
     def process_exception(self, request, exception):
         """
@@ -101,4 +104,12 @@ class HorizonMiddleware(object):
                 redirect_response = http.HttpResponse()
                 redirect_response['X-Horizon-Location'] = response['location']
                 return redirect_response
+            if request.horizon['async_messages']:
+                messages = request.horizon['async_messages']
+                # TODO(gabriel): When we have an async connection to the
+                # client (e.g. websockets) this should be pushed to the
+                # socket queue rather than being sent via a header.
+                # The header method has notable drawbacks (length limits,
+                # etc.) and is not meant as a long-term solution.
+                response['X-Horizon-Messages'] = jsonutils.dumps(messages)
         return response

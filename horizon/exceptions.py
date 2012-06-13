@@ -23,7 +23,6 @@ import os
 import sys
 
 from django.conf import settings
-from django.contrib import messages
 from django.http import HttpRequest
 from django.utils import termcolors
 from django.utils.translation import ugettext as _
@@ -34,6 +33,7 @@ from glanceclient.common import exceptions as glanceclient
 from keystoneclient import exceptions as keystoneclient
 from novaclient import exceptions as novaclient
 
+from horizon import messages
 
 LOG = logging.getLogger(__name__)
 PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]

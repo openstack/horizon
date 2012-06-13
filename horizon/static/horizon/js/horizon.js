@@ -23,6 +23,14 @@ var Horizon = function() {
     // Load client-side template fragments and compile them.
     horizon.templates.compile_templates();
 
+    // Bind AJAX message handling.
+    $("body").ajaxComplete(function(event, request, settings){
+      var message_array = $.parseJSON(horizon.ajax.get_messages(request));
+      $(message_array).each(function (index, item) {
+        horizon.alert(item[0], item[1]);
+      });
+    });
+
     // Bind event handlers to confirm dangerous actions.
     $("body").on("click", "form button.btn-danger", function (evt) {
       horizon.datatables.confirm(this);
@@ -323,7 +331,7 @@ var Horizon = function() {
         params = {"type": type,
                   "type_capitalized": horizon.utils.capitalize(type),
                   "message": message};
-    return $(template.render(params)).prependTo("#main_content .messages");
+    return $(template.render(params)).hide().prependTo("#main_content .messages").fadeIn(100);
   };
 
   horizon.clearErrorMessages = function() {
@@ -350,6 +358,9 @@ var Horizon = function() {
     // This will be our jQuery queue container.
     _queue: [],
     _active: [],
+    get_messages: function (request) {
+      return request.getResponseHeader("X-Horizon-Messages");
+    },
     // Function to add a new call to the queue.
     queue: function(opts) {
       var complete = opts.complete,
