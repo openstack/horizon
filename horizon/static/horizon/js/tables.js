@@ -1,10 +1,12 @@
-horizon.datatables.init_sorting = function () {
+horizon.datatables.set_table_sorting = function (parent) {
   // Function to initialize the tablesorter plugin strictly on sortable columns.
-  $("table.table").each(function () {
+  $(parent).find("table.table").each(function () {
     var $this = $(this),
         options = {};
     $this.find("thead th").each(function (i, val) {
-      if (!$(this).hasClass('sortable')) {
+      // Disable if not sortable or has <= 1 item
+      if (!$(this).hasClass('sortable') ||
+          $this.find('tbody tr').not('.empty').length <= 1) {
         options[i] = {sorter: false};
       }
     });
@@ -14,7 +16,23 @@ horizon.datatables.init_sorting = function () {
   });
 };
 
+horizon.datatables.add_table_checkboxes = function(parent) {
+  $(parent).find('table thead .multi_select_column').each(function(index, thead) {
+    if (!$(thead).find(':checkbox').length &&
+        $(thead).parents('table').find('tbody :checkbox').length) {
+      $(thead).append('<input type="checkbox">');
+    }
+  });
+};
+
 horizon.addInitFunction(function() {
+  $('div.table_wrapper, div.modal_wrapper').on('click', 'table thead .multi_select_column :checkbox', function(evt) {
+    var $this = $(this),
+        $table = $this.closest('table'),
+        is_checked = $this.prop('checked'),
+        checkboxes = $table.find('tbody :checkbox');
+    checkboxes.prop('checked', is_checked);
+  });
   $('.table_search input').quicksearch('tbody tr', {
     'delay': 300,
     'loader': 'span.loading',
@@ -33,25 +51,14 @@ horizon.addInitFunction(function() {
     }
   });
 
-  $('table.sortable').each(function(index, table) {
-      var $table = $(table);
-      // Only trigger if we have actual data rows in the table.
-      // Calling on an empty table throws a javascript error.
-      if ($table.find('tbody tr').length) {
-        $table.tablesorter();
-      }
-    });
+  horizon.datatables.add_table_checkboxes($('body'));
+  horizon.datatables.set_table_sorting($('body'));
 
-  // Add a select all checkbox at table header
-  $('table thead .multi_select_column').append('<input type="checkbox">');
-  $('table thead .multi_select_column :checkbox').click(function(evt) {
-    var $this = $(this),
-        $table = $this.closest('table'),
-        is_checked = $this.prop('checked'),
-        checkboxes = $table.find('tbody :checkbox');
-    checkboxes.prop('checked', is_checked);
+  // Also apply on tables in modal views
+  $('div.modal_wrapper').on('shown', '.modal', function(evt) {
+    horizon.datatables.add_table_checkboxes(this);
+    horizon.datatables.set_table_sorting(this);
   });
 
   horizon.datatables.update();
-  horizon.datatables.init_sorting();
 });

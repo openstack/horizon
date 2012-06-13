@@ -221,7 +221,7 @@ var Horizon = function() {
         }
       });
 
-      $("form :checkbox").on("click", function (evt) {
+      $("div.table_wrapper, div.modal_wrapper").on("click", ':checkbox', function (evt) {
         var $form = $(this).closest("form");
         var any_checked = $form.find("tbody :checkbox").is(":checked");
 
