@@ -19,13 +19,13 @@ version_info = {'branch_nick': u'LOCALBRANCH',
                 'revno': 0}
 
 
-HORIZON_VERSION = ['2012', '2']
-YEAR, COUNT = HORIZON_VERSION
+HORIZON_VERSION = ['2012', '2', None]
+YEAR, COUNT, REVISION = HORIZON_VERSION
 FINAL = False   # This becomes true at Release Candidate time
 
 
 def canonical_version_string():
-    return '.'.join([YEAR, COUNT])
+    return '.'.join(filter(None, HORIZON_VERSION))
 
 
 def version_string():
