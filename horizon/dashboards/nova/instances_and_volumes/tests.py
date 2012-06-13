@@ -18,7 +18,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from copy import deepcopy
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
@@ -28,10 +27,8 @@ from horizon import test
 
 
 class InstancesAndVolumesViewTest(test.TestCase):
+    @test.create_stubs({api: ('flavor_list', 'server_list', 'volume_list',)})
     def test_index(self):
-        self.mox.StubOutWithMock(api, 'flavor_list')
-        self.mox.StubOutWithMock(api, 'server_list')
-        self.mox.StubOutWithMock(api, 'volume_list')
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
@@ -49,23 +46,12 @@ class InstancesAndVolumesViewTest(test.TestCase):
         self.assertItemsEqual(instances, self.servers.list())
         self.assertItemsEqual(volumes, self.volumes.list())
 
+    @test.create_stubs({api: ('flavor_list', 'server_list', 'volume_list',)})
     def test_attached_volume(self):
-        volumes = deepcopy(self.volumes.list())
-        attached_volume = deepcopy(self.volumes.list()[0])
-        attached_volume.id = "2"
-        attached_volume.display_name = "Volume2 name"
-        attached_volume.size = "80"
-        attached_volume.status = "in-use"
-        attached_volume.attachments = [{"server_id": "1",
-                                        "device": "/dev/hdn"}]
-        volumes.append(attached_volume)
-
-        self.mox.StubOutWithMock(api, 'server_list')
-        self.mox.StubOutWithMock(api, 'volume_list')
-        self.mox.StubOutWithMock(api, 'flavor_list')
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
+        api.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list()[1:3])
 
         self.mox.ReplayAll()
 
@@ -78,21 +64,20 @@ class InstancesAndVolumesViewTest(test.TestCase):
         resp_volumes = res.context['volumes_table'].data
 
         self.assertItemsEqual(instances, self.servers.list())
-        self.assertItemsEqual(resp_volumes, volumes)
+        self.assertItemsEqual(resp_volumes, self.volumes.list()[1:3])
 
-        self.assertContains(res, ">Volume name<", 1, 200)
-        self.assertContains(res, ">40GB<", 1, 200)
-        self.assertContains(res, ">Available<", 1, 200)
+        self.assertContains(res, ">My Volume<", 1, 200)
+        self.assertContains(res, ">30GB<", 1, 200)
+        self.assertContains(res, ">3b189ac8-9166-ac7f-90c9-16c8bf9e01ac<",
+                            1,
+                            200)
+        self.assertContains(res, ">10GB<", 1, 200)
+        self.assertContains(res, ">In-Use<", 2, 200)
+        self.assertContains(res, "on /dev/hda", 1, 200)
+        self.assertContains(res, "on /dev/hdk", 1, 200)
 
-        self.assertContains(res, ">Volume2 name<", 1, 200)
-        self.assertContains(res, ">80GB<", 1, 200)
-        self.assertContains(res, ">In-Use<", 1, 200)
-        self.assertContains(res, ">server_1<", 2, 200)
-        self.assertContains(res, "on /dev/hdn", 1, 200)
-
+    @test.create_stubs({api: ('server_list', 'volume_list',)})
     def test_index_server_list_exception(self):
-        self.mox.StubOutWithMock(api, 'server_list')
-        self.mox.StubOutWithMock(api, 'volume_list')
         api.server_list(IsA(http.HttpRequest)).AndRaise(self.exceptions.nova)
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())

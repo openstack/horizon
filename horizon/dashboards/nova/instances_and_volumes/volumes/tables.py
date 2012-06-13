@@ -135,7 +135,8 @@ class VolumesTableBase(tables.DataTable):
     name = tables.Column("display_name", verbose_name=_("Name"),
                          link="%s:volumes:detail" % URL_PREFIX)
     description = tables.Column("display_description",
-                                verbose_name=_("Description"))
+                                verbose_name=_("Description"),
+                                truncate=40)
     size = tables.Column(get_size, verbose_name=_("Size"))
     status = tables.Column("status",
                            filters=(title,),

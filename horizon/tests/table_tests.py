@@ -56,6 +56,11 @@ TEST_DATA_4 = (
     FakeObject('2', 'object_2', 4, 'up'),
 )
 
+TEST_DATA_5 = (
+    FakeObject('1', 'object_1', 'A Value That is longer than 35 characters!',
+               'down', 'optional_1'),
+)
+
 
 class MyLinkAction(tables.LinkAction):
     name = "login"
@@ -153,7 +158,8 @@ class MyTable(tables.DataTable):
                           sortable=True,
                           link='http://example.com/',
                           attrs={'class': 'green blue'},
-                          summation="average")
+                          summation="average",
+                          truncate=35)
     status = tables.Column('status', link=get_link)
     optional = tables.Column('optional', empty_value='N/A')
     excluded = tables.Column('excluded')
@@ -378,6 +384,14 @@ class DataTableTests(test.TestCase):
         self.assertEqual(cell_status, True)
         self.assertEqual(row.cells['status'].get_status_class(cell_status),
                          'status_up')
+
+    def test_table_column_truncation(self):
+        self.table = MyTable(self.request, TEST_DATA_5)
+        row = self.table.get_rows()[0]
+
+        self.assertEqual(len(row.cells['value'].data), 35)
+        self.assertEqual(row.cells['value'].data,
+                         u'A Value That is longer than 35 c...')
 
     def test_table_rendering(self):
         self.table = MyTable(self.request, TEST_DATA)

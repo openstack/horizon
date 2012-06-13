@@ -26,6 +26,7 @@ from django import template
 from django.conf import settings
 from django.contrib import messages
 from django.core import urlresolvers
+from django.template.defaultfilters import truncatechars
 from django.template.loader import render_to_string
 from django.utils import http
 from django.utils.datastructures import SortedDict
@@ -142,6 +143,14 @@ class Column(html.HTMLElement):
 
         A dict of HTML attribute strings which should be added to this column.
         Example: ``attrs={"data-foo": "bar"}``.
+
+    .. attribute:: truncate
+
+        An integer for the maximum length of the string in this column. If the
+        data in this column is larger than the supplied number, the data for
+        this column will be truncated and an ellipsis will be appended to the
+        truncated data.
+        Defaults to ``None``.
     """
     summation_methods = {
         "sum": sum,
@@ -172,12 +181,11 @@ class Column(html.HTMLElement):
     def __init__(self, transform, verbose_name=None, sortable=True,
                  link=None, hidden=False, attrs=None, status=False,
                  status_choices=None, display_choices=None, empty_value=None,
-                 filters=None, classes=None, summation=None, auto=None):
+                 filters=None, classes=None, summation=None, auto=None,
+                 truncate=None):
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
-
-        self.auto = auto
 
         if callable(transform):
             self.transform = transform
@@ -185,18 +193,23 @@ class Column(html.HTMLElement):
         else:
             self.transform = unicode(transform)
             self.name = self.transform
-        self.sortable = sortable
+
         # Empty string is a valid value for verbose_name
         if verbose_name is None:
             verbose_name = self.transform.title()
         else:
             verbose_name = verbose_name
+
+        self.auto = auto
+        self.sortable = sortable
         self.verbose_name = verbose_name
         self.link = link
         self.hidden = hidden
         self.status = status
         self.empty_value = empty_value or '-'
         self.filters = filters or []
+        self.truncate = truncate
+
         if status_choices:
             self.status_choices = status_choices
         self.display_choices = display_choices
@@ -257,20 +270,29 @@ class Column(html.HTMLElement):
         method for this column.
         """
         datum_id = self.table.get_object_id(datum)
+
         if datum_id in self.table._data_cache[self]:
             return self.table._data_cache[self][datum_id]
+
         data = self.get_raw_data(datum)
         display_value = None
+
         if self.display_choices:
             display_value = [display for (value, display) in
                              self.display_choices
                              if value.lower() == (data or '').lower()]
+
         if display_value:
             data = display_value[0]
         else:
             for filter_func in self.filters:
                 data = filter_func(data)
+
+        if data and self.truncate:
+            data = truncatechars(data, self.truncate)
+
         self.table._data_cache[self][datum_id] = data
+
         return self.table._data_cache[self][datum_id]
 
     def get_link_url(self, datum):

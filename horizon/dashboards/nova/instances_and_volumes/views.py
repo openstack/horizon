@@ -22,7 +22,6 @@
 """
 Views for Instances and Volumes.
 """
-import re
 import logging
 
 from django.utils.translation import ugettext_lazy as _
@@ -73,16 +72,12 @@ class IndexView(tables.MultiTableView):
             instances = SortedDict([(inst.id, inst) for inst in
                                     self._get_instances()])
             for volume in volumes:
-                # Truncate the description for proper display.
-                if len(getattr(volume, 'display_description', '')) > 33:
-                    truncated_string = volume.display_description[:30].strip()
-                    # Remove non-word, and underscore characters, from the end
-                    # of the string before we add the ellepsis.
-                    truncated_string = re.sub(ur'[^\w\s]+$',
-                                              '',
-                                              truncated_string)
+                # It is possible to create a volume with no name through the
+                # EC2 API, use the ID in those cases.
+                if not volume.display_name:
+                    volume.display_name = volume.id
 
-                    volume.display_description = truncated_string + u'...'
+                description = getattr(volume, 'display_description', '')
 
                 for att in volume.attachments:
                     server_id = att.get('server_id', None)

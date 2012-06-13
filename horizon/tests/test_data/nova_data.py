@@ -146,14 +146,38 @@ def data(TEST):
 
     # Volumes
     volume = volumes.Volume(volumes.VolumeManager(None),
-                            dict(id="1",
+                            dict(id="41023e92-8008-4c8b-8059-7f2293ff3775",
                                  name='test_volume',
                                  status='available',
                                  size=40,
                                  display_name='Volume name',
                                  created_at='2012-04-01 10:30:00',
-                                 attachments={}))
+                                 attachments=[]))
+    nameless_volume = volumes.Volume(volumes.VolumeManager(None),
+                         dict(id="3b189ac8-9166-ac7f-90c9-16c8bf9e01ac",
+                              name='',
+                              status='in-use',
+                              size=10,
+                              display_name='',
+                              display_description='',
+                              device="/dev/hda",
+                              created_at='2010-11-21 18:34:25',
+                              attachments=[{"id": "1", "server_id": '1',
+                                            "device": "/dev/hda"}]))
+    attached_volume = volumes.Volume(volumes.VolumeManager(None),
+                         dict(id="8cba67c1-2741-6c79-5ab6-9c2bf8c96ab0",
+                              name='my_volume',
+                              status='in-use',
+                              size=30,
+                              display_name='My Volume',
+                              display_description='',
+                              device="/dev/hdk",
+                              created_at='2011-05-01 11:54:33',
+                              attachments=[{"id": "2", "server_id": '1',
+                                            "device": "/dev/hdk"}]))
     TEST.volumes.add(volume)
+    TEST.volumes.add(nameless_volume)
+    TEST.volumes.add(attached_volume)
 
     # Flavors
     flavor_1 = flavors.Flavor(flavors.FlavorManager(None),
