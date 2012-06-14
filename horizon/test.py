@@ -180,7 +180,7 @@ class TestCase(django_test.TestCase):
                 message_cookie = self.client.cookies['messages'].value
                 messages = storage._decode(message_cookie)
         # Check for messages in the context
-        elif hasattr(response, "context") and  "messages" in response.context:
+        elif hasattr(response, "context") and "messages" in response.context:
             messages = response.context["messages"]
         # Check for messages attached to the request on a TemplateResponse
         elif hasattr(response, "_request") and hasattr(response._request,

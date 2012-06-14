@@ -120,7 +120,7 @@ function run_pep8 {
   PEP8_EXCLUDE=vcsversion.py
   PEP8_IGNORE=W602
   PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --ignore=$PEP8_IGNORE --repeat"
-  ${command_wrapper} pep8 $PEP8_OPTIONS $included_dirs | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt || true
+  ${command_wrapper} pep8 $PEP8_OPTIONS $included_dirs > pep8.txt || true
   PEP8_COUNT=`wc -l pep8.txt | awk '{ print $1 }'`
   if [ $PEP8_COUNT -ge 1 ]; then
     echo "PEP8 violations found ($PEP8_COUNT):"
@@ -129,6 +129,7 @@ function run_pep8 {
   else
     echo "No violations found. Good job!"
   fi
+  exit $PEP8_COUNT
 }
 
 function run_sphinx {
@@ -269,12 +270,14 @@ function run_tests {
   sanity_check
 
   echo "Running Horizon application tests"
+  export NOSE_XUNIT_FILE=horizon/nosetests.xml
   ${command_wrapper} coverage erase
   ${command_wrapper} coverage run -p $root/manage.py test horizon --settings=horizon.tests.testsettings $testargs
   # get results of the Horizon tests
   HORIZON_RESULT=$?
 
   echo "Running openstack_dashboard tests"
+  export NOSE_XUNIT_FILE=openstack_dashboard/nosetests.xml
   if [ $selenium -eq 1 ]; then
       ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=horizon.tests.testsettings --with-selenium --with-cherrypyliveserver $testargs
     else
