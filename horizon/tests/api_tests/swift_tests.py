@@ -77,6 +77,29 @@ class SwiftApiTests(test.APITestCase):
         self.assertEqual(len(objs), len(objects))
         self.assertFalse(more)
 
+    def test_swift_filter_objects(self):
+        container = self.containers.first()
+        objects = self.objects.list()
+        first_obj = self.objects.first()
+        expected_objs = [obj.name.encode('utf8') for obj in
+                            self.objects.filter(name=first_obj.name)]
+
+        swift_api = self.stub_swiftclient()
+        swift_api.get_container(container.name).AndReturn(container)
+        self.mox.StubOutWithMock(container, 'get_objects')
+        container.get_objects(limit=10000,
+                              marker=None,
+                              prefix=None,
+                              delimiter='/',
+                              path=None).AndReturn(objects)
+        self.mox.ReplayAll()
+
+        result_objs = api.swift_filter_objects(self.request,
+                                                first_obj.name,
+                                                container.name)
+        self.assertQuerysetEqual(result_objs, expected_objs,
+                                lambda obj: obj.name.encode('utf8'))
+
     def test_swift_upload_object(self):
         container = self.containers.first()
         obj = self.objects.first()

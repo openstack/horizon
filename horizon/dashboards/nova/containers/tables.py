@@ -138,15 +138,14 @@ class DownloadObject(tables.LinkAction):
 
 class ObjectFilterAction(tables.FilterAction):
     def filter(self, table, objects, filter_string):
-        """ Really naive case-insensitive search. """
-        q = filter_string.lower()
-
-        def comp(object):
-            if q in object.name.lower():
-                return True
-            return False
-
-        return filter(comp, objects)
+        request = table._meta.request
+        container = self.table.kwargs['container_name']
+        subfolder = self.table.kwargs['subfolder_path']
+        path = subfolder + '/' if subfolder else ''
+        return api.swift_filter_objects(request,
+                                        filter_string,
+                                        container,
+                                        path=path)
 
 
 def sanitize_name(name):

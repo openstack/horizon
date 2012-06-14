@@ -102,6 +102,42 @@ def swift_get_objects(request, container_name, prefix=None, path=None,
         return (objects, False)
 
 
+def swift_filter_objects(request, filter_string, container_name, prefix=None,
+                        path=None, marker=None):
+    #FIXME(kewu): Cloudfiles currently has no filtering API, thus the marker
+    #parameter here won't actually help the pagination. For now I am just
+    #getting the largest number of objects from a container and filtering based
+    #on those objects.
+    limit = 10000
+    container = swift_api(request).get_container(container_name)
+    objects = container.get_objects(prefix=prefix,
+                                    marker=marker,
+                                    limit=limit,
+                                    delimiter="/",
+                                    path=path)
+    filter_string_list = filter_string.lower().strip().split(' ')
+
+    return filter(lambda obj: any([
+                                    obj.content_type != "application/directory"
+                                    and wildcard_search(obj.name.lower(), q)
+                                    for q in filter_string_list if q != ''
+                                    ]), objects)
+
+
+def wildcard_search(string, q):
+    q_list = q.split('*')
+    if all(map(lambda x: x == '', q_list)):
+        return True
+    elif q_list[0] not in string:
+        return False
+    else:
+        if q_list[0] == '':
+            tail = string
+        else:
+            head, delimiter, tail = string.partition(q_list[0])
+        return wildcard_search(tail, '*'.join(q_list[1:]))
+
+
 def swift_copy_object(request, orig_container_name, orig_object_name,
                       new_container_name, new_object_name):
     try:

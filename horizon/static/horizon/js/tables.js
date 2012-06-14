@@ -25,6 +25,28 @@ horizon.datatables.add_table_checkboxes = function(parent) {
   });
 };
 
+horizon.datatables.set_table_filter = function (parent) {
+  $(parent).find('table').each(function (index, elm) {
+    var input = $($(elm).find('div.table_search input'));
+    if (input) {
+      input.quicksearch('table#' + $(elm).attr('id') + ' tbody tr', {
+        'delay': 300,
+        'loader': 'span.loading',
+        'bind': 'keyup click',
+        'show': this.show,
+        'hide': this.hide,
+        'prepareQuery': function (val) {
+          return new RegExp(val, "i");
+        },
+        'testQuery': function (query, txt, _row) {
+          return query.test($(_row).find('td:not(.hidden)').text());
+        }
+      });
+    }
+  });
+};
+
+
 horizon.addInitFunction(function() {
   $('div.table_wrapper, div.modal_wrapper').on('click', 'table thead .multi_select_column :checkbox', function(evt) {
     var $this = $(this),
@@ -33,31 +55,16 @@ horizon.addInitFunction(function() {
         checkboxes = $table.find('tbody :checkbox');
     checkboxes.prop('checked', is_checked);
   });
-  $('.table_search input').quicksearch('tbody tr', {
-    'delay': 300,
-    'loader': 'span.loading',
-    'bind': 'keyup click',
-    'show': function () {
-      this.style.display = '';
-    },
-    'hide': function () {
-      this.style.display = 'none';
-    },
-    'prepareQuery': function (val) {
-      return new RegExp(val, "i");
-    },
-    'testQuery': function (query, txt, _row) {
-      return query.test($(_row).find('td:not(.hidden)').text());
-    }
-  });
 
   horizon.datatables.add_table_checkboxes($('body'));
   horizon.datatables.set_table_sorting($('body'));
+  horizon.datatables.set_table_filter($('body'));
 
   // Also apply on tables in modal views
   $('div.modal_wrapper').on('shown', '.modal', function(evt) {
     horizon.datatables.add_table_checkboxes(this);
     horizon.datatables.set_table_sorting(this);
+    horizon.datatables.set_table_filter(this);
   });
 
   horizon.datatables.update();
