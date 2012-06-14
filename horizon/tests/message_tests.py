@@ -15,6 +15,8 @@
 #    under the License.
 
 from django import http
+from django.utils.encoding import force_unicode
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import messages
 from horizon import middleware
@@ -25,11 +27,12 @@ from horizon.openstack.common import jsonutils
 class MessageTests(test.TestCase):
     def test_middleware_header(self):
         req = self.request
-        expected = ["error", "Giant ants are attacking San Francisco!"]
+        string = _("Giant ants are attacking San Francisco!")
+        expected = ["error", force_unicode(string)]
         self.assertTrue("async_messages" in req.horizon)
         self.assertItemsEqual(req.horizon['async_messages'], [])
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
-        messages.error(req, expected[1])
+        messages.error(req, string)
         self.assertItemsEqual(req.horizon['async_messages'], [expected])
         res = http.HttpResponse()
         res = middleware.HorizonMiddleware().process_response(req, res)

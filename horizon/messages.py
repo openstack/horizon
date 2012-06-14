@@ -21,6 +21,7 @@ messaging needs (e.g. AJAX communication, etc.).
 
 from django.contrib import messages as _messages
 from django.contrib.messages import constants
+from django.utils.encoding import force_unicode
 
 
 def add_message(request, level, message, extra_tags='', fail_silently=False):
@@ -29,7 +30,8 @@ def add_message(request, level, message, extra_tags='', fail_silently=False):
     """
     if request.is_ajax():
         tag = constants.DEFAULT_TAGS[level]
-        request.horizon['async_messages'].append([tag, message])
+        request.horizon['async_messages'].append([tag,
+                                                  force_unicode(message)])
     else:
         return _messages.add_message(request, level, message,
                                      extra_tags, fail_silently)
