@@ -18,6 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.views.generic import TemplateView
+
 from horizon import usage
 
 
@@ -29,3 +31,7 @@ class ProjectOverview(usage.UsageView):
     def get_data(self):
         super(ProjectOverview, self).get_data()
         return self.usage.get_instances()
+
+
+class WarningView(TemplateView):
+    template_name = "nova/_warning.html"
