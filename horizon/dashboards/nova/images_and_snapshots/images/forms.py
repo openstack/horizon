@@ -142,6 +142,9 @@ class UpdateImageForm(forms.SelfHandlingForm):
             meta['properties']['architecture'] = data['architecture']
 
         try:
+            # Ensure we do not delete properties that have already been
+            # set on an image.
+            meta['features'] = {'X-Glance-Registry-Purge-Props': False}
             api.image_update(request, image_id, **meta)
             messages.success(request, _('Image was successfully updated.'))
         except:
