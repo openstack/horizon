@@ -72,7 +72,7 @@ class CreateView(forms.ModalFormView):
 
 class ObjectIndexView(tables.MultiTableView):
     table_classes = (ObjectsTable, ContainerSubfoldersTable)
-    template_name = 'nova/objects/index.html'
+    template_name = 'nova/containers/detail.html'
 
     def has_more_data(self, table):
         return self._more
@@ -131,7 +131,7 @@ class ObjectIndexView(tables.MultiTableView):
 
 class UploadView(forms.ModalFormView):
     form_class = UploadObject
-    template_name = 'nova/objects/upload.html'
+    template_name = 'nova/containers/upload.html'
 
     def get_initial(self):
         return {"container_name": self.kwargs["container_name"],
@@ -171,7 +171,7 @@ def object_download(request, container_name, object_path):
 
 class CopyView(forms.ModalFormView):
     form_class = CopyObject
-    template_name = 'nova/objects/copy.html'
+    template_name = 'nova/containers/copy.html'
 
     def get_form_kwargs(self):
         kwargs = super(CopyView, self).get_form_kwargs()

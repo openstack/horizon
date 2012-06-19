@@ -108,7 +108,7 @@ class ObjectViewTests(test.TestCase):
 
         res = self.client.get(reverse('horizon:nova:containers:object_index',
                                       args=[self.containers.first().name]))
-        self.assertTemplateUsed(res, 'nova/objects/index.html')
+        self.assertTemplateUsed(res, 'nova/containers/detail.html')
         # UTF8 encoding here to ensure there aren't problems with Nose output.
         expected = [obj.name.encode('utf8') for obj in self.objects.list()]
         self.assertQuerysetEqual(res.context['objects_table'].data,
@@ -118,7 +118,7 @@ class ObjectViewTests(test.TestCase):
     def test_upload_index(self):
         res = self.client.get(reverse('horizon:nova:containers:object_upload',
                                       args=[self.containers.first().name]))
-        self.assertTemplateUsed(res, 'nova/objects/upload.html')
+        self.assertTemplateUsed(res, 'nova/containers/upload.html')
 
     def test_upload(self):
         container = self.containers.first()
@@ -215,7 +215,7 @@ class ObjectViewTests(test.TestCase):
         res = self.client.get(reverse('horizon:nova:containers:object_copy',
                                       args=[self.containers.first().name,
                                             self.objects.first().name]))
-        self.assertTemplateUsed(res, 'nova/objects/copy.html')
+        self.assertTemplateUsed(res, 'nova/containers/copy.html')
 
     def test_copy(self):
         container_1 = self.containers.get(name=u"container_one\u6346")
