@@ -34,14 +34,6 @@ INDEX_URL = reverse('horizon:nova:instances_and_volumes:index')
 
 
 class InstanceViewTests(test.TestCase):
-    def setUp(self):
-        super(InstanceViewTests, self).setUp()
-        self.now = self.override_times()
-
-    def tearDown(self):
-        super(InstanceViewTests, self).tearDown()
-        self.reset_times()
-
     @test.create_stubs({api: ('server_list',
                               'flavor_list',
                               'server_delete',

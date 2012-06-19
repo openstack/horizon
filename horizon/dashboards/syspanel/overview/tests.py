@@ -34,20 +34,15 @@ INDEX_URL = reverse('horizon:nova:overview:index')
 
 
 class UsageViewTests(test.BaseAdminViewTests):
-    def tearDown(self):
-        super(UsageViewTests, self).tearDown()
-        self.reset_times()  # override_times is called in the tests
-
     @test.create_stubs({api: ('usage_list',),
                         api.keystone: ('tenant_list',)})
     def test_usage(self):
-        now = self.override_times()
+        now = datetime.datetime.utcnow()
         usage_obj = api.nova.Usage(self.usages.first())
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
                     .AndReturn(self.tenants.list())
         api.usage_list(IsA(http.HttpRequest),
-                      datetime.datetime(now.year, now.month, 1,
-                                        now.hour, now.minute, now.second),
+                      datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                       datetime.datetime(now.year, now.month, now.day, now.hour,
                                         now.minute, now.second)) \
                       .AndReturn([usage_obj])
@@ -71,13 +66,12 @@ class UsageViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api: ('usage_list',),
                         api.keystone: ('tenant_list',)})
     def test_usage_csv(self):
-        now = self.override_times()
+        now = datetime.datetime.utcnow()
         usage_obj = api.nova.Usage(self.usages.first())
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
                     .AndReturn(self.tenants.list())
         api.usage_list(IsA(http.HttpRequest),
-                      datetime.datetime(now.year, now.month, 1,
-                                        now.hour, now.minute, now.second),
+                      datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                       datetime.datetime(now.year, now.month, now.day, now.hour,
                                         now.minute, now.second)) \
                       .AndReturn([usage_obj])

@@ -10,7 +10,6 @@ from django.utils.translation import ugettext as _
 from horizon import api
 from horizon import exceptions
 from horizon import forms
-from horizon import time
 
 
 LOG = logging.getLogger(__name__)
@@ -27,15 +26,15 @@ class BaseUsage(object):
 
     @property
     def today(self):
-        return time.today()
+        return datetime.date.today()
 
     @staticmethod
     def get_datetime(date, now=False):
         if now:
-            now = time.utcnow()
-            current_time = time.time(now.hour, now.minute, now.second)
+            now = datetime.datetime.utcnow()
+            current_time = datetime.time(now.hour, now.minute, now.second)
         else:
-            current_time = time.time()
+            current_time = datetime.time()
         return datetime.datetime.combine(date, current_time)
 
     @staticmethod
@@ -46,8 +45,8 @@ class BaseUsage(object):
     def get_end(year, month, day=1):
         period = relativedelta(months=1)
         date_end = BaseUsage.get_start(year, month, day) + period
-        if date_end > time.today():
-            date_end = time.today()
+        if date_end > datetime.date.today():
+            date_end = datetime.date.today()
         return date_end
 
     def get_instances(self):
@@ -83,7 +82,7 @@ class BaseUsage(object):
         raise NotImplementedError("You must define a get_usage method.")
 
     def summarize(self, start, end):
-        if start <= end <= time.today():
+        if start <= end <= datetime.date.today():
             # Convert to datetime.datetime just for API call.
             start = BaseUsage.get_datetime(start)
             end = BaseUsage.get_datetime(end, now=True)

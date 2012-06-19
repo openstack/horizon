@@ -18,7 +18,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import datetime
 import os
 
 import cloudfiles as swift_client
@@ -40,10 +39,6 @@ from horizon import context_processors
 from horizon import middleware
 from horizon import users
 from horizon.tests.test_data.utils import load_test_data
-
-from .time import time
-from .time import today
-from .time import utcnow
 
 
 # Makes output of failing mox tests much easier to read.
@@ -155,21 +150,6 @@ class TestCase(django_test.TestCase):
                            roles=roles,
                            authorized_tenants=authorized_tenants,
                            request=self.request)
-
-    def override_times(self):
-        """ Overrides the "current" time with immutable values. """
-        now = datetime.datetime.utcnow()
-        time.override_time = \
-                datetime.time(now.hour, now.minute, now.second)
-        today.override_time = datetime.date(now.year, now.month, now.day)
-        utcnow.override_time = now
-        return now
-
-    def reset_times(self):
-        """ Undoes the changes made by ``override_times``. """
-        time.override_time = None
-        today.override_time = None
-        utcnow.override_time = None
 
     def assertRedirectsNoFollow(self, response, expected_url):
         """

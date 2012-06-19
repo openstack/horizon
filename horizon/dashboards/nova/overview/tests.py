@@ -23,7 +23,6 @@ import datetime
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
-from novaclient import exceptions as nova_exceptions
 
 from horizon import api
 from horizon import test
@@ -34,17 +33,12 @@ INDEX_URL = reverse('horizon:nova:overview:index')
 
 
 class UsageViewTests(test.TestCase):
-    def tearDown(self):
-        super(UsageViewTests, self).tearDown()
-        self.reset_times()  # override_times is called in the tests
-
     def test_usage(self):
-        now = self.override_times()
+        now = datetime.datetime.utcnow()
         usage_obj = api.nova.Usage(self.usages.first())
         self.mox.StubOutWithMock(api, 'usage_get')
         api.usage_get(IsA(http.HttpRequest), self.tenant.id,
-                      datetime.datetime(now.year, now.month, 1,
-                                        now.hour, now.minute, now.second),
+                      datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                       datetime.datetime(now.year, now.month, now.day, now.hour,
                                         now.minute, now.second)) \
                       .AndReturn(usage_obj)
@@ -56,12 +50,10 @@ class UsageViewTests(test.TestCase):
         self.assertContains(res, 'form-horizontal')
 
     def test_usage_csv(self):
-        now = self.override_times()
+        now = datetime.datetime.utcnow()
         usage_obj = api.nova.Usage(self.usages.first())
         self.mox.StubOutWithMock(api, 'usage_get')
-        timestamp = datetime.datetime(now.year, now.month, 1,
-                                      now.hour, now.minute,
-                                      now.second)
+        timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
         api.usage_get(IsA(http.HttpRequest),
                       self.tenant.id,
                       timestamp,
@@ -76,10 +68,9 @@ class UsageViewTests(test.TestCase):
         self.assertTrue(isinstance(res.context['usage'], usage.TenantUsage))
 
     def test_usage_exception(self):
-        now = self.override_times()
+        now = datetime.datetime.utcnow()
         self.mox.StubOutWithMock(api, 'usage_get')
-        timestamp = datetime.datetime(now.year, now.month, 1, now.hour,
-                                      now.minute, now.second)
+        timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
         api.usage_get(IsA(http.HttpRequest),
                       self.tenant.id,
                       timestamp,
@@ -93,12 +84,10 @@ class UsageViewTests(test.TestCase):
         self.assertEqual(res.context['usage'].usage_list, [])
 
     def test_usage_default_tenant(self):
-        now = self.override_times()
+        now = datetime.datetime.utcnow()
         usage_obj = api.nova.Usage(self.usages.first())
         self.mox.StubOutWithMock(api, 'usage_get')
-        timestamp = datetime.datetime(now.year, now.month, 1,
-                                      now.hour, now.minute,
-                                      now.second)
+        timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
         api.usage_get(IsA(http.HttpRequest),
                       self.tenant.id,
                       timestamp,
