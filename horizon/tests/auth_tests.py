@@ -21,6 +21,7 @@
 import time
 
 from django import http
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from keystoneclient import exceptions as keystone_exceptions
 from mox import IsA
@@ -72,18 +73,24 @@ class AuthViewTests(test.TestCase):
 
         self.assertTemplateUsed(res, 'horizon/auth/login.html')
 
+    @test.create_stubs({api: ('token_create', 'tenant_list_for_token',
+                                'token_create_scoped')})
     def test_login(self):
         form_data = {'method': 'Login',
                      'region': 'http://localhost:5000/v2.0',
                      'password': self.user.password,
                      'username': self.user.name}
 
-        self.mox.StubOutWithMock(api, 'token_create')
-        self.mox.StubOutWithMock(api, 'tenant_list_for_token')
-        self.mox.StubOutWithMock(api, 'token_create_scoped')
-
         aToken = self.tokens.unscoped_token
         bToken = self.tokens.scoped_token
+
+        api.token_create(IsA(http.HttpRequest), "", self.user.name,
+                         self.user.password).AndReturn(aToken)
+        api.tenant_list_for_token(IsA(http.HttpRequest),
+                                  aToken.id).AndReturn([self.tenants.first()])
+        api.token_create_scoped(IsA(http.HttpRequest),
+                                self.tenant.id,
+                                aToken.id).AndReturn(bToken)
 
         api.token_create(IsA(http.HttpRequest), "", self.user.name,
                          self.user.password).AndReturn(aToken)
@@ -97,6 +104,12 @@ class AuthViewTests(test.TestCase):
 
         res = self.client.post(reverse('horizon:auth_login'), form_data)
         self.assertRedirectsNoFollow(res, DASH_INDEX_URL)
+
+        # Test default Django LOGIN_REDIRECT_URL
+        user_home = settings.HORIZON_CONFIG.pop('user_home')
+        res = self.client.post(reverse('horizon:auth_login'), form_data)
+        self.assertRedirectsNoFollow(res, settings.LOGIN_REDIRECT_URL)
+        settings.HORIZON_CONFIG['user_home'] = user_home
 
     def test_login_first_tenant_invalid(self):
         form_data = {'method': 'Login',
