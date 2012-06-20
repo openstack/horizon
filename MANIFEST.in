@@ -1,3 +1,4 @@
+recursive-include bin *.js
 recursive-include doc *.py *.rst *.css *.js *.html *.conf *.jpg *.gif *.png *.css_t
 recursive-include horizon *.html *.css *.js *.csv *.template *.tmpl *.mo *.po
 recursive-include openstack_dashboard *.html *.js *.css *.less *.csv *.template *.mo *.po *.example *.eot *.svg *.ttf *.woff *.png *.gif *.ico *.wsgi
@@ -10,6 +11,7 @@ include Makefile
 include manage.py
 include README.rst
 include run_tests.sh
+include bin/less/lessc
 include doc/Makefile
 include doc/source/_templates/.placeholder
 include tools/pip-requires
