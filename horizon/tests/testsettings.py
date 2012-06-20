@@ -76,7 +76,6 @@ ROOT_URLCONF = 'horizon.tests.testurls'
 TEMPLATE_DIRS = (os.path.join(ROOT_PATH, 'tests', 'templates'))
 SITE_ID = 1
 SITE_BRANDING = 'OpenStack'
-SITE_NAME = 'openstack'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture',
@@ -105,9 +104,7 @@ AVAILABLE_REGIONS = [
     ('http://remote:5000/v2.0', 'remote'),
 ]
 
-OPENSTACK_ADDRESS = "localhost"
-OPENSTACK_ADMIN_TOKEN = "openstack"
-OPENSTACK_KEYSTONE_URL = "http://%s:5000/v2.0" % OPENSTACK_ADDRESS
+OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
 OPENSTACK_KEYSTONE_BACKEND = {

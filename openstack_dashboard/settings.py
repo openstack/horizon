@@ -23,6 +23,7 @@ import os
 import sys
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+BIN_DIR = os.path.abspath(os.path.join(ROOT_PATH, '..', 'bin'))
 
 if ROOT_PATH not in sys.path:
     sys.path.append(ROOT_PATH)
@@ -32,8 +33,6 @@ TEMPLATE_DEBUG = DEBUG
 
 SITE_ID = 1
 SITE_BRANDING = 'OpenStack'
-SITE_NAME = 'openstack'
-ENABLE_VNC = True
 
 LOGIN_URL = '/auth/login'
 LOGIN_REDIRECT_URL = '/'
@@ -43,8 +42,6 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'static'))
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
-
-CREDENTIAL_AUTHORIZATION_DAYS = '5'
 
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
@@ -91,8 +88,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-less_binary = os.path.join(
-        os.path.dirname(__file__), '..', 'bin', 'less', 'lessc')
+less_binary = os.path.join(BIN_DIR, 'less', 'lessc')
 COMPRESS_PRECOMPILERS = (
     ('text/less', (less_binary + ' {infile} {outfile}')),
 )

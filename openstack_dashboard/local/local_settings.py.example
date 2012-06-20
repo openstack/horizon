@@ -4,7 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-PROD = False
 
 # Set SSL proxy settings:
 # For Django 1.4+ pass this header from the proxy after terminating the SSL,
@@ -71,12 +70,6 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # The number of Swift containers and objects to display on a single page before
 # providing a paging element (a "more" link) to paginate results.
 API_RESULT_LIMIT = 1000
-
-# If you have external monitoring links, eg:
-# EXTERNAL_MONITORING = [
-#     ['Nagios','http://foo.com'],
-#     ['Ganglia','http://bar.com'],
-# ]
 
 LOGGING = {
         'version': 1,
