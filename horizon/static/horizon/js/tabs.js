@@ -5,7 +5,12 @@ horizon.tabs.load_tab = function (evt) {
       tab_id = $this.attr('data-target'),
       tab_pane = $(tab_id);
   tab_pane.append("<i class='icon icon-updating ajax-updating'></i>&nbsp;<span>loading...</span>");
-  tab_pane.load("?tab=" + tab_id.replace('#', ''));
+  // If query params exist, append tab id.
+  if(window.location.search.length > 0) {
+    tab_pane.load(window.location.search + "&tab=" + tab_id.replace('#', ''));
+  } else {
+    tab_pane.load("?tab=" + tab_id.replace('#', ''));
+  }
   $this.attr("data-loaded", "true");
   evt.preventDefault();
 };
