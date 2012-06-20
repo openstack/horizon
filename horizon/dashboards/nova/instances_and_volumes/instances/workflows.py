@@ -374,8 +374,8 @@ class LaunchInstance(workflows.Workflow):
     slug = "launch_instance"
     name = _("Launch Instance")
     finalize_button_name = _("Launch")
-    success_message = _('Instance "%s" launched.')
-    failure_message = _('Unable to launch instance "%s".')
+    success_message = _('Launched %s named "%s".')
+    failure_message = _('Unable to launch %s named "%s".')
     success_url = "horizon:nova:instances_and_volumes:index"
     default_steps = (SelectProjectUser,
                      SetInstanceDetails,
@@ -384,7 +384,12 @@ class LaunchInstance(workflows.Workflow):
                      PostCreationStep)
 
     def format_status_message(self, message):
-        return message % self.context.get('name', 'unknown instance')
+        name = self.context.get('name', 'unknown instance')
+        count = self.context.get('count', 1)
+        if int(count) > 1:
+            return message % (_("%s instances") % count, name)
+        else:
+            return message % (_("instance"), name)
 
     def handle(self, request, context):
         custom_script = context.get('customization_script', '')
