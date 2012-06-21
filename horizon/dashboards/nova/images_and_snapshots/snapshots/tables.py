@@ -35,3 +35,4 @@ class SnapshotsTable(ImagesTable):
         verbose_name = _("Instance Snapshots")
         table_actions = (DeleteSnapshot,)
         row_actions = (LaunchImage, EditImage, DeleteSnapshot)
+        pagination_param = "snapshot_marker"

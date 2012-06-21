@@ -25,6 +25,7 @@ import logging
 import urlparse
 
 from django.utils.decorators import available_attrs
+from django.conf import settings
 
 from glance import client as glance_client
 from glance.common import exception as glance_exception
@@ -122,8 +123,17 @@ def image_get_meta(request, image_id):
 
 
 @catch_glance_exception
-def image_list_detailed(request):
-    return [Image(i) for i in glanceclient(request).get_images_detailed()]
+def image_list_detailed(request, marker=None, filters=None):
+    filters = filters or {}
+    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    image_dicts = glanceclient(request).get_images_detailed(limit=limit + 1,
+                                                            marker=marker,
+                                                            filters=filters)
+    images = [Image(i) for i in image_dicts]
+    if(len(images) > limit):
+        return (images[0:-1], True)
+    else:
+        return (images, False)
 
 
 @catch_glance_exception
@@ -134,9 +144,15 @@ def image_update(request, image_id, image_meta=None):
 
 
 @catch_glance_exception
-def snapshot_list_detailed(request):
-    filters = {}
-    filters['property-image_type'] = 'snapshot'
-    filters['is_public'] = 'none'
-    return [Image(i) for i in glanceclient(request)
-                             .get_images_detailed(filters=filters)]
+def snapshot_list_detailed(request, marker=None, extra_filters=None):
+    filters = {'property-image_type': 'snapshot'}
+    filters.update(extra_filters or {})
+    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    image_dicts = glanceclient(request).get_images_detailed(limit=limit + 1,
+                                                            marker=marker,
+                                                            filters=filters)
+    images = [Image(i) for i in image_dicts]
+    if(len(images) > limit):
+        return (images[0:-1], True)
+    else:
+        return (images, False)

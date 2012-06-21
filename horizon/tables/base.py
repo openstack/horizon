@@ -558,6 +558,13 @@ class DataTableOptions(object):
         The name of the context variable which will contain the table when
         it is rendered. Defaults to ``"table"``.
 
+    .. attribute:: pagination_param
+
+        The name of the query string parameter which will be used when
+        paginating this table. When using multiple tables in a single
+        view this will need to be changed to differentiate between the
+        tables. Default: ``"marker"``.
+
     .. attribute:: status_columns
 
         A list or tuple of column names which represents the "state"
@@ -592,6 +599,7 @@ class DataTableOptions(object):
         self.row_actions = getattr(options, 'row_actions', [])
         self.row_class = getattr(options, 'row_class', Row)
         self.column_class = getattr(options, 'column_class', Column)
+        self.pagination_param = getattr(options, 'pagination_param', 'marker')
 
         # Set self.filter if we have any FilterActions
         filter_actions = [action for action in self.table_actions if
@@ -1037,6 +1045,10 @@ class DataTable(object):
         for APIs that use marker/limit-based paging.
         """
         return http.urlquote_plus(self.get_object_id(self.data[-1]))
+
+    def get_pagination_string(self):
+        """ Returns the query parameter string to paginate this table. """
+        return "=".join([self._meta.pagination_param, self.get_marker()])
 
     def calculate_row_status(self, statuses):
         """

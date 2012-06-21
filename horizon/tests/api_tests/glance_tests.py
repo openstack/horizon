@@ -19,6 +19,7 @@
 #    under the License.
 
 from glance.common import exception as glance_exception
+from django.conf import settings
 
 from horizon import api
 from horizon import test
@@ -48,15 +49,14 @@ class GlanceApiTests(test.APITestCase):
     def test_image_list_detailed(self):
         """ Verify "list" returns our custom Image class. """
         images = self.images.list()
-
         glanceclient = self.stub_glanceclient()
-        glanceclient.get_images_detailed().AndReturn(images)
+        glanceclient.get_images_detailed(filters={}, limit=1001, marker=None) \
+                    .AndReturn([images, False])
         self.mox.ReplayAll()
 
-        ret_val = api.image_list_detailed(self.request)
+        ret_val, _more = api.image_list_detailed(self.request)
         for image in ret_val:
             self.assertIsInstance(image, api.glance.Image)
-            self.assertIn(image._apidict, images)
 
     def test_glance_exception_wrapping_for_internal_server_errors(self):
         """
@@ -66,8 +66,8 @@ class GlanceApiTests(test.APITestCase):
         """
         # TODO(johnp): Remove once Bug 952618 is fixed in the glance client.
         glanceclient = self.stub_glanceclient()
-        glanceclient.get_images_detailed().AndRaise(
-                Exception("Internal Server error: "))
+        glanceclient.get_images_detailed(filters={}, limit=1001, marker=None) \
+                    .AndRaise(Exception("Internal Server error: "))
         self.mox.ReplayAll()
 
         with self.assertRaises(glance_exception.ClientConnectionError):
@@ -80,8 +80,9 @@ class GlanceApiTests(test.APITestCase):
         """
         # TODO(johnp): Remove once Bug 952618 is fixed in the glance client.
         glanceclient = self.stub_glanceclient()
-        glanceclient.get_images_detailed().AndRaise(
-                Exception("Unknown error occurred! 503 Service Unavailable"))
+        exc = Exception("Unknown error occurred! 503 Service Unavailable")
+        glanceclient.get_images_detailed(filters={}, limit=1001, marker=None) \
+                    .AndRaise(exc)
         self.mox.ReplayAll()
 
         with self.assertRaises(glance_exception.ClientConnectionError):

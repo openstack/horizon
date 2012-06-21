@@ -287,8 +287,10 @@ class InstanceViewTests(test.TestCase):
                             server.id,
                             "snapshot1")
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.snapshot_list_detailed(IsA(http.HttpRequest)).AndReturn([])
-        api.image_list_detailed(IsA(http.HttpRequest)).AndReturn([])
+        api.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
+                .AndReturn(([], False))
+        api.image_list_detailed(IsA(http.HttpRequest), marker=None) \
+                .AndReturn(([], False))
         api.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
 
         api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())

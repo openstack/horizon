@@ -99,3 +99,4 @@ class ImagesTable(tables.DataTable):
         verbose_name = _("Images")
         table_actions = (DeleteImage,)
         row_actions = (LaunchImage, EditImage, DeleteImage)
+        pagination_param = "image_marker"
