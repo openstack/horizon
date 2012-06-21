@@ -16,6 +16,7 @@
 
 from django import http
 from django.core.urlresolvers import reverse
+from django.utils.datastructures import SortedDict
 from mox import IsA
 from novaclient import exceptions as novaclient_exceptions
 
@@ -24,13 +25,12 @@ from horizon import test
 
 
 class InstanceViewTest(test.BaseAdminViewTests):
+    @test.create_stubs({api.nova: ('flavor_list', 'server_list',),
+                        api.keystone: ('tenant_list',)})
     def test_index(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
         tenants = self.tenants.list()
-        self.mox.StubOutWithMock(api.nova, 'server_list')
-        self.mox.StubOutWithMock(api.nova, 'flavor_list')
-        self.mox.StubOutWithMock(api.keystone, 'tenant_list')
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True).\
                                  AndReturn(tenants)
         api.nova.server_list(IsA(http.HttpRequest),
@@ -43,9 +43,63 @@ class InstanceViewTest(test.BaseAdminViewTests):
         instances = res.context['table'].data
         self.assertItemsEqual(instances, servers)
 
+    @test.create_stubs({api.nova: ('flavor_list', 'flavor_get',
+                                    'server_list',),
+                        api.keystone: ('tenant_list',)})
+    def test_index_flavor_list_exception(self):
+        servers = self.servers.list()
+        tenants = self.tenants.list()
+        flavors = self.flavors.list()
+        full_flavors = SortedDict([(f.id, f) for f in flavors])
+
+        api.nova.server_list(IsA(http.HttpRequest),
+                             all_tenants=True).AndReturn(servers)
+        api.nova.flavor_list(IsA(http.HttpRequest)). \
+                            AndRaise(self.exceptions.nova)
+        api.keystone.tenant_list(IsA(http.HttpRequest), admin=True).\
+                                 AndReturn(tenants)
+        for server in servers:
+            api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
+                                AndReturn(full_flavors[server.flavor["id"]])
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:syspanel:instances:index'))
+        self.assertTemplateUsed(res, 'syspanel/instances/index.html')
+        instances = res.context['table'].data
+        self.assertItemsEqual(instances, servers)
+
+    @test.create_stubs({api.nova: ('flavor_list', 'flavor_get',
+                                    'server_list',),
+                        api.keystone: ('tenant_list',)})
+    def test_index_flavor_get_exception(self):
+        servers = self.servers.list()
+        flavors = self.flavors.list()
+        tenants = self.tenants.list()
+        max_id = max([int(flavor.id) for flavor in flavors])
+        for server in servers:
+            max_id += 1
+            server.flavor["id"] = max_id
+
+        api.nova.server_list(IsA(http.HttpRequest),
+                             all_tenants=True).AndReturn(servers)
+        api.nova.flavor_list(IsA(http.HttpRequest)). \
+                            AndReturn(flavors)
+        api.keystone.tenant_list(IsA(http.HttpRequest), admin=True).\
+                                 AndReturn(tenants)
+        for server in servers:
+            api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
+                                AndRaise(self.exceptions.nova)
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:syspanel:instances:index'))
+        instances = res.context['table'].data
+        self.assertTemplateUsed(res, 'syspanel/instances/index.html')
+        self.assertMessageCount(res, error=len(servers))
+        self.assertItemsEqual(instances, servers)
+
+    @test.create_stubs({api.nova: ('server_list',)})
     def test_index_server_list_exception(self):
-        self.mox.StubOutWithMock(api.nova, 'server_list')
-        self.mox.StubOutWithMock(api.nova, 'flavor_list')
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndRaise(self.exceptions.nova)
 
@@ -55,14 +109,13 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'syspanel/instances/index.html')
         self.assertEqual(len(res.context['instances_table'].data), 0)
 
+    @test.create_stubs({api: ('server_get', 'flavor_get',),
+                        api.keystone: ('tenant_get',)})
     def test_ajax_loading_instances(self):
         server = self.servers.first()
         flavor = self.flavors.list()[0]
         tenant = self.tenants.list()[0]
 
-        self.mox.StubOutWithMock(api, 'server_get')
-        self.mox.StubOutWithMock(api, 'flavor_get')
-        self.mox.StubOutWithMock(api.keystone, 'tenant_get')
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         api.flavor_get(IsA(http.HttpRequest),
                        server.flavor['id']).AndReturn(flavor)
@@ -86,6 +139,11 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertContains(res, "Active", 1, 200)
         self.assertContains(res, "Running", 1, 200)
 
+    @test.create_stubs({api.nova: ('flavor_list', 'keypair_list',
+                                    'security_group_list', 'volume_list',
+                                    'volume_snapshot_list',
+                                    'tenant_quota_usages', 'server_create'),
+                        api.glance: ('image_list_detailed',)})
     def test_launch_post(self):
         flavor = self.flavors.first()
         image = self.images.first()
@@ -97,15 +155,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
         block_device_mapping = {device_name: u"%s::0" % volume_choice}
-
-        self.mox.StubOutWithMock(api.glance, 'image_list_detailed')
-        self.mox.StubOutWithMock(api.nova, 'flavor_list')
-        self.mox.StubOutWithMock(api.nova, 'keypair_list')
-        self.mox.StubOutWithMock(api.nova, 'security_group_list')
-        self.mox.StubOutWithMock(api.nova, 'volume_list')
-        self.mox.StubOutWithMock(api.nova, 'volume_snapshot_list')
-        self.mox.StubOutWithMock(api.nova, 'tenant_quota_usages')
-        self.mox.StubOutWithMock(api.nova, 'server_create')
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
