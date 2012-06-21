@@ -1193,3 +1193,25 @@ label.log-length {
 .split_five div.control-group select {
   width: 120px;
 }
+
+.warning {
+  background-color: @errorBackground;
+  border-bottom: 1px solid @red;
+  padding: 5px 10px;
+  .warning-text {
+    text-align: center;
+    h3, a {
+      display: inline-block;
+    }
+    h3 {
+      vertical-align: bottom;
+    }
+  }
+}
+#admin_warning_detail {
+  ul {
+    list-style: circle;
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+}

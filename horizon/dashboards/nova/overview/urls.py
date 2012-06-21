@@ -19,10 +19,11 @@
 #    under the License.
 
 
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import url, patterns
 
-from .views import ProjectOverview
+from .views import ProjectOverview, WarningView
 
 urlpatterns = patterns('horizon.dashboards.nova.overview.views',
     url(r'^$', ProjectOverview.as_view(), name='index'),
+    url(r'^warning$', WarningView.as_view(), name='warning'),
 )
