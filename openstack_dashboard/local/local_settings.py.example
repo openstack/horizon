@@ -12,9 +12,6 @@ TEMPLATE_DEBUG = DEBUG
 # https://docs.djangoproject.com/en/1.4/ref/settings/#secure-proxy-ssl-header
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
 
-# Note: You should change this value
-SECRET_KEY = 'elj1IWiLoWHgcyYxFVLj7cM5rGOOxWl0'
-
 # Specify a regular expression to validate user passwords.
 # HORIZON_CONFIG = {
 #     "password_validator": {
@@ -24,6 +21,18 @@ SECRET_KEY = 'elj1IWiLoWHgcyYxFVLj7cM5rGOOxWl0'
 # }
 
 LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
+
+# Set custom secret key:
+# You can either set it to a specific value or you can let horizion generate a
+# default secret key that is unique on this machine, e.i. regardless of the
+# amount of Python WSGI workers (if used behind Apache+mod_wsgi): However, there
+# may be situations where you would want to set this explicitly, e.g. when
+# multiple dashboard instances are distributed on different machines (usually
+# behind a load-balancer). Either you have to make sure that a session gets all
+# requests routed to the same dashboard instance or you set the same SECRET_KEY
+# for all of them.
+# from horizon.utils import secret_key
+# SECRET_KEY = secret_key.generate_or_read_from_file(os.path.join(LOCAL_PATH, '.secret_key_store'))
 
 # We recommend you use memcached for development; otherwise after every reload
 # of the django development server, you will have to login again. To use

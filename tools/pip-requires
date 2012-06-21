@@ -6,3 +6,6 @@ python-glanceclient
 python-keystoneclient
 python-novaclient
 pytz
+
+# Horizon Utility Requirements
+lockfile # for SECURE_KEY generation

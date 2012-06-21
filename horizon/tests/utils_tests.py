@@ -15,9 +15,12 @@
 #    under the License.
 
 
+import os
+
 from horizon import test
 from django.core.exceptions import ValidationError
 from horizon.utils import fields
+from horizon.utils import secret_key
 
 
 class ValidatorsTests(test.TestCase):
@@ -169,3 +172,24 @@ class ValidatorsTests(test.TestCase):
                           "169.144.11.107/8")
         self.assertIsNone(iprange.validate("fe80::204:61ff:254.157.241.86/36"))
         self.assertIsNone(iprange.validate("169.144.11.107/18"))
+
+
+class SecretKeyTests(test.TestCase):
+    def test_generate_secret_key(self):
+        key = secret_key.generate_key(32)
+        self.assertEqual(len(key), 32)
+        self.assertNotEqual(key, secret_key.generate_key(32))
+
+    def test_generate_or_read_key_from_file(self):
+        key_file = ".test_secret_key_store"
+        key = secret_key.generate_or_read_from_file(key_file)
+
+        # Consecutive reads should come from the already existing file:
+        self.assertEqual(key, secret_key.generate_or_read_from_file(key_file))
+
+        # Key file only be read/writable by user:
+        self.assertEqual(oct(os.stat(key_file).st_mode & 0777), "0600")
+        os.chmod(key_file, 0777)
+        self.assertRaises(secret_key.FilePermissionError,
+                          secret_key.generate_or_read_from_file, key_file)
+        os.remove(key_file)
