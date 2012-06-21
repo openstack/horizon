@@ -80,7 +80,16 @@ class DownloadX509Credentials(forms.SelfHandlingForm):
             keys = find_or_create_access_keys(request, data.get('tenant'))
             context = {'ec2_access_key': keys.access,
                        'ec2_secret_key': keys.secret,
-                       'ec2_endpoint': api.url_for(request, 'ec2')}
+                       'ec2_endpoint': api.url_for(request,
+                                                   'ec2',
+                                                   endpoint_type='publicURL')}
+            try:
+                s3_endpoint = api.url_for(request,
+                                          's3',
+                                          endpoint_type='publicURL')
+            except exceptions.ServiceCatalogException:
+                s3_endpoint = None
+            context['s3_endpoint'] = s3_endpoint
         except:
             exceptions.handle(request,
                               _('Unable to fetch EC2 credentials.'),
