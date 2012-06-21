@@ -23,6 +23,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import api
 from horizon import tables
 from horizon.templatetags import sizeformat
+from horizon.utils.filters import replace_underscores
 
 from .tabs import InstanceDetailTabs, LogTab, VNCTab
 
@@ -216,10 +217,6 @@ def get_power_state(instance):
     return POWER_STATES.get(getattr(instance, "OS-EXT-STS:power_state", 0), '')
 
 
-def replace_underscores(string):
-    return string.replace("_", " ")
-
-
 class InstancesTable(tables.DataTable):
     TASK_STATUS_CHOICES = (
         (None, True),
@@ -230,6 +227,9 @@ class InstancesTable(tables.DataTable):
         ("suspended", True),
         ("paused", True),
         ("error", False),
+    )
+    TASK_DISPLAY_CHOICES = (
+        ("image_snapshot", "Snapshotting"),
     )
     name = tables.Column("name", link="horizon:nova:instances_and_volumes:" \
                                       "instances:detail",
@@ -245,7 +245,8 @@ class InstancesTable(tables.DataTable):
                          verbose_name=_("Task"),
                          filters=(title, replace_underscores),
                          status=True,
-                         status_choices=TASK_STATUS_CHOICES)
+                         status_choices=TASK_STATUS_CHOICES,
+                         display_choices=TASK_DISPLAY_CHOICES)
     state = tables.Column(get_power_state,
                           filters=(title, replace_underscores),
                           verbose_name=_("Power State"))
