@@ -52,7 +52,8 @@ HORIZON_CONFIG = {
     'dashboards': None,
     # Name of a default dashboard; defaults to first alphabetically if None
     'default_dashboard': None,
-    'user_home': None,
+    # Default redirect url for users' home
+    'user_home': settings.LOGIN_REDIRECT_URL,
     'exceptions': {'unauthorized': [],
                    'not_found': [],
                    'recoverable': []}
@@ -700,9 +701,11 @@ class Site(Registry, HorizonComponent):
             {"user_home": "/home",}  # A URL
             {"user_home": "my_module.get_user_home",}  # Path to a function
             {"user_home": lambda user: "/" + user.name,}  # A function
+            {"user_home": None,}  # Will always return the default dashboard
 
         This can be useful if the default dashboard may not be accessible
-        to all users.
+        to all users. When user_home is missing from HORIZON_CONFIG,
+        it will default to the settings.LOGIN_REDIRECT_URL value.
         """
         user_home = self._conf['user_home']
         if user_home:

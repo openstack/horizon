@@ -25,6 +25,10 @@ from django.utils.translation import ugettext_lazy as _
 
 socket.setdefaulttimeout(1)
 
+LOGIN_URL = '/auth/login/'
+LOGOUT_URL = '/auth/logout/'
+LOGIN_REDIRECT_URL = '/'
+
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 DEBUG = True
 TESTSERVER = 'http://testserver'
@@ -101,6 +105,7 @@ HORIZON_CONFIG = {
         "regex": '^.{8,18}$',
         "help_text": _("Password must be between 8 and 18 characters.")
     },
+    'user_home': None
 }
 
 AVAILABLE_REGIONS = [

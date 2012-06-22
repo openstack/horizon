@@ -34,7 +34,11 @@ TEMPLATE_DEBUG = DEBUG
 SITE_ID = 1
 SITE_BRANDING = 'OpenStack'
 
-LOGIN_URL = '/auth/login'
+LOGIN_URL = '/auth/login/'
+LOGOUT_URL = '/auth/logout/'
+# LOGIN_REDIRECT_URL can be used as an alternative for
+# HORIZON_CONFIG.user_home, if user_home is not set.
+# Do not set it to '/home/', as this will cause circular redirect loop
 LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
