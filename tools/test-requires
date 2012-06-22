@@ -9,7 +9,7 @@ nose
 nose-exclude
 nosexcover
 openstack.nose_plugin
-pep8
+pep8==1.1
 pylint
 selenium
 
