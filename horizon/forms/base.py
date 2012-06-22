@@ -18,13 +18,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from datetime import date
 import logging
 
 from django import forms
 from django.forms.forms import NON_FIELD_ERRORS
 from django.core.urlresolvers import reverse
-from django.utils import dates
+from django.utils import dates, timezone
 
 from horizon import exceptions
 
@@ -119,6 +118,7 @@ class DateForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(DateForm, self).__init__(*args, **kwargs)
-        years = [(year, year) for year in xrange(2009, date.today().year + 1)]
+        years = [(year, year) for year
+                 in xrange(2009, timezone.now().year + 1)]
         years.reverse()
         self.fields['year'].choices = years

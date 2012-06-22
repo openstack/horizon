@@ -22,7 +22,8 @@ import datetime
 
 from django import http
 from django.core.urlresolvers import reverse
-from mox import IsA
+from django.utils import timezone
+from mox import IsA, Func
 
 from horizon import api
 from horizon import test
@@ -37,14 +38,13 @@ class UsageViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api: ('usage_list',),
                         api.keystone: ('tenant_list',)})
     def test_usage(self):
-        now = datetime.datetime.utcnow()
+        now = timezone.now()
         usage_obj = api.nova.Usage(self.usages.first())
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
                     .AndReturn(self.tenants.list())
         api.usage_list(IsA(http.HttpRequest),
                       datetime.datetime(now.year, now.month, 1, 0, 0, 0),
-                      datetime.datetime(now.year, now.month, now.day, now.hour,
-                                        now.minute, now.second)) \
+                      Func(usage.almost_now)) \
                       .AndReturn([usage_obj])
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:syspanel:overview:index'))
@@ -66,14 +66,13 @@ class UsageViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api: ('usage_list',),
                         api.keystone: ('tenant_list',)})
     def test_usage_csv(self):
-        now = datetime.datetime.utcnow()
+        now = timezone.now()
         usage_obj = api.nova.Usage(self.usages.first())
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
                     .AndReturn(self.tenants.list())
         api.usage_list(IsA(http.HttpRequest),
                       datetime.datetime(now.year, now.month, 1, 0, 0, 0),
-                      datetime.datetime(now.year, now.month, now.day, now.hour,
-                                        now.minute, now.second)) \
+                      Func(usage.almost_now)) \
                       .AndReturn([usage_obj])
         self.mox.ReplayAll()
         csv_url = reverse('horizon:syspanel:overview:index') + "?format=csv"

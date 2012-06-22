@@ -1,11 +1,12 @@
 from __future__ import division
 
+from calendar import monthrange
 import datetime
 import logging
 
-from dateutil.relativedelta import relativedelta
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.utils import timezone
 
 from horizon import api
 from horizon import exceptions
@@ -13,6 +14,12 @@ from horizon import forms
 
 
 LOG = logging.getLogger(__name__)
+
+
+def almost_now(input_time):
+    now = timezone.make_naive(timezone.now(), timezone.utc)
+    # If we're less than a minute apart we'll assume success here.
+    return now - input_time < datetime.timedelta(seconds=30)
 
 
 class BaseUsage(object):
@@ -26,27 +33,23 @@ class BaseUsage(object):
 
     @property
     def today(self):
-        return datetime.date.today()
-
-    @staticmethod
-    def get_datetime(date, now=False):
-        if now:
-            now = datetime.datetime.utcnow()
-            current_time = datetime.time(now.hour, now.minute, now.second)
-        else:
-            current_time = datetime.time()
-        return datetime.datetime.combine(date, current_time)
+        return timezone.now()
 
     @staticmethod
     def get_start(year, month, day=1):
-        return datetime.date(year, month, day)
+        start = datetime.datetime(year, month, day, 0, 0, 0)
+        return timezone.make_aware(start, timezone.utc)
 
     @staticmethod
     def get_end(year, month, day=1):
-        period = relativedelta(months=1)
-        date_end = BaseUsage.get_start(year, month, day) + period
-        if date_end > datetime.date.today():
-            date_end = datetime.date.today()
+        days_in_month = monthrange(year, month)[1]
+        period = datetime.timedelta(days=days_in_month)
+        end = BaseUsage.get_start(year, month, day) + period
+        # End our calculation at midnight of the given day.
+        date_end = datetime.datetime.combine(end, datetime.time(0, 0, 0))
+        date_end = timezone.make_aware(date_end, timezone.utc)
+        if date_end > timezone.now():
+            date_end = timezone.now()
         return date_end
 
     def get_instances(self):
@@ -82,10 +85,11 @@ class BaseUsage(object):
         raise NotImplementedError("You must define a get_usage method.")
 
     def summarize(self, start, end):
-        if start <= end <= datetime.date.today():
-            # Convert to datetime.datetime just for API call.
-            start = BaseUsage.get_datetime(start)
-            end = BaseUsage.get_datetime(end, now=True)
+        if start <= end <= self.today:
+            # The API can't handle timezone aware datetime, so convert back
+            # to naive UTC just for this last step.
+            start = timezone.make_naive(start, timezone.utc)
+            end = timezone.make_naive(end, timezone.utc)
             try:
                 self.usage_list = self.get_usage_list(start, end)
             except:
@@ -125,7 +129,7 @@ class TenantUsage(BaseUsage):
         usage = api.usage_get(self.request, self.tenant_id, start, end)
         # Attribute may not exist if there are no instances
         if hasattr(usage, 'server_usages'):
-            now = datetime.datetime.now()
+            now = self.today
             for server_usage in usage.server_usages:
                 # This is a way to phrase uptime in a way that is compatible
                 # with the 'timesince' filter. (Use of local time intentional.)

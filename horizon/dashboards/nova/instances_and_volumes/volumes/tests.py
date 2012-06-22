@@ -94,7 +94,6 @@ class VolumeViewTests(test.TestCase):
                                  "7f2293ff3775</dd>", 1, 200)
         self.assertContains(res, "<dd>Available</dd>", 1, 200)
         self.assertContains(res, "<dd>40 GB</dd>", 1, 200)
-        self.assertContains(res, "<dd>04/01/12 at 10:30:00</dd>", 1, 200)
         self.assertContains(res, "<a href=\"/nova/instances_and_volumes/"
                                  "instances/1/detail\">server_1</a>", 1, 200)
 

@@ -2,7 +2,7 @@
 Django>=1.4
 django_compressor
 python-cloudfiles
-python-dateutil
+pytz
 
 # Horizon Non-pip Requirements
 https://github.com/openstack/python-novaclient/zipball/master#egg=python-novaclient
