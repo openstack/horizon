@@ -93,7 +93,7 @@ def snapshot_list_detailed(request, marker=None, extra_filters=None):
     images = glanceclient(request).images.list(limit=limit + 1,
                                                marker=marker,
                                                filters=filters)
-    if(len(images) > limit):
+    if len(images) > limit:
         return (images[0:-1], True)
     else:
         return (images, False)
