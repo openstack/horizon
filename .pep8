@@ -1,0 +1,4 @@
+
+[pep8]
+ignore = E121,E126,E127,E128,W602
+exclude = vcsversion.py,panel_template,dash_template,local_settings.py

@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependncy changes, directory renames, etc.
 # Simple integer secuence: 1, 2, 3...
-environment_version=20
+environment_version=21
 #--------------------------------------------------------#
 
 function usage {
@@ -124,10 +124,7 @@ function run_pylint {
 function run_pep8 {
   echo "Running pep8 ..."
   rm -f pep8.txt
-  PEP8_EXCLUDE=vcsversion.py,panel_template,dash_template
-  PEP8_IGNORE=W602
-  PEP8_OPTIONS="--exclude=$PEP8_EXCLUDE --ignore=$PEP8_IGNORE --repeat"
-  ${command_wrapper} pep8 $PEP8_OPTIONS $included_dirs | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt || true
+  ${command_wrapper} pep8 $included_dirs | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt || true
   PEP8_COUNT=`wc -l pep8.txt | awk '{ print $1 }'`
   if [ $PEP8_COUNT -ge 1 ]; then
     echo "PEP8 violations found ($PEP8_COUNT):"

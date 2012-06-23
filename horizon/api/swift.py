@@ -117,11 +117,13 @@ def swift_filter_objects(request, filter_string, container_name, prefix=None,
                                     path=path)
     filter_string_list = filter_string.lower().strip().split(' ')
 
-    return filter(lambda obj: any([
-                                    obj.content_type != "application/directory"
-                                    and wildcard_search(obj.name.lower(), q)
-                                    for q in filter_string_list if q != ''
-                                    ]), objects)
+    def matches_filter(obj):
+        if obj.content_type == "application/directory":
+            return False
+        for q in filter_string_list:
+            return wildcard_search(obj.name.lower(), q)
+
+    return filter(matches_filter, objects)
 
 
 def wildcard_search(string, q):

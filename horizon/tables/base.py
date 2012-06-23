@@ -751,7 +751,7 @@ class DataTableMetaclass(type):
         # (list() call gives deterministic sort order, which sets don't have.)
         actions = list(set(opts.row_actions) | set(opts.table_actions))
         actions.sort(key=attrgetter('name'))
-        actions_dict = SortedDict([(action.name, action()) \
+        actions_dict = SortedDict([(action.name, action())
                                    for action in actions])
         attrs['base_actions'] = actions_dict
         if opts._filter_action:

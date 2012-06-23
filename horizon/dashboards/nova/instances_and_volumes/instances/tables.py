@@ -255,8 +255,9 @@ class InstancesTable(tables.DataTable):
     TASK_DISPLAY_CHOICES = (
         ("image_snapshot", "Snapshotting"),
     )
-    name = tables.Column("name", link="horizon:nova:instances_and_volumes:" \
-                                      "instances:detail",
+    name = tables.Column("name",
+                         link=("horizon:nova:instances_and_volumes:"
+                               "instances:detail"),
                          verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
     size = tables.Column(get_size, verbose_name=_("Size"))

@@ -198,5 +198,4 @@ class ComputeApiTests(test.APITestCase):
                'floating_ips': {'available': -1,
                                 'used': 2,
                                 'flavor_fields': [],
-                                'quota': 1}
-              })
+                                'quota': 1}})

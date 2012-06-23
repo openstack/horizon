@@ -54,8 +54,8 @@ class IndexView(tables.MultiTableView):
             if instances:
                 try:
                     flavors = api.flavor_list(self.request)
-                    full_flavors = SortedDict([(str(flavor.id), flavor) for \
-                                                flavor in flavors])
+                    full_flavors = SortedDict([(str(flavor.id), flavor)
+                                               for flavor in flavors])
                     for instance in instances:
                         flavor_id = instance.flavor["id"]
                         instance.full_flavor = full_flavors[flavor_id]

@@ -39,11 +39,6 @@ except ImportError:
     warnings.warn(msg, Warning)
 
 if Horizon:
-    # This can be removed once the upstream bug is fixed.
-    import django
-    if django.VERSION < (1, 4):
-        from horizon.utils import reverse_bugfix
-
     register = Horizon.register
     unregister = Horizon.unregister
     get_absolute_url = Horizon.get_absolute_url

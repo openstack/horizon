@@ -64,9 +64,8 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.get(url)
 
-        self.assertEqual(res.context['form'].\
-                                fields['instance']._choices[0][1],
-                                "Select an instance")
+        self.assertEqual(res.context['form'].fields['instance']._choices[0][1],
+                         "Select an instance")
         self.assertEqual(len(res.context['form'].fields['instance'].choices),
                          2)
         self.assertEqual(res.context['form'].fields['instance']._choices[1][0],
@@ -90,8 +89,10 @@ class VolumeViewTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertContains(res, "<dd>Volume name</dd>", 1, 200)
-        self.assertContains(res, "<dd>41023e92-8008-4c8b-8059-" \
-                                 "7f2293ff3775</dd>", 1, 200)
+        self.assertContains(res,
+                            "<dd>41023e92-8008-4c8b-8059-7f2293ff3775</dd>",
+                            1,
+                            200)
         self.assertContains(res, "<dd>Available</dd>", 1, 200)
         self.assertContains(res, "<dd>40 GB</dd>", 1, 200)
         self.assertContains(res, "<a href=\"/nova/instances_and_volumes/"

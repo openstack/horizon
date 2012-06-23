@@ -48,8 +48,7 @@ class ImageViewTests(test.TestCase):
             'minimum_disk': 15,
             'minimum_ram': 512,
             'is_public': 1,
-            'method': 'CreateImageForm'
-            }
+            'method': 'CreateImageForm'}
 
         api.glance.image_create(IsA(http.HttpRequest),
                                 container_format="bare",

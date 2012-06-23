@@ -105,8 +105,9 @@ class ImagesTable(tables.DataTable):
         ("killed", False),
         ("deleted", False),
     )
-    name = tables.Column("name", link="horizon:nova:images_and_snapshots:" \
-                                      "images:detail",
+    name = tables.Column("name",
+                         link=("horizon:nova:images_and_snapshots:"
+                               "images:detail"),
                          verbose_name=_("Image Name"))
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),

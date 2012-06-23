@@ -128,7 +128,7 @@ class UpdateUserForm(BaseUserForm):
     def __init__(self, request, *args, **kwargs):
         super(UpdateUserForm, self).__init__(request, *args, **kwargs)
 
-        if api.keystone_can_edit_user() == False:
+        if api.keystone_can_edit_user() is False:
             for field in ('name', 'email', 'password', 'confirm_password'):
                 self.fields.pop(field)
 

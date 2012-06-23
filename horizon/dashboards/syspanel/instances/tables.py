@@ -68,8 +68,9 @@ class SyspanelInstancesTable(tables.DataTable):
     host = tables.Column("OS-EXT-SRV-ATTR:host",
                          verbose_name=_("Host"),
                          classes=('nowrap-col',))
-    name = tables.Column("name", link="horizon:nova:instances_and_volumes:" \
-                                      "instances:detail",
+    name = tables.Column("name",
+                         link=("horizon:nova:instances_and_volumes:"
+                               "instances:detail"),
                          verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
     size = tables.Column(get_size,

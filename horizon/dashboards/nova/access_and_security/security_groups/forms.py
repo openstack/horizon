@@ -112,10 +112,10 @@ class AddRule(forms.SelfHandlingForm):
         source_group = cleaned_data.get("source_group", None)
 
         if ip_proto == 'icmp':
-            if from_port == None:
+            if from_port is None:
                 msg = _('The ICMP type is invalid.')
                 raise ValidationError(msg)
-            if to_port == None:
+            if to_port is None:
                 msg = _('The ICMP code is invalid.')
                 raise ValidationError(msg)
             if from_port not in xrange(-1, 256):
@@ -125,10 +125,10 @@ class AddRule(forms.SelfHandlingForm):
                 msg = _('The ICMP code not in range (-1, 255)')
                 raise ValidationError(msg)
         else:
-            if from_port == None:
+            if from_port is None:
                 msg = _('The "from" port number is invalid.')
                 raise ValidationError(msg)
-            if to_port == None:
+            if to_port is None:
                 msg = _('The "to" port number is invalid.')
                 raise ValidationError(msg)
             if to_port < from_port:
@@ -159,8 +159,8 @@ class AddRule(forms.SelfHandlingForm):
                                                   data['to_port'],
                                                   data['cidr'],
                                                   data['source_group'])
-            messages.success(request, _('Successfully added rule: %s') \
-                                    % unicode(rule))
+            messages.success(request,
+                             _('Successfully added rule: %s') % unicode(rule))
         except:
             exceptions.handle(request,
                               _('Unable to add rule to security group.'))

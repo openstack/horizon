@@ -109,7 +109,7 @@ class VolumeOptionsAction(workflows.Action):
     def populate_volume_id_choices(self, request, context):
         volume_options = [("", _("Select Volume"))]
         try:
-            volumes = [v for v in api.nova.volume_list(self.request) \
+            volumes = [v for v in api.nova.volume_list(self.request)
                        if v.status == api.VOLUME_STATE_AVAILABLE]
             volume_options.extend([self._get_volume_display_name(vol)
                                    for vol in volumes])
@@ -122,7 +122,7 @@ class VolumeOptionsAction(workflows.Action):
         volume_options = [("", _("Select Volume Snapshot"))]
         try:
             snapshots = api.nova.volume_snapshot_list(self.request)
-            snapshots = [s for s in snapshots \
+            snapshots = [s for s in snapshots
                          if s.status == api.VOLUME_STATE_AVAILABLE]
             volume_options.extend([self._get_volume_display_name(snap)
                                    for snap in snapshots])

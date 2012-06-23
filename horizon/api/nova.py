@@ -127,12 +127,12 @@ class Usage(APIResourceWrapper):
 
     @property
     def total_active_instances(self):
-        return sum(1 for s in self.server_usages if s['ended_at'] == None)
+        return sum(1 for s in self.server_usages if s['ended_at'] is None)
 
     @property
     def vcpus(self):
         return sum(s['vcpus'] for s in self.server_usages
-                   if s['ended_at'] == None)
+                   if s['ended_at'] is None)
 
     @property
     def vcpu_hours(self):
@@ -141,12 +141,12 @@ class Usage(APIResourceWrapper):
     @property
     def local_gb(self):
         return sum(s['local_gb'] for s in self.server_usages
-                   if s['ended_at'] == None)
+                   if s['ended_at'] is None)
 
     @property
     def memory_mb(self):
         return sum(s['memory_mb'] for s in self.server_usages
-                   if s['ended_at'] == None)
+                   if s['ended_at'] is None)
 
     @property
     def disk_gb_hours(self):
@@ -164,8 +164,8 @@ class SecurityGroup(APIResourceWrapper):
         """Wraps transmitted rule info in the novaclient rule class."""
         if "_rules" not in self.__dict__:
             manager = nova_rules.SecurityGroupRuleManager
-            self._rules = [nova_rules.SecurityGroupRule(manager, rule) for \
-                           rule in self._apiresource.rules]
+            self._rules = [nova_rules.SecurityGroupRule(manager, rule)
+                           for rule in self._apiresource.rules]
         return self.__dict__['_rules']
 
     @rules.setter
@@ -310,8 +310,8 @@ def server_list(request, search_opts=None, all_tenants=False):
         search_opts['all_tenants'] = True
     else:
         search_opts['project_id'] = request.user.tenant_id
-    return [Server(s, request) for s in novaclient(request).\
-            servers.list(True, search_opts)]
+    return [Server(s, request)
+            for s in novaclient(request).servers.list(True, search_opts)]
 
 
 def server_console_output(request, instance_id, tail_length=None):
@@ -439,18 +439,17 @@ def tenant_quota_usages(request):
 
 
 def security_group_list(request):
-    return [SecurityGroup(g) for g in novaclient(request).\
-                                     security_groups.list()]
+    return [SecurityGroup(g) for g
+            in novaclient(request).security_groups.list()]
 
 
-def security_group_get(request, security_group_id):
-    return SecurityGroup(novaclient(request).\
-                         security_groups.get(security_group_id))
+def security_group_get(request, sg_id):
+    return SecurityGroup(novaclient(request).security_groups.get(sg_id))
 
 
-def security_group_create(request, name, description):
-    return SecurityGroup(novaclient(request).\
-                         security_groups.create(name, description))
+def security_group_create(request, name, desc):
+    return SecurityGroup(novaclient(request).security_groups.create(name,
+                                                                    desc))
 
 
 def security_group_delete(request, security_group_id):
@@ -460,13 +459,13 @@ def security_group_delete(request, security_group_id):
 def security_group_rule_create(request, parent_group_id, ip_protocol=None,
                                from_port=None, to_port=None, cidr=None,
                                group_id=None):
-    return SecurityGroupRule(novaclient(request).\
-                             security_group_rules.create(parent_group_id,
+    sg = novaclient(request).security_group_rules.create(parent_group_id,
                                                          ip_protocol,
                                                          from_port,
                                                          to_port,
                                                          cidr,
-                                                         group_id))
+                                                         group_id)
+    return SecurityGroupRule(sg)
 
 
 def security_group_rule_delete(request, security_group_rule_id):

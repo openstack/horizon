@@ -119,19 +119,19 @@ class UpdateQuotas(forms.SelfHandlingForm):
     floating_ips = forms.IntegerField(label=_("Floating IPs"))
 
     def handle(self, request, data):
+        ifcb = data['injected_file_content_bytes']
         try:
             api.nova.tenant_quota_update(request,
-               data['tenant_id'],
-               metadata_items=data['metadata_items'],
-               injected_file_content_bytes=data['injected_file_content_bytes'],
-               volumes=data['volumes'],
-               gigabytes=data['gigabytes'],
-               ram=data['ram'],
-               floating_ips=data['floating_ips'],
-               instances=data['instances'],
-               injected_files=data['injected_files'],
-               cores=data['cores'],
-            )
+                                         data['tenant_id'],
+                                         metadata_items=data['metadata_items'],
+                                         injected_file_content_bytes=ifcb,
+                                         volumes=data['volumes'],
+                                         gigabytes=data['gigabytes'],
+                                         ram=data['ram'],
+                                         floating_ips=data['floating_ips'],
+                                         instances=data['instances'],
+                                         injected_files=data['injected_files'],
+                                         cores=data['cores'])
             messages.success(request,
                              _('Quotas for %s were successfully updated.')
                              % data['tenant_id'])
