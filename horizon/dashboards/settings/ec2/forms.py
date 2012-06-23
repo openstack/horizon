@@ -61,14 +61,12 @@ class DownloadX509Credentials(forms.SelfHandlingForm):
     def handle(self, request, data):
         def find_or_create_access_keys(request, tenant_id):
             keys = api.keystone.list_ec2_credentials(request, request.user.id)
-            if keys:
-                #TODO(jakedahn): Once real CRUD is created, we can allow user
-                #                to generate per access/secret pair.
-                return keys[0]
-            else:
-                return api.keystone.create_ec2_credentials(request,
-                                                           request.user.id,
-                                                           tenant_id)
+            for key in keys:
+                if key.tenant_id == tenant_id:
+                    return key
+            return api.keystone.create_ec2_credentials(request,
+                                                       request.user.id,
+                                                       tenant_id)
         try:
             # NOTE(jakedahn): Keystone errors unless we specifically scope
             #                 the token to tenant before making the call.
