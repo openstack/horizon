@@ -157,45 +157,50 @@ class ComputeApiTests(test.APITestCase):
                                             floating_ip.id)
         self.assertIsInstance(server, api.nova.Server)
 
+    @test.create_stubs({api.nova: ('volume_list',
+                                   'server_list',
+                                   'flavor_list',
+                                   'tenant_floating_ip_list',
+                                   'tenant_quota_get',)})
     def test_tenant_quota_usages(self):
-        servers = self.servers.list()
-        flavors = self.flavors.list()
-        floating_ips = self.floating_ips.list()
-        quotas = self.quotas.first()
-        novaclient = self.stub_novaclient()
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
+            .AndReturn(self.quotas.first())
+        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.floating_ips.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.volume_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.volumes.list())
 
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.list(True, {'project_id': '1'}).AndReturn(servers)
-        novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavors.list().AndReturn(flavors)
-        novaclient.floating_ips = self.mox.CreateMockAnything()
-        novaclient.floating_ips.list().AndReturn(floating_ips)
-        novaclient.quotas = self.mox.CreateMockAnything()
-        novaclient.quotas.get(self.tenant.id).AndReturn(quotas)
         self.mox.ReplayAll()
 
         quota_usages = api.tenant_quota_usages(self.request)
-
-        self.assertIsInstance(quota_usages, dict)
-        self.assertEquals(quota_usages,
-              {'gigabytes': {'available': 1000,
-                             'used': 0,
-                             'flavor_fields': ['disk',
-                                               'OS-FLV-EXT-DATA:ephemeral'],
-                             'quota': 1000},
-               'instances': {'available': 8,
-                             'used': 2,
-                             'flavor_fields': [],
-                             'quota': 10},
-               'ram': {'available': 8976,
-                       'used': 1024,
-                       'flavor_fields': ['ram'],
-                       'quota': 10000},
-               'cores': {'available': 8,
-                         'used': 2,
-                         'flavor_fields': ['vcpus'],
-                         'quota': 10},
-               'floating_ips': {'available': -1,
+        expected_output = {'gigabytes': {
+                                'used': 80,
+                                'flavor_fields': [],
+                                'quota': 1000},
+                           'ram': {
+                                'available': 8976,
+                                'used': 1024,
+                                'flavor_fields': ['ram'],
+                                'quota': 10000},
+                           'floating_ips': {
                                 'used': 2,
                                 'flavor_fields': [],
-                                'quota': 1}})
+                                'quota': 1},
+                           'instances': {
+                                'used': 2,
+                                'flavor_fields': [],
+                                'quota': 10},
+                           'volumes': {
+                                'used': 3,
+                                'flavor_fields': [],
+                                'quota': 1},
+                           'cores': {
+                                'used': 2,
+                                'flavor_fields': ['vcpus'],
+                                'quota': 10}}
+
+        self.assertEquals(quota_usages, expected_output)

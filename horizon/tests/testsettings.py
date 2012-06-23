@@ -42,6 +42,7 @@ DATABASES = {'default': {'ENGINE': 'django.db.backends.sqlite3'}}
 INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.humanize',
     'django_nose',
     'horizon',
     'horizon.tests',

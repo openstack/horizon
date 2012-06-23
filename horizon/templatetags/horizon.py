@@ -27,7 +27,7 @@ register = template.Library()
 
 
 @register.filter
-def can_haz(user, component):
+def has_permissions(user, component):
     """
     Checks if the given user meets the requirements for the component. This
     includes both user roles and services in the service catalog.
@@ -50,8 +50,9 @@ def can_haz(user, component):
 
 
 @register.filter
-def can_haz_list(components, user):
-    return [component for component in components if can_haz(user, component)]
+def has_permissions_on_list(components, user):
+    return [component for component
+                in components if has_permissions(user, component)]
 
 
 @register.inclusion_tag('horizon/_nav_list.html', takes_context=True)

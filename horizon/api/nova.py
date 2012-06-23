@@ -407,18 +407,19 @@ def usage_list(request, start, end):
 def tenant_quota_usages(request):
     """
     Builds a dictionary of current usage against quota for the current
-    tenant.
+    project.
     """
-    # TODO(tres): Make this capture floating_ips and volumes as well.
     instances = server_list(request)
     floating_ips = tenant_floating_ip_list(request)
     quotas = tenant_quota_get(request, request.user.tenant_id)
     flavors = dict([(f.id, f) for f in flavor_list(request)])
+    volumes = volume_list(request)
+
     usages = {'instances': {'flavor_fields': [], 'used': len(instances)},
               'cores': {'flavor_fields': ['vcpus'], 'used': 0},
-              'gigabytes': {'used': 0,
-                            'flavor_fields': ['disk',
-                                              'OS-FLV-EXT-DATA:ephemeral']},
+              'gigabytes': {'used': sum([int(v.size) for v in volumes]),
+                            'flavor_fields': []},
+              'volumes': {'used': len(volumes), 'flavor_fields': []},
               'ram': {'flavor_fields': ['ram'], 'used': 0},
               'floating_ips': {'flavor_fields': [], 'used': len(floating_ips)}}
 
@@ -427,11 +428,18 @@ def tenant_quota_usages(request):
             for flavor_field in usages[usage]['flavor_fields']:
                 usages[usage]['used'] += getattr(
                         flavors[instance.flavor['id']], flavor_field, 0)
+
         usages[usage]['quota'] = getattr(quotas, usage)
+
         if usages[usage]['quota'] is None:
             usages[usage]['quota'] = float("inf")
             usages[usage]['available'] = float("inf")
+        elif type(usages[usage]['quota']) is str:
+            usages[usage]['quota'] = int(usages[usage]['quota'])
         else:
+            if type(usages[usage]['used']) is str:
+                usages[usage]['used'] = int(usages[usage]['used'])
+
             usages[usage]['available'] = usages[usage]['quota'] - \
                                          usages[usage]['used']
 

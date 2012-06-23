@@ -27,6 +27,69 @@ from horizon import test
 
 
 class VolumeViewTests(test.TestCase):
+    @test.create_stubs({api: ('tenant_quota_usages', 'volume_create',)})
+    def test_create_volume(self):
+        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
+        formData = {'name': u'A Volume I Am Making',
+                    'description': u'This is a volume I am making for a test.',
+                    'method': u'CreateForm',
+                    'size': 50}
+
+        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        api.volume_create(IsA(http.HttpRequest),
+                          formData['size'],
+                          formData['name'],
+                          formData['description'])
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances_and_volumes:volumes:create')
+        res = self.client.post(url, formData)
+
+        redirect_url = reverse('horizon:nova:instances_and_volumes:index')
+        self.assertRedirectsNoFollow(res, redirect_url)
+
+    @test.create_stubs({api: ('tenant_quota_usages',)})
+    def test_create_volume_gb_used_over_alloted_quota(self):
+        usage = {'gigabytes': {'available': 100, 'used': 20}}
+        formData = {'name': u'This Volume Is Huge!',
+                    'description': u'This is a volume that is just too big!',
+                    'method': u'CreateForm',
+                    'size': 5000}
+
+        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances_and_volumes:volumes:create')
+        res = self.client.post(url, formData)
+
+        expected_error = [u'A volume of 5000GB cannot be created as you only'
+                          ' have 100GB of your quota available.']
+        self.assertEqual(res.context['form'].errors['__all__'], expected_error)
+
+    @test.create_stubs({api: ('tenant_quota_usages',)})
+    def test_create_volume_number_over_alloted_quota(self):
+        usage = {'gigabytes': {'available': 100, 'used': 20},
+                 'volumes': {'available': 0}}
+        formData = {'name': u'Too Many...',
+                    'description': u'We have no volumes left!',
+                    'method': u'CreateForm',
+                    'size': 10}
+
+        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances_and_volumes:volumes:create')
+        res = self.client.post(url, formData)
+
+        expected_error = [u'You are already using all of your available'
+                          ' volumes.']
+        self.assertEqual(res.context['form'].errors['__all__'], expected_error)
+
     @test.create_stubs({api: ('volume_get',), api.nova: ('server_list',)})
     def test_edit_attachments(self):
         volume = self.volumes.first()

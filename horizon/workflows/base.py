@@ -29,7 +29,7 @@ from django.template.defaultfilters import linebreaks, safe
 
 from horizon import base
 from horizon import exceptions
-from horizon.templatetags.horizon import can_haz
+from horizon.templatetags.horizon import has_permissions
 from horizon.utils import html
 
 
@@ -561,7 +561,7 @@ class Workflow(html.HTMLElement):
             self._registry[default_step] = default_step(self)
         self._ordered_steps = [self._registry[step_class]
                                for step_class in ordered_step_classes
-                               if can_haz(self.request.user,
+                               if has_permissions(self.request.user,
                                           self._registry[step_class])]
 
     def _order_steps(self):

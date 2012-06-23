@@ -5,6 +5,7 @@
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
     <title>{% block title %}{% endblock %} – {% site_branding %} Dashboard</title>
     {% block css %}{% endblock %}
+    {% include "horizon/client_side/_script_loader.html" %}
   </head>
   <body id="{% block body_id %}{% endblock %}">
     {% block content %}

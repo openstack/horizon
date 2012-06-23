@@ -1,4 +1,4 @@
-{% load i18n horizon %}
+{% load i18n horizon humanize %}
 
 <p>{% blocktrans %}Specify the details for launching an instance.{% endblocktrans %}</p>
 <p>{% blocktrans %}The chart below shows the resources used by this project in relation to the project's quotas.{% endblocktrans %}</p>
@@ -17,55 +17,37 @@
 
 <div class="quota-dynamic">
   <h4>{% trans "Project Quotas" %}</h4>
-  <div class="quota_title">
-    <strong>{% trans "Instance Count" %} <span>({{ usages.instances.used }})</span></strong>
-    <p>{{ usages.instances.available|quota }}</p>
+  <div class="quota_title clearfix">
+    <strong>{% trans "Number of Instances" %} <span>({{ usages.instances.used|intcomma }})</span></strong>
+    <p>{{ usages.instances.available|quota|intcomma }}</p>
   </div>
-  <div class="clearfix"></div>
-  <div id="quota_instances" class="quota_bar">{% horizon_progress_bar usages.instances.used usages.instances.quota %}</div>
+  <div id="quota_instances" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.instances.quota }}" data-quota-used="{{ usages.instances.used }}">
+    {% horizon_progress_bar usages.instances.used usages.instances.quota %}
+  </div>
 
-  <div class="quota_title">
-    <strong>{% trans "VCPUs" %} <span>({{ usages.cores.used }})</span></strong>
-    <p>{{ usages.cores.available|quota }}</p>
+  <div class="quota_title clearfix">
+    <strong>{% trans "Number of VCPUs" %} <span>({{ usages.cores.used|intcomma }})</span></strong>
+    <p>{{ usages.cores.available|quota|intcomma }}</p>
   </div>
-  <div class="clearfix"></div>
-  <div id="quota_cores" class="quota_bar">{% horizon_progress_bar usages.cores.used usages.cores.quota %}</div>
+  <div id="quota_vcpus" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.cores.quota }}" data-quota-used="{{ usages.cores.used }}">
+    {% horizon_progress_bar usages.cores.used usages.cores.quota %}
+  </div>
 
-  <div class="quota_title">
-    <strong>{% trans "Disk" %} <span>({{ usages.gigabytes.used }} {% trans "GB" %})</span></strong>
-    <p>{{ usages.gigabytes.available|quota:"GB" }}</p>
+  <div class="quota_title clearfix">
+    <strong>{% trans "Total Memory" %} <span>({{ usages.ram.used|intcomma }} {% trans "MB" %})</span></strong>
+    <p>{{ usages.ram.available|quota:"MB"|intcomma }}</p>
   </div>
-  <div class="clearfix"></div>
-  <div id="quota_disk" class="quota_bar">{% horizon_progress_bar usages.gigabytes.used usages.gigabytes.quota %}</div>
-
-  <div class="quota_title">
-    <strong>{% trans "Memory" %} <span>({{ usages.ram.used }} {% trans "MB" %})</span></strong>
-    <p>{{ usages.ram.available|quota:"MB" }}</p>
+  <div id="quota_ram" data-progress-indicator-flavor data-quota-limit="{{ usages.ram.quota }}" data-quota-used="{{ usages.ram.used }}" class="quota_bar">
+    {% horizon_progress_bar usages.ram.used usages.ram.quota %}
   </div>
-  <div class="clearfix"></div>
-  <div id="quota_ram" class="quota_bar">{% horizon_progress_bar usages.ram.used usages.ram.quota %}</div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
-  var horizon_flavors = {{ flavors|safe }};
-  var horizon_usages = {{ usages_json|safe }};
-
-  // FIXME(gabriel): move this function into a horizon primitive when we have
-  // one constructed at the head of the document. :-/
-  (function () {
-    function fire_change(el) {
-      if ("fireEvent" in el) {
-        el.fireEvent("onchange");
-      }
-      else
-      {
-        var evt = document.createEvent("HTMLEvents");
-        evt.initEvent("change", true, true);
-        el.dispatchEvent(evt);
-      }
-    }
-    fire_change(document.getElementById('id_flavor'));
-    fire_change(document.getElementById('id_source_type'));
-    fire_change(document.getElementById('id_volume_type'));
-  })();
+  if(typeof horizon !== 'undefined') {
+    horizon.Quota.initWithFlavors({{ flavors|safe }});
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.Quota.initWithFlavors({{ flavors|safe }});
+    });
+  }
 </script>

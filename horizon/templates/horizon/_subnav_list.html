@@ -1,7 +1,7 @@
 {% load horizon %}
 
 {% for heading, panels in components.iteritems %}
-  {% with panels|can_haz_list:user as filtered_panels %}
+  {% with panels|has_permissions_on_list:user as filtered_panels %}
     {% if filtered_panels %}
       {% if heading %}<h4>{{ heading }}</h4>{% endif %}
       <ul class="main_nav">

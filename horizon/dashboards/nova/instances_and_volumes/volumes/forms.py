@@ -9,6 +9,7 @@ Views for managing Nova volumes.
 
 from django import shortcuts
 from django.contrib import messages
+from django.forms import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -26,13 +27,38 @@ class CreateForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            # FIXME(johnp): Nova (cinderclient) currently returns a useless
+            # error message when the quota is exceeded when trying to create
+            # a volume, so we need to check for that scenario here before we
+            # send it off to Nova to try and create.
+            usages = api.tenant_quota_usages(request)
+
+            if type(data['size']) is str:
+                data['size'] = int(data['size'])
+
+            if usages['gigabytes']['available'] < data['size']:
+                error_message = _('A volume of %iGB cannot be created as you'
+                                  ' only have %iGB of your quota available.'
+                                  % (data['size'],
+                                     usages['gigabytes']['available'],))
+                raise ValidationError(error_message)
+            elif usages['volumes']['available'] <= 0:
+                error_message = _('You are already using all of your available'
+                                  ' volumes.')
+                raise ValidationError(error_message)
+
             api.volume_create(request, data['size'], data['name'],
                               data['description'])
             message = 'Creating volume "%s"' % data['name']
+
             messages.info(request, message)
+        except ValidationError, e:
+            return self.api_error(e.messages[0])
         except:
-            exceptions.handle(request,
-                              _("Unable to create volume."))
+            exceptions.handle(request, ignore=True)
+
+            return self.api_error(_("Unable to create volume."))
+
         return shortcuts.redirect("horizon:nova:instances_and_volumes:index")
 
 

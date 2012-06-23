@@ -233,7 +233,7 @@ class WorkflowsTests(test.TestCase):
         self.assertContains(output, unicode(TestActionTwo.name))
         self.assertContains(output, unicode(TestActionThree.name))
 
-    def test_can_haz(self):
+    def test_has_permissions(self):
         self.assertQuerysetEqual(TestWorkflow._cls_registry, [])
         TestWorkflow.register(AdminStep)
         flow = TestWorkflow(self.request)

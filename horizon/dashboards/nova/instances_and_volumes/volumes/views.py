@@ -44,6 +44,15 @@ class CreateView(forms.ModalFormView):
     form_class = CreateForm
     template_name = 'nova/instances_and_volumes/volumes/create.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(CreateView, self).get_context_data(**kwargs)
+        try:
+            context['usages'] = api.tenant_quota_usages(self.request)
+        except:
+            exceptions.handle(self.request)
+
+        return context
+
 
 class CreateSnapshotView(forms.ModalFormView):
     form_class = CreateSnapshotForm
