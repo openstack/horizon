@@ -22,7 +22,7 @@
 URL patterns for the OpenStack Dashboard.
 """
 
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns, url, include
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -32,9 +32,6 @@ import horizon
 
 urlpatterns = patterns('',
     url(r'^$', 'openstack_dashboard.views.splash', name='splash'),
-    url(r'^qunit/$',
-        'openstack_dashboard.views.qunit_tests',
-        name='qunit_tests'),
     url(r'', include(horizon.urls)))
 
 # Development static app and project media serving using the staticfiles app.

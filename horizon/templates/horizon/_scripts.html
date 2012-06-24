@@ -1,0 +1,42 @@
+{% load compress %}
+
+{% compress js %}
+{% comment %} jQuery and Plugins {% endcomment %}
+<script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.min.js' type='text/javascript' charset="utf-8"></script>
+<script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.cookie.js' type='text/javascript' charset="utf-8"></script>
+<script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.quicksearch.js' type='text/javascript' charset="utf-8"></script>
+<script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.example.min.js' type='text/javascript' charset="utf-8"></script>
+<script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.table-sorter.js" type="text/javascript" charset="utf-8"></script>
+<script src="{{ STATIC_URL }}horizon/lib/spin.js" type="text/javascript" charset="utf-8"></script>
+<script src="{{ STATIC_URL }}horizon/lib/spin.jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src='{{ STATIC_URL }}horizon/lib/json2.js' type='text/javascript' charset="utf-8"></script>
+<script src="{{ STATIC_URL }}horizon/lib/underscore/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+
+{% comment %} Bootstrap {% endcomment %}
+<script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+{% comment %} Hogan.js (client-side templating) {% endcomment %}
+<script src="{{ STATIC_URL }}horizon/lib/hogan-1.0.5.min.js" type="text/javascript" charset='utf-8'></script>
+
+{% comment %} Horizon-specific JS {% endcomment %}
+<script src='{{ STATIC_URL }}horizon/js/horizon.communication.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.cookies.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.forms.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.instances.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.messages.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.modals.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.quotas.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.tables.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.tabs.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.templates.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.utils.js' type='text/javascript' charset='utf-8'></script>
+{% endcompress %}
+
+{% comment %} Client-side Templates (These should *not* be inside the "compress" tag.) {% endcomment %}
+{% include "horizon/client_side/templates.html" %}
+
+{% comment %}Go!{% endcomment %}
+<script type='text/javascript' charset='utf-8'>
+  // Call init on DOM ready.
+  $(document).ready(horizon.init);
+</script>

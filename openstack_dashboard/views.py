@@ -28,10 +28,6 @@ import horizon
 from horizon.views import auth_forms
 
 
-def qunit_tests(request):
-    return shortcuts.render(request, "qunit.html")
-
-
 def user_home(user):
     if user.admin:
         return horizon.get_dashboard('syspanel').get_absolute_url()

@@ -4,6 +4,7 @@
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
     <title>{% block title %}{% endblock %} – {% site_branding %} Dashboard</title>
+    {% include "horizon/_conf.html" %}
     {% block css %}
       {% include "_stylesheets.html" %}
     {% endblock %}
@@ -25,7 +26,7 @@
       {% block footer %}{% endblock %}
     </div>
     {% block js %}
-      {% include "_scripts.html" %}
+      {% include "horizon/_scripts.html" %}
     {% endblock %}
     <div class="modal_wrapper" />
   </body>

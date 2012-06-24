@@ -1,3 +1,19 @@
+/* Namespace for core functionality related to Forms. */
+horizon.forms = {
+  handle_source_group: function() {
+    // Delegate this handler to form, so it only should be init once
+    $("form").live("change", "#id_source_group", function(evt) {
+      var $sourceGroup = $(this).find('#id_source_group');
+      var $cidrContainer = $(this).find('#id_cidr').parent().parent();
+      if($sourceGroup.val() === "") {
+        $cidrContainer.removeClass("hide");
+      } else {
+        $cidrContainer.addClass("hide");
+      }
+    });
+  }
+};
+
 horizon.addInitFunction(function () {
   // Disable multiple submissions when launching a form.
   $("form").submit(function () {
@@ -32,7 +48,6 @@ horizon.addInitFunction(function () {
     });
 
   /* Twipsy tooltips */
-
   function getTwipsyTitle() {
     return $(this).closest('div.form-field').children('.help-block').text();
   }
@@ -50,7 +65,6 @@ horizon.addInitFunction(function () {
 
   // Hide the text for js-capable browsers
   $('span.help-block').hide();
-
 
   // Handle field toggles for the Launch Instance source type field
   function update_launch_source_displayed_fields (field) {
@@ -98,4 +112,41 @@ horizon.addInitFunction(function () {
 
   $('.workflow #id_volume_type').change();
 
+});
+
+horizon.addInitFunction(function() {
+  // Update/create image form.
+  $("#image_form input#id_name").example("ami-ubuntu");
+  $("#image_form input#id_kernel").example("123");
+  $("#image_form input#id_ramdisk").example("123");
+  $("#image_form input#id_state").example("available");
+  $("#image_form input#id_location").example("file:///var/lib/glance/images/123");
+  $("#image_form input#id_architecture").example("x86_64");
+  $("#image_form input#id_project_id").example("some");
+  $("#image_form input#id_disk_format").example("ari");
+  $("#image_form input#id_container_format").example("ari");
+  $("#image_form input#id_ramdisk").example("123");
+
+  // Launch instance form.
+  $("#launch_img input#id_name").example("YetAnotherInstance");
+  $("#launch_img input#id_security_groups").example("group1,group2");
+
+  // Create flavor form.
+  $("#flavor_form input#id_flavorid").example("1234");
+  $("#flavor_form input#id_name").example("small");
+  $("#flavor_form input#id_vcpus").example("256");
+  $("#flavor_form input#id_memory_mb").example("256");
+  $("#flavor_form input#id_disk_gb").example("256");
+
+  // Update/create tenant.
+  $("#tenant_form input#id__id").example("YetAnotherTenant");
+  $("#tenant_form textarea#id_description").example("One or two sentence description.");
+
+  // Update/create tenant.
+  $("#user_form input#id_id").example("username");
+  $("#user_form input#id_email").example("email@example.com");
+  $("#user_form input#id_password").example("password");
+
+  // Table search box.
+  $(".table_search input").example("Filter");
 });

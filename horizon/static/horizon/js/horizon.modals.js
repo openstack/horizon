@@ -2,19 +2,8 @@
 horizon.modals = {
   // Storage for our current jqXHR object.
   _request: null,
-  spinner: null,
-
-  spinner_options: {
-    lines:  10,
-    length: 15,
-    width:  4,
-    radius: 10,
-    color:  '#000',
-    speed:  0.8,
-    trail:  50
-  }
+  spinner: null
 };
-
 
 /* Creates a modal dialog from the client-side template. */
 horizon.modals.create = function (title, body, confirm, cancel) {
@@ -26,7 +15,6 @@ horizon.modals.create = function (title, body, confirm, cancel) {
     modal = $(template.render(params)).appendTo("div.modal_wrapper");
   return modal;
 };
-
 
 horizon.modals.success = function (data, textStatus, jqXHR) {
   $('div.modal_wrapper').append(data);
@@ -110,7 +98,7 @@ horizon.addInitFunction(function() {
 
         horizon.modals.spinner.appendTo("div.modal_wrapper");
         horizon.modals.spinner.modal({backdrop: 'static'});
-        horizon.modals.spinner.spin(horizon.modals.spinner_options);
+        horizon.modals.spinner.spin(horizon.conf.spinner_options.modal);
       },
       complete: function () {
         // Clear the global storage;
