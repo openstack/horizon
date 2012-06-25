@@ -19,6 +19,7 @@
 #    under the License.
 
 import logging
+import re
 
 from django import shortcuts
 from django.contrib import messages
@@ -31,6 +32,7 @@ from horizon import forms
 
 
 LOG = logging.getLogger(__name__)
+NEW_LINES = re.compile(r"\r|\n")
 
 
 class CreateKeypair(forms.SelfHandlingForm):
@@ -60,6 +62,8 @@ class ImportKeypair(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Importing keypair "%s"' % data['name'])
+            # Remove any new lines in the public key
+            data['public_key'] = NEW_LINES.sub("", data['public_key'])
             api.keypair_import(request, data['name'], data['public_key'])
             messages.success(request, _('Successfully imported public key: %s')
                                        % data['name'])

@@ -109,6 +109,24 @@ class KeyPairViewTests(test.TestCase):
 
         self.assertTrue(res.has_header('content-disposition'))
 
+    @test.create_stubs({api: ("keypair_import",)})
+    def test_import_keypair(self):
+        key1_name = "new key pair"
+        public_key = "ssh-rsa ABCDEFGHIJKLMNOPQR\r\n" \
+                     "STUVWXYZ1234567890\r" \
+                     "XXYYZZ user@computer\n\n"
+        api.keypair_import(IsA(http.HttpRequest), key1_name,
+                           public_key.replace("\r", "")
+                                     .replace("\n", ""))
+        self.mox.ReplayAll()
+
+        formData = {'method': 'ImportKeypair',
+                    'name': key1_name,
+                    'public_key': public_key}
+        url = reverse('horizon:nova:access_and_security:keypairs:import')
+        self.client.post(url, formData)
+        self.assertMessageCount(success=1)
+
     def test_generate_keypair_exception(self):
         keypair = self.keypairs.first()
 
