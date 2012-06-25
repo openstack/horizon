@@ -71,6 +71,10 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # providing a paging element (a "more" link) to paginate results.
 API_RESULT_LIMIT = 1000
 
+# The timezone of the server. This should correspond with the timezone
+# of your entire OpenStack installation, and hopefully be in UTC.
+TIME_ZONE = "UTC"
+
 LOGGING = {
         'version': 1,
         # When set to True this will disable all logging except

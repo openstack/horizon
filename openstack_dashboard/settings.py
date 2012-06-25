@@ -126,7 +126,6 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
 
-TIME_ZONE = None
 gettext_noop = lambda s: s
 LANGUAGES = (
     ('en', gettext_noop('English')),
