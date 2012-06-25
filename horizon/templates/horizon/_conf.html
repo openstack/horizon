@@ -1,0 +1,16 @@
+{% load compress %}
+
+{% compress js %}
+<script src='{{ STATIC_URL }}horizon/js/horizon.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}horizon/js/horizon.conf.js' type='text/javascript' charset='utf-8'></script>
+<script type='text/javascript' charset='utf-8'>
+/* Storage for backend configuration variables which the frontend
+ * should be aware of.
+ */
+horizon.conf.debug = {{ debug|yesno:"true,false" }};
+horizon.conf.static_url = "{{ STATIC_URL }}";
+horizon.conf.ajax = {
+  queue_limit: {{ HORIZON_CONFIG.ajax_queue_limit|default:"null" }}
+};
+</script>
+{% endcompress %}

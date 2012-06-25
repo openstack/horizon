@@ -4,7 +4,13 @@ horizon.tabs.load_tab = function (evt) {
   var $this = $(this),
       tab_id = $this.attr('data-target'),
       tab_pane = $(tab_id);
-  tab_pane.append("<i class='icon icon-updating ajax-updating'></i>&nbsp;<span>loading...</span>");
+
+  // FIXME(gabriel): This style mucking shouldn't be in the javascript.
+  tab_pane.append("<span style='margin-left: 30px;'>loading&hellip;</span>");
+  tab_pane.spin(horizon.conf.spinner_options.inline);
+  $(tab_pane.data().spinner.el).css('top', '9px');
+  $(tab_pane.data().spinner.el).css('left', '15px');
+
   // If query params exist, append tab id.
   if(window.location.search.length > 0) {
     tab_pane.load(window.location.search + "&tab=" + tab_id.replace('#', ''));

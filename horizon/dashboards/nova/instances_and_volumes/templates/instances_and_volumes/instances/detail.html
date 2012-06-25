@@ -13,22 +13,3 @@
   </div>
 </div>
 {% endblock %}
-
-{% block js %}
-  {{ block.super }}
-  <script type="text/javascript" charset="utf-8">
-    $(document).on('submit', '#tail_length', function (evt) {
-      horizon.instances.user_decided_length = true;
-      horizon.instances.getConsoleLog(this, true);
-
-      evt.preventDefault();
-    });
-
-    setInterval(function() {
-      // Don't poll for something that's not there...
-      if ($("#tail_length").length) {
-        horizon.instances.getConsoleLog($("#tail_length"), false);
-      }
-    }, 10000);
-  </script>
-{% endblock %}

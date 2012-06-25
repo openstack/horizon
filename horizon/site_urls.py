@@ -18,6 +18,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.views.generic import TemplateView
 from django.conf.urls.defaults import patterns, url, include
 from django.conf import settings
 
@@ -37,3 +38,9 @@ urlpatterns += patterns('',
     url(r'^i18n/setlang/$', 'django.views.i18n.set_language',
         name="set_language"),
     url(r'^i18n/', include('django.conf.urls.i18n')))
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^qunit/$',
+            TemplateView.as_view(template_name="horizon/qunit.html"),
+            name='qunit_tests'))
