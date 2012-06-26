@@ -280,6 +280,11 @@ class SetInstanceDetails(workflows.Step):
     action_class = SetInstanceDetailsAction
     contributes = ("source_type", "source_id", "name", "count", "flavor")
 
+    def prepare_action_context(self, request, context):
+        if 'source_type' in context and 'source_id' in context:
+            context[context['source_type']] = context['source_id']
+        return context
+
     def contribute(self, data, context):
         context = super(SetInstanceDetails, self).contribute(data, context)
         # Allow setting the source dynamically.

@@ -20,6 +20,7 @@
 
 from django import http
 from django.core.urlresolvers import reverse
+from django.utils.http import urlencode
 from mox import IsA, IgnoreArg
 from copy import deepcopy
 
@@ -552,6 +553,7 @@ class InstanceViewTests(test.TestCase):
                         api.glance: ('image_list_detailed',)})
     def test_launch_get(self):
         quota_usages = self.quota_usages.first()
+        image = self.images.first()
 
         api.nova.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
@@ -577,12 +579,17 @@ class InstanceViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:instances_and_volumes:instances:launch')
-        res = self.client.get(url)
+        params = urlencode({"source_type": "image_id",
+                            "source_id": image.id})
+        res = self.client.get("%s?%s" % (url, params))
 
+        workflow = res.context['workflow']
         self.assertTemplateUsed(res,
                         'nova/instances_and_volumes/instances/launch.html')
         self.assertEqual(res.context['workflow'].name, LaunchInstance.name)
-        self.assertQuerysetEqual(res.context['workflow'].steps,
+        step = workflow.get_step("setinstancedetailsaction")
+        self.assertEqual(step.action.initial['image_id'], image.id)
+        self.assertQuerysetEqual(workflow.steps,
                             ['<SetInstanceDetails: setinstancedetailsaction>',
                              '<SetAccessControls: setaccesscontrolsaction>',
                              '<VolumeOptions: volumeoptionsaction>',

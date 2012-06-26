@@ -39,11 +39,11 @@ LOG = logging.getLogger(__name__)
 class WorkflowContext(dict):
     def __init__(self, workflow, *args, **kwargs):
         super(WorkflowContext, self).__init__(*args, **kwargs)
-        self.__workflow = workflow
+        self._workflow = workflow
 
     def __setitem__(self, key, val):
         super(WorkflowContext, self).__setitem__(key, val)
-        return self.__workflow._trigger_handlers(key)
+        return self._workflow._trigger_handlers(key)
 
     def __delitem__(self, key):
         return self.__setitem__(key, None)
@@ -346,12 +346,27 @@ class Step(object):
     def action(self):
         if not getattr(self, "_action", None):
             try:
+                # Hook in the action context customization.
+                workflow_context = dict(self.workflow.context)
+                context = self.prepare_action_context(self.workflow.request,
+                                                      workflow_context)
                 self._action = self.action_class(self.workflow.request,
-                                                 self.workflow.context)
+                                                 context)
             except:
                 LOG.exception("Problem instantiating action class.")
                 raise
         return self._action
+
+    def prepare_action_context(self, request, context):
+        """
+        Allows for customization of how the workflow context is passed to the
+        action; this is the reverse of what "contribute" does to make the
+        action outputs sane for the workflow. Changes to the context are not
+        saved globally here. They are localized to the action.
+
+        Simply returns the unaltered context by default.
+        """
+        return context
 
     def get_id(self):
         """ Returns the ID for this step. Suitable for use in HTML markup. """
@@ -553,6 +568,12 @@ class Workflow(html.HTMLElement):
         if getattr(self, "_ordered_steps", None) is None:
             self._gather_steps()
         return self._ordered_steps
+
+    def get_step(self, slug):
+        """ Returns the instantiated step matching the given slug. """
+        for step in self.steps:
+            if step.slug == slug:
+                return step
 
     def _gather_steps(self):
         ordered_step_classes = self._order_steps()
