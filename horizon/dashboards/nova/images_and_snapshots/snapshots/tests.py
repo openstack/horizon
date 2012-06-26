@@ -51,7 +51,7 @@ class SnapshotsViewTests(test.TestCase):
         url = reverse('horizon:nova:images_and_snapshots:snapshots:create',
                       args=[server.id])
         res = self.client.get(url)
-        redirect = reverse("horizon:nova:instances_and_volumes:index")
+        redirect = reverse("horizon:nova:instances:index")
         self.assertRedirectsNoFollow(res, redirect)
 
     def test_create_get_server_exception(self):
@@ -64,7 +64,7 @@ class SnapshotsViewTests(test.TestCase):
         url = reverse('horizon:nova:images_and_snapshots:snapshots:create',
                       args=[server.id])
         res = self.client.get(url)
-        redirect = reverse("horizon:nova:instances_and_volumes:index")
+        redirect = reverse("horizon:nova:instances:index")
         self.assertRedirectsNoFollow(res, redirect)
 
     def test_create_snapshot_post(self):
@@ -107,5 +107,5 @@ class SnapshotsViewTests(test.TestCase):
         url = reverse('horizon:nova:images_and_snapshots:snapshots:create',
                       args=[server.id])
         res = self.client.post(url, formData)
-        redirect = reverse("horizon:nova:instances_and_volumes:index")
+        redirect = reverse("horizon:nova:instances:index")
         self.assertRedirectsNoFollow(res, redirect)

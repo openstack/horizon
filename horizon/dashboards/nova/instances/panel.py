@@ -14,8 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon.dashboards.nova.instances.workflows import LaunchInstance
+from django.utils.translation import ugettext_lazy as _
+
+import horizon
+from horizon.dashboards.nova import dashboard
 
 
-class AdminLaunchInstance(LaunchInstance):
-    success_url = "horizon:syspanel:instances:index"
+class Instances(horizon.Panel):
+    name = _("Instances")
+    slug = 'instances'
+
+
+dashboard.Nova.register(Instances)

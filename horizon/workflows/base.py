@@ -64,6 +64,7 @@ class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
         attrs['name'] = getattr(opts, "name", name)
         attrs['slug'] = getattr(opts, "slug", slugify(name))
         attrs['roles'] = getattr(opts, "roles", ())
+        attrs['services'] = getattr(opts, "services", ())
         attrs['progress_message'] = getattr(opts,
                                             "progress_message",
                                             _("Processing..."))
@@ -110,6 +111,11 @@ class Action(forms.Form):
     .. attribute:: roles
 
         A list of role names which this action requires in order to be
+        completed. Defaults to an empty list (``[]``).
+
+    .. attribute:: services
+
+        A list of service types which this action requires in order to be
         completed. Defaults to an empty list (``[]``).
 
     .. attribute:: help_text
@@ -257,6 +263,10 @@ class Step(object):
     .. attribute:: roles
 
         Inherited from the ``Action`` class.
+
+    .. attribute:: services
+
+        Inherited from the ``Action`` class.
     """
     action_class = None
     depends_on = ()
@@ -284,6 +294,7 @@ class Step(object):
         self.slug = self.action_class.slug
         self.name = self.action_class.name
         self.roles = self.action_class.roles
+        self.services = self.action_class.services
         self.has_errors = False
         self._handlers = {}
 

@@ -1,0 +1,98 @@
+{% load i18n sizeformat %}
+
+<h3>{% trans "Instance Overview" %}</h3>
+
+<div class="status row-fluid detail">
+  <h4>{% trans "Info" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ instance.name }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ instance.id }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ instance.status|title }}</dd>
+  </dl>
+</div>
+
+<div class="specs row-fluid detail">
+  <h4>{% trans "Specs" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Flavor" %}</dt>
+    <dd>{{ instance.full_flavor.name }}</dd>
+    <dt>{% trans "RAM" %}</dt>
+    <dd>{{ instance.full_flavor.ram|mbformat }}</dd>
+    <dt>{% trans "VCPUs" %}</dt>
+    <dd>{{ instance.full_flavor.vcpus }} {% trans "VCPU" %}</dd>
+    <dt>{% trans "Disk" %}</dt>
+    <dd>{{ instance.full_flavor.disk }}{% trans "GB" %}</dd>
+  </dl>
+</div>
+
+<div class="addresses row-fluid detail">
+  <h4>{% trans "IP Addresses" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    {% for network, ip_list in instance.addresses.items %}
+    <dt>{{ network|title }}</dt>
+    <dd>
+      {% for ip in ip_list %}
+        {% if not forloop.last %}{{ ip.addr}},&nbsp;{% else %}{{ip.addr}}{% endif %}
+      {% endfor %}
+    </dd>
+    {% endfor %}
+  </dl>
+</div>
+
+<div class="security_groups row-fluid detail">
+  <h4>{% trans "Security Groups" %}</h4>
+  <hr class="header_rule">
+  <dl>
+  {% for group in instance.security_groups %}
+    <dt>{{ group.name }}</dt>
+    <dd>
+      <ul>
+      {% for rule in group.rules %}
+        <li>{{ rule }}</li>
+        {% empty %}
+        <li><em>{% trans "No rules defined." %}</em></li>
+      {% endfor %}
+      </ul>
+    </dd>
+  {% endfor %}
+  </dl>
+</div>
+
+<div class="meta row-fluid detail">
+  <h4>{% trans "Meta" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Key Name" %}</dt>
+    <dd>{{ instance.key_name|default:"<em>None</em>" }}</dd>
+    {% url horizon:nova:images_and_snapshots:images:detail instance.image.id as image_url %}
+    <dt>{% trans "Image Name" %}</dt>
+    <dd><a href="{{ image_url }}">{{ instance.image_name }}</a></dd>
+    {% for key, value in instance.metadata.items %}
+    <dt>{{ key|force_escape }}</dt>
+    <dd>{{ value|force_escape|default:"<em>N/A</em>" }}</dd>
+    {% endfor%}
+  </dl>
+</div>
+
+<div class="volumes row-fluid detail">
+  <h4>{% trans "Volumes Attached" %}</h4>
+  <hr class="header_rule">
+    <dl>
+      {% for volume in instance.volumes %}
+        <dt>{% trans "Attached To" %}</dt>
+        <dd>
+          <a href="{% url horizon:nova:volumes:detail volume.volumeId %}">{{ volume.name }}</a><span> {% trans "on" %} {{ volume.device }}</span>
+        </dd>
+        {% empty %}
+          <dt>{% trans "Volume" %}</dt>
+          <dd><em>{% trans "No volumes attached." %}</em></dd>
+      {% endfor %}
+    </dl>
+  </dl>
+</div>

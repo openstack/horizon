@@ -41,7 +41,7 @@ class CreateView(forms.ModalFormView):
     template_name = 'nova/images_and_snapshots/snapshots/create.html'
 
     def get_initial(self):
-        redirect = reverse('horizon:nova:instances_and_volumes:index')
+        redirect = reverse('horizon:nova:instances:index')
         instance_id = self.kwargs["instance_id"]
         try:
             self.instance = api.server_get(self.request, instance_id)

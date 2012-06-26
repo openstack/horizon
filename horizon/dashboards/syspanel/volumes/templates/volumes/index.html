@@ -1,0 +1,13 @@
+{% extends 'syspanel/base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Volumes" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Volumes") %}
+{% endblock page_header %}
+
+{% block syspanel_main %}
+    {{ table.render }}
+{% endblock %}
+
+

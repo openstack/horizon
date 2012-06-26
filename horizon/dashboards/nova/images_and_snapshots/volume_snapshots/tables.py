@@ -20,7 +20,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import tables
-from ...instances_and_volumes.volumes import tables as volume_tables
+from ...volumes import tables as volume_tables
 
 
 LOG = logging.getLogger(__name__)

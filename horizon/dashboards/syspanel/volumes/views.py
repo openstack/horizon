@@ -14,8 +14,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon.dashboards.nova.instances.workflows import LaunchInstance
+"""
+Admin views for managing Nova volumes.
+"""
+
+from horizon.dashboards.nova.volumes.views import (IndexView as _IndexView,
+                                                   DetailView as _DetailView)
+from .tables import VolumesTable
 
 
-class AdminLaunchInstance(LaunchInstance):
-    success_url = "horizon:syspanel:instances:index"
+class IndexView(_IndexView):
+    table_class = VolumesTable
+    template_name = "syspanel/volumes/index.html"
+
+
+class DetailView(_DetailView):
+    template_name = "syspanel/volumes/detail.html"

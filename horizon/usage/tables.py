@@ -44,7 +44,7 @@ class GlobalUsageTable(BaseUsageTable):
 
 
 def get_instance_link(datum):
-    view = "horizon:nova:instances_and_volumes:instances:detail"
+    view = "horizon:nova:instances:detail"
     if datum.get('instance_id', False):
         return urlresolvers.reverse(view, args=(datum.get('instance_id'),))
     else:

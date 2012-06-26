@@ -1,0 +1,10 @@
+{% load i18n %}
+
+<h3>{% trans "Instance VNC Console" %}</h3>
+{% if vnc_url %}
+<p class='alert alert-info'>{% blocktrans %}If VNC console is not responding to keyboard input: click the grey status bar below.{% endblocktrans %} <a href="{{ vnc_url }}">{% trans "Click here to show only VNC" %}</a></p>
+<iframe src="{{ vnc_url }}" width="728" height="436"></iframe>
+{% else %}
+<p class='alert alert-error'>{% blocktrans %}VNC console is currently unavailabe. Please try again later.{% endblocktrans %}
+<a class='btn btn-mini' href="{% url horizon:nova:instances:detail instance_id %}">{% trans "Reload" %}</a></p>
+{% endif %}

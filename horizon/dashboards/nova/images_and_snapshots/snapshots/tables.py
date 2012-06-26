@@ -30,7 +30,7 @@ LOG = logging.getLogger(__name__)
 class LaunchSnapshot(tables.LinkAction):
     name = "launch_snapshot"
     verbose_name = _("Launch")
-    url = "horizon:nova:instances_and_volumes:instances:launch"
+    url = "horizon:nova:instances:launch"
     classes = ("btn-launch", "ajax-modal")
 
     def get_link_url(self, datum):

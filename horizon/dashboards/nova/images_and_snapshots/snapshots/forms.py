@@ -51,7 +51,7 @@ class CreateSnapshot(forms.SelfHandlingForm):
             return shortcuts.redirect('horizon:nova:images_and_snapshots:'
                                       'index')
         except:
-            redirect = reverse("horizon:nova:instances_and_volumes:index")
+            redirect = reverse("horizon:nova:instances:index")
             exceptions.handle(request,
                               _('Unable to create snapshot.'),
                               redirect=redirect)

@@ -104,7 +104,7 @@ def get_instance_info(instance):
 
 
 def get_instance_link(datum):
-    view = "horizon:nova:instances_and_volumes:instances:detail"
+    view = "horizon:nova:instances:detail"
     if datum.instance_id:
         return urlresolvers.reverse(view, args=(datum.instance_id,))
     else:

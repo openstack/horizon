@@ -91,7 +91,7 @@ class FloatingIpViewTests(test.TestCase):
         form_data = {'instance_id': server.id,
                      'ip_id': floating_ip.id}
         url = reverse('%s:associate' % NAMESPACE)
-        next = reverse("horizon:nova:instances_and_volumes:index")
+        next = reverse("horizon:nova:instances:index")
         res = self.client.post("%s?next=%s" % (url, next), form_data)
         self.assertRedirectsNoFollow(res, next)
 

@@ -32,12 +32,10 @@ INDEX_URL = reverse('horizon:nova:images_and_snapshots:index')
 class VolumeSnapshotsViewTests(test.TestCase):
     def test_create_snapshot_get(self):
         volume = self.volumes.first()
-        res = self.client.get(reverse('horizon:nova:instances_and_volumes:'
-                                      'volumes:create_snapshot',
+        res = self.client.get(reverse('horizon:nova:volumes:create_snapshot',
                                       args=[volume.id]))
 
-        self.assertTemplateUsed(res, 'nova/instances_and_volumes/'
-                                     'volumes/create_snapshot.html')
+        self.assertTemplateUsed(res, 'nova/volumes/create_snapshot.html')
 
     def test_create_snapshot_post(self):
         volume = self.volumes.first()
@@ -56,7 +54,6 @@ class VolumeSnapshotsViewTests(test.TestCase):
                     'volume_id': volume.id,
                     'name': snapshot.display_name,
                     'description': snapshot.display_description}
-        url = reverse('horizon:nova:instances_and_volumes:volumes:'
-                      'create_snapshot', args=[volume.id])
+        url = reverse('horizon:nova:volumes:create_snapshot', args=[volume.id])
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
