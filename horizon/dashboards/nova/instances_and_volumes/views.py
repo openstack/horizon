@@ -54,14 +54,27 @@ class IndexView(tables.MultiTableView):
             if instances:
                 try:
                     flavors = api.flavor_list(self.request)
-                    full_flavors = SortedDict([(str(flavor.id), flavor)
-                                               for flavor in flavors])
-                    for instance in instances:
-                        flavor_id = instance.flavor["id"]
-                        instance.full_flavor = full_flavors[flavor_id]
                 except:
-                    msg = _('Unable to retrieve instance size information.')
-                    exceptions.handle(self.request, msg)
+                    # If fails to retrieve flavor list, creates an empty list.
+                    flavors = []
+
+                full_flavors = SortedDict([(str(flavor.id), flavor)
+                                            for flavor in flavors])
+                # Loop through instances to get flavor info.
+                for instance in instances:
+                    try:
+                        flavor_id = instance.flavor["id"]
+                        if flavor_id in full_flavors:
+                            instance.full_flavor = full_flavors[flavor_id]
+                        else:
+                            # If the flavor_id is not in full_flavors list,
+                            # gets it via nova api.
+                            instance.full_flavor = api.flavor_get(
+                                                    self.request, flavor_id)
+                    except:
+                        msg = _('Unable to retrieve instance \
+                                size information.')
+                        exceptions.handle(self.request, msg)
             self._instances = instances
         return self._instances
 

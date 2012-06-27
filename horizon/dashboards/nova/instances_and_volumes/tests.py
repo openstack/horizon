@@ -20,6 +20,7 @@
 
 from django import http
 from django.core.urlresolvers import reverse
+from django.utils.datastructures import SortedDict
 from mox import IsA
 
 from horizon import api
@@ -90,3 +91,63 @@ class InstancesAndVolumesViewTest(test.TestCase):
         self.assertTemplateUsed(res,
                 'nova/instances_and_volumes/index.html')
         self.assertEqual(len(res.context['instances_table'].data), 0)
+
+    @test.create_stubs({api: ('flavor_list', 'server_list',
+                                'flavor_get', 'volume_list',)})
+    def test_index_flavor_list_exception(self):
+        servers = self.servers.list()
+        flavors = self.flavors.list()
+        volumes = self.volumes.list()
+        full_flavors = SortedDict([(f.id, f) for f in flavors])
+
+        api.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        api.flavor_list(IsA(http.HttpRequest)).AndRaise(self.exceptions.nova)
+        for server in servers:
+            api.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
+                                AndReturn(full_flavors[server.flavor["id"]])
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse('horizon:nova:instances_and_volumes:index'))
+
+        self.assertTemplateUsed(res,
+            'nova/instances_and_volumes/index.html')
+        instances = res.context['instances_table'].data
+        volumes = res.context['volumes_table'].data
+
+        self.assertItemsEqual(instances, self.servers.list())
+        self.assertItemsEqual(volumes, self.volumes.list())
+
+    @test.create_stubs({api: ('flavor_list', 'server_list',
+                                'flavor_get', 'volume_list',)})
+    def test_index_flavor_get_exception(self):
+        servers = self.servers.list()
+        flavors = self.flavors.list()
+        volumes = self.volumes.list()
+        max_id = max([int(flavor.id) for flavor in flavors])
+        for server in servers:
+            max_id += 1
+            server.flavor["id"] = max_id
+
+        api.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
+        for server in servers:
+            api.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
+                                AndRaise(self.exceptions.nova)
+        api.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse('horizon:nova:instances_and_volumes:index'))
+
+        instances = res.context['instances_table'].data
+        volumes = res.context['volumes_table'].data
+
+        self.assertTemplateUsed(res,
+            'nova/instances_and_volumes/index.html')
+        self.assertMessageCount(res, error=len(servers))
+        self.assertItemsEqual(instances, self.servers.list())
+        self.assertItemsEqual(volumes, self.volumes.list())
