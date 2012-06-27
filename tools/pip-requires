@@ -5,6 +5,7 @@ python-cloudfiles
 pytz
 
 # Horizon Non-pip Requirements
-https://github.com/openstack/python-novaclient/zipball/master#egg=python-novaclient
-https://github.com/openstack/python-keystoneclient/zipball/master#egg=python-keystoneclient
-https://github.com/openstack/python-glanceclient/zipball/master#egg=python-glanceclient
+# FIXME(gabriel): set these back to master once the versioninfo bug is resolved.
+https://github.com/openstack/python-novaclient/zipball/3dd0d3be63b4bf35aede852d096deff9be5b63e4#egg=python-novaclient
+https://github.com/openstack/python-keystoneclient/zipball/44a1ee32e29825257cac5c0a61fc3be51b79eb65#egg=python-keystoneclient
+https://github.com/openstack/python-glanceclient/zipball/d6e0a03a937841ee509c37003762fd92c9b762ef#egg=python-glanceclient
