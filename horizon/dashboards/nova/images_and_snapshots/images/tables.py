@@ -70,7 +70,8 @@ class EditImage(tables.LinkAction):
 
     def allowed(self, request, image=None):
         if image:
-            return image.owner == request.user.tenant_id
+            return image.status in ("active",) and \
+                image.owner == request.user.tenant_id
         # We don't have bulk editing, so if there isn't an image that's
         # authorized, don't allow the action.
         return False

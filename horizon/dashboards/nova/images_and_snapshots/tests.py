@@ -19,7 +19,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from copy import deepcopy
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
@@ -84,47 +83,44 @@ class ImagesAndSnapshotsTests(test.TestCase):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'nova/images_and_snapshots/index.html')
 
+    @test.create_stubs({api: ('image_list_detailed', 'snapshot_list_detailed',
+                              'volume_snapshot_list')})
     def test_queued_snapshot_actions(self):
         images = self.images.list()
 
         snapshots = self.snapshots.list()
-        snapshot1 = deepcopy(snapshots[0])
-        snapshot1.status = 'active'
-        snapshot1.owner = None
 
-        snapshot2 = deepcopy(snapshots[0])
-        snapshot2.id = 4
-        snapshot2.name = "snap2"
-        snapshot2.status = "queued"
-        snapshot2.owner = '1'
-
-        new_snapshots = [snapshot1, snapshot2]
-
-        self.mox.StubOutWithMock(api, 'image_list_detailed')
-        self.mox.StubOutWithMock(api, 'snapshot_list_detailed')
-        self.mox.StubOutWithMock(api, 'volume_snapshot_list')
         api.volume_snapshot_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.volumes.list())
         api.image_list_detailed(IsA(http.HttpRequest),
                                 marker=None).AndReturn([images, False])
         api.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
-                                .AndReturn([new_snapshots, False])
+                                .AndReturn([snapshots, False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'nova/images_and_snapshots/index.html')
         self.assertIn('snapshots_table', res.context)
         snaps = res.context['snapshots_table']
-        self.assertEqual(len(snaps.get_rows()), 2)
+        self.assertEqual(len(snaps.get_rows()), 3)
 
         row_actions = snaps.get_row_actions(snaps.data[0])
 
-        #first instance - status active, not owned
+        # first instance - status active, owned
+        self.assertEqual(len(row_actions), 3)
         self.assertEqual(row_actions[0].verbose_name, u"Launch")
-        self.assertEqual(len(row_actions), 1)
+        self.assertEqual(row_actions[1].verbose_name, u"Edit")
+        self.assertEqual(row_actions[2].verbose_name, u"Delete Snapshot")
 
         row_actions = snaps.get_row_actions(snaps.data[1])
-        #first instance - status queued, but editable
-        self.assertEqual(unicode(row_actions[0].verbose_name), u"Edit")
-        self.assertEqual(str(row_actions[1]), "<DeleteSnapshot: delete>")
-        self.assertEqual(len(row_actions), 2)
+
+        # second instance - status active, not owned
+        self.assertEqual(len(row_actions), 1)
+        self.assertEqual(row_actions[0].verbose_name, u"Launch")
+
+        row_actions = snaps.get_row_actions(snaps.data[2])
+        # third instance - status queued, only delete is available
+        self.assertEqual(len(row_actions), 1)
+        self.assertEqual(unicode(row_actions[0].verbose_name),
+                         u"Delete Snapshot")
+        self.assertEqual(str(row_actions[0]), "<DeleteSnapshot: delete>")
