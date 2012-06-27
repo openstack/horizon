@@ -44,19 +44,29 @@ class HorizonReporterFilter(SafeExceptionReporterFilter):
     def is_active(self, request):
         return True
 
-    # TODO(gabriel): When Django bug #18379 is fixed, this whole method
-    # can be removed: https://code.djangoproject.com/ticket/18379
+    # TODO(gabriel): This bugfix is cribbed from Django's code. When 1.4.1
+    # is available we can remove this code.
     def get_traceback_frame_variables(self, request, tb_frame):
         """
         Replaces the values of variables marked as sensitive with
         stars (*********).
         """
-        func_name = tb_frame.f_code.co_name
-        func = tb_frame.f_globals.get(func_name)
-        # Methods won't be in the global namespace, func could be None here...
-        if func is None and "self" in tb_frame.f_locals:
-            func = getattr(tb_frame.f_locals.get('self'), func_name, None)
-        sensitive_variables = getattr(func, 'sensitive_variables', [])
+        # Loop through the frame's callers to see if the sensitive_variables
+        # decorator was used.
+        current_frame = tb_frame.f_back
+        sensitive_variables = None
+        while current_frame is not None:
+            if (current_frame.f_code.co_name == 'sensitive_variables_wrapper'
+                and 'sensitive_variables_wrapper' in current_frame.f_locals):
+                # The sensitive_variables decorator was used, so we take note
+                # of the sensitive variables' names.
+                wrapper = current_frame.f_locals['sensitive_variables_wrapper']
+                sensitive_variables = getattr(wrapper,
+                                              'sensitive_variables',
+                                              None)
+                break
+            current_frame = current_frame.f_back
+
         cleansed = []
         if self.is_active(request) and sensitive_variables:
             if sensitive_variables == '__ALL__':
@@ -75,7 +85,8 @@ class HorizonReporterFilter(SafeExceptionReporterFilter):
                     cleansed.append((name, value))
                 return cleansed
         else:
-            # Cleanse only the request if it's one of the frame variables.
+            # Potentially cleanse only the request if it's one of the
+            # frame variables.
             for name, value in tb_frame.f_locals.items():
                 if isinstance(value, HttpRequest):
                     # Cleanse the request's POST parameters.
