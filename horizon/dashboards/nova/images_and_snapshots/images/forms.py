@@ -49,15 +49,18 @@ class CreateImageForm(forms.SelfHandlingForm):
                                     required=True,
                                     choices=[('', ''),
                                              ('aki',
-                                                'Amazon Kernel Image (AKI)'),
+                                                _('AKI - Amazon Kernel '
+                                                        'Image')),
                                              ('ami',
-                                                'Amazon Machine Image (AMI)'),
+                                                _('AMI - Amazon Machine '
+                                                        'Image')),
                                              ('ari',
-                                                'Amazon Ramdisk Image (ARI)'),
+                                                _('ARI - Amazon Ramdisk '
+                                                        'Image')),
                                              ('iso',
-                                                'Optical Disk Image (ISO)'),
+                                                _('ISO - Optical Disk Image')),
                                              ('qcow2',
-                                                'QEMU Emulator (QCOW2)'),
+                                                _('QCOW2 - QEMU Emulator')),
                                              ('raw', 'Raw'),
                                              ('vdi', 'VDI'),
                                              ('vhd', 'VHD'),
@@ -81,9 +84,19 @@ class CreateImageForm(forms.SelfHandlingForm):
     is_public = forms.BooleanField(label=_("Public"), required=False)
 
     def handle(self, request, data):
+        # Glance does not really do anything with container_format at the
+        # moment. It requires it is set to the same disk_format for the three
+        # Amazon image types, otherwise it just treats them as 'bare.' As such
+        # we will just set that to be that here instead of bothering the user
+        # with asking them for information we can already determine.
+        if data['disk_format'] in ('ami', 'aki', 'ari',):
+            container_format = data['disk_format']
+        else:
+            container_format = 'bare'
+
         meta = {'is_public': data['is_public'],
                 'disk_format': data['disk_format'],
-                'container_format': 'bare',  # Not used in Glance ATM.
+                'container_format': container_format,
                 'copy_from': data['copy_from'],
                 'min_disk': (data['minimum_disk'] or 0),
                 'min_ram': (data['minimum_ram'] or 0),
@@ -96,6 +109,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                     data['name']))
         except:
             exceptions.handle(request, _('Unable to create new image.'))
+
         return shortcuts.redirect(self.get_success_url())
 
 
