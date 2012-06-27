@@ -28,7 +28,23 @@ def data(TEST):
                      'status': "active",
                      'owner': TEST.tenant.id,
                      'properties': {'image_type': u'snapshot'}}
+    snapshot_dict_no_owner = {'name': u'snapshot 2',
+                              'container_format': u'ami',
+                              'id': 4,
+                              'status': "active",
+                              'owner': None,
+                              'properties': {'image_type': u'snapshot'}}
+    snapshot_dict_queued = {'name': u'snapshot 2',
+                            'container_format': u'ami',
+                            'id': 5,
+                            'status': "queued",
+                            'owner': TEST.tenant.id,
+                            'properties': {'image_type': u'snapshot'}}
     snapshot = Image(ImageManager(None), snapshot_dict)
+    TEST.snapshots.add(snapshot)
+    snapshot = Image(ImageManager(None), snapshot_dict_no_owner)
+    TEST.snapshots.add(snapshot)
+    snapshot = Image(ImageManager(None), snapshot_dict_queued)
     TEST.snapshots.add(snapshot)
 
     # Images
