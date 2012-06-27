@@ -178,12 +178,12 @@ msgstr ""
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:57
 #: dashboards/nova/templates/nova/access_and_security/floating_ips/_associate.html:22
-msgid "Associate IP"
-msgstr ""
+msgid "Associate Floating IP"
+msgstr "Associado IP Flutuante"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:69
-msgid "Disassociate IP"
-msgstr ""
+msgid "Disassociate Floating IP"
+msgstr "Dissociado IP Flutuante"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:83
 #, python-format

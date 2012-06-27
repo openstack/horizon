@@ -179,11 +179,11 @@ msgstr "浮动IP"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:57
 #: dashboards/nova/templates/nova/access_and_security/floating_ips/_associate.html:22
-msgid "Associate IP"
+msgid "Associate Floating IP"
 msgstr "关联IP"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:69
-msgid "Disassociate IP"
+msgid "Disassociate Floating IP"
 msgstr "分离IP"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:83
