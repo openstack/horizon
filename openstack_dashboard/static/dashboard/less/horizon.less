@@ -59,7 +59,12 @@ dt {
   background-position: 140px center;
   margin-bottom: 0;
   font-size: 11px;
+  margin-left: 20px;
   padding: 0;
+  background-image: url(/static/dashboard/img/drop_arrow.png);
+  border: 1px solid #c0d9e4;
+  background-color: #e9f5fa;
+  background-repeat: no-repeat;
 }
 
 .topbar .switcher_bar a {
@@ -207,40 +212,41 @@ a.current_item:hover h3, a.current_item:hover h4 {
     color: #39738c;
 }
 
-.switcher_bar {
-    background-color: #e9f5fa;
+.sidebar .switcher_bar {
     width: 190px;
     height: 38px;
     padding: 5px 0;
-    border: 1px solid #c0d9e4;
     margin-left: 14px;
     margin-bottom: 15px;
-    background-image: url(/static/dashboard/img/drop_arrow.png);
-    background-repeat: no-repeat;
-    background-position: 170px 20px;
 }
 
-.switcher_bar:hover {
+.sidebar .switcher_bar a.dropdown-toggle {
+  display: block;
+  padding: 5px 0;
+  background-image: url(/static/dashboard/img/drop_arrow.png);
+  border: 1px solid #c0d9e4;
+  background-color: #e9f5fa;
+  background-repeat: no-repeat;
+  background-position: 167px 23px;
+}
+
+.sidebar .switcher_bar a.dropdown-toggle:hover {
   text-decoration: none;
   background-color: #cde8f4;
 }
 
-.switcher_bar a:hover {
-  text-decoration: none;
-}
-
-.switcher_bar:focus {
+.sidebar .switcher_bar:focus {
   outline: none;
 }
 
-.switcher_bar h3 {
+.sidebar .switcher_bar h3 {
     color: #4790ae;
     font-size: 16px;
     margin: -6px 0 0 14px;
     padding: 0;
 }
 
-.switcher_bar h4 {
+.sidebar .switcher_bar h4 {
     color: #6fabc4;
     font-size: 10px;
     text-transform: uppercase;
@@ -249,13 +255,13 @@ a.current_item:hover h3, a.current_item:hover h4 {
 }
 
 
-.switcher_bar ul {
+.sidebar .switcher_bar ul {
     border: 1px solid #c0d9e4;
     margin-left: -1px;
     width: 190px;
 }
 
-.switcher_bar li a:hover{
+.sidebar .switcher_bar li a:hover{
   background: #92d6f1;
 }
 
