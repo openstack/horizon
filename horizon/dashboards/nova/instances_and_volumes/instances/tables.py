@@ -236,6 +236,12 @@ def get_size(instance):
         return size_string % vals
     return _("Not available")
 
+def get_keyname(instance):
+    if hasattr(instance, "key_name"):
+        keyname = instance.key_name
+        return keyname
+    return _("Not available")
+
 
 def get_power_state(instance):
     return POWER_STATES.get(getattr(instance, "OS-EXT-STS:power_state", 0), '')
@@ -261,6 +267,7 @@ class InstancesTable(tables.DataTable):
                          verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
     size = tables.Column(get_size, verbose_name=_("Size"))
+    keypair = tables.Column(get_keyname, verbose_name=_("Keypair"))
     status = tables.Column("status",
                            filters=(title, replace_underscores),
                            verbose_name=_("Status"),
