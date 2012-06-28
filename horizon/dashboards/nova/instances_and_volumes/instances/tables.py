@@ -199,7 +199,7 @@ class LogLink(tables.LinkAction):
 
 class AssociateIP(tables.LinkAction):
     name = "associate"
-    verbose_name = _("Associate IP")
+    verbose_name = _("Associate Floating IP")
     url = "horizon:nova:access_and_security:floating_ips:associate"
     classes = ("ajax-modal", "btn-associate")
 

@@ -55,7 +55,7 @@ class ReleaseIPs(tables.BatchAction):
 
 class AssociateIP(tables.LinkAction):
     name = "associate"
-    verbose_name = _("Associate IP")
+    verbose_name = _("Associate Floating IP")
     url = "horizon:nova:access_and_security:floating_ips:associate"
     classes = ("ajax-modal", "btn-associate")
 
@@ -72,7 +72,7 @@ class AssociateIP(tables.LinkAction):
 
 class DisassociateIP(tables.Action):
     name = "disassociate"
-    verbose_name = _("Disassociate IP")
+    verbose_name = _("Disassociate Floating IP")
     classes = ("btn-disassociate", "btn-danger")
 
     def allowed(self, request, fip):
