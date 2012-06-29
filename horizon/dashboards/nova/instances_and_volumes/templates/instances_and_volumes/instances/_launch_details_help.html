@@ -44,10 +44,10 @@
 
 <script type="text/javascript" charset="utf-8">
   if(typeof horizon !== 'undefined') {
-    horizon.Quota.initWithFlavors({{ flavors|safe }});
+    horizon.Quota.initWithFlavors({{ flavors|safe|default:"{}" }});
   } else {
     addHorizonLoadEvent(function() {
-      horizon.Quota.initWithFlavors({{ flavors|safe }});
+      horizon.Quota.initWithFlavors({{ flavors|safe|default:"{}" }});
     });
   }
 </script>
