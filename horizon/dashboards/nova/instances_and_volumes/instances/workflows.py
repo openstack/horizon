@@ -115,7 +115,7 @@ class VolumeOptionsAction(workflows.Action):
                                    for vol in volumes])
         except:
             exceptions.handle(self.request,
-                              _('Unable to retrieve list of volumes'))
+                              _('Unable to retrieve list of volumes.'))
         return volume_options
 
     def populate_volume_snapshot_id_choices(self, request, context):
@@ -128,7 +128,8 @@ class VolumeOptionsAction(workflows.Action):
                                    for snap in snapshots])
         except:
             exceptions.handle(self.request,
-                              _('Unable to retrieve list of volumes'))
+                              _('Unable to retrieve list of volume '
+                                'snapshots.'))
 
         return volume_options
 
@@ -203,8 +204,13 @@ class SetInstanceDetailsAction(workflows.Action):
         project_id = context.get('project_id', None)
         if not hasattr(self, "_public_images"):
             public = {"is_public": True}
-            public_images, _more = api.glance.image_list_detailed(request,
+            try:
+                public_images, _more = api.glance.image_list_detailed(request,
                                                            filters=public)
+            except:
+                public_images = []
+                exceptions.handle(request,
+                                  _("Unable to retrieve public images."))
             self._public_images = public_images
 
         # Preempt if we don't have a project_id yet.
@@ -213,8 +219,13 @@ class SetInstanceDetailsAction(workflows.Action):
 
         if not hasattr(self, "_images_for_%s" % project_id):
             owner = {"property-owner_id": project_id}
-            owned_images, _more = api.glance.image_list_detailed(request,
+            try:
+                owned_images, _more = api.glance.image_list_detailed(request,
                                                           filters=owner)
+            except:
+                exceptions.handle(request,
+                                  _("Unable to retrieve images for "
+                                    "the current project."))
             setattr(self, "_images_for_%s" % project_id, owned_images)
 
         owned_images = getattr(self, "_images_for_%s" % project_id)
@@ -272,7 +283,8 @@ class SetInstanceDetailsAction(workflows.Action):
                                        api.nova.flavor_list(self.request)])
             extra['flavors'] = flavors
         except:
-            exceptions.handle(self.request)
+            exceptions.handle(self.request,
+                              _("Unable to retrieve quota information."))
         return super(SetInstanceDetailsAction, self).get_help_text(extra)
 
 
