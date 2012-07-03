@@ -2,6 +2,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.http import urlencode
 
 from horizon import api
 from horizon import exceptions
@@ -11,13 +12,6 @@ from ..users.tables import UsersTable
 
 
 LOG = logging.getLogger(__name__)
-
-
-class ModifyQuotasLink(tables.LinkAction):
-    name = "quotas"
-    verbose_name = _("Modify Quotas")
-    url = "horizon:syspanel:projects:quotas"
-    classes = ("ajax-modal", "btn-edit")
 
 
 class ViewMembersLink(tables.LinkAction):
@@ -34,18 +28,31 @@ class UsageLink(tables.LinkAction):
     classes = ("btn-stats",)
 
 
-class EditLink(tables.LinkAction):
+class CreateProject(tables.LinkAction):
+    name = "create"
+    verbose_name = _("Create Project")
+    url = "horizon:syspanel:projects:create"
+    classes = ("btn-launch", "ajax-modal",)
+
+
+class UpdateProject(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Project")
     url = "horizon:syspanel:projects:update"
     classes = ("ajax-modal", "btn-edit")
 
 
-class CreateLink(tables.LinkAction):
-    name = "create"
-    verbose_name = _("Create New Project")
-    url = "horizon:syspanel:projects:create"
-    classes = ("ajax-modal",)
+class ModifyQuotas(tables.LinkAction):
+    name = "quotas"
+    verbose_name = "Modify Quotas"
+    url = "horizon:syspanel:projects:update"
+    classes = ("ajax-modal", "btn-edit")
+
+    def get_link_url(self, project):
+        step = 'update_quotas'
+        base_url = reverse(self.url, args=[project.id])
+        param = urlencode({"step": step})
+        return "?".join([base_url, param])
 
 
 class DeleteTenantsAction(tables.DeleteAction):
@@ -80,9 +87,10 @@ class TenantsTable(tables.DataTable):
     class Meta:
         name = "tenants"
         verbose_name = _("Projects")
-        row_actions = (ViewMembersLink, EditLink, UsageLink, ModifyQuotasLink,
-                       DeleteTenantsAction)
-        table_actions = (TenantFilterAction, CreateLink, DeleteTenantsAction)
+        row_actions = (ViewMembersLink, UpdateProject, UsageLink,
+                       ModifyQuotas, DeleteTenantsAction)
+        table_actions = (TenantFilterAction, CreateProject,
+                         DeleteTenantsAction)
 
 
 class RemoveUserAction(tables.BatchAction):

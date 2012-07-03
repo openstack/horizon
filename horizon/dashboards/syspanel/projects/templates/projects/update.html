@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}Update Project{% endblock %}
+{% block title %}{% trans "Edit Project" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Update Project") %}
+  {% include "horizon/common/_page_header.html" with title=_("Edit Project") %}
 {% endblock page_header %}
 
+
 {% block main %}
-    {% include 'syspanel/projects/_update.html' %}
+  {% include 'horizon/common/_workflow.html' %}
 {% endblock %}

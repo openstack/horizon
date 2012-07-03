@@ -54,6 +54,7 @@ class WorkflowView(generic.TemplateView):
     template_name = None
     context_object_name = "workflow"
     ajax_template_name = 'horizon/common/_workflow.html'
+    step_errors = {}
 
     def __init__(self):
         if not self.workflow_class:
@@ -100,9 +101,19 @@ class WorkflowView(generic.TemplateView):
             template = self.template_name
         return template
 
+    def add_error_to_step(self, error_msg, step):
+        self.step_errors[step] = error_msg
+
+    def set_workflow_step_errors(self, context):
+        workflow = context['workflow']
+        for step in self.step_errors:
+            error_msg = self.step_errors[step]
+            workflow.add_error_to_step(error_msg, step)
+
     def get(self, request, *args, **kwargs):
         """ Handler for HTTP GET requests. """
         context = self.get_context_data(**kwargs)
+        self.set_workflow_step_errors(context)
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):

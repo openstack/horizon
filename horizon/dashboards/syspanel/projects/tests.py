@@ -16,11 +16,13 @@
 
 from django import http
 from django.core.urlresolvers import reverse
-from mox import IgnoreArg, IsA
+from mox import IsA
 
 from horizon import api
 from horizon import test
 
+from .workflows import CreateProject, UpdateProject
+from .views import QUOTA_FIELDS
 
 INDEX_URL = reverse('horizon:syspanel:projects:index')
 
@@ -36,49 +38,344 @@ class TenantsViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'syspanel/projects/index.html')
         self.assertItemsEqual(res.context['table'].data, self.tenants.list())
 
-    def test_modify_quota(self):
-        tenant = self.tenants.first()
+
+class CreateProjectWorkflowTests(test.BaseAdminViewTests):
+    def _get_project_info(self, project):
+        project_info = {"tenant_name": project.name,
+                        "description": project.description,
+                        "enabled": project.enabled}
+        return project_info
+
+    def _get_workflow_fields(self, project):
+        project_info = {"name": project.name,
+                        "description": project.description,
+                        "enabled": project.enabled}
+        return project_info
+
+    def _get_quota_info(self, quota):
+        quota_data = {}
+        for field in QUOTA_FIELDS:
+            quota_data[field] = int(getattr(quota, field, None))
+        return quota_data
+
+    def _get_workflow_data(self, project, quota):
+        project_info = self._get_workflow_fields(project)
+        quota_data = self._get_quota_info(quota)
+        project_info.update(quota_data)
+        return project_info
+
+    @test.create_stubs({api: ('tenant_quota_defaults',)})
+    def test_add_project_get(self):
         quota = self.quotas.first()
-        quota_data = {"metadata_items": 1,
-                      "injected_files": 1,
-                      "injected_file_content_bytes": 1,
-                      "cores": 1,
-                      "instances": 1,
-                      "volumes": 1,
-                      "gigabytes": 1,
-                      "ram": 1,
-                      "floating_ips": 1}
-        self.mox.StubOutWithMock(api.keystone, 'tenant_get')
-        self.mox.StubOutWithMock(api.nova, 'tenant_quota_get')
-        self.mox.StubOutWithMock(api.nova, 'tenant_quota_update')
-        api.nova.tenant_quota_get(IgnoreArg(), tenant.id).AndReturn(quota)
-        api.nova.tenant_quota_update(IgnoreArg(), tenant.id, **quota_data)
+        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(quota)
+
         self.mox.ReplayAll()
 
-        url = reverse('horizon:syspanel:projects:quotas',
-                      args=[self.tenant.id])
-        quota_data.update({"method": "UpdateQuotas",
-                           "tenant_id": self.tenant.id})
-        res = self.client.post(url, quota_data)
+        url = reverse('horizon:syspanel:projects:create')
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'syspanel/projects/create.html')
+
+        workflow = res.context['workflow']
+        self.assertEqual(res.context['workflow'].name, CreateProject.name)
+
+        step = workflow.get_step("createprojectinfoaction")
+        self.assertEqual(step.action.initial['ram'], quota.ram)
+        self.assertEqual(step.action.initial['injected_files'],
+                         quota.injected_files)
+        self.assertQuerysetEqual(workflow.steps,
+                            ['<CreateProjectInfo: createprojectinfoaction>',
+                             '<UpdateProjectQuota: update_quotas>'])
+
+    @test.create_stubs({api.keystone: ('tenant_create',),
+                        api.nova: ('tenant_quota_update',)})
+    def test_add_project_post(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        project_details = self._get_project_info(project)
+        quota_data = self._get_quota_info(quota)
+
+        api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
+                    .AndReturn(project)
+        api.nova.tenant_quota_update(IsA(http.HttpRequest),
+                                     project.id,
+                                     **quota_data)
+
+        self.mox.ReplayAll()
+
+        workflow_data = self._get_workflow_data(project, quota)
+
+        url = reverse('horizon:syspanel:projects:create')
+        res = self.client.post(url, workflow_data)
+
+        self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    def test_modify_users(self):
-        self.mox.StubOutWithMock(api.keystone, 'tenant_get')
-        self.mox.StubOutWithMock(api.keystone, 'user_list')
-        self.mox.StubOutWithMock(api.keystone, 'roles_for_user')
-        api.keystone.tenant_get(IgnoreArg(), self.tenant.id, admin=True) \
-                    .AndReturn(self.tenant)
-        api.keystone.user_list(IsA(http.HttpRequest)) \
-                    .AndReturn(self.users.list())
-        api.keystone.user_list(IsA(http.HttpRequest), self.tenant.id) \
-                    .AndReturn([self.user])
-        api.keystone.roles_for_user(IsA(http.HttpRequest),
-                                    self.user.id,
-                                    self.tenant.id) \
-                    .AndReturn(self.roles.list())
+    @test.create_stubs({api: ('tenant_quota_defaults',)})
+    def test_add_project_quota_defaults_error(self):
+        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
+            .AndRaise(self.exceptions.nova)
+
         self.mox.ReplayAll()
-        url = reverse('horizon:syspanel:projects:users',
-                      args=(self.tenant.id,))
+
+        url = reverse('horizon:syspanel:projects:create')
         res = self.client.get(url)
-        self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'syspanel/projects/users.html')
+
+        self.assertTemplateUsed(res, 'syspanel/projects/create.html')
+        self.assertContains(res, "Unable to retrieve default quota values")
+
+    @test.create_stubs({api.keystone: ('tenant_create',),
+                        api.nova: ('tenant_quota_update',)})
+    def test_add_project_tenant_create_error(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        project_details = self._get_project_info(project)
+
+        api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
+            .AndRaise(self.exceptions.keystone)
+
+        self.mox.ReplayAll()
+
+        workflow_data = self._get_workflow_data(project, quota)
+
+        url = reverse('horizon:syspanel:projects:create')
+        res = self.client.post(url, workflow_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.keystone: ('tenant_create',),
+                        api.nova: ('tenant_quota_update',)})
+    def test_add_project_quota_update_error(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        project_details = self._get_project_info(project)
+        quota_data = self._get_quota_info(quota)
+
+        api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
+                    .AndReturn(project)
+        api.nova.tenant_quota_update(IsA(http.HttpRequest),
+                                     project.id,
+                                     **quota_data) \
+                                    .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        workflow_data = self._get_workflow_data(project, quota)
+
+        url = reverse('horizon:syspanel:projects:create')
+        res = self.client.post(url, workflow_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_add_project_missing_field_error(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        workflow_data = self._get_workflow_data(project, quota)
+        workflow_data["name"] = ""
+
+        url = reverse('horizon:syspanel:projects:create')
+        res = self.client.post(url, workflow_data)
+
+        self.assertContains(res, "field is required")
+
+
+class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
+    def _get_quota_info(self, quota):
+        quota_data = {}
+        for field in QUOTA_FIELDS:
+            quota_data[field] = int(getattr(quota, field, None))
+        return quota_data
+
+    @test.create_stubs({api: ('tenant_get',
+                              'tenant_quota_get',)})
+    def test_update_project_get(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
+            .AndReturn(project)
+        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(quota)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:syspanel:projects:update',
+                      args=[self.tenant.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'syspanel/projects/update.html')
+
+        workflow = res.context['workflow']
+        self.assertEqual(res.context['workflow'].name, UpdateProject.name)
+
+        step = workflow.get_step("update_info")
+        self.assertEqual(step.action.initial['ram'], quota.ram)
+        self.assertEqual(step.action.initial['injected_files'],
+                         quota.injected_files)
+        self.assertEqual(step.action.initial['name'], project.name)
+        self.assertEqual(step.action.initial['description'],
+                         project.description)
+        self.assertQuerysetEqual(workflow.steps,
+                            ['<UpdateProjectInfo: update_info>',
+                             '<UpdateProjectQuota: update_quotas>'])
+
+    @test.create_stubs({api: ('tenant_get',
+                              'tenant_quota_get',
+                              'tenant_update',
+                              'tenant_quota_update',)})
+    def test_update_project_post(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        api.tenant_get(IsA(http.HttpRequest), project.id, admin=True) \
+            .AndReturn(project)
+        api.tenant_quota_get(IsA(http.HttpRequest), project.id) \
+            .AndReturn(quota)
+
+        # update some fields
+        project._info["name"] = "updated name"
+        project._info["description"] = "updated description"
+        quota.metadata_items = 444
+        quota.volumes = 444
+
+        updated_project = {"tenant_name": project._info["name"],
+                           "tenant_id": project.id,
+                           "description": project._info["description"],
+                           "enabled": project.enabled}
+        updated_quota = self._get_quota_info(quota)
+
+        api.tenant_update(IsA(http.HttpRequest), **updated_project) \
+            .AndReturn(project)
+        api.tenant_quota_update(IsA(http.HttpRequest),
+                                project.id,
+                                **updated_quota)
+
+        self.mox.ReplayAll()
+
+        # submit form data
+        workflow_data = {"name": project._info["name"],
+                         "id": project.id,
+                         "description": project._info["description"],
+                         "enabled": project.enabled}
+        workflow_data.update(updated_quota)
+        url = reverse('horizon:syspanel:projects:update',
+                      args=[self.tenant.id])
+        res = self.client.post(url, workflow_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api: ('tenant_get',
+                              'tenant_quota_get',)})
+    def test_update_project_get_error(self):
+        project = self.tenants.first()
+
+        api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
+            .AndReturn(project)
+        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:syspanel:projects:update',
+                      args=[self.tenant.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api: ('tenant_get',
+                              'tenant_quota_get',
+                              'tenant_update',)})
+    def test_update_project_tenant_update_error(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        api.tenant_get(IsA(http.HttpRequest), project.id, admin=True) \
+            .AndReturn(project)
+        api.tenant_quota_get(IsA(http.HttpRequest), project.id) \
+            .AndReturn(quota)
+
+        # update some fields
+        project._info["name"] = "updated name"
+        project._info["description"] = "updated description"
+        quota.metadata_items = '444'
+        quota.volumes = '444'
+
+        updated_project = {"tenant_name": project._info["name"],
+                           "tenant_id": project.id,
+                           "description": project._info["description"],
+                           "enabled": project.enabled}
+        updated_quota = self._get_quota_info(quota)
+
+        api.tenant_update(IsA(http.HttpRequest), **updated_project) \
+            .AndRaise(self.exceptions.keystone)
+
+        self.mox.ReplayAll()
+
+        # submit form data
+        workflow_data = {"name": project._info["name"],
+                         "id": project.id,
+                         "description": project._info["description"],
+                         "enabled": project.enabled}
+        workflow_data.update(updated_quota)
+        url = reverse('horizon:syspanel:projects:update',
+                      args=[self.tenant.id])
+        res = self.client.post(url, workflow_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api: ('tenant_get',
+                              'tenant_quota_get',
+                              'tenant_update',
+                              'tenant_quota_update',)})
+    def test_update_project_quota_update_error(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        # first set of calls for 'get' because the url takes an arg
+        api.tenant_get(IsA(http.HttpRequest), project.id, admin=True) \
+            .AndReturn(project)
+        api.tenant_quota_get(IsA(http.HttpRequest), project.id) \
+            .AndReturn(quota)
+
+        # update some fields
+        project._info["name"] = "updated name"
+        project._info["description"] = "updated description"
+        quota.metadata_items = '444'
+        quota.volumes = '444'
+
+        updated_project = {"tenant_name": project._info["name"],
+                           "tenant_id": project.id,
+                           "description": project._info["description"],
+                           "enabled": project.enabled}
+        updated_quota = self._get_quota_info(quota)
+
+        api.tenant_update(IsA(http.HttpRequest), **updated_project) \
+            .AndReturn(project)
+        api.tenant_quota_update(IsA(http.HttpRequest),
+                                project.id,
+                                **updated_quota) \
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        # submit form data
+        workflow_data = {"name": updated_project["tenant_name"],
+                         "id": project.id,
+                         "description": updated_project["description"],
+                         "enabled": project.enabled}
+        workflow_data.update(updated_quota)
+        url = reverse('horizon:syspanel:projects:update',
+                      args=[self.tenant.id])
+        res = self.client.post(url, workflow_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)

@@ -26,6 +26,7 @@ from django.utils.encoding import force_unicode
 from django.utils.importlib import import_module
 from django.utils.translation import ugettext as _
 from django.template.defaultfilters import linebreaks, safe
+from django.forms.forms import NON_FIELD_ERRORS
 
 from horizon import base
 from horizon import exceptions
@@ -162,6 +163,12 @@ class Action(forms.Form):
         else:
             text += linebreaks(force_unicode(self.help_text))
         return safe(text)
+
+    def add_error(self, message):
+        """
+        Adds an error to the Action's Step based on API issues.
+        """
+        self._get_errors()[NON_FIELD_ERRORS] = self.error_class([message])
 
     def handle(self, request, context):
         """
@@ -417,6 +424,12 @@ class Step(object):
         text = linebreaks(force_unicode(self.help_text))
         text += self.action.get_help_text()
         return safe(text)
+
+    def add_error(self, message):
+        """
+        Adds an error to the Step based on API issues.
+        """
+        self.action.add_error(message)
 
 
 class WorkflowMetaclass(type):
@@ -779,3 +792,14 @@ class Workflow(html.HTMLElement):
         e.g. the path at which the workflow was requested.
         """
         return self.request.get_full_path().partition('?')[0]
+
+    def add_error_to_step(self, message, slug):
+        """
+        Adds an error to the workflow's Step with the
+        specifed slug based on API issues. This is useful
+        when you wish for API errors to appear as errors on
+        the form rather than using the messages framework.
+        """
+        step = self.get_step(slug)
+        if step:
+            step.add_error(message)

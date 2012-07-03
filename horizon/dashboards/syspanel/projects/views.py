@@ -29,11 +29,28 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import usage
-from .forms import AddUser, CreateTenant, UpdateTenant, UpdateQuotas
-from .tables import TenantsTable, TenantUsersTable, AddUsersTable
+from horizon import workflows
 
+from .forms import AddUser
+from .tables import TenantsTable, TenantUsersTable, AddUsersTable
+from .workflows import CreateProject, UpdateProject
 
 LOG = logging.getLogger(__name__)
+
+
+QUOTA_FIELDS = ("metadata_items",
+                "cores",
+                "instances",
+                "injected_files",
+                "injected_file_content_bytes",
+                "volumes",
+                "gigabytes",
+                "ram",
+                "floating_ips")
+
+PROJECT_INFO_FIELDS = ("name",
+                       "description",
+                       "enabled")
 
 
 class TenantContextMixin(object):
@@ -70,25 +87,6 @@ class IndexView(tables.DataTableView):
                               _("Unable to retrieve project list."))
         tenants.sort(key=lambda x: x.id, reverse=True)
         return tenants
-
-
-class CreateView(forms.ModalFormView):
-    form_class = CreateTenant
-    template_name = 'syspanel/projects/create.html'
-    success_url = reverse_lazy('horizon:syspanel:projects:index')
-
-
-class UpdateView(TenantContextMixin, forms.ModalFormView):
-    form_class = UpdateTenant
-    template_name = 'syspanel/projects/update.html'
-    success_url = reverse_lazy('horizon:syspanel:projects:index')
-
-    def get_initial(self):
-        project = self.get_object()
-        return {'id': project.id,
-                'name': project.name,
-                'description': project.description,
-                'enabled': project.enabled}
 
 
 class UsersView(tables.MultiTableView):
@@ -165,32 +163,6 @@ class AddUserView(TenantContextMixin, forms.ModalFormView):
                 'role_id': getattr(default_role, "id", None)}
 
 
-class QuotasView(TenantContextMixin, forms.ModalFormView):
-    form_class = UpdateQuotas
-    template_name = 'syspanel/projects/quotas.html'
-    success_url = reverse_lazy('horizon:syspanel:projects:index')
-
-    def get_initial(self):
-        try:
-            quotas = api.nova.tenant_quota_get(self.request,
-                                               self.kwargs['tenant_id'])
-        except:
-            exceptions.handle(self.request,
-                              _("Unable to retrieve quota information."),
-                              redirect=reverse(self.get_sucess_url))
-        return {
-            'tenant_id': self.kwargs['tenant_id'],
-            'metadata_items': quotas.metadata_items,
-            'injected_file_content_bytes': quotas.injected_file_content_bytes,
-            'volumes': quotas.volumes,
-            'gigabytes': quotas.gigabytes,
-            'ram': quotas.ram,
-            'floating_ips': quotas.floating_ips,
-            'instances': quotas.instances,
-            'injected_files': quotas.injected_files,
-            'cores': quotas.cores}
-
-
 class TenantUsageView(usage.UsageView):
     table_class = usage.TenantUsageTable
     usage_class = usage.TenantUsage
@@ -199,3 +171,52 @@ class TenantUsageView(usage.UsageView):
     def get_data(self):
         super(TenantUsageView, self).get_data()
         return self.usage.get_instances()
+
+
+class CreateProjectView(workflows.WorkflowView):
+    workflow_class = CreateProject
+    template_name = "syspanel/projects/create.html"
+
+    def get_initial(self):
+        initial = super(CreateProjectView, self).get_initial()
+
+        # get initial quota defaults
+        try:
+            quota_defaults = api.tenant_quota_defaults(self.request,
+                                        self.request.user.tenant_id)
+            for field in QUOTA_FIELDS:
+                initial[field] = getattr(quota_defaults, field, None)
+
+        except:
+            error_msg = _('Unable to retrieve default quota values.')
+            self.add_error_to_step(error_msg, 'update_quotas')
+
+        return initial
+
+
+class UpdateProjectView(workflows.WorkflowView):
+    workflow_class = UpdateProject
+    template_name = "syspanel/projects/update.html"
+
+    def get_initial(self):
+        initial = super(UpdateProjectView, self).get_initial()
+
+        project_id = self.kwargs['tenant_id']
+        initial['project_id'] = project_id
+
+        try:
+            # get initial project info
+            project_info = api.tenant_get(self.request, project_id, admin=True)
+            for field in PROJECT_INFO_FIELDS:
+                initial[field] = getattr(project_info, field, None)
+
+            # get initial project quota
+            quota_data = api.tenant_quota_get(self.request, project_id)
+            for field in QUOTA_FIELDS:
+                initial[field] = getattr(quota_data, field, None)
+        except:
+            redirect = reverse("horizon:syspanel:projects:index")
+            exceptions.handle(self.request,
+                                _('Unable to retrieve project details.'),
+                                redirect=redirect)
+        return initial

@@ -20,17 +20,16 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import (IndexView, CreateView, UpdateView, QuotasView, UsersView,
-                    AddUserView, TenantUsageView)
+from .views import (IndexView, UsersView,
+                    AddUserView, TenantUsageView,
+                    CreateProjectView, UpdateProjectView)
 
 
 urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^create$', CreateView.as_view(), name='create'),
+    url(r'^create$', CreateProjectView.as_view(), name='create'),
     url(r'^(?P<tenant_id>[^/]+)/update/$',
-        UpdateView.as_view(), name='update'),
-    url(r'^(?P<tenant_id>[^/]+)/quotas/$',
-        QuotasView.as_view(), name='quotas'),
+        UpdateProjectView.as_view(), name='update'),
     url(r'^(?P<tenant_id>[^/]+)/usage/$',
         TenantUsageView.as_view(), name='usage'),
     url(r'^(?P<tenant_id>[^/]+)/users/$', UsersView.as_view(), name='users'),
