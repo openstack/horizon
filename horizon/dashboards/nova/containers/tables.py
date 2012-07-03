@@ -152,15 +152,14 @@ def sanitize_name(name):
     return name.split("/")[-1]
 
 
-def get_size(obj):
-    return filesizeformat(obj.size)
-
-
 class ObjectsTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Object Name"),
                          filters=(sanitize_name,))
-    size = tables.Column(get_size, verbose_name=_('Size'))
+    size = tables.Column("size",
+                         verbose_name=_('Size'),
+                         filters=(filesizeformat,),
+                         summation="sum")
 
     def get_object_id(self, obj):
         return obj.name

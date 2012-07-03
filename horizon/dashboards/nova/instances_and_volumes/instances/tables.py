@@ -229,13 +229,15 @@ def get_ips(instance):
 
 def get_size(instance):
     if hasattr(instance, "full_flavor"):
-        size_string = _("%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk")
+        size_string = _("%(name)s | %(RAM)s RAM | %(VCPU)s VCPU "
+                        "| %(disk)s Disk")
         vals = {'name': instance.full_flavor.name,
                 'RAM': sizeformat.mbformat(instance.full_flavor.ram),
                 'VCPU': instance.full_flavor.vcpus,
                 'disk': sizeformat.diskgbformat(instance.full_flavor.disk)}
         return size_string % vals
     return _("Not available")
+
 
 def get_keyname(instance):
     if hasattr(instance, "key_name"):
