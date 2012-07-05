@@ -164,16 +164,16 @@ horizon.datatables.set_table_sorting = function (parent) {
 // Function to initialize the tablesorter plugin strictly on sortable columns.
 $(parent).find("table.table").each(function () {
   var $this = $(this),
-      options = {};
+      header_options = {};
   $this.find("thead th").each(function (i, val) {
     // Disable if not sortable or has <= 1 item
-    if (!$(this).hasClass('sortable') ||
-        $this.find('tbody tr').not('.empty').length <= 1) {
-      options[i] = {sorter: false};
+    if (!$(this).hasClass('sortable') || $this.find('tbody tr').not('.empty').length <= 1) {
+      header_options[i] = {sorter: false};
     }
   });
   $this.tablesorter({
-    headers: options
+    headers: header_options,
+    cancelSelection: false
   });
 });
 };
