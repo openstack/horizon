@@ -14,16 +14,28 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import shortcuts
+from horizon.api import keystone
+from horizon.forms import ModalFormView
+
 from .forms import DownloadOpenRCForm
+from .tables import EndpointsTable
 
 
-def index(request):
-    form, handled = DownloadOpenRCForm.maybe_handle(request,
-                        initial={'tenant': request.user.tenant_id})
-    if handled:
-        return handled
+class OpenRCView(ModalFormView):
+    form_class = DownloadOpenRCForm
+    template_name = 'settings/project/settings.html'
 
-    context = {'form': form}
+    def get_data(self):
+        services = []
+        for i, service in enumerate(self.request.user.service_catalog):
+            service['id'] = i
+            services.append(keystone.Service(service))
+        return services
 
-    return shortcuts.render(request, 'settings/project/settings.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(OpenRCView, self).get_context_data(**kwargs)
+        context["endpoints"] = EndpointsTable(self.request, self.get_data())
+        return context
+
+    def get_initial(self):
+        return {'tenant': self.request.user.tenant_id}

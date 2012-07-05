@@ -5,9 +5,16 @@
 {% block form_action %}{% url horizon:settings:project:index %}{% endblock %}
 
 {% block modal_id %}language_settings_modal{% endblock %}
-{% block modal-header %}{% trans "Download OpenStack RC File" %}{% endblock %}
+{% block modal-header %}{% trans "OpenStack API" %}{% endblock %}
 
 {% block modal-body %}
+<div>
+    {{ endpoints.render }}
+</div>
+<div>
+    <h3>{% trans "Download OpenStack RC File" %}</h3>
+    <hr />
+</div>
 <div class="left">
     <fieldset>
     {% include "horizon/common/_form_fields.html" %}
@@ -23,4 +30,3 @@
     <input class="btn btn-primary pull-right" type="submit" value="{% trans "Download RC File" %}" />
     {% if hide %}<a href="{% url horizon:settings:project:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
 {% endblock %}
-

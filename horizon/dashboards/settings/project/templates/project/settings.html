@@ -1,9 +1,9 @@
 {% extends 'settings/base.html' %}
 {% load i18n %}
-{% block title %}OpenRC Download{% endblock %}
+{% block title %}{% trans "OpenStack API" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Download OpenStack RC File") %}
+  {% include "horizon/common/_page_header.html" with title=_("OpenStack API") %}
 {% endblock page_header %}
 
 {% block settings_main %}

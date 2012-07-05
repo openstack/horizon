@@ -14,10 +14,20 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django.utils.translation import ugettext as _
 
-from .views import OpenRCView
+from horizon import tables
 
 
-urlpatterns = patterns('',
-    url(r'^$', OpenRCView.as_view(), name='index'))
+def get_endpoint(service):
+    return service.endpoints[0]['publicURL']
+
+
+class EndpointsTable(tables.DataTable):
+    api_name = tables.Column('name', verbose_name=_("Service Name"))
+    api_endpoint = tables.Column(get_endpoint,
+                                 verbose_name=_("Service Endpoint"))
+
+    class Meta:
+        name = "endpoints"
+        verbose_name = _("API Endpoints")
