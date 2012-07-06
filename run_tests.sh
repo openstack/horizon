@@ -123,16 +123,7 @@ function run_pylint {
 
 function run_pep8 {
   echo "Running pep8 ..."
-  rm -f pep8.txt
-  ${command_wrapper} pep8 $included_dirs | perl -ple 's/: ([WE]\d+)/: [$1]/' > pep8.txt || true
-  PEP8_COUNT=`wc -l pep8.txt | awk '{ print $1 }'`
-  if [ $PEP8_COUNT -ge 1 ]; then
-    echo "PEP8 violations found ($PEP8_COUNT):"
-    cat pep8.txt
-    echo "Please fix all PEP8 violations before committing."
-  else
-    echo "No violations found. Good job!"
-  fi
+  ${command_wrapper} pep8 $included_dirs || true
 }
 
 function run_sphinx {
