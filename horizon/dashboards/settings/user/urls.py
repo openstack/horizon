@@ -16,6 +16,8 @@
 
 from django.conf.urls.defaults import patterns, url
 
+from .views import UserSettingsView
 
-urlpatterns = patterns('horizon.dashboards.settings.user.views',
-    url(r'^$', 'index', name='index'))
+
+urlpatterns = patterns('',
+    url(r'^$', UserSettingsView.as_view(), name='index'))

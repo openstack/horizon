@@ -14,8 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import shortcuts
+from horizon import forms
+
+from .forms import UserSettingsForm
 
 
-def index(request):
-    return shortcuts.render(request, 'settings/user/settings.html', {})
+class UserSettingsView(forms.ModalFormView):
+    form_class = UserSettingsForm
+    template_name = 'settings/user/settings.html'
+
+    def get_initial(self):
+        return {'language': self.request.LANGUAGE_CODE,
+                'timezone': self.request.session.get('django_timezone', 'UTC')}

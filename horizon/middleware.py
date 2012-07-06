@@ -25,10 +25,10 @@ import logging
 
 from django import http
 from django import shortcuts
-
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.utils import timezone
 from django.utils.encoding import iri_to_uri
 
 from horizon import exceptions
@@ -50,6 +50,11 @@ class HorizonMiddleware(object):
 
         Adds a :class:`~horizon.users.User` object to ``request.user``.
         """
+        # Activate timezone handling
+        tz = request.session.get('django_timezone')
+        if tz:
+            timezone.activate(tz)
+
         # A quick and dirty way to log users out
         def user_logout(request):
             if hasattr(request, '_cached_user'):
