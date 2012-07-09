@@ -84,7 +84,7 @@ class UploadObject(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255,
                            label=_("Object Name"),
                            validators=[no_slash_validator])
-    object_file = forms.FileField(label=_("File"))
+    object_file = forms.FileField(label=_("File"), allow_empty_file=True)
     container_name = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):
