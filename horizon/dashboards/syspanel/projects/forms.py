@@ -60,7 +60,8 @@ class CreateTenant(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"))
     description = forms.CharField(
             widget=forms.widgets.Textarea(),
-            label=_("Description"))
+            label=_("Description"),
+            required=False)
     enabled = forms.BooleanField(label=_("Enabled"), required=False,
             initial=True)
 
