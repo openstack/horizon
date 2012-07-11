@@ -185,9 +185,17 @@ class SetInstanceDetailsAction(workflows.Action):
 
         # Validate our instance source.
         source = cleaned_data['source_type']
+        # There should always be at least one image_id choice, telling the user
+        # that there are "No Images Available" so we check for 2 here...
+        if source == 'image_id' and not \
+                filter(lambda x: x[0] != '', self.fields['image_id'].choices):
+            raise forms.ValidationError(_("There are no image sources "
+                                          "available; you must first create "
+                                          "an image before attempting to "
+                                          "launch an instance."))
         if not cleaned_data[source]:
-            raise forms.ValidationError("Please select an option for the "
-                                        "instance source.")
+            raise forms.ValidationError(_("Please select an option for the "
+                                          "instance source."))
 
         # Prevent launching multiple instances with the same volume.
         # TODO(gabriel): is it safe to launch multiple instances with

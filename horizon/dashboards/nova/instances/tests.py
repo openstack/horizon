@@ -600,7 +600,7 @@ class InstanceTests(test.TestCase):
                                    'volume_snapshot_list',
                                    'volume_list',),
                         api.glance: ('image_list_detailed',)})
-    def test_launch_get(self):
+    def test_launch_instance_get(self):
         quota_usages = self.quota_usages.first()
         image = self.images.first()
 
@@ -652,7 +652,7 @@ class InstanceTests(test.TestCase):
                                    'volume_snapshot_list',
                                    'tenant_quota_usages',
                                    'server_create',)})
-    def test_launch_post(self):
+    def test_launch_instance_post(self):
         flavor = self.flavors.first()
         image = self.images.first()
         keypair = self.keypairs.first()
@@ -710,6 +710,66 @@ class InstanceTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:nova:instances:index'))
+
+    @test.create_stubs({api.glance: ('image_list_detailed',),
+                    api.nova: ('flavor_list',
+                               'keypair_list',
+                               'security_group_list',
+                               'volume_list',
+                               'tenant_quota_usages',
+                               'volume_snapshot_list',)})
+    def test_launch_instance_post_no_images_available(self):
+        flavor = self.flavors.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        volume = self.volumes.first()
+        sec_group = self.security_groups.first()
+        customization_script = 'user data'
+        device_name = u'vda'
+        volume_choice = "%s:vol" % volume.id
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn({})
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True}) \
+                .AndReturn([[], False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id}) \
+                .AndReturn([[], False])
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+        api.nova.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'image_id',
+                     'image_id': '',
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'customization_script': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'volume_type': 'volume_id',
+                     'volume_id': volume_choice,
+                     'device_name': device_name,
+                     'count': 1}
+        url = reverse('horizon:nova:instances:launch')
+        res = self.client.post(url, form_data)
+
+        self.assertFormErrors(res, 1, 'There are no image sources available; '
+                                      'you must first create an image before '
+                                      'attempting to launch an instance.')
+        self.assertTemplateUsed(res,
+                        'nova/instances/launch.html')
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.nova: ('tenant_quota_usages',
