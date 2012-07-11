@@ -14,9 +14,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django import shortcuts
 from django.views import generic
 
+import horizon
 from horizon import exceptions
+
+
+def user_home(request):
+    """ Reversible named view to direct a user to the appropriate homepage. """
+    return shortcuts.redirect(horizon.get_user_home(request.user))
 
 
 class APIView(generic.TemplateView):

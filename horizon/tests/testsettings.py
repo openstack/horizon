@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.humanize',
     'django_nose',
+    'openstack_auth',
     'horizon',
     'horizon.tests',
     'horizon.dashboards.nova',
@@ -57,6 +58,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -98,6 +100,8 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
+
+AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
 
 HORIZON_CONFIG = {
     'dashboards': ('nova', 'syspanel', 'settings'),

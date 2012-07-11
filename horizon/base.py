@@ -39,8 +39,7 @@ from django.utils.module_loading import module_has_submodule
 from django.utils.translation import ugettext as _
 
 from horizon import loaders
-from horizon.decorators import (require_auth, require_roles,
-                                require_services, _current_component)
+from horizon.decorators import require_auth, require_perms, _current_component
 
 
 LOG = logging.getLogger(__name__)
@@ -173,7 +172,7 @@ class Panel(HorizonComponent):
 
     All Horizon dashboard panels should extend from this class. It provides
     the appropriate hooks for automatically constructing URLconfs, and
-    providing role-based access control.
+    providing permission-based access control.
 
     .. attribute:: name
 
@@ -186,17 +185,12 @@ class Panel(HorizonComponent):
         A unique "short name" for the panel. The slug is used as
         a component of the URL path for the panel. Default: ``''``.
 
-    .. attribute:: roles
+    .. attribute:: permissions
 
-        A list of role names, all of which a user must possess in order
+        A list of permission names, all of which a user must possess in order
         to access any view associated with this panel. This attribute
-        is combined cumulatively with any roles required on the
+        is combined cumulatively with any permissions required on the
         ``Dashboard`` class with which it is registered.
-
-    .. attribute:: services
-
-        A list of service names, all of which must be in the service catalog
-        in order for this panel to be available.
 
     .. attribute:: urls
 
@@ -249,10 +243,8 @@ class Panel(HorizonComponent):
         urlpatterns = self._get_default_urlpatterns()
 
         # Apply access controls to all views in the patterns
-        roles = getattr(self, 'roles', [])
-        services = getattr(self, 'services', [])
-        _decorate_urlconf(urlpatterns, require_roles, roles)
-        _decorate_urlconf(urlpatterns, require_services, services)
+        permissions = getattr(self, 'permissions', [])
+        _decorate_urlconf(urlpatterns, require_perms, permissions)
         _decorate_urlconf(urlpatterns, _current_component, panel=self)
 
         # Return the three arguments to django.conf.urls.defaults.include
@@ -307,8 +299,8 @@ class Dashboard(Registry, HorizonComponent):
 
     All Horizon dashboards should extend from this base class. It provides the
     appropriate hooks for automatic discovery of :class:`~horizon.Panel`
-    modules, automatically constructing URLconfs, and providing role-based
-    access control.
+    modules, automatically constructing URLconfs, and providing
+    permission-based access control.
 
     .. attribute:: name
 
@@ -360,17 +352,12 @@ class Dashboard(Registry, HorizonComponent):
         for this dashboard, that's the panel that is displayed.
         Default: ``None``.
 
-    .. attribute:: roles
+    .. attribute:: permissions
 
-        A list of role names, all of which a user must possess in order
+        A list of permission names, all of which a user must possess in order
         to access any panel registered with this dashboard. This attribute
-        is combined cumulatively with any roles required on individual
+        is combined cumulatively with any permissions required on individual
         :class:`~horizon.Panel` classes.
-
-    .. attribute:: services
-
-        A list of service names, all of which must be in the service catalog
-        in order for this dashboard to be available.
 
     .. attribute:: urls
 
@@ -491,10 +478,8 @@ class Dashboard(Registry, HorizonComponent):
         if not self.public:
             _decorate_urlconf(urlpatterns, require_auth)
         # Apply access controls to all views in the patterns
-        roles = getattr(self, 'roles', [])
-        services = getattr(self, 'services', [])
-        _decorate_urlconf(urlpatterns, require_roles, roles)
-        _decorate_urlconf(urlpatterns, require_services, services)
+        permissions = getattr(self, 'permissions', [])
+        _decorate_urlconf(urlpatterns, require_perms, permissions)
         _decorate_urlconf(urlpatterns, _current_component, dashboard=self)
 
         # Return the three arguments to django.conf.urls.defaults.include

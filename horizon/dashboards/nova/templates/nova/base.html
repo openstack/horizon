@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-{% if request.user.is_admin %}
+{% if request.user.is_superuser %}
 <div class="warning">
   <div class="warning-text">
     <h3 class="alert-error">

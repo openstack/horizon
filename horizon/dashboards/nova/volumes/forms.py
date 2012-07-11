@@ -37,11 +37,12 @@ class CreateForm(forms.SelfHandlingForm):
                 data['size'] = int(data['size'])
 
             if usages['gigabytes']['available'] < data['size']:
-                error_message = _('A volume of %iGB cannot be created as you'
-                                  ' only have %iGB of your quota available.'
-                                  % (data['size'],
-                                     usages['gigabytes']['available'],))
-                raise ValidationError(error_message)
+                error_message = _('A volume of %(req)iGB cannot be created as '
+                                  'you only have %(avail)iGB of your quota '
+                                  'available.')
+                params = {'req': data['size'],
+                          'avail': usages['gigabytes']['available']}
+                raise ValidationError(error_message % params)
             elif usages['volumes']['available'] <= 0:
                 error_message = _('You are already using all of your available'
                                   ' volumes.')

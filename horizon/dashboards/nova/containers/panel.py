@@ -27,6 +27,6 @@ from horizon.dashboards.nova import dashboard
 class Containers(horizon.Panel):
     name = _("Containers")
     slug = 'containers'
-    services = ('object-store',)
+    permissions = ('openstack.services.object-store',)
 
 dashboard.Nova.register(Containers)

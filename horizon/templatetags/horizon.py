@@ -29,24 +29,10 @@ register = template.Library()
 @register.filter
 def has_permissions(user, component):
     """
-    Checks if the given user meets the requirements for the component. This
-    includes both user roles and services in the service catalog.
+    Checks if the given user meets the permissions requirements for
+    the component.
     """
-    if hasattr(user, 'roles'):
-        user_roles = set([role['name'].lower() for role in user.roles])
-    else:
-        user_roles = set([])
-    roles_statisfied = set(getattr(component, 'roles', [])) <= user_roles
-
-    if hasattr(user, 'service_catalog'):
-        services = set([service['type'] for service in user.service_catalog])
-    else:
-        services = set([])
-    services_statisfied = set(getattr(component, 'services', [])) <= services
-
-    if roles_statisfied and services_statisfied:
-        return True
-    return False
+    return user.has_perms(getattr(component, 'permissions', set()))
 
 
 @register.filter

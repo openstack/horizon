@@ -44,8 +44,8 @@ class SwiftAuthentication(object):
 def swift_api(request):
     endpoint = url_for(request, 'object-store')
     LOG.debug('Swift connection created using token "%s" and url "%s"'
-              % (request.session['token'], endpoint))
-    auth = SwiftAuthentication(endpoint, request.session['token'])
+              % (request.user.token.id, endpoint))
+    auth = SwiftAuthentication(endpoint, request.user.token.id)
     return cloudfiles.get_connection(auth=auth)
 
 

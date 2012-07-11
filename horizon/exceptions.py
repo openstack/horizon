@@ -116,8 +116,8 @@ class Http302(HorizonException):
 class NotAuthorized(HorizonException):
     """
     Raised whenever a user attempts to access a resource which they do not
-    have role-based access to (such as when failing the
-    :func:`~horizon.decorators.require_roles` decorator).
+    have permission-based access to (such as when failing the
+    :func:`~horizon.decorators.require_perms` decorator).
 
     The included :class:`~horizon.middleware.HorizonMiddleware` catches
     ``NotAuthorized`` and handles it gracefully by displaying an error

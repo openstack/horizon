@@ -76,7 +76,7 @@ class AdminAction(workflows.Action):
     class Meta:
         name = _("Admin Action")
         slug = "admin_action"
-        roles = ("admin",)
+        permissions = ("openstack.roles.admin",)
 
 
 class TestStepOne(workflows.Step):
@@ -239,7 +239,8 @@ class WorkflowsTests(test.TestCase):
         flow = TestWorkflow(self.request)
         step = AdminStep(flow)
 
-        self.assertItemsEqual(step.roles, (self.roles.admin.name,))
+        self.assertItemsEqual(step.permissions,
+                              ("openstack.roles.%s" % self.roles.admin.name,))
         self.assertQuerysetEqual(flow.steps,
                                  ['<TestStepOne: test_action_one>',
                                   '<TestStepTwo: test_action_two>'])

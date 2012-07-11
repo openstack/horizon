@@ -6,15 +6,8 @@ from horizon import api
 from horizon import test
 
 
-class FlavorsTests(test.TestCase):
+class FlavorsTests(test.BaseAdminViewTests):
     def test_create_new_flavor_when_none_exist(self):
-        # Set admin role
-        self.setActiveUser(token=self.token.id,
-                   username=self.user.name,
-                   tenant_id=self.tenant.id,
-                   service_catalog=self.request.user.service_catalog,
-                   roles=[{'name': 'admin'}])
-
         self.mox.StubOutWithMock(api, 'flavor_list')
         # no pre-existing flavors
         api.flavor_list(IsA(http.HttpRequest)).AndReturn([])

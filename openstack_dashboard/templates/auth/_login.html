@@ -4,7 +4,7 @@
 {% block modal-header %}{% trans "Log In" %}{% endblock %}
 {% block modal_class %}login {% if hide %}modal hide{% endif %}{% endblock %}
 
-{% block form_action %}{% url horizon:auth_login %}{% endblock %}
+{% block form_action %}{% url login %}{% endblock %}
 
 {% block modal-body %}
   <fieldset>

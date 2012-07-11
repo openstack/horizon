@@ -22,22 +22,16 @@ from django.views.generic import TemplateView
 from django.conf.urls.defaults import patterns, url, include
 from django.conf import settings
 
-from horizon.views.auth import LoginView
 
-
-urlpatterns = patterns('horizon.views.auth',
-    url(r'home/$', 'user_home', name='user_home'),
-    url(r"^%s$" % settings.LOGIN_URL.lstrip('/'), LoginView.as_view(),
-        name='auth_login'),
-    url(r"^%s$" % settings.LOGOUT_URL.lstrip('/'), 'logout',
-        name='auth_logout'),
-    url(r'auth/switch/(?P<tenant_id>[^/]+)/$', 'switch_tenants',
-        name='auth_switch'))
+urlpatterns = patterns('horizon.views',
+    url(r'home/$', 'user_home', name='user_home')
+)
 
 urlpatterns += patterns('',
     url(r'^i18n/setlang/$', 'django.views.i18n.set_language',
         name="set_language"),
-    url(r'^i18n/', include('django.conf.urls.i18n')))
+    url(r'^i18n/', include('django.conf.urls.i18n'))
+)
 
 if settings.DEBUG:
     urlpatterns += patterns('',

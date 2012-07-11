@@ -32,7 +32,6 @@ from django.utils import timezone
 from django.utils.encoding import iri_to_uri
 
 from horizon import exceptions
-from horizon import users
 from horizon.openstack.common import jsonutils
 
 
@@ -43,28 +42,12 @@ class HorizonMiddleware(object):
     """ The main Horizon middleware class. Required for use of Horizon. """
 
     def process_request(self, request):
-        """ Adds data necessary for Horizon to function to the request.
-
-        Adds the current "active" :class:`~horizon.Dashboard` and
-        :class:`~horizon.Panel` to ``request.horizon``.
-
-        Adds a :class:`~horizon.users.User` object to ``request.user``.
-        """
+        """ Adds data necessary for Horizon to function to the request. """
         # Activate timezone handling
         tz = request.session.get('django_timezone')
         if tz:
             timezone.activate(tz)
 
-        # A quick and dirty way to log users out
-        def user_logout(request):
-            if hasattr(request, '_cached_user'):
-                del request._cached_user
-            # Use flush instead of clear, so we rotate session keys in
-            # addition to clearing all the session data
-            request.session.flush()
-        request.__class__.user_logout = user_logout
-
-        request.__class__.user = users.LazyUser()
         request.horizon = {'dashboard': None,
                            'panel': None,
                            'async_messages': []}
@@ -76,7 +59,7 @@ class HorizonMiddleware(object):
         """
         if isinstance(exception,
                 (exceptions.NotAuthorized, exceptions.NotAuthenticated)):
-            auth_url = reverse("horizon:auth_login")
+            auth_url = reverse("login")
             next_url = iri_to_uri(request.get_full_path())
             if next_url != auth_url:
                 param = "?%s=%s" % (REDIRECT_FIELD_NAME, next_url)

@@ -1,6 +1,7 @@
 # Horizon Core Requirements
 Django>=1.4
 django_compressor
+django_openstack_auth
 python-cloudfiles
 python-glanceclient
 python-keystoneclient

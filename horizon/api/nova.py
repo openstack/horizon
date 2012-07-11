@@ -192,24 +192,24 @@ class SecurityGroupRule(APIResourceWrapper):
 
 def novaclient(request):
     LOG.debug('novaclient connection created using token "%s" and url "%s"' %
-              (request.user.token, url_for(request, 'compute')))
+              (request.user.token.id, url_for(request, 'compute')))
     c = nova_client.Client(request.user.username,
-                           request.user.token,
+                           request.user.token.id,
                            project_id=request.user.tenant_id,
                            auth_url=url_for(request, 'compute'))
-    c.client.auth_token = request.user.token
+    c.client.auth_token = request.user.token.id
     c.client.management_url = url_for(request, 'compute')
     return c
 
 
 def cinderclient(request):
     LOG.debug('cinderclient connection created using token "%s" and url "%s"' %
-              (request.user.token, url_for(request, 'volume')))
+              (request.user.token.id, url_for(request, 'volume')))
     c = nova_client.Client(request.user.username,
-                           request.user.token,
+                           request.user.token.id,
                            project_id=request.user.tenant_id,
                            auth_url=url_for(request, 'volume'))
-    c.client.auth_token = request.user.token
+    c.client.auth_token = request.user.token.id
     c.client.management_url = url_for(request, 'volume')
     return c
 

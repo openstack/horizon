@@ -63,8 +63,7 @@ class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
         opts = attrs.pop("Meta", None)
         attrs['name'] = getattr(opts, "name", name)
         attrs['slug'] = getattr(opts, "slug", slugify(name))
-        attrs['roles'] = getattr(opts, "roles", ())
-        attrs['services'] = getattr(opts, "services", ())
+        attrs['permissions'] = getattr(opts, "permissions", ())
         attrs['progress_message'] = getattr(opts,
                                             "progress_message",
                                             _("Processing..."))
@@ -87,7 +86,7 @@ class Action(forms.Form):
     controls, and thus inherit from Django's ``Form`` class. However, they
     have some additional intelligence added to them:
 
-    * ``Actions`` are aware of the roles required to complete them.
+    * ``Actions`` are aware of the permissions required to complete them.
 
     * ``Actions`` have a meta-level concept of "help text" which is meant to be
       displayed in such a way as to give context to the action regardless of
@@ -108,14 +107,9 @@ class Action(forms.Form):
         A semi-unique slug for this action. Defaults to the "slugified" name
         of the class.
 
-    .. attribute:: roles
+    .. attribute:: permissions
 
-        A list of role names which this action requires in order to be
-        completed. Defaults to an empty list (``[]``).
-
-    .. attribute:: services
-
-        A list of service types which this action requires in order to be
+        A list of permission names which this action requires in order to be
         completed. Defaults to an empty list (``[]``).
 
     .. attribute:: help_text
@@ -260,11 +254,7 @@ class Step(object):
 
         Inherited from the ``Action`` class.
 
-    .. attribute:: roles
-
-        Inherited from the ``Action`` class.
-
-    .. attribute:: services
+    .. attribute:: permissions
 
         Inherited from the ``Action`` class.
     """
@@ -293,8 +283,7 @@ class Step(object):
 
         self.slug = self.action_class.slug
         self.name = self.action_class.name
-        self.roles = self.action_class.roles
-        self.services = self.action_class.services
+        self.permissions = self.action_class.permissions
         self.has_errors = False
         self._handlers = {}
 
