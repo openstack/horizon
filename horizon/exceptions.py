@@ -206,7 +206,6 @@ UNAUTHORIZED = (keystoneclient.Unauthorized,
                 keystoneclient.Forbidden,
                 novaclient.Unauthorized,
                 novaclient.Forbidden,
-                glanceclient.AuthorizationFailure,
                 glanceclient.Unauthorized,
                 swiftclient.AuthenticationFailed,
                 swiftclient.AuthenticationError)
