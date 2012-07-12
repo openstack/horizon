@@ -789,10 +789,11 @@ class DataTable(object):
     """
     __metaclass__ = DataTableMetaclass
 
-    def __init__(self, request, data=None, **kwargs):
+    def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
         self._meta.request = request
         self._meta.data = data
         self.kwargs = kwargs
+        self._needs_form_wrapper = needs_form_wrapper
 
         # Create a new set
         columns = []
@@ -908,6 +909,28 @@ class DataTable(object):
                                      _('No match returned for the id "%s".')
                                        % lookup)
         return matches[0]
+
+    @property
+    def has_actions(self):
+        """
+        Boolean. Indicates whether there are any available actions on this
+        table.
+        """
+        if not self.base_actions:
+            return False
+        return any(self.get_table_actions()) or any(self._meta.row_actions)
+
+    @property
+    def needs_form_wrapper(self):
+        """
+        Boolean. Indicates whather this table should be rendered wrapped in
+        a ``<form>`` tag or not.
+        """
+        # If needs_form_wrapper is explicitly set, defer to that.
+        if self._needs_form_wrapper is not None:
+            return self._needs_form_wrapper
+        # Otherwise calculate whether or not we need a form element.
+        return self.has_actions
 
     def get_table_actions(self):
         """ Returns a list of the action instances for this table. """

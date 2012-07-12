@@ -175,6 +175,16 @@ class MyTable(tables.DataTable):
         row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction)
 
 
+class NoActionsTable(tables.DataTable):
+    id = tables.Column('id')
+
+    class Meta:
+        name = "no_actions_table"
+        verbose_name = _("No Actions Table")
+        table_actions = ()
+        row_actions = ()
+
+
 class DataTableTests(test.TestCase):
     def test_table_instantiation(self):
         """ Tests everything that happens when the table is instantiated. """
@@ -625,3 +635,22 @@ class DataTableTests(test.TestCase):
         self.assertNotContains(res, '<tr class="summation"')
         self.assertNotContains(res, '<td>3.0</td>')
         self.assertNotContains(res, '<td>6</td>')
+
+    def test_table_action_attributes(self):
+        table = MyTable(self.request, TEST_DATA)
+        self.assertTrue(table.has_actions)
+        self.assertTrue(table.needs_form_wrapper)
+        res = http.HttpResponse(table.render())
+        self.assertContains(res, "<form")
+
+        table = MyTable(self.request, TEST_DATA, needs_form_wrapper=False)
+        self.assertTrue(table.has_actions)
+        self.assertFalse(table.needs_form_wrapper)
+        res = http.HttpResponse(table.render())
+        self.assertNotContains(res, "<form")
+
+        table = NoActionsTable(self.request, TEST_DATA)
+        self.assertFalse(table.has_actions)
+        self.assertFalse(table.needs_form_wrapper)
+        res = http.HttpResponse(table.render())
+        self.assertNotContains(res, "<form")
