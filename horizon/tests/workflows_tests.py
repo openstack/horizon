@@ -251,3 +251,11 @@ class WorkflowsTests(test.TestCase):
                                  ['<TestStepOne: test_action_one>',
                                   '<AdminStep: admin_action>',
                                   '<TestStepTwo: test_action_two>'])
+
+    def test_entry_point(self):
+        req = self.factory.get("/foo")
+        flow = TestWorkflow(req)
+        self.assertEqual(flow.get_entry_point(), "test_action_one")
+
+        flow = TestWorkflow(req, entry_point="test_action_two")
+        self.assertEqual(flow.get_entry_point(), "test_action_two")

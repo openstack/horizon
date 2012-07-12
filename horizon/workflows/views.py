@@ -70,8 +70,10 @@ class WorkflowView(generic.TemplateView):
     def get_workflow(self):
         """ Returns the instanciated workflow class. """
         extra_context = self.get_initial()
+        entry_point = self.request.GET.get("step", None)
         workflow = self.workflow_class(self.request,
-                                       context_seed=extra_context)
+                                       context_seed=extra_context,
+                                       entry_point=entry_point)
         return workflow
 
     def get_context_data(self, **kwargs):

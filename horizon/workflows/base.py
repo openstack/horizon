@@ -497,6 +497,13 @@ class Workflow(html.HTMLElement):
         In general the default common template should be used. Default:
         ``"horizon/common/_workflow.html"``.
 
+    .. attribute:: entry_point
+
+        The slug of the step which should initially be active when the
+        workflow is rendered. This can be passed in upon initialization of
+        the workflow, or set anytime after initialization but before calling
+        either ``get_entry_point`` or ``render``.
+
     .. attribute:: redirect_param_name
 
         The name of a parameter used for tracking the URL to redirect to upon
@@ -519,7 +526,8 @@ class Workflow(html.HTMLElement):
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
 
-    def __init__(self, request=None, context_seed=None, *args, **kwargs):
+    def __init__(self, request=None, context_seed=None, entry_point=None,
+                 *args, **kwargs):
         super(Workflow, self).__init__(*args, **kwargs)
         if self.slug is None:
             raise AttributeError("The workflow %s must have a slug."
@@ -528,6 +536,7 @@ class Workflow(html.HTMLElement):
         self.request = request
         self.depends_on = set([])
         self.contributions = set([])
+        self.entry_point = entry_point
 
         # Put together our steps in order. Note that we pre-register
         # non-default steps so that we can identify them and subsequently
@@ -616,6 +625,11 @@ class Workflow(html.HTMLElement):
         This method takes into account both already-available data and errors
         within the steps.
         """
+        # If we have a valid specified entry point, use it.
+        if self.entry_point:
+            if self.get_step(self.entry_point):
+                return self.entry_point
+        # Otherwise fall back to calculating the appropriate entry point.
         for step in self.steps:
             if step.has_errors:
                 return step.slug
@@ -623,6 +637,8 @@ class Workflow(html.HTMLElement):
                 step._verify_contributions(self.context)
             except exceptions.WorkflowError:
                 return step.slug
+        # If nothing else, just return the first step.
+        return self.steps[0].slug
 
     def _trigger_handlers(self, key):
         responses = []
