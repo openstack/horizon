@@ -17,11 +17,14 @@ horizon.forms = {
 horizon.addInitFunction(function () {
   // Disable multiple submissions when launching a form.
   $("form").submit(function () {
-    $(this).submit(function () {
+    var button = $(this).find('[type="submit"]');
+    if (button.length && !button.hasClass('always-enabled')){
+      $(this).submit(function () {
         return false;
-    });
-    $('input:submit').removeClass('primary').addClass('disabled');
-    $('input:submit').attr('disabled', 'disabled');
+      });
+      button.removeClass('primary').addClass('disabled');
+      button.attr('disabled', 'disabled');
+    }
     return true;
   });
 
