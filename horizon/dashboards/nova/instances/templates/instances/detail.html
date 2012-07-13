@@ -1,4 +1,4 @@
-{% extends 'nova/base.html' %}
+{% extends 'base.html' %}
 {% load i18n sizeformat %}
 {% block title %}{% trans "Instance Detail" %}{% endblock %}
 
@@ -6,7 +6,7 @@
   {% include "horizon/common/_page_header.html" with title="Instance Detail: "|add:instance.name %}
 {% endblock page_header %}
 
-{% block dash_main %}
+{% block main %}
 <div class="row-fluid">
   <div class="span12">
   {{ tab_group.render }}

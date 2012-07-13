@@ -4,13 +4,13 @@ from calendar import monthrange
 import datetime
 import logging
 
-from django.contrib import messages
 from django.utils.translation import ugettext as _
 from django.utils import timezone
 
 from horizon import api
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 
 
 LOG = logging.getLogger(__name__)

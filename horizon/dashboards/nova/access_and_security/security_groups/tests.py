@@ -100,30 +100,16 @@ class SecurityGroupsViewTests(test.TestCase):
 
     def test_edit_rules_get_exception(self):
         sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
 
         self.mox.StubOutWithMock(api, 'security_group_get')
         self.mox.StubOutWithMock(api, 'security_group_list')
-        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.nova, 'keypair_list')
-        self.mox.StubOutWithMock(api.nova, 'server_list')
 
-        api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True).AndReturn(self.servers.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.keypairs.list())
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                                    .AndReturn(self.floating_ips.list())
         api.security_group_get(IsA(http.HttpRequest),
                                sec_group.id).AndRaise(self.exceptions.nova)
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         res = self.client.get(self.edit_url)
-        self.assertRedirects(res, INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_edit_rules_add_rule_cidr(self):
         sec_group = self.security_groups.first()

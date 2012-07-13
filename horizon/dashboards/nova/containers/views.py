@@ -63,6 +63,17 @@ class IndexView(tables.DataTableView):
 class CreateView(forms.ModalFormView):
     form_class = CreateContainer
     template_name = 'nova/containers/create.html'
+    success_url = "horizon:nova:containers:object_index"
+
+    def get_success_url(self):
+        parent = self.request.POST.get('parent', None)
+        if parent:
+            container, slash, remainder = parent.partition("/")
+            if remainder and not remainder.endswith("/"):
+                remainder = "".join([remainder, "/"])
+            return reverse(self.success_url, args=(container, remainder))
+        else:
+            return reverse(self.success_url, args=[self.request.POST['name']])
 
     def get_initial(self):
         initial = super(CreateView, self).get_initial()
@@ -132,6 +143,12 @@ class ObjectIndexView(tables.MultiTableView):
 class UploadView(forms.ModalFormView):
     form_class = UploadObject
     template_name = 'nova/containers/upload.html'
+    success_url = "horizon:nova:containers:object_index"
+
+    def get_success_url(self):
+        return reverse(self.success_url,
+                       args=(self.request.POST['container_name'],
+                             self.request.POST.get('path', '')))
 
     def get_initial(self):
         return {"container_name": self.kwargs["container_name"],
@@ -172,6 +189,12 @@ def object_download(request, container_name, object_path):
 class CopyView(forms.ModalFormView):
     form_class = CopyObject
     template_name = 'nova/containers/copy.html'
+    success_url = "horizon:nova:containers:object_index"
+
+    def get_success_url(self):
+        return reverse(self.success_url,
+                       args=(self.request.POST['new_container_name'],
+                             self.request.POST.get('path', '')))
 
     def get_form_kwargs(self):
         kwargs = super(CopyView, self).get_form_kwargs()

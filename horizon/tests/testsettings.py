@@ -30,7 +30,8 @@ LOGOUT_URL = '/auth/logout/'
 LOGIN_REDIRECT_URL = '/'
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
-DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 TESTSERVER = 'http://testserver'
 
 USE_I18N = True
@@ -38,6 +39,8 @@ USE_L10N = True
 USE_TZ = True
 
 DATABASES = {'default': {'ENGINE': 'django.db.backends.sqlite3'}}
+
+DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
 
 INSTALLED_APPS = (
     'django.contrib.sessions',

@@ -34,14 +34,8 @@ LOG = logging.getLogger(__name__)
 class DownloadX509Credentials(forms.SelfHandlingForm):
     tenant = forms.ChoiceField(label=_("Select a Project"))
 
-    # forms.SelfHandlingForm doesn't pass request object as the first argument
-    # to the class __init__ method, which causes form to explode.
-    @classmethod
-    def _instantiate(cls, request, *args, **kwargs):
-        return cls(request, *args, **kwargs)
-
     def __init__(self, request, *args, **kwargs):
-        super(DownloadX509Credentials, self).__init__(*args, **kwargs)
+        super(DownloadX509Credentials, self).__init__(request, *args, **kwargs)
         # Populate tenant choices
         tenant_choices = []
         try:

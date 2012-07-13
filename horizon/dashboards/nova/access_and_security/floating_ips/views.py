@@ -23,6 +23,7 @@
 Views for managing Nova floating IPs.
 """
 
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -41,7 +42,10 @@ class AssociateView(workflows.WorkflowView):
 class AllocateView(forms.ModalFormView):
     form_class = FloatingIpAllocate
     template_name = 'nova/access_and_security/floating_ips/allocate.html'
-    context_object_name = 'floating_ip'
+    success_url = reverse_lazy('horizon:nova:access_and_security:index')
+
+    def get_object_display(self, obj):
+        return obj.ip
 
     def get_context_data(self, **kwargs):
         context = super(AllocateView, self).get_context_data(**kwargs)
@@ -52,11 +56,13 @@ class AllocateView(forms.ModalFormView):
         return context
 
     def get_initial(self):
-        pools = api.floating_ip_pools_list(self.request)
-        if pools:
-            pool_list = [(pool.name, pool.name)
-                         for pool in api.floating_ip_pools_list(self.request)]
-        else:
+        try:
+            pools = api.floating_ip_pools_list(self.request)
+        except:
+            pools = []
+            exceptions.handle(self.request,
+                              _("Unable to retrieve floating IP pools."))
+        pool_list = [(pool.name, pool.name) for pool in pools]
+        if not pool_list:
             pool_list = [(None, _("No floating IP pools available."))]
-        return {'tenant_name': self.request.user.tenant_name,
-                'pool_list': pool_list}
+        return {'pool_list': pool_list}

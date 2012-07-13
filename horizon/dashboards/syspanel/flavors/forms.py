@@ -20,12 +20,12 @@
 
 import logging
 
-from django import shortcuts
-from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
+from horizon import messages
 
 
 LOG = logging.getLogger(__name__)
@@ -41,14 +41,16 @@ class CreateFlavor(forms.SelfHandlingForm):
     eph_gb = forms.IntegerField(label=_("Ephemeral Disk GB"))
 
     def handle(self, request, data):
-        api.flavor_create(request,
-                          data['name'],
-                          data['memory_mb'],
-                          data['vcpus'],
-                          data['disk_gb'],
-                          data['flavor_id'],
-                          ephemeral=data['eph_gb'])
-        msg = _('%s was successfully added to flavors.') % data['name']
-        LOG.info(msg)
-        messages.success(request, msg)
-        return shortcuts.redirect('horizon:syspanel:flavors:index')
+        try:
+            flavor = api.flavor_create(request,
+                                       data['name'],
+                                       data['memory_mb'],
+                                       data['vcpus'],
+                                       data['disk_gb'],
+                                       data['flavor_id'],
+                                       ephemeral=data['eph_gb'])
+            msg = _('%s was successfully added to flavors.') % data['name']
+            messages.success(request, msg)
+            return flavor
+        except:
+            exceptions.handle(request, _("Unable to create flavor"))

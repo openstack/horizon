@@ -20,6 +20,8 @@ Views for managing Nova volumes.
 
 import logging
 
+from django import shortcuts
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.datastructures import SortedDict
 
@@ -77,6 +79,7 @@ class DetailView(tabs.TabView):
 class CreateView(forms.ModalFormView):
     form_class = CreateForm
     template_name = 'nova/volumes/create.html'
+    success_url = reverse_lazy("horizon:nova:volumes:index")
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
@@ -84,24 +87,26 @@ class CreateView(forms.ModalFormView):
             context['usages'] = api.tenant_quota_usages(self.request)
         except:
             exceptions.handle(self.request)
-
         return context
 
 
 class CreateSnapshotView(forms.ModalFormView):
     form_class = CreateSnapshotForm
     template_name = 'nova/volumes/create_snapshot.html'
+    success_url = reverse_lazy("horizon:nova:images_and_snapshots:index")
 
     def get_context_data(self, **kwargs):
-        return {'volume_id': kwargs['volume_id']}
+        return {'volume_id': self.kwargs['volume_id']}
 
     def get_initial(self):
         return {'volume_id': self.kwargs["volume_id"]}
 
 
-class EditAttachmentsView(tables.DataTableView):
+class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
     table_class = AttachmentsTable
+    form_class = AttachForm
     template_name = 'nova/volumes/attach.html'
+    success_url = reverse_lazy("horizon:nova:volumes:index")
 
     def get_object(self):
         if not hasattr(self, "_object"):
@@ -124,35 +129,40 @@ class EditAttachmentsView(tables.DataTableView):
                               _('Unable to retrieve volume information.'))
         return attachments
 
+    def get_initial(self):
+        try:
+            instances = api.nova.server_list(self.request)
+        except:
+            instances = []
+            exceptions.handle(self.request,
+                              _("Unable to retrieve attachment information."))
+        return {'volume': self.get_object(),
+                'instances': instances}
+
+    def get_form(self):
+        if not hasattr(self, "_form"):
+            form_class = self.get_form_class()
+            self._form = super(EditAttachmentsView, self).get_form(form_class)
+        return self._form
+
     def get_context_data(self, **kwargs):
         context = super(EditAttachmentsView, self).get_context_data(**kwargs)
-        context['form'] = self.form
+        context['form'] = self.get_form()
         context['volume'] = self.get_object()
+        if self.request.is_ajax():
+            context['hide'] = True
         return context
 
-    def handle_form(self):
-        instances = api.nova.server_list(self.request)
-        initial = {'volume': self.get_object(),
-                   'instances': instances}
-        return AttachForm.maybe_handle(self.request, initial=initial)
-
     def get(self, request, *args, **kwargs):
-        self.form, handled = self.handle_form()
-        if handled:
-            return handled
+        # Table action handling
         handled = self.construct_tables()
         if handled:
             return handled
-        context = self.get_context_data(**kwargs)
-        context['form'] = self.form
-        if request.is_ajax():
-            context['hide'] = True
-            self.template_name = ('nova/volumes'
-                                 '/_attach.html')
-        return self.render_to_response(context)
+        return self.render_to_response(self.get_context_data(**kwargs))
 
     def post(self, request, *args, **kwargs):
-        form, handled = self.handle_form()
-        if handled:
-            return handled
-        return super(EditAttachmentsView, self).post(request, *args, **kwargs)
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.get(request, *args, **kwargs)

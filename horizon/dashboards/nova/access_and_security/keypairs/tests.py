@@ -124,8 +124,8 @@ class KeyPairViewTests(test.TestCase):
                     'name': key1_name,
                     'public_key': public_key}
         url = reverse('horizon:nova:access_and_security:keypairs:import')
-        self.client.post(url, formData)
-        self.assertMessageCount(success=1)
+        res = self.client.post(url, formData)
+        self.assertMessageCount(res, success=1)
 
     def test_generate_keypair_exception(self):
         keypair = self.keypairs.first()

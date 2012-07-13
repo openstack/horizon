@@ -20,21 +20,19 @@
 
 import logging
 
-from django import shortcuts
 from django.core.urlresolvers import reverse
-from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 
 
 LOG = logging.getLogger(__name__)
 
 
 class CreateSnapshot(forms.SelfHandlingForm):
-    tenant_id = forms.CharField(widget=forms.HiddenInput())
     instance_id = forms.CharField(label=_("Instance ID"),
                                   widget=forms.TextInput(
                                         attrs={'readonly': 'readonly'}))
@@ -42,14 +40,15 @@ class CreateSnapshot(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.snapshot_create(request, data['instance_id'], data['name'])
+            snapshot = api.snapshot_create(request,
+                                           data['instance_id'],
+                                           data['name'])
             # NOTE(gabriel): This API call is only to display a pretty name.
             instance = api.server_get(request, data['instance_id'])
             vals = {"name": data['name'], "inst": instance.name}
             messages.success(request, _('Snapshot "%(name)s" created for '
                                         'instance "%(inst)s"') % vals)
-            return shortcuts.redirect('horizon:nova:images_and_snapshots:'
-                                      'index')
+            return snapshot
         except:
             redirect = reverse("horizon:nova:instances:index")
             exceptions.handle(request,

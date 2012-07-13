@@ -51,8 +51,6 @@ class TenantsViewTests(test.BaseAdminViewTests):
         self.mox.StubOutWithMock(api.keystone, 'tenant_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_quota_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_quota_update')
-        api.keystone.tenant_get(IgnoreArg(), tenant.id, admin=True) \
-                    .AndReturn(tenant)
         api.nova.tenant_quota_get(IgnoreArg(), tenant.id).AndReturn(quota)
         api.nova.tenant_quota_update(IgnoreArg(), tenant.id, **quota_data)
         self.mox.ReplayAll()

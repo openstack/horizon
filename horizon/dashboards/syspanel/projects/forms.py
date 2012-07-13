@@ -20,13 +20,12 @@
 
 import logging
 
-from django import shortcuts
-from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 
 
 LOG = logging.getLogger(__name__)
@@ -50,10 +49,9 @@ class AddUser(forms.SelfHandlingForm):
                                      data['user_id'],
                                      data['role_id'])
             messages.success(request, _('Successfully added user to project.'))
+            return True
         except:
             exceptions.handle(request, _('Unable to add user to project.'))
-        return shortcuts.redirect('horizon:syspanel:projects:users',
-                                  tenant_id=data['tenant_id'])
 
 
 class CreateTenant(forms.SelfHandlingForm):
@@ -68,16 +66,16 @@ class CreateTenant(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Creating project with name "%s"' % data['name'])
-            api.tenant_create(request,
-                              data['name'],
-                              data['description'],
-                              data['enabled'])
+            project = api.tenant_create(request,
+                                        data['name'],
+                                        data['description'],
+                                        data['enabled'])
             messages.success(request,
                              _('%s was successfully created.')
                              % data['name'])
+            return project
         except:
             exceptions.handle(request, _('Unable to create project.'))
-        return shortcuts.redirect('horizon:syspanel:projects:index')
 
 
 class UpdateTenant(forms.SelfHandlingForm):
@@ -92,17 +90,17 @@ class UpdateTenant(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Updating project with id "%s"' % data['id'])
-            api.tenant_update(request,
-                              data['id'],
-                              data['name'],
-                              data['description'],
-                              data['enabled'])
+            project = api.tenant_update(request,
+                                        data['id'],
+                                        data['name'],
+                                        data['description'],
+                                        data['enabled'])
             messages.success(request,
                              _('%s was successfully updated.')
                              % data['name'])
+            return project
         except:
             exceptions.handle(request, _('Unable to update project.'))
-        return shortcuts.redirect('horizon:syspanel:projects:index')
 
 
 class UpdateQuotas(forms.SelfHandlingForm):
@@ -136,6 +134,6 @@ class UpdateQuotas(forms.SelfHandlingForm):
             messages.success(request,
                              _('Quotas for %s were successfully updated.')
                              % data['tenant_id'])
+            return True
         except:
             exceptions.handle(request, _('Unable to update quotas.'))
-        return shortcuts.redirect('horizon:syspanel:projects:index')

@@ -17,13 +17,13 @@
 import logging
 
 from cloudfiles.errors import ContainerNotEmpty
-from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import filesizeformat
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
+from horizon import messages
 from horizon import tables
 
 

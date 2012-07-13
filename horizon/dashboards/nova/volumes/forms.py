@@ -7,14 +7,14 @@
 Views for managing Nova volumes.
 """
 
-from django import shortcuts
-from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.forms import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import forms
 from horizon import exceptions
+from horizon import messages
 
 from ..instances.tables import ACTIVE_STATES
 
@@ -48,18 +48,18 @@ class CreateForm(forms.SelfHandlingForm):
                                   ' volumes.')
                 raise ValidationError(error_message)
 
-            api.volume_create(request, data['size'], data['name'],
-                              data['description'])
+            volume = api.volume_create(request,
+                                       data['size'],
+                                       data['name'],
+                                       data['description'])
             message = 'Creating volume "%s"' % data['name']
-
             messages.info(request, message)
+            return volume
         except ValidationError, e:
             return self.api_error(e.messages[0])
         except:
             exceptions.handle(request, ignore=True)
             return self.api_error(_("Unable to create volume."))
-
-        return shortcuts.redirect("horizon:nova:volumes:index")
 
 
 class AttachForm(forms.SelfHandlingForm):
@@ -113,10 +113,12 @@ class AttachForm(forms.SelfHandlingForm):
                                                     "inst": instance_name,
                                                     "dev": data['device']}
             messages.info(request, message)
+            return True
         except:
+            redirect = reverse("horizon:nova:volumes:index")
             exceptions.handle(request,
-                              _('Unable to attach volume.'))
-        return shortcuts.redirect("horizon:nova:volumes:index")
+                              _('Unable to attach volume.'),
+                              redirect=redirect)
 
 
 class CreateSnapshotForm(forms.SelfHandlingForm):
@@ -134,15 +136,16 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.volume_snapshot_create(request,
-                                       data['volume_id'],
-                                       data['name'],
-                                       data['description'])
+            snapshot = api.volume_snapshot_create(request,
+                                                  data['volume_id'],
+                                                  data['name'],
+                                                  data['description'])
 
             message = _('Creating volume snapshot "%s"') % data['name']
             messages.info(request, message)
+            return snapshot
         except:
+            redirect = reverse("horizon:nova:images_and_snapshots:index")
             exceptions.handle(request,
-                              _('Unable to create volume snapshot.'))
-
-        return shortcuts.redirect("horizon:nova:images_and_snapshots:index")
+                              _('Unable to create volume snapshot.'),
+                              redirect=redirect)

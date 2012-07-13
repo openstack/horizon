@@ -1,4 +1,4 @@
-{% extends 'settings/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% block title %}{% trans "Download EC2 Credentials" %}{% endblock %}
 
@@ -6,6 +6,6 @@
   {% include "horizon/common/_page_header.html" with title=_("Download EC2 Credentials") %}
 {% endblock page_header %}
 
-{% block settings_main %}
+{% block main %}
   {% include "settings/ec2/download_form.html" %}
 {% endblock %}

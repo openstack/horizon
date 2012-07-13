@@ -491,38 +491,28 @@ class InstanceTests(test.TestCase):
                               'server_delete',)})
     def test_create_instance_snapshot(self):
         server = self.servers.first()
-        snapshot_server = deepcopy(server)
-        setattr(snapshot_server, 'OS-EXT-STS:task_state',
-                "IMAGE_SNAPSHOT")
 
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         api.snapshot_create(IsA(http.HttpRequest),
                             server.id,
-                            "snapshot1")
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+                            "snapshot1").AndReturn(self.snapshots.first())
+
         api.snapshot_list_detailed(IsA(http.HttpRequest),
-                                marker=None).AndReturn([[], False])
+                                   marker=None).AndReturn([[], False])
         api.image_list_detailed(IsA(http.HttpRequest),
                                 marker=None).AndReturn([[], False])
         api.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
-        api.server_list(IsA(http.HttpRequest)).AndReturn([snapshot_server])
-        api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
 
         self.mox.ReplayAll()
 
         formData = {'instance_id': server.id,
                     'method': 'CreateSnapshot',
-                    'tenant_id': server.tenant_id,
                     'name': 'snapshot1'}
         url = reverse('horizon:nova:images_and_snapshots:snapshots:create',
                       args=[server.id])
         redir_url = reverse('horizon:nova:images_and_snapshots:index')
         res = self.client.post(url, formData)
         self.assertRedirects(res, redir_url)
-
-        res = self.client.get(INDEX_URL)
-        self.assertContains(res, '<td class="status_unknown sortable">'
-                                 'Snapshotting</td>', 1)
 
     @test.create_stubs({api: ('server_get',)})
     def test_instance_update_get(self):
@@ -532,12 +522,10 @@ class InstanceTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:nova:instances:update',
-                      args=[server.id])
+        url = reverse('horizon:nova:instances:update', args=[server.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res,
-                'nova/instances/update.html')
+        self.assertTemplateUsed(res, 'nova/instances/update.html')
 
     @test.create_stubs({api: ('server_get',)})
     def test_instance_update_get_server_get_exception(self):
@@ -559,7 +547,9 @@ class InstanceTests(test.TestCase):
         server = self.servers.first()
 
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.server_update(IsA(http.HttpRequest), server.id, server.name)
+        api.server_update(IsA(http.HttpRequest),
+                          server.id,
+                          server.name).AndReturn(server)
 
         self.mox.ReplayAll()
 

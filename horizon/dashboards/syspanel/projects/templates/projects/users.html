@@ -1,4 +1,4 @@
-{% extends 'syspanel/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% block title %}Project Users{% endblock %}
 
@@ -8,7 +8,7 @@
   </div>
 {% endblock %}
 
-{% block syspanel_main %}
+{% block main %}
   <div id="tenant_users_table">
     {{ tenant_users_table.render }}
   </div>

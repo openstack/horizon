@@ -21,7 +21,7 @@
 import logging
 import operator
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -34,6 +34,27 @@ from .tables import TenantsTable, TenantUsersTable, AddUsersTable
 
 
 LOG = logging.getLogger(__name__)
+
+
+class TenantContextMixin(object):
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            tenant_id = self.kwargs['tenant_id']
+            try:
+                self._object = api.keystone.tenant_get(self.request,
+                                                       tenant_id,
+                                                       admin=True)
+            except:
+                redirect = reverse("horizon:syspanel:projects:index")
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve project information.'),
+                                  redirect=redirect)
+        return self._object
+
+    def get_context_data(self, **kwargs):
+        context = super(TenantContextMixin, self).get_context_data(**kwargs)
+        context['tenant'] = self.get_object()
+        return context
 
 
 class IndexView(tables.DataTableView):
@@ -54,28 +75,20 @@ class IndexView(tables.DataTableView):
 class CreateView(forms.ModalFormView):
     form_class = CreateTenant
     template_name = 'syspanel/projects/create.html'
+    success_url = reverse_lazy('horizon:syspanel:projects:index')
 
 
-class UpdateView(forms.ModalFormView):
+class UpdateView(TenantContextMixin, forms.ModalFormView):
     form_class = UpdateTenant
     template_name = 'syspanel/projects/update.html'
-    context_object_name = 'tenant'
-
-    def get_object(self, *args, **kwargs):
-        tenant_id = kwargs['tenant_id']
-        try:
-            return api.keystone.tenant_get(self.request, tenant_id, admin=True)
-        except:
-            redirect = reverse("horizon:syspanel:projects:index")
-            exceptions.handle(self.request,
-                              _('Unable to retrieve project.'),
-                              redirect=redirect)
+    success_url = reverse_lazy('horizon:syspanel:projects:index')
 
     def get_initial(self):
-        return {'id': self.object.id,
-                'name': self.object.name,
-                'description': getattr(self.object, "description", ""),
-                'enabled': self.object.enabled}
+        project = self.get_object()
+        return {'id': project.id,
+                'name': project.name,
+                'description': project.description,
+                'enabled': project.enabled}
 
 
 class UsersView(tables.MultiTableView):
@@ -116,15 +129,14 @@ class UsersView(tables.MultiTableView):
         return context
 
 
-class AddUserView(forms.ModalFormView):
+class AddUserView(TenantContextMixin, forms.ModalFormView):
     form_class = AddUser
     template_name = 'syspanel/projects/add_user.html'
-    context_object_name = 'tenant'
+    success_url = 'horizon:syspanel:projects:users'
 
-    def get_object(self, *args, **kwargs):
-        return api.keystone.tenant_get(self.request,
-                                       kwargs["tenant_id"],
-                                       admin=True)
+    def get_success_url(self):
+        return reverse(self.success_url,
+                       args=(self.request.POST['tenant_id'],))
 
     def get_context_data(self, **kwargs):
         context = super(AddUserView, self).get_context_data(**kwargs)
@@ -153,19 +165,19 @@ class AddUserView(forms.ModalFormView):
                 'role_id': getattr(default_role, "id", None)}
 
 
-class QuotasView(forms.ModalFormView):
+class QuotasView(TenantContextMixin, forms.ModalFormView):
     form_class = UpdateQuotas
     template_name = 'syspanel/projects/quotas.html'
-    context_object_name = 'tenant'
-
-    def get_object(self, *args, **kwargs):
-        return api.keystone.tenant_get(self.request,
-                                       kwargs["tenant_id"],
-                                       admin=True)
+    success_url = reverse_lazy('horizon:syspanel:projects:index')
 
     def get_initial(self):
-        quotas = api.nova.tenant_quota_get(self.request,
-                                           self.kwargs['tenant_id'])
+        try:
+            quotas = api.nova.tenant_quota_get(self.request,
+                                               self.kwargs['tenant_id'])
+        except:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve quota information."),
+                              redirect=reverse(self.get_sucess_url))
         return {
             'tenant_id': self.kwargs['tenant_id'],
             'metadata_items': quotas.metadata_items,

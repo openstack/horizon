@@ -18,14 +18,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import forms
 from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext as _
 
 from horizon import api
 from horizon import exceptions
-from horizon.openstack.common import jsonutils
+from horizon import forms
 from horizon import workflows
+from horizon.openstack.common import jsonutils
 
 
 class SelectProjectUserAction(workflows.Action):
@@ -320,11 +320,15 @@ class SetInstanceDetails(workflows.Step):
         return context
 
 
+KEYPAIR_IMPORT_URL = "horizon:nova:access_and_security:keypairs:import"
+
+
 class SetAccessControlsAction(workflows.Action):
-    keypair = forms.ChoiceField(label=_("Keypair"),
-                                required=False,
-                                help_text=_("Which keypair to use for "
-                                            "authentication."))
+    keypair = forms.DynamicChoiceField(label=_("Keypair"),
+                                       required=False,
+                                       help_text=_("Which keypair to use for "
+                                                   "authentication."),
+                                       add_item_link=KEYPAIR_IMPORT_URL)
     groups = forms.MultipleChoiceField(label=_("Security Groups"),
                                        required=True,
                                        initial=["default"],

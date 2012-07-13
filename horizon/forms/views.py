@@ -19,13 +19,11 @@ import os
 from django import http
 from django.views import generic
 
+from horizon.openstack.common import jsonutils
+from horizon import exceptions
 
-class ModalFormView(generic.TemplateView):
-    form_class = None
-    initial = {}
-    context_form_name = "form"
-    context_object_name = "object"
 
+class ModalFormView(generic.FormView):
     def get_template_names(self):
         if self.request.is_ajax():
             if not hasattr(self, "ajax_template_name"):
@@ -38,47 +36,48 @@ class ModalFormView(generic.TemplateView):
             template = self.template_name
         return template
 
-    def get_object(self, *args, **kwargs):
-        return None
+    def get_object_id(self, obj):
+        return obj.id
 
-    def get_initial(self):
-        return self.initial
+    def get_object_display(self, obj):
+        return obj.name
 
-    def get_form_kwargs(self):
-        kwargs = {'initial': self.get_initial()}
-        return kwargs
+    def get_context_data(self, **kwargs):
+        context = super(ModalFormView, self).get_context_data(**kwargs)
+        if self.request.is_ajax():
+            context['hide'] = True
+        return context
 
-    def maybe_handle(self):
-        if not self.form_class:
-            raise AttributeError('You must specify a SelfHandlingForm class '
-                                 'for the "form_class" attribute on %s.'
-                                 % self.__class__.__name__)
-        if not hasattr(self, "form"):
-            form = self.form_class
-            kwargs = self.get_form_kwargs()
-            self.form, self.handled = form.maybe_handle(self.request, **kwargs)
-        return self.form, self.handled
+    def get_form(self, form_class):
+        """
+        Returns an instance of the form to be used in this view.
+        """
+        return form_class(self.request, **self.get_form_kwargs())
 
-    def get(self, request, *args, **kwargs):
-        self.object = self.get_object(*args, **kwargs)
-        form, handled = self.maybe_handle()
+    def form_valid(self, form):
+        try:
+            handled = form.handle(self.request, form.cleaned_data)
+        except:
+            handled = None
+            exceptions.handle(self.request)
+
         if handled:
-            if self.request.is_ajax():
+            if "HTTP_X_HORIZON_ADD_TO_FIELD" in self.request.META:
+                field_id = self.request.META["HTTP_X_HORIZON_ADD_TO_FIELD"]
+                data = [self.get_object_id(handled),
+                        self.get_object_display(handled)]
+                response = http.HttpResponse(jsonutils.dumps(data))
+                response["X-Horizon-Add-To-Field"] = field_id
+            else:
+                success_url = self.get_success_url()
+                response = http.HttpResponseRedirect(success_url)
                 # TODO(gabriel): This is not a long-term solution to how
                 # AJAX should be handled, but it's an expedient solution
                 # until the blueprint for AJAX handling is architected
                 # and implemented.
-                response = http.HttpResponse()
-                response['X-Horizon-Location'] = handled['location']
-                return response
-            return handled
-        context = self.get_context_data(**kwargs)
-        context[self.context_form_name] = form
-        context[self.context_object_name] = self.object
-        if self.request.is_ajax():
-            context['hide'] = True
-        return self.render_to_response(context)
-
-    def post(self, request, *args, **kwargs):
-        """ Placeholder to allow POST; handled the same as GET. """
-        return self.get(self, request, *args, **kwargs)
+                response['X-Horizon-Location'] = success_url
+            return response
+        else:
+            # If handled didn't return, we can assume something went
+            # wrong, and we should send back the form as-is.
+            return self.form_invalid(form)

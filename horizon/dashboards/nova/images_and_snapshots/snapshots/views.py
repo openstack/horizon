@@ -24,7 +24,7 @@ Views for managing Nova instance snapshots.
 
 import logging
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -39,24 +39,24 @@ LOG = logging.getLogger(__name__)
 class CreateView(forms.ModalFormView):
     form_class = CreateSnapshot
     template_name = 'nova/images_and_snapshots/snapshots/create.html'
+    success_url = reverse_lazy("horizon:nova:images_and_snapshots:index")
+
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            try:
+                self._object = api.server_get(self.request,
+                                              self.kwargs["instance_id"])
+            except:
+                redirect = reverse('horizon:nova:instances:index')
+                exceptions.handle(self.request,
+                                  _("Unable to retrieve instance."),
+                                  redirect=redirect)
+        return self._object
 
     def get_initial(self):
-        redirect = reverse('horizon:nova:instances:index')
-        instance_id = self.kwargs["instance_id"]
-        try:
-            self.instance = api.server_get(self.request, instance_id)
-        except:
-            self.instance = None
-            msg = _("Unable to retrieve instance.")
-            exceptions.handle(self.request, msg, redirect)
-        if self.instance.status != api.nova.INSTANCE_ACTIVE_STATE:
-            msg = _('To create a snapshot, the instance must be in '
-                    'the "%s" state.') % api.nova.INSTANCE_ACTIVE_STATE
-            raise exceptions.Http302(redirect, message=msg)
-        return {"instance_id": instance_id,
-                "tenant_id": self.request.user.tenant_id}
+        return {"instance_id": self.kwargs["instance_id"]}
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
-        context['instance'] = self.instance
+        context['instance'] = self.get_object()
         return context

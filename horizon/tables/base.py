@@ -24,7 +24,6 @@ from django import forms
 from django.http import HttpResponse
 from django import template
 from django.conf import settings
-from django.contrib import messages
 from django.core import urlresolvers
 from django.template.defaultfilters import truncatechars
 from django.template.loader import render_to_string
@@ -37,6 +36,7 @@ from django.utils.safestring import mark_safe
 from django.utils import termcolors
 
 from horizon import exceptions
+from horizon import messages
 from horizon.utils import html
 from .actions import FilterAction, LinkAction
 

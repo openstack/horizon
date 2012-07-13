@@ -1,4 +1,4 @@
-{% extends 'syspanel/base.html' %}
+{% extends 'base.html' %}
 {% load i18n sizeformat %}
 {% block title %}{% trans "Project Usage Overview" %}{% endblock %}
 
@@ -8,7 +8,7 @@
   </div>
 {% endblock %}
 
-{% block syspanel_main %}
+{% block main %}
   {% include "horizon/common/_usage_summary.html" %}
   {{ table.render }}
 {% endblock %}

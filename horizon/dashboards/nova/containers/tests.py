@@ -93,7 +93,9 @@ class ContainerViewTests(test.TestCase):
                     'method': forms.CreateContainer.__name__}
         res = self.client.post(reverse('horizon:nova:containers:create'),
                                formData)
-        self.assertRedirectsNoFollow(res, CONTAINER_INDEX_URL)
+        url = reverse('horizon:nova:containers:object_index',
+                      args=[self.containers.first().name])
+        self.assertRedirectsNoFollow(res, url)
 
 
 class ObjectViewTests(test.TestCase):

@@ -20,11 +20,11 @@
 
 import logging
 
-from django.contrib import messages
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from novaclient import exceptions as api_exceptions
 
 from horizon import api
+from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from .forms import CreateFlavor
@@ -43,15 +43,9 @@ class IndexView(tables.DataTableView):
         flavors = []
         try:
             flavors = api.flavor_list(request)
-        except api_exceptions.Unauthorized, e:
-            LOG.exception('Unauthorized attempt to access flavor list.')
-            messages.error(request, _('Unauthorized.'))
-        except Exception, e:
-            LOG.exception('Exception while fetching usage info')
-            if not hasattr(e, 'message'):
-                e.message = str(e)
-            messages.error(request, _('Unable to get flavor list: %s') %
-                           e.message)
+        except:
+            exceptions.handle(request,
+                              _('Unable to retrieve flavor list.'))
         flavors.sort(key=lambda x: x.id, reverse=True)
         return flavors
 
@@ -59,11 +53,15 @@ class IndexView(tables.DataTableView):
 class CreateView(forms.ModalFormView):
     form_class = CreateFlavor
     template_name = 'syspanel/flavors/create.html'
+    success_url = reverse_lazy('horizon:syspanel:flavors:index')
 
     def get_initial(self):
-        # TODO(tres): Get rid of this hacky bit of nonsense after flavors get
-        # converted to nova client.
-        flavors = api.flavor_list(self.request)
+        # TODO(tres): Get rid of this hacky bit of nonsense after flavors
+        # id handling gets fixed.
+        try:
+            flavors = api.flavor_list(self.request)
+        except:
+            exceptions.handle(self.request, ignore=True)
         if flavors:
             largest_id = max(flavors, key=lambda f: f.id).id
             return {'flavor_id': int(largest_id) + 1}

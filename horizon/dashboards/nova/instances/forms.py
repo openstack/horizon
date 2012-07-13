@@ -20,13 +20,13 @@
 
 import logging
 
-from django import shortcuts
-from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 
 
 LOG = logging.getLogger(__name__)
@@ -39,10 +39,12 @@ class UpdateInstance(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.server_update(request, data['instance'], data['name'])
+            server = api.server_update(request, data['instance'], data['name'])
             messages.success(request,
                              _('Instance "%s" updated.') % data['name'])
+            return server
         except:
-            exceptions.handle(request, _('Unable to update instance.'))
-
-        return shortcuts.redirect('horizon:nova:instances:index')
+            redirect = reverse("horizon:nova:instances:index")
+            exceptions.handle(request,
+                              _('Unable to update instance.'),
+                              redirect=redirect)

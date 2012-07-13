@@ -20,7 +20,7 @@
 
 import operator
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_post_parameters
@@ -50,33 +50,43 @@ class IndexView(tables.DataTableView):
 class UpdateView(forms.ModalFormView):
     form_class = UpdateUserForm
     template_name = 'syspanel/users/update.html'
-    context_object_name = 'user'
+    success_url = reverse_lazy('horizon:syspanel:users:index')
 
     @method_decorator(sensitive_post_parameters('password',
                                                 'confirm_password'))
     def dispatch(self, *args, **kwargs):
         return super(UpdateView, self).dispatch(*args, **kwargs)
 
-    def get_object(self, *args, **kwargs):
-        user_id = kwargs['user_id']
-        try:
-            return api.user_get(self.request, user_id, admin=True)
-        except:
-            redirect = reverse("horizon:syspanel:users:index")
-            exceptions.handle(self.request,
-                              _('Unable to update user.'),
-                              redirect=redirect)
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            try:
+                self._object = api.user_get(self.request,
+                                            self.kwargs['user_id'],
+                                            admin=True)
+            except:
+                redirect = reverse("horizon:syspanel:users:index")
+                exceptions.handle(self.request,
+                                  _('Unable to update user.'),
+                                  redirect=redirect)
+        return self._object
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateView, self).get_context_data(**kwargs)
+        context['user'] = self.get_object()
+        return context
 
     def get_initial(self):
-        return {'id': self.object.id,
-                'name': getattr(self.object, 'name', None),
-                'tenant_id': getattr(self.object, 'tenantId', None),
-                'email': getattr(self.object, 'email', '')}
+        user = self.get_object()
+        return {'id': user.id,
+                'name': user.name,
+                'tenant_id': getattr(user, 'tenantId', None),
+                'email': user.email}
 
 
 class CreateView(forms.ModalFormView):
     form_class = CreateUserForm
     template_name = 'syspanel/users/create.html'
+    success_url = reverse_lazy('horizon:syspanel:users:index')
 
     @method_decorator(sensitive_post_parameters('password',
                                                 'confirm_password'))

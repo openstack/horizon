@@ -3,18 +3,22 @@
 <html>
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
-    <title>{% block title %}{% endblock %} – {% site_branding %} Dashboard</title>
-    {% block css %}{% endblock %}
+    <title>{% block title %}{% endblock %} - {% site_branding %}</title>
+    {% include "horizon/_conf.html" %}
     {% include "horizon/client_side/_script_loader.html" %}
   </head>
   <body id="{% block body_id %}{% endblock %}">
     {% block content %}
-      <div id="container" class="fluid-container sidebar-left">
-        {% block sidebar %}{% endblock %}
-        <div id='main_content' class="fluid-content">
+      <div id="container">
+        {% block sidebar %}
+          {% include 'horizon/common/_sidebar.html' %}
+        {% endblock %}
+        <div id='main_content'>
           <div class='topbar'>
+          {% include "_header.html" %}
           {% block page_header %}{% endblock %}
           </div>
+          {% include "horizon/_messages.html" %}
           {% block main %}{% endblock %}
         </div>
       </div>
@@ -23,7 +27,8 @@
       {% block footer %}{% endblock %}
     </div>
     {% block js %}
-      {% include "horizon/client_side/_modal.html" %}
+      {% include "horizon/_scripts.html" %}
     {% endblock %}
+    <div id="modal_wrapper" />
   </body>
 </html>

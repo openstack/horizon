@@ -20,8 +20,6 @@
 
 import logging
 
-from django import shortcuts
-from django.contrib import messages
 from django.core import validators
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -29,6 +27,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import api
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 
 
 LOG = logging.getLogger(__name__)
@@ -65,16 +64,9 @@ class CreateContainer(forms.SelfHandlingForm):
                                            container,
                                            subfolder_name)
                 messages.success(request, _("Folder created successfully."))
-                url = "horizon:nova:containers:object_index"
-                if remainder:
-                    remainder = remainder.rstrip("/")
-                    remainder += "/"
-                return shortcuts.redirect(url, container, remainder)
-
+            return True
         except:
             exceptions.handle(request, _('Unable to create container.'))
-
-        return shortcuts.redirect("horizon:nova:containers:index")
 
 
 class UploadObject(forms.SelfHandlingForm):
@@ -101,10 +93,9 @@ class UploadObject(forms.SelfHandlingForm):
             obj.metadata['orig-filename'] = object_file.name
             obj.sync_metadata()
             messages.success(request, _("Object was successfully uploaded."))
+            return obj
         except:
             exceptions.handle(request, _("Unable to upload object."))
-        return shortcuts.redirect("horizon:nova:containers:object_index",
-                                  data['container_name'], data['path'])
 
 
 class CopyObject(forms.SelfHandlingForm):
@@ -160,12 +151,13 @@ class CopyObject(forms.SelfHandlingForm):
             messages.success(request,
                              _('Copied "%(orig)s" to "%(dest)s" as "%(new)s".')
                              % vals)
+            return True
         except exceptions.HorizonException, exc:
             messages.error(request, exc)
-            return shortcuts.redirect(object_index, orig_container)
+            raise exceptions.Http302(reverse(object_index,
+                                             args=[orig_container]))
         except:
             redirect = reverse(object_index, args=(orig_container,))
             exceptions.handle(request,
                               _("Unable to copy object."),
                               redirect=redirect)
-        return shortcuts.redirect(object_index, new_container, data['path'])

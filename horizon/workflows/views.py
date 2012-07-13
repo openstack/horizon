@@ -17,10 +17,10 @@
 import copy
 
 from django import shortcuts
-from django.contrib import messages
 from django.views import generic
 
 from horizon import exceptions
+from horizon import messages
 
 
 class WorkflowView(generic.TemplateView):

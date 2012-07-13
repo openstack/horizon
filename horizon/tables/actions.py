@@ -19,12 +19,12 @@ import new
 
 from django import shortcuts
 from django.conf import settings
-from django.contrib import messages
 from django.core import urlresolvers
 from django.utils.functional import Promise
 from django.utils.translation import string_concat, ugettext_lazy as _
 
 from horizon import exceptions
+from horizon import messages
 from horizon.utils import html
 
 

@@ -1,4 +1,4 @@
-{% extends 'nova/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% block title %}Create Container{% endblock %}
 
@@ -6,6 +6,6 @@
   {% include "horizon/common/_page_header.html" with title=_("Create Container") %}
 {% endblock page_header %}
 
-{% block dash_main %}
+{% block main %}
   {% include "nova/containers/_create.html" %}
 {% endblock %}

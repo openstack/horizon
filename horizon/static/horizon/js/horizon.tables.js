@@ -142,6 +142,7 @@ horizon.datatables.confirm = function (action) {
     form.append("<input type='hidden' name='" + $action.attr('name') + "' value='" + $action.attr('value') + "'/>");
     form.submit();
     modal.modal('hide');
+    horizon.modals.modal_spinner("Working");
     return false;
   });
   return modal;
@@ -196,13 +197,10 @@ horizon.datatables.set_table_filter = function (parent) {
 };
 
 horizon.addInitFunction(function() {
-  // Bind event handlers to confirm dangerous actions on tables.
-  $("body").on("click", "form button.btn-danger", function (evt) {
-    horizon.datatables.confirm(this);
-    evt.preventDefault();
-  });
+  horizon.datatables.validate_button();
 
-  $('div.table_wrapper, div.modal_wrapper').on('click', 'table thead .multi_select_column :checkbox', function(evt) {
+  // Bind the "select all" checkbox action.
+  $('div.table_wrapper, #modal_wrapper').on('click', 'table thead .multi_select_column :checkbox', function(evt) {
     var $this = $(this),
         $table = $this.closest('table'),
         is_checked = $this.prop('checked'),
@@ -210,11 +208,10 @@ horizon.addInitFunction(function() {
     checkboxes.prop('checked', is_checked);
   });
 
-  $("div.table_wrapper, div.modal_wrapper").on("click", ':checkbox', function (evt) {
+  // Enable dangerous buttons only if one or more checkbox is checked.
+  $("div.table_wrapper, #modal_wrapper").on("click", ':checkbox', function (evt) {
     var $form = $(this).closest("form");
     var any_checked = $form.find("tbody :checkbox").is(":checked");
-    // Enable the button if any checkbox is checked,
-    // Disable if all checkbox is cleared
     if(any_checked) {
       $form.find(".table_actions button.btn-danger").removeClass("disabled");
     }else {
@@ -222,16 +219,15 @@ horizon.addInitFunction(function() {
     }
   });
 
+  // Trigger run-once setup scripts for tables.
   horizon.datatables.add_table_checkboxes($('body'));
   horizon.datatables.set_table_sorting($('body'));
   horizon.datatables.set_table_filter($('body'));
 
-  // Also apply on tables in modal views
-  $('div.modal_wrapper').on('shown', '.modal', function(evt) {
-    horizon.datatables.add_table_checkboxes(this);
-    horizon.datatables.set_table_sorting(this);
-    horizon.datatables.set_table_filter(this);
-  });
+  // Also apply on tables in modal views.
+  horizon.modals.addModalInitFunction(horizon.datatables.add_table_checkboxes);
+  horizon.modals.addModalInitFunction(horizon.datatables.set_table_sorting);
+  horizon.modals.addModalInitFunction(horizon.datatables.set_table_filter);
 
   horizon.datatables.update();
 });

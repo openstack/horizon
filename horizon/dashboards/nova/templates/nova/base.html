@@ -15,12 +15,3 @@
 {% endif %}
 {{ block.super }}
 {% endblock %}
-
-{% block sidebar %}
-  {% include 'horizon/common/_sidebar.html' %}
-{% endblock %}
-
-{% block main %}
-    {% include "horizon/_messages.html" %}
-    {% block dash_main %}{% endblock %}
-{% endblock %}

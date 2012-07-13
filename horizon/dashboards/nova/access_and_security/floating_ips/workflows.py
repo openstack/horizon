@@ -15,19 +15,23 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import forms
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
 from horizon import workflows
+from horizon import forms
+
+
+ALLOCATE_URL = "horizon:nova:access_and_security:floating_ips:allocate"
 
 
 class AssociateIPAction(workflows.Action):
-    ip_id = forms.TypedChoiceField(label=_("IP Address"),
-                                   coerce=int,
-                                   empty_value=None)
+    ip_id = forms.DynamicTypedChoiceField(label=_("IP Address"),
+                                          coerce=int,
+                                          empty_value=None,
+                                          add_item_link=ALLOCATE_URL)
     instance_id = forms.ChoiceField(label=_("Instance"))
 
     class Meta:

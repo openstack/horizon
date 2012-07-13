@@ -26,3 +26,6 @@ LOG = logging.getLogger(__name__)
 class IndexView(forms.ModalFormView):
     form_class = DownloadX509Credentials
     template_name = 'settings/ec2/index.html'
+
+    def form_valid(self, form):
+        return form.handle(self.request, form.cleaned_data)

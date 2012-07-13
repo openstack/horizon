@@ -25,7 +25,7 @@ import logging
 
 from django import http
 from django import shortcuts
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 
@@ -126,22 +126,28 @@ class UpdateView(forms.ModalFormView):
     form_class = UpdateInstance
     template_name = 'nova/instances/update.html'
     context_object_name = 'instance'
+    success_url = reverse_lazy("horizon:nova:instances:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateView, self).get_context_data(**kwargs)
+        context["instance_id"] = self.kwargs['instance_id']
+        return context
 
     def get_object(self, *args, **kwargs):
-        if not hasattr(self, "object"):
+        if not hasattr(self, "_object"):
             instance_id = self.kwargs['instance_id']
             try:
-                self.object = api.server_get(self.request, instance_id)
+                self._object = api.server_get(self.request, instance_id)
             except:
                 redirect = reverse("horizon:nova:instances:index")
                 msg = _('Unable to retrieve instance details.')
                 exceptions.handle(self.request, msg, redirect=redirect)
-        return self.object
+        return self._object
 
     def get_initial(self):
         return {'instance': self.kwargs['instance_id'],
                 'tenant_id': self.request.user.tenant_id,
-                'name': getattr(self.object, 'name', '')}
+                'name': getattr(self.get_object(), 'name', '')}
 
 
 class DetailView(tabs.TabView):

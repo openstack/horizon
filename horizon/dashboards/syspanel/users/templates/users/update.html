@@ -1,4 +1,4 @@
-{% extends 'syspanel/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% block title %}Update User{% endblock %}
 
@@ -7,6 +7,6 @@
   {% include "horizon/common/_page_header.html" with title=_("Update User") %}
 {% endblock page_header %}
 
-{% block syspanel_main %}
+{% block main %}
     {% include 'syspanel/users/_update.html' %}
 {% endblock %}

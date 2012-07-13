@@ -24,7 +24,7 @@ Views for managing Nova keypairs.
 import logging
 
 from django import http
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.template.defaultfilters import slugify
 from django.views.generic import View, TemplateView
 from django.utils.translation import ugettext_lazy as _
@@ -41,11 +41,20 @@ LOG = logging.getLogger(__name__)
 class CreateView(forms.ModalFormView):
     form_class = CreateKeypair
     template_name = 'nova/access_and_security/keypairs/create.html'
+    success_url = 'horizon:nova:access_and_security:keypairs:download'
+
+    def get_success_url(self):
+        return reverse(self.success_url,
+                       kwargs={"keypair_name": self.request.POST['name']})
 
 
 class ImportView(forms.ModalFormView):
     form_class = ImportKeypair
     template_name = 'nova/access_and_security/keypairs/import.html'
+    success_url = reverse_lazy('horizon:nova:access_and_security:index')
+
+    def get_object_id(self, keypair):
+        return keypair.name
 
 
 class DownloadView(TemplateView):

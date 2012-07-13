@@ -24,7 +24,6 @@ Views for Instances and Volumes.
 """
 import logging
 
-from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api

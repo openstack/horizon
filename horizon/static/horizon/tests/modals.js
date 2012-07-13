@@ -9,7 +9,7 @@ horizon.addInitFunction(function () {
         modal = horizon.modals.create(title, body, confirm);
         ok(modal, "Verify our modal was created.");
 
-        modal = $(".modal_wrapper .modal");
+        modal = $("#modal_wrapper .modal");
         modal.modal();
         equal(modal.length, 1, "Verify our modal was added to the DOM.");
         ok(modal.hasClass("in"), "Verify our modal is not hidden.");

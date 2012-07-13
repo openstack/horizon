@@ -24,7 +24,7 @@ Views for managing Nova images.
 
 import logging
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -43,35 +43,39 @@ class CreateView(forms.ModalFormView):
     form_class = CreateImageForm
     template_name = 'nova/images_and_snapshots/images/create.html'
     context_object_name = 'image'
+    success_url = reverse_lazy("horizon:nova:images_and_snapshots:index")
 
 
 class UpdateView(forms.ModalFormView):
     form_class = UpdateImageForm
     template_name = 'nova/images_and_snapshots/images/update.html'
-    context_object_name = 'image'
+    success_url = reverse_lazy("horizon:nova:images_and_snapshots:index")
 
-    def get_object(self, *args, **kwargs):
-        try:
-            self.object = api.image_get(self.request, kwargs['image_id'])
-        except:
-            msg = _('Unable to retrieve image.')
-            redirect = reverse('horizon:nova:images_and_snapshots:index')
-            exceptions.handle(self.request, msg, redirect=redirect)
-        return self.object
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            try:
+                self._object = api.image_get(self.request,
+                                             self.kwargs['image_id'])
+            except:
+                msg = _('Unable to retrieve image.')
+                redirect = reverse('horizon:nova:images_and_snapshots:index')
+                exceptions.handle(self.request, msg, redirect=redirect)
+        return self._object
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateView, self).get_context_data(**kwargs)
+        context['image'] = self.get_object()
+        return context
 
     def get_initial(self):
-        properties = self.object.properties
-        # NOTE(gabriel): glanceclient currently treats "is_public" as a string
-        # rather than a boolean. This should be fixed in the client.
-        public = self.object.is_public == "True"
+        image = self.get_object()
         return {'image_id': self.kwargs['image_id'],
-                'name': self.object.name,
-                'kernel': properties.get('kernel_id', ''),
-                'ramdisk': properties.get('ramdisk_id', ''),
-                'architecture': properties.get('architecture', ''),
-                'container_format': self.object.container_format,
-                'disk_format': self.object.disk_format,
-                'public': public}
+                'name': image.name,
+                'kernel': image.properties.get('kernel_id', ''),
+                'ramdisk': image.properties.get('ramdisk_id', ''),
+                'architecture': image.properties.get('architecture', ''),
+                'disk_format': image.disk_format,
+                'public': image.is_public == "True"}
 
 
 class DetailView(tabs.TabView):

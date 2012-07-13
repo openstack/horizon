@@ -1,4 +1,4 @@
-{% extends 'nova/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% block title %}Create Security Group{% endblock %}
 
@@ -6,6 +6,6 @@
   {% include "horizon/common/_page_header.html" with title=_("Create Security Group") %}
 {% endblock page_header %}
 
-{% block dash_main %}
+{% block main %}
     {% include 'nova/access_and_security/security_groups/_create.html' %}
 {% endblock %}

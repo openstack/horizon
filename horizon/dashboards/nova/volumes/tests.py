@@ -29,6 +29,7 @@ from horizon import test
 class VolumeViewTests(test.TestCase):
     @test.create_stubs({api: ('tenant_quota_usages', 'volume_create',)})
     def test_create_volume(self):
+        volume = self.volumes.first()
         usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
         formData = {'name': u'A Volume I Am Making',
                     'description': u'This is a volume I am making for a test.',
@@ -39,7 +40,7 @@ class VolumeViewTests(test.TestCase):
         api.volume_create(IsA(http.HttpRequest),
                           formData['size'],
                           formData['name'],
-                          formData['description'])
+                          formData['description']).AndReturn(volume)
 
         self.mox.ReplayAll()
 

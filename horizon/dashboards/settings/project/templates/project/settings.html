@@ -1,4 +1,4 @@
-{% extends 'settings/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% block title %}{% trans "OpenStack API" %}{% endblock %}
 
@@ -6,6 +6,6 @@
   {% include "horizon/common/_page_header.html" with title=_("OpenStack API") %}
 {% endblock page_header %}
 
-{% block settings_main %}
+{% block main %}
   {% include "settings/project/_openrc.html" %}
 {% endblock %}

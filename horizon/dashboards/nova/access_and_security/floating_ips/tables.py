@@ -18,13 +18,13 @@
 import logging
 
 from django import shortcuts
-from django.contrib import messages
 from django.core import urlresolvers
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
+from horizon import messages
 from horizon import tables
 
 

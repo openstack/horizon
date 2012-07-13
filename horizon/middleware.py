@@ -25,9 +25,9 @@ import logging
 
 from django import http
 from django import shortcuts
-from django.core.urlresolvers import reverse
-from django.contrib import messages
+from django.contrib import messages as django_messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.utils.encoding import iri_to_uri
 
@@ -57,8 +57,8 @@ class HorizonMiddleware(object):
         Catches internal Horizon exception classes such as NotAuthorized,
         NotFound and Http302 and handles them gracefully.
         """
-        if isinstance(exception,
-                (exceptions.NotAuthorized, exceptions.NotAuthenticated)):
+        if isinstance(exception, (exceptions.NotAuthorized,
+                                  exceptions.NotAuthenticated)):
             auth_url = reverse("login")
             next_url = iri_to_uri(request.get_full_path())
             if next_url != auth_url:
@@ -66,7 +66,8 @@ class HorizonMiddleware(object):
                 redirect_to = "".join((auth_url, param))
             else:
                 redirect_to = auth_url
-            messages.error(request, unicode(exception))
+            # TODO(gabriel): Find a way to display an appropriate message to
+            # the user *on* the login form...
             if request.is_ajax():
                 response_401 = http.HttpResponse(status=401)
                 response_401['X-Horizon-Location'] = redirect_to
@@ -78,8 +79,8 @@ class HorizonMiddleware(object):
             raise http.Http404(exception)
 
         if isinstance(exception, exceptions.Http302):
-            if exception.message:
-                messages.error(request, exception.message)
+            # TODO(gabriel): Find a way to display an appropriate message to
+            # the user *on* the login form...
             return shortcuts.redirect(exception.location)
 
     def process_response(self, request, response):
@@ -88,16 +89,21 @@ class HorizonMiddleware(object):
         to allow ajax request to redirect url
         """
         if request.is_ajax():
+            queued_msgs = request.horizon['async_messages']
             if type(response) == http.HttpResponseRedirect:
+                # Drop our messages back into the session as per usual so they
+                # don't disappear during the redirect. Not that we explicitly
+                # use django's messages methods here.
+                for tag, message in queued_msgs:
+                    getattr(django_messages, tag)(request, message)
                 redirect_response = http.HttpResponse()
                 redirect_response['X-Horizon-Location'] = response['location']
                 return redirect_response
-            if request.horizon['async_messages']:
-                messages = request.horizon['async_messages']
+            if queued_msgs:
                 # TODO(gabriel): When we have an async connection to the
                 # client (e.g. websockets) this should be pushed to the
                 # socket queue rather than being sent via a header.
                 # The header method has notable drawbacks (length limits,
                 # etc.) and is not meant as a long-term solution.
-                response['X-Horizon-Messages'] = jsonutils.dumps(messages)
+                response['X-Horizon-Messages'] = jsonutils.dumps(queued_msgs)
         return response

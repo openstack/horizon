@@ -1,4 +1,4 @@
-{% extends 'nova/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% block title %}{% trans "Objects" %}{% endblock %}
 
@@ -8,7 +8,7 @@
   </div>
 {% endblock page_header %}
 
-{% block dash_main %}
+{% block main %}
   <div id="subfolders">
       {{ subfolders_table.render  }}
   </div>

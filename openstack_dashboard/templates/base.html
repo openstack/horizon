@@ -13,12 +13,15 @@
   <body id="{% block body_id %}{% endblock %}">
     {% block content %}
       <div id="container">
-        {% block sidebar %}{% endblock %}
+        {% block sidebar %}
+          {% include 'horizon/common/_sidebar.html' %}
+        {% endblock %}
         <div id='main_content'>
           <div class='topbar'>
           {% include "_header.html" %}
           {% block page_header %}{% endblock %}
           </div>
+          {% include "horizon/_messages.html" %}
           {% block main %}{% endblock %}
         </div>
       </div>
@@ -29,6 +32,6 @@
     {% block js %}
       {% include "horizon/_scripts.html" %}
     {% endblock %}
-    <div class="modal_wrapper" />
+    <div id="modal_wrapper" />
   </body>
 </html>

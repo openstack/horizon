@@ -19,22 +19,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
-from django.contrib import messages
-from django import shortcuts
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
 from horizon import forms
-
-
-LOG = logging.getLogger(__name__)
+from horizon import messages
 
 
 class FloatingIpAllocate(forms.SelfHandlingForm):
-    tenant_name = forms.CharField(widget=forms.HiddenInput())
     pool = forms.ChoiceField(label=_("Pool"))
 
     def __init__(self, *args, **kwargs):
@@ -44,16 +37,10 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            fip = api.tenant_floating_ip_allocate(request,
-                                                  pool=data.get('pool', None))
-            LOG.info('Allocating Floating IP "%s" to project "%s"'
-                     % (fip.ip, data['tenant_name']))
-
+            fip = api.tenant_floating_ip_allocate(request, pool=data['pool'])
             messages.success(request,
-                             _('Successfully allocated Floating IP "%(ip)s" '
-                               'to project "%(project)s"')
-                             % {"ip": fip.ip, "project": data['tenant_name']})
+                             _('Allocated Floating IP %(ip)s.')
+                             % {"ip": fip.ip})
+            return fip
         except:
             exceptions.handle(request, _('Unable to allocate Floating IP.'))
-        return shortcuts.redirect(
-                        'horizon:nova:access_and_security:index')

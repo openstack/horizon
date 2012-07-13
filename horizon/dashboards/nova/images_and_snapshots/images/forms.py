@@ -24,26 +24,23 @@ Views for managing Nova images.
 
 import logging
 
-from django import shortcuts
-from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 
 
 LOG = logging.getLogger(__name__)
 
 
 class CreateImageForm(forms.SelfHandlingForm):
-    completion_view = 'horizon:nova:images_and_snapshots:index'
-
     name = forms.CharField(max_length="255", label=_("Name"), required=True)
     copy_from = forms.CharField(max_length="255",
                                 label=_("Image Location"),
-                                help_text=_("An external (HTTP) URL where"
-                                    " the image should be loaded from."),
+                                help_text=_("An external (HTTP) URL to load "
+                                            "the image from."),
                                 required=True)
     disk_format = forms.ChoiceField(label=_('Format'),
                                     required=True,
@@ -103,19 +100,16 @@ class CreateImageForm(forms.SelfHandlingForm):
                 'name': data['name']}
 
         try:
-            api.glance.image_create(request, **meta)
+            image = api.glance.image_create(request, **meta)
             messages.success(request,
                 _('Your image %s has been queued for creation.' %
                     data['name']))
+            return image
         except:
             exceptions.handle(request, _('Unable to create new image.'))
 
-        return shortcuts.redirect(self.get_success_url())
-
 
 class UpdateImageForm(forms.SelfHandlingForm):
-    completion_view = 'horizon:nova:images_and_snapshots:index'
-
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length="255", label=_("Name"))
     kernel = forms.CharField(max_length="36", label=_("Kernel ID"),
@@ -139,13 +133,17 @@ class UpdateImageForm(forms.SelfHandlingForm):
     public = forms.BooleanField(label=_("Public"), required=False)
 
     def handle(self, request, data):
-        # TODO add public flag to image meta properties
         image_id = data['image_id']
         error_updating = _('Unable to update image "%s".')
 
+        if data['disk_format'] in ['aki', 'ari', 'ami']:
+            container_format = data['disk_format']
+        else:
+            container_format = 'bare'
+
         meta = {'is_public': data['public'],
                 'disk_format': data['disk_format'],
-                'container_format': 'bare',
+                'container_format': container_format,
                 'name': data['name'],
                 'properties': {}}
         if data['kernel']:
@@ -154,13 +152,13 @@ class UpdateImageForm(forms.SelfHandlingForm):
             meta['properties']['ramdisk_id'] = data['ramdisk']
         if data['architecture']:
             meta['properties']['architecture'] = data['architecture']
+        # Ensure we do not delete properties that have already been
+        # set on an image.
+        meta['purge_props'] = False
 
         try:
-            # Ensure we do not delete properties that have already been
-            # set on an image.
-            meta['features'] = {'X-Glance-Registry-Purge-Props': False}
-            api.image_update(request, image_id, **meta)
+            image = api.image_update(request, image_id, **meta)
             messages.success(request, _('Image was successfully updated.'))
+            return image
         except:
             exceptions.handle(request, error_updating % image_id)
-        return shortcuts.redirect(self.get_success_url())

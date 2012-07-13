@@ -1,4 +1,4 @@
-{% extends 'syspanel/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% block title %}Quotas{% endblock %}
 
@@ -8,6 +8,6 @@
   {% include "horizon/common/_page_header.html" with title=_("Default Quotas") refresh_link=refresh_link searchable="true" %}
 {% endblock page_header %}
 
-{% block syspanel_main %}
+{% block main %}
   {{ table.render }}
 {% endblock %}

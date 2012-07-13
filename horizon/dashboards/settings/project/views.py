@@ -39,3 +39,6 @@ class OpenRCView(ModalFormView):
 
     def get_initial(self):
         return {'tenant': self.request.user.tenant_id}
+
+    def form_valid(self, form):
+        return form.handle(self.request, form.cleaned_data)
