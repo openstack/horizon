@@ -229,12 +229,24 @@ def data(TEST):
             'to_port': u"5",
             'parent_group_id': 1,
             'ip_range': {'cidr': u"0.0.0.0/32"}}
+
+    group_rule = {'id': 3,
+            'ip_protocol': u"tcp",
+            'from_port': u"80",
+            'to_port': u"80",
+            'parent_group_id': 1,
+            'source_group_id': 1}
+
     rule_obj = rules.SecurityGroupRule(rules.SecurityGroupRuleManager(None),
                                        rule)
     rule_obj2 = rules.SecurityGroupRule(rules.SecurityGroupRuleManager(None),
                                        icmp_rule)
+    rule_obj3 = rules.SecurityGroupRule(rules.SecurityGroupRuleManager(None),
+                                        group_rule)
+
     TEST.security_group_rules.add(rule_obj)
     TEST.security_group_rules.add(rule_obj2)
+    TEST.security_group_rules.add(rule_obj3)
 
     sec_group_1.rules = [rule_obj]
     sec_group_2.rules = [rule_obj]
