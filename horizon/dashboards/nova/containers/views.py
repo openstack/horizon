@@ -33,8 +33,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from .forms import CreateContainer, UploadObject, CopyObject
-from .tables import ContainersTable, ObjectsTable,\
-                        ContainerSubfoldersTable
+from .tables import ContainersTable, ObjectsTable
 
 
 LOG = logging.getLogger(__name__)
@@ -81,8 +80,8 @@ class CreateView(forms.ModalFormView):
         return initial
 
 
-class ObjectIndexView(tables.MultiTableView):
-    table_classes = (ObjectsTable, ContainerSubfoldersTable)
+class ObjectIndexView(tables.MixedDataTableView):
+    table_class = ObjectsTable
     template_name = 'nova/containers/detail.html'
 
     def has_more_data(self, table):
@@ -110,6 +109,7 @@ class ObjectIndexView(tables.MultiTableView):
                                                             marker=marker,
                                                             path=prefix)
             except:
+                self._more = None
                 objects = []
                 msg = _('Unable to retrieve object list.')
                 exceptions.handle(self.request, msg)

@@ -179,7 +179,7 @@ class ObjectViewTests(test.TestCase):
                                 obj.name)
         self.mox.ReplayAll()
 
-        action_string = "objects__delete__%s" % obj.name
+        action_string = "objects__delete_object__%s" % obj.name
         form_data = {"action": action_string}
         req = self.factory.post(index_url, form_data)
         kwargs = {"container_name": container.name}

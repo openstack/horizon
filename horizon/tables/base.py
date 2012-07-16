@@ -78,6 +78,14 @@ class Column(html.HTMLElement):
         A string or callable which returns a URL which will be wrapped around
         this column's text as a link.
 
+    .. attribute:: allowed_data_types
+
+        A list of data types for which the link should be created.
+        Default is an empty list (``[]``).
+
+        When the list is empty and the ``link`` attribute is not None, all the
+        rows under this column will be links.
+
     .. attribute::  status
 
         Boolean designating whether or not this column represents a status
@@ -179,10 +187,10 @@ class Column(html.HTMLElement):
     )
 
     def __init__(self, transform, verbose_name=None, sortable=True,
-                 link=None, hidden=False, attrs=None, status=False,
-                 status_choices=None, display_choices=None, empty_value=None,
-                 filters=None, classes=None, summation=None, auto=None,
-                 truncate=None):
+                 link=None, allowed_data_types=[], hidden=False, attrs=None,
+                 status=False, status_choices=None, display_choices=None,
+                 empty_value=None, filters=None, classes=None, summation=None,
+                 auto=None, truncate=None):
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
@@ -204,6 +212,7 @@ class Column(html.HTMLElement):
         self.sortable = sortable
         self.verbose_name = verbose_name
         self.link = link
+        self.allowed_data_types = allowed_data_types
         self.hidden = hidden
         self.status = status
         self.empty_value = empty_value or '-'
@@ -298,11 +307,21 @@ class Column(html.HTMLElement):
     def get_link_url(self, datum):
         """ Returns the final value for the column's ``link`` property.
 
+        If ``allowed_data_types`` of this column  is not empty and the datum
+        has an assigned type, check if the datum's type is in the
+        ``allowed_data_types`` list. If not, the datum won't be displayed
+        as a link.
+
         If ``link`` is a callable, it will be passed the current data object
         and should return a URL. Otherwise ``get_link_url`` will attempt to
         call ``reverse`` on ``link`` with the object's id as a parameter.
         Failing that, it will simply return the value of ``link``.
         """
+        if self.allowed_data_types:
+            data_type_name = self.table._meta.data_type_name
+            data_type = getattr(datum, data_type_name, None)
+            if data_type and (data_type not in self.allowed_data_types):
+                return None
         obj_id = self.table.get_object_id(datum)
         if callable(self.link):
             return self.link(datum)
@@ -529,12 +548,19 @@ class Cell(html.HTMLElement):
             data = None
             exc_info = sys.exc_info()
             raise template.TemplateSyntaxError, exc_info[1], exc_info[2]
+        if self.url:
+            # Escape the data inside while allowing our HTML to render
+            data = mark_safe('<a href="%s">%s</a>' % (self.url, escape(data)))
+        return data
+
+    @property
+    def url(self):
         if self.column.link:
             url = self.column.get_link_url(self.datum)
             if url:
-                # Escape the data inside while allowing our HTML to render
-                data = mark_safe('<a href="%s">%s</a>' % (url, escape(data)))
-        return data
+                return url
+        else:
+            return None
 
     @property
     def status(self):
@@ -565,6 +591,9 @@ class Cell(html.HTMLElement):
 
     def get_default_classes(self):
         """ Returns a flattened string of the cell's CSS classes. """
+        if not self.url:
+            self.column.classes = [cls for cls in self.column.classes
+                                    if cls != "anchor"]
         column_class_string = self.column.get_final_attrs().get('class', "")
         classes = set(column_class_string.split(" "))
         if self.column.status:
@@ -656,6 +685,20 @@ class DataTableOptions(object):
 
         The class which should be used for handling the columns of this table.
         Optional. Default: :class:`~horizon.tables.Column`.
+
+    .. attribute:: mixed_data_type
+
+        A toggle to indicate if the table accepts two or more types of data.
+        Optional. Default: :``False``
+
+    .. attribute:: data_types
+        A list of data types that this table would accept. Default to be an
+        empty list, but if the attibute ``mixed_data_type`` is set to ``True``,
+        then this list must have at least one element.
+
+    .. attribute:: data_type_name
+        The name of an attribute to assign to data passed to the table when it
+        accepts mix data. Default: ``"_table_data_type"``
     """
     def __init__(self, options):
         self.name = getattr(options, 'name', self.__class__.__name__)
@@ -699,6 +742,25 @@ class DataTableOptions(object):
 
         # Set runtime table defaults; not configurable.
         self.has_more_data = False
+
+        # Set mixed data type table attr
+        self.mixed_data_type = getattr(options, 'mixed_data_type', False)
+        self.data_types = getattr(options, 'data_types', [])
+
+        # If the data_types has more than 2 elements, set mixed_data_type
+        # to True automatically.
+        if len(self.data_types) > 1:
+            self.mixed_data_type = True
+
+        # However, if the mixed_data_type is set to True manually and the
+        # the data_types is empty, raise an errror.
+        if self.mixed_data_type and len(self.data_types) <= 1:
+            raise ValueError("If mixed_data_type is set to True in class %s, "
+                             "data_types should has more than one types" %
+                             self.name)
+
+        self.data_type_name = getattr(options, 'data_type_name',
+                                      "_table_data_type")
 
 
 class DataTableMetaclass(type):
@@ -842,9 +904,14 @@ class DataTable(object):
                 filter_string = self.get_filter_string()
                 request_method = self._meta.request.method
                 if filter_string and request_method == action.method:
-                    self._filtered_data = action.filter(self,
-                                                        self.data,
-                                                        filter_string)
+                    if self._meta.mixed_data_type:
+                        self._filtered_data = action.data_type_filter(self,
+                                                                self.data,
+                                                                filter_string)
+                    else:
+                        self._filtered_data = action.filter(self,
+                                                            self.data,
+                                                            filter_string)
         return self._filtered_data
 
     def get_filter_string(self):
@@ -862,7 +929,10 @@ class DataTable(object):
     def _filter_action(self, action, request, datum=None):
         try:
             # Catch user errors in permission functions here
-            return action._allowed(request, datum)
+            row_matched = True
+            if self._meta.mixed_data_type:
+                row_matched = action.data_type_matched(datum)
+            return action._allowed(request, datum) and row_matched
         except Exception:
             LOG.exception("Error while checking action permissions.")
             return None
