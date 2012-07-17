@@ -37,9 +37,11 @@ LOG = logging.getLogger(__name__)
 def glanceclient(request):
     o = urlparse.urlparse(url_for(request, 'image'))
     url = "://".join((o.scheme, o.netloc))
+    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     LOG.debug('glanceclient connection created using token "%s" and url "%s"'
               % (request.user.token.id, url))
-    return glance_client.Client(endpoint=url, token=request.user.token.id)
+    return glance_client.Client(endpoint=url, token=request.user.token.id,
+                                insecure=insecure)
 
 
 def image_delete(request, image_id):
