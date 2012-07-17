@@ -27,6 +27,7 @@ from django.utils.translation import ugettext as _
 from horizon import exceptions
 from horizon.api.base import url_for
 
+from rgwauthAPI import RadosGW as RGW
 
 LOG = logging.getLogger(__name__)
 
@@ -43,9 +44,26 @@ class SwiftAuthentication(object):
 
 def swift_api(request):
     endpoint = url_for(request, 'object-store')
+    auth_token = request.session['token']
+
+    use_radosgw_auth = getattr(settings, 'SWIFT_USE_RADOSGW_AUTH', False)
+    sync_radosgw_auth = getattr(settings, 'SYNC_KEYSTONE_RADOSGW_AUTH', False)
+    if (use_radosgw_auth == True):
+        """ Same tenant's users shares same bucket """
+        uid,subuser = request.session['tenant_id'],request.session['user_id']
+
+        LOG.debug('Get radosgw auth by user: %s:%s and endpoint %s'                 
+				% (uid, subuser, endpoint))
+        try:
+            rgw = RGW(uid, subuser, endpoint)
+            storage_url, auth_token = rgw.authenticate('swift', sync_radosgw_auth)
+        except Exception as e:
+            # rgwauthAPI now puts error msg in args[0]
+            raise exceptions.RadosgwExceptions(str(e.args[0]))
+
     LOG.debug('Swift connection created using token "%s" and url "%s"'
-              % (request.session['token'], endpoint))
-    auth = SwiftAuthentication(endpoint, request.session['token'])
+              % (auth_token, storage_url))
+    auth = SwiftAuthentication(storage_url, auth_token)
     return cloudfiles.get_connection(auth=auth)
 
 
@@ -86,6 +104,11 @@ def swift_create_container(request, name):
 def swift_delete_container(request, name):
     swift_api(request).delete_container(name)
 
+def swift_filter_objects(s):
+    return s[u'name'].find('/') == -1
+
+def swift_filter_names(s):
+    return s.find('/') == -1
 
 def swift_get_objects(request, container_name, prefix=None, marker=None):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
@@ -93,6 +116,12 @@ def swift_get_objects(request, container_name, prefix=None, marker=None):
     objects = container.get_objects(prefix=prefix,
                                     marker=marker,
                                     limit=limit + 1)
+    # This branch doesn't support to show objects which have
+    # '/' in their names now (object is a directory or files in directorys)
+    # but ceph rados supports that, so the objects may be upload to 
+    # container by s3 api. Therefore, just filter out objects like that.
+    objects._objects = filter(swift_filter_objects, objects._objects)
+    objects._names = filter(swift_filter_names, objects._names)
     if(len(objects) > limit):
         return (objects[0:-1], True)
     else:
@@ -124,7 +153,15 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
 
 def swift_upload_object(request, container_name, object_name, object_file):
     container = swift_api(request).get_container(container_name)
-    obj = container.create_object(object_name)
+    # radosgw needs to know the size exactly
+    obj = cloudfiles.storage_object.Object(container, object_name, 
+            object_record = {
+                'name': object_name,
+                'content_type': object_file.content_type,
+                'bytes': object_file._size,
+                'last_modified': None,
+                'hash': None
+            })
     obj.send(object_file)
     return obj
 

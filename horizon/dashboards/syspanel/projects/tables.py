@@ -8,6 +8,10 @@ from horizon import tables
 
 from ..users.tables import UsersTable
 
+from django.conf import settings
+from horizon.api.base import url_for
+from horizon import exceptions
+from rgwauthAPI import RadosGW as RGW
 
 LOG = logging.getLogger(__name__)
 
@@ -52,6 +56,16 @@ class DeleteTenantsAction(tables.DeleteAction):
     data_type_plural = _("Projects")
 
     def delete(self, request, obj_id):
+        use_radosgw_auth = getattr(settings, 'SWIFT_USE_RADOSGW_AUTH', False)
+        sync_radosgw_auth = getattr(settings, 'SYNC_KEYSTONE_RADOSGW_AUTH', False)
+        if use_radosgw_auth and sync_radosgw_auth:
+            endpoint = url_for(request, 'object-store')
+            try:
+                LOG.debug('Radosgw remove user %s from endpoint: %s'
+                        % (obj_id, endpoint))
+                RGW(obj_id, 'admin', authUrl=endpoint).rmUser()
+            except:
+                raise exceptions.RadosgwExceptions('Remove radosgw:user failed.')
         api.keystone.tenant_delete(request, obj_id)
 
 
@@ -94,8 +108,19 @@ class RemoveUserAction(tables.BatchAction):
 
     def action(self, request, user_id):
         tenant_id = self.table.kwargs['tenant_id']
+        use_radosgw_auth = getattr(settings, 'SWIFT_USE_RADOSGW_AUTH', False)
+        sync_radosgw_auth = getattr(settings, 'SYNC_KEYSTONE_RADOSGW_AUTH', False)
+        if use_radosgw_auth and sync_radosgw_auth:
+            endpoint = url_for(request, 'object-store')
+            uid, subuser = tenant_id, user_id
+            try:
+                LOG.debug('Radosgw remove subuser %s:%s from endpoint: %s'
+                        % (uid, subuser, endpoint))
+                RGW(uid, subuser, endpoint).rmSubuser()
+            except:
+                redirect = reverse("horizon:syspanel:projects:users", args=(tenant_id,))
+                exceptions.handle(request, _('Remove user failed.'), redirect=redirect)
         api.keystone.remove_tenant_user(request, tenant_id, user_id)
-
 
 class TenantUsersTable(UsersTable):
     class Meta:

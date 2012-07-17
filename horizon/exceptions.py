@@ -109,6 +109,15 @@ class AlreadyExists(HorizonException):
     def __unicode__(self):
         return _(self.msg) % self.attrs
 
+class RadosgwExceptions(HorizonException):
+    def __init__(self, msg):
+        self.msg = msg
+
+    def __repr__(self):
+        return self.msg
+
+    def __unicode__(self):
+        return _(self.msg)
 
 class HandledException(HorizonException):
     """
@@ -148,7 +157,8 @@ RECOVERABLE = (keystoneclient.ClientException,
                novaclient.ClientException,
                glanceclient.GlanceException,
                swiftclient.Error,
-               AlreadyExists)
+               AlreadyExists,
+               RadosgwExceptions)
 RECOVERABLE += tuple(EXCEPTION_CONFIG.get('recoverable', []))
 
 
