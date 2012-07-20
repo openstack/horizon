@@ -50,8 +50,9 @@ class IndexView(tables.MultiTableView):
         try:
             # FIXME(gabriel): The paging is going to be strange here due to
             # our filtering after the fact.
-            all_images, _more_images = api.image_list_detailed(self.request,
-                                                                marker=marker)
+            (all_images,
+             self._more_images) = api.image_list_detailed(self.request,
+                                                          marker=marker)
             images = [im for im in all_images
                       if im.container_format not in ['aki', 'ari'] and
                       im.properties.get("image_type", '') != "snapshot"]
