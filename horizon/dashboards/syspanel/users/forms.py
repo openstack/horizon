@@ -162,6 +162,15 @@ class UpdateUserForm(BaseUserForm):
             failed.append(msg_bits)
             exceptions.handle(request, ignore=True)
 
+        # Check for existing roles
+        # Show a warning if no role exists for the tenant
+        user_roles = api.keystone.roles_for_user(request, user, tenant)
+        if not user_roles:
+            messages.warning(request,
+                             _('The user %s has no role defined for' +
+                             ' that project.')
+                             % data.get('name', None))
+
         if user_is_editable:
             # If present, update password
             # FIXME(gabriel): password change should be its own form and view

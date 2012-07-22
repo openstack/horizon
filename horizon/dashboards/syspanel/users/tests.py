@@ -159,7 +159,8 @@ class UsersViewTests(test.BaseAdminViewTests):
                               'tenant_list',
                               'user_update_tenant',
                               'user_update_password'),
-                        api.keystone: ('user_update',)})
+                        api.keystone: ('user_update',
+                                       'roles_for_user', )})
     def test_update(self):
         user = self.users.get(id="1")
 
@@ -174,6 +175,9 @@ class UsersViewTests(test.BaseAdminViewTests):
         api.user_update_tenant(IsA(http.HttpRequest),
                                user.id,
                                self.tenant.id).AndReturn(None)
+        api.keystone.roles_for_user(IsA(http.HttpRequest),
+                                    user.id,
+                                    self.tenant.id).AndReturn(None)
         api.user_update_password(IsA(http.HttpRequest),
                                  user.id,
                                  IgnoreArg()).AndReturn(None)
@@ -191,11 +195,13 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_UPDATE_URL, formData)
 
         self.assertNoFormErrors(res)
+        self.assertMessageCount(warning=1)
 
     @test.create_stubs({api: ('user_get',
                               'tenant_list',
                               'user_update_tenant',
-                              'keystone_can_edit_user')})
+                              'keystone_can_edit_user'),
+                        api.keystone: ('roles_for_user', )})
     def test_update_with_keystone_can_edit_user_false(self):
         user = self.users.get(id="1")
 
@@ -208,16 +214,21 @@ class UsersViewTests(test.BaseAdminViewTests):
         api.user_update_tenant(IsA(http.HttpRequest),
                                user.id,
                                self.tenant.id).AndReturn(None)
+        api.keystone.roles_for_user(IsA(http.HttpRequest),
+                                    user.id,
+                                    self.tenant.id).AndReturn(None)
 
         self.mox.ReplayAll()
 
         formData = {'method': 'UpdateUserForm',
-                    'tenant_id': self.tenant.id,
-                    'id': user.id}
+                    'id': user.id,
+                    'name': user.name,
+                    'tenant_id': self.tenant.id, }
 
         res = self.client.post(USER_UPDATE_URL, formData)
 
         self.assertNoFormErrors(res)
+        self.assertMessageCount(warning=1)
 
     @test.create_stubs({api: ('user_get', 'tenant_list')})
     def test_update_validation_for_password_too_short(self):
