@@ -97,8 +97,7 @@ class AddRule(forms.SelfHandlingForm):
         current_group_id = initials.get('security_group_id', 0)
         security_groups = initials.get('security_group_list', [])
         security_groups_choices = [("", "CIDR")]  # default choice is CIDR
-        group_choices = [s for s in security_groups
-                         if str(s[0]) != current_group_id]
+        group_choices = [s for s in security_groups]
         if len(group_choices):  # add group choice if available
             security_groups_choices.append(('Security Group', group_choices))
         self.fields['source_group'].choices = security_groups_choices
