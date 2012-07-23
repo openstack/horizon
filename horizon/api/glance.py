@@ -55,12 +55,16 @@ def image_get(request, image_id):
 
 
 def image_list_detailed(request, marker=None, filters=None):
-    filters = filters or {}
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-    images = glanceclient(request).images.list(limit=limit + 1,
-                                               marker=marker,
-                                               filters=filters)
-    if(len(images) > limit):
+    page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+    kwargs = {'filters': filters or {}}
+    if marker:
+        kwargs['marker'] = marker
+    images = list(glanceclient(request).images.list(page_size=page_size,
+                                                    limit=limit,
+                                                    **kwargs))
+    # Glance returns (page_size + 1) items if more items are available
+    if(len(images) > page_size):
         return (images[0:-1], True)
     else:
         return (images, False)
@@ -89,11 +93,4 @@ def image_create(request, **kwargs):
 def snapshot_list_detailed(request, marker=None, extra_filters=None):
     filters = {'property-image_type': 'snapshot'}
     filters.update(extra_filters or {})
-    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-    images = glanceclient(request).images.list(limit=limit + 1,
-                                               marker=marker,
-                                               filters=filters)
-    if len(images) > limit:
-        return (images[0:-1], True)
-    else:
-        return (images, False)
+    return image_list_detailed(request, marker, filters)

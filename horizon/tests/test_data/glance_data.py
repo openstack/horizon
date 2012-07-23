@@ -48,7 +48,7 @@ def data(TEST):
     TEST.snapshots.add(snapshot)
 
     # Images
-    image_dict = {'id': '1',
+    image_dict = {'id': '007e7d55-fe1e-4c5c-bf08-44b4a4964822',
                   'name': 'public_image',
                   'status': "active",
                   'owner': TEST.tenant.id,
@@ -56,11 +56,34 @@ def data(TEST):
                   'properties': {'image_type': u'image'}}
     public_image = Image(ImageManager(None), image_dict)
 
-    image_dict = {'id': '2',
+    image_dict = {'id': 'a001c047-22f8-47d0-80a1-8ec94a9524fe',
                   'name': 'private_image',
                   'status': "active",
                   'owner': TEST.tenant.id,
                   'container_format': 'aki'}
     private_image = Image(ImageManager(None), image_dict)
 
-    TEST.images.add(public_image, private_image)
+    image_dict = {'id': '278905a6-4b52-4d1e-98f9-8c57bb25ba32',
+                  'name': 'public_image 2',
+                  'status': "active",
+                  'owner': TEST.tenant.id,
+                  'container_format': 'novaImage',
+                  'properties': {'image_type': u'image'}}
+    public_image2 = Image(ImageManager(None), image_dict)
+
+    image_dict = {'id': '710a1acf-a3e3-41dd-a32d-5d6b6c86ea10',
+                  'name': 'private_image 2',
+                  'status': "active",
+                  'owner': TEST.tenant.id,
+                  'container_format': 'aki'}
+    private_image2 = Image(ImageManager(None), image_dict)
+
+    image_dict = {'id': '7cd892fd-5652-40f3-a450-547615680132',
+                  'name': 'private_image 3',
+                  'status': "active",
+                  'owner': TEST.tenant.id,
+                  'container_format': 'aki'}
+    private_image3 = Image(ImageManager(None), image_dict)
+
+    TEST.images.add(public_image, private_image,
+                    public_image2, private_image2, private_image3)

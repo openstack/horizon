@@ -76,9 +76,11 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # external to the OpenStack environment. The default is 'internalURL'.
 #OPENSTACK_ENDPOINT_TYPE = "publicURL"
 
-# The number of Swift containers and objects to display on a single page before
-# providing a paging element (a "more" link) to paginate results.
+# The number of objects (Swift containers/objects or images) to display
+# on a single page before providing a paging element (a "more" link)
+# to paginate results.
 API_RESULT_LIMIT = 1000
+API_RESULT_PAGE_SIZE = 20
 
 # The timezone of the server. This should correspond with the timezone
 # of your entire OpenStack installation, and hopefully be in UTC.

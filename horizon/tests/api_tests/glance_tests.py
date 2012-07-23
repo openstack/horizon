@@ -29,13 +29,39 @@ class GlanceApiTests(test.APITestCase):
         images = self.images.list()
         filters = {'property-image_type': 'snapshot'}
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
 
         glanceclient = self.stub_glanceclient()
         glanceclient.images = self.mox.CreateMockAnything()
-        glanceclient.images.list(filters=filters,
-                                 limit=limit + 1,
-                                 marker=None).AndReturn(images)
+        glanceclient.images.list(page_size=page_size,
+                                 limit=limit,
+                                 filters=filters,).AndReturn(images)
         self.mox.ReplayAll()
 
         # No assertions are necessary. Verification is handled by mox.
         api.glance.snapshot_list_detailed(self.request)
+
+    def test_snapshot_list_detailed_pagination(self):
+        images = self.images.list()
+        filters = {'property-image_type': 'snapshot'}
+        page_size = 2
+        temp_page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', None)
+        settings.API_RESULT_PAGE_SIZE = page_size
+        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+
+        glanceclient = self.stub_glanceclient()
+        glanceclient.images = self.mox.CreateMockAnything()
+        glanceclient.images.list(limit=limit,
+                                 page_size=page_size,
+                                 filters=filters,) \
+                                .AndReturn(images[0:page_size])
+        self.mox.ReplayAll()
+
+        # No assertions are necessary. Verification is handled by mox.
+        api.glance.snapshot_list_detailed(self.request)
+
+        # Restore
+        if temp_page_size:
+            settings.API_RESULT_PAGE_SIZE = temp_page_size
+        else:
+            del settings.API_RESULT_PAGE_SIZE
