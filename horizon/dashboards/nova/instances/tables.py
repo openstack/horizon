@@ -268,7 +268,9 @@ class InstancesTable(tables.DataTable):
                          link=("horizon:nova:instances:detail"),
                          verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
-    size = tables.Column(get_size, verbose_name=_("Size"))
+    size = tables.Column(get_size,
+                         verbose_name=_("Size"),
+                         attrs={'data-type': 'size'})
     keypair = tables.Column(get_keyname, verbose_name=_("Keypair"))
     status = tables.Column("status",
                            filters=(title, replace_underscores),

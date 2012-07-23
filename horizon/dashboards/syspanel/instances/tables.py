@@ -74,7 +74,8 @@ class SyspanelInstancesTable(tables.DataTable):
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
     size = tables.Column(get_size,
                          verbose_name=_("Size"),
-                         classes=('nowrap-col',))
+                         classes=('nowrap-col',),
+                         attrs={'data-type': 'size'})
     status = tables.Column("status",
                            filters=(title, replace_underscores),
                            verbose_name=_("Status"),

@@ -92,7 +92,9 @@ class ContainersTable(tables.DataTable):
     objects = tables.Column("object_count",
                             verbose_name=_('Objects'),
                             empty_value="0")
-    size = tables.Column(get_size_used, verbose_name=_('Size'))
+    size = tables.Column(get_size_used,
+                         verbose_name=_('Size'),
+                         attrs={'data-type': 'size'})
 
     def get_object_id(self, container):
         return container.name
@@ -159,7 +161,8 @@ class ObjectsTable(tables.DataTable):
     size = tables.Column("size",
                          verbose_name=_('Size'),
                          filters=(filesizeformat,),
-                         summation="sum")
+                         summation="sum",
+                         attrs={'data-type': 'size'})
 
     def get_object_id(self, obj):
         return obj.name

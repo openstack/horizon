@@ -20,7 +20,8 @@ class BaseUsageTable(tables.DataTable):
     disk = tables.Column('local_gb', verbose_name=_("Disk"))
     memory = tables.Column('memory_mb',
                            verbose_name=_("RAM"),
-                           filters=(mbformat,))
+                           filters=(mbformat,),
+                           attrs={"data-type": "size"})
     hours = tables.Column('vcpu_hours', verbose_name=_("VCPU Hours"),
                           filters=(lambda v: floatformat(v, 2),))
 
