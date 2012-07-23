@@ -22,6 +22,7 @@ from cloudfiles import errors as swiftclient
 from glanceclient.common import exceptions as glanceclient
 from keystoneclient import exceptions as keystoneclient
 from novaclient import exceptions as novaclient
+from quantumclient.common import exceptions as quantumclient
 
 
 UNAUTHORIZED = (keystoneclient.Unauthorized,
@@ -29,12 +30,16 @@ UNAUTHORIZED = (keystoneclient.Unauthorized,
                 novaclient.Unauthorized,
                 novaclient.Forbidden,
                 glanceclient.Unauthorized,
+                quantumclient.Unauthorized,
+                quantumclient.Forbidden,
                 swiftclient.AuthenticationFailed,
                 swiftclient.AuthenticationError)
 
 NOT_FOUND = (keystoneclient.NotFound,
              novaclient.NotFound,
              glanceclient.NotFound,
+             quantumclient.NetworkNotFoundClient,
+             quantumclient.PortNotFoundClient,
              swiftclient.NoSuchContainer,
              swiftclient.NoSuchObject)
 
@@ -44,4 +49,12 @@ RECOVERABLE = (keystoneclient.ClientException,
                keystoneclient.AuthorizationFailure,
                novaclient.ClientException,
                glanceclient.ClientException,
+               # NOTE(amotoki): Quantum exceptions other than the first one
+               # are recoverable in many cases (e.g., NetworkInUse is not
+               # raised once VMs which use the network are terminated).
+               quantumclient.QuantumClientException,
+               quantumclient.NetworkInUseClient,
+               quantumclient.PortInUseClient,
+               quantumclient.AlreadyAttachedClient,
+               quantumclient.StateInvalidClient,
                swiftclient.Error)

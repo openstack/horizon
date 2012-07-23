@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Networks" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Networks") %}
+{% endblock page_header %}
+
+{% block main %}
+  <div id="networks">
+    {{ networks_table.render }}
+  </div>
+
+  <div id="subnets">
+    {{ subnets_table.render }}
+  </div>
+
+  <div id="ports">
+    {{ ports_table.render }}
+  </div>
+{% endblock %}

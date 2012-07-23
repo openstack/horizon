@@ -1,0 +1,29 @@
+{% load i18n sizeformat %}
+
+<h3>{% trans "Subnet Overview" %}</h3>
+
+<div class="info row-fluid detail">
+  <h4>{% trans "Subnet" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ subnet.name|default:"None" }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ subnet.id|default:"None" }}</dd>
+    <dt>{% trans "Network ID" %}</dt>
+    <dd>{{ subnet.network_id|default:"None" }}</dd>
+    <dt>{% trans "CIDR" %}</dt>
+    <dd>{{ subnet.cidr|default:"None" }}</dd>
+    <dt>{% trans "IP version" %}</dt>
+    <dd>{{ subnet.ipver_str|default:"-" }}</dd>
+    <dt>{% trans "Gateway IP" %}</dt>
+    <dd>{{ subnet.gateway_ip|default:"-" }}</dd>
+    <dt>{% trans "IP allocation pool" %}</dt>
+    <dd>
+      {% for pool in subnet.allocation_pools %}
+      {% trans "Start" %}  {{ pool.start }}
+      {% trans " - End" %} {{ pool.end   }}<br>
+      {% endfor %}
+    </dd>
+  </dl>
+</div>

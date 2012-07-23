@@ -6,6 +6,7 @@ python-cloudfiles
 python-glanceclient<2
 python-keystoneclient
 python-novaclient
+python-quantumclient
 pytz
 
 # Horizon Utility Requirements

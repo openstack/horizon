@@ -35,6 +35,7 @@ from django.utils import unittest
 import glanceclient
 from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
+from quantumclient.v2_0 import client as quantum_client
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 import httplib2
@@ -290,17 +291,20 @@ class APITestCase(TestCase):
         self._original_glanceclient = api.glance.glanceclient
         self._original_keystoneclient = api.keystone.keystoneclient
         self._original_novaclient = api.nova.novaclient
+        self._original_quantumclient = api.quantum.quantumclient
 
         # Replace the clients with our stubs.
         api.glance.glanceclient = lambda request: self.stub_glanceclient()
         api.keystone.keystoneclient = fake_keystoneclient
         api.nova.novaclient = lambda request: self.stub_novaclient()
+        api.quantum.quantumclient = lambda request: self.stub_quantumclient()
 
     def tearDown(self):
         super(APITestCase, self).tearDown()
         api.glance.glanceclient = self._original_glanceclient
         api.nova.novaclient = self._original_novaclient
         api.keystone.keystoneclient = self._original_keystoneclient
+        api.quantum.quantumclient = self._original_quantumclient
 
     def stub_novaclient(self):
         if not hasattr(self, "novaclient"):
@@ -319,6 +323,12 @@ class APITestCase(TestCase):
             self.mox.StubOutWithMock(glanceclient, 'Client')
             self.glanceclient = self.mox.CreateMock(glanceclient.Client)
         return self.glanceclient
+
+    def stub_quantumclient(self):
+        if not hasattr(self, "quantumclient"):
+            self.mox.StubOutWithMock(quantum_client, 'Client')
+            self.quantumclient = self.mox.CreateMock(quantum_client.Client)
+        return self.quantumclient
 
     def stub_swiftclient(self, expected_calls=1):
         if not hasattr(self, "swiftclient"):

@@ -18,6 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext as _
 
@@ -26,6 +28,9 @@ from horizon import exceptions
 from horizon import forms
 from horizon import workflows
 from horizon.openstack.common import jsonutils
+
+
+LOG = logging.getLogger(__name__)
 
 
 class SelectProjectUserAction(workflows.Action):
@@ -400,6 +405,46 @@ class PostCreationStep(workflows.Step):
     contributes = ("customization_script",)
 
 
+class SetNetworkAction(workflows.Action):
+    network = forms.MultipleChoiceField(label=_("Networks"),
+                                        required=True,
+                                        widget=forms.CheckboxSelectMultiple(),
+                                        help_text=_("Launch instance with"
+                                                    "these networks"))
+
+    class Meta:
+        name = _("Networking")
+        permissions = ('openstack.services.network',)
+        help_text = _("Select networks for your instance.")
+
+    def populate_network_choices(self, request, context):
+        try:
+            networks = api.quantum.network_list(request)
+            for n in networks:
+                n.set_id_as_name_if_empty()
+            network_list = [(network.id, network.name) for network in networks]
+        except:
+            network_list = []
+            exceptions.handle(request,
+                              _('Unable to retrieve networks.'))
+        return network_list
+
+
+class SetNetwork(workflows.Step):
+    action_class = SetNetworkAction
+    contributes = ("network_id",)
+
+    def contribute(self, data, context):
+        if data:
+            networks = self.workflow.request.POST.getlist("network")
+            # If no networks are explicitly specified, network list
+            # contains an empty string, so remove it.
+            networks = [n for n in networks if n != '']
+            if networks:
+                context['network_id'] = networks
+        return context
+
+
 class LaunchInstance(workflows.Workflow):
     slug = "launch_instance"
     name = _("Launch Instance")
@@ -410,6 +455,7 @@ class LaunchInstance(workflows.Workflow):
     default_steps = (SelectProjectUser,
                      SetInstanceDetails,
                      SetAccessControls,
+                     SetNetwork,
                      VolumeOptions,
                      PostCreationStep)
 
@@ -437,6 +483,13 @@ class LaunchInstance(workflows.Workflow):
         else:
             dev_mapping = None
 
+        netids = context.get('network_id', None)
+        if netids:
+            nics = [{"net-id": netid, "v4-fixed-ip": ""}
+                    for netid in netids]
+        else:
+            nics = None
+
         try:
             api.nova.server_create(request,
                                    context['name'],
@@ -446,6 +499,7 @@ class LaunchInstance(workflows.Workflow):
                                    normalize_newlines(custom_script),
                                    context['security_group_ids'],
                                    dev_mapping,
+                                   nics=nics,
                                    instance_count=int(context['count']))
             return True
         except:

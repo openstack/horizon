@@ -1,0 +1,18 @@
+{% load i18n sizeformat %}
+
+<h3>{% trans "Network Overview" %}</h3>
+
+<div class="info detail">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ network.name|default:"None" }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ network.id|default:"None" }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ network.tenant_id|default:"-" }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ network.status|default:"Unknown" }}</dd>
+    <dt>{% trans "Admin State" %}</dt>
+    <dd>{{ network.admin_state|default:"Unknown" }}</dd>
+  </dl>
+</div>

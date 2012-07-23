@@ -1,0 +1,41 @@
+{% load i18n sizeformat %}
+
+<h3>{% trans "Port Overview" %}</h3>
+
+<div class="info row-fluid detail">
+  <h4>{% trans "Port" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ port.name|default:"None" }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ port.id|default:"None" }}</dd>
+    <dt>{% trans "Network ID" %}</dt>
+    <dd>{{ port.network_id|default:"None" }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ port.tenant_id|default:"-" }}</dd>
+    <dt>{% trans "Fixed IP" %}</dt>
+    <dd>
+      {% if port.fixed_ips.items|length > 1 %}
+      {% for ip in port.fixed_ips %}
+      <b>{% trans "IP address:" %}</b> {{ ip.ip_address }},
+      <b>{% trans "Subnet ID" %}</b> {{ ip.subnet_id }}<br>
+      {% endfor %}
+      {% else %}
+      "None"
+      {% endif %}
+    </dd>
+    <dt>{% trans "Mac Address" %}</dt>
+    <dd>{{ port.mac_address|default:"None" }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ port.status|default:"None" }}</dd>
+    <dt>{% trans "Admin State" %}</dt>
+    <dd>{{ port.admin_state|default:"None" }}</dd>
+    <dt>{% trans "Device ID" %}</dt>
+    {% if port.device_id|length  > 1 %}
+    <dd>{{ port.device_id }}</dd>
+    {% else %}
+    <dd>No attached device</dd>
+    {% endif %}
+  </dl>
+</div>

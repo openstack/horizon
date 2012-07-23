@@ -734,7 +734,7 @@ class DataTableOptions(object):
         self.table_actions_template = \
                         'horizon/common/_data_table_table_actions.html'
         self.context_var_name = unicode(getattr(options,
-                                                'context_var_nam',
+                                                'context_var_name',
                                                 'table'))
         self.actions_column = getattr(options,
                                      'actions_column',

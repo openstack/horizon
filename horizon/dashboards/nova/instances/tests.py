@@ -589,6 +589,7 @@ class InstanceTests(test.TestCase):
                                    'security_group_list',
                                    'volume_snapshot_list',
                                    'volume_list',),
+                        api.quantum: ('network_list',),
                         api.glance: ('image_list_detailed',)})
     def test_launch_instance_get(self):
         quota_usages = self.quota_usages.first()
@@ -604,6 +605,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
+        api.quantum.network_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.networks.list())
         api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -631,10 +634,12 @@ class InstanceTests(test.TestCase):
         self.assertQuerysetEqual(workflow.steps,
                             ['<SetInstanceDetails: setinstancedetailsaction>',
                              '<SetAccessControls: setaccesscontrolsaction>',
+                             '<SetNetwork: setnetworkaction>',
                              '<VolumeOptions: volumeoptionsaction>',
                              '<PostCreationStep: customizeaction>'])
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.quantum: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
@@ -653,6 +658,7 @@ class InstanceTests(test.TestCase):
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
         block_device_mapping = {device_name: u"%s::0" % volume_choice}
+        nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -666,6 +672,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
+        api.quantum.network_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.networks.list())
         api.nova.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -677,6 +685,7 @@ class InstanceTests(test.TestCase):
                                customization_script,
                                [sec_group.name],
                                block_device_mapping,
+                               nics=nics,
                                instance_count=IsA(int))
 
         self.mox.ReplayAll()
@@ -693,6 +702,7 @@ class InstanceTests(test.TestCase):
                      'volume_type': 'volume_id',
                      'volume_id': volume_choice,
                      'device_name': device_name,
+                     'network': self.networks.first().id,
                      'count': 1}
         url = reverse('horizon:nova:instances:launch')
         res = self.client.post(url, form_data)
@@ -702,6 +712,7 @@ class InstanceTests(test.TestCase):
                                      reverse('horizon:nova:instances:index'))
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.quantum: ('network_list',),
                     api.nova: ('flavor_list',
                                'keypair_list',
                                'security_group_list',
@@ -727,6 +738,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                 .AndReturn([[], False])
+        api.quantum.network_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.networks.list())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
@@ -762,6 +775,7 @@ class InstanceTests(test.TestCase):
                         'nova/instances/launch.html')
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.quantum: ('network_list',),
                         api.nova: ('tenant_quota_usages',
                                    'flavor_list',
                                    'keypair_list',
@@ -779,6 +793,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
+        api.quantum.network_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.networks.list())
         api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(self.quota_usages.first())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -799,6 +815,7 @@ class InstanceTests(test.TestCase):
                         'nova/instances/launch.html')
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.quantum: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
@@ -812,6 +829,7 @@ class InstanceTests(test.TestCase):
         server = self.servers.first()
         sec_group = self.security_groups.first()
         customization_script = 'userData'
+        nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
 
         api.nova.volume_snapshot_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.volumes.list())
@@ -825,6 +843,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
+        api.quantum.network_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.networks.list())
         api.nova.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
@@ -834,6 +854,7 @@ class InstanceTests(test.TestCase):
                                customization_script,
                                [sec_group.name],
                                None,
+                               nics=nics,
                                instance_count=IsA(int)) \
                       .AndRaise(self.exceptions.keystone)
 
@@ -849,6 +870,7 @@ class InstanceTests(test.TestCase):
                      'user_id': self.user.id,
                      'groups': sec_group.name,
                      'volume_type': '',
+                     'network': self.networks.first().id,
                      'count': 1}
         url = reverse('horizon:nova:instances:launch')
         res = self.client.post(url, form_data)
@@ -856,6 +878,7 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.quantum: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
@@ -885,6 +908,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
+        api.quantum.network_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.networks.list())
         api.nova.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])

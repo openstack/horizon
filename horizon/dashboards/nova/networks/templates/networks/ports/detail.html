@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Port Detail"%}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Port Detail") %}
+{% endblock page_header %}
+
+{% block main %}
+<div id="row-fluid">
+  <div class="span12">
+    {{ tab_group.render }}
+  </div>
+</div>
+{% endblock %}
