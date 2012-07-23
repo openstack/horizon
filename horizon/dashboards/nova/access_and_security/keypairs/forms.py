@@ -61,6 +61,6 @@ class ImportKeypair(forms.SelfHandlingForm):
                                        % data['name'])
             return keypair
         except:
-            exceptions.handle(request,
-                              _('Unable to import keypair.'))
-            return shortcuts.redirect(request.build_absolute_uri())
+            exceptions.handle(request, ignore=True)
+            self.api_error(_('Unable to import keypair.'))
+            return False
