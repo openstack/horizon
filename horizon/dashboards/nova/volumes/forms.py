@@ -15,15 +15,54 @@ from horizon import api
 from horizon import forms
 from horizon import exceptions
 from horizon import messages
+from horizon.utils.fields import SelectWidget
+from horizon.utils.memoized import memoized
 
 from ..instances.tables import ACTIVE_STATES
 
 
 class CreateForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label="Volume Name")
+    name = forms.CharField(max_length="255", label=_("Volume Name"))
     description = forms.CharField(widget=forms.Textarea,
             label=_("Description"), required=False)
-    size = forms.IntegerField(min_value=1, label="Size (GB)")
+    size = forms.IntegerField(min_value=1, label=_("Size (GB)"))
+    snapshot_source = forms.ChoiceField(label=_("Use snapshot as a source"),
+                                        widget=SelectWidget(
+                                          attrs={'class': 'snapshot-selector'},
+                                          data_attrs=('size', 'display_name'),
+                                          transform=lambda x:
+                                                ("%s (%sGB)" % (x.display_name,
+                                                                x.size))),
+                                        required=False)
+
+    def __init__(self, request, *args, **kwargs):
+        super(CreateForm, self).__init__(request, *args, **kwargs)
+        if ("snapshot_id" in request.GET):
+            try:
+                snapshot = self.get_snapshot(request,
+                                             request.GET["snapshot_id"])
+                self.fields['name'].initial = snapshot.display_name
+                self.fields['size'].initial = snapshot.size
+                self.fields['snapshot_source'].choices = ((snapshot.id,
+                                                           snapshot),)
+                self.fields['size'].help_text = _('Volume size must be equal '
+                                'to or greater than the snapshot size (%sGB)'
+                                % snapshot.size)
+            except:
+                exceptions.handle(request,
+                                  _('Unable to load the specified snapshot.'))
+        else:
+            try:
+                snapshots = api.volume_snapshot_list(request)
+                if snapshots:
+                    choices = [('', _("Choose a snapshot"))] + \
+                              [(s.id, s) for s in snapshots]
+                    self.fields['snapshot_source'].choices = choices
+                else:
+                    del self.fields['snapshot_source']
+            except:
+                exceptions.handle(request, _("Unable to retrieve "
+                        "volume snapshots."))
 
     def handle(self, request, data):
         try:
@@ -33,8 +72,20 @@ class CreateForm(forms.SelfHandlingForm):
             # send it off to Nova to try and create.
             usages = api.tenant_quota_usages(request)
 
-            if type(data['size']) is str:
-                data['size'] = int(data['size'])
+            snapshot_id = None
+            if (data.get("snapshot_source", None)):
+                # Create from Snapshot
+                snapshot = self.get_snapshot(request,
+                                             data["snapshot_source"])
+                snapshot_id = snapshot.id
+                if (data['size'] < snapshot.size):
+                    error_message = _('The volume size cannot be less than '
+                                      'the snapshot size (%sGB)' %
+                                      snapshot.size)
+                    raise ValidationError(error_message)
+            else:
+                if type(data['size']) is str:
+                    data['size'] = int(data['size'])
 
             if usages['gigabytes']['available'] < data['size']:
                 error_message = _('A volume of %(req)iGB cannot be created as '
@@ -51,7 +102,8 @@ class CreateForm(forms.SelfHandlingForm):
             volume = api.volume_create(request,
                                        data['size'],
                                        data['name'],
-                                       data['description'])
+                                       data['description'],
+                                       snapshot_id=snapshot_id)
             message = 'Creating volume "%s"' % data['name']
             messages.info(request, message)
             return volume
@@ -61,12 +113,16 @@ class CreateForm(forms.SelfHandlingForm):
             exceptions.handle(request, ignore=True)
             return self.api_error(_("Unable to create volume."))
 
+    @memoized
+    def get_snapshot(self, request, id):
+        return api.nova.volume_snapshot_get(request, id)
+
 
 class AttachForm(forms.SelfHandlingForm):
-    instance = forms.ChoiceField(label="Attach to Instance",
+    instance = forms.ChoiceField(label=_("Attach to Instance"),
                                  help_text=_("Select an instance to "
                                              "attach to."))
-    device = forms.CharField(label="Device Name", initial="/dev/vdc")
+    device = forms.CharField(label=_("Device Name"), initial="/dev/vdc")
 
     def __init__(self, *args, **kwargs):
         super(AttachForm, self).__init__(*args, **kwargs)
@@ -126,8 +182,8 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
     description = forms.CharField(widget=forms.Textarea,
             label=_("Description"), required=False)
 
-    def __init__(self, *args, **kwargs):
-        super(CreateSnapshotForm, self).__init__(*args, **kwargs)
+    def __init__(self, request, *args, **kwargs):
+        super(CreateSnapshotForm, self).__init__(request, *args, **kwargs)
 
         # populate volume_id
         volume_id = kwargs.get('initial', {}).get('volume_id', [])

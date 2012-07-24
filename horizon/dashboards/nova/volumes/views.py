@@ -96,7 +96,9 @@ class CreateSnapshotView(forms.ModalFormView):
     success_url = reverse_lazy("horizon:nova:images_and_snapshots:index")
 
     def get_context_data(self, **kwargs):
-        return {'volume_id': self.kwargs['volume_id']}
+        context = super(CreateSnapshotView, self).get_context_data(**kwargs)
+        context['volume_id'] = self.kwargs['volume_id']
+        return context
 
     def get_initial(self):
         return {'volume_id': self.kwargs["volume_id"]}
