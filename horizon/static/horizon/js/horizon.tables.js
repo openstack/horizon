@@ -148,21 +148,50 @@ horizon.datatables.confirm = function (action) {
   return modal;
 };
 
+$.tablesorter.addParser({
+    // set a unique id
+    id: 'sizeSorter',
+    is: function(s) {
+        // Not an auto-detected parser
+        return false;
+    },
+    // compare int values
+    format: function(s) {
+      var sizes = {BYTE: 0, B: 0, KB: 1, MB: 2,
+                   GB: 3, TB: 4, PB: 5};
+      var regex = /([\d\.,]+)\s*(byte|B|KB|MB|GB|TB|PB)+/i;
+      var match = s.match(regex);
+      if (match && match.length === 3){
+        return parseFloat(match[1]) *
+                          Math.pow(1024, sizes[match[2].toUpperCase()]);
+      }
+      return parseInt(s, 10);
+    },
+    type: 'numeric'
+});
+
 horizon.datatables.set_table_sorting = function (parent) {
 // Function to initialize the tablesorter plugin strictly on sortable columns.
 $(parent).find("table.table").each(function () {
-  var $this = $(this),
+  var $table = $(this),
       header_options = {};
-  $this.find("thead th").each(function (i, val) {
-    // Disable if not sortable or has <= 1 item
-    if (!$(this).hasClass('sortable') || $this.find('tbody tr').not('.empty').length <= 1) {
-      header_options[i] = {sorter: false};
-    }
-  });
-  $this.tablesorter({
-    headers: header_options,
-    cancelSelection: false
-  });
+  // Disable if not sortable or has <= 1 item
+  if ($table.find('tbody tr').not('.empty').length > 1){
+    $table.find("thead th").each(function (i, val) {
+      $th = $(this);
+      if (!$th.hasClass('sortable')) {
+        header_options[i] = {sorter: false};
+      } else if ($th.data('type') == 'size'){
+        // set as [i-1] as there is one more <th> in <thead>
+        // than <td>'s in <tbody>
+        header_options[i-1] = {sorter: 'sizeSorter'};
+      }
+    });
+    $table.tablesorter({
+      headers: header_options,
+      cancelSelection: false
+    });
+  }
 });
 };
 
