@@ -1,7 +1,7 @@
 /* Namespace for core functionality related to Forms. */
 horizon.forms = {
   handle_source_group: function() {
-    $(document).on("change", "#id_source_group", function (evt) {
+    $("div.table_wrapper, #modal_wrapper").on("change", "#id_source_group", function (evt) {
       var $sourceGroup = $('#id_source_group'),
           $cidrContainer = $('#id_cidr').closest(".control-group");
       if($sourceGroup.val() === "") {
@@ -9,6 +9,16 @@ horizon.forms = {
       } else {
         $cidrContainer.addClass("hide");
       }
+    });
+  },
+  handle_snapshot_source: function() {
+    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_snapshot_source", function(evt) {
+      var $option = $(this).find("option:selected");
+      var $form = $(this).closest('form');
+      var $volName = $form.find('input#id_name');
+      $volName.val($option.data("display_name"));
+      var $volSize = $form.find('input#id_size');
+      $volSize.val($option.data("size"));
     });
   }
 };
@@ -48,6 +58,7 @@ horizon.addInitFunction(function () {
   horizon.modals.addModalInitFunction(horizon.forms.bind_add_item_handlers);
 
   horizon.forms.handle_source_group();
+  horizon.forms.handle_snapshot_source();
 
   // Bind event handlers to confirm dangerous actions.
   $("body").on("click", "form button.btn-danger", function (evt) {
@@ -62,8 +73,8 @@ horizon.addInitFunction(function () {
     var type = $(this).val();
     $(this).closest('fieldset').find('input[type=text]').each(function(index, obj){
       var label_val = "";
-      if ($(obj).attr("data-" + type)){
-        label_val = $(obj).attr("data-" + type);
+      if ($(obj).data(type)){
+        label_val = $(obj).data(type);
       } else if ($(obj).attr("data")){
         label_val = $(obj).attr("data");
       } else

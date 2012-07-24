@@ -518,9 +518,9 @@ def volume_instance_list(request, instance_id):
     return volumes
 
 
-def volume_create(request, size, name, description):
+def volume_create(request, size, name, description, snapshot_id=None):
     return cinderclient(request).volumes.create(size, display_name=name,
-            display_description=description)
+            display_description=description, snapshot_id=snapshot_id)
 
 
 def volume_delete(request, volume_id):

@@ -1,8 +1,11 @@
 import re
 import netaddr
 from django.core.exceptions import ValidationError
-from django.forms import forms
+from django.forms import forms, widgets
 from django.utils.translation import ugettext as _
+from django.utils.encoding import force_unicode
+from django.utils.html import escape, conditional_escape
+from django.utils.functional import Promise
 
 ip_allowed_symbols_re = re.compile(r'^[a-fA-F0-9:/\.]+$')
 IPv4 = 1
@@ -82,3 +85,44 @@ class IPField(forms.Field):
     def clean(self, value):
         super(IPField, self).clean(value)
         return str(getattr(self, "ip", ""))
+
+
+class SelectWidget(widgets.Select):
+    """
+    Customizable select widget, that allows to render
+    data-xxx attributes from choices.
+
+    .. attribute:: data_attrs
+
+        Specifies object properties to serialize as
+        data-xxx attribute. If passed ('id', ),
+        this will be rendered as:
+        <option data-id="123">option_value</option>
+        where 123 is the value of choice_value.id
+
+    .. attribute:: transform
+
+        A callable used to render the display value
+        from the option object.
+    """
+    def __init__(self, attrs=None, choices=(), data_attrs=(), transform=None):
+        self.data_attrs = data_attrs
+        self.transform = transform
+        super(SelectWidget, self).__init__(attrs, choices)
+
+    def render_option(self, selected_choices, option_value, option_label):
+        option_value = force_unicode(option_value)
+        other_html = (option_value in selected_choices) and \
+                         u' selected="selected"' or ''
+        if not isinstance(option_label, (basestring, Promise)):
+            for data_attr in self.data_attrs:
+                data_value = conditional_escape(
+                                    force_unicode(getattr(option_label,
+                                                          data_attr, "")))
+                other_html += ' data-%s="%s"' % (data_attr, data_value)
+
+            if self.transform:
+                option_label = self.transform(option_label)
+        return u'<option value="%s"%s>%s</option>' % (
+                escape(option_value), other_html,
+                conditional_escape(force_unicode(option_label)))
