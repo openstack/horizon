@@ -44,10 +44,12 @@ DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
 
 INSTALLED_APPS = (
     'django.contrib.sessions',
+    'django.contrib.staticfiles',
     'django.contrib.messages',
     'django.contrib.humanize',
     'django_nose',
     'openstack_auth',
+    'compressor',
     'horizon',
     'horizon.tests',
     'horizon.dashboards.nova',
@@ -115,6 +117,16 @@ HORIZON_CONFIG = {
     },
     'user_home': None
 }
+
+COMPRESS_ENABLED = False
+COMPRESS_OFFLINE = False
+COMPRESS_ROOT = "/tmp/"
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
 
 AVAILABLE_REGIONS = [
     ('http://localhost:5000/v2.0', 'local'),

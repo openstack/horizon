@@ -49,14 +49,14 @@ class MyPanel(horizon.Panel):
     name = _("My Panel")
     slug = "myslug"
     permissions = ("openstack.services.compute",)
-    urls = 'horizon.tests.test_panel_urls'
+    urls = 'horizon.tests.test_dashboards.cats.kittens.urls'
 
 
 class AdminPanel(horizon.Panel):
     name = _("Admin Panel")
     slug = "admin_panel"
     permissions = ("openstack.roles.admin",)
-    urls = 'horizon.tests.test_panel_urls'
+    urls = 'horizon.tests.test_dashboards.cats.kittens.urls'
 
 
 class BaseHorizonTests(test.TestCase):
@@ -255,6 +255,13 @@ class HorizonTests(BaseHorizonTests):
         dash = horizon.get_dashboard("mydash")
         panel = dash.get_panel('myslug')
         self._reload_urls()
+
+        # Set roles for admin user
+        self.setActiveUser(token=self.token,
+                           username=self.user.name,
+                           tenant_id=self.tenant.id,
+                           service_catalog=self.request.user.service_catalog,
+                           roles=[{'name': 'admin'}])
 
         # With the required service, the page returns fine.
         resp = self.client.get(panel.get_absolute_url())

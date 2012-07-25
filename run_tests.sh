@@ -259,6 +259,10 @@ function install_venv {
 function run_tests {
   sanity_check
 
+  if [ $selenium -eq 1 ]; then
+    export WITH_SELENIUM=1
+  fi
+
   echo "Running Horizon application tests"
   export NOSE_XUNIT_FILE=horizon/nosetests.xml
   ${command_wrapper} coverage erase
@@ -267,9 +271,6 @@ function run_tests {
   HORIZON_RESULT=$?
 
   echo "Running openstack_dashboard tests"
-  if [ $selenium -eq 1 ]; then
-    export WITH_SELENIUM=1
-  fi
   export NOSE_XUNIT_FILE=openstack_dashboard/nosetests.xml
   ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=openstack_dashboard.test.settings $testargs
   # get results of the openstack_dashboard tests

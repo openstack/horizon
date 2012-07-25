@@ -23,12 +23,19 @@ URL patterns for testing Horizon views.
 """
 
 from django.conf.urls.defaults import patterns, url, include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView
 
 import horizon
 
 
 urlpatterns = patterns('',
-    url(r'^$', 'horizon.tests.views.fakeView', name='splash'),
+    url(r'^$', 'horizon.views.splash', name='splash'),
     url(r'^auth/', include('openstack_auth.urls')),
     url(r'', include(horizon.urls)),
+    url(r'^qunit/$',
+        TemplateView.as_view(template_name="horizon/qunit.html"),
+        name='qunit_tests')
 )
+
+urlpatterns += staticfiles_urlpatterns()

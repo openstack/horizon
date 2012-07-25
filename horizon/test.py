@@ -30,10 +30,12 @@ from django.contrib.messages.storage import default_storage
 from django.contrib.auth.middleware import AuthenticationMiddleware
 from django.core.handlers import wsgi
 from django.test.client import RequestFactory
+from django.utils import unittest
 
 from glanceclient.v1 import client as glance_client
 from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 import httplib2
 import mox
@@ -325,3 +327,19 @@ class APITestCase(TestCase):
                             .AndReturn(self.swiftclient)
                 expected_calls -= 1
         return self.swiftclient
+
+
+@unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
+                     "The WITH_SELENIUM env variable is not set.")
+class SeleniumTestCase(django_test.LiveServerTestCase):
+    @classmethod
+    def setUpClass(cls):
+        if os.environ.get('WITH_SELENIUM', False):
+            cls.selenium = WebDriver()
+        super(SeleniumTestCase, cls).setUpClass()
+
+    @classmethod
+    def tearDownClass(cls):
+        super(SeleniumTestCase, cls).tearDownClass()
+        if os.environ.get('WITH_SELENIUM', False):
+            cls.selenium.quit()

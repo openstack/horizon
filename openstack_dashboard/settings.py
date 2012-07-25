@@ -51,7 +51,7 @@ ROOT_URLCONF = 'openstack_dashboard.urls'
 HORIZON_CONFIG = {
     'dashboards': ('nova', 'syspanel', 'settings',),
     'default_dashboard': 'nova',
-    'user_home': 'openstack_dashboard.views.user_home',
+    'user_home': 'horizon.views.user_home',
     'ajax_queue_limit': 10
 }
 
