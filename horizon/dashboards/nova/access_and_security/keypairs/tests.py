@@ -127,6 +127,24 @@ class KeyPairViewTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertMessageCount(res, success=1)
 
+    def test_import_keypair_invalid_key(self):
+        key_name = "new key pair"
+        public_key = "ABCDEF"
+
+        self.mox.StubOutWithMock(api, 'keypair_import')
+        api.keypair_import(IsA(http.HttpRequest), key_name, public_key) \
+                        .AndRaise(self.exceptions.nova)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'ImportKeypair',
+                    'name': key_name,
+                    'public_key': public_key}
+        url = reverse('horizon:nova:access_and_security:keypairs:import')
+        res = self.client.post(url, formData, follow=True)
+        self.assertEqual(res.redirect_chain, [])
+        msg = 'Unable to import keypair.'
+        self.assertFormErrors(res, count=1, message=msg)
+
     def test_generate_keypair_exception(self):
         keypair = self.keypairs.first()
 
