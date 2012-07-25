@@ -28,6 +28,7 @@ function usage {
   echo "  -y, --pylint             Just run pylint"
   echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
   echo "                           Implies -V if -N is not set."
+  echo "  --only-selenium          Run only the Selenium unit tests"
   echo "  --with-selenium          Run unit tests including Selenium tests"
   echo "  --runserver              Run the Django development server for"
   echo "                           openstack_dashboard in the virtual"
@@ -65,7 +66,8 @@ never_venv=0
 quiet=0
 restore_env=0
 runserver=0
-selenium=0
+only_selenium=0
+with_selenium=0
 testargs=""
 with_coverage=0
 makemessages=0
@@ -87,7 +89,8 @@ function process_option {
     -c|--coverage) with_coverage=1;;
     -m|--manage) manage=1;;
     --makemessages) makemessages=1;;
-    --with-selenium) selenium=1;;
+    --only-selenium) only_selenium=1;;
+    --with-selenium) with_selenium=1;;
     --docs) just_docs=1;;
     --runserver) runserver=1;;
     --backup-environment) backup_env=1;;
@@ -259,8 +262,11 @@ function install_venv {
 function run_tests {
   sanity_check
 
-  if [ $selenium -eq 1 ]; then
+  if [ $with_selenium -eq 1 ]; then
     export WITH_SELENIUM=1
+  elif [ $only_selenium -eq 1 ]; then
+    export WITH_SELENIUM=1
+    export SKIP_UNITTESTS=1
   fi
 
   echo "Running Horizon application tests"
