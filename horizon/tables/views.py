@@ -154,3 +154,54 @@ class DataTableView(MultiTableView):
         context = super(DataTableView, self).get_context_data(**kwargs)
         context[self.context_object_name] = self.table
         return context
+
+
+class MixedDataTableView(DataTableView):
+    """ A class-based generic view to handle DataTable with mixed data
+    types.
+
+    Basic usage is the same as DataTableView.
+
+    Three steps are required to use this view:
+    #. Set the ``table_class`` attribute with desired
+    :class:`~horizon.tables.DataTable` class. In the class the
+    ``data_types`` list should have at least two elements.
+
+    #. Define a ``get_{{ data_type }}_data`` method for each data type
+    which returns a set of data for the table.
+
+    #. Specify a template for the ``template_name`` attribute.
+    """
+    table_class = None
+    context_object_name = 'table'
+
+    def _get_data_dict(self):
+        if not self._data:
+            table = self.table_class
+            self._data = {table._meta.name: []}
+            for data_type in table._meta.data_types:
+                func_name = "get_%s_data" % data_type
+                data_func = getattr(self, func_name, None)
+                if data_func is None:
+                    cls_name = self.__class__.__name__
+                    raise NotImplementedError("You must define a %s method "
+                                              "for %s data type in %s." %
+                                              (func_name, data_type, cls_name))
+                data = data_func()
+                self.assign_type_string(data, data_type)
+                self._data[table._meta.name].extend(data)
+        return self._data
+
+    def assign_type_string(self, data, type_string):
+        for datum in data:
+            setattr(datum, self.table_class._meta.data_type_name,
+                    type_string)
+
+    def get_table(self):
+        self.table = super(MixedDataTableView, self).get_table()
+        if not self.table._meta.mixed_data_type:
+            raise AttributeError('You must have at least two elements in '
+                                 'the data_types attibute '
+                                 'in table %s to use MixedDataTableView.'
+                                 % self.table._meta.name)
+        return self.table

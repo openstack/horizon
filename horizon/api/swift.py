@@ -118,8 +118,6 @@ def swift_filter_objects(request, filter_string, container_name, prefix=None,
     filter_string_list = filter_string.lower().strip().split(' ')
 
     def matches_filter(obj):
-        if obj.content_type == "application/directory":
-            return False
         for q in filter_string_list:
             return wildcard_search(obj.name.lower(), q)
 
