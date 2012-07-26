@@ -91,6 +91,8 @@ class RequestFactoryWithMessages(RequestFactory):
         return req
 
 
+@unittest.skipIf(os.environ.get('SKIP_UNITTESTS', False),
+                     "The SKIP_UNITTESTS env variable is set.")
 class TestCase(django_test.TestCase):
     """
     Specialized base test case class for Horizon which gives access to
