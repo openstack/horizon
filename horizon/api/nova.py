@@ -24,6 +24,9 @@ from __future__ import absolute_import
 
 import logging
 
+from django.conf import settings
+from django.utils.translation import ugettext as _
+
 from novaclient.v1_1 import client as nova_client
 from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.security_groups import SecurityGroup as NovaSecurityGroup
@@ -31,8 +34,6 @@ from novaclient.v1_1.servers import REBOOT_HARD
 
 from horizon.api.base import APIResourceWrapper, APIDictWrapper, url_for
 from horizon.utils.memoized import memoized
-
-from django.utils.translation import ugettext as _
 
 
 LOG = logging.getLogger(__name__)
@@ -191,24 +192,28 @@ class SecurityGroupRule(APIResourceWrapper):
 
 
 def novaclient(request):
+    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     LOG.debug('novaclient connection created using token "%s" and url "%s"' %
               (request.user.token.id, url_for(request, 'compute')))
     c = nova_client.Client(request.user.username,
                            request.user.token.id,
                            project_id=request.user.tenant_id,
-                           auth_url=url_for(request, 'compute'))
+                           auth_url=url_for(request, 'compute'),
+                           insecure=insecure)
     c.client.auth_token = request.user.token.id
     c.client.management_url = url_for(request, 'compute')
     return c
 
 
 def cinderclient(request):
+    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     LOG.debug('cinderclient connection created using token "%s" and url "%s"' %
               (request.user.token.id, url_for(request, 'volume')))
     c = nova_client.Client(request.user.username,
                            request.user.token.id,
                            project_id=request.user.tenant_id,
-                           auth_url=url_for(request, 'volume'))
+                           auth_url=url_for(request, 'volume'),
+                           insecure=insecure)
     c.client.auth_token = request.user.token.id
     c.client.management_url = url_for(request, 'volume')
     return c
