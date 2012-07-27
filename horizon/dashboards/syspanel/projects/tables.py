@@ -17,8 +17,14 @@ LOG = logging.getLogger(__name__)
 class ViewMembersLink(tables.LinkAction):
     name = "users"
     verbose_name = _("Modify Users")
-    url = "horizon:syspanel:projects:users"
-    classes = ("btn-download",)
+    url = "horizon:syspanel:projects:update"
+    classes = ("ajax-modal", "btn-edit")
+
+    def get_link_url(self, project):
+        step = 'update_members'
+        base_url = reverse(self.url, args=[project.id])
+        param = urlencode({"step": step})
+        return "?".join([base_url, param])
 
 
 class UsageLink(tables.LinkAction):

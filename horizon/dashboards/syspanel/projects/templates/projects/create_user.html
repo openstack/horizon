@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Add New User" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Add New User") %}
+{% endblock page_header %}
+
+
+{% block main %}
+  {% include 'horizon/common/_create_user.html' %}
+{% endblock %}

@@ -193,16 +193,32 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             quota_data[field] = int(getattr(quota, field, None))
         return quota_data
 
-    @test.create_stubs({api: ('tenant_get',
-                              'tenant_quota_get',)})
+    @test.create_stubs({api: ('get_default_role',
+                              'roles_for_user',
+                              'tenant_get',
+                              'tenant_quota_get',),
+                        api.keystone: ('user_list',
+                                       'role_list',)})
     def test_update_project_get(self):
         project = self.tenants.first()
         quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
 
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
             .AndReturn(project)
         api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        for user in users:
+            api.roles_for_user(IsA(http.HttpRequest),
+                               user.id,
+                               self.tenant.id).AndReturn(roles)
 
         self.mox.ReplayAll()
 
@@ -224,20 +240,46 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                          project.description)
         self.assertQuerysetEqual(workflow.steps,
                             ['<UpdateProjectInfo: update_info>',
+                             '<UpdateProjectMembers: update_members>',
                              '<UpdateProjectQuota: update_quotas>'])
 
     @test.create_stubs({api: ('tenant_get',
                               'tenant_quota_get',
                               'tenant_update',
-                              'tenant_quota_update',)})
+                              'tenant_quota_update',
+                              'get_default_role',
+                              'roles_for_user',
+                              'remove_tenant_user_role',
+                              'add_tenant_user_role'),
+                        api.keystone: ('user_list',
+                                       'role_list',)})
     def test_update_project_post(self):
         project = self.tenants.first()
         quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
+        current_roles = self.roles.list()
 
-        api.tenant_get(IsA(http.HttpRequest), project.id, admin=True) \
+        # get/init
+        api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
             .AndReturn(project)
-        api.tenant_quota_get(IsA(http.HttpRequest), project.id) \
+        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        workflow_data = {}
+        for user in users:
+            api.roles_for_user(IsA(http.HttpRequest),
+                               user.id,
+                               self.tenant.id).AndReturn(roles)
+            role_ids = [role.id for role in roles]
+            if role_ids:
+                workflow_data.setdefault("role_" + role_ids[0], []) \
+                             .append(user.id)
 
         # update some fields
         project._info["name"] = "updated name"
@@ -251,8 +293,47 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
 
+        # contribute
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # handle
         api.tenant_update(IsA(http.HttpRequest), **updated_project) \
             .AndReturn(project)
+
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.user_list(IsA(http.HttpRequest),
+                               tenant_id=self.tenant.id).AndReturn(users)
+
+        for user in users:
+            api.roles_for_user(IsA(http.HttpRequest),
+                                        user.id,
+                                        self.tenant.id) \
+                                .AndReturn(current_roles)
+            for role in roles:
+                if "role_" + role.id in workflow_data:
+                    ulist = workflow_data["role_" + role.id]
+                    if role not in current_roles:
+                        api.add_tenant_user_role(IsA(http.HttpRequest),
+                                             tenant_id=self.tenant.id,
+                                             user_id=user,
+                                             role_id=role.id)
+                    else:
+                        current_roles.pop(current_roles.index(role))
+            for to_delete in current_roles:
+                api.remove_tenant_user_role(IsA(http.HttpRequest),
+                                            tenant_id=self.tenant.id,
+                                            user_id=user.id,
+                                            role_id=to_delete.id)
+        for role in roles:
+            if "role_" + role.id in workflow_data:
+                ulist = workflow_data["role_" + role.id]
+                for user in ulist:
+                    if not filter(lambda x: user == x.id, users):
+                        api.add_tenant_user_role(IsA(http.HttpRequest),
+                                                 tenant_id=self.tenant.id,
+                                                 user_id=user,
+                                                 role_id=role.id)
+
         api.tenant_quota_update(IsA(http.HttpRequest),
                                 project.id,
                                 **updated_quota)
@@ -260,10 +341,11 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         # submit form data
-        workflow_data = {"name": project._info["name"],
+        project_data = {"name": project._info["name"],
                          "id": project.id,
                          "description": project._info["description"],
                          "enabled": project.enabled}
+        workflow_data.update(project_data)
         workflow_data.update(updated_quota)
         url = reverse('horizon:syspanel:projects:update',
                       args=[self.tenant.id])
@@ -272,14 +354,10 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('tenant_get',
-                              'tenant_quota_get',)})
+    @test.create_stubs({api: ('tenant_get',)})
     def test_update_project_get_error(self):
-        project = self.tenants.first()
 
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
-            .AndReturn(project)
-        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -292,21 +370,46 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api: ('tenant_get',
                               'tenant_quota_get',
-                              'tenant_update',)})
+                              'tenant_update',
+                              'tenant_quota_update',
+                              'get_default_role',
+                              'roles_for_user',
+                              'remove_tenant_user',
+                              'add_tenant_user_role'),
+                        api.keystone: ('user_list',
+                                       'role_list',)})
     def test_update_project_tenant_update_error(self):
         project = self.tenants.first()
         quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
 
-        api.tenant_get(IsA(http.HttpRequest), project.id, admin=True) \
+        # get/init
+        api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
             .AndReturn(project)
-        api.tenant_quota_get(IsA(http.HttpRequest), project.id) \
+        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        workflow_data = {}
+        for user in users:
+            api.roles_for_user(IsA(http.HttpRequest),
+                               user.id,
+                               self.tenant.id).AndReturn(roles)
+            role_ids = [role.id for role in roles]
+            if role_ids:
+                workflow_data.setdefault("role_" + role_ids[0], []) \
+                             .append(user.id)
 
         # update some fields
         project._info["name"] = "updated name"
         project._info["description"] = "updated description"
-        quota.metadata_items = '444'
-        quota.volumes = '444'
+        quota.metadata_items = 444
+        quota.volumes = 444
 
         updated_project = {"tenant_name": project._info["name"],
                            "tenant_id": project.id,
@@ -314,16 +417,21 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
 
+        # contribute
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # handle
         api.tenant_update(IsA(http.HttpRequest), **updated_project) \
             .AndRaise(self.exceptions.keystone)
 
         self.mox.ReplayAll()
 
         # submit form data
-        workflow_data = {"name": project._info["name"],
+        project_data = {"name": project._info["name"],
                          "id": project.id,
                          "description": project._info["description"],
                          "enabled": project.enabled}
+        workflow_data.update(project_data)
         workflow_data.update(updated_quota)
         url = reverse('horizon:syspanel:projects:update',
                       args=[self.tenant.id])
@@ -335,22 +443,46 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
     @test.create_stubs({api: ('tenant_get',
                               'tenant_quota_get',
                               'tenant_update',
-                              'tenant_quota_update',)})
+                              'tenant_quota_update',
+                              'get_default_role',
+                              'roles_for_user',
+                              'remove_tenant_user_role',
+                              'add_tenant_user_role'),
+                        api.keystone: ('user_list',
+                                       'role_list',)})
     def test_update_project_quota_update_error(self):
         project = self.tenants.first()
         quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
+        current_roles = self.roles.list()
 
-        # first set of calls for 'get' because the url takes an arg
-        api.tenant_get(IsA(http.HttpRequest), project.id, admin=True) \
+        # get/init
+        api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
             .AndReturn(project)
-        api.tenant_quota_get(IsA(http.HttpRequest), project.id) \
+        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        workflow_data = {}
+        for user in users:
+            api.roles_for_user(IsA(http.HttpRequest),
+                               user.id,
+                               self.tenant.id).AndReturn(roles)
+            role_ids = [role.id for role in roles]
+            if role_ids:
+                workflow_data.setdefault("role_" + role_ids[0], []) \
+                             .append(user.id)
 
         # update some fields
         project._info["name"] = "updated name"
         project._info["description"] = "updated description"
-        quota.metadata_items = '444'
-        quota.volumes = '444'
+        quota.metadata_items = 444
+        quota.volumes = 444
 
         updated_project = {"tenant_name": project._info["name"],
                            "tenant_id": project.id,
@@ -358,20 +490,159 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
 
+        # contribute
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # handle
+        # handle
         api.tenant_update(IsA(http.HttpRequest), **updated_project) \
             .AndReturn(project)
+
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.user_list(IsA(http.HttpRequest),
+                               tenant_id=self.tenant.id).AndReturn(users)
+
+        for user in users:
+            api.roles_for_user(IsA(http.HttpRequest),
+                                        user.id,
+                                        self.tenant.id) \
+                              .AndReturn(current_roles)
+            for role in roles:
+                if "role_" + role.id in workflow_data:
+                    ulist = workflow_data["role_" + role.id]
+                    if role not in current_roles:
+                        api.add_tenant_user_role(IsA(http.HttpRequest),
+                                             tenant_id=self.tenant.id,
+                                             user_id=user,
+                                             role_id=role.id)
+                    else:
+                        current_roles.pop(current_roles.index(role))
+            for to_delete in current_roles:
+                api.remove_tenant_user_role(IsA(http.HttpRequest),
+                                            tenant_id=self.tenant.id,
+                                            user_id=user.id,
+                                            role_id=to_delete.id)
+        for role in roles:
+            if "role_" + role.id in workflow_data:
+                ulist = workflow_data["role_" + role.id]
+                for user in ulist:
+                    if not filter(lambda x: user == x.id, users):
+                        api.add_tenant_user_role(IsA(http.HttpRequest),
+                                                 tenant_id=self.tenant.id,
+                                                 user_id=user,
+                                                 role_id=role.id)
+
         api.tenant_quota_update(IsA(http.HttpRequest),
                                 project.id,
-                                **updated_quota) \
-            .AndRaise(self.exceptions.nova)
+                                **updated_quota).AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
         # submit form data
-        workflow_data = {"name": updated_project["tenant_name"],
+        project_data = {"name": project._info["name"],
                          "id": project.id,
-                         "description": updated_project["description"],
+                         "description": project._info["description"],
                          "enabled": project.enabled}
+        workflow_data.update(project_data)
+        workflow_data.update(updated_quota)
+        url = reverse('horizon:syspanel:projects:update',
+                      args=[self.tenant.id])
+        res = self.client.post(url, workflow_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api: ('tenant_get',
+                              'tenant_quota_get',
+                              'tenant_update',
+                              'get_default_role',
+                              'roles_for_user',
+                              'remove_tenant_user_role',
+                              'add_tenant_user_role'),
+                        api.keystone: ('user_list',
+                                       'role_list',)})
+    def test_update_project_member_update_error(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
+        current_roles = self.roles.list()
+
+        # get/init
+        api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
+            .AndReturn(project)
+        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        workflow_data = {}
+        for user in users:
+            api.roles_for_user(IsA(http.HttpRequest),
+                               user.id,
+                               self.tenant.id).AndReturn(roles)
+            role_ids = [role.id for role in roles]
+            if role_ids:
+                workflow_data.setdefault("role_" + role_ids[0], []) \
+                             .append(user.id)
+
+        # update some fields
+        project._info["name"] = "updated name"
+        project._info["description"] = "updated description"
+        quota.metadata_items = 444
+        quota.volumes = 444
+
+        updated_project = {"tenant_name": project._info["name"],
+                           "tenant_id": project.id,
+                           "description": project._info["description"],
+                           "enabled": project.enabled}
+        updated_quota = self._get_quota_info(quota)
+
+        # contribute
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # handle
+        api.tenant_update(IsA(http.HttpRequest), **updated_project) \
+            .AndReturn(project)
+
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.user_list(IsA(http.HttpRequest),
+                               tenant_id=self.tenant.id).AndReturn(users)
+
+        for user in users:
+            api.roles_for_user(IsA(http.HttpRequest),
+                                        user.id,
+                                        self.tenant.id) \
+                              .AndReturn(current_roles)
+            for role in roles:
+                if "role_" + role.id in workflow_data:
+                    if role not in current_roles:
+                        api.add_tenant_user_role(IsA(http.HttpRequest),
+                                             tenant_id=self.tenant.id,
+                                             user_id=user,
+                                             role_id=role.id)
+                    else:
+                        current_roles.pop(current_roles.index(role))
+            for to_delete in current_roles:
+                api.remove_tenant_user_role(IsA(http.HttpRequest),
+                                            tenant_id=self.tenant.id,
+                                            user_id=user.id,
+                                            role_id=to_delete.id) \
+                                            .AndRaise(self.exceptions.nova)
+                break
+            break
+
+        self.mox.ReplayAll()
+
+        # submit form data
+        project_data = {"name": project._info["name"],
+                         "id": project.id,
+                         "description": project._info["description"],
+                         "enabled": project.enabled}
+        workflow_data.update(project_data)
         workflow_data.update(updated_quota)
         url = reverse('horizon:syspanel:projects:update',
                       args=[self.tenant.id])

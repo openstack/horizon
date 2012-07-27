@@ -19,19 +19,18 @@
 #    under the License.
 
 import logging
-import operator
 
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import exceptions
-from horizon import forms
 from horizon import tables
 from horizon import usage
 from horizon import workflows
+from horizon.dashboards.syspanel.users.views import CreateView
 
-from .forms import AddUser
+from .forms import CreateUser
 from .tables import TenantsTable, TenantUsersTable, AddUsersTable
 from .workflows import CreateProject, UpdateProject
 
@@ -52,6 +51,8 @@ PROJECT_INFO_FIELDS = ("name",
                        "description",
                        "enabled")
 
+INDEX_URL = "horizon:syspanel:projects:index"
+
 
 class TenantContextMixin(object):
     def get_object(self):
@@ -62,10 +63,9 @@ class TenantContextMixin(object):
                                                        tenant_id,
                                                        admin=True)
             except:
-                redirect = reverse("horizon:syspanel:projects:index")
                 exceptions.handle(self.request,
                                   _('Unable to retrieve project information.'),
-                                  redirect=redirect)
+                                  redirect=reverse(INDEX_URL))
         return self._object
 
     def get_context_data(self, **kwargs):
@@ -106,10 +106,9 @@ class UsersView(tables.MultiTableView):
                                      'all_users': all_users,
                                      'tenant_users': tenant_users}
             except:
-                redirect = reverse("horizon:syspanel:projects:index")
                 exceptions.handle(self.request,
                                   _("Unable to retrieve users."),
-                                  redirect=redirect)
+                                  redirect=reverse(INDEX_URL))
         return self._shared_data
 
     def get_tenant_users_data(self):
@@ -125,42 +124,6 @@ class UsersView(tables.MultiTableView):
         context = super(UsersView, self).get_context_data(**kwargs)
         context['tenant'] = self._get_shared_data()["tenant"]
         return context
-
-
-class AddUserView(TenantContextMixin, forms.ModalFormView):
-    form_class = AddUser
-    template_name = 'syspanel/projects/add_user.html'
-    success_url = 'horizon:syspanel:projects:users'
-
-    def get_success_url(self):
-        return reverse(self.success_url,
-                       args=(self.request.POST['tenant_id'],))
-
-    def get_context_data(self, **kwargs):
-        context = super(AddUserView, self).get_context_data(**kwargs)
-        context['tenant_id'] = self.kwargs["tenant_id"]
-        context['user_id'] = self.kwargs["user_id"]
-        return context
-
-    def get_form_kwargs(self):
-        kwargs = super(AddUserView, self).get_form_kwargs()
-        try:
-            roles = api.keystone.role_list(self.request)
-        except:
-            redirect = reverse("horizon:syspanel:projects:users",
-                               args=(self.kwargs["tenant_id"],))
-            exceptions.handle(self.request,
-                              _("Unable to retrieve roles."),
-                              redirect=redirect)
-        roles.sort(key=operator.attrgetter("id"))
-        kwargs['roles'] = roles
-        return kwargs
-
-    def get_initial(self):
-        default_role = api.keystone.get_default_role(self.request)
-        return {'tenant_id': self.kwargs['tenant_id'],
-                'user_id': self.kwargs['user_id'],
-                'role_id': getattr(default_role, "id", None)}
 
 
 class TenantUsageView(usage.UsageView):
@@ -215,8 +178,26 @@ class UpdateProjectView(workflows.WorkflowView):
             for field in QUOTA_FIELDS:
                 initial[field] = getattr(quota_data, field, None)
         except:
-            redirect = reverse("horizon:syspanel:projects:index")
             exceptions.handle(self.request,
                                 _('Unable to retrieve project details.'),
-                                redirect=redirect)
+                                redirect=reverse(INDEX_URL))
         return initial
+
+
+class CreateUserView(CreateView):
+    form_class = CreateUser
+    template_name = "syspanel/projects/create_user.html"
+    success_url = reverse_lazy('horizon:syspanel:projects:index')
+
+    def get_initial(self):
+        default_role = api.keystone.get_default_role(self.request)
+        return {'role_id': getattr(default_role, "id", None),
+                'tenant_id': self.kwargs['tenant_id']}
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateUserView, self).get_context_data(**kwargs)
+        context['tenant_id'] = self.kwargs['tenant_id']
+        context['tenant_name'] = api.tenant_get(self.request,
+                                                 self.kwargs['tenant_id'],
+                                                 admin=True).name
+        return context

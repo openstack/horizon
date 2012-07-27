@@ -18,37 +18,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
-from django.utils.translation import ugettext_lazy as _
-
 from horizon import api
-from horizon import exceptions
 from horizon import forms
-from horizon import messages
+from horizon.dashboards.syspanel.users.forms import CreateUserForm
 
 
-LOG = logging.getLogger(__name__)
+class CreateUser(CreateUserForm):
+    role_id = forms.ChoiceField(widget=forms.HiddenInput())
+    tenant_id = forms.CharField(widget=forms.HiddenInput())
 
-
-class AddUser(forms.SelfHandlingForm):
-    tenant_id = forms.CharField(widget=forms.widgets.HiddenInput())
-    user_id = forms.CharField(widget=forms.widgets.HiddenInput())
-    role_id = forms.ChoiceField(label=_("Role"))
-
-    def __init__(self, *args, **kwargs):
-        roles = kwargs.pop('roles')
-        super(AddUser, self).__init__(*args, **kwargs)
-        role_choices = [(role.id, role.name) for role in roles]
-        self.fields['role_id'].choices = role_choices
-
-    def handle(self, request, data):
-        try:
-            api.add_tenant_user_role(request,
-                                     data['tenant_id'],
-                                     data['user_id'],
-                                     data['role_id'])
-            messages.success(request, _('Successfully added user to project.'))
-            return True
-        except:
-            exceptions.handle(request, _('Unable to add user to project.'))
+    def __init__(self, request, *args, **kwargs):
+        super(CreateUser, self).__init__(request, *args, **kwargs)
+        tenant_id = self.request.path.split("/")[-1]
+        self.fields['tenant_id'].initial = tenant_id

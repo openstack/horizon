@@ -818,7 +818,7 @@ td.select {
 /* Actions dropdown */
 
 td.actions_column {
-  width: 175px;
+  width: 150px;
   padding: 10px;
   position: relative;
   min-width: 140px;
@@ -843,15 +843,6 @@ td.actions_column .row_actions button {
 
 td.actions_column .row_actions .hide {
   display: none;
-}
-
-.modal fieldset .form-field select[data-add-item-url] {
-  width: 273px;
-}
-
-select ~ .btn.ajax-add {
-  vertical-align: top;
-  margin-left: 5px;
 }
 
 /* Makes size consistent across browsers when mixing "btn-group" and "small" */
@@ -882,6 +873,7 @@ select ~ .btn.ajax-add {
 .dropdown-menu li.divider:hover {
   background-color: #E5E5E5;
 }
+
 td.actions_column .dropdown-menu a:hover,
 td.actions_column .dropdown-menu button:hover {
   background-color: #CDCDCD;
@@ -1215,11 +1207,9 @@ label.log-length {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);
 }
 
-.split_five div.control-group input[type="text"] {
-  width: 120px;
-}
+.split_five div.control-group input[type="text"],
 .split_five div.control-group select {
-  width: 130px;
+  width: 120px;
 }
 
 .warning {
@@ -1246,4 +1236,147 @@ label.log-length {
 
 .no_split {
   margin-top: -60px;
+}
+
+/* Project Membership UI */
+.project_membership {
+    min-height: 200px;
+
+    /* Buttons */
+    .btn-group {
+	margin-left:0px;
+	padding: 2px 10px 0 0;
+	margin-bottom: 0px;
+	border: 1px solid #DDD;
+	border-bottom: none;
+    }
+    .btn-group:last-child {
+	border-bottom: 1px solid #DDD;
+    }
+    .btn-group:nth-child(odd) {
+	background-color: #F9F9F9;
+    }
+    .btn-group .active {
+	float: right;
+    }
+    a.btn-primary:hover {
+	background-color: #04C;
+    }
+
+    /* Header */
+    .help_text {
+	margin-left: 15px;
+	margin-bottom: 15px;
+    }
+    .users_title {
+	color: #555;
+	font-weight: bold;
+	padding-left: 10px;
+	float: left;
+    }
+    input {
+	background: url(/static/dashboard/img/search.png) no-repeat 105px 5px whiteSmoke;
+    }
+    .fake_table_header {
+	background-color: #F1F1F1;
+	width: 306px;
+	height: 38px;
+	padding-top: 15px;
+	border: 1px solid #DDD;
+	border-bottom: none;
+    }
+
+    /* 'Fake table' body */
+    .fake_table {
+	margin-left: 5px;
+	width: 315px;
+	ul.no_results {
+	    width: 298px;
+	}
+	ul.btn-group:hover {
+	    background-color: #DDD;
+	}
+    }
+    .left {
+	.fake_table_header {
+	    width: 318px;
+	}
+    }
+    .right {
+	.fake_table_header {
+	    width: 318px;
+	    margin-left: -15px;
+	}
+	.fake_table ul.no_results {
+	    margin-left: -20px;
+	}
+    }
+
+    /* User lists */
+    .member {
+	padding: 10px;
+	text-align: left;
+      }
+    .project_members {
+	margin-left: -20px;
+    }
+    .project_members ul.btn-group,
+    .available_users ul.btn-group {
+	width: 308px;
+    }
+
+    /* List filtering */
+    .filter {
+	width: 120px;
+	margin: -5px 13px 15px 0px;
+	float: right;
+    }
+    .no_results {
+	border: 1px solid #DDD;
+	padding: 10px;
+	color: #08C;
+    }
+
+    /* Role dropdown menus */
+    .role_dropdown li {
+	cursor: pointer;
+	background: none;
+	float: none;
+	display: block;
+	padding: 5px 10px;
+	color: black;
+	text-align: left;
+	border-radius: 0;
+	border: 0 none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	z-index: 99999;
+
+	&:hover {
+	  background-color: #CDCDCD;
+	}
+      }
+      .nav .role_options {
+	  float: right;
+	  padding-right: 5px;
+      }
+}
+
+/* Inline user creation */
+.add_user_btn {
+    display: inline;
+}
+#add_user {
+    clear: both;
+}
+.add_user {
+    float: right;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+/* Fixes overflow on dropdowns in modal */
+.dropdown_fix {
+    overflow: visible;
 }

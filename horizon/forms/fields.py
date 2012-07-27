@@ -35,7 +35,11 @@ class DynamicSelectWidget(widgets.Select):
         if callable(self.add_item_link):
             return self.add_item_link()
         try:
-            return urlresolvers.reverse(self.add_item_link)
+            if self.add_item_link_args:
+                return urlresolvers.reverse(self.add_item_link,
+                                            args=[self.add_item_link_args])
+            else:
+                return urlresolvers.reverse(self.add_item_link)
         except urlresolvers.NoReverseMatch:
             return self.add_item_link
 
@@ -51,9 +55,14 @@ class DynamicChoiceField(fields.ChoiceField):
     """
     widget = DynamicSelectWidget
 
-    def __init__(self, add_item_link=None, *args, **kwargs):
+    def __init__(self,
+                 add_item_link=None,
+                 add_item_link_args=None,
+                 *args,
+                 **kwargs):
         super(DynamicChoiceField, self).__init__(*args, **kwargs)
         self.widget.add_item_link = add_item_link
+        self.widget.add_item_link_args = add_item_link_args
 
 
 class DynamicTypedChoiceField(DynamicChoiceField, fields.TypedChoiceField):

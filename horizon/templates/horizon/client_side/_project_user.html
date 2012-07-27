@@ -1,0 +1,26 @@
+{% extends "horizon/client_side/template.html" %}
+{% load horizon %}
+
+{% block id %}project_user_template{% endblock %}
+
+{% block template %}
+{% jstemplate %}
+<ul class="nav nav-pills btn-group">
+  <li class="member" data-user-id="[[user_id]]">
+    <span class="user_name">[[user_name]]</span>
+  </li>
+  <li class="active"><a class="btn btn-primary" href="#add_remove">[[text]]</a></li>
+  <li class="dropdown role_options">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <span class="selected_role">[[default_role]]</span>
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu role_dropdown clearfix">
+      [[#roles]]
+      <li data-role-id="[[role_id]]">[[role_name]]</li>
+      [[/roles]]
+    </ul>
+  </li>
+</ul>
+{% endjstemplate %}
+{% endblock %}

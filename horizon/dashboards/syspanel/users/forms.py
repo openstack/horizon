@@ -94,14 +94,16 @@ class CreateUserForm(BaseUserForm):
             messages.success(request,
                              _('User "%s" was successfully created.')
                              % data['name'])
-            try:
-                api.add_tenant_user_role(request,
-                                         data['tenant_id'],
-                                         new_user.id,
-                                         data['role_id'])
-            except:
-                exceptions.handle(request,
-                                  _('Unable to add user to primary project.'))
+            if data['role_id']:
+                try:
+                    api.add_tenant_user_role(request,
+                                             data['tenant_id'],
+                                             new_user.id,
+                                             data['role_id'])
+                except:
+                    exceptions.handle(request,
+                                      _('Unable to add user'
+                                        'to primary project.'))
             return new_user
         except:
             exceptions.handle(request, _('Unable to create user.'))

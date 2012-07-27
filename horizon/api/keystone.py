@@ -123,10 +123,6 @@ def keystoneclient(request, admin=False):
     return conn
 
 
-def tenant_name(request, tenant_id):
-    return keystoneclient(request).tenants.get(tenant_id).name
-
-
 def tenant_create(request, tenant_name, description, enabled):
     return keystoneclient(request, admin=True).tenants.create(tenant_name,
                                                               description,
@@ -231,6 +227,12 @@ def add_tenant_user_role(request, tenant_id, user_id, role_id):
     return keystoneclient(request, admin=True).roles.add_user_role(user_id,
                                                                    role_id,
                                                                    tenant_id)
+
+
+def remove_tenant_user_role(request, tenant_id, user_id, role_id):
+    """ Removes a given single role for a user from a tenant. """
+    client = keystoneclient(request, admin=True)
+    client.roles.remove_user_role(user_id, role_id, tenant_id)
 
 
 def remove_tenant_user(request, tenant_id, user_id):
