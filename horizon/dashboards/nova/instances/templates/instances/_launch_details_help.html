@@ -43,7 +43,7 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-  if(typeof horizon !== 'undefined') {
+  if(typeof horizon.Quota !== 'undefined') {
     horizon.Quota.initWithFlavors({{ flavors|safe|default:"{}" }});
   } else {
     addHorizonLoadEvent(function() {
