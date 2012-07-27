@@ -129,8 +129,8 @@ def tenant_name(request, tenant_id):
 
 def tenant_create(request, tenant_name, description, enabled):
     return keystoneclient(request, admin=True).tenants.create(tenant_name,
-                                                  description,
-                                                  enabled)
+                                                              description,
+                                                              enabled)
 
 
 def tenant_get(request, tenant_id, admin=False):

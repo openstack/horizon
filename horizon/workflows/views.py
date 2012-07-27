@@ -16,11 +16,13 @@
 
 import copy
 
+from django import http
 from django import shortcuts
 from django.views import generic
 
 from horizon import exceptions
 from horizon import messages
+from horizon.openstack.common import jsonutils
 
 
 class WorkflowView(generic.TemplateView):
@@ -101,6 +103,12 @@ class WorkflowView(generic.TemplateView):
             template = self.template_name
         return template
 
+    def get_object_id(self, obj):
+        return getattr(obj, "id", None)
+
+    def get_object_display(self, obj):
+        return getattr(obj, "name", None)
+
     def add_error_to_step(self, error_msg, step):
         self.step_errors[step] = error_msg
 
@@ -133,6 +141,15 @@ class WorkflowView(generic.TemplateView):
             else:
                 msg = workflow.format_status_message(workflow.failure_message)
                 messages.error(request, msg)
-            return shortcuts.redirect(next or workflow.get_success_url())
+
+            if "HTTP_X_HORIZON_ADD_TO_FIELD" in self.request.META:
+                field_id = self.request.META["HTTP_X_HORIZON_ADD_TO_FIELD"]
+                data = [self.get_object_id(workflow.object),
+                        self.get_object_display(workflow.object)]
+                response = http.HttpResponse(jsonutils.dumps(data))
+                response["X-Horizon-Add-To-Field"] = field_id
+                return response
+            else:
+                return shortcuts.redirect(next or workflow.get_success_url())
         else:
             return self.render_to_response(context)

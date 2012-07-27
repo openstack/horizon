@@ -522,6 +522,14 @@ class Workflow(html.HTMLElement):
         The name of a parameter used for tracking the URL to redirect to upon
         completion of the workflow. Defaults to ``"next"``.
 
+    .. attribute:: object
+
+        The object (if any) which this workflow relates to. In the case of
+        a workflow which creates a new resource the object would be the created
+        resource after the relevant creation steps have been undertaken. In
+        the case of a workflow which updates a resource it would be the
+        resource being updated after it has been retrieved.
+
     """
     __metaclass__ = WorkflowMetaclass
     slug = None
@@ -550,6 +558,7 @@ class Workflow(html.HTMLElement):
         self.depends_on = set([])
         self.contributions = set([])
         self.entry_point = entry_point
+        self.object = None
 
         # Put together our steps in order. Note that we pre-register
         # non-default steps so that we can identify them and subsequently

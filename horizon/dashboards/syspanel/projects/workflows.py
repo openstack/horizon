@@ -102,10 +102,10 @@ class CreateProject(workflows.Workflow):
         # create the project
         try:
             desc = data['description']
-            response = api.keystone.tenant_create(request,
-                                                  tenant_name=data['name'],
-                                                  description=desc,
-                                                  enabled=data['enabled'])
+            self.object = api.keystone.tenant_create(request,
+                                                     tenant_name=data['name'],
+                                                     description=desc,
+                                                     enabled=data['enabled'])
         except:
             exceptions.handle(request, ignore=True)
             return False
@@ -114,7 +114,7 @@ class CreateProject(workflows.Workflow):
         ifcb = data['injected_file_content_bytes']
         try:
             api.nova.tenant_quota_update(request,
-                                         response.id,
+                                         self.object.id,
                                          metadata_items=data['metadata_items'],
                                          injected_file_content_bytes=ifcb,
                                          volumes=data['volumes'],
@@ -124,10 +124,9 @@ class CreateProject(workflows.Workflow):
                                          instances=data['instances'],
                                          injected_files=data['injected_files'],
                                          cores=data['cores'])
-            return True
         except:
             exceptions.handle(request, _('Unable to set project quotas.'))
-            return True
+        return True
 
 
 class UpdateProjectInfoAction(CreateProjectInfoAction):

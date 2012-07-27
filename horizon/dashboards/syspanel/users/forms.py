@@ -54,6 +54,9 @@ class BaseUserForm(forms.SelfHandlingForm):
         return data
 
 
+ADD_PROJECT_URL = "horizon:syspanel:projects:create"
+
+
 class CreateUserForm(BaseUserForm):
     name = forms.CharField(label=_("User Name"))
     email = forms.EmailField(label=_("Email"))
@@ -66,7 +69,8 @@ class CreateUserForm(BaseUserForm):
             label=_("Confirm Password"),
             required=False,
             widget=forms.PasswordInput(render_value=False))
-    tenant_id = forms.ChoiceField(label=_("Primary Project"))
+    tenant_id = forms.DynamicChoiceField(label=_("Primary Project"),
+                                         add_item_link=ADD_PROJECT_URL)
     role_id = forms.ChoiceField(label=_("Role"))
 
     def __init__(self, *args, **kwargs):
