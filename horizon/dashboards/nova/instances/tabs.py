@@ -74,3 +74,4 @@ class VNCTab(tabs.Tab):
 class InstanceDetailTabs(tabs.TabGroup):
     slug = "instance_details"
     tabs = (OverviewTab, LogTab, VNCTab)
+    sticky = True
