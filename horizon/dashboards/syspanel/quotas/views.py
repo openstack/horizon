@@ -41,5 +41,6 @@ class IndexView(tables.DataTableView):
                                                   self.request.user.tenant_id)
             data = quota_set.items
         except:
+            data = []
             exceptions.handle(self.request, _('Unable to get quota info.'))
         return data
