@@ -20,22 +20,19 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import IndexView, CreateView, UploadView, ObjectIndexView, CopyView
+from .views import CreateView, UploadView, CopyView, ContainerView
 
 
 # Swift containers and objects.
 urlpatterns = patterns('horizon.dashboards.nova.containers.views',
-    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^((?P<container_name>.+?)/)?(?P<subfolder_path>(.+/)+)?$',
+        ContainerView.as_view(), name='index'),
 
     url(r'^(?P<container_name>(.+/)+)?create$',
         CreateView.as_view(),
         name='create'),
 
-    url(r'^(?P<container_name>[^/]+)/(?P<subfolder_path>(.+/)+)?$',
-        ObjectIndexView.as_view(),
-        name='object_index'),
-
-    url(r'^(?P<container_name>[^/]+)/(?P<subfolder_path>(.+/)+)?upload$',
+    url(r'^(?P<container_name>.+?)/(?P<subfolder_path>(.+/)+)?upload$',
         UploadView.as_view(),
         name='object_upload'),
 

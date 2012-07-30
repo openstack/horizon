@@ -439,6 +439,8 @@ class BatchAction(Action):
                                     self._conjugate())
         self.verbose_name_plural = getattr(self, "verbose_name_plural",
                                            self._conjugate('plural'))
+        # Keep record of successfully handled objects
+        self.success_ids = []
         super(BatchAction, self).__init__()
 
     def _allowed(self, request, datum=None):
@@ -508,6 +510,7 @@ class BatchAction(Action):
                 #Call update to invoke changes if needed
                 self.update(request, datum)
                 action_success.append(datum_display)
+                self.success_ids.append(datum_id)
                 LOG.info('%s: "%s"' %
                          (self._conjugate(past=True), datum_display))
             except:

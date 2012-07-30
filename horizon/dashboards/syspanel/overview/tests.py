@@ -51,12 +51,13 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'syspanel/overview/usage.html')
         self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
         self.assertContains(res,
-                            '<td class="sortable">test_tenant</td>'
-                            '<td class="sortable">%s</td>'
-                            '<td class="sortable">%s</td>'
-                            '<td class="sortable">%s</td>'
-                            '<td class="sortable">%.2f</td>'
-                            '<td class="sortable">%.2f</td>' %
+                            '<td class="sortable normal_column">test_tenant'
+                            '</td>'
+                            '<td class="sortable normal_column">%s</td>'
+                            '<td class="sortable normal_column">%s</td>'
+                            '<td class="sortable normal_column">%s</td>'
+                            '<td class="sortable normal_column">%.2f</td>'
+                            '<td class="sortable normal_column">%.2f</td>' %
                             (usage_obj.vcpus,
                              usage_obj.disk_gb_hours,
                              mbformat(usage_obj.memory_mb),

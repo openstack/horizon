@@ -11,11 +11,13 @@
           {{ table.render_table_actions }}
         </th>
       </tr>
+      {% if not table.is_browser_table %}
       <tr>
         {% for column in columns %}
           <th {{ column.attr_string|safe }}>{{ column }}</th>
         {% endfor %}
       </tr>
+      {% endif %}
     </thead>
     <tbody>
     {% for row in rows %}

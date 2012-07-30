@@ -25,14 +25,21 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import api
 from horizon import messages
 from horizon import tables
+from horizon.api import FOLDER_DELIMITER
+from horizon.tables import DataTable
 
 
 LOG = logging.getLogger(__name__)
 
 
+def wrap_delimiter(name):
+    return name + FOLDER_DELIMITER
+
+
 class DeleteContainer(tables.DeleteAction):
     data_type_singular = _("Container")
     data_type_plural = _("Containers")
+    completion_url = "horizon:nova:containers:index"
 
     def delete(self, request, obj_id):
         try:
@@ -41,6 +48,18 @@ class DeleteContainer(tables.DeleteAction):
             messages.error(request,
                            _('Containers must be empty before deletion.'))
             raise
+
+    def get_success_url(self, request=None):
+        """
+        Returns the URL to redirect to after a successful action.
+        """
+        current_container = self.table.kwargs.get("container_name", None)
+
+        # If the current_container is deleted, then redirect to the default
+        # completion url
+        if current_container in self.success_ids:
+            return self.completion_url
+        return  request.get_full_path()
 
 
 class CreateContainer(tables.LinkAction):
@@ -53,8 +72,13 @@ class CreateContainer(tables.LinkAction):
 class ListObjects(tables.LinkAction):
     name = "list_objects"
     verbose_name = _("View Container")
-    url = "horizon:nova:containers:object_index"
+    url = "horizon:nova:containers:index"
     classes = ("btn-list",)
+
+    def get_link_url(self, datum=None):
+        container_name = http.urlquote(datum.name)
+        args = (wrap_delimiter(container_name),)
+        return reverse(self.url, args=args)
 
 
 class UploadObject(tables.LinkAction):
@@ -76,6 +100,11 @@ class UploadObject(tables.LinkAction):
                 (container_name, subfolders) if bit)
         return reverse(self.url, args=args)
 
+    def allowed(self, request, datum=None):
+        if self.table.kwargs.get('container_name', None):
+            return True
+        return False
+
     def update(self, request, obj):
         # This will only be called for the row, so we can remove the button
         # styles meant for the table action version.
@@ -86,15 +115,14 @@ def get_size_used(container):
     return filesizeformat(container.size_used)
 
 
+def get_container_link(container):
+    return reverse("horizon:nova:containers:index",
+                   args=(http.urlquote(wrap_delimiter(container.name)),))
+
+
 class ContainersTable(tables.DataTable):
-    name = tables.Column("name", link='horizon:nova:containers:object_index',
+    name = tables.Column("name", link=get_container_link,
                          verbose_name=_("Container Name"))
-    objects = tables.Column("object_count",
-                            verbose_name=_('Objects'),
-                            empty_value="0")
-    size = tables.Column(get_size_used,
-                         verbose_name=_('Size'),
-                         attrs={'data-type': 'size'})
 
     def get_object_id(self, container):
         return container.name
@@ -102,8 +130,9 @@ class ContainersTable(tables.DataTable):
     class Meta:
         name = "containers"
         verbose_name = _("Containers")
-        table_actions = (CreateContainer, DeleteContainer)
+        table_actions = (CreateContainer,)
         row_actions = (ListObjects, UploadObject, DeleteContainer)
+        browser_table = "navigation"
 
 
 class DeleteObject(tables.DeleteAction):
@@ -127,8 +156,8 @@ class DeleteSubfolder(DeleteObject):
 
 class DeleteMultipleObjects(DeleteObject):
     name = "delete_multiple_objects"
-    data_type_singular = _("Object/Folder")
-    data_type_plural = _("Objects/Folders")
+    data_type_singular = _("Object")
+    data_type_plural = _("Objects")
     allowed_data_types = ("subfolders", "objects",)
 
 
@@ -161,7 +190,7 @@ class ObjectFilterAction(tables.FilterAction):
         request = table._meta.request
         container = self.table.kwargs['container_name']
         subfolder = self.table.kwargs['subfolder_path']
-        path = subfolder + '/' if subfolder else ''
+        path = subfolder + FOLDER_DELIMITER if subfolder else ''
         self.filtered_data = api.swift_filter_objects(request,
                                                         filter_string,
                                                         container,
@@ -178,9 +207,14 @@ class ObjectFilterAction(tables.FilterAction):
         return [datum for datum in data if
                 datum.content_type != "application/directory"]
 
+    def allowed(self, request, datum=None):
+        if self.table.kwargs.get('container_name', None):
+            return True
+        return False
+
 
 def sanitize_name(name):
-    return name.split("/")[-1]
+    return name.split(FOLDER_DELIMITER)[-1]
 
 
 def get_size(obj):
@@ -188,9 +222,10 @@ def get_size(obj):
 
 
 def get_link_subfolder(subfolder):
-    return reverse("horizon:nova:containers:object_index",
-                    args=(http.urlquote(subfolder.container.name),
-                            http.urlquote(subfolder.name + "/")))
+    container_name = subfolder.container.name
+    return reverse("horizon:nova:containers:index",
+                    args=(http.urlquote(wrap_delimiter(container_name)),
+                          http.urlquote(wrap_delimiter(subfolder.name))))
 
 
 class CreateSubfolder(CreateContainer):
@@ -200,9 +235,15 @@ class CreateSubfolder(CreateContainer):
     def get_link_url(self):
         container = self.table.kwargs['container_name']
         subfolders = self.table.kwargs['subfolder_path']
-        parent = "/".join((bit for bit in [container, subfolders] if bit))
-        parent = parent.rstrip("/")
-        return reverse(self.url, args=(http.urlquote(parent + "/"),))
+        parent = FOLDER_DELIMITER.join((bit for bit in [container,
+                                                        subfolders] if bit))
+        parent = parent.rstrip(FOLDER_DELIMITER)
+        return reverse(self.url, args=[http.urlquote(wrap_delimiter(parent))])
+
+    def allowed(self, request, datum=None):
+        if self.table.kwargs.get('container_name', None):
+            return True
+        return False
 
 
 class ObjectsTable(tables.DataTable):
@@ -211,6 +252,7 @@ class ObjectsTable(tables.DataTable):
                         allowed_data_types=("subfolders",),
                         verbose_name=_("Object Name"),
                         filters=(sanitize_name,))
+
     size = tables.Column(get_size, verbose_name=_('Size'))
 
     def get_object_id(self, obj):
@@ -218,9 +260,10 @@ class ObjectsTable(tables.DataTable):
 
     class Meta:
         name = "objects"
-        verbose_name = _("Subfolders and Objects")
+        verbose_name = _("Objects")
         table_actions = (ObjectFilterAction, CreateSubfolder,
                             UploadObject, DeleteMultipleObjects)
         row_actions = (DownloadObject, CopyObject, DeleteObject,
                         DeleteSubfolder)
         data_types = ("subfolders", "objects")
+        browser_table = "content"

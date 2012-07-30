@@ -114,7 +114,7 @@ class CopyObject(forms.SelfHandlingForm):
         self.fields['new_container_name'].choices = containers
 
     def handle(self, request, data):
-        object_index = "horizon:nova:containers:object_index"
+        object_index = "horizon:nova:containers:index"
         orig_container = data['orig_container_name']
         orig_object = data['orig_object_name']
         new_container = data['new_container_name']
