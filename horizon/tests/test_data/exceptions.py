@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from glanceclient.common import exceptions as glance_exceptions
+import glanceclient.exc as glance_exceptions
 from keystoneclient import exceptions as keystone_exceptions
 from novaclient import exceptions as nova_exceptions
 

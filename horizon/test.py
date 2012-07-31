@@ -32,7 +32,7 @@ from django.core.handlers import wsgi
 from django.test.client import RequestFactory
 from django.utils import unittest
 
-from glanceclient.v1 import client as glance_client
+import glanceclient
 from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
 from selenium.webdriver.firefox.webdriver import WebDriver
@@ -316,8 +316,8 @@ class APITestCase(TestCase):
 
     def stub_glanceclient(self):
         if not hasattr(self, "glanceclient"):
-            self.mox.StubOutWithMock(glance_client, 'Client')
-            self.glanceclient = self.mox.CreateMock(glance_client.Client)
+            self.mox.StubOutWithMock(glanceclient, 'Client')
+            self.glanceclient = self.mox.CreateMock(glanceclient.Client)
         return self.glanceclient
 
     def stub_swiftclient(self, expected_calls=1):

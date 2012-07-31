@@ -26,7 +26,7 @@ import urlparse
 
 from django.conf import settings
 
-from glanceclient.v1 import client as glance_client
+import glanceclient as glance_client
 
 from horizon.api.base import url_for
 
@@ -40,7 +40,7 @@ def glanceclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     LOG.debug('glanceclient connection created using token "%s" and url "%s"'
               % (request.user.token.id, url))
-    return glance_client.Client(endpoint=url, token=request.user.token.id,
+    return glance_client.Client('1', url, token=request.user.token.id,
                                 insecure=insecure)
 
 
