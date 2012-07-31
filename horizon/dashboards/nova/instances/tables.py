@@ -157,9 +157,9 @@ class EditInstance(tables.LinkAction):
     classes = ("ajax-modal", "btn-edit")
 
 
-class SnapshotLink(tables.LinkAction):
+class CreateSnapshot(tables.LinkAction):
     name = "snapshot"
-    verbose_name = _("Snapshot")
+    verbose_name = _("Create Snapshot")
     url = "horizon:nova:images_and_snapshots:snapshots:create"
     classes = ("ajax-modal", "btn-camera")
 
@@ -293,6 +293,6 @@ class InstancesTable(tables.DataTable):
         status_columns = ["status", "task"]
         row_class = UpdateRow
         table_actions = (LaunchLink, TerminateInstance)
-        row_actions = (SnapshotLink, AssociateIP, EditInstance, ConsoleLink,
+        row_actions = (CreateSnapshot, AssociateIP, EditInstance, ConsoleLink,
                        LogLink, TogglePause, ToggleSuspend, RebootInstance,
                        TerminateInstance)

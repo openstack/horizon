@@ -23,7 +23,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import api
 from horizon import tables
 from horizon.dashboards.nova.instances.tables import (TerminateInstance,
-        EditInstance, ConsoleLink, LogLink, SnapshotLink,
+        EditInstance, ConsoleLink, LogLink, CreateSnapshot,
         TogglePause, ToggleSuspend, RebootInstance, get_size, UpdateRow,
         LaunchLink, get_ips, get_power_state)
 from horizon.utils.filters import replace_underscores
@@ -97,6 +97,6 @@ class SyspanelInstancesTable(tables.DataTable):
         status_columns = ["status", "task"]
         table_actions = (AdminLaunchLink, TerminateInstance,)
         row_class = AdminUpdateRow
-        row_actions = (EditInstance, ConsoleLink, LogLink, SnapshotLink,
+        row_actions = (EditInstance, ConsoleLink, LogLink, CreateSnapshot,
                        TogglePause, ToggleSuspend, RebootInstance,
                        TerminateInstance)
