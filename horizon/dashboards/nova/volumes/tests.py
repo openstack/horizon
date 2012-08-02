@@ -19,7 +19,9 @@
 #    under the License.
 
 from django import http
+from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.forms import widgets
 from mox import IsA
 
 from horizon import api
@@ -183,20 +185,40 @@ class VolumeViewTests(test.TestCase):
         volume = self.volumes.first()
         servers = self.servers.list()
 
-        api.volume_get(IsA(http.HttpRequest), volume.id) \
-                       .AndReturn(volume)
+        api.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
-
         self.mox.ReplayAll()
 
-        url = reverse('horizon:nova:volumes:attach',
-                      args=[volume.id])
+        url = reverse('horizon:nova:volumes:attach', args=[volume.id])
         res = self.client.get(url)
         # Asserting length of 2 accounts for the one instance option,
         # and the one 'Choose Instance' option.
-        self.assertEqual(len(res.context['form'].fields['instance']._choices),
+        form = res.context['form']
+        self.assertEqual(len(form.fields['instance']._choices),
                          2)
         self.assertEqual(res.status_code, 200)
+        self.assertTrue(isinstance(form.fields['device'].widget,
+                                   widgets.TextInput))
+
+    @test.create_stubs({api: ('volume_get',), api.nova: ('server_list',)})
+    def test_edit_attachments_cannot_set_mount_point(self):
+        PREV = settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point']
+        settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = False
+
+        volume = self.volumes.first()
+        servers = self.servers.list()
+
+        api.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:volumes:attach', args=[volume.id])
+        res = self.client.get(url)
+        # Assert the device field is hidden.
+        form = res.context['form']
+        self.assertTrue(isinstance(form.fields['device'].widget,
+                                   widgets.HiddenInput))
+        settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = PREV
 
     @test.create_stubs({api: ('volume_get',),
                         api.nova: ('server_get', 'server_list',)})

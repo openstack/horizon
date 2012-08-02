@@ -141,6 +141,10 @@ OPENSTACK_KEYSTONE_BACKEND = {
     'can_edit_user': True
 }
 
+OPENSTACK_HYPERVISOR_FEATURES = {
+    'can_set_mount_point': True
+}
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

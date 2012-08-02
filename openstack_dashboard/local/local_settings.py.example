@@ -74,6 +74,10 @@ OPENSTACK_KEYSTONE_BACKEND = {
     'can_edit_user': True
 }
 
+OPENSTACK_HYPERVISOR_FEATURES = {
+    'can_set_mount_point': True
+}
+
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
 # in the Keystone service catalog. Use this setting when Horizon is running
 # external to the OpenStack environment. The default is 'internalURL'.

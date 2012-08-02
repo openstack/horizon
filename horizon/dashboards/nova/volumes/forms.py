@@ -7,6 +7,7 @@
 Views for managing Nova volumes.
 """
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import ValidationError
 from django.utils.translation import ugettext_lazy as _
@@ -126,6 +127,15 @@ class AttachForm(forms.SelfHandlingForm):
 
     def __init__(self, *args, **kwargs):
         super(AttachForm, self).__init__(*args, **kwargs)
+
+        # Hide the device field if the hypervisor doesn't support it.
+        hypervisor_features = getattr(settings,
+                                      "OPENSTACK_HYPERVISOR_FEATURES",
+                                      {})
+        can_set_mount_point = hypervisor_features.get("can_set_mount_point",
+                                                      True)
+        if not can_set_mount_point:
+            self.fields['device'].widget = forms.widgets.HiddenInput()
         # populate volume_id
         volume = kwargs.get('initial', {}).get("volume", None)
         if volume:
