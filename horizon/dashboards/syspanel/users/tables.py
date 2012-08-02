@@ -1,5 +1,6 @@
 import logging
 
+from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -104,7 +105,8 @@ class UsersTable(tables.DataTable):
         ("false", False)
     )
     name = tables.Column('name', verbose_name=_('User Name'))
-    email = tables.Column('email', verbose_name=_('Email'))
+    email = tables.Column('email', verbose_name=_('Email'),
+                          filters=[defaultfilters.urlize])
     # Default tenant is not returned from Keystone currently.
     #default_tenant = tables.Column('default_tenant',
     #                               verbose_name=_('Default Project'))
