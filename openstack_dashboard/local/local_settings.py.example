@@ -17,7 +17,8 @@ TEMPLATE_DEBUG = DEBUG
 #     "password_validator": {
 #         "regex": '.*',
 #         "help_text": _("Your password does not meet the requirements.")
-#     }
+#     },
+#    'help_url': "http://docs.openstack.org"
 # }
 
 LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))

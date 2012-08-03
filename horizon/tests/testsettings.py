@@ -115,7 +115,8 @@ HORIZON_CONFIG = {
         "regex": '^.{8,18}$',
         "help_text": _("Password must be between 8 and 18 characters.")
     },
-    'user_home': None
+    'user_home': None,
+    'help_url': "http://docs.openstack.org"
 }
 
 COMPRESS_ENABLED = False
