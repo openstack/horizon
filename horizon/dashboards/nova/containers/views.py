@@ -136,7 +136,14 @@ class ObjectIndexView(tables.MixedDataTableView):
     def get_context_data(self, **kwargs):
         context = super(ObjectIndexView, self).get_context_data(**kwargs)
         context['container_name'] = self.kwargs["container_name"]
-        context['subfolder_path'] = self.kwargs["subfolder_path"]
+        context['subfolders'] = []
+        if self.kwargs["subfolder_path"]:
+            (parent, slash, folder) = self.kwargs["subfolder_path"].\
+                                              strip('/').rpartition('/')
+            while folder:
+                path = "%s%s%s/" % (parent, slash, folder)
+                context['subfolders'].insert(0, (folder, path))
+                (parent, slash, folder) = parent.rpartition('/')
         return context
 
 
