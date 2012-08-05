@@ -23,7 +23,7 @@ from horizon.openstack.common import jsonutils
 from horizon import exceptions
 
 
-class ModalFormView(generic.FormView):
+class ModalFormMixin(object):
     def get_template_names(self):
         if self.request.is_ajax():
             if not hasattr(self, "ajax_template_name"):
@@ -36,17 +36,19 @@ class ModalFormView(generic.FormView):
             template = self.template_name
         return template
 
+    def get_context_data(self, **kwargs):
+        context = super(ModalFormMixin, self).get_context_data(**kwargs)
+        if self.request.is_ajax():
+            context['hide'] = True
+        return context
+
+
+class ModalFormView(ModalFormMixin, generic.FormView):
     def get_object_id(self, obj):
         return obj.id
 
     def get_object_display(self, obj):
         return obj.name
-
-    def get_context_data(self, **kwargs):
-        context = super(ModalFormView, self).get_context_data(**kwargs)
-        if self.request.is_ajax():
-            context['hide'] = True
-        return context
 
     def get_form(self, form_class):
         """

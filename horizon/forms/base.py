@@ -23,19 +23,20 @@ from django.forms.forms import NON_FIELD_ERRORS
 from django.utils import dates, timezone
 
 
-class SelfHandlingForm(forms.Form):
-    """
-    A base :class:`Form <django:django.forms.Form>` class which includes
-    processing logic in its subclasses.
-    """
-
+class SelfHandlingMixin(object):
     def __init__(self, request, *args, **kwargs):
         self.request = request
         if not hasattr(self, "handle"):
             raise NotImplementedError("%s does not define a handle method."
                                       % self.__class__.__name__)
-        super(SelfHandlingForm, self).__init__(*args, **kwargs)
+        super(SelfHandlingMixin, self).__init__(*args, **kwargs)
 
+
+class SelfHandlingForm(SelfHandlingMixin, forms.Form):
+    """
+    A base :class:`Form <django:django.forms.Form>` class which includes
+    processing logic in its subclasses.
+    """
     def api_error(self, message):
         """
         Adds an error to the form's error dictionary after validation

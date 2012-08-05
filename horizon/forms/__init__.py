@@ -20,6 +20,6 @@ from django.forms import *
 from django.forms import widgets
 
 # Convenience imports for public API components.
-from .base import SelfHandlingForm, DateForm
-from .views import ModalFormView
+from .base import SelfHandlingMixin, SelfHandlingForm, DateForm
+from .views import ModalFormView, ModalFormMixin
 from .fields import DynamicTypedChoiceField, DynamicChoiceField
