@@ -28,11 +28,6 @@ from django.utils import termcolors
 from django.utils.translation import ugettext as _
 from django.views.debug import SafeExceptionReporterFilter, CLEANSED_SUBSTITUTE
 
-from cloudfiles import errors as swiftclient
-from glanceclient.common import exceptions as glanceclient
-from keystoneclient import exceptions as keystoneclient
-from novaclient import exceptions as novaclient
-
 from horizon import messages
 
 LOG = logging.getLogger(__name__)
@@ -200,33 +195,9 @@ class HandledException(HorizonException):
 
 HORIZON_CONFIG = getattr(settings, "HORIZON_CONFIG", {})
 EXCEPTION_CONFIG = HORIZON_CONFIG.get("exceptions", {})
-
-
-UNAUTHORIZED = (keystoneclient.Unauthorized,
-                keystoneclient.Forbidden,
-                novaclient.Unauthorized,
-                novaclient.Forbidden,
-                glanceclient.Unauthorized,
-                swiftclient.AuthenticationFailed,
-                swiftclient.AuthenticationError)
-UNAUTHORIZED += tuple(EXCEPTION_CONFIG.get('unauthorized', []))
-
-NOT_FOUND = (keystoneclient.NotFound,
-             novaclient.NotFound,
-             glanceclient.NotFound,
-             swiftclient.NoSuchContainer,
-             swiftclient.NoSuchObject)
-NOT_FOUND += tuple(EXCEPTION_CONFIG.get('not_found', []))
-
-
-# NOTE(gabriel): This is very broad, and may need to be dialed in.
-RECOVERABLE = (keystoneclient.ClientException,
-               # AuthorizationFailure is raised when Keystone is "unavailable".
-               keystoneclient.AuthorizationFailure,
-               novaclient.ClientException,
-               glanceclient.ClientException,
-               swiftclient.Error,
-               AlreadyExists)
+UNAUTHORIZED = tuple(EXCEPTION_CONFIG.get('unauthorized', []))
+NOT_FOUND = tuple(EXCEPTION_CONFIG.get('not_found', []))
+RECOVERABLE = (AlreadyExists,)
 RECOVERABLE += tuple(EXCEPTION_CONFIG.get('recoverable', []))
 
 

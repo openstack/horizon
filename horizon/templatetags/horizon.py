@@ -17,8 +17,8 @@
 from __future__ import absolute_import
 
 from django import template
-from django.utils.translation import ugettext as _
 from django.utils.datastructures import SortedDict
+from django.utils.translation import ugettext as _
 
 from horizon.base import Horizon
 

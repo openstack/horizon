@@ -23,6 +23,8 @@ import socket
 
 from django.utils.translation import ugettext_lazy as _
 
+from openstack_dashboard.exceptions import UNAUTHORIZED, RECOVERABLE, NOT_FOUND
+
 socket.setdefaulttimeout(1)
 
 LOGIN_URL = '/auth/login/'
@@ -116,7 +118,10 @@ HORIZON_CONFIG = {
         "help_text": _("Password must be between 8 and 18 characters.")
     },
     'user_home': None,
-    'help_url': "http://docs.openstack.org"
+    'help_url': "http://docs.openstack.org",
+    'exceptions': {'recoverable': RECOVERABLE,
+                   'not_found': NOT_FOUND,
+                   'unauthorized': UNAUTHORIZED},
 }
 
 COMPRESS_ENABLED = False
