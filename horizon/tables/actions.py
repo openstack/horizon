@@ -25,7 +25,7 @@ from django.utils.translation import string_concat, ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import messages
-from horizon.utils import html
+from horizon.utils import html, functions
 
 
 LOG = logging.getLogger(__name__)
@@ -497,7 +497,7 @@ class BatchAction(Action):
         action_not_allowed = []
         for datum_id in obj_ids:
             datum = table.get_object_by_id(datum_id)
-            datum_display = table.get_object_display(datum)
+            datum_display = table.get_object_display(datum) or _("N/A")
             if not table._filter_action(self, request, datum):
                 action_not_allowed.append(datum_display)
                 LOG.info('Permission denied to %s: "%s"' %
@@ -522,19 +522,19 @@ class BatchAction(Action):
         if action_not_allowed:
             msg = _('You do not have permission to %(action)s: %(objs)s')
             params = {"action": self._conjugate(action_not_allowed).lower(),
-                      "objs": ", ".join(action_not_allowed)}
+                      "objs": functions.lazy_join(", ", action_not_allowed)}
             messages.error(request, msg % params)
             success_message_level = messages.info
         if action_failure:
             msg = _('Unable to %(action)s: %(objs)s')
             params = {"action": self._conjugate(action_failure).lower(),
-                      "objs": ", ".join(action_failure)}
+                      "objs": functions.lazy_join(", ", action_failure)}
             messages.error(request, msg % params)
             success_message_level = messages.info
         if action_success:
             msg = _('%(action)s: %(objs)s')
             params = {"action": self._conjugate(action_success, True),
-                      "objs": ", ".join(action_success)}
+                      "objs": functions.lazy_join(", ", action_success)}
             success_message_level(request, msg % params)
 
         return shortcuts.redirect(self.get_success_url(request))
