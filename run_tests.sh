@@ -27,6 +27,7 @@ function usage {
   echo "  -y, --pylint             Just run pylint"
   echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
   echo "                           Implies -V if -N is not set."
+  echo "  --only-selenium          Run only the Selenium unit tests"
   echo "  --with-selenium          Run unit tests including Selenium tests"
   echo "  --runserver              Run the Django development server for"
   echo "                           openstack_dashboard in the virtual"
@@ -64,7 +65,8 @@ never_venv=0
 quiet=0
 restore_env=0
 runserver=0
-selenium=0
+only_selenium=0
+with_selenium=0
 testargs=""
 with_coverage=0
 makemessages=0
@@ -84,7 +86,8 @@ function process_option {
     -q|--quiet) quiet=1;;
     -c|--coverage) with_coverage=1;;
     -m|--makemessages) makemessages=1;;
-    --with-selenium) selenium=1;;
+    --only-selenium) only_selenium=1; with_selenium=1;;
+    --with-selenium) with_selenium=1;;
     --docs) just_docs=1;;
     --runserver) runserver=1;;
     --backup-environment) backup_env=1;;
@@ -202,12 +205,15 @@ function sanity_check {
       exit 1
     fi
   fi
-  if [ $selenium -eq 1 ]; then
+  if [ $with_selenium -eq 1 ]; then
     SELENIUM_JOB=`ps -elf | grep "selenium" | grep -v grep`
     if [ $? -eq 0 ]; then
       echo "WARNING: Selenium doesn't appear to be running. Please start a selenium server process."
-      selenium=0
+      with_selenium=0
     fi
+  fi
+  if [ $only_selenium -eq 1 ]; then
+      export SKIP_UNITTESTS=1
   fi
   # Remove .pyc files. This is sanity checking because they can linger
   # after old files are deleted.
@@ -278,7 +284,7 @@ function run_tests {
 
   echo "Running openstack_dashboard tests"
   export NOSE_XUNIT_FILE=openstack_dashboard/nosetests.xml
-  if [ $selenium -eq 1 ]; then
+  if [ $with_selenium -eq 1 ]; then
       ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=horizon.tests.testsettings --with-selenium --with-cherrypyliveserver $testargs
     else
       ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=horizon.tests.testsettings $testargs

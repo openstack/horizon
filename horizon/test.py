@@ -19,6 +19,7 @@
 #    under the License.
 
 import datetime
+import os
 
 import cloudfiles as swift_client
 from django import http
@@ -27,6 +28,7 @@ from django.conf import settings
 from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django.test.client import RequestFactory
+from django.utils import unittest
 from glance import client as glance_client
 from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
@@ -62,6 +64,8 @@ class RequestFactoryWithMessages(RequestFactory):
         return req
 
 
+@unittest.skipIf(os.environ.get('SKIP_UNITTESTS', False),
+                 "The SKIP_UNITTESTS env variable is set.")
 class TestCase(django_test.TestCase):
     """
     Specialized base test case class for Horizon which gives access to
