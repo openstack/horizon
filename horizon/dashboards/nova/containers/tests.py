@@ -99,8 +99,8 @@ class ContainerViewTests(test.TestCase):
 
 
 class ObjectViewTests(test.TestCase):
+    @test.create_stubs({api: ('swift_get_objects',)})
     def test_index(self):
-        self.mox.StubOutWithMock(api, 'swift_get_objects')
         ret = (self.objects.list(), False)
         api.swift_get_objects(IsA(http.HttpRequest),
                               self.containers.first().name,
@@ -110,6 +110,32 @@ class ObjectViewTests(test.TestCase):
 
         res = self.client.get(reverse('horizon:nova:containers:object_index',
                                       args=[self.containers.first().name]))
+        self.assertEquals(res.context['container_name'],
+                          self.containers.first().name)
+        self.assertTemplateUsed(res, 'nova/containers/detail.html')
+        # UTF8 encoding here to ensure there aren't problems with Nose output.
+        expected = [obj.name.encode('utf8') for obj in self.objects.list()]
+        self.assertQuerysetEqual(res.context['objects_table'].data,
+                                 expected,
+                                 lambda obj: obj.name.encode('utf8'))
+
+    @test.create_stubs({api: ('swift_get_objects',)})
+    def test_index_subfolders(self):
+        ret = (self.objects.list(), False)
+        api.swift_get_objects(IsA(http.HttpRequest),
+                              self.containers.first().name,
+                              marker=None,
+                              path='sub1/sub2').AndReturn(ret)
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:nova:containers:object_index',
+                                      args=[self.containers.first().name,
+                                            u'sub1/sub2/']))
+        self.assertEquals(res.context['container_name'],
+                          self.containers.first().name)
+        self.assertListEqual(res.context['subfolders'],
+                             [('sub1', 'sub1/'),
+                              ('sub2', 'sub1/sub2/'), ])
         self.assertTemplateUsed(res, 'nova/containers/detail.html')
         # UTF8 encoding here to ensure there aren't problems with Nose output.
         expected = [obj.name.encode('utf8') for obj in self.objects.list()]
