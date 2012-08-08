@@ -19,6 +19,8 @@ from django import shortcuts
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
+from mox import IsA
+
 from horizon import tables
 from horizon import test
 
@@ -654,3 +656,20 @@ class DataTableTests(test.TestCase):
         self.assertFalse(table.needs_form_wrapper)
         res = http.HttpResponse(table.render())
         self.assertNotContains(res, "<form")
+
+    def test_table_action_object_display_is_none(self):
+        action_string = "my_table__toggle__1"
+        req = self.factory.post('/my_url/', {'action': action_string})
+        self.table = MyTable(req, TEST_DATA)
+
+        self.mox.StubOutWithMock(self.table, 'get_object_display')
+        self.table.get_object_display(IsA(FakeObject)).AndReturn(None)
+        self.mox.ReplayAll()
+
+        self.assertEqual(self.table.parse_action(action_string),
+                         ('my_table', 'toggle', '1'))
+        handled = self.table.maybe_handle()
+        self.assertEqual(handled.status_code, 302)
+        self.assertEqual(handled["location"], "/my_url/")
+        self.assertEqual(list(req._messages)[0].message,
+                        u"Downed Item: N/A")
