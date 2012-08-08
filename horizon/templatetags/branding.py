@@ -24,6 +24,7 @@ Template tags for customizing Horizon.
 
 from django import template
 from django.conf import settings
+from django.utils.translation import ugettext as _
 
 
 register = template.Library()
@@ -31,7 +32,7 @@ register = template.Library()
 
 class SiteBrandingNode(template.Node):
     def render(self, context):
-        return settings.SITE_BRANDING
+        return getattr(settings, "SITE_BRANDING", _("Horizon"))
 
 
 @register.tag

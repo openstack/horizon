@@ -22,6 +22,8 @@ import logging
 import os
 import sys
 
+from openstack_dashboard import exceptions
+
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 BIN_DIR = os.path.abspath(os.path.join(ROOT_PATH, '..', 'bin'))
 
@@ -53,7 +55,10 @@ HORIZON_CONFIG = {
     'default_dashboard': 'nova',
     'user_home': 'horizon.views.user_home',
     'ajax_queue_limit': 10,
-    'help_url': "http://docs.openstack.org"
+    'help_url': "http://docs.openstack.org",
+    'exceptions': {'recoverable': exceptions.RECOVERABLE,
+                   'not_found': exceptions.NOT_FOUND,
+                   'unauthorized': exceptions.UNAUTHORIZED},
 }
 
 MIDDLEWARE_CLASSES = (
