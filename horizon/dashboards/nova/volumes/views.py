@@ -150,7 +150,12 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(EditAttachmentsView, self).get_context_data(**kwargs)
         context['form'] = self.get_form()
-        context['volume'] = self.get_object()
+        volume = self.get_object()
+        if volume and volume.status == 'available':
+            context['show_attach'] = True
+        else:
+            context['show_attach'] = False
+        context['volume'] = volume
         if self.request.is_ajax():
             context['hide'] = True
         return context
