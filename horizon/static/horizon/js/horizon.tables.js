@@ -61,13 +61,13 @@ horizon.datatables = {
 
             if($new_row.hasClass('status_unknown')) {
               var spinner_elm = $new_row.find("td.status_unknown:last");
-
-              // FIXME(gabriel): This style mucking shouldn't be in the javascript.
-              spinner_elm.css('padding-left', '32px');
-              spinner_elm.spin(horizon.conf.spinner_options.inline);
-
-              $(spinner_elm.data().spinner.el).css('top', '9px');
-              $(spinner_elm.data().spinner.el).css('left', '-15px');
+              // Replacing spin.js here with an animated gif to reduce CPU
+              spinner_elm.prepend(
+                      $("<div />")
+                      .addClass("loading_gif")
+                      .append(
+                          $("<img />")
+                          .attr("src", "/static/dashboard/img/loading.gif")));
             }
 
             // Only replace row if the html content has changed

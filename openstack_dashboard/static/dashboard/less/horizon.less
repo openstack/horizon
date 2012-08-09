@@ -1240,105 +1240,105 @@ label.log-length {
 
 /* Project Membership UI */
 .project_membership {
-    min-height: 200px;
+  min-height: 200px;
 
     /* Buttons */
-    .btn-group {
-	margin-left:0px;
+  .btn-group {
+    margin-left:0px;
 	padding: 2px 10px 0 0;
 	margin-bottom: 0px;
 	border: 1px solid #DDD;
 	border-bottom: none;
-    }
-    .btn-group:last-child {
+  }
+  .btn-group:last-child {
 	border-bottom: 1px solid #DDD;
-    }
-    .btn-group:nth-child(odd) {
+  }
+  .btn-group:nth-child(odd) {
 	background-color: #F9F9F9;
-    }
-    .btn-group .active {
+  }
+  .btn-group .active {
 	float: right;
-    }
-    a.btn-primary:hover {
+  }
+  a.btn-primary:hover {
 	background-color: #04C;
-    }
+  }
 
-    /* Header */
-    .help_text {
+  /* Header */
+  .help_text {
 	margin-left: 15px;
 	margin-bottom: 15px;
-    }
-    .users_title {
+  }
+  .users_title {
 	color: #555;
 	font-weight: bold;
 	padding-left: 10px;
 	float: left;
-    }
-    input {
+  }
+  input {
 	background: url(/static/dashboard/img/search.png) no-repeat 105px 5px whiteSmoke;
-    }
-    .fake_table_header {
+  }
+  .fake_table_header {
 	background-color: #F1F1F1;
 	width: 306px;
 	height: 38px;
 	padding-top: 15px;
 	border: 1px solid #DDD;
 	border-bottom: none;
-    }
+  }
 
     /* 'Fake table' body */
-    .fake_table {
+  .fake_table {
 	margin-left: 5px;
 	width: 315px;
 	ul.no_results {
-	    width: 298px;
+      width: 298px;
 	}
 	ul.btn-group:hover {
 	    background-color: #DDD;
 	}
-    }
-    .left {
+  }
+  .left {
 	.fake_table_header {
-	    width: 318px;
+      width: 318px;
 	}
-    }
-    .right {
+  }
+  .right {
 	.fake_table_header {
-	    width: 318px;
-	    margin-left: -15px;
+      width: 318px;
+      margin-left: -15px;
 	}
 	.fake_table ul.no_results {
-	    margin-left: -20px;
+      margin-left: -20px;
 	}
-    }
+  }
 
-    /* User lists */
-    .member {
+  /* User lists */
+  .member {
 	padding: 10px;
 	text-align: left;
-      }
-    .project_members {
+  }
+  .project_members {
 	margin-left: -20px;
-    }
-    .project_members ul.btn-group,
-    .available_users ul.btn-group {
+  }
+  .project_members ul.btn-group,
+  .available_users ul.btn-group {
 	width: 308px;
-    }
+  }
 
-    /* List filtering */
-    .filter {
+  /* List filtering */
+  .filter {
 	width: 120px;
 	margin: -5px 13px 15px 0px;
 	float: right;
-    }
-    .no_results {
+  }
+  .no_results {
 	border: 1px solid #DDD;
 	padding: 10px;
 	color: #08C;
-    }
+  }
 
-    /* Role dropdown menus */
-    .role_dropdown li {
+  /* Role dropdown menus */
+  .role_dropdown li {
 	cursor: pointer;
 	background: none;
 	float: none;
@@ -1356,27 +1356,36 @@ label.log-length {
 	&:hover {
 	  background-color: #CDCDCD;
 	}
-      }
-      .nav .role_options {
-	  float: right;
-	  padding-right: 5px;
-      }
+  }
+  .nav .role_options {
+    float: right;
+    padding-right: 5px;
+  }
 }
 
 /* Inline user creation */
 .add_user_btn {
-    display: inline;
+  display: inline;
 }
 #add_user {
-    clear: both;
+  clear: both;
 }
 .add_user {
-    float: right;
-    margin-top: 10px;
-    margin-right: 15px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 15px;
 }
 
 /* Fixes overflow on dropdowns in modal */
 .dropdown_fix {
-    overflow: visible;
+  overflow: visible;
+}
+
+/* Replaces CPU hungry spin.js with animated gif */
+.loading_gif {
+  width: 35px;
+  height: 13px;
+  padding-top: 2px;
+  padding-right: 5px;
+  float: left;
 }
