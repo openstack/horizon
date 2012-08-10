@@ -23,6 +23,10 @@ def data(TEST):
     TEST.exceptions = TestDataContainer()
     msg = "Expected failure."
 
+    keystone_unauthorized = keystone_exceptions.Unauthorized(401)
+    keystone_unauthorized.silence_logging = True
+    TEST.exceptions.keystone_unauthorized = keystone_unauthorized
+
     keystone_exception = keystone_exceptions.ClientException(500, message=msg)
     keystone_exception.silence_logging = True
     TEST.exceptions.keystone = keystone_exception

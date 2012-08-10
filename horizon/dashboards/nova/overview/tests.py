@@ -49,6 +49,20 @@ class UsageViewTests(test.TestCase):
         self.assertTrue(isinstance(res.context['usage'], usage.TenantUsage))
         self.assertContains(res, 'form-horizontal')
 
+    def test_unauthorized(self):
+        exc = self.exceptions.keystone_unauthorized
+        now = timezone.now()
+        self.mox.StubOutWithMock(api, 'usage_get')
+        api.usage_get(IsA(http.HttpRequest), self.tenant.id,
+                      datetime.datetime(now.year, now.month, 1, 0, 0, 0),
+                      Func(usage.almost_now)) \
+                      .AndRaise(exc)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:overview:index')
+        res = self.client.get(url)
+        self.assertRedirects(res, reverse("login") + "?next=" + url)
+
     def test_usage_csv(self):
         now = timezone.now()
         usage_obj = api.nova.Usage(self.usages.first())

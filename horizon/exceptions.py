@@ -23,6 +23,7 @@ import os
 import sys
 
 from django.conf import settings
+from django.contrib.auth import logout
 from django.http import HttpRequest
 from django.utils import termcolors
 from django.utils.translation import ugettext as _
@@ -260,7 +261,7 @@ def handle(request, message=None, redirect=None, ignore=False,
     if issubclass(exc_type, UNAUTHORIZED):
         if ignore:
             return NotAuthorized
-        request.user_logout()
+        logout(request)
         if not force_silence and not handled:
             log_method(error_color("Unauthorized: %s" % exc_value))
         if not handled:
