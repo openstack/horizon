@@ -150,4 +150,7 @@ horizon.addInitFunction(function () {
 
   // Table search box.
   $(".table_search input").example("Filter");
+
+  // Volume attachment form.
+  $("#attach_volume_form #id_device").example("/dev/vdc/");
 });

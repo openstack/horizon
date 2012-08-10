@@ -123,7 +123,7 @@ class AttachForm(forms.SelfHandlingForm):
     instance = forms.ChoiceField(label=_("Attach to Instance"),
                                  help_text=_("Select an instance to "
                                              "attach to."))
-    device = forms.CharField(label=_("Device Name"), initial="/dev/vdc")
+    device = forms.CharField(label=_("Device Name"))
 
     def __init__(self, *args, **kwargs):
         super(AttachForm, self).__init__(*args, **kwargs)
@@ -136,6 +136,8 @@ class AttachForm(forms.SelfHandlingForm):
                                                       True)
         if not can_set_mount_point:
             self.fields['device'].widget = forms.widgets.HiddenInput()
+            self.fields['device'].required = False
+
         # populate volume_id
         volume = kwargs.get('initial', {}).get("volume", None)
         if volume:
@@ -171,7 +173,7 @@ class AttachForm(forms.SelfHandlingForm):
             api.volume_attach(request,
                               data['volume_id'],
                               data['instance'],
-                              data['device'])
+                              data.get('device', ''))
             vol_name = api.volume_get(request, data['volume_id']).display_name
 
             message = _('Attaching volume %(vol)s to instance '
