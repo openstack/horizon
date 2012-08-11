@@ -19,22 +19,37 @@ from novaclient import exceptions as nova_exceptions
 from .utils import TestDataContainer
 
 
-def data(TEST):
-    TEST.exceptions = TestDataContainer()
+def create_stubbed_exception(cls, status_code=500):
     msg = "Expected failure."
 
-    keystone_unauthorized = keystone_exceptions.Unauthorized(401)
-    keystone_unauthorized.silence_logging = True
-    TEST.exceptions.keystone_unauthorized = keystone_unauthorized
+    def fake_init_exception(self, code, message):
+        self.code = code
+        self.message = message
 
-    keystone_exception = keystone_exceptions.ClientException(500, message=msg)
-    keystone_exception.silence_logging = True
-    TEST.exceptions.keystone = keystone_exception
+    def fake_str(self):
+        return str(self.message)
 
-    nova_exception = nova_exceptions.ClientException(500, message=msg)
-    nova_exception.silence_logging = True
-    TEST.exceptions.nova = nova_exception
+    def fake_unicode(self):
+        return unicode(self.message)
 
-    glance_exception = glance_exceptions.ClientException(500, message=msg)
-    glance_exception.silence_logging = True
-    TEST.exceptions.glance = glance_exception
+    cls.__init__ = fake_init_exception
+    cls.__str__ = fake_str
+    cls.__unicode__ = fake_unicode
+    cls.silence_logging = True
+    return cls(status_code, msg)
+
+
+def data(TEST):
+    TEST.exceptions = TestDataContainer()
+
+    unauth = keystone_exceptions.Unauthorized
+    TEST.exceptions.keystone_unauthorized = create_stubbed_exception(unauth)
+
+    keystone_exception = keystone_exceptions.ClientException
+    TEST.exceptions.keystone = create_stubbed_exception(keystone_exception)
+
+    nova_exception = nova_exceptions.ClientException
+    TEST.exceptions.nova = create_stubbed_exception(nova_exception)
+
+    glance_exception = glance_exceptions.ClientException
+    TEST.exceptions.glance = create_stubbed_exception(glance_exception)

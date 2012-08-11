@@ -3,7 +3,7 @@ Django>=1.4
 django_compressor
 django_openstack_auth
 python-cloudfiles
-python-glanceclient>=0.3,<0.4
+python-glanceclient<2
 python-keystoneclient
 python-novaclient
 pytz
