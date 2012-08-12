@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-09 02:29+0000\n"
+"POT-Creation-Date: 2012-08-12 21:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: settings.py:136
+#: settings.py:141
 msgid "English"
 msgstr ""
 
-#: settings.py:137
+#: settings.py:142
 msgid "Italiano"
 msgstr ""
 
-#: settings.py:138
+#: settings.py:143
 msgid "Spanish"
 msgstr ""
 
-#: settings.py:139
+#: settings.py:144
 msgid "French"
 msgstr ""
 
-#: settings.py:140
+#: settings.py:145
 msgid "Japanese"
 msgstr ""
 
-#: settings.py:141
+#: settings.py:146
 msgid "Portuguese"
 msgstr ""
 
-#: settings.py:142
+#: settings.py:147
 msgid "Polish"
 msgstr ""
 
-#: settings.py:143
+#: settings.py:148
 msgid "Simplified Chinese"
 msgstr ""
 
-#: settings.py:144
+#: settings.py:149
 msgid "Traditional Chinese"
 msgstr ""
 
@@ -85,28 +85,4 @@ msgstr ""
 msgid ""
 "An unexpected error occurred while processing your request.  Please try your "
 "request again."
-msgstr ""
-
-#: templates/_header.html:3
-msgid "Logged in as"
-msgstr ""
-
-#: templates/_header.html:4
-msgid "Settings"
-msgstr ""
-
-#: templates/_header.html:5
-msgid "Sign Out"
-msgstr ""
-
-#: templates/splash.html:7 templates/auth/login.html:4
-msgid "Login"
-msgstr ""
-
-#: templates/auth/_login.html:4
-msgid "Log In"
-msgstr ""
-
-#: templates/auth/_login.html:17
-msgid "Sign In"
 msgstr ""

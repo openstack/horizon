@@ -28,7 +28,11 @@ urlpatterns = patterns('horizon.views',
 )
 
 urlpatterns += patterns('',
-    url(r'^i18n/setlang/$', 'django.views.i18n.set_language',
+    url(r'^i18n/js/(?P<packages>\S+?)/$',
+        'django.views.i18n.javascript_catalog',
+        name='jsi18n'),
+    url(r'^i18n/setlang/$',
+        'django.views.i18n.set_language',
         name="set_language"),
     url(r'^i18n/', include('django.conf.urls.i18n'))
 )

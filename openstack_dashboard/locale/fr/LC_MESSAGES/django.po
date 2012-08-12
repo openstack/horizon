@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-09 02:29+0000\n"
+"POT-Creation-Date: 2012-08-12 21:48+0000\n"
 "PO-Revision-Date: 2012-05-08 00:20+0100\n"
 "Last-Translator: Erwan Gallen <erwan@zinux.com>\n"
 "Language-Team: French <fr@zinux.com>\n"
@@ -16,39 +16,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: settings.py:136
+#: settings.py:141
 msgid "English"
 msgstr "Anglais"
 
-#: settings.py:137
+#: settings.py:142
 msgid "Italiano"
 msgstr "Italien"
 
-#: settings.py:138
+#: settings.py:143
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: settings.py:139
+#: settings.py:144
 msgid "French"
 msgstr "Français"
 
-#: settings.py:140
+#: settings.py:145
 msgid "Japanese"
 msgstr "Japonais"
 
-#: settings.py:141
+#: settings.py:146
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: settings.py:142
+#: settings.py:147
 msgid "Polish"
 msgstr "Polonais"
 
-#: settings.py:143
+#: settings.py:148
 msgid "Simplified Chinese"
 msgstr "Chinois simplifié"
 
-#: settings.py:144
+#: settings.py:149
 msgid "Traditional Chinese"
 msgstr "Chinois traditionnel"
 
@@ -88,28 +88,3 @@ msgid ""
 msgstr ""
 "Une erreur inattendue s'est produite lors du traitement de votre demande. "
 "Veuillez essayer à nouveau votre demande."
-
-#: templates/_header.html:3
-msgid "Logged in as"
-msgstr "Connecté"
-
-#: templates/_header.html:4
-msgid "Settings"
-msgstr "Réglages"
-
-#: templates/_header.html:5
-msgid "Sign Out"
-msgstr "Déconnexion"
-
-#: templates/splash.html:7 templates/auth/login.html:4
-msgid "Login"
-msgstr ""
-
-#: templates/auth/_login.html:4
-msgid "Log In"
-msgstr ""
-
-#: templates/auth/_login.html:17
-#, fuzzy
-msgid "Sign In"
-msgstr "Déconnexion"

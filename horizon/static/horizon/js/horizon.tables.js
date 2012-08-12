@@ -49,7 +49,7 @@ horizon.datatables = {
                 break;
               default:
                 if (horizon.conf.debug) {
-                  horizon.alert("error", "An error occurred while updating.");
+                  horizon.alert("error", gettext("An error occurred while updating."));
                 }
                 $row.removeClass("ajax-update");
                 $row.find("i.ajax-updating").remove();
@@ -127,8 +127,8 @@ horizon.datatables.confirm = function (action) {
     return;
   }
   action_string = $action.text();
-  title = "Confirm " + action_string;
-  body = "Please confirm your selection. This action cannot be undone.";
+  title = gettext("Confirm ") + action_string;
+  body = gettext("Please confirm your selection. This action cannot be undone.");
   modal = horizon.modals.create(title, body, action_string);
   modal.modal();
   if($modal_parent.length) {
@@ -142,7 +142,7 @@ horizon.datatables.confirm = function (action) {
     form.append("<input type='hidden' name='" + $action.attr('name') + "' value='" + $action.attr('value') + "'/>");
     form.submit();
     modal.modal('hide');
-    horizon.modals.modal_spinner("Working");
+    horizon.modals.modal_spinner(gettext("Working"));
     return false;
   });
   return modal;

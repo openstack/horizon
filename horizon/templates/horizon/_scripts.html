@@ -1,5 +1,8 @@
 {% load compress %}
 
+{% comment %} Django's JavaScript i18n Implementation {% endcomment %}
+<script type="text/javascript" src="{% url horizon:jsi18n 'horizon' %}"></script>
+
 {% compress js %}
 {% comment %} jQuery and Plugins {% endcomment %}
 <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.min.js' type='text/javascript' charset="utf-8"></script>

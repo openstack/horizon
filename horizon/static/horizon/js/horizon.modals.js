@@ -122,7 +122,7 @@ horizon.addInitFunction(function() {
       },
       error: function (jqXHR, status, errorThrown) {
         $form.closest(".modal").modal("hide");
-        horizon.alert("error", "There was an error submitting the form. Please try again.");
+        horizon.alert("error", gettext("There was an error submitting the form. Please try again."));
       }
     });
   });
@@ -156,7 +156,7 @@ horizon.addInitFunction(function() {
 
     horizon.modals._request = $.ajax($this.attr('href'), {
       beforeSend: function () {
-        horizon.modals.modal_spinner("Loading");
+        horizon.modals.modal_spinner(gettext("Loading"));
       },
       complete: function () {
         // Clear the global storage;
@@ -175,7 +175,7 @@ horizon.addInitFunction(function() {
         else {
           if (!horizon.ajax.get_messages(jqXHR)) {
             // Generic error handler. Really generic.
-            horizon.alert("error", "An error occurred. Please try again.");
+            horizon.alert("error", gettext("An error occurred. Please try again."));
           }
         }
       },

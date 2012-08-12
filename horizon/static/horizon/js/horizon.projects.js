@@ -6,11 +6,10 @@ horizon.projects = {
   roles: [],
   default_role_id: "",
   workflow_loaded: false,
-  no_project_members: 'This project currently has no members.',
-  no_available_users: 'No more available users to add.',
-  no_filter_results: 'No users found.',
-  filter_btn_text:  'Filter',
-
+  no_project_members: gettext('This project currently has no members.'),
+  no_available_users: gettext('No more available users to add.'),
+  no_filter_results: gettext('No users found.'),
+  filter_btn_text: gettext('Filter'),
 
   /* Parses the form field selector's ID to get either the
    * role or user id (i.e. returns "id12345" when
@@ -20,7 +19,6 @@ horizon.projects = {
     return id_string.slice(id_string.lastIndexOf("_") + 1);
   },
 
-
   /*
    * Gets the html select element associated with a given
    * role id for role_id.
@@ -28,7 +26,6 @@ horizon.projects = {
   get_role_element: function(role_id) {
       return $('select[id^="id_role_' + role_id + '"]');
   },
-
 
   /*
    * Initializes all of the horizon.projects lists with
@@ -42,7 +39,6 @@ horizon.projects = {
     horizon.projects.init_current_membership();
   },
 
-
   /*
    * Initializes an associative array mapping user ids to user names.
    **/
@@ -51,7 +47,6 @@ horizon.projects = {
       horizon.projects.users[option.value] = option.text;
     });
   },
-
 
   /*
    * Initializes an associative array mapping role ids to role names.
@@ -62,7 +57,6 @@ horizon.projects = {
       horizon.projects.roles[id] = $(role).text();
     });
   },
-
 
   /*
    * Initializes an associative array of lists of the current
@@ -88,20 +82,18 @@ horizon.projects = {
     });
   },
 
-
   /*
    * Checks to see whether a user is a member of the current project.
    * If they are, returns the id of their primary role.
    **/
   is_project_member: function(user_id) {
-    for (role in horizon.projects.current_membership) {
+    for (var role in horizon.projects.current_membership) {
       if ($.inArray(user_id, horizon.projects.current_membership[role]) >= 0) {
         return role;
       }
     }
     return false;
   },
-
 
   /*
    * Updates the selected values on the role_list's form field, as
@@ -113,7 +105,6 @@ horizon.projects = {
 
     horizon.projects.current_membership[role_id] = new_list;
   },
-
 
   /*
    * Helper function for remove_user_from_role.
@@ -127,25 +118,24 @@ horizon.projects = {
     }
   },
 
-
   /*
    * Searches through the role lists and removes a given user
    * from the lists.
    **/
   remove_user_from_role: function(user_id, role_id) {
+    var role_list;
     if (role_id) {
-      var role_list = horizon.projects.current_membership[role_id];
-      horizon.projects.remove_user(user_id, role_id, role_list)
+      role_list = horizon.projects.current_membership[role_id];
+      horizon.projects.remove_user(user_id, role_id, role_list);
     }
     else {
       // search for membership in role lists
       for (var role in horizon.projects.current_membership) {
-        var role_list = horizon.projects.current_membership[role];
-        horizon.projects.remove_user(user_id, role, role_list)
+        role_list = horizon.projects.current_membership[role];
+        horizon.projects.remove_user(user_id, role, role_list);
       }
     }
   },
-
 
   /*
    * Adds a given user to a given role list.
@@ -153,9 +143,8 @@ horizon.projects = {
   add_user_to_role: function(user_id, role_id) {
     var role_list = horizon.projects.current_membership[role_id];
     role_list.push(user_id);
-    horizon.projects.update_role_lists(role_id, role_list)
+    horizon.projects.update_role_lists(role_id, role_list);
   },
-
 
   /*
    * Generates the HTML structure for a user that will be displayed
@@ -191,6 +180,7 @@ horizon.projects = {
   * Generates the HTML structure for the project membership UI.
   **/
   generate_html: function() {
+    var user;
     for (user in horizon.projects.users) {
       var user_id = user;
       var user_name = horizon.projects.users[user];
@@ -198,7 +188,7 @@ horizon.projects = {
       if (role_id) {
         $(".project_members").append(this.generate_user_element(user_name, user_id, "-"));
           var $selected_role = $("li[data-user-id$='" + user_id + "']").siblings('.dropdown').children('.dropdown-toggle').children('span');
-          horizon.projects.set_selected_role($selected_role, role_id)
+          horizon.projects.set_selected_role($selected_role, role_id);
       }
       else {
         $(".available_users").append(this.generate_user_element(user_name, user_id, "+"));
@@ -207,14 +197,13 @@ horizon.projects = {
     horizon.projects.detect_no_results();
   },
 
-
   /*
   * Triggers on click of link to add/remove member from the project.
   **/
   update_membership: function() {
     $(".available_users, .project_members").on('click', ".btn-group a[href='#add_remove']", function (evt) {
       var available = $(".available_users").has($(this)).length;
-      var user_id = horizon.projects.get_field_id($(this).parent().siblings().attr('data-user-id'))
+      var user_id = horizon.projects.get_field_id($(this).parent().siblings().attr('data-user-id'));
 
       if (available) {
         $(this).text("-");
@@ -232,7 +221,7 @@ horizon.projects = {
 
         // set the selection back to default role
         var $selected_role = $(this).parent().siblings('.dropdown').children('.dropdown-toggle').children('.selected_role');
-        horizon.projects.set_selected_role($selected_role, horizon.projects.default_role_id)
+        horizon.projects.set_selected_role($selected_role, horizon.projects.default_role_id);
       }
 
       // update lists
@@ -244,21 +233,21 @@ horizon.projects = {
     });
   },
 
-
   /*
    * Detects whether each list has members and if it does not
    * displays a message to the user.
    **/
   detect_no_results: function () {
     $('.filterable').each( function () {
-      var filter = $(this).find('ul').attr('class');
+      var filter = $(this).find('ul').attr('class'),
+          text;
       if (filter == 'project_members')
-        var text = horizon.projects.no_project_members;
+        text = horizon.projects.no_project_members;
       else
-        var text = horizon.projects.no_available_users;
+        text = horizon.projects.no_available_users;
 
-      if ($('.' + filter).children('ul').length == 0) {
-        $('#no_' + filter).text(text)
+      if (!$('.' + filter).children('ul').length) {
+        $('#no_' + filter).text(text);
         $('#no_' + filter).show();
         $("input[id='" + filter + "']").attr('disabled', 'disabled');
       }
@@ -269,14 +258,13 @@ horizon.projects = {
     });
   },
 
-
   /*
   * Triggers on selection of new role for a member.
   **/
   select_member_role: function() {
     $(".available_users, .project_members").on('click', '.role_dropdown li', function (evt) {
       var $selected_el = $(this).parent().prev().children('.selected_role');
-      $selected_el.text($(this).text())
+      $selected_el.text($(this).text());
 
       // get the newly selected role and the member's name
       var new_role_id = $(this).attr("data-role-id");
@@ -285,10 +273,9 @@ horizon.projects = {
 
       // update role lists
       horizon.projects.remove_user_from_role(user_id, $selected_el.attr('data-role-id'));
-      horizon.projects.add_user_to_role(user_id, new_role_id)
+      horizon.projects.add_user_to_role(user_id, new_role_id);
     });
   },
-
 
   /*
    * Triggers on the addition of a new user via the inline object creation field.
@@ -302,7 +289,7 @@ horizon.projects = {
 
       // add the user to the hidden role lists and the users list
       horizon.projects.users[user_id] = user_name;
-      $("select[multiple='multiple']").append("<option value='" + user_id + "'>" + horizon.projects.users[user_id] + "</option>")
+      $("select[multiple='multiple']").append("<option value='" + user_id + "'>" + horizon.projects.users[user_id] + "</option>");
       horizon.projects.add_user_to_role(user_id, horizon.projects.default_role_id);
 
       // remove option from hidden select
@@ -314,11 +301,10 @@ horizon.projects = {
       $("input.filter").val(horizon.projects.filter_btn_text);
 
       // fix styling
-      $(".project_members .btn-group").css('border-bottom','none')
-      $(".project_members .btn-group:last").css('border-bottom','1px solid #ddd')
+      $(".project_members .btn-group").css('border-bottom','none');
+      $(".project_members .btn-group:last").css('border-bottom','1px solid #ddd');
     });
   },
-
 
   /*
    * Style the inline object creation button, hide the associated field.
@@ -330,7 +316,6 @@ horizon.projects = {
     $(add_user_el).addClass("add_user");
     $(add_user_el).find("label, .input").addClass("add_user_btn");
   },
-
 
   /*
   * Fixes the striping of the fake table upon modification of the lists.
@@ -361,7 +346,6 @@ horizon.projects = {
         });
     });
   },
-
 
   /*
    * Sets up filtering for each list of users.
@@ -415,7 +399,6 @@ horizon.projects = {
     });
   },
 
-
   /*
    * Calls set-up functions upon loading the workflow.
    **/
@@ -455,9 +438,7 @@ horizon.projects = {
       });
     }
   }
-
 };
-
 
 horizon.addInitFunction(function() {
   $('.btn').on('click', function (evt) {

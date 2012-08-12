@@ -50,12 +50,31 @@ horizon.forms.prevent_multiple_submission = function (el) {
   });
 };
 
+horizon.forms.init_examples = function (el) {
+  var $el = $(el);
+
+  // Generic examples.
+  $el.find("#id_description").example(gettext("Additional information here..."));
+
+  // Update/create image form.
+  $el.find("#create_image_form input#id_copy_from").example("http://example.com/image.iso");
+
+  // Table search box.
+  $el.find(".table_search input").example(gettext("Filter"));
+
+  // Volume attachment form.
+  $el.find("#attach_volume_form #id_device").example("/dev/vdc/");
+};
+
 horizon.addInitFunction(function () {
   horizon.forms.prevent_multiple_submission($('body'));
   horizon.modals.addModalInitFunction(horizon.forms.prevent_multiple_submission);
 
   horizon.forms.bind_add_item_handlers($("body"));
   horizon.modals.addModalInitFunction(horizon.forms.bind_add_item_handlers);
+
+  horizon.forms.init_examples($("body"));
+  horizon.modals.addModalInitFunction(horizon.forms.init_examples);
 
   horizon.forms.handle_source_group();
   horizon.forms.handle_snapshot_source();
@@ -112,45 +131,4 @@ horizon.addInitFunction(function () {
   });
   // Hide the help text for js-capable browsers
   $('span.help-block').hide();
-
-
-  /* Form examples */
-
-  // Update/create image form.
-  $("#image_form input#id_name").example("ami-ubuntu");
-  $("#image_form input#id_kernel").example("123");
-  $("#image_form input#id_ramdisk").example("123");
-  $("#image_form input#id_state").example("available");
-  $("#image_form input#id_location").example("file:///var/lib/glance/images/123");
-  $("#image_form input#id_architecture").example("x86_64");
-  $("#image_form input#id_project_id").example("some");
-  $("#image_form input#id_disk_format").example("ari");
-  $("#image_form input#id_container_format").example("ari");
-  $("#image_form input#id_ramdisk").example("123");
-
-  // Launch instance form.
-  $("#launch_img input#id_name").example("YetAnotherInstance");
-  $("#launch_img input#id_security_groups").example("group1,group2");
-
-  // Create flavor form.
-  $("#flavor_form input#id_flavorid").example("1234");
-  $("#flavor_form input#id_name").example("small");
-  $("#flavor_form input#id_vcpus").example("256");
-  $("#flavor_form input#id_memory_mb").example("256");
-  $("#flavor_form input#id_disk_gb").example("256");
-
-  // Update/create tenant.
-  $("#tenant_form input#id__id").example("YetAnotherTenant");
-  $("#tenant_form textarea#id_description").example("One or two sentence description.");
-
-  // Update/create tenant.
-  $("#user_form input#id_id").example("username");
-  $("#user_form input#id_email").example("email@example.com");
-  $("#user_form input#id_password").example("password");
-
-  // Table search box.
-  $(".table_search input").example("Filter");
-
-  // Volume attachment form.
-  $("#attach_volume_form #id_device").example("/dev/vdc/");
 });

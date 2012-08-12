@@ -73,11 +73,10 @@ class CreateSubnetInfoAction(workflows.Action):
 
     class Meta:
         name = ("Subnet")
-        help_text = _("You can create a subnet associated with the new "
-                      "network. \"Network Address\" must be specified. "
-                      "\n\n"
-                      "If you are creating a network WITHOUT a subnet, "
-                      "clear \"Create Subnet\" checkbox.")
+        help_text = _('You can create a subnet associated with the new '
+                      'network, in which case "Network Address" must be '
+                      'specified. If you wish to create a network WITHOUT a '
+                      'subnet, uncheck the "Create Subnet" checkbox.')
 
     def clean(self):
         cleaned_data = super(CreateSubnetInfoAction, self).clean()
@@ -110,7 +109,7 @@ class CreateNetwork(workflows.Workflow):
     slug = "create_network"
     name = _("Create Network")
     finalize_button_name = _("Create")
-    success_message = _('Created new network "%s".')
+    success_message = _('Created network "%s".')
     failure_message = _('Unable to create network "%s".')
     success_url = "horizon:nova:networks:index"
     default_steps = (CreateNetworkInfo,
@@ -127,10 +126,10 @@ class CreateNetwork(workflows.Workflow):
                                                  name=data['net_name'])
             network.set_id_as_name_if_empty()
             self.context['net_id'] = network.id
-            msg = _('Network %s was successfully created.') % network.name
+            msg = _('Network "%s" was successfully created.') % network.name
             LOG.debug(msg)
         except:
-            msg = _('Failed to create network %s') % data['net_name']
+            msg = _('Failed to create network "%s".') % data['net_name']
             LOG.info(msg)
             redirect = reverse('horizon:nova:networks:index')
             exceptions.handle(request, msg, redirect=redirect)
@@ -140,7 +139,7 @@ class CreateNetwork(workflows.Workflow):
         if not data['with_subnet']:
             return True
 
-        # create the subnet
+        # Create the subnet.
         try:
             params = {'network_id': network.id,
                       'name': data['subnet_name'],
@@ -149,14 +148,14 @@ class CreateNetwork(workflows.Workflow):
             if data['gateway_ip']:
                 params['gateway_ip'] = data['gateway_ip']
             api.quantum.subnet_create(request, **params)
-            msg = _('Subnet %s was successfully created.') % data['cidr']
+            msg = _('Subnet "%s" was successfully created.') % data['cidr']
             LOG.debug(msg)
         except Exception:
-            msg = _('Failed to create subnet %s for network %s') % \
-                (data['cidr'], network.id)
-            LOG.info(msg)
+            msg = _('Failed to create subnet "%(sub)s" for network "%(net)s".')
             redirect = reverse('horizon:nova:networks:index')
-            exceptions.handle(request, msg, redirect=redirect)
+            exceptions.handle(request,
+                              msg % {"sub": data['cidr'], "net": network.id},
+                              redirect=redirect)
             return False
 
         return True

@@ -301,13 +301,15 @@ function run_tests {
 
 function run_makemessages {
   cd horizon
-  ${command_wrapper} $root/manage.py makemessages --all
-  HORIZON_RESULT=$?
+  ${command_wrapper} $root/manage.py makemessages --all --no-obsolete
+  HORIZON_PY_RESULT=$?
+  ${command_wrapper} $root/manage.py makemessages -d djangojs --all --no-obsolete
+  HORIZON_JS_RESULT=$?
   cd ../openstack_dashboard
-  ${command_wrapper} $root/manage.py makemessages --all
+  ${command_wrapper} $root/manage.py makemessages --all --no-obsolete
   DASHBOARD_RESULT=$?
   cd ..
-  exit $(($HORIZON_RESULT || $DASHBOARD_RESULT))
+  exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT))
 }
 
 

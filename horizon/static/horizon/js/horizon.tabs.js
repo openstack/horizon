@@ -6,7 +6,7 @@ horizon.tabs.load_tab = function (evt) {
       tab_pane = $(tab_id);
 
   // FIXME(gabriel): This style mucking shouldn't be in the javascript.
-  tab_pane.append("<span style='margin-left: 30px;'>loading&hellip;</span>");
+  tab_pane.append("<span style='margin-left: 30px;'>" + gettext("Loading") + "&hellip;</span>");
   tab_pane.spin(horizon.conf.spinner_options.inline);
   $(tab_pane.data().spinner.el).css('top', '9px');
   $(tab_pane.data().spinner.el).css('left', '15px');
