@@ -29,6 +29,7 @@ from horizon.api.base import url_for
 
 
 LOG = logging.getLogger(__name__)
+FOLDER_DELIMITER = "/"
 
 
 class SwiftAuthentication(object):
@@ -94,7 +95,7 @@ def swift_get_objects(request, container_name, prefix=None, path=None,
     objects = container.get_objects(prefix=prefix,
                                     marker=marker,
                                     limit=limit + 1,
-                                    delimiter="/",
+                                    delimiter=FOLDER_DELIMITER,
                                     path=path)
     if(len(objects) > limit):
         return (objects[0:-1], True)
@@ -113,7 +114,7 @@ def swift_filter_objects(request, filter_string, container_name, prefix=None,
     objects = container.get_objects(prefix=prefix,
                                     marker=marker,
                                     limit=limit,
-                                    delimiter="/",
+                                    delimiter=FOLDER_DELIMITER,
                                     path=path)
     filter_string_list = filter_string.lower().strip().split(' ')
 

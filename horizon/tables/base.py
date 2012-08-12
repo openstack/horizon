@@ -692,11 +692,13 @@ class DataTableOptions(object):
         Optional. Default: :``False``
 
     .. attribute:: data_types
+
         A list of data types that this table would accept. Default to be an
         empty list, but if the attibute ``mixed_data_type`` is set to ``True``,
         then this list must have at least one element.
 
     .. attribute:: data_type_name
+
         The name of an attribute to assign to data passed to the table when it
         accepts mix data. Default: ``"_table_data_type"``
     """
@@ -712,6 +714,7 @@ class DataTableOptions(object):
         self.row_class = getattr(options, 'row_class', Row)
         self.column_class = getattr(options, 'column_class', Column)
         self.pagination_param = getattr(options, 'pagination_param', 'marker')
+        self.browser_table = getattr(options, 'browser_table', None)
 
         # Set self.filter if we have any FilterActions
         filter_actions = [action for action in self.table_actions if
@@ -767,6 +770,7 @@ class DataTableMetaclass(type):
     """ Metaclass to add options to DataTable class and collect columns. """
     def __new__(mcs, name, bases, attrs):
         # Process options from Meta
+        class_name = name
         attrs["_meta"] = opts = DataTableOptions(attrs.get("Meta", None))
 
         # Gather columns; this prevents the column from being an attribute
@@ -776,6 +780,7 @@ class DataTableMetaclass(type):
             if issubclass(type(obj), (opts.column_class, Column)):
                 column_instance = attrs.pop(name)
                 column_instance.name = name
+                column_instance.classes.append('normal_column')
                 columns.append((name, column_instance))
         columns.sort(key=lambda x: x[1].creation_counter)
 
@@ -784,6 +789,15 @@ class DataTableMetaclass(type):
             if hasattr(base, 'base_columns'):
                 columns = base.base_columns.items() + columns
         attrs['base_columns'] = SortedDict(columns)
+
+        # If the table is in a ResourceBrowser, the column number must meet
+        # these limits because of the width of the browser.
+        if opts.browser_table == "navigation" and len(columns) > 1:
+            raise ValueError("You can only assign one column to %s."
+                             % class_name)
+        if opts.browser_table == "content" and len(columns) > 2:
+            raise ValueError("You can only assign two columns to %s."
+                             % class_name)
 
         if opts.columns:
             # Remove any columns that weren't declared if we're being explicit
@@ -794,7 +808,7 @@ class DataTableMetaclass(type):
             # Re-order based on declared columns
             columns.sort(key=lambda x: attrs['_meta'].columns.index(x[0]))
         # Add in our auto-generated columns
-        if opts.multi_select:
+        if opts.multi_select and opts.browser_table != "navigation":
             multi_select = opts.column_class("multi_select",
                                              verbose_name="",
                                              auto="multi_select")
@@ -937,6 +951,11 @@ class DataTable(object):
             LOG.exception("Error while checking action permissions.")
             return None
 
+    def is_browser_table(self):
+        if self._meta.browser_table:
+            return True
+        return False
+
     def render(self):
         """ Renders the table using the template from the table options. """
         table_template = template.loader.get_template(self._meta.template)
@@ -1036,7 +1055,8 @@ class DataTable(object):
         table_actions_template = template.loader.get_template(template_path)
         bound_actions = self.get_table_actions()
         extra_context = {"table_actions": bound_actions}
-        if self._meta.filter:
+        if self._meta.filter and \
+           self._filter_action(self._meta._filter_action, self._meta.request):
             extra_context["filter"] = self._meta._filter_action
         context = template.RequestContext(self._meta.request, extra_context)
         return table_actions_template.render(context)

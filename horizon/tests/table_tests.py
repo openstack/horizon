@@ -359,7 +359,7 @@ class DataTableTests(test.TestCase):
         self.assertEqual(row3.cells['optional'].value, "N/A")
         # classes
         self.assertEqual(value_col.get_final_attrs().get('class', ""),
-                         "green blue sortable anchor")
+                         "green blue sortable anchor normal_column")
         # status
         cell_status = row.cells['status'].status
         self.assertEqual(cell_status, True)

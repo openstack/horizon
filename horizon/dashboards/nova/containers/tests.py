@@ -28,7 +28,7 @@ from mox import IsA
 
 from horizon import api
 from horizon import test
-from .tables import ContainersTable, ObjectsTable
+from .tables import ContainersTable, ObjectsTable, wrap_delimiter
 from . import forms
 
 
@@ -93,50 +93,30 @@ class ContainerViewTests(test.TestCase):
                     'method': forms.CreateContainer.__name__}
         res = self.client.post(reverse('horizon:nova:containers:create'),
                                formData)
-        url = reverse('horizon:nova:containers:object_index',
-                      args=[self.containers.first().name])
+        url = reverse('horizon:nova:containers:index',
+                      args=[wrap_delimiter(self.containers.first().name)])
         self.assertRedirectsNoFollow(res, url)
 
 
-class ObjectViewTests(test.TestCase):
-    @test.create_stubs({api: ('swift_get_objects',)})
+class IndexViewTests(test.TestCase):
     def test_index(self):
+        self.mox.StubOutWithMock(api, 'swift_get_containers')
+        self.mox.StubOutWithMock(api, 'swift_get_objects')
+        containers = (self.containers.list(), False)
         ret = (self.objects.list(), False)
+        api.swift_get_containers(IsA(http.HttpRequest),
+                                 marker=None).AndReturn(containers)
         api.swift_get_objects(IsA(http.HttpRequest),
                               self.containers.first().name,
                               marker=None,
                               path=None).AndReturn(ret)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:nova:containers:object_index',
-                                      args=[self.containers.first().name]))
-        self.assertEquals(res.context['container_name'],
-                          self.containers.first().name)
-        self.assertTemplateUsed(res, 'nova/containers/detail.html')
-        # UTF8 encoding here to ensure there aren't problems with Nose output.
-        expected = [obj.name.encode('utf8') for obj in self.objects.list()]
-        self.assertQuerysetEqual(res.context['objects_table'].data,
-                                 expected,
-                                 lambda obj: obj.name.encode('utf8'))
-
-    @test.create_stubs({api: ('swift_get_objects',)})
-    def test_index_subfolders(self):
-        ret = (self.objects.list(), False)
-        api.swift_get_objects(IsA(http.HttpRequest),
-                              self.containers.first().name,
-                              marker=None,
-                              path='sub1/sub2').AndReturn(ret)
-        self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:nova:containers:object_index',
-                                      args=[self.containers.first().name,
-                                            u'sub1/sub2/']))
-        self.assertEquals(res.context['container_name'],
-                          self.containers.first().name)
-        self.assertListEqual(res.context['subfolders'],
-                             [('sub1', 'sub1/'),
-                              ('sub2', 'sub1/sub2/'), ])
-        self.assertTemplateUsed(res, 'nova/containers/detail.html')
+        res = self.client.get(reverse('horizon:nova:containers:index',
+                                      args=[wrap_delimiter(self.containers
+                                                               .first()
+                                                               .name)]))
+        self.assertTemplateUsed(res, 'nova/containers/index.html')
         # UTF8 encoding here to ensure there aren't problems with Nose output.
         expected = [obj.name.encode('utf8') for obj in self.objects.list()]
         self.assertQuerysetEqual(res.context['objects_table'].data,
@@ -177,8 +157,8 @@ class ObjectViewTests(test.TestCase):
                     'object_file': temp_file}
         res = self.client.post(upload_url, formData)
 
-        index_url = reverse('horizon:nova:containers:object_index',
-                            args=[container.name])
+        index_url = reverse('horizon:nova:containers:index',
+                            args=[wrap_delimiter(container.name)])
         self.assertRedirectsNoFollow(res, index_url)
 
         # Test invalid filename
@@ -197,8 +177,8 @@ class ObjectViewTests(test.TestCase):
     def test_delete(self):
         container = self.containers.first()
         obj = self.objects.first()
-        index_url = reverse('horizon:nova:containers:object_index',
-                            args=[container.name])
+        index_url = reverse('horizon:nova:containers:index',
+                            args=[wrap_delimiter(container.name)])
         self.mox.StubOutWithMock(api, 'swift_delete_object')
         api.swift_delete_object(IsA(http.HttpRequest),
                                 container.name,
@@ -269,6 +249,6 @@ class ObjectViewTests(test.TestCase):
         copy_url = reverse('horizon:nova:containers:object_copy',
                            args=[container_1.name, obj.name])
         res = self.client.post(copy_url, formData)
-        index_url = reverse('horizon:nova:containers:object_index',
-                            args=[container_2.name])
+        index_url = reverse('horizon:nova:containers:index',
+                            args=[wrap_delimiter(container_2.name)])
         self.assertRedirectsNoFollow(res, index_url)

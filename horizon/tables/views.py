@@ -14,28 +14,73 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from collections import defaultdict
+
 from django.views import generic
 
 
 class MultiTableMixin(object):
     """ A generic mixin which provides methods for handling DataTables. """
+    data_method_pattern = "get_%s_data"
+
     def __init__(self, *args, **kwargs):
         super(MultiTableMixin, self).__init__(*args, **kwargs)
         self.table_classes = getattr(self, "table_classes", [])
         self._data = {}
         self._tables = {}
 
+        self._data_methods = defaultdict(list)
+        self.get_data_methods(self.table_classes, self._data_methods)
+
     def _get_data_dict(self):
         if not self._data:
             for table in self.table_classes:
-                func_name = "get_%s_data" % table._meta.name
-                data_func = getattr(self, func_name, None)
-                if data_func is None:
-                    cls_name = self.__class__.__name__
-                    raise NotImplementedError("You must define a %s method "
-                                              "on %s." % (func_name, cls_name))
-                self._data[table._meta.name] = data_func()
+                data = []
+                name = table._meta.name
+                func_list = self._data_methods.get(name, [])
+                for func in func_list:
+                    data.extend(func())
+                self._data[name] = data
         return self._data
+
+    def get_data_methods(self, table_classes, methods):
+        for table in table_classes:
+            name = table._meta.name
+            if table._meta.mixed_data_type:
+                for data_type in table._meta.data_types:
+                    func = self.check_method_exist(self.data_method_pattern,
+                                                   data_type)
+                    if func:
+                        type_name = table._meta.data_type_name
+                        methods[name].append(self.wrap_func(func,
+                                                            type_name,
+                                                            data_type))
+            else:
+                func = self.check_method_exist(self.data_method_pattern,
+                                               name)
+                if func:
+                    methods[name].append(func)
+
+    def wrap_func(self, data_func, type_name, data_type):
+        def final_data():
+            data = data_func()
+            self.assign_type_string(data, type_name, data_type)
+            return data
+        return final_data
+
+    def check_method_exist(self, func_pattern="%s", *names):
+        func_name = func_pattern % names
+        func = getattr(self, func_name, None)
+        if not func or not callable(func):
+            cls_name = self.__class__.__name__
+            raise NotImplementedError("You must define a %s method"
+                                      "in %s." % (func_name, cls_name))
+        else:
+            return func
+
+    def assign_type_string(self, data, type_name, data_type):
+        for datum in data:
+            setattr(datum, type_name, data_type)
 
     def get_tables(self):
         if not self.table_classes:

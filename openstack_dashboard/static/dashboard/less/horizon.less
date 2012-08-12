@@ -1389,3 +1389,98 @@ label.log-length {
   padding-right: 5px;
   float: left;
 }
+
+/* ResourceBrowser style
+*/
+#browser_wrapper {
+    width: @browserWrapperWidth;
+    > div{
+        position: relative;
+        padding: 55px 0 32px 0;
+        float: left;
+        background-color: @grayLighter;
+    }
+    div.table_wrapper {
+        height: @tbodyHeight;
+        border-left: @dataTableBorderWidth solid @dataTableBorderColor;
+        border-right: @dataTableBorderWidth solid @dataTableBorderColor;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    div.navigation_wrapper {
+        width: @navigationTableWidth;
+        div.table_wrapper,
+        thead th.table_header {
+            width: @navigationTableWidth - 2px;
+        }
+        td {
+            background-color: whiteSmoke;
+        }
+        td.normal_column{
+            width: @navigationColWidth;
+            min-width: @navigationColWidth;
+            > a {
+                width: @navigationColWidth;
+                min-width: @navigationColWidth;
+            }
+        }
+        tfoot td {
+            width: @navigationTableWidth - 2 * @dataTableBorderWidth - 2 * @tableCellPadding;
+        }
+    }
+    div.content_wrapper {
+        width: @contentTableWidth;
+        div.table_wrapper,
+        thead th.table_header {
+            width: @contentTableWidth - 2px;
+        }
+        td.normal_column {
+            width: @contentColWidth;
+            min-width: @contentColWidth;
+            > a {
+                width: @contentColWidth;
+                min-width: @contentColWidth;
+            }
+        }
+        tfoot td {
+            width: @contentTableWidth - 2 * @dataTableBorderWidth - 2 * @tableCellPadding;
+        }
+    }
+    table {
+        thead {
+            position: absolute;
+            top: 0;
+            left: 0;
+            tr th {
+                border: @dataTableBorderWidth solid @dataTableBorderColor;
+                border-bottom: none;
+                background-color: @grayLighter;
+            }
+        }
+        td.multi_select_column,
+        th.multi_select_column{
+            width: @multiSelectionWidth;
+        }
+        td.actions_column,
+        th.actions_column{
+            padding :@actionsColumnPadding;
+            width: @actionsColumnWidth;
+        }
+        tbody {
+            tr td:first-child{
+                border-left: none;
+            }
+            tr td:last-child {
+                border-right: none;
+            }
+            tr:last-child td {
+                border-bottom: @dataTableBorderWidth solid @dataTableBorderColor;
+            }
+        }
+        tfoot td{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    }
+}

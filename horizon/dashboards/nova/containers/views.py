@@ -21,7 +21,6 @@
 """
 Views for managing Swift containers.
 """
-import logging
 import os
 
 from django import http
@@ -29,24 +28,20 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
+from horizon import browsers
 from horizon import exceptions
 from horizon import forms
-from horizon import tables
+from horizon.api import FOLDER_DELIMITER
+from .browsers import ContainerBrowser
 from .forms import CreateContainer, UploadObject, CopyObject
-from .tables import ContainersTable, ObjectsTable
+from .tables import wrap_delimiter
 
 
-LOG = logging.getLogger(__name__)
+class ContainerView(browsers.ResourceBrowserView):
+    browser_class = ContainerBrowser
+    template_name = "nova/containers/index.html"
 
-
-class IndexView(tables.DataTableView):
-    table_class = ContainersTable
-    template_name = 'nova/containers/index.html'
-
-    def has_more_data(self, table):
-        return self._more
-
-    def get_data(self):
+    def get_containers_data(self):
         containers = []
         self._more = None
         marker = self.request.GET.get('marker', None)
@@ -57,35 +52,6 @@ class IndexView(tables.DataTableView):
             msg = _('Unable to retrieve container list.')
             exceptions.handle(self.request, msg)
         return containers
-
-
-class CreateView(forms.ModalFormView):
-    form_class = CreateContainer
-    template_name = 'nova/containers/create.html'
-    success_url = "horizon:nova:containers:object_index"
-
-    def get_success_url(self):
-        parent = self.request.POST.get('parent', None)
-        if parent:
-            container, slash, remainder = parent.partition("/")
-            if remainder and not remainder.endswith("/"):
-                remainder = "".join([remainder, "/"])
-            return reverse(self.success_url, args=(container, remainder))
-        else:
-            return reverse(self.success_url, args=[self.request.POST['name']])
-
-    def get_initial(self):
-        initial = super(CreateView, self).get_initial()
-        initial['parent'] = self.kwargs['container_name']
-        return initial
-
-
-class ObjectIndexView(tables.MixedDataTableView):
-    table_class = ObjectsTable
-    template_name = 'nova/containers/detail.html'
-
-    def has_more_data(self, table):
-        return self._more
 
     @property
     def objects(self):
@@ -99,20 +65,20 @@ class ObjectIndexView(tables.MixedDataTableView):
             marker = self.request.GET.get('marker', None)
             container_name = self.kwargs['container_name']
             subfolders = self.kwargs['subfolder_path']
-            if subfolders:
-                prefix = subfolders.rstrip("/")
-            else:
-                prefix = None
-            try:
-                objects, self._more = api.swift_get_objects(self.request,
-                                                            container_name,
-                                                            marker=marker,
-                                                            path=prefix)
-            except:
-                self._more = None
-                objects = []
-                msg = _('Unable to retrieve object list.')
-                exceptions.handle(self.request, msg)
+            prefix = None
+            if container_name:
+                if subfolders:
+                    prefix = subfolders.rstrip(FOLDER_DELIMITER)
+                try:
+                    objects, self._more = api.swift_get_objects(self.request,
+                                                                container_name,
+                                                                marker=marker,
+                                                                path=prefix)
+                except:
+                    self._more = None
+                    objects = []
+                    msg = _('Unable to retrieve object list.')
+                    exceptions.handle(self.request, msg)
             self._objects = objects
         return self._objects
 
@@ -134,7 +100,7 @@ class ObjectIndexView(tables.MixedDataTableView):
         return filtered_objects
 
     def get_context_data(self, **kwargs):
-        context = super(ObjectIndexView, self).get_context_data(**kwargs)
+        context = super(ContainerView, self).get_context_data(**kwargs)
         context['container_name'] = self.kwargs["container_name"]
         context['subfolders'] = []
         if self.kwargs["subfolder_path"]:
@@ -147,14 +113,38 @@ class ObjectIndexView(tables.MixedDataTableView):
         return context
 
 
+class CreateView(forms.ModalFormView):
+    form_class = CreateContainer
+    template_name = 'nova/containers/create.html'
+    success_url = "horizon:nova:containers:index"
+
+    def get_success_url(self):
+        parent = self.request.POST.get('parent', None)
+        if parent:
+            container, slash, remainder = parent.partition(FOLDER_DELIMITER)
+            container += FOLDER_DELIMITER
+            if remainder and not remainder.endswith(FOLDER_DELIMITER):
+                remainder = "".join([remainder, FOLDER_DELIMITER])
+            return reverse(self.success_url, args=(container, remainder))
+        else:
+            return reverse(self.success_url, args=[self.request.POST['name'] +
+                                                   FOLDER_DELIMITER])
+
+    def get_initial(self):
+        initial = super(CreateView, self).get_initial()
+        initial['parent'] = self.kwargs['container_name']
+        return initial
+
+
 class UploadView(forms.ModalFormView):
     form_class = UploadObject
     template_name = 'nova/containers/upload.html'
-    success_url = "horizon:nova:containers:object_index"
+    success_url = "horizon:nova:containers:index"
 
     def get_success_url(self):
+        container_name = self.request.POST['container_name']
         return reverse(self.success_url,
-                       args=(self.request.POST['container_name'],
+                       args=(wrap_delimiter(container_name),
                              self.request.POST.get('path', '')))
 
     def get_initial(self):
@@ -171,7 +161,7 @@ def object_download(request, container_name, object_path):
     obj = api.swift.swift_get_object(request, container_name, object_path)
     # Add the original file extension back on if it wasn't preserved in the
     # name given to the object.
-    filename = object_path.rsplit("/")[-1]
+    filename = object_path.rsplit(FOLDER_DELIMITER)[-1]
     if not os.path.splitext(obj.name)[1]:
         name, ext = os.path.splitext(obj.metadata.get('orig-filename', ''))
         filename = "%s%s" % (filename, ext)
@@ -196,11 +186,12 @@ def object_download(request, container_name, object_path):
 class CopyView(forms.ModalFormView):
     form_class = CopyObject
     template_name = 'nova/containers/copy.html'
-    success_url = "horizon:nova:containers:object_index"
+    success_url = "horizon:nova:containers:index"
 
     def get_success_url(self):
+        new_container_name = self.request.POST['new_container_name']
         return reverse(self.success_url,
-                       args=(self.request.POST['new_container_name'],
+                       args=(wrap_delimiter(new_container_name),
                              self.request.POST.get('path', '')))
 
     def get_form_kwargs(self):
