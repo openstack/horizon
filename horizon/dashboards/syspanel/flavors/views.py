@@ -27,7 +27,7 @@ from horizon import api
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
-from .forms import CreateFlavor
+from .forms import CreateFlavor, EditFlavor
 from .tables import FlavorsTable
 
 
@@ -46,7 +46,8 @@ class IndexView(tables.DataTableView):
         except:
             exceptions.handle(request,
                               _('Unable to retrieve flavor list.'))
-        flavors.sort(key=lambda x: x.id, reverse=True)
+        # Sort flavors by size
+        flavors.sort(key=lambda f: (f.vcpus, f.ram, f.disk))
         return flavors
 
 
@@ -55,15 +56,26 @@ class CreateView(forms.ModalFormView):
     template_name = 'syspanel/flavors/create.html'
     success_url = reverse_lazy('horizon:syspanel:flavors:index')
 
+
+class EditView(forms.ModalFormView):
+    form_class = EditFlavor
+    template_name = 'syspanel/flavors/edit.html'
+    success_url = reverse_lazy('horizon:syspanel:flavors:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(EditView, self).get_context_data(**kwargs)
+        context['flavor_id'] = self.kwargs['id']
+        return context
+
     def get_initial(self):
-        # TODO(tres): Get rid of this hacky bit of nonsense after flavors
-        # id handling gets fixed.
         try:
-            flavors = api.flavor_list(self.request)
+            flavor = api.nova.flavor_get(self.request, self.kwargs['id'])
         except:
-            exceptions.handle(self.request, ignore=True)
-        if flavors:
-            largest_id = max(flavors, key=lambda f: f.id).id
-            return {'flavor_id': int(largest_id) + 1}
-        else:
-            return {'flavor_id': 1}
+            exceptions.handle(self.request,
+                              _("Unable to retrieve flavor data."))
+        return {'flavor_id': flavor.id,
+                'name': flavor.name,
+                'vcpus': flavor.vcpus,
+                'memory_mb': flavor.ram,
+                'disk_gb': flavor.disk,
+                'eph_gb': getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral', None)}

@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}Flavors{% endblock %}
+{% block title %}{% trans "Flavors" %}{% endblock %}
 
 {% block page_header %}
-  {% url horizon:syspanel:flavors:index as refresh_link %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "horizon/common/_page_header.html" with title=_("Flavors") refresh_link=refresh_link searchable="true" %}
+  {% include "horizon/common/_page_header.html" with title=_("Flavors") %}
 {% endblock page_header %}
 
 {% block main %}
