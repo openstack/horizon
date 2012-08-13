@@ -29,6 +29,8 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 
+from .tables import wrap_delimiter
+
 
 LOG = logging.getLogger(__name__)
 
@@ -90,8 +92,6 @@ class UploadObject(forms.SelfHandlingForm):
                                           data['container_name'],
                                           object_path,
                                           object_file)
-            obj.metadata['orig-filename'] = object_file.name
-            obj.sync_metadata()
             messages.success(request, _("Object was successfully uploaded."))
             return obj
         except:
@@ -114,7 +114,7 @@ class CopyObject(forms.SelfHandlingForm):
         self.fields['new_container_name'].choices = containers
 
     def handle(self, request, data):
-        object_index = "horizon:nova:containers:index"
+        index = "horizon:nova:containers:index"
         orig_container = data['orig_container_name']
         orig_object = data['orig_object_name']
         new_container = data['new_container_name']
@@ -124,14 +124,15 @@ class CopyObject(forms.SelfHandlingForm):
         # Iteratively make sure all the directory markers exist.
         if data['path']:
             path_component = ""
-            for bit in data['path'].split("/"):
+            for bit in [i for i in data['path'].split("/") if i]:
                 path_component += bit
                 try:
                     api.swift.swift_create_subfolder(request,
                                                      new_container,
                                                      path_component)
                 except:
-                    redirect = reverse(object_index, args=(orig_container,))
+                    redirect = reverse(index,
+                                       args=(wrap_delimiter(orig_container),))
                     exceptions.handle(request,
                                       _("Unable to copy object."),
                                       redirect=redirect)
@@ -154,10 +155,10 @@ class CopyObject(forms.SelfHandlingForm):
             return True
         except exceptions.HorizonException, exc:
             messages.error(request, exc)
-            raise exceptions.Http302(reverse(object_index,
-                                             args=[orig_container]))
+            raise exceptions.Http302(reverse(index,
+                                     args=[wrap_delimiter(orig_container)]))
         except:
-            redirect = reverse(object_index, args=(orig_container,))
+            redirect = reverse(index, args=[wrap_delimiter(orig_container)])
             exceptions.handle(request,
                               _("Unable to copy object."),
                               redirect=redirect)

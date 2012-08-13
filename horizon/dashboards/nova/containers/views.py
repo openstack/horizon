@@ -57,23 +57,24 @@ class ContainerView(browsers.ResourceBrowserView):
     def objects(self):
         """ Returns a list of objects given the subfolder's path.
 
-        The path is from the kwargs of the request
+        The path is from the kwargs of the request.
         """
         if not hasattr(self, "_objects"):
             objects = []
             self._more = None
             marker = self.request.GET.get('marker', None)
             container_name = self.kwargs['container_name']
-            subfolders = self.kwargs['subfolder_path']
+            subfolder = self.kwargs['subfolder_path']
             prefix = None
             if container_name:
-                if subfolders:
-                    prefix = subfolders.rstrip(FOLDER_DELIMITER)
+                self.navigation_selection = True
+                if subfolder:
+                    prefix = subfolder
                 try:
                     objects, self._more = api.swift_get_objects(self.request,
                                                                 container_name,
                                                                 marker=marker,
-                                                                path=prefix)
+                                                                prefix=prefix)
                 except:
                     self._more = None
                     objects = []
@@ -82,21 +83,19 @@ class ContainerView(browsers.ResourceBrowserView):
             self._objects = objects
         return self._objects
 
-    def get_objects_data(self):
-        """ Returns the objects within the in the current folder.
+    def is_subdir(self, item):
+        return getattr(item, "content_type", None) == "application/directory"
 
-        These objects are those whose names don't contain '/' after
-        striped the path out
-        """
-        filtered_objects = [item for item in self.objects if
-                            item.content_type != "application/directory"]
+    def get_objects_data(self):
+        """ Returns a list of objects within the current folder. """
+        filtered_objects = [item for item in self.objects
+                            if not self.is_subdir(item)]
         return filtered_objects
 
     def get_subfolders_data(self):
-        """ Returns a list of subfolders given the current folder path.
-        """
-        filtered_objects = [item for item in self.objects if
-                            item.content_type == "application/directory"]
+        """ Returns a list of subfolders within the current folder. """
+        filtered_objects = [item for item in self.objects
+                            if self.is_subdir(item)]
         return filtered_objects
 
     def get_context_data(self, **kwargs):
@@ -158,28 +157,24 @@ class UploadView(forms.ModalFormView):
 
 
 def object_download(request, container_name, object_path):
-    obj = api.swift.swift_get_object(request, container_name, object_path)
-    # Add the original file extension back on if it wasn't preserved in the
-    # name given to the object.
-    filename = object_path.rsplit(FOLDER_DELIMITER)[-1]
-    if not os.path.splitext(obj.name)[1]:
-        name, ext = os.path.splitext(obj.metadata.get('orig-filename', ''))
-        filename = "%s%s" % (filename, ext)
     try:
-        object_data = api.swift_get_object_data(request,
-                                                container_name,
-                                                object_path)
+        obj = api.swift.swift_get_object(request, container_name, object_path)
     except:
         redirect = reverse("horizon:nova:containers:index")
         exceptions.handle(request,
                           _("Unable to retrieve object."),
                           redirect=redirect)
+    # Add the original file extension back on if it wasn't preserved in the
+    # name given to the object.
+    filename = object_path.rsplit(FOLDER_DELIMITER)[-1]
+    if not os.path.splitext(obj.name)[1] and obj.orig_name:
+        name, ext = os.path.splitext(obj.orig_name)
+        filename = "%s%s" % (filename, ext)
     response = http.HttpResponse()
     safe_name = filename.replace(",", "").encode('utf-8')
     response['Content-Disposition'] = 'attachment; filename=%s' % safe_name
     response['Content-Type'] = 'application/octet-stream'
-    for data in object_data:
-        response.write(data)
+    response.write(obj.data)
     return response
 
 

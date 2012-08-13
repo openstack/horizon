@@ -528,7 +528,6 @@ table form {
 .table_actions {
     float: right;
     min-width: 400px;
-    margin-bottom: 10px;
 }
 
 .table_actions .table_search {
@@ -1390,97 +1389,106 @@ label.log-length {
   float: left;
 }
 
-/* ResourceBrowser style
-*/
+//ResourceBrowser
+@dataTableBorderWidth:    1px;
+@dataTableBorderColor:    #DDD;
+
+@actionsColumnPadding:    10px;
+
+@smallButtonHeight:       28px;
+@tdHeight:                @smallButtonHeight;
+
+@tableCellPadding:        8px;
+
+@contentTableWidth:       70%;
+@navigationTableWidth:    30%;
+@browserWrapperWidth:     100%;
+
+/* ResourceBrowser style */
 #browser_wrapper {
-    width: @browserWrapperWidth;
-    > div{
-        position: relative;
-        padding: 55px 0 32px 0;
-        float: left;
-        background-color: @grayLighter;
-    }
-    div.table_wrapper {
-        height: @tbodyHeight;
-        border-left: @dataTableBorderWidth solid @dataTableBorderColor;
-        border-right: @dataTableBorderWidth solid @dataTableBorderColor;
-        overflow-y: scroll;
-        overflow-x: hidden;
-    }
-    div.navigation_wrapper {
+  width: @browserWrapperWidth;
+  background-color: @grayLighter;
+  border: @dataTableBorderWidth solid @dataTableBorderColor;
+  .border-radius(4px);
+  .tfoot {
+    clear: both;
+    padding: 8px;
+    border-top: 1px solid @dataTableBorderColor;
+    background-color: #F1F1F1;
+    font-size: 11px;
+    line-height: 14px;
+    span {
+      display: inline-block;
+      &.navigation_table_count {
         width: @navigationTableWidth;
-        div.table_wrapper,
-        thead th.table_header {
-            width: @navigationTableWidth - 2px;
-        }
-        td {
-            background-color: whiteSmoke;
-        }
-        td.normal_column{
-            width: @navigationColWidth;
-            min-width: @navigationColWidth;
-            > a {
-                width: @navigationColWidth;
-                min-width: @navigationColWidth;
-            }
-        }
-        tfoot td {
-            width: @navigationTableWidth - 2 * @dataTableBorderWidth - 2 * @tableCellPadding;
-        }
+      }
     }
-    div.content_wrapper {
-        width: @contentTableWidth;
-        div.table_wrapper,
-        thead th.table_header {
-            width: @contentTableWidth - 2px;
-        }
-        td.normal_column {
-            width: @contentColWidth;
-            min-width: @contentColWidth;
-            > a {
-                width: @contentColWidth;
-                min-width: @contentColWidth;
-            }
-        }
-        tfoot td {
-            width: @contentTableWidth - 2 * @dataTableBorderWidth - 2 * @tableCellPadding;
-        }
+  }
+  form, table{
+    margin-bottom: 0;
+  }
+  .navigation_wrapper, .content_wrapper{
+    position: relative;
+    float: left;
+  }
+  div.navigation_wrapper {
+    width: @navigationTableWidth;
+    div.table_wrapper,
+    thead th.table_header {
+      border-right: 0 none;
+      border-top-right-radius: 0;
     }
-    table {
-        thead {
-            position: absolute;
-            top: 0;
-            left: 0;
-            tr th {
-                border: @dataTableBorderWidth solid @dataTableBorderColor;
-                border-bottom: none;
-                background-color: @grayLighter;
-            }
-        }
-        td.multi_select_column,
-        th.multi_select_column{
-            width: @multiSelectionWidth;
-        }
-        td.actions_column,
-        th.actions_column{
-            padding :@actionsColumnPadding;
-            width: @actionsColumnWidth;
-        }
-        tbody {
-            tr td:first-child{
-                border-left: none;
-            }
-            tr td:last-child {
-                border-right: none;
-            }
-            tr:last-child td {
-                border-bottom: @dataTableBorderWidth solid @dataTableBorderColor;
-            }
-        }
-        tfoot td{
-            position: absolute;
-            left: 0;
-            bottom: 0;
-        }
+    td.normal_column{
+      &:first-child {
+        border-left: 0 none;
+      }
     }
+    tfoot td {
+      border-right: 0 none;
+      border-bottom-right-radius: 0;
+    }
+  }
+  div.content_wrapper {
+    width: @contentTableWidth;
+    div.table_wrapper,
+    thead th.table_header {
+      border-left: 0 none;
+      border-top-left-radius: 0;
+    }
+    td{
+      &:last-child {
+        border-right: 0 none;
+      }
+    }
+    tfoot td {
+      border-left: 0 none;
+      border-bottom-left-radius: 0;
+    }
+  }
+  table {
+    thead {
+      tr th {
+        border-bottom: none;
+        background-color: @grayLighter;
+      }
+    }
+    tbody {
+      tr:last-child td {
+        border-bottom: 1px solid #ddd;
+        border-radius: 0;
+      }
+      tr.empty td {
+        height: @tdHeight;
+        padding: @actionsColumnPadding;
+      }
+    }
+    &.table-striped {
+      tbody {
+        tr:nth-child(even) td,
+        tr:nth-child(even) th {
+          background-color: @white;
+        }
+      }
+    }
+  }
 }

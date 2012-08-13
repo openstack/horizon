@@ -701,6 +701,11 @@ class DataTableOptions(object):
 
         The name of an attribute to assign to data passed to the table when it
         accepts mix data. Default: ``"_table_data_type"``
+
+    .. attribute:: footer
+
+        Boolean to control whether or not to show the table's footer.
+        Default: ``True``.
     """
     def __init__(self, options):
         self.name = getattr(options, 'name', self.__class__.__name__)
@@ -715,6 +720,10 @@ class DataTableOptions(object):
         self.column_class = getattr(options, 'column_class', Column)
         self.pagination_param = getattr(options, 'pagination_param', 'marker')
         self.browser_table = getattr(options, 'browser_table', None)
+        self.footer = getattr(options, 'footer', True)
+        self.no_data_message = getattr(options,
+                                       "no_data_message",
+                                       _("No items to display."))
 
         # Set self.filter if we have any FilterActions
         filter_actions = [action for action in self.table_actions if
@@ -762,7 +771,8 @@ class DataTableOptions(object):
                              "data_types should has more than one types" %
                              self.name)
 
-        self.data_type_name = getattr(options, 'data_type_name',
+        self.data_type_name = getattr(options,
+                                      'data_type_name',
                                       "_table_data_type")
 
 
@@ -776,12 +786,12 @@ class DataTableMetaclass(type):
         # Gather columns; this prevents the column from being an attribute
         # on the DataTable class and avoids naming conflicts.
         columns = []
-        for name, obj in attrs.items():
+        for attr_name, obj in attrs.items():
             if issubclass(type(obj), (opts.column_class, Column)):
-                column_instance = attrs.pop(name)
-                column_instance.name = name
+                column_instance = attrs.pop(attr_name)
+                column_instance.name = attr_name
                 column_instance.classes.append('normal_column')
-                columns.append((name, column_instance))
+                columns.append((attr_name, column_instance))
         columns.sort(key=lambda x: x[1].creation_counter)
 
         # Iterate in reverse to preserve final order
@@ -866,10 +876,11 @@ class DataTable(object):
     __metaclass__ = DataTableMetaclass
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        self._meta.request = request
-        self._meta.data = data
+        self.request = request
+        self.data = data
         self.kwargs = kwargs
         self._needs_form_wrapper = needs_form_wrapper
+        self._no_data_message = self._meta.no_data_message
 
         # Create a new set
         columns = []
@@ -891,19 +902,15 @@ class DataTable(object):
         return unicode(self._meta.verbose_name)
 
     def __repr__(self):
-        return '<%s: %s>' % (self.__class__.__name__, self.name)
+        return '<%s: %s>' % (self.__class__.__name__, self._meta.name)
 
     @property
     def name(self):
         return self._meta.name
 
     @property
-    def data(self):
-        return self._meta.data
-
-    @data.setter
-    def data(self, data):
-        self._meta.data = data
+    def footer(self):
+        return self._meta.footer
 
     @property
     def multi_select(self):
@@ -916,7 +923,7 @@ class DataTable(object):
             if self._meta.filter and self._meta._filter_action:
                 action = self._meta._filter_action
                 filter_string = self.get_filter_string()
-                request_method = self._meta.request.method
+                request_method = self.request.method
                 if filter_string and request_method == action.method:
                     if self._meta.mixed_data_type:
                         self._filtered_data = action.data_type_filter(self,
@@ -931,7 +938,7 @@ class DataTable(object):
     def get_filter_string(self):
         filter_action = self._meta._filter_action
         param_name = filter_action.get_param_name()
-        filter_string = self._meta.request.POST.get(param_name, '')
+        filter_string = self.request.POST.get(param_name, '')
         return filter_string
 
     def _populate_data_cache(self):
@@ -960,7 +967,7 @@ class DataTable(object):
         """ Renders the table using the template from the table options. """
         table_template = template.loader.get_template(self._meta.template)
         extra_context = {self._meta.context_var_name: self}
-        context = template.RequestContext(self._meta.request, extra_context)
+        context = template.RequestContext(self.request, extra_context)
         return table_template.render(context)
 
     def get_absolute_url(self):
@@ -974,11 +981,11 @@ class DataTable(object):
         ``request.get_full_path()`` with any query string stripped off,
         e.g. the path at which the table was requested.
         """
-        return self._meta.request.get_full_path().partition('?')[0]
+        return self.request.get_full_path().partition('?')[0]
 
     def get_empty_message(self):
         """ Returns the message to be displayed when there is no data. """
-        return _("No items to display.")
+        return self._no_data_message
 
     def get_object_by_id(self, lookup):
         """
@@ -1026,7 +1033,7 @@ class DataTable(object):
         bound_actions = [self.base_actions[action.name] for
                          action in self._meta.table_actions]
         return [action for action in bound_actions if
-                self._filter_action(action, self._meta.request)]
+                self._filter_action(action, self.request)]
 
     def get_row_actions(self, datum):
         """ Returns a list of the action instances for a specific row. """
@@ -1038,11 +1045,11 @@ class DataTable(object):
             bound_action.datum = datum
             # Remove disallowed actions.
             if not self._filter_action(bound_action,
-                                       self._meta.request,
+                                       self.request,
                                        datum):
                 continue
             # Hook for modifying actions based on data. No-op by default.
-            bound_action.update(self._meta.request, datum)
+            bound_action.update(self.request, datum)
             # Pre-create the URL for this link with appropriate parameters
             if issubclass(bound_action.__class__, LinkAction):
                 bound_action.bound_url = bound_action.get_link_url(datum)
@@ -1056,9 +1063,9 @@ class DataTable(object):
         bound_actions = self.get_table_actions()
         extra_context = {"table_actions": bound_actions}
         if self._meta.filter and \
-           self._filter_action(self._meta._filter_action, self._meta.request):
+           self._filter_action(self._meta._filter_action, self.request):
             extra_context["filter"] = self._meta._filter_action
-        context = template.RequestContext(self._meta.request, extra_context)
+        context = template.RequestContext(self.request, extra_context)
         return table_actions_template.render(context)
 
     def render_row_actions(self, datum):
@@ -1070,7 +1077,7 @@ class DataTable(object):
         bound_actions = self.get_row_actions(datum)
         extra_context = {"row_actions": bound_actions,
                          "row_id": self.get_object_id(datum)}
-        context = template.RequestContext(self._meta.request, extra_context)
+        context = template.RequestContext(self.request, extra_context)
         return row_actions_template.render(context)
 
     @staticmethod
@@ -1100,9 +1107,9 @@ class DataTable(object):
         if unsuccessful.
         """
         # See if we have a list of ids
-        obj_ids = obj_ids or self._meta.request.POST.getlist('object_ids')
+        obj_ids = obj_ids or self.request.POST.getlist('object_ids')
         action = self.base_actions.get(action_name, None)
-        if not action or action.method != self._meta.request.method:
+        if not action or action.method != self.request.method:
             # We either didn't get an action or we're being hacked. Goodbye.
             return None
 
@@ -1114,17 +1121,17 @@ class DataTable(object):
                 obj_ids = [self.sanitize_id(i) for i in obj_ids]
             # Single handling is easy
             if not action.handles_multiple:
-                response = action.single(self, self._meta.request, obj_id)
+                response = action.single(self, self.request, obj_id)
             # Otherwise figure out what to pass along
             else:
                 # Preference given to a specific id, since that implies
                 # the user selected an action for just one row.
                 if obj_id:
                     obj_ids = [obj_id]
-                response = action.multiple(self, self._meta.request, obj_ids)
+                response = action.multiple(self, self.request, obj_ids)
             return response
         elif action and action.requires_input and not (obj_id or obj_ids):
-            messages.info(self._meta.request,
+            messages.info(self.request,
                           _("Please select a row before taking that action."))
         return None
 
@@ -1146,7 +1153,7 @@ class DataTable(object):
         Determine whether the request should be handled by a preemptive action
         on this table or by an AJAX row update before loading any data.
         """
-        request = self._meta.request
+        request = self.request
         table_name, action_name, obj_id = self.check_handler(request)
 
         if table_name == self.name:
@@ -1181,7 +1188,7 @@ class DataTable(object):
         Determine whether the request should be handled by any action on this
         table after data has been loaded.
         """
-        request = self._meta.request
+        request = self.request
         table_name, action_name, obj_id = self.check_handler(request)
         if table_name == self.name and action_name:
             return self.take_action(action_name, obj_id)

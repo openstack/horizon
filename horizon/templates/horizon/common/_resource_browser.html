@@ -1,9 +1,13 @@
 {% load i18n %}
-<div id="browser_wrapper">
+<div id="browser_wrapper" class="pull-left">
   <div class="navigation_wrapper">
     {{ browser.navigation_table.render }}
   </div>
   <div class="content_wrapper">
     {{ browser.content_table.render }}
+  </div>
+  <div class="tfoot">
+    <span class="navigation_table_count">{% blocktrans count nav_items=browser.navigation_table.data|length %}Displaying {{ nav_items }} item{% plural %}Displaying {{ nav_items }} items{% endblocktrans %}</span>
+    <span class="content_table_count">{% blocktrans count content_items=browser.content_table.data|length %}Displaying {{ content_items }} item{% plural %}Displaying {{ content_items }} items{% endblocktrans %}</span>
   </div>
 </div>

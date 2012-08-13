@@ -16,24 +16,23 @@
 
 import logging
 
-from cloudfiles.errors import ContainerNotEmpty
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import filesizeformat
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
-from horizon import messages
 from horizon import tables
 from horizon.api import FOLDER_DELIMITER
-from horizon.tables import DataTable
 
 
 LOG = logging.getLogger(__name__)
 
 
 def wrap_delimiter(name):
-    return name + FOLDER_DELIMITER
+    if not name.endswith(FOLDER_DELIMITER):
+        return name + FOLDER_DELIMITER
+    return name
 
 
 class DeleteContainer(tables.DeleteAction):
@@ -42,12 +41,7 @@ class DeleteContainer(tables.DeleteAction):
     completion_url = "horizon:nova:containers:index"
 
     def delete(self, request, obj_id):
-        try:
-            api.swift_delete_container(request, obj_id)
-        except ContainerNotEmpty:
-            messages.error(request,
-                           _('Containers must be empty before deletion.'))
-            raise
+        api.swift_delete_container(request, obj_id)
 
     def get_success_url(self, request=None):
         """
@@ -112,7 +106,7 @@ class UploadObject(tables.LinkAction):
 
 
 def get_size_used(container):
-    return filesizeformat(container.size_used)
+    return filesizeformat(container.bytes)
 
 
 def get_container_link(container):
@@ -121,7 +115,8 @@ def get_container_link(container):
 
 
 class ContainersTable(tables.DataTable):
-    name = tables.Column("name", link=get_container_link,
+    name = tables.Column("name",
+                         link=get_container_link,
                          verbose_name=_("Container Name"))
 
     def get_object_id(self, container):
@@ -131,8 +126,9 @@ class ContainersTable(tables.DataTable):
         name = "containers"
         verbose_name = _("Containers")
         table_actions = (CreateContainer,)
-        row_actions = (ListObjects, UploadObject, DeleteContainer)
+        row_actions = (DeleteContainer,)
         browser_table = "navigation"
+        footer = False
 
 
 class DeleteObject(tables.DeleteAction):
@@ -143,7 +139,7 @@ class DeleteObject(tables.DeleteAction):
 
     def delete(self, request, obj_id):
         obj = self.table.get_object_by_id(obj_id)
-        container_name = obj.container.name
+        container_name = obj.container_name
         api.swift_delete_object(request, container_name, obj_id)
 
 
@@ -169,7 +165,8 @@ class CopyObject(tables.LinkAction):
     allowed_data_types = ("objects",)
 
     def get_link_url(self, obj):
-        return reverse(self.url, args=(http.urlquote(obj.container.name),
+        container_name = self.table.kwargs['container_name']
+        return reverse(self.url, args=(http.urlquote(container_name),
                                        http.urlquote(obj.name)))
 
 
@@ -181,20 +178,21 @@ class DownloadObject(tables.LinkAction):
     allowed_data_types = ("objects",)
 
     def get_link_url(self, obj):
-        return reverse(self.url, args=(http.urlquote(obj.container.name),
+        container_name = self.table.kwargs['container_name']
+        return reverse(self.url, args=(http.urlquote(container_name),
                                        http.urlquote(obj.name)))
 
 
 class ObjectFilterAction(tables.FilterAction):
     def _filtered_data(self, table, filter_string):
-        request = table._meta.request
+        request = table.request
         container = self.table.kwargs['container_name']
         subfolder = self.table.kwargs['subfolder_path']
-        path = subfolder + FOLDER_DELIMITER if subfolder else ''
+        prefix = wrap_delimiter(subfolder) if subfolder else ''
         self.filtered_data = api.swift_filter_objects(request,
                                                         filter_string,
                                                         container,
-                                                        path=path)
+                                                        prefix=prefix)
         return self.filtered_data
 
     def filter_subfolders_data(self, table, objects, filter_string):
@@ -218,11 +216,12 @@ def sanitize_name(name):
 
 
 def get_size(obj):
-    return filesizeformat(obj.size)
+    if obj.bytes:
+        return filesizeformat(obj.bytes)
 
 
 def get_link_subfolder(subfolder):
-    container_name = subfolder.container.name
+    container_name = subfolder.container_name
     return reverse("horizon:nova:containers:index",
                     args=(http.urlquote(wrap_delimiter(container_name)),
                           http.urlquote(wrap_delimiter(subfolder.name))))
@@ -248,10 +247,10 @@ class CreateSubfolder(CreateContainer):
 
 class ObjectsTable(tables.DataTable):
     name = tables.Column("name",
-                        link=get_link_subfolder,
-                        allowed_data_types=("subfolders",),
-                        verbose_name=_("Object Name"),
-                        filters=(sanitize_name,))
+                         link=get_link_subfolder,
+                         allowed_data_types=("subfolders",),
+                         verbose_name=_("Object Name"),
+                         filters=(sanitize_name,))
 
     size = tables.Column(get_size, verbose_name=_('Size'))
 
@@ -267,3 +266,4 @@ class ObjectsTable(tables.DataTable):
                         DeleteSubfolder)
         data_types = ("subfolders", "objects")
         browser_table = "content"
+        footer = False

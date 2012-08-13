@@ -114,7 +114,7 @@ class RemoveUserAction(tables.BatchAction):
 
 class ProjectUserRolesColumn(tables.Column):
     def get_raw_data(self, user):
-        request = self.table._meta.request
+        request = self.table.request
         try:
             roles = api.keystone.roles_for_user(request,
                                                 user.id,

@@ -28,6 +28,7 @@
     </tr>
     {% endfor %}
     </tbody>
+    {% if table.footer %}
     <tfoot>
       {% if table.needs_summary_row %}
       <tr class="summation">
@@ -50,6 +51,7 @@
         </td>
       </tr>
     </tfoot>
+    {% endif %}
   </table>
   {% endwith %}
   {% if needs_form_wrapper %}</form>{% endif %}
