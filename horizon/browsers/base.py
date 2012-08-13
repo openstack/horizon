@@ -19,6 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon.tables import DataTable
 from horizon.utils import html
+from .breadcrumb import Breadcrumb
 
 
 class ResourceBrowser(html.HTMLElement):
@@ -48,6 +49,18 @@ class ResourceBrowser(html.HTMLElement):
         This table class must set browser_table attribute in Meta to
         ``"content"``.
 
+    .. attribute:: navigation_kwarg_name
+
+        This attribute represents the key of the navigatable items in the
+        kwargs property of this browser's view.
+        Defaults to ``"navigation_kwarg"``.
+
+    .. attribute:: content_kwarg_name
+
+        This attribute represents the key of the content items in the
+        kwargs property of this browser's view.
+        Defaults to ``"content_kwarg"``.
+
     .. attribute:: template
 
         String containing the template which should be used to render
@@ -57,20 +70,43 @@ class ResourceBrowser(html.HTMLElement):
 
         The name of the context variable which will contain the browser when
         it is rendered. Defaults to ``"browser"``.
+
+    .. attribute:: has_breadcrumb
+
+        Indicates if the content table of the browser would have breadcrumb.
+        Defaults to false.
+
+    .. attribute:: breadcrumb_template
+
+        This is a template used to render the breadcrumb.
+        Defaults to ``"horizon/common/_breadcrumb.html"``.
     """
     name = None
     verbose_name = None
     navigation_table_class = None
     content_table_class = None
+    navigation_kwarg_name = "navigation_kwarg"
+    content_kwarg_name = "content_kwarg"
     navigable_item_name = _("Navigation Item")
     template = "horizon/common/_resource_browser.html"
     context_var_name = "browser"
+    has_breadcrumb = False
+    breadcrumb_template = "horizon/common/_breadcrumb.html"
+    breadcrumb_url = None
 
     def __init__(self, request, tables_dict=None, attrs=None, **kwargs):
         super(ResourceBrowser, self).__init__()
         self.name = self.name or self.__class__.__name__
         self.verbose_name = self.verbose_name or self.name.title()
         self.request = request
+        self.kwargs = kwargs
+        self.has_breadcrumb = getattr(self, "has_breadcrumb")
+        if self.has_breadcrumb:
+            self.breadcrumb_template = getattr(self, "breadcrumb_template")
+            self.breadcrumb_url = getattr(self, "breadcrumb_url")
+            if not self.breadcrumb_url:
+                raise ValueError("You must specify a breadcrumb_url "
+                                 "if the has_breadcrumb is set to True.")
         self.attrs.update(attrs or {})
         self.check_table_class(self.content_table_class, "content_table_class")
         self.check_table_class(self.navigation_table_class,
@@ -91,6 +127,19 @@ class ResourceBrowser(html.HTMLElement):
         """
         self.navigation_table = tables[self.navigation_table_class._meta.name]
         self.content_table = tables[self.content_table_class._meta.name]
+        if self.has_breadcrumb:
+            self.prepare_breadcrumb(tables)
+
+    def prepare_breadcrumb(self, tables):
+        navigation_item = self.kwargs.get(self.navigation_kwarg_name)
+        content_path = self.kwargs.get(self.content_kwarg_name)
+        if self.has_breadcrumb and navigation_item and content_path:
+            for table in tables.values():
+                table.breadcrumb = Breadcrumb(self.request,
+                                              self.breadcrumb_template,
+                                              navigation_item,
+                                              content_path,
+                                              self.breadcrumb_url)
 
     def render(self):
         browser_template = template.loader.get_template(self.template)

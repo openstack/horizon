@@ -1,0 +1,20 @@
+{% load url from future %}
+{% load i18n %}
+{% with subfolders=breadcrumb.get_subfolders %}
+<ul class="breadcrumb">
+  <li>
+    Folder Path: <a href="{% url breadcrumb.url breadcrumb.root|add:'/' %}">{{ breadcrumb.root }}</a> <span class="divider">/</span>
+  </li>
+  {% for subfolder, path in subfolders %}
+  <li>
+  {% if not forloop.last %}
+    <a href="{% url breadcrumb.url breadcrumb.root|add:'/' path %}">
+  {% endif %}
+      {{ subfolder }}
+  {% if not forloop.last %}
+    </a> <span class="divider">/</span>
+  {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endwith %}

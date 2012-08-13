@@ -361,7 +361,7 @@ class FilterAction(BaseAction):
 
     def data_type_filter(self, table, data, filter_string):
         filtered_data = []
-        for data_type in table.data_types:
+        for data_type in table._meta.data_types:
             func_name = "filter_%s_data" % data_type
             filter_func = getattr(self, func_name, None)
             if not filter_func and not callable(filter_func):

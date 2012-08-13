@@ -881,6 +881,7 @@ class DataTable(object):
         self.kwargs = kwargs
         self._needs_form_wrapper = needs_form_wrapper
         self._no_data_message = self._meta.no_data_message
+        self.breadcrumb = None
 
         # Create a new set
         columns = []

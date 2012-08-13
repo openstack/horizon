@@ -4,21 +4,7 @@
 
 {% block page_header %}
   <div class='page-header'>
-    <h2>{% trans "Container" %}
-      {% if subfolders %}
-        : <a href="{% url horizon:nova:containers:index container_name|add:'/' %}">{{container_name}}</a>
-        <small>/</small>
-      {% elif container_name %}
-        : {{container_name}}
-      {% endif %}
-      {% for subfolder, path in subfolders %}
-        <small>
-        {% if not forloop.last %}
-          <a href="{% url horizon:nova:containers:index container_name|add:'/' path %}">
-        {% endif %}{{ subfolder }}{% if not forloop.last %}</a> /{% endif %}
-        </small>
-      {% endfor %}
-    </h2>
+    <h2>{% trans "Containers" %}
   </div>
 {% endblock page_header %}
 

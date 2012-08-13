@@ -11,6 +11,13 @@
           {{ table.render_table_actions }}
         </th>
       </tr>
+      {% if table.breadcrumb %}
+        <tr>
+          <td class="breadcrumb_td" colspan="{{ table.get_columns|length }}">
+            {{ table.breadcrumb.render }}
+          </td>
+        </tr>
+      {% endif %}
       {% if not table.is_browser_table %}
       <tr>
         {% for column in columns %}

@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import defaultdict
-
 from django.utils.translation import ugettext_lazy as _
 
 from horizon.tables import MultiTableView
@@ -31,8 +29,8 @@ class ResourceBrowserView(MultiTableView):
                              % self.__class__.__name__)
         self.table_classes = (self.browser_class.navigation_table_class,
                               self.browser_class.content_table_class)
-        super(ResourceBrowserView, self).__init__(*args, **kwargs)
         self.navigation_selection = False
+        super(ResourceBrowserView, self).__init__(*args, **kwargs)
 
     def get_browser(self):
         if not hasattr(self, "browser"):

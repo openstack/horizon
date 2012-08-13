@@ -31,3 +31,7 @@ class ContainerBrowser(browsers.ResourceBrowser):
     navigation_table_class = ContainersTable
     content_table_class = ObjectsTable
     navigable_item_name = _("Container")
+    navigation_kwarg_name = "container_name"
+    content_kwarg_name = "subfolder_path"
+    has_breadcrumb = True
+    breadcrumb_url = "horizon:nova:containers:index"

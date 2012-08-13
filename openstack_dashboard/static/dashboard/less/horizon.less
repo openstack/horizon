@@ -1410,6 +1410,7 @@ label.log-length {
 /* ResourceBrowser style */
 #browser_wrapper {
   width: @browserWrapperWidth;
+  min-width: 1000px;
   background-color: @grayLighter;
   border: @dataTableBorderWidth solid @dataTableBorderColor;
   .border-radius(4px);
@@ -1435,20 +1436,35 @@ label.log-length {
     float: left;
   }
   div.navigation_wrapper {
+    z-index: 10;
     width: @navigationTableWidth;
     div.table_wrapper,
     thead th.table_header {
       border-right: 0 none;
       border-top-right-radius: 0;
     }
-    td.normal_column{
+    td {
       &:first-child {
         border-left: 0 none;
+      }
+      &.breadcrumb_td {
+        padding-right: 0px;
+        max-width: 200px;
       }
     }
     tfoot td {
       border-right: 0 none;
       border-bottom-right-radius: 0;
+    }
+    ul.breadcrumb {
+      padding-right: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-right: none;
+      white-space: nowrap;
+    }
+    tbody td {
+      background-color: @white;
     }
   }
   div.content_wrapper {
@@ -1462,13 +1478,31 @@ label.log-length {
       &:last-child {
         border-right: 0 none;
       }
+      &.breadcrumb_td {
+        padding-left: 0px;
+      }
     }
     tfoot td {
       border-left: 0 none;
       border-bottom-left-radius: 0;
     }
+    /* FIXME(Ke Wu): for now there are two breadcrumb tr in both table
+    * and this one in the content table is hidden. This hack is made to
+    * fix the alignment of two table, needs a better solution in the
+    * future.
+    */
+    ul.breadcrumb {
+      padding-left: 0px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-left: none;
+      li {
+        visibility: hidden;
+      }
+    }
   }
   table {
+    border-collapse: collapse;
     thead {
       tr th {
         border-bottom: none;
@@ -1484,15 +1518,14 @@ label.log-length {
         height: @tdHeight;
         padding: @actionsColumnPadding;
       }
-    }
-    &.table-striped {
-      tbody {
-        tr:nth-child(even) td,
-        tr:nth-child(even) th {
-          background-color: @white;
-        }
+      td.actions_column {
+        position: static;
       }
     }
+  }
+  .breadcrumb{
+    padding: 6px;
+    margin: 0 0 1px 0;
   }
 }
 
