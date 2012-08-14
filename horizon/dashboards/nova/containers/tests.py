@@ -20,7 +20,6 @@
 
 import tempfile
 
-from cloudfiles.errors import ContainerNotEmpty
 from django import http
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.urlresolvers import reverse
@@ -35,8 +34,8 @@ from . import forms
 CONTAINER_INDEX_URL = reverse('horizon:nova:containers:index')
 
 
-class ContainerViewTests(test.TestCase):
-    def test_index(self):
+class SwiftTests(test.TestCase):
+    def test_index_no_container_selected(self):
         containers = self.containers.list()
         self.mox.StubOutWithMock(api, 'swift_get_containers')
         api.swift_get_containers(IsA(http.HttpRequest), marker=None) \
@@ -66,7 +65,7 @@ class ContainerViewTests(test.TestCase):
     def test_delete_container_nonempty(self):
         container = self.containers.first()
         self.mox.StubOutWithMock(api, 'swift_delete_container')
-        exc = ContainerNotEmpty('containerNotEmpty')
+        exc = self.exceptions.swift
         exc.silence_logging = True
         api.swift_delete_container(IsA(http.HttpRequest),
                                    container.name).AndRaise(exc)
@@ -97,9 +96,7 @@ class ContainerViewTests(test.TestCase):
                       args=[wrap_delimiter(self.containers.first().name)])
         self.assertRedirectsNoFollow(res, url)
 
-
-class IndexViewTests(test.TestCase):
-    def test_index(self):
+    def test_index_container_selected(self):
         self.mox.StubOutWithMock(api, 'swift_get_containers')
         self.mox.StubOutWithMock(api, 'swift_get_objects')
         containers = (self.containers.list(), False)
@@ -109,7 +106,7 @@ class IndexViewTests(test.TestCase):
         api.swift_get_objects(IsA(http.HttpRequest),
                               self.containers.first().name,
                               marker=None,
-                              path=None).AndReturn(ret)
+                              prefix=None).AndReturn(ret)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:nova:containers:index',
@@ -122,11 +119,6 @@ class IndexViewTests(test.TestCase):
         self.assertQuerysetEqual(res.context['objects_table'].data,
                                  expected,
                                  lambda obj: obj.name.encode('utf8'))
-
-    def test_upload_index(self):
-        res = self.client.get(reverse('horizon:nova:containers:object_upload',
-                                      args=[self.containers.first().name]))
-        self.assertTemplateUsed(res, 'nova/containers/upload.html')
 
     def test_upload(self):
         container = self.containers.first()
@@ -143,11 +135,14 @@ class IndexViewTests(test.TestCase):
                                 container.name,
                                 obj.name,
                                 IsA(InMemoryUploadedFile)).AndReturn(obj)
-        self.mox.StubOutWithMock(obj, 'sync_metadata')
-        obj.sync_metadata()
         self.mox.ReplayAll()
+
         upload_url = reverse('horizon:nova:containers:object_upload',
                              args=[container.name])
+
+        res = self.client.get(upload_url)
+        self.assertTemplateUsed(res, 'nova/containers/upload.html')
+
         res = self.client.get(upload_url)
         self.assertContains(res, 'enctype="multipart/form-data"')
 
@@ -166,13 +161,6 @@ class IndexViewTests(test.TestCase):
         res = self.client.post(upload_url, formData)
         self.assertNoMessages()
         self.assertContains(res, "Slash is not an allowed character.")
-
-        # Test invalid container name
-        #formData['container_name'] = "contains/a/slash"
-        #formData['name'] = "no_slash"
-        #res = self.client.post(upload_url, formData)
-        #self.assertNoMessages()
-        #self.assertContains(res, "Slash is not an allowed character.")
 
     def test_delete(self):
         container = self.containers.first()
@@ -196,22 +184,17 @@ class IndexViewTests(test.TestCase):
     def test_download(self):
         container = self.containers.first()
         obj = self.objects.first()
-        OBJECT_DATA = 'objectData'
 
-        self.mox.StubOutWithMock(api, 'swift_get_object_data')
         self.mox.StubOutWithMock(api.swift, 'swift_get_object')
         api.swift.swift_get_object(IsA(http.HttpRequest),
                                    container.name,
                                    obj.name).AndReturn(obj)
-        api.swift_get_object_data(IsA(http.HttpRequest),
-                                  container.name,
-                                  obj.name).AndReturn(OBJECT_DATA)
         self.mox.ReplayAll()
 
         download_url = reverse('horizon:nova:containers:object_download',
                                args=[container.name, obj.name])
         res = self.client.get(download_url)
-        self.assertEqual(res.content, OBJECT_DATA)
+        self.assertEqual(res.content, obj.data)
         self.assertTrue(res.has_header('Content-Disposition'))
 
     def test_copy_index(self):

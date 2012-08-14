@@ -20,109 +20,171 @@
 
 import logging
 
-import cloudfiles
+import swiftclient
+
 from django.conf import settings
 from django.utils.translation import ugettext as _
 
 from horizon import exceptions
-from horizon.api.base import url_for
+from horizon.api.base import url_for, APIDictWrapper
 
 
 LOG = logging.getLogger(__name__)
 FOLDER_DELIMITER = "/"
 
 
-class SwiftAuthentication(object):
-    """ Auth container in the format CloudFiles expects. """
-    def __init__(self, storage_url, auth_token):
-        self.storage_url = storage_url
-        self.auth_token = auth_token
+class Container(APIDictWrapper):
+    pass
 
-    def authenticate(self):
-        return (self.storage_url, '', self.auth_token)
+
+class StorageObject(APIDictWrapper):
+    def __init__(self, apidict, container_name, orig_name=None, data=None):
+        super(StorageObject, self).__init__(apidict)
+        self.container_name = container_name
+        self.orig_name = orig_name
+        self.data = data
+
+
+class PseudoFolder(APIDictWrapper):
+    """
+    Wrapper to smooth out discrepencies between swift "subdir" items
+    and swift pseudo-folder objects.
+    """
+
+    def __init__(self, apidict, container_name):
+        super(PseudoFolder, self).__init__(apidict)
+        self.container_name = container_name
+
+    def _has_content_type(self):
+        content_type = self._apidict.get("content_type", None)
+        return content_type == "application/directory"
+
+    @property
+    def name(self):
+        if self._has_content_type():
+            return self._apidict['name']
+        return self.subdir.rstrip(FOLDER_DELIMITER)
+
+    @property
+    def bytes(self):
+        if self._has_content_type():
+            return self._apidict['bytes']
+        return None
+
+    @property
+    def content_type(self):
+        return "application/directory"
+
+
+def _objectify(items, container_name):
+    """ Splits a listing of objects into their appropriate wrapper classes. """
+    objects = {}
+    subdir_markers = []
+
+    # Deal with objects and object pseudo-folders first, save subdirs for later
+    for item in items:
+        if item.get("content_type", None) == "application/directory":
+            objects[item['name']] = PseudoFolder(item, container_name)
+        elif item.get("subdir", None) is not None:
+            subdir_markers.append(PseudoFolder(item, container_name))
+        else:
+            objects[item['name']] = StorageObject(item, container_name)
+    # Revisit subdirs to see if we have any non-duplicates
+    for item in subdir_markers:
+        if item.name not in objects.keys():
+            objects[item.name] = item
+    return objects.values()
 
 
 def swift_api(request):
     endpoint = url_for(request, 'object-store')
     LOG.debug('Swift connection created using token "%s" and url "%s"'
               % (request.user.token.id, endpoint))
-    auth = SwiftAuthentication(endpoint, request.user.token.id)
-    return cloudfiles.get_connection(auth=auth)
+    return swiftclient.client.Connection(None,
+                                         request.user.username,
+                                         None,
+                                         preauthtoken=request.user.token.id,
+                                         preauthurl=endpoint,
+                                         auth_version="2.0")
 
 
 def swift_container_exists(request, container_name):
     try:
-        swift_api(request).get_container(container_name)
+        swift_api(request).head_container(container_name)
         return True
-    except cloudfiles.errors.NoSuchContainer:
+    except swiftclient.client.ClientException:
         return False
 
 
 def swift_object_exists(request, container_name, object_name):
-    container = swift_api(request).get_container(container_name)
-
     try:
-        container.get_object(object_name)
+        swift_api(request).head_object(container_name, object_name)
         return True
-    except cloudfiles.errors.NoSuchObject:
+    except swiftclient.client.ClientException:
         return False
 
 
 def swift_get_containers(request, marker=None):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-    containers = swift_api(request).get_all_containers(limit=limit + 1,
-                                                       marker=marker)
-    if(len(containers) > limit):
-        return (containers[0:-1], True)
+    headers, containers = swift_api(request).get_account(limit=limit + 1,
+                                                         marker=marker,
+                                                         full_listing=True)
+    container_objs = [Container(c) for c in containers]
+    if(len(container_objs) > limit):
+        return (container_objs[0:-1], True)
     else:
-        return (containers, False)
+        return (container_objs, False)
 
 
 def swift_create_container(request, name):
     if swift_container_exists(request, name):
         raise exceptions.AlreadyExists(name, 'container')
-    return swift_api(request).create_container(name)
+    swift_api(request).put_container(name)
+    return Container({'name': name})
 
 
 def swift_delete_container(request, name):
     swift_api(request).delete_container(name)
+    return True
 
 
-def swift_get_objects(request, container_name, prefix=None, path=None,
-                      marker=None):
-    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-    container = swift_api(request).get_container(container_name)
-    objects = container.get_objects(prefix=prefix,
-                                    marker=marker,
-                                    limit=limit + 1,
-                                    delimiter=FOLDER_DELIMITER,
-                                    path=path)
-    if(len(objects) > limit):
-        return (objects[0:-1], True)
+def swift_get_objects(request, container_name, prefix=None, marker=None,
+                      limit=None):
+    limit = limit or getattr(settings, 'API_RESULT_LIMIT', 1000)
+    kwargs = dict(prefix=prefix,
+                  marker=marker,
+                  limit=limit + 1,
+                  delimiter=FOLDER_DELIMITER,
+                  full_listing=True)
+    headers, objects = swift_api(request).get_container(container_name,
+                                                          **kwargs)
+    object_objs = _objectify(objects, container_name)
+
+    if(len(object_objs) > limit):
+        return (object_objs[0:-1], True)
     else:
-        return (objects, False)
+        return (object_objs, False)
 
 
 def swift_filter_objects(request, filter_string, container_name, prefix=None,
-                        path=None, marker=None):
-    #FIXME(kewu): Cloudfiles currently has no filtering API, thus the marker
-    #parameter here won't actually help the pagination. For now I am just
-    #getting the largest number of objects from a container and filtering based
-    #on those objects.
-    limit = 10000
-    container = swift_api(request).get_container(container_name)
-    objects = container.get_objects(prefix=prefix,
-                                    marker=marker,
-                                    limit=limit,
-                                    delimiter=FOLDER_DELIMITER,
-                                    path=path)
+                         marker=None):
+    # FIXME(kewu): Swift currently has no real filtering API, thus the marker
+    # parameter here won't actually help the pagination. For now I am just
+    # getting the largest number of objects from a container and filtering
+    # based on those objects.
+    limit = 9999
+    objects = swift_get_objects(request,
+                                container_name,
+                                prefix=prefix,
+                                marker=marker,
+                                limit=limit)
     filter_string_list = filter_string.lower().strip().split(' ')
 
     def matches_filter(obj):
         for q in filter_string_list:
             return wildcard_search(obj.name.lower(), q)
 
-    return filter(matches_filter, objects)
+    return filter(matches_filter, objects[0])
 
 
 def wildcard_search(string, q):
@@ -142,7 +204,7 @@ def wildcard_search(string, q):
 def swift_copy_object(request, orig_container_name, orig_object_name,
                       new_container_name, new_object_name):
     try:
-        # FIXME(gabriel): Cloudfiles currently fails at unicode in the
+        # FIXME(gabriel): The swift currently fails at unicode in the
         # copy_to method, so to provide a better experience we check for
         # unicode here and pre-empt with an error message rather than
         # letting the call fail.
@@ -153,42 +215,50 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
     except UnicodeEncodeError:
         raise exceptions.HorizonException(_("Unicode is not currently "
                                             "supported for object copy."))
-    container = swift_api(request).get_container(orig_container_name)
 
     if swift_object_exists(request, new_container_name, new_object_name):
         raise exceptions.AlreadyExists(new_object_name, 'object')
 
-    orig_obj = container.get_object(orig_object_name)
-    return orig_obj.copy_to(new_container_name, new_object_name)
+    headers = {"X-Copy-From": FOLDER_DELIMITER.join([orig_container_name,
+                                                     orig_object_name])}
+    return swift_api(request).put_object(new_container_name,
+                                         new_object_name,
+                                         None,
+                                         headers=headers)
 
 
 def swift_create_subfolder(request, container_name, folder_name):
-    container = swift_api(request).get_container(container_name)
-    obj = container.create_object(folder_name)
-    obj.headers = {'content-type': 'application/directory',
-                   'content-length': 0}
-    obj.send('')
-    obj.sync_metadata()
-    return obj
+    headers = {'content-type': 'application/directory',
+               'content-length': 0}
+    etag = swift_api(request).put_object(container_name,
+                                         folder_name,
+                                         None,
+                                         headers=headers)
+    obj_info = {'subdir': folder_name, 'etag': etag}
+    return PseudoFolder(obj_info, container_name)
 
 
 def swift_upload_object(request, container_name, object_name, object_file):
-    container = swift_api(request).get_container(container_name)
-    obj = container.create_object(object_name)
-    obj.send(object_file)
-    return obj
+    headers = {}
+    headers['X-Object-Meta-Orig-Filename'] = object_file.name
+    etag = swift_api(request).put_object(container_name,
+                                         object_name,
+                                         object_file,
+                                         headers=headers)
+    obj_info = {'name': object_name, 'bytes': object_file.size, 'etag': etag}
+    return StorageObject(obj_info, container_name)
 
 
 def swift_delete_object(request, container_name, object_name):
-    container = swift_api(request).get_container(container_name)
-    container.delete_object(object_name)
+    swift_api(request).delete_object(container_name, object_name)
+    return True
 
 
 def swift_get_object(request, container_name, object_name):
-    container = swift_api(request).get_container(container_name)
-    return container.get_object(object_name)
-
-
-def swift_get_object_data(request, container_name, object_name):
-    container = swift_api(request).get_container(container_name)
-    return container.get_object(object_name).stream()
+    headers, data = swift_api(request).get_object(container_name, object_name)
+    orig_name = headers.get("x-object-meta-orig-filename")
+    obj_info = {'name': object_name, 'bytes': len(data)}
+    return StorageObject(obj_info,
+                         container_name,
+                         orig_name=orig_name,
+                         data=data)

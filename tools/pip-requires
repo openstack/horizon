@@ -2,11 +2,11 @@
 Django>=1.4
 django_compressor
 django_openstack_auth
-python-cloudfiles
 python-glanceclient<2
 python-keystoneclient
 python-novaclient
 python-quantumclient
+python-swiftclient>1.1,<1.2
 pytz
 
 # Horizon Utility Requirements

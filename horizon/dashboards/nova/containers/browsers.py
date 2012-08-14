@@ -30,3 +30,4 @@ class ContainerBrowser(browsers.ResourceBrowser):
     verbose_name = _("Swift")
     navigation_table_class = ContainersTable
     content_table_class = ObjectsTable
+    navigable_item_name = _("Container")

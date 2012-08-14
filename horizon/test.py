@@ -21,7 +21,6 @@
 from functools import wraps
 import os
 
-import cloudfiles as swift_client
 
 from django import http
 from django import test as django_test
@@ -36,6 +35,8 @@ import glanceclient
 from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
 from quantumclient.v2_0 import client as quantum_client
+from swiftclient import client as swift_client
+
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 import httplib2
@@ -335,7 +336,12 @@ class APITestCase(TestCase):
             self.mox.StubOutWithMock(swift_client, 'Connection')
             self.swiftclient = self.mox.CreateMock(swift_client.Connection)
             while expected_calls:
-                swift_client.Connection(auth=mox.IgnoreArg())\
+                swift_client.Connection(None,
+                                        mox.IgnoreArg(),
+                                        None,
+                                        preauthtoken=mox.IgnoreArg(),
+                                        preauthurl=mox.IgnoreArg(),
+                                        auth_version="2.0") \
                             .AndReturn(self.swiftclient)
                 expected_calls -= 1
         return self.swiftclient

@@ -16,6 +16,7 @@ import glanceclient.exc as glance_exceptions
 from keystoneclient import exceptions as keystone_exceptions
 from novaclient import exceptions as nova_exceptions
 from quantumclient.common import exceptions as quantum_exceptions
+from swiftclient import client as swift_exceptions
 
 from .utils import TestDataContainer
 
@@ -57,3 +58,6 @@ def data(TEST):
 
     quantum_exception = quantum_exceptions.QuantumClientException
     TEST.exceptions.quantum = create_stubbed_exception(quantum_exception)
+
+    swift_exception = swift_exceptions.ClientException
+    TEST.exceptions.swift = create_stubbed_exception(swift_exception)

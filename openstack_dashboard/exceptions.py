@@ -18,11 +18,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from cloudfiles import errors as swiftclient
 from glanceclient.common import exceptions as glanceclient
 from keystoneclient import exceptions as keystoneclient
 from novaclient import exceptions as novaclient
 from quantumclient.common import exceptions as quantumclient
+from swiftclient import client as swiftclient
 
 
 UNAUTHORIZED = (keystoneclient.Unauthorized,
@@ -31,17 +31,13 @@ UNAUTHORIZED = (keystoneclient.Unauthorized,
                 novaclient.Forbidden,
                 glanceclient.Unauthorized,
                 quantumclient.Unauthorized,
-                quantumclient.Forbidden,
-                swiftclient.AuthenticationFailed,
-                swiftclient.AuthenticationError)
+                quantumclient.Forbidden)
 
 NOT_FOUND = (keystoneclient.NotFound,
              novaclient.NotFound,
              glanceclient.NotFound,
              quantumclient.NetworkNotFoundClient,
-             quantumclient.PortNotFoundClient,
-             swiftclient.NoSuchContainer,
-             swiftclient.NoSuchObject)
+             quantumclient.PortNotFoundClient)
 
 # NOTE(gabriel): This is very broad, and may need to be dialed in.
 RECOVERABLE = (keystoneclient.ClientException,
@@ -57,4 +53,4 @@ RECOVERABLE = (keystoneclient.ClientException,
                quantumclient.PortInUseClient,
                quantumclient.AlreadyAttachedClient,
                quantumclient.StateInvalidClient,
-               swiftclient.Error)
+               swiftclient.ClientException)

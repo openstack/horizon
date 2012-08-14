@@ -110,7 +110,7 @@ class AttachmentColumn(tables.Column):
     for a volume instance.
     """
     def get_raw_data(self, volume):
-        request = self.table._meta.request
+        request = self.table.request
         link = _('Attached to %(instance)s on %(dev)s')
         attachments = []
         # Filter out "empty" attachments which the client returns...
@@ -188,7 +188,7 @@ class AttachedInstanceColumn(tables.Column):
     for a volume instance.
     """
     def get_raw_data(self, attachment):
-        request = self.table._meta.request
+        request = self.table.request
         return safestring.mark_safe(get_attachment_name(request, attachment))
 
 
@@ -201,7 +201,7 @@ class AttachmentsTable(tables.DataTable):
         return obj['id']
 
     def get_object_display(self, attachment):
-        instance_name = get_attachment_name(self._meta.request, attachment)
+        instance_name = get_attachment_name(self.request, attachment)
         vals = {"dev": attachment['device'],
                 "instance_name": strip_tags(instance_name)}
         return _("%(dev)s on instance %(instance_name)s") % vals

@@ -224,7 +224,7 @@ class MixedDataTableView(DataTableView):
         if not self._data:
             table = self.table_class
             self._data = {table._meta.name: []}
-            for data_type in table._meta.data_types:
+            for data_type in table.data_types:
                 func_name = "get_%s_data" % data_type
                 data_func = getattr(self, func_name, None)
                 if data_func is None:
@@ -239,7 +239,7 @@ class MixedDataTableView(DataTableView):
 
     def assign_type_string(self, data, type_string):
         for datum in data:
-            setattr(datum, self.table_class._meta.data_type_name,
+            setattr(datum, self.table_class.data_type_name,
                     type_string)
 
     def get_table(self):

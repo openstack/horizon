@@ -16,37 +16,32 @@
 
 from collections import defaultdict
 
+from django.utils.translation import ugettext_lazy as _
+
 from horizon.tables import MultiTableView
 
 
 class ResourceBrowserView(MultiTableView):
     browser_class = None
-    data_method_pattern = "get_%s_data"
 
     def __init__(self, *args, **kwargs):
-        self.browser_class = getattr(self, "browser_class", None)
         if not self.browser_class:
-            raise ValueError("You must specify a ResourceBrowser class "
-                             " for the browser_class attribute on %s "
+            raise ValueError("You must specify a ResourceBrowser subclass "
+                             "for the browser_class attribute on %s."
                              % self.__class__.__name__)
-
-        self.navigation_table = self.browser_class.navigation_table_class
-        self.content_table = self.browser_class.content_table_class
-
-        # Check and set up the method the view would use to collect data
-        self._data_methods = defaultdict(list)
-        self.table_classes = (self.navigation_table, self.content_table)
-        self.get_data_methods(self.table_classes, self._data_methods)
-
-        self._tables = {}
-        self._data = {}
+        self.table_classes = (self.browser_class.navigation_table_class,
+                              self.browser_class.content_table_class)
+        super(ResourceBrowserView, self).__init__(*args, **kwargs)
+        self.navigation_selection = False
 
     def get_browser(self):
         if not hasattr(self, "browser"):
-            tables = self.get_tables()
-            self.browser = self.browser_class(self.request,
-                                              tables,
-                                              **self.kwargs)
+            self.browser = self.browser_class(self.request, **self.kwargs)
+            self.browser.set_tables(self.get_tables())
+            if not self.navigation_selection:
+                ct = self.browser.content_table
+                item = self.browser.navigable_item_name.lower()
+                ct._no_data_message = _("Select a %s to browse.") % item
         return self.browser
 
     def get_context_data(self, **kwargs):

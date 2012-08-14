@@ -12,13 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import new
-
-from django import http
-
-from cloudfiles import container, storage_object
-
-from horizon.api import base
+from horizon.api import swift
 from .utils import TestDataContainer
 
 
@@ -26,20 +20,8 @@ def data(TEST):
     TEST.containers = TestDataContainer()
     TEST.objects = TestDataContainer()
 
-    request = http.HttpRequest()
-    request.user = TEST.user
-
-    class FakeConnection(object):
-        def __init__(self):
-            self.cdn_enabled = False
-            self.uri = base.url_for(request, "object-store")
-            self.token = TEST.token
-            self.user_agent = "python-cloudfiles"
-
-    conn = FakeConnection()
-
-    container_1 = container.Container(conn, name=u"container_one\u6346")
-    container_2 = container.Container(conn, name=u"container_two\u6346")
+    container_1 = swift.Container(dict(name=u"container_one\u6346"))
+    container_2 = swift.Container(dict(name=u"container_two\u6346"))
     TEST.containers.add(container_1, container_2)
 
     object_dict = {"name": u"test_object\u6346",
@@ -48,15 +30,10 @@ def data(TEST):
                    "last_modified": None,
                    "hash": u"object_hash"}
     obj_dicts = [object_dict]
+    obj_data = "Fake Data"
+
     for obj_dict in obj_dicts:
-        swift_object = storage_object.Object(container_1,
-                                             object_record=obj_dict)
+        swift_object = swift.StorageObject(obj_dict,
+                                           container_1.name,
+                                           data=obj_data)
         TEST.objects.add(swift_object)
-
-    # Override the list method to return the type of list cloudfiles does.
-    def get_object_result_list(self):
-        return storage_object.ObjectResults(container_1,
-                                            objects=obj_dicts)
-
-    list_method = new.instancemethod(get_object_result_list, TEST.objects)
-    TEST.objects.list = list_method
