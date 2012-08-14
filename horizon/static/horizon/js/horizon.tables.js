@@ -46,6 +46,8 @@ horizon.datatables = {
                 } else {
                   $row.remove();
                 }
+                // Reset tablesorter's data cache.
+                $table.trigger("update");
                 break;
               default:
                 if (horizon.conf.debug) {
@@ -77,6 +79,8 @@ horizon.datatables = {
                 $new_row.find(':checkbox').prop('checked', true);
               }
               $row.replaceWith($new_row);
+              // Reset tablesorter's data cache.
+              $table.trigger("update");
               // Reset decay constant.
               $table.removeAttr('decay_constant');
             }
