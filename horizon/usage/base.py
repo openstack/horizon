@@ -68,15 +68,13 @@ class BaseUsage(object):
 
     def get_form(self):
         if not hasattr(self, 'form'):
-            if (any(key in ['month', 'year']
-                    for key in self.request.GET.keys())):
+            if any(key in ['month', 'year'] for key in self.request.GET):
                 # bound form
                 self.form = forms.DateForm(self.request.GET)
             else:
                 # non-bound form
-                self.form = forms.DateForm(initial={
-                                        'month': self.today.month,
-                                        'year': self.today.year})
+                self.form = forms.DateForm(initial={'month': self.today.month,
+                                                    'year': self.today.year})
         return self.form
 
     def get_usage_list(self, start, end):
@@ -104,7 +102,12 @@ class BaseUsage(object):
                 self.summary[key] += value
 
     def csv_link(self):
-        return "?date_month=%s&date_year=%s&format=csv" % self.get_date_range()
+        form = self.get_form()
+        if hasattr(form, "cleaned_data"):
+            data = form.cleaned_data
+        else:
+            data = {"month": self.today.month, "year": self.today.year}
+        return "?month=%s&year=%s&format=csv" % (data['month'], data['year'])
 
 
 class GlobalUsage(BaseUsage):
