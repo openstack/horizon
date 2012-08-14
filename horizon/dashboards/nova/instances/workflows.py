@@ -96,8 +96,8 @@ class VolumeOptionsAction(workflows.Action):
         volume_opt = cleaned_data.get('volume_type', None)
 
         if volume_opt and not cleaned_data[volume_opt]:
-            raise forms.ValidationError('Please choose a volume, or select '
-                                        '%s.' % self.VOLUME_CHOICES[0][1])
+            raise forms.ValidationError(_('Please choose a volume, or select '
+                                          '%s.') % self.VOLUME_CHOICES[0][1])
         return cleaned_data
 
     def _get_volume_display_name(self, volume):
@@ -419,7 +419,12 @@ class SetNetworkAction(workflows.Action):
 
     def populate_network_choices(self, request, context):
         try:
-            networks = api.quantum.network_list(request)
+            # If a user has admin role, network list returned by Quantum API
+            # contains networks that does not belong to that tenant.
+            # So we need to specify tenant_id when calling network_list().
+            tenant_id = self.request.user.tenant_id
+            networks = api.quantum.network_list(request,
+                                                tenant_id=tenant_id)
             for n in networks:
                 n.set_id_as_name_if_empty()
             network_list = [(network.id, network.name) for network in networks]

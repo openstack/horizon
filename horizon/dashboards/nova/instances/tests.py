@@ -605,7 +605,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest)) \
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id) \
                 .AndReturn(self.networks.list())
         api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
@@ -672,7 +673,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest)) \
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id) \
                 .AndReturn(self.networks.list())
         api.nova.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
@@ -738,7 +740,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                 .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest)) \
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id) \
                 .AndReturn(self.networks.list())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -793,7 +796,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest)) \
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id) \
                 .AndReturn(self.networks.list())
         api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(self.quota_usages.first())
@@ -843,7 +847,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest)) \
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id) \
                 .AndReturn(self.networks.list())
         api.nova.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.nova.server_create(IsA(http.HttpRequest),
@@ -908,7 +913,8 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest)) \
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id) \
                 .AndReturn(self.networks.list())
         api.nova.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())

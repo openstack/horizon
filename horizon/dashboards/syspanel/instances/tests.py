@@ -23,6 +23,8 @@ from novaclient import exceptions as novaclient_exceptions
 from horizon import api
 from horizon import test
 
+import json
+
 
 class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',),
@@ -143,6 +145,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
                                     'security_group_list', 'volume_list',
                                     'volume_snapshot_list',
                                     'tenant_quota_usages', 'server_create'),
+                        api.keystone: ('tenant_list',),
                         api.quantum: ('network_list',),
                         api.glance: ('image_list_detailed',)})
     def test_launch_post(self):
@@ -156,7 +159,11 @@ class InstanceViewTest(test.BaseAdminViewTests):
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
         block_device_mapping = {device_name: u"%s::0" % volume_choice}
-        nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
+        network = self.networks.first()
+        nics = [{"net-id": network.id, "v4-fixed-ip": ''}]
+        selected_network = json.dumps({'id': network.id,
+                                       'name': network.name,
+                                       'tenant_id': network.tenant_id})
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -175,6 +182,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
         api.quantum.network_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.networks.list())
+        api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
+                .AndReturn(self.tenants.list())
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
                                image.id,
@@ -199,7 +208,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
                      'volume_type': 'volume_id',
                      'volume_id': volume_choice,
                      'device_name': device_name,
-                     'network': self.networks.first().id,
+                     'network': [selected_network],
                      'count': 1}
         url = reverse('horizon:syspanel:instances:launch')
         res = self.client.post(url, form_data)
