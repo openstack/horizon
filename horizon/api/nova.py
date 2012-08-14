@@ -32,6 +32,7 @@ from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.security_groups import SecurityGroup as NovaSecurityGroup
 from novaclient.v1_1.servers import REBOOT_HARD
 
+from horizon import exceptions
 from horizon.api.base import APIResourceWrapper, APIDictWrapper, url_for
 from horizon.utils.memoized import memoized
 
@@ -437,9 +438,18 @@ def tenant_quota_usages(request):
 
     for usage in usages:
         for instance in instances:
+            used_flavor = instance.flavor['id']
+            if used_flavor not in flavors:
+                try:
+                    flavors[used_flavor] = flavor_get(request, used_flavor)
+                except:
+                    flavors[used_flavor] = {}
+                    exceptions.handle(request, ignore=True)
             for flavor_field in usages[usage]['flavor_fields']:
-                usages[usage]['used'] += getattr(
-                        flavors[instance.flavor['id']], flavor_field, 0)
+                instance_flavor = flavors[used_flavor]
+                usages[usage]['used'] += getattr(instance_flavor,
+                                                 flavor_field,
+                                                 0)
 
         usages[usage]['quota'] = getattr(quotas, usage)
 
