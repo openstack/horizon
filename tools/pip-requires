@@ -2,6 +2,7 @@
 Django>=1.4
 django_compressor
 django_openstack_auth
+python-cinderclient
 python-glanceclient<2
 python-keystoneclient
 python-novaclient
