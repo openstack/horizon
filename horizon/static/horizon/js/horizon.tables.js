@@ -233,7 +233,7 @@ horizon.addInitFunction(function() {
     var $this = $(this),
         $table = $this.closest('table'),
         is_checked = $this.prop('checked'),
-        checkboxes = $table.find('tbody :checkbox');
+        checkboxes = $table.find('tbody :visible:checkbox');
     checkboxes.prop('checked', is_checked);
   });
 
