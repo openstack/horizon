@@ -1006,3 +1006,9 @@ label.log-length {
   line-height: 28px;
   margin-right: 10px;
 }
+
+.split_five div.control-group input[type="text"],
+.split_five div.control-group select {
+  width: 120px;
+}
+
