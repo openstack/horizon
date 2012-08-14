@@ -24,12 +24,18 @@ class CreateFlavor(tables.LinkAction):
     classes = ("ajax-modal", "btn-create")
 
 
+class EditFlavor(tables.LinkAction):
+    name = "edit"
+    verbose_name = _("Edit Flavor")
+    url = "horizon:syspanel:flavors:edit"
+    classes = ("ajax-modal", "btn-edit")
+
+
 def get_size(flavor):
     return _("%sMB") % flavor.ram
 
 
 class FlavorsTable(tables.DataTable):
-    flavor_id = tables.Column('id', verbose_name=('ID'))
     name = tables.Column('name', verbose_name=_('Flavor Name'))
     vcpus = tables.Column('vcpus', verbose_name=_('VCPUs'))
     ram = tables.Column(get_size,
@@ -38,9 +44,10 @@ class FlavorsTable(tables.DataTable):
     disk = tables.Column('disk', verbose_name=_('Root Disk'))
     ephemeral = tables.Column('OS-FLV-EXT-DATA:ephemeral',
                               verbose_name=_('Ephemeral Disk'))
+    flavor_id = tables.Column('id', verbose_name=('ID'))
 
     class Meta:
         name = "flavors"
         verbose_name = _("Flavors")
         table_actions = (CreateFlavor, DeleteFlavor)
-        row_actions = (DeleteFlavor,)
+        row_actions = (EditFlavor, DeleteFlavor)

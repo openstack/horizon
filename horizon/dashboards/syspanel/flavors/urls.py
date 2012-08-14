@@ -19,8 +19,10 @@
 #    under the License.
 
 from django.conf.urls.defaults import patterns, url
-from .views import IndexView, CreateView
+from .views import IndexView, CreateView, EditView
 
 urlpatterns = patterns('horizon.dashboards.syspanel.flavors.views',
     url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^create/$', CreateView.as_view(), name='create'))
+    url(r'^create/$', CreateView.as_view(), name='create'),
+    url(r'^(?P<id>[^/]+)/edit/$', EditView.as_view(), name='edit')
+)
