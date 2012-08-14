@@ -27,6 +27,9 @@ from horizon import exceptions
 from horizon import workflows
 from horizon import forms
 
+INDEX_URL = "horizon:syspanel:projects:index"
+ADD_USER_URL = "horizon:syspanel:projects:create_user"
+
 
 class UpdateProjectQuotaAction(workflows.Action):
     ifcb_label = _("Injected File Content Bytes")
@@ -86,71 +89,6 @@ class CreateProjectInfo(workflows.Step):
                    "enabled")
 
 
-class CreateProject(workflows.Workflow):
-    slug = "add_project"
-    name = _("Add Project")
-    finalize_button_name = _("Finish")
-    success_message = _('Created new project "%s".')
-    failure_message = _('Unable to create project "%s".')
-    success_url = "horizon:syspanel:projects:index"
-    default_steps = (CreateProjectInfo,
-                     UpdateProjectQuota)
-
-    def format_status_message(self, message):
-        return message % self.context.get('name', 'unknown project')
-
-    def handle(self, request, data):
-        # create the project
-        try:
-            desc = data['description']
-            self.object = api.keystone.tenant_create(request,
-                                                     tenant_name=data['name'],
-                                                     description=desc,
-                                                     enabled=data['enabled'])
-        except:
-            exceptions.handle(request, ignore=True)
-            return False
-
-        # update the project quota
-        ifcb = data['injected_file_content_bytes']
-        try:
-            api.nova.tenant_quota_update(request,
-                                         self.object.id,
-                                         metadata_items=data['metadata_items'],
-                                         injected_file_content_bytes=ifcb,
-                                         volumes=data['volumes'],
-                                         gigabytes=data['gigabytes'],
-                                         ram=data['ram'],
-                                         floating_ips=data['floating_ips'],
-                                         instances=data['instances'],
-                                         injected_files=data['injected_files'],
-                                         cores=data['cores'])
-        except:
-            exceptions.handle(request, _('Unable to set project quotas.'))
-        return True
-
-
-class UpdateProjectInfoAction(CreateProjectInfoAction):
-    enabled = forms.BooleanField(required=False, label=_("Enabled"))
-
-    class Meta:
-        name = _("Project Info")
-        slug = 'update_info'
-        help_text = _("From here you can edit the project details.")
-
-
-class UpdateProjectInfo(workflows.Step):
-    action_class = UpdateProjectInfoAction
-    depends_on = ("project_id",)
-    contributes = ("name",
-                   "description",
-                   "enabled")
-
-
-INDEX_URL = "horizon:syspanel:projects:index"
-ADD_USER_URL = "horizon:syspanel:projects:create_user"
-
-
 class UpdateProjectMembersAction(workflows.Action):
     default_role = forms.CharField(required=False)
 
@@ -159,14 +97,9 @@ class UpdateProjectMembersAction(workflows.Action):
                                                          *args,
                                                          **kwargs)
         err_msg = _('Unable to retrieve user list. Please try again later.')
-        project_id = args[0]['project_id']
-
-        # set up the inline user creation
-        self.fields['new_user'] = forms.DynamicChoiceField(
-                                                required=False,
-                                                label=_("Create New User"),
-                                                add_item_link=ADD_USER_URL,
-                                                add_item_link_args=project_id)
+        project_id = ''
+        if 'project_id' in args[0]:
+            project_id = args[0]['project_id']
 
         # Get the default role
         try:
@@ -202,16 +135,19 @@ class UpdateProjectMembersAction(workflows.Action):
             self.fields[field_name].initial = []
 
         # Figure out users & roles
-        for user in all_users:
-            try:
-                roles = api.roles_for_user(self.request, user.id, project_id)
-            except:
-                exceptions.handle(request,
-                                  err_msg,
-                                  redirect=reverse(INDEX_URL))
-            if roles:
-                primary_role = roles[0].id
-                self.fields["role_" + primary_role].initial.append(user.id)
+        if project_id:
+            for user in all_users:
+                try:
+                    roles = api.roles_for_user(self.request,
+                                               user.id,
+                                               project_id)
+                except:
+                    exceptions.handle(request,
+                                      err_msg,
+                                      redirect=reverse(INDEX_URL))
+                if roles:
+                    primary_role = roles[0].id
+                    self.fields["role_" + primary_role].initial.append(user.id)
 
     class Meta:
         name = _("Project Members")
@@ -235,6 +171,95 @@ class UpdateProjectMembers(workflows.Step):
                 field = "role_" + role.id
                 context[field] = post.getlist(field)
         return context
+
+
+class CreateProject(workflows.Workflow):
+    slug = "add_project"
+    name = _("Add Project")
+    finalize_button_name = _("Finish")
+    success_message = _('Created new project "%s".')
+    failure_message = _('Unable to create project "%s".')
+    success_url = "horizon:syspanel:projects:index"
+    default_steps = (CreateProjectInfo,
+                     UpdateProjectMembers,
+                     UpdateProjectQuota)
+
+    def format_status_message(self, message):
+        return message % self.context.get('name', 'unknown project')
+
+    def handle(self, request, data):
+        # create the project
+        try:
+            desc = data['description']
+            self.object = api.keystone.tenant_create(request,
+                                                     tenant_name=data['name'],
+                                                     description=desc,
+                                                     enabled=data['enabled'])
+        except:
+            exceptions.handle(request, ignore=True)
+            return False
+
+        project_id = self.object.id
+
+        # update project members
+        users_to_add = 0
+        try:
+            available_roles = api.keystone.role_list(request)
+
+            # count how many users are to be added
+            for role in available_roles:
+                role_list = data["role_" + role.id]
+                users_to_add += len(role_list)
+            # add new users to project
+            for role in available_roles:
+                role_list = data["role_" + role.id]
+                users_added = 0
+                for user in role_list:
+                    api.add_tenant_user_role(request,
+                                             tenant_id=project_id,
+                                             user_id=user,
+                                             role_id=role.id)
+                    users_added += 1
+                users_to_add -= users_added
+        except:
+            exceptions.handle(request, _('Failed to add %s project members '
+                                         'and set project quotas.'
+                                         % users_to_add))
+
+        # update the project quota
+        ifcb = data['injected_file_content_bytes']
+        try:
+            api.nova.tenant_quota_update(request,
+                                         project_id,
+                                         metadata_items=data['metadata_items'],
+                                         injected_file_content_bytes=ifcb,
+                                         volumes=data['volumes'],
+                                         gigabytes=data['gigabytes'],
+                                         ram=data['ram'],
+                                         floating_ips=data['floating_ips'],
+                                         instances=data['instances'],
+                                         injected_files=data['injected_files'],
+                                         cores=data['cores'])
+        except:
+            exceptions.handle(request, _('Unable to set project quotas.'))
+        return True
+
+
+class UpdateProjectInfoAction(CreateProjectInfoAction):
+    enabled = forms.BooleanField(required=False, label=_("Enabled"))
+
+    class Meta:
+        name = _("Project Info")
+        slug = 'update_info'
+        help_text = _("From here you can edit the project details.")
+
+
+class UpdateProjectInfo(workflows.Step):
+    action_class = UpdateProjectInfoAction
+    depends_on = ("project_id",)
+    contributes = ("name",
+                   "description",
+                   "enabled")
 
 
 class UpdateProject(workflows.Workflow):

@@ -64,11 +64,23 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         project_info.update(quota_data)
         return project_info
 
-    @test.create_stubs({api: ('tenant_quota_defaults',)})
+    @test.create_stubs({api: ('tenant_quota_defaults',
+                              'get_default_role',),
+                       api.keystone: ('user_list',
+                                      'role_list',)})
     def test_add_project_get(self):
         quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
+
         api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(quota)
+
+        # init
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
 
         self.mox.ReplayAll()
 
@@ -86,26 +98,60 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                          quota.injected_files)
         self.assertQuerysetEqual(workflow.steps,
                             ['<CreateProjectInfo: createprojectinfoaction>',
+                             '<UpdateProjectMembers: update_members>',
                              '<UpdateProjectQuota: update_quotas>'])
 
-    @test.create_stubs({api.keystone: ('tenant_create',),
+    @test.create_stubs({api: ('get_default_role',
+                              'tenant_quota_defaults',
+                              'add_tenant_user_role',),
+                        api.keystone: ('tenant_create',
+                                       'user_list',
+                                       'role_list'),
                         api.nova: ('tenant_quota_update',)})
     def test_add_project_post(self):
         project = self.tenants.first()
         quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
 
+        # init
+        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # contribute
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # handle
         project_details = self._get_project_info(project)
         quota_data = self._get_quota_info(quota)
 
         api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
                     .AndReturn(project)
+
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        workflow_data = {}
+        for role in roles:
+            if "role_" + role.id in workflow_data:
+                ulist = workflow_data["role_" + role.id]
+                for user in ulist:
+                    api.add_tenant_user_role(IsA(http.HttpRequest),
+                                             tenant_id=self.tenant.id,
+                                             user_id=user,
+                                             role_id=role.id)
+
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
                                      **quota_data)
 
         self.mox.ReplayAll()
 
-        workflow_data = self._get_workflow_data(project, quota)
+        workflow_data.update(self._get_workflow_data(project, quota))
 
         url = reverse('horizon:syspanel:projects:create')
         res = self.client.post(url, workflow_data)
@@ -113,10 +159,22 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('tenant_quota_defaults',)})
+    @test.create_stubs({api: ('tenant_quota_defaults',
+                              'get_default_role',),
+                        api.keystone: ('user_list',
+                                       'role_list',)})
     def test_add_project_quota_defaults_error(self):
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
+
+        # init
         api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
-            .AndRaise(self.exceptions.nova)
+           .AndRaise(self.exceptions.nova)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
 
         self.mox.ReplayAll()
 
@@ -126,12 +184,30 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'syspanel/projects/create.html')
         self.assertContains(res, "Unable to retrieve default quota values")
 
-    @test.create_stubs({api.keystone: ('tenant_create',),
-                        api.nova: ('tenant_quota_update',)})
+    @test.create_stubs({api: ('get_default_role',
+                              'tenant_quota_defaults',),
+                        api.keystone: ('tenant_create',
+                                       'user_list',
+                                       'role_list',)})
     def test_add_project_tenant_create_error(self):
         project = self.tenants.first()
         quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
 
+        # init
+        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # contribute
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # handle
         project_details = self._get_project_info(project)
 
         api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
@@ -147,25 +223,58 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.keystone: ('tenant_create',),
+    @test.create_stubs({api: ('get_default_role',
+                              'tenant_quota_defaults',
+                              'add_tenant_user_role',),
+                        api.keystone: ('tenant_create',
+                                       'user_list',
+                                       'role_list'),
                         api.nova: ('tenant_quota_update',)})
     def test_add_project_quota_update_error(self):
         project = self.tenants.first()
         quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
 
+        # init
+        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # contribute
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # handle
         project_details = self._get_project_info(project)
         quota_data = self._get_quota_info(quota)
 
         api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
                     .AndReturn(project)
+
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        workflow_data = {}
+        for role in roles:
+            if "role_" + role.id in workflow_data:
+                ulist = workflow_data["role_" + role.id]
+                for user in ulist:
+                    api.add_tenant_user_role(IsA(http.HttpRequest),
+                                             tenant_id=self.tenant.id,
+                                             user_id=user,
+                                             role_id=role.id)
+
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
                                      **quota_data) \
-                                    .AndRaise(self.exceptions.nova)
+           .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
-        workflow_data = self._get_workflow_data(project, quota)
+        workflow_data.update(self._get_workflow_data(project, quota))
 
         url = reverse('horizon:syspanel:projects:create')
         res = self.client.post(url, workflow_data)
@@ -173,9 +282,90 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api: ('get_default_role',
+                              'tenant_quota_defaults',
+                              'add_tenant_user_role',),
+                        api.keystone: ('tenant_create',
+                                       'user_list',
+                                       'role_list',),
+                        api.nova: ('tenant_quota_update',)})
+    def test_add_project_user_update_error(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
+
+        # init
+        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # contribute
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # handle
+        project_details = self._get_project_info(project)
+        quota_data = self._get_quota_info(quota)
+
+        api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
+                    .AndReturn(project)
+
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        workflow_data = {}
+        for role in roles:
+            if "role_" + role.id in workflow_data:
+                ulist = workflow_data["role_" + role.id]
+                for user in ulist:
+                    api.add_tenant_user_role(IsA(http.HttpRequest),
+                                             tenant_id=self.tenant.id,
+                                             user_id=user,
+                                             role_id=role.id) \
+                       .AndRaise(self.exceptions.keystone)
+                    break
+            break
+
+        api.nova.tenant_quota_update(IsA(http.HttpRequest),
+                                     project.id,
+                                     **quota_data)
+
+        self.mox.ReplayAll()
+
+        workflow_data.update(self._get_workflow_data(project, quota))
+
+        url = reverse('horizon:syspanel:projects:create')
+        res = self.client.post(url, workflow_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api: ('get_default_role',
+                              'tenant_quota_defaults',),
+                        api.keystone: ('user_list',
+                                       'role_list',)})
     def test_add_project_missing_field_error(self):
         project = self.tenants.first()
         quota = self.quotas.first()
+        default_role = self.roles.first()
+        users = self.users.list()
+        roles = self.roles.list()
+
+        # init
+        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
+           .AndReturn(quota)
+
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        # contribute
+        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+
+        self.mox.ReplayAll()
 
         workflow_data = self._get_workflow_data(project, quota)
         workflow_data["name"] = ""
