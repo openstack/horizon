@@ -26,19 +26,13 @@ horizon.datatables = {
               // A 404 indicates the object is gone, and should be removed from the table
               case 404:
                 // Update the footer count and reset to default empty row if needed
-                var $footer = $table.find('tr:last'),
-                    row_count, footer_text, colspan, template, params, $empty_row;
+                var $footer, row_count, footer_text, colspan, template, params, $empty_row;
 
                 // existing count minus one for the row we're removing
-                row_count = $table.find('tbody tr').length - 1;
-                footer_text = "Displaying " + row_count + " item";
-                if(row_count !== 1) {
-                    footer_text += 's';
-                }
-                $footer.find('span').text(footer_text);
+                horizon.datatables.update_footer_count($table, -1);
 
                 if(row_count === 0) {
-                  colspan = $footer.find('td').attr('colspan');
+                  colspan = $table.find('th[colspan]').attr('colspan');
                   template = horizon.templates.compiled_templates["#empty_row_template"];
                   params = {"colspan": colspan};
                   empty_row = template.render(params);
@@ -174,6 +168,26 @@ $.tablesorter.addParser({
     type: 'numeric'
 });
 
+horizon.datatables.update_footer_count = function (el, modifier) {
+  var $el = $(el),
+      $browser, $footer, row_count, footer_text_template, footer_text;
+  if (!modifier) {
+    modifier = 0;
+  }
+  // code paths for table or browser footers...
+  $browser = $el.closest("#browser_wrapper");
+  if ($browser.length) {
+    $footer = $($browser.find('.tfoot span')[1]);
+  }
+  else {
+    $footer = $el.find('tr:last span');
+  }
+  row_count = $el.find('tbody tr:visible').length + modifier;
+  footer_text_template = ngettext("Displaying %s item", "Displaying %s items", row_count);
+  footer_text = interpolate(footer_text_template, [row_count]);
+  $footer.text(footer_text);
+};
+
 horizon.datatables.set_table_sorting = function (parent) {
 // Function to initialize the tablesorter plugin strictly on sortable columns.
 $(parent).find("table.table").each(function () {
@@ -210,19 +224,55 @@ horizon.datatables.add_table_checkboxes = function(parent) {
 
 horizon.datatables.set_table_filter = function (parent) {
   $(parent).find('table').each(function (index, elm) {
-    var input = $($(elm).find('div.table_search input'));
+    var input = $($(elm).find('div.table_search input')),
+        table_selector;
     if (input) {
-      input.quicksearch('table#' + $(elm).attr('id') + ' tbody tr', {
+      // Disable server-side searcing if we have client-side searching since
+      // (for now) the client-side is actually superior. Server-side filtering
+      // remains as a noscript fallback.
+      // TODO(gabriel): figure out an overall strategy for making server-side
+      // filtering the preferred functional method.
+      input.on('keypress', function (evt) {
+        if (evt.keyCode === 13) {
+          return false;
+        }
+      });
+      input.next('button.btn-search').on('click keypress', function (evt) {
+        return false;
+      });
+
+      // Enable the client-side searching.
+      table_selector = 'table#' + $(elm).attr('id');
+      input.quicksearch(table_selector + ' tbody tr', {
         'delay': 300,
         'loader': 'span.loading',
         'bind': 'keyup click',
         'show': this.show,
         'hide': this.hide,
-        'prepareQuery': function (val) {
+        onBefore: function () {
+          // Clear the "no results" row.
+          var table = $(table_selector);
+          table.find("tr.empty").remove();
+        },
+        onAfter: function () {
+          var template, table, colspan, params;
+          table = $(table_selector);
+          horizon.datatables.update_footer_count(table);
+          // Add a "no results" row if there are no results.
+          template = horizon.templates.compiled_templates["#empty_row_template"];
+          if (!$(table_selector + " tbody tr:visible").length && typeof(template) !== undefined) {
+            colspan = table.find("th[colspan]").attr('colspan');
+            params = {"colspan": colspan};
+            table.find("tbody").append(template.render(params));
+          }
+          // Update footer count
+
+        },
+        prepareQuery: function (val) {
           return new RegExp(val, "i");
         },
-        'testQuery': function (query, txt, _row) {
-          return query.test($(_row).find('td:not(.hidden)').text());
+        testQuery: function (query, txt, _row) {
+          return query.test($(_row).find('td:not(.hidden):not(.actions_column)').text());
         }
       });
     }
