@@ -53,17 +53,18 @@ horizon.forms.prevent_multiple_submission = function (el) {
 horizon.forms.init_examples = function (el) {
   var $el = $(el);
 
+  // FIXME(gabriel): These should be moved into the forms themselves as help text, etc.
   // Generic examples.
-  $el.find("#id_description").example(gettext("Additional information here..."));
+  $el.find("#id_description").attr("placeholder", gettext("Additional information here..."));
 
   // Update/create image form.
-  $el.find("#create_image_form input#id_copy_from").example("http://example.com/image.iso");
+  $el.find("#create_image_form input#id_copy_from").attr("placeholder", "http://example.com/image.iso");
 
   // Table search box.
-  $el.find(".table_search input").example(gettext("Filter"));
+  $el.find(".table_search input").attr("placeholder", gettext("Filter"));
 
   // Volume attachment form.
-  $el.find("#attach_volume_form #id_device").example("/dev/vdc/");
+  $el.find("#attach_volume_form #id_device").attr("placeholder", "/dev/vdc/");
 };
 
 horizon.addInitFunction(function () {
