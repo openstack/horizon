@@ -44,9 +44,7 @@ horizon.datatables = {
                 $table.trigger("update");
                 break;
               default:
-                if (horizon.conf.debug) {
-                  horizon.alert("error", gettext("An error occurred while updating."));
-                }
+                horizon.utils.log(gettext("An error occurred while updating."));
                 $row.removeClass("ajax-update");
                 $row.find("i.ajax-updating").remove();
                 break;
