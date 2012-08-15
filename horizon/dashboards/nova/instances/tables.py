@@ -55,6 +55,13 @@ SUSPEND = 0
 RESUME = 1
 
 
+def _is_deleting(instance):
+    task_state = getattr(instance, "OS-EXT-STS:task_state", None)
+    if not task_state:
+        return False
+    return task_state.lower() == "deleting"
+
+
 class TerminateInstance(tables.BatchAction):
     name = "terminate"
     action_present = _("Terminate")
@@ -65,7 +72,10 @@ class TerminateInstance(tables.BatchAction):
 
     def allowed(self, request, instance=None):
         if instance:
-            return instance.status != "PAUSED"
+            # FIXME(gabriel): This is true in Essex, but in FOLSOM an instance
+            # can be terminated in any state. We should improve this error
+            # handling when LP bug 1037241 is implemented.
+            return instance.status not in ("PAUSED", "SUSPENDED")
         return True
 
     def action(self, request, obj_id):
@@ -81,7 +91,9 @@ class RebootInstance(tables.BatchAction):
     classes = ('btn-danger', 'btn-reboot')
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES or instance.status == 'SHUTOFF'
+        return ((instance.status in ACTIVE_STATES
+                 or instance.status == 'SHUTOFF')
+                and not _is_deleting(instance))
 
     def action(self, request, obj_id):
         api.server_reboot(request, obj_id)
@@ -104,7 +116,8 @@ class TogglePause(tables.BatchAction):
             self.current_present_action = UNPAUSE
         else:
             self.current_present_action = PAUSE
-        return instance.status in ACTIVE_STATES or self.paused
+        return ((instance.status in ACTIVE_STATES or self.paused)
+                and not _is_deleting(instance))
 
     def action(self, request, obj_id):
         if self.paused:
@@ -132,7 +145,8 @@ class ToggleSuspend(tables.BatchAction):
             self.current_present_action = RESUME
         else:
             self.current_present_action = SUSPEND
-        return instance.status in ACTIVE_STATES or self.suspended
+        return ((instance.status in ACTIVE_STATES or self.suspended)
+                and not _is_deleting(instance))
 
     def action(self, request, obj_id):
         if self.suspended:
@@ -156,6 +170,9 @@ class EditInstance(tables.LinkAction):
     url = "horizon:nova:instances:update"
     classes = ("ajax-modal", "btn-edit")
 
+    def allowed(self, request, instance):
+        return not _is_deleting(instance)
+
 
 class CreateSnapshot(tables.LinkAction):
     name = "snapshot"
@@ -164,7 +181,7 @@ class CreateSnapshot(tables.LinkAction):
     classes = ("ajax-modal", "btn-camera")
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES
+        return instance.status in ACTIVE_STATES and not _is_deleting(instance)
 
 
 class ConsoleLink(tables.LinkAction):
@@ -174,7 +191,7 @@ class ConsoleLink(tables.LinkAction):
     classes = ("btn-console",)
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES
+        return instance.status in ACTIVE_STATES and not _is_deleting(instance)
 
     def get_link_url(self, datum):
         base_url = super(ConsoleLink, self).get_link_url(datum)
@@ -189,7 +206,7 @@ class LogLink(tables.LinkAction):
     classes = ("btn-log",)
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES
+        return instance.status in ACTIVE_STATES and not _is_deleting(instance)
 
     def get_link_url(self, datum):
         base_url = super(LogLink, self).get_link_url(datum)
@@ -202,6 +219,9 @@ class AssociateIP(tables.LinkAction):
     verbose_name = _("Associate Floating IP")
     url = "horizon:nova:access_and_security:floating_ips:associate"
     classes = ("ajax-modal", "btn-associate")
+
+    def allowed(self, request, instance):
+        return not _is_deleting(instance)
 
     def get_link_url(self, datum):
         base_url = urlresolvers.reverse(self.url)
