@@ -1,9 +1,9 @@
 /* Utilities for common needs which aren't JS builtins. */
 horizon.utils = {
   // Log function which checks for DEBUG and the existence of a console.
-  log: function (thing_to_log) {
+  log: function () {
     if (horizon.conf.debug && typeof(console) !== "undefined" && typeof(console.log) !== "undefined") {
-      console.log(thing_to_log);
+      console.log(arguments);
     }
   },
 

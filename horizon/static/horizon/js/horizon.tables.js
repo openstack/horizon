@@ -258,7 +258,7 @@ horizon.datatables.set_table_filter = function (parent) {
           horizon.datatables.update_footer_count(table);
           // Add a "no results" row if there are no results.
           template = horizon.templates.compiled_templates["#empty_row_template"];
-          if (!$(table_selector + " tbody tr:visible").length && typeof(template) !== undefined) {
+          if (!$(table_selector + " tbody tr:visible").length && typeof(template) !== "undefined") {
             colspan = table.find("th[colspan]").attr('colspan');
             params = {"colspan": colspan};
             table.find("tbody").append(template.render(params));
