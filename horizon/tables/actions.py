@@ -465,7 +465,8 @@ class BatchAction(Action):
             data_type = self.data_type_singular
         else:
             data_type = self.data_type_plural
-        return string_concat(action, ' ', data_type)
+        return _("%(action)s %(data_type)s") % {'action': action,
+                                                'data_type': data_type}
 
     def action(self, request, datum_id):
         """

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-12 21:47+0000\n"
+"POT-Creation-Date: 2012-08-15 01:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,22 +39,31 @@ msgstr ""
 msgid "%(type)s (%(backend)s backend)"
 msgstr ""
 
-#: api/nova.py:186
+#: api/nova.py:189
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr ""
 
-#: api/nova.py:191
+#: api/nova.py:194
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr ""
 
-#: api/nova.py:514
+#: api/nova.py:526
 msgid "Unknown instance"
 msgstr ""
 
-#: api/swift.py:154
+#: api/swift.py:216
 msgid "Unicode is not currently supported for object copy."
+msgstr ""
+
+#: browsers/base.py:65
+msgid "Navigation Item"
+msgstr ""
+
+#: browsers/views.py:44
+#, python-format
+msgid "Select a %s to browse."
 msgstr ""
 
 #: dashboards/nova/dashboard.py:24
@@ -129,7 +138,7 @@ msgstr ""
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:49
 #: dashboards/nova/access_and_security/floating_ips/tables.py:132
-#: dashboards/syspanel/projects/workflows.py:42
+#: dashboards/syspanel/projects/workflows.py:45
 msgid "Floating IPs"
 msgstr ""
 
@@ -304,14 +313,14 @@ msgstr ""
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:9
 #: dashboards/nova/volumes/tables.py:135 dashboards/nova/volumes/tables.py:155
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:9
-#: dashboards/syspanel/flavors/forms.py:37
+#: dashboards/syspanel/flavors/forms.py:35
 #: dashboards/syspanel/networks/forms.py:35
 #: dashboards/syspanel/networks/ports/forms.py:39
 #: dashboards/syspanel/networks/ports/forms.py:71
 #: dashboards/syspanel/networks/ports/tables.py:73
 #: dashboards/syspanel/networks/subnets/tables.py:69
 #: dashboards/syspanel/projects/tables.py:87
-#: dashboards/syspanel/projects/workflows.py:66
+#: dashboards/syspanel/projects/workflows.py:69
 #: dashboards/syspanel/services/tables.py:38
 #: dashboards/syspanel/volumes/tables.py:10
 msgid "Name"
@@ -333,12 +342,13 @@ msgstr ""
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:17
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:14
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:17
+#: dashboards/syspanel/flavors/templates/flavors/_edit.html:17
 #: dashboards/syspanel/images/templates/images/_update.html:17
 #: dashboards/syspanel/networks/templates/networks/_create.html:17
 #: dashboards/syspanel/networks/templates/networks/ports/_create.html:17
 #: dashboards/syspanel/networks/templates/networks/subnets/_create.html:17
 #: dashboards/syspanel/projects/tables.py:89
-#: dashboards/syspanel/projects/workflows.py:69
+#: dashboards/syspanel/projects/workflows.py:72
 #: dashboards/syspanel/projects/templates/projects/_add_user.html:17
 #: dashboards/syspanel/projects/templates/projects/_create.html:17
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:17
@@ -571,6 +581,7 @@ msgstr ""
 #: dashboards/settings/project/templates/project/_openrc.html:31
 #: dashboards/settings/user/templates/user/_settings.html:24
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:24
+#: dashboards/syspanel/flavors/templates/flavors/_edit.html:25
 #: dashboards/syspanel/images/templates/images/_update.html:24
 #: dashboards/syspanel/networks/templates/networks/_create.html:24
 #: dashboards/syspanel/networks/templates/networks/_update.html:23
@@ -637,33 +648,39 @@ msgstr ""
 msgid "Swift"
 msgstr ""
 
-#: dashboards/nova/containers/forms.py:37
+#: dashboards/nova/containers/browsers.py:33
+#: dashboards/nova/containers/tables.py:39
+#: dashboards/nova/containers/templates/containers/index.html:7
+msgid "Container"
+msgstr ""
+
+#: dashboards/nova/containers/forms.py:39
 msgid "Slash is not an allowed character."
 msgstr ""
 
-#: dashboards/nova/containers/forms.py:47
-#: dashboards/nova/containers/tables.py:125
+#: dashboards/nova/containers/forms.py:49
+#: dashboards/nova/containers/tables.py:120
 msgid "Container Name"
 msgstr ""
 
-#: dashboards/nova/containers/forms.py:55
+#: dashboards/nova/containers/forms.py:57
 msgid "Container created successfully."
 msgstr ""
 
-#: dashboards/nova/containers/forms.py:66
+#: dashboards/nova/containers/forms.py:68
 msgid "Folder created successfully."
 msgstr ""
 
-#: dashboards/nova/containers/forms.py:69
+#: dashboards/nova/containers/forms.py:71
 msgid "Unable to create container."
 msgstr ""
 
-#: dashboards/nova/containers/forms.py:77
-#: dashboards/nova/containers/tables.py:253
+#: dashboards/nova/containers/forms.py:79
+#: dashboards/nova/containers/tables.py:252
 msgid "Object Name"
 msgstr ""
 
-#: dashboards/nova/containers/forms.py:79
+#: dashboards/nova/containers/forms.py:81
 msgid "File"
 msgstr ""
 
@@ -683,80 +700,71 @@ msgstr ""
 msgid "Destination object name"
 msgstr ""
 
-#: dashboards/nova/containers/forms.py:136
-#: dashboards/nova/containers/forms.py:162
+#: dashboards/nova/containers/forms.py:137
+#: dashboards/nova/containers/forms.py:163
 msgid "Unable to copy object."
 msgstr ""
 
-#: dashboards/nova/containers/forms.py:152
+#: dashboards/nova/containers/forms.py:153
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
 msgstr ""
 
 #: dashboards/nova/containers/panel.py:28
-#: dashboards/nova/containers/tables.py:41
-#: dashboards/nova/containers/tables.py:132
+#: dashboards/nova/containers/tables.py:40
+#: dashboards/nova/containers/tables.py:127
 msgid "Containers"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:40
-#: dashboards/nova/containers/templates/containers/index.html:7
-msgid "Container"
-msgstr ""
-
-#: dashboards/nova/containers/tables.py:49
-msgid "Containers must be empty before deletion."
-msgstr ""
-
-#: dashboards/nova/containers/tables.py:67
+#: dashboards/nova/containers/tables.py:61
 #: dashboards/nova/containers/templates/containers/_create.html:7
 #: dashboards/nova/containers/templates/containers/_create.html:22
 #: dashboards/nova/containers/templates/containers/create.html:6
 msgid "Create Container"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:74
+#: dashboards/nova/containers/tables.py:68
 msgid "View Container"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:86
+#: dashboards/nova/containers/tables.py:80
 #: dashboards/nova/containers/templates/containers/_upload.html:23
 #: dashboards/nova/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:140
-#: dashboards/nova/containers/tables.py:159
+#: dashboards/nova/containers/tables.py:136
+#: dashboards/nova/containers/tables.py:155
 msgid "Object"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:141
-#: dashboards/nova/containers/tables.py:160
-#: dashboards/nova/containers/tables.py:263
+#: dashboards/nova/containers/tables.py:137
+#: dashboards/nova/containers/tables.py:156
+#: dashboards/nova/containers/tables.py:262
 msgid "Objects"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:152
+#: dashboards/nova/containers/tables.py:148
 msgid "Folder"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:153
+#: dashboards/nova/containers/tables.py:149
 msgid "Folders"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:166
+#: dashboards/nova/containers/tables.py:162
 msgid "Copy"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:178
+#: dashboards/nova/containers/tables.py:175
 msgid "Download"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:232
+#: dashboards/nova/containers/tables.py:231
 msgid "Create Folder"
 msgstr ""
 
-#: dashboards/nova/containers/tables.py:256
+#: dashboards/nova/containers/tables.py:255
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:30
 #: dashboards/nova/instances/tables.py:272
 #: dashboards/nova/volumes/tables.py:141
@@ -769,15 +777,15 @@ msgstr ""
 msgid "Unable to retrieve container list."
 msgstr ""
 
-#: dashboards/nova/containers/views.py:80
+#: dashboards/nova/containers/views.py:81
 msgid "Unable to retrieve object list."
 msgstr ""
 
-#: dashboards/nova/containers/views.py:175
+#: dashboards/nova/containers/views.py:165
 msgid "Unable to retrieve object."
 msgstr ""
 
-#: dashboards/nova/containers/views.py:204
+#: dashboards/nova/containers/views.py:199
 msgid "Unable to list containers."
 msgstr ""
 
@@ -931,7 +939,7 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:33
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:32
-#: dashboards/nova/instances/workflows.py:451
+#: dashboards/nova/instances/workflows.py:456
 msgid "Launch"
 msgstr ""
 
@@ -1219,7 +1227,7 @@ msgstr ""
 #: dashboards/syspanel/instances/panel.py:28
 #: dashboards/syspanel/instances/tables.py:96
 #: dashboards/syspanel/instances/templates/instances/index.html:3
-#: dashboards/syspanel/projects/workflows.py:35
+#: dashboards/syspanel/projects/workflows.py:38
 msgid "Instances"
 msgstr ""
 
@@ -1272,7 +1280,7 @@ msgid "Resumed"
 msgstr ""
 
 #: dashboards/nova/instances/tables.py:148
-#: dashboards/nova/instances/workflows.py:450
+#: dashboards/nova/instances/workflows.py:455
 #: dashboards/nova/instances/templates/instances/launch.html:3
 #: dashboards/nova/instances/templates/instances/launch.html:6
 msgid "Launch Instance"
@@ -1408,6 +1416,11 @@ msgstr ""
 
 #: dashboards/nova/instances/workflows.py:85
 msgid "Delete volume on instance terminate"
+msgstr ""
+
+#: dashboards/nova/instances/workflows.py:99
+#, python-format
+msgid "Please choose a volume, or select %s."
 msgstr ""
 
 #: dashboards/nova/instances/workflows.py:116
@@ -1570,33 +1583,36 @@ msgid "Launch instance withthese networks"
 msgstr ""
 
 #: dashboards/nova/instances/workflows.py:416
+#: dashboards/syspanel/instances/workflows.py:37
 msgid "Networking"
 msgstr ""
 
 #: dashboards/nova/instances/workflows.py:418
+#: dashboards/syspanel/instances/workflows.py:39
 msgid "Select networks for your instance."
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:429
+#: dashboards/nova/instances/workflows.py:434
+#: dashboards/syspanel/instances/workflows.py:73
 msgid "Unable to retrieve networks."
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:452
+#: dashboards/nova/instances/workflows.py:457
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:453
+#: dashboards/nova/instances/workflows.py:458
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:466
+#: dashboards/nova/instances/workflows.py:471
 #, python-format
 msgid "%s instances"
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:469
+#: dashboards/nova/instances/workflows.py:474
 msgid "instance"
 msgstr ""
 
@@ -1628,9 +1644,9 @@ msgstr ""
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:26
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:10
-#: dashboards/syspanel/flavors/forms.py:38
-#: dashboards/syspanel/flavors/tables.py:34
-#: dashboards/syspanel/projects/workflows.py:34 usage/tables.py:19
+#: dashboards/syspanel/flavors/forms.py:36
+#: dashboards/syspanel/flavors/tables.py:40
+#: dashboards/syspanel/projects/workflows.py:37 usage/tables.py:19
 msgid "VCPUs"
 msgstr ""
 
@@ -1736,12 +1752,12 @@ msgid "Flavor Details"
 msgstr ""
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
-#: dashboards/syspanel/flavors/tables.py:38
+#: dashboards/syspanel/flavors/tables.py:44
 msgid "Root Disk"
 msgstr ""
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:12
-#: dashboards/syspanel/flavors/tables.py:40
+#: dashboards/syspanel/flavors/tables.py:46
 msgid "Ephemeral Disk"
 msgstr ""
 
@@ -2389,7 +2405,7 @@ msgstr ""
 #: dashboards/nova/volumes/tables.py:162 dashboards/nova/volumes/tables.py:174
 #: dashboards/nova/volumes/templates/volumes/index.html:3
 #: dashboards/nova/volumes/templates/volumes/index.html:6
-#: dashboards/syspanel/projects/workflows.py:39
+#: dashboards/syspanel/projects/workflows.py:42
 #: dashboards/syspanel/volumes/panel.py:9
 #: dashboards/syspanel/volumes/tables.py:15
 #: dashboards/syspanel/volumes/templates/volumes/index.html:3
@@ -2603,7 +2619,8 @@ msgid "From here you can modify dashboard settings for your user."
 msgstr ""
 
 #: dashboards/settings/user/templates/user/_settings.html:23
-#: dashboards/syspanel/projects/workflows.py:243 workflows/base.py:538
+#: dashboards/syspanel/flavors/templates/flavors/_edit.html:24
+#: dashboards/syspanel/projects/workflows.py:268 workflows/base.py:538
 msgid "Save"
 msgstr ""
 
@@ -2615,55 +2632,73 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: dashboards/syspanel/flavors/forms.py:36
-msgid "Flavor ID"
-msgstr ""
-
-#: dashboards/syspanel/flavors/forms.py:39
+#: dashboards/syspanel/flavors/forms.py:37
 msgid "Memory MB"
 msgstr ""
 
-#: dashboards/syspanel/flavors/forms.py:40
+#: dashboards/syspanel/flavors/forms.py:38
 msgid "Root Disk GB"
 msgstr ""
 
-#: dashboards/syspanel/flavors/forms.py:41
+#: dashboards/syspanel/flavors/forms.py:39
 msgid "Ephemeral Disk GB"
 msgstr ""
 
-#: dashboards/syspanel/flavors/forms.py:52
-#, python-format
-msgid "%s was successfully added to flavors."
+#: dashboards/syspanel/flavors/forms.py:49
+msgid "Unable to get unique ID for new flavor."
 msgstr ""
 
-#: dashboards/syspanel/flavors/forms.py:56
-msgid "Unable to create flavor"
+#: dashboards/syspanel/flavors/forms.py:66
+#, python-format
+msgid "Created flavor \"%s\"."
+msgstr ""
+
+#: dashboards/syspanel/flavors/forms.py:70
+msgid "Unable to create flavor."
+msgstr ""
+
+#: dashboards/syspanel/flavors/forms.py:91
+#, python-format
+msgid "Updated flavor \"%s\"."
+msgstr ""
+
+#: dashboards/syspanel/flavors/forms.py:95
+msgid "Unable to update flavor."
 msgstr ""
 
 #: dashboards/syspanel/flavors/panel.py:28
 #: dashboards/syspanel/flavors/tables.py:14
-#: dashboards/syspanel/flavors/tables.py:44
-#: dashboards/syspanel/flavors/templates/flavors/index.html:8
+#: dashboards/syspanel/flavors/tables.py:51
+#: dashboards/syspanel/flavors/templates/flavors/index.html:3
+#: dashboards/syspanel/flavors/templates/flavors/index.html:6
 msgid "Flavors"
 msgstr ""
 
 #: dashboards/syspanel/flavors/tables.py:22
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:8
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:23
+#: dashboards/syspanel/flavors/templates/flavors/create.html:3
 #: dashboards/syspanel/flavors/templates/flavors/create.html:6
 msgid "Create Flavor"
 msgstr ""
 
-#: dashboards/syspanel/flavors/tables.py:28
+#: dashboards/syspanel/flavors/tables.py:29
+#: dashboards/syspanel/flavors/templates/flavors/_edit.html:8
+#: dashboards/syspanel/flavors/templates/flavors/edit.html:3
+#: dashboards/syspanel/flavors/templates/flavors/edit.html:6
+msgid "Edit Flavor"
+msgstr ""
+
+#: dashboards/syspanel/flavors/tables.py:35
 #, python-format
 msgid "%sMB"
 msgstr ""
 
-#: dashboards/syspanel/flavors/tables.py:33
+#: dashboards/syspanel/flavors/tables.py:39
 msgid "Flavor Name"
 msgstr ""
 
-#: dashboards/syspanel/flavors/tables.py:36
+#: dashboards/syspanel/flavors/tables.py:42
 msgid "Memory"
 msgstr ""
 
@@ -2671,8 +2706,22 @@ msgstr ""
 msgid "Unable to retrieve flavor list."
 msgstr ""
 
+#: dashboards/syspanel/flavors/views.py:75
+msgid "Unable to retrieve flavor data."
+msgstr ""
+
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:18
 msgid "From here you can define the sizing of a new flavor."
+msgstr ""
+
+#: dashboards/syspanel/flavors/templates/flavors/_edit.html:18
+msgid "From here you can alter the sizing of the current flavor."
+msgstr ""
+
+#: dashboards/syspanel/flavors/templates/flavors/_edit.html:19
+msgid ""
+"Note: this will not affect the resources allocated to any existing instances "
+"using this flavor."
 msgstr ""
 
 #: dashboards/syspanel/images/views.py:53
@@ -2689,8 +2738,14 @@ msgid "Host"
 msgstr ""
 
 #: dashboards/syspanel/instances/views.py:72
+#: dashboards/syspanel/instances/workflows.py:47
 #: dashboards/syspanel/networks/views.py:48
 msgid "Unable to retrieve instance tenant information."
+msgstr ""
+
+#: dashboards/syspanel/instances/workflows.py:107
+#, python-format
+msgid "Selected network '%s' is not owned by the specified project"
 msgstr ""
 
 #: dashboards/syspanel/instances/templates/instances/index.html:6
@@ -2800,15 +2855,15 @@ msgid "Create Project"
 msgstr ""
 
 #: dashboards/syspanel/projects/tables.py:46
-#: dashboards/syspanel/projects/workflows.py:242
+#: dashboards/syspanel/projects/workflows.py:267
 #: dashboards/syspanel/projects/templates/projects/update.html:3
 #: dashboards/syspanel/projects/templates/projects/update.html:6
 msgid "Edit Project"
 msgstr ""
 
 #: dashboards/syspanel/projects/tables.py:91
-#: dashboards/syspanel/projects/workflows.py:71
-#: dashboards/syspanel/projects/workflows.py:134
+#: dashboards/syspanel/projects/workflows.py:74
+#: dashboards/syspanel/projects/workflows.py:249
 #: dashboards/syspanel/services/tables.py:42
 #: dashboards/syspanel/users/tables.py:39
 #: dashboards/syspanel/users/tables.py:114
@@ -2872,104 +2927,105 @@ msgstr ""
 msgid "Unable to retrieve project details."
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:32
+#: dashboards/syspanel/projects/workflows.py:35
 msgid "Injected File Content Bytes"
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:33
+#: dashboards/syspanel/projects/workflows.py:36
 msgid "Metadata Items"
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:36
+#: dashboards/syspanel/projects/workflows.py:39
 msgid "Injected Files"
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:40
+#: dashboards/syspanel/projects/workflows.py:43
 msgid "Gigabytes"
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:41
+#: dashboards/syspanel/projects/workflows.py:44
 msgid "RAM (MB)"
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:45
+#: dashboards/syspanel/projects/workflows.py:48
 msgid "Quota"
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:47
+#: dashboards/syspanel/projects/workflows.py:50
 msgid "From here you can set quotas (max limits) for the project."
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:76
-#: dashboards/syspanel/projects/workflows.py:137
+#: dashboards/syspanel/projects/workflows.py:79
+#: dashboards/syspanel/projects/workflows.py:252
 msgid "Project Info"
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:77
+#: dashboards/syspanel/projects/workflows.py:80
 #: dashboards/syspanel/projects/templates/projects/_create.html:18
 msgid "From here you can create a new project to organize users."
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:91
-msgid "Add Project"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:92
-msgid "Finish"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:93
-#, python-format
-msgid "Created new project \"%s\"."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:94
-#, python-format
-msgid "Unable to create project \"%s\"."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:129
-msgid "Unable to set project quotas."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:139
-msgid "From here you can edit the project details."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:161
+#: dashboards/syspanel/projects/workflows.py:99
 msgid "Unable to retrieve user list. Please try again later."
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:167
-msgid "Create New User"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:217
+#: dashboards/syspanel/projects/workflows.py:153
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:16
 msgid "Project Members"
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:231
+#: dashboards/syspanel/projects/workflows.py:167
 #: dashboards/syspanel/users/views.py:46
 msgid "Unable to retrieve user list."
 msgstr ""
 
+#: dashboards/syspanel/projects/workflows.py:178
+msgid "Add Project"
+msgstr ""
+
+#: dashboards/syspanel/projects/workflows.py:179
+msgid "Finish"
+msgstr ""
+
+#: dashboards/syspanel/projects/workflows.py:180
+#, python-format
+msgid "Created new project \"%s\"."
+msgstr ""
+
+#: dashboards/syspanel/projects/workflows.py:181
+#, python-format
+msgid "Unable to create project \"%s\"."
+msgstr ""
+
+#: dashboards/syspanel/projects/workflows.py:225
+#, python-format
+msgid "Failed to add %s project members and set project quotas."
+msgstr ""
+
 #: dashboards/syspanel/projects/workflows.py:244
+msgid "Unable to set project quotas."
+msgstr ""
+
+#: dashboards/syspanel/projects/workflows.py:254
+msgid "From here you can edit the project details."
+msgstr ""
+
+#: dashboards/syspanel/projects/workflows.py:269
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:245
+#: dashboards/syspanel/projects/workflows.py:270
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:315
+#: dashboards/syspanel/projects/workflows.py:340
 #, python-format
 msgid "Failed to modify %s project members and update project quotas."
 msgstr ""
 
-#: dashboards/syspanel/projects/workflows.py:336
+#: dashboards/syspanel/projects/workflows.py:361
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -3219,6 +3275,11 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
+#: tables/actions.py:468
+#, python-format
+msgid "%(action)s %(data_type)s"
+msgstr ""
+
 #: tables/actions.py:502
 msgid "N/A"
 msgstr ""
@@ -3251,20 +3312,20 @@ msgstr ""
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:819
-msgid "Actions"
-msgstr ""
-
-#: tables/base.py:981
+#: tables/base.py:726
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:998
+#: tables/base.py:829
+msgid "Actions"
+msgstr ""
+
+#: tables/base.py:1005
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1128
+#: tables/base.py:1135
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -3308,14 +3369,28 @@ msgstr ""
 msgid "Error: "
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:36
+#: templates/horizon/common/_data_table.html:37
 msgid "Summary"
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:45
+#: templates/horizon/common/_data_table.html:46
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/horizon/common/_resource_browser.html:10
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/horizon/common/_resource_browser.html:11
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
 msgstr[0] ""
 msgstr[1] ""
 
