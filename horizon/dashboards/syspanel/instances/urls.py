@@ -20,7 +20,7 @@
 
 from django.conf.urls.defaults import url, patterns
 
-from .views import DetailView, AdminIndexView, AdminLaunchView
+from .views import DetailView, AdminIndexView
 
 
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
@@ -28,7 +28,6 @@ INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
 
 urlpatterns = patterns('horizon.dashboards.syspanel.instances.views',
     url(r'^$', AdminIndexView.as_view(), name='index'),
-    url(r'^launch$', AdminLaunchView.as_view(), name='launch'),
     url(INSTANCES % 'detail', DetailView.as_view(), name='detail'),
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),

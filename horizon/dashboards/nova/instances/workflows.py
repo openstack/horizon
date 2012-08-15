@@ -50,9 +50,9 @@ class SelectProjectUserAction(workflows.Action):
 
     class Meta:
         name = _("Project & User")
-        permissions = ("openstack.roles.admin",)
-        help_text = _("Admin users may optionally select the project and "
-                      "user for whom the instance should be created.")
+        # Unusable permission so this is always hidden. However, we
+        # keep this step in the workflow for validation/verification purposes.
+        permissions = ("!",)
 
 
 class SelectProjectUser(workflows.Step):
