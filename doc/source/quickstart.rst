@@ -6,14 +6,20 @@ Setup
 =====
 
 To setup an Horizon development environment simply clone the Horizon git
-repository at http://github.com/openstack/horizon and execute the
-``run_tests.sh`` script from the root folder (see :doc:`ref/run_tests`).
+repository from http://github.com/openstack/horizon and execute the
+``run_tests.sh`` script from the root folder (see :doc:`ref/run_tests`)::
+
+    > git clone https://github.com/openstack/horizon.git
+    > cd horizon
+    > ./run_tests.sh
+
+Next you will need to setup your Django application config by copying ``openstack_dashboard/local/local_settings.py.example`` to ``openstack_dashboard/local_settings.py``. To do this quickly you can use the following command::
+
+    > cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py
 
 Horizon assumes a single end-point for OpenStack services which defaults to
 the local host (127.0.0.1). If this is not the case change the
-``OPENSTACK_HOST`` setting in the ``local_settings.py`` file, located in the
-``openstack_dashboard/local`` folder, to the actual IP address of the
-OpenStack end-point Horizon should use.
+``OPENSTACK_HOST`` setting in the ``openstack_dashboard/local/local_settings.py`` file, to the actual IP address of the OpenStack end-point Horizon should use.
 
 To start the Horizon development server use the Django ``manage.py`` utility
 with the context of the virtual environment::
@@ -24,8 +30,15 @@ Alternately specify the listen IP and port::
 
     > tools/with_venv.sh ./manage.py runserver 0.0.0.0:8080
 
+.. note::
+
+    If you would like to run commands without the prefix of ``tools/with_venv.sh`` you may source your environment directly. This will remain active as long as your shell session stays open::
+
+    > source .venv/bin/activate
+
+
 Once the Horizon server is running point a web browser to http://localhost:8000
-or to the IP and port the server is listening.
+or to the IP and port the server is listening for.
 
 .. note::
 
