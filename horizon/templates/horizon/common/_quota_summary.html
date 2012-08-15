@@ -1,0 +1,13 @@
+{% load i18n horizon humanize sizeformat %}
+
+<div class="quota-dynamic">
+  <h3>{% trans "Quota Summary" %}</h3>
+    <strong>{% trans "Used" %}<span> {{ usage.quota.instances.used|intcomma }} </span> {% trans "of" %} <span> {{ usage.quota.instances.quota|intcomma }} </span>{% trans "Available Instances" %} </strong>
+    {% horizon_progress_bar usage.quota.instances.used usage.quota.instances.quota %}
+
+    <strong>{% trans "Used" %} <span> {{ usage.quota.cores.used|intcomma }} </span>{% trans "of" %}<span> {{ usage.quota.cores.quota|intcomma }} </span>{% trans "Available vCPUs" %} </strong>
+    {% horizon_progress_bar usage.quota.cores.used usage.quota.cores.quota %}
+
+    <strong>{% trans "Used" %} <span> {{ usage.quota.ram.used|intcomma }} MB </span>{% trans "of" %}<span> {{ usage.quota.ram.quota|intcomma }} MB </span>{% trans "Available Memory" %} </strong>
+    {% horizon_progress_bar usage.quota.ram.used usage.quota.ram.quota %}
+</div>
