@@ -36,7 +36,8 @@ horizon.addInitFunction(function () {
     var $this = $(this),
         id = $this.attr("id"),
         active_tab = data[id];
-    if (active_tab) {
+    // Set the tab from memory if we have a "sticky" tab and the tab wasn't explicitly requested via GET.
+    if (active_tab && window.location.search.indexOf("tab=") < 0) {
       $this.find("a[data-target='" + active_tab + "']").tab('show');
     }
   });
