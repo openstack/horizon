@@ -12,6 +12,18 @@
   </head>
   <body id="{% block body_id %}{% endblock %}">
     {% block content %}
+      {# FIXME(gabriel): remove the following warning block when Nova fixes their scoping upstream. #}
+      {% if request.user.is_superuser and request.horizon.dashboard.slug == "nova" %}
+        <div class="warning">
+          <div class="warning-text">
+            <h3 class="alert-error">
+                <strong>{% trans "Caution" %}:</strong>
+                <span>{% trans "You are acting as an admin user in the project dashboard." %}</span>
+            </h3>
+            <a href="{% url horizon:nova:overview:warning %}" class="btn btn-small btn-danger ajax-modal">{% trans "Learn More" %}</a>
+          </div>
+        </div>
+      {% endif %}
       <div id="container">
         {% block sidebar %}
           {% include 'horizon/common/_sidebar.html' %}
