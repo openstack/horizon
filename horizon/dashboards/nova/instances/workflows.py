@@ -172,7 +172,7 @@ class SetInstanceDetailsAction(workflows.Action):
     image_id = forms.ChoiceField(label=_("Image"), required=False)
     instance_snapshot_id = forms.ChoiceField(label=_("Instance Snapshot"),
                                              required=False)
-    name = forms.CharField(max_length=80, label=_("Server Name"))
+    name = forms.CharField(max_length=80, label=_("Instance Name"))
     flavor = forms.ChoiceField(label=_("Flavor"),
                                help_text=_("Size of image to launch."))
     count = forms.IntegerField(label=_("Instance Count"),
