@@ -105,8 +105,14 @@ class BaseUsage(object):
                 self.summary[key] += value
 
     def quota(self):
-        quotas = api.nova.tenant_quota_usages(self.request)
-        return quotas
+        if not hasattr(self, "_quotas"):
+            try:
+                self._quotas = api.nova.tenant_quota_usages(self.request)
+            except:
+                self._quotas = {}
+                exceptions.handle(self.request,
+                                  _("Unable to retrieve quota information."))
+        return self._quotas
 
     def csv_link(self):
         form = self.get_form()
