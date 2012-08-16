@@ -29,7 +29,7 @@ horizon.forms.bind_add_item_handlers = function (el) {
     var $this = $(this);
         $button = $("<a href='" + $this.attr("data-add-item-url") + "' " +
                     "data-add-to-field='" + $this.attr("id") + "' " +
-                    "class='btn ajax-add ajax-modal'>+</a>");
+                    "class='btn ajax-add ajax-modal btn-inline'>+</a>");
     $this.after($button);
   });
 };
