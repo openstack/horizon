@@ -104,6 +104,10 @@ class BaseUsage(object):
                 self.summary.setdefault(key, 0)
                 self.summary[key] += value
 
+    def quota(self):
+        quotas = api.nova.tenant_quota_usages(self.request)
+        return quotas
+
     def csv_link(self):
         form = self.get_form()
         if hasattr(form, "cleaned_data"):
