@@ -127,12 +127,14 @@ class ResourceBrowser(html.HTMLElement):
         """
         self.navigation_table = tables[self.navigation_table_class._meta.name]
         self.content_table = tables[self.content_table_class._meta.name]
-        if self.has_breadcrumb:
-            self.prepare_breadcrumb(tables)
-
-    def prepare_breadcrumb(self, tables):
         navigation_item = self.kwargs.get(self.navigation_kwarg_name)
         content_path = self.kwargs.get(self.content_kwarg_name)
+        # Tells the navigation table what is selected.
+        self.navigation_table.current_item_id = navigation_item
+        if self.has_breadcrumb:
+            self.prepare_breadcrumb(tables, navigation_item, content_path)
+
+    def prepare_breadcrumb(self, tables, navigation_item, content_path):
         if self.has_breadcrumb and navigation_item and content_path:
             for table in tables.values():
                 table.breadcrumb = Breadcrumb(self.request,

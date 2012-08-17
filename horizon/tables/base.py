@@ -407,6 +407,7 @@ class Row(html.HTMLElement):
         super(Row, self).__init__()
         self.table = table
         self.datum = datum
+        self.selected = False
         if self.datum:
             self.load_cells()
         else:
@@ -882,6 +883,7 @@ class DataTable(object):
         self._needs_form_wrapper = needs_form_wrapper
         self._no_data_message = self._meta.no_data_message
         self.breadcrumb = None
+        self.current_item_id = None
 
         # Create a new set
         columns = []
@@ -1292,7 +1294,11 @@ class DataTable(object):
         rows = []
         try:
             for datum in self.filtered_data:
-                rows.append(self._meta.row_class(self, datum))
+                row = self._meta.row_class(self, datum)
+                if self.get_object_id(datum) == self.current_item_id:
+                    self.selected = True
+                    row.classes.append('current_selected')
+                rows.append(row)
         except:
             # Exceptions can be swallowed at the template level here,
             # re-raising as a TemplateSyntaxError makes them visible.

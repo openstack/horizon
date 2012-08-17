@@ -1452,6 +1452,9 @@ label.log-length {
         max-width: 200px;
       }
     }
+    tr.current_selected td {
+      background-color: #E9F5FA;
+    }
     tfoot td {
       border-right: 0 none;
       border-bottom-right-radius: 0;
@@ -1464,6 +1467,7 @@ label.log-length {
       white-space: nowrap;
     }
     tbody td {
+      border-right: @dataTableBorderWidth solid @dataTableBorderColor;
       background-color: @white;
     }
   }
@@ -1475,6 +1479,7 @@ label.log-length {
       border-top-left-radius: 0;
     }
     td{
+      border-bottom: @dataTableBorderWidth solid @dataTableBorderColor;
       &:last-child {
         border-right: 0 none;
       }
