@@ -411,7 +411,7 @@ horizon.projects = {
         $(".tab-content, .workflow").addClass("dropdown_fix");
 
         // unfocus filter fields
-        $("input").blur();
+        $("#update_project__update_members input").blur();
 
         // prevent filter inputs from submitting form on 'enter'
         $('.project_membership').keydown(function(event){
