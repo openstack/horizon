@@ -27,7 +27,9 @@ horizon.addInitFunction(function () {
   $(document).on("show", ".ajax-tabs a[data-loaded='false']", horizon.tabs.load_tab);
 
   $(document).on("shown", ".nav-tabs a[data-toggle='tab']", function (evt) {
-    var $tab = $(evt.target);
+    var $tab = $(evt.target),
+        $content = $($(evt.target).attr('data-target'));
+    horizon.datatables.update_footer_count($content.find("table"));
     horizon.cookies.update("tabs", $tab.closest(".nav-tabs").attr("id"), $tab.attr('data-target'));
   });
 
