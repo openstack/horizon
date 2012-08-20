@@ -95,12 +95,7 @@ class DisassociateIP(tables.Action):
 
 
 def get_instance_info(instance):
-    info_string = _("%(INSTANCE_NAME)s (%(INSTANCE_ID)s)")
-    if instance.instance_id and instance.instance_name:
-        vals = {'INSTANCE_NAME': instance.instance_name,
-                'INSTANCE_ID': instance.instance_id}
-        return info_string % vals
-    return None
+    return getattr(instance, "instance_name", None)
 
 
 def get_instance_link(datum):
