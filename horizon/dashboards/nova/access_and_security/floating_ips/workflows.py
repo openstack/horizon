@@ -65,13 +65,7 @@ class AssociateIPAction(workflows.Action):
                               redirect=redirect)
         instances = []
         for server in servers:
-            # FIXME(ttrifonov): show IP in case of non-unique names
-            # to be removed when nova can support unique names
-            server_name = server.name
-            if any(s.id != server.id and
-                   s.name == server.name for s in servers):
-                # duplicate instance name
-                server_name = "%s [%s]" % (server.name, server.id)
+            server_name = "%s (%s)" % (server.name, server.id)
             instances.append((server.id, server_name))
 
         # Sort instances for easy browsing

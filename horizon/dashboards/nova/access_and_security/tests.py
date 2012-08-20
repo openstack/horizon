@@ -80,7 +80,7 @@ class AccessAndSecurityTests(test.TestCase):
                         'nova/access_and_security/floating_ips/associate.html')
 
         self.assertContains(res,
-                            '<option value="1">server_1 [1]</option>')
+                            '<option value="1">server_1 (1)</option>')
         self.assertContains(res,
-                            '<option value="101">server_1 [101]</option>')
-        self.assertContains(res, '<option value="2">server_2</option>')
+                            '<option value="101">server_1 (101)</option>')
+        self.assertContains(res, '<option value="2">server_2 (2)</option>')
