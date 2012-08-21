@@ -25,7 +25,8 @@ from horizon import test
 class VolumeTests(test.BaseAdminViewTests):
     @test.create_stubs({api: ('server_list', 'volume_list',)})
     def test_index(self):
-        api.volume_list(IsA(http.HttpRequest)).AndReturn(self.volumes.list())
+        api.volume_list(IsA(http.HttpRequest), search_opts={
+                            'all_tenants': 1}).AndReturn(self.volumes.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
 
         self.mox.ReplayAll()

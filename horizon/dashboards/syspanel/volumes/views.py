@@ -27,6 +27,13 @@ class IndexView(_IndexView):
     table_class = VolumesTable
     template_name = "syspanel/volumes/index.html"
 
+    def get_data(self):
+        volumes = self._get_volumes(search_opts={'all_tenants': 1})
+        instances = self._get_instances()
+        self._set_id_if_nameless(volumes, instances)
+        self._set_attachments_string(volumes, instances)
+        return volumes
+
 
 class DetailView(_DetailView):
     template_name = "syspanel/volumes/detail.html"
