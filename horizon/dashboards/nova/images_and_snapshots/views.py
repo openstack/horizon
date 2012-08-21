@@ -30,10 +30,11 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import api
 from horizon import exceptions
 from horizon import tables
+from horizon import tabs
 from .images.tables import ImagesTable
 from .snapshots.tables import SnapshotsTable
 from .volume_snapshots.tables import VolumeSnapshotsTable
-
+from .volume_snapshots.tabs import SnapshotDetailTabs
 
 LOG = logging.getLogger(__name__)
 
@@ -78,5 +79,10 @@ class IndexView(tables.MultiTableView):
         except:
             snapshots = []
             exceptions.handle(self.request, _("Unable to retrieve "
-                    "volume snapshots."))
+                                              "volume snapshots."))
         return snapshots
+
+
+class DetailView(tabs.TabView):
+    tab_group_class = SnapshotDetailTabs
+    template_name = 'nova/images_and_snapshots/snapshots/detail.html'

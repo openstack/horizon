@@ -61,10 +61,6 @@ class UpdateRow(tables.Row):
 
 
 class SnapshotVolumeNameColumn(tables.Column):
-    """
-    Customized column class that does complex processing on the attachments
-    for a volume instance.
-    """
     def get_raw_data(self, snapshot):
         request = self.table.request
         volume_name = api.volume_get(request, snapshot.volume_id).display_name
@@ -76,7 +72,9 @@ class SnapshotVolumeNameColumn(tables.Column):
 
 
 class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
-    name = tables.Column("display_name", verbose_name=_("Name"))
+    name = tables.Column("display_name",
+                         verbose_name=_("Name"),
+                         link="horizon:nova:images_and_snapshots:detail")
     volume_name = SnapshotVolumeNameColumn("display_name",
                               verbose_name=_("Volume Name"),
                               link="horizon:nova:volumes:detail")

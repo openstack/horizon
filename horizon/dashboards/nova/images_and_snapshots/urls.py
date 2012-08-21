@@ -22,11 +22,14 @@ from django.conf.urls.defaults import *
 
 from .images import urls as image_urls
 from .snapshots import urls as snapshot_urls
-from .views import IndexView
+from .views import IndexView, DetailView
 
 
 urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'', include(image_urls, namespace='images')),
     url(r'', include(snapshot_urls, namespace='snapshots')),
+    url(r'^snapshots/(?P<snapshot_id>[^/]+)/$',
+        DetailView.as_view(),
+        name='detail'),
 )
