@@ -271,6 +271,9 @@ function run_tests {
 
   echo "Running Horizon application tests"
   export NOSE_XUNIT_FILE=horizon/nosetests.xml
+  if [ "$NOSE_WITH_HTML_OUTPUT" = '1' ]; then
+    export NOSE_HTML_OUT_FILE='horizon_nose_results.html'
+  fi
   ${command_wrapper} coverage erase
   ${command_wrapper} coverage run -p $root/manage.py test horizon --settings=horizon.tests.testsettings $testargs
   # get results of the Horizon tests
@@ -278,6 +281,9 @@ function run_tests {
 
   echo "Running openstack_dashboard tests"
   export NOSE_XUNIT_FILE=openstack_dashboard/nosetests.xml
+  if [ "$NOSE_WITH_HTML_OUTPUT" = '1' ]; then
+    export NOSE_HTML_OUT_FILE='dashboard_nose_results.html'
+  fi
   ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=openstack_dashboard.test.settings $testargs
   # get results of the openstack_dashboard tests
   DASHBOARD_RESULT=$?
