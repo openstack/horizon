@@ -217,7 +217,8 @@ class SetInstanceDetailsAction(workflows.Action):
     def _get_available_images(self, request, context):
         project_id = context.get('project_id', None)
         if not hasattr(self, "_public_images"):
-            public = {"is_public": True}
+            public = {"is_public": True,
+                      "status": "active"}
             try:
                 public_images, _more = api.glance.image_list_detailed(request,
                                                            filters=public)
@@ -232,7 +233,8 @@ class SetInstanceDetailsAction(workflows.Action):
             setattr(self, "_images_for_%s" % project_id, [])
 
         if not hasattr(self, "_images_for_%s" % project_id):
-            owner = {"property-owner_id": project_id}
+            owner = {"property-owner_id": project_id,
+                     "status": "active"}
             try:
                 owned_images, _more = api.glance.image_list_detailed(request,
                                                           filters=owner)
@@ -245,7 +247,7 @@ class SetInstanceDetailsAction(workflows.Action):
         owned_images = getattr(self, "_images_for_%s" % project_id)
         images = owned_images + self._public_images
 
-        # Remove duplicate images.
+        # Remove duplicate images
         image_ids = []
         final_images = []
         for image in images:
