@@ -254,7 +254,7 @@ class LinkAction(BaseAction):
     .. attribute:: url
 
         A string or a callable which resolves to a url to be used as the link
-        target. You must either define the ``url`` attribute or a override
+        target. You must either define the ``url`` attribute or override
         the ``get_link_url`` method on the class.
 
     .. attribute:: allowed_data_types
