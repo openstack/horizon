@@ -508,8 +508,12 @@ def virtual_interfaces_list(request, instance_id):
     return novaclient(request).virtual_interfaces.list(instance_id)
 
 
-def volume_list(request):
-    return cinderclient(request).volumes.list()
+def volume_list(request, search_opts=None):
+    """
+    To see all volumes in the cloud as an admin you can pass in a special
+    search option: {'all_tenants': 1}
+    """
+    return cinderclient(request).volumes.list(search_opts=search_opts)
 
 
 def volume_get(request, volume_id):

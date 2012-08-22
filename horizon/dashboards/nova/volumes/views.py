@@ -42,32 +42,41 @@ class IndexView(tables.DataTableView):
     table_class = VolumesTable
     template_name = 'nova/volumes/index.html'
 
-    def get_data(self):
-        # Gather our volumes
+    def _get_volumes(self, search_opts=None):
         try:
-            volumes = api.volume_list(self.request)
+            return api.volume_list(self.request, search_opts=search_opts)
         except:
-            volumes = []
             exceptions.handle(self.request,
                               _('Unable to retrieve volume list.'))
+
+    def _get_instances(self):
         try:
-            instance_list = api.server_list(self.request)
+            return api.server_list(self.request)
         except:
             instance_list = []
             exceptions.handle(self.request,
                               _("Unable to retrieve volume/instance "
                                 "attachment information"))
 
-        instances = SortedDict([(inst.id, inst) for inst in instance_list])
+    def _set_id_if_nameless(self, volumes, instances):
         for volume in volumes:
             # It is possible to create a volume with no name through the
             # EC2 API, use the ID in those cases.
             if not volume.display_name:
                 volume.display_name = volume.id
 
+    def _set_attachments_string(self, volumes, instances):
+        instances = SortedDict([(inst.id, inst) for inst in instances])
+        for volume in volumes:
             for att in volume.attachments:
                 server_id = att.get('server_id', None)
                 att['instance'] = instances.get(server_id, None)
+
+    def get_data(self):
+        volumes = self._get_volumes()
+        instances = self._get_instances()
+        self._set_id_if_nameless(volumes, instances)
+        self._set_attachments_string(volumes, instances)
         return volumes
 
 
