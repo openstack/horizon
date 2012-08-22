@@ -17,6 +17,7 @@
 import logging
 
 from django.core.urlresolvers import reverse
+from django.utils import safestring
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
@@ -59,10 +60,26 @@ class UpdateRow(tables.Row):
         return snapshot
 
 
+class SnapshotVolumeNameColumn(tables.Column):
+    """
+    Customized column class that does complex processing on the attachments
+    for a volume instance.
+    """
+    def get_raw_data(self, snapshot):
+        request = self.table.request
+        volume_name = api.volume_get(request, snapshot.volume_id).display_name
+        return safestring.mark_safe(volume_name)
+
+    def get_link_url(self, snapshot):
+        volume_id = api.volume_get(self.table.request, snapshot.volume_id).id
+        return reverse(self.link, args=(volume_id,))
+
+
 class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
     name = tables.Column("display_name", verbose_name=_("Name"))
-    volume_id = tables.Column("volume_id",
-                              verbose_name=_("Volume ID"))
+    volume_name = SnapshotVolumeNameColumn("display_name",
+                              verbose_name=_("Volume Name"),
+                              link="horizon:nova:volumes:detail")
 
     class Meta:
         name = "volume_snapshots"
