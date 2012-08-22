@@ -42,7 +42,7 @@
  *         "header"
  *
  * @option String cssAsc (optional) A string of the class name to be appended to
- *         sortable tr elements in the thead on a ascending sort. Default value:
+ *         sortable tr elements in the thead on an ascending sort. Default value:
  *         "headerSortUp"
  *
  * @option String cssDesc (optional) A string of the class name to be appended
@@ -855,7 +855,7 @@
                 return (isNaN(i)) ? 0 : i;
             };
             this.isDigit = function (s, config) {
-                // replace all an wanted chars and match.
+                // replace all unwanted chars and match.
                 return /^[-+]?\d*$/.test($.trim(s.replace(/[,.']/g, '')));
             };
             this.clearTableBody = function (table) {

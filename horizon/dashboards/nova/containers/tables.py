@@ -84,10 +84,10 @@ class UploadObject(tables.LinkAction):
     def get_link_url(self, datum=None):
         # Usable for both the container and object tables
         if getattr(datum, 'container', datum):
-            # This is an Container
+            # This is a container
             container_name = http.urlquote(datum.name)
         else:
-            # This is a table action and we already have the container name
+            # This is a table action, and we already have the container name
             container_name = self.table.kwargs['container_name']
         subfolders = self.table.kwargs.get('subfolder_path', '')
         args = (http.urlquote(bit) for bit in
