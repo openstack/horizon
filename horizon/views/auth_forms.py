@@ -28,6 +28,7 @@ from django import shortcuts
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.utils.http import same_origin
 from django.utils.translation import ugettext as _
 from keystoneclient import exceptions as keystone_exceptions
 
@@ -94,7 +95,13 @@ class Login(forms.SelfHandlingForm):
         request.session['region_endpoint'] = endpoint
         request.session['region_name'] = region_name
 
-        redirect_to = request.REQUEST.get(REDIRECT_FIELD_NAME, "")
+        redirect_to = request.REQUEST.get(REDIRECT_FIELD_NAME, None)
+        # Make sure the requested redirect matches the protocol,
+        # domain, and port of this request
+        if redirect_to and not same_origin(
+                request.build_absolute_uri(redirect_to),
+                request.build_absolute_uri()):
+            redirect_to = None
 
         if data.get('tenant', None):
             try:
