@@ -43,7 +43,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             network = api.quantum.network_modify(request, data['network_id'],
-                                         name=data['name'])
+                                                 name=data['name'])
             msg = _('Network %s was successfully updated.') % data['name']
             LOG.debug(msg)
             messages.success(request, msg)

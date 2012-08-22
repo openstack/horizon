@@ -608,8 +608,12 @@ class InstanceTests(test.TestCase):
                                      'status': 'active'}) \
                   .AndReturn([[], False])
         api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id) \
-                .AndReturn(self.networks.list())
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
         api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -678,8 +682,12 @@ class InstanceTests(test.TestCase):
                                      'status': 'active'}) \
                   .AndReturn([[], False])
         api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id) \
-                .AndReturn(self.networks.list())
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
         api.nova.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -747,8 +755,12 @@ class InstanceTests(test.TestCase):
                                      'status': 'active'}) \
                 .AndReturn([[], False])
         api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id) \
-                .AndReturn(self.networks.list())
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
@@ -805,8 +817,12 @@ class InstanceTests(test.TestCase):
                                      'status': 'active'}) \
                   .AndReturn([[], False])
         api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id) \
-                .AndReturn(self.networks.list())
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
         api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(self.quota_usages.first())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -858,8 +874,12 @@ class InstanceTests(test.TestCase):
                                      'status': 'active'}) \
                   .AndReturn([[], False])
         api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id) \
-                .AndReturn(self.networks.list())
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
         api.nova.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
@@ -926,8 +946,12 @@ class InstanceTests(test.TestCase):
                                      'status': 'active'}) \
                   .AndReturn([[], False])
         api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id) \
-                .AndReturn(self.networks.list())
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
         api.nova.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])

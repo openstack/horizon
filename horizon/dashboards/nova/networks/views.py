@@ -44,12 +44,9 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         try:
-            # If a user has admin role, network list returned by Quantum API
-            # contains networks that does not belong to that tenant.
-            # So we need to specify tenant_id when calling network_list().
             tenant_id = self.request.user.tenant_id
-            networks = api.quantum.network_list(self.request,
-                                                tenant_id=tenant_id)
+            networks = api.quantum.network_list_for_tenant(self.request,
+                                                           tenant_id)
         except:
             networks = []
             msg = _('Network list can not be retrieved.')
@@ -104,9 +101,9 @@ class DetailView(tables.MultiTableView):
 
     def get_subnets_data(self):
         try:
-            network_id = self.kwargs['network_id']
+            network = self._get_data()
             subnets = api.quantum.subnet_list(self.request,
-                                              network_id=network_id)
+                                              network_id=network.id)
         except:
             subnets = []
             msg = _('Subnet list can not be retrieved.')
