@@ -100,3 +100,6 @@ class ImagesTable(tables.DataTable):
         table_actions = (DeleteImage,)
         row_actions = (LaunchImage, EditImage, DeleteImage)
         pagination_param = "image_marker"
+
+    def get_object_display(self, obj):
+        return obj.name or obj.id

@@ -119,7 +119,7 @@ class VolumesTableBase(tables.DataTable):
                            status_choices=STATUS_CHOICES)
 
     def get_object_display(self, obj):
-        return obj.display_name
+        return obj.display_name or obj.id
 
 
 class VolumesTable(VolumesTableBase):
