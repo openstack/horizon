@@ -30,6 +30,7 @@ class BaseUsage(object):
         self.request = request
         self.summary = {}
         self.usage_list = []
+        self.quotas = {}
 
     @property
     def today(self):
@@ -104,15 +105,12 @@ class BaseUsage(object):
                 self.summary.setdefault(key, 0)
                 self.summary[key] += value
 
-    def quota(self):
-        if not hasattr(self, "_quotas"):
-            try:
-                self._quotas = api.nova.tenant_quota_usages(self.request)
-            except:
-                self._quotas = {}
-                exceptions.handle(self.request,
-                                  _("Unable to retrieve quota information."))
-        return self._quotas
+    def get_quotas(self):
+        try:
+            self.quotas = api.nova.tenant_quota_usages(self.request)
+        except:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve quota information."))
 
     def csv_link(self):
         form = self.get_form()

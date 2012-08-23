@@ -31,6 +31,7 @@ class UsageView(tables.DataTableView):
         tenant_id = self.kwargs.get('tenant_id', self.request.user.tenant_id)
         self.usage = self.usage_class(self.request, tenant_id)
         self.usage.summarize(*self.usage.get_date_range())
+        self.usage.get_quotas()
         self.kwargs['usage'] = self.usage
         return self.usage.usage_list
 
