@@ -427,7 +427,7 @@ class BatchAction(Action):
        Optional location to redirect after completion of the delete
        action. Defaults to the current page.
     """
-    completion_url = None
+    success_url = None
 
     def __init__(self):
         self.current_present_action = 0
@@ -489,8 +489,8 @@ class BatchAction(Action):
         """
         Returns the URL to redirect to after a successful action.
         """
-        if self.completion_url:
-            return self.completion_url
+        if self.success_url:
+            return self.success_url
         return request.get_full_path()
 
     def handle(self, table, request, obj_ids):
