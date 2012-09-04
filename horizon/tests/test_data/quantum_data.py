@@ -36,7 +36,8 @@ def data(TEST):
                     'name': 'net1',
                     'status': 'ACTIVE',
                     'subnets': ['e8abc972-eb0c-41f1-9edd-4bc6e3bcd8c9'],
-                    'tenant_id': '1'}
+                    'tenant_id': '1',
+                    'shared': False}
     subnet_dict = {'allocation_pools': [{'end': '10.0.0.254',
                                          'start': '10.0.0.2'}],
                    'cidr': '10.0.0.0/24',
@@ -75,7 +76,8 @@ def data(TEST):
                     'name': 'net2',
                     'status': 'ACTIVE',
                     'subnets': ['3f7c5d79-ee55-47b0-9213-8e669fb03009'],
-                    'tenant_id': '2'}
+                    'tenant_id': '2',
+                    'shared': True}
     subnet_dict = {'allocation_pools': [{'end': '172.16.88.254',
                                           'start': '172.16.88.2'}],
                    'cidr': '172.16.88.0/24',

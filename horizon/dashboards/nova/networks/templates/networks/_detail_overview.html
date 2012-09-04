@@ -14,5 +14,7 @@
     <dd>{{ network.status|default:"Unknown" }}</dd>
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ network.admin_state|default:"Unknown" }}</dd>
+    <dt>{% trans "Shared" %}</dt>
+    <dd>{{ network.shared|yesno|capfirst }}</dd>
   </dl>
 </div>

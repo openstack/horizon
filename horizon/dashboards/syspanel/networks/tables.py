@@ -17,6 +17,7 @@
 import logging
 
 from django.core.urlresolvers import reverse
+from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -68,6 +69,8 @@ class NetworksTable(tables.DataTable):
                          link='horizon:syspanel:networks:detail')
     subnets = tables.Column(get_subnets,
                             verbose_name=_("Subnets Associated"),)
+    shared = tables.Column("shared", verbose_name=_("Shared"),
+                           filters=(filters.yesno, filters.capfirst))
     status = tables.Column("status", verbose_name=_("Status"))
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"))

@@ -17,6 +17,7 @@ import logging
 
 from django import template
 from django.core.urlresolvers import reverse
+from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
@@ -27,7 +28,17 @@ from horizon import tables
 LOG = logging.getLogger(__name__)
 
 
-class DeleteNetwork(tables.DeleteAction):
+class CheckNetworkEditable(object):
+    """Mixin class to determine the specified network is editable."""
+
+    def allowed(self, request, datum=None):
+        # Only administrator is allowed to create and manage shared networks.
+        if datum and datum.shared:
+            return False
+        return True
+
+
+class DeleteNetwork(CheckNetworkEditable, tables.DeleteAction):
     data_type_singular = _("Network")
     data_type_plural = _("Networks")
 
@@ -57,14 +68,14 @@ class CreateNetwork(tables.LinkAction):
     classes = ("ajax-modal", "btn-create")
 
 
-class EditNetwork(tables.LinkAction):
+class EditNetwork(CheckNetworkEditable, tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Network")
     url = "horizon:nova:networks:update"
     classes = ("ajax-modal", "btn-edit")
 
 
-class CreateSubnet(tables.LinkAction):
+class CreateSubnet(CheckNetworkEditable, tables.LinkAction):
     name = "subnet"
     verbose_name = _("Add Subnet")
     url = "horizon:nova:networks:addsubnet"
@@ -83,6 +94,8 @@ class NetworksTable(tables.DataTable):
                          link='horizon:nova:networks:detail')
     subnets = tables.Column(get_subnets,
                             verbose_name=_("Subnets Associated"),)
+    shared = tables.Column("shared", verbose_name=_("Shared"),
+                           filters=(filters.yesno, filters.capfirst))
     status = tables.Column("status", verbose_name=_("Status"))
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"))

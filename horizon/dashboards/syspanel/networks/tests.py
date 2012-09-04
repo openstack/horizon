@@ -167,12 +167,13 @@ class NetworkTests(test.BaseAdminViewTests):
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True)\
             .AndReturn(tenants)
         api.quantum.network_create(IsA(http.HttpRequest), name=network.name,
-                                   tenant_id=tenant_id)\
+                                   tenant_id=tenant_id, shared=True)\
             .AndReturn(network)
         self.mox.ReplayAll()
 
         form_data = {'tenant_id': tenant_id,
-                     'name': network.name}
+                     'name': network.name,
+                     'shared': True}
         url = reverse('horizon:syspanel:networks:create')
         res = self.client.post(url, form_data)
 
@@ -188,12 +189,13 @@ class NetworkTests(test.BaseAdminViewTests):
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True)\
             .AndReturn(tenants)
         api.quantum.network_create(IsA(http.HttpRequest), name=network.name,
-                                   tenant_id=tenant_id)\
+                                   tenant_id=tenant_id, shared=False)\
             .AndRaise(self.exceptions.quantum)
         self.mox.ReplayAll()
 
         form_data = {'tenant_id': tenant_id,
-                     'name': network.name}
+                     'name': network.name,
+                     'shared': False}
         url = reverse('horizon:syspanel:networks:create')
         res = self.client.post(url, form_data)
 
@@ -232,7 +234,7 @@ class NetworkTests(test.BaseAdminViewTests):
     def test_network_update_post(self):
         network = self.networks.first()
         api.quantum.network_modify(IsA(http.HttpRequest), network.id,
-                                   name=network.name)\
+                                   name=network.name, shared=True)\
             .AndReturn(network)
         api.quantum.network_get(IsA(http.HttpRequest), network.id)\
             .AndReturn(network)
@@ -240,7 +242,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
         formData = {'network_id': network.id,
                     'name': network.name,
-                    'tenant_id': network.tenant_id}
+                    'tenant_id': network.tenant_id,
+                    'shared': True}
         url = reverse('horizon:syspanel:networks:update', args=[network.id])
         res = self.client.post(url, formData)
 
@@ -251,7 +254,7 @@ class NetworkTests(test.BaseAdminViewTests):
     def test_network_update_post_exception(self):
         network = self.networks.first()
         api.quantum.network_modify(IsA(http.HttpRequest), network.id,
-                                   name=network.name)\
+                                   name=network.name, shared=False)\
             .AndRaise(self.exceptions.quantum)
         api.quantum.network_get(IsA(http.HttpRequest), network.id)\
             .AndReturn(network)
@@ -259,7 +262,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
         form_data = {'network_id': network.id,
                      'name': network.name,
-                     'tenant_id': network.tenant_id}
+                     'tenant_id': network.tenant_id,
+                     'shared': False}
         url = reverse('horizon:syspanel:networks:update', args=[network.id])
         res = self.client.post(url, form_data)
 

@@ -131,3 +131,10 @@ class UpdateView(user_views.UpdateView):
     form_class = UpdateNetwork
     template_name = 'syspanel/networks/update.html'
     success_url = reverse_lazy('horizon:syspanel:networks:index')
+
+    def get_initial(self):
+        network = self._get_object()
+        return {'network_id': network['id'],
+                'tenant_id': network['tenant_id'],
+                'name': network['name'],
+                'shared': network['shared']}

@@ -24,8 +24,6 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 
-from horizon.dashboards.nova.networks import forms as user_forms
-
 
 LOG = logging.getLogger(__name__)
 
@@ -35,6 +33,8 @@ class CreateNetwork(forms.SelfHandlingForm):
                            label=_("Name"),
                            required=False)
     tenant_id = forms.ChoiceField(label=_("Project"))
+    shared = forms.BooleanField(label=_("Shared"),
+                                initial=False, required=False)
 
     @classmethod
     def _instantiate(cls, request, *args, **kwargs):
@@ -52,7 +52,8 @@ class CreateNetwork(forms.SelfHandlingForm):
         try:
             network = api.quantum.network_create(request,
                                                  name=data['name'],
-                                                 tenant_id=data['tenant_id'])
+                                                 tenant_id=data['tenant_id'],
+                                                 shared=data['shared'])
             msg = _('Network %s was successfully created.') % data['name']
             LOG.debug(msg)
             messages.success(request, msg)
@@ -63,5 +64,26 @@ class CreateNetwork(forms.SelfHandlingForm):
             exceptions.handle(request, msg, redirect=redirect)
 
 
-class UpdateNetwork(user_forms.UpdateNetwork):
+class UpdateNetwork(forms.SelfHandlingForm):
+    name = forms.CharField(label=_("Name"), required=False)
+    tenant_id = forms.CharField(widget=forms.HiddenInput)
+    network_id = forms.CharField(label=_("ID"),
+                                 widget=forms.TextInput(
+                                     attrs={'readonly': 'readonly'}))
+    shared = forms.BooleanField(label=_("Shared"), required=False)
     failure_url = 'horizon:syspanel:networks:index'
+
+    def handle(self, request, data):
+        try:
+            network = api.quantum.network_modify(request, data['network_id'],
+                                                 name=data['name'],
+                                                 shared=data['shared'])
+            msg = _('Network %s was successfully updated.') % data['name']
+            LOG.debug(msg)
+            messages.success(request, msg)
+            return network
+        except:
+            msg = _('Failed to update network %s') % data['name']
+            LOG.info(msg)
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)

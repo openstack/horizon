@@ -34,9 +34,13 @@ INDEX_URL = reverse('horizon:nova:networks:index')
 class NetworkTests(test.TestCase):
     @test.create_stubs({api.quantum: ('network_list',)})
     def test_index(self):
-        api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id) \
-            .AndReturn(self.networks.list())
+        api.quantum.network_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            shared=False).AndReturn(self.networks.list())
+        api.quantum.network_list(
+            IsA(http.HttpRequest),
+            shared=True).AndReturn([])
 
         self.mox.ReplayAll()
 
@@ -48,10 +52,10 @@ class NetworkTests(test.TestCase):
 
     @test.create_stubs({api.quantum: ('network_list',)})
     def test_index_network_list_exception(self):
-        api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id) \
-            .AndRaise(self.exceptions.quantum)
-
+        api.quantum.network_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            shared=False).AndRaise(self.exceptions.quantum)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -71,6 +75,8 @@ class NetworkTests(test.TestCase):
             .AndReturn([self.subnets.first()])
         api.quantum.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        api.quantum.network_get(IsA(http.HttpRequest), network_id)\
+            .AndReturn(self.networks.first())
 
         self.mox.ReplayAll()
 
@@ -90,11 +96,6 @@ class NetworkTests(test.TestCase):
         network_id = self.networks.first().id
         api.quantum.network_get(IsA(http.HttpRequest), network_id)\
             .AndRaise(self.exceptions.quantum)
-        api.quantum.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.subnets.first()])
-        api.quantum.port_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.ports.first()])
-
         self.mox.ReplayAll()
 
         url = reverse('horizon:nova:networks:detail', args=[network_id])
@@ -114,6 +115,9 @@ class NetworkTests(test.TestCase):
             AndRaise(self.exceptions.quantum)
         api.quantum.port_list(IsA(http.HttpRequest), network_id=network_id).\
             AndReturn([self.ports.first()])
+        # Called from SubnetTable
+        api.quantum.network_get(IsA(http.HttpRequest), network_id).\
+            AndReturn(self.networks.first())
 
         self.mox.ReplayAll()
 
@@ -137,6 +141,9 @@ class NetworkTests(test.TestCase):
             AndReturn([self.subnets.first()])
         api.quantum.port_list(IsA(http.HttpRequest), network_id=network_id).\
             AndRaise(self.exceptions.quantum)
+        # Called from SubnetTable
+        api.quantum.network_get(IsA(http.HttpRequest), network_id).\
+            AndReturn(self.networks.first())
 
         self.mox.ReplayAll()
 
@@ -402,8 +409,12 @@ class NetworkTests(test.TestCase):
     def test_delete_network_no_subnet(self):
         network = self.networks.first()
         api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=network.tenant_id)\
+                                 tenant_id=network.tenant_id,
+                                 shared=False)\
             .AndReturn([network])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True)\
+            .AndReturn([])
         api.quantum.subnet_list(IsA(http.HttpRequest), network_id=network.id)\
             .AndReturn([])
         api.quantum.network_delete(IsA(http.HttpRequest), network.id)
@@ -423,8 +434,11 @@ class NetworkTests(test.TestCase):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=network.tenant_id)\
+                                 tenant_id=network.tenant_id,
+                                 shared=False)\
             .AndReturn([network])
+        api.quantum.network_list(IsA(http.HttpRequest), shared=True)\
+            .AndReturn([])
         api.quantum.subnet_list(IsA(http.HttpRequest), network_id=network.id)\
             .AndReturn([subnet])
         api.quantum.subnet_delete(IsA(http.HttpRequest), subnet.id)
@@ -445,8 +459,12 @@ class NetworkTests(test.TestCase):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.quantum.network_list(IsA(http.HttpRequest),
-                                 tenant_id=network.tenant_id)\
+                                 tenant_id=network.tenant_id,
+                                 shared=False)\
             .AndReturn([network])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True)\
+            .AndReturn([])
         api.quantum.subnet_list(IsA(http.HttpRequest), network_id=network.id)\
             .AndReturn([subnet])
         api.quantum.subnet_delete(IsA(http.HttpRequest), subnet.id)
@@ -686,6 +704,7 @@ class NetworkTests(test.TestCase):
 
     @test.create_stubs({api.quantum: ('subnet_delete',
                                       'subnet_list',
+                                      'network_get',
                                       'port_list',)})
     def test_subnet_delete(self):
         subnet = self.subnets.first()
@@ -693,8 +712,13 @@ class NetworkTests(test.TestCase):
         api.quantum.subnet_delete(IsA(http.HttpRequest), subnet.id)
         api.quantum.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.subnets.first()])
+        api.quantum.network_get(IsA(http.HttpRequest), network_id)\
+            .AndReturn(self.networks.first())
         api.quantum.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        # Called from SubnetTable
+        api.quantum.network_get(IsA(http.HttpRequest), network_id)\
+            .AndReturn(self.networks.first())
         self.mox.ReplayAll()
 
         formData = {'action': 'subnets__delete__%s' % subnet.id}
@@ -706,16 +730,22 @@ class NetworkTests(test.TestCase):
 
     @test.create_stubs({api.quantum: ('subnet_delete',
                                       'subnet_list',
+                                      'network_get',
                                       'port_list',)})
-    def test_subnet_delete_exception(self):
+    def test_subnet_delete_excceeption(self):
         subnet = self.subnets.first()
         network_id = subnet.network_id
         api.quantum.subnet_delete(IsA(http.HttpRequest), subnet.id)\
             .AndRaise(self.exceptions.quantum)
         api.quantum.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.subnets.first()])
+        api.quantum.network_get(IsA(http.HttpRequest), network_id)\
+            .AndReturn(self.networks.first())
         api.quantum.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        # Called from SubnetTable
+        api.quantum.network_get(IsA(http.HttpRequest), network_id)\
+            .AndReturn(self.networks.first())
         self.mox.ReplayAll()
 
         formData = {'action': 'subnets__delete__%s' % subnet.id}

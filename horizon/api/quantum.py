@@ -50,7 +50,8 @@ class QuantumAPIDictWrapper(APIDictWrapper):
 
 class Network(QuantumAPIDictWrapper):
     """Wrapper for quantum Networks"""
-    _attrs = ['name', 'id', 'subnets', 'tenant_id', 'status', 'admin_state_up']
+    _attrs = ['name', 'id', 'subnets', 'tenant_id', 'status',
+              'admin_state_up', 'shared']
 
     def __init__(self, apiresource):
         apiresource['admin_state'] = \
@@ -108,6 +109,27 @@ def network_list(request, **params):
     for n in networks:
         n['subnets'] = [subnet_dict[s] for s in n['subnets']]
     return [Network(n) for n in networks]
+
+
+def network_list_for_tenant(request, tenant_id, **params):
+    """Return a network list available for the tenant.
+    The list contains networks owned by the tenant and public networks.
+    If requested_networks specified, it searches requested_networks only.
+    """
+    LOG.debug("network_list_for_tenant(): tenant_id=%s, params=%s"
+              % (tenant_id, params))
+
+    # If a user has admin role, network list returned by Quantum API
+    # contains networks that do not belong to that tenant.
+    # So we need to specify tenant_id when calling network_list().
+    networks = network_list(request, tenant_id=tenant_id,
+                            shared=False, **params)
+
+    # In the current Quantum API, there is no way to retrieve
+    # both owner networks and public networks in a single API call.
+    networks += network_list(request, shared=True, **params)
+
+    return networks
 
 
 def network_get(request, network_id, **params):
