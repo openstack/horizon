@@ -206,6 +206,18 @@ def error_color(msg):
     return termcolors.colorize(msg, **PALETTE['ERROR'])
 
 
+def check_message(keywords, message):
+    """
+    Checks an exception for given keywords and raises a new ``ActionError``
+    with the desired message if the keywords are found. This allows selective
+    control over API error messages.
+    """
+    exc_type, exc_value, exc_traceback = sys.exc_info()
+    if set(str(exc_value).split(" ")).issuperset(set(keywords)):
+        exc_value._safe_message = message
+        raise
+
+
 def handle(request, message=None, redirect=None, ignore=False,
            escalate=False, log_level=None, force_log=None):
     """ Centralized error handling for Horizon.
@@ -254,6 +266,9 @@ def handle(request, message=None, redirect=None, ignore=False,
     # We trust messages from our own exceptions
     if issubclass(exc_type, HorizonException):
         message = exc_value
+    # Check for an override message
+    elif getattr(exc_value, "_safe_message", None):
+        message = exc_value._safe_message
     # If the message has a placeholder for the exception, fill it in
     elif message and "%(exc)s" in message:
         message = message % {"exc": exc_value}
