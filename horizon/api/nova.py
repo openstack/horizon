@@ -551,9 +551,9 @@ def volume_delete(request, volume_id):
 
 
 def volume_attach(request, volume_id, instance_id, device):
-    novaclient(request).volumes.create_server_volume(instance_id,
-                                                     volume_id,
-                                                     device)
+    return novaclient(request).volumes.create_server_volume(instance_id,
+                                                            volume_id,
+                                                            device)
 
 
 def volume_detach(request, instance_id, att_id):

@@ -170,16 +170,16 @@ class AttachForm(forms.SelfHandlingForm):
         # it, so let's slice that off...
         instance_name = instance_name.rsplit(" (")[0]
         try:
-            api.volume_attach(request,
-                              data['volume_id'],
-                              data['instance'],
-                              data.get('device', ''))
+            vol = api.volume_attach(request,
+                                    data['volume_id'],
+                                    data['instance'],
+                                    data.get('device', ''))
             vol_name = api.volume_get(request, data['volume_id']).display_name
 
             message = _('Attaching volume %(vol)s to instance '
                          '%(inst)s on %(dev)s.') % {"vol": vol_name,
                                                     "inst": instance_name,
-                                                    "dev": data['device']}
+                                                    "dev": vol.device}
             messages.info(request, message)
             return True
         except:
