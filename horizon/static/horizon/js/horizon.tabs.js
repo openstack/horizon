@@ -24,6 +24,11 @@ horizon.tabs.load_tab = function (evt) {
 horizon.addInitFunction(function () {
   var data = horizon.cookies.read('tabs');
 
+  $(".tab-content").find(".js-tab-pane").addClass("tab-pane");
+  horizon.modals.addModalInitFunction(function (el) {
+    $(el).find(".js-tab-pane").addClass("tab-pane");
+  });
+
   $(document).on("show", ".ajax-tabs a[data-loaded='false']", horizon.tabs.load_tab);
 
   $(document).on("shown", ".nav-tabs a[data-toggle='tab']", function (evt) {

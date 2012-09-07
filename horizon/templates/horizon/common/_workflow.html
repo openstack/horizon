@@ -12,15 +12,18 @@
       <ul class="nav nav-tabs">
         {% for step in workflow.steps %}
         <li class="{% if entry_point == step.slug %}active{% endif %}{% if step.has_errors %} error{% endif %}">
-          <a data-toggle="tab" data-target="#{{ step.get_id }}">{{ step }}</a>
+          <a href="#{{ step.get_id }}" data-toggle="tab" data-target="#{{ step.get_id }}">{{ step }}</a>
         </li>
         {% endfor %}
       </ul>
       <div class="tab-content">
         {% for step in workflow.steps %}
-        <fieldset id="{{ step.get_id }}" class="tab-pane{% if entry_point == step.slug %} active{% endif %}">
-          {{ step.render }}
-        </fieldset>
+          <fieldset id="{{ step.get_id }}" class="js-tab-pane{% if entry_point == step.slug %} active{% endif %}">
+            {{ step.render }}
+          </fieldset>
+          {% if not forloop.last %}
+            <noscript><hr /></noscript>
+          {% endif %}
         {% endfor %}
       </div>
     {% endblock %}
