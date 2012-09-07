@@ -49,6 +49,20 @@ python path notation. Example::
         "customization_module": "my_project.overrides"
     }
 
+You can do essentially anything you like in the customization module. For
+example, you could change the name of a panel::
+
+    from django.utils.translation import ugettext_lazy as _
+
+    import horizon
+
+    # Rename "OpenStack Credentials" to "OS Credentials"
+    settings = horizon.get_dashboard("settings")
+    project_panel = settings.get_panel("project")
+    project_panel.name = _("OS Credentials")
+
+Other common options might include removing default panels, adding or
+changing permissions on panels and dashboards, etc.
 
 Button Icons
 ============
