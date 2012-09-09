@@ -513,12 +513,16 @@ class BatchAction(Action):
                 self.success_ids.append(datum_id)
                 LOG.info('%s: "%s"' %
                          (self._conjugate(past=True), datum_display))
-            except:
+            except Exception, ex:
                 # Handle the exception but silence it since we'll display
                 # an aggregate error message later. Otherwise we'd get
                 # multiple error messages displayed to the user.
-                exceptions.handle(request, ignore=True)
-                action_failure.append(datum_display)
+                if getattr(ex, "_safe_message", None):
+                    ignore = False
+                else:
+                    ignore = True
+                    action_failure.append(datum_display)
+                exceptions.handle(request, ignore=ignore)
 
         #Begin with success message class, downgrade to info if problems
         success_message_level = messages.success

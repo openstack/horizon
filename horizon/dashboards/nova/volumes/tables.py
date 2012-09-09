@@ -37,7 +37,15 @@ class DeleteVolume(tables.DeleteAction):
     data_type_plural = _("Volumes")
 
     def delete(self, request, obj_id):
-        api.volume_delete(request, obj_id)
+        obj = self.table.get_object_by_id(obj_id)
+        name = self.table.get_object_display(obj)
+        try:
+            api.volume_delete(request, obj_id)
+        except:
+            msg = _('Unable to delete volume "%s". One or more snapshots '
+                    'depend on it.')
+            exceptions.check_message(["snapshots", "dependent"], msg % name)
+            raise
 
     def allowed(self, request, volume=None):
         if volume:
