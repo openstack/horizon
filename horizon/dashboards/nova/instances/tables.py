@@ -277,6 +277,7 @@ class InstancesTable(tables.DataTable):
     )
     STATUS_CHOICES = (
         ("active", True),
+        ("shutoff", True),
         ("suspended", True),
         ("paused", True),
         ("error", False),
