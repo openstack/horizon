@@ -106,6 +106,15 @@ Some of the general areas of improvement include:
 Known Issues and Limitations
 ============================
 
+Floating IPs and Quantum
+------------------------
+
+Due to the very late addition of floating IP support in Quantum, Nova's
+integration there is lacking, so floating IP-related API calls to Nova will
+fail when your OpenStack deployment uses Quantum for networking. This means
+that Horizon actions such as "allocate" and "associate" floating IPs will
+not work either since they rely on the underlying APIs.
+
 Pagination
 ----------
 
