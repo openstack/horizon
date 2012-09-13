@@ -7,7 +7,7 @@ python-glanceclient<2
 python-keystoneclient
 python-novaclient
 python-quantumclient>=2.0
-python-swiftclient>1.1,<1.2
+python-swiftclient>1.1,<2
 pytz
 
 # Horizon Utility Requirements
