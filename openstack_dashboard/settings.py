@@ -138,13 +138,18 @@ SESSION_COOKIE_SECURE = False
 
 gettext_noop = lambda s: s
 LANGUAGES = (
+    ('bg', gettext_noop('Bulgarian (Bulgaria)')),
+    ('cs', gettext_noop('Czech')),
     ('en', gettext_noop('English')),
-    ('it', gettext_noop('Italiano')),
     ('es', gettext_noop('Spanish')),
     ('fr', gettext_noop('French')),
+    ('it', gettext_noop('Italiano')),
     ('ja', gettext_noop('Japanese')),
-    ('pt', gettext_noop('Portuguese')),
+    ('ko', gettext_noop('Korean (Korea)')),
+    ('nl', gettext_noop('Dutch (Netherlands)')),
     ('pl', gettext_noop('Polish')),
+    ('pt', gettext_noop('Portuguese')),
+    ('pt-br', gettext_noop('Portuguese (Brazil)')),
     ('zh-cn', gettext_noop('Simplified Chinese')),
     ('zh-tw', gettext_noop('Traditional Chinese')),
 )

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 01:45+0000\n"
+"POT-Creation-Date: 2012-09-18 22:18+0000\n"
 "PO-Revision-Date: 2012-05-08 00:20+0100\n"
 "Last-Translator: Erwan Gallen <erwan@zinux.com>\n"
 "Language-Team: French <fr@zinux.com>\n"
@@ -17,38 +17,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #: settings.py:141
+msgid "Bulgarian (Bulgaria)"
+msgstr ""
+
+#: settings.py:142
+msgid "Czech"
+msgstr ""
+
+#: settings.py:143
 msgid "English"
 msgstr "Anglais"
 
-#: settings.py:142
-msgid "Italiano"
-msgstr "Italien"
-
-#: settings.py:143
+#: settings.py:144
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: settings.py:144
+#: settings.py:145
 msgid "French"
 msgstr "Français"
 
-#: settings.py:145
+#: settings.py:146
+msgid "Italiano"
+msgstr "Italien"
+
+#: settings.py:147
 msgid "Japanese"
 msgstr "Japonais"
 
-#: settings.py:146
-msgid "Portuguese"
-msgstr "Portugais"
+#: settings.py:148
+msgid "Korean (Korea)"
+msgstr ""
 
-#: settings.py:147
+#: settings.py:149
+msgid "Dutch (Netherlands)"
+msgstr ""
+
+#: settings.py:150
 msgid "Polish"
 msgstr "Polonais"
 
-#: settings.py:148
+#: settings.py:151
+msgid "Portuguese"
+msgstr "Portugais"
+
+#: settings.py:152
+#, fuzzy
+msgid "Portuguese (Brazil)"
+msgstr "Portugais"
+
+#: settings.py:153
 msgid "Simplified Chinese"
 msgstr "Chinois simplifié"
 
-#: settings.py:149
+#: settings.py:154
 msgid "Traditional Chinese"
 msgstr "Chinois traditionnel"
 

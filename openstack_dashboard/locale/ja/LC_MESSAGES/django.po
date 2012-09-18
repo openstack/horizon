@@ -1,89 +1,113 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# Translators:
+# Tomoyuki KATO <tomo@dream.daynight.jp>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 01:45+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2012-09-18 22:18+0000\n"
+"PO-Revision-Date: 2012-08-24 05:18+0000\n"
+"Last-Translator: Tomoyuki KATO <tomo@dream.daynight.jp>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
+"language/ja/)\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: settings.py:141
-msgid "English"
+msgid "Bulgarian (Bulgaria)"
 msgstr ""
 
 #: settings.py:142
-msgid "Italiano"
+msgid "Czech"
 msgstr ""
 
 #: settings.py:143
-msgid "Spanish"
-msgstr ""
+msgid "English"
+msgstr "英語"
 
 #: settings.py:144
-msgid "French"
-msgstr ""
+msgid "Spanish"
+msgstr "スペイン語"
 
 #: settings.py:145
-msgid "Japanese"
-msgstr ""
+msgid "French"
+msgstr "フランス語"
 
 #: settings.py:146
-msgid "Portuguese"
-msgstr ""
+msgid "Italiano"
+msgstr "イタリア語"
 
 #: settings.py:147
-msgid "Polish"
-msgstr ""
+msgid "Japanese"
+msgstr "日本語"
 
 #: settings.py:148
-msgid "Simplified Chinese"
+msgid "Korean (Korea)"
 msgstr ""
 
 #: settings.py:149
-msgid "Traditional Chinese"
+msgid "Dutch (Netherlands)"
 msgstr ""
+
+#: settings.py:150
+msgid "Polish"
+msgstr "ポーランド語"
+
+#: settings.py:151
+msgid "Portuguese"
+msgstr "ポルトガル語"
+
+#: settings.py:152
+#, fuzzy
+msgid "Portuguese (Brazil)"
+msgstr "ポルトガル語"
+
+#: settings.py:153
+msgid "Simplified Chinese"
+msgstr "簡体字中国語"
+
+#: settings.py:154
+msgid "Traditional Chinese"
+msgstr "繁体字中国語"
 
 #: templates/403.html:4 templates/403.html.py:9
 msgid "Forbidden"
-msgstr ""
+msgstr "権限がありません"
 
 #: templates/403.html:20 templates/404.html:19 templates/500.html:19
 msgid "Home"
-msgstr ""
+msgstr "ホーム"
 
 #: templates/403.html:24 templates/404.html:23 templates/500.html:23
 msgid "Projects"
-msgstr ""
+msgstr "プロジェクト"
 
 #: templates/404.html:4
 msgid "Page Not Found"
-msgstr ""
+msgstr "ページが見つかりませんでした"
 
 #: templates/404.html:9
 msgid "The page you were looking for doesn't exist"
-msgstr ""
+msgstr "お探しのページが見つかりません"
 
 #: templates/404.html:10
 msgid "You may have mistyped the address or the page may have moved."
-msgstr ""
+msgstr "アドレスを入力ミスしたか、またはページが移動しました"
 
 #: templates/500.html:4 templates/500.html.py:9
 msgid "Internal Server Error"
-msgstr ""
+msgstr "内部サーバーエラー"
 
 #: templates/500.html:10
 msgid ""
 "An unexpected error occurred while processing your request.  Please try your "
 "request again."
 msgstr ""
+"リクエストの処理中に予期しないエラーが発生しました。再びリクエストを試行して"
+"ください。"
