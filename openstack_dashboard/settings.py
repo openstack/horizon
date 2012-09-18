@@ -53,7 +53,7 @@ ROOT_URLCONF = 'openstack_dashboard.urls'
 HORIZON_CONFIG = {
     'dashboards': ('nova', 'syspanel', 'settings',),
     'default_dashboard': 'nova',
-    'user_home': 'horizon.views.user_home',
+    'user_home': 'horizon.views.base.get_user_home',
     'ajax_queue_limit': 10,
     'help_url': "http://docs.openstack.org",
     'exceptions': {'recoverable': exceptions.RECOVERABLE,
