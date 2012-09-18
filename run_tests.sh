@@ -23,6 +23,7 @@ function usage {
   echo "                           been added."
   echo "  -m, --manage             Run a Django management command."
   echo "  --makemessages           Update all translation files."
+  echo "  --compilemessages        Compile all translation files."
   echo "  -p, --pep8               Just run pep8"
   echo "  -t, --tabs               Check for tab characters in files."
   echo "  -y, --pylint             Just run pylint"
@@ -71,6 +72,7 @@ with_selenium=0
 testargs=""
 with_coverage=0
 makemessages=0
+compilemessages=0
 manage=0
 
 # Jenkins sets a "JOB_NAME" variable, if it's not set, we'll make it "default"
@@ -89,6 +91,7 @@ function process_option {
     -c|--coverage) with_coverage=1;;
     -m|--manage) manage=1;;
     --makemessages) makemessages=1;;
+    --compilemessages) compilemessages=1;;
     --only-selenium) only_selenium=1;;
     --with-selenium) with_selenium=1;;
     --docs) just_docs=1;;
@@ -318,6 +321,17 @@ function run_makemessages {
   exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT))
 }
 
+function run_compilemessages {
+  cd horizon
+  ${command_wrapper} $root/manage.py compilemessages
+  HORIZON_PY_RESULT=$?
+  cd ../openstack_dashboard
+  ${command_wrapper} $root/manage.py compilemessages
+  DASHBOARD_RESULT=$?
+  cd ..
+  exit $(($HORIZON_PY_RESULT || $DASHBOARD_RESULT))
+}
+
 
 # ---------PREPARE THE ENVIRONMENT------------ #
 
@@ -376,6 +390,12 @@ fi
 # Update translation files
 if [ $makemessages -eq 1 ]; then
     run_makemessages
+    exit $?
+fi
+
+# Compile translation files
+if [ $compilemessages -eq 1 ]; then
+    run_compilemessages
     exit $?
 fi
 
