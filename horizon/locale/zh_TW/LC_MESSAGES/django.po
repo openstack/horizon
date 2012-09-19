@@ -1,37 +1,38 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# Translators:
+# Chao-Hsiung Liao <pesder@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 01:45+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Andy Chong <andycjw@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: Chinese Traditional\n"
+"POT-Creation-Date: 2012-09-18 22:18+0000\n"
+"PO-Revision-Date: 2012-08-18 09:21+0000\n"
+"Last-Translator: Chao-Hsiung Liao <pesder@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/"
+"openstack/language/zh_TW/)\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: base.py:437
 msgid "Other"
 msgstr "其它"
 
 #: decorators.py:56
-#, fuzzy
 msgid "Please log in to continue."
-msgstr "無法列出容器。"
+msgstr "請登入以繼續。"
 
 #: decorators.py:87
 #, python-format
 msgid "You are not authorized to access %s"
 msgstr "您的權限不足 無法查看%s"
 
-#: exceptions.py:270
+#: exceptions.py:285
 msgid "Unauthorized. Please try logging in again."
 msgstr "權限不足。 請重新登入。"
 
@@ -50,22 +51,22 @@ msgstr "允许 %(from)s:%(to)s 從群組%(group)s的連線"
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "允许 %(from)s:%(to)s 從網段%(cidr)s的連線"
 
-#: api/nova.py:526
+#: api/nova.py:530
 msgid "Unknown instance"
-msgstr ""
+msgstr "不明的個體"
 
 #: api/swift.py:216
 msgid "Unicode is not currently supported for object copy."
 msgstr "目前並不支援Unicode的物件複製。"
 
-#: browsers/base.py:65
+#: browsers/base.py:90
 msgid "Navigation Item"
-msgstr ""
+msgstr "導覽項目"
 
-#: browsers/views.py:44
-#, fuzzy, python-format
+#: browsers/views.py:42
+#, python-format
 msgid "Select a %s to browse."
-msgstr "選擇專案"
+msgstr "選擇要瀏覽的 %s。"
 
 #: dashboards/nova/dashboard.py:24
 msgid "Manage Compute"
@@ -76,14 +77,14 @@ msgid "Object Store"
 msgstr "物件儲存"
 
 #: dashboards/nova/dashboard.py:40 dashboards/nova/instances/workflows.py:37
-#: dashboards/syspanel/networks/forms.py:37
-#: dashboards/syspanel/networks/tables.py:66
+#: dashboards/syspanel/networks/forms.py:35
+#: dashboards/syspanel/networks/tables.py:67
 #: dashboards/syspanel/projects/tables.py:65 tests/workflows_tests.py:39
 msgid "Project"
 msgstr "專案"
 
 #: dashboards/nova/access_and_security/panel.py:25
-#: dashboards/nova/instances/workflows.py:345
+#: dashboards/nova/instances/workflows.py:347
 msgid "Access & Security"
 msgstr "存取 & 安全性"
 
@@ -98,13 +99,12 @@ msgstr "無法取得安全性群組"
 
 #: dashboards/nova/access_and_security/views.py:68
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:48
-#, fuzzy
 msgid "Unable to retrieve floating IP addresses."
-msgstr "無法取得映像。"
+msgstr "無法取回浮動 IP 位址。"
 
 #: dashboards/nova/access_and_security/views.py:75
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:64
-#: dashboards/syspanel/instances/views.py:58
+#: dashboards/syspanel/instances/views.py:46
 msgid "Unable to retrieve instance list."
 msgstr "無法取得執行個體列表"
 
@@ -113,9 +113,9 @@ msgid "Pool"
 msgstr "储备池"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:42
-#, fuzzy, python-format
+#, python-format
 msgid "Allocated Floating IP %(ip)s."
-msgstr "分配浮動IP"
+msgstr "分配的浮動 IP %(ip)s。"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:46
 msgid "Unable to allocate Floating IP."
@@ -139,7 +139,7 @@ msgid "Floating IP"
 msgstr "浮動IP"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:49
-#: dashboards/nova/access_and_security/floating_ips/tables.py:132
+#: dashboards/nova/access_and_security/floating_ips/tables.py:127
 #: dashboards/syspanel/projects/workflows.py:45
 msgid "Floating IPs"
 msgstr "浮動IP"
@@ -147,13 +147,13 @@ msgstr "浮動IP"
 #: dashboards/nova/access_and_security/floating_ips/tables.py:58
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/associate.html:3
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/associate.html:6
-#: dashboards/nova/instances/tables.py:202
+#: dashboards/nova/instances/tables.py:219
 msgid "Associate Floating IP"
-msgstr "配給IP"
+msgstr "配給浮動IP"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:75
 msgid "Disassociate Floating IP"
-msgstr "釋放IP"
+msgstr "解除浮動 IP 關聯"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:89
 #, python-format
@@ -164,37 +164,31 @@ msgstr "已成功釋放浮動IP： %s"
 msgid "Unable to disassociate floating IP."
 msgstr "無法釋放浮動IP。"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:98
-#, python-format
-msgid "%(INSTANCE_NAME)s (%(INSTANCE_ID)s)"
-msgstr ""
-
-#: dashboards/nova/access_and_security/floating_ips/tables.py:115
+#: dashboards/nova/access_and_security/floating_ips/tables.py:110
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:31
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:38
-#: dashboards/nova/instances/tables.py:270
-#: dashboards/syspanel/instances/tables.py:74
+#: dashboards/nova/instances/tables.py:291
+#: dashboards/syspanel/instances/tables.py:71
 msgid "IP Address"
 msgstr "IP位址"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:118
+#: dashboards/nova/access_and_security/floating_ips/tables.py:113
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:35
-#: dashboards/nova/instances/tables.py:62
-#: dashboards/nova/instances/tables.py:79
-#: dashboards/nova/instances/tables.py:94
-#: dashboards/nova/instances/tables.py:122
-#: dashboards/nova/volumes/tables.py:197 tests/workflows_tests.py:58
+#: dashboards/nova/instances/tables.py:69
+#: dashboards/nova/instances/tables.py:89
+#: dashboards/nova/instances/tables.py:106
+#: dashboards/nova/instances/tables.py:135
+#: dashboards/nova/volumes/tables.py:205 tests/workflows_tests.py:58
 msgid "Instance"
 msgstr "執行個體"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:121
+#: dashboards/nova/access_and_security/floating_ips/tables.py:116
 msgid "Floating IP Pool"
 msgstr "浮動IP集"
 
 #: dashboards/nova/access_and_security/floating_ips/views.py:64
-#, fuzzy
 msgid "Unable to retrieve floating IP pools."
-msgstr "無法取得映像。"
+msgstr ""
 
 #: dashboards/nova/access_and_security/floating_ips/views.py:67
 msgid "No floating IP pools available."
@@ -202,46 +196,43 @@ msgstr "沒有任何存在的浮動IP集"
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:39
 msgid "Select the IP address you wish to associate with the selected instance."
-msgstr ""
+msgstr "選擇您希望選取的個體關聯的 IP 位址。"
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:52
-#, fuzzy
 msgid "Select an IP address"
-msgstr "選擇專案"
+msgstr "選擇 IP 位址"
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:54
-#, fuzzy
 msgid "No IP addresses available"
-msgstr "沒有可用的執行個體"
+msgstr "沒有 IP 位址可用"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:81
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:75
 #: dashboards/nova/volumes/forms.py:160
 msgid "Select an instance"
 msgstr "選擇一個執行個體"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:83
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:77
 #: dashboards/nova/volumes/forms.py:162
 msgid "No instances available"
 msgstr "沒有可用的執行個體"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:102
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:96
 msgid "Manage Floating IP Associations"
-msgstr ""
+msgstr "管理浮動 IP 關聯"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:103
-#, fuzzy
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:97
 msgid "Associate"
-msgstr "配給IP"
+msgstr "關聯"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:104
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:98
 #, python-format
 msgid "IP address %s associated."
-msgstr ""
+msgstr "IP 位址 %s 已關聯。"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:105
-#, fuzzy, python-format
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:99
+#, python-format
 msgid "Unable to associate IP address %s."
-msgstr "無法配給浮動IP"
+msgstr "無法關聯 IP 位址 %s。"
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:38
 #: dashboards/nova/access_and_security/keypairs/forms.py:49
@@ -264,13 +255,12 @@ msgid "Successfully imported public key: %s"
 msgstr "已成功匯入公鑰： %s"
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:65
-#, fuzzy
 msgid "Unable to import keypair."
-msgstr "無法取得金鑰。"
+msgstr "無法匯入金鑰。"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:29
-#: dashboards/nova/instances/tables.py:274
-#: dashboards/nova/instances/workflows.py:332
+#: dashboards/nova/instances/tables.py:295
+#: dashboards/nova/instances/workflows.py:334
 msgid "Keypair"
 msgstr "金鑰"
 
@@ -307,21 +297,23 @@ msgstr "無法建立金鑰： %(exc)s"
 #: dashboards/nova/images_and_snapshots/images/forms.py:39
 #: dashboards/nova/images_and_snapshots/images/forms.py:114
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:9
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:63
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:10
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:76
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:9
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:9
-#: dashboards/nova/networks/forms.py:36 dashboards/nova/networks/tables.py:82
+#: dashboards/nova/networks/forms.py:36 dashboards/nova/networks/tables.py:93
 #: dashboards/nova/networks/ports/tables.py:40
 #: dashboards/nova/networks/subnets/forms.py:42
 #: dashboards/nova/networks/subnets/forms.py:101
-#: dashboards/nova/networks/subnets/tables.py:69
+#: dashboards/nova/networks/subnets/tables.py:81
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:7
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:9
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:9
-#: dashboards/nova/volumes/tables.py:135 dashboards/nova/volumes/tables.py:155
+#: dashboards/nova/volumes/tables.py:143 dashboards/nova/volumes/tables.py:163
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:9
 #: dashboards/syspanel/flavors/forms.py:35
-#: dashboards/syspanel/networks/forms.py:35
+#: dashboards/syspanel/networks/forms.py:33
+#: dashboards/syspanel/networks/forms.py:68
 #: dashboards/syspanel/networks/ports/forms.py:39
 #: dashboards/syspanel/networks/ports/forms.py:71
 #: dashboards/syspanel/networks/ports/tables.py:73
@@ -341,10 +333,11 @@ msgstr "名稱"
 #: dashboards/nova/containers/templates/containers/_copy.html:16
 #: dashboards/nova/containers/templates/containers/_create.html:16
 #: dashboards/nova/containers/templates/containers/_upload.html:17
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:15
 #: dashboards/nova/networks/templates/networks/_create.html:16
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:17
 #: dashboards/nova/volumes/forms.py:28 dashboards/nova/volumes/forms.py:195
-#: dashboards/nova/volumes/tables.py:138
+#: dashboards/nova/volumes/tables.py:146
 #: dashboards/nova/volumes/templates/volumes/_create.html:18
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:17
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:14
@@ -367,9 +360,9 @@ msgid "Description"
 msgstr "敘述"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:45
-#, fuzzy, python-format
+#, python-format
 msgid "Successfully created security group: %s"
-msgstr "已成功建立安全性群組： %s"
+msgstr "成功的建立安全性群組：%s"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:51
 msgid "Unable to create security group."
@@ -382,7 +375,7 @@ msgstr "IP協定"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:60
 msgid "The protocol which this rule should be applied to."
-msgstr ""
+msgstr "這個規則要套用的協定。"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:64
 #: dashboards/nova/access_and_security/security_groups/forms.py:70
@@ -423,41 +416,41 @@ msgstr "代號"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:83
 msgid "Source Group"
-msgstr "安全性群組"
+msgstr "來源群組"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:85
 msgid ""
 "To specify an allowed IP range, select CIDR. To allow access from all "
 "members of another security group select Source Group."
 msgstr ""
+"要指定允許的 IP 範圍，請選擇 CIDR。要允許從另一個安全性群組的所有成員的存取，"
+"請選擇安全性群組。"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:90
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:15
 #: dashboards/syspanel/networks/subnets/tables.py:71
 msgid "CIDR"
-msgstr ""
+msgstr "CIDR"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:93
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Classless Inter-Domain Routing （例如192.168.0.0/24）"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:120
-#, fuzzy
 msgid "The ICMP type is invalid."
-msgstr "\"到端口\"不符合條件"
+msgstr "ICMP 類型是無效的。"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:123
-#, fuzzy
 msgid "The ICMP code is invalid."
-msgstr "\"到端口\"不符合條件"
+msgstr "ICMP 代碼是無效的。"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:126
 msgid "The ICMP type not in range (-1, 255)"
-msgstr ""
+msgstr "ICMP 類型不在範圍中 (-1, 255)"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:129
 msgid "The ICMP code not in range (-1, 255)"
-msgstr ""
+msgstr "ICMP 代碼不在範圍中 (-1, 255)"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:133
 msgid "The \"from\" port number is invalid."
@@ -483,9 +476,8 @@ msgid "Successfully added rule: %s"
 msgstr "已成功新增規則： %s"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:172
-#, fuzzy
 msgid "Unable to add rule to security group."
-msgstr "無法建立安全性群組"
+msgstr "無法加入規則到安全性群組。"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:30
 msgid "Security Group"
@@ -493,7 +485,7 @@ msgstr "安全性群組"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:31
 #: dashboards/nova/access_and_security/security_groups/tables.py:65
-#: dashboards/nova/instances/workflows.py:337
+#: dashboards/nova/instances/workflows.py:339
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:49
 msgid "Security Groups"
 msgstr "安全性群組"
@@ -532,7 +524,7 @@ msgstr "無法取得安全性群組"
 #: dashboards/nova/access_and_security/security_groups/views.py:78
 #, python-format
 msgid "%s (current)"
-msgstr ""
+msgstr "%s (目前的)"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/index.html:6
 msgid "Access &amp; Security"
@@ -610,7 +602,7 @@ msgstr "分配IP"
 #: dashboards/syspanel/projects/templates/projects/_update.html:24
 #: dashboards/syspanel/users/templates/users/_create.html:23
 #: dashboards/syspanel/users/templates/users/_update.html:23
-#: templates/horizon/common/_workflow.html:30
+#: templates/horizon/common/_workflow.html:33
 msgid "Cancel"
 msgstr "取消"
 
@@ -662,11 +654,10 @@ msgstr "新增規則"
 
 #: dashboards/nova/containers/browsers.py:30
 msgid "Swift"
-msgstr ""
+msgstr "Swift"
 
 #: dashboards/nova/containers/browsers.py:33
 #: dashboards/nova/containers/tables.py:39
-#: dashboards/nova/containers/templates/containers/index.html:7
 msgid "Container"
 msgstr "容器"
 
@@ -684,9 +675,8 @@ msgid "Container created successfully."
 msgstr "容器已成功建立"
 
 #: dashboards/nova/containers/forms.py:68
-#, fuzzy
 msgid "Folder created successfully."
-msgstr "容器已成功建立"
+msgstr "資料夾已成功建立。"
 
 #: dashboards/nova/containers/forms.py:71
 msgid "Unable to create container."
@@ -725,11 +715,12 @@ msgstr "無法複製物件"
 #: dashboards/nova/containers/forms.py:153
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr ""
+msgstr "複製 \"%(orig)s\" 到 \"%(dest)s\" 成為 \"%(new)s\"。"
 
 #: dashboards/nova/containers/panel.py:28
 #: dashboards/nova/containers/tables.py:40
 #: dashboards/nova/containers/tables.py:127
+#: dashboards/nova/containers/templates/containers/index.html:7
 msgid "Containers"
 msgstr "容器"
 
@@ -741,9 +732,8 @@ msgid "Create Container"
 msgstr "建立容器"
 
 #: dashboards/nova/containers/tables.py:68
-#, fuzzy
 msgid "View Container"
-msgstr "容器"
+msgstr "檢視容器"
 
 #: dashboards/nova/containers/tables.py:80
 #: dashboards/nova/containers/templates/containers/_upload.html:23
@@ -764,11 +754,11 @@ msgstr "物件"
 
 #: dashboards/nova/containers/tables.py:148
 msgid "Folder"
-msgstr ""
+msgstr "資料夾"
 
 #: dashboards/nova/containers/tables.py:149
 msgid "Folders"
-msgstr ""
+msgstr "資料夾"
 
 #: dashboards/nova/containers/tables.py:162
 msgid "Copy"
@@ -779,16 +769,16 @@ msgid "Download"
 msgstr "下載"
 
 #: dashboards/nova/containers/tables.py:231
-#, fuzzy
 msgid "Create Folder"
-msgstr "建立規格"
+msgstr "建立資料夾"
 
 #: dashboards/nova/containers/tables.py:255
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:30
-#: dashboards/nova/instances/tables.py:272
-#: dashboards/nova/volumes/tables.py:141
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:37
+#: dashboards/nova/instances/tables.py:293
+#: dashboards/nova/volumes/tables.py:149
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:26
-#: dashboards/syspanel/instances/tables.py:76
+#: dashboards/syspanel/instances/tables.py:73
 msgid "Size"
 msgstr "大小"
 
@@ -861,33 +851,32 @@ msgstr "上傳物件"
 msgid "Images & Snapshots"
 msgstr "映像 & 快照"
 
-#: dashboards/nova/images_and_snapshots/views.py:61
+#: dashboards/nova/images_and_snapshots/views.py:62
 msgid "Unable to retrieve images."
 msgstr "無法取得映像。"
 
-#: dashboards/nova/images_and_snapshots/views.py:72
+#: dashboards/nova/images_and_snapshots/views.py:73
 msgid "Unable to retrieve snapshots."
 msgstr "無法取得快照。"
 
-#: dashboards/nova/images_and_snapshots/views.py:80
+#: dashboards/nova/images_and_snapshots/views.py:81
 #: dashboards/nova/volumes/forms.py:65
 msgid "Unable to retrieve volume snapshots."
 msgstr "無法取得空間快照"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:41
 msgid "Image Location"
-msgstr ""
+msgstr "映像位置"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:42
 msgid "An external (HTTP) URL to load the image from."
-msgstr ""
+msgstr "用來載入映像的外部 (HTTP) URL。"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:45
 #: dashboards/nova/images_and_snapshots/images/forms.py:129
 #: dashboards/nova/images_and_snapshots/images/tables.py:125
-#, fuzzy
 msgid "Format"
-msgstr "磁碟格式"
+msgstr "格式"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:49
 msgid "AKI - Amazon Kernel Image"
@@ -903,15 +892,15 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:58
 msgid "ISO - Optical Disk Image"
-msgstr ""
+msgstr "ISO - 光碟映像"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:60
 msgid "QCOW2 - QEMU Emulator"
-msgstr ""
+msgstr "QCOW2 - QEMU 模擬器"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:67
 msgid "Minimum Disk (GB)"
-msgstr ""
+msgstr "最小磁碟 (GB)"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:68
 #: dashboards/nova/images_and_snapshots/images/forms.py:75
@@ -919,10 +908,11 @@ msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
+"映像開機所需的最小磁碟容量。如果沒有指定，這個數值預設為 0 (沒有最小值)。"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:74
 msgid "Minimum Ram (MB)"
-msgstr ""
+msgstr "最小記憶體 (MB)"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:81
 #: dashboards/nova/images_and_snapshots/images/forms.py:133
@@ -934,22 +924,21 @@ msgstr "公開"
 #: dashboards/nova/images_and_snapshots/images/forms.py:105
 #, python-format
 msgid "Your image %s has been queued for creation."
-msgstr ""
+msgstr "您的映像 %s 已經排程準備建立。"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:109
-#, fuzzy
 msgid "Unable to create new image."
-msgstr "無法取得映像。"
+msgstr "無法建立新的映像。"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:115
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:48
 msgid "Kernel ID"
-msgstr ""
+msgstr "核心 ID"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:120
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:52
 msgid "Ramdisk ID"
-msgstr ""
+msgstr "Ramdisk ID"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:125
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:44
@@ -967,7 +956,7 @@ msgstr "映像已成功更新"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:33
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:32
-#: dashboards/nova/instances/workflows.py:456
+#: dashboards/nova/instances/workflows.py:454
 msgid "Launch"
 msgstr "啟動"
 
@@ -989,9 +978,8 @@ msgstr "映像"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:60
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:31
-#, fuzzy
 msgid "Create Image"
-msgstr "更新映像"
+msgstr "建立映像"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:67
 #: dashboards/syspanel/users/tables.py:31
@@ -1006,21 +994,23 @@ msgstr "映像名稱"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:118
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:13
-#: dashboards/nova/instances/tables.py:277
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:18
+#: dashboards/nova/instances/tables.py:298
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:13
-#: dashboards/nova/networks/tables.py:86
+#: dashboards/nova/networks/tables.py:99
 #: dashboards/nova/networks/ports/tables.py:44
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:13
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:30
-#: dashboards/nova/volumes/tables.py:145
+#: dashboards/nova/volumes/tables.py:153
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:17
-#: dashboards/syspanel/instances/tables.py:81
-#: dashboards/syspanel/networks/tables.py:71
+#: dashboards/syspanel/instances/tables.py:78
+#: dashboards/syspanel/networks/tables.py:74
 #: dashboards/syspanel/networks/ports/tables.py:77
 msgid "Status"
 msgstr "狀態"
 
 #: dashboards/nova/images_and_snapshots/images/tabs.py:26
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tabs.py:26
 #: dashboards/nova/instances/tabs.py:25
 #: dashboards/nova/networks/ports/tabs.py:29
 #: dashboards/nova/networks/subnets/tabs.py:31
@@ -1038,9 +1028,8 @@ msgid "Unable to retrieve image details."
 msgstr "無法取得執行個體的詳細資料"
 
 #: dashboards/nova/images_and_snapshots/images/views.py:60
-#, fuzzy
 msgid "Unable to retrieve image."
-msgstr "無法取得映像。"
+msgstr "無法取回映像。"
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:36
 msgid "Instance ID"
@@ -1086,13 +1075,12 @@ msgstr "映像 &amp; 快照"
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:7
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/create.html:3
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/create.html:6
-#, fuzzy
 msgid "Create An Image"
-msgstr "更新映像"
+msgstr "建立一個映像"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:18
 msgid "Specify an image to upload to the Image Service."
-msgstr ""
+msgstr "指定要上傳到映像服務的映像。"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:21
 msgid ""
@@ -1103,26 +1091,30 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:24
 msgid "Please note: "
-msgstr ""
+msgstr "請注意："
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:25
+#, fuzzy
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will results in unusable images."
+"URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
+"映像位置欄位必須是有效且直接指向映像檔案的 URL。重新導向式的 URL 或伺服錯誤頁"
+"面都會造成不穩定的映像。"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:3
-#, fuzzy
 msgid "Image Overview"
-msgstr "使用量總覽"
+msgstr "映像總覽"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:6
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:7
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:6
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:6
 msgid "Info"
 msgstr "資訊"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:11
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:12
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:11
 #: dashboards/nova/networks/forms.py:38
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:9
@@ -1130,6 +1122,7 @@ msgstr "資訊"
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:11
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:12
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:11
+#: dashboards/syspanel/networks/forms.py:70
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:12
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:12
 #: dashboards/syspanel/users/forms.py:113
@@ -1141,6 +1134,7 @@ msgid "Checksum"
 msgstr "校驗碼"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:19
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:39
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:28
 msgid "Created"
 msgstr "建立於"
@@ -1150,6 +1144,7 @@ msgid "Updated"
 msgstr "更新於"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:27
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:34
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:19
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:23
 msgid "Specs"
@@ -1205,8 +1200,8 @@ msgstr "映像詳細資料"
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:8
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:23
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/create.html:3
-#: dashboards/nova/instances/tables.py:162
-#: dashboards/nova/volumes/tables.py:67
+#: dashboards/nova/instances/tables.py:179
+#: dashboards/nova/volumes/tables.py:75
 msgid "Create Snapshot"
 msgstr "建立快照"
 
@@ -1214,30 +1209,63 @@ msgstr "建立快照"
 msgid "Snapshots preserve the disk state of a running instance."
 msgstr "快照可保存運作中的執行個體的磁碟內容狀態"
 
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:20
+#: dashboards/nova/instances/workflows.py:74
+#: dashboards/nova/instances/workflows.py:109
+#: dashboards/nova/instances/templates/instances/_detail_overview.html:93
+#: dashboards/nova/volumes/tables.py:36 dashboards/nova/volumes/tables.py:181
+msgid "Volume"
+msgstr "容量"
+
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:38
+#: dashboards/nova/instances/templates/instances/_detail_overview.html:29
+#: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
+#: dashboards/nova/instances/templates/instances/_launch_details_help.html:12
+#: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
+#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:27
+msgid "GB"
+msgstr "GB"
+
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/create.html:6
 msgid "Create a Snapshot"
 msgstr "建立快照"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:32
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:3
+#, fuzzy
+msgid "Volume Snapshot Details"
+msgstr "容量快照"
+
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:6
+#, fuzzy
+msgid "Volume Snapshot Detail"
+msgstr "容量快照"
+
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:33
 #: dashboards/nova/instances/workflows.py:75
 msgid "Volume Snapshot"
 msgstr "容量快照"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:33
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:69
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:34
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:84
 msgid "Volume Snapshots"
 msgstr "容量快照"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:41
-#: dashboards/nova/volumes/tables.py:50
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:42
+#: dashboards/nova/volumes/tables.py:58
 #: dashboards/nova/volumes/templates/volumes/_create.html:8
 #: dashboards/nova/volumes/templates/volumes/_create.html:55
 msgid "Create Volume"
 msgstr "建立容量"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:65
-msgid "Volume ID"
-msgstr "容量ID"
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:79
+#: dashboards/nova/volumes/forms.py:26
+msgid "Volume Name"
+msgstr "儲存區名稱"
+
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tabs.py:40
+#, fuzzy
+msgid "Unable to retrieve snapshot details."
+msgstr "無法取回連接埠詳細資料。"
 
 #: dashboards/nova/instances/forms.py:44
 #, python-format
@@ -1249,110 +1277,111 @@ msgid "Unable to update instance."
 msgstr "無法更新執行個體"
 
 #: dashboards/nova/instances/panel.py:24
-#: dashboards/nova/instances/tables.py:63
-#: dashboards/nova/instances/tables.py:80
-#: dashboards/nova/instances/tables.py:95
-#: dashboards/nova/instances/tables.py:123
-#: dashboards/nova/instances/tables.py:292
+#: dashboards/nova/instances/tables.py:70
+#: dashboards/nova/instances/tables.py:90
+#: dashboards/nova/instances/tables.py:107
+#: dashboards/nova/instances/tables.py:136
+#: dashboards/nova/instances/tables.py:313
 #: dashboards/nova/instances/templates/instances/index.html:3
 #: dashboards/nova/instances/templates/instances/index.html:6
 #: dashboards/syspanel/instances/panel.py:28
-#: dashboards/syspanel/instances/tables.py:96
+#: dashboards/syspanel/instances/tables.py:93
 #: dashboards/syspanel/instances/templates/instances/index.html:3
 #: dashboards/syspanel/projects/workflows.py:38
 msgid "Instances"
 msgstr "執行個體"
 
-#: dashboards/nova/instances/tables.py:60
+#: dashboards/nova/instances/tables.py:67
 msgid "Terminate"
 msgstr "終止執行"
 
-#: dashboards/nova/instances/tables.py:61
+#: dashboards/nova/instances/tables.py:68
 msgid "Scheduled termination of"
-msgstr ""
+msgstr "已排程終止："
 
-#: dashboards/nova/instances/tables.py:77
+#: dashboards/nova/instances/tables.py:87
 msgid "Reboot"
 msgstr "重啟"
 
-#: dashboards/nova/instances/tables.py:78
+#: dashboards/nova/instances/tables.py:88
 msgid "Rebooted"
 msgstr "已重啟"
 
-#: dashboards/nova/instances/tables.py:92
+#: dashboards/nova/instances/tables.py:104
 msgid "Pause"
 msgstr "暫停"
 
-#: dashboards/nova/instances/tables.py:92
+#: dashboards/nova/instances/tables.py:104
 msgid "Unpause"
 msgstr "取消暫停"
 
-#: dashboards/nova/instances/tables.py:93
+#: dashboards/nova/instances/tables.py:105
 msgid "Paused"
 msgstr "已暫停"
 
-#: dashboards/nova/instances/tables.py:93
+#: dashboards/nova/instances/tables.py:105
 msgid "Unpaused"
 msgstr "已取消暫停"
 
-#: dashboards/nova/instances/tables.py:120
+#: dashboards/nova/instances/tables.py:133
 msgid "Suspend"
 msgstr "休眠"
 
-#: dashboards/nova/instances/tables.py:120
+#: dashboards/nova/instances/tables.py:133
 msgid "Resume"
 msgstr "喚醒"
 
-#: dashboards/nova/instances/tables.py:121
+#: dashboards/nova/instances/tables.py:134
 msgid "Suspended"
 msgstr "已休眠"
 
-#: dashboards/nova/instances/tables.py:121
+#: dashboards/nova/instances/tables.py:134
 msgid "Resumed"
 msgstr "已喚醒"
 
-#: dashboards/nova/instances/tables.py:148
-#: dashboards/nova/instances/workflows.py:455
+#: dashboards/nova/instances/tables.py:162
+#: dashboards/nova/instances/workflows.py:453
 #: dashboards/nova/instances/templates/instances/launch.html:3
 #: dashboards/nova/instances/templates/instances/launch.html:6
 msgid "Launch Instance"
 msgstr "啟動執行個體"
 
-#: dashboards/nova/instances/tables.py:155
+#: dashboards/nova/instances/tables.py:169
 #: dashboards/nova/instances/templates/instances/_update.html:7
 msgid "Edit Instance"
 msgstr "編輯執行個體"
 
-#: dashboards/nova/instances/tables.py:172
+#: dashboards/nova/instances/tables.py:189
 msgid "VNC Console"
 msgstr "VNC界面"
 
-#: dashboards/nova/instances/tables.py:187
+#: dashboards/nova/instances/tables.py:204
 msgid "View Log"
 msgstr "檢視記錄檔"
 
-#: dashboards/nova/instances/tables.py:232
-#, fuzzy, python-format
+#: dashboards/nova/instances/tables.py:252
+#, python-format
 msgid "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
-msgstr "%(RAM)s 記憶體 | %(VCPU)s 虛擬處理器 | %(disk)s 磁碟"
+msgstr "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s 磁碟"
 
-#: dashboards/nova/instances/tables.py:239
-#: dashboards/nova/instances/tables.py:246
+#: dashboards/nova/instances/tables.py:259
+#: dashboards/nova/instances/tables.py:266
 msgid "Not available"
 msgstr "不存在"
 
-#: dashboards/nova/instances/tables.py:269
-#: dashboards/syspanel/instances/tables.py:73 usage/tables.py:57
+#: dashboards/nova/instances/tables.py:290
+#: dashboards/nova/instances/workflows.py:175
+#: dashboards/syspanel/instances/tables.py:70 usage/tables.py:57
 msgid "Instance Name"
 msgstr "執行個體名稱"
 
-#: dashboards/nova/instances/tables.py:281
-#: dashboards/syspanel/instances/tables.py:85
+#: dashboards/nova/instances/tables.py:302
+#: dashboards/syspanel/instances/tables.py:82
 msgid "Task"
 msgstr "工作"
 
-#: dashboards/nova/instances/tables.py:288
-#: dashboards/syspanel/instances/tables.py:92
+#: dashboards/nova/instances/tables.py:309
+#: dashboards/syspanel/instances/tables.py:89
 msgid "Power State"
 msgstr "電源狀態"
 
@@ -1367,7 +1396,7 @@ msgstr "無法取得執行個體\"%s\"的記錄檔。"
 
 #: dashboards/nova/instances/tabs.py:54
 msgid "VNC"
-msgstr ""
+msgstr "VNC"
 
 #: dashboards/nova/instances/tabs.py:69 dashboards/nova/instances/views.py:121
 #, python-format
@@ -1379,7 +1408,7 @@ msgid "Unable to retrieve instances."
 msgstr "無法取得執行個體。"
 
 #: dashboards/nova/instances/views.py:81
-#: dashboards/syspanel/instances/views.py:89
+#: dashboards/syspanel/instances/views.py:77
 msgid "Unable to retrieve instance size information."
 msgstr "無法取得執行個體大小資訊"
 
@@ -1400,40 +1429,25 @@ msgid "User"
 msgstr "使用者"
 
 #: dashboards/nova/instances/workflows.py:52
-#, fuzzy
 msgid "Project & User"
-msgstr "專案使用量"
-
-#: dashboards/nova/instances/workflows.py:54
-msgid ""
-"Admin users may optionally select the project and user for whom the instance "
-"should be created."
-msgstr ""
+msgstr "專案 & 使用者"
 
 #: dashboards/nova/instances/workflows.py:65
 msgid "Don't boot from a volume."
-msgstr ""
+msgstr "不要從儲存區開機。"
 
 #: dashboards/nova/instances/workflows.py:66
 msgid "Boot from volume."
-msgstr ""
+msgstr "從儲存區開機。"
 
 #: dashboards/nova/instances/workflows.py:67
 msgid "Boot from volume snapshot (creates a new volume)."
-msgstr ""
+msgstr "從儲存區快照開機 (會建立一個新的儲存區)。"
 
 #: dashboards/nova/instances/workflows.py:71
 #: dashboards/nova/instances/workflows.py:89
-#, fuzzy
 msgid "Volume Options"
-msgstr "容量詳述"
-
-#: dashboards/nova/instances/workflows.py:74
-#: dashboards/nova/instances/workflows.py:109
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:93
-#: dashboards/nova/volumes/tables.py:36 dashboards/nova/volumes/tables.py:173
-msgid "Volume"
-msgstr "容量"
+msgstr "儲存區選項"
 
 #: dashboards/nova/instances/workflows.py:77
 #: dashboards/nova/volumes/forms.py:126
@@ -1455,40 +1469,31 @@ msgstr "執行個體終止執行時刪除容量"
 #: dashboards/nova/instances/workflows.py:99
 #, python-format
 msgid "Please choose a volume, or select %s."
-msgstr ""
+msgstr "請選擇一個儲存區，或是選擇 %s。"
 
 #: dashboards/nova/instances/workflows.py:116
 msgid "Select Volume"
 msgstr "選擇容量"
 
 #: dashboards/nova/instances/workflows.py:124
-#, fuzzy
 msgid "Unable to retrieve list of volumes."
-msgstr "無法取得容量列表"
+msgstr "無法取回儲存區清單。"
 
 #: dashboards/nova/instances/workflows.py:128
-#, fuzzy
 msgid "Select Volume Snapshot"
-msgstr "建立容量快照"
+msgstr "選擇儲存區快照"
 
 #: dashboards/nova/instances/workflows.py:137
-#, fuzzy
 msgid "Unable to retrieve list of volume snapshots."
-msgstr "無法取得空間快照"
+msgstr "無法取回儲存區快照清單。"
 
 #: dashboards/nova/instances/workflows.py:170
-#, fuzzy
 msgid "Instance Source"
-msgstr "執行個體數量"
+msgstr "個體來源"
 
 #: dashboards/nova/instances/workflows.py:173
-#, fuzzy
 msgid "Instance Snapshot"
-msgstr "執行個體快照"
-
-#: dashboards/nova/instances/workflows.py:175
-msgid "Server Name"
-msgstr "伺服器名稱"
+msgstr "個體快照"
 
 #: dashboards/nova/instances/workflows.py:176
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:22
@@ -1517,168 +1522,153 @@ msgid ""
 "There are no image sources available; you must first create an image before "
 "attempting to launch an instance."
 msgstr ""
+"沒有可用的映像來源；在執行一個個體之前您必須先建立一個要附加上去的映像。"
 
 #: dashboards/nova/instances/workflows.py:202
-#, fuzzy
 msgid "Please select an option for the instance source."
-msgstr "請選擇一個欄位後才執行動作"
+msgstr "請選擇個體來源的選項。"
 
 #: dashboards/nova/instances/workflows.py:211
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
-msgstr ""
+msgstr "執行多個實體只支援映像檔和個體快照。"
 
-#: dashboards/nova/instances/workflows.py:227
-#, fuzzy
+#: dashboards/nova/instances/workflows.py:228
 msgid "Unable to retrieve public images."
-msgstr "無法取得映像。"
+msgstr "無法取回公開映像。"
 
-#: dashboards/nova/instances/workflows.py:241
-#, fuzzy
+#: dashboards/nova/instances/workflows.py:243
 msgid "Unable to retrieve images for the current project."
-msgstr "無法認證到專案權限"
-
-#: dashboards/nova/instances/workflows.py:264
-#, fuzzy
-msgid "Select Image"
-msgstr "選擇語言"
+msgstr "無法取回目前專案的映像。"
 
 #: dashboards/nova/instances/workflows.py:266
-#, fuzzy
-msgid "No images available."
-msgstr "沒有可用的執行個體"
+msgid "Select Image"
+msgstr "選擇映像"
 
-#: dashboards/nova/instances/workflows.py:275
-#, fuzzy
-msgid "Select Instance Snapshot"
-msgstr "執行個體快照"
+#: dashboards/nova/instances/workflows.py:268
+msgid "No images available."
+msgstr "沒有映像可用。"
 
 #: dashboards/nova/instances/workflows.py:277
-#, fuzzy
-msgid "No snapshots available."
-msgstr "沒有可用的執行個體"
+msgid "Select Instance Snapshot"
+msgstr "選擇個體快照"
 
-#: dashboards/nova/instances/workflows.py:288
+#: dashboards/nova/instances/workflows.py:279
+msgid "No snapshots available."
+msgstr "沒有快照可用。"
+
+#: dashboards/nova/instances/workflows.py:290
 msgid "Unable to retrieve instance flavors."
 msgstr "無法取得執行個體規格。"
 
-#: dashboards/nova/instances/workflows.py:301
-#, fuzzy
+#: dashboards/nova/instances/workflows.py:303 usage/base.py:113
 msgid "Unable to retrieve quota information."
-msgstr "無法取得使用量資訊"
+msgstr "無法取回限額資訊。"
 
-#: dashboards/nova/instances/workflows.py:334
+#: dashboards/nova/instances/workflows.py:336
 msgid "Which keypair to use for authentication."
 msgstr "認證用的金鑰選擇"
 
-#: dashboards/nova/instances/workflows.py:341
+#: dashboards/nova/instances/workflows.py:343
 msgid "Launch instance in these security groups."
 msgstr "在這些安全性群組中啟動執行個體"
 
-#: dashboards/nova/instances/workflows.py:346
+#: dashboards/nova/instances/workflows.py:348
 msgid ""
 "Control access to your instance via keypairs, security groups, and other "
 "mechanisms."
-msgstr ""
+msgstr "透過金鑰、安全性群組和其他機制來控制如何存取您的個體。"
 
-#: dashboards/nova/instances/workflows.py:356
+#: dashboards/nova/instances/workflows.py:358
 msgid "Unable to retrieve keypairs."
 msgstr "無法取得金鑰。"
 
-#: dashboards/nova/instances/workflows.py:358
+#: dashboards/nova/instances/workflows.py:360
 msgid "Select a keypair"
 msgstr "選擇金鑰"
 
-#: dashboards/nova/instances/workflows.py:360
+#: dashboards/nova/instances/workflows.py:362
 msgid "No keypairs available."
 msgstr "沒有可用的金鑰"
 
-#: dashboards/nova/instances/workflows.py:369
+#: dashboards/nova/instances/workflows.py:371
 msgid "Unable to retrieve list of security groups"
 msgstr "無法取得安全性群組列表。"
 
-#: dashboards/nova/instances/workflows.py:389
-msgid "Customization Script"
-msgstr ""
-
 #: dashboards/nova/instances/workflows.py:391
+msgid "Customization Script"
+msgstr "自訂命令稿"
+
+#: dashboards/nova/instances/workflows.py:393
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
-msgstr ""
+msgstr "在個體建立後要執行的命令稿或一組指令 (最大 16kb)。"
 
-#: dashboards/nova/instances/workflows.py:398
+#: dashboards/nova/instances/workflows.py:400
 msgid "Post-Creation"
-msgstr ""
+msgstr "Post-Creation"
 
-#: dashboards/nova/instances/workflows.py:409
-#: dashboards/nova/networks/panel.py:24 dashboards/nova/networks/tables.py:32
-#: dashboards/nova/networks/tables.py:92
+#: dashboards/nova/instances/workflows.py:411
+#: dashboards/nova/networks/panel.py:24 dashboards/nova/networks/tables.py:43
+#: dashboards/nova/networks/tables.py:105
 #: dashboards/nova/networks/templates/networks/index.html:3
 #: dashboards/nova/networks/templates/networks/index.html:6
 #: dashboards/syspanel/networks/panel.py:24
-#: dashboards/syspanel/networks/tables.py:34
-#: dashboards/syspanel/networks/tables.py:77
+#: dashboards/syspanel/networks/tables.py:35
+#: dashboards/syspanel/networks/tables.py:80
 #: dashboards/syspanel/networks/templates/networks/index.html:3
 #: dashboards/syspanel/networks/templates/networks/index.html:6
 msgid "Networks"
-msgstr ""
+msgstr "網路"
 
-#: dashboards/nova/instances/workflows.py:412
-#, fuzzy
+#: dashboards/nova/instances/workflows.py:414
 msgid "Launch instance withthese networks"
-msgstr "在這些安全性群組中啟動執行個體"
-
-#: dashboards/nova/instances/workflows.py:416
-#: dashboards/syspanel/instances/workflows.py:37
-msgid "Networking"
-msgstr ""
+msgstr "執行這些網路的個體"
 
 #: dashboards/nova/instances/workflows.py:418
-#: dashboards/syspanel/instances/workflows.py:39
-#, fuzzy
+msgid "Networking"
+msgstr "網路"
+
+#: dashboards/nova/instances/workflows.py:420
 msgid "Select networks for your instance."
-msgstr "選擇一個執行個體"
+msgstr "選擇您的個體的網路。"
 
-#: dashboards/nova/instances/workflows.py:434
-#: dashboards/syspanel/instances/workflows.py:73
-#, fuzzy
+#: dashboards/nova/instances/workflows.py:432
 msgid "Unable to retrieve networks."
-msgstr "無法取得使用者"
+msgstr "無法取回網路。"
 
-#: dashboards/nova/instances/workflows.py:457
+#: dashboards/nova/instances/workflows.py:455
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
-msgstr ""
+msgstr "執行 %(count)s 名稱 \"%(name)s\"。"
 
-#: dashboards/nova/instances/workflows.py:458
-#, fuzzy, python-format
+#: dashboards/nova/instances/workflows.py:456
+#, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "無法啟動執行個體： %(exc)s"
+msgstr "無法執行 %(count)s 名稱 \"%(name)s\"。"
 
-#: dashboards/nova/instances/workflows.py:471
-#, fuzzy, python-format
+#: dashboards/nova/instances/workflows.py:469
+#, python-format
 msgid "%s instances"
-msgstr "執行個體"
+msgstr "%s 個體"
 
-#: dashboards/nova/instances/workflows.py:474
-#, fuzzy
+#: dashboards/nova/instances/workflows.py:472
 msgid "instance"
-msgstr "執行個體"
+msgstr "個體"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:4
-#, fuzzy
 msgid "Instance Console Log"
-msgstr "執行個體VNC界面"
+msgstr "個體主控臺紀錄"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:7
 msgid "Log Length"
-msgstr ""
+msgstr "紀錄長度"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:9
 msgid "Go"
-msgstr ""
+msgstr "開始"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:11
 msgid "View Full Log"
@@ -1690,7 +1680,7 @@ msgstr "執行個體總覽"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:24
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:14
-#: usage/tables.py:22
+#: dashboards/syspanel/flavors/tables.py:42 usage/tables.py:22
 msgid "RAM"
 msgstr "記憶體"
 
@@ -1711,14 +1701,6 @@ msgstr "虛擬處理器"
 msgid "Disk"
 msgstr "磁碟"
 
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:29
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:12
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:27
-msgid "GB"
-msgstr ""
-
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:34
 msgid "IP Addresses"
 msgstr "IP位址"
@@ -1732,17 +1714,15 @@ msgid "Meta"
 msgstr "相關資料"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:71
-#, fuzzy
 msgid "Key Name"
 msgstr "金鑰名稱"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:84
-#, fuzzy
 msgid "Volumes Attached"
-msgstr "沒有掛載的容量"
+msgstr "附加的儲存區"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:88
-#: dashboards/nova/volumes/tables.py:158
+#: dashboards/nova/volumes/tables.py:166
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:38
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:45
 msgid "Attached To"
@@ -1769,46 +1749,41 @@ msgstr "如果VNC界面對鍵盤輸入沒有反應，點擊下面的灰色狀態
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:5
 msgid "Click here to show only VNC"
-msgstr ""
+msgstr "點選這裡只顯示 VNC"
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:8
-#, fuzzy
 msgid "VNC console is currently unavailabe. Please try again later."
-msgstr "發生認證錯誤。 請稍候再試"
+msgstr "VNC 主控臺目前無法使用。請稍後再試。"
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:9
 msgid "Reload"
-msgstr ""
+msgstr "重新載入"
 
 #: dashboards/nova/instances/templates/instances/_launch_customize_help.html:2
 msgid ""
 "You can customize your instance after it's launched using the options "
 "available here."
-msgstr ""
+msgstr "您可以在您的個體使用這裡的選項執行後再自訂它。"
 
 #: dashboards/nova/instances/templates/instances/_launch_customize_help.html:3
 msgid ""
 "The \"Customization Script\" field is analogous to \"User Data\" in other "
 "systems."
-msgstr ""
+msgstr "「自訂命令稿」欄位類似於其他系中的「使用者資料」。"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:3
 msgid "Specify the details for launching an instance."
-msgstr ""
+msgstr "指定執行一個實體時的詳細資料。"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:4
-#, fuzzy
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
-msgstr ""
-"啟動執行個體所指定的詳細資料。以下圖表顯示的是這個專案配額可以使用以及已使用"
-"的資源"
+msgstr "下列圖表顯示了這個專案與專案的限額之間的資源。"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:6
-#, fuzzy
 msgid "Flavor Details"
-msgstr "規格ID"
+msgstr ""
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
 #: dashboards/syspanel/flavors/tables.py:44
@@ -1821,40 +1796,36 @@ msgid "Ephemeral Disk"
 msgstr "暫用磁碟"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
-#, fuzzy
 msgid "Total Disk"
-msgstr "主磁碟"
+msgstr "磁碟總計"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:14
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:37
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:21
-#, fuzzy
 msgid "Number of Instances"
-msgstr "要啟動的執行個體數量"
+msgstr "個體的數量"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:29
-#, fuzzy
 msgid "Number of VCPUs"
-msgstr "連接埠數量"
+msgstr "虛擬處理器的數量"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:37
 #, fuzzy
-msgid "Total Memory"
-msgstr "記憶體"
+msgid "Total RAM"
+msgstr "總記憶體"
 
 #: dashboards/nova/instances/templates/instances/_launch_volumes_help.html:3
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
-msgstr ""
+msgstr "實體可以附加各種類型的儲存裝置來執行。您可以從這裡選擇那些選項。"
 
 #: dashboards/nova/instances/templates/instances/_update.html:17
-#, fuzzy
 msgid "You may update the editable properties of your instance here."
-msgstr "更新執行個體的名稱"
+msgstr "您可以在這裡更新您實體的可編輯屬性。"
 
 #: dashboards/nova/instances/templates/instances/_update.html:22
 #: dashboards/nova/networks/templates/networks/_update.html:22
@@ -1863,7 +1834,7 @@ msgstr "更新執行個體的名稱"
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:27
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:31
 msgid "Save Changes"
-msgstr ""
+msgstr "儲存變更"
 
 #: dashboards/nova/instances/templates/instances/detail.html:3
 msgid "Instance Detail"
@@ -1875,100 +1846,106 @@ msgid "Update Instance"
 msgstr "更新執行個體"
 
 #: dashboards/nova/networks/forms.py:47
-#, fuzzy, python-format
+#: dashboards/syspanel/networks/forms.py:81
+#, python-format
 msgid "Network %s was successfully updated."
-msgstr "已成功更新%s"
+msgstr "網路 %s 已成功的更新。"
 
 #: dashboards/nova/networks/forms.py:52
-#, fuzzy, python-format
+#: dashboards/syspanel/networks/forms.py:86
+#, python-format
 msgid "Failed to update network %s"
-msgstr "無法更新映像\"%s\"."
+msgstr "無法更新網路 %s"
 
-#: dashboards/nova/networks/tables.py:31
+#: dashboards/nova/networks/tables.py:42
 #: dashboards/nova/networks/templates/networks/subnets/index.html:3
 #: dashboards/nova/networks/templates/networks/subnets/index.html:6
-#: dashboards/syspanel/networks/tables.py:33
+#: dashboards/syspanel/networks/tables.py:34
 msgid "Network"
-msgstr ""
+msgstr "網路"
 
-#: dashboards/nova/networks/tables.py:47
-#: dashboards/syspanel/networks/tables.py:40
+#: dashboards/nova/networks/tables.py:58
+#: dashboards/syspanel/networks/tables.py:41
 #, python-format
 msgid "Failed to delete network %s"
-msgstr ""
+msgstr "無法刪除網路 %s"
 
-#: dashboards/nova/networks/tables.py:55
+#: dashboards/nova/networks/tables.py:66
 #: dashboards/nova/networks/workflows.py:110
 #: dashboards/nova/networks/templates/networks/_create.html:7
 #: dashboards/nova/networks/templates/networks/_create.html:22
 #: dashboards/nova/networks/templates/networks/create.html:3
 #: dashboards/nova/networks/templates/networks/create.html:6
-#: dashboards/syspanel/networks/tables.py:48
+#: dashboards/syspanel/networks/tables.py:49
 #: dashboards/syspanel/networks/templates/networks/_create.html:8
 #: dashboards/syspanel/networks/templates/networks/_create.html:23
 #: dashboards/syspanel/networks/templates/networks/create.html:3
 #: dashboards/syspanel/networks/templates/networks/create.html:6
-#, fuzzy
 msgid "Create Network"
-msgstr "建立使用者"
+msgstr "建立網路"
 
-#: dashboards/nova/networks/tables.py:62
+#: dashboards/nova/networks/tables.py:73
 #: dashboards/nova/networks/templates/networks/_update.html:7
-#: dashboards/syspanel/networks/tables.py:55
+#: dashboards/syspanel/networks/tables.py:56
 #: dashboards/syspanel/networks/templates/networks/_update.html:7
 msgid "Edit Network"
+msgstr "編輯網路"
+
+#: dashboards/nova/networks/tables.py:80
+msgid "Add Subnet"
+msgstr "加入子網路"
+
+#: dashboards/nova/networks/tables.py:96
+#: dashboards/syspanel/networks/tables.py:71
+msgid "Subnets Associated"
+msgstr "關聯的子網路"
+
+#: dashboards/nova/networks/tables.py:97
+#: dashboards/nova/networks/templates/networks/_detail_overview.html:17
+#: dashboards/syspanel/networks/forms.py:36
+#: dashboards/syspanel/networks/forms.py:73
+#: dashboards/syspanel/networks/tables.py:72
+msgid "Shared"
 msgstr ""
 
-#: dashboards/nova/networks/tables.py:69
-#, fuzzy
-msgid "Add Subnet"
-msgstr "新增規則"
-
-#: dashboards/nova/networks/tables.py:85
-#: dashboards/syspanel/networks/tables.py:70
-#, fuzzy
-msgid "Subnets Associated"
-msgstr "配給IP"
-
-#: dashboards/nova/networks/tables.py:88
+#: dashboards/nova/networks/tables.py:101
 #: dashboards/nova/networks/ports/tables.py:46
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:15
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/syspanel/networks/tables.py:73
+#: dashboards/syspanel/networks/tables.py:76
 #: dashboards/syspanel/networks/ports/tables.py:79
-#, fuzzy
 msgid "Admin State"
-msgstr "管理者"
+msgstr "Admin 狀態"
 
-#: dashboards/nova/networks/views.py:55
+#: dashboards/nova/networks/views.py:52
 #: dashboards/syspanel/networks/views.py:60
 msgid "Network list can not be retrieved."
-msgstr ""
+msgstr "不能取回網路清單。"
 
-#: dashboards/nova/networks/views.py:89
-#, fuzzy
+#: dashboards/nova/networks/views.py:86
 msgid "Unable to retrieve network details."
-msgstr "無法取得執行個體的詳細資料"
+msgstr "無法取回網路詳細資料。"
 
-#: dashboards/nova/networks/views.py:112
+#: dashboards/nova/networks/views.py:109
 #: dashboards/syspanel/networks/views.py:91
 msgid "Subnet list can not be retrieved."
-msgstr ""
+msgstr "不能取回子網路清單。"
 
-#: dashboards/nova/networks/views.py:124
+#: dashboards/nova/networks/views.py:121
 #: dashboards/syspanel/networks/views.py:103
 msgid "Port list can not be retrieved."
-msgstr ""
+msgstr "不能取回連接埠清單。"
 
-#: dashboards/nova/networks/views.py:137
+#: dashboards/nova/networks/views.py:134
+#: dashboards/nova/networks/subnets/tables.py:95
 #: dashboards/syspanel/networks/views.py:118
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to retrieve details for network \"%s\"."
-msgstr "無法取得執行個體\"%s\"詳細資料。"
+msgstr "無法取回網路 \"%s\" 的詳細資料。"
 
 #: dashboards/nova/networks/workflows.py:36
 msgid "Network Name (optional)"
-msgstr ""
+msgstr "網路名稱 (選擇性)"
 
 #: dashboards/nova/networks/workflows.py:41
 msgid ""
@@ -1978,7 +1955,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/nova/networks/workflows.py:52
-#: dashboards/nova/networks/subnets/tables.py:48
+#: dashboards/nova/networks/subnets/tables.py:60
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:8
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:23
 #: dashboards/nova/networks/templates/networks/subnets/create.html:3
@@ -1988,45 +1965,42 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/subnets/_create.html:23
 #: dashboards/syspanel/networks/templates/networks/subnets/create.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/create.html:6
-#, fuzzy
 msgid "Create Subnet"
-msgstr "建立快照"
+msgstr "建立子網路"
 
 #: dashboards/nova/networks/workflows.py:55
 msgid "Subnet Name (optional)"
-msgstr ""
+msgstr "子網路名稱 (選擇性)"
 
 #: dashboards/nova/networks/workflows.py:57
 #: dashboards/nova/networks/subnets/forms.py:44
-#: dashboards/nova/networks/subnets/tables.py:71
+#: dashboards/nova/networks/subnets/tables.py:83
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:14
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:14
-#, fuzzy
 msgid "Network Address"
-msgstr "IP位址"
+msgstr "網路位址"
 
 #: dashboards/nova/networks/workflows.py:60
 #: dashboards/nova/networks/subnets/forms.py:47
-#, fuzzy
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
-msgstr "Classless Inter-Domain Routing （例如192.168.0.0/24）"
+msgstr "網路位址 CIDR 格式 (例如 192.168.0.0/24)"
 
 #: dashboards/nova/networks/workflows.py:65
 #: dashboards/nova/networks/subnets/forms.py:52
-#: dashboards/nova/networks/subnets/tables.py:72
+#: dashboards/nova/networks/subnets/tables.py:84
 #: dashboards/syspanel/networks/subnets/tables.py:72
 msgid "IP Version"
-msgstr ""
+msgstr "IP 版本"
 
 #: dashboards/nova/networks/workflows.py:66
 msgid "Gateway IP (optional)"
-msgstr ""
+msgstr "閘道器 IP (選擇性)"
 
 #: dashboards/nova/networks/workflows.py:69
 #: dashboards/nova/networks/subnets/forms.py:56
 #: dashboards/nova/networks/subnets/forms.py:106
 msgid "IP address of Gateway (e.g. 192.168.0.1)"
-msgstr ""
+msgstr "閘道器的 IP 位址 (例如 192.168.0.1)"
 
 #: dashboards/nova/networks/workflows.py:76
 msgid ""
@@ -2037,254 +2011,231 @@ msgstr ""
 
 #: dashboards/nova/networks/workflows.py:88
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
+msgstr "指定「網路位址」或取消核取「建立子網路」核取方塊。"
 
 #: dashboards/nova/networks/workflows.py:93
 #: dashboards/nova/networks/subnets/forms.py:69
 msgid "Network Address and IP version are inconsistent."
-msgstr ""
+msgstr "網路位址與 IP 版本不一致。"
 
 #: dashboards/nova/networks/workflows.py:97
 #: dashboards/nova/networks/subnets/forms.py:73
 #: dashboards/nova/networks/subnets/forms.py:118
 msgid "Gateway IP and IP version are inconsistent."
-msgstr ""
+msgstr "閘道器 IP 與 IP 版本不一致。"
 
 #: dashboards/nova/networks/workflows.py:111
-#, fuzzy
 msgid "Create"
-msgstr "建立於"
+msgstr "建立"
 
 #: dashboards/nova/networks/workflows.py:112
 #, python-format
 msgid "Created network \"%s\"."
-msgstr ""
+msgstr "建立網路 \"%s\"。"
 
 #: dashboards/nova/networks/workflows.py:113
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to create network \"%s\"."
-msgstr "無法取得映像。"
+msgstr "無法建立網路 \"%s\"。"
 
 #: dashboards/nova/networks/workflows.py:129
-#, fuzzy, python-format
+#, python-format
 msgid "Network \"%s\" was successfully created."
-msgstr "使用者\"%s\"已被成功建立。"
+msgstr "網路 \"%s\" 已成功建立。"
 
 #: dashboards/nova/networks/workflows.py:132
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to create network \"%s\"."
-msgstr "無法取得映像。"
+msgstr "無法建立網路 \"%s\"。"
 
 #: dashboards/nova/networks/workflows.py:151
-#, fuzzy, python-format
+#, python-format
 msgid "Subnet \"%s\" was successfully created."
-msgstr "使用者\"%s\"已被成功建立。"
+msgstr "子網路 \"%s\" 已成功建立。"
 
 #: dashboards/nova/networks/workflows.py:154
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
-msgstr ""
+msgstr "無法建立網路 \"%(net)s\" 的子網路 \"%(sub)s\"。"
 
 #: dashboards/nova/networks/ports/tables.py:35
-#, fuzzy
 msgid "Attached"
-msgstr "掛載到"
+msgstr "已附加"
 
 #: dashboards/nova/networks/ports/tables.py:35
-#, fuzzy
 msgid "Detached"
-msgstr "卸載"
+msgstr "已分離"
 
 #: dashboards/nova/networks/ports/tables.py:42
 #: dashboards/syspanel/networks/ports/tables.py:75
 msgid "Fixed IPs"
-msgstr ""
+msgstr "固定 IP"
 
 #: dashboards/nova/networks/ports/tables.py:43
 #: dashboards/syspanel/networks/ports/tables.py:76
-#, fuzzy
 msgid "Device Attached"
-msgstr "裝置名稱"
+msgstr "裝置已附加"
 
 #: dashboards/nova/networks/ports/tables.py:53
 #: dashboards/syspanel/networks/ports/tables.py:35
 #: dashboards/syspanel/networks/ports/tables.py:83
-#, fuzzy
 msgid "Ports"
-msgstr "到端口"
+msgstr "連接埠"
 
 #: dashboards/nova/networks/ports/tabs.py:39
 #: dashboards/syspanel/networks/ports/tabs.py:39
-#, fuzzy
 msgid "Unable to retrieve port details."
-msgstr "無法取得容量快照"
+msgstr "無法取回連接埠詳細資料。"
 
 #: dashboards/nova/networks/subnets/forms.py:34
-#: dashboards/syspanel/networks/tables.py:67
+#: dashboards/syspanel/networks/tables.py:68
 #: dashboards/syspanel/networks/ports/forms.py:32
-#, fuzzy
 msgid "Network Name"
-msgstr "使用者名稱"
+msgstr "網路名稱"
 
 #: dashboards/nova/networks/subnets/forms.py:38
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:13
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:13
 #: dashboards/syspanel/networks/ports/forms.py:35
 msgid "Network ID"
-msgstr ""
+msgstr "網路 ID"
 
 #: dashboards/nova/networks/subnets/forms.py:53
 #: dashboards/nova/networks/subnets/forms.py:103
-#: dashboards/nova/networks/subnets/tables.py:73
+#: dashboards/nova/networks/subnets/tables.py:85
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:19
 #: dashboards/syspanel/networks/subnets/tables.py:73
 msgid "Gateway IP"
-msgstr ""
+msgstr "閘道器 IP"
 
 #: dashboards/nova/networks/subnets/forms.py:84
-#, fuzzy, python-format
+#, python-format
 msgid "Subnet %s was successfully created."
-msgstr "以成功建立%s"
+msgstr "子網路 %s 已成功建立。"
 
 #: dashboards/nova/networks/subnets/forms.py:89
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to create subnet %s"
-msgstr "無法建立使用者。"
+msgstr "無法建立子網路 %s"
 
 #: dashboards/nova/networks/subnets/forms.py:130
-#, fuzzy, python-format
+#, python-format
 msgid "Subnet %s was successfully updated."
-msgstr "已成功更新%s"
+msgstr "子網路 %s 已成功更新。"
 
 #: dashboards/nova/networks/subnets/forms.py:135
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to update subnet %s"
-msgstr "無法更新配額"
+msgstr "無法更新子網路 %s"
 
-#: dashboards/nova/networks/subnets/tables.py:31
+#: dashboards/nova/networks/subnets/tables.py:43
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:6
 #: dashboards/syspanel/networks/subnets/tables.py:31
 msgid "Subnet"
-msgstr ""
+msgstr "子網路"
 
-#: dashboards/nova/networks/subnets/tables.py:32
-#: dashboards/nova/networks/subnets/tables.py:77
+#: dashboards/nova/networks/subnets/tables.py:44
+#: dashboards/nova/networks/subnets/tables.py:103
 #: dashboards/syspanel/networks/subnets/tables.py:32
 #: dashboards/syspanel/networks/subnets/tables.py:80
 msgid "Subnets"
-msgstr ""
+msgstr "子網路"
 
-#: dashboards/nova/networks/subnets/tables.py:38
+#: dashboards/nova/networks/subnets/tables.py:50
 #: dashboards/syspanel/networks/ports/tables.py:41
 #: dashboards/syspanel/networks/subnets/tables.py:38
 #, python-format
 msgid "Failed to delete subnet %s"
-msgstr ""
+msgstr "無法刪除子網路 %s"
 
-#: dashboards/nova/networks/subnets/tables.py:59
+#: dashboards/nova/networks/subnets/tables.py:71
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:7
 #: dashboards/syspanel/networks/subnets/tables.py:59
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:7
-#, fuzzy
 msgid "Edit Subnet"
-msgstr "編輯規則"
+msgstr "編輯子網路"
 
 #: dashboards/nova/networks/subnets/tabs.py:41
-#, fuzzy
 msgid "Unable to retrieve subnet details."
-msgstr "無法取得執行個體的詳細資料"
+msgstr "無法取回子網路詳細資料。"
 
 #: dashboards/nova/networks/subnets/views.py:52
 #: dashboards/syspanel/networks/ports/views.py:48
 #: dashboards/syspanel/networks/subnets/views.py:47
-#, fuzzy
 msgid "Unable to retrieve network."
-msgstr "無法取得使用者"
+msgstr "無法取回網路。"
 
 #: dashboards/nova/networks/subnets/views.py:84
 #: dashboards/syspanel/networks/subnets/views.py:80
-#, fuzzy
 msgid "Unable to retrieve subnet details"
-msgstr "無法取得執行個體的詳細資料"
+msgstr "無法取回子網路詳細資料"
 
 #: dashboards/nova/networks/templates/networks/_create.html:17
 #: dashboards/syspanel/networks/templates/networks/_create.html:18
-#, fuzzy
 msgid "Select a name for your network."
-msgstr "選擇掛載的執行個體"
+msgstr "選擇您的網路名稱。"
 
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:3
-#, fuzzy
 msgid "Network Overview"
-msgstr "使用量總覽"
+msgstr "網路總覽"
 
 #: dashboards/nova/networks/templates/networks/_update.html:17
 #: dashboards/syspanel/networks/templates/networks/_update.html:17
-#, fuzzy
 msgid "You may update the editable properties of your network here."
-msgstr "更新執行個體的名稱"
+msgstr "您可以在這裡更新網路的可編輯屬性。"
 
 #: dashboards/nova/networks/templates/networks/detail.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/index.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/index.html:6
-#, fuzzy
 msgid "Network Detail"
-msgstr "規格ID"
+msgstr "網路詳細資料"
 
 #: dashboards/nova/networks/templates/networks/detail.html:6
-#, fuzzy
 msgid "Network Detail: "
-msgstr "映像詳細資料"
+msgstr "網路詳細資料："
 
 #: dashboards/nova/networks/templates/networks/update.html:3
 #: dashboards/nova/networks/templates/networks/update.html:6
 #: dashboards/syspanel/networks/templates/networks/update.html:3
 #: dashboards/syspanel/networks/templates/networks/update.html:6
-#, fuzzy
 msgid "Update Network"
-msgstr "更新使用者"
+msgstr "更新網路"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:3
-#, fuzzy
 msgid "Port Overview"
-msgstr "總覽"
+msgstr "連接埠總覽"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/syspanel/networks/ports/tables.py:34
-#, fuzzy
 msgid "Port"
-msgstr "到端口"
+msgstr "連接埠"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:17
 msgid "Fixed IP"
-msgstr ""
+msgstr "固定 IP"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:21
-#, fuzzy
 msgid "IP address:"
-msgstr "IP位址"
+msgstr "IP 位址："
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:22
 msgid "Subnet ID"
-msgstr ""
+msgstr "子網路 ID"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:28
-#, fuzzy
 msgid "Mac Address"
-msgstr "IP位址"
+msgstr "Mac 位址"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/syspanel/networks/ports/forms.py:41
 #: dashboards/syspanel/networks/ports/forms.py:73
-#, fuzzy
 msgid "Device ID"
-msgstr "裝置名稱"
+msgstr "裝置 ID"
 
 #: dashboards/nova/networks/templates/networks/ports/detail.html:3
 #: dashboards/nova/networks/templates/networks/ports/detail.html:6
-#, fuzzy
 msgid "Port Detail"
-msgstr "規格ID"
+msgstr "連接埠詳細資料"
 
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:18
 #: dashboards/syspanel/networks/templates/networks/subnets/_create.html:18
@@ -2293,17 +2244,18 @@ msgid ""
 "specified unless the network address does not overlap other subnets in the "
 "network."
 msgstr ""
+"您可以建立網路的子網路。您可以指定任何網路位址，只要它沒有與網路中的子網路重"
+"疊到。"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:3
-#, fuzzy
 msgid "Subnet Overview"
-msgstr "容量總覽"
+msgstr "子網路總覽"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:17
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:16
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:16
 msgid "IP version"
-msgstr ""
+msgstr "IP 版本"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:21
 msgid "IP allocation pool"
@@ -2311,35 +2263,32 @@ msgstr ""
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:24
 msgid "Start"
-msgstr ""
+msgstr "開頭"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:25
 msgid " - End"
-msgstr ""
+msgstr " - 結尾"
 
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:26
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:26
-#, fuzzy
 msgid "You may update the editable properties of your subnet here."
-msgstr "更新執行個體的名稱"
+msgstr "您可以在這裡更新子網路的可編輯屬性。"
 
 #: dashboards/nova/networks/templates/networks/subnets/detail.html:3
 #: dashboards/nova/networks/templates/networks/subnets/detail.html:6
-#, fuzzy
 msgid "Subnet Detail"
-msgstr "容量詳述"
+msgstr "子網路詳細資料"
 
 #: dashboards/nova/networks/templates/networks/subnets/update.html:3
 #: dashboards/nova/networks/templates/networks/subnets/update.html:6
 #: dashboards/syspanel/networks/templates/networks/subnets/update.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/update.html:6
-#, fuzzy
 msgid "Update Subnet"
-msgstr "更新配額"
+msgstr "更新子網路"
 
 #: dashboards/nova/templates/nova/_warning.html:6
 msgid "You currently have the power to damage your OpenStack cloud..."
-msgstr ""
+msgstr "您目前有損壞您的 OpenStack 雲端的能力…"
 
 #: dashboards/nova/templates/nova/_warning.html:9
 msgid ""
@@ -2358,13 +2307,13 @@ msgstr ""
 
 #: dashboards/nova/templates/nova/_warning.html:11
 msgid "A list of the known problems are as follows:"
-msgstr ""
+msgstr "已知問題清單如下："
 
 #: dashboards/nova/templates/nova/_warning.html:13
 msgid ""
 "Attaching a volume owned by project A to an instance in project B can "
 "completely hang Nova."
-msgstr ""
+msgstr "將專案 A 擁有的儲存區附加到專案 B 的個體下可能會使 Nova 完全停住。"
 
 #: dashboards/nova/templates/nova/_warning.html:14
 msgid ""
@@ -2378,17 +2327,18 @@ msgid ""
 "Attempting to launch an instance in project A from a snapshot or volume "
 "snapshot owned by project B can hang Nova."
 msgstr ""
+"嘗試從專案 B 擁有的快照或儲存區快照執行專案 A 的個體可能會使 Nova 當機。"
 
 #: dashboards/nova/templates/nova/_warning.html:16
 msgid ""
 "Attempting to boot from a volume owned by project A in project B can hang "
 "Nova."
-msgstr ""
+msgstr "嘗試在專案 B 中以專案 A 擁有的儲存區開機可能會使 Nova 當機。"
 
 #: dashboards/nova/templates/nova/_warning.html:18
 msgid ""
 "This is only a list of the reported inconsistencies. There may be others."
-msgstr ""
+msgstr "這只是已回報的不一致性清單。可能還有其他的問題。"
 
 #: dashboards/nova/templates/nova/_warning.html:19
 msgid ""
@@ -2402,84 +2352,61 @@ msgstr ""
 msgid ""
 "To follow the status of this bug, take a look at the following items on "
 "launchpad:"
-msgstr ""
+msgstr "要追蹤這個程式錯誤的狀態，請看看 launchpad 上的追蹤項目："
 
 #: dashboards/nova/templates/nova/_warning.html:27
 msgid ""
 "Thank you for reading this warning and operating your cloud responsibly."
-msgstr ""
+msgstr "感謝您回報這個警告與您的雲端操作回應。"
 
 #: dashboards/nova/templates/nova/_warning.html:30
 msgid "Close"
-msgstr ""
-
-#: dashboards/nova/templates/nova/base.html:9
-msgid "Caution"
-msgstr ""
-
-#: dashboards/nova/templates/nova/base.html:10
-msgid "You are acting as an admin user in the project dashboard."
-msgstr ""
-
-#: dashboards/nova/templates/nova/base.html:12
-msgid "Learn More"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:26
-#, fuzzy
-msgid "Volume Name"
-msgstr "容量"
+msgstr "關閉"
 
 #: dashboards/nova/volumes/forms.py:29
-#, fuzzy
 msgid "Size (GB)"
-msgstr "大小"
+msgstr "容量 (GB)"
 
 #: dashboards/nova/volumes/forms.py:30
 msgid "Use snapshot as a source"
-msgstr ""
+msgstr "使用快照作為來源"
 
 #: dashboards/nova/volumes/forms.py:49
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr ""
+msgstr "儲存區容量必須大於或等於快照容量 (%sGB)"
 
 #: dashboards/nova/volumes/forms.py:54
-#, fuzzy
 msgid "Unable to load the specified snapshot."
-msgstr "無法建立快照。"
+msgstr "無法載入指定的快照。"
 
 #: dashboards/nova/volumes/forms.py:59
-#, fuzzy
 msgid "Choose a snapshot"
-msgstr "建立快照"
+msgstr "選擇一個快照"
 
 #: dashboards/nova/volumes/forms.py:83
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr ""
+msgstr "儲存區容量不能大於快照容量 (%sGB)"
 
 #: dashboards/nova/volumes/forms.py:92
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
 "quota available."
-msgstr ""
+msgstr "不能建立 %(req)iGB 的儲存區，因為您只剩下 %(avail)iGB 的限額。"
 
 #: dashboards/nova/volumes/forms.py:99
-#, fuzzy
 msgid "You are already using all of your available volumes."
-msgstr "您沒有任何現有專案的權限。"
+msgstr "您已經使用了所有可用的儲存區。"
 
 #: dashboards/nova/volumes/forms.py:115
-#, fuzzy
 msgid "Unable to create volume."
-msgstr "無法建立使用者。"
+msgstr "無法建立儲存區。"
 
 #: dashboards/nova/volumes/forms.py:123
-#, fuzzy
 msgid "Attach to Instance"
-msgstr "掛載到執行個體"
+msgstr "附加到個體"
 
 #: dashboards/nova/volumes/forms.py:124
 msgid "Select an instance to attach to."
@@ -2487,17 +2414,16 @@ msgstr "選擇掛載的執行個體"
 
 #: dashboards/nova/volumes/forms.py:168
 msgid "Unknown instance (None)"
-msgstr ""
+msgstr "不明的個體 (沒有)"
 
 #: dashboards/nova/volumes/forms.py:179
-#, fuzzy, python-format
+#, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
-msgstr "正在掛載容量%(vol)s到執行個體%(inst)s的%(dev)s"
+msgstr "將儲存區 %(vol)s 附加到個體 %(inst)s 於 %(dev)s。"
 
 #: dashboards/nova/volumes/forms.py:188
-#, fuzzy
 msgid "Unable to attach volume."
-msgstr "無法連上連接埠。"
+msgstr "無法附加儲存區。"
 
 #: dashboards/nova/volumes/forms.py:212
 #, python-format
@@ -2505,12 +2431,11 @@ msgid "Creating volume snapshot \"%s\""
 msgstr "建立容量快照\"%s\""
 
 #: dashboards/nova/volumes/forms.py:218
-#, fuzzy
 msgid "Unable to create volume snapshot."
-msgstr "無法取得空間快照"
+msgstr "無法建立儲存區快照。"
 
 #: dashboards/nova/volumes/panel.py:24 dashboards/nova/volumes/tables.py:37
-#: dashboards/nova/volumes/tables.py:162 dashboards/nova/volumes/tables.py:174
+#: dashboards/nova/volumes/tables.py:170 dashboards/nova/volumes/tables.py:182
 #: dashboards/nova/volumes/templates/volumes/index.html:3
 #: dashboards/nova/volumes/templates/volumes/index.html:6
 #: dashboards/syspanel/projects/workflows.py:42
@@ -2521,54 +2446,55 @@ msgstr "無法取得空間快照"
 msgid "Volumes"
 msgstr "容量"
 
-#: dashboards/nova/volumes/tables.py:57
+#: dashboards/nova/volumes/tables.py:45
+#, fuzzy, python-format
+msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
+msgstr "無法取得空間快照"
+
+#: dashboards/nova/volumes/tables.py:65
 msgid "Edit Attachments"
 msgstr "編輯掛載"
 
-#: dashboards/nova/volumes/tables.py:84
+#: dashboards/nova/volumes/tables.py:92
 #, python-format
 msgid "%sGB"
-msgstr ""
+msgstr "%sGB"
 
-#: dashboards/nova/volumes/tables.py:97 dashboards/nova/volumes/views.py:140
-#, fuzzy
+#: dashboards/nova/volumes/tables.py:105 dashboards/nova/volumes/views.py:149
 msgid "Unable to retrieve attachment information."
-msgstr "無法取得使用量資訊"
+msgstr "無法取回附加資訊。"
 
-#: dashboards/nova/volumes/tables.py:114
-#, fuzzy, python-format
+#: dashboards/nova/volumes/tables.py:122
+#, python-format
 msgid "Attached to %(instance)s on %(dev)s"
-msgstr "正在掛載容量%(vol)s到執行個體%(inst)s的%(dev)s"
+msgstr "附加到 %(instance)s 於 %(dev)s"
 
-#: dashboards/nova/volumes/tables.py:171
+#: dashboards/nova/volumes/tables.py:179
 msgid "Detach"
 msgstr "卸載"
 
-#: dashboards/nova/volumes/tables.py:172
-#, fuzzy
+#: dashboards/nova/volumes/tables.py:180
 msgid "Detaching"
-msgstr "卸載"
+msgstr "分離"
 
-#: dashboards/nova/volumes/tables.py:207
+#: dashboards/nova/volumes/tables.py:215
 #, python-format
 msgid "%(dev)s on instance %(instance_name)s"
-msgstr ""
+msgstr "%(dev)s 於個體 %(instance_name)s"
 
 #: dashboards/nova/volumes/tabs.py:41
 msgid "Unable to retrieve volume details."
 msgstr "無法取得容量快照"
 
-#: dashboards/nova/volumes/views.py:52
-#, fuzzy
+#: dashboards/nova/volumes/views.py:50
 msgid "Unable to retrieve volume list."
-msgstr "無法取得使用者"
+msgstr "無法取回儲存區清單。"
 
 #: dashboards/nova/volumes/views.py:58
-#, fuzzy
 msgid "Unable to retrieve volume/instance attachment information"
-msgstr "無法取得執行個體的專案資訊"
+msgstr "無法取回儲存區/個體附加資訊"
 
-#: dashboards/nova/volumes/views.py:121 dashboards/nova/volumes/views.py:131
+#: dashboards/nova/volumes/views.py:130 dashboards/nova/volumes/views.py:140
 msgid "Unable to retrieve volume information."
 msgstr "無法取得容量資訊"
 
@@ -2591,19 +2517,16 @@ msgid "Volumes are block devices that can be attached to instances."
 msgstr "容量是可以掛載到執行個體的分塊磁碟裝置"
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:22
-#, fuzzy
 msgid "Volume Quotas"
-msgstr "容量詳述"
+msgstr "儲存區限額"
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:25
-#, fuzzy
 msgid "Total Gigabytes"
-msgstr "儲存空間 （Gigabytes）"
+msgstr "總 GB 數"
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:34
-#, fuzzy
 msgid "Number of Volumes"
-msgstr "連接埠數量"
+msgstr "儲存區數量"
 
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:8
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:23
@@ -2691,21 +2614,19 @@ msgstr "RC檔下載錯誤： %s"
 #: dashboards/settings/project/templates/project/settings.html:3
 #: dashboards/settings/project/templates/project/settings.html:6
 msgid "OpenStack API"
-msgstr ""
+msgstr "OpenStack API"
 
 #: dashboards/settings/project/tables.py:27
-#, fuzzy
 msgid "Service Name"
-msgstr "裝置名稱"
+msgstr "服務名稱"
 
 #: dashboards/settings/project/tables.py:29
-#, fuzzy
 msgid "Service Endpoint"
-msgstr "服務"
+msgstr "服務端點"
 
 #: dashboards/settings/project/tables.py:33
 msgid "API Endpoints"
-msgstr ""
+msgstr "API 端點"
 
 #: dashboards/settings/project/templates/project/_openrc.html:15
 msgid "Download OpenStack RC File"
@@ -2724,9 +2645,8 @@ msgid "Download RC File"
 msgstr "下載RC檔"
 
 #: dashboards/settings/user/forms.py:57
-#, fuzzy
 msgid "Settings saved."
-msgstr "設定"
+msgstr "設定值已儲存。"
 
 #: dashboards/settings/user/panel.py:24
 #: dashboards/settings/user/templates/user/_settings.html:8
@@ -2736,15 +2656,14 @@ msgid "User Settings"
 msgstr "使用者設定"
 
 #: dashboards/settings/user/templates/user/_settings.html:18
-#, fuzzy
 msgid "From here you can modify dashboard settings for your user."
-msgstr "您可以在這裡修改控制台的不同設定"
+msgstr ""
 
 #: dashboards/settings/user/templates/user/_settings.html:23
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:24
 #: dashboards/syspanel/projects/workflows.py:268 workflows/base.py:538
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: dashboards/syspanel/dashboard.py:24
 msgid "System Panel"
@@ -2755,8 +2674,9 @@ msgid "Admin"
 msgstr "管理者"
 
 #: dashboards/syspanel/flavors/forms.py:37
-msgid "Memory MB"
-msgstr "記憶體 MB"
+#, fuzzy
+msgid "RAM MB"
+msgstr "RAM (MB)"
 
 #: dashboards/syspanel/flavors/forms.py:38
 msgid "Root Disk GB"
@@ -2767,19 +2687,17 @@ msgid "Ephemeral Disk GB"
 msgstr "暫用磁碟 GB"
 
 #: dashboards/syspanel/flavors/forms.py:49
-#, fuzzy
 msgid "Unable to get unique ID for new flavor."
-msgstr "無法取得配額資料： %s"
+msgstr ""
 
 #: dashboards/syspanel/flavors/forms.py:66
-#, fuzzy, python-format
+#, python-format
 msgid "Created flavor \"%s\"."
-msgstr "建立規格"
+msgstr ""
 
 #: dashboards/syspanel/flavors/forms.py:70
-#, fuzzy
 msgid "Unable to create flavor."
-msgstr "無法建立使用者。"
+msgstr ""
 
 #: dashboards/syspanel/flavors/forms.py:91
 #, python-format
@@ -2787,9 +2705,8 @@ msgid "Updated flavor \"%s\"."
 msgstr ""
 
 #: dashboards/syspanel/flavors/forms.py:95
-#, fuzzy
 msgid "Unable to update flavor."
-msgstr "無法建立使用者。"
+msgstr ""
 
 #: dashboards/syspanel/flavors/panel.py:28
 #: dashboards/syspanel/flavors/tables.py:14
@@ -2811,41 +2728,33 @@ msgstr "建立規格"
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:8
 #: dashboards/syspanel/flavors/templates/flavors/edit.html:3
 #: dashboards/syspanel/flavors/templates/flavors/edit.html:6
-#, fuzzy
 msgid "Edit Flavor"
-msgstr "規格"
+msgstr ""
 
 #: dashboards/syspanel/flavors/tables.py:35
 #, python-format
 msgid "%sMB"
-msgstr ""
+msgstr "%sMB"
 
 #: dashboards/syspanel/flavors/tables.py:39
 msgid "Flavor Name"
 msgstr "規格名稱"
 
-#: dashboards/syspanel/flavors/tables.py:42
-msgid "Memory"
-msgstr "記憶體"
-
 #: dashboards/syspanel/flavors/views.py:48
-#, fuzzy
 msgid "Unable to retrieve flavor list."
-msgstr "無法取得使用者"
+msgstr ""
 
 #: dashboards/syspanel/flavors/views.py:75
-#, fuzzy
 msgid "Unable to retrieve flavor data."
-msgstr "無法取得使用者"
+msgstr ""
 
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:18
 msgid "From here you can define the sizing of a new flavor."
 msgstr "您可以在這裡制定新規格的配置"
 
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:18
-#, fuzzy
 msgid "From here you can alter the sizing of the current flavor."
-msgstr "您可以在這裡制定新規格的配置"
+msgstr ""
 
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:19
 msgid ""
@@ -2857,26 +2766,19 @@ msgstr ""
 msgid "Unable to retrieve image list."
 msgstr "無法取得映像列表"
 
-#: dashboards/syspanel/instances/tables.py:62 usage/tables.py:30
-#, fuzzy
+#: dashboards/syspanel/instances/tables.py:59 usage/tables.py:30
 msgid "Project Name"
-msgstr "專案使用量"
+msgstr "專案名稱"
 
-#: dashboards/syspanel/instances/tables.py:69
+#: dashboards/syspanel/instances/tables.py:66
 #: dashboards/syspanel/services/tables.py:40
 msgid "Host"
 msgstr "主機"
 
-#: dashboards/syspanel/instances/views.py:72
-#: dashboards/syspanel/instances/workflows.py:47
+#: dashboards/syspanel/instances/views.py:60
 #: dashboards/syspanel/networks/views.py:48
 msgid "Unable to retrieve instance tenant information."
 msgstr "無法取得執行個體的專案資訊"
-
-#: dashboards/syspanel/instances/workflows.py:107
-#, python-format
-msgid "Selected network '%s' is not owned by the specified project"
-msgstr ""
 
 #: dashboards/syspanel/instances/templates/instances/index.html:6
 msgid "All Instances"
@@ -2887,77 +2789,74 @@ msgstr "所有執行個體"
 msgid "Select a project"
 msgstr "選擇專案"
 
-#: dashboards/syspanel/networks/forms.py:56
-#, fuzzy, python-format
+#: dashboards/syspanel/networks/forms.py:57
+#, python-format
 msgid "Network %s was successfully created."
-msgstr "以成功建立%s"
+msgstr "網路 %s 已成功建立。"
 
-#: dashboards/syspanel/networks/forms.py:62
-#, fuzzy, python-format
+#: dashboards/syspanel/networks/forms.py:63
+#, python-format
 msgid "Failed to create network %s"
-msgstr "無法取得映像。"
+msgstr "無法建立網路 %s"
 
 #: dashboards/syspanel/networks/ports/forms.py:53
-#, fuzzy, python-format
+#, python-format
 msgid "Port %s was successfully created."
-msgstr "以成功建立%s"
+msgstr "連接埠 %s 已成功建立。"
 
 #: dashboards/syspanel/networks/ports/forms.py:58
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to create a port for network %s"
-msgstr "無法取得物件。"
+msgstr "無法建立網路 %s 的連接埠"
 
 #: dashboards/syspanel/networks/ports/forms.py:83
-#, fuzzy, python-format
+#, python-format
 msgid "Port %s was successfully updated."
-msgstr "已成功更新%s"
+msgstr "連接埠 %s 已成功更新。"
 
 #: dashboards/syspanel/networks/ports/forms.py:88
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to update port %s"
-msgstr "無法更新配額"
+msgstr "無法更新連接埠 %s"
 
 #: dashboards/syspanel/networks/ports/tables.py:51
 #: dashboards/syspanel/networks/templates/networks/ports/_create.html:8
 #: dashboards/syspanel/networks/templates/networks/ports/_create.html:23
 #: dashboards/syspanel/networks/templates/networks/ports/create.html:3
 #: dashboards/syspanel/networks/templates/networks/ports/create.html:6
-#, fuzzy
 msgid "Create Port"
-msgstr "建立專案"
+msgstr "建立連接埠"
 
 #: dashboards/syspanel/networks/ports/tables.py:62
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:7
-#, fuzzy
 msgid "Edit Port"
-msgstr "編輯專案"
+msgstr "編輯連接埠"
 
 #: dashboards/syspanel/networks/ports/views.py:81
-#, fuzzy
 msgid "Unable to retrieve port details"
-msgstr "無法取得容量快照"
+msgstr "無法取回連接埠詳細資料"
 
 #: dashboards/syspanel/networks/subnets/forms.py:42
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to retrieve network %s for a subnet"
-msgstr "無法取得執行個體\"%s\"詳細資料。"
+msgstr "無法取回網路 %s 子網路"
 
 #: dashboards/syspanel/networks/templates/networks/ports/_create.html:18
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
 "attached, the device specified will be attached to the port created."
 msgstr ""
+"您可以建立網路的連接埠。如果您指定要附加的裝置 ID，指定的 ID 就會附加到建立好"
+"的連接埠。"
 
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:22
-#, fuzzy
 msgid "You may update the editable properties of your port here."
-msgstr "更新執行個體的名稱"
+msgstr "您可以在這裡更新連接埠的可編輯屬性。"
 
 #: dashboards/syspanel/networks/templates/networks/ports/update.html:3
 #: dashboards/syspanel/networks/templates/networks/ports/update.html:6
-#, fuzzy
 msgid "Update Port"
-msgstr "更新專案"
+msgstr "更新連接埠"
 
 #: dashboards/syspanel/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -3023,12 +2922,10 @@ msgid "Users"
 msgstr "使用者"
 
 #: dashboards/syspanel/projects/tables.py:125
-#, fuzzy
 msgid "Unable to retrieve role information."
-msgstr "無法取得容量資訊"
+msgstr "無法取回角色資訊。"
 
 #: dashboards/syspanel/projects/tables.py:130
-#, fuzzy
 msgid "Roles"
 msgstr "角色"
 
@@ -3045,28 +2942,24 @@ msgid "Add New Users"
 msgstr "新增使用者"
 
 #: dashboards/syspanel/projects/views.py:67
-#, fuzzy
 msgid "Unable to retrieve project information."
-msgstr "無法取得容量資訊"
+msgstr "無法取回專案資訊。"
 
 #: dashboards/syspanel/projects/views.py:87
-#, fuzzy
 msgid "Unable to retrieve project list."
-msgstr "無法取得物件列表。"
+msgstr "無法取回專案清單。"
 
 #: dashboards/syspanel/projects/views.py:110
 msgid "Unable to retrieve users."
 msgstr "無法取得使用者"
 
 #: dashboards/syspanel/projects/views.py:154
-#, fuzzy
 msgid "Unable to retrieve default quota values."
-msgstr "無法取得容量列表"
+msgstr "無法取回預設的限額數值。"
 
 #: dashboards/syspanel/projects/views.py:182
-#, fuzzy
 msgid "Unable to retrieve project details."
-msgstr "無法取得物件列表。"
+msgstr "無法取回專案詳細資料。"
 
 #: dashboards/syspanel/projects/workflows.py:35
 msgid "Injected File Content Bytes"
@@ -3085,25 +2978,21 @@ msgid "Gigabytes"
 msgstr "儲存空間 （Gigabytes）"
 
 #: dashboards/syspanel/projects/workflows.py:44
-#, fuzzy
 msgid "RAM (MB)"
-msgstr "記憶體空間 （MB計）"
+msgstr "RAM (MB)"
 
 #: dashboards/syspanel/projects/workflows.py:48
-#, fuzzy
 msgid "Quota"
-msgstr "配額"
+msgstr "限額"
 
 #: dashboards/syspanel/projects/workflows.py:50
-#, fuzzy
 msgid "From here you can set quotas (max limits) for the project."
-msgstr "您可以在這裡編輯專案%(tenant.name)s的資源配額（最大用額）。"
+msgstr "從這裡可以設定專案的限額 (最大限制)。"
 
 #: dashboards/syspanel/projects/workflows.py:79
 #: dashboards/syspanel/projects/workflows.py:252
-#, fuzzy
 msgid "Project Info"
-msgstr "專案ID"
+msgstr "專案資訊"
 
 #: dashboards/syspanel/projects/workflows.py:80
 #: dashboards/syspanel/projects/templates/projects/_create.html:18
@@ -3111,76 +3000,70 @@ msgid "From here you can create a new project to organize users."
 msgstr "您可以在這裡建立新專案以管理使用者"
 
 #: dashboards/syspanel/projects/workflows.py:99
-#, fuzzy
 msgid "Unable to retrieve user list. Please try again later."
-msgstr "無法取得使用者"
+msgstr "無法取回使用者清單。請稍後再試一次。"
 
 #: dashboards/syspanel/projects/workflows.py:153
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:16
-#, fuzzy
 msgid "Project Members"
-msgstr "專案使用量"
+msgstr "專案成員"
 
 #: dashboards/syspanel/projects/workflows.py:167
 #: dashboards/syspanel/users/views.py:46
-#, fuzzy
 msgid "Unable to retrieve user list."
-msgstr "無法取得使用者"
+msgstr "無法取回使用者清單。"
 
 #: dashboards/syspanel/projects/workflows.py:178
-#, fuzzy
 msgid "Add Project"
 msgstr "加入專案"
 
 #: dashboards/syspanel/projects/workflows.py:179
 msgid "Finish"
-msgstr ""
+msgstr "結束"
 
 #: dashboards/syspanel/projects/workflows.py:180
-#, fuzzy, python-format
+#, python-format
 msgid "Created new project \"%s\"."
-msgstr "建立新專案"
+msgstr "已建立新專案 \"%s\"。"
 
 #: dashboards/syspanel/projects/workflows.py:181
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to create project \"%s\"."
-msgstr "無法取得物件。"
+msgstr "無法建立專案 \"%s\"。"
 
 #: dashboards/syspanel/projects/workflows.py:225
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to add %s project members and set project quotas."
-msgstr "無法取得物件。"
+msgstr "無法加入 %s 專案成員並設定專案限額。"
 
 #: dashboards/syspanel/projects/workflows.py:244
-#, fuzzy
 msgid "Unable to set project quotas."
-msgstr "無法取得物件。"
+msgstr "無法設定專案限額。"
 
 #: dashboards/syspanel/projects/workflows.py:254
-#, fuzzy
 msgid "From here you can edit the project details."
-msgstr "您可以在這編輯專案"
+msgstr "從這裡您可以編輯專案詳細資料。"
 
 #: dashboards/syspanel/projects/workflows.py:269
 #, python-format
 msgid "Modified project \"%s\"."
-msgstr ""
+msgstr "修改的專案 \"%s\"。"
 
 #: dashboards/syspanel/projects/workflows.py:270
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to modify project \"%s\"."
-msgstr "無法複製物件"
+msgstr "無法修改的專案 \"%s\"。"
 
 #: dashboards/syspanel/projects/workflows.py:340
 #, python-format
 msgid "Failed to modify %s project members and update project quotas."
-msgstr ""
+msgstr "無法修改 %s 專案成員與更新專案限額。"
 
 #: dashboards/syspanel/projects/workflows.py:361
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
-msgstr ""
+msgstr "修改專案資訊與成員，但無法修改專案限額。"
 
 #: dashboards/syspanel/projects/templates/projects/_add_user.html:8
 #: dashboards/syspanel/projects/templates/projects/add_user.html:3
@@ -3199,12 +3082,11 @@ msgstr "新增"
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:7
 #, python-format
 msgid "Create User for project '%(tenant_name)s'."
-msgstr ""
+msgstr "建立專案 '%(tenant_name)s' 的使用者。"
 
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:18
-#, fuzzy
 msgid "From here you can create a new user to add to this project."
-msgstr "您可以在這裡建立使用者及將其分配到專案。"
+msgstr "從這裡您可以建立新的使用者並加入這個專案。"
 
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:23
 #: dashboards/syspanel/users/tables.py:19
@@ -3239,23 +3121,21 @@ msgstr "您可以在這編輯專案"
 msgid ""
 "From here you can add and remove members to this project from the list of "
 "all available users."
-msgstr ""
+msgstr "這裡您可以從所有可用使用者清單中將成員加入這個專案或移除。"
 
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:10
-#, fuzzy
 msgid "All Users"
-msgstr "使用者"
+msgstr "所有使用者"
 
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:25
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:32
 msgid "No users found."
-msgstr ""
+msgstr "找不到使用者。"
 
 #: dashboards/syspanel/projects/templates/projects/create_user.html:3
 #: dashboards/syspanel/projects/templates/projects/create_user.html:6
-#, fuzzy
 msgid "Add New User"
-msgstr "新增使用者"
+msgstr "加入新的使用者"
 
 #: dashboards/syspanel/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
@@ -3283,9 +3163,8 @@ msgid "Limit"
 msgstr "限制"
 
 #: dashboards/syspanel/quotas/views.py:45
-#, fuzzy
 msgid "Unable to get quota info."
-msgstr "無法取得配額資料： %s"
+msgstr "無法取得限額資訊。"
 
 #: dashboards/syspanel/quotas/templates/quotas/index.html:8
 msgid "Default Quotas"
@@ -3346,9 +3225,8 @@ msgid "User \"%s\" was successfully created."
 msgstr "使用者\"%s\"已被成功建立。"
 
 #: dashboards/syspanel/users/forms.py:105
-#, fuzzy
 msgid "Unable to add userto primary project."
-msgstr "無法將使用者加入主要專案。"
+msgstr "無法加入使用者到主要專案。"
 
 #: dashboards/syspanel/users/forms.py:109
 msgid "Unable to create user."
@@ -3369,21 +3247,20 @@ msgstr "主要專案"
 #: dashboards/syspanel/users/forms.py:172
 #, python-format
 msgid "The user %s has no role defined for"
-msgstr ""
+msgstr "使用者 %s 沒有定義角色"
 
 #: dashboards/syspanel/users/forms.py:180
 msgid "password"
 msgstr "密碼"
 
 #: dashboards/syspanel/users/forms.py:189
-#, fuzzy
 msgid "User has been updated successfully."
-msgstr "容器已成功建立"
+msgstr "使用者已經成功的更新。"
 
 #: dashboards/syspanel/users/forms.py:193
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to update %(attributes)s for the user."
-msgstr "無法更新\"%(user)s\"的%(attributes)s。"
+msgstr "無法更新使用者的 %(attributes)s。"
 
 #: dashboards/syspanel/users/tables.py:38
 msgid "Enable"
@@ -3394,27 +3271,24 @@ msgid "Disable"
 msgstr "停用"
 
 #: dashboards/syspanel/users/tables.py:39
-#, fuzzy
 msgid "Disabled"
-msgstr "停用"
+msgstr "已停用"
 
 #: dashboards/syspanel/users/tables.py:62
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "您不能停用您目前登入使用的使用者"
 
 #: dashboards/syspanel/users/tables.py:113
-#, fuzzy
 msgid "User ID"
-msgstr "使用者資料"
+msgstr "使用者 ID"
 
 #: dashboards/syspanel/users/views.py:69
 msgid "Unable to update user."
 msgstr "無法更新使用者。"
 
 #: dashboards/syspanel/users/views.py:103
-#, fuzzy
 msgid "Unable to retrieve user roles."
-msgstr "無法取得使用者"
+msgstr "無法取回使用者角色。"
 
 #: dashboards/syspanel/users/templates/users/_create.html:17
 msgid "From here you can create a new user and assign them to a project."
@@ -3427,10 +3301,9 @@ msgid "Update User"
 msgstr "更新使用者"
 
 #: dashboards/syspanel/users/templates/users/_update.html:17
-#, fuzzy
 msgid ""
 "From here you can edit the user's details, including their default project."
-msgstr "您可以在這裡編輯使用者的名稱，電子郵件，密碼和預設專案。"
+msgstr "從這裡您可以編輯使用者的詳細資料，包含他們的預設專案。"
 
 #: tables/actions.py:338
 msgid "Filter"
@@ -3439,32 +3312,32 @@ msgstr "搜尋"
 #: tables/actions.py:468
 #, python-format
 msgid "%(action)s %(data_type)s"
-msgstr ""
+msgstr "%(action)s %(data_type)s"
 
 #: tables/actions.py:502
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
-#: tables/actions.py:526
+#: tables/actions.py:530
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr "您沒有權限使用%(action)s: %(objs)s"
 
-#: tables/actions.py:532
+#: tables/actions.py:536
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "無法%(action)s: %(objs)s"
 
-#: tables/actions.py:538
+#: tables/actions.py:542
 #, python-format
 msgid "%(action)s: %(objs)s"
-msgstr ""
+msgstr "%(action)s：%(objs)s"
 
-#: tables/actions.py:548
+#: tables/actions.py:552
 msgid "Delete"
 msgstr "刪除"
 
-#: tables/actions.py:549
+#: tables/actions.py:553
 msgid "Deleted"
 msgstr "已刪除"
 
@@ -3473,42 +3346,54 @@ msgstr "已刪除"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "此屬性%(attr)s並不在%(obj)s上存在。"
 
-#: tables/base.py:726
+#: tables/base.py:727
 msgid "No items to display."
 msgstr "沒有任何相關項目"
 
-#: tables/base.py:829
+#: tables/base.py:830
 msgid "Actions"
 msgstr "動作"
 
-#: tables/base.py:1005
+#: tables/base.py:1008
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "找不到id \"%s\"的相關項目"
 
-#: tables/base.py:1135
+#: tables/base.py:1138
 msgid "Please select a row before taking that action."
 msgstr "請選擇一個欄位後才執行動作"
 
 #: templates/_header.html:3
 msgid "Logged in as"
-msgstr ""
+msgstr "登入為"
 
 #: templates/_header.html:6
 msgid "Help"
-msgstr ""
+msgstr "求助"
 
 #: templates/_header.html:8
 msgid "Sign Out"
-msgstr ""
+msgstr "登出"
+
+#: templates/base.html:20
+msgid "Caution"
+msgstr "警告"
+
+#: templates/base.html:21
+msgid "You are acting as an admin user in the project dashboard."
+msgstr "您可以在專案 dashboard 中以 admin 使用者工作。"
+
+#: templates/base.html:23
+msgid "Learn More"
+msgstr "學習更多"
 
 #: templates/splash.html:7 templates/auth/login.html:4
 msgid "Login"
-msgstr ""
+msgstr "登入"
 
 #: templates/auth/_login.html:4
 msgid "Log In"
-msgstr ""
+msgstr "登入"
 
 #: templates/auth/_login.html:17
 msgid "Sign In"
@@ -3530,36 +3415,63 @@ msgstr "成功： "
 msgid "Error: "
 msgstr "錯誤： "
 
-#: templates/horizon/common/_data_table.html:37
-#, fuzzy
+#: templates/horizon/common/_data_table.html:44
 msgid "Summary"
-msgstr "使用量摘要"
+msgstr "摘要"
 
-#: templates/horizon/common/_data_table.html:46
+#: templates/horizon/common/_data_table.html:53
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "正顯示%(counter)s個項目"
-msgstr[1] "正顯示%(counter)s個項目"
+msgstr[0] "顯示 %(counter)s 個項目"
+
+#: templates/horizon/common/_quota_summary.html:4
+#, fuzzy
+msgid "Quota Summary"
+msgstr "摘要"
+
+#: templates/horizon/common/_quota_summary.html:5
+#: templates/horizon/common/_quota_summary.html:8
+#: templates/horizon/common/_quota_summary.html:11
+msgid "Used"
+msgstr ""
+
+#: templates/horizon/common/_quota_summary.html:5
+#: templates/horizon/common/_quota_summary.html:8
+#: templates/horizon/common/_quota_summary.html:11
+msgid "of"
+msgstr ""
+
+#: templates/horizon/common/_quota_summary.html:5
+#, fuzzy
+msgid "Available Instances"
+msgstr "所有執行個體"
+
+#: templates/horizon/common/_quota_summary.html:8
+#, fuzzy
+msgid "Available vCPUs"
+msgstr "可用"
+
+#: templates/horizon/common/_quota_summary.html:11
+#, fuzzy
+msgid "Available RAM"
+msgstr "可用"
 
 #: templates/horizon/common/_resource_browser.html:10
-#, fuzzy, python-format
+#, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "正顯示%(counter)s個項目"
-msgstr[1] "正顯示%(counter)s個項目"
+msgstr[0] "顯示 %(nav_items)s 個項目"
 
 #: templates/horizon/common/_resource_browser.html:11
-#, fuzzy, python-format
+#, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "正顯示%(counter)s個項目"
-msgstr[1] "正顯示%(counter)s個項目"
+msgstr[0] "顯示 %(content_items)s 個項目"
 
 #: templates/horizon/common/_sidebar.html:14
-#, fuzzy
 msgid "Current Project"
-msgstr "建立專案"
+msgstr "目前的專案"
 
 #: templates/horizon/common/_usage_summary.html:5
 msgid "Select a month to query its usage"
@@ -3574,7 +3486,8 @@ msgid "Active Instances"
 msgstr "運作中執行個體"
 
 #: templates/horizon/common/_usage_summary.html:15
-msgid "Active Memory"
+#, fuzzy
+msgid "Active RAM"
 msgstr "運作中記憶體"
 
 #: templates/horizon/common/_usage_summary.html:16
@@ -3587,12 +3500,11 @@ msgstr "本月的GB-時數"
 
 #: templatetags/branding.py:35
 msgid "Horizon"
-msgstr ""
+msgstr "Horizon"
 
 #: templatetags/horizon.py:108
-#, fuzzy
 msgid "No Limit"
-msgstr "限制"
+msgstr "不限制"
 
 #: templatetags/horizon.py:110 templatetags/horizon.py:112
 msgid "Available"
@@ -3603,54 +3515,49 @@ msgstr "可用"
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
 msgstr[0] "%(size)d 位元組"
-msgstr[1] "%(size)d 位元組"
 
 #: templatetags/sizeformat.py:49
 #, python-format
 msgid "%(size)d"
 msgid_plural "%(size)d"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(size)d"
 
 #: templatetags/sizeformat.py:52
 #, python-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: templatetags/sizeformat.py:55
 #, python-format
 msgid "%s MB"
-msgstr ""
+msgstr "%s MB"
 
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
-msgstr ""
+msgstr "%s GB"
 
 #: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s TB"
 
 #: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s PB"
-msgstr ""
+msgstr "%s PB"
 
 #: tests/base_tests.py:43
-#, fuzzy
 msgid "My Dashboard"
-msgstr "OpenStack控制台"
+msgstr "我的 Dashboard"
 
 #: tests/base_tests.py:49
-#, fuzzy
 msgid "My Panel"
-msgstr "系統面板"
+msgstr "我的面板"
 
 #: tests/base_tests.py:56
-#, fuzzy
 msgid "Admin Panel"
-msgstr "管理者"
+msgstr "管理面板"
 
 #: tests/message_tests.py:30
 msgid "Giant ants are attacking San Francisco!"
@@ -3658,27 +3565,27 @@ msgstr ""
 
 #: tests/table_tests.py:106
 msgid "Batch"
-msgstr ""
+msgstr "批次"
 
 #: tests/table_tests.py:107
 msgid "Batched"
-msgstr ""
+msgstr "已批次"
 
 #: tests/table_tests.py:108 tests/table_tests.py:119
 msgid "Item"
-msgstr ""
+msgstr "項目"
 
 #: tests/table_tests.py:109 tests/table_tests.py:120
 msgid "Items"
-msgstr ""
+msgstr "項目"
 
 #: tests/table_tests.py:117
 msgid "Down"
-msgstr ""
+msgstr "下"
 
 #: tests/table_tests.py:117
 msgid "Up"
-msgstr ""
+msgstr "上"
 
 #: tests/table_tests.py:118
 msgid "Downed"
@@ -3689,54 +3596,52 @@ msgid "Upped"
 msgstr ""
 
 #: tests/table_tests.py:185
-#, fuzzy
 msgid "No Actions Table"
-msgstr "動作"
+msgstr "沒有動作表格"
 
 #: tests/tabs_tests.py:36
 msgid "Tab One"
-msgstr ""
+msgstr "分頁一"
 
 #: tests/tabs_tests.py:42
 msgid "Delayed Tab"
-msgstr ""
+msgstr "延遲分頁"
 
 #: tests/tabs_tests.py:49
 msgid "Disabled Tab"
-msgstr ""
+msgstr "停用分頁"
 
 #: tests/tabs_tests.py:58
 msgid "Disallowed Tab"
-msgstr ""
+msgstr "不允許分頁"
 
 #: tests/tabs_tests.py:76
 msgid "Tab With My Table"
-msgstr ""
+msgstr "我的表格分頁"
 
 #: tests/tabs_tests.py:85
 msgid "Recoverable Error Tab"
-msgstr ""
+msgstr "可回復錯誤分頁"
 
 #: tests/testsettings.py:118
 msgid "Password must be between 8 and 18 characters."
-msgstr ""
+msgstr "密碼必須介於 8 到 18 個字元之間。"
 
 #: tests/workflows_tests.py:43
 msgid "Test Action One"
-msgstr ""
+msgstr "測試動作一"
 
 #: tests/workflows_tests.py:61
 msgid "Test Action Two"
-msgstr ""
+msgstr "測試動作二"
 
 #: tests/workflows_tests.py:69
 msgid "Test Action Three"
-msgstr ""
+msgstr "測試動作三"
 
 #: tests/workflows_tests.py:77
-#, fuzzy
 msgid "Admin Action"
-msgstr "動作"
+msgstr "管理動作"
 
 #: tests/test_dashboards/cats/dashboard.py:8
 msgid "Cute Cats"
@@ -3772,11 +3677,11 @@ msgstr ""
 msgid "Puppies"
 msgstr ""
 
-#: usage/base.py:97
+#: usage/base.py:96
 msgid "Unable to retrieve usage information."
 msgstr "無法取得使用量資訊"
 
-#: usage/base.py:100
+#: usage/base.py:99
 msgid "You are viewing data for the future, which may or may not exist."
 msgstr "您正在查看未來的資料，它可能並不存在"
 
@@ -3802,32 +3707,30 @@ msgstr "上機時間"
 
 #: utils/fields.py:46
 msgid "Incorrect format for IP address"
-msgstr ""
+msgstr "IP 位址格式不正確"
 
 #: utils/fields.py:47
-#, fuzzy
 msgid "Invalid version for IP address"
-msgstr "不合法的使用者名稱或密碼"
+msgstr "IP 位址版本無效"
 
 #: utils/fields.py:48
 msgid "Invalid subnet mask"
-msgstr ""
+msgstr "無效的子網路遮罩"
 
 #: utils/validators.py:35
-#, fuzzy
 msgid "Password is not accepted"
-msgstr "密碼不符"
+msgstr "密碼不被接受"
 
 #: workflows/base.py:70
 msgid "Processing..."
-msgstr ""
+msgstr "處理中…"
 
 #: workflows/base.py:539
-#, fuzzy, python-format
+#, python-format
 msgid "%s completed successfully."
-msgstr "容器已成功建立"
+msgstr "%s 已成功的完成。"
 
 #: workflows/base.py:540
 #, python-format
 msgid "%s did not complete."
-msgstr ""
+msgstr "%s 尚未完成。"

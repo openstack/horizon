@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 01:45+0000\n"
+"POT-Creation-Date: 2012-09-18 22:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,38 +20,58 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2)\n"
 
 #: settings.py:141
-msgid "English"
+msgid "Bulgarian (Bulgaria)"
 msgstr ""
 
 #: settings.py:142
-msgid "Italiano"
+msgid "Czech"
 msgstr ""
 
 #: settings.py:143
-msgid "Spanish"
+msgid "English"
 msgstr ""
 
 #: settings.py:144
-msgid "French"
+msgid "Spanish"
 msgstr ""
 
 #: settings.py:145
-msgid "Japanese"
+msgid "French"
 msgstr ""
 
 #: settings.py:146
-msgid "Portuguese"
+msgid "Italiano"
 msgstr ""
 
 #: settings.py:147
-msgid "Polish"
+msgid "Japanese"
 msgstr ""
 
 #: settings.py:148
-msgid "Simplified Chinese"
+msgid "Korean (Korea)"
 msgstr ""
 
 #: settings.py:149
+msgid "Dutch (Netherlands)"
+msgstr ""
+
+#: settings.py:150
+msgid "Polish"
+msgstr ""
+
+#: settings.py:151
+msgid "Portuguese"
+msgstr ""
+
+#: settings.py:152
+msgid "Portuguese (Brazil)"
+msgstr ""
+
+#: settings.py:153
+msgid "Simplified Chinese"
+msgstr ""
+
+#: settings.py:154
 msgid "Traditional Chinese"
 msgstr ""
 

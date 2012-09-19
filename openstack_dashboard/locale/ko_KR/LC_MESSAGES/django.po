@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+#   <bluejay.ahn@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-18 22:18+0000\n"
+"PO-Revision-Date: 2012-08-23 05:30+0000\n"
+"Last-Translator: bluejay.kr <bluejay.ahn@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: settings.py:141
+msgid "Bulgarian (Bulgaria)"
+msgstr ""
+
+#: settings.py:142
+msgid "Czech"
+msgstr ""
+
+#: settings.py:143
+msgid "English"
+msgstr "영어"
+
+#: settings.py:144
+msgid "Spanish"
+msgstr "스페인어"
+
+#: settings.py:145
+msgid "French"
+msgstr "불어"
+
+#: settings.py:146
+msgid "Italiano"
+msgstr "이탈리아어"
+
+#: settings.py:147
+msgid "Japanese"
+msgstr "일본어"
+
+#: settings.py:148
+msgid "Korean (Korea)"
+msgstr ""
+
+#: settings.py:149
+msgid "Dutch (Netherlands)"
+msgstr ""
+
+#: settings.py:150
+msgid "Polish"
+msgstr "폴란드어어"
+
+#: settings.py:151
+msgid "Portuguese"
+msgstr "포르투갈어"
+
+#: settings.py:152
+#, fuzzy
+msgid "Portuguese (Brazil)"
+msgstr "포르투갈어"
+
+#: settings.py:153
+msgid "Simplified Chinese"
+msgstr "중국어-간체"
+
+#: settings.py:154
+msgid "Traditional Chinese"
+msgstr "중국어-정체"
+
+#: templates/403.html:4 templates/403.html.py:9
+msgid "Forbidden"
+msgstr "거부했습니다"
+
+#: templates/403.html:20 templates/404.html:19 templates/500.html:19
+msgid "Home"
+msgstr "홈"
+
+#: templates/403.html:24 templates/404.html:23 templates/500.html:23
+msgid "Projects"
+msgstr "프로젝트"
+
+#: templates/404.html:4
+msgid "Page Not Found"
+msgstr "페이지를 찾을 수 없습니다"
+
+#: templates/404.html:9
+msgid "The page you were looking for doesn't exist"
+msgstr "찾고 계시는 페이지가 존재하지 않습니다"
+
+#: templates/404.html:10
+msgid "You may have mistyped the address or the page may have moved."
+msgstr "주소를 잘 못 적으셨거나 페이지가 이동되었을 가능성이 있습니다. "
+
+#: templates/500.html:4 templates/500.html.py:9
+msgid "Internal Server Error"
+msgstr "내부 서버 에러 "
+
+#: templates/500.html:10
+msgid ""
+"An unexpected error occurred while processing your request.  Please try your "
+"request again."
+msgstr ""
+"요청을 처리하는 동안 예상치 못한 에러가 발생하였습니다. 다시 요청해주시기 바"
+"랍니다."

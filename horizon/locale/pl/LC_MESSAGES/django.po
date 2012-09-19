@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 01:45+0000\n"
+"POT-Creation-Date: 2012-09-18 22:18+0000\n"
 "PO-Revision-Date: 2011-09-24 14:41+0100\n"
 "Last-Translator: Tomasz 'Zen' Napierala <tomasz@napierala.org>\n"
 "Language-Team: Polish OpenStack translations team <tomasz+openstack-"
@@ -34,7 +34,7 @@ msgstr "Nie można usunąć klucza: %s"
 msgid "You are not authorized to access %s"
 msgstr ""
 
-#: exceptions.py:270
+#: exceptions.py:285
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
@@ -53,7 +53,7 @@ msgstr ""
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr ""
 
-#: api/nova.py:526
+#: api/nova.py:530
 msgid "Unknown instance"
 msgstr ""
 
@@ -61,11 +61,11 @@ msgstr ""
 msgid "Unicode is not currently supported for object copy."
 msgstr ""
 
-#: browsers/base.py:65
+#: browsers/base.py:90
 msgid "Navigation Item"
 msgstr ""
 
-#: browsers/views.py:44
+#: browsers/views.py:42
 #, fuzzy, python-format
 msgid "Select a %s to browse."
 msgstr "Usuń projekt"
@@ -79,15 +79,15 @@ msgid "Object Store"
 msgstr ""
 
 #: dashboards/nova/dashboard.py:40 dashboards/nova/instances/workflows.py:37
-#: dashboards/syspanel/networks/forms.py:37
-#: dashboards/syspanel/networks/tables.py:66
+#: dashboards/syspanel/networks/forms.py:35
+#: dashboards/syspanel/networks/tables.py:67
 #: dashboards/syspanel/projects/tables.py:65 tests/workflows_tests.py:39
 #, fuzzy
 msgid "Project"
 msgstr "Usuń projekt"
 
 #: dashboards/nova/access_and_security/panel.py:25
-#: dashboards/nova/instances/workflows.py:345
+#: dashboards/nova/instances/workflows.py:347
 msgid "Access & Security"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr "Nie można cofnąć: %s"
 
 #: dashboards/nova/access_and_security/views.py:75
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:64
-#: dashboards/syspanel/instances/views.py:58
+#: dashboards/syspanel/instances/views.py:46
 #, fuzzy
 msgid "Unable to retrieve instance list."
 msgstr "Nie można cofnąć: %s"
@@ -148,7 +148,7 @@ msgid "Floating IP"
 msgstr ""
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:49
-#: dashboards/nova/access_and_security/floating_ips/tables.py:132
+#: dashboards/nova/access_and_security/floating_ips/tables.py:127
 #: dashboards/syspanel/projects/workflows.py:45
 msgid "Floating IPs"
 msgstr ""
@@ -156,7 +156,7 @@ msgstr ""
 #: dashboards/nova/access_and_security/floating_ips/tables.py:58
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/associate.html:3
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/associate.html:6
-#: dashboards/nova/instances/tables.py:202
+#: dashboards/nova/instances/tables.py:219
 msgid "Associate Floating IP"
 msgstr ""
 
@@ -174,31 +174,26 @@ msgstr ""
 msgid "Unable to disassociate floating IP."
 msgstr "Nie można zaktualizować obrazu: %s"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:98
-#, python-format
-msgid "%(INSTANCE_NAME)s (%(INSTANCE_ID)s)"
-msgstr ""
-
-#: dashboards/nova/access_and_security/floating_ips/tables.py:115
+#: dashboards/nova/access_and_security/floating_ips/tables.py:110
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:31
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:38
-#: dashboards/nova/instances/tables.py:270
-#: dashboards/syspanel/instances/tables.py:74
+#: dashboards/nova/instances/tables.py:291
+#: dashboards/syspanel/instances/tables.py:71
 msgid "IP Address"
 msgstr ""
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:118
+#: dashboards/nova/access_and_security/floating_ips/tables.py:113
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:35
-#: dashboards/nova/instances/tables.py:62
-#: dashboards/nova/instances/tables.py:79
-#: dashboards/nova/instances/tables.py:94
-#: dashboards/nova/instances/tables.py:122
-#: dashboards/nova/volumes/tables.py:197 tests/workflows_tests.py:58
+#: dashboards/nova/instances/tables.py:69
+#: dashboards/nova/instances/tables.py:89
+#: dashboards/nova/instances/tables.py:106
+#: dashboards/nova/instances/tables.py:135
+#: dashboards/nova/volumes/tables.py:205 tests/workflows_tests.py:58
 #, fuzzy
 msgid "Instance"
 msgstr "Instancje"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:121
+#: dashboards/nova/access_and_security/floating_ips/tables.py:116
 msgid "Floating IP Pool"
 msgstr ""
 
@@ -225,33 +220,33 @@ msgstr "Usuń projekt"
 msgid "No IP addresses available"
 msgstr "brak dostępnych"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:81
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:75
 #: dashboards/nova/volumes/forms.py:160
 #, fuzzy
 msgid "Select an instance"
 msgstr "Nie można zaktualizować obrazu: %s"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:83
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:77
 #: dashboards/nova/volumes/forms.py:162
 #, fuzzy
 msgid "No instances available"
 msgstr "brak dostępnych"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:102
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:96
 msgid "Manage Floating IP Associations"
 msgstr ""
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:103
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:97
 #, fuzzy
 msgid "Associate"
 msgstr "Aktualizuj instncję"
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:104
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:98
 #, python-format
 msgid "IP address %s associated."
 msgstr ""
 
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:105
+#: dashboards/nova/access_and_security/floating_ips/workflows.py:99
 #, fuzzy, python-format
 msgid "Unable to associate IP address %s."
 msgstr "Nie można zaktualizować obrazu: %s"
@@ -283,8 +278,8 @@ msgid "Unable to import keypair."
 msgstr "Nie można utworzyć klucza: %s"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:29
-#: dashboards/nova/instances/tables.py:274
-#: dashboards/nova/instances/workflows.py:332
+#: dashboards/nova/instances/tables.py:295
+#: dashboards/nova/instances/workflows.py:334
 msgid "Keypair"
 msgstr ""
 
@@ -321,21 +316,23 @@ msgstr "Nie można utworzyć klucza: %s"
 #: dashboards/nova/images_and_snapshots/images/forms.py:39
 #: dashboards/nova/images_and_snapshots/images/forms.py:114
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:9
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:63
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:10
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:76
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:9
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:9
-#: dashboards/nova/networks/forms.py:36 dashboards/nova/networks/tables.py:82
+#: dashboards/nova/networks/forms.py:36 dashboards/nova/networks/tables.py:93
 #: dashboards/nova/networks/ports/tables.py:40
 #: dashboards/nova/networks/subnets/forms.py:42
 #: dashboards/nova/networks/subnets/forms.py:101
-#: dashboards/nova/networks/subnets/tables.py:69
+#: dashboards/nova/networks/subnets/tables.py:81
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:7
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:9
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:9
-#: dashboards/nova/volumes/tables.py:135 dashboards/nova/volumes/tables.py:155
+#: dashboards/nova/volumes/tables.py:143 dashboards/nova/volumes/tables.py:163
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:9
 #: dashboards/syspanel/flavors/forms.py:35
-#: dashboards/syspanel/networks/forms.py:35
+#: dashboards/syspanel/networks/forms.py:33
+#: dashboards/syspanel/networks/forms.py:68
 #: dashboards/syspanel/networks/ports/forms.py:39
 #: dashboards/syspanel/networks/ports/forms.py:71
 #: dashboards/syspanel/networks/ports/tables.py:73
@@ -355,10 +352,11 @@ msgstr ""
 #: dashboards/nova/containers/templates/containers/_copy.html:16
 #: dashboards/nova/containers/templates/containers/_create.html:16
 #: dashboards/nova/containers/templates/containers/_upload.html:17
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:15
 #: dashboards/nova/networks/templates/networks/_create.html:16
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:17
 #: dashboards/nova/volumes/forms.py:28 dashboards/nova/volumes/forms.py:195
-#: dashboards/nova/volumes/tables.py:138
+#: dashboards/nova/volumes/tables.py:146
 #: dashboards/nova/volumes/templates/volumes/_create.html:18
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:17
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:14
@@ -504,7 +502,7 @@ msgstr "Grupy bezpieczeństwa"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:31
 #: dashboards/nova/access_and_security/security_groups/tables.py:65
-#: dashboards/nova/instances/workflows.py:337
+#: dashboards/nova/instances/workflows.py:339
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:49
 msgid "Security Groups"
 msgstr "Grupy bezpieczeństwa"
@@ -627,7 +625,7 @@ msgstr ""
 #: dashboards/syspanel/projects/templates/projects/_update.html:24
 #: dashboards/syspanel/users/templates/users/_create.html:23
 #: dashboards/syspanel/users/templates/users/_update.html:23
-#: templates/horizon/common/_workflow.html:30
+#: templates/horizon/common/_workflow.html:33
 msgid "Cancel"
 msgstr ""
 
@@ -688,7 +686,6 @@ msgstr ""
 
 #: dashboards/nova/containers/browsers.py:33
 #: dashboards/nova/containers/tables.py:39
-#: dashboards/nova/containers/templates/containers/index.html:7
 #, fuzzy
 msgid "Container"
 msgstr "Utwórz nowy wolumen."
@@ -757,6 +754,7 @@ msgstr ""
 #: dashboards/nova/containers/panel.py:28
 #: dashboards/nova/containers/tables.py:40
 #: dashboards/nova/containers/tables.py:127
+#: dashboards/nova/containers/templates/containers/index.html:7
 msgid "Containers"
 msgstr ""
 
@@ -813,10 +811,11 @@ msgstr "Wolumeny"
 
 #: dashboards/nova/containers/tables.py:255
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:30
-#: dashboards/nova/instances/tables.py:272
-#: dashboards/nova/volumes/tables.py:141
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:37
+#: dashboards/nova/instances/tables.py:293
+#: dashboards/nova/volumes/tables.py:149
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:26
-#: dashboards/syspanel/instances/tables.py:76
+#: dashboards/syspanel/instances/tables.py:73
 msgid "Size"
 msgstr ""
 
@@ -887,17 +886,17 @@ msgstr ""
 msgid "Images & Snapshots"
 msgstr "Instancje"
 
-#: dashboards/nova/images_and_snapshots/views.py:61
+#: dashboards/nova/images_and_snapshots/views.py:62
 #, fuzzy
 msgid "Unable to retrieve images."
 msgstr "Nie można cofnąć: %s"
 
-#: dashboards/nova/images_and_snapshots/views.py:72
+#: dashboards/nova/images_and_snapshots/views.py:73
 #, fuzzy
 msgid "Unable to retrieve snapshots."
 msgstr "Nie można utworzyć klucza: %s"
 
-#: dashboards/nova/images_and_snapshots/views.py:80
+#: dashboards/nova/images_and_snapshots/views.py:81
 #: dashboards/nova/volumes/forms.py:65
 #, fuzzy
 msgid "Unable to retrieve volume snapshots."
@@ -998,7 +997,7 @@ msgstr "Obraz %s został pomyślnie wyrejestrowany."
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:33
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:32
-#: dashboards/nova/instances/workflows.py:456
+#: dashboards/nova/instances/workflows.py:454
 #, fuzzy
 msgid "Launch"
 msgstr "Uruchom obraz"
@@ -1040,21 +1039,23 @@ msgstr "Obrazy"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:118
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:13
-#: dashboards/nova/instances/tables.py:277
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:18
+#: dashboards/nova/instances/tables.py:298
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:13
-#: dashboards/nova/networks/tables.py:86
+#: dashboards/nova/networks/tables.py:99
 #: dashboards/nova/networks/ports/tables.py:44
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:13
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:30
-#: dashboards/nova/volumes/tables.py:145
+#: dashboards/nova/volumes/tables.py:153
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:17
-#: dashboards/syspanel/instances/tables.py:81
-#: dashboards/syspanel/networks/tables.py:71
+#: dashboards/syspanel/instances/tables.py:78
+#: dashboards/syspanel/networks/tables.py:74
 #: dashboards/syspanel/networks/ports/tables.py:77
 msgid "Status"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/tabs.py:26
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tabs.py:26
 #: dashboards/nova/instances/tabs.py:25
 #: dashboards/nova/networks/ports/tabs.py:29
 #: dashboards/nova/networks/subnets/tabs.py:31
@@ -1147,7 +1148,7 @@ msgstr ""
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:25
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will results in unusable images."
+"URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:3
@@ -1156,12 +1157,14 @@ msgid "Image Overview"
 msgstr "Instancje"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:6
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:7
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:6
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:6
 msgid "Info"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:11
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:12
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:11
 #: dashboards/nova/networks/forms.py:38
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:9
@@ -1169,6 +1172,7 @@ msgstr ""
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:11
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:12
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:11
+#: dashboards/syspanel/networks/forms.py:70
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:12
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:12
 #: dashboards/syspanel/users/forms.py:113
@@ -1180,6 +1184,7 @@ msgid "Checksum"
 msgstr ""
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:19
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:39
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:28
 #, fuzzy
 msgid "Created"
@@ -1191,6 +1196,7 @@ msgid "Updated"
 msgstr "Aktualizuj obraz"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:27
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:34
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:19
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:23
 msgid "Specs"
@@ -1248,8 +1254,8 @@ msgstr ""
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:8
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:23
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/create.html:3
-#: dashboards/nova/instances/tables.py:162
-#: dashboards/nova/volumes/tables.py:67
+#: dashboards/nova/instances/tables.py:179
+#: dashboards/nova/volumes/tables.py:75
 msgid "Create Snapshot"
 msgstr ""
 
@@ -1257,34 +1263,68 @@ msgstr ""
 msgid "Snapshots preserve the disk state of a running instance."
 msgstr ""
 
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:20
+#: dashboards/nova/instances/workflows.py:74
+#: dashboards/nova/instances/workflows.py:109
+#: dashboards/nova/instances/templates/instances/_detail_overview.html:93
+#: dashboards/nova/volumes/tables.py:36 dashboards/nova/volumes/tables.py:181
+#, fuzzy
+msgid "Volume"
+msgstr "Wolumeny"
+
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:38
+#: dashboards/nova/instances/templates/instances/_detail_overview.html:29
+#: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
+#: dashboards/nova/instances/templates/instances/_launch_details_help.html:12
+#: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
+#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:27
+msgid "GB"
+msgstr ""
+
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/create.html:6
 msgid "Create a Snapshot"
 msgstr ""
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:32
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:3
+#, fuzzy
+msgid "Volume Snapshot Details"
+msgstr "Wolumeny"
+
+#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:6
+#, fuzzy
+msgid "Volume Snapshot Detail"
+msgstr "Wolumeny"
+
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:33
 #: dashboards/nova/instances/workflows.py:75
 #, fuzzy
 msgid "Volume Snapshot"
 msgstr "Wolumeny"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:33
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:69
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:34
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:84
 #, fuzzy
 msgid "Volume Snapshots"
 msgstr "Wolumeny"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:41
-#: dashboards/nova/volumes/tables.py:50
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:42
+#: dashboards/nova/volumes/tables.py:58
 #: dashboards/nova/volumes/templates/volumes/_create.html:8
 #: dashboards/nova/volumes/templates/volumes/_create.html:55
 #, fuzzy
 msgid "Create Volume"
 msgstr "Wolumeny"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:65
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:79
+#: dashboards/nova/volumes/forms.py:26
 #, fuzzy
-msgid "Volume ID"
+msgid "Volume Name"
 msgstr "Wolumeny"
+
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tabs.py:40
+#, fuzzy
+msgid "Unable to retrieve snapshot details."
+msgstr "Nie można utworzyć wolumenu: %s"
 
 #: dashboards/nova/instances/forms.py:44
 #, fuzzy, python-format
@@ -1297,113 +1337,114 @@ msgid "Unable to update instance."
 msgstr "Nie można zaktualizować obrazu: %s"
 
 #: dashboards/nova/instances/panel.py:24
-#: dashboards/nova/instances/tables.py:63
-#: dashboards/nova/instances/tables.py:80
-#: dashboards/nova/instances/tables.py:95
-#: dashboards/nova/instances/tables.py:123
-#: dashboards/nova/instances/tables.py:292
+#: dashboards/nova/instances/tables.py:70
+#: dashboards/nova/instances/tables.py:90
+#: dashboards/nova/instances/tables.py:107
+#: dashboards/nova/instances/tables.py:136
+#: dashboards/nova/instances/tables.py:313
 #: dashboards/nova/instances/templates/instances/index.html:3
 #: dashboards/nova/instances/templates/instances/index.html:6
 #: dashboards/syspanel/instances/panel.py:28
-#: dashboards/syspanel/instances/tables.py:96
+#: dashboards/syspanel/instances/tables.py:93
 #: dashboards/syspanel/instances/templates/instances/index.html:3
 #: dashboards/syspanel/projects/workflows.py:38
 msgid "Instances"
 msgstr "Instancje"
 
-#: dashboards/nova/instances/tables.py:60
+#: dashboards/nova/instances/tables.py:67
 msgid "Terminate"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:61
+#: dashboards/nova/instances/tables.py:68
 msgid "Scheduled termination of"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:77
+#: dashboards/nova/instances/tables.py:87
 msgid "Reboot"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:78
+#: dashboards/nova/instances/tables.py:88
 msgid "Rebooted"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:92
+#: dashboards/nova/instances/tables.py:104
 msgid "Pause"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:92
+#: dashboards/nova/instances/tables.py:104
 msgid "Unpause"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:93
+#: dashboards/nova/instances/tables.py:105
 msgid "Paused"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:93
+#: dashboards/nova/instances/tables.py:105
 msgid "Unpaused"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:120
+#: dashboards/nova/instances/tables.py:133
 msgid "Suspend"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:120
+#: dashboards/nova/instances/tables.py:133
 msgid "Resume"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:121
+#: dashboards/nova/instances/tables.py:134
 msgid "Suspended"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:121
+#: dashboards/nova/instances/tables.py:134
 msgid "Resumed"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:148
-#: dashboards/nova/instances/workflows.py:455
+#: dashboards/nova/instances/tables.py:162
+#: dashboards/nova/instances/workflows.py:453
 #: dashboards/nova/instances/templates/instances/launch.html:3
 #: dashboards/nova/instances/templates/instances/launch.html:6
 #, fuzzy
 msgid "Launch Instance"
 msgstr "Uruchom obraz"
 
-#: dashboards/nova/instances/tables.py:155
+#: dashboards/nova/instances/tables.py:169
 #: dashboards/nova/instances/templates/instances/_update.html:7
 msgid "Edit Instance"
 msgstr "Edytuj instancję"
 
-#: dashboards/nova/instances/tables.py:172
+#: dashboards/nova/instances/tables.py:189
 msgid "VNC Console"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:187
+#: dashboards/nova/instances/tables.py:204
 msgid "View Log"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:232
+#: dashboards/nova/instances/tables.py:252
 #, python-format
 msgid "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:239
-#: dashboards/nova/instances/tables.py:246
+#: dashboards/nova/instances/tables.py:259
+#: dashboards/nova/instances/tables.py:266
 #, fuzzy
 msgid "Not available"
 msgstr "brak dostępnych"
 
-#: dashboards/nova/instances/tables.py:269
-#: dashboards/syspanel/instances/tables.py:73 usage/tables.py:57
+#: dashboards/nova/instances/tables.py:290
+#: dashboards/nova/instances/workflows.py:175
+#: dashboards/syspanel/instances/tables.py:70 usage/tables.py:57
 #, fuzzy
 msgid "Instance Name"
 msgstr "Instancje"
 
-#: dashboards/nova/instances/tables.py:281
-#: dashboards/syspanel/instances/tables.py:85
+#: dashboards/nova/instances/tables.py:302
+#: dashboards/syspanel/instances/tables.py:82
 msgid "Task"
 msgstr ""
 
-#: dashboards/nova/instances/tables.py:288
-#: dashboards/syspanel/instances/tables.py:92
+#: dashboards/nova/instances/tables.py:309
+#: dashboards/syspanel/instances/tables.py:89
 msgid "Power State"
 msgstr ""
 
@@ -1431,7 +1472,7 @@ msgid "Unable to retrieve instances."
 msgstr "Nie można cofnąć: %s"
 
 #: dashboards/nova/instances/views.py:81
-#: dashboards/syspanel/instances/views.py:89
+#: dashboards/syspanel/instances/views.py:77
 #, fuzzy
 msgid "Unable to retrieve instance size information."
 msgstr "Nie można cofnąć: %s"
@@ -1458,12 +1499,6 @@ msgstr ""
 msgid "Project & User"
 msgstr "Usuń projekt"
 
-#: dashboards/nova/instances/workflows.py:54
-msgid ""
-"Admin users may optionally select the project and user for whom the instance "
-"should be created."
-msgstr ""
-
 #: dashboards/nova/instances/workflows.py:65
 msgid "Don't boot from a volume."
 msgstr ""
@@ -1480,14 +1515,6 @@ msgstr ""
 #: dashboards/nova/instances/workflows.py:89
 #, fuzzy
 msgid "Volume Options"
-msgstr "Wolumeny"
-
-#: dashboards/nova/instances/workflows.py:74
-#: dashboards/nova/instances/workflows.py:109
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:93
-#: dashboards/nova/volumes/tables.py:36 dashboards/nova/volumes/tables.py:173
-#, fuzzy
-msgid "Volume"
 msgstr "Wolumeny"
 
 #: dashboards/nova/instances/workflows.py:77
@@ -1543,10 +1570,6 @@ msgstr "Instancje"
 msgid "Instance Snapshot"
 msgstr "Instancje"
 
-#: dashboards/nova/instances/workflows.py:175
-msgid "Server Name"
-msgstr ""
-
 #: dashboards/nova/instances/workflows.py:176
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:22
 #: dashboards/syspanel/flavors/tables.py:13
@@ -1587,146 +1610,143 @@ msgid ""
 "snapshots."
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:227
+#: dashboards/nova/instances/workflows.py:228
 #, fuzzy
 msgid "Unable to retrieve public images."
 msgstr "Nie można cofnąć: %s"
 
-#: dashboards/nova/instances/workflows.py:241
+#: dashboards/nova/instances/workflows.py:243
 #, fuzzy
 msgid "Unable to retrieve images for the current project."
 msgstr "Nie można utworzyć klucza: %s"
 
-#: dashboards/nova/instances/workflows.py:264
+#: dashboards/nova/instances/workflows.py:266
 #, fuzzy
 msgid "Select Image"
 msgstr "Wolumeny"
 
-#: dashboards/nova/instances/workflows.py:266
+#: dashboards/nova/instances/workflows.py:268
 #, fuzzy
 msgid "No images available."
 msgstr "brak dostępnych"
 
-#: dashboards/nova/instances/workflows.py:275
+#: dashboards/nova/instances/workflows.py:277
 #, fuzzy
 msgid "Select Instance Snapshot"
 msgstr "Instancje"
 
-#: dashboards/nova/instances/workflows.py:277
+#: dashboards/nova/instances/workflows.py:279
 #, fuzzy
 msgid "No snapshots available."
 msgstr "brak dostępnych"
 
-#: dashboards/nova/instances/workflows.py:288
+#: dashboards/nova/instances/workflows.py:290
 #, fuzzy
 msgid "Unable to retrieve instance flavors."
 msgstr "Nie można cofnąć: %s"
 
-#: dashboards/nova/instances/workflows.py:301
+#: dashboards/nova/instances/workflows.py:303 usage/base.py:113
 #, fuzzy
 msgid "Unable to retrieve quota information."
 msgstr "Nie można wyrejestrować obrazu: %s"
 
-#: dashboards/nova/instances/workflows.py:334
+#: dashboards/nova/instances/workflows.py:336
 msgid "Which keypair to use for authentication."
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:341
+#: dashboards/nova/instances/workflows.py:343
 #, fuzzy
 msgid "Launch instance in these security groups."
 msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
 
-#: dashboards/nova/instances/workflows.py:346
+#: dashboards/nova/instances/workflows.py:348
 msgid ""
 "Control access to your instance via keypairs, security groups, and other "
 "mechanisms."
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:356
+#: dashboards/nova/instances/workflows.py:358
 #, fuzzy
 msgid "Unable to retrieve keypairs."
 msgstr "Nie można utworzyć klucza: %s"
 
-#: dashboards/nova/instances/workflows.py:358
+#: dashboards/nova/instances/workflows.py:360
 #, fuzzy
 msgid "Select a keypair"
 msgstr "Usuń projekt"
 
-#: dashboards/nova/instances/workflows.py:360
+#: dashboards/nova/instances/workflows.py:362
 #, fuzzy
 msgid "No keypairs available."
 msgstr "brak dostępnych"
 
-#: dashboards/nova/instances/workflows.py:369
+#: dashboards/nova/instances/workflows.py:371
 #, fuzzy
 msgid "Unable to retrieve list of security groups"
 msgstr "Nie można utworzyć klucza: %s"
 
-#: dashboards/nova/instances/workflows.py:389
+#: dashboards/nova/instances/workflows.py:391
 msgid "Customization Script"
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:391
+#: dashboards/nova/instances/workflows.py:393
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:398
+#: dashboards/nova/instances/workflows.py:400
 msgid "Post-Creation"
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:409
-#: dashboards/nova/networks/panel.py:24 dashboards/nova/networks/tables.py:32
-#: dashboards/nova/networks/tables.py:92
+#: dashboards/nova/instances/workflows.py:411
+#: dashboards/nova/networks/panel.py:24 dashboards/nova/networks/tables.py:43
+#: dashboards/nova/networks/tables.py:105
 #: dashboards/nova/networks/templates/networks/index.html:3
 #: dashboards/nova/networks/templates/networks/index.html:6
 #: dashboards/syspanel/networks/panel.py:24
-#: dashboards/syspanel/networks/tables.py:34
-#: dashboards/syspanel/networks/tables.py:77
+#: dashboards/syspanel/networks/tables.py:35
+#: dashboards/syspanel/networks/tables.py:80
 #: dashboards/syspanel/networks/templates/networks/index.html:3
 #: dashboards/syspanel/networks/templates/networks/index.html:6
 msgid "Networks"
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:412
+#: dashboards/nova/instances/workflows.py:414
 #, fuzzy
 msgid "Launch instance withthese networks"
 msgstr "Nie można utworzyć grupy bezpieczeństwa: %s"
 
-#: dashboards/nova/instances/workflows.py:416
-#: dashboards/syspanel/instances/workflows.py:37
+#: dashboards/nova/instances/workflows.py:418
 msgid "Networking"
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:418
-#: dashboards/syspanel/instances/workflows.py:39
+#: dashboards/nova/instances/workflows.py:420
 #, fuzzy
 msgid "Select networks for your instance."
 msgstr "Nie można zaktualizować obrazu: %s"
 
-#: dashboards/nova/instances/workflows.py:434
-#: dashboards/syspanel/instances/workflows.py:73
+#: dashboards/nova/instances/workflows.py:432
 #, fuzzy
 msgid "Unable to retrieve networks."
 msgstr "Nie można cofnąć: %s"
 
-#: dashboards/nova/instances/workflows.py:457
+#: dashboards/nova/instances/workflows.py:455
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr ""
 
-#: dashboards/nova/instances/workflows.py:458
+#: dashboards/nova/instances/workflows.py:456
 #, fuzzy, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Nie można zaktualizować obrazu: %s"
 
-#: dashboards/nova/instances/workflows.py:471
+#: dashboards/nova/instances/workflows.py:469
 #, fuzzy, python-format
 msgid "%s instances"
 msgstr "Instancje"
 
-#: dashboards/nova/instances/workflows.py:474
+#: dashboards/nova/instances/workflows.py:472
 #, fuzzy
 msgid "instance"
 msgstr "Instancje"
@@ -1755,7 +1775,7 @@ msgstr "Instancje"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:24
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:14
-#: usage/tables.py:22
+#: dashboards/syspanel/flavors/tables.py:42 usage/tables.py:22
 msgid "RAM"
 msgstr ""
 
@@ -1774,14 +1794,6 @@ msgstr ""
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:28
 #: usage/tables.py:20
 msgid "Disk"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:29
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:12
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:27
-msgid "GB"
 msgstr ""
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:34
@@ -1807,7 +1819,7 @@ msgid "Volumes Attached"
 msgstr "Dołącz wolumen"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:88
-#: dashboards/nova/volumes/tables.py:158
+#: dashboards/nova/volumes/tables.py:166
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:38
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:45
 #, fuzzy
@@ -1902,7 +1914,7 @@ msgid "Number of VCPUs"
 msgstr ""
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:37
-msgid "Total Memory"
+msgid "Total RAM"
 msgstr ""
 
 #: dashboards/nova/instances/templates/instances/_launch_volumes_help.html:3
@@ -1935,35 +1947,37 @@ msgid "Update Instance"
 msgstr "Aktualizuj instncję"
 
 #: dashboards/nova/networks/forms.py:47
+#: dashboards/syspanel/networks/forms.py:81
 #, fuzzy, python-format
 msgid "Network %s was successfully updated."
 msgstr "Klucz %s został pomyślnie usunięty."
 
 #: dashboards/nova/networks/forms.py:52
+#: dashboards/syspanel/networks/forms.py:86
 #, fuzzy, python-format
 msgid "Failed to update network %s"
 msgstr "Nie można zaktualizować obrazu: %s"
 
-#: dashboards/nova/networks/tables.py:31
+#: dashboards/nova/networks/tables.py:42
 #: dashboards/nova/networks/templates/networks/subnets/index.html:3
 #: dashboards/nova/networks/templates/networks/subnets/index.html:6
-#: dashboards/syspanel/networks/tables.py:33
+#: dashboards/syspanel/networks/tables.py:34
 msgid "Network"
 msgstr ""
 
-#: dashboards/nova/networks/tables.py:47
-#: dashboards/syspanel/networks/tables.py:40
+#: dashboards/nova/networks/tables.py:58
+#: dashboards/syspanel/networks/tables.py:41
 #, python-format
 msgid "Failed to delete network %s"
 msgstr ""
 
-#: dashboards/nova/networks/tables.py:55
+#: dashboards/nova/networks/tables.py:66
 #: dashboards/nova/networks/workflows.py:110
 #: dashboards/nova/networks/templates/networks/_create.html:7
 #: dashboards/nova/networks/templates/networks/_create.html:22
 #: dashboards/nova/networks/templates/networks/create.html:3
 #: dashboards/nova/networks/templates/networks/create.html:6
-#: dashboards/syspanel/networks/tables.py:48
+#: dashboards/syspanel/networks/tables.py:49
 #: dashboards/syspanel/networks/templates/networks/_create.html:8
 #: dashboards/syspanel/networks/templates/networks/_create.html:23
 #: dashboards/syspanel/networks/templates/networks/create.html:3
@@ -1972,54 +1986,63 @@ msgstr ""
 msgid "Create Network"
 msgstr "Utwórz nowy wolumen."
 
-#: dashboards/nova/networks/tables.py:62
+#: dashboards/nova/networks/tables.py:73
 #: dashboards/nova/networks/templates/networks/_update.html:7
-#: dashboards/syspanel/networks/tables.py:55
+#: dashboards/syspanel/networks/tables.py:56
 #: dashboards/syspanel/networks/templates/networks/_update.html:7
 msgid "Edit Network"
 msgstr ""
 
-#: dashboards/nova/networks/tables.py:69
+#: dashboards/nova/networks/tables.py:80
 msgid "Add Subnet"
 msgstr ""
 
-#: dashboards/nova/networks/tables.py:85
-#: dashboards/syspanel/networks/tables.py:70
+#: dashboards/nova/networks/tables.py:96
+#: dashboards/syspanel/networks/tables.py:71
 #, fuzzy
 msgid "Subnets Associated"
 msgstr "Aktualizuj instncję"
 
-#: dashboards/nova/networks/tables.py:88
+#: dashboards/nova/networks/tables.py:97
+#: dashboards/nova/networks/templates/networks/_detail_overview.html:17
+#: dashboards/syspanel/networks/forms.py:36
+#: dashboards/syspanel/networks/forms.py:73
+#: dashboards/syspanel/networks/tables.py:72
+msgid "Shared"
+msgstr ""
+
+#: dashboards/nova/networks/tables.py:101
 #: dashboards/nova/networks/ports/tables.py:46
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:15
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/syspanel/networks/tables.py:73
+#: dashboards/syspanel/networks/tables.py:76
 #: dashboards/syspanel/networks/ports/tables.py:79
 #, fuzzy
 msgid "Admin State"
 msgstr "Położenie"
 
-#: dashboards/nova/networks/views.py:55
+#: dashboards/nova/networks/views.py:52
 #: dashboards/syspanel/networks/views.py:60
 msgid "Network list can not be retrieved."
 msgstr ""
 
-#: dashboards/nova/networks/views.py:89
+#: dashboards/nova/networks/views.py:86
 #, fuzzy
 msgid "Unable to retrieve network details."
 msgstr "Nie można cofnąć: %s"
 
-#: dashboards/nova/networks/views.py:112
+#: dashboards/nova/networks/views.py:109
 #: dashboards/syspanel/networks/views.py:91
 msgid "Subnet list can not be retrieved."
 msgstr ""
 
-#: dashboards/nova/networks/views.py:124
+#: dashboards/nova/networks/views.py:121
 #: dashboards/syspanel/networks/views.py:103
 msgid "Port list can not be retrieved."
 msgstr ""
 
-#: dashboards/nova/networks/views.py:137
+#: dashboards/nova/networks/views.py:134
+#: dashboards/nova/networks/subnets/tables.py:95
 #: dashboards/syspanel/networks/views.py:118
 #, fuzzy, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -2037,7 +2060,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/nova/networks/workflows.py:52
-#: dashboards/nova/networks/subnets/tables.py:48
+#: dashboards/nova/networks/subnets/tables.py:60
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:8
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:23
 #: dashboards/nova/networks/templates/networks/subnets/create.html:3
@@ -2057,7 +2080,7 @@ msgstr ""
 
 #: dashboards/nova/networks/workflows.py:57
 #: dashboards/nova/networks/subnets/forms.py:44
-#: dashboards/nova/networks/subnets/tables.py:71
+#: dashboards/nova/networks/subnets/tables.py:83
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:14
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:14
 msgid "Network Address"
@@ -2070,7 +2093,7 @@ msgstr ""
 
 #: dashboards/nova/networks/workflows.py:65
 #: dashboards/nova/networks/subnets/forms.py:52
-#: dashboards/nova/networks/subnets/tables.py:72
+#: dashboards/nova/networks/subnets/tables.py:84
 #: dashboards/syspanel/networks/subnets/tables.py:72
 msgid "IP Version"
 msgstr ""
@@ -2176,7 +2199,7 @@ msgid "Unable to retrieve port details."
 msgstr "Nie można utworzyć wolumenu: %s"
 
 #: dashboards/nova/networks/subnets/forms.py:34
-#: dashboards/syspanel/networks/tables.py:67
+#: dashboards/syspanel/networks/tables.py:68
 #: dashboards/syspanel/networks/ports/forms.py:32
 #, fuzzy
 msgid "Network Name"
@@ -2191,7 +2214,7 @@ msgstr ""
 
 #: dashboards/nova/networks/subnets/forms.py:53
 #: dashboards/nova/networks/subnets/forms.py:103
-#: dashboards/nova/networks/subnets/tables.py:73
+#: dashboards/nova/networks/subnets/tables.py:85
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:19
 #: dashboards/syspanel/networks/subnets/tables.py:73
 msgid "Gateway IP"
@@ -2217,27 +2240,27 @@ msgstr "Klucz %s został pomyślnie usunięty."
 msgid "Failed to update subnet %s"
 msgstr "Nie można zaktualizować obrazu: %s"
 
-#: dashboards/nova/networks/subnets/tables.py:31
+#: dashboards/nova/networks/subnets/tables.py:43
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:6
 #: dashboards/syspanel/networks/subnets/tables.py:31
 msgid "Subnet"
 msgstr ""
 
-#: dashboards/nova/networks/subnets/tables.py:32
-#: dashboards/nova/networks/subnets/tables.py:77
+#: dashboards/nova/networks/subnets/tables.py:44
+#: dashboards/nova/networks/subnets/tables.py:103
 #: dashboards/syspanel/networks/subnets/tables.py:32
 #: dashboards/syspanel/networks/subnets/tables.py:80
 msgid "Subnets"
 msgstr ""
 
-#: dashboards/nova/networks/subnets/tables.py:38
+#: dashboards/nova/networks/subnets/tables.py:50
 #: dashboards/syspanel/networks/ports/tables.py:41
 #: dashboards/syspanel/networks/subnets/tables.py:38
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr ""
 
-#: dashboards/nova/networks/subnets/tables.py:59
+#: dashboards/nova/networks/subnets/tables.py:71
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:7
 #: dashboards/syspanel/networks/subnets/tables.py:59
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:7
@@ -2463,24 +2486,6 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: dashboards/nova/templates/nova/base.html:9
-#, fuzzy
-msgid "Caution"
-msgstr "Położenie"
-
-#: dashboards/nova/templates/nova/base.html:10
-msgid "You are acting as an admin user in the project dashboard."
-msgstr ""
-
-#: dashboards/nova/templates/nova/base.html:12
-msgid "Learn More"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:26
-#, fuzzy
-msgid "Volume Name"
-msgstr "Wolumeny"
-
 #: dashboards/nova/volumes/forms.py:29
 msgid "Size (GB)"
 msgstr ""
@@ -2559,7 +2564,7 @@ msgid "Unable to create volume snapshot."
 msgstr "Nie można utworzyć wolumenu: %s"
 
 #: dashboards/nova/volumes/panel.py:24 dashboards/nova/volumes/tables.py:37
-#: dashboards/nova/volumes/tables.py:162 dashboards/nova/volumes/tables.py:174
+#: dashboards/nova/volumes/tables.py:170 dashboards/nova/volumes/tables.py:182
 #: dashboards/nova/volumes/templates/volumes/index.html:3
 #: dashboards/nova/volumes/templates/volumes/index.html:6
 #: dashboards/syspanel/projects/workflows.py:42
@@ -2570,36 +2575,41 @@ msgstr "Nie można utworzyć wolumenu: %s"
 msgid "Volumes"
 msgstr "Wolumeny"
 
-#: dashboards/nova/volumes/tables.py:57
+#: dashboards/nova/volumes/tables.py:45
+#, fuzzy, python-format
+msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
+msgstr "Nie można utworzyć wolumenu: %s"
+
+#: dashboards/nova/volumes/tables.py:65
 #, fuzzy
 msgid "Edit Attachments"
 msgstr "Dołącz wolumen"
 
-#: dashboards/nova/volumes/tables.py:84
+#: dashboards/nova/volumes/tables.py:92
 #, python-format
 msgid "%sGB"
 msgstr ""
 
-#: dashboards/nova/volumes/tables.py:97 dashboards/nova/volumes/views.py:140
+#: dashboards/nova/volumes/tables.py:105 dashboards/nova/volumes/views.py:149
 #, fuzzy
 msgid "Unable to retrieve attachment information."
 msgstr "Nie można wyrejestrować obrazu: %s"
 
-#: dashboards/nova/volumes/tables.py:114
+#: dashboards/nova/volumes/tables.py:122
 #, fuzzy, python-format
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "Uruchom obraz"
 
-#: dashboards/nova/volumes/tables.py:171
+#: dashboards/nova/volumes/tables.py:179
 msgid "Detach"
 msgstr ""
 
-#: dashboards/nova/volumes/tables.py:172
+#: dashboards/nova/volumes/tables.py:180
 #, fuzzy
 msgid "Detaching"
 msgstr "Wolumeny"
 
-#: dashboards/nova/volumes/tables.py:207
+#: dashboards/nova/volumes/tables.py:215
 #, python-format
 msgid "%(dev)s on instance %(instance_name)s"
 msgstr ""
@@ -2609,7 +2619,7 @@ msgstr ""
 msgid "Unable to retrieve volume details."
 msgstr "Nie można utworzyć wolumenu: %s"
 
-#: dashboards/nova/volumes/views.py:52
+#: dashboards/nova/volumes/views.py:50
 #, fuzzy
 msgid "Unable to retrieve volume list."
 msgstr "Nie można cofnąć: %s"
@@ -2619,7 +2629,7 @@ msgstr "Nie można cofnąć: %s"
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Nie można cofnąć: %s"
 
-#: dashboards/nova/volumes/views.py:121 dashboards/nova/volumes/views.py:131
+#: dashboards/nova/volumes/views.py:130 dashboards/nova/volumes/views.py:140
 #, fuzzy
 msgid "Unable to retrieve volume information."
 msgstr "Nie można wyrejestrować obrazu: %s"
@@ -2815,7 +2825,7 @@ msgid "Admin"
 msgstr ""
 
 #: dashboards/syspanel/flavors/forms.py:37
-msgid "Memory MB"
+msgid "RAM MB"
 msgstr ""
 
 #: dashboards/syspanel/flavors/forms.py:38
@@ -2884,10 +2894,6 @@ msgstr ""
 msgid "Flavor Name"
 msgstr ""
 
-#: dashboards/syspanel/flavors/tables.py:42
-msgid "Memory"
-msgstr ""
-
 #: dashboards/syspanel/flavors/views.py:48
 #, fuzzy
 msgid "Unable to retrieve flavor list."
@@ -2919,27 +2925,21 @@ msgstr ""
 msgid "Unable to retrieve image list."
 msgstr "Nie można utworzyć klucza: %s"
 
-#: dashboards/syspanel/instances/tables.py:62 usage/tables.py:30
+#: dashboards/syspanel/instances/tables.py:59 usage/tables.py:30
 #, fuzzy
 msgid "Project Name"
 msgstr "Usuń projekt"
 
-#: dashboards/syspanel/instances/tables.py:69
+#: dashboards/syspanel/instances/tables.py:66
 #: dashboards/syspanel/services/tables.py:40
 msgid "Host"
 msgstr ""
 
-#: dashboards/syspanel/instances/views.py:72
-#: dashboards/syspanel/instances/workflows.py:47
+#: dashboards/syspanel/instances/views.py:60
 #: dashboards/syspanel/networks/views.py:48
 #, fuzzy
 msgid "Unable to retrieve instance tenant information."
 msgstr "Nie można cofnąć: %s"
-
-#: dashboards/syspanel/instances/workflows.py:107
-#, python-format
-msgid "Selected network '%s' is not owned by the specified project"
-msgstr ""
 
 #: dashboards/syspanel/instances/templates/instances/index.html:6
 #, fuzzy
@@ -2952,12 +2952,12 @@ msgstr "Instancje"
 msgid "Select a project"
 msgstr "Usuń projekt"
 
-#: dashboards/syspanel/networks/forms.py:56
+#: dashboards/syspanel/networks/forms.py:57
 #, fuzzy, python-format
 msgid "Network %s was successfully created."
 msgstr "Klucz %s został pomyślnie usunięty."
 
-#: dashboards/syspanel/networks/forms.py:62
+#: dashboards/syspanel/networks/forms.py:63
 #, fuzzy, python-format
 msgid "Failed to create network %s"
 msgstr "Nie można cofnąć: %s"
@@ -3524,26 +3524,26 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: tables/actions.py:526
+#: tables/actions.py:530
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:532
+#: tables/actions.py:536
 #, fuzzy, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Nie można usunąć klucza: %s"
 
-#: tables/actions.py:538
+#: tables/actions.py:542
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:548
+#: tables/actions.py:552
 msgid "Delete"
 msgstr "Usuń"
 
-#: tables/actions.py:549
+#: tables/actions.py:553
 #, fuzzy
 msgid "Deleted"
 msgstr "Usuń"
@@ -3553,21 +3553,21 @@ msgstr "Usuń"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:726
+#: tables/base.py:727
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:829
+#: tables/base.py:830
 #, fuzzy
 msgid "Actions"
 msgstr "Położenie"
 
-#: tables/base.py:1005
+#: tables/base.py:1008
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1135
+#: tables/base.py:1138
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -3581,6 +3581,19 @@ msgstr ""
 
 #: templates/_header.html:8
 msgid "Sign Out"
+msgstr ""
+
+#: templates/base.html:20
+#, fuzzy
+msgid "Caution"
+msgstr "Położenie"
+
+#: templates/base.html:21
+msgid "You are acting as an admin user in the project dashboard."
+msgstr ""
+
+#: templates/base.html:23
+msgid "Learn More"
 msgstr ""
 
 #: templates/splash.html:7 templates/auth/login.html:4
@@ -3611,16 +3624,47 @@ msgstr ""
 msgid "Error: "
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:37
+#: templates/horizon/common/_data_table.html:44
 msgid "Summary"
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:46
+#: templates/horizon/common/_data_table.html:53
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] ""
 msgstr[1] ""
+
+#: templates/horizon/common/_quota_summary.html:4
+msgid "Quota Summary"
+msgstr ""
+
+#: templates/horizon/common/_quota_summary.html:5
+#: templates/horizon/common/_quota_summary.html:8
+#: templates/horizon/common/_quota_summary.html:11
+msgid "Used"
+msgstr ""
+
+#: templates/horizon/common/_quota_summary.html:5
+#: templates/horizon/common/_quota_summary.html:8
+#: templates/horizon/common/_quota_summary.html:11
+msgid "of"
+msgstr ""
+
+#: templates/horizon/common/_quota_summary.html:5
+#, fuzzy
+msgid "Available Instances"
+msgstr "Instancje"
+
+#: templates/horizon/common/_quota_summary.html:8
+#, fuzzy
+msgid "Available vCPUs"
+msgstr "brak dostępnych"
+
+#: templates/horizon/common/_quota_summary.html:11
+#, fuzzy
+msgid "Available RAM"
+msgstr "brak dostępnych"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
@@ -3655,7 +3699,7 @@ msgid "Active Instances"
 msgstr "Zobacz instancje"
 
 #: templates/horizon/common/_usage_summary.html:15
-msgid "Active Memory"
+msgid "Active RAM"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:16
@@ -3850,12 +3894,12 @@ msgstr ""
 msgid "Puppies"
 msgstr ""
 
-#: usage/base.py:97
+#: usage/base.py:96
 #, fuzzy
 msgid "Unable to retrieve usage information."
 msgstr "Nie można wyrejestrować obrazu: %s"
 
-#: usage/base.py:100
+#: usage/base.py:99
 msgid "You are viewing data for the future, which may or may not exist."
 msgstr ""
 
