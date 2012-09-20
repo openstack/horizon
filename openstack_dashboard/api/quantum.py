@@ -78,6 +78,15 @@ class Port(QuantumAPIDictWrapper):
         super(Port, self).__init__(apiresource)
 
 
+class Router(QuantumAPIDictWrapper):
+    """Wrapper for quantum routers"""
+
+    def __init__(self, apiresource):
+        #apiresource['admin_state'] = \
+        #    'UP' if apiresource['admin_state_up'] else 'DOWN'
+        super(Router, self).__init__(apiresource)
+
+
 IP_VERSION_DICT = {4: 'IPv4', 6: 'IPv6'}
 
 
@@ -104,7 +113,7 @@ def network_list(request, **params):
     subnet_dict = SortedDict([(s['id'], s) for s in subnets])
     # Expand subnet list from subnet_id to values.
     for n in networks:
-        n['subnets'] = [subnet_dict[s] for s in n['subnets']]
+        n['subnets'] = [subnet_dict.get(s) for s in n.get('subnets', [])]
     return [Network(n) for n in networks]
 
 
@@ -256,3 +265,53 @@ def port_modify(request, port_id, **kwargs):
     body = {'port': kwargs}
     port = quantumclient(request).update_port(port_id, body=body).get('port')
     return Port(port)
+
+
+def router_create(request, **kwargs):
+    LOG.debug("router_create():, kwargs=%s" % kwargs)
+    body = {'router': {}}
+    body['router'].update(kwargs)
+    router = quantumclient(request).create_router(body=body).get('router')
+    return Router(router)
+
+
+def router_get(request, router_id, **params):
+    router = quantumclient(request).show_router(router_id,
+                                                **params).get('router')
+    return Router(router)
+
+
+def router_list(request, **params):
+    routers = quantumclient(request).list_routers(**params).get('routers')
+    return [Router(r) for r in routers]
+
+
+def router_delete(request, router_id):
+    quantumclient(request).delete_router(router_id)
+
+
+def router_add_interface(request, router_id, subnet_id=None, port_id=None):
+    body = {}
+    if subnet_id:
+        body['subnet_id'] = subnet_id
+    if port_id:
+        body['port_id'] = port_id
+    quantumclient(request).add_interface_router(router_id, body)
+
+
+def router_remove_interface(request, router_id, subnet_id=None, port_id=None):
+    body = {}
+    if subnet_id:
+        body['subnet_id'] = subnet_id
+    if port_id:
+        body['port_id'] = port_id
+    quantumclient(request).remove_interface_router(router_id, body)
+
+
+def router_add_gateway(request, router_id, network_id):
+    body = {'network_id': network_id}
+    quantumclient(request).add_gateway_router(router_id, body)
+
+
+def router_remove_gateway(request, router_id):
+    quantumclient(request).remove_gateway_router(router_id)

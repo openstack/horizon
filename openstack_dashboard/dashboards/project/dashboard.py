@@ -27,7 +27,8 @@ class BasePanels(horizon.PanelGroup):
               'volumes',
               'images_and_snapshots',
               'access_and_security',
-              'networks')
+              'networks',
+              'routers')
 
 
 class ObjectStorePanels(horizon.PanelGroup):

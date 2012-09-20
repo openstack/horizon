@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Router Details" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Router Detail") %}
+{% endblock page_header %}
+
+{% block main %}
+{% include "admin/routers/_detail_overview.html" %}
+<hr>
+<div id="interfaces">
+   {{ interfaces_table.render }}
+</div>
+{% endblock %}

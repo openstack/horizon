@@ -203,3 +203,70 @@ class QuantumApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         api.quantum.port_delete(self.request, port_id)
+
+    def test_router_list(self):
+        routers = {'routers': self.api_routers.list()}
+
+        quantumclient = self.stub_quantumclient()
+        quantumclient.list_routers().AndReturn(routers)
+        self.mox.ReplayAll()
+
+        ret_val = api.quantum.router_list(self.request)
+        for n in ret_val:
+            self.assertIsInstance(n, api.quantum.Router)
+
+    def test_router_get(self):
+        router = {'router': self.api_routers.first()}
+        router_id = self.api_routers.first()['id']
+
+        quantumclient = self.stub_quantumclient()
+        quantumclient.show_router(router_id).AndReturn(router)
+        self.mox.ReplayAll()
+
+        ret_val = api.quantum.router_get(self.request, router_id)
+        self.assertIsInstance(ret_val, api.quantum.Router)
+
+    def test_router_create(self):
+        router = {'router': self.api_routers.first()}
+
+        quantumclient = self.stub_quantumclient()
+        form_data = {'router': {'name': 'router1'}}
+        quantumclient.create_router(body=form_data).AndReturn(router)
+        self.mox.ReplayAll()
+
+        ret_val = api.quantum.router_create(self.request, name='router1')
+        self.assertIsInstance(ret_val, api.quantum.Router)
+
+    def test_router_delete(self):
+        router_id = self.api_routers.first()['id']
+
+        quantumclient = self.stub_quantumclient()
+        quantumclient.delete_router(router_id)
+        self.mox.ReplayAll()
+
+        api.quantum.router_delete(self.request, router_id)
+
+    def test_router_add_interface(self):
+        subnet_id = self.api_subnets.first()['id']
+        router_id = self.api_routers.first()['id']
+
+        quantumclient = self.stub_quantumclient()
+        form_data = {'subnet_id': subnet_id}
+        quantumclient.add_interface_router(
+            router_id, form_data).AndReturn(None)
+        self.mox.ReplayAll()
+
+        api.quantum.router_add_interface(
+            self.request, router_id, subnet_id=subnet_id)
+
+    def test_router_remove_interface(self):
+        router_id = self.api_routers.first()['id']
+        fake_port = self.api_ports.first()['id']
+
+        quantumclient = self.stub_quantumclient()
+        quantumclient.remove_interface_router(
+            router_id, {'port_id': fake_port})
+        self.mox.ReplayAll()
+
+        api.quantum.router_remove_interface(
+            self.request, router_id, port_id=fake_port)

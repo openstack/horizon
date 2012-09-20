@@ -1,0 +1,25 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}add_interface_form{% endblock %}
+{% block form_action %}{% url horizon:project:routers:addinterface router.id %}
+{% endblock %}
+
+{% block modal-header %}{% trans "Add interface" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+        {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% trans "You can add interface to the network with subnet_id." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Add interface" %}" />
+  <a href="{% url horizon:project:routers:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% load i18n sizeformat parse_date %}
+
+<h3>{% trans "Router Overview" %}: {{router.display_name }}</h3>
+
+<div class="info detail">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ router.display_name }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ router.id }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ router.status|capfirst }}</dd>
+  </dl>
+</div>
+
