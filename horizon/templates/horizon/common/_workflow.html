@@ -1,7 +1,7 @@
 {% load i18n %}
 {% with workflow.get_entry_point as entry_point %}
 <div class="workflow {% if modal %}modal hide{% else %}static_page{% endif %}">
-  <form {{ workflow.attr_string|safe }} action="{{ workflow.get_absolute_url }}" method="POST">{% csrf_token %}
+  <form {{ workflow.attr_string|safe }} action="{{ workflow.get_absolute_url }}" {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} method="POST">{% csrf_token %}
     {% if REDIRECT_URL %}<input type="hidden" name="{{ workflow.redirect_param_name }}" value="{{ REDIRECT_URL }}"/>{% endif %}
     <div class="modal-header">
       {% if modal %}<a href="#" class="close" data-dismiss="modal">&times;</a>{% endif %}
@@ -12,15 +12,18 @@
       <ul class="nav nav-tabs">
         {% for step in workflow.steps %}
         <li class="{% if entry_point == step.slug %}active{% endif %}{% if step.has_errors %} error{% endif %}">
-          <a data-toggle="tab" data-target="#{{ step.get_id }}">{{ step }}</a>
+          <a href="#{{ step.get_id }}" data-toggle="tab" data-target="#{{ step.get_id }}">{{ step }}</a>
         </li>
         {% endfor %}
       </ul>
       <div class="tab-content">
         {% for step in workflow.steps %}
-        <fieldset id="{{ step.get_id }}" class="tab-pane{% if entry_point == step.slug %} active{% endif %}">
-          {{ step.render }}
-        </fieldset>
+          <fieldset id="{{ step.get_id }}" class="js-tab-pane{% if entry_point == step.slug %} active{% endif %}">
+            {{ step.render }}
+          </fieldset>
+          {% if not forloop.last %}
+            <noscript><hr /></noscript>
+          {% endif %}
         {% endfor %}
       </div>
     {% endblock %}

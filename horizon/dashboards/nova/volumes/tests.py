@@ -180,6 +180,57 @@ class VolumeViewTests(test.TestCase):
                           ' volumes.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
+    @test.create_stubs({api: ('volume_list',
+                              'volume_delete',
+                              'server_list')})
+    def test_delete_volume(self):
+        volume = self.volumes.first()
+        formData = {'action':
+                    'volumes__delete__%s' % volume.id}
+
+        api.volume_list(IsA(http.HttpRequest), search_opts=None).\
+                                 AndReturn(self.volumes.list())
+        api.volume_delete(IsA(http.HttpRequest), volume.id)
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.volume_list(IsA(http.HttpRequest), search_opts=None).\
+                                 AndReturn(self.volumes.list())
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:volumes:index')
+        res = self.client.post(url, formData, follow=True)
+        self.assertMessageCount(res, count=0)
+
+    @test.create_stubs({api: ('volume_list',
+                              'volume_delete',
+                              'server_list')})
+    def test_delete_volume_error_existing_snapshot(self):
+        volume = self.volumes.first()
+        formData = {'action':
+                    'volumes__delete__%s' % volume.id}
+        exc = self.exceptions.cinder.__class__(400,
+                                               "error: dependent snapshots")
+
+        api.volume_list(IsA(http.HttpRequest), search_opts=None).\
+                                 AndReturn(self.volumes.list())
+        api.volume_delete(IsA(http.HttpRequest), volume.id). \
+                          AndRaise(exc)
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.volume_list(IsA(http.HttpRequest), search_opts=None).\
+                                 AndReturn(self.volumes.list())
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:volumes:index')
+        res = self.client.post(url, formData, follow=True)
+        self.assertMessageCount(res, error=1)
+        self.assertEqual(list(res.context['messages'])[0].message,
+                         u'Unable to delete volume "%s". '
+                         u'One or more snapshots depend on it.' %
+                         volume.display_name)
+
     @test.create_stubs({api: ('volume_get',), api.nova: ('server_list',)})
     def test_edit_attachments(self):
         volume = self.volumes.first()

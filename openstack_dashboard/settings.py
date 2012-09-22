@@ -53,7 +53,7 @@ ROOT_URLCONF = 'openstack_dashboard.urls'
 HORIZON_CONFIG = {
     'dashboards': ('nova', 'syspanel', 'settings',),
     'default_dashboard': 'nova',
-    'user_home': 'horizon.views.user_home',
+    'user_home': 'horizon.views.base.get_user_home',
     'ajax_queue_limit': 10,
     'help_url': "http://docs.openstack.org",
     'exceptions': {'recoverable': exceptions.RECOVERABLE,
@@ -138,13 +138,18 @@ SESSION_COOKIE_SECURE = False
 
 gettext_noop = lambda s: s
 LANGUAGES = (
+    ('bg', gettext_noop('Bulgarian (Bulgaria)')),
+    ('cs', gettext_noop('Czech')),
     ('en', gettext_noop('English')),
-    ('it', gettext_noop('Italiano')),
     ('es', gettext_noop('Spanish')),
     ('fr', gettext_noop('French')),
+    ('it', gettext_noop('Italiano')),
     ('ja', gettext_noop('Japanese')),
-    ('pt', gettext_noop('Portuguese')),
+    ('ko', gettext_noop('Korean (Korea)')),
+    ('nl', gettext_noop('Dutch (Netherlands)')),
     ('pl', gettext_noop('Polish')),
+    ('pt', gettext_noop('Portuguese')),
+    ('pt-br', gettext_noop('Portuguese (Brazil)')),
     ('zh-cn', gettext_noop('Simplified Chinese')),
     ('zh-tw', gettext_noop('Traditional Chinese')),
 )

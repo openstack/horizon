@@ -23,6 +23,9 @@ from horizon.openstack.common import jsonutils
 from horizon import exceptions
 
 
+ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
+
+
 class ModalFormMixin(object):
     def get_template_names(self):
         if self.request.is_ajax():
@@ -40,6 +43,8 @@ class ModalFormMixin(object):
         context = super(ModalFormMixin, self).get_context_data(**kwargs)
         if self.request.is_ajax():
             context['hide'] = True
+        if ADD_TO_FIELD_HEADER in self.request.META:
+            context['add_to_field'] = self.request.META[ADD_TO_FIELD_HEADER]
         return context
 
 
@@ -64,8 +69,8 @@ class ModalFormView(ModalFormMixin, generic.FormView):
             exceptions.handle(self.request)
 
         if handled:
-            if "HTTP_X_HORIZON_ADD_TO_FIELD" in self.request.META:
-                field_id = self.request.META["HTTP_X_HORIZON_ADD_TO_FIELD"]
+            if ADD_TO_FIELD_HEADER in self.request.META:
+                field_id = self.request.META[ADD_TO_FIELD_HEADER]
                 data = [self.get_object_id(handled),
                         self.get_object_display(handled)]
                 response = http.HttpResponse(jsonutils.dumps(data))

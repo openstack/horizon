@@ -17,6 +17,7 @@ from keystoneclient import exceptions as keystone_exceptions
 from novaclient import exceptions as nova_exceptions
 from quantumclient.common import exceptions as quantum_exceptions
 from swiftclient import client as swift_exceptions
+from cinderclient import exceptions as cinder_exceptions
 
 from .utils import TestDataContainer
 
@@ -61,3 +62,6 @@ def data(TEST):
 
     swift_exception = swift_exceptions.ClientException
     TEST.exceptions.swift = create_stubbed_exception(swift_exception)
+
+    cinder_exception = cinder_exceptions.BadRequest
+    TEST.exceptions.cinder = create_stubbed_exception(cinder_exception)

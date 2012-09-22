@@ -3,8 +3,8 @@
 {% comment %} Django's JavaScript i18n Implementation {% endcomment %}
 <script type="text/javascript" src="{% url horizon:jsi18n 'horizon' %}"></script>
 
+{% comment %} Compress jQuery, Plugins, Bootstrap, Hogan.js and Horizon-specific JS. {% endcomment %}
 {% compress js %}
-{% comment %} jQuery and Plugins {% endcomment %}
 <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.min.js' type='text/javascript' charset="utf-8"></script>
 <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.cookie.js' type='text/javascript' charset="utf-8"></script>
 <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.quicksearch.js' type='text/javascript' charset="utf-8"></script>
@@ -14,13 +14,10 @@
 <script src='{{ STATIC_URL }}horizon/lib/json2.js' type='text/javascript' charset="utf-8"></script>
 <script src="{{ STATIC_URL }}horizon/lib/underscore/underscore-min.js" type="text/javascript" charset="utf-8"></script>
 
-{% comment %} Bootstrap {% endcomment %}
 <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 
-{% comment %} Hogan.js (client-side templating) {% endcomment %}
 <script src="{{ STATIC_URL }}horizon/lib/hogan-1.0.5.min.js" type="text/javascript" charset='utf-8'></script>
 
-{% comment %} Horizon-specific JS {% endcomment %}
 <script src='{{ STATIC_URL }}horizon/js/horizon.communication.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.cookies.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.forms.js' type='text/javascript' charset='utf-8'></script>

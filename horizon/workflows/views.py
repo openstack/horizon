@@ -22,6 +22,7 @@ from django.views import generic
 
 from horizon import exceptions
 from horizon import messages
+from horizon.forms.views import ADD_TO_FIELD_HEADER
 from horizon.openstack.common import jsonutils
 
 
@@ -93,6 +94,8 @@ class WorkflowView(generic.TemplateView):
         context['REDIRECT_URL'] = next
         if self.request.is_ajax():
             context['modal'] = True
+        if ADD_TO_FIELD_HEADER in self.request.META:
+            context['add_to_field'] = self.request.META[ADD_TO_FIELD_HEADER]
         return context
 
     def get_template_names(self):
