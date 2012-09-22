@@ -1506,83 +1506,83 @@ msgstr "Пожалйста выберите параметр для источн
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
-msgstr "Запуск нескольки ресурсов поддерживается только для образов и снэпшотов ресурсов."
+msgstr "Запуск нескольких ресурсов поддерживается только для образов и снэпшотов ресурсов."
 
 #: dashboards/nova/instances/workflows.py:228
 msgid "Unable to retrieve public images."
-msgstr ""
+msgstr "Невозможно получить открытые образы."
 
 #: dashboards/nova/instances/workflows.py:243
 msgid "Unable to retrieve images for the current project."
-msgstr ""
+msgstr "Невозможно получить образы для текущего проекта."
 
 #: dashboards/nova/instances/workflows.py:266
 msgid "Select Image"
-msgstr ""
+msgstr "Выберите образ."
 
 #: dashboards/nova/instances/workflows.py:268
 msgid "No images available."
-msgstr ""
+msgstr "Образы недоступны."
 
 #: dashboards/nova/instances/workflows.py:277
 msgid "Select Instance Snapshot"
-msgstr ""
+msgstr "Выберите снэпшот ресурса"
 
 #: dashboards/nova/instances/workflows.py:279
 msgid "No snapshots available."
-msgstr ""
+msgstr "Снэпшоты недоступны."
 
 #: dashboards/nova/instances/workflows.py:290
 msgid "Unable to retrieve instance flavors."
-msgstr ""
+msgstr "Невозможно получить конфигурации ресурсов."
 
 #: dashboards/nova/instances/workflows.py:303 usage/base.py:113
 msgid "Unable to retrieve quota information."
-msgstr ""
+msgstr "Невозможно получить информацию о квотах."
 
 #: dashboards/nova/instances/workflows.py:336
 msgid "Which keypair to use for authentication."
-msgstr ""
+msgstr "Какой ключ использовать для аутентификации."
 
 #: dashboards/nova/instances/workflows.py:343
 msgid "Launch instance in these security groups."
-msgstr ""
+msgstr "Запустить ресурс со следующими группами доступа."
 
 #: dashboards/nova/instances/workflows.py:348
 msgid ""
 "Control access to your instance via keypairs, security groups, and other "
 "mechanisms."
-msgstr ""
+msgstr "Контроллируйте доступ к вашим ресурсам с помощью групп доступа, ключей и других механизмов."
 
 #: dashboards/nova/instances/workflows.py:358
 msgid "Unable to retrieve keypairs."
-msgstr ""
+msgstr "Невозможно получить ключи."
 
 #: dashboards/nova/instances/workflows.py:360
 msgid "Select a keypair"
-msgstr ""
+msgstr "Выберите ключ"
 
 #: dashboards/nova/instances/workflows.py:362
 msgid "No keypairs available."
-msgstr ""
+msgstr "Ключи недоступны."
 
 #: dashboards/nova/instances/workflows.py:371
 msgid "Unable to retrieve list of security groups"
-msgstr ""
+msgstr "Невозможно получить список групп доступа"
 
 #: dashboards/nova/instances/workflows.py:391
 msgid "Customization Script"
-msgstr ""
+msgstr "Дополнительный скрипт"
 
 #: dashboards/nova/instances/workflows.py:393
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
-msgstr ""
+msgstr "Скрипт или набор команд, который будет выполнен после создания ресурса."
 
 #: dashboards/nova/instances/workflows.py:400
 msgid "Post-Creation"
-msgstr ""
+msgstr "После создания"
 
 #: dashboards/nova/instances/workflows.py:411
 #: dashboards/nova/networks/panel.py:24 dashboards/nova/networks/tables.py:43
@@ -1595,68 +1595,68 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/index.html:3
 #: dashboards/syspanel/networks/templates/networks/index.html:6
 msgid "Networks"
-msgstr ""
+msgstr "Сети"
 
 #: dashboards/nova/instances/workflows.py:414
 msgid "Launch instance withthese networks"
-msgstr ""
+msgstr "Запустить ресурс в следующих сетях"
 
 #: dashboards/nova/instances/workflows.py:418
 msgid "Networking"
-msgstr ""
+msgstr "Сетевая подсистема"
 
 #: dashboards/nova/instances/workflows.py:420
 msgid "Select networks for your instance."
-msgstr ""
+msgstr "Выберите сети для ресурса"
 
 #: dashboards/nova/instances/workflows.py:432
 msgid "Unable to retrieve networks."
-msgstr ""
+msgstr "Невозможно получить список сетей"
 
 #: dashboards/nova/instances/workflows.py:455
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
-msgstr ""
+msgstr "Запущено %(count)s ресурсов с именем: \"%(name)s\""
 
 #: dashboards/nova/instances/workflows.py:456
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr ""
+msgstr "Невозможно запустить %(count)s ресурсов с именем: \"%(name)s\""
 
 #: dashboards/nova/instances/workflows.py:469
 #, python-format
 msgid "%s instances"
-msgstr ""
+msgstr "%s ресурсов"
 
 #: dashboards/nova/instances/workflows.py:472
 msgid "instance"
-msgstr ""
+msgstr "ресурс"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:4
 msgid "Instance Console Log"
-msgstr ""
+msgstr "Протокол консоли ресурса"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:7
 msgid "Log Length"
-msgstr ""
+msgstr "Длина протокола"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:9
 msgid "Go"
-msgstr ""
+msgstr "Старт"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:11
 msgid "View Full Log"
-msgstr ""
+msgstr "Просмотреть весь протокол"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:3
 msgid "Instance Overview"
-msgstr ""
+msgstr "Просмотр ресурса"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:24
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:14
 #: dashboards/syspanel/flavors/tables.py:42 usage/tables.py:22
 msgid "RAM"
-msgstr ""
+msgstr "ОЗУ"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:26
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:10
@@ -1664,141 +1664,141 @@ msgstr ""
 #: dashboards/syspanel/flavors/tables.py:40
 #: dashboards/syspanel/projects/workflows.py:37 usage/tables.py:19
 msgid "VCPUs"
-msgstr ""
+msgstr "ЦПУ"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:27
 msgid "VCPU"
-msgstr ""
+msgstr "ЦПУ"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:28
 #: usage/tables.py:20
 msgid "Disk"
-msgstr ""
+msgstr "Диск"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:34
 msgid "IP Addresses"
-msgstr ""
+msgstr "IP адреса"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:59
 msgid "No rules defined."
-msgstr ""
+msgstr "Правила не заданы"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:68
 msgid "Meta"
-msgstr ""
+msgstr "Мета"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:71
 msgid "Key Name"
-msgstr ""
+msgstr "Имя ключа"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:84
 msgid "Volumes Attached"
-msgstr ""
+msgstr "Подключенные тома"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:88
 #: dashboards/nova/volumes/tables.py:158
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:38
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:45
 msgid "Attached To"
-msgstr ""
+msgstr "Подключен к"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:90
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:42
 msgid "on"
-msgstr ""
+msgstr "вкл"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:94
 msgid "No volumes attached."
-msgstr ""
+msgstr "Тома не подключены"
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:3
 msgid "Instance VNC Console"
-msgstr ""
+msgstr "VNC консоль ресурса"
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:5
 msgid ""
 "If VNC console is not responding to keyboard input: click the grey status "
 "bar below."
-msgstr ""
+msgstr "Щелкните на серую строку статуса, если VNC консоль не отвечает на ввод с клавиатуры."
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:5
 msgid "Click here to show only VNC"
-msgstr ""
+msgstr "Выберите для показа только VNC"
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:8
 msgid "VNC console is currently unavailabe. Please try again later."
-msgstr ""
+msgstr "VNC консоль недоступна. Попробуйте позже."
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:9
 msgid "Reload"
-msgstr ""
+msgstr "Перезагрузить"
 
 #: dashboards/nova/instances/templates/instances/_launch_customize_help.html:2
 msgid ""
 "You can customize your instance after it's launched using the options "
 "available here."
-msgstr ""
+msgstr "Вы можете изменить ресурс после его запуска, используя настройки, доступные здесь."
 
 #: dashboards/nova/instances/templates/instances/_launch_customize_help.html:3
 msgid ""
 "The \"Customization Script\" field is analogous to \"User Data\" in other "
 "systems."
-msgstr ""
+msgstr "Поле \"Скрипт настройки\" аналогично полю \"Пользовательские данные\" в других системах."
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:3
 msgid "Specify the details for launching an instance."
-msgstr ""
+msgstr "Задайте детали запускаемого ресурса."
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:4
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
-msgstr ""
+msgstr "График показывает отношение используемых ресурсов проекта к его квотам."
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:6
 msgid "Flavor Details"
-msgstr ""
+msgstr "Детали конфигурации"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
 #: dashboards/syspanel/flavors/tables.py:44
 msgid "Root Disk"
-msgstr ""
+msgstr "Корневой раздел"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:12
 #: dashboards/syspanel/flavors/tables.py:46
 msgid "Ephemeral Disk"
-msgstr ""
+msgstr "Дополнительный раздел"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
 msgid "Total Disk"
-msgstr ""
+msgstr "Полный размер"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:14
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:37
 msgid "MB"
-msgstr ""
+msgstr "Мб"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:21
 msgid "Number of Instances"
-msgstr ""
+msgstr "Количество ресурсов"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:29
 msgid "Number of VCPUs"
-msgstr ""
+msgstr "Количество ЦПУ"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:37
 msgid "Total RAM"
-msgstr ""
+msgstr "Количество ОЗУ"
 
 #: dashboards/nova/instances/templates/instances/_launch_volumes_help.html:3
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
-msgstr ""
+msgstr "Ресурс может быть запущен с изменяемыми типами подключаемого хранилища. Вы можете задать эти настройки здесь."
 
 #: dashboards/nova/instances/templates/instances/_update.html:17
 msgid "You may update the editable properties of your instance here."
-msgstr ""
+msgstr "Здесь вы можете обновить свойства ресурса."
 
 #: dashboards/nova/instances/templates/instances/_update.html:22
 #: dashboards/nova/networks/templates/networks/_update.html:22
@@ -1807,41 +1807,41 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:27
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:31
 msgid "Save Changes"
-msgstr ""
+msgstr "Сохранить изменения"
 
 #: dashboards/nova/instances/templates/instances/detail.html:3
 msgid "Instance Detail"
-msgstr ""
+msgstr "Детали ресурса"
 
 #: dashboards/nova/instances/templates/instances/update.html:3
 #: dashboards/nova/instances/templates/instances/update.html:6
 msgid "Update Instance"
-msgstr ""
+msgstr "Обновить ресурс"
 
 #: dashboards/nova/networks/forms.py:47
 #: dashboards/syspanel/networks/forms.py:81
 #, python-format
 msgid "Network %s was successfully updated."
-msgstr ""
+msgstr "Сеть %s успешно создана."
 
 #: dashboards/nova/networks/forms.py:52
 #: dashboards/syspanel/networks/forms.py:86
 #, python-format
 msgid "Failed to update network %s"
-msgstr ""
+msgstr "Ошибка обновления сети %s"
 
 #: dashboards/nova/networks/tables.py:42
 #: dashboards/nova/networks/templates/networks/subnets/index.html:3
 #: dashboards/nova/networks/templates/networks/subnets/index.html:6
 #: dashboards/syspanel/networks/tables.py:34
 msgid "Network"
-msgstr ""
+msgstr "Сеть"
 
 #: dashboards/nova/networks/tables.py:58
 #: dashboards/syspanel/networks/tables.py:41
 #, python-format
 msgid "Failed to delete network %s"
-msgstr ""
+msgstr "Ошибка удаления сети %s"
 
 #: dashboards/nova/networks/tables.py:66
 #: dashboards/nova/networks/workflows.py:110
@@ -1855,23 +1855,23 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/create.html:3
 #: dashboards/syspanel/networks/templates/networks/create.html:6
 msgid "Create Network"
-msgstr ""
+msgstr "Создать сеть"
 
 #: dashboards/nova/networks/tables.py:73
 #: dashboards/nova/networks/templates/networks/_update.html:7
 #: dashboards/syspanel/networks/tables.py:56
 #: dashboards/syspanel/networks/templates/networks/_update.html:7
 msgid "Edit Network"
-msgstr ""
+msgstr "Редактировать сеть"
 
 #: dashboards/nova/networks/tables.py:80
 msgid "Add Subnet"
-msgstr ""
+msgstr "Добавить подсеть"
 
 #: dashboards/nova/networks/tables.py:96
 #: dashboards/syspanel/networks/tables.py:71
 msgid "Subnets Associated"
-msgstr ""
+msgstr "Ассоцированные подсети"
 
 #: dashboards/nova/networks/tables.py:97
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:17
@@ -1879,7 +1879,7 @@ msgstr ""
 #: dashboards/syspanel/networks/forms.py:73
 #: dashboards/syspanel/networks/tables.py:72
 msgid "Shared"
-msgstr ""
+msgstr "Разделяемый"
 
 #: dashboards/nova/networks/tables.py:101
 #: dashboards/nova/networks/ports/tables.py:46
@@ -1893,39 +1893,39 @@ msgstr ""
 #: dashboards/nova/networks/views.py:52
 #: dashboards/syspanel/networks/views.py:60
 msgid "Network list can not be retrieved."
-msgstr ""
+msgstr "Список сетей не может быть получен."
 
 #: dashboards/nova/networks/views.py:86
 msgid "Unable to retrieve network details."
-msgstr ""
+msgstr "Невозможно получить детали сети."
 
 #: dashboards/nova/networks/views.py:109
 #: dashboards/syspanel/networks/views.py:91
 msgid "Subnet list can not be retrieved."
-msgstr ""
+msgstr "Список подсетей не может быть получен."
 
 #: dashboards/nova/networks/views.py:121
 #: dashboards/syspanel/networks/views.py:103
 msgid "Port list can not be retrieved."
-msgstr ""
+msgstr "Ошибка при получении списка портов."
 
 #: dashboards/nova/networks/views.py:134
 #: dashboards/nova/networks/subnets/tables.py:95
 #: dashboards/syspanel/networks/views.py:118
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
-msgstr ""
+msgstr "Невозможно получить детали сети \"%s\""
 
 #: dashboards/nova/networks/workflows.py:36
 msgid "Network Name (optional)"
-msgstr ""
+msgstr "Имя сети (необязательно)"
 
 #: dashboards/nova/networks/workflows.py:41
 msgid ""
 "From here you can create a new network.\n"
 "In addition a subnet associated with the network can be created in the next "
 "panel."
-msgstr ""
+msgstr "Здесь вы можете создать новую сеть.\nТакже подсеть, ассоциированная с создаваемой сетью может быть создана в следующем меню."
 
 #: dashboards/nova/networks/workflows.py:52
 #: dashboards/nova/networks/subnets/tables.py:60
@@ -1939,11 +1939,11 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/subnets/create.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/create.html:6
 msgid "Create Subnet"
-msgstr ""
+msgstr "Создать подсеть"
 
 #: dashboards/nova/networks/workflows.py:55
 msgid "Subnet Name (optional)"
-msgstr ""
+msgstr "Имя подсети (необязательно)"
 
 #: dashboards/nova/networks/workflows.py:57
 #: dashboards/nova/networks/subnets/forms.py:44
@@ -1951,127 +1951,127 @@ msgstr ""
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:14
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:14
 msgid "Network Address"
-msgstr ""
+msgstr "Адрес сети"
 
 #: dashboards/nova/networks/workflows.py:60
 #: dashboards/nova/networks/subnets/forms.py:47
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
-msgstr ""
+msgstr "Адрес сети в нотации CIDR (например, 192.168.0.0/24)"
 
 #: dashboards/nova/networks/workflows.py:65
 #: dashboards/nova/networks/subnets/forms.py:52
 #: dashboards/nova/networks/subnets/tables.py:84
 #: dashboards/syspanel/networks/subnets/tables.py:72
 msgid "IP Version"
-msgstr ""
+msgstr "Версия протокола IP"
 
 #: dashboards/nova/networks/workflows.py:66
 msgid "Gateway IP (optional)"
-msgstr ""
+msgstr "Шлюз (необязательно)"
 
 #: dashboards/nova/networks/workflows.py:69
 #: dashboards/nova/networks/subnets/forms.py:56
 #: dashboards/nova/networks/subnets/forms.py:106
 msgid "IP address of Gateway (e.g. 192.168.0.1)"
-msgstr ""
+msgstr "IP адрес шлюза (например, 192.168.0.1)"
 
 #: dashboards/nova/networks/workflows.py:76
 msgid ""
 "You can create a subnet associated with the new network, in which case "
 "\"Network Address\" must be specified. If you wish to create a network "
 "WITHOUT a subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
+msgstr "Вы можете создать подсеть, ассоциировнную с заданной сетью. В данном случае необходимо задать адрес сети. Если вы желаете создать сеть без подсети, снимите флажок \"Создать подсеть\""
 
 #: dashboards/nova/networks/workflows.py:88
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
+msgstr "Задайте адрес сети или снимите флажок \"Создать подсеть\""
 
 #: dashboards/nova/networks/workflows.py:93
 #: dashboards/nova/networks/subnets/forms.py:69
 msgid "Network Address and IP version are inconsistent."
-msgstr ""
+msgstr "Адрес сети и версия IP не соответствуют друг другу."
 
 #: dashboards/nova/networks/workflows.py:97
 #: dashboards/nova/networks/subnets/forms.py:73
 #: dashboards/nova/networks/subnets/forms.py:118
 msgid "Gateway IP and IP version are inconsistent."
-msgstr ""
+msgstr "Адрес шлюза и версия IP не соответствуют друг другу."
 
 #: dashboards/nova/networks/workflows.py:111
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 #: dashboards/nova/networks/workflows.py:112
 #, python-format
 msgid "Created network \"%s\"."
-msgstr ""
+msgstr "Сеть \"%s\" создана."
 
 #: dashboards/nova/networks/workflows.py:113
 #, python-format
 msgid "Unable to create network \"%s\"."
-msgstr ""
+msgstr "Невозможно создать сеть \"%s\""
 
 #: dashboards/nova/networks/workflows.py:129
 #, python-format
 msgid "Network \"%s\" was successfully created."
-msgstr ""
+msgstr "Сеть \"%s\" создана."
 
 #: dashboards/nova/networks/workflows.py:132
 #, python-format
 msgid "Failed to create network \"%s\"."
-msgstr ""
+msgstr "Ошибка создания сети \"%s\"."
 
 #: dashboards/nova/networks/workflows.py:151
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
-msgstr ""
+msgstr "Подсеть \"%s\" создана."
 
 #: dashboards/nova/networks/workflows.py:154
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
-msgstr ""
+msgstr "Ошибка создания подсети \"%(sub)s\" для сети \"%(net)s\"."
 
 #: dashboards/nova/networks/ports/tables.py:35
 msgid "Attached"
-msgstr ""
+msgstr "Подсоединено"
 
 #: dashboards/nova/networks/ports/tables.py:35
 msgid "Detached"
-msgstr ""
+msgstr "Отсоединен"
 
 #: dashboards/nova/networks/ports/tables.py:42
 #: dashboards/syspanel/networks/ports/tables.py:75
 msgid "Fixed IPs"
-msgstr ""
+msgstr "Фиксированные адреса"
 
 #: dashboards/nova/networks/ports/tables.py:43
 #: dashboards/syspanel/networks/ports/tables.py:76
 msgid "Device Attached"
-msgstr ""
+msgstr "Устройство Подсоединено"
 
 #: dashboards/nova/networks/ports/tables.py:53
 #: dashboards/syspanel/networks/ports/tables.py:35
 #: dashboards/syspanel/networks/ports/tables.py:83
 msgid "Ports"
-msgstr ""
+msgstr "Порты"
 
 #: dashboards/nova/networks/ports/tabs.py:39
 #: dashboards/syspanel/networks/ports/tabs.py:39
 msgid "Unable to retrieve port details."
-msgstr ""
+msgstr "Ошибка получения деталей порта"
 
 #: dashboards/nova/networks/subnets/forms.py:34
 #: dashboards/syspanel/networks/tables.py:68
 #: dashboards/syspanel/networks/ports/forms.py:32
 msgid "Network Name"
-msgstr ""
+msgstr "Имя сети"
 
 #: dashboards/nova/networks/subnets/forms.py:38
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:13
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:13
 #: dashboards/syspanel/networks/ports/forms.py:35
 msgid "Network ID"
-msgstr ""
+msgstr "Номер сети"
 
 #: dashboards/nova/networks/subnets/forms.py:53
 #: dashboards/nova/networks/subnets/forms.py:103
@@ -2079,136 +2079,136 @@ msgstr ""
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:19
 #: dashboards/syspanel/networks/subnets/tables.py:73
 msgid "Gateway IP"
-msgstr ""
+msgstr "Адрес шлюза"
 
 #: dashboards/nova/networks/subnets/forms.py:84
 #, python-format
 msgid "Subnet %s was successfully created."
-msgstr ""
+msgstr "Подсеть %s создана"
 
 #: dashboards/nova/networks/subnets/forms.py:89
 #, python-format
 msgid "Failed to create subnet %s"
-msgstr ""
+msgstr "Ошибка создания подсети %s"
 
 #: dashboards/nova/networks/subnets/forms.py:130
 #, python-format
 msgid "Subnet %s was successfully updated."
-msgstr ""
+msgstr "Подсеть %s создана."
 
 #: dashboards/nova/networks/subnets/forms.py:135
 #, python-format
 msgid "Failed to update subnet %s"
-msgstr ""
+msgstr "Ошибка обновления подсети %s"
 
 #: dashboards/nova/networks/subnets/tables.py:43
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:6
 #: dashboards/syspanel/networks/subnets/tables.py:31
 msgid "Subnet"
-msgstr ""
+msgstr "Подсеть"
 
 #: dashboards/nova/networks/subnets/tables.py:44
 #: dashboards/nova/networks/subnets/tables.py:103
 #: dashboards/syspanel/networks/subnets/tables.py:32
 #: dashboards/syspanel/networks/subnets/tables.py:80
 msgid "Subnets"
-msgstr ""
+msgstr "Подсети"
 
 #: dashboards/nova/networks/subnets/tables.py:50
 #: dashboards/syspanel/networks/ports/tables.py:41
 #: dashboards/syspanel/networks/subnets/tables.py:38
 #, python-format
 msgid "Failed to delete subnet %s"
-msgstr ""
+msgstr "Ошибка удаления подсети %s"
 
 #: dashboards/nova/networks/subnets/tables.py:71
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:7
 #: dashboards/syspanel/networks/subnets/tables.py:59
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:7
 msgid "Edit Subnet"
-msgstr ""
+msgstr "Редактировать подсеть"
 
 #: dashboards/nova/networks/subnets/tabs.py:41
 msgid "Unable to retrieve subnet details."
-msgstr ""
+msgstr "Ошибка получения деталей подсети."
 
 #: dashboards/nova/networks/subnets/views.py:52
 #: dashboards/syspanel/networks/ports/views.py:48
 #: dashboards/syspanel/networks/subnets/views.py:47
 msgid "Unable to retrieve network."
-msgstr ""
+msgstr "Ошибка загрузки информации о сети."
 
 #: dashboards/nova/networks/subnets/views.py:84
 #: dashboards/syspanel/networks/subnets/views.py:80
 msgid "Unable to retrieve subnet details"
-msgstr ""
+msgstr "Ошибка получения деталей сети"
 
 #: dashboards/nova/networks/templates/networks/_create.html:17
 #: dashboards/syspanel/networks/templates/networks/_create.html:18
 msgid "Select a name for your network."
-msgstr ""
+msgstr "Выберите имя сети"
 
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:3
 msgid "Network Overview"
-msgstr ""
+msgstr "Детали сети"
 
 #: dashboards/nova/networks/templates/networks/_update.html:17
 #: dashboards/syspanel/networks/templates/networks/_update.html:17
 msgid "You may update the editable properties of your network here."
-msgstr ""
+msgstr "Здесь вы можете обновить свойства сети."
 
 #: dashboards/nova/networks/templates/networks/detail.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/index.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/index.html:6
 msgid "Network Detail"
-msgstr ""
+msgstr "Детали сети"
 
 #: dashboards/nova/networks/templates/networks/detail.html:6
 msgid "Network Detail: "
-msgstr ""
+msgstr "Детали сети:"
 
 #: dashboards/nova/networks/templates/networks/update.html:3
 #: dashboards/nova/networks/templates/networks/update.html:6
 #: dashboards/syspanel/networks/templates/networks/update.html:3
 #: dashboards/syspanel/networks/templates/networks/update.html:6
 msgid "Update Network"
-msgstr ""
+msgstr "Обновить сеть"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:3
 msgid "Port Overview"
-msgstr ""
+msgstr "Обзор портов"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/syspanel/networks/ports/tables.py:34
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:17
 msgid "Fixed IP"
-msgstr ""
+msgstr "Фиксированный адрес"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:21
 msgid "IP address:"
-msgstr ""
+msgstr "IP адрес"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:22
 msgid "Subnet ID"
-msgstr ""
+msgstr "Номер подсети"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:28
 msgid "Mac Address"
-msgstr ""
+msgstr "Mac адрес"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/syspanel/networks/ports/forms.py:41
 #: dashboards/syspanel/networks/ports/forms.py:73
 msgid "Device ID"
-msgstr ""
+msgstr "Номер устройства"
 
 #: dashboards/nova/networks/templates/networks/ports/detail.html:3
 #: dashboards/nova/networks/templates/networks/ports/detail.html:6
 msgid "Port Detail"
-msgstr ""
+msgstr "Детали порта"
 
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:18
 #: dashboards/syspanel/networks/templates/networks/subnets/_create.html:18
@@ -2216,50 +2216,50 @@ msgid ""
 "You can create a subnet for the network. Any network address can be "
 "specified unless the network address does not overlap other subnets in the "
 "network."
-msgstr ""
+msgstr "Вы можете создать подсеть для сети. Может быть задан любой сетевой адрес, не перекрывающий другие подсети в сети."
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:3
 msgid "Subnet Overview"
-msgstr ""
+msgstr "Обзор подсети"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:17
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:16
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:16
 msgid "IP version"
-msgstr ""
+msgstr "Версия IP"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:21
 msgid "IP allocation pool"
-msgstr ""
+msgstr "Пул IP адресов"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:24
 msgid "Start"
-msgstr ""
+msgstr "Старт"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:25
 msgid " - End"
-msgstr ""
+msgstr " - Конец"
 
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:26
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:26
 msgid "You may update the editable properties of your subnet here."
-msgstr ""
+msgstr "Здесь вы можете обновить свойства подсети."
 
 #: dashboards/nova/networks/templates/networks/subnets/detail.html:3
 #: dashboards/nova/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
-msgstr ""
+msgstr "Детали подсети"
 
 #: dashboards/nova/networks/templates/networks/subnets/update.html:3
 #: dashboards/nova/networks/templates/networks/subnets/update.html:6
 #: dashboards/syspanel/networks/templates/networks/subnets/update.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/update.html:6
 msgid "Update Subnet"
-msgstr ""
+msgstr "Обновить подсеть"
 
 #: dashboards/nova/templates/nova/_warning.html:6
 msgid "You currently have the power to damage your OpenStack cloud..."
-msgstr ""
+msgstr "У вас есть привилегии повредить ваше облако OpenStack ..."
 
 #: dashboards/nova/templates/nova/_warning.html:9
 msgid ""
