@@ -2267,48 +2267,48 @@ msgid ""
 "an admin role has access to all resources in the system (volumes, snapshots, "
 "keypairs, etc.), even in the Project dashboard where they should only see a "
 "properly-scoped subset of those resources."
-msgstr ""
+msgstr "В соответсвии с правилами взаимодействия сервиса Nova с хранилищем ключей, пользователь с ролью администратора имеет доступ ко всем ресурсам системы (тома, снэпшоты, ключи, и.т.д) даже в панели проекта, где обычно отображается только соответствующий набор ресурсов."
 
 #: dashboards/nova/templates/nova/_warning.html:10
 msgid ""
 "This means that Nova allows an admin user in the Project Dashboard to "
 "successfully take actions which otherwise should not be permitted, causing "
 "irresolvable conflicts in Nova."
-msgstr ""
+msgstr "Это означает, что сервис Nova позволяет администратору выполнять действия, которые не должны быть резрешены, вызывая проблемы в системе."
 
 #: dashboards/nova/templates/nova/_warning.html:11
 msgid "A list of the known problems are as follows:"
-msgstr ""
+msgstr "Список известных проблем:"
 
 #: dashboards/nova/templates/nova/_warning.html:13
 msgid ""
 "Attaching a volume owned by project A to an instance in project B can "
 "completely hang Nova."
-msgstr ""
+msgstr "Подсоединение тома, принадлежащего проекту А, к ресурсу в проекте Б может привести к зависанию сервиса."
 
 #: dashboards/nova/templates/nova/_warning.html:14
 msgid ""
 "Assigning keypairs owned by project A to an instance in project B can result "
 "in failed instances, problems in retrieving instance details for non-admin "
 "users, and/or security holes should the instance succeed in spawning."
-msgstr ""
+msgstr "Назначение ключе из проекта А к ресурсу в проекте И может привести к ошибкам и проблемам с получением деталей ресурса у пользователя без привилений администратора, а также к возможным уязвимостям."
 
 #: dashboards/nova/templates/nova/_warning.html:15
 msgid ""
 "Attempting to launch an instance in project A from a snapshot or volume "
 "snapshot owned by project B can hang Nova."
-msgstr ""
+msgstr "Попытка запустить ресурс в проекте А из снэпшота в проекте Б может привести к зависанию сервиса."
 
 #: dashboards/nova/templates/nova/_warning.html:16
 msgid ""
 "Attempting to boot from a volume owned by project A in project B can hang "
 "Nova."
-msgstr ""
+msgstr "Попытка загрузиться с тома из проекта А в проекте Б может привести к завиисанию сервиса."
 
 #: dashboards/nova/templates/nova/_warning.html:18
 msgid ""
 "This is only a list of the reported inconsistencies. There may be others."
-msgstr ""
+msgstr "Это только известные проблемы. Могут быть и другие."
 
 #: dashboards/nova/templates/nova/_warning.html:19
 msgid ""
@@ -2316,93 +2316,93 @@ msgid ""
 "admin users and regular users separate. Create an \"admin\" project that "
 "admin users have access to, and do not grant your admin users the admin role "
 "on any other projects."
-msgstr ""
+msgstr "Пока описанная проблема не решена, рекомендуется разделять администраторов и обычных пользователей. Создайте проект \"admin\" и выдайте права на его использование администраторам и не выдавайте администраторам какие-либо другие проекты."
 
 #: dashboards/nova/templates/nova/_warning.html:20
 msgid ""
 "To follow the status of this bug, take a look at the following items on "
 "launchpad:"
-msgstr ""
+msgstr "Для проверки статуса ошибки, посмотрите на соответствующие отчеты на Launchpad:"
 
 #: dashboards/nova/templates/nova/_warning.html:27
 msgid ""
 "Thank you for reading this warning and operating your cloud responsibly."
-msgstr ""
+msgstr "Спасибо за чтение предупреждения."
 
 #: dashboards/nova/templates/nova/_warning.html:30
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: dashboards/nova/volumes/forms.py:29
 msgid "Size (GB)"
-msgstr ""
+msgstr "Размер (Гб)"
 
 #: dashboards/nova/volumes/forms.py:30
 msgid "Use snapshot as a source"
-msgstr ""
+msgstr "Использовать снэпшот как источник"
 
 #: dashboards/nova/volumes/forms.py:49
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr ""
+msgstr "Размер тома должен быть равен или больше размера снэпшота (%sГб)"
 
 #: dashboards/nova/volumes/forms.py:54
 msgid "Unable to load the specified snapshot."
-msgstr ""
+msgstr "Невозможно загрузить снэпшот."
 
 #: dashboards/nova/volumes/forms.py:59
 msgid "Choose a snapshot"
-msgstr ""
+msgstr "Выберите снэпшот"
 
 #: dashboards/nova/volumes/forms.py:83
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr ""
+msgstr "Размер тома не может быть меньше чем размер снэпшота (%sГб)"
 
 #: dashboards/nova/volumes/forms.py:92
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
 "quota available."
-msgstr ""
+msgstr "Размер вашей квоты %(avail)iГб не позволяет вам создать том размером %(req)iГб."
 
 #: dashboards/nova/volumes/forms.py:99
 msgid "You are already using all of your available volumes."
-msgstr ""
+msgstr "Вы уже используете все доступные тома."
 
 #: dashboards/nova/volumes/forms.py:115
 msgid "Unable to create volume."
-msgstr ""
+msgstr "Невозможно создать том."
 
 #: dashboards/nova/volumes/forms.py:123
 msgid "Attach to Instance"
-msgstr ""
+msgstr "Подсоединить к ресурсу"
 
 #: dashboards/nova/volumes/forms.py:124
 msgid "Select an instance to attach to."
-msgstr ""
+msgstr "Выберите ресурс для подсоединения."
 
 #: dashboards/nova/volumes/forms.py:168
 msgid "Unknown instance (None)"
-msgstr ""
+msgstr "Неизвестный ресурс"
 
 #: dashboards/nova/volumes/forms.py:179
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
-msgstr ""
+msgstr "Подсоединение тома %(vol)s к ресурсу %(inst)s как %(dev)s."
 
 #: dashboards/nova/volumes/forms.py:188
 msgid "Unable to attach volume."
-msgstr ""
+msgstr "Ошибка подсоединения тома."
 
 #: dashboards/nova/volumes/forms.py:212
 #, python-format
 msgid "Creating volume snapshot \"%s\""
-msgstr ""
+msgstr "Создание снэпшота тома \"%s\""
 
 #: dashboards/nova/volumes/forms.py:218
 msgid "Unable to create volume snapshot."
-msgstr ""
+msgstr "Невозможнр создать снэпшот тома."
 
 #: dashboards/nova/volumes/panel.py:24 dashboards/nova/volumes/tables.py:37
 #: dashboards/nova/volumes/tables.py:162 dashboards/nova/volumes/tables.py:174
@@ -2414,260 +2414,260 @@ msgstr ""
 #: dashboards/syspanel/volumes/templates/volumes/index.html:3
 #: dashboards/syspanel/volumes/templates/volumes/index.html:6
 msgid "Volumes"
-msgstr ""
+msgstr "Тома"
 
 #: dashboards/nova/volumes/tables.py:57
 msgid "Edit Attachments"
-msgstr ""
+msgstr "Редактировать вложения"
 
 #: dashboards/nova/volumes/tables.py:84
 #, python-format
 msgid "%sGB"
-msgstr ""
+msgstr "%sГб"
 
 #: dashboards/nova/volumes/tables.py:97 dashboards/nova/volumes/views.py:149
 msgid "Unable to retrieve attachment information."
-msgstr ""
+msgstr "Ошибка при получении информации о вложении."
 
 #: dashboards/nova/volumes/tables.py:114
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
-msgstr ""
+msgstr "Подсоединен к %(instance)s как %(dev)s"
 
 #: dashboards/nova/volumes/tables.py:171
-msgid "Detach"
+msgid "Отсоединить"
 msgstr ""
 
 #: dashboards/nova/volumes/tables.py:172
-msgid "Detaching"
+msgid "Отстоединение"
 msgstr ""
 
 #: dashboards/nova/volumes/tables.py:207
 #, python-format
 msgid "%(dev)s on instance %(instance_name)s"
-msgstr ""
+msgstr "%(dev)s в ресурсе %(instance_name)s"
 
 #: dashboards/nova/volumes/tabs.py:41
 msgid "Unable to retrieve volume details."
-msgstr ""
+msgstr "Невозможно получить детали тома."
 
 #: dashboards/nova/volumes/views.py:50
 msgid "Unable to retrieve volume list."
-msgstr ""
+msgstr "Невозможно получить список томов."
 
 #: dashboards/nova/volumes/views.py:58
 msgid "Unable to retrieve volume/instance attachment information"
-msgstr ""
+msgstr "Невозможно получить информацию о вложении тома/ресурса"
 
 #: dashboards/nova/volumes/views.py:130 dashboards/nova/volumes/views.py:140
 msgid "Unable to retrieve volume information."
-msgstr ""
+msgstr "Ошибка при получении информации о томе."
 
 #: dashboards/nova/volumes/templates/volumes/_attach.html:9
 #: dashboards/nova/volumes/templates/volumes/attach.html:6
 msgid "Manage Volume Attachments"
-msgstr ""
+msgstr "Управлять вложениями тома"
 
 #: dashboards/nova/volumes/templates/volumes/_attach.html:13
 msgid "Attach To Instance"
-msgstr ""
+msgstr "Подсоединить к ресурсу"
 
 #: dashboards/nova/volumes/templates/volumes/_attach.html:22
 msgid "Attach Volume"
-msgstr ""
+msgstr "Подсоединить том"
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:20
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:18
 msgid "Volumes are block devices that can be attached to instances."
-msgstr ""
+msgstr "Тома - это блочные устройства, которые могут быть подсоединены к ресурсам."
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:22
 msgid "Volume Quotas"
-msgstr ""
+msgstr "Квоты томов"
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:25
 msgid "Total Gigabytes"
-msgstr ""
+msgstr "Всего Гб"
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:34
 msgid "Number of Volumes"
-msgstr ""
+msgstr "Количество томов"
 
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:8
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:23
 #: dashboards/nova/volumes/templates/volumes/create_snapshot.html:3
 msgid "Create Volume Snapshot"
-msgstr ""
+msgstr "Создать снэпшот тома"
 
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:3
 msgid "Volume Overview"
-msgstr ""
+msgstr "Обзор тома"
 
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:34
 msgid "Attachments"
-msgstr ""
+msgstr "Вложения"
 
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:46
 msgid "Not attached"
-msgstr ""
+msgstr "Не подсоединен"
 
 #: dashboards/nova/volumes/templates/volumes/create.html:6
 msgid "Create a Volume"
-msgstr ""
+msgstr "Создать том"
 
 #: dashboards/nova/volumes/templates/volumes/create_snapshot.html:6
 msgid "Create a Volume Snapshot"
-msgstr ""
+msgstr "Создать снэпшот тома"
 
 #: dashboards/nova/volumes/templates/volumes/detail.html:3
 #: dashboards/syspanel/volumes/templates/volumes/detail.html:3
 msgid "Volume Details"
-msgstr ""
+msgstr "Детали тома"
 
 #: dashboards/nova/volumes/templates/volumes/detail.html:6
 #: dashboards/syspanel/volumes/templates/volumes/detail.html:6
 msgid "Volume Detail"
-msgstr ""
+msgstr "Детали тома"
 
 #: dashboards/settings/dashboard.py:24 templates/_header.html:4
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: dashboards/settings/ec2/forms.py:35 dashboards/settings/project/forms.py:35
 msgid "Select a Project"
-msgstr ""
+msgstr "Выберите проект"
 
 #: dashboards/settings/ec2/forms.py:45
 msgid "Unable to retrieve tenant list."
-msgstr ""
+msgstr "Невозможно получить список проектов."
 
 #: dashboards/settings/ec2/forms.py:87
 msgid "Unable to fetch EC2 credentials."
-msgstr ""
+msgstr "Невозможно скачать файл EC@"
 
 #: dashboards/settings/ec2/forms.py:100
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
-msgstr ""
+msgstr "Ошибка создания архива:  %(exc)s"
 
 #: dashboards/settings/ec2/panel.py:24
 msgid "EC2 Credentials"
-msgstr ""
+msgstr "Данные аутентификации EC2"
 
 #: dashboards/settings/ec2/templates/ec2/download_form.html:8
 #: dashboards/settings/ec2/templates/ec2/download_form.html:23
 #: dashboards/settings/ec2/templates/ec2/index.html:3
 #: dashboards/settings/ec2/templates/ec2/index.html:6
 msgid "Download EC2 Credentials"
-msgstr ""
+msgstr "Скачать данные аутентификации EC2"
 
 #: dashboards/settings/ec2/templates/ec2/download_form.html:18
 msgid ""
 "Clicking \"Download EC2 Credentials\" will download a zip file which "
 "includes an rc file with your access/secret keys, as well as your x509 "
 "private key and certificate."
-msgstr ""
+msgstr "Нажатие на \"Скачать данные аутентификации EC2\" приведет к отправке архива, который содержит файлы с ключами доступа и сертификатами."
 
 #: dashboards/settings/project/forms.py:70
 #, python-format
 msgid "Error Downloading RC File: %s"
-msgstr ""
+msgstr "Ошибка загрузки rc файла"
 
 #: dashboards/settings/project/panel.py:24
 #: dashboards/settings/project/templates/project/_openrc.html:8
 #: dashboards/settings/project/templates/project/settings.html:3
 #: dashboards/settings/project/templates/project/settings.html:6
 msgid "OpenStack API"
-msgstr ""
+msgstr "Интерфейс OpenStack"
 
 #: dashboards/settings/project/tables.py:27
 msgid "Service Name"
-msgstr ""
+msgstr "Имя сервиса"
 
 #: dashboards/settings/project/tables.py:29
 msgid "Service Endpoint"
-msgstr ""
+msgstr "Адрес сервиса"
 
 #: dashboards/settings/project/tables.py:33
 msgid "API Endpoints"
-msgstr ""
+msgstr "Адрес интерфейса веб сервиса"
 
 #: dashboards/settings/project/templates/project/_openrc.html:15
 msgid "Download OpenStack RC File"
-msgstr ""
+msgstr "Скачать rc файл OpenStack"
 
 #: dashboards/settings/project/templates/project/_openrc.html:25
 msgid ""
 "Download the RC file for the selected project, then type \"source openrc\" "
 "in the terminal to configure your environment to communicate with OpenStack."
-msgstr ""
+msgstr "Скачайте rc файл для выбранного проекта и выполните команду \"source openrc\" в терминале для задания необходимых переменных окружения."
 
 #: dashboards/settings/project/templates/project/_openrc.html:30
 msgid "Download RC File"
-msgstr ""
+msgstr "Скачать rc файл"
 
 #: dashboards/settings/user/forms.py:57
 msgid "Settings saved."
-msgstr ""
+msgstr "Настройки сохранены."
 
 #: dashboards/settings/user/panel.py:24
 #: dashboards/settings/user/templates/user/_settings.html:8
 #: dashboards/settings/user/templates/user/settings.html:3
 #: dashboards/settings/user/templates/user/settings.html:6
 msgid "User Settings"
-msgstr ""
+msgstr "Пользовательские настройки"
 
 #: dashboards/settings/user/templates/user/_settings.html:18
 msgid "From here you can modify dashboard settings for your user."
-msgstr ""
+msgstr "Здесь вы можете изменить настройки для вашей учетной записи."
 
 #: dashboards/settings/user/templates/user/_settings.html:23
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:24
 #: dashboards/syspanel/projects/workflows.py:268 workflows/base.py:538
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: dashboards/syspanel/dashboard.py:24
 msgid "System Panel"
-msgstr ""
+msgstr "Системная панель"
 
 #: dashboards/syspanel/dashboard.py:30 tests/workflows_tests.py:74
 msgid "Admin"
-msgstr ""
+msgstr "Администрирование"
 
 #: dashboards/syspanel/flavors/forms.py:37
 msgid "RAM MB"
-msgstr ""
+msgstr "ОЗУ МБ"
 
 #: dashboards/syspanel/flavors/forms.py:38
 msgid "Root Disk GB"
-msgstr ""
+msgstr "Главный раздел ГБ"
 
 #: dashboards/syspanel/flavors/forms.py:39
 msgid "Ephemeral Disk GB"
-msgstr ""
+msgstr "Дополнительный раздел ГБ"
 
 #: dashboards/syspanel/flavors/forms.py:49
 msgid "Unable to get unique ID for new flavor."
-msgstr ""
+msgstr "Невозможно получить уникальный номер для новой конфигурации."
 
 #: dashboards/syspanel/flavors/forms.py:66
 #, python-format
 msgid "Created flavor \"%s\"."
-msgstr ""
+msgstr "Создана конфигурация \"%s\"."
 
 #: dashboards/syspanel/flavors/forms.py:70
 msgid "Unable to create flavor."
-msgstr ""
+msgstr "Ошибка создания конфигурации."
 
 #: dashboards/syspanel/flavors/forms.py:91
 #, python-format
 msgid "Updated flavor \"%s\"."
-msgstr ""
+msgstr "Конфигурация \"%s\" обновлена."
 
 #: dashboards/syspanel/flavors/forms.py:95
 msgid "Unable to update flavor."
-msgstr ""
+msgstr "Ошибка обновления конфигурации."
 
 #: dashboards/syspanel/flavors/panel.py:28
 #: dashboards/syspanel/flavors/tables.py:14
@@ -2675,7 +2675,7 @@ msgstr ""
 #: dashboards/syspanel/flavors/templates/flavors/index.html:3
 #: dashboards/syspanel/flavors/templates/flavors/index.html:6
 msgid "Flavors"
-msgstr ""
+msgstr "Конфигурации"
 
 #: dashboards/syspanel/flavors/tables.py:22
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:8
@@ -2683,102 +2683,102 @@ msgstr ""
 #: dashboards/syspanel/flavors/templates/flavors/create.html:3
 #: dashboards/syspanel/flavors/templates/flavors/create.html:6
 msgid "Create Flavor"
-msgstr ""
+msgstr "Создать конфигурацию"
 
 #: dashboards/syspanel/flavors/tables.py:29
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:8
 #: dashboards/syspanel/flavors/templates/flavors/edit.html:3
 #: dashboards/syspanel/flavors/templates/flavors/edit.html:6
 msgid "Edit Flavor"
-msgstr ""
+msgstr "Редактировать конфигурацию"
 
 #: dashboards/syspanel/flavors/tables.py:35
 #, python-format
 msgid "%sMB"
-msgstr ""
+msgstr "%sМб"
 
 #: dashboards/syspanel/flavors/tables.py:39
 msgid "Flavor Name"
-msgstr ""
+msgstr "Имя конфигурации"
 
 #: dashboards/syspanel/flavors/views.py:48
 msgid "Unable to retrieve flavor list."
-msgstr ""
+msgstr "Ошибка получения списка конфигураций."
 
 #: dashboards/syspanel/flavors/views.py:75
 msgid "Unable to retrieve flavor data."
-msgstr ""
+msgstr "Невозможно получить параметры конфигурации."
 
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:18
 msgid "From here you can define the sizing of a new flavor."
-msgstr ""
+msgstr "Здесь вы можете задать параметры новой конфигурации."
 
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:18
 msgid "From here you can alter the sizing of the current flavor."
-msgstr ""
+msgstr "Здесь вы можете переопределить параметры текущией конфигурации."
 
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:19
 msgid ""
 "Note: this will not affect the resources allocated to any existing instances "
 "using this flavor."
-msgstr ""
+msgstr "Примечание: Это изменение не повлияет на ресурсы, которые уже используют эту конфигурацию."
 
 #: dashboards/syspanel/images/views.py:53
 msgid "Unable to retrieve image list."
-msgstr ""
+msgstr "Невозможно получить список образов."
 
 #: dashboards/syspanel/instances/tables.py:58 usage/tables.py:30
 msgid "Project Name"
-msgstr ""
+msgstr "Имя проекта"
 
 #: dashboards/syspanel/instances/tables.py:65
 #: dashboards/syspanel/services/tables.py:40
 msgid "Host"
-msgstr ""
+msgstr "Хост"
 
 #: dashboards/syspanel/instances/views.py:60
 #: dashboards/syspanel/networks/views.py:48
 msgid "Unable to retrieve instance tenant information."
-msgstr ""
+msgstr "Ошибка при получении информации о проекте."
 
 #: dashboards/syspanel/instances/templates/instances/index.html:6
 msgid "All Instances"
-msgstr ""
+msgstr "Все ресурсы"
 
 #: dashboards/syspanel/networks/forms.py:45
 #: dashboards/syspanel/users/forms.py:41
 msgid "Select a project"
-msgstr ""
+msgstr "Выберите проект"
 
 #: dashboards/syspanel/networks/forms.py:57
 #, python-format
 msgid "Network %s was successfully created."
-msgstr ""
+msgstr "Сеть %s создана."
 
 #: dashboards/syspanel/networks/forms.py:63
 #, python-format
 msgid "Failed to create network %s"
-msgstr ""
+msgstr "Ошибка создания сети %s"
 
 #: dashboards/syspanel/networks/ports/forms.py:53
 #, python-format
 msgid "Port %s was successfully created."
-msgstr ""
+msgstr "Порт %s создан."
 
 #: dashboards/syspanel/networks/ports/forms.py:58
 #, python-format
 msgid "Failed to create a port for network %s"
-msgstr ""
+msgstr "Ошибка создания порта для сети %s"
 
 #: dashboards/syspanel/networks/ports/forms.py:83
 #, python-format
 msgid "Port %s was successfully updated."
-msgstr ""
+msgstr "Порт %s обновлен"
 
 #: dashboards/syspanel/networks/ports/forms.py:88
 #, python-format
 msgid "Failed to update port %s"
-msgstr ""
+msgstr "Ошибка обновления порта %s"
 
 #: dashboards/syspanel/networks/ports/tables.py:51
 #: dashboards/syspanel/networks/templates/networks/ports/_create.html:8
@@ -2786,73 +2786,73 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/ports/create.html:3
 #: dashboards/syspanel/networks/templates/networks/ports/create.html:6
 msgid "Create Port"
-msgstr ""
+msgstr "Создать порт"
 
 #: dashboards/syspanel/networks/ports/tables.py:62
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:7
 msgid "Edit Port"
-msgstr ""
+msgstr "Редактировать порт"
 
 #: dashboards/syspanel/networks/ports/views.py:81
 msgid "Unable to retrieve port details"
-msgstr ""
+msgstr "Ошибка получения информации о порте"
 
 #: dashboards/syspanel/networks/subnets/forms.py:42
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
-msgstr ""
+msgstr "Ошибка получения сети %s для подсети"
 
 #: dashboards/syspanel/networks/templates/networks/ports/_create.html:18
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
 "attached, the device specified will be attached to the port created."
-msgstr ""
+msgstr "Вы можете создать порт для сети. Если вы зададите номер устройства, которое подсоединяется, то оно будет подключено к создаваемому порту."
 
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:22
 msgid "You may update the editable properties of your port here."
-msgstr ""
+msgstr "Здесь вы можете обновить свойства вашего порта"
 
 #: dashboards/syspanel/networks/templates/networks/ports/update.html:3
 #: dashboards/syspanel/networks/templates/networks/ports/update.html:6
 msgid "Update Port"
-msgstr ""
+msgstr "Обновить порт"
 
 #: dashboards/syspanel/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
-msgstr ""
+msgstr "Статистика использования"
 
 #: dashboards/syspanel/overview/templates/overview/usage.html:12
 msgid "Monitoring"
-msgstr ""
+msgstr "Мониторинг"
 
 #: dashboards/syspanel/projects/panel.py:28
 #: dashboards/syspanel/projects/tables.py:66
 #: dashboards/syspanel/projects/tables.py:95
 #: dashboards/syspanel/projects/templates/projects/index.html:8
 msgid "Projects"
-msgstr ""
+msgstr "Проекты"
 
 #: dashboards/syspanel/projects/tables.py:19
 msgid "Modify Users"
-msgstr ""
+msgstr "Изменить пользователей"
 
 #: dashboards/syspanel/projects/tables.py:32
 msgid "View Usage"
-msgstr ""
+msgstr "Просмотреть статистику использования"
 
 #: dashboards/syspanel/projects/tables.py:39
 #: dashboards/syspanel/projects/templates/projects/_create.html:8
 #: dashboards/syspanel/projects/templates/projects/_create.html:23
 #: dashboards/syspanel/projects/templates/projects/create.html:6
 msgid "Create Project"
-msgstr ""
+msgstr "Создать проект"
 
 #: dashboards/syspanel/projects/tables.py:46
 #: dashboards/syspanel/projects/workflows.py:267
 #: dashboards/syspanel/projects/templates/projects/update.html:3
 #: dashboards/syspanel/projects/templates/projects/update.html:6
 msgid "Edit Project"
-msgstr ""
+msgstr "Изменить проект"
 
 #: dashboards/syspanel/projects/tables.py:91
 #: dashboards/syspanel/projects/workflows.py:74
@@ -2861,15 +2861,15 @@ msgstr ""
 #: dashboards/syspanel/users/tables.py:39
 #: dashboards/syspanel/users/tables.py:114
 msgid "Enabled"
-msgstr ""
+msgstr "Включен"
 
 #: dashboards/syspanel/projects/tables.py:104
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
 #: dashboards/syspanel/projects/tables.py:105
 msgid "Removed"
-msgstr ""
+msgstr "Удален"
 
 #: dashboards/syspanel/projects/tables.py:107
 #: dashboards/syspanel/users/panel.py:28
@@ -2878,174 +2878,174 @@ msgstr ""
 #: dashboards/syspanel/users/tables.py:121
 #: dashboards/syspanel/users/templates/users/index.html:8
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 #: dashboards/syspanel/projects/tables.py:125
 msgid "Unable to retrieve role information."
-msgstr ""
+msgstr "Ошибка получения данных о роли."
 
 #: dashboards/syspanel/projects/tables.py:130
 msgid "Roles"
-msgstr ""
+msgstr "Роли"
 
 #: dashboards/syspanel/projects/tables.py:134
 msgid "Users For Project"
-msgstr ""
+msgstr "Пользователи проекта"
 
 #: dashboards/syspanel/projects/tables.py:142
 msgid "Add To Project"
-msgstr ""
+msgstr "Добавить в проект"
 
 #: dashboards/syspanel/projects/tables.py:154
 msgid "Add New Users"
-msgstr ""
+msgstr "Добавить новых пользователей"
 
 #: dashboards/syspanel/projects/views.py:67
 msgid "Unable to retrieve project information."
-msgstr ""
+msgstr "Ошибка получения информации о проекте."
 
 #: dashboards/syspanel/projects/views.py:87
 msgid "Unable to retrieve project list."
-msgstr ""
+msgstr "Ошибка получения списка проектов"
 
 #: dashboards/syspanel/projects/views.py:110
 msgid "Unable to retrieve users."
-msgstr ""
+msgstr "Ошибка получения списка пользователей."
 
 #: dashboards/syspanel/projects/views.py:154
 msgid "Unable to retrieve default quota values."
-msgstr ""
+msgstr "Ошибка получения квоты по умолчанию."
 
 #: dashboards/syspanel/projects/views.py:182
 msgid "Unable to retrieve project details."
-msgstr ""
+msgstr "Ошибка получения деталей проекта."
 
 #: dashboards/syspanel/projects/workflows.py:35
 msgid "Injected File Content Bytes"
-msgstr ""
+msgstr "Содержимое интегрированного файла"
 
 #: dashboards/syspanel/projects/workflows.py:36
 msgid "Metadata Items"
-msgstr ""
+msgstr "Метаданные"
 
 #: dashboards/syspanel/projects/workflows.py:39
 msgid "Injected Files"
-msgstr ""
+msgstr "Интегрированные файлы"
 
 #: dashboards/syspanel/projects/workflows.py:43
 msgid "Gigabytes"
-msgstr ""
+msgstr "Гигабайты"
 
 #: dashboards/syspanel/projects/workflows.py:44
 msgid "RAM (MB)"
-msgstr ""
+msgstr "ОЗУ (Мб)"
 
 #: dashboards/syspanel/projects/workflows.py:48
 msgid "Quota"
-msgstr ""
+msgstr "Квота"
 
 #: dashboards/syspanel/projects/workflows.py:50
 msgid "From here you can set quotas (max limits) for the project."
-msgstr ""
+msgstr "Здесь вы можете задать квоты для проекта."
 
 #: dashboards/syspanel/projects/workflows.py:79
 #: dashboards/syspanel/projects/workflows.py:252
 msgid "Project Info"
-msgstr ""
+msgstr "Информация о проекте"
 
 #: dashboards/syspanel/projects/workflows.py:80
 #: dashboards/syspanel/projects/templates/projects/_create.html:18
 msgid "From here you can create a new project to organize users."
-msgstr ""
+msgstr "Здесь вы можете создать новый проект."
 
 #: dashboards/syspanel/projects/workflows.py:99
 msgid "Unable to retrieve user list. Please try again later."
-msgstr ""
+msgstr "Ошибка получения списка пользователей. Попробуйте позже."
 
 #: dashboards/syspanel/projects/workflows.py:153
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:16
 msgid "Project Members"
-msgstr ""
+msgstr "Участники проекта"
 
 #: dashboards/syspanel/projects/workflows.py:167
 #: dashboards/syspanel/users/views.py:46
 msgid "Unable to retrieve user list."
-msgstr ""
+msgstr "Ошибка получения списка пользователей"
 
 #: dashboards/syspanel/projects/workflows.py:178
 msgid "Add Project"
-msgstr ""
+msgstr "Добавить проект"
 
 #: dashboards/syspanel/projects/workflows.py:179
 msgid "Finish"
-msgstr ""
+msgstr "Финиш"
 
 #: dashboards/syspanel/projects/workflows.py:180
 #, python-format
 msgid "Created new project \"%s\"."
-msgstr ""
+msgstr "Создан проект \"%s\"."
 
 #: dashboards/syspanel/projects/workflows.py:181
 #, python-format
 msgid "Unable to create project \"%s\"."
-msgstr ""
+msgstr "Ошибка создания проекта \"%s\"."
 
 #: dashboards/syspanel/projects/workflows.py:225
 #, python-format
 msgid "Failed to add %s project members and set project quotas."
-msgstr ""
+msgstr "Ошибка добавить %s в участники проекта и установить квоты проекта."
 
 #: dashboards/syspanel/projects/workflows.py:244
 msgid "Unable to set project quotas."
-msgstr ""
+msgstr "Ошибка при установке квот проекта."
 
 #: dashboards/syspanel/projects/workflows.py:254
 msgid "From here you can edit the project details."
-msgstr ""
+msgstr "Здесь вы можете редактировать детали проекта."
 
 #: dashboards/syspanel/projects/workflows.py:269
 #, python-format
 msgid "Modified project \"%s\"."
-msgstr ""
+msgstr "Проект \"%s\" изменен."
 
 #: dashboards/syspanel/projects/workflows.py:270
 #, python-format
 msgid "Unable to modify project \"%s\"."
-msgstr ""
+msgstr "Ошибка изменения проекта \"%s\"."
 
 #: dashboards/syspanel/projects/workflows.py:340
 #, python-format
 msgid "Failed to modify %s project members and update project quotas."
-msgstr ""
+msgstr "Ошибка изменения списка участников и обновления квот для проекта %s."
 
 #: dashboards/syspanel/projects/workflows.py:361
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
-msgstr ""
+msgstr "Изменена информация о проекте и его участниках, но ошибка при изменении квот проекта."
 
 #: dashboards/syspanel/projects/templates/projects/_add_user.html:8
 #: dashboards/syspanel/projects/templates/projects/add_user.html:3
 #: dashboards/syspanel/projects/templates/projects/add_user.html:6
 msgid "Add User To Project"
-msgstr ""
+msgstr "Добавить пользователя в проект"
 
 #: dashboards/syspanel/projects/templates/projects/_add_user.html:18
 msgid "Select the user role for the project."
-msgstr ""
+msgstr "Выберите роль пользователя для проекта."
 
 #: dashboards/syspanel/projects/templates/projects/_add_user.html:23
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:7
 #, python-format
 msgid "Create User for project '%(tenant_name)s'."
-msgstr ""
+msgstr "Создать пользователя для проекта '%(tenant_name)s'."
 
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:18
 msgid "From here you can create a new user to add to this project."
-msgstr ""
+msgstr "Здесь вы модете создать нового пользователя и добавить его в проект."
 
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:23
 #: dashboards/syspanel/users/tables.py:19
@@ -3053,220 +3053,220 @@ msgstr ""
 #: dashboards/syspanel/users/templates/users/_create.html:22
 #: dashboards/syspanel/users/templates/users/create.html:7
 msgid "Create User"
-msgstr ""
+msgstr "Создать пользователя"
 
 #: dashboards/syspanel/projects/templates/projects/_quotas.html:7
 #: dashboards/syspanel/projects/templates/projects/_quotas.html:22
 msgid "Update Quota"
-msgstr ""
+msgstr "Обновить квоту"
 
 #: dashboards/syspanel/projects/templates/projects/_quotas.html:17
 #, python-format
 msgid ""
 "From here you can edit quotas (max limits) for the project %(tenant.name)s."
-msgstr ""
+msgstr "Здесь вы можете изменить квоты для проекта %(tenant.name)s"
 
 #: dashboards/syspanel/projects/templates/projects/_update.html:8
 #: dashboards/syspanel/projects/templates/projects/_update.html:23
 #: dashboards/syspanel/projects/templates/projects/quotas.html:6
 msgid "Update Project"
-msgstr ""
+msgstr "Обновить проект"
 
 #: dashboards/syspanel/projects/templates/projects/_update.html:18
 msgid "From here you can edit a project."
-msgstr ""
+msgstr "Здесь вы можете изменить проект"
 
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:7
 msgid ""
 "From here you can add and remove members to this project from the list of "
 "all available users."
-msgstr ""
+msgstr "Здесь вы можете добавить или удалить участников проекта."
 
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:10
 msgid "All Users"
-msgstr ""
+msgstr "Все пользователи"
 
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:25
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:32
 msgid "No users found."
-msgstr ""
+msgstr "Пользователи не найдены"
 
 #: dashboards/syspanel/projects/templates/projects/create_user.html:3
 #: dashboards/syspanel/projects/templates/projects/create_user.html:6
 msgid "Add New User"
-msgstr ""
+msgstr "Добавить пользователя"
 
 #: dashboards/syspanel/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
-msgstr ""
+msgstr "Статистика использования проекта"
 
 #: dashboards/syspanel/projects/templates/projects/usage.html:7
 msgid "Project Usage"
-msgstr ""
+msgstr "Статистика проекта"
 
 #: dashboards/syspanel/projects/templates/projects/users.html:7
 msgid "Users for Project"
-msgstr ""
+msgstr "Пользователи проекта"
 
 #: dashboards/syspanel/quotas/panel.py:28
 #: dashboards/syspanel/quotas/tables.py:36
 msgid "Quotas"
-msgstr ""
+msgstr "Квоты"
 
 #: dashboards/syspanel/quotas/tables.py:28
 msgid "Quota Name"
-msgstr ""
+msgstr "Имя квоты"
 
 #: dashboards/syspanel/quotas/tables.py:29
 msgid "Limit"
-msgstr ""
+msgstr "Предел"
 
 #: dashboards/syspanel/quotas/views.py:45
 msgid "Unable to get quota info."
-msgstr ""
+msgstr "Ошибка получения информации о квоте"
 
 #: dashboards/syspanel/quotas/templates/quotas/index.html:8
 msgid "Default Quotas"
-msgstr ""
+msgstr "Квоты по умолчанию"
 
 #: dashboards/syspanel/services/panel.py:28
 #: dashboards/syspanel/services/tables.py:47
 #: dashboards/syspanel/services/templates/services/index.html:8
 msgid "Services"
-msgstr ""
+msgstr "Сервисы"
 
 #: dashboards/syspanel/services/tables.py:37
 msgid "Id"
-msgstr ""
+msgstr "Номер"
 
 #: dashboards/syspanel/services/tables.py:39
 msgid "Service"
-msgstr ""
+msgstr "Сервис"
 
 #: dashboards/syspanel/users/forms.py:53
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Пароли не совпадают."
 
 #: dashboards/syspanel/users/forms.py:61
 #: dashboards/syspanel/users/forms.py:114
 #: dashboards/syspanel/users/tables.py:107
 msgid "User Name"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: dashboards/syspanel/users/forms.py:62
 #: dashboards/syspanel/users/forms.py:115
 #: dashboards/syspanel/users/tables.py:108
 msgid "Email"
-msgstr ""
+msgstr "Почтовый адрес"
 
 #: dashboards/syspanel/users/forms.py:64
 #: dashboards/syspanel/users/forms.py:116
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: dashboards/syspanel/users/forms.py:69
 #: dashboards/syspanel/users/forms.py:123
 msgid "Confirm Password"
-msgstr ""
+msgstr "Подтвердите пароль"
 
 #: dashboards/syspanel/users/forms.py:72
 #: dashboards/syspanel/users/forms.py:126
 msgid "Primary Project"
-msgstr ""
+msgstr "Главный проект"
 
 #: dashboards/syspanel/users/forms.py:74
 msgid "Role"
-msgstr ""
+msgstr "Роль"
 
 #: dashboards/syspanel/users/forms.py:95
 #, python-format
 msgid "User \"%s\" was successfully created."
-msgstr ""
+msgstr "Пользователь \"%s\" создан."
 
 #: dashboards/syspanel/users/forms.py:105
 msgid "Unable to add userto primary project."
-msgstr ""
+msgstr "Ошибка добавления пользователя в главный проект."
 
 #: dashboards/syspanel/users/forms.py:109
 msgid "Unable to create user."
-msgstr ""
+msgstr "Ошибка создания пользователя."
 
 #: dashboards/syspanel/users/forms.py:150
 msgid "name"
-msgstr ""
+msgstr "имя"
 
 #: dashboards/syspanel/users/forms.py:150
 msgid "email"
-msgstr ""
+msgstr "почтовый адрес"
 
 #: dashboards/syspanel/users/forms.py:159
 msgid "primary project"
-msgstr ""
+msgstr "главный проект"
 
 #: dashboards/syspanel/users/forms.py:172
 #, python-format
 msgid "The user %s has no role defined for"
-msgstr ""
+msgstr "Пользователь %s не имеет роли для"
 
 #: dashboards/syspanel/users/forms.py:180
 msgid "password"
-msgstr ""
+msgstr "пароль"
 
 #: dashboards/syspanel/users/forms.py:189
 msgid "User has been updated successfully."
-msgstr ""
+msgstr "Пользователь обновлен"
 
 #: dashboards/syspanel/users/forms.py:193
 #, python-format
 msgid "Unable to update %(attributes)s for the user."
-msgstr ""
+msgstr "Ошибка обновления %(attributes)s для польщователя."
 
 #: dashboards/syspanel/users/tables.py:38
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 #: dashboards/syspanel/users/tables.py:38
 msgid "Disable"
-msgstr ""
+msgstr "Выключить"
 
 #: dashboards/syspanel/users/tables.py:39
 msgid "Disabled"
-msgstr ""
+msgstr "Выключен"
 
 #: dashboards/syspanel/users/tables.py:62
 msgid "You cannot disable the user you are currently logged in as."
-msgstr ""
+msgstr "Вы не можете отключить пользователя под которым авторизованы."
 
 #: dashboards/syspanel/users/tables.py:113
 msgid "User ID"
-msgstr ""
+msgstr "Номер пользователя"
 
 #: dashboards/syspanel/users/views.py:69
 msgid "Unable to update user."
-msgstr ""
+msgstr "Ошибка обновления пользователя."
 
 #: dashboards/syspanel/users/views.py:103
 msgid "Unable to retrieve user roles."
-msgstr ""
+msgstr "Ошибка получения ролей пользователя."
 
 #: dashboards/syspanel/users/templates/users/_create.html:17
 msgid "From here you can create a new user and assign them to a project."
-msgstr ""
+msgstr "Здесь вы можете создать нового пользователя и назначить ему проект."
 
 #: dashboards/syspanel/users/templates/users/_update.html:7
 #: dashboards/syspanel/users/templates/users/_update.html:22
 #: dashboards/syspanel/users/templates/users/update.html:7
 msgid "Update User"
-msgstr ""
+msgstr "Изменить пользователя"
 
 #: dashboards/syspanel/users/templates/users/_update.html:17
 msgid ""
 "From here you can edit the user's details, including their default project."
-msgstr ""
+msgstr "Здесь вы можете изменить данные пользователя, включая проект по умолчанию."
 
 #: tables/actions.py:338
 msgid "Filter"
-msgstr ""
+msgstr "Фильтер"
 
 #: tables/actions.py:468
 #, python-format
@@ -3275,17 +3275,17 @@ msgstr ""
 
 #: tables/actions.py:502
 msgid "N/A"
-msgstr ""
+msgstr "Недоступен"
 
 #: tables/actions.py:526
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
-msgstr ""
+msgstr "У вас нет прав для %(action)s: %(objs)s"
 
 #: tables/actions.py:532
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr ""
+msgstr "Невозможно %(action)s: %(objs)s"
 
 #: tables/actions.py:538
 #, python-format
@@ -3294,166 +3294,166 @@ msgstr ""
 
 #: tables/actions.py:548
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: tables/actions.py:549
 msgid "Deleted"
-msgstr ""
+msgstr "Удален"
 
 #: tables/base.py:266
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr ""
+msgstr "Атрибут %(attr)s не существует для %(obj)s."
 
 #: tables/base.py:727
 msgid "No items to display."
-msgstr ""
+msgstr "Нет записей для отображения"
 
 #: tables/base.py:830
 msgid "Actions"
-msgstr ""
+msgstr "Действия"
 
 #: tables/base.py:1008
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr ""
+msgstr "Нет записей для id \"%s\"."
 
 #: tables/base.py:1138
 msgid "Please select a row before taking that action."
-msgstr ""
+msgstr "Пожалуйста выберите строку прежде чем выполнять это действие."
 
 #: templates/_header.html:3
 msgid "Logged in as"
-msgstr ""
+msgstr "Вошел как"
 
 #: templates/_header.html:6
 msgid "Help"
-msgstr ""
+msgstr "Помощь"
 
 #: templates/_header.html:8
 msgid "Sign Out"
-msgstr ""
+msgstr "Выйти"
 
 #: templates/base.html:20
 msgid "Caution"
-msgstr ""
+msgstr "Внимание"
 
 #: templates/base.html:21
 msgid "You are acting as an admin user in the project dashboard."
-msgstr ""
+msgstr "Вы действуте от учетной записи с правами администратора в панели проекта."
 
 #: templates/base.html:23
 msgid "Learn More"
-msgstr ""
+msgstr "Дополнительная информация"
 
 #: templates/splash.html:7 templates/auth/login.html:4
 msgid "Login"
-msgstr ""
+msgstr "Войти"
 
 #: templates/auth/_login.html:4
 msgid "Log In"
-msgstr ""
+msgstr "Войти"
 
 #: templates/auth/_login.html:17
 msgid "Sign In"
-msgstr ""
+msgstr "Войти"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
-msgstr ""
+msgstr "Информация:"
 
 #: templates/horizon/_messages.html:13
 msgid "Warning: "
-msgstr ""
+msgstr "Предупреждение: "
 
 #: templates/horizon/_messages.html:19
 msgid "Success: "
-msgstr ""
+msgstr "Успешно: "
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
-msgstr ""
+msgstr "Ошибка: "
 
 #: templates/horizon/common/_data_table.html:44
 msgid "Summary"
-msgstr ""
+msgstr "Отчет"
 
 #: templates/horizon/common/_data_table.html:53
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Показана записи %(counter)s"
+msgstr[1] "Показаны записи %(counter)s"
 
 #: templates/horizon/common/_quota_summary.html:4
 msgid "Quota Summary"
-msgstr ""
+msgstr "Сводка квот"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
 #: templates/horizon/common/_quota_summary.html:11
 msgid "Used"
-msgstr ""
+msgstr "Использовано"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
 #: templates/horizon/common/_quota_summary.html:11
 msgid "of"
-msgstr ""
+msgstr "из"
 
 #: templates/horizon/common/_quota_summary.html:5
 msgid "Available Instances"
-msgstr ""
+msgstr "Доступные ресурсы"
 
 #: templates/horizon/common/_quota_summary.html:8
 msgid "Available vCPUs"
-msgstr ""
+msgstr "Доступные ЦПУ"
 
 #: templates/horizon/common/_quota_summary.html:11
 msgid "Available RAM"
-msgstr ""
+msgstr "Доступная ОЗУ"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Показана запись %(nav_items)s"
+msgstr[1] "Показаны записи %(nav_items)s"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Показана запись %(content_items)s"
+msgstr[1] "Показана записи %(content_items)s"
 
 #: templates/horizon/common/_sidebar.html:14
 msgid "Current Project"
-msgstr ""
+msgstr "Текущий проект"
 
 #: templates/horizon/common/_usage_summary.html:5
 msgid "Select a month to query its usage"
-msgstr ""
+msgstr "Выберите месяц для получения статистики"
 
 #: templates/horizon/common/_usage_summary.html:9
 msgid "Submit"
-msgstr ""
+msgstr "Отправить"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
-msgstr ""
+msgstr "Активные ресурсы"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Active RAM"
-msgstr ""
+msgstr "Активная ОЗУ"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
-msgstr ""
+msgstr "В этом месяе ЦПУ-часов"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "This Month's GB-Hours"
-msgstr ""
+msgstr "Этим месяцем Гб-часов"
 
 #: templatetags/branding.py:35
 msgid "Horizon"
@@ -3461,18 +3461,18 @@ msgstr ""
 
 #: templatetags/horizon.py:108
 msgid "No Limit"
-msgstr ""
+msgstr "Без предела"
 
 #: templatetags/horizon.py:110 templatetags/horizon.py:112
 msgid "Available"
-msgstr ""
+msgstr "Доступно"
 
 #: templatetags/sizeformat.py:45
 #, python-format
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(size)d байт"
+msgstr[1] "%(size)d байт"
 
 #: templatetags/sizeformat.py:49
 #, python-format
@@ -3484,43 +3484,43 @@ msgstr[1] ""
 #: templatetags/sizeformat.py:52
 #, python-format
 msgid "%s KB"
-msgstr ""
+msgstr "Кб"
 
 #: templatetags/sizeformat.py:55
 #, python-format
 msgid "%s MB"
-msgstr ""
+msgstr "Мб"
 
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
-msgstr ""
+msgstr "Гб"
 
 #: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s TB"
-msgstr ""
+msgstr "Тб"
 
 #: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s PB"
-msgstr ""
+msgstr "Пб"
 
 #: tests/base_tests.py:43
 msgid "My Dashboard"
-msgstr ""
+msgstr "Моя панель"
 
 #: tests/base_tests.py:49
 msgid "My Panel"
-msgstr ""
+msgstr "Моя панель"
 
 #: tests/base_tests.py:56
 msgid "Admin Panel"
-msgstr ""
+msgstr "Панель администратора"
 
 #: tests/message_tests.py:30
 msgid "Giant ants are attacking San Francisco!"
-msgstr ""
+msgstr "Гигантские муравьи атакую Сан Франциско!"
 
 #: tests/table_tests.py:106
 msgid "Batch"
@@ -3532,51 +3532,51 @@ msgstr ""
 
 #: tests/table_tests.py:108 tests/table_tests.py:119
 msgid "Item"
-msgstr ""
+msgstr "Запись"
 
 #: tests/table_tests.py:109 tests/table_tests.py:120
 msgid "Items"
-msgstr ""
+msgstr "Записи"
 
 #: tests/table_tests.py:117
 msgid "Down"
-msgstr ""
+msgstr "Вниз"
 
 #: tests/table_tests.py:117
 msgid "Up"
-msgstr ""
+msgstr "Вверх"
 
 #: tests/table_tests.py:118
 msgid "Downed"
-msgstr ""
+msgstr "Внизу"
 
 #: tests/table_tests.py:118
 msgid "Upped"
-msgstr ""
+msgstr "Вверху"
 
 #: tests/table_tests.py:185
 msgid "No Actions Table"
-msgstr ""
+msgstr "Таблица без действий"
 
 #: tests/tabs_tests.py:36
 msgid "Tab One"
-msgstr ""
+msgstr "Вкладка один"
 
 #: tests/tabs_tests.py:42
 msgid "Delayed Tab"
-msgstr ""
+msgstr "Отложенная вкладка"
 
 #: tests/tabs_tests.py:49
 msgid "Disabled Tab"
-msgstr ""
+msgstr "Отключенная вкладка"
 
 #: tests/tabs_tests.py:58
 msgid "Disallowed Tab"
-msgstr ""
+msgstr "Запрещенная вкладка"
 
 #: tests/tabs_tests.py:76
 msgid "Tab With My Table"
-msgstr ""
+msgstr "Вкладка в моей таблице"
 
 #: tests/tabs_tests.py:85
 msgid "Recoverable Error Tab"
