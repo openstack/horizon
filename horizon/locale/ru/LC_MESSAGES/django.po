@@ -43,7 +43,7 @@ msgstr ""
 #: api/nova.py:189
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr "РАЗРЕШИТЬ от %(from):%(to)s от %(group)s"
+msgstr "РАЗРЕШИТЬ от %(from)s: %(to)s от %(group)s"
 
 #: api/nova.py:194
 #, python-format
@@ -2573,7 +2573,7 @@ msgstr "Нажатие на \"Скачать данные аутентифика
 #: dashboards/settings/project/forms.py:70
 #, python-format
 msgid "Error Downloading RC File: %s"
-msgstr "Ошибка загрузки rc файла"
+msgstr "Ошибка загрузки rc файла %s"
 
 #: dashboards/settings/project/panel.py:24
 #: dashboards/settings/project/templates/project/_openrc.html:8
@@ -3486,27 +3486,27 @@ msgstr[1] ""
 #: templatetags/sizeformat.py:52
 #, python-format
 msgid "%s KB"
-msgstr "Кб"
+msgstr "%s Кб"
 
 #: templatetags/sizeformat.py:55
 #, python-format
 msgid "%s MB"
-msgstr "Мб"
+msgstr "%s Мб"
 
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
-msgstr "Гб"
+msgstr "%s Гб"
 
 #: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s TB"
-msgstr "Тб"
+msgstr "%s Тб"
 
 #: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s PB"
-msgstr "Пб"
+msgstr "%s Пб"
 
 #: tests/base_tests.py:43
 msgid "My Dashboard"
