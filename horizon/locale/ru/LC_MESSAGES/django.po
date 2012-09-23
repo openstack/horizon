@@ -488,7 +488,7 @@ msgstr "Группы доступа"
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_create.html:23
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/create.html:6
 msgid "Create Security Group"
-msgstr "Создать группу доступа"
+msgstr "Создать Группу доступа"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:51
 msgid "Edit Rules"
@@ -2420,7 +2420,7 @@ msgstr "Тома"
 
 #: dashboards/nova/volumes/tables.py:57
 msgid "Edit Attachments"
-msgstr "Редактировать вложения"
+msgstr "Редактировать"
 
 #: dashboards/nova/volumes/tables.py:84
 #, python-format
@@ -3451,11 +3451,11 @@ msgstr "Активная ОЗУ"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
-msgstr "В этом месяе ЦПУ-часов"
+msgstr "В этом месяце ЦПУ-часов"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "This Month's GB-Hours"
-msgstr "Этим месяцем Гб-часов"
+msgstr "В этом месяце Гб-часов"
 
 #: templatetags/branding.py:35
 msgid "Horizon"
