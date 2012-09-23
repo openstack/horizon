@@ -20,7 +20,7 @@ msgstr ""
 
 #: static/horizon/js/horizon.forms.js:58
 msgid "Additional information here..."
-msgstr "Дополнительная информацияю..."
+msgstr "Дополнительная информация..."
 
 #: static/horizon/js/horizon.forms.js:64
 #: static/horizon/js/horizon.projects.js:12
