@@ -1,40 +1,37 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translation of OpenStack Dashboard to Russian
+# Copyright (C) Cloud Computing Lab, Saint-Petersburg, Russia
+# This file is distributed under the same license as the Dashboard of OpenStack.
+# Alexey Lukashin <lukash.spb.ru@gmail.com>, 2012.
 #
-# Translators:
-#   <woof@stopme.net>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-18 22:17+0000\n"
-"PO-Revision-Date: 2012-08-16 08:19+0000\n"
-"Last-Translator: lykoz <woof@stopme.net>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ru\n"
+"POT-Creation-Date: 2012-08-15 01:45+0000\n"
+"PO-Revision-Date: 2011-09-24 14:41+0100\n"
+"Last-Translator: Alexey Lukashin <lukash.spb.ru@gmail.com>\n"
+"Language-Team:  Cloud Computing Lab\n"
+"Language: Russian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: base.py:437
 msgid "Other"
-msgstr ""
+msgstr "Другое"
 
 #: decorators.py:56
 msgid "Please log in to continue."
-msgstr ""
+msgstr "Пожалуйста, авторизуйтесь"
 
 #: decorators.py:87
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "У Вас нет доступа к %s"
+msgstr "Вы не авторизованы для доступа к %s"
 
-#: exceptions.py:285
+#: exceptions.py:270
 msgid "Unauthorized. Please try logging in again."
-msgstr ""
+msgstr "Ошибка авторизации. Попробуйте еще раз."
 
 #: api/keystone.py:55
 #, python-format
@@ -44,133 +41,133 @@ msgstr ""
 #: api/nova.py:189
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr ""
+msgstr "РАЗРЕШИТЬ от %(from):%(to)s от %(group)s"
 
 #: api/nova.py:194
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr ""
+msgstr "РАЗРЕШИТЬ от %(from)s:%(to)s от %(cidr)s"
 
 #: api/nova.py:530
 msgid "Unknown instance"
-msgstr ""
+msgstr "Неизвестный ресурс"
 
 #: api/swift.py:216
 msgid "Unicode is not currently supported for object copy."
-msgstr ""
+msgstr "Юникод не поддерживается для копирования объекта."
 
 #: browsers/base.py:90
 msgid "Navigation Item"
-msgstr ""
+msgstr "Пункт меню"
 
 #: browsers/views.py:42
 #, python-format
 msgid "Select a %s to browse."
-msgstr ""
+msgstr "Выберите %s для просмотра."
 
 #: dashboards/nova/dashboard.py:24
 msgid "Manage Compute"
-msgstr ""
+msgstr "Управлять сервисом Compute"
 
 #: dashboards/nova/dashboard.py:35
 msgid "Object Store"
-msgstr ""
+msgstr "Хранилище объектов"
 
 #: dashboards/nova/dashboard.py:40 dashboards/nova/instances/workflows.py:37
 #: dashboards/syspanel/networks/forms.py:35
 #: dashboards/syspanel/networks/tables.py:67
 #: dashboards/syspanel/projects/tables.py:65 tests/workflows_tests.py:39
 msgid "Project"
-msgstr ""
+msgstr "Проект"
 
 #: dashboards/nova/access_and_security/panel.py:25
 #: dashboards/nova/instances/workflows.py:347
 msgid "Access & Security"
-msgstr ""
+msgstr "Доступ и безопасность"
 
 #: dashboards/nova/access_and_security/views.py:50
 msgid "Unable to retrieve keypair list."
-msgstr ""
+msgstr "Не возможно получить список ключей"
 
 #: dashboards/nova/access_and_security/views.py:59
 #: dashboards/nova/access_and_security/security_groups/views.py:72
 msgid "Unable to retrieve security groups."
-msgstr ""
+msgstr "Не возможно получить группы доступа"
 
 #: dashboards/nova/access_and_security/views.py:68
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:48
 msgid "Unable to retrieve floating IP addresses."
-msgstr ""
+msgstr "Невозможно получить назначаемые IP адреса"
 
 #: dashboards/nova/access_and_security/views.py:75
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:64
 #: dashboards/syspanel/instances/views.py:46
 msgid "Unable to retrieve instance list."
-msgstr ""
+msgstr "Невозможно получить список ресурсов"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:31
 msgid "Pool"
-msgstr ""
+msgstr "Пул"
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:42
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
-msgstr ""
+msgstr "Выделен IP адрес %(ip)s."
 
 #: dashboards/nova/access_and_security/floating_ips/forms.py:46
 msgid "Unable to allocate Floating IP."
-msgstr ""
+msgstr "Невозможно выделить адрес"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:36
 msgid "Allocate IP To Project"
-msgstr ""
+msgstr "Выделить IP адрес проекту"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:46
 msgid "Release"
-msgstr ""
+msgstr "Освободить"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:47
 msgid "Released"
-msgstr ""
+msgstr "Освобожден"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:48
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:22
 msgid "Floating IP"
-msgstr ""
+msgstr "Назначенный адрес"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:49
 #: dashboards/nova/access_and_security/floating_ips/tables.py:127
 #: dashboards/syspanel/projects/workflows.py:45
 msgid "Floating IPs"
-msgstr ""
+msgstr "Назначаемые адреса"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:58
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/associate.html:3
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/associate.html:6
 #: dashboards/nova/instances/tables.py:219
 msgid "Associate Floating IP"
-msgstr ""
+msgstr "Задать IP адрес"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:75
 msgid "Disassociate Floating IP"
-msgstr ""
+msgstr "Освободить IP адрес"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:89
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
-msgstr ""
+msgstr "IP адрес успешно освобожден: %s"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:93
 msgid "Unable to disassociate floating IP."
-msgstr ""
+msgstr "Невозможно освободить адрес."
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:110
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:31
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:38
-#: dashboards/nova/instances/tables.py:291
-#: dashboards/syspanel/instances/tables.py:71
+#: dashboards/nova/instances/tables.py:290
+#: dashboards/syspanel/instances/tables.py:70
 msgid "IP Address"
-msgstr ""
+msgstr "IP адрес"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:113
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:35
@@ -178,119 +175,119 @@ msgstr ""
 #: dashboards/nova/instances/tables.py:89
 #: dashboards/nova/instances/tables.py:106
 #: dashboards/nova/instances/tables.py:135
-#: dashboards/nova/volumes/tables.py:205 tests/workflows_tests.py:58
+#: dashboards/nova/volumes/tables.py:197 tests/workflows_tests.py:58
 msgid "Instance"
-msgstr ""
+msgstr "Ресурс"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:116
 msgid "Floating IP Pool"
-msgstr ""
+msgstr "Пул IP адресов"
 
 #: dashboards/nova/access_and_security/floating_ips/views.py:64
 msgid "Unable to retrieve floating IP pools."
-msgstr ""
+msgstr "Невозможно получить пулы IP адресов."
 
 #: dashboards/nova/access_and_security/floating_ips/views.py:67
 msgid "No floating IP pools available."
-msgstr ""
+msgstr "Пулы IP адресов не доступны."
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:39
 msgid "Select the IP address you wish to associate with the selected instance."
-msgstr ""
+msgstr "Выберите IP адрес, который вы желаете назначить выбранному ресурсу."
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:52
 msgid "Select an IP address"
-msgstr ""
+msgstr "Выберить IP адрес."
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:54
 msgid "No IP addresses available"
-msgstr ""
+msgstr "IP адреса не доступны."
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:75
 #: dashboards/nova/volumes/forms.py:160
 msgid "Select an instance"
-msgstr ""
+msgstr "Выберите ресурс"
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:77
 #: dashboards/nova/volumes/forms.py:162
 msgid "No instances available"
-msgstr ""
+msgstr "Ресурсов нет"
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:96
 msgid "Manage Floating IP Associations"
-msgstr ""
+msgstr "Управлять назначением адресов"
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:97
 msgid "Associate"
-msgstr ""
+msgstr "Назначить"
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:98
 #, python-format
 msgid "IP address %s associated."
-msgstr ""
+msgstr "Адрес %s назначен"
 
 #: dashboards/nova/access_and_security/floating_ips/workflows.py:99
 #, python-format
 msgid "Unable to associate IP address %s."
-msgstr ""
+msgstr "Невозможно назначить адрес %s."
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:38
 #: dashboards/nova/access_and_security/keypairs/forms.py:49
 #: dashboards/nova/access_and_security/keypairs/tables.py:51
 msgid "Keypair Name"
-msgstr ""
+msgstr "Имя ключа"
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:40
 msgid ""
 "Keypair names may only contain letters, numbers, underscores and hyphens."
-msgstr ""
+msgstr "Имя ключа может содержать только буквы, цифры и симоволы подчеркивания и тире."
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:51
 msgid "Public Key"
-msgstr ""
+msgstr "Публичны ключ"
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:60
 #, python-format
 msgid "Successfully imported public key: %s"
-msgstr ""
+msgstr "Успешно импортирован публичный ключ %s"
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:65
 msgid "Unable to import keypair."
-msgstr ""
+msgstr "Импорт ключа не удался"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:29
-#: dashboards/nova/instances/tables.py:295
+#: dashboards/nova/instances/tables.py:294
 #: dashboards/nova/instances/workflows.py:334
 msgid "Keypair"
-msgstr ""
+msgstr "Ключ"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:30
 #: dashboards/nova/access_and_security/keypairs/tables.py:59
 msgid "Keypairs"
-msgstr ""
+msgstr "Ключи"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:38
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:7
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:23
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/import.html:6
 msgid "Import Keypair"
-msgstr ""
+msgstr "Импортировать ключ"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:45
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:7
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:23
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/create.html:6
 msgid "Create Keypair"
-msgstr ""
+msgstr "Создать ключ"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:52
 msgid "Fingerprint"
-msgstr ""
+msgstr "Отпечаток"
 
 #: dashboards/nova/access_and_security/keypairs/views.py:73
 #, python-format
 msgid "Unable to create keypair: %(exc)s"
-msgstr ""
+msgstr "Невозможно создать ключ %(exc)s"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:35
 #: dashboards/nova/access_and_security/security_groups/tables.py:57
@@ -309,7 +306,7 @@ msgstr ""
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:7
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:9
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:9
-#: dashboards/nova/volumes/tables.py:143 dashboards/nova/volumes/tables.py:163
+#: dashboards/nova/volumes/tables.py:135 dashboards/nova/volumes/tables.py:155
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:9
 #: dashboards/syspanel/flavors/forms.py:35
 #: dashboards/syspanel/networks/forms.py:33
@@ -323,7 +320,7 @@ msgstr ""
 #: dashboards/syspanel/services/tables.py:38
 #: dashboards/syspanel/volumes/tables.py:10
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:37
 #: dashboards/nova/access_and_security/security_groups/tables.py:58
@@ -337,7 +334,7 @@ msgstr ""
 #: dashboards/nova/networks/templates/networks/_create.html:16
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:17
 #: dashboards/nova/volumes/forms.py:28 dashboards/nova/volumes/forms.py:195
-#: dashboards/nova/volumes/tables.py:146
+#: dashboards/nova/volumes/tables.py:138
 #: dashboards/nova/volumes/templates/volumes/_create.html:18
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:17
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:14
@@ -357,143 +354,143 @@ msgstr ""
 #: dashboards/syspanel/users/templates/users/_create.html:16
 #: dashboards/syspanel/users/templates/users/_update.html:16
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:45
 #, python-format
 msgid "Successfully created security group: %s"
-msgstr ""
+msgstr "Группа доступа %s успешно создана"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:51
 msgid "Unable to create security group."
-msgstr ""
+msgstr "Невозможно создать группу доступа."
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:56
 #: dashboards/nova/access_and_security/security_groups/tables.py:92
 msgid "IP Protocol"
-msgstr ""
+msgstr "IP протокол"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:60
 msgid "The protocol which this rule should be applied to."
-msgstr ""
+msgstr "Протокол, к которому должно быть применено правило."
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:64
 #: dashboards/nova/access_and_security/security_groups/forms.py:70
 #: dashboards/nova/access_and_security/security_groups/tables.py:94
 msgid "From Port"
-msgstr ""
+msgstr "Порт источника"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:65
 msgid ""
 "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
 "ICMP type in the range (-1: 255)"
-msgstr ""
+msgstr "TCP/UDP: Введите целое число в диапазоне между 1 и 65535. ICMP: введите тип в диапазоне (-1, 255)"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:71
 #: dashboards/nova/images_and_snapshots/images/tables.py:114
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:73
 #: dashboards/nova/access_and_security/security_groups/forms.py:79
 #: dashboards/nova/access_and_security/security_groups/tables.py:95
 msgid "To Port"
-msgstr ""
+msgstr "Порт назначения"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:74
 msgid ""
 "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
 "ICMP code in the range (-1: 255)"
-msgstr ""
+msgstr "TCP/UDP: Введите целое число в диапазоне между 1 и 65535. ICMP: введите код в диапазоне (-1, 255)"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:80
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:83
 msgid "Source Group"
-msgstr ""
+msgstr "Группа доступа"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:85
 msgid ""
 "To specify an allowed IP range, select CIDR. To allow access from all "
 "members of another security group select Source Group."
-msgstr ""
+msgstr "Выберите CIDR для задания разрешенного диапазона адресов. Для задания доступа от всех участников другой группы доступа выберите группу источник."
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:90
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:15
 #: dashboards/syspanel/networks/subnets/tables.py:71
 msgid "CIDR"
-msgstr ""
+msgstr "CIDR"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:93
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
-msgstr ""
+msgstr "Бесклассовая адресация (например, 192.168.0.0/24)"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:120
 msgid "The ICMP type is invalid."
-msgstr ""
+msgstr "Неверный тип ICMP."
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:123
 msgid "The ICMP code is invalid."
-msgstr ""
+msgstr "Неверный код ICMP."
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:126
 msgid "The ICMP type not in range (-1, 255)"
-msgstr ""
+msgstr "Тип ICMP не в диапазоне (-1, 255)"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:129
 msgid "The ICMP code not in range (-1, 255)"
-msgstr ""
+msgstr "Код ICMP не в диапазоне (-1, 255)"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:133
 msgid "The \"from\" port number is invalid."
-msgstr ""
+msgstr "Неверный порт источника."
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:136
 msgid "The \"to\" port number is invalid."
-msgstr ""
+msgstr "Невеный порт приемника."
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:139
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
-msgstr ""
+msgstr "Порт приемника должен быть больше или равен порта источника."
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:145
 msgid "Either CIDR or Source Group may be specified, but not both."
-msgstr ""
+msgstr "CIDR или группа доступа должны быть указаны, но не оба значения."
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:167
 #, python-format
 msgid "Successfully added rule: %s"
-msgstr ""
+msgstr "Успешно добавлено правило: %s"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:172
 msgid "Unable to add rule to security group."
-msgstr ""
+msgstr "Невозможно добавить правило в группу доступа."
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:30
 msgid "Security Group"
-msgstr ""
+msgstr "Группа доступа"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:31
 #: dashboards/nova/access_and_security/security_groups/tables.py:65
 #: dashboards/nova/instances/workflows.py:339
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:49
 msgid "Security Groups"
-msgstr ""
+msgstr "Группы доступа"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:44
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_create.html:7
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_create.html:23
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/create.html:6
 msgid "Create Security Group"
-msgstr ""
+msgstr "Создать группу доступа"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:51
 msgid "Edit Rules"
-msgstr ""
+msgstr "Редактировать правила"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:71
 msgid "Rule"
@@ -501,33 +498,33 @@ msgstr ""
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:72
 msgid "Rules"
-msgstr ""
+msgstr "Правила"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:96
 msgid "Source"
-msgstr ""
+msgstr "Источник"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:106
 msgid "Security Group Rules"
-msgstr ""
+msgstr "Правила группы доступа"
 
 #: dashboards/nova/access_and_security/security_groups/views.py:58
 msgid "Unable to retrieve security group."
-msgstr ""
+msgstr "Невозможно получить группы доступа."
 
 #: dashboards/nova/access_and_security/security_groups/views.py:78
 #, python-format
 msgid "%s (current)"
-msgstr ""
+msgstr "%s (Текущая)"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/index.html:6
 msgid "Access &amp; Security"
-msgstr ""
+msgstr "Доступ и безопасность"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:8
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/allocate.html:3
 msgid "Allocate Floating IP"
-msgstr ""
+msgstr "Выделить адрес"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:17
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:16
@@ -543,20 +540,20 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:21
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:25
 msgid "Description:"
-msgstr ""
+msgstr "Описание:"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
 msgid "Allocate a floating IP from a given floating ip pool."
-msgstr ""
+msgstr "Выделить адрес из пула."
 
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:20
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:19
 msgid "Project Quotas"
-msgstr ""
+msgstr "Квоты проектов"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:31
 msgid "Allocate IP"
-msgstr ""
+msgstr "Выделить адрес"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:32
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:24
@@ -596,9 +593,9 @@ msgstr ""
 #: dashboards/syspanel/projects/templates/projects/_update.html:24
 #: dashboards/syspanel/users/templates/users/_create.html:23
 #: dashboards/syspanel/users/templates/users/_update.html:23
-#: templates/horizon/common/_workflow.html:33
+#: templates/horizon/common/_workflow.html:30
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:17
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:17
@@ -606,203 +603,203 @@ msgid ""
 "Keypairs are ssh credentials which are injected into images when they are "
 "launched. Creating a new key pair registers the public key and downloads the "
 "private key (a .pem file)."
-msgstr ""
+msgstr "Ключ доступа - это пара rsa ключей, открытый ключ которой вставляется в образ ресурса в момент запуска. Создание новой пары ключей регистрирует открытый ключ и выдает частный ключ (.pem файл)"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:18
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:18
 msgid "Protect and use the key as you would any normal ssh private key."
-msgstr ""
+msgstr "Защитите и используйте ключ как обычный частный rsa ключ."
 
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/download.html:3
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/download.html:6
 msgid "Download Keypair"
-msgstr ""
+msgstr "Скачать ключ"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/download.html:11
 #, python-format
 msgid ""
 "The keypair &quot;%(keypair_name)s&quot; should download automatically. If "
 "not use the link below."
-msgstr ""
+msgstr "Закачка ключа &quot;%(keypair_name)s&quot должна начаться автоматически. Если этого не произошло, воспользуйтесь ссылкой ниже."
 
 #: dashboards/nova/access_and_security/templates/access_and_security/keypairs/download.html:15
 #, python-format
 msgid "Download keypair &quot;%(keypair_name)s&quot;"
-msgstr ""
+msgstr "Скачать ключ &quot;%(keypair_name)s&quot;"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_create.html:18
 msgid "From here you can create a new security group"
-msgstr ""
+msgstr "Здесь вы можете создать группу доступа"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_edit_rules.html:9
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/edit_rules.html:6
 msgid "Edit Security Group Rules"
-msgstr ""
+msgstr "Редактировать группу доступа"
 
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_edit_rules.html:12
 #: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_edit_rules.html:19
 msgid "Add Rule"
-msgstr ""
+msgstr "Добавить правило"
 
 #: dashboards/nova/containers/browsers.py:30
 msgid "Swift"
-msgstr ""
+msgstr "Хранилище"
 
 #: dashboards/nova/containers/browsers.py:33
 #: dashboards/nova/containers/tables.py:39
 msgid "Container"
-msgstr ""
+msgstr "Контейнер"
 
 #: dashboards/nova/containers/forms.py:39
 msgid "Slash is not an allowed character."
-msgstr ""
+msgstr "\"\\\" - это недопустипый символ."
 
 #: dashboards/nova/containers/forms.py:49
 #: dashboards/nova/containers/tables.py:120
 msgid "Container Name"
-msgstr ""
+msgstr "Имя контейнера"
 
 #: dashboards/nova/containers/forms.py:57
 msgid "Container created successfully."
-msgstr ""
+msgstr "Контэйнер создан."
 
 #: dashboards/nova/containers/forms.py:68
 msgid "Folder created successfully."
-msgstr ""
+msgstr "Каталог создан."
 
 #: dashboards/nova/containers/forms.py:71
 msgid "Unable to create container."
-msgstr ""
+msgstr "Невозможно создать контейнер."
 
 #: dashboards/nova/containers/forms.py:79
 #: dashboards/nova/containers/tables.py:252
 msgid "Object Name"
-msgstr ""
+msgstr "Имя объекта"
 
 #: dashboards/nova/containers/forms.py:81
 msgid "File"
-msgstr ""
+msgstr "Файл"
 
 #: dashboards/nova/containers/forms.py:95
 msgid "Object was successfully uploaded."
-msgstr ""
+msgstr "Объект загружен."
 
 #: dashboards/nova/containers/forms.py:98
 msgid "Unable to upload object."
-msgstr ""
+msgstr "Невозможно загрузить объект."
 
 #: dashboards/nova/containers/forms.py:102
 msgid "Destination container"
-msgstr ""
+msgstr "Контейнер назначения"
 
 #: dashboards/nova/containers/forms.py:106
 msgid "Destination object name"
-msgstr ""
+msgstr "Имя объекта назначения"
 
 #: dashboards/nova/containers/forms.py:137
 #: dashboards/nova/containers/forms.py:163
 msgid "Unable to copy object."
-msgstr ""
+msgstr "Невозможно скопировать объект."
 
 #: dashboards/nova/containers/forms.py:153
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr ""
+msgstr "Скопирован \"%(orig)s\" в \"%(dest)s\" как \"%(new)s\"."
 
 #: dashboards/nova/containers/panel.py:28
 #: dashboards/nova/containers/tables.py:40
 #: dashboards/nova/containers/tables.py:127
 #: dashboards/nova/containers/templates/containers/index.html:7
 msgid "Containers"
-msgstr ""
+msgstr "Контейнеры"
 
 #: dashboards/nova/containers/tables.py:61
 #: dashboards/nova/containers/templates/containers/_create.html:7
 #: dashboards/nova/containers/templates/containers/_create.html:22
 #: dashboards/nova/containers/templates/containers/create.html:6
 msgid "Create Container"
-msgstr ""
+msgstr "Создать контейнер"
 
 #: dashboards/nova/containers/tables.py:68
 msgid "View Container"
-msgstr ""
+msgstr "Просмотреть контейнер"
 
 #: dashboards/nova/containers/tables.py:80
 #: dashboards/nova/containers/templates/containers/_upload.html:23
 #: dashboards/nova/containers/templates/containers/upload.html:3
 msgid "Upload Object"
-msgstr ""
+msgstr "Загрузить контейнер"
 
 #: dashboards/nova/containers/tables.py:136
 #: dashboards/nova/containers/tables.py:155
 msgid "Object"
-msgstr ""
+msgstr "Объект"
 
 #: dashboards/nova/containers/tables.py:137
 #: dashboards/nova/containers/tables.py:156
 #: dashboards/nova/containers/tables.py:262
 msgid "Objects"
-msgstr ""
+msgstr "Объекты"
 
 #: dashboards/nova/containers/tables.py:148
 msgid "Folder"
-msgstr ""
+msgstr "Каталог"
 
 #: dashboards/nova/containers/tables.py:149
 msgid "Folders"
-msgstr ""
+msgstr "Каталоги"
 
 #: dashboards/nova/containers/tables.py:162
 msgid "Copy"
-msgstr ""
+msgstr "Копировать"
 
 #: dashboards/nova/containers/tables.py:175
 msgid "Download"
-msgstr ""
+msgstr "Скачать"
 
 #: dashboards/nova/containers/tables.py:231
 msgid "Create Folder"
-msgstr ""
+msgstr "Создать каталог"
 
 #: dashboards/nova/containers/tables.py:255
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:30
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:37
-#: dashboards/nova/instances/tables.py:293
-#: dashboards/nova/volumes/tables.py:149
+#: dashboards/nova/instances/tables.py:292
+#: dashboards/nova/volumes/tables.py:141
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:26
-#: dashboards/syspanel/instances/tables.py:73
+#: dashboards/syspanel/instances/tables.py:72
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #: dashboards/nova/containers/views.py:52
 msgid "Unable to retrieve container list."
-msgstr ""
+msgstr "Невозможно получить список контейнеров."
 
 #: dashboards/nova/containers/views.py:81
 msgid "Unable to retrieve object list."
-msgstr ""
+msgstr "Невозможно получить список объектов."
 
 #: dashboards/nova/containers/views.py:165
 msgid "Unable to retrieve object."
-msgstr ""
+msgstr "Невозможно получить объект."
 
 #: dashboards/nova/containers/views.py:199
 msgid "Unable to list containers."
-msgstr ""
+msgstr "Невозможно отобразить контейнеры."
 
 #: dashboards/nova/containers/templates/containers/_copy.html:7
 #: dashboards/nova/containers/templates/containers/_copy.html:22
 #: dashboards/nova/containers/templates/containers/copy.html:3
 #: dashboards/nova/containers/templates/containers/copy.html:6
 msgid "Copy Object"
-msgstr ""
+msgstr "Копировать объект"
 
 #: dashboards/nova/containers/templates/containers/_copy.html:17
 msgid ""
 "Make a new copy of an existing object to store in this or another container. "
 "You may also specify a path at which the new copy should live inside of the "
 "selected container."
-msgstr ""
+msgstr "Создать новую копию существующего объекта в этом или другом контейнере. Вы также можете задать путь, по которому будет находиться объект в выбранном контейнере."
 
 #: dashboards/nova/containers/templates/containers/_create.html:17
 msgid ""
@@ -813,11 +810,11 @@ msgid ""
 "nested. You can, however, create an unlimited number of containers within "
 "your account. Data must be stored in a container so you must have at least "
 "one container defined in your account prior to uploading data."
-msgstr ""
+msgstr "Контейнер - это хранилище ваших данных. Это некоторый виртуальный объект хранения, который является аналогом директории в файловой системе. Главное отличие от каталога, заключается в том, что контейнеры не могут быть вложены. Тем не менее вы можете создать любое количество контейнеров. Для хранения данных необходимо создать хотя бы один контейнер, который необходимо задать перед загрузкой данных."
 
 #: dashboards/nova/containers/templates/containers/_upload.html:8
 msgid "Upload Object To Container"
-msgstr ""
+msgstr "Загрузить объект в контейнер"
 
 #: dashboards/nova/containers/templates/containers/_upload.html:18
 msgid ""
@@ -826,42 +823,42 @@ msgid ""
 "you upload data to OpenStack Object Storage, the data is stored as-is (no "
 "compression or encryption) and consists of a location (container), the "
 "object's name, and any metadata consisting of key/value pairs."
-msgstr ""
+msgstr "Объект - это базовый элемент хранения с заданными метаданными, который представляет данные, которые вы загружаете в систему хранения объектов OpenStack. Когда вы загружаете данные в хранилище, данные сохраняются как есть (без сжатия и шифрования) и идентифицируются по положению (контейнеру), имени объекта и метаданным, заданным в виде списка пар \"ключ-значение\""
 
 #: dashboards/nova/containers/templates/containers/upload.html:6
 msgid "Upload Objects"
-msgstr ""
+msgstr "Загрузить объекты"
 
 #: dashboards/nova/images_and_snapshots/panel.py:25
 msgid "Images & Snapshots"
-msgstr ""
+msgstr "Образы и снэпшоты"
 
 #: dashboards/nova/images_and_snapshots/views.py:62
 msgid "Unable to retrieve images."
-msgstr ""
+msgstr "Невозможно получить образы."
 
 #: dashboards/nova/images_and_snapshots/views.py:73
 msgid "Unable to retrieve snapshots."
-msgstr ""
+msgstr "Невозможно получить снэпшоты."
 
 #: dashboards/nova/images_and_snapshots/views.py:81
 #: dashboards/nova/volumes/forms.py:65
 msgid "Unable to retrieve volume snapshots."
-msgstr ""
+msgstr "Невозможно получить снэпшоты томов."
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:41
 msgid "Image Location"
-msgstr ""
+msgstr "Расположение образа"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:42
 msgid "An external (HTTP) URL to load the image from."
-msgstr ""
+msgstr "Внешний адрес для загрузки образа."
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:45
 #: dashboards/nova/images_and_snapshots/images/forms.py:129
 #: dashboards/nova/images_and_snapshots/images/tables.py:125
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:49
 msgid "AKI - Amazon Kernel Image"
@@ -881,38 +878,38 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:60
 msgid "QCOW2 - QEMU Emulator"
-msgstr ""
+msgstr "QCOW2 - эмулятор QEMU"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:67
 msgid "Minimum Disk (GB)"
-msgstr ""
+msgstr "Минимальный размер диска (Гб)"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:68
 #: dashboards/nova/images_and_snapshots/images/forms.py:75
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
-msgstr ""
+msgstr "Минимальный размер диска необходим для загрузки образа. Если не задан, то значение по умолчанию будет 0 (без минимального размера)"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:74
 msgid "Minimum Ram (MB)"
-msgstr ""
+msgstr "Минимальное количество ОЗУ (Мб)"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:81
 #: dashboards/nova/images_and_snapshots/images/forms.py:133
 #: dashboards/nova/images_and_snapshots/images/tables.py:122
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:15
 msgid "Public"
-msgstr ""
+msgstr "Публичный"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:105
 #, python-format
 msgid "Your image %s has been queued for creation."
-msgstr ""
+msgstr "Выш образ %s помещен в очередь для создания."
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:109
 msgid "Unable to create new image."
-msgstr ""
+msgstr "Невозможно создать образ."
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:115
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:48
@@ -927,29 +924,29 @@ msgstr ""
 #: dashboards/nova/images_and_snapshots/images/forms.py:125
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:44
 msgid "Architecture"
-msgstr ""
+msgstr "Архитектура"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:137
 #, python-format
 msgid "Unable to update image \"%s\"."
-msgstr ""
+msgstr "Невозможно обновить обрах \"%s\"."
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:161
 msgid "Image was successfully updated."
-msgstr ""
+msgstr "Образ успешно обновлен."
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:33
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:32
 #: dashboards/nova/instances/workflows.py:454
 msgid "Launch"
-msgstr ""
+msgstr "Запустить"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:45
 #: dashboards/nova/images_and_snapshots/images/tables.py:81
 #: dashboards/nova/instances/workflows.py:167
 #: dashboards/nova/instances/workflows.py:172
 msgid "Image"
-msgstr ""
+msgstr "Образ"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:46
 #: dashboards/nova/images_and_snapshots/images/tables.py:131
@@ -958,40 +955,40 @@ msgstr ""
 #: dashboards/syspanel/images/templates/images/index.html:3
 #: dashboards/syspanel/images/templates/images/index.html:6
 msgid "Images"
-msgstr ""
+msgstr "Образы"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:60
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:31
 msgid "Create Image"
-msgstr ""
+msgstr "Создать образ"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:67
 #: dashboards/syspanel/users/tables.py:31
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:112
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:74
 #: dashboards/syspanel/images/tables.py:39
 msgid "Image Name"
-msgstr ""
+msgstr "Имя образа"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:118
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:13
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:18
-#: dashboards/nova/instances/tables.py:298
+#: dashboards/nova/instances/tables.py:297
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:13
 #: dashboards/nova/networks/tables.py:99
 #: dashboards/nova/networks/ports/tables.py:44
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:13
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:30
-#: dashboards/nova/volumes/tables.py:153
+#: dashboards/nova/volumes/tables.py:145
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:17
-#: dashboards/syspanel/instances/tables.py:78
+#: dashboards/syspanel/instances/tables.py:77
 #: dashboards/syspanel/networks/tables.py:74
 #: dashboards/syspanel/networks/ports/tables.py:77
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: dashboards/nova/images_and_snapshots/images/tabs.py:26
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tabs.py:26
@@ -1005,94 +1002,94 @@ msgstr ""
 #: dashboards/syspanel/overview/panel.py:28
 #: dashboards/syspanel/overview/templates/overview/usage.html:6
 msgid "Overview"
-msgstr ""
+msgstr "Обзор"
 
 #: dashboards/nova/images_and_snapshots/images/tabs.py:37
 msgid "Unable to retrieve image details."
-msgstr ""
+msgstr "Невозможно получить детали образа."
 
 #: dashboards/nova/images_and_snapshots/images/views.py:60
 msgid "Unable to retrieve image."
-msgstr ""
+msgstr "Невозможно получить образ."
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:36
 msgid "Instance ID"
-msgstr ""
+msgstr "ID ресурса"
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:39
 #: dashboards/nova/volumes/forms.py:193
 msgid "Snapshot Name"
-msgstr ""
+msgstr "Имя снэпшота"
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:49
 #, python-format
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
-msgstr ""
+msgstr "Снэпшот \"%(name)s\" создан для ресурса \"%(inst)s\""
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:55
 msgid "Unable to create snapshot."
-msgstr ""
+msgstr "Невозможно создать снэпшот"
 
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:47
 #: dashboards/nova/instances/workflows.py:106
 #: dashboards/nova/instances/workflows.py:168
 msgid "Snapshot"
-msgstr ""
+msgstr "Снэпшот"
 
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:48
 msgid "Snapshots"
-msgstr ""
+msgstr "Снэпшоты"
 
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:54
 msgid "Instance Snapshots"
-msgstr ""
+msgstr "Снэпшоты ресурса"
 
 #: dashboards/nova/images_and_snapshots/snapshots/views.py:52
 msgid "Unable to retrieve instance."
-msgstr ""
+msgstr "Невозможно получить ресурс"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/index.html:3
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/index.html:6
 msgid "Images &amp; Snapshots"
-msgstr ""
+msgstr "Образы и снэпшоты"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:7
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/create.html:3
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/create.html:6
 msgid "Create An Image"
-msgstr ""
+msgstr "Создать образ"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:18
 msgid "Specify an image to upload to the Image Service."
-msgstr ""
+msgstr "Выберить образ для загрузки в сервис образов"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:21
 msgid ""
 "Currently only images available via an HTTP URL are supported. The image "
 "location must be accessible to the Image Service. Compressed image binaries "
 "are supported (.zip and .tar.gz.)"
-msgstr ""
+msgstr "В данный момент поддерживаются образы доступные по URL. Местоположение образо должно быть доступным сервису хранения образов. Также поддерживаются сжатые образы (.zip и .tar.gz)"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:24
 msgid "Please note: "
-msgstr ""
+msgstr "Пожалуйста отметьте:"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:25
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
 "URLs that redirect or serve error pages will result in unusable images."
-msgstr ""
+msgstr "Местоположение образа должно быть верным URL к файлу образа. URL, которые осуществляют перенаправление или возвращают ошибки, могут привести к сломанным образам."
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:3
 msgid "Image Overview"
-msgstr ""
+msgstr "Обзор образа"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:6
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:7
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:6
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:6
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:11
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:12
@@ -1112,17 +1109,17 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:17
 msgid "Checksum"
-msgstr ""
+msgstr "Контрольная сумма"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:19
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:39
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:28
 msgid "Created"
-msgstr ""
+msgstr "Создан"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:21
 msgid "Updated"
-msgstr ""
+msgstr "Обновлен"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:27
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:34
@@ -1133,30 +1130,30 @@ msgstr ""
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:32
 msgid "Container Format"
-msgstr ""
+msgstr "Формат контейнера"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:34
 msgid "Disk Format"
-msgstr ""
+msgstr "Формат диска"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:40
 msgid "Custom Properties"
-msgstr ""
+msgstr "Дополнительные свойства"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:56
 msgid "Euca2ools state"
-msgstr ""
+msgstr "Состояние euca2ools"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:60
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:11
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:15
 #: dashboards/syspanel/projects/tables.py:90
 msgid "Project ID"
-msgstr ""
+msgstr "Номер проекта"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:64
 msgid "Image Type"
-msgstr ""
+msgstr "Тип образа"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_update.html:7
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_update.html:22
@@ -1167,36 +1164,36 @@ msgstr ""
 #: dashboards/syspanel/images/templates/images/update.html:4
 #: dashboards/syspanel/images/templates/images/update.html:7
 msgid "Update Image"
-msgstr ""
+msgstr "Обновить образ"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_update.html:17
 #: dashboards/syspanel/images/templates/images/_update.html:18
 msgid "From here you can modify different properties of an image."
-msgstr ""
+msgstr "Здесь вы можете задать или изменить свойство образа."
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/detail.html:4
 msgid "Image Detail "
-msgstr ""
+msgstr "Детали образа "
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:8
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:23
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/create.html:3
 #: dashboards/nova/instances/tables.py:179
-#: dashboards/nova/volumes/tables.py:75
+#: dashboards/nova/volumes/tables.py:67
 msgid "Create Snapshot"
-msgstr ""
+msgstr "Создать снэпшот"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:18
 msgid "Snapshots preserve the disk state of a running instance."
-msgstr ""
+msgstr "Снэпшоты сохраняют состояние диска работающего ресурса"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:20
 #: dashboards/nova/instances/workflows.py:74
 #: dashboards/nova/instances/workflows.py:109
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:93
-#: dashboards/nova/volumes/tables.py:36 dashboards/nova/volumes/tables.py:181
+#: dashboards/nova/volumes/tables.py:36 dashboards/nova/volumes/tables.py:173
 msgid "Volume"
-msgstr ""
+msgstr "Том"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:38
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:29
@@ -1205,137 +1202,137 @@ msgstr ""
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:27
 msgid "GB"
-msgstr ""
+msgstr "Гб"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/create.html:6
 msgid "Create a Snapshot"
-msgstr ""
+msgstr "Создать снэпшот"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:3
 msgid "Volume Snapshot Details"
-msgstr ""
+msgstr "Детали снэпшота тома"
 
 #: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:6
 msgid "Volume Snapshot Detail"
-msgstr ""
+msgstr "Детали снэпшота тома"
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:33
 #: dashboards/nova/instances/workflows.py:75
 msgid "Volume Snapshot"
-msgstr ""
+msgstr "Снэпшот тома"
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:34
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:84
 msgid "Volume Snapshots"
-msgstr ""
+msgstr "Снэпшоты тома"
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:42
-#: dashboards/nova/volumes/tables.py:58
+#: dashboards/nova/volumes/tables.py:50
 #: dashboards/nova/volumes/templates/volumes/_create.html:8
 #: dashboards/nova/volumes/templates/volumes/_create.html:55
 msgid "Create Volume"
-msgstr ""
+msgstr "Создать том"
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:79
 #: dashboards/nova/volumes/forms.py:26
 msgid "Volume Name"
-msgstr ""
+msgstr "Имя тома"
 
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tabs.py:40
 msgid "Unable to retrieve snapshot details."
-msgstr ""
+msgstr "Невозможно получтиь детали тома"
 
 #: dashboards/nova/instances/forms.py:44
 #, python-format
 msgid "Instance \"%s\" updated."
-msgstr ""
+msgstr "Ресурс \"%s\" обновлен"
 
 #: dashboards/nova/instances/forms.py:49
 msgid "Unable to update instance."
-msgstr ""
+msgstr "Невозможно обновить ресурс"
 
 #: dashboards/nova/instances/panel.py:24
 #: dashboards/nova/instances/tables.py:70
 #: dashboards/nova/instances/tables.py:90
 #: dashboards/nova/instances/tables.py:107
 #: dashboards/nova/instances/tables.py:136
-#: dashboards/nova/instances/tables.py:313
+#: dashboards/nova/instances/tables.py:312
 #: dashboards/nova/instances/templates/instances/index.html:3
 #: dashboards/nova/instances/templates/instances/index.html:6
 #: dashboards/syspanel/instances/panel.py:28
-#: dashboards/syspanel/instances/tables.py:93
+#: dashboards/syspanel/instances/tables.py:92
 #: dashboards/syspanel/instances/templates/instances/index.html:3
 #: dashboards/syspanel/projects/workflows.py:38
 msgid "Instances"
-msgstr ""
+msgstr "Ресурсы"
 
 #: dashboards/nova/instances/tables.py:67
 msgid "Terminate"
-msgstr ""
+msgstr "Завершить"
 
 #: dashboards/nova/instances/tables.py:68
 msgid "Scheduled termination of"
-msgstr ""
+msgstr "Запланировано завершение"
 
 #: dashboards/nova/instances/tables.py:87
 msgid "Reboot"
-msgstr ""
+msgstr "Перезагрузить"
 
 #: dashboards/nova/instances/tables.py:88
 msgid "Rebooted"
-msgstr ""
+msgstr "Перезагружен"
 
 #: dashboards/nova/instances/tables.py:104
 msgid "Pause"
-msgstr ""
+msgstr "Приостановить"
 
 #: dashboards/nova/instances/tables.py:104
 msgid "Unpause"
-msgstr ""
+msgstr "Возобновить"
 
 #: dashboards/nova/instances/tables.py:105
 msgid "Paused"
-msgstr ""
+msgstr "Приостановлен"
 
 #: dashboards/nova/instances/tables.py:105
 msgid "Unpaused"
-msgstr ""
+msgstr "Возобновлен"
 
 #: dashboards/nova/instances/tables.py:133
 msgid "Suspend"
-msgstr ""
+msgstr "Усыпить"
 
 #: dashboards/nova/instances/tables.py:133
 msgid "Resume"
-msgstr ""
+msgstr "Восстановить"
 
 #: dashboards/nova/instances/tables.py:134
 msgid "Suspended"
-msgstr ""
+msgstr "Усыплен"
 
 #: dashboards/nova/instances/tables.py:134
 msgid "Resumed"
-msgstr ""
+msgstr "Восстановлен"
 
 #: dashboards/nova/instances/tables.py:162
 #: dashboards/nova/instances/workflows.py:453
 #: dashboards/nova/instances/templates/instances/launch.html:3
 #: dashboards/nova/instances/templates/instances/launch.html:6
 msgid "Launch Instance"
-msgstr ""
+msgstr "Запустить ресурс"
 
 #: dashboards/nova/instances/tables.py:169
 #: dashboards/nova/instances/templates/instances/_update.html:7
 msgid "Edit Instance"
-msgstr ""
+msgstr "Редактировать ресурс"
 
 #: dashboards/nova/instances/tables.py:189
 msgid "VNC Console"
-msgstr ""
+msgstr "VNC консоль"
 
 #: dashboards/nova/instances/tables.py:204
 msgid "View Log"
-msgstr ""
+msgstr "Просмотреть протокол"
 
 #: dashboards/nova/instances/tables.py:252
 #, python-format
@@ -1345,32 +1342,32 @@ msgstr ""
 #: dashboards/nova/instances/tables.py:259
 #: dashboards/nova/instances/tables.py:266
 msgid "Not available"
-msgstr ""
+msgstr "Не доступен"
 
-#: dashboards/nova/instances/tables.py:290
+#: dashboards/nova/instances/tables.py:289
 #: dashboards/nova/instances/workflows.py:175
-#: dashboards/syspanel/instances/tables.py:70 usage/tables.py:57
+#: dashboards/syspanel/instances/tables.py:69 usage/tables.py:57
 msgid "Instance Name"
-msgstr ""
+msgstr "Имя ресурса"
 
-#: dashboards/nova/instances/tables.py:302
-#: dashboards/syspanel/instances/tables.py:82
+#: dashboards/nova/instances/tables.py:301
+#: dashboards/syspanel/instances/tables.py:81
 msgid "Task"
-msgstr ""
+msgstr "Задача"
 
-#: dashboards/nova/instances/tables.py:309
-#: dashboards/syspanel/instances/tables.py:89
+#: dashboards/nova/instances/tables.py:308
+#: dashboards/syspanel/instances/tables.py:88
 msgid "Power State"
-msgstr ""
+msgstr "Состояние питания"
 
 #: dashboards/nova/instances/tabs.py:35
 msgid "Log"
-msgstr ""
+msgstr "Протокол"
 
 #: dashboards/nova/instances/tabs.py:47 dashboards/nova/instances/views.py:105
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
-msgstr ""
+msgstr "Невозможно получить протокол для ресурса \"%s\""
 
 #: dashboards/nova/instances/tabs.py:54
 msgid "VNC"
@@ -1379,213 +1376,213 @@ msgstr ""
 #: dashboards/nova/instances/tabs.py:69 dashboards/nova/instances/views.py:121
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
-msgstr ""
+msgstr "Невозможно получить консоль VNC для ресурса \"%s\""
 
 #: dashboards/nova/instances/views.py:58
 msgid "Unable to retrieve instances."
-msgstr ""
+msgstr "Невозможно получить ресурсы"
 
 #: dashboards/nova/instances/views.py:81
 #: dashboards/syspanel/instances/views.py:77
 msgid "Unable to retrieve instance size information."
-msgstr ""
+msgstr "Невозможно получить информацию о размере ресурса."
 
 #: dashboards/nova/instances/views.py:143
 msgid "Unable to retrieve instance details."
-msgstr ""
+msgstr "Невозможно получить детали ресурса."
 
 #: dashboards/nova/instances/views.py:178
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
-msgstr ""
+msgstr "Невозможно получить детали ресурса \"%s\"."
 
 #: dashboards/nova/instances/workflows.py:38
 #: dashboards/syspanel/projects/tables.py:106
 #: dashboards/syspanel/users/tables.py:40
 #: dashboards/syspanel/users/tables.py:74 tests/workflows_tests.py:40
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 #: dashboards/nova/instances/workflows.py:52
 msgid "Project & User"
-msgstr ""
+msgstr "Проект и пользователь"
 
 #: dashboards/nova/instances/workflows.py:65
 msgid "Don't boot from a volume."
-msgstr ""
+msgstr "Не загружаться с тома"
 
 #: dashboards/nova/instances/workflows.py:66
 msgid "Boot from volume."
-msgstr ""
+msgstr "Загружаться с тома."
 
 #: dashboards/nova/instances/workflows.py:67
 msgid "Boot from volume snapshot (creates a new volume)."
-msgstr ""
+msgstr "Загружаться со снэпшота тома (операция создаст новый том)"
 
 #: dashboards/nova/instances/workflows.py:71
 #: dashboards/nova/instances/workflows.py:89
 msgid "Volume Options"
-msgstr ""
+msgstr "Параметры тома"
 
 #: dashboards/nova/instances/workflows.py:77
 #: dashboards/nova/volumes/forms.py:126
 msgid "Device Name"
-msgstr ""
+msgstr "Имя устройство"
 
 #: dashboards/nova/instances/workflows.py:80
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
-msgstr ""
+msgstr "Имя устройства тома (например 'vda' будет как 'dev'vda')."
 
 #: dashboards/nova/instances/workflows.py:82
 msgid "Delete on Terminate"
-msgstr ""
+msgstr "Удалить или завершить"
 
 #: dashboards/nova/instances/workflows.py:85
 msgid "Delete volume on instance terminate"
-msgstr ""
+msgstr "Удалить том по завершению ресурса"
 
 #: dashboards/nova/instances/workflows.py:99
 #, python-format
 msgid "Please choose a volume, or select %s."
-msgstr ""
+msgstr "Пожалуста выберите том, или %s."
 
 #: dashboards/nova/instances/workflows.py:116
 msgid "Select Volume"
-msgstr ""
+msgstr "Выберите том"
 
 #: dashboards/nova/instances/workflows.py:124
 msgid "Unable to retrieve list of volumes."
-msgstr ""
+msgstr "Невозможно получить список томов."
 
 #: dashboards/nova/instances/workflows.py:128
 msgid "Select Volume Snapshot"
-msgstr ""
+msgstr "Выберите снэпшот тома"
 
 #: dashboards/nova/instances/workflows.py:137
 msgid "Unable to retrieve list of volume snapshots."
-msgstr ""
+msgstr "Невозможно получить список снэпшотов тома."
 
 #: dashboards/nova/instances/workflows.py:170
 msgid "Instance Source"
-msgstr ""
+msgstr "Источник ресурса"
 
 #: dashboards/nova/instances/workflows.py:173
 msgid "Instance Snapshot"
-msgstr ""
+msgstr "Снэпшот ресурса"
 
 #: dashboards/nova/instances/workflows.py:176
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:22
 #: dashboards/syspanel/flavors/tables.py:13
 msgid "Flavor"
-msgstr ""
+msgstr "Конфигурация"
 
 #: dashboards/nova/instances/workflows.py:177
 msgid "Size of image to launch."
-msgstr ""
+msgstr "Размер запускаемого образа"
 
 #: dashboards/nova/instances/workflows.py:178
 msgid "Instance Count"
-msgstr ""
+msgstr "Количество ресурсов"
 
 #: dashboards/nova/instances/workflows.py:181
 msgid "Number of instances to launch."
-msgstr ""
+msgstr "Количество ресурсов для запуска"
 
 #: dashboards/nova/instances/workflows.py:184
 msgid "Details"
-msgstr ""
+msgstr "Детали"
 
 #: dashboards/nova/instances/workflows.py:197
 msgid ""
 "There are no image sources available; you must first create an image before "
 "attempting to launch an instance."
-msgstr ""
+msgstr "Образы недоступны. Вы должны создать образы перед запуском ресурса."
 
 #: dashboards/nova/instances/workflows.py:202
 msgid "Please select an option for the instance source."
-msgstr ""
+msgstr "Пожалйста выберите параметр для источника ресурсы."
 
 #: dashboards/nova/instances/workflows.py:211
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
-msgstr ""
+msgstr "Запуск нескольких ресурсов поддерживается только для образов и снэпшотов ресурсов."
 
 #: dashboards/nova/instances/workflows.py:228
 msgid "Unable to retrieve public images."
-msgstr ""
+msgstr "Невозможно получить открытые образы."
 
 #: dashboards/nova/instances/workflows.py:243
 msgid "Unable to retrieve images for the current project."
-msgstr ""
+msgstr "Невозможно получить образы для текущего проекта."
 
 #: dashboards/nova/instances/workflows.py:266
 msgid "Select Image"
-msgstr ""
+msgstr "Выберите образ."
 
 #: dashboards/nova/instances/workflows.py:268
 msgid "No images available."
-msgstr ""
+msgstr "Образы недоступны."
 
 #: dashboards/nova/instances/workflows.py:277
 msgid "Select Instance Snapshot"
-msgstr ""
+msgstr "Выберите снэпшот ресурса"
 
 #: dashboards/nova/instances/workflows.py:279
 msgid "No snapshots available."
-msgstr ""
+msgstr "Снэпшоты недоступны."
 
 #: dashboards/nova/instances/workflows.py:290
 msgid "Unable to retrieve instance flavors."
-msgstr ""
+msgstr "Невозможно получить конфигурации ресурсов."
 
 #: dashboards/nova/instances/workflows.py:303 usage/base.py:113
 msgid "Unable to retrieve quota information."
-msgstr ""
+msgstr "Невозможно получить информацию о квотах."
 
 #: dashboards/nova/instances/workflows.py:336
 msgid "Which keypair to use for authentication."
-msgstr ""
+msgstr "Какой ключ использовать для аутентификации."
 
 #: dashboards/nova/instances/workflows.py:343
 msgid "Launch instance in these security groups."
-msgstr ""
+msgstr "Запустить ресурс со следующими группами доступа."
 
 #: dashboards/nova/instances/workflows.py:348
 msgid ""
 "Control access to your instance via keypairs, security groups, and other "
 "mechanisms."
-msgstr ""
+msgstr "Контроллируйте доступ к вашим ресурсам с помощью групп доступа, ключей и других механизмов."
 
 #: dashboards/nova/instances/workflows.py:358
 msgid "Unable to retrieve keypairs."
-msgstr ""
+msgstr "Невозможно получить ключи."
 
 #: dashboards/nova/instances/workflows.py:360
 msgid "Select a keypair"
-msgstr ""
+msgstr "Выберите ключ"
 
 #: dashboards/nova/instances/workflows.py:362
 msgid "No keypairs available."
-msgstr ""
+msgstr "Ключи недоступны."
 
 #: dashboards/nova/instances/workflows.py:371
 msgid "Unable to retrieve list of security groups"
-msgstr ""
+msgstr "Невозможно получить список групп доступа"
 
 #: dashboards/nova/instances/workflows.py:391
 msgid "Customization Script"
-msgstr ""
+msgstr "Дополнительный скрипт"
 
 #: dashboards/nova/instances/workflows.py:393
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
-msgstr ""
+msgstr "Скрипт или набор команд, который будет выполнен после создания ресурса."
 
 #: dashboards/nova/instances/workflows.py:400
 msgid "Post-Creation"
-msgstr ""
+msgstr "После создания"
 
 #: dashboards/nova/instances/workflows.py:411
 #: dashboards/nova/networks/panel.py:24 dashboards/nova/networks/tables.py:43
@@ -1598,68 +1595,68 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/index.html:3
 #: dashboards/syspanel/networks/templates/networks/index.html:6
 msgid "Networks"
-msgstr ""
+msgstr "Сети"
 
 #: dashboards/nova/instances/workflows.py:414
 msgid "Launch instance withthese networks"
-msgstr ""
+msgstr "Запустить ресурс в следующих сетях"
 
 #: dashboards/nova/instances/workflows.py:418
 msgid "Networking"
-msgstr ""
+msgstr "Сетевая подсистема"
 
 #: dashboards/nova/instances/workflows.py:420
 msgid "Select networks for your instance."
-msgstr ""
+msgstr "Выберите сети для ресурса"
 
 #: dashboards/nova/instances/workflows.py:432
 msgid "Unable to retrieve networks."
-msgstr ""
+msgstr "Невозможно получить список сетей"
 
 #: dashboards/nova/instances/workflows.py:455
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
-msgstr ""
+msgstr "Запущено %(count)s ресурсов с именем: \"%(name)s\""
 
 #: dashboards/nova/instances/workflows.py:456
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr ""
+msgstr "Невозможно запустить %(count)s ресурсов с именем: \"%(name)s\""
 
 #: dashboards/nova/instances/workflows.py:469
 #, python-format
 msgid "%s instances"
-msgstr ""
+msgstr "%s ресурсов"
 
 #: dashboards/nova/instances/workflows.py:472
 msgid "instance"
-msgstr ""
+msgstr "ресурс"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:4
 msgid "Instance Console Log"
-msgstr ""
+msgstr "Протокол консоли ресурса"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:7
 msgid "Log Length"
-msgstr ""
+msgstr "Длина протокола"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:9
 msgid "Go"
-msgstr ""
+msgstr "Старт"
 
 #: dashboards/nova/instances/templates/instances/_detail_log.html:11
 msgid "View Full Log"
-msgstr ""
+msgstr "Просмотреть весь протокол"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:3
 msgid "Instance Overview"
-msgstr ""
+msgstr "Просмотр ресурса"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:24
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:14
 #: dashboards/syspanel/flavors/tables.py:42 usage/tables.py:22
 msgid "RAM"
-msgstr ""
+msgstr "ОЗУ"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:26
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:10
@@ -1667,141 +1664,141 @@ msgstr ""
 #: dashboards/syspanel/flavors/tables.py:40
 #: dashboards/syspanel/projects/workflows.py:37 usage/tables.py:19
 msgid "VCPUs"
-msgstr ""
+msgstr "ЦПУ"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:27
 msgid "VCPU"
-msgstr ""
+msgstr "ЦПУ"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:28
 #: usage/tables.py:20
 msgid "Disk"
-msgstr ""
+msgstr "Диск"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:34
 msgid "IP Addresses"
-msgstr ""
+msgstr "IP адреса"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:59
 msgid "No rules defined."
-msgstr ""
+msgstr "Правила не заданы"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:68
 msgid "Meta"
-msgstr ""
+msgstr "Мета"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:71
 msgid "Key Name"
-msgstr ""
+msgstr "Имя ключа"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:84
 msgid "Volumes Attached"
-msgstr ""
+msgstr "Подключенные тома"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:88
-#: dashboards/nova/volumes/tables.py:166
+#: dashboards/nova/volumes/tables.py:158
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:38
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:45
 msgid "Attached To"
-msgstr ""
+msgstr "Подключен к"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:90
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:42
 msgid "on"
-msgstr ""
+msgstr "вкл"
 
 #: dashboards/nova/instances/templates/instances/_detail_overview.html:94
 msgid "No volumes attached."
-msgstr ""
+msgstr "Тома не подключены"
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:3
 msgid "Instance VNC Console"
-msgstr ""
+msgstr "VNC консоль ресурса"
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:5
 msgid ""
 "If VNC console is not responding to keyboard input: click the grey status "
 "bar below."
-msgstr ""
+msgstr "Щелкните на серую строку статуса, если VNC консоль не отвечает на ввод с клавиатуры."
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:5
 msgid "Click here to show only VNC"
-msgstr ""
+msgstr "Выберите для показа только VNC"
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:8
 msgid "VNC console is currently unavailabe. Please try again later."
-msgstr ""
+msgstr "VNC консоль недоступна. Попробуйте позже."
 
 #: dashboards/nova/instances/templates/instances/_detail_vnc.html:9
 msgid "Reload"
-msgstr ""
+msgstr "Перезагрузить"
 
 #: dashboards/nova/instances/templates/instances/_launch_customize_help.html:2
 msgid ""
 "You can customize your instance after it's launched using the options "
 "available here."
-msgstr ""
+msgstr "Вы можете изменить ресурс после его запуска, используя настройки, доступные здесь."
 
 #: dashboards/nova/instances/templates/instances/_launch_customize_help.html:3
 msgid ""
 "The \"Customization Script\" field is analogous to \"User Data\" in other "
 "systems."
-msgstr ""
+msgstr "Поле \"Скрипт настройки\" аналогично полю \"Пользовательские данные\" в других системах."
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:3
 msgid "Specify the details for launching an instance."
-msgstr ""
+msgstr "Задайте детали запускаемого ресурса."
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:4
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
-msgstr ""
+msgstr "График показывает отношение используемых ресурсов проекта к его квотам."
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:6
 msgid "Flavor Details"
-msgstr ""
+msgstr "Детали конфигурации"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
 #: dashboards/syspanel/flavors/tables.py:44
 msgid "Root Disk"
-msgstr ""
+msgstr "Корневой раздел"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:12
 #: dashboards/syspanel/flavors/tables.py:46
 msgid "Ephemeral Disk"
-msgstr ""
+msgstr "Дополнительный раздел"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
 msgid "Total Disk"
-msgstr ""
+msgstr "Полный размер"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:14
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:37
 msgid "MB"
-msgstr ""
+msgstr "Мб"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:21
 msgid "Number of Instances"
-msgstr ""
+msgstr "Количество ресурсов"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:29
 msgid "Number of VCPUs"
-msgstr ""
+msgstr "Количество ЦПУ"
 
 #: dashboards/nova/instances/templates/instances/_launch_details_help.html:37
 msgid "Total RAM"
-msgstr ""
+msgstr "Количество ОЗУ"
 
 #: dashboards/nova/instances/templates/instances/_launch_volumes_help.html:3
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
-msgstr ""
+msgstr "Ресурс может быть запущен с изменяемыми типами подключаемого хранилища. Вы можете задать эти настройки здесь."
 
 #: dashboards/nova/instances/templates/instances/_update.html:17
 msgid "You may update the editable properties of your instance here."
-msgstr ""
+msgstr "Здесь вы можете обновить свойства ресурса."
 
 #: dashboards/nova/instances/templates/instances/_update.html:22
 #: dashboards/nova/networks/templates/networks/_update.html:22
@@ -1810,41 +1807,41 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:27
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:31
 msgid "Save Changes"
-msgstr ""
+msgstr "Сохранить изменения"
 
 #: dashboards/nova/instances/templates/instances/detail.html:3
 msgid "Instance Detail"
-msgstr ""
+msgstr "Детали ресурса"
 
 #: dashboards/nova/instances/templates/instances/update.html:3
 #: dashboards/nova/instances/templates/instances/update.html:6
 msgid "Update Instance"
-msgstr ""
+msgstr "Обновить ресурс"
 
 #: dashboards/nova/networks/forms.py:47
 #: dashboards/syspanel/networks/forms.py:81
 #, python-format
 msgid "Network %s was successfully updated."
-msgstr ""
+msgstr "Сеть %s успешно создана."
 
 #: dashboards/nova/networks/forms.py:52
 #: dashboards/syspanel/networks/forms.py:86
 #, python-format
 msgid "Failed to update network %s"
-msgstr ""
+msgstr "Ошибка обновления сети %s"
 
 #: dashboards/nova/networks/tables.py:42
 #: dashboards/nova/networks/templates/networks/subnets/index.html:3
 #: dashboards/nova/networks/templates/networks/subnets/index.html:6
 #: dashboards/syspanel/networks/tables.py:34
 msgid "Network"
-msgstr ""
+msgstr "Сеть"
 
 #: dashboards/nova/networks/tables.py:58
 #: dashboards/syspanel/networks/tables.py:41
 #, python-format
 msgid "Failed to delete network %s"
-msgstr ""
+msgstr "Ошибка удаления сети %s"
 
 #: dashboards/nova/networks/tables.py:66
 #: dashboards/nova/networks/workflows.py:110
@@ -1858,23 +1855,23 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/create.html:3
 #: dashboards/syspanel/networks/templates/networks/create.html:6
 msgid "Create Network"
-msgstr ""
+msgstr "Создать сеть"
 
 #: dashboards/nova/networks/tables.py:73
 #: dashboards/nova/networks/templates/networks/_update.html:7
 #: dashboards/syspanel/networks/tables.py:56
 #: dashboards/syspanel/networks/templates/networks/_update.html:7
 msgid "Edit Network"
-msgstr ""
+msgstr "Редактировать сеть"
 
 #: dashboards/nova/networks/tables.py:80
 msgid "Add Subnet"
-msgstr ""
+msgstr "Добавить подсеть"
 
 #: dashboards/nova/networks/tables.py:96
 #: dashboards/syspanel/networks/tables.py:71
 msgid "Subnets Associated"
-msgstr ""
+msgstr "Ассоцированные подсети"
 
 #: dashboards/nova/networks/tables.py:97
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:17
@@ -1882,7 +1879,7 @@ msgstr ""
 #: dashboards/syspanel/networks/forms.py:73
 #: dashboards/syspanel/networks/tables.py:72
 msgid "Shared"
-msgstr ""
+msgstr "Разделяемый"
 
 #: dashboards/nova/networks/tables.py:101
 #: dashboards/nova/networks/ports/tables.py:46
@@ -1896,39 +1893,39 @@ msgstr ""
 #: dashboards/nova/networks/views.py:52
 #: dashboards/syspanel/networks/views.py:60
 msgid "Network list can not be retrieved."
-msgstr ""
+msgstr "Список сетей не может быть получен."
 
 #: dashboards/nova/networks/views.py:86
 msgid "Unable to retrieve network details."
-msgstr ""
+msgstr "Невозможно получить детали сети."
 
 #: dashboards/nova/networks/views.py:109
 #: dashboards/syspanel/networks/views.py:91
 msgid "Subnet list can not be retrieved."
-msgstr ""
+msgstr "Список подсетей не может быть получен."
 
 #: dashboards/nova/networks/views.py:121
 #: dashboards/syspanel/networks/views.py:103
 msgid "Port list can not be retrieved."
-msgstr ""
+msgstr "Ошибка при получении списка портов."
 
 #: dashboards/nova/networks/views.py:134
 #: dashboards/nova/networks/subnets/tables.py:95
 #: dashboards/syspanel/networks/views.py:118
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
-msgstr ""
+msgstr "Невозможно получить детали сети \"%s\""
 
 #: dashboards/nova/networks/workflows.py:36
 msgid "Network Name (optional)"
-msgstr ""
+msgstr "Имя сети (необязательно)"
 
 #: dashboards/nova/networks/workflows.py:41
 msgid ""
 "From here you can create a new network.\n"
 "In addition a subnet associated with the network can be created in the next "
 "panel."
-msgstr ""
+msgstr "Здесь вы можете создать новую сеть.\nТакже подсеть, ассоциированная с создаваемой сетью может быть создана в следующем меню."
 
 #: dashboards/nova/networks/workflows.py:52
 #: dashboards/nova/networks/subnets/tables.py:60
@@ -1942,11 +1939,11 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/subnets/create.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/create.html:6
 msgid "Create Subnet"
-msgstr ""
+msgstr "Создать подсеть"
 
 #: dashboards/nova/networks/workflows.py:55
 msgid "Subnet Name (optional)"
-msgstr ""
+msgstr "Имя подсети (необязательно)"
 
 #: dashboards/nova/networks/workflows.py:57
 #: dashboards/nova/networks/subnets/forms.py:44
@@ -1954,127 +1951,127 @@ msgstr ""
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:14
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:14
 msgid "Network Address"
-msgstr ""
+msgstr "Адрес сети"
 
 #: dashboards/nova/networks/workflows.py:60
 #: dashboards/nova/networks/subnets/forms.py:47
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
-msgstr ""
+msgstr "Адрес сети в нотации CIDR (например, 192.168.0.0/24)"
 
 #: dashboards/nova/networks/workflows.py:65
 #: dashboards/nova/networks/subnets/forms.py:52
 #: dashboards/nova/networks/subnets/tables.py:84
 #: dashboards/syspanel/networks/subnets/tables.py:72
 msgid "IP Version"
-msgstr ""
+msgstr "Версия протокола IP"
 
 #: dashboards/nova/networks/workflows.py:66
 msgid "Gateway IP (optional)"
-msgstr ""
+msgstr "Шлюз (необязательно)"
 
 #: dashboards/nova/networks/workflows.py:69
 #: dashboards/nova/networks/subnets/forms.py:56
 #: dashboards/nova/networks/subnets/forms.py:106
 msgid "IP address of Gateway (e.g. 192.168.0.1)"
-msgstr ""
+msgstr "IP адрес шлюза (например, 192.168.0.1)"
 
 #: dashboards/nova/networks/workflows.py:76
 msgid ""
 "You can create a subnet associated with the new network, in which case "
 "\"Network Address\" must be specified. If you wish to create a network "
 "WITHOUT a subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
+msgstr "Вы можете создать подсеть, ассоциировнную с заданной сетью. В данном случае необходимо задать адрес сети. Если вы желаете создать сеть без подсети, снимите флажок \"Создать подсеть\""
 
 #: dashboards/nova/networks/workflows.py:88
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
+msgstr "Задайте адрес сети или снимите флажок \"Создать подсеть\""
 
 #: dashboards/nova/networks/workflows.py:93
 #: dashboards/nova/networks/subnets/forms.py:69
 msgid "Network Address and IP version are inconsistent."
-msgstr ""
+msgstr "Адрес сети и версия IP не соответствуют друг другу."
 
 #: dashboards/nova/networks/workflows.py:97
 #: dashboards/nova/networks/subnets/forms.py:73
 #: dashboards/nova/networks/subnets/forms.py:118
 msgid "Gateway IP and IP version are inconsistent."
-msgstr ""
+msgstr "Адрес шлюза и версия IP не соответствуют друг другу."
 
 #: dashboards/nova/networks/workflows.py:111
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 #: dashboards/nova/networks/workflows.py:112
 #, python-format
 msgid "Created network \"%s\"."
-msgstr ""
+msgstr "Сеть \"%s\" создана."
 
 #: dashboards/nova/networks/workflows.py:113
 #, python-format
 msgid "Unable to create network \"%s\"."
-msgstr ""
+msgstr "Невозможно создать сеть \"%s\""
 
 #: dashboards/nova/networks/workflows.py:129
 #, python-format
 msgid "Network \"%s\" was successfully created."
-msgstr ""
+msgstr "Сеть \"%s\" создана."
 
 #: dashboards/nova/networks/workflows.py:132
 #, python-format
 msgid "Failed to create network \"%s\"."
-msgstr ""
+msgstr "Ошибка создания сети \"%s\"."
 
 #: dashboards/nova/networks/workflows.py:151
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
-msgstr ""
+msgstr "Подсеть \"%s\" создана."
 
 #: dashboards/nova/networks/workflows.py:154
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
-msgstr ""
+msgstr "Ошибка создания подсети \"%(sub)s\" для сети \"%(net)s\"."
 
 #: dashboards/nova/networks/ports/tables.py:35
 msgid "Attached"
-msgstr ""
+msgstr "Подсоединено"
 
 #: dashboards/nova/networks/ports/tables.py:35
 msgid "Detached"
-msgstr ""
+msgstr "Отсоединен"
 
 #: dashboards/nova/networks/ports/tables.py:42
 #: dashboards/syspanel/networks/ports/tables.py:75
 msgid "Fixed IPs"
-msgstr ""
+msgstr "Фиксированные адреса"
 
 #: dashboards/nova/networks/ports/tables.py:43
 #: dashboards/syspanel/networks/ports/tables.py:76
 msgid "Device Attached"
-msgstr ""
+msgstr "Устройство Подсоединено"
 
 #: dashboards/nova/networks/ports/tables.py:53
 #: dashboards/syspanel/networks/ports/tables.py:35
 #: dashboards/syspanel/networks/ports/tables.py:83
 msgid "Ports"
-msgstr ""
+msgstr "Порты"
 
 #: dashboards/nova/networks/ports/tabs.py:39
 #: dashboards/syspanel/networks/ports/tabs.py:39
 msgid "Unable to retrieve port details."
-msgstr ""
+msgstr "Ошибка получения деталей порта"
 
 #: dashboards/nova/networks/subnets/forms.py:34
 #: dashboards/syspanel/networks/tables.py:68
 #: dashboards/syspanel/networks/ports/forms.py:32
 msgid "Network Name"
-msgstr ""
+msgstr "Имя сети"
 
 #: dashboards/nova/networks/subnets/forms.py:38
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:13
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:13
 #: dashboards/syspanel/networks/ports/forms.py:35
 msgid "Network ID"
-msgstr ""
+msgstr "Номер сети"
 
 #: dashboards/nova/networks/subnets/forms.py:53
 #: dashboards/nova/networks/subnets/forms.py:103
@@ -2082,136 +2079,136 @@ msgstr ""
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:19
 #: dashboards/syspanel/networks/subnets/tables.py:73
 msgid "Gateway IP"
-msgstr ""
+msgstr "Адрес шлюза"
 
 #: dashboards/nova/networks/subnets/forms.py:84
 #, python-format
 msgid "Subnet %s was successfully created."
-msgstr ""
+msgstr "Подсеть %s создана"
 
 #: dashboards/nova/networks/subnets/forms.py:89
 #, python-format
 msgid "Failed to create subnet %s"
-msgstr ""
+msgstr "Ошибка создания подсети %s"
 
 #: dashboards/nova/networks/subnets/forms.py:130
 #, python-format
 msgid "Subnet %s was successfully updated."
-msgstr ""
+msgstr "Подсеть %s создана."
 
 #: dashboards/nova/networks/subnets/forms.py:135
 #, python-format
 msgid "Failed to update subnet %s"
-msgstr ""
+msgstr "Ошибка обновления подсети %s"
 
 #: dashboards/nova/networks/subnets/tables.py:43
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:6
 #: dashboards/syspanel/networks/subnets/tables.py:31
 msgid "Subnet"
-msgstr ""
+msgstr "Подсеть"
 
 #: dashboards/nova/networks/subnets/tables.py:44
 #: dashboards/nova/networks/subnets/tables.py:103
 #: dashboards/syspanel/networks/subnets/tables.py:32
 #: dashboards/syspanel/networks/subnets/tables.py:80
 msgid "Subnets"
-msgstr ""
+msgstr "Подсети"
 
 #: dashboards/nova/networks/subnets/tables.py:50
 #: dashboards/syspanel/networks/ports/tables.py:41
 #: dashboards/syspanel/networks/subnets/tables.py:38
 #, python-format
 msgid "Failed to delete subnet %s"
-msgstr ""
+msgstr "Ошибка удаления подсети %s"
 
 #: dashboards/nova/networks/subnets/tables.py:71
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:7
 #: dashboards/syspanel/networks/subnets/tables.py:59
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:7
 msgid "Edit Subnet"
-msgstr ""
+msgstr "Редактировать подсеть"
 
 #: dashboards/nova/networks/subnets/tabs.py:41
 msgid "Unable to retrieve subnet details."
-msgstr ""
+msgstr "Ошибка получения деталей подсети."
 
 #: dashboards/nova/networks/subnets/views.py:52
 #: dashboards/syspanel/networks/ports/views.py:48
 #: dashboards/syspanel/networks/subnets/views.py:47
 msgid "Unable to retrieve network."
-msgstr ""
+msgstr "Ошибка загрузки информации о сети."
 
 #: dashboards/nova/networks/subnets/views.py:84
 #: dashboards/syspanel/networks/subnets/views.py:80
 msgid "Unable to retrieve subnet details"
-msgstr ""
+msgstr "Ошибка получения деталей сети"
 
 #: dashboards/nova/networks/templates/networks/_create.html:17
 #: dashboards/syspanel/networks/templates/networks/_create.html:18
 msgid "Select a name for your network."
-msgstr ""
+msgstr "Выберите имя сети"
 
 #: dashboards/nova/networks/templates/networks/_detail_overview.html:3
 msgid "Network Overview"
-msgstr ""
+msgstr "Детали сети"
 
 #: dashboards/nova/networks/templates/networks/_update.html:17
 #: dashboards/syspanel/networks/templates/networks/_update.html:17
 msgid "You may update the editable properties of your network here."
-msgstr ""
+msgstr "Здесь вы можете обновить свойства сети."
 
 #: dashboards/nova/networks/templates/networks/detail.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/index.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/index.html:6
 msgid "Network Detail"
-msgstr ""
+msgstr "Детали сети"
 
 #: dashboards/nova/networks/templates/networks/detail.html:6
 msgid "Network Detail: "
-msgstr ""
+msgstr "Детали сети:"
 
 #: dashboards/nova/networks/templates/networks/update.html:3
 #: dashboards/nova/networks/templates/networks/update.html:6
 #: dashboards/syspanel/networks/templates/networks/update.html:3
 #: dashboards/syspanel/networks/templates/networks/update.html:6
 msgid "Update Network"
-msgstr ""
+msgstr "Обновить сеть"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:3
 msgid "Port Overview"
-msgstr ""
+msgstr "Обзор портов"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/syspanel/networks/ports/tables.py:34
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:17
 msgid "Fixed IP"
-msgstr ""
+msgstr "Фиксированный адрес"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:21
 msgid "IP address:"
-msgstr ""
+msgstr "IP адрес"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:22
 msgid "Subnet ID"
-msgstr ""
+msgstr "Номер подсети"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:28
 msgid "Mac Address"
-msgstr ""
+msgstr "Mac адрес"
 
 #: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/syspanel/networks/ports/forms.py:41
 #: dashboards/syspanel/networks/ports/forms.py:73
 msgid "Device ID"
-msgstr ""
+msgstr "Номер устройства"
 
 #: dashboards/nova/networks/templates/networks/ports/detail.html:3
 #: dashboards/nova/networks/templates/networks/ports/detail.html:6
 msgid "Port Detail"
-msgstr ""
+msgstr "Детали порта"
 
 #: dashboards/nova/networks/templates/networks/subnets/_create.html:18
 #: dashboards/syspanel/networks/templates/networks/subnets/_create.html:18
@@ -2219,50 +2216,50 @@ msgid ""
 "You can create a subnet for the network. Any network address can be "
 "specified unless the network address does not overlap other subnets in the "
 "network."
-msgstr ""
+msgstr "Вы можете создать подсеть для сети. Может быть задан любой сетевой адрес, не перекрывающий другие подсети в сети."
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:3
 msgid "Subnet Overview"
-msgstr ""
+msgstr "Обзор подсети"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:17
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:16
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:16
 msgid "IP version"
-msgstr ""
+msgstr "Версия IP"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:21
 msgid "IP allocation pool"
-msgstr ""
+msgstr "Пул IP адресов"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:24
 msgid "Start"
-msgstr ""
+msgstr "Старт"
 
 #: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:25
 msgid " - End"
-msgstr ""
+msgstr " - Конец"
 
 #: dashboards/nova/networks/templates/networks/subnets/_update.html:26
 #: dashboards/syspanel/networks/templates/networks/subnets/_update.html:26
 msgid "You may update the editable properties of your subnet here."
-msgstr ""
+msgstr "Здесь вы можете обновить свойства подсети."
 
 #: dashboards/nova/networks/templates/networks/subnets/detail.html:3
 #: dashboards/nova/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
-msgstr ""
+msgstr "Детали подсети"
 
 #: dashboards/nova/networks/templates/networks/subnets/update.html:3
 #: dashboards/nova/networks/templates/networks/subnets/update.html:6
 #: dashboards/syspanel/networks/templates/networks/subnets/update.html:3
 #: dashboards/syspanel/networks/templates/networks/subnets/update.html:6
 msgid "Update Subnet"
-msgstr ""
+msgstr "Обновить подсеть"
 
 #: dashboards/nova/templates/nova/_warning.html:6
 msgid "You currently have the power to damage your OpenStack cloud..."
-msgstr ""
+msgstr "У вас есть привилегии повредить ваше облако OpenStack ..."
 
 #: dashboards/nova/templates/nova/_warning.html:9
 msgid ""
@@ -2270,48 +2267,48 @@ msgid ""
 "an admin role has access to all resources in the system (volumes, snapshots, "
 "keypairs, etc.), even in the Project dashboard where they should only see a "
 "properly-scoped subset of those resources."
-msgstr ""
+msgstr "В соответсвии с правилами взаимодействия сервиса Nova с хранилищем ключей, пользователь с ролью администратора имеет доступ ко всем ресурсам системы (тома, снэпшоты, ключи, и.т.д) даже в панели проекта, где обычно отображается только соответствующий набор ресурсов."
 
 #: dashboards/nova/templates/nova/_warning.html:10
 msgid ""
 "This means that Nova allows an admin user in the Project Dashboard to "
 "successfully take actions which otherwise should not be permitted, causing "
 "irresolvable conflicts in Nova."
-msgstr ""
+msgstr "Это означает, что сервис Nova позволяет администратору выполнять действия, которые не должны быть резрешены, вызывая проблемы в системе."
 
 #: dashboards/nova/templates/nova/_warning.html:11
 msgid "A list of the known problems are as follows:"
-msgstr ""
+msgstr "Список известных проблем:"
 
 #: dashboards/nova/templates/nova/_warning.html:13
 msgid ""
 "Attaching a volume owned by project A to an instance in project B can "
 "completely hang Nova."
-msgstr ""
+msgstr "Подсоединение тома, принадлежащего проекту А, к ресурсу в проекте Б может привести к зависанию сервиса."
 
 #: dashboards/nova/templates/nova/_warning.html:14
 msgid ""
 "Assigning keypairs owned by project A to an instance in project B can result "
 "in failed instances, problems in retrieving instance details for non-admin "
 "users, and/or security holes should the instance succeed in spawning."
-msgstr ""
+msgstr "Назначение ключе из проекта А к ресурсу в проекте И может привести к ошибкам и проблемам с получением деталей ресурса у пользователя без привилений администратора, а также к возможным уязвимостям."
 
 #: dashboards/nova/templates/nova/_warning.html:15
 msgid ""
 "Attempting to launch an instance in project A from a snapshot or volume "
 "snapshot owned by project B can hang Nova."
-msgstr ""
+msgstr "Попытка запустить ресурс в проекте А из снэпшота в проекте Б может привести к зависанию сервиса."
 
 #: dashboards/nova/templates/nova/_warning.html:16
 msgid ""
 "Attempting to boot from a volume owned by project A in project B can hang "
 "Nova."
-msgstr ""
+msgstr "Попытка загрузиться с тома из проекта А в проекте Б может привести к завиисанию сервиса."
 
 #: dashboards/nova/templates/nova/_warning.html:18
 msgid ""
 "This is only a list of the reported inconsistencies. There may be others."
-msgstr ""
+msgstr "Это только известные проблемы. Могут быть и другие."
 
 #: dashboards/nova/templates/nova/_warning.html:19
 msgid ""
@@ -2319,96 +2316,96 @@ msgid ""
 "admin users and regular users separate. Create an \"admin\" project that "
 "admin users have access to, and do not grant your admin users the admin role "
 "on any other projects."
-msgstr ""
+msgstr "Пока описанная проблема не решена, рекомендуется разделять администраторов и обычных пользователей. Создайте проект \"admin\" и выдайте права на его использование администраторам и не выдавайте администраторам какие-либо другие проекты."
 
 #: dashboards/nova/templates/nova/_warning.html:20
 msgid ""
 "To follow the status of this bug, take a look at the following items on "
 "launchpad:"
-msgstr ""
+msgstr "Для проверки статуса ошибки, посмотрите на соответствующие отчеты на Launchpad:"
 
 #: dashboards/nova/templates/nova/_warning.html:27
 msgid ""
 "Thank you for reading this warning and operating your cloud responsibly."
-msgstr ""
+msgstr "Спасибо за чтение предупреждения."
 
 #: dashboards/nova/templates/nova/_warning.html:30
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: dashboards/nova/volumes/forms.py:29
 msgid "Size (GB)"
-msgstr ""
+msgstr "Размер (Гб)"
 
 #: dashboards/nova/volumes/forms.py:30
 msgid "Use snapshot as a source"
-msgstr ""
+msgstr "Использовать снэпшот как источник"
 
 #: dashboards/nova/volumes/forms.py:49
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr ""
+msgstr "Размер тома должен быть равен или больше размера снэпшота (%sГб)"
 
 #: dashboards/nova/volumes/forms.py:54
 msgid "Unable to load the specified snapshot."
-msgstr ""
+msgstr "Невозможно загрузить снэпшот."
 
 #: dashboards/nova/volumes/forms.py:59
 msgid "Choose a snapshot"
-msgstr ""
+msgstr "Выберите снэпшот"
 
 #: dashboards/nova/volumes/forms.py:83
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr ""
+msgstr "Размер тома не может быть меньше чем размер снэпшота (%sГб)"
 
 #: dashboards/nova/volumes/forms.py:92
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
 "quota available."
-msgstr ""
+msgstr "Размер вашей квоты %(avail)iГб не позволяет вам создать том размером %(req)iГб."
 
 #: dashboards/nova/volumes/forms.py:99
 msgid "You are already using all of your available volumes."
-msgstr ""
+msgstr "Вы уже используете все доступные тома."
 
 #: dashboards/nova/volumes/forms.py:115
 msgid "Unable to create volume."
-msgstr ""
+msgstr "Невозможно создать том."
 
 #: dashboards/nova/volumes/forms.py:123
 msgid "Attach to Instance"
-msgstr ""
+msgstr "Подсоединить к ресурсу"
 
 #: dashboards/nova/volumes/forms.py:124
 msgid "Select an instance to attach to."
-msgstr ""
+msgstr "Выберите ресурс для подсоединения."
 
 #: dashboards/nova/volumes/forms.py:168
 msgid "Unknown instance (None)"
-msgstr ""
+msgstr "Неизвестный ресурс"
 
 #: dashboards/nova/volumes/forms.py:179
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
-msgstr ""
+msgstr "Подсоединение тома %(vol)s к ресурсу %(inst)s как %(dev)s."
 
 #: dashboards/nova/volumes/forms.py:188
 msgid "Unable to attach volume."
-msgstr ""
+msgstr "Ошибка подсоединения тома."
 
 #: dashboards/nova/volumes/forms.py:212
 #, python-format
 msgid "Creating volume snapshot \"%s\""
-msgstr ""
+msgstr "Создание снэпшота тома \"%s\""
 
 #: dashboards/nova/volumes/forms.py:218
 msgid "Unable to create volume snapshot."
-msgstr ""
+msgstr "Невозможнр создать снэпшот тома."
 
 #: dashboards/nova/volumes/panel.py:24 dashboards/nova/volumes/tables.py:37
-#: dashboards/nova/volumes/tables.py:170 dashboards/nova/volumes/tables.py:182
+#: dashboards/nova/volumes/tables.py:162 dashboards/nova/volumes/tables.py:174
 #: dashboards/nova/volumes/templates/volumes/index.html:3
 #: dashboards/nova/volumes/templates/volumes/index.html:6
 #: dashboards/syspanel/projects/workflows.py:42
@@ -2417,265 +2414,260 @@ msgstr ""
 #: dashboards/syspanel/volumes/templates/volumes/index.html:3
 #: dashboards/syspanel/volumes/templates/volumes/index.html:6
 msgid "Volumes"
-msgstr ""
+msgstr "Тома"
 
-#: dashboards/nova/volumes/tables.py:45
-#, python-format
-msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
-msgstr ""
-
-#: dashboards/nova/volumes/tables.py:65
+#: dashboards/nova/volumes/tables.py:57
 msgid "Edit Attachments"
-msgstr ""
+msgstr "Редактировать вложения"
 
-#: dashboards/nova/volumes/tables.py:92
+#: dashboards/nova/volumes/tables.py:84
 #, python-format
 msgid "%sGB"
-msgstr ""
+msgstr "%sГб"
 
-#: dashboards/nova/volumes/tables.py:105 dashboards/nova/volumes/views.py:149
+#: dashboards/nova/volumes/tables.py:97 dashboards/nova/volumes/views.py:149
 msgid "Unable to retrieve attachment information."
-msgstr ""
+msgstr "Ошибка при получении информации о вложении."
 
-#: dashboards/nova/volumes/tables.py:122
+#: dashboards/nova/volumes/tables.py:114
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
+msgstr "Подсоединен к %(instance)s как %(dev)s"
+
+#: dashboards/nova/volumes/tables.py:171
+msgid "Отсоединить"
 msgstr ""
 
-#: dashboards/nova/volumes/tables.py:179
-msgid "Detach"
+#: dashboards/nova/volumes/tables.py:172
+msgid "Отстоединение"
 msgstr ""
 
-#: dashboards/nova/volumes/tables.py:180
-msgid "Detaching"
-msgstr ""
-
-#: dashboards/nova/volumes/tables.py:215
+#: dashboards/nova/volumes/tables.py:207
 #, python-format
 msgid "%(dev)s on instance %(instance_name)s"
-msgstr ""
+msgstr "%(dev)s в ресурсе %(instance_name)s"
 
 #: dashboards/nova/volumes/tabs.py:41
 msgid "Unable to retrieve volume details."
-msgstr ""
+msgstr "Невозможно получить детали тома."
 
 #: dashboards/nova/volumes/views.py:50
 msgid "Unable to retrieve volume list."
-msgstr ""
+msgstr "Невозможно получить список томов."
 
 #: dashboards/nova/volumes/views.py:58
 msgid "Unable to retrieve volume/instance attachment information"
-msgstr ""
+msgstr "Невозможно получить информацию о вложении тома/ресурса"
 
 #: dashboards/nova/volumes/views.py:130 dashboards/nova/volumes/views.py:140
 msgid "Unable to retrieve volume information."
-msgstr ""
+msgstr "Ошибка при получении информации о томе."
 
 #: dashboards/nova/volumes/templates/volumes/_attach.html:9
 #: dashboards/nova/volumes/templates/volumes/attach.html:6
 msgid "Manage Volume Attachments"
-msgstr ""
+msgstr "Управлять вложениями тома"
 
 #: dashboards/nova/volumes/templates/volumes/_attach.html:13
 msgid "Attach To Instance"
-msgstr ""
+msgstr "Подсоединить к ресурсу"
 
 #: dashboards/nova/volumes/templates/volumes/_attach.html:22
 msgid "Attach Volume"
-msgstr ""
+msgstr "Подсоединить том"
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:20
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:18
 msgid "Volumes are block devices that can be attached to instances."
-msgstr ""
+msgstr "Тома - это блочные устройства, которые могут быть подсоединены к ресурсам."
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:22
 msgid "Volume Quotas"
-msgstr ""
+msgstr "Квоты томов"
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:25
 msgid "Total Gigabytes"
-msgstr ""
+msgstr "Всего Гб"
 
 #: dashboards/nova/volumes/templates/volumes/_create.html:34
 msgid "Number of Volumes"
-msgstr ""
+msgstr "Количество томов"
 
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:8
 #: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:23
 #: dashboards/nova/volumes/templates/volumes/create_snapshot.html:3
 msgid "Create Volume Snapshot"
-msgstr ""
+msgstr "Создать снэпшот тома"
 
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:3
 msgid "Volume Overview"
-msgstr ""
+msgstr "Обзор тома"
 
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:34
 msgid "Attachments"
-msgstr ""
+msgstr "Вложения"
 
 #: dashboards/nova/volumes/templates/volumes/_detail_overview.html:46
 msgid "Not attached"
-msgstr ""
+msgstr "Не подсоединен"
 
 #: dashboards/nova/volumes/templates/volumes/create.html:6
 msgid "Create a Volume"
-msgstr ""
+msgstr "Создать том"
 
 #: dashboards/nova/volumes/templates/volumes/create_snapshot.html:6
 msgid "Create a Volume Snapshot"
-msgstr ""
+msgstr "Создать снэпшот тома"
 
 #: dashboards/nova/volumes/templates/volumes/detail.html:3
 #: dashboards/syspanel/volumes/templates/volumes/detail.html:3
 msgid "Volume Details"
-msgstr ""
+msgstr "Детали тома"
 
 #: dashboards/nova/volumes/templates/volumes/detail.html:6
 #: dashboards/syspanel/volumes/templates/volumes/detail.html:6
 msgid "Volume Detail"
-msgstr ""
+msgstr "Детали тома"
 
 #: dashboards/settings/dashboard.py:24 templates/_header.html:4
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: dashboards/settings/ec2/forms.py:35 dashboards/settings/project/forms.py:35
 msgid "Select a Project"
-msgstr ""
+msgstr "Выберите проект"
 
 #: dashboards/settings/ec2/forms.py:45
 msgid "Unable to retrieve tenant list."
-msgstr ""
+msgstr "Невозможно получить список проектов."
 
 #: dashboards/settings/ec2/forms.py:87
 msgid "Unable to fetch EC2 credentials."
-msgstr ""
+msgstr "Невозможно скачать файл EC@"
 
 #: dashboards/settings/ec2/forms.py:100
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
-msgstr ""
+msgstr "Ошибка создания архива:  %(exc)s"
 
 #: dashboards/settings/ec2/panel.py:24
 msgid "EC2 Credentials"
-msgstr ""
+msgstr "Данные аутентификации EC2"
 
 #: dashboards/settings/ec2/templates/ec2/download_form.html:8
 #: dashboards/settings/ec2/templates/ec2/download_form.html:23
 #: dashboards/settings/ec2/templates/ec2/index.html:3
 #: dashboards/settings/ec2/templates/ec2/index.html:6
 msgid "Download EC2 Credentials"
-msgstr ""
+msgstr "Скачать данные аутентификации EC2"
 
 #: dashboards/settings/ec2/templates/ec2/download_form.html:18
 msgid ""
 "Clicking \"Download EC2 Credentials\" will download a zip file which "
 "includes an rc file with your access/secret keys, as well as your x509 "
 "private key and certificate."
-msgstr ""
+msgstr "Нажатие на \"Скачать данные аутентификации EC2\" приведет к отправке архива, который содержит файлы с ключами доступа и сертификатами."
 
 #: dashboards/settings/project/forms.py:70
 #, python-format
 msgid "Error Downloading RC File: %s"
-msgstr ""
+msgstr "Ошибка загрузки rc файла"
 
 #: dashboards/settings/project/panel.py:24
 #: dashboards/settings/project/templates/project/_openrc.html:8
 #: dashboards/settings/project/templates/project/settings.html:3
 #: dashboards/settings/project/templates/project/settings.html:6
 msgid "OpenStack API"
-msgstr ""
+msgstr "Интерфейс OpenStack"
 
 #: dashboards/settings/project/tables.py:27
 msgid "Service Name"
-msgstr ""
+msgstr "Имя сервиса"
 
 #: dashboards/settings/project/tables.py:29
 msgid "Service Endpoint"
-msgstr ""
+msgstr "Адрес сервиса"
 
 #: dashboards/settings/project/tables.py:33
 msgid "API Endpoints"
-msgstr ""
+msgstr "Адрес интерфейса веб сервиса"
 
 #: dashboards/settings/project/templates/project/_openrc.html:15
 msgid "Download OpenStack RC File"
-msgstr ""
+msgstr "Скачать rc файл OpenStack"
 
 #: dashboards/settings/project/templates/project/_openrc.html:25
 msgid ""
 "Download the RC file for the selected project, then type \"source openrc\" "
 "in the terminal to configure your environment to communicate with OpenStack."
-msgstr ""
+msgstr "Скачайте rc файл для выбранного проекта и выполните команду \"source openrc\" в терминале для задания необходимых переменных окружения."
 
 #: dashboards/settings/project/templates/project/_openrc.html:30
 msgid "Download RC File"
-msgstr ""
+msgstr "Скачать rc файл"
 
 #: dashboards/settings/user/forms.py:57
 msgid "Settings saved."
-msgstr ""
+msgstr "Настройки сохранены."
 
 #: dashboards/settings/user/panel.py:24
 #: dashboards/settings/user/templates/user/_settings.html:8
 #: dashboards/settings/user/templates/user/settings.html:3
 #: dashboards/settings/user/templates/user/settings.html:6
 msgid "User Settings"
-msgstr ""
+msgstr "Пользовательские настройки"
 
 #: dashboards/settings/user/templates/user/_settings.html:18
 msgid "From here you can modify dashboard settings for your user."
-msgstr ""
+msgstr "Здесь вы можете изменить настройки для вашей учетной записи."
 
 #: dashboards/settings/user/templates/user/_settings.html:23
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:24
 #: dashboards/syspanel/projects/workflows.py:268 workflows/base.py:538
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: dashboards/syspanel/dashboard.py:24
 msgid "System Panel"
-msgstr ""
+msgstr "Системная панель"
 
 #: dashboards/syspanel/dashboard.py:30 tests/workflows_tests.py:74
 msgid "Admin"
-msgstr ""
+msgstr "Администрирование"
 
 #: dashboards/syspanel/flavors/forms.py:37
 msgid "RAM MB"
-msgstr ""
+msgstr "ОЗУ МБ"
 
 #: dashboards/syspanel/flavors/forms.py:38
 msgid "Root Disk GB"
-msgstr ""
+msgstr "Главный раздел ГБ"
 
 #: dashboards/syspanel/flavors/forms.py:39
 msgid "Ephemeral Disk GB"
-msgstr ""
+msgstr "Дополнительный раздел ГБ"
 
 #: dashboards/syspanel/flavors/forms.py:49
 msgid "Unable to get unique ID for new flavor."
-msgstr ""
+msgstr "Невозможно получить уникальный номер для новой конфигурации."
 
 #: dashboards/syspanel/flavors/forms.py:66
 #, python-format
 msgid "Created flavor \"%s\"."
-msgstr ""
+msgstr "Создана конфигурация \"%s\"."
 
 #: dashboards/syspanel/flavors/forms.py:70
 msgid "Unable to create flavor."
-msgstr ""
+msgstr "Ошибка создания конфигурации."
 
 #: dashboards/syspanel/flavors/forms.py:91
 #, python-format
 msgid "Updated flavor \"%s\"."
-msgstr ""
+msgstr "Конфигурация \"%s\" обновлена."
 
 #: dashboards/syspanel/flavors/forms.py:95
 msgid "Unable to update flavor."
-msgstr ""
+msgstr "Ошибка обновления конфигурации."
 
 #: dashboards/syspanel/flavors/panel.py:28
 #: dashboards/syspanel/flavors/tables.py:14
@@ -2683,7 +2675,7 @@ msgstr ""
 #: dashboards/syspanel/flavors/templates/flavors/index.html:3
 #: dashboards/syspanel/flavors/templates/flavors/index.html:6
 msgid "Flavors"
-msgstr ""
+msgstr "Конфигурации"
 
 #: dashboards/syspanel/flavors/tables.py:22
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:8
@@ -2691,102 +2683,102 @@ msgstr ""
 #: dashboards/syspanel/flavors/templates/flavors/create.html:3
 #: dashboards/syspanel/flavors/templates/flavors/create.html:6
 msgid "Create Flavor"
-msgstr ""
+msgstr "Создать конфигурацию"
 
 #: dashboards/syspanel/flavors/tables.py:29
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:8
 #: dashboards/syspanel/flavors/templates/flavors/edit.html:3
 #: dashboards/syspanel/flavors/templates/flavors/edit.html:6
 msgid "Edit Flavor"
-msgstr ""
+msgstr "Редактировать конфигурацию"
 
 #: dashboards/syspanel/flavors/tables.py:35
 #, python-format
 msgid "%sMB"
-msgstr ""
+msgstr "%sМб"
 
 #: dashboards/syspanel/flavors/tables.py:39
 msgid "Flavor Name"
-msgstr ""
+msgstr "Имя конфигурации"
 
 #: dashboards/syspanel/flavors/views.py:48
 msgid "Unable to retrieve flavor list."
-msgstr ""
+msgstr "Ошибка получения списка конфигураций."
 
 #: dashboards/syspanel/flavors/views.py:75
 msgid "Unable to retrieve flavor data."
-msgstr ""
+msgstr "Невозможно получить параметры конфигурации."
 
 #: dashboards/syspanel/flavors/templates/flavors/_create.html:18
 msgid "From here you can define the sizing of a new flavor."
-msgstr ""
+msgstr "Здесь вы можете задать параметры новой конфигурации."
 
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:18
 msgid "From here you can alter the sizing of the current flavor."
-msgstr ""
+msgstr "Здесь вы можете переопределить параметры текущией конфигурации."
 
 #: dashboards/syspanel/flavors/templates/flavors/_edit.html:19
 msgid ""
 "Note: this will not affect the resources allocated to any existing instances "
 "using this flavor."
-msgstr ""
+msgstr "Примечание: Это изменение не повлияет на ресурсы, которые уже используют эту конфигурацию."
 
 #: dashboards/syspanel/images/views.py:53
 msgid "Unable to retrieve image list."
-msgstr ""
+msgstr "Невозможно получить список образов."
 
-#: dashboards/syspanel/instances/tables.py:59 usage/tables.py:30
+#: dashboards/syspanel/instances/tables.py:58 usage/tables.py:30
 msgid "Project Name"
-msgstr ""
+msgstr "Имя проекта"
 
-#: dashboards/syspanel/instances/tables.py:66
+#: dashboards/syspanel/instances/tables.py:65
 #: dashboards/syspanel/services/tables.py:40
 msgid "Host"
-msgstr ""
+msgstr "Хост"
 
 #: dashboards/syspanel/instances/views.py:60
 #: dashboards/syspanel/networks/views.py:48
 msgid "Unable to retrieve instance tenant information."
-msgstr ""
+msgstr "Ошибка при получении информации о проекте."
 
 #: dashboards/syspanel/instances/templates/instances/index.html:6
 msgid "All Instances"
-msgstr ""
+msgstr "Все ресурсы"
 
 #: dashboards/syspanel/networks/forms.py:45
 #: dashboards/syspanel/users/forms.py:41
 msgid "Select a project"
-msgstr ""
+msgstr "Выберите проект"
 
 #: dashboards/syspanel/networks/forms.py:57
 #, python-format
 msgid "Network %s was successfully created."
-msgstr ""
+msgstr "Сеть %s создана."
 
 #: dashboards/syspanel/networks/forms.py:63
 #, python-format
 msgid "Failed to create network %s"
-msgstr ""
+msgstr "Ошибка создания сети %s"
 
 #: dashboards/syspanel/networks/ports/forms.py:53
 #, python-format
 msgid "Port %s was successfully created."
-msgstr ""
+msgstr "Порт %s создан."
 
 #: dashboards/syspanel/networks/ports/forms.py:58
 #, python-format
 msgid "Failed to create a port for network %s"
-msgstr ""
+msgstr "Ошибка создания порта для сети %s"
 
 #: dashboards/syspanel/networks/ports/forms.py:83
 #, python-format
 msgid "Port %s was successfully updated."
-msgstr ""
+msgstr "Порт %s обновлен"
 
 #: dashboards/syspanel/networks/ports/forms.py:88
 #, python-format
 msgid "Failed to update port %s"
-msgstr ""
+msgstr "Ошибка обновления порта %s"
 
 #: dashboards/syspanel/networks/ports/tables.py:51
 #: dashboards/syspanel/networks/templates/networks/ports/_create.html:8
@@ -2794,73 +2786,73 @@ msgstr ""
 #: dashboards/syspanel/networks/templates/networks/ports/create.html:3
 #: dashboards/syspanel/networks/templates/networks/ports/create.html:6
 msgid "Create Port"
-msgstr ""
+msgstr "Создать порт"
 
 #: dashboards/syspanel/networks/ports/tables.py:62
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:7
 msgid "Edit Port"
-msgstr ""
+msgstr "Редактировать порт"
 
 #: dashboards/syspanel/networks/ports/views.py:81
 msgid "Unable to retrieve port details"
-msgstr ""
+msgstr "Ошибка получения информации о порте"
 
 #: dashboards/syspanel/networks/subnets/forms.py:42
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
-msgstr ""
+msgstr "Ошибка получения сети %s для подсети"
 
 #: dashboards/syspanel/networks/templates/networks/ports/_create.html:18
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
 "attached, the device specified will be attached to the port created."
-msgstr ""
+msgstr "Вы можете создать порт для сети. Если вы зададите номер устройства, которое подсоединяется, то оно будет подключено к создаваемому порту."
 
 #: dashboards/syspanel/networks/templates/networks/ports/_update.html:22
 msgid "You may update the editable properties of your port here."
-msgstr ""
+msgstr "Здесь вы можете обновить свойства вашего порта"
 
 #: dashboards/syspanel/networks/templates/networks/ports/update.html:3
 #: dashboards/syspanel/networks/templates/networks/ports/update.html:6
 msgid "Update Port"
-msgstr ""
+msgstr "Обновить порт"
 
 #: dashboards/syspanel/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
-msgstr ""
+msgstr "Статистика использования"
 
 #: dashboards/syspanel/overview/templates/overview/usage.html:12
 msgid "Monitoring"
-msgstr ""
+msgstr "Мониторинг"
 
 #: dashboards/syspanel/projects/panel.py:28
 #: dashboards/syspanel/projects/tables.py:66
 #: dashboards/syspanel/projects/tables.py:95
 #: dashboards/syspanel/projects/templates/projects/index.html:8
 msgid "Projects"
-msgstr ""
+msgstr "Проекты"
 
 #: dashboards/syspanel/projects/tables.py:19
 msgid "Modify Users"
-msgstr ""
+msgstr "Изменить пользователей"
 
 #: dashboards/syspanel/projects/tables.py:32
 msgid "View Usage"
-msgstr ""
+msgstr "Просмотреть статистику использования"
 
 #: dashboards/syspanel/projects/tables.py:39
 #: dashboards/syspanel/projects/templates/projects/_create.html:8
 #: dashboards/syspanel/projects/templates/projects/_create.html:23
 #: dashboards/syspanel/projects/templates/projects/create.html:6
 msgid "Create Project"
-msgstr ""
+msgstr "Создать проект"
 
 #: dashboards/syspanel/projects/tables.py:46
 #: dashboards/syspanel/projects/workflows.py:267
 #: dashboards/syspanel/projects/templates/projects/update.html:3
 #: dashboards/syspanel/projects/templates/projects/update.html:6
 msgid "Edit Project"
-msgstr ""
+msgstr "Изменить проект"
 
 #: dashboards/syspanel/projects/tables.py:91
 #: dashboards/syspanel/projects/workflows.py:74
@@ -2869,15 +2861,15 @@ msgstr ""
 #: dashboards/syspanel/users/tables.py:39
 #: dashboards/syspanel/users/tables.py:114
 msgid "Enabled"
-msgstr ""
+msgstr "Включен"
 
 #: dashboards/syspanel/projects/tables.py:104
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
 #: dashboards/syspanel/projects/tables.py:105
 msgid "Removed"
-msgstr ""
+msgstr "Удален"
 
 #: dashboards/syspanel/projects/tables.py:107
 #: dashboards/syspanel/users/panel.py:28
@@ -2886,174 +2878,174 @@ msgstr ""
 #: dashboards/syspanel/users/tables.py:121
 #: dashboards/syspanel/users/templates/users/index.html:8
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 #: dashboards/syspanel/projects/tables.py:125
 msgid "Unable to retrieve role information."
-msgstr ""
+msgstr "Ошибка получения данных о роли."
 
 #: dashboards/syspanel/projects/tables.py:130
 msgid "Roles"
-msgstr ""
+msgstr "Роли"
 
 #: dashboards/syspanel/projects/tables.py:134
 msgid "Users For Project"
-msgstr ""
+msgstr "Пользователи проекта"
 
 #: dashboards/syspanel/projects/tables.py:142
 msgid "Add To Project"
-msgstr ""
+msgstr "Добавить в проект"
 
 #: dashboards/syspanel/projects/tables.py:154
 msgid "Add New Users"
-msgstr ""
+msgstr "Добавить новых пользователей"
 
 #: dashboards/syspanel/projects/views.py:67
 msgid "Unable to retrieve project information."
-msgstr ""
+msgstr "Ошибка получения информации о проекте."
 
 #: dashboards/syspanel/projects/views.py:87
 msgid "Unable to retrieve project list."
-msgstr ""
+msgstr "Ошибка получения списка проектов"
 
 #: dashboards/syspanel/projects/views.py:110
 msgid "Unable to retrieve users."
-msgstr ""
+msgstr "Ошибка получения списка пользователей."
 
 #: dashboards/syspanel/projects/views.py:154
 msgid "Unable to retrieve default quota values."
-msgstr ""
+msgstr "Ошибка получения квоты по умолчанию."
 
 #: dashboards/syspanel/projects/views.py:182
 msgid "Unable to retrieve project details."
-msgstr ""
+msgstr "Ошибка получения деталей проекта."
 
 #: dashboards/syspanel/projects/workflows.py:35
 msgid "Injected File Content Bytes"
-msgstr ""
+msgstr "Содержимое интегрированного файла"
 
 #: dashboards/syspanel/projects/workflows.py:36
 msgid "Metadata Items"
-msgstr ""
+msgstr "Метаданные"
 
 #: dashboards/syspanel/projects/workflows.py:39
 msgid "Injected Files"
-msgstr ""
+msgstr "Интегрированные файлы"
 
 #: dashboards/syspanel/projects/workflows.py:43
 msgid "Gigabytes"
-msgstr ""
+msgstr "Гигабайты"
 
 #: dashboards/syspanel/projects/workflows.py:44
 msgid "RAM (MB)"
-msgstr ""
+msgstr "ОЗУ (Мб)"
 
 #: dashboards/syspanel/projects/workflows.py:48
 msgid "Quota"
-msgstr ""
+msgstr "Квота"
 
 #: dashboards/syspanel/projects/workflows.py:50
 msgid "From here you can set quotas (max limits) for the project."
-msgstr ""
+msgstr "Здесь вы можете задать квоты для проекта."
 
 #: dashboards/syspanel/projects/workflows.py:79
 #: dashboards/syspanel/projects/workflows.py:252
 msgid "Project Info"
-msgstr ""
+msgstr "Информация о проекте"
 
 #: dashboards/syspanel/projects/workflows.py:80
 #: dashboards/syspanel/projects/templates/projects/_create.html:18
 msgid "From here you can create a new project to organize users."
-msgstr ""
+msgstr "Здесь вы можете создать новый проект."
 
 #: dashboards/syspanel/projects/workflows.py:99
 msgid "Unable to retrieve user list. Please try again later."
-msgstr ""
+msgstr "Ошибка получения списка пользователей. Попробуйте позже."
 
 #: dashboards/syspanel/projects/workflows.py:153
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:16
 msgid "Project Members"
-msgstr ""
+msgstr "Участники проекта"
 
 #: dashboards/syspanel/projects/workflows.py:167
 #: dashboards/syspanel/users/views.py:46
 msgid "Unable to retrieve user list."
-msgstr ""
+msgstr "Ошибка получения списка пользователей"
 
 #: dashboards/syspanel/projects/workflows.py:178
 msgid "Add Project"
-msgstr ""
+msgstr "Добавить проект"
 
 #: dashboards/syspanel/projects/workflows.py:179
 msgid "Finish"
-msgstr ""
+msgstr "Финиш"
 
 #: dashboards/syspanel/projects/workflows.py:180
 #, python-format
 msgid "Created new project \"%s\"."
-msgstr ""
+msgstr "Создан проект \"%s\"."
 
 #: dashboards/syspanel/projects/workflows.py:181
 #, python-format
 msgid "Unable to create project \"%s\"."
-msgstr ""
+msgstr "Ошибка создания проекта \"%s\"."
 
 #: dashboards/syspanel/projects/workflows.py:225
 #, python-format
 msgid "Failed to add %s project members and set project quotas."
-msgstr ""
+msgstr "Ошибка добавить %s в участники проекта и установить квоты проекта."
 
 #: dashboards/syspanel/projects/workflows.py:244
 msgid "Unable to set project quotas."
-msgstr ""
+msgstr "Ошибка при установке квот проекта."
 
 #: dashboards/syspanel/projects/workflows.py:254
 msgid "From here you can edit the project details."
-msgstr ""
+msgstr "Здесь вы можете редактировать детали проекта."
 
 #: dashboards/syspanel/projects/workflows.py:269
 #, python-format
 msgid "Modified project \"%s\"."
-msgstr ""
+msgstr "Проект \"%s\" изменен."
 
 #: dashboards/syspanel/projects/workflows.py:270
 #, python-format
 msgid "Unable to modify project \"%s\"."
-msgstr ""
+msgstr "Ошибка изменения проекта \"%s\"."
 
 #: dashboards/syspanel/projects/workflows.py:340
 #, python-format
 msgid "Failed to modify %s project members and update project quotas."
-msgstr ""
+msgstr "Ошибка изменения списка участников и обновления квот для проекта %s."
 
 #: dashboards/syspanel/projects/workflows.py:361
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
-msgstr ""
+msgstr "Изменена информация о проекте и его участниках, но ошибка при изменении квот проекта."
 
 #: dashboards/syspanel/projects/templates/projects/_add_user.html:8
 #: dashboards/syspanel/projects/templates/projects/add_user.html:3
 #: dashboards/syspanel/projects/templates/projects/add_user.html:6
 msgid "Add User To Project"
-msgstr ""
+msgstr "Добавить пользователя в проект"
 
 #: dashboards/syspanel/projects/templates/projects/_add_user.html:18
 msgid "Select the user role for the project."
-msgstr ""
+msgstr "Выберите роль пользователя для проекта."
 
 #: dashboards/syspanel/projects/templates/projects/_add_user.html:23
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:7
 #, python-format
 msgid "Create User for project '%(tenant_name)s'."
-msgstr ""
+msgstr "Создать пользователя для проекта '%(tenant_name)s'."
 
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:18
 msgid "From here you can create a new user to add to this project."
-msgstr ""
+msgstr "Здесь вы модете создать нового пользователя и добавить его в проект."
 
 #: dashboards/syspanel/projects/templates/projects/_create_user.html:23
 #: dashboards/syspanel/users/tables.py:19
@@ -3061,220 +3053,220 @@ msgstr ""
 #: dashboards/syspanel/users/templates/users/_create.html:22
 #: dashboards/syspanel/users/templates/users/create.html:7
 msgid "Create User"
-msgstr ""
+msgstr "Создать пользователя"
 
 #: dashboards/syspanel/projects/templates/projects/_quotas.html:7
 #: dashboards/syspanel/projects/templates/projects/_quotas.html:22
 msgid "Update Quota"
-msgstr ""
+msgstr "Обновить квоту"
 
 #: dashboards/syspanel/projects/templates/projects/_quotas.html:17
 #, python-format
 msgid ""
 "From here you can edit quotas (max limits) for the project %(tenant.name)s."
-msgstr ""
+msgstr "Здесь вы можете изменить квоты для проекта %(tenant.name)s"
 
 #: dashboards/syspanel/projects/templates/projects/_update.html:8
 #: dashboards/syspanel/projects/templates/projects/_update.html:23
 #: dashboards/syspanel/projects/templates/projects/quotas.html:6
 msgid "Update Project"
-msgstr ""
+msgstr "Обновить проект"
 
 #: dashboards/syspanel/projects/templates/projects/_update.html:18
 msgid "From here you can edit a project."
-msgstr ""
+msgstr "Здесь вы можете изменить проект"
 
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:7
 msgid ""
 "From here you can add and remove members to this project from the list of "
 "all available users."
-msgstr ""
+msgstr "Здесь вы можете добавить или удалить участников проекта."
 
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:10
 msgid "All Users"
-msgstr ""
+msgstr "Все пользователи"
 
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:25
 #: dashboards/syspanel/projects/templates/projects/_update_members.html:32
 msgid "No users found."
-msgstr ""
+msgstr "Пользователи не найдены"
 
 #: dashboards/syspanel/projects/templates/projects/create_user.html:3
 #: dashboards/syspanel/projects/templates/projects/create_user.html:6
 msgid "Add New User"
-msgstr ""
+msgstr "Добавить пользователя"
 
 #: dashboards/syspanel/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
-msgstr ""
+msgstr "Статистика использования проекта"
 
 #: dashboards/syspanel/projects/templates/projects/usage.html:7
 msgid "Project Usage"
-msgstr ""
+msgstr "Статистика проекта"
 
 #: dashboards/syspanel/projects/templates/projects/users.html:7
 msgid "Users for Project"
-msgstr ""
+msgstr "Пользователи проекта"
 
 #: dashboards/syspanel/quotas/panel.py:28
 #: dashboards/syspanel/quotas/tables.py:36
 msgid "Quotas"
-msgstr ""
+msgstr "Квоты"
 
 #: dashboards/syspanel/quotas/tables.py:28
 msgid "Quota Name"
-msgstr ""
+msgstr "Имя квоты"
 
 #: dashboards/syspanel/quotas/tables.py:29
 msgid "Limit"
-msgstr ""
+msgstr "Предел"
 
 #: dashboards/syspanel/quotas/views.py:45
 msgid "Unable to get quota info."
-msgstr ""
+msgstr "Ошибка получения информации о квоте"
 
 #: dashboards/syspanel/quotas/templates/quotas/index.html:8
 msgid "Default Quotas"
-msgstr ""
+msgstr "Квоты по умолчанию"
 
 #: dashboards/syspanel/services/panel.py:28
 #: dashboards/syspanel/services/tables.py:47
 #: dashboards/syspanel/services/templates/services/index.html:8
 msgid "Services"
-msgstr ""
+msgstr "Сервисы"
 
 #: dashboards/syspanel/services/tables.py:37
 msgid "Id"
-msgstr ""
+msgstr "Номер"
 
 #: dashboards/syspanel/services/tables.py:39
 msgid "Service"
-msgstr ""
+msgstr "Сервис"
 
 #: dashboards/syspanel/users/forms.py:53
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Пароли не совпадают."
 
 #: dashboards/syspanel/users/forms.py:61
 #: dashboards/syspanel/users/forms.py:114
 #: dashboards/syspanel/users/tables.py:107
 msgid "User Name"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: dashboards/syspanel/users/forms.py:62
 #: dashboards/syspanel/users/forms.py:115
 #: dashboards/syspanel/users/tables.py:108
 msgid "Email"
-msgstr ""
+msgstr "Почтовый адрес"
 
 #: dashboards/syspanel/users/forms.py:64
 #: dashboards/syspanel/users/forms.py:116
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: dashboards/syspanel/users/forms.py:69
 #: dashboards/syspanel/users/forms.py:123
 msgid "Confirm Password"
-msgstr ""
+msgstr "Подтвердите пароль"
 
 #: dashboards/syspanel/users/forms.py:72
 #: dashboards/syspanel/users/forms.py:126
 msgid "Primary Project"
-msgstr ""
+msgstr "Главный проект"
 
 #: dashboards/syspanel/users/forms.py:74
 msgid "Role"
-msgstr ""
+msgstr "Роль"
 
 #: dashboards/syspanel/users/forms.py:95
 #, python-format
 msgid "User \"%s\" was successfully created."
-msgstr ""
+msgstr "Пользователь \"%s\" создан."
 
 #: dashboards/syspanel/users/forms.py:105
 msgid "Unable to add userto primary project."
-msgstr ""
+msgstr "Ошибка добавления пользователя в главный проект."
 
 #: dashboards/syspanel/users/forms.py:109
 msgid "Unable to create user."
-msgstr ""
+msgstr "Ошибка создания пользователя."
 
 #: dashboards/syspanel/users/forms.py:150
 msgid "name"
-msgstr ""
+msgstr "имя"
 
 #: dashboards/syspanel/users/forms.py:150
 msgid "email"
-msgstr ""
+msgstr "почтовый адрес"
 
 #: dashboards/syspanel/users/forms.py:159
 msgid "primary project"
-msgstr ""
+msgstr "главный проект"
 
 #: dashboards/syspanel/users/forms.py:172
 #, python-format
 msgid "The user %s has no role defined for"
-msgstr ""
+msgstr "Пользователь %s не имеет роли для"
 
 #: dashboards/syspanel/users/forms.py:180
 msgid "password"
-msgstr ""
+msgstr "пароль"
 
 #: dashboards/syspanel/users/forms.py:189
 msgid "User has been updated successfully."
-msgstr ""
+msgstr "Пользователь обновлен"
 
 #: dashboards/syspanel/users/forms.py:193
 #, python-format
 msgid "Unable to update %(attributes)s for the user."
-msgstr ""
+msgstr "Ошибка обновления %(attributes)s для польщователя."
 
 #: dashboards/syspanel/users/tables.py:38
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 #: dashboards/syspanel/users/tables.py:38
 msgid "Disable"
-msgstr ""
+msgstr "Выключить"
 
 #: dashboards/syspanel/users/tables.py:39
 msgid "Disabled"
-msgstr ""
+msgstr "Выключен"
 
 #: dashboards/syspanel/users/tables.py:62
 msgid "You cannot disable the user you are currently logged in as."
-msgstr ""
+msgstr "Вы не можете отключить пользователя под которым авторизованы."
 
 #: dashboards/syspanel/users/tables.py:113
 msgid "User ID"
-msgstr ""
+msgstr "Номер пользователя"
 
 #: dashboards/syspanel/users/views.py:69
 msgid "Unable to update user."
-msgstr ""
+msgstr "Ошибка обновления пользователя."
 
 #: dashboards/syspanel/users/views.py:103
 msgid "Unable to retrieve user roles."
-msgstr ""
+msgstr "Ошибка получения ролей пользователя."
 
 #: dashboards/syspanel/users/templates/users/_create.html:17
 msgid "From here you can create a new user and assign them to a project."
-msgstr ""
+msgstr "Здесь вы можете создать нового пользователя и назначить ему проект."
 
 #: dashboards/syspanel/users/templates/users/_update.html:7
 #: dashboards/syspanel/users/templates/users/_update.html:22
 #: dashboards/syspanel/users/templates/users/update.html:7
 msgid "Update User"
-msgstr ""
+msgstr "Изменить пользователя"
 
 #: dashboards/syspanel/users/templates/users/_update.html:17
 msgid ""
 "From here you can edit the user's details, including their default project."
-msgstr ""
+msgstr "Здесь вы можете изменить данные пользователя, включая проект по умолчанию."
 
 #: tables/actions.py:338
 msgid "Filter"
-msgstr ""
+msgstr "Фильтер"
 
 #: tables/actions.py:468
 #, python-format
@@ -3283,188 +3275,185 @@ msgstr ""
 
 #: tables/actions.py:502
 msgid "N/A"
-msgstr ""
+msgstr "Недоступен"
 
-#: tables/actions.py:530
+#: tables/actions.py:526
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
-msgstr ""
+msgstr "У вас нет прав для %(action)s: %(objs)s"
 
-#: tables/actions.py:536
+#: tables/actions.py:532
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr ""
+msgstr "Невозможно %(action)s: %(objs)s"
 
-#: tables/actions.py:542
+#: tables/actions.py:538
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:552
+#: tables/actions.py:548
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
-#: tables/actions.py:553
+#: tables/actions.py:549
 msgid "Deleted"
-msgstr ""
+msgstr "Удален"
 
 #: tables/base.py:266
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr ""
+msgstr "Атрибут %(attr)s не существует для %(obj)s."
 
 #: tables/base.py:727
 msgid "No items to display."
-msgstr ""
+msgstr "Нет записей для отображения"
 
 #: tables/base.py:830
 msgid "Actions"
-msgstr ""
+msgstr "Действия"
 
 #: tables/base.py:1008
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr ""
+msgstr "Нет записей для id \"%s\"."
 
 #: tables/base.py:1138
 msgid "Please select a row before taking that action."
-msgstr ""
+msgstr "Пожалуйста выберите строку прежде чем выполнять это действие."
 
 #: templates/_header.html:3
 msgid "Logged in as"
-msgstr ""
+msgstr "Вошел как"
 
 #: templates/_header.html:6
 msgid "Help"
-msgstr ""
+msgstr "Помощь"
 
 #: templates/_header.html:8
 msgid "Sign Out"
-msgstr ""
+msgstr "Выйти"
 
 #: templates/base.html:20
 msgid "Caution"
-msgstr ""
+msgstr "Внимание"
 
 #: templates/base.html:21
 msgid "You are acting as an admin user in the project dashboard."
-msgstr ""
+msgstr "Вы действуте от учетной записи с правами администратора в панели проекта."
 
 #: templates/base.html:23
 msgid "Learn More"
-msgstr ""
+msgstr "Дополнительная информация"
 
 #: templates/splash.html:7 templates/auth/login.html:4
 msgid "Login"
-msgstr ""
+msgstr "Войти"
 
 #: templates/auth/_login.html:4
 msgid "Log In"
-msgstr ""
+msgstr "Войти"
 
 #: templates/auth/_login.html:17
 msgid "Sign In"
-msgstr ""
+msgstr "Войти"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
-msgstr ""
+msgstr "Информация:"
 
 #: templates/horizon/_messages.html:13
 msgid "Warning: "
-msgstr ""
+msgstr "Предупреждение: "
 
 #: templates/horizon/_messages.html:19
 msgid "Success: "
-msgstr ""
+msgstr "Успешно: "
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
-msgstr ""
+msgstr "Ошибка: "
 
 #: templates/horizon/common/_data_table.html:44
 msgid "Summary"
-msgstr ""
+msgstr "Отчет"
 
 #: templates/horizon/common/_data_table.html:53
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Показана записи %(counter)s"
+msgstr[1] "Показаны записи %(counter)s"
 
 #: templates/horizon/common/_quota_summary.html:4
 msgid "Quota Summary"
-msgstr ""
+msgstr "Сводка квот"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
 #: templates/horizon/common/_quota_summary.html:11
 msgid "Used"
-msgstr ""
+msgstr "Использовано"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
 #: templates/horizon/common/_quota_summary.html:11
 msgid "of"
-msgstr ""
+msgstr "из"
 
 #: templates/horizon/common/_quota_summary.html:5
 msgid "Available Instances"
-msgstr ""
+msgstr "Доступные ресурсы"
 
 #: templates/horizon/common/_quota_summary.html:8
 msgid "Available vCPUs"
-msgstr ""
+msgstr "Доступные ЦПУ"
 
 #: templates/horizon/common/_quota_summary.html:11
 msgid "Available RAM"
-msgstr ""
+msgstr "Доступная ОЗУ"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Показана запись %(nav_items)s"
+msgstr[1] "Показаны записи %(nav_items)s"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Показана запись %(content_items)s"
+msgstr[1] "Показана записи %(content_items)s"
 
 #: templates/horizon/common/_sidebar.html:14
 msgid "Current Project"
-msgstr ""
+msgstr "Текущий проект"
 
 #: templates/horizon/common/_usage_summary.html:5
 msgid "Select a month to query its usage"
-msgstr ""
+msgstr "Выберите месяц для получения статистики"
 
 #: templates/horizon/common/_usage_summary.html:9
 msgid "Submit"
-msgstr ""
+msgstr "Отправить"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
-msgstr ""
+msgstr "Активные ресурсы"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Active RAM"
-msgstr ""
+msgstr "Активная ОЗУ"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
-msgstr ""
+msgstr "В этом месяе ЦПУ-часов"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "This Month's GB-Hours"
-msgstr ""
+msgstr "Этим месяцем Гб-часов"
 
 #: templatetags/branding.py:35
 msgid "Horizon"
@@ -3472,19 +3461,18 @@ msgstr ""
 
 #: templatetags/horizon.py:108
 msgid "No Limit"
-msgstr ""
+msgstr "Без предела"
 
 #: templatetags/horizon.py:110 templatetags/horizon.py:112
 msgid "Available"
-msgstr ""
+msgstr "Доступно"
 
 #: templatetags/sizeformat.py:45
 #, python-format
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(size)d байт"
+msgstr[1] "%(size)d байт"
 
 #: templatetags/sizeformat.py:49
 #, python-format
@@ -3492,48 +3480,47 @@ msgid "%(size)d"
 msgid_plural "%(size)d"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 #: templatetags/sizeformat.py:52
 #, python-format
 msgid "%s KB"
-msgstr ""
+msgstr "Кб"
 
 #: templatetags/sizeformat.py:55
 #, python-format
 msgid "%s MB"
-msgstr ""
+msgstr "Мб"
 
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
-msgstr ""
+msgstr "Гб"
 
 #: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s TB"
-msgstr ""
+msgstr "Тб"
 
 #: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s PB"
-msgstr ""
+msgstr "Пб"
 
 #: tests/base_tests.py:43
 msgid "My Dashboard"
-msgstr ""
+msgstr "Моя панель"
 
 #: tests/base_tests.py:49
 msgid "My Panel"
-msgstr ""
+msgstr "Моя панель"
 
 #: tests/base_tests.py:56
 msgid "Admin Panel"
-msgstr ""
+msgstr "Панель администратора"
 
 #: tests/message_tests.py:30
 msgid "Giant ants are attacking San Francisco!"
-msgstr ""
+msgstr "Гигантские муравьи атакую Сан Франциско!"
 
 #: tests/table_tests.py:106
 msgid "Batch"
@@ -3545,19 +3532,19 @@ msgstr ""
 
 #: tests/table_tests.py:108 tests/table_tests.py:119
 msgid "Item"
-msgstr ""
+msgstr "Запись"
 
 #: tests/table_tests.py:109 tests/table_tests.py:120
 msgid "Items"
-msgstr ""
+msgstr "Записи"
 
 #: tests/table_tests.py:117
 msgid "Down"
-msgstr ""
+msgstr "Вниз"
 
 #: tests/table_tests.py:117
 msgid "Up"
-msgstr ""
+msgstr "Вверх"
 
 #: tests/table_tests.py:118
 msgid "Downed"
@@ -3589,7 +3576,7 @@ msgstr ""
 
 #: tests/tabs_tests.py:76
 msgid "Tab With My Table"
-msgstr ""
+msgstr "Вкладка с моей таблицей"
 
 #: tests/tabs_tests.py:85
 msgid "Recoverable Error Tab"
@@ -3597,19 +3584,19 @@ msgstr ""
 
 #: tests/testsettings.py:118
 msgid "Password must be between 8 and 18 characters."
-msgstr ""
+msgstr "Длина пароля должна быть между 8 и 18 символами."
 
 #: tests/workflows_tests.py:43
 msgid "Test Action One"
-msgstr ""
+msgstr "Проверить первой действие"
 
 #: tests/workflows_tests.py:61
 msgid "Test Action Two"
-msgstr ""
+msgstr "Проверить второе действие"
 
 #: tests/workflows_tests.py:69
 msgid "Test Action Three"
-msgstr ""
+msgstr "Проверить третье действие"
 
 #: tests/workflows_tests.py:77
 msgid "Admin Action"
@@ -3651,7 +3638,7 @@ msgstr ""
 
 #: usage/base.py:96
 msgid "Unable to retrieve usage information."
-msgstr ""
+msgstr "Ошибка получения статистики использования"
 
 #: usage/base.py:99
 msgid "You are viewing data for the future, which may or may not exist."
@@ -3659,19 +3646,19 @@ msgstr ""
 
 #: usage/tables.py:11
 msgid "Download CSV Summary"
-msgstr ""
+msgstr "Скачать отчет в CSV"
 
 #: usage/tables.py:25
 msgid "VCPU Hours"
-msgstr ""
+msgstr "ЦПУ-часов"
 
 #: usage/tables.py:32
 msgid "Disk GB Hours"
-msgstr ""
+msgstr "Гб-часов (диск)"
 
 #: usage/tables.py:40 usage/tables.py:68
 msgid "Usage Summary"
-msgstr ""
+msgstr "Статистика использования"
 
 #: usage/tables.py:60
 msgid "Uptime"
@@ -3679,30 +3666,30 @@ msgstr ""
 
 #: utils/fields.py:46
 msgid "Incorrect format for IP address"
-msgstr ""
+msgstr "Неверный формат IP адреса"
 
 #: utils/fields.py:47
 msgid "Invalid version for IP address"
-msgstr ""
+msgstr "Неверный формат IP адреса"
 
 #: utils/fields.py:48
 msgid "Invalid subnet mask"
-msgstr ""
+msgstr "Неверная маска подсети"
 
 #: utils/validators.py:35
 msgid "Password is not accepted"
-msgstr ""
+msgstr "Неверный пароль"
 
 #: workflows/base.py:70
 msgid "Processing..."
-msgstr ""
+msgstr "Обработка..."
 
 #: workflows/base.py:539
 #, python-format
 msgid "%s completed successfully."
-msgstr ""
+msgstr "%s успешно выполнен."
 
 #: workflows/base.py:540
 #, python-format
 msgid "%s did not complete."
-msgstr ""
+msgstr "%s не завершен."
