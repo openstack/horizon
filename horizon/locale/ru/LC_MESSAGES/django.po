@@ -3548,35 +3548,35 @@ msgstr "Вверх"
 
 #: tests/table_tests.py:118
 msgid "Downed"
-msgstr "Внизу"
+msgstr ""
 
 #: tests/table_tests.py:118
 msgid "Upped"
-msgstr "Вверху"
+msgstr ""
 
 #: tests/table_tests.py:185
 msgid "No Actions Table"
-msgstr "Таблица без действий"
+msgstr ""
 
 #: tests/tabs_tests.py:36
 msgid "Tab One"
-msgstr "Вкладка один"
+msgstr ""
 
 #: tests/tabs_tests.py:42
 msgid "Delayed Tab"
-msgstr "Отложенная вкладка"
+msgstr ""
 
 #: tests/tabs_tests.py:49
 msgid "Disabled Tab"
-msgstr "Отключенная вкладка"
+msgstr ""
 
 #: tests/tabs_tests.py:58
 msgid "Disallowed Tab"
-msgstr "Запрещенная вкладка"
+msgstr ""
 
 #: tests/tabs_tests.py:76
 msgid "Tab With My Table"
-msgstr "Вкладка в моей таблице"
+msgstr "Вкладка с моей таблицей"
 
 #: tests/tabs_tests.py:85
 msgid "Recoverable Error Tab"
@@ -3584,19 +3584,19 @@ msgstr ""
 
 #: tests/testsettings.py:118
 msgid "Password must be between 8 and 18 characters."
-msgstr ""
+msgstr "Длина пароля должна быть между 8 и 18 символами."
 
 #: tests/workflows_tests.py:43
 msgid "Test Action One"
-msgstr ""
+msgstr "Проверить первой действие"
 
 #: tests/workflows_tests.py:61
 msgid "Test Action Two"
-msgstr ""
+msgstr "Проверить второе действие"
 
 #: tests/workflows_tests.py:69
 msgid "Test Action Three"
-msgstr ""
+msgstr "Проверить третье действие"
 
 #: tests/workflows_tests.py:77
 msgid "Admin Action"
@@ -3638,7 +3638,7 @@ msgstr ""
 
 #: usage/base.py:96
 msgid "Unable to retrieve usage information."
-msgstr ""
+msgstr "Ошибка получения статистики использования"
 
 #: usage/base.py:99
 msgid "You are viewing data for the future, which may or may not exist."
@@ -3646,19 +3646,19 @@ msgstr ""
 
 #: usage/tables.py:11
 msgid "Download CSV Summary"
-msgstr ""
+msgstr "Скачать отчет в CSV"
 
 #: usage/tables.py:25
 msgid "VCPU Hours"
-msgstr ""
+msgstr "ЦПУ-часов"
 
 #: usage/tables.py:32
 msgid "Disk GB Hours"
-msgstr ""
+msgstr "Гб-часов (диск)"
 
 #: usage/tables.py:40 usage/tables.py:68
 msgid "Usage Summary"
-msgstr ""
+msgstr "Статистика использования"
 
 #: usage/tables.py:60
 msgid "Uptime"
@@ -3666,30 +3666,30 @@ msgstr ""
 
 #: utils/fields.py:46
 msgid "Incorrect format for IP address"
-msgstr ""
+msgstr "Неверный формат IP адреса"
 
 #: utils/fields.py:47
 msgid "Invalid version for IP address"
-msgstr ""
+msgstr "Неверный формат IP адреса"
 
 #: utils/fields.py:48
 msgid "Invalid subnet mask"
-msgstr ""
+msgstr "Неверная маска подсети"
 
 #: utils/validators.py:35
 msgid "Password is not accepted"
-msgstr ""
+msgstr "Неверный пароль"
 
 #: workflows/base.py:70
 msgid "Processing..."
-msgstr ""
+msgstr "Обработка..."
 
 #: workflows/base.py:539
 #, python-format
 msgid "%s completed successfully."
-msgstr ""
+msgstr "%s успешно выполнен."
 
 #: workflows/base.py:540
 #, python-format
 msgid "%s did not complete."
-msgstr ""
+msgstr "%s не завершен."
