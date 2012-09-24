@@ -1321,12 +1321,12 @@ msgstr "Восстановлен"
 #: dashboards/nova/instances/templates/instances/launch.html:3
 #: dashboards/nova/instances/templates/instances/launch.html:6
 msgid "Launch Instance"
-msgstr "Запустить ресурс"
+msgstr "Запустить"
 
 #: dashboards/nova/instances/tables.py:169
 #: dashboards/nova/instances/templates/instances/_update.html:7
 msgid "Edit Instance"
-msgstr "Редактировать ресурс"
+msgstr "Редактировать"
 
 #: dashboards/nova/instances/tables.py:189
 msgid "VNC Console"
