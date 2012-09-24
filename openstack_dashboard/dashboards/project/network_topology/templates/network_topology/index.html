@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Network Topology" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Network Topology") %}
+{% endblock page_header %}
+
+{% block main %}
+<style>
+/* TODO(nati): The following styles are not work with compress, so put it here tempolary */
+div.network .router:hover div.port,
+div.network .server:hover div.port,
+div.network .device:hover div.port {
+      background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(0, 0, 0, 0.25)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(0, 0, 0, 0.25)), color-stop(0.75, rgba(0, 0, 0, 0.25)), color-stop(0.75, transparent), to(transparent));
+      background-image: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, 0.25) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 75%, transparent);
+      background-image: -moz-linear-gradient(-45deg, rgba(0, 0, 0, 0.25) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 75%, transparent);
+      background-image: -o-linear-gradient(-45deg, rgba(0, 0, 0, 0.25) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 75%, transparent);
+      background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0.25) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 75%, transparent);
+}
+</style>
+<noscript>
+{%trans "This pane needs javascript support." %}
+</noscript>
+<div class="launchButtons">
+<a href="{% url horizon:project:instances:launch %}" id="instances__action_launch" class="btn btn-small btn-launch ajax-modal">{%trans "Launch Instance" %}</a>
+<a href="{% url horizon:project:networks:create %}" id="networks__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Network" %}</a>
+<a href="{% url horizon:project:routers:create %}" id="Routers__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Router" %}</a>
+</div>
+
+<div id="topologyCanvas">
+    <div class="networks"></div>
+</div>
+<span data-networktopology="{% url horizon:project:network_topology:json %}" id="networktopology"></span>
+{% endblock %}

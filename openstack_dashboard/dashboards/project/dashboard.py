@@ -28,7 +28,8 @@ class BasePanels(horizon.PanelGroup):
               'images_and_snapshots',
               'access_and_security',
               'networks',
-              'routers')
+              'routers',
+              'network_topology')
 
 
 class ObjectStorePanels(horizon.PanelGroup):
