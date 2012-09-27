@@ -1,267 +1,253 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations of Dashboard for OpenStack User Interface.
+# Copyright 2011 Midokura KK
+# This file is distributed under the same license as the Dashboard for OpenStack.
+# FIRST AUTHOR Jeffrey Wilcox, 2011.
+# Lion <11315889@qq.com>, 2012.
 #
-# Translators:
-#   <daisy.ycguo@gmail.com>, 2012.
-# QunShi Zhang <zhang.kris@gmail.com>, 2012.
-# yuanke wei <weiyuanke123@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-18 22:17+0000\n"
-"PO-Revision-Date: 2012-09-12 02:05+0000\n"
-"Last-Translator: QunShi Zhang <zhang.kris@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: zh_CN\n"
+"POT-Creation-Date: 2012-05-29 11:47-0700\n"
+"PO-Revision-Date: 2012-09-27 13:47+0800\n"
+"Last-Translator: Shawn Liang <11315889@qq.com>\n"
+"Language-Team: 汉语 <11315889@qq.com>\n"
+"Language: Simplified Chinese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.3\n"
 
-#: base.py:437
+#: base.py:449
 msgid "Other"
 msgstr "其他"
 
 #: decorators.py:56
 msgid "Please log in to continue."
-msgstr "请登陆后继续"
+msgstr "请登录先。"
 
-#: decorators.py:87
+#: decorators.py:89
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "您没有权限访问%s"
+msgstr "您无权访问 %s"
 
-#: exceptions.py:285
+#: decorators.py:130
+msgid "The services for this view are not available."
+msgstr "该视图的服务不可用。"
+
+#: exceptions.py:239
 msgid "Unauthorized. Please try logging in again."
-msgstr "认证失败。请重新登陆。"
+msgstr "未授权。请尝试重新登录。"
 
-#: api/keystone.py:55
+#: users.py:63
+msgid "Your session has expired. Please log in again."
+msgstr "会话已过期。请重新登录。"
+
+#: api/keystone.py:53
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
-msgstr "%(type)s (%(backend)s 后端)"
+msgstr "%(type)s (%(backend)s 后台)"
 
-#: api/nova.py:189
+#: api/nova.py:185
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr "允许 %(from)s:%(to)s 来自 %(group)s"
+msgstr "允许 %(from)s：%(to)s 从 %(group)s"
 
-#: api/nova.py:194
+#: api/nova.py:190
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr "允许 %(from)s:%(to)s 来自 %(cidr)s"
+msgstr "允许 %(from)s：%(to)s 从 %(cidr)s"
 
-#: api/nova.py:530
-msgid "Unknown instance"
-msgstr "未知的实例名"
-
-#: api/swift.py:216
+#: api/swift.py:114
 msgid "Unicode is not currently supported for object copy."
-msgstr "块复制时，暂时不支持Unicode"
-
-#: browsers/base.py:90
-msgid "Navigation Item"
-msgstr ""
-
-#: browsers/views.py:42
-#, python-format
-msgid "Select a %s to browse."
-msgstr "选择一个%s 浏览"
+msgstr "对象拷贝目前不支持Unicode"
 
 #: dashboards/nova/dashboard.py:24
 msgid "Manage Compute"
-msgstr "管理计算"
+msgstr "管理计算节点"
 
-#: dashboards/nova/dashboard.py:35
+#: dashboards/nova/dashboard.py:33
 msgid "Object Store"
-msgstr "块存储"
+msgstr "对象仓库"
 
-#: dashboards/nova/dashboard.py:40 dashboards/nova/instances/workflows.py:37
-#: dashboards/syspanel/networks/forms.py:35
-#: dashboards/syspanel/networks/tables.py:67
-#: dashboards/syspanel/projects/tables.py:65 tests/workflows_tests.py:39
+#: dashboards/nova/dashboard.py:38
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:33
+#: dashboards/syspanel/projects/tables.py:51
+#: templates/horizon/common/_sidebar.html:11
+#: tests/workflows_tests.py:39
 msgid "Project"
-msgstr "工程"
+msgstr "项目"
 
 #: dashboards/nova/access_and_security/panel.py:25
-#: dashboards/nova/instances/workflows.py:347
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:311
 msgid "Access & Security"
-msgstr "访问 & 安全"
+msgstr "访问与安全"
 
-#: dashboards/nova/access_and_security/views.py:50
+#: dashboards/nova/access_and_security/views.py:52
 msgid "Unable to retrieve keypair list."
-msgstr "找不到密钥对列表。"
+msgstr "无法获取密钥对列表"
 
-#: dashboards/nova/access_and_security/views.py:59
-#: dashboards/nova/access_and_security/security_groups/views.py:72
-msgid "Unable to retrieve security groups."
-msgstr "找不到安全组"
-
-#: dashboards/nova/access_and_security/views.py:68
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:48
-msgid "Unable to retrieve floating IP addresses."
-msgstr "找不到浮动IP。"
-
-#: dashboards/nova/access_and_security/views.py:75
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:64
-#: dashboards/syspanel/instances/views.py:46
-msgid "Unable to retrieve instance list."
-msgstr "找不到实例列表"
-
-#: dashboards/nova/access_and_security/floating_ips/forms.py:31
-msgid "Pool"
-msgstr "资源池"
-
-#: dashboards/nova/access_and_security/floating_ips/forms.py:42
+#: dashboards/nova/access_and_security/views.py:62
 #, python-format
-msgid "Allocated Floating IP %(ip)s."
-msgstr "分配到的浮动IP %(ip)s。"
+msgid "Error fetching security_groups: %s"
+msgstr "获取防火墙出错：%s"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:46
-msgid "Unable to allocate Floating IP."
-msgstr "无法分配浮动IP。"
+#: dashboards/nova/access_and_security/views.py:72
+#, python-format
+msgid "Error fetching floating ips: %s"
+msgstr "获取公网IP出错：%s"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:36
+#: dashboards/nova/access_and_security/views.py:79
+#: dashboards/nova/access_and_security/floating_ips/views.py:60
+#: dashboards/syspanel/instances/views.py:58
+msgid "Unable to retrieve instance list."
+msgstr "无法获取云主机列表"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:38
+#: dashboards/nova/access_and_security/floating_ips/tables.py:47
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:22
+msgid "Floating IP"
+msgstr "公网IP"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:41
+#: dashboards/nova/images_and_snapshots/snapshots/forms.py:38
+msgid "Instance ID"
+msgstr "云主机ID"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:47
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:73
+msgid "Select an instance"
+msgstr "选择一个云主机"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:49
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:75
+msgid "No instances available"
+msgstr "无可用云主机"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:52
+#: dashboards/nova/access_and_security/floating_ips/tables.py:112
+#: dashboards/nova/instances_and_volumes/instances/tables.py:58
+#: dashboards/nova/instances_and_volumes/instances/tables.py:75
+#: dashboards/nova/instances_and_volumes/instances/tables.py:90
+#: dashboards/nova/instances_and_volumes/instances/tables.py:118
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:158
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:41
+#: tests/workflows_tests.py:58
+msgid "Instance"
+msgstr "云主机"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:63
+#, python-format
+msgid "Successfully associated Floating IP %(ip)s with Instance: %(inst)s"
+msgstr "成功关联公网IP %(ip)s 到云主机: %(inst)s"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:69
+#: dashboards/nova/access_and_security/floating_ips/views.py:51
+msgid "Unable to associate floating IP."
+msgstr "无法关联公网IP。"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:75
+msgid "Pool"
+msgstr "地址池"
+
+#: dashboards/nova/access_and_security/floating_ips/forms.py:90
+#, python-format
+msgid "Successfully allocated Floating IP \"%(ip)s\" to project \"%(project)s\""
+msgstr "成功分配公网IP \"%(ip)s\" 到项目 \"%(project)s\""
+
+#: dashboards/nova/access_and_security/floating_ips/tables.py:35
 msgid "Allocate IP To Project"
-msgstr "分配IP给项目"
+msgstr "为项目分配IP"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:46
+#: dashboards/nova/access_and_security/floating_ips/tables.py:45
 msgid "Release"
 msgstr "释放"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:47
+#: dashboards/nova/access_and_security/floating_ips/tables.py:46
 msgid "Released"
-msgstr "已释放"
+msgstr "释放"
 
 #: dashboards/nova/access_and_security/floating_ips/tables.py:48
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:22
-msgid "Floating IP"
-msgstr "浮动IP"
-
-#: dashboards/nova/access_and_security/floating_ips/tables.py:49
-#: dashboards/nova/access_and_security/floating_ips/tables.py:127
-#: dashboards/syspanel/projects/workflows.py:45
+#: dashboards/nova/access_and_security/floating_ips/tables.py:126
+#: dashboards/syspanel/projects/forms.py:119
 msgid "Floating IPs"
-msgstr "浮动IP"
+msgstr "公网IP"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:58
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/associate.html:3
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/associate.html:6
-#: dashboards/nova/instances/tables.py:219
-msgid "Associate Floating IP"
-msgstr "绑定浮动IP"
+#: dashboards/nova/access_and_security/floating_ips/tables.py:57
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_associate.html:22
+msgid "Associate IP"
+msgstr "关联IP"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:75
-msgid "Disassociate Floating IP"
-msgstr "解除浮动IP的绑定"
+#: dashboards/nova/access_and_security/floating_ips/tables.py:69
+msgid "Disassociate IP"
+msgstr "分离IP"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:89
+#: dashboards/nova/access_and_security/floating_ips/tables.py:83
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
-msgstr "浮动IP解除绑定成功: %s"
+msgstr "成功分离公网IP：%s"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:93
+#: dashboards/nova/access_and_security/floating_ips/tables.py:87
 msgid "Unable to disassociate floating IP."
-msgstr "无法将浮动IP解除绑定"
+msgstr "无法分离公网IP"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:110
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:31
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:38
-#: dashboards/nova/instances/tables.py:291
-#: dashboards/syspanel/instances/tables.py:71
+#: dashboards/nova/access_and_security/floating_ips/tables.py:92
+#, python-format
+msgid "%(INSTANCE_NAME)s (%(INSTANCE_ID)s)"
+msgstr "%(INSTANCE_NAME)s (%(INSTANCE_ID)s)"
+
+#: dashboards/nova/access_and_security/floating_ips/tables.py:97
+#: dashboards/nova/instances_and_volumes/instances/tables.py:218
+msgid "Not available"
+msgstr "无法使用"
+
+#: dashboards/nova/access_and_security/floating_ips/tables.py:109
+#: dashboards/nova/instances_and_volumes/instances/tables.py:242
+#: dashboards/syspanel/instances/tables.py:74
 msgid "IP Address"
 msgstr "IP地址"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:113
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:35
-#: dashboards/nova/instances/tables.py:69
-#: dashboards/nova/instances/tables.py:89
-#: dashboards/nova/instances/tables.py:106
-#: dashboards/nova/instances/tables.py:135
-#: dashboards/nova/volumes/tables.py:205 tests/workflows_tests.py:58
-msgid "Instance"
-msgstr "实例"
-
-#: dashboards/nova/access_and_security/floating_ips/tables.py:116
+#: dashboards/nova/access_and_security/floating_ips/tables.py:115
 msgid "Floating IP Pool"
-msgstr "浮动IP池"
+msgstr "公网IP池"
 
-#: dashboards/nova/access_and_security/floating_ips/views.py:64
-msgid "Unable to retrieve floating IP pools."
-msgstr "找不到浮动IP池"
-
-#: dashboards/nova/access_and_security/floating_ips/views.py:67
+#: dashboards/nova/access_and_security/floating_ips/views.py:100
 msgid "No floating IP pools available."
-msgstr "没有可用的浮动IP池"
-
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:39
-msgid "Select the IP address you wish to associate with the selected instance."
-msgstr "请为选中的实例选择要绑定的IP地址"
-
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:52
-msgid "Select an IP address"
-msgstr "选择一个IP地址"
-
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:54
-msgid "No IP addresses available"
-msgstr "无效的IP地址"
-
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:75
-#: dashboards/nova/volumes/forms.py:160
-msgid "Select an instance"
-msgstr "请选择一个实例"
-
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:77
-#: dashboards/nova/volumes/forms.py:162
-msgid "No instances available"
-msgstr "无效的实例"
-
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:96
-msgid "Manage Floating IP Associations"
-msgstr ""
-
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:97
-msgid "Associate"
-msgstr ""
-
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:98
-#, python-format
-msgid "IP address %s associated."
-msgstr "IP地址 %s 已经被管理"
-
-#: dashboards/nova/access_and_security/floating_ips/workflows.py:99
-#, python-format
-msgid "Unable to associate IP address %s."
-msgstr ""
+msgstr "无有效的公网IP池"
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:38
-#: dashboards/nova/access_and_security/keypairs/forms.py:49
+#: dashboards/nova/access_and_security/keypairs/forms.py:57
 #: dashboards/nova/access_and_security/keypairs/tables.py:51
 msgid "Keypair Name"
-msgstr "密钥对名字"
+msgstr "密钥对名称"
 
 #: dashboards/nova/access_and_security/keypairs/forms.py:40
-msgid ""
-"Keypair names may only contain letters, numbers, underscores and hyphens."
-msgstr "密钥对名称只能包含字母，数字，下划线和连字符。"
+msgid "Keypair names may only contain letters, numbers, underscores and hyphens."
+msgstr "密钥名称只能包含字母，数字，下划线和连字符"
 
-#: dashboards/nova/access_and_security/keypairs/forms.py:51
+#: dashboards/nova/access_and_security/keypairs/forms.py:52
+#, python-format
+msgid "Error Creating Keypair: %s"
+msgstr "创建密钥对出错：%s"
+
+#: dashboards/nova/access_and_security/keypairs/forms.py:59
 msgid "Public Key"
 msgstr "公钥"
 
-#: dashboards/nova/access_and_security/keypairs/forms.py:60
+#: dashboards/nova/access_and_security/keypairs/forms.py:65
 #, python-format
 msgid "Successfully imported public key: %s"
 msgstr "成功导入公钥：%s"
 
-#: dashboards/nova/access_and_security/keypairs/forms.py:65
-msgid "Unable to import keypair."
-msgstr "无法导入密钥对。"
+#: dashboards/nova/access_and_security/keypairs/forms.py:72
+#, python-format
+msgid "Error Importing Keypair: %s"
+msgstr "导入密钥对出错：%s"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:29
-#: dashboards/nova/instances/tables.py:295
-#: dashboards/nova/instances/workflows.py:334
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:299
 msgid "Keypair"
 msgstr "密钥对"
 
@@ -271,16 +257,16 @@ msgid "Keypairs"
 msgstr "密钥对"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:38
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:7
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:23
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/import.html:6
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:7
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:23
+#: dashboards/nova/templates/nova/access_and_security/keypairs/import.html:6
 msgid "Import Keypair"
 msgstr "导入密钥对"
 
 #: dashboards/nova/access_and_security/keypairs/tables.py:45
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:7
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:23
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/create.html:6
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:7
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:23
+#: dashboards/nova/templates/nova/access_and_security/keypairs/create.html:6
 msgid "Create Keypair"
 msgstr "创建密钥对"
 
@@ -288,213 +274,128 @@ msgstr "创建密钥对"
 msgid "Fingerprint"
 msgstr "指纹"
 
-#: dashboards/nova/access_and_security/keypairs/views.py:73
+#: dashboards/nova/access_and_security/keypairs/views.py:64
 #, python-format
 msgid "Unable to create keypair: %(exc)s"
 msgstr "无法创建密钥对：%(exc)s"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:35
+#: dashboards/nova/access_and_security/security_groups/forms.py:41
 #: dashboards/nova/access_and_security/security_groups/tables.py:57
-#: dashboards/nova/images_and_snapshots/images/forms.py:39
-#: dashboards/nova/images_and_snapshots/images/forms.py:114
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:9
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:10
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:76
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:9
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:9
-#: dashboards/nova/networks/forms.py:36 dashboards/nova/networks/tables.py:93
-#: dashboards/nova/networks/ports/tables.py:40
-#: dashboards/nova/networks/subnets/forms.py:42
-#: dashboards/nova/networks/subnets/forms.py:101
-#: dashboards/nova/networks/subnets/tables.py:81
-#: dashboards/nova/networks/templates/networks/_detail_overview.html:7
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:9
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:9
-#: dashboards/nova/volumes/tables.py:143 dashboards/nova/volumes/tables.py:163
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:9
-#: dashboards/syspanel/flavors/forms.py:35
-#: dashboards/syspanel/networks/forms.py:33
-#: dashboards/syspanel/networks/forms.py:68
-#: dashboards/syspanel/networks/ports/forms.py:39
-#: dashboards/syspanel/networks/ports/forms.py:71
-#: dashboards/syspanel/networks/ports/tables.py:73
-#: dashboards/syspanel/networks/subnets/tables.py:69
-#: dashboards/syspanel/projects/tables.py:87
-#: dashboards/syspanel/projects/workflows.py:69
+#: dashboards/nova/images_and_snapshots/images/forms.py:43
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:110
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:127
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:9
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:9
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:9
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:9
+#: dashboards/syspanel/flavors/forms.py:37
+#: dashboards/syspanel/projects/forms.py:60
+#: dashboards/syspanel/projects/forms.py:85
+#: dashboards/syspanel/projects/tables.py:74
 #: dashboards/syspanel/services/tables.py:38
-#: dashboards/syspanel/volumes/tables.py:10
 msgid "Name"
 msgstr "名称"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:37
-#: dashboards/nova/access_and_security/security_groups/tables.py:58
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:16
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:16
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_create.html:17
-#: dashboards/nova/containers/templates/containers/_copy.html:16
-#: dashboards/nova/containers/templates/containers/_create.html:16
-#: dashboards/nova/containers/templates/containers/_upload.html:17
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:15
-#: dashboards/nova/networks/templates/networks/_create.html:16
-#: dashboards/nova/networks/templates/networks/subnets/_create.html:17
-#: dashboards/nova/volumes/forms.py:28 dashboards/nova/volumes/forms.py:195
-#: dashboards/nova/volumes/tables.py:146
-#: dashboards/nova/volumes/templates/volumes/_create.html:18
-#: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:17
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:14
-#: dashboards/syspanel/flavors/templates/flavors/_create.html:17
-#: dashboards/syspanel/flavors/templates/flavors/_edit.html:17
-#: dashboards/syspanel/images/templates/images/_update.html:17
-#: dashboards/syspanel/networks/templates/networks/_create.html:17
-#: dashboards/syspanel/networks/templates/networks/ports/_create.html:17
-#: dashboards/syspanel/networks/templates/networks/subnets/_create.html:17
-#: dashboards/syspanel/projects/tables.py:89
-#: dashboards/syspanel/projects/workflows.py:72
-#: dashboards/syspanel/projects/templates/projects/_add_user.html:17
-#: dashboards/syspanel/projects/templates/projects/_create.html:17
-#: dashboards/syspanel/projects/templates/projects/_create_user.html:17
-#: dashboards/syspanel/projects/templates/projects/_quotas.html:16
-#: dashboards/syspanel/projects/templates/projects/_update.html:17
-#: dashboards/syspanel/users/templates/users/_create.html:16
-#: dashboards/syspanel/users/templates/users/_update.html:16
 msgid "Description"
 msgstr "描述"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:45
-#, python-format
-msgid "Successfully created security group: %s"
-msgstr "安全组创建成功：%s"
-
 #: dashboards/nova/access_and_security/security_groups/forms.py:51
-msgid "Unable to create security group."
-msgstr "安全组创建失败"
+#, python-format
+msgid "Successfully created security_group: %s"
+msgstr "成功创建防火墙：%s"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:56
+#: dashboards/nova/access_and_security/security_groups/forms.py:54
+msgid "Unable to create security group."
+msgstr "无法创建防火墙。"
+
+#: dashboards/nova/access_and_security/security_groups/forms.py:59
 #: dashboards/nova/access_and_security/security_groups/tables.py:92
 msgid "IP Protocol"
 msgstr "IP协议"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:60
-msgid "The protocol which this rule should be applied to."
-msgstr ""
-
-#: dashboards/nova/access_and_security/security_groups/forms.py:64
-#: dashboards/nova/access_and_security/security_groups/forms.py:70
+#: dashboards/nova/access_and_security/security_groups/forms.py:65
+#: dashboards/nova/access_and_security/security_groups/forms.py:71
 #: dashboards/nova/access_and_security/security_groups/tables.py:94
 msgid "From Port"
 msgstr "从端口"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:65
-msgid ""
-"TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
-"ICMP type in the range (-1: 255)"
-msgstr ""
-"TCP/UDP: 输入在1和65535之间的整数值。ICMP: 输入一个在(-1, 255)范围内的值给"
-"ICMP type"
+#: dashboards/nova/access_and_security/security_groups/forms.py:66
+msgid "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for ICMP type in the range (-1: 255)"
+msgstr "TCP/UDP：输入介于1到65535之间的整数。ICMP：输入区间（-1:255）中值作为ICMP类型"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:71
-#: dashboards/nova/images_and_snapshots/images/tables.py:114
+#: dashboards/nova/access_and_security/security_groups/forms.py:72
+#: dashboards/nova/images_and_snapshots/images/tables.py:89
 msgid "Type"
 msgstr "类型"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:73
-#: dashboards/nova/access_and_security/security_groups/forms.py:79
+#: dashboards/nova/access_and_security/security_groups/forms.py:74
+#: dashboards/nova/access_and_security/security_groups/forms.py:80
 #: dashboards/nova/access_and_security/security_groups/tables.py:95
 msgid "To Port"
-msgstr "到端口"
+msgstr "至端口"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:74
-msgid ""
-"TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for "
-"ICMP code in the range (-1: 255)"
-msgstr ""
-"TCP/UDP: 输入在1和65535之间的整数值。ICMP: 输入一个在(-1, 255)范围内的值给"
-"ICMP code"
+#: dashboards/nova/access_and_security/security_groups/forms.py:75
+msgid "TCP/UDP: Enter integer value between 1 and 65535. ICMP: enter a value for ICMP code in the range (-1: 255)"
+msgstr "TCP/UDP：输入介于1到65535之间的整数。ICMP：输入区间（-1:255）中的值作为ICMP编码"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:80
+#: dashboards/nova/access_and_security/security_groups/forms.py:81
 msgid "Code"
 msgstr "编码"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:83
+#: dashboards/nova/access_and_security/security_groups/forms.py:84
 msgid "Source Group"
 msgstr "源组"
 
 #: dashboards/nova/access_and_security/security_groups/forms.py:85
-msgid ""
-"To specify an allowed IP range, select CIDR. To allow access from all "
-"members of another security group select Source Group."
-msgstr ""
-
-#: dashboards/nova/access_and_security/security_groups/forms.py:90
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:15
-#: dashboards/syspanel/networks/subnets/tables.py:71
 msgid "CIDR"
-msgstr "CIDR"
+msgstr "无类别域间路由"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:93
+#: dashboards/nova/access_and_security/security_groups/forms.py:88
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
-msgstr "无类别域间路由(e.g. 192.168.0.0/24)"
+msgstr "无类别域间路由(例如 192.168.0.0/24)"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:120
-msgid "The ICMP type is invalid."
-msgstr "无效的ICMP类型。"
-
-#: dashboards/nova/access_and_security/security_groups/forms.py:123
-msgid "The ICMP code is invalid."
-msgstr "无效的ICMP代码。"
-
-#: dashboards/nova/access_and_security/security_groups/forms.py:126
-msgid "The ICMP type not in range (-1, 255)"
-msgstr "ICMP类型不在(-1, 255)范围内"
-
-#: dashboards/nova/access_and_security/security_groups/forms.py:129
-msgid "The ICMP code not in range (-1, 255)"
-msgstr "ICMP 代码不在(-1, 255)范围内 "
-
-#: dashboards/nova/access_and_security/security_groups/forms.py:133
+#: dashboards/nova/access_and_security/security_groups/forms.py:115
 msgid "The \"from\" port number is invalid."
-msgstr "\"从\"端口号不合法"
+msgstr "\"from\"端口号无效。"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:136
+#: dashboards/nova/access_and_security/security_groups/forms.py:118
 msgid "The \"to\" port number is invalid."
-msgstr "\"到\"端口号不合法"
+msgstr "\"to\"端口号无效."
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:139
-msgid ""
-"The \"to\" port number must be greater than or equal to the \"from\" port "
-"number."
-msgstr "\"到\"端口号必须大于或者等于\"从\"端口号"
+#: dashboards/nova/access_and_security/security_groups/forms.py:121
+msgid "The \"to\" port number must be greater than or equal to the \"from\" port number."
+msgstr "\"to\" 端口号必须大于等于 \"from\" 端口号。"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:145
+#: dashboards/nova/access_and_security/security_groups/forms.py:127
 msgid "Either CIDR or Source Group may be specified, but not both."
-msgstr "可以指定CIDR或者源组，但不能同时使用"
+msgstr "必须指定 CIDR 或者授权源组，但不能全部指定"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:167
+#: dashboards/nova/access_and_security/security_groups/forms.py:148
 #, python-format
 msgid "Successfully added rule: %s"
-msgstr "规则添加成功：%s"
+msgstr "成功添加规则：%s"
 
-#: dashboards/nova/access_and_security/security_groups/forms.py:172
+#: dashboards/nova/access_and_security/security_groups/forms.py:152
 msgid "Unable to add rule to security group."
-msgstr "无法为安全组添加规则。"
+msgstr "无法创建防火墙。"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:30
 msgid "Security Group"
-msgstr "安全组"
+msgstr "防火墙"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:31
 #: dashboards/nova/access_and_security/security_groups/tables.py:65
-#: dashboards/nova/instances/workflows.py:339
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:49
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:303
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:47
 msgid "Security Groups"
-msgstr "安全组"
+msgstr "防火墙"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:44
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_create.html:7
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_create.html:23
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/create.html:6
+#: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:7
+#: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:23
+#: dashboards/nova/templates/nova/access_and_security/security_groups/create.html:6
 msgid "Create Security Group"
-msgstr "创建安全组"
+msgstr "创建防火墙"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:51
 msgid "Edit Rules"
@@ -514,535 +415,278 @@ msgstr "源"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:106
 msgid "Security Group Rules"
-msgstr "安全组规则"
+msgstr "防火墙规则"
 
-#: dashboards/nova/access_and_security/security_groups/views.py:58
+#: dashboards/nova/access_and_security/security_groups/views.py:55
 msgid "Unable to retrieve security group."
-msgstr "无法检索到安全组。"
+msgstr "无法获取防火墙"
 
-#: dashboards/nova/access_and_security/security_groups/views.py:78
-#, python-format
-msgid "%s (current)"
-msgstr ""
+#: dashboards/nova/access_and_security/security_groups/views.py:64
+msgid "Unable to retrieve security groups."
+msgstr "无法获取防火墙"
 
-#: dashboards/nova/access_and_security/templates/access_and_security/index.html:6
-msgid "Access &amp; Security"
-msgstr "访问 &amp; 安全"
-
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:8
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/allocate.html:3
-msgid "Allocate Floating IP"
-msgstr "分配浮动IP"
-
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:17
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:16
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_update.html:16
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:17
-#: dashboards/nova/instances/templates/instances/_update.html:16
-#: dashboards/nova/networks/templates/networks/_update.html:16
-#: dashboards/nova/networks/templates/networks/subnets/_update.html:25
-#: dashboards/settings/ec2/templates/ec2/download_form.html:17
-#: dashboards/settings/project/templates/project/_openrc.html:24
-#: dashboards/settings/user/templates/user/_settings.html:17
-#: dashboards/syspanel/networks/templates/networks/_update.html:16
-#: dashboards/syspanel/networks/templates/networks/ports/_update.html:21
-#: dashboards/syspanel/networks/templates/networks/subnets/_update.html:25
-msgid "Description:"
-msgstr "说明："
-
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
-msgid "Allocate a floating IP from a given floating ip pool."
-msgstr "从一个给定的浮动IP地址池分配一个浮动的IP。"
-
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:20
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:19
-msgid "Project Quotas"
-msgstr "项目配额"
-
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:31
-msgid "Allocate IP"
-msgstr "分配IP"
-
-#: dashboards/nova/access_and_security/templates/access_and_security/floating_ips/_allocate.html:32
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:24
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:24
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_create.html:24
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_edit_rules.html:20
-#: dashboards/nova/containers/templates/containers/_copy.html:23
-#: dashboards/nova/containers/templates/containers/_create.html:23
-#: dashboards/nova/containers/templates/containers/_upload.html:24
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:32
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_update.html:23
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:24
-#: dashboards/nova/instances/templates/instances/_update.html:23
-#: dashboards/nova/networks/templates/networks/_create.html:23
-#: dashboards/nova/networks/templates/networks/_update.html:23
-#: dashboards/nova/networks/templates/networks/subnets/_create.html:24
-#: dashboards/nova/networks/templates/networks/subnets/_update.html:32
-#: dashboards/nova/volumes/templates/volumes/_attach.html:24
-#: dashboards/nova/volumes/templates/volumes/_create.html:56
-#: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:24
-#: dashboards/settings/ec2/templates/ec2/download_form.html:24
-#: dashboards/settings/project/templates/project/_openrc.html:31
-#: dashboards/settings/user/templates/user/_settings.html:24
-#: dashboards/syspanel/flavors/templates/flavors/_create.html:24
-#: dashboards/syspanel/flavors/templates/flavors/_edit.html:25
-#: dashboards/syspanel/images/templates/images/_update.html:24
-#: dashboards/syspanel/networks/templates/networks/_create.html:24
-#: dashboards/syspanel/networks/templates/networks/_update.html:23
-#: dashboards/syspanel/networks/templates/networks/ports/_create.html:24
-#: dashboards/syspanel/networks/templates/networks/ports/_update.html:28
-#: dashboards/syspanel/networks/templates/networks/subnets/_create.html:24
-#: dashboards/syspanel/networks/templates/networks/subnets/_update.html:32
-#: dashboards/syspanel/projects/templates/projects/_add_user.html:24
-#: dashboards/syspanel/projects/templates/projects/_create.html:24
-#: dashboards/syspanel/projects/templates/projects/_create_user.html:24
-#: dashboards/syspanel/projects/templates/projects/_quotas.html:23
-#: dashboards/syspanel/projects/templates/projects/_update.html:24
-#: dashboards/syspanel/users/templates/users/_create.html:23
-#: dashboards/syspanel/users/templates/users/_update.html:23
-#: templates/horizon/common/_workflow.html:33
-msgid "Cancel"
-msgstr "取消"
-
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:17
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:17
-msgid ""
-"Keypairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_create.html:18
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/_import.html:18
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr ""
-
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/download.html:3
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/download.html:6
-msgid "Download Keypair"
-msgstr "下载密钥对"
-
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/download.html:11
-#, python-format
-msgid ""
-"The keypair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-
-#: dashboards/nova/access_and_security/templates/access_and_security/keypairs/download.html:15
-#, python-format
-msgid "Download keypair &quot;%(keypair_name)s&quot;"
-msgstr ""
-
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_create.html:18
-msgid "From here you can create a new security group"
-msgstr "点此创建新的安全组"
-
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_edit_rules.html:9
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/edit_rules.html:6
-msgid "Edit Security Group Rules"
-msgstr "编辑安全组的规则"
-
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_edit_rules.html:12
-#: dashboards/nova/access_and_security/templates/access_and_security/security_groups/_edit_rules.html:19
-msgid "Add Rule"
-msgstr "添加规则"
-
-#: dashboards/nova/containers/browsers.py:30
-msgid "Swift"
-msgstr "Swift"
-
-#: dashboards/nova/containers/browsers.py:33
-#: dashboards/nova/containers/tables.py:39
-msgid "Container"
-msgstr "容器"
-
-#: dashboards/nova/containers/forms.py:39
+#: dashboards/nova/containers/forms.py:38
 msgid "Slash is not an allowed character."
-msgstr "斜线是不允许的字符"
+msgstr "斜线不是合法字符"
 
-#: dashboards/nova/containers/forms.py:49
-#: dashboards/nova/containers/tables.py:120
+#: dashboards/nova/containers/forms.py:45
+#: dashboards/nova/containers/tables.py:88
 msgid "Container Name"
 msgstr "容器名称"
 
-#: dashboards/nova/containers/forms.py:57
+#: dashboards/nova/containers/forms.py:51
 msgid "Container created successfully."
-msgstr "容器创建成功。"
+msgstr "容器创建成功"
 
-#: dashboards/nova/containers/forms.py:68
-msgid "Folder created successfully."
-msgstr "目录创建成功"
-
-#: dashboards/nova/containers/forms.py:71
+#: dashboards/nova/containers/forms.py:53
 msgid "Unable to create container."
-msgstr "无法创建容器。"
+msgstr "无法创建容器"
 
-#: dashboards/nova/containers/forms.py:79
-#: dashboards/nova/containers/tables.py:252
+#: dashboards/nova/containers/forms.py:59
+#: dashboards/nova/containers/tables.py:155
 msgid "Object Name"
 msgstr "对象名称"
 
-#: dashboards/nova/containers/forms.py:81
+#: dashboards/nova/containers/forms.py:61
 msgid "File"
 msgstr "文件"
 
-#: dashboards/nova/containers/forms.py:95
+#: dashboards/nova/containers/forms.py:73
 msgid "Object was successfully uploaded."
-msgstr "对象上传成功。"
+msgstr "成功上传对象"
 
-#: dashboards/nova/containers/forms.py:98
+#: dashboards/nova/containers/forms.py:75
 msgid "Unable to upload object."
-msgstr "无法上传对象。"
+msgstr "无法上传对象"
 
-#: dashboards/nova/containers/forms.py:102
+#: dashboards/nova/containers/forms.py:81
 msgid "Destination container"
 msgstr "目标容器"
 
-#: dashboards/nova/containers/forms.py:106
+#: dashboards/nova/containers/forms.py:84
 msgid "Destination object name"
-msgstr "目标对象名称"
+msgstr "目标对象名"
 
-#: dashboards/nova/containers/forms.py:137
-#: dashboards/nova/containers/forms.py:163
+#: dashboards/nova/containers/forms.py:107
+#, python-format
+msgid "Object \"%(obj)s\" copied to container \"%(container)s\"."
+msgstr "拷贝对象 \"%(obj)s\" 到容器 \"%(container)s\"."
+
+#: dashboards/nova/containers/forms.py:115
 msgid "Unable to copy object."
 msgstr "无法拷贝对象。"
 
-#: dashboards/nova/containers/forms.py:153
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr ""
-
 #: dashboards/nova/containers/panel.py:28
-#: dashboards/nova/containers/tables.py:40
-#: dashboards/nova/containers/tables.py:127
-#: dashboards/nova/containers/templates/containers/index.html:7
+#: dashboards/nova/containers/tables.py:35
+#: dashboards/nova/containers/tables.py:99
+#: dashboards/nova/templates/nova/containers/index.html:8
 msgid "Containers"
 msgstr "容器"
 
-#: dashboards/nova/containers/tables.py:61
-#: dashboards/nova/containers/templates/containers/_create.html:7
-#: dashboards/nova/containers/templates/containers/_create.html:22
-#: dashboards/nova/containers/templates/containers/create.html:6
+#: dashboards/nova/containers/tables.py:34
+msgid "Container"
+msgstr "容器"
+
+#: dashboards/nova/containers/tables.py:42
+msgid "Containers must be empty before deletion."
+msgstr "删除前容器必须非空"
+
+#: dashboards/nova/containers/tables.py:48
+#: dashboards/nova/templates/nova/containers/_create.html:7
+#: dashboards/nova/templates/nova/containers/_create.html:22
+#: dashboards/nova/templates/nova/containers/create.html:6
 msgid "Create Container"
 msgstr "创建容器"
 
-#: dashboards/nova/containers/tables.py:68
-msgid "View Container"
-msgstr "查看容器"
+#: dashboards/nova/containers/tables.py:55
+msgid "List Objects"
+msgstr "列出对象"
 
-#: dashboards/nova/containers/tables.py:80
-#: dashboards/nova/containers/templates/containers/_upload.html:23
-#: dashboards/nova/containers/templates/containers/upload.html:3
+#: dashboards/nova/containers/tables.py:62
+#: dashboards/nova/templates/nova/objects/_upload.html:23
+#: dashboards/nova/templates/nova/objects/upload.html:3
 msgid "Upload Object"
 msgstr "上传对象"
 
-#: dashboards/nova/containers/tables.py:136
-#: dashboards/nova/containers/tables.py:155
-msgid "Object"
-msgstr "对象"
-
-#: dashboards/nova/containers/tables.py:137
-#: dashboards/nova/containers/tables.py:156
-#: dashboards/nova/containers/tables.py:262
+#: dashboards/nova/containers/tables.py:90
+#: dashboards/nova/containers/tables.py:106
+#: dashboards/nova/containers/tables.py:163
+#: dashboards/nova/templates/nova/objects/index.html:3
 msgid "Objects"
 msgstr "对象"
 
-#: dashboards/nova/containers/tables.py:148
-msgid "Folder"
-msgstr "文件夹"
-
-#: dashboards/nova/containers/tables.py:149
-msgid "Folders"
-msgstr "文件夹"
-
-#: dashboards/nova/containers/tables.py:162
-msgid "Copy"
-msgstr "复制"
-
-#: dashboards/nova/containers/tables.py:175
-msgid "Download"
-msgstr "下载"
-
-#: dashboards/nova/containers/tables.py:231
-msgid "Create Folder"
-msgstr "创建文件夹"
-
-#: dashboards/nova/containers/tables.py:255
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:30
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:37
-#: dashboards/nova/instances/tables.py:293
-#: dashboards/nova/volumes/tables.py:149
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:26
-#: dashboards/syspanel/instances/tables.py:73
+#: dashboards/nova/containers/tables.py:92
+#: dashboards/nova/containers/tables.py:156
+#: dashboards/nova/instances_and_volumes/instances/tables.py:243
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:114
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:30
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:26
+#: dashboards/syspanel/instances/tables.py:76
 msgid "Size"
 msgstr "大小"
 
-#: dashboards/nova/containers/views.py:52
+#: dashboards/nova/containers/tables.py:105
+msgid "Object"
+msgstr "对象"
+
+#: dashboards/nova/containers/tables.py:116
+msgid "Copy"
+msgstr "拷贝"
+
+#: dashboards/nova/containers/tables.py:127
+msgid "Download"
+msgstr "下载"
+
+#: dashboards/nova/containers/views.py:57
 msgid "Unable to retrieve container list."
-msgstr "无法检索容器列表"
+msgstr "无法获取容器列表"
 
-#: dashboards/nova/containers/views.py:81
+#: dashboards/nova/containers/views.py:84
 msgid "Unable to retrieve object list."
-msgstr "找不到对象列表。"
+msgstr "无法获取对象列表"
 
-#: dashboards/nova/containers/views.py:165
+#: dashboards/nova/containers/views.py:122
 msgid "Unable to retrieve object."
-msgstr "找不到对象。"
+msgstr "无法获取对象"
 
-#: dashboards/nova/containers/views.py:199
+#: dashboards/nova/containers/views.py:144
 msgid "Unable to list containers."
-msgstr "找不到容器列表。"
-
-#: dashboards/nova/containers/templates/containers/_copy.html:7
-#: dashboards/nova/containers/templates/containers/_copy.html:22
-#: dashboards/nova/containers/templates/containers/copy.html:3
-#: dashboards/nova/containers/templates/containers/copy.html:6
-msgid "Copy Object"
-msgstr "复制对象"
-
-#: dashboards/nova/containers/templates/containers/_copy.html:17
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may also specify a path at which the new copy should live inside of the "
-"selected container."
-msgstr ""
-"为现有对象创建一个新的副本，存储在这个或另外一个容器中。 您也可以在选中的容器"
-"中为新的副本指定存储路径 。"
-
-#: dashboards/nova/containers/templates/containers/_create.html:17
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-
-#: dashboards/nova/containers/templates/containers/_upload.html:8
-msgid "Upload Object To Container"
-msgstr "上传对象到容器中"
-
-#: dashboards/nova/containers/templates/containers/_upload.html:18
-msgid ""
-"An object is the basic storage entity and any optional metadata that "
-"represents the files you store in the OpenStack Object Storage system. When "
-"you upload data to OpenStack Object Storage, the data is stored as-is (no "
-"compression or encryption) and consists of a location (container), the "
-"object's name, and any metadata consisting of key/value pairs."
-msgstr ""
-
-#: dashboards/nova/containers/templates/containers/upload.html:6
-msgid "Upload Objects"
-msgstr "上传对象"
+msgstr "无法列出容器"
 
 #: dashboards/nova/images_and_snapshots/panel.py:25
 msgid "Images & Snapshots"
-msgstr "镜像 & 快照"
+msgstr "镜像和快照"
 
-#: dashboards/nova/images_and_snapshots/views.py:62
+#: dashboards/nova/images_and_snapshots/views.py:60
 msgid "Unable to retrieve images."
-msgstr "找不到镜像。"
+msgstr "无法获取镜像"
 
-#: dashboards/nova/images_and_snapshots/views.py:73
+#: dashboards/nova/images_and_snapshots/views.py:71
 msgid "Unable to retrieve snapshots."
-msgstr "找不到快照。"
+msgstr "无法获取快照"
 
-#: dashboards/nova/images_and_snapshots/views.py:81
-#: dashboards/nova/volumes/forms.py:65
+#: dashboards/nova/images_and_snapshots/views.py:79
 msgid "Unable to retrieve volume snapshots."
-msgstr "找不到卷组快照。"
+msgstr "无法获取云硬盘快照"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:41
-msgid "Image Location"
-msgstr "查找镜像"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:42
-msgid "An external (HTTP) URL to load the image from."
-msgstr "使用外部(HTTP)URL加载镜像。"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:45
-#: dashboards/nova/images_and_snapshots/images/forms.py:129
-#: dashboards/nova/images_and_snapshots/images/tables.py:125
-msgid "Format"
-msgstr "格式化"
+#: dashboards/nova/images_and_snapshots/images/forms.py:44
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:48
+msgid "Kernel ID"
+msgstr "内核 ID"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:49
-msgid "AKI - Amazon Kernel Image"
-msgstr "AKI - 亚马逊内核镜像"
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:52
+msgid "Ramdisk ID"
+msgstr "虚拟硬盘 ID"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:52
-msgid "AMI - Amazon Machine Image"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:55
-msgid "ARI - Amazon Ramdisk Image"
-msgstr ""
+#: dashboards/nova/images_and_snapshots/images/forms.py:54
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:44
+msgid "Architecture"
+msgstr "构架"
 
 #: dashboards/nova/images_and_snapshots/images/forms.py:58
-msgid "ISO - Optical Disk Image"
-msgstr ""
+#: dashboards/nova/images_and_snapshots/images/tables.py:98
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:32
+msgid "Container Format"
+msgstr "容器格式"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:60
-msgid "QCOW2 - QEMU Emulator"
-msgstr "QCOW2 - QEMU 模拟器"
+#: dashboards/nova/images_and_snapshots/images/forms.py:62
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:34
+msgid "Disk Format"
+msgstr "磁盘格式"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:67
-msgid "Minimum Disk (GB)"
-msgstr "最小磁盘（GB）"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:68
-#: dashboards/nova/images_and_snapshots/images/forms.py:75
-msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
-msgstr "为启动镜像设置的最小磁盘。如果不指定， 默认值为零 (没有限制)。"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:74
-msgid "Minimum Ram (MB)"
-msgstr "最小内存（MB）"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:81
-#: dashboards/nova/images_and_snapshots/images/forms.py:133
-#: dashboards/nova/images_and_snapshots/images/tables.py:122
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:15
+#: dashboards/nova/images_and_snapshots/images/forms.py:66
+#: dashboards/nova/images_and_snapshots/images/tables.py:94
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:15
 msgid "Public"
-msgstr "公有"
+msgstr "开放"
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:105
-#, python-format
-msgid "Your image %s has been queued for creation."
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:109
-msgid "Unable to create new image."
-msgstr "无法创建新镜像"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:115
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:48
-msgid "Kernel ID"
-msgstr "内核ID"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:120
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:52
-msgid "Ramdisk ID"
-msgstr "内存ID"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:125
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:44
-msgid "Architecture"
-msgstr "架构"
-
-#: dashboards/nova/images_and_snapshots/images/forms.py:137
+#: dashboards/nova/images_and_snapshots/images/forms.py:72
 #, python-format
 msgid "Unable to update image \"%s\"."
-msgstr "镜像更新失败 \"%s\"。"
+msgstr "无法更新镜像 \"%s\"."
 
-#: dashboards/nova/images_and_snapshots/images/forms.py:161
+#: dashboards/nova/images_and_snapshots/images/forms.py:88
 msgid "Image was successfully updated."
-msgstr "镜像上传成功。"
+msgstr "镜像更新成功。"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:33
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:32
-#: dashboards/nova/instances/workflows.py:454
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:377
 msgid "Launch"
-msgstr "运行"
+msgstr "启动"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:45
-#: dashboards/nova/images_and_snapshots/images/tables.py:81
-#: dashboards/nova/instances/workflows.py:167
-#: dashboards/nova/instances/workflows.py:172
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:161
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:166
 msgid "Image"
 msgstr "镜像"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:46
-#: dashboards/nova/images_and_snapshots/images/tables.py:131
+#: dashboards/nova/images_and_snapshots/images/tables.py:102
 #: dashboards/syspanel/images/panel.py:28
-#: dashboards/syspanel/images/tables.py:43
-#: dashboards/syspanel/images/templates/images/index.html:3
-#: dashboards/syspanel/images/templates/images/index.html:6
+#: dashboards/syspanel/images/tables.py:38
+#: dashboards/syspanel/templates/syspanel/images/index.html:3
+#: dashboards/syspanel/templates/syspanel/images/index.html:6
 msgid "Images"
 msgstr "镜像"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:60
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:31
-msgid "Create Image"
-msgstr "创建镜像"
-
-#: dashboards/nova/images_and_snapshots/images/tables.py:67
-#: dashboards/syspanel/users/tables.py:31
+#: dashboards/syspanel/users/tables.py:30
 msgid "Edit"
 msgstr "编辑"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:112
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:74
-#: dashboards/syspanel/images/tables.py:39
+#: dashboards/nova/images_and_snapshots/images/tables.py:87
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:72
 msgid "Image Name"
-msgstr "镜像名称"
+msgstr "镜像名"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:118
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:13
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:18
-#: dashboards/nova/instances/tables.py:298
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:13
-#: dashboards/nova/networks/tables.py:99
-#: dashboards/nova/networks/ports/tables.py:44
-#: dashboards/nova/networks/templates/networks/_detail_overview.html:13
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:30
-#: dashboards/nova/volumes/tables.py:153
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:17
-#: dashboards/syspanel/instances/tables.py:78
-#: dashboards/syspanel/networks/tables.py:74
-#: dashboards/syspanel/networks/ports/tables.py:77
+#: dashboards/nova/images_and_snapshots/images/tables.py:92
+#: dashboards/nova/instances_and_volumes/instances/tables.py:246
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:117
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:13
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:13
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:17
+#: dashboards/syspanel/instances/tables.py:80
 msgid "Status"
 msgstr "状态"
 
 #: dashboards/nova/images_and_snapshots/images/tabs.py:26
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tabs.py:26
-#: dashboards/nova/instances/tabs.py:25
-#: dashboards/nova/networks/ports/tabs.py:29
-#: dashboards/nova/networks/subnets/tabs.py:31
+#: dashboards/nova/instances_and_volumes/instances/tabs.py:25
+#: dashboards/nova/instances_and_volumes/volumes/tabs.py:26
 #: dashboards/nova/overview/panel.py:28
-#: dashboards/nova/overview/templates/overview/usage.html:6
-#: dashboards/nova/volumes/tabs.py:26
-#: dashboards/syspanel/networks/ports/tabs.py:29
+#: dashboards/nova/templates/nova/overview/usage.html:6
 #: dashboards/syspanel/overview/panel.py:28
-#: dashboards/syspanel/overview/templates/overview/usage.html:6
+#: dashboards/syspanel/templates/syspanel/overview/usage.html:6
 msgid "Overview"
-msgstr "概述"
+msgstr "概况"
 
 #: dashboards/nova/images_and_snapshots/images/tabs.py:37
 msgid "Unable to retrieve image details."
-msgstr "无法检索到镜像细节。"
+msgstr "无法获取镜像详细信息"
 
-#: dashboards/nova/images_and_snapshots/images/views.py:60
+#: dashboards/nova/images_and_snapshots/images/views.py:50
 msgid "Unable to retrieve image."
-msgstr "无法检索到镜像。"
+msgstr "无法获取镜像"
 
-#: dashboards/nova/images_and_snapshots/snapshots/forms.py:36
-msgid "Instance ID"
-msgstr "实例ID"
-
-#: dashboards/nova/images_and_snapshots/snapshots/forms.py:39
-#: dashboards/nova/volumes/forms.py:193
+#: dashboards/nova/images_and_snapshots/snapshots/forms.py:41
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:101
 msgid "Snapshot Name"
 msgstr "快照名称"
 
 #: dashboards/nova/images_and_snapshots/snapshots/forms.py:49
 #, python-format
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
-msgstr "实例 \"%(inst)s\" 的快照 \"%(name)s\" 已经建立"
+msgstr "已为云主机 \"%(inst)s\" 创建快照 \"%(name)s\" "
 
-#: dashboards/nova/images_and_snapshots/snapshots/forms.py:55
+#: dashboards/nova/images_and_snapshots/snapshots/forms.py:56
 msgid "Unable to create snapshot."
 msgstr "无法创建快照。"
 
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:47
-#: dashboards/nova/instances/workflows.py:106
-#: dashboards/nova/instances/workflows.py:168
+#: dashboards/nova/instances_and_volumes/instances/tables.py:158
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:101
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:162
 msgid "Snapshot"
 msgstr "快照"
 
@@ -1052,2658 +696,1942 @@ msgstr "快照"
 
 #: dashboards/nova/images_and_snapshots/snapshots/tables.py:54
 msgid "Instance Snapshots"
-msgstr "实例快照"
+msgstr "云主机快照"
 
-#: dashboards/nova/images_and_snapshots/snapshots/views.py:52
+#: dashboards/nova/images_and_snapshots/snapshots/views.py:50
 msgid "Unable to retrieve instance."
-msgstr "无法检索到实例。"
+msgstr "无法获取云主机。"
 
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/index.html:3
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/index.html:6
-msgid "Images &amp; Snapshots"
-msgstr ""
+#: dashboards/nova/images_and_snapshots/snapshots/views.py:53
+#, python-format
+msgid "To create a snapshot, the instance must be in the \"%s\" state."
+msgstr "创建快照时云主机必须处于 \"%s\" 状态。"
 
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:7
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/create.html:3
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/create.html:6
-msgid "Create An Image"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:18
-msgid "Specify an image to upload to the Image Service."
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:21
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:24
-msgid "Please note: "
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_create.html:25
-msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:3
-msgid "Image Overview"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:6
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:7
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:6
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:6
-msgid "Info"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:11
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:12
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:11
-#: dashboards/nova/networks/forms.py:38
-#: dashboards/nova/networks/templates/networks/_detail_overview.html:9
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:11
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:11
-#: dashboards/nova/networks/templates/networks/subnets/_update.html:12
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:11
-#: dashboards/syspanel/networks/forms.py:70
-#: dashboards/syspanel/networks/templates/networks/ports/_update.html:12
-#: dashboards/syspanel/networks/templates/networks/subnets/_update.html:12
-#: dashboards/syspanel/users/forms.py:113
-msgid "ID"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:17
-msgid "Checksum"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:19
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:39
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:28
-msgid "Created"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:21
-msgid "Updated"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:27
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:34
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:19
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:23
-msgid "Specs"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:32
-msgid "Container Format"
-msgstr "容器格式"
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:34
-msgid "Disk Format"
-msgstr "磁盘格式"
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:40
-msgid "Custom Properties"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:56
-msgid "Euca2ools state"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:60
-#: dashboards/nova/networks/templates/networks/_detail_overview.html:11
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:15
-#: dashboards/syspanel/projects/tables.py:90
-msgid "Project ID"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:64
-msgid "Image Type"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_update.html:7
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_update.html:22
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/update.html:3
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/update.html:6
-#: dashboards/syspanel/images/templates/images/_update.html:8
-#: dashboards/syspanel/images/templates/images/_update.html:23
-#: dashboards/syspanel/images/templates/images/update.html:4
-#: dashboards/syspanel/images/templates/images/update.html:7
-msgid "Update Image"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/_update.html:17
-#: dashboards/syspanel/images/templates/images/_update.html:18
-msgid "From here you can modify different properties of an image."
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/images/detail.html:4
-msgid "Image Detail "
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:8
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:23
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/create.html:3
-#: dashboards/nova/instances/tables.py:179
-#: dashboards/nova/volumes/tables.py:75
-msgid "Create Snapshot"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:18
-msgid "Snapshots preserve the disk state of a running instance."
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:20
-#: dashboards/nova/instances/workflows.py:74
-#: dashboards/nova/instances/workflows.py:109
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:93
-#: dashboards/nova/volumes/tables.py:36 dashboards/nova/volumes/tables.py:181
-msgid "Volume"
-msgstr "卷"
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:38
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:29
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:12
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:27
-msgid "GB"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/create.html:6
-msgid "Create a Snapshot"
-msgstr ""
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:3
-#, fuzzy
-msgid "Volume Snapshot Details"
-msgstr "卷快照"
-
-#: dashboards/nova/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:6
-#, fuzzy
-msgid "Volume Snapshot Detail"
-msgstr "卷快照"
-
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:33
-#: dashboards/nova/instances/workflows.py:75
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:30
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:71
 msgid "Volume Snapshot"
-msgstr "卷快照"
+msgstr "云硬盘快照"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:34
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:84
-msgid "Volume Snapshots"
-msgstr "卷快照"
-
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:31
 #: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:42
-#: dashboards/nova/volumes/tables.py:58
-#: dashboards/nova/volumes/templates/volumes/_create.html:8
-#: dashboards/nova/volumes/templates/volumes/_create.html:55
-msgid "Create Volume"
-msgstr ""
+msgid "Volume Snapshots"
+msgstr "云硬盘快照"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:79
-#: dashboards/nova/volumes/forms.py:26
-msgid "Volume Name"
-msgstr ""
+#: dashboards/nova/images_and_snapshots/volume_snapshots/tables.py:38
+msgid "Volume ID"
+msgstr "云硬盘ID"
 
-#: dashboards/nova/images_and_snapshots/volume_snapshots/tabs.py:40
-#, fuzzy
-msgid "Unable to retrieve snapshot details."
-msgstr "找不到快照。"
+#: dashboards/nova/instances_and_volumes/panel.py:24
+msgid "Instances & Volumes"
+msgstr "云主机和云硬盘"
 
-#: dashboards/nova/instances/forms.py:44
+#: dashboards/nova/instances_and_volumes/views.py:52
+msgid "Unable to retrieve instances."
+msgstr "无法获取云主机。"
+
+#: dashboards/nova/instances_and_volumes/views.py:62
+#: dashboards/syspanel/instances/views.py:65
+msgid "Unable to retrieve instance size information."
+msgstr "无法获取云主机大小信息。"
+
+#: dashboards/nova/instances_and_volumes/views.py:78
+#, python-format
+msgid "Unable to fetch volumes: %s"
+msgstr "无法获取云硬盘：%s"
+
+#: dashboards/nova/instances_and_volumes/instances/forms.py:44
 #, python-format
 msgid "Instance \"%s\" updated."
-msgstr "实例 \"%s\" 已更新"
+msgstr "云主机 \"%s\" 已更新。"
 
-#: dashboards/nova/instances/forms.py:49
+#: dashboards/nova/instances_and_volumes/instances/forms.py:46
 msgid "Unable to update instance."
-msgstr "不能更新实例"
+msgstr "无法更新云主机。"
 
-#: dashboards/nova/instances/panel.py:24
-#: dashboards/nova/instances/tables.py:70
-#: dashboards/nova/instances/tables.py:90
-#: dashboards/nova/instances/tables.py:107
-#: dashboards/nova/instances/tables.py:136
-#: dashboards/nova/instances/tables.py:313
-#: dashboards/nova/instances/templates/instances/index.html:3
-#: dashboards/nova/instances/templates/instances/index.html:6
-#: dashboards/syspanel/instances/panel.py:28
-#: dashboards/syspanel/instances/tables.py:93
-#: dashboards/syspanel/instances/templates/instances/index.html:3
-#: dashboards/syspanel/projects/workflows.py:38
-msgid "Instances"
-msgstr "实例"
-
-#: dashboards/nova/instances/tables.py:67
+#: dashboards/nova/instances_and_volumes/instances/tables.py:56
 msgid "Terminate"
 msgstr "终止"
 
-#: dashboards/nova/instances/tables.py:68
-msgid "Scheduled termination of"
-msgstr ""
+#: dashboards/nova/instances_and_volumes/instances/tables.py:57
+msgid "Terminated"
+msgstr "已终止"
 
-#: dashboards/nova/instances/tables.py:87
+#: dashboards/nova/instances_and_volumes/instances/tables.py:59
+#: dashboards/nova/instances_and_volumes/instances/tables.py:76
+#: dashboards/nova/instances_and_volumes/instances/tables.py:91
+#: dashboards/nova/instances_and_volumes/instances/tables.py:119
+#: dashboards/nova/instances_and_volumes/instances/tables.py:261
+#: dashboards/syspanel/instances/panel.py:28
+#: dashboards/syspanel/instances/tables.py:95
+#: dashboards/syspanel/projects/forms.py:115
+#: dashboards/syspanel/templates/syspanel/instances/index.html:3
+msgid "Instances"
+msgstr "云主机"
+
+#: dashboards/nova/instances_and_volumes/instances/tables.py:73
 msgid "Reboot"
 msgstr "重启"
 
-#: dashboards/nova/instances/tables.py:88
+#: dashboards/nova/instances_and_volumes/instances/tables.py:74
 msgid "Rebooted"
 msgstr "已重启"
 
-#: dashboards/nova/instances/tables.py:104
+#: dashboards/nova/instances_and_volumes/instances/tables.py:88
 msgid "Pause"
 msgstr "暂停"
 
-#: dashboards/nova/instances/tables.py:104
+#: dashboards/nova/instances_and_volumes/instances/tables.py:88
 msgid "Unpause"
 msgstr "取消暂停"
 
-#: dashboards/nova/instances/tables.py:105
+#: dashboards/nova/instances_and_volumes/instances/tables.py:89
 msgid "Paused"
-msgstr ""
+msgstr "已暂停"
 
-#: dashboards/nova/instances/tables.py:105
+#: dashboards/nova/instances_and_volumes/instances/tables.py:89
 msgid "Unpaused"
-msgstr ""
+msgstr "已取消暂停"
 
-#: dashboards/nova/instances/tables.py:133
+#: dashboards/nova/instances_and_volumes/instances/tables.py:116
 msgid "Suspend"
-msgstr ""
+msgstr "挂起"
 
-#: dashboards/nova/instances/tables.py:133
+#: dashboards/nova/instances_and_volumes/instances/tables.py:116
 msgid "Resume"
-msgstr ""
+msgstr "恢复"
 
-#: dashboards/nova/instances/tables.py:134
+#: dashboards/nova/instances_and_volumes/instances/tables.py:117
 msgid "Suspended"
-msgstr ""
+msgstr "已挂起"
 
-#: dashboards/nova/instances/tables.py:134
+#: dashboards/nova/instances_and_volumes/instances/tables.py:117
 msgid "Resumed"
-msgstr ""
+msgstr "已恢复"
 
-#: dashboards/nova/instances/tables.py:162
-#: dashboards/nova/instances/workflows.py:453
-#: dashboards/nova/instances/templates/instances/launch.html:3
-#: dashboards/nova/instances/templates/instances/launch.html:6
+#: dashboards/nova/instances_and_volumes/instances/tables.py:144
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:376
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:3
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:6
 msgid "Launch Instance"
-msgstr ""
+msgstr "启动云主机"
 
-#: dashboards/nova/instances/tables.py:169
-#: dashboards/nova/instances/templates/instances/_update.html:7
+#: dashboards/nova/instances_and_volumes/instances/tables.py:151
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:7
 msgid "Edit Instance"
-msgstr ""
+msgstr "编辑云主机"
 
-#: dashboards/nova/instances/tables.py:189
+#: dashboards/nova/instances_and_volumes/instances/tables.py:168
 msgid "VNC Console"
-msgstr ""
+msgstr "VNC控制台"
 
-#: dashboards/nova/instances/tables.py:204
+#: dashboards/nova/instances_and_volumes/instances/tables.py:183
 msgid "View Log"
-msgstr ""
+msgstr "查看日志"
 
-#: dashboards/nova/instances/tables.py:252
+#: dashboards/nova/instances_and_volumes/instances/tables.py:213
 #, python-format
-msgid "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
-msgstr ""
+msgid "%(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
+msgstr "%(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 
-#: dashboards/nova/instances/tables.py:259
-#: dashboards/nova/instances/tables.py:266
-msgid "Not available"
-msgstr ""
-
-#: dashboards/nova/instances/tables.py:290
-#: dashboards/nova/instances/workflows.py:175
-#: dashboards/syspanel/instances/tables.py:70 usage/tables.py:57
+#: dashboards/nova/instances_and_volumes/instances/tables.py:241
+#: dashboards/syspanel/instances/tables.py:73
+#: usage/tables.py:47
 msgid "Instance Name"
-msgstr ""
+msgstr "云主机名称"
 
-#: dashboards/nova/instances/tables.py:302
-#: dashboards/syspanel/instances/tables.py:82
+#: dashboards/nova/instances_and_volumes/instances/tables.py:250
+#: dashboards/syspanel/instances/tables.py:84
 msgid "Task"
-msgstr ""
+msgstr "任务"
 
-#: dashboards/nova/instances/tables.py:309
-#: dashboards/syspanel/instances/tables.py:89
+#: dashboards/nova/instances_and_volumes/instances/tables.py:257
+#: dashboards/syspanel/instances/tables.py:91
 msgid "Power State"
-msgstr ""
+msgstr "加电状态"
 
-#: dashboards/nova/instances/tabs.py:35
+#: dashboards/nova/instances_and_volumes/instances/tabs.py:35
 msgid "Log"
-msgstr ""
+msgstr "日志"
 
-#: dashboards/nova/instances/tabs.py:47 dashboards/nova/instances/views.py:105
+#: dashboards/nova/instances_and_volumes/instances/tabs.py:47
+#: dashboards/nova/instances_and_volumes/instances/views.py:63
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
-msgstr ""
+msgstr "无法获得云主机 \"%s\" 的日志。"
 
-#: dashboards/nova/instances/tabs.py:54
+#: dashboards/nova/instances_and_volumes/instances/tabs.py:54
 msgid "VNC"
-msgstr ""
+msgstr "VNC"
 
-#: dashboards/nova/instances/tabs.py:69 dashboards/nova/instances/views.py:121
+#: dashboards/nova/instances_and_volumes/instances/tabs.py:69
+#: dashboards/nova/instances_and_volumes/instances/views.py:79
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
-msgstr ""
+msgstr "无法获得云主机 \"%s\" 的VNC控制台"
 
-#: dashboards/nova/instances/views.py:58
-msgid "Unable to retrieve instances."
-msgstr "无法取得实例信息。"
-
-#: dashboards/nova/instances/views.py:81
-#: dashboards/syspanel/instances/views.py:77
-msgid "Unable to retrieve instance size information."
-msgstr "无法获取实例的大小信息。"
-
-#: dashboards/nova/instances/views.py:143
+#: dashboards/nova/instances_and_volumes/instances/views.py:95
 msgid "Unable to retrieve instance details."
-msgstr ""
+msgstr "无法获取云主机详情。"
 
-#: dashboards/nova/instances/views.py:178
+#: dashboards/nova/instances_and_volumes/instances/views.py:130
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
-msgstr ""
+msgstr "无法获取云主机 \"%s\" 的详情。"
 
-#: dashboards/nova/instances/workflows.py:38
-#: dashboards/syspanel/projects/tables.py:106
-#: dashboards/syspanel/users/tables.py:40
-#: dashboards/syspanel/users/tables.py:74 tests/workflows_tests.py:40
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:34
+#: dashboards/syspanel/projects/tables.py:91
+#: dashboards/syspanel/users/tables.py:39
+#: dashboards/syspanel/users/tables.py:73
+#: tests/workflows_tests.py:40
 msgid "User"
-msgstr ""
+msgstr "用户"
 
-#: dashboards/nova/instances/workflows.py:52
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:48
 msgid "Project & User"
-msgstr ""
+msgstr "项目和用户"
 
-#: dashboards/nova/instances/workflows.py:65
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:50
+msgid "Admin users may optionally select the project and user for whom the instance should be created."
+msgstr "Admin users may optionally select the project and user for whom the instance should be created."
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:61
 msgid "Don't boot from a volume."
-msgstr ""
+msgstr "不要从云硬盘启动"
 
-#: dashboards/nova/instances/workflows.py:66
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:62
 msgid "Boot from volume."
-msgstr ""
+msgstr "从云硬盘启动"
 
-#: dashboards/nova/instances/workflows.py:67
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:63
 msgid "Boot from volume snapshot (creates a new volume)."
-msgstr ""
+msgstr "从云硬盘快照启动（创建一个新的云硬盘）"
 
-#: dashboards/nova/instances/workflows.py:71
-#: dashboards/nova/instances/workflows.py:89
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:67
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:85
 msgid "Volume Options"
-msgstr ""
+msgstr "云硬盘详情"
 
-#: dashboards/nova/instances/workflows.py:77
-#: dashboards/nova/volumes/forms.py:126
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:70
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:104
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:35
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:145
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:83
+msgid "Volume"
+msgstr "云硬盘"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:73
 msgid "Device Name"
 msgstr "设备名称"
 
-#: dashboards/nova/instances/workflows.py:80
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:76
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
-msgstr "卷的挂接点 (例如：'vda' 挂接到 '/dev/vda' 上)."
+msgstr "云硬盘挂载点 (例如，'vda' 挂载到 '/dev/vda')."
 
-#: dashboards/nova/instances/workflows.py:82
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:78
 msgid "Delete on Terminate"
-msgstr "在结束时删除"
+msgstr "终止后删除"
 
-#: dashboards/nova/instances/workflows.py:85
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:81
 msgid "Delete volume on instance terminate"
-msgstr "在实例结束后删除卷"
+msgstr "云主机终止后删除云硬盘"
 
-#: dashboards/nova/instances/workflows.py:99
-#, python-format
-msgid "Please choose a volume, or select %s."
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:116
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:111
 msgid "Select Volume"
-msgstr "选择卷"
+msgstr "选择云硬盘"
 
-#: dashboards/nova/instances/workflows.py:124
-msgid "Unable to retrieve list of volumes."
-msgstr ""
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:119
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:132
+msgid "Unable to retrieve list of volumes"
+msgstr "无法获取云硬盘列表"
 
-#: dashboards/nova/instances/workflows.py:128
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:123
+#, fuzzy
 msgid "Select Volume Snapshot"
-msgstr ""
+msgstr "创建云硬盘快照"
 
-#: dashboards/nova/instances/workflows.py:137
-msgid "Unable to retrieve list of volume snapshots."
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:170
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:164
 msgid "Instance Source"
-msgstr ""
+msgstr "云主机计数"
 
-#: dashboards/nova/instances/workflows.py:173
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:167
 msgid "Instance Snapshot"
-msgstr ""
+msgstr "云主机快照"
 
-#: dashboards/nova/instances/workflows.py:176
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:22
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:169
+msgid "Server Name"
+msgstr "服务器名称"
+
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:170
 #: dashboards/syspanel/flavors/tables.py:13
 msgid "Flavor"
 msgstr "类型"
 
-#: dashboards/nova/instances/workflows.py:177
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:171
 msgid "Size of image to launch."
-msgstr "建立的映像大小"
+msgstr "启动镜像大小"
 
-#: dashboards/nova/instances/workflows.py:178
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:172
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:21
 msgid "Instance Count"
-msgstr "实例个数"
+msgstr "云主机计数"
 
-#: dashboards/nova/instances/workflows.py:181
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:175
 msgid "Number of instances to launch."
-msgstr "启动实例的个数"
+msgstr "启动的云主机数目"
 
-#: dashboards/nova/instances/workflows.py:184
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:178
 msgid "Details"
-msgstr ""
+msgstr "云硬盘详情"
 
-#: dashboards/nova/instances/workflows.py:197
-msgid ""
-"There are no image sources available; you must first create an image before "
-"attempting to launch an instance."
-msgstr ""
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:197
+msgid "Launching multiple instances is only supported for images and instance snapshots."
+msgstr "只支持从镜像和云主机快照同时创建多个云主机"
 
-#: dashboards/nova/instances/workflows.py:202
-msgid "Please select an option for the instance source."
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:211
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:228
-msgid "Unable to retrieve public images."
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:243
-msgid "Unable to retrieve images for the current project."
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:266
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:240
+#, fuzzy
 msgid "Select Image"
-msgstr ""
+msgstr "选择语言"
 
-#: dashboards/nova/instances/workflows.py:268
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:242
 msgid "No images available."
-msgstr ""
+msgstr "无可用镜像"
 
-#: dashboards/nova/instances/workflows.py:277
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:251
 msgid "Select Instance Snapshot"
-msgstr ""
+msgstr "选择云硬盘快照"
 
-#: dashboards/nova/instances/workflows.py:279
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
 msgid "No snapshots available."
-msgstr ""
+msgstr "无可用快照"
 
-#: dashboards/nova/instances/workflows.py:290
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:264
 msgid "Unable to retrieve instance flavors."
-msgstr "无法检索实例类型。"
+msgstr "无法获取云主机类型"
 
-#: dashboards/nova/instances/workflows.py:303 usage/base.py:113
-msgid "Unable to retrieve quota information."
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:336
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:301
 msgid "Which keypair to use for authentication."
-msgstr "用于验证的密钥对。"
+msgstr "认证使用哪个密钥对"
 
-#: dashboards/nova/instances/workflows.py:343
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:307
 msgid "Launch instance in these security groups."
-msgstr "在这些安全组中启动实例。"
+msgstr "在这些防火墙中启动云主机"
 
-#: dashboards/nova/instances/workflows.py:348
-msgid ""
-"Control access to your instance via keypairs, security groups, and other "
-"mechanisms."
-msgstr ""
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:312
+msgid "Control access to your instance via keypairs, security groups, and other mechanisms."
+msgstr "通过密钥对、防火墙、和其它机制控制你的云主机权限"
 
-#: dashboards/nova/instances/workflows.py:358
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:322
 msgid "Unable to retrieve keypairs."
-msgstr "无法检索密钥对。"
+msgstr "无法获取密钥对"
 
-#: dashboards/nova/instances/workflows.py:360
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:324
 msgid "Select a keypair"
-msgstr "选择一个密钥对"
+msgstr "选择密钥对"
 
-#: dashboards/nova/instances/workflows.py:362
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:326
 msgid "No keypairs available."
-msgstr "无密钥对。"
+msgstr "无有效密钥对"
 
-#: dashboards/nova/instances/workflows.py:371
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:335
 msgid "Unable to retrieve list of security groups"
-msgstr "无法检索到安全组列表"
+msgstr "无法获取防火墙列表"
 
-#: dashboards/nova/instances/workflows.py:391
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:355
 msgid "Customization Script"
-msgstr ""
+msgstr "自定义脚本"
 
-#: dashboards/nova/instances/workflows.py:393
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:357
+msgid "A script or set of commands to be executed after the instance has been built (max 16kb)."
+msgstr "在云主机创建后执行的一段脚本或者一组命令(最大16KB)。"
 
-#: dashboards/nova/instances/workflows.py:400
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:364
 msgid "Post-Creation"
-msgstr ""
+msgstr "创建后"
 
-#: dashboards/nova/instances/workflows.py:411
-#: dashboards/nova/networks/panel.py:24 dashboards/nova/networks/tables.py:43
-#: dashboards/nova/networks/tables.py:105
-#: dashboards/nova/networks/templates/networks/index.html:3
-#: dashboards/nova/networks/templates/networks/index.html:6
-#: dashboards/syspanel/networks/panel.py:24
-#: dashboards/syspanel/networks/tables.py:35
-#: dashboards/syspanel/networks/tables.py:80
-#: dashboards/syspanel/networks/templates/networks/index.html:3
-#: dashboards/syspanel/networks/templates/networks/index.html:6
-msgid "Networks"
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:414
-msgid "Launch instance withthese networks"
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:418
-msgid "Networking"
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:420
-msgid "Select networks for your instance."
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:432
-msgid "Unable to retrieve networks."
-msgstr ""
-
-#: dashboards/nova/instances/workflows.py:455
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:378
 #, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr ""
+msgid "Instance \"%s\" launched."
+msgstr "云主机 \"%s\" 启动"
 
-#: dashboards/nova/instances/workflows.py:456
+#: dashboards/nova/instances_and_volumes/instances/workflows.py:379
 #, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr ""
+msgid "Unable to launch instance \"%s\"."
+msgstr "无法启动云主机: \"%s\""
 
-#: dashboards/nova/instances/workflows.py:469
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:42
 #, python-format
-msgid "%s instances"
-msgstr ""
+msgid "Error Creating Volume: %s"
+msgstr "创建云硬盘出错：%s"
 
-#: dashboards/nova/instances/workflows.py:472
-msgid "instance"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_log.html:4
-msgid "Instance Console Log"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_log.html:7
-msgid "Log Length"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_log.html:9
-msgid "Go"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_log.html:11
-msgid "View Full Log"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:3
-msgid "Instance Overview"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:24
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:14
-#: dashboards/syspanel/flavors/tables.py:42 usage/tables.py:22
-msgid "RAM"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:26
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:10
-#: dashboards/syspanel/flavors/forms.py:36
-#: dashboards/syspanel/flavors/tables.py:40
-#: dashboards/syspanel/projects/workflows.py:37 usage/tables.py:19
-msgid "VCPUs"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:27
-msgid "VCPU"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:28
-#: usage/tables.py:20
-msgid "Disk"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:34
-msgid "IP Addresses"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:59
-msgid "No rules defined."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:68
-msgid "Meta"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:71
-msgid "Key Name"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:84
-msgid "Volumes Attached"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:88
-#: dashboards/nova/volumes/tables.py:166
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:38
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:45
-msgid "Attached To"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:90
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:42
-msgid "on"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_overview.html:94
-msgid "No volumes attached."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_vnc.html:3
-msgid "Instance VNC Console"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_vnc.html:5
-msgid ""
-"If VNC console is not responding to keyboard input: click the grey status "
-"bar below."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_vnc.html:5
-msgid "Click here to show only VNC"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_vnc.html:8
-msgid "VNC console is currently unavailabe. Please try again later."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_detail_vnc.html:9
-msgid "Reload"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_customize_help.html:2
-msgid ""
-"You can customize your instance after it's launched using the options "
-"available here."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_customize_help.html:3
-msgid ""
-"The \"Customization Script\" field is analogous to \"User Data\" in other "
-"systems."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:3
-msgid "Specify the details for launching an instance."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:4
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:6
-msgid "Flavor Details"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:11
-#: dashboards/syspanel/flavors/tables.py:44
-msgid "Root Disk"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:12
-#: dashboards/syspanel/flavors/tables.py:46
-msgid "Ephemeral Disk"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:13
-msgid "Total Disk"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:14
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:37
-msgid "MB"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:21
-msgid "Number of Instances"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:29
-msgid "Number of VCPUs"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_details_help.html:37
-msgid "Total RAM"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_launch_volumes_help.html:3
-msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_update.html:17
-msgid "You may update the editable properties of your instance here."
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/_update.html:22
-#: dashboards/nova/networks/templates/networks/_update.html:22
-#: dashboards/nova/networks/templates/networks/subnets/_update.html:31
-#: dashboards/syspanel/networks/templates/networks/_update.html:22
-#: dashboards/syspanel/networks/templates/networks/ports/_update.html:27
-#: dashboards/syspanel/networks/templates/networks/subnets/_update.html:31
-msgid "Save Changes"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/detail.html:3
-msgid "Instance Detail"
-msgstr ""
-
-#: dashboards/nova/instances/templates/instances/update.html:3
-#: dashboards/nova/instances/templates/instances/update.html:6
-msgid "Update Instance"
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:47
-#: dashboards/syspanel/networks/forms.py:81
-#, python-format
-msgid "Network %s was successfully updated."
-msgstr ""
-
-#: dashboards/nova/networks/forms.py:52
-#: dashboards/syspanel/networks/forms.py:86
-#, python-format
-msgid "Failed to update network %s"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:42
-#: dashboards/nova/networks/templates/networks/subnets/index.html:3
-#: dashboards/nova/networks/templates/networks/subnets/index.html:6
-#: dashboards/syspanel/networks/tables.py:34
-msgid "Network"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:58
-#: dashboards/syspanel/networks/tables.py:41
-#, python-format
-msgid "Failed to delete network %s"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:66
-#: dashboards/nova/networks/workflows.py:110
-#: dashboards/nova/networks/templates/networks/_create.html:7
-#: dashboards/nova/networks/templates/networks/_create.html:22
-#: dashboards/nova/networks/templates/networks/create.html:3
-#: dashboards/nova/networks/templates/networks/create.html:6
-#: dashboards/syspanel/networks/tables.py:49
-#: dashboards/syspanel/networks/templates/networks/_create.html:8
-#: dashboards/syspanel/networks/templates/networks/_create.html:23
-#: dashboards/syspanel/networks/templates/networks/create.html:3
-#: dashboards/syspanel/networks/templates/networks/create.html:6
-msgid "Create Network"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:73
-#: dashboards/nova/networks/templates/networks/_update.html:7
-#: dashboards/syspanel/networks/tables.py:56
-#: dashboards/syspanel/networks/templates/networks/_update.html:7
-msgid "Edit Network"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:80
-msgid "Add Subnet"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:96
-#: dashboards/syspanel/networks/tables.py:71
-msgid "Subnets Associated"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:97
-#: dashboards/nova/networks/templates/networks/_detail_overview.html:17
-#: dashboards/syspanel/networks/forms.py:36
-#: dashboards/syspanel/networks/forms.py:73
-#: dashboards/syspanel/networks/tables.py:72
-msgid "Shared"
-msgstr ""
-
-#: dashboards/nova/networks/tables.py:101
-#: dashboards/nova/networks/ports/tables.py:46
-#: dashboards/nova/networks/templates/networks/_detail_overview.html:15
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/syspanel/networks/tables.py:76
-#: dashboards/syspanel/networks/ports/tables.py:79
-msgid "Admin State"
-msgstr ""
-
-#: dashboards/nova/networks/views.py:52
-#: dashboards/syspanel/networks/views.py:60
-msgid "Network list can not be retrieved."
-msgstr ""
-
-#: dashboards/nova/networks/views.py:86
-msgid "Unable to retrieve network details."
-msgstr ""
-
-#: dashboards/nova/networks/views.py:109
-#: dashboards/syspanel/networks/views.py:91
-msgid "Subnet list can not be retrieved."
-msgstr ""
-
-#: dashboards/nova/networks/views.py:121
-#: dashboards/syspanel/networks/views.py:103
-msgid "Port list can not be retrieved."
-msgstr ""
-
-#: dashboards/nova/networks/views.py:134
-#: dashboards/nova/networks/subnets/tables.py:95
-#: dashboards/syspanel/networks/views.py:118
-#, python-format
-msgid "Unable to retrieve details for network \"%s\"."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:36
-msgid "Network Name (optional)"
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:41
-msgid ""
-"From here you can create a new network.\n"
-"In addition a subnet associated with the network can be created in the next "
-"panel."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:52
-#: dashboards/nova/networks/subnets/tables.py:60
-#: dashboards/nova/networks/templates/networks/subnets/_create.html:8
-#: dashboards/nova/networks/templates/networks/subnets/_create.html:23
-#: dashboards/nova/networks/templates/networks/subnets/create.html:3
-#: dashboards/nova/networks/templates/networks/subnets/create.html:6
-#: dashboards/syspanel/networks/subnets/tables.py:48
-#: dashboards/syspanel/networks/templates/networks/subnets/_create.html:8
-#: dashboards/syspanel/networks/templates/networks/subnets/_create.html:23
-#: dashboards/syspanel/networks/templates/networks/subnets/create.html:3
-#: dashboards/syspanel/networks/templates/networks/subnets/create.html:6
-msgid "Create Subnet"
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:55
-msgid "Subnet Name (optional)"
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:57
-#: dashboards/nova/networks/subnets/forms.py:44
-#: dashboards/nova/networks/subnets/tables.py:83
-#: dashboards/nova/networks/templates/networks/subnets/_update.html:14
-#: dashboards/syspanel/networks/templates/networks/subnets/_update.html:14
-msgid "Network Address"
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:60
-#: dashboards/nova/networks/subnets/forms.py:47
-msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:65
-#: dashboards/nova/networks/subnets/forms.py:52
-#: dashboards/nova/networks/subnets/tables.py:84
-#: dashboards/syspanel/networks/subnets/tables.py:72
-msgid "IP Version"
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:66
-msgid "Gateway IP (optional)"
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:69
-#: dashboards/nova/networks/subnets/forms.py:56
-#: dashboards/nova/networks/subnets/forms.py:106
-msgid "IP address of Gateway (e.g. 192.168.0.1)"
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:76
-msgid ""
-"You can create a subnet associated with the new network, in which case "
-"\"Network Address\" must be specified. If you wish to create a network "
-"WITHOUT a subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:88
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:93
-#: dashboards/nova/networks/subnets/forms.py:69
-msgid "Network Address and IP version are inconsistent."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:97
-#: dashboards/nova/networks/subnets/forms.py:73
-#: dashboards/nova/networks/subnets/forms.py:118
-msgid "Gateway IP and IP version are inconsistent."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:111
-msgid "Create"
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:112
-#, python-format
-msgid "Created network \"%s\"."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:113
-#, python-format
-msgid "Unable to create network \"%s\"."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:129
-#, python-format
-msgid "Network \"%s\" was successfully created."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:132
-#, python-format
-msgid "Failed to create network \"%s\"."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:151
-#, python-format
-msgid "Subnet \"%s\" was successfully created."
-msgstr ""
-
-#: dashboards/nova/networks/workflows.py:154
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
-msgstr ""
-
-#: dashboards/nova/networks/ports/tables.py:35
-msgid "Attached"
-msgstr ""
-
-#: dashboards/nova/networks/ports/tables.py:35
-msgid "Detached"
-msgstr ""
-
-#: dashboards/nova/networks/ports/tables.py:42
-#: dashboards/syspanel/networks/ports/tables.py:75
-msgid "Fixed IPs"
-msgstr ""
-
-#: dashboards/nova/networks/ports/tables.py:43
-#: dashboards/syspanel/networks/ports/tables.py:76
-msgid "Device Attached"
-msgstr ""
-
-#: dashboards/nova/networks/ports/tables.py:53
-#: dashboards/syspanel/networks/ports/tables.py:35
-#: dashboards/syspanel/networks/ports/tables.py:83
-msgid "Ports"
-msgstr ""
-
-#: dashboards/nova/networks/ports/tabs.py:39
-#: dashboards/syspanel/networks/ports/tabs.py:39
-msgid "Unable to retrieve port details."
-msgstr ""
-
-#: dashboards/nova/networks/subnets/forms.py:34
-#: dashboards/syspanel/networks/tables.py:68
-#: dashboards/syspanel/networks/ports/forms.py:32
-msgid "Network Name"
-msgstr ""
-
-#: dashboards/nova/networks/subnets/forms.py:38
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:13
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:13
-#: dashboards/syspanel/networks/ports/forms.py:35
-msgid "Network ID"
-msgstr ""
-
-#: dashboards/nova/networks/subnets/forms.py:53
-#: dashboards/nova/networks/subnets/forms.py:103
-#: dashboards/nova/networks/subnets/tables.py:85
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:19
-#: dashboards/syspanel/networks/subnets/tables.py:73
-msgid "Gateway IP"
-msgstr ""
-
-#: dashboards/nova/networks/subnets/forms.py:84
-#, python-format
-msgid "Subnet %s was successfully created."
-msgstr ""
-
-#: dashboards/nova/networks/subnets/forms.py:89
-#, python-format
-msgid "Failed to create subnet %s"
-msgstr ""
-
-#: dashboards/nova/networks/subnets/forms.py:130
-#, python-format
-msgid "Subnet %s was successfully updated."
-msgstr ""
-
-#: dashboards/nova/networks/subnets/forms.py:135
-#, python-format
-msgid "Failed to update subnet %s"
-msgstr ""
-
-#: dashboards/nova/networks/subnets/tables.py:43
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:6
-#: dashboards/syspanel/networks/subnets/tables.py:31
-msgid "Subnet"
-msgstr ""
-
-#: dashboards/nova/networks/subnets/tables.py:44
-#: dashboards/nova/networks/subnets/tables.py:103
-#: dashboards/syspanel/networks/subnets/tables.py:32
-#: dashboards/syspanel/networks/subnets/tables.py:80
-msgid "Subnets"
-msgstr ""
-
-#: dashboards/nova/networks/subnets/tables.py:50
-#: dashboards/syspanel/networks/ports/tables.py:41
-#: dashboards/syspanel/networks/subnets/tables.py:38
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr ""
-
-#: dashboards/nova/networks/subnets/tables.py:71
-#: dashboards/nova/networks/templates/networks/subnets/_update.html:7
-#: dashboards/syspanel/networks/subnets/tables.py:59
-#: dashboards/syspanel/networks/templates/networks/subnets/_update.html:7
-msgid "Edit Subnet"
-msgstr ""
-
-#: dashboards/nova/networks/subnets/tabs.py:41
-msgid "Unable to retrieve subnet details."
-msgstr ""
-
-#: dashboards/nova/networks/subnets/views.py:52
-#: dashboards/syspanel/networks/ports/views.py:48
-#: dashboards/syspanel/networks/subnets/views.py:47
-msgid "Unable to retrieve network."
-msgstr ""
-
-#: dashboards/nova/networks/subnets/views.py:84
-#: dashboards/syspanel/networks/subnets/views.py:80
-msgid "Unable to retrieve subnet details"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/_create.html:17
-#: dashboards/syspanel/networks/templates/networks/_create.html:18
-msgid "Select a name for your network."
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/_detail_overview.html:3
-msgid "Network Overview"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/_update.html:17
-#: dashboards/syspanel/networks/templates/networks/_update.html:17
-msgid "You may update the editable properties of your network here."
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/detail.html:3
-#: dashboards/syspanel/networks/templates/networks/subnets/index.html:3
-#: dashboards/syspanel/networks/templates/networks/subnets/index.html:6
-msgid "Network Detail"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/detail.html:6
-msgid "Network Detail: "
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/update.html:3
-#: dashboards/nova/networks/templates/networks/update.html:6
-#: dashboards/syspanel/networks/templates/networks/update.html:3
-#: dashboards/syspanel/networks/templates/networks/update.html:6
-msgid "Update Network"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:3
-msgid "Port Overview"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:6
-#: dashboards/syspanel/networks/ports/tables.py:34
-msgid "Port"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:17
-msgid "Fixed IP"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:21
-msgid "IP address:"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:22
-msgid "Subnet ID"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:28
-msgid "Mac Address"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/ports/_detail_overview.html:34
-#: dashboards/syspanel/networks/ports/forms.py:41
-#: dashboards/syspanel/networks/ports/forms.py:73
-msgid "Device ID"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/ports/detail.html:3
-#: dashboards/nova/networks/templates/networks/ports/detail.html:6
-msgid "Port Detail"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/subnets/_create.html:18
-#: dashboards/syspanel/networks/templates/networks/subnets/_create.html:18
-msgid ""
-"You can create a subnet for the network. Any network address can be "
-"specified unless the network address does not overlap other subnets in the "
-"network."
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:3
-msgid "Subnet Overview"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:17
-#: dashboards/nova/networks/templates/networks/subnets/_update.html:16
-#: dashboards/syspanel/networks/templates/networks/subnets/_update.html:16
-msgid "IP version"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:21
-msgid "IP allocation pool"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:24
-msgid "Start"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/subnets/_detail_overview.html:25
-msgid " - End"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/subnets/_update.html:26
-#: dashboards/syspanel/networks/templates/networks/subnets/_update.html:26
-msgid "You may update the editable properties of your subnet here."
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/subnets/detail.html:3
-#: dashboards/nova/networks/templates/networks/subnets/detail.html:6
-msgid "Subnet Detail"
-msgstr ""
-
-#: dashboards/nova/networks/templates/networks/subnets/update.html:3
-#: dashboards/nova/networks/templates/networks/subnets/update.html:6
-#: dashboards/syspanel/networks/templates/networks/subnets/update.html:3
-#: dashboards/syspanel/networks/templates/networks/subnets/update.html:6
-msgid "Update Subnet"
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:6
-msgid "You currently have the power to damage your OpenStack cloud..."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:9
-msgid ""
-"Due to inconsistencies in the way Nova interacts with Keystone, a user with "
-"an admin role has access to all resources in the system (volumes, snapshots, "
-"keypairs, etc.), even in the Project dashboard where they should only see a "
-"properly-scoped subset of those resources."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:10
-msgid ""
-"This means that Nova allows an admin user in the Project Dashboard to "
-"successfully take actions which otherwise should not be permitted, causing "
-"irresolvable conflicts in Nova."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:11
-msgid "A list of the known problems are as follows:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:13
-msgid ""
-"Attaching a volume owned by project A to an instance in project B can "
-"completely hang Nova."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:14
-msgid ""
-"Assigning keypairs owned by project A to an instance in project B can result "
-"in failed instances, problems in retrieving instance details for non-admin "
-"users, and/or security holes should the instance succeed in spawning."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:15
-msgid ""
-"Attempting to launch an instance in project A from a snapshot or volume "
-"snapshot owned by project B can hang Nova."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:16
-msgid ""
-"Attempting to boot from a volume owned by project A in project B can hang "
-"Nova."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:18
-msgid ""
-"This is only a list of the reported inconsistencies. There may be others."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:19
-msgid ""
-"The recommended practice until this problem is resolved is to keep your "
-"admin users and regular users separate. Create an \"admin\" project that "
-"admin users have access to, and do not grant your admin users the admin role "
-"on any other projects."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:20
-msgid ""
-"To follow the status of this bug, take a look at the following items on "
-"launchpad:"
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:27
-msgid ""
-"Thank you for reading this warning and operating your cloud responsibly."
-msgstr ""
-
-#: dashboards/nova/templates/nova/_warning.html:30
-msgid "Close"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:29
-msgid "Size (GB)"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:30
-msgid "Use snapshot as a source"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:49
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:54
-msgid "Unable to load the specified snapshot."
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:59
-msgid "Choose a snapshot"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:83
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:92
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:99
-msgid "You are already using all of your available volumes."
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:115
-msgid "Unable to create volume."
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:123
-msgid "Attach to Instance"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:124
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:48
 msgid "Select an instance to attach to."
-msgstr ""
+msgstr "选择要附加的云主机。"
 
-#: dashboards/nova/volumes/forms.py:168
-msgid "Unknown instance (None)"
-msgstr ""
-
-#: dashboards/nova/volumes/forms.py:179
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:86
 #, python-format
-msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
-msgstr ""
+msgid "Attaching volume %(vol)s to instance %(inst)s at %(dev)s"
+msgstr "附加云硬盘 %(vol)s 到云主机 %(inst)s 的 %(dev)s 上"
 
-#: dashboards/nova/volumes/forms.py:188
-msgid "Unable to attach volume."
-msgstr ""
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:95
+#, python-format
+msgid "Error attaching volume: %s"
+msgstr "附加云硬盘出错：%s"
 
-#: dashboards/nova/volumes/forms.py:212
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:120
 #, python-format
 msgid "Creating volume snapshot \"%s\""
-msgstr ""
+msgstr "创建云硬盘快照 \"%s\""
 
-#: dashboards/nova/volumes/forms.py:218
-msgid "Unable to create volume snapshot."
-msgstr ""
+#: dashboards/nova/instances_and_volumes/volumes/forms.py:125
+#, python-format
+msgid "Error Creating Volume Snapshot: %(exc)s"
+msgstr "创建云硬盘快照出错：%(exc)s"
 
-#: dashboards/nova/volumes/panel.py:24 dashboards/nova/volumes/tables.py:37
-#: dashboards/nova/volumes/tables.py:170 dashboards/nova/volumes/tables.py:182
-#: dashboards/nova/volumes/templates/volumes/index.html:3
-#: dashboards/nova/volumes/templates/volumes/index.html:6
-#: dashboards/syspanel/projects/workflows.py:42
-#: dashboards/syspanel/volumes/panel.py:9
-#: dashboards/syspanel/volumes/tables.py:15
-#: dashboards/syspanel/volumes/templates/volumes/index.html:3
-#: dashboards/syspanel/volumes/templates/volumes/index.html:6
 msgid "Volumes"
-msgstr ""
+msgstr "云硬盘"
 
-#: dashboards/nova/volumes/tables.py:45
-#, fuzzy, python-format
-msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
-msgstr "找不到卷组快照。"
+msgid "Create Volume"
+msgstr "创建云硬盘"
 
-#: dashboards/nova/volumes/tables.py:65
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:56
 msgid "Edit Attachments"
-msgstr ""
+msgstr "编辑附加云硬盘"
 
-#: dashboards/nova/volumes/tables.py:92
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:66
+#: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:8
+#: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:23
+#: dashboards/nova/templates/nova/images_and_snapshots/snapshots/create.html:3
+msgid "Create Snapshot"
+msgstr "创建快照"
+
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:83
+#: templatetags/sizeformat.py:58
 #, python-format
-msgid "%sGB"
-msgstr ""
+msgid "%s GB"
+msgstr "%s GB"
 
-#: dashboards/nova/volumes/tables.py:105 dashboards/nova/volumes/views.py:149
-msgid "Unable to retrieve attachment information."
-msgstr ""
-
-#: dashboards/nova/volumes/tables.py:122
-#, python-format
-msgid "Attached to %(instance)s on %(dev)s"
-msgstr ""
-
-#: dashboards/nova/volumes/tables.py:179
-msgid "Detach"
-msgstr ""
-
-#: dashboards/nova/volumes/tables.py:180
-msgid "Detaching"
-msgstr ""
-
-#: dashboards/nova/volumes/tables.py:215
-#, python-format
-msgid "%(dev)s on instance %(instance_name)s"
-msgstr ""
-
-#: dashboards/nova/volumes/tabs.py:41
-msgid "Unable to retrieve volume details."
-msgstr ""
-
-#: dashboards/nova/volumes/views.py:50
-msgid "Unable to retrieve volume list."
-msgstr ""
-
-#: dashboards/nova/volumes/views.py:58
-msgid "Unable to retrieve volume/instance attachment information"
-msgstr ""
-
-#: dashboards/nova/volumes/views.py:130 dashboards/nova/volumes/views.py:140
-msgid "Unable to retrieve volume information."
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_attach.html:9
-#: dashboards/nova/volumes/templates/volumes/attach.html:6
-msgid "Manage Volume Attachments"
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_attach.html:13
-msgid "Attach To Instance"
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_attach.html:22
-msgid "Attach Volume"
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_create.html:20
-#: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:18
-msgid "Volumes are block devices that can be attached to instances."
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_create.html:22
-msgid "Volume Quotas"
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_create.html:25
-msgid "Total Gigabytes"
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_create.html:34
-msgid "Number of Volumes"
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:8
-#: dashboards/nova/volumes/templates/volumes/_create_snapshot.html:23
-#: dashboards/nova/volumes/templates/volumes/create_snapshot.html:3
-msgid "Create Volume Snapshot"
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:3
-msgid "Volume Overview"
-msgstr ""
-
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:34
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:130
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:34
 msgid "Attachments"
-msgstr ""
+msgstr "附加云硬盘"
 
-#: dashboards/nova/volumes/templates/volumes/_detail_overview.html:46
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:143
+msgid "Detach"
+msgstr "分离云硬盘"
+
+#: dashboards/nova/instances_and_volumes/volumes/tables.py:144
+msgid "Detached"
+msgstr "已分离"
+
+#: dashboards/nova/instances_and_volumes/volumes/tabs.py:41
+msgid "Unable to retrieve volume details."
+msgstr "无法获取云硬盘详情。"
+
+#: dashboards/nova/instances_and_volumes/volumes/views.py:71
+#: dashboards/nova/instances_and_volumes/volumes/views.py:81
+msgid "Unable to retrieve volume information."
+msgstr "无法获取云硬盘信息。"
+
+#: dashboards/nova/templates/nova/access_and_security/index.html:6
+msgid "Access &amp; Security"
+msgstr "访问与安全"
+
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:8
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/allocate.html:3
+msgid "Allocate Floating IP"
+msgstr "分配公网IP"
+
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:17
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_associate.html:16
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:16
+#: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:17
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:16
+#: dashboards/settings/templates/settings/ec2/download_form.html:17
+#: dashboards/settings/templates/settings/project/_openrc.html:17
+#: dashboards/settings/templates/settings/user/_language.html:30
+msgid "Description:"
+msgstr "描述："
+
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:18
+msgid "Allocate a floating IP from a given floating ip pool."
+msgstr "从给定的公网ip地址池里分配一个公网的IP。"
+
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:20
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:19
+msgid "Project Quotas"
+msgstr "项目配额"
+
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:31
+msgid "Allocate IP"
+msgstr "分配IP"
+
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_allocate.html:32
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_associate.html:23
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:24
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:24
+#: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:24
+#: dashboards/nova/templates/nova/access_and_security/security_groups/_edit_rules.html:20
+#: dashboards/nova/templates/nova/containers/_create.html:23
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:23
+#: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:24
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:23
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_attach.html:20
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:24
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:24
+#: dashboards/nova/templates/nova/objects/_copy.html:23
+#: dashboards/nova/templates/nova/objects/_upload.html:24
+#: dashboards/settings/templates/settings/ec2/download_form.html:24
+#: dashboards/settings/templates/settings/project/_openrc.html:24
+#: dashboards/settings/templates/settings/user/_language.html:37
+#: dashboards/syspanel/templates/syspanel/flavors/_create.html:24
+#: dashboards/syspanel/templates/syspanel/images/_update.html:24
+#: dashboards/syspanel/templates/syspanel/projects/_add_user.html:24
+#: dashboards/syspanel/templates/syspanel/projects/_create.html:24
+#: dashboards/syspanel/templates/syspanel/projects/_quotas.html:23
+#: dashboards/syspanel/templates/syspanel/projects/_update.html:24
+#: dashboards/syspanel/templates/syspanel/users/_create.html:23
+#: dashboards/syspanel/templates/syspanel/users/_update.html:23
+#: templates/horizon/common/_workflow.html:29
+msgid "Cancel"
+msgstr "取消"
+
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_associate.html:7
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/associate.html:7
+msgid "Associate Floating IP"
+msgstr "关联公网IP"
+
+#: dashboards/nova/templates/nova/access_and_security/floating_ips/_associate.html:17
+msgid "Associate a floating ip with an instance."
+msgstr "为云主机关联一个公网ip。"
+
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:17
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:17
+msgid "Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)."
+msgstr "密钥对是SSH凭证，在启动时被注入到镜像中。创建新的密钥对，注册公钥并下载私钥（.pem文件）。"
+
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_create.html:18
+#: dashboards/nova/templates/nova/access_and_security/keypairs/_import.html:18
+msgid "Protect and use the key as you would any normal ssh private key."
+msgstr "请妥善保管和使用SSH私钥。"
+
+#: dashboards/nova/templates/nova/access_and_security/keypairs/download.html:3
+#: dashboards/nova/templates/nova/access_and_security/keypairs/download.html:6
+msgid "Download Keypair"
+msgstr "下载密钥对"
+
+#: dashboards/nova/templates/nova/access_and_security/keypairs/download.html:11
+#, python-format
+msgid "The keypair &quot;%(keypair_name)s&quot; should download automatically. If not use the link below."
+msgstr "密钥对&quot;%(keypair_name)s&quot;将会自动下载；如果没有开始，可以使用下面的链接。"
+
+#: dashboards/nova/templates/nova/access_and_security/keypairs/download.html:15
+#, python-format
+msgid "Download keypair &quot;%(keypair_name)s&quot;"
+msgstr "下载密钥对&quot;%(keypair_name)s&quot;"
+
+#: dashboards/nova/templates/nova/access_and_security/security_groups/_create.html:18
+msgid "From here you can create a new security group"
+msgstr "从这里可以创建一个新的防火墙"
+
+#: dashboards/nova/templates/nova/access_and_security/security_groups/_edit_rules.html:9
+#: dashboards/nova/templates/nova/access_and_security/security_groups/edit_rules.html:6
+msgid "Edit Security Group Rules"
+msgstr "编辑防火墙规则"
+
+#: dashboards/nova/templates/nova/access_and_security/security_groups/_edit_rules.html:12
+#: dashboards/nova/templates/nova/access_and_security/security_groups/_edit_rules.html:19
+msgid "Add Rule"
+msgstr "添加规则"
+
+#: dashboards/nova/templates/nova/containers/_create.html:17
+msgid "A container is a storage compartment for your data and provides a way for you to organize your data. You can think of a container as a folder in Windows &reg; or a directory in UNIX &reg;. The primary difference between a container and these other file system concepts is that containers cannot be nested. You can, however, create an unlimited number of containers within your account. Data must be stored in a container so you must have at least one container defined in your account prior to uploading data."
+msgstr "容器是储存您数据的存储室，提供一种组织数据的方式。您可以认为容器是Windows &reg;的文件夹；或者Unix &reg;的路径。容器和这些文件系统的主要区别是容器无法嵌套。但是，您可以在您的账号下创建无限个容器。数据必须存储在容器里，因此您必须在上传数据前在您的账号下至少定义一个容器"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/index.html:3
+#: dashboards/nova/templates/nova/images_and_snapshots/index.html:6
+msgid "Images &amp; Snapshots"
+msgstr "镜像&amp;快照"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:3
+msgid "Image Overview"
+msgstr "镜像概况"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:6
+msgid "Info"
+msgstr "信息"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:11
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:11
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:11
+#: dashboards/syspanel/projects/forms.py:83
+#: dashboards/syspanel/users/forms.py:104
+#: dashboards/syspanel/users/tables.py:106
+msgid "ID"
+msgstr "ID"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:17
+msgid "Checksum"
+msgstr "校验和"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:19
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:28
+msgid "Created"
+msgstr "已创建"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:21
+msgid "Updated"
+msgstr "已更新"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:27
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:19
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:23
+msgid "Specs"
+msgstr "规格"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:40
+msgid "Custom Properties"
+msgstr "定制属性"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:56
+msgid "Euca2ools state"
+msgstr "Euca2ools状态"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:60
+#: usage/tables.py:28
+msgid "Project ID"
+msgstr "项目ID"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_detail_overview.html:64
+msgid "Image Type"
+msgstr "镜像类型"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:7
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:22
+#: dashboards/nova/templates/nova/images_and_snapshots/images/update.html:3
+#: dashboards/nova/templates/nova/images_and_snapshots/images/update.html:6
+#: dashboards/syspanel/templates/syspanel/images/_update.html:8
+#: dashboards/syspanel/templates/syspanel/images/_update.html:23
+#: dashboards/syspanel/templates/syspanel/images/update.html:4
+#: dashboards/syspanel/templates/syspanel/images/update.html:7
+msgid "Update Image"
+msgstr "更新镜像"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/_update.html:17
+#: dashboards/syspanel/templates/syspanel/images/_update.html:18
+msgid "From here you can modify different properties of an image."
+msgstr "从这里可以您可以修改镜像的不同属性"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/images/detail.html:4
+msgid "Image Detail "
+msgstr "镜像详情 "
+
+#: dashboards/nova/templates/nova/images_and_snapshots/snapshots/_create.html:18
+msgid "Snapshots preserve the disk state of a running instance."
+msgstr "镜像保存运行中云主机的磁盘状态"
+
+#: dashboards/nova/templates/nova/images_and_snapshots/snapshots/create.html:6
+msgid "Create a Snapshot"
+msgstr "创建一个快照"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/index.html:6
+msgid "Instances &amp; Volumes"
+msgstr "云主机&amp;云硬盘"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_log.html:7
+msgid "View Full Log"
+msgstr "查看所有日志"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:3
+msgid "Instance Overview"
+msgstr "云主机概况"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:22
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:14
+#: usage/tables.py:21
+msgid "RAM"
+msgstr "内存"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:24
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:10
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:28
+#: dashboards/syspanel/flavors/forms.py:38
+#: dashboards/syspanel/flavors/tables.py:30
+#: dashboards/syspanel/projects/forms.py:114
+#: usage/tables.py:18
+msgid "VCPUs"
+msgstr "VCPUs"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:25
+msgid "VCPU"
+msgstr "VCPU"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:26
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:35
+#: usage/tables.py:19
+msgid "Disk"
+msgstr "磁盘"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:27
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:11
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:12
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:13
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:35
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:27
+msgid "GB"
+msgstr "GB"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:32
+msgid "IP Addresses"
+msgstr "IP地址"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:57
+msgid "No rules defined."
+msgstr "没有规则定义。"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:66
+msgid "Meta"
+msgstr "元数据"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:69
+msgid "Key Name"
+msgstr "密钥名称"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_overview.html:93
+msgid "No volumes attached."
+msgstr "没有云硬盘"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_vnc.html:3
+msgid "Instance VNC Console"
+msgstr "云主机的VNC控制台"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_vnc.html:5
+msgid "If VNC console is not responding to keyboard input: click the grey status bar below."
+msgstr "如果VNC控制台对键盘输入没有响应：点击下面的灰色状态栏。"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_vnc.html:5
+msgid "Click here to show only VNC"
+msgstr "点击此处只显示VNC"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_vnc.html:8
+msgid "VNC console is currently unavailabe. Please try again later."
+msgstr "VNC控制台当前不可用。请稍后重试。"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_detail_vnc.html:9
+msgid "Reload"
+msgstr "重新加载"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_customize_help.html:2
+msgid "You can customize your instance after it's launched using the options available here."
+msgstr "你可以使用这些选项自定义你的云主机"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_customize_help.html:3
+msgid "The \"Customization Script\" field is analogous to \"User Data\" in other systems."
+msgstr "“自定义脚本”字段类似于其它系统中的“用户数据”"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:3
+msgid "Specify the details for launching an instance."
+msgstr "指定创建云主机的详细信息"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:4
+msgid "The chart below shows the resources used by this project in relation to the project's quotas."
+msgstr "详细说明启动云主机的情况,下面的图表显示此项目所使用的资源和关联的项目配额。"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:6
+msgid "Flavor Details"
+msgstr "方案详情"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:11
+#: dashboards/syspanel/flavors/tables.py:32
+msgid "Root Disk"
+msgstr "根磁盘"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:12
+#: dashboards/syspanel/flavors/tables.py:34
+msgid "Ephemeral Disk"
+msgstr "临时磁盘"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:13
+msgid "Total Disk"
+msgstr "所有磁盘"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:14
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:42
+msgid "MB"
+msgstr "MB"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:42
+#: dashboards/syspanel/flavors/tables.py:31
+msgid "Memory"
+msgstr "内存"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_volumes_help.html:3
+msgid "An instance can be launched with varying types of attached storage. You may select from those options here."
+msgstr "选择云主机创建时挂载的不同存储"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:17
+msgid "You may update the editable properties of your instance here."
+msgstr "更新您的云主机名称"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:22
+msgid "Save Changes"
+msgstr "保存"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/detail.html:3
+msgid "Instance Detail"
+msgstr "云主机详情"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/update.html:3
+#: dashboards/nova/templates/nova/instances_and_volumes/instances/update.html:6
+msgid "Update Instance"
+msgstr "更新云主机"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_attach.html:9
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/attach.html:6
+msgid "Manage Volume Attachments"
+msgstr "管理附加云硬盘"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_attach.html:12
+msgid "Attach To Instance"
+msgstr "附加到云主机"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_attach.html:19
+msgid "Attach Volume"
+msgstr "附加云硬盘"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create.html:18
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:18
+msgid "Volumes are block devices that can be attached to instances."
+msgstr "云硬盘是块设备，可以被附加到云主机上。"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:8
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_create_snapshot.html:23
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/create_snapshot.html:3
+msgid "Create Volume Snapshot"
+msgstr "创建云硬盘快照"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:3
+msgid "Volume Overview"
+msgstr "云硬盘概览"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:38
+msgid "Attached To"
+msgstr "附加到"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:42
+msgid "on"
+msgstr "在"
+
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:47
 msgid "Not attached"
-msgstr ""
+msgstr "未附加"
 
-#: dashboards/nova/volumes/templates/volumes/create.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/create.html:6
 msgid "Create a Volume"
-msgstr ""
+msgstr "创建一个云硬盘"
 
-#: dashboards/nova/volumes/templates/volumes/create_snapshot.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/create_snapshot.html:6
 msgid "Create a Volume Snapshot"
-msgstr ""
+msgstr "创建一个云硬盘快照"
 
-#: dashboards/nova/volumes/templates/volumes/detail.html:3
-#: dashboards/syspanel/volumes/templates/volumes/detail.html:3
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/detail.html:3
 msgid "Volume Details"
-msgstr ""
+msgstr "云硬盘详情"
 
-#: dashboards/nova/volumes/templates/volumes/detail.html:6
-#: dashboards/syspanel/volumes/templates/volumes/detail.html:6
+#: dashboards/nova/templates/nova/instances_and_volumes/volumes/detail.html:6
 msgid "Volume Detail"
-msgstr ""
+msgstr "云硬盘详情"
 
-#: dashboards/settings/dashboard.py:24 templates/_header.html:4
+#: dashboards/nova/templates/nova/objects/_copy.html:7
+#: dashboards/nova/templates/nova/objects/_copy.html:22
+#: dashboards/nova/templates/nova/objects/copy.html:3
+#: dashboards/nova/templates/nova/objects/copy.html:6
+msgid "Copy Object"
+msgstr "复制对象"
+
+#: dashboards/nova/templates/nova/objects/_copy.html:17
+msgid "You may make a new copy of an existing object to store in this or another container."
+msgstr "您可以新建一个现有对象的拷贝，存储到这个或者其它容器中。"
+
+#: dashboards/nova/templates/nova/objects/_upload.html:8
+msgid "Upload Object To Container"
+msgstr "上传对象到容器中"
+
+#: dashboards/nova/templates/nova/objects/_upload.html:18
+msgid "An object is the basic storage entity and any optional metadata that represents the files you store in the OpenStack Object Storage system. When you upload data to OpenStack Object Storage, the data is stored as-is (no compression or encryption) and consists of a location (container), the object's name, and any metadata consisting of key/value pairs."
+msgstr "对象是基本存储实体和任何可选的元数据来表示您存储在OpenStack对象存储系统里的文件。当您上传数据到OpenStack对象存储中，数据会被原样保存（没有压缩或者加密），包括位置（容器），对象名称，包含键值对的任何元数据。"
+
+#: dashboards/nova/templates/nova/objects/upload.html:6
+msgid "Upload Objects"
+msgstr "上传对象"
+
+#: dashboards/settings/dashboard.py:24
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
-#: dashboards/settings/ec2/forms.py:35 dashboards/settings/project/forms.py:35
+#: dashboards/settings/ec2/forms.py:35
+#: dashboards/settings/project/forms.py:35
 msgid "Select a Project"
-msgstr ""
+msgstr "选择一个项目"
 
-#: dashboards/settings/ec2/forms.py:45
+#: dashboards/settings/ec2/forms.py:51
 msgid "Unable to retrieve tenant list."
-msgstr ""
+msgstr "无法获取租户列表。"
 
-#: dashboards/settings/ec2/forms.py:87
+#: dashboards/settings/ec2/forms.py:95
 msgid "Unable to fetch EC2 credentials."
-msgstr ""
+msgstr "无法获得EC2凭证。"
 
-#: dashboards/settings/ec2/forms.py:100
+#: dashboards/settings/ec2/forms.py:108
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
-msgstr ""
+msgstr "zipfile写入出错：%(exc)s"
 
 #: dashboards/settings/ec2/panel.py:24
 msgid "EC2 Credentials"
-msgstr ""
+msgstr "EC2凭证"
 
-#: dashboards/settings/ec2/templates/ec2/download_form.html:8
-#: dashboards/settings/ec2/templates/ec2/download_form.html:23
-#: dashboards/settings/ec2/templates/ec2/index.html:3
-#: dashboards/settings/ec2/templates/ec2/index.html:6
-msgid "Download EC2 Credentials"
-msgstr ""
-
-#: dashboards/settings/ec2/templates/ec2/download_form.html:18
-msgid ""
-"Clicking \"Download EC2 Credentials\" will download a zip file which "
-"includes an rc file with your access/secret keys, as well as your x509 "
-"private key and certificate."
-msgstr ""
-
-#: dashboards/settings/project/forms.py:70
+#: dashboards/settings/project/forms.py:76
 #, python-format
 msgid "Error Downloading RC File: %s"
-msgstr ""
+msgstr "下载RC文件出错：%s"
 
 #: dashboards/settings/project/panel.py:24
-#: dashboards/settings/project/templates/project/_openrc.html:8
-#: dashboards/settings/project/templates/project/settings.html:3
-#: dashboards/settings/project/templates/project/settings.html:6
-msgid "OpenStack API"
-msgstr ""
+msgid "OpenStack Credentials"
+msgstr "OpenStack凭证"
 
-#: dashboards/settings/project/tables.py:27
-msgid "Service Name"
-msgstr ""
+#: dashboards/settings/templates/settings/ec2/download_form.html:8
+#: dashboards/settings/templates/settings/ec2/download_form.html:23
+#: dashboards/settings/templates/settings/ec2/index.html:3
+#: dashboards/settings/templates/settings/ec2/index.html:6
+msgid "Download EC2 Credentials"
+msgstr "下载EC2凭证"
 
-#: dashboards/settings/project/tables.py:29
-msgid "Service Endpoint"
-msgstr ""
+#: dashboards/settings/templates/settings/ec2/download_form.html:18
+msgid "Clicking \"Download EC2 Credentials\" will download a zip file which includes an rc file with your access/secret keys, as well as your x509 private key and certificate."
+msgstr "点击\"下载EC2凭证\"将会下载一个zip文件，其中包含您的一个访问密钥/私钥的rc文件，还有您的x509私钥和证书。"
 
-#: dashboards/settings/project/tables.py:33
-msgid "API Endpoints"
-msgstr ""
-
-#: dashboards/settings/project/templates/project/_openrc.html:15
+#: dashboards/settings/templates/settings/project/_openrc.html:8
+#: dashboards/settings/templates/settings/project/settings.html:6
 msgid "Download OpenStack RC File"
-msgstr ""
+msgstr "下载 OpenStack RC 文件"
 
-#: dashboards/settings/project/templates/project/_openrc.html:25
-msgid ""
-"Download the RC file for the selected project, then type \"source openrc\" "
-"in the terminal to configure your environment to communicate with OpenStack."
-msgstr ""
+#: dashboards/settings/templates/settings/project/_openrc.html:18
+msgid "Download the RC file for the selected project, then type \"source openrc\" in the terminal to configure your environment to communicate with OpenStack."
+msgstr "为选中的项目下载 RC 文件，然后输入 \"source openrc\" 于终端中来配置您与OpenStack交流的环境。"
 
-#: dashboards/settings/project/templates/project/_openrc.html:30
+#: dashboards/settings/templates/settings/project/_openrc.html:23
 msgid "Download RC File"
-msgstr ""
+msgstr "下载 RC 文件"
 
-#: dashboards/settings/user/forms.py:57
-msgid "Settings saved."
-msgstr ""
+#: dashboards/settings/templates/settings/user/_language.html:8
+#: dashboards/settings/templates/settings/user/_language.html:36
+msgid "Select Language"
+msgstr "选择语言"
+
+#: dashboards/settings/templates/settings/user/_language.html:12
+msgid "Dashboard User Interface Language"
+msgstr "Dashboard 用户界面语言"
+
+#: dashboards/settings/templates/settings/user/_language.html:14
+msgid "Language Settings"
+msgstr "语言设置"
+
+#: dashboards/settings/templates/settings/user/_language.html:31
+msgid "From here you can modify different settings for your dashboard."
+msgstr "在这里您可以为您的 dashboard 修改不同的设置"
+
+#: dashboards/settings/templates/settings/user/settings.html:6
+msgid "Dashboard Settings"
+msgstr "Dashboard 设置"
 
 #: dashboards/settings/user/panel.py:24
-#: dashboards/settings/user/templates/user/_settings.html:8
-#: dashboards/settings/user/templates/user/settings.html:3
-#: dashboards/settings/user/templates/user/settings.html:6
 msgid "User Settings"
-msgstr ""
-
-#: dashboards/settings/user/templates/user/_settings.html:18
-msgid "From here you can modify dashboard settings for your user."
-msgstr ""
-
-#: dashboards/settings/user/templates/user/_settings.html:23
-#: dashboards/syspanel/flavors/templates/flavors/_edit.html:24
-#: dashboards/syspanel/projects/workflows.py:268 workflows/base.py:538
-msgid "Save"
-msgstr ""
+msgstr "用户设置"
 
 #: dashboards/syspanel/dashboard.py:24
 msgid "System Panel"
-msgstr ""
+msgstr "系统面板"
 
-#: dashboards/syspanel/dashboard.py:30 tests/workflows_tests.py:74
+#: dashboards/syspanel/dashboard.py:30
+#: tests/workflows_tests.py:74
 msgid "Admin"
-msgstr ""
+msgstr "管理员"
 
-#: dashboards/syspanel/flavors/forms.py:37
-msgid "RAM MB"
-msgstr ""
-
-#: dashboards/syspanel/flavors/forms.py:38
-msgid "Root Disk GB"
-msgstr ""
+#: dashboards/syspanel/flavors/forms.py:36
+msgid "Flavor ID"
+msgstr "类型 ID"
 
 #: dashboards/syspanel/flavors/forms.py:39
+msgid "Memory MB"
+msgstr "内存 MB"
+
+#: dashboards/syspanel/flavors/forms.py:40
+msgid "Root Disk GB"
+msgstr "根磁盘 GB"
+
+#: dashboards/syspanel/flavors/forms.py:41
 msgid "Ephemeral Disk GB"
-msgstr ""
+msgstr "临时磁盘 GB"
 
-#: dashboards/syspanel/flavors/forms.py:49
-msgid "Unable to get unique ID for new flavor."
-msgstr ""
-
-#: dashboards/syspanel/flavors/forms.py:66
+#: dashboards/syspanel/flavors/forms.py:51
 #, python-format
-msgid "Created flavor \"%s\"."
-msgstr ""
-
-#: dashboards/syspanel/flavors/forms.py:70
-msgid "Unable to create flavor."
-msgstr ""
-
-#: dashboards/syspanel/flavors/forms.py:91
-#, python-format
-msgid "Updated flavor \"%s\"."
-msgstr ""
-
-#: dashboards/syspanel/flavors/forms.py:95
-msgid "Unable to update flavor."
-msgstr ""
+msgid "%s was successfully added to flavors."
+msgstr "%s 被成功添加到类型中"
 
 #: dashboards/syspanel/flavors/panel.py:28
 #: dashboards/syspanel/flavors/tables.py:14
-#: dashboards/syspanel/flavors/tables.py:51
-#: dashboards/syspanel/flavors/templates/flavors/index.html:3
-#: dashboards/syspanel/flavors/templates/flavors/index.html:6
+#: dashboards/syspanel/flavors/tables.py:38
+#: dashboards/syspanel/templates/syspanel/flavors/index.html:8
 msgid "Flavors"
-msgstr ""
+msgstr "类型"
 
 #: dashboards/syspanel/flavors/tables.py:22
-#: dashboards/syspanel/flavors/templates/flavors/_create.html:8
-#: dashboards/syspanel/flavors/templates/flavors/_create.html:23
-#: dashboards/syspanel/flavors/templates/flavors/create.html:3
-#: dashboards/syspanel/flavors/templates/flavors/create.html:6
+#: dashboards/syspanel/templates/syspanel/flavors/_create.html:8
+#: dashboards/syspanel/templates/syspanel/flavors/_create.html:23
+#: dashboards/syspanel/templates/syspanel/flavors/create.html:6
 msgid "Create Flavor"
-msgstr ""
+msgstr "创建类型"
 
 #: dashboards/syspanel/flavors/tables.py:29
-#: dashboards/syspanel/flavors/templates/flavors/_edit.html:8
-#: dashboards/syspanel/flavors/templates/flavors/edit.html:3
-#: dashboards/syspanel/flavors/templates/flavors/edit.html:6
-msgid "Edit Flavor"
-msgstr ""
-
-#: dashboards/syspanel/flavors/tables.py:35
-#, python-format
-msgid "%sMB"
-msgstr ""
-
-#: dashboards/syspanel/flavors/tables.py:39
 msgid "Flavor Name"
-msgstr ""
+msgstr "类型名"
 
 #: dashboards/syspanel/flavors/views.py:48
-msgid "Unable to retrieve flavor list."
-msgstr ""
+msgid "Unauthorized."
+msgstr "未授权"
 
-#: dashboards/syspanel/flavors/views.py:75
-msgid "Unable to retrieve flavor data."
-msgstr ""
+#: dashboards/syspanel/flavors/views.py:53
+#, python-format
+msgid "Unable to get flavor list: %s"
+msgstr "无法获得类型列表： %s"
 
-#: dashboards/syspanel/flavors/templates/flavors/_create.html:18
-msgid "From here you can define the sizing of a new flavor."
-msgstr ""
-
-#: dashboards/syspanel/flavors/templates/flavors/_edit.html:18
-msgid "From here you can alter the sizing of the current flavor."
-msgstr ""
-
-#: dashboards/syspanel/flavors/templates/flavors/_edit.html:19
-msgid ""
-"Note: this will not affect the resources allocated to any existing instances "
-"using this flavor."
-msgstr ""
-
-#: dashboards/syspanel/images/views.py:53
+#: dashboards/syspanel/images/views.py:52
 msgid "Unable to retrieve image list."
-msgstr ""
+msgstr "无法获得镜像列表。"
 
-#: dashboards/syspanel/instances/tables.py:59 usage/tables.py:30
-msgid "Project Name"
-msgstr ""
+#: dashboards/syspanel/instances/tables.py:62
+msgid "Tenant"
+msgstr "租户"
 
-#: dashboards/syspanel/instances/tables.py:66
+#: dashboards/syspanel/instances/tables.py:69
 #: dashboards/syspanel/services/tables.py:40
 msgid "Host"
-msgstr ""
+msgstr "主机"
 
-#: dashboards/syspanel/instances/views.py:60
-#: dashboards/syspanel/networks/views.py:48
+#: dashboards/syspanel/instances/views.py:72
 msgid "Unable to retrieve instance tenant information."
-msgstr ""
+msgstr "无法获取云主机租户信息。"
 
-#: dashboards/syspanel/instances/templates/instances/index.html:6
-msgid "All Instances"
-msgstr ""
+#: dashboards/syspanel/projects/forms.py:38
+msgid "Role"
+msgstr "角色"
 
-#: dashboards/syspanel/networks/forms.py:45
-#: dashboards/syspanel/users/forms.py:41
-msgid "Select a project"
-msgstr ""
+#: dashboards/syspanel/projects/forms.py:52
+msgid "Successfully added user to tenant."
+msgstr "成功向租户中添加用户。"
 
-#: dashboards/syspanel/networks/forms.py:57
+#: dashboards/syspanel/projects/forms.py:54
+msgid "Unable to add user to tenant."
+msgstr "无法向租户中添加用户。"
+
+#: dashboards/syspanel/projects/forms.py:64
+#: dashboards/syspanel/projects/forms.py:89
+#: dashboards/syspanel/projects/tables.py:77
+#: dashboards/syspanel/services/tables.py:42
+#: dashboards/syspanel/users/tables.py:38
+#: dashboards/syspanel/users/tables.py:112
+msgid "Enabled"
+msgstr "激活"
+
+#: dashboards/syspanel/projects/forms.py:75
 #, python-format
-msgid "Network %s was successfully created."
-msgstr ""
+msgid "%s was successfully created."
+msgstr "%s 成功创建。"
 
-#: dashboards/syspanel/networks/forms.py:63
+#: dashboards/syspanel/projects/forms.py:78
+msgid "Unable to create tenant."
+msgstr "无法创建租户。"
+
+#: dashboards/syspanel/projects/forms.py:100
 #, python-format
-msgid "Failed to create network %s"
-msgstr ""
+msgid "%s was successfully updated."
+msgstr "%s 成功更新。"
 
-#: dashboards/syspanel/networks/ports/forms.py:53
+#: dashboards/syspanel/projects/forms.py:103
+msgid "Unable to update tenant."
+msgstr "无法更新租户。"
+
+#: dashboards/syspanel/projects/forms.py:108
+msgid "ID (name)"
+msgstr "ID (名字)"
+
+#: dashboards/syspanel/projects/forms.py:110
+msgid "Metadata Items"
+msgstr "元数据条目"
+
+#: dashboards/syspanel/projects/forms.py:111
+msgid "Injected Files"
+msgstr "注入的文件"
+
+#: dashboards/syspanel/projects/forms.py:112
+msgid "Injected File Content Bytes"
+msgstr "注入的文件内容字节数"
+
+#: dashboards/syspanel/projects/forms.py:117
+msgid "Gigabytes"
+msgstr "Gigabytes"
+
+#: dashboards/syspanel/projects/forms.py:118
+msgid "RAM (in MB)"
+msgstr "RAM (以MB为单位)"
+
+#: dashboards/syspanel/projects/forms.py:136
 #, python-format
-msgid "Port %s was successfully created."
-msgstr ""
+msgid "Quotas for %s were successfully updated."
+msgstr "%s 的配额成功更新。"
 
-#: dashboards/syspanel/networks/ports/forms.py:58
-#, python-format
-msgid "Failed to create a port for network %s"
-msgstr ""
-
-#: dashboards/syspanel/networks/ports/forms.py:83
-#, python-format
-msgid "Port %s was successfully updated."
-msgstr ""
-
-#: dashboards/syspanel/networks/ports/forms.py:88
-#, python-format
-msgid "Failed to update port %s"
-msgstr ""
-
-#: dashboards/syspanel/networks/ports/tables.py:51
-#: dashboards/syspanel/networks/templates/networks/ports/_create.html:8
-#: dashboards/syspanel/networks/templates/networks/ports/_create.html:23
-#: dashboards/syspanel/networks/templates/networks/ports/create.html:3
-#: dashboards/syspanel/networks/templates/networks/ports/create.html:6
-msgid "Create Port"
-msgstr ""
-
-#: dashboards/syspanel/networks/ports/tables.py:62
-#: dashboards/syspanel/networks/templates/networks/ports/_update.html:7
-msgid "Edit Port"
-msgstr ""
-
-#: dashboards/syspanel/networks/ports/views.py:81
-msgid "Unable to retrieve port details"
-msgstr ""
-
-#: dashboards/syspanel/networks/subnets/forms.py:42
-#, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr ""
-
-#: dashboards/syspanel/networks/templates/networks/ports/_create.html:18
-msgid ""
-"You can create a port for the network. If you specify device ID to be "
-"attached, the device specified will be attached to the port created."
-msgstr ""
-
-#: dashboards/syspanel/networks/templates/networks/ports/_update.html:22
-msgid "You may update the editable properties of your port here."
-msgstr ""
-
-#: dashboards/syspanel/networks/templates/networks/ports/update.html:3
-#: dashboards/syspanel/networks/templates/networks/ports/update.html:6
-msgid "Update Port"
-msgstr ""
-
-#: dashboards/syspanel/overview/templates/overview/usage.html:3
-msgid "Usage Overview"
-msgstr ""
-
-#: dashboards/syspanel/overview/templates/overview/usage.html:12
-msgid "Monitoring"
-msgstr ""
+#: dashboards/syspanel/projects/forms.py:139
+msgid "Unable to update quotas."
+msgstr "无法更新配额。"
 
 #: dashboards/syspanel/projects/panel.py:28
-#: dashboards/syspanel/projects/tables.py:66
-#: dashboards/syspanel/projects/tables.py:95
-#: dashboards/syspanel/projects/templates/projects/index.html:8
+#: dashboards/syspanel/projects/tables.py:52
+#: dashboards/syspanel/projects/tables.py:81
+#: dashboards/syspanel/templates/syspanel/projects/index.html:8
 msgid "Projects"
-msgstr ""
+msgstr "项目"
 
-#: dashboards/syspanel/projects/tables.py:19
+#: dashboards/syspanel/projects/tables.py:17
+msgid "Modify Quotas"
+msgstr "修改配额"
+
+#: dashboards/syspanel/projects/tables.py:24
 msgid "Modify Users"
-msgstr ""
+msgstr "修改用户"
 
-#: dashboards/syspanel/projects/tables.py:32
+#: dashboards/syspanel/projects/tables.py:31
 msgid "View Usage"
-msgstr ""
+msgstr "查看使用情况"
 
-#: dashboards/syspanel/projects/tables.py:39
-#: dashboards/syspanel/projects/templates/projects/_create.html:8
-#: dashboards/syspanel/projects/templates/projects/_create.html:23
-#: dashboards/syspanel/projects/templates/projects/create.html:6
-msgid "Create Project"
-msgstr ""
-
-#: dashboards/syspanel/projects/tables.py:46
-#: dashboards/syspanel/projects/workflows.py:267
-#: dashboards/syspanel/projects/templates/projects/update.html:3
-#: dashboards/syspanel/projects/templates/projects/update.html:6
+#: dashboards/syspanel/projects/tables.py:38
 msgid "Edit Project"
-msgstr ""
+msgstr "编辑项目"
 
-#: dashboards/syspanel/projects/tables.py:91
-#: dashboards/syspanel/projects/workflows.py:74
-#: dashboards/syspanel/projects/workflows.py:249
-#: dashboards/syspanel/services/tables.py:42
-#: dashboards/syspanel/users/tables.py:39
-#: dashboards/syspanel/users/tables.py:114
-msgid "Enabled"
-msgstr ""
+#: dashboards/syspanel/projects/tables.py:45
+msgid "Create New Project"
+msgstr "创建新项目"
 
-#: dashboards/syspanel/projects/tables.py:104
+#: dashboards/syspanel/projects/tables.py:73
+#: dashboards/syspanel/services/tables.py:37
+msgid "Id"
+msgstr "Id"
+
+#: dashboards/syspanel/projects/tables.py:89
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
-#: dashboards/syspanel/projects/tables.py:105
+#: dashboards/syspanel/projects/tables.py:90
 msgid "Removed"
-msgstr ""
+msgstr "被移除"
 
-#: dashboards/syspanel/projects/tables.py:107
+#: dashboards/syspanel/projects/tables.py:92
+#: dashboards/syspanel/templates/syspanel/users/index.html:8
 #: dashboards/syspanel/users/panel.py:28
-#: dashboards/syspanel/users/tables.py:41
-#: dashboards/syspanel/users/tables.py:75
-#: dashboards/syspanel/users/tables.py:121
-#: dashboards/syspanel/users/templates/users/index.html:8
+#: dashboards/syspanel/users/tables.py:40
+#: dashboards/syspanel/users/tables.py:74
+#: dashboards/syspanel/users/tables.py:119
 msgid "Users"
-msgstr ""
+msgstr "用户"
 
-#: dashboards/syspanel/projects/tables.py:125
-msgid "Unable to retrieve role information."
-msgstr ""
-
-#: dashboards/syspanel/projects/tables.py:130
-msgid "Roles"
-msgstr ""
-
-#: dashboards/syspanel/projects/tables.py:134
+#: dashboards/syspanel/projects/tables.py:103
 msgid "Users For Project"
-msgstr ""
+msgstr "项目的用户"
 
-#: dashboards/syspanel/projects/tables.py:142
+#: dashboards/syspanel/projects/tables.py:110
 msgid "Add To Project"
-msgstr ""
+msgstr "添加到项目"
 
-#: dashboards/syspanel/projects/tables.py:154
+#: dashboards/syspanel/projects/tables.py:122
 msgid "Add New Users"
-msgstr ""
+msgstr "添加新用户"
 
-#: dashboards/syspanel/projects/views.py:67
-msgid "Unable to retrieve project information."
-msgstr ""
-
-#: dashboards/syspanel/projects/views.py:87
+#: dashboards/syspanel/projects/views.py:49
 msgid "Unable to retrieve project list."
-msgstr ""
+msgstr "无法获取项目列表。"
 
-#: dashboards/syspanel/projects/views.py:110
+#: dashboards/syspanel/projects/views.py:71
+msgid "Unable to retrieve project."
+msgstr "无法获取租户。"
+
+#: dashboards/syspanel/projects/views.py:100
 msgid "Unable to retrieve users."
-msgstr ""
+msgstr "无法获取用户。"
 
-#: dashboards/syspanel/projects/views.py:154
-msgid "Unable to retrieve default quota values."
-msgstr ""
-
-#: dashboards/syspanel/projects/views.py:182
-msgid "Unable to retrieve project details."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:35
-msgid "Injected File Content Bytes"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:36
-msgid "Metadata Items"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:39
-msgid "Injected Files"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:43
-msgid "Gigabytes"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:44
-msgid "RAM (MB)"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:48
-msgid "Quota"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:50
-msgid "From here you can set quotas (max limits) for the project."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:79
-#: dashboards/syspanel/projects/workflows.py:252
-msgid "Project Info"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:80
-#: dashboards/syspanel/projects/templates/projects/_create.html:18
-msgid "From here you can create a new project to organize users."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:99
-msgid "Unable to retrieve user list. Please try again later."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:153
-#: dashboards/syspanel/projects/templates/projects/_update_members.html:16
-msgid "Project Members"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:167
-#: dashboards/syspanel/users/views.py:46
-msgid "Unable to retrieve user list."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:178
-msgid "Add Project"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:179
-msgid "Finish"
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:180
-#, python-format
-msgid "Created new project \"%s\"."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:181
-#, python-format
-msgid "Unable to create project \"%s\"."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:225
-#, python-format
-msgid "Failed to add %s project members and set project quotas."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:244
-msgid "Unable to set project quotas."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:254
-msgid "From here you can edit the project details."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:269
-#, python-format
-msgid "Modified project \"%s\"."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:270
-#, python-format
-msgid "Unable to modify project \"%s\"."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:340
-#, python-format
-msgid "Failed to modify %s project members and update project quotas."
-msgstr ""
-
-#: dashboards/syspanel/projects/workflows.py:361
-msgid ""
-"Modified project information and members, but unable to modify project "
-"quotas."
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_add_user.html:8
-#: dashboards/syspanel/projects/templates/projects/add_user.html:3
-#: dashboards/syspanel/projects/templates/projects/add_user.html:6
-msgid "Add User To Project"
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_add_user.html:18
-msgid "Select the user role for the project."
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_add_user.html:23
-msgid "Add"
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_create_user.html:7
-#, python-format
-msgid "Create User for project '%(tenant_name)s'."
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_create_user.html:18
-msgid "From here you can create a new user to add to this project."
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_create_user.html:23
-#: dashboards/syspanel/users/tables.py:19
-#: dashboards/syspanel/users/templates/users/_create.html:7
-#: dashboards/syspanel/users/templates/users/_create.html:22
-#: dashboards/syspanel/users/templates/users/create.html:7
-msgid "Create User"
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_quotas.html:7
-#: dashboards/syspanel/projects/templates/projects/_quotas.html:22
-msgid "Update Quota"
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_quotas.html:17
-#, python-format
-msgid ""
-"From here you can edit quotas (max limits) for the project %(tenant.name)s."
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_update.html:8
-#: dashboards/syspanel/projects/templates/projects/_update.html:23
-#: dashboards/syspanel/projects/templates/projects/quotas.html:6
-msgid "Update Project"
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_update.html:18
-msgid "From here you can edit a project."
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_update_members.html:7
-msgid ""
-"From here you can add and remove members to this project from the list of "
-"all available users."
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_update_members.html:10
-msgid "All Users"
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/_update_members.html:25
-#: dashboards/syspanel/projects/templates/projects/_update_members.html:32
-msgid "No users found."
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/create_user.html:3
-#: dashboards/syspanel/projects/templates/projects/create_user.html:6
-msgid "Add New User"
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/usage.html:3
-msgid "Project Usage Overview"
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/usage.html:7
-msgid "Project Usage"
-msgstr ""
-
-#: dashboards/syspanel/projects/templates/projects/users.html:7
-msgid "Users for Project"
-msgstr ""
+#: dashboards/syspanel/projects/views.py:143
+msgid "Unable to retrieve roles."
+msgstr "无法获取角色。"
 
 #: dashboards/syspanel/quotas/panel.py:28
 #: dashboards/syspanel/quotas/tables.py:36
 msgid "Quotas"
-msgstr ""
+msgstr "配额"
 
 #: dashboards/syspanel/quotas/tables.py:28
 msgid "Quota Name"
-msgstr ""
+msgstr "配额名称"
 
 #: dashboards/syspanel/quotas/tables.py:29
 msgid "Limit"
-msgstr ""
+msgstr "限制"
 
-#: dashboards/syspanel/quotas/views.py:45
+#: dashboards/syspanel/quotas/views.py:44
 msgid "Unable to get quota info."
-msgstr ""
-
-#: dashboards/syspanel/quotas/templates/quotas/index.html:8
-msgid "Default Quotas"
-msgstr ""
+msgstr "无法得到配额信息。"
 
 #: dashboards/syspanel/services/panel.py:28
 #: dashboards/syspanel/services/tables.py:47
-#: dashboards/syspanel/services/templates/services/index.html:8
+#: dashboards/syspanel/templates/syspanel/services/index.html:8
 msgid "Services"
-msgstr ""
-
-#: dashboards/syspanel/services/tables.py:37
-msgid "Id"
-msgstr ""
+msgstr "服务"
 
 #: dashboards/syspanel/services/tables.py:39
 msgid "Service"
-msgstr ""
+msgstr "服务"
 
-#: dashboards/syspanel/users/forms.py:53
+#: dashboards/syspanel/templates/syspanel/flavors/_create.html:18
+msgid "From here you can define the sizing of a new flavor."
+msgstr "在这里您可以定义新类型的大小。"
+
+#: dashboards/syspanel/templates/syspanel/instances/index.html:6
+msgid "All Instances"
+msgstr "全部云主机"
+
+#: dashboards/syspanel/templates/syspanel/overview/usage.html:3
+msgid "Usage Overview"
+msgstr "使用概况"
+
+#: dashboards/syspanel/templates/syspanel/overview/usage.html:12
+msgid "Monitoring"
+msgstr "监控"
+
+#: dashboards/syspanel/templates/syspanel/projects/_add_user.html:8
+#: dashboards/syspanel/templates/syspanel/projects/add_user.html:3
+#: dashboards/syspanel/templates/syspanel/projects/add_user.html:6
+msgid "Add User To Project"
+msgstr "添加用户到项目"
+
+#: dashboards/syspanel/templates/syspanel/projects/_add_user.html:18
+msgid "Select the user role for the project."
+msgstr "为项目选址用户角色。"
+
+#: dashboards/syspanel/templates/syspanel/projects/_add_user.html:23
+msgid "Add"
+msgstr "添加"
+
+#: dashboards/syspanel/templates/syspanel/projects/_create.html:8
+#: dashboards/syspanel/templates/syspanel/projects/_create.html:23
+#: dashboards/syspanel/templates/syspanel/projects/create.html:6
+msgid "Create Project"
+msgstr "创建项目"
+
+#: dashboards/syspanel/templates/syspanel/projects/_create.html:18
+msgid "From here you can create a new project to organize users."
+msgstr "在这里您可以创建新的项目来组织用户。"
+
+#: dashboards/syspanel/templates/syspanel/projects/_quotas.html:7
+#: dashboards/syspanel/templates/syspanel/projects/_quotas.html:22
+msgid "Update Quota"
+msgstr "更新配额"
+
+#: dashboards/syspanel/templates/syspanel/projects/_quotas.html:17
+#, python-format
+msgid "From here you can edit quotas (max limits) for the project %(tenant.name)s."
+msgstr "在这里您可以为项目 %(tenant.name)s 编辑配额（最大限制）。"
+
+#: dashboards/syspanel/templates/syspanel/projects/_update.html:8
+#: dashboards/syspanel/templates/syspanel/projects/_update.html:23
+#: dashboards/syspanel/templates/syspanel/projects/quotas.html:6
+#: dashboards/syspanel/templates/syspanel/projects/update.html:6
+msgid "Update Project"
+msgstr "更新项目"
+
+#: dashboards/syspanel/templates/syspanel/projects/_update.html:18
+msgid "From here you can edit a project."
+msgstr "在这里您可以编辑项目。"
+
+#: dashboards/syspanel/templates/syspanel/projects/usage.html:3
+msgid "Project Usage Overview"
+msgstr "项目使用概况"
+
+#: dashboards/syspanel/templates/syspanel/projects/usage.html:7
+msgid "Project Usage"
+msgstr "项目使用"
+
+#: dashboards/syspanel/templates/syspanel/projects/users.html:7
+msgid "Users for Project"
+msgstr "项目用户"
+
+#: dashboards/syspanel/templates/syspanel/quotas/index.html:8
+msgid "Default Quotas"
+msgstr "默认配额"
+
+#: dashboards/syspanel/templates/syspanel/users/_create.html:7
+#: dashboards/syspanel/templates/syspanel/users/_create.html:22
+#: dashboards/syspanel/templates/syspanel/users/create.html:7
+#: dashboards/syspanel/users/tables.py:18
+msgid "Create User"
+msgstr "创建用户"
+
+#: dashboards/syspanel/templates/syspanel/users/_create.html:17
+msgid "From here you can create a new user and assign them to a project."
+msgstr "在这里您可以创建新用户并把他们分配给某个项目"
+
+#: dashboards/syspanel/templates/syspanel/users/_update.html:7
+#: dashboards/syspanel/templates/syspanel/users/_update.html:22
+#: dashboards/syspanel/templates/syspanel/users/update.html:7
+msgid "Update User"
+msgstr "更新用户"
+
+#: dashboards/syspanel/templates/syspanel/users/_update.html:17
+msgid "From here you can edit the user's details, including their default project."
+msgstr "在这里您可以编辑用户的用户名、邮箱、密码、以及默认项目等信息。"
+
+#: dashboards/syspanel/users/forms.py:41
+msgid "Select a project"
+msgstr "选择项目"
+
+#: dashboards/syspanel/users/forms.py:57
 msgid "Passwords do not match."
-msgstr ""
-
-#: dashboards/syspanel/users/forms.py:61
-#: dashboards/syspanel/users/forms.py:114
-#: dashboards/syspanel/users/tables.py:107
-msgid "User Name"
-msgstr ""
+msgstr "密码不匹配。"
 
 #: dashboards/syspanel/users/forms.py:62
-#: dashboards/syspanel/users/forms.py:115
+#: dashboards/syspanel/users/forms.py:105
+#: dashboards/syspanel/users/tables.py:107
+#: views/auth_forms.py:64
+msgid "User Name"
+msgstr "用户名"
+
+#: dashboards/syspanel/users/forms.py:63
+#: dashboards/syspanel/users/forms.py:106
 #: dashboards/syspanel/users/tables.py:108
 msgid "Email"
-msgstr ""
+msgstr "邮箱"
 
-#: dashboards/syspanel/users/forms.py:64
-#: dashboards/syspanel/users/forms.py:116
+#: dashboards/syspanel/users/forms.py:65
+#: dashboards/syspanel/users/forms.py:107
+#: views/auth_forms.py:65
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
-#: dashboards/syspanel/users/forms.py:69
-#: dashboards/syspanel/users/forms.py:123
+#: dashboards/syspanel/users/forms.py:70
+#: dashboards/syspanel/users/forms.py:114
 msgid "Confirm Password"
-msgstr ""
+msgstr "确认密码"
 
-#: dashboards/syspanel/users/forms.py:72
-#: dashboards/syspanel/users/forms.py:126
+#: dashboards/syspanel/users/forms.py:73
+#: dashboards/syspanel/users/forms.py:117
 msgid "Primary Project"
-msgstr ""
+msgstr "主项目"
 
-#: dashboards/syspanel/users/forms.py:74
-msgid "Role"
-msgstr ""
-
-#: dashboards/syspanel/users/forms.py:95
+#: dashboards/syspanel/users/forms.py:85
 #, python-format
 msgid "User \"%s\" was successfully created."
-msgstr ""
+msgstr "用户 \"%s\" 成功创建。"
 
-#: dashboards/syspanel/users/forms.py:105
-msgid "Unable to add userto primary project."
-msgstr ""
+#: dashboards/syspanel/users/forms.py:96
+msgid "Unable to add user to primary project."
+msgstr "无法向主项目添加用户。"
 
-#: dashboards/syspanel/users/forms.py:109
+#: dashboards/syspanel/users/forms.py:99
 msgid "Unable to create user."
-msgstr ""
+msgstr "无法创建用户。"
 
-#: dashboards/syspanel/users/forms.py:150
+#: dashboards/syspanel/users/forms.py:139
 msgid "name"
-msgstr ""
+msgstr "名字"
 
-#: dashboards/syspanel/users/forms.py:150
+#: dashboards/syspanel/users/forms.py:139
 msgid "email"
-msgstr ""
+msgstr "邮箱"
 
-#: dashboards/syspanel/users/forms.py:159
+#: dashboards/syspanel/users/forms.py:148
 msgid "primary project"
-msgstr ""
+msgstr "主项目"
 
-#: dashboards/syspanel/users/forms.py:172
-#, python-format
-msgid "The user %s has no role defined for"
-msgstr ""
-
-#: dashboards/syspanel/users/forms.py:180
+#: dashboards/syspanel/users/forms.py:160
 msgid "password"
-msgstr ""
+msgstr "密码"
 
-#: dashboards/syspanel/users/forms.py:189
+#: dashboards/syspanel/users/forms.py:169
 msgid "User has been updated successfully."
-msgstr ""
+msgstr "用户更新成功"
 
-#: dashboards/syspanel/users/forms.py:193
-#, python-format
+#: dashboards/syspanel/users/forms.py:173
+#, fuzzy, python-format
 msgid "Unable to update %(attributes)s for the user."
-msgstr ""
+msgstr "无法更新属性 %(attributes)s 为用户 \"%(user)s\"。"
 
-#: dashboards/syspanel/users/tables.py:38
+#: dashboards/syspanel/users/tables.py:37
 msgid "Enable"
-msgstr ""
+msgstr "激活"
+
+#: dashboards/syspanel/users/tables.py:37
+msgid "Disable"
+msgstr "禁用"
 
 #: dashboards/syspanel/users/tables.py:38
-msgid "Disable"
-msgstr ""
-
-#: dashboards/syspanel/users/tables.py:39
+#, fuzzy
 msgid "Disabled"
-msgstr ""
+msgstr "禁用"
 
-#: dashboards/syspanel/users/tables.py:62
+#: dashboards/syspanel/users/tables.py:61
 msgid "You cannot disable the user you are currently logged in as."
-msgstr ""
+msgstr "您不能禁用您当前登录的用户。"
 
-#: dashboards/syspanel/users/tables.py:113
-msgid "User ID"
-msgstr ""
+#: dashboards/syspanel/users/views.py:47
+msgid "Unable to retrieve user list."
+msgstr "无法得到用户信息列表。"
 
-#: dashboards/syspanel/users/views.py:69
+#: dashboards/syspanel/users/views.py:63
 msgid "Unable to update user."
-msgstr ""
+msgstr "无法更新用户。"
 
-#: dashboards/syspanel/users/views.py:103
-msgid "Unable to retrieve user roles."
-msgstr ""
-
-#: dashboards/syspanel/users/templates/users/_create.html:17
-msgid "From here you can create a new user and assign them to a project."
-msgstr ""
-
-#: dashboards/syspanel/users/templates/users/_update.html:7
-#: dashboards/syspanel/users/templates/users/_update.html:22
-#: dashboards/syspanel/users/templates/users/update.html:7
-msgid "Update User"
-msgstr ""
-
-#: dashboards/syspanel/users/templates/users/_update.html:17
-msgid ""
-"From here you can edit the user's details, including their default project."
-msgstr ""
-
-#: tables/actions.py:338
+#: tables/actions.py:299
 msgid "Filter"
-msgstr ""
+msgstr "过滤"
 
-#: tables/actions.py:468
-#, python-format
-msgid "%(action)s %(data_type)s"
-msgstr ""
-
-#: tables/actions.py:502
-msgid "N/A"
-msgstr ""
-
-#: tables/actions.py:530
+#: tables/actions.py:461
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
-msgstr ""
+msgstr "您没有权限执行 %(action)s: %(objs)s"
 
-#: tables/actions.py:536
+#: tables/actions.py:467
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr ""
+msgstr "无法执行 %(action)s: %(objs)s"
 
-#: tables/actions.py:542
+#: tables/actions.py:473
 #, python-format
 msgid "%(action)s: %(objs)s"
-msgstr ""
+msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:552
+#: tables/actions.py:483
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
-#: tables/actions.py:553
+#: tables/actions.py:484
 msgid "Deleted"
-msgstr ""
+msgstr "被删除"
 
-#: tables/base.py:266
+#: tables/base.py:231
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr ""
+msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
 
-#: tables/base.py:727
-msgid "No items to display."
-msgstr ""
-
-#: tables/base.py:830
+#: tables/base.py:679
 msgid "Actions"
-msgstr ""
+msgstr "动作"
 
-#: tables/base.py:1008
+#: tables/base.py:824
+msgid "No items to display."
+msgstr "没有条目显示。"
+
+#: tables/base.py:841
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr ""
+msgstr "id \"%s\" 没有匹配的返回顶"
 
-#: tables/base.py:1138
+#: tables/base.py:948
 msgid "Please select a row before taking that action."
-msgstr ""
-
-#: templates/_header.html:3
-msgid "Logged in as"
-msgstr ""
-
-#: templates/_header.html:6
-msgid "Help"
-msgstr ""
-
-#: templates/_header.html:8
-msgid "Sign Out"
-msgstr ""
-
-#: templates/base.html:20
-msgid "Caution"
-msgstr ""
-
-#: templates/base.html:21
-msgid "You are acting as an admin user in the project dashboard."
-msgstr ""
-
-#: templates/base.html:23
-msgid "Learn More"
-msgstr ""
-
-#: templates/splash.html:7 templates/auth/login.html:4
-msgid "Login"
-msgstr ""
-
-#: templates/auth/_login.html:4
-msgid "Log In"
-msgstr ""
-
-#: templates/auth/_login.html:17
-msgid "Sign In"
-msgstr ""
+msgstr "请在执行前选择一行。"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
-msgstr ""
+msgstr "信息："
 
 #: templates/horizon/_messages.html:13
 msgid "Warning: "
-msgstr ""
+msgstr "警告："
 
 #: templates/horizon/_messages.html:19
 msgid "Success: "
-msgstr ""
+msgstr "成功："
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
-msgstr ""
+msgstr "错误："
 
-#: templates/horizon/common/_data_table.html:44
-msgid "Summary"
-msgstr ""
+#: templates/horizon/auth/_login.html:4
+msgid "Log In"
+msgstr "登录"
 
-#: templates/horizon/common/_data_table.html:53
+#: templates/horizon/auth/_login.html:18
+msgid "Sign In"
+msgstr "登入"
+
+#: templates/horizon/auth/login.html:4
+msgid "Login"
+msgstr "登录"
+
+#: templates/horizon/common/_data_table.html:31
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-
-#: templates/horizon/common/_quota_summary.html:4
-msgid "Quota Summary"
-msgstr ""
-
-#: templates/horizon/common/_quota_summary.html:5
-#: templates/horizon/common/_quota_summary.html:8
-#: templates/horizon/common/_quota_summary.html:11
-msgid "Used"
-msgstr ""
-
-#: templates/horizon/common/_quota_summary.html:5
-#: templates/horizon/common/_quota_summary.html:8
-#: templates/horizon/common/_quota_summary.html:11
-msgid "of"
-msgstr ""
-
-#: templates/horizon/common/_quota_summary.html:5
-#, fuzzy
-msgid "Available Instances"
-msgstr "实例"
-
-#: templates/horizon/common/_quota_summary.html:8
-msgid "Available vCPUs"
-msgstr ""
-
-#: templates/horizon/common/_quota_summary.html:11
-msgid "Available RAM"
-msgstr ""
-
-#: templates/horizon/common/_resource_browser.html:10
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-
-#: templates/horizon/common/_resource_browser.html:11
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-
-#: templates/horizon/common/_sidebar.html:14
-msgid "Current Project"
-msgstr ""
+msgstr[0] "显示 %(counter)s 条"
+msgstr[1] "显示 %(counter)s 条"
 
 #: templates/horizon/common/_usage_summary.html:5
 msgid "Select a month to query its usage"
-msgstr ""
+msgstr "选择一个月份查询它的使用情况"
 
 #: templates/horizon/common/_usage_summary.html:9
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
-msgstr ""
+msgstr "活跃的云主机"
 
 #: templates/horizon/common/_usage_summary.html:15
-msgid "Active RAM"
-msgstr ""
+msgid "Active Memory"
+msgstr "活跃的内存"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
-msgstr ""
+msgstr "本月的 VCPU 小时时间"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "This Month's GB-Hours"
-msgstr ""
+msgstr "本月的 GB 小时时间"
 
-#: templatetags/branding.py:35
-msgid "Horizon"
-msgstr ""
-
-#: templatetags/horizon.py:108
+#: templatetags/horizon.py:121
 msgid "No Limit"
-msgstr ""
+msgstr "无限制"
 
-#: templatetags/horizon.py:110 templatetags/horizon.py:112
+#: templatetags/horizon.py:123
+#: templatetags/horizon.py:125
 msgid "Available"
-msgstr ""
+msgstr "可用配额"
 
 #: templatetags/sizeformat.py:45
 #, python-format
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
-msgstr[0] ""
+msgstr[0] "%(size)d 字节"
+msgstr[1] "%(size)d 字节"
 
 #: templatetags/sizeformat.py:49
 #, python-format
 msgid "%(size)d"
 msgid_plural "%(size)d"
-msgstr[0] ""
+msgstr[0] "%(size)d"
+msgstr[1] "%(size)d"
 
 #: templatetags/sizeformat.py:52
 #, python-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: templatetags/sizeformat.py:55
 #, python-format
 msgid "%s MB"
-msgstr ""
-
-#: templatetags/sizeformat.py:58
-#, python-format
-msgid "%s GB"
-msgstr ""
+msgstr "%s MB"
 
 #: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s TB"
 
 #: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s PB"
-msgstr ""
+msgstr "%s PB"
 
 #: tests/base_tests.py:43
 msgid "My Dashboard"
-msgstr ""
+msgstr "我的控制面板"
 
 #: tests/base_tests.py:49
+#, fuzzy
 msgid "My Panel"
-msgstr ""
+msgstr "系统面板"
 
 #: tests/base_tests.py:56
+#, fuzzy
 msgid "Admin Panel"
-msgstr ""
+msgstr "管理员"
 
-#: tests/message_tests.py:30
-msgid "Giant ants are attacking San Francisco!"
-msgstr ""
+#: tests/table_tests.py:94
+msgid "Batch"
+msgstr "批"
+
+#: tests/table_tests.py:95
+msgid "Batched"
+msgstr "分批的"
+
+#: tests/table_tests.py:96
+#: tests/table_tests.py:107
+msgid "Item"
+msgstr "条目"
+
+#: tests/table_tests.py:97
+#: tests/table_tests.py:108
+msgid "Items"
+msgstr "条目"
+
+#: tests/table_tests.py:105
+msgid "Down"
+msgstr "向下"
+
+#: tests/table_tests.py:105
+msgid "Up"
+msgstr "向上"
 
 #: tests/table_tests.py:106
-msgid "Batch"
-msgstr ""
-
-#: tests/table_tests.py:107
-msgid "Batched"
-msgstr ""
-
-#: tests/table_tests.py:108 tests/table_tests.py:119
-msgid "Item"
-msgstr ""
-
-#: tests/table_tests.py:109 tests/table_tests.py:120
-msgid "Items"
-msgstr ""
-
-#: tests/table_tests.py:117
-msgid "Down"
-msgstr ""
-
-#: tests/table_tests.py:117
-msgid "Up"
-msgstr ""
-
-#: tests/table_tests.py:118
 msgid "Downed"
-msgstr ""
+msgstr "向下的"
 
-#: tests/table_tests.py:118
+#: tests/table_tests.py:106
 msgid "Upped"
-msgstr ""
-
-#: tests/table_tests.py:185
-msgid "No Actions Table"
-msgstr ""
+msgstr "向上的"
 
 #: tests/tabs_tests.py:36
 msgid "Tab One"
-msgstr ""
+msgstr "Tab 1"
 
 #: tests/tabs_tests.py:42
 msgid "Delayed Tab"
-msgstr ""
+msgstr "推迟的Tab"
 
 #: tests/tabs_tests.py:49
 msgid "Disabled Tab"
-msgstr ""
+msgstr "禁用的Tab"
 
 #: tests/tabs_tests.py:58
 msgid "Disallowed Tab"
-msgstr ""
+msgstr "不允许的Tab"
 
 #: tests/tabs_tests.py:76
 msgid "Tab With My Table"
-msgstr ""
+msgstr "我的表格中的Tab"
 
 #: tests/tabs_tests.py:85
 msgid "Recoverable Error Tab"
-msgstr ""
+msgstr "恢复的错误Tab"
 
-#: tests/testsettings.py:118
+#: tests/testsettings.py:99
 msgid "Password must be between 8 and 18 characters."
-msgstr ""
+msgstr "密码必须是8到18位的字符。"
 
 #: tests/workflows_tests.py:43
 msgid "Test Action One"
-msgstr ""
+msgstr "Test Action One"
 
 #: tests/workflows_tests.py:61
 msgid "Test Action Two"
-msgstr ""
+msgstr "Test Action Two"
 
 #: tests/workflows_tests.py:69
 msgid "Test Action Three"
-msgstr ""
+msgstr "Test Action Three"
 
 #: tests/workflows_tests.py:77
 msgid "Admin Action"
-msgstr ""
+msgstr "Admin Action"
 
 #: tests/test_dashboards/cats/dashboard.py:8
 msgid "Cute Cats"
-msgstr ""
+msgstr "Cute Cats"
 
 #: tests/test_dashboards/cats/dashboard.py:14
 msgid "Fierce Cats"
-msgstr ""
+msgstr "Fierce Cats"
 
 #: tests/test_dashboards/cats/dashboard.py:19
 msgid "Cats"
-msgstr ""
+msgstr "Cats"
 
 #: tests/test_dashboards/cats/kittens/panel.py:9
 #: tests/test_dashboards/cats/kittens/templates/kittens/index.html:3
 #: tests/test_dashboards/cats/kittens/templates/kittens/index.html:6
 msgid "Kittens"
-msgstr ""
+msgstr "Kittens"
 
 #: tests/test_dashboards/cats/tigers/panel.py:9
 #: tests/test_dashboards/cats/tigers/templates/tigers/index.html:3
 #: tests/test_dashboards/cats/tigers/templates/tigers/index.html:6
 msgid "Tigers"
-msgstr ""
+msgstr "Tigers"
 
 #: tests/test_dashboards/dogs/dashboard.py:7
 msgid "Dogs"
-msgstr ""
+msgstr "Dogs"
 
 #: tests/test_dashboards/dogs/puppies/panel.py:9
 #: tests/test_dashboards/dogs/puppies/templates/puppies/index.html:3
 #: tests/test_dashboards/dogs/puppies/templates/puppies/index.html:6
 msgid "Puppies"
-msgstr ""
+msgstr "Puppies"
 
-#: usage/base.py:96
+#: usage/base.py:94
 msgid "Unable to retrieve usage information."
-msgstr ""
+msgstr "无法获取使用信息。"
 
-#: usage/base.py:99
+#: usage/base.py:97
 msgid "You are viewing data for the future, which may or may not exist."
-msgstr ""
+msgstr "您正在查看未来的数据，它们将来可能存在可能不存在。"
 
-#: usage/tables.py:11
+#: usage/tables.py:10
 msgid "Download CSV Summary"
-msgstr ""
+msgstr "下载 CSV 摘要"
 
-#: usage/tables.py:25
+#: usage/tables.py:23
 msgid "VCPU Hours"
-msgstr ""
+msgstr "VCPU 小时时间"
 
-#: usage/tables.py:32
+#: usage/tables.py:30
 msgid "Disk GB Hours"
-msgstr ""
+msgstr "磁盘 GB 小时时间"
 
-#: usage/tables.py:40 usage/tables.py:68
+#: usage/tables.py:38
+#: usage/tables.py:59
 msgid "Usage Summary"
-msgstr ""
+msgstr "使用情况摘要"
 
-#: usage/tables.py:60
+#: usage/tables.py:51
 msgid "Uptime"
-msgstr ""
+msgstr "正常运行时间"
 
-#: utils/fields.py:46
+#: utils/fields.py:43
 msgid "Incorrect format for IP address"
-msgstr ""
+msgstr "不正确的IP地址格式"
 
-#: utils/fields.py:47
+#: utils/fields.py:44
+#, fuzzy
 msgid "Invalid version for IP address"
-msgstr ""
+msgstr "无效的用户名或密码。"
 
-#: utils/fields.py:48
+#: utils/fields.py:45
 msgid "Invalid subnet mask"
-msgstr ""
+msgstr "无效的子网掩码"
 
 #: utils/validators.py:35
 msgid "Password is not accepted"
-msgstr ""
+msgstr "密码没有接受"
 
-#: workflows/base.py:70
+#: views/auth.py:92
+msgid "You are not authorized for that tenant."
+msgstr "您没有那个租户的授权。"
+
+#: views/auth_forms.py:63
+msgid "Region"
+msgstr "区域"
+
+#: views/auth_forms.py:107
+msgid "Unable to authenticate for that project."
+msgstr "无法为项目进行验证。"
+
+#: views/auth_forms.py:124
+msgid "Invalid user name or password."
+msgstr "无效的用户名或密码。"
+
+#: views/auth_forms.py:131
+msgid "An error occurred authenticating. Please try again later."
+msgstr "验证出现错误。请稍后重试。"
+
+#: views/auth_forms.py:150
+msgid "You are not authorized for any projects."
+msgstr "您没有任何项目的授权。"
+
+#: views/auth_forms.py:174
+msgid "You are not authorized for any available projects."
+msgstr "您没有任何可用项目的授权。"
+
+#: workflows/base.py:65
 msgid "Processing..."
-msgstr ""
+msgstr "正在处理中，请稍候。。。"
 
-#: workflows/base.py:539
+#: workflows/base.py:478
+msgid "Save"
+msgstr "保存"
+
+#: workflows/base.py:479
 #, python-format
 msgid "%s completed successfully."
-msgstr ""
+msgstr "%s 创建成功"
 
-#: workflows/base.py:540
+#: workflows/base.py:480
 #, python-format
 msgid "%s did not complete."
-msgstr ""
+msgstr "%s 没有完成"
+
+msgid "Error associating Floating IP: %s"
+msgstr "关联公网IP出错：%s"
+
+msgid "Error adding rule security group: %s"
+msgstr "向防火墙添加规则失败：%s"
+
+msgid "Unable to delete non-empty container: %s"
+msgstr "无法删除非空容器：%s"
+
+msgid "Successfully deleted containers: %s"
+msgstr "成功删除容器：%s"
+
+msgid "User Data"
+msgstr "用户数据"
+
+msgid "Volume or Volume Snapshot"
+msgstr "云硬盘或者云硬盘快照"
+
+msgid "Volume to boot from."
+msgstr "从云硬盘启动"
+
+msgid "Cannot launch more than one instance if volume is specified."
+msgstr "如果指定云硬盘信息，则无法启动多个云主机"
+
+msgid "Unable to retrieve image \"%s\"."
+msgstr "无法获取镜像  \"%s\"。"
+
+msgid "Launch Instances"
+msgstr "新建云主机"
+
+msgid "Updated %(attributes)s for \"%(user)s\"."
+msgstr "更新 %(attributes)s 目的为用户 \"%(user)s\"。"
+
+msgid "Enable Users"
+msgstr "激活用户"
+
+msgid "Error enabling user: %s"
+msgstr "激活用户出错： %s"
+
+msgid "Enabled the following users: %s"
+msgstr "激活了以下的用户： %s"
+
+msgid "Successfully enabled users: %s"
+msgstr "成功激活用户： %s"
+
+msgid "Disable Users"
+msgstr "禁用用户"
+
+msgid "Error disabling user: %s"
+msgstr "禁用用户出错： %s"
+
+msgid "Disabled the following users: %s"
+msgstr "禁用下面的用户： %s"
+
+msgid "Successfully disabled users: %s"
+msgstr "成功禁用用户： %s"
+
+msgid "Change Password"
+msgstr "修改密码"
+
+msgid "Unable to allocate Floating IP."
+msgstr "不能自动为您分配公网IP，您可能需要向管理员申请，电话010-64823701-8016"
+
+msgid "Unable to allocate Floating IP for you."
+msgstr "不能自动为您分配公网IP"
+
+msgid "Register a new user"
+msgstr "注册新用户"
+
+msgid "Register"
+msgstr "注册"
+
+msgid "Return to Index"
+msgstr "返回首页"
+
+msgid "Create User fail, User name perhaps exist"
+msgstr "用户创建失败，用户名可能被占用，换个名字试试"
+
+msgid "Register Successfully"
+msgstr "注册成功"
+
+msgid "Confirm Password must be same with password."
+msgstr "确认密码必须和前面的密码相同"
+
+msgid "Please enter your username"
+msgstr "请输入用户名，长度5-30"
+
+msgid "You are acting as an admin user in the project dashboard."
+msgstr "当前你做为管理员登录,请小心操作,可能会造成数据丢失."
+
+msgid "Logged in as"
+msgstr "当前用户"
+
+msgid "Sign Out"
+msgstr "退出"
+
+msgid "Help"
+msgstr "帮助"
+
+msgid "CURRENT PROJECT"
+msgstr "当前项目"
+
+msgid "Networks"
+msgstr "网络"
+
+msgid "Active"
+msgstr "启用"
+
+msgid "Running"
+msgstr "正在运行"
+
+msgid "None"
+msgstr "无"
+
+msgid "Terminate Instances"
+msgstr "删除云主机"
+
+msgid "Instance Console Log"
+msgstr "云主机控制台日志"
+
+msgid "Log Length"
+msgstr "日志长度"
+
+msgid "Release Floating IPs"
+msgstr "释放公网IP"
+
+msgid "Delete Security Groups"
+msgstr "删除放火墙"
+
+msgid "Delete Rules"
+msgstr "删除规则"
+
+msgid "Disassociate Floating IP"
+msgstr "分离公网IP"
+
+msgid "huabei"
+msgstr "华北云节点"
+
+msgid "huadong"
+msgstr "华东云节点"
+
+msgid "huazhong"
+msgstr "华中云节点"
+
+msgid "xibei"
+msgstr "西北云节点"
+
+msgid "Caution"
+msgstr "警告"
+
+msgid "Quota Summary"
+msgstr "配额摘要"
+
+msgid "Used of Available Instances"
+msgstr "云主机使用量"
+
+msgid "Used of Available vCPUs"
+msgstr "VCPU使用量"
+
+msgid "Used MB of MB Available RAM"
+msgstr "内存使用量(单位:MB)"
+
+msgid "Your password does not meet the requirements."
+msgstr "你的密码不符合要求(长度大于6)."
+
+msgid "Learn More"
+msgstr "学习注意事项"
+

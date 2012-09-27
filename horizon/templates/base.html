@@ -12,6 +12,7 @@
   </head>
   <body id="{% block body_id %}{% endblock %}">
     {% block content %}
+
       {# FIXME(gabriel): remove the following warning block when Nova fixes their scoping upstream. #}
       {% if request.user.is_superuser and request.horizon.dashboard.slug == "nova" %}
         <div class="warning">
@@ -39,7 +40,7 @@
       </div>
     {% endblock %}
     <div id="footer">
-      {% block footer %}{% endblock %}
+      {% block footer %}{% include "_footer.html" %}{% endblock %}
     </div>
     {% block js %}
       {% include "horizon/_scripts.html" %}

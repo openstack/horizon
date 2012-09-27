@@ -3,77 +3,76 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Django_js\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 01:45+0000\n"
-"PO-Revision-Date: 2012-09-04 16:41+0800\n"
-"Last-Translator: Shawn Liang <11315889@qq.com>\n"
-"Language-Team: Shawn Liang <11315889@qq.com>\n"
+"POT-Creation-Date: 2012-09-18 22:18+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: Chinese \n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2;plural=(n>1)\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
-#: static/horizon/js/horizon.forms.js:57
+#: static/horizon/js/horizon.forms.js:58
 msgid "Additional information here..."
-msgstr "附加信息..."
+msgstr ""
 
-#: static/horizon/js/horizon.forms.js:63
+#: static/horizon/js/horizon.forms.js:64
 #: static/horizon/js/horizon.projects.js:12
 msgid "Filter"
-msgstr "筛选"
+msgstr ""
 
 #: static/horizon/js/horizon.instances.js:28
 msgid "There was a problem communicating with the server, please try again."
-msgstr "与服务器通讯出现问题，请重试。"
+msgstr ""
 
 #: static/horizon/js/horizon.modals.js:125
 msgid "There was an error submitting the form. Please try again."
-msgstr "提交表单发生错误，请重试。"
+msgstr ""
 
 #: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
 msgid "Loading"
-msgstr "正在载入"
+msgstr ""
 
 #: static/horizon/js/horizon.modals.js:178
 msgid "An error occurred. Please try again."
-msgstr "有错误发生，请重试"
+msgstr ""
 
 #: static/horizon/js/horizon.projects.js:9
 msgid "This project currently has no members."
-msgstr "这个项目当前没有用户"
+msgstr ""
 
 #: static/horizon/js/horizon.projects.js:10
 msgid "No more available users to add."
-msgstr "没有有效用户可添加"
+msgstr ""
 
 #: static/horizon/js/horizon.projects.js:11
 msgid "No users found."
-msgstr "没有找到用户"
+msgstr ""
 
-#: static/horizon/js/horizon.tables.js:48
+#: static/horizon/js/horizon.tables.js:47
 msgid "An error occurred while updating."
-msgstr "更新时发生错误"
+msgstr ""
 
-#: static/horizon/js/horizon.tables.js:128
+#: static/horizon/js/horizon.tables.js:126
 msgid "Confirm "
-msgstr "确认"
+msgstr ""
 
-#: static/horizon/js/horizon.tables.js:129
+#: static/horizon/js/horizon.tables.js:127
 msgid "Please confirm your selection. This action cannot be undone."
-msgstr "你确认你的选择，此操作不能恢复"
+msgstr ""
 
-#: static/horizon/js/horizon.tables.js:143
+#: static/horizon/js/horizon.tables.js:141
 msgid "Working"
-msgstr "工作中"
+msgstr ""
 
-#: static/horizon/js/horizon.tables.js:186
+#: static/horizon/js/horizon.tables.js:184
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "总共 %s 条"
-msgstr[1] "总共 %s 条"
+msgstr[0] ""
