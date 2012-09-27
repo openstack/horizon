@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-29 11:47-0700\n"
-"PO-Revision-Date: 2012-09-27 13:47+0800\n"
+"PO-Revision-Date: 2012-09-27 17:09+0800\n"
 "Last-Translator: Shawn Liang <11315889@qq.com>\n"
 "Language-Team: 汉语 <11315889@qq.com>\n"
 "Language: Simplified Chinese\n"
@@ -59,10 +59,6 @@ msgstr "允许 %(from)s：%(to)s 从 %(group)s"
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "允许 %(from)s：%(to)s 从 %(cidr)s"
-
-#: api/swift.py:114
-msgid "Unicode is not currently supported for object copy."
-msgstr "对象拷贝目前不支持Unicode"
 
 #: dashboards/nova/dashboard.py:24
 msgid "Manage Compute"
@@ -126,15 +122,6 @@ msgstr "选择一个云主机"
 msgid "No instances available"
 msgstr "无可用云主机"
 
-#: dashboards/nova/access_and_security/floating_ips/forms.py:52
-#: dashboards/nova/access_and_security/floating_ips/tables.py:112
-#: dashboards/nova/instances_and_volumes/instances/tables.py:58
-#: dashboards/nova/instances_and_volumes/instances/tables.py:75
-#: dashboards/nova/instances_and_volumes/instances/tables.py:90
-#: dashboards/nova/instances_and_volumes/instances/tables.py:118
-#: dashboards/nova/instances_and_volumes/volumes/tables.py:158
-#: dashboards/nova/templates/nova/instances_and_volumes/volumes/_detail_overview.html:41
-#: tests/workflows_tests.py:58
 msgid "Instance"
 msgstr "云主机"
 
@@ -161,22 +148,15 @@ msgstr "成功分配公网IP \"%(ip)s\" 到项目 \"%(project)s\""
 msgid "Allocate IP To Project"
 msgstr "为项目分配IP"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:45
 msgid "Release"
 msgstr "释放"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:46
 msgid "Released"
-msgstr "释放"
+msgstr "已释放"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:48
-#: dashboards/nova/access_and_security/floating_ips/tables.py:126
-#: dashboards/syspanel/projects/forms.py:119
 msgid "Floating IPs"
 msgstr "公网IP"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:57
-#: dashboards/nova/templates/nova/access_and_security/floating_ips/_associate.html:22
 msgid "Associate IP"
 msgstr "关联IP"
 
@@ -203,15 +183,11 @@ msgstr "%(INSTANCE_NAME)s (%(INSTANCE_ID)s)"
 msgid "Not available"
 msgstr "无法使用"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:109
-#: dashboards/nova/instances_and_volumes/instances/tables.py:242
-#: dashboards/syspanel/instances/tables.py:74
 msgid "IP Address"
 msgstr "IP地址"
 
-#: dashboards/nova/access_and_security/floating_ips/tables.py:115
 msgid "Floating IP Pool"
-msgstr "公网IP池"
+msgstr "所属IP池"
 
 #: dashboards/nova/access_and_security/floating_ips/views.py:100
 msgid "No floating IP pools available."
@@ -1550,10 +1526,6 @@ msgstr "云硬盘详情"
 msgid "Copy Object"
 msgstr "复制对象"
 
-#: dashboards/nova/templates/nova/objects/_copy.html:17
-msgid "You may make a new copy of an existing object to store in this or another container."
-msgstr "您可以新建一个现有对象的拷贝，存储到这个或者其它容器中。"
-
 #: dashboards/nova/templates/nova/objects/_upload.html:8
 msgid "Upload Object To Container"
 msgstr "上传对象到容器中"
@@ -1638,7 +1610,32 @@ msgstr "Dashboard 用户界面语言"
 msgid "Language Settings"
 msgstr "语言设置"
 
-#: dashboards/settings/templates/settings/user/_language.html:31
+msgid "Unicode is not currently supported for object copy."
+msgstr "块复制时，暂时不支持Unicode"
+
+#: dashboards/nova/images_and_snapshots/images/forms.py:49
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - 亚马逊内核镜像"
+
+#: dashboards/nova/images_and_snapshots/images/forms.py:52
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon  Machine 镜像"
+
+#: dashboards/nova/images_and_snapshots/images/forms.py:55
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdisk 镜像"
+
+#: dashboards/nova/images_and_snapshots/images/forms.py:58
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - 光盘镜像"
+
+#: dashboards/nova/images_and_snapshots/images/forms.py:60
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU 模拟器"
+
+msgid "An external (HTTP) URL to load the image from."
+msgstr "使用外部(HTTP)URL加载镜像。"
+
 msgid "From here you can modify different settings for your dashboard."
 msgstr "在这里您可以为您的 dashboard 修改不同的设置"
 
@@ -2427,7 +2424,7 @@ msgstr "您没有那个租户的授权。"
 
 #: views/auth_forms.py:63
 msgid "Region"
-msgstr "区域"
+msgstr "分布区域"
 
 #: views/auth_forms.py:107
 msgid "Unable to authenticate for that project."
@@ -2620,18 +2617,54 @@ msgstr "警告"
 msgid "Quota Summary"
 msgstr "配额摘要"
 
-msgid "Used of Available Instances"
-msgstr "云主机使用量"
+msgid "Used"
+msgstr "已使用"
 
-msgid "Used of Available vCPUs"
-msgstr "VCPU使用量"
+msgid "of"
+msgstr " / "
 
-msgid "Used MB of MB Available RAM"
-msgstr "内存使用量(单位:MB)"
+msgid "Available Instances"
+msgstr "可用云主机"
+
+msgid "Available vCPUs"
+msgstr "可用VCPU"
+
+msgid "Available RAM"
+msgstr "可用内存"
 
 msgid "Your password does not meet the requirements."
 msgstr "你的密码不符合要求(长度大于6)."
 
 msgid "Learn More"
 msgstr "学习注意事项"
+
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+msgid "Volume Name"
+msgstr "云硬盘名称"
+
+msgid "Make a new copy of an existing object to store in this or another container. You may also specify a path at which the new copy should live inside of the selected container."
+msgstr "为现有对象创建一个新的副本，存储在这个或另外一个容器中。 您也可以在选中的容器中为新的副本指定存储路径 。"
+
+msgid "Create Image"
+msgstr "创建镜像"
+
+msgid "Create An Image"
+msgstr "创建一个镜像"
+
+msgid "Image Location"
+msgstr "镜像URL地址"
+
+msgid "Format"
+msgstr "格式"
+
+msgid "Minimum Disk (GB)"
+msgstr "最小磁盘(GB)"
+
+msgid "Minimum Ram (MB)"
+msgstr "最小内存"
+
+msgid "The minimum disk size required to boot the image. If unspecified, this value defaults to 0 (no minimum)."
+msgstr "为启动镜像设置的最小磁盘。如果不指定， 默认值为零 (没有限制)。"
 

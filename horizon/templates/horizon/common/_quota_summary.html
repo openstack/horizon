@@ -8,6 +8,6 @@
     <strong>{% trans "Used" %} <span> {{ usage.quota.cores.used|intcomma }} </span>{% trans "of" %}<span> {{ usage.quota.cores.quota|intcomma }} </span>{% trans "Available vCPUs" %} </strong>
     {% horizon_progress_bar usage.quota.cores.used usage.quota.cores.quota %}
 
-    <strong>{% trans "Used" %} <span> {{ usage.quota.ram.used|intcomma }} MB </span>{% trans "of" %}<span> {{ usage.quota.ram.quota|intcomma }} MB </span>{% trans "Available RAM" %} </strong>
+    <strong>{% trans "Used" %} <span> {{ usage.quota.ram.used|intcomma }} MB </span>{% trans "of" %}<span> {{ usage.quota.ram.quota|intcomma }}</span>{% trans "Available RAM" %} MB</strong>
     {% horizon_progress_bar usage.quota.ram.used usage.quota.ram.quota %}
 </div>
