@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-29 11:47-0700\n"
-"PO-Revision-Date: 2012-09-27 17:09+0800\n"
+"PO-Revision-Date: 2012-09-27 17:57+0800\n"
 "Last-Translator: Shawn Liang <11315889@qq.com>\n"
 "Language-Team: 汉语 <11315889@qq.com>\n"
 "Language: Simplified Chinese\n"
@@ -222,8 +222,6 @@ msgstr "成功导入公钥：%s"
 msgid "Error Importing Keypair: %s"
 msgstr "导入密钥对出错：%s"
 
-#: dashboards/nova/access_and_security/keypairs/tables.py:29
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:299
 msgid "Keypair"
 msgstr "密钥对"
 
@@ -592,20 +590,14 @@ msgstr "镜像更新成功。"
 msgid "Launch"
 msgstr "启动"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:45
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:161
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:166
 msgid "Image"
 msgstr "镜像"
 
-#: dashboards/nova/images_and_snapshots/images/tables.py:46
-#: dashboards/nova/images_and_snapshots/images/tables.py:102
-#: dashboards/syspanel/images/panel.py:28
-#: dashboards/syspanel/images/tables.py:38
-#: dashboards/syspanel/templates/syspanel/images/index.html:3
-#: dashboards/syspanel/templates/syspanel/images/index.html:6
 msgid "Images"
 msgstr "镜像"
+
+msgid "Select Image"
+msgstr "选择一个镜像"
 
 #: dashboards/nova/images_and_snapshots/images/tables.py:60
 #: dashboards/syspanel/users/tables.py:30
@@ -768,31 +760,18 @@ msgstr "已暂停"
 msgid "Unpaused"
 msgstr "已取消暂停"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:116
 msgid "Suspend"
 msgstr "挂起"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:116
 msgid "Resume"
 msgstr "恢复"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:117
 msgid "Suspended"
 msgstr "已挂起"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:117
 msgid "Resumed"
 msgstr "已恢复"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:144
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:376
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:3
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/launch.html:6
-msgid "Launch Instance"
-msgstr "启动云主机"
-
-#: dashboards/nova/instances_and_volumes/instances/tables.py:151
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_update.html:7
 msgid "Edit Instance"
 msgstr "编辑云主机"
 
@@ -804,34 +783,21 @@ msgstr "VNC控制台"
 msgid "View Log"
 msgstr "查看日志"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:213
-#, python-format
 msgid "%(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 msgstr "%(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:241
-#: dashboards/syspanel/instances/tables.py:73
-#: usage/tables.py:47
 msgid "Instance Name"
 msgstr "云主机名称"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:250
-#: dashboards/syspanel/instances/tables.py:84
 msgid "Task"
 msgstr "任务"
 
-#: dashboards/nova/instances_and_volumes/instances/tables.py:257
-#: dashboards/syspanel/instances/tables.py:91
 msgid "Power State"
 msgstr "加电状态"
 
-#: dashboards/nova/instances_and_volumes/instances/tabs.py:35
 msgid "Log"
 msgstr "日志"
 
-#: dashboards/nova/instances_and_volumes/instances/tabs.py:47
-#: dashboards/nova/instances_and_volumes/instances/views.py:63
-#, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "无法获得云主机 \"%s\" 的日志。"
 
@@ -854,13 +820,11 @@ msgstr "无法获取云主机详情。"
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "无法获取云主机 \"%s\" 的详情。"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:34
-#: dashboards/syspanel/projects/tables.py:91
-#: dashboards/syspanel/users/tables.py:39
-#: dashboards/syspanel/users/tables.py:73
-#: tests/workflows_tests.py:40
 msgid "User"
 msgstr "用户"
+
+msgid "Customization Scrip"
+msgstr "自定义脚本"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:48
 msgid "Project & User"
@@ -874,18 +838,14 @@ msgstr "Admin users may optionally select the project and user for whom the inst
 msgid "Don't boot from a volume."
 msgstr "不要从云硬盘启动"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:62
 msgid "Boot from volume."
 msgstr "从云硬盘启动"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:63
 msgid "Boot from volume snapshot (creates a new volume)."
 msgstr "从云硬盘快照启动（创建一个新的云硬盘）"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:67
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:85
 msgid "Volume Options"
-msgstr "云硬盘详情"
+msgstr "云硬盘选项"
 
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:70
 #: dashboards/nova/instances_and_volumes/instances/workflows.py:104
@@ -915,21 +875,12 @@ msgstr "云主机终止后删除云硬盘"
 msgid "Select Volume"
 msgstr "选择云硬盘"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:119
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:132
 msgid "Unable to retrieve list of volumes"
 msgstr "无法获取云硬盘列表"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:123
-#, fuzzy
 msgid "Select Volume Snapshot"
-msgstr "创建云硬盘快照"
+msgstr "选择云硬盘快照"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:164
-msgid "Instance Source"
-msgstr "云主机计数"
-
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:167
 msgid "Instance Snapshot"
 msgstr "云主机快照"
 
@@ -937,78 +888,57 @@ msgstr "云主机快照"
 msgid "Server Name"
 msgstr "服务器名称"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:170
-#: dashboards/syspanel/flavors/tables.py:13
 msgid "Flavor"
-msgstr "类型"
+msgstr "配置方案"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:171
 msgid "Size of image to launch."
 msgstr "启动镜像大小"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:172
-#: dashboards/nova/templates/nova/instances_and_volumes/instances/_launch_details_help.html:21
 msgid "Instance Count"
-msgstr "云主机计数"
+msgstr "云主机数量"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:175
 msgid "Number of instances to launch."
 msgstr "启动的云主机数目"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:178
 msgid "Details"
-msgstr "云硬盘详情"
+msgstr "详情"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:197
+msgid "Instance Source"
+msgstr "主机源"
+
 msgid "Launching multiple instances is only supported for images and instance snapshots."
 msgstr "只支持从镜像和云主机快照同时创建多个云主机"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:240
-#, fuzzy
-msgid "Select Image"
-msgstr "选择语言"
-
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:242
 msgid "No images available."
 msgstr "无可用镜像"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:251
 msgid "Select Instance Snapshot"
 msgstr "选择云硬盘快照"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:253
 msgid "No snapshots available."
 msgstr "无可用快照"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:264
 msgid "Unable to retrieve instance flavors."
 msgstr "无法获取云主机类型"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:301
 msgid "Which keypair to use for authentication."
 msgstr "认证使用哪个密钥对"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:307
 msgid "Launch instance in these security groups."
 msgstr "在这些防火墙中启动云主机"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:312
 msgid "Control access to your instance via keypairs, security groups, and other mechanisms."
 msgstr "通过密钥对、防火墙、和其它机制控制你的云主机权限"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:322
 msgid "Unable to retrieve keypairs."
 msgstr "无法获取密钥对"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:324
 msgid "Select a keypair"
 msgstr "选择密钥对"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:326
 msgid "No keypairs available."
 msgstr "无有效密钥对"
 
-#: dashboards/nova/instances_and_volumes/instances/workflows.py:335
 msgid "Unable to retrieve list of security groups"
 msgstr "无法获取防火墙列表"
 
@@ -2667,4 +2597,7 @@ msgstr "最小内存"
 
 msgid "The minimum disk size required to boot the image. If unspecified, this value defaults to 0 (no minimum)."
 msgstr "为启动镜像设置的最小磁盘。如果不指定， 默认值为零 (没有限制)。"
+
+msgid "Launch Instance"
+msgstr "启动云主机"
 

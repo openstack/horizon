@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: Django_js\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-15 01:45+0000\n"
-"PO-Revision-Date: 2012-09-04 16:41+0800\n"
+"PO-Revision-Date: 2012-09-27 17:52+0800\n"
 "Last-Translator: Shawn Liang <11315889@qq.com>\n"
 "Language-Team: Shawn Liang <11315889@qq.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: Chinese \n"
+"Language: Chinese\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2;plural=(n>1)\n"
 
@@ -35,7 +35,8 @@ msgstr "与服务器通讯出现问题，请重试。"
 msgid "There was an error submitting the form. Please try again."
 msgstr "提交表单发生错误，请重试。"
 
-#: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
+#: static/horizon/js/horizon.modals.js:159
+#: static/horizon/js/horizon.tabs.js:9
 msgid "Loading"
 msgstr "正在载入"
 
@@ -77,3 +78,4 @@ msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "总共 %s 条"
 msgstr[1] "总共 %s 条"
+
