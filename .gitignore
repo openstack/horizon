@@ -12,7 +12,6 @@ pep8.txt
 pylint.txt
 reports
 horizon.egg-info
-openstack_dashboard/local/local_settings.py
 openstack_dashboard/test/.secret_key_store
 doc/build/
 doc/source/sourcecode
