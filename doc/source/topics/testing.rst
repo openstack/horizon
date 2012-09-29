@@ -268,7 +268,7 @@ Expected Method Never Called
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This one is the opposite of the unexpected method call. This one means you
-tol mox to expect a call and it didn't happen. This is almost always the
+told mox to expect a call and it didn't happen. This is almost always the
 result of an error in the conditions of the test. Using the
 :meth:`~horizon.test.TestCase.assertNoFormErrors` and
 :meth:`~horizon.test.TestCase.assertMessageCount` will make it readily apparent
