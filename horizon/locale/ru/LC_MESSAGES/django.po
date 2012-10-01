@@ -492,7 +492,7 @@ msgstr "Создать Группу доступа"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:51
 msgid "Edit Rules"
-msgstr "Редактировать правила"
+msgstr "Редактировать"
 
 #: dashboards/nova/access_and_security/security_groups/tables.py:71
 msgid "Rule"
