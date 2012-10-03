@@ -1,0 +1,33 @@
+{% extends "horizon/common/_modal_form.html" %}
+
+{% load horizon i18n %}
+
+{% block form_id %}associate_floating_ip_form{% endblock %}
+{% block form_action %}{% url horizon:project:access_and_security:floating_ips:allocate %}{% endblock %}
+
+{% block modal-header %}{% trans "Allocate Floating IP" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "Allocate a floating IP from a given floating ip pool." %}</p>
+
+    <h3>{% trans "Project Quotas" %}</h3>
+    <div class="quota_title">
+      <strong>{% trans "Floating IP" %} <span>({{ usages.floating_ips.used }})</span></strong>
+      <p>{{ usages.floating_ips.available|quota }}</p>
+    </div>
+    <div class="clearfix"></div>
+    <div class="quota_bar">{% horizon_progress_bar usages.floating_ips.used usages.floating_ips.quota %}</div>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right {% ifequal usages.floating_ips.used usages.floating_ips.quota %}disabled" type="button"{% else %}" type="submit"{% endifequal %} value="{% trans "Allocate IP" %}" />
+  <a href="{% url horizon:project:access_and_security:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}Services{% endblock %}
+
+{% block page_header %}
+  {% url horizon:admin:services:index as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "horizon/common/_page_header.html" with title=_("Services") refresh_link=refresh_link searchable="true" %}
+{% endblock page_header %}
+
+{% block main %}
+  {{ table.render }}
+{% endblock %}
+

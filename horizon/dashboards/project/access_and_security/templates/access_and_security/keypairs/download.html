@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% blocktrans %}Download Keypair{% endblocktrans %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Download Keypair") %}
+{% endblock page_header %}
+
+{% block main %}
+  <div class="modal-header">
+    <h3>{% blocktrans %}The keypair &quot;{{ keypair_name }}&quot; should download automatically. If not use the link below.{% endblocktrans %}</h3>
+  </div>
+  <div class="modal-body clearfix">
+    <a href="{% url horizon:project:access_and_security:keypairs:generate keypair_name %}">
+      {% blocktrans %}Download keypair &quot;{{ keypair_name}}&quot;{% endblocktrans %}
+    </a>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    document.location = '{% url horizon:project:access_and_security:keypairs:generate keypair_name %}';
+  </script>
+{% endblock %}

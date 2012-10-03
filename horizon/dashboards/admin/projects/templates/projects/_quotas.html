@@ -1,0 +1,24 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}quota_update_form{% endblock %}
+{% block form_action %}{% url horizon:admin:projects:quotas tenant.id %}{% endblock %}
+
+{% block modal-header %}{% trans "Update Quota" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% blocktrans with tenant_id=tenant.id %}From here you can edit quotas (max limits) for the project {{ tenant.name }}.{% endblocktrans %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+    <input class="btn btn-primary pull-right" type="submit" value="{% trans "Update Quota" %}" />
+  <a href="{% url horizon:admin:projects:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

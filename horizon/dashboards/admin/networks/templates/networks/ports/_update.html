@@ -1,0 +1,29 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}update_port_form{% endblock %}
+{% block form_action %}{% url horizon:admin:networks:editport network_id port_id %}{% endblock %}
+
+{% block modal-header %}{% trans "Edit Port" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <dl>
+      <dt>{% trans "ID" %}</dt>
+      <dd>{{ port_id }}</dd>
+    </dl>
+    <hr>
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "You may update the editable properties of your port here." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Save Changes" %}" />
+  <a href="{% url horizon:admin:networks:detail network_id %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

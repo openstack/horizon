@@ -1,0 +1,21 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}security_group_rule_form{% endblock %}
+{% block form_action %}{% url horizon:project:access_and_security:security_groups:edit_rules security_group.id %}{% endblock %}
+{% block form_class %}{{ block.super }} horizontal split_five{% endblock %}
+
+{% block modal_id %}security_group_rule_modal{% endblock %}
+{% block modal-header %}{% trans "Edit Security Group Rules" %}{% endblock %}
+
+{% block modal-body %}
+  <h3>{% trans "Add Rule" %}</h3>
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+{% endblock %}
+
+{% block modal-footer %}
+    <input class="btn btn-primary pull-right" type="submit" value="{% trans "Add Rule" %}" />
+    <a href="{% url horizon:project:access_and_security:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
