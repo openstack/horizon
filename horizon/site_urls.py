@@ -27,6 +27,7 @@ urlpatterns = patterns('horizon.views',
     url(r'home/$', 'user_home', name='user_home')
 )
 
+# Client-side i18n URLconf.
 urlpatterns += patterns('',
     url(r'^i18n/js/(?P<packages>\S+?)/$',
         'django.views.i18n.javascript_catalog',

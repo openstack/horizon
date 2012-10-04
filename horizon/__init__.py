@@ -14,7 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-""" The Horizon OpenStack Dashboard interface.
+""" The Horizon interface.
 
 Contains the core Horizon classes--:class:`~horizon.Dashboard` and
 :class:`horizon.Panel`--the dynamic URLconf for Horizon, and common interface

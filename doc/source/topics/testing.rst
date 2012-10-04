@@ -170,12 +170,12 @@ is tested... these types of things aren't always easy, but they're extremely
 necessary.
 
 To that end, Horizon includes several custom assertions to make these tasks
-easier. :meth:`~horizon.test.TestCase.assertNoFormErrors`,
-:meth:`~horizon.test.TestCase.assertMessageCount`, and
-:meth:`~horizon.test.TestCase.asertNoMessages` all exist for exactly these
-purposes. Moreover, they provide useful output when things go wrong so you're
-not left scratching your head wondering why your view test didn't redirect
-as expected when you posted a form.
+easier. :meth:`~horizon.test.helpers.TestCase.assertNoFormErrors`,
+:meth:`~horizon.test.helpers.TestCase.assertMessageCount`, and
+:meth:`~horizon.test.helpers.TestCase.asertNoMessages` all exist for exactly
+these purposes. Moreover, they provide useful output when things go wrong so
+you're not left scratching your head wondering why your view test didn't
+redirect as expected when you posted a form.
 
 .. _debugging_unit_tests:
 
@@ -185,14 +185,14 @@ Debugging Unit Tests
 Tips and tricks
 ---------------
 
-#. Use :meth:`~horizon.test.TestCase.assertNoFormErrors` immediately after
-   your ``client.post`` call for tests that handle form views. This will
+#. Use :meth:`~horizon.test.helpers.TestCase.assertNoFormErrors` immediately
+   after your ``client.post`` call for tests that handle form views. This will
    immediately fail if your form POST failed due to a validation error and
    tell you what the error was.
 
-#. Use :meth:`~horizon.test.TestCase.assertMessageCount` and
-   :meth:`~horizon.test.TestCase.asertNoMessages` when a piece of code is
-   failing inexplicably. Since the core error handlers attach user-facing
+#. Use :meth:`~horizon.test.helpers.TestCase.assertMessageCount` and
+   :meth:`~horizon.test.helpers.TestCase.asertNoMessages` when a piece of code
+   is failing inexplicably. Since the core error handlers attach user-facing
    error messages (and since the core logging is silenced during test runs)
    these methods give you the dual benefit of verifying the output you expect
    while clearly showing you the problematic error message if they fail.
@@ -270,7 +270,7 @@ Expected Method Never Called
 This one is the opposite of the unexpected method call. This one means you
 tol mox to expect a call and it didn't happen. This is almost always the
 result of an error in the conditions of the test. Using the
-:meth:`~horizon.test.TestCase.assertNoFormErrors` and
-:meth:`~horizon.test.TestCase.assertMessageCount` will make it readily apparent
-what the problem is in the majority of cases. If not, then use ``pdb`` and
-start interrupting the code flow to see where things are getting off track.
+:meth:`~horizon.test.helpers.TestCase.assertNoFormErrors` and
+:meth:`~horizon.test.helpers.TestCase.assertMessageCount` will make it readily
+apparent what the problem is in the majority of cases. If not, then use ``pdb``
+and start interrupting the code flow to see where things are getting off track.

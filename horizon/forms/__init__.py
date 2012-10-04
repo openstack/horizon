@@ -14,8 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-# FIXME(gabriel): Legacy imports from django-openstack.forms
-# for API compatibility.
+# FIXME(gabriel): Legacy imports for API compatibility.
 from django.forms import *
 from django.forms import widgets
 

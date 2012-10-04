@@ -15,6 +15,7 @@
 #    under the License.
 
 import copy
+import json
 
 from django import http
 from django import shortcuts
@@ -23,7 +24,6 @@ from django.views import generic
 from horizon import exceptions
 from horizon import messages
 from horizon.forms.views import ADD_TO_FIELD_HEADER
-from horizon.openstack.common import jsonutils
 
 
 class WorkflowView(generic.TemplateView):
@@ -149,7 +149,7 @@ class WorkflowView(generic.TemplateView):
                 field_id = self.request.META["HTTP_X_HORIZON_ADD_TO_FIELD"]
                 data = [self.get_object_id(workflow.object),
                         self.get_object_display(workflow.object)]
-                response = http.HttpResponse(jsonutils.dumps(data))
+                response = http.HttpResponse(json.dumps(data))
                 response["X-Horizon-Add-To-Field"] = field_id
                 return response
             else:

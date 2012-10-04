@@ -14,12 +14,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import json
 import os
 
 from django import http
 from django.views import generic
 
-from horizon.openstack.common import jsonutils
 from horizon import exceptions
 
 
@@ -73,7 +73,7 @@ class ModalFormView(ModalFormMixin, generic.FormView):
                 field_id = self.request.META[ADD_TO_FIELD_HEADER]
                 data = [self.get_object_id(handled),
                         self.get_object_display(handled)]
-                response = http.HttpResponse(jsonutils.dumps(data))
+                response = http.HttpResponse(json.dumps(data))
                 response["X-Horizon-Add-To-Field"] = field_id
             else:
                 success_url = self.get_success_url()

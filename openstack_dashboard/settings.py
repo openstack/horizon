@@ -53,7 +53,7 @@ ROOT_URLCONF = 'openstack_dashboard.urls'
 HORIZON_CONFIG = {
     'dashboards': ('project', 'admin', 'settings',),
     'default_dashboard': 'project',
-    'user_home': 'horizon.views.base.get_user_home',
+    'user_home': 'openstack_dashboard.views.get_user_home',
     'ajax_queue_limit': 10,
     'help_url': "http://docs.openstack.org",
     'exceptions': {'recoverable': exceptions.RECOVERABLE,
@@ -80,6 +80,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     'horizon.context_processors.horizon',
+    'openstack_dashboard.context_processors.openstack',
 )
 
 TEMPLATE_LOADERS = (
@@ -121,9 +122,9 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'compressor',
     'horizon',
-    'horizon.dashboards.project',
-    'horizon.dashboards.admin',
-    'horizon.dashboards.settings',
+    'openstack_dashboard.dashboards.project',
+    'openstack_dashboard.dashboards.admin',
+    'openstack_dashboard.dashboards.settings',
     'openstack_auth',
 )
 

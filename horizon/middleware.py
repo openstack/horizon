@@ -21,6 +21,7 @@
 Middleware provided and used by Horizon.
 """
 
+import json
 import logging
 
 from django import http
@@ -32,7 +33,6 @@ from django.utils import timezone
 from django.utils.encoding import iri_to_uri
 
 from horizon import exceptions
-from horizon.openstack.common import jsonutils
 
 
 LOG = logging.getLogger(__name__)
@@ -105,5 +105,5 @@ class HorizonMiddleware(object):
                 # socket queue rather than being sent via a header.
                 # The header method has notable drawbacks (length limits,
                 # etc.) and is not meant as a long-term solution.
-                response['X-Horizon-Messages'] = jsonutils.dumps(queued_msgs)
+                response['X-Horizon-Messages'] = json.dumps(queued_msgs)
         return response

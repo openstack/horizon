@@ -278,7 +278,7 @@ function run_tests {
     export NOSE_HTML_OUT_FILE='horizon_nose_results.html'
   fi
   ${command_wrapper} coverage erase
-  ${command_wrapper} coverage run -p $root/manage.py test horizon --settings=horizon.tests.testsettings $testargs
+  ${command_wrapper} coverage run -p $root/manage.py test horizon --settings=horizon.test.settings $testargs
   # get results of the Horizon tests
   HORIZON_RESULT=$?
 

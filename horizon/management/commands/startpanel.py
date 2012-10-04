@@ -18,8 +18,7 @@ class Command(TemplateCommand):
                                   default=None,
                                   help='The dotted python path to the '
                                        'dashboard which this panel will be '
-                                       'registered with, e.g. '
-                                       '"horizon.dashboards.syspanel".'),
+                                       'registered with.'),
                       make_option('--target',
                                   dest='target',
                                   action='store',

@@ -1,0 +1,10 @@
+{% load i18n %}
+<div id="user_info" class="pull-right">
+  <span>{% trans "Logged in as" %}: {{ request.user.username }}</span>
+  <a href="{% url horizon:settings:user:index %}">{% trans "Settings" %}</a>
+  {% if HORIZON_CONFIG.help_url %}
+  <a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a>
+  {% endif %}
+  <a href="{% url logout %}">{% trans "Sign Out" %}</a>
+  {% include "horizon/common/_region_selector.html" %}
+</div>
