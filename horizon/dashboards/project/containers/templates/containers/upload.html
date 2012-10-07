@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Upload Object" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Upload Objects") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'project/containers/_upload.html' %}
+{% endblock %}
+
+
+
+

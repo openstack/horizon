@@ -54,8 +54,8 @@ INSTALLED_APPS = (
     'compressor',
     'horizon',
     'horizon.tests',
-    'horizon.dashboards.nova',
-    'horizon.dashboards.syspanel',
+    'horizon.dashboards.project',
+    'horizon.dashboards.admin',
     'horizon.dashboards.settings',
     'horizon.tests.test_dashboards.cats',
     'horizon.tests.test_dashboards.dogs'
@@ -111,8 +111,8 @@ SESSION_COOKIE_SECURE = False
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
 
 HORIZON_CONFIG = {
-    'dashboards': ('nova', 'syspanel', 'settings'),
-    'default_dashboard': 'nova',
+    'dashboards': ('project', 'admin', 'settings'),
+    'default_dashboard': 'project',
     "password_validator": {
         "regex": '^.{8,18}$',
         "help_text": _("Password must be between 8 and 18 characters.")

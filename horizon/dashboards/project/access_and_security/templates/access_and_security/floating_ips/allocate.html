@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Allocate Floating IP" %}{% endblock %}
+
+{% block main %}
+  {% include 'project/access_and_security/floating_ips/_allocate.html' %}
+{% endblock %}

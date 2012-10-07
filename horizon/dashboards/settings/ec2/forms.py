@@ -48,7 +48,7 @@ class DownloadX509Credentials(forms.SelfHandlingForm):
             if tenant.enabled:
                 tenant_choices.append((tenant.id, tenant.name))
         if not tenant_choices:
-            self.fields['tenant'].choices = ('', 'No Available Tenants')
+            self.fields['tenant'].choices = [('', 'No Available Tenants')]
         else:
             self.fields['tenant'].choices = tenant_choices
 

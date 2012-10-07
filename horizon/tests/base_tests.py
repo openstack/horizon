@@ -29,8 +29,8 @@ from openstack_auth import user, backend
 import horizon
 from horizon import base
 from horizon import test
-from horizon.dashboards.nova.dashboard import Nova
-from horizon.dashboards.syspanel.dashboard import Syspanel
+from horizon.dashboards.project.dashboard import Project
+from horizon.dashboards.admin.dashboard import Admin
 from horizon.dashboards.settings.dashboard import Settings
 from horizon.tests.test_dashboards.cats.dashboard import Cats
 from horizon.tests.test_dashboards.cats.kittens.panel import Kittens
@@ -83,8 +83,8 @@ class BaseHorizonTests(test.TestCase):
             panels = base.Horizon._registry[dash]._registry.keys()
             self._discovered_panels[dash] = panels
         # Remove the OpenStack dashboards for test isolation.
-        base.Horizon.unregister(Nova)
-        base.Horizon.unregister(Syspanel)
+        base.Horizon.unregister(Project)
+        base.Horizon.unregister(Admin)
         base.Horizon.unregister(Settings)
 
     def tearDown(self):
@@ -97,8 +97,8 @@ class BaseHorizonTests(test.TestCase):
         del base.Horizon
         base.Horizon = base.HorizonSite()
         # Re-register the OpenStack dashboards that we removed.
-        base.Horizon.register(Nova)
-        base.Horizon.register(Syspanel)
+        base.Horizon.register(Project)
+        base.Horizon.register(Admin)
         base.Horizon.register(Settings)
         # Reload the convenience references to Horizon stored in __init__
         reload(import_module("horizon"))
