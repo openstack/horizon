@@ -1,18 +1,17 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of OpenStack Dashboard to Russian
+# Copyright (C) Cloud Computing Lab, Saint-Petersburg, Russia
+# This file is distributed under the same license as the Dashboard of OpenStack.
+# Alexey Lukashin <lukash.spb.ru@gmail.com>, 2012.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-18 22:18+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2012-08-15 01:45+0000\n"
+"PO-Revision-Date: 2011-09-24 14:41+0100\n"
+"Last-Translator: Alexey Lukashin <lukash.spb.ru@gmail.com>\n"
+"Language-Team:  Cloud Computing Lab\n"
+"Language: Russian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,60 +20,60 @@ msgstr ""
 
 #: static/horizon/js/horizon.forms.js:58
 msgid "Additional information here..."
-msgstr ""
+msgstr "Дополнительная информация..."
 
 #: static/horizon/js/horizon.forms.js:64
 #: static/horizon/js/horizon.projects.js:12
 msgid "Filter"
-msgstr ""
+msgstr "Фильтр"
 
 #: static/horizon/js/horizon.instances.js:28
 msgid "There was a problem communicating with the server, please try again."
-msgstr ""
+msgstr "Ошибка при взаимодействии с сервером, попробуйте еще раз."
 
 #: static/horizon/js/horizon.modals.js:125
 msgid "There was an error submitting the form. Please try again."
-msgstr ""
+msgstr "Ошибка отправки данных формы. Пожлауйста, попробуйте еще"
 
 #: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
 msgid "Loading"
-msgstr ""
+msgstr "Загрузка"
 
 #: static/horizon/js/horizon.modals.js:178
 msgid "An error occurred. Please try again."
-msgstr ""
+msgstr "Произошла ошибка. Попробуйте еще."
 
 #: static/horizon/js/horizon.projects.js:9
 msgid "This project currently has no members."
-msgstr ""
+msgstr "Данный проект не содержит участников."
 
 #: static/horizon/js/horizon.projects.js:10
 msgid "No more available users to add."
-msgstr ""
+msgstr "Пользователи для добавления отсутствуют."
 
 #: static/horizon/js/horizon.projects.js:11
 msgid "No users found."
-msgstr ""
+msgstr "Пользователи не найдены."
 
 #: static/horizon/js/horizon.tables.js:47
 msgid "An error occurred while updating."
-msgstr ""
+msgstr "В процессе загрузки возникла ошибка."
 
 #: static/horizon/js/horizon.tables.js:126
 msgid "Confirm "
-msgstr ""
+msgstr "Подтвердите "
 
 #: static/horizon/js/horizon.tables.js:127
 msgid "Please confirm your selection. This action cannot be undone."
-msgstr ""
+msgstr "Подтвердите ваш выбор. Действие необратимо."
 
 #: static/horizon/js/horizon.tables.js:141
 msgid "Working"
-msgstr ""
+msgstr "Работает"
 
 #: static/horizon/js/horizon.tables.js:184
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Показана %s запись"
+msgstr[1] "Показаны %s записей"
