@@ -2,12 +2,12 @@
 
 <div class="quota-dynamic">
   <h3>{% trans "Quota Summary" %}</h3>
-    <strong>{% trans "Used" %}<span> {{ usage.quota.instances.used|intcomma }} </span> {% trans "of" %} <span> {{ usage.quota.instances.quota|intcomma }} </span>{% trans "Available Instances" %} </strong>
-    {% horizon_progress_bar usage.quota.instances.used usage.quota.instances.quota %}
+    <strong>{% trans "Used" %}<span> {{ usage.quotas.instances.used|intcomma }} </span> {% trans "of" %} <span> {{ usage.quotas.instances.quota|intcomma }} </span>{% trans "Available Instances" %} </strong>
+    {% horizon_progress_bar usage.quotas.instances.used usage.quotas.instances.quota %}
 
-    <strong>{% trans "Used" %} <span> {{ usage.quota.cores.used|intcomma }} </span>{% trans "of" %}<span> {{ usage.quota.cores.quota|intcomma }} </span>{% trans "Available vCPUs" %} </strong>
-    {% horizon_progress_bar usage.quota.cores.used usage.quota.cores.quota %}
+    <strong>{% trans "Used" %} <span> {{ usage.quotas.cores.used|intcomma }} </span>{% trans "of" %}<span> {{ usage.quotas.cores.quota|intcomma }} </span>{% trans "Available vCPUs" %} </strong>
+    {% horizon_progress_bar usage.quotas.cores.used usage.quotas.cores.quota %}
 
-    <strong>{% trans "Used" %} <span> {{ usage.quota.ram.used|intcomma }} MB </span>{% trans "of" %}<span> {{ usage.quota.ram.quota|intcomma }} MB </span>{% trans "Available RAM" %} </strong>
-    {% horizon_progress_bar usage.quota.ram.used usage.quota.ram.quota %}
+    <strong>{% trans "Used" %} <span> {{ usage.quotas.ram.used|intcomma }} MB </span>{% trans "of" %}<span> {{ usage.quotas.ram.quota|intcomma }} MB </span>{% trans "Available RAM" %} </strong>
+    {% horizon_progress_bar usage.quotas.ram.used usage.quotas.ram.quota %}
 </div>
