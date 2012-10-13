@@ -27,6 +27,10 @@
     <dd>{{ instance.full_flavor.vcpus }} {% trans "VCPU" %}</dd>
     <dt>{% trans "Disk" %}</dt>
     <dd>{{ instance.full_flavor.disk }}{% trans "GB" %}</dd>
+    {% if instance.full_flavor.ephemeral %}
+    <dt>{% trans "Ephemeral Disk" %}</dt>
+    <dd>{{ instance.full_flavor.ephemeral }}{% trans "GB" %}</dd>
+    {% endif %}
   </dl>
 </div>
 
