@@ -18,13 +18,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url, include
-from .views import IndexView, CreateView, EditView
-from .extras import urls as extras_urls
+from django.conf.urls.defaults import patterns, url
 
-urlpatterns = patterns('openstack_dashboard.dashboards.admin.flavors.views',
+from .views import IndexView, EditView, CreateView
+
+urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^create/$', CreateView.as_view(), name='create'),
-    url(r'^(?P<id>[^/]+)/edit/$', EditView.as_view(), name='edit'),
-    url(r'^(?P<id>[^/]+)/extras/', include(extras_urls, namespace='extras')),
+    url(r'^(?P<key>[^/]+)/edit/$', EditView.as_view(), name='edit')
 )

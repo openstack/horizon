@@ -167,6 +167,14 @@ class SecurityGroupRule(APIResourceWrapper):
             return _('ALLOW %(from)s:%(to)s from %(cidr)s') % vals
 
 
+class FlavorExtraSpec(object):
+    def __init__(self, flavor_id, key, val):
+        self.flavor_id = flavor_id
+        self.id = key
+        self.key = key
+        self.value = val
+
+
 def novaclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     LOG.debug('novaclient connection created using token "%s" and url "%s"' %
@@ -204,6 +212,28 @@ def flavor_get(request, flavor_id):
 def flavor_list(request):
     """Get the list of available instance sizes (flavors)."""
     return novaclient(request).flavors.list()
+
+
+def flavor_get_extras(request, flavor_id, raw=False):
+    """Get flavor extra specs."""
+    flavor = novaclient(request).flavors.get(flavor_id)
+    extras = flavor.get_keys()
+    if raw:
+        return extras
+    return [FlavorExtraSpec(flavor_id, key, value) for
+            key, value in extras.items()]
+
+
+def flavor_extra_delete(request, flavor_id, keys):
+    """Unset the flavor extra spec keys."""
+    flavor = novaclient(request).flavors.get(flavor_id)
+    return flavor.unset_keys(keys)
+
+
+def flavor_extra_set(request, flavor_id, metadata):
+    """Set the flavor extra spec keys."""
+    flavor = novaclient(request).flavors.get(flavor_id)
+    return flavor.set_keys(metadata)
 
 
 def tenant_floating_ip_list(request):

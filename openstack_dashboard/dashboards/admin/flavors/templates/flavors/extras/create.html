@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Create Flavor Extra Spec" %}{% endblock %}
+
+{% block page_header %}
+  <h2>{% trans "Flavor" %}: {{flavor.name}} </h2>
+{% endblock page_header %}
+
+{% block main %}
+    {% include "admin/flavors/extras/_create.html" %}
+{% endblock %}

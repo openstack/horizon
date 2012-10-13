@@ -1,0 +1,27 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}extra_spec_create_form{% endblock %}
+{% block form_action %}{% url horizon:admin:flavors:extras:create flavor.id %}{% endblock %}
+
+
+{% block modal_id %}extra_spec_create_modal{% endblock %}
+{% block modal-header %}{% trans "Create Flavor Extra Spec" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% trans 'Create a new "extra spec" key-value pair for a flavor.' %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create" %}" />
+  <a href="{% url horizon:admin:flavors:extras:index flavor.id %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
+

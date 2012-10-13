@@ -61,19 +61,26 @@ class EditFlavor(CreateFlavor):
 
     def handle(self, request, data):
         try:
+            flavor_id = data['flavor_id']
+            # grab any existing extra specs, because flavor edit currently
+            # implemented as a delete followed by a create
+            extras_dict = api.nova.flavor_get_extras(self.request, flavor_id)
             # First mark the existing flavor as deleted.
             api.nova.flavor_delete(request, data['flavor_id'])
             # Then create a new flavor with the same name but a new ID.
             # This is in the same try/except block as the delete call
             # because if the delete fails the API will error out because
             # active flavors can't have the same name.
+            new_flavor_id = uuid.uuid4()
             flavor = api.nova.flavor_create(request,
                                             data['name'],
                                             data['memory_mb'],
                                             data['vcpus'],
                                             data['disk_gb'],
-                                            uuid.uuid4(),
+                                            new_flavor_id,
                                             ephemeral=data['eph_gb'])
+            if (len(extras_dict) > 0):
+                api.nova.flavor_extra_set(request, new_flavor_id, extras_dict)
             msg = _('Updated flavor "%s".') % data['name']
             messages.success(request, msg)
             return flavor

@@ -32,6 +32,13 @@ class EditFlavor(tables.LinkAction):
     classes = ("ajax-modal", "btn-edit")
 
 
+class ViewFlavorExtras(tables.LinkAction):
+    name = "extras"
+    verbose_name = _("View Extra Specs")
+    url = "horizon:admin:flavors:extras:index"
+    classes = ("btn-edit",)
+
+
 def get_size(flavor):
     return _("%sMB") % flavor.ram
 
@@ -51,4 +58,4 @@ class FlavorsTable(tables.DataTable):
         name = "flavors"
         verbose_name = _("Flavors")
         table_actions = (CreateFlavor, DeleteFlavor)
-        row_actions = (EditFlavor, DeleteFlavor)
+        row_actions = (EditFlavor, ViewFlavorExtras, DeleteFlavor)
