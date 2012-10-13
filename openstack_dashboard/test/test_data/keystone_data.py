@@ -99,7 +99,7 @@ def data(TEST):
     member_role_dict = {'id': "2",
                         'name': settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE}
     member_role = roles.Role(roles.RoleManager, member_role_dict)
-    TEST.roles.add(member_role, admin_role)
+    TEST.roles.add(admin_role, member_role)
     TEST.roles.admin = admin_role
     TEST.roles.member = member_role
 
@@ -110,11 +110,21 @@ def data(TEST):
                  'token': 'test_token',
                  'enabled': True}
     user = users.User(users.UserManager(None), user_dict)
-    user_dict.update({'id': "2",
-                      'name': 'user_two',
-                      'email': 'two@example.com'})
+    user_dict = {'id': "2",
+                 'name': 'user_two',
+                 'email': 'two@example.com',
+                 'password': 'password',
+                 'token': 'test_token',
+                 'enabled': True}
     user2 = users.User(users.UserManager(None), user_dict)
-    TEST.users.add(user, user2)
+    user_dict = {'id': "3",
+                 'name': 'user_three',
+                 'email': 'three@example.com',
+                 'password': 'password',
+                 'token': 'test_token',
+                 'enabled': True}
+    user3 = users.User(users.UserManager(None), user_dict)
+    TEST.users.add(user, user2, user3)
     TEST.user = user  # Your "current" user
     TEST.user.service_catalog = SERVICE_CATALOG
 

@@ -139,10 +139,10 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         for role in roles:
             if "role_" + role.id in workflow_data:
                 ulist = workflow_data["role_" + role.id]
-                for user in ulist:
+                for user_id in ulist:
                     api.add_tenant_user_role(IsA(http.HttpRequest),
                                              tenant_id=self.tenant.id,
-                                             user_id=user,
+                                             user_id=user_id,
                                              role_id=role.id)
 
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
@@ -261,10 +261,10 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         for role in roles:
             if "role_" + role.id in workflow_data:
                 ulist = workflow_data["role_" + role.id]
-                for user in ulist:
+                for user_id in ulist:
                     api.add_tenant_user_role(IsA(http.HttpRequest),
                                              tenant_id=self.tenant.id,
-                                             user_id=user,
+                                             user_id=user_id,
                                              role_id=role.id)
 
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
@@ -320,10 +320,10 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         for role in roles:
             if "role_" + role.id in workflow_data:
                 ulist = workflow_data["role_" + role.id]
-                for user in ulist:
+                for user_id in ulist:
                     api.add_tenant_user_role(IsA(http.HttpRequest),
                                              tenant_id=self.tenant.id,
-                                             user_id=user,
+                                             user_id=user_id,
                                              role_id=role.id) \
                        .AndRaise(self.exceptions.keystone)
                     break
@@ -443,13 +443,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                               'add_tenant_user_role'),
                         api.keystone: ('user_list',
                                        'role_list',)})
-    def test_update_project_post(self):
+    def test_update_project_save(self):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
         users = self.users.list()
         roles = self.roles.list()
-        current_roles = self.roles.list()
 
         # get/init
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
@@ -466,10 +465,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             api.roles_for_user(IsA(http.HttpRequest),
                                user.id,
                                self.tenant.id).AndReturn(roles)
-            role_ids = [role.id for role in roles]
-            if role_ids:
-                workflow_data.setdefault("role_" + role_ids[0], []) \
-                             .append(user.id)
+
+        workflow_data["role_1"] = ['3']  # admin role
+        workflow_data["role_2"] = ['2']  # member role
 
         # update some fields
         project._info["name"] = "updated name"
@@ -494,40 +492,41 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.user_list(IsA(http.HttpRequest),
                                tenant_id=self.tenant.id).AndReturn(users)
 
-        for user in users:
-            api.roles_for_user(IsA(http.HttpRequest),
-                                        user.id,
-                                        self.tenant.id) \
-                                .AndReturn(current_roles)
-            for role in roles:
-                if "role_" + role.id in workflow_data:
-                    ulist = workflow_data["role_" + role.id]
-                    if role not in current_roles:
-                        api.add_tenant_user_role(IsA(http.HttpRequest),
-                                             tenant_id=self.tenant.id,
-                                             user_id=user,
-                                             role_id=role.id)
-                    else:
-                        current_roles.pop(current_roles.index(role))
-            for to_delete in current_roles:
-                api.remove_tenant_user_role(IsA(http.HttpRequest),
-                                            tenant_id=self.tenant.id,
-                                            user_id=user.id,
-                                            role_id=to_delete.id)
-        for role in roles:
-            if "role_" + role.id in workflow_data:
-                ulist = workflow_data["role_" + role.id]
-                for user in ulist:
-                    if not filter(lambda x: user == x.id, users):
-                        api.add_tenant_user_role(IsA(http.HttpRequest),
-                                                 tenant_id=self.tenant.id,
-                                                 user_id=user,
-                                                 role_id=role.id)
+        # admin user - try to remove all roles on current project, warning
+        api.roles_for_user(IsA(http.HttpRequest), '1', self.tenant.id) \
+                           .AndReturn(roles)
+
+        # member user 1 - has role 1, will remove it
+        api.roles_for_user(IsA(http.HttpRequest), '2', self.tenant.id) \
+                           .AndReturn((roles[0],))
+        # remove role 1
+        api.remove_tenant_user_role(IsA(http.HttpRequest),
+                                    tenant_id=self.tenant.id,
+                                    user_id='2',
+                                    role_id='1')
+        # add role 2
+        api.add_tenant_user_role(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id,
+                                     user_id='2',
+                                     role_id='2')
+
+        # member user 3 - has role 2
+        api.roles_for_user(IsA(http.HttpRequest), '3', self.tenant.id) \
+                           .AndReturn((roles[1],))
+        # remove role 2
+        api.remove_tenant_user_role(IsA(http.HttpRequest),
+                                    tenant_id=self.tenant.id,
+                                    user_id='3',
+                                    role_id='2')
+        # add role 1
+        api.add_tenant_user_role(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id,
+                                     user_id='3',
+                                     role_id='1')
 
         api.tenant_quota_update(IsA(http.HttpRequest),
                                 project.id,
                                 **updated_quota)
-
         self.mox.ReplayAll()
 
         # submit form data
@@ -542,6 +541,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.post(url, workflow_data)
 
         self.assertNoFormErrors(res)
+        self.assertMessageCount(error=0, warning=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api: ('tenant_get',)})
@@ -646,7 +646,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         default_role = self.roles.first()
         users = self.users.list()
         roles = self.roles.list()
-        current_roles = self.roles.list()
 
         # get/init
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
@@ -659,14 +658,14 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
 
         workflow_data = {}
+
         for user in users:
             api.roles_for_user(IsA(http.HttpRequest),
                                user.id,
                                self.tenant.id).AndReturn(roles)
-            role_ids = [role.id for role in roles]
-            if role_ids:
-                workflow_data.setdefault("role_" + role_ids[0], []) \
-                             .append(user.id)
+
+        workflow_data["role_1"] = ['1', '3']  # admin role
+        workflow_data["role_2"] = ['1', '2', '3']  # member role
 
         # update some fields
         project._info["name"] = "updated name"
@@ -692,35 +691,22 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.user_list(IsA(http.HttpRequest),
                                tenant_id=self.tenant.id).AndReturn(users)
 
-        for user in users:
-            api.roles_for_user(IsA(http.HttpRequest),
-                                        user.id,
-                                        self.tenant.id) \
-                              .AndReturn(current_roles)
-            for role in roles:
-                if "role_" + role.id in workflow_data:
-                    ulist = workflow_data["role_" + role.id]
-                    if role not in current_roles:
-                        api.add_tenant_user_role(IsA(http.HttpRequest),
-                                             tenant_id=self.tenant.id,
-                                             user_id=user,
-                                             role_id=role.id)
-                    else:
-                        current_roles.pop(current_roles.index(role))
-            for to_delete in current_roles:
-                api.remove_tenant_user_role(IsA(http.HttpRequest),
-                                            tenant_id=self.tenant.id,
-                                            user_id=user.id,
-                                            role_id=to_delete.id)
-        for role in roles:
-            if "role_" + role.id in workflow_data:
-                ulist = workflow_data["role_" + role.id]
-                for user in ulist:
-                    if not filter(lambda x: user == x.id, users):
-                        api.add_tenant_user_role(IsA(http.HttpRequest),
-                                                 tenant_id=self.tenant.id,
-                                                 user_id=user,
-                                                 role_id=role.id)
+        # admin user - try to remove all roles on current project, warning
+        api.roles_for_user(IsA(http.HttpRequest), '1', self.tenant.id) \
+                           .AndReturn(roles)
+
+        # member user 1 - has role 1, will remove it
+        api.roles_for_user(IsA(http.HttpRequest), '2', self.tenant.id) \
+                           .AndReturn((roles[1],))
+
+        # member user 3 - has role 2
+        api.roles_for_user(IsA(http.HttpRequest), '3', self.tenant.id) \
+                           .AndReturn((roles[0],))
+        # add role 2
+        api.add_tenant_user_role(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id,
+                                     user_id='3',
+                                     role_id='2')
 
         api.tenant_quota_update(IsA(http.HttpRequest),
                                 project.id,
@@ -740,6 +726,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.post(url, workflow_data)
 
         self.assertNoFormErrors(res)
+        self.assertMessageCount(error=1, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api: ('tenant_get',
@@ -757,7 +744,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         default_role = self.roles.first()
         users = self.users.list()
         roles = self.roles.list()
-        current_roles = self.roles.list()
 
         # get/init
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
@@ -774,10 +760,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             api.roles_for_user(IsA(http.HttpRequest),
                                user.id,
                                self.tenant.id).AndReturn(roles)
-            role_ids = [role.id for role in roles]
-            if role_ids:
-                workflow_data.setdefault("role_" + role_ids[0], []) \
-                             .append(user.id)
+        workflow_data["role_1"] = ['1', '3']  # admin role
+        workflow_data["role_2"] = ['1', '2', '3']  # member role
 
         # update some fields
         project._info["name"] = "updated name"
@@ -802,28 +786,23 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.user_list(IsA(http.HttpRequest),
                                tenant_id=self.tenant.id).AndReturn(users)
 
-        for user in users:
-            api.roles_for_user(IsA(http.HttpRequest),
-                                        user.id,
-                                        self.tenant.id) \
-                              .AndReturn(current_roles)
-            for role in roles:
-                if "role_" + role.id in workflow_data:
-                    if role not in current_roles:
-                        api.add_tenant_user_role(IsA(http.HttpRequest),
-                                             tenant_id=self.tenant.id,
-                                             user_id=user,
-                                             role_id=role.id)
-                    else:
-                        current_roles.pop(current_roles.index(role))
-            for to_delete in current_roles:
-                api.remove_tenant_user_role(IsA(http.HttpRequest),
-                                            tenant_id=self.tenant.id,
-                                            user_id=user.id,
-                                            role_id=to_delete.id) \
-                                            .AndRaise(self.exceptions.nova)
-                break
-            break
+        # admin user - try to remove all roles on current project, warning
+        api.roles_for_user(IsA(http.HttpRequest), '1', self.tenant.id) \
+                           .AndReturn(roles)
+
+        # member user 1 - has role 1, will remove it
+        api.roles_for_user(IsA(http.HttpRequest), '2', self.tenant.id) \
+                           .AndReturn((roles[1],))
+
+        # member user 3 - has role 2
+        api.roles_for_user(IsA(http.HttpRequest), '3', self.tenant.id) \
+                           .AndReturn((roles[0],))
+        # add role 2
+        api.add_tenant_user_role(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id,
+                                     user_id='3',
+                                     role_id='2')\
+                                 .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
@@ -839,4 +818,5 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.post(url, workflow_data)
 
         self.assertNoFormErrors(res)
+        self.assertMessageCount(error=1, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)

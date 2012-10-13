@@ -25,6 +25,7 @@ from django.core.urlresolvers import reverse
 from horizon import exceptions
 from horizon import workflows
 from horizon import forms
+from horizon import messages
 
 from openstack_dashboard import api
 
@@ -299,12 +300,15 @@ class UpdateProject(workflows.Workflow):
                                                      tenant_id=project_id)
             users_to_modify = len(project_members)
             for user in project_members:
-                current_roles = api.roles_for_user(self.request,
-                                                   user.id,
-                                                   project_id)
+                current_roles = [role for role in
+                                 api.roles_for_user(self.request,
+                                                    user.id,
+                                                    project_id)]
+                effective_roles = []
                 for role in available_roles:
                     role_list = data["role_" + role.id]
                     if user.id in role_list:
+                        effective_roles.append(role)
                         if role not in current_roles:
                             # user role has changed
                             api.add_tenant_user_role(request,
@@ -314,12 +318,22 @@ class UpdateProject(workflows.Workflow):
                         else:
                             # user role is unchanged
                             current_roles.pop(current_roles.index(role))
-                # delete user's removed roles
-                for to_delete in current_roles:
-                    api.remove_tenant_user_role(request,
-                                                tenant_id=project_id,
-                                                user_id=user.id,
-                                                role_id=to_delete.id)
+                if user.id == request.user.id and \
+                        project_id == request.user.tenant_id and \
+                        any(x.name == 'admin' for x in current_roles):
+                    # Cannot remove "admin" role on current(admin) project
+                    msg = _('You cannot remove the "admin" role from the '
+                            'project you are currently logged into. Please '
+                            'switch to another project with admin permissions '
+                            'or remove the role manually via the CLI')
+                    messages.warning(request, msg)
+                else:
+                    # delete user's removed roles
+                    for to_delete in current_roles:
+                        api.remove_tenant_user_role(request,
+                                                    tenant_id=project_id,
+                                                    user_id=user.id,
+                                                    role_id=to_delete.id)
                 users_to_modify -= 1
 
             # add new roles to project
@@ -330,11 +344,11 @@ class UpdateProject(workflows.Workflow):
             for role in available_roles:
                 role_list = data["role_" + role.id]
                 users_added = 0
-                for user in role_list:
-                    if not filter(lambda x: user == x.id, project_members):
+                for user_id in role_list:
+                    if not filter(lambda x: user_id == x.id, project_members):
                         api.add_tenant_user_role(request,
                                                  tenant_id=project_id,
-                                                 user_id=user,
+                                                 user_id=user_id,
                                                  role_id=role.id)
                     users_added += 1
                 users_to_modify -= users_added
