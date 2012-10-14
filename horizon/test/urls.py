@@ -31,6 +31,9 @@ import horizon
 
 urlpatterns = patterns('',
     url(r'', include(horizon.urls)),
+    url(r"auth/login/", "django.contrib.auth.views.login",
+        {'template_name': "auth/login.html"},
+        name='login'),
     url(r'auth/', include('django.contrib.auth.urls')),
     url(r'^qunit/$',
         TemplateView.as_view(template_name="horizon/qunit.html"),

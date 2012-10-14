@@ -8,6 +8,15 @@
 
 {% block modal-body %}
   <fieldset>
+    {% if request.user.is_authenticated and 'next' in request.GET %}
+    <div class="control-group clearfix error">
+      <span class="help-inline"><p>{% trans "You don't have permissions to access:" %}</p>
+        <p><b>{{ request.GET.next }}</b></p>
+        <p>{% trans "Login as different user or go back to" %}
+        <a href="{% url horizon:user_home %}">{% trans "home page" %}</a></p>
+      </span>
+    </div>
+    {% endif %}
     {% if next %}<input type="hidden" name="{{ redirect_field_name }}" value="{{ next }}" />{% endif %}
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>
