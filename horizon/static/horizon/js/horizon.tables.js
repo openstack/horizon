@@ -180,7 +180,7 @@ horizon.datatables.update_footer_count = function (el, modifier) {
   else {
     $footer = $el.find('tr:last span:first');
   }
-  row_count = $el.find('tbody tr:visible').length + modifier;
+  row_count = $el.find('tbody tr:visible').length + modifier - $el.find('.empty').length;
   footer_text_template = ngettext("Displaying %s item", "Displaying %s items", row_count);
   footer_text = interpolate(footer_text_template, [row_count]);
   $footer.text(footer_text);
@@ -279,7 +279,7 @@ horizon.datatables.set_table_filter = function (parent) {
 
 horizon.addInitFunction(function() {
   horizon.datatables.validate_button();
-
+  horizon.datatables.update_footer_count($.find('table'),0);
   // Bind the "select all" checkbox action.
   $('div.table_wrapper, #modal_wrapper').on('click', 'table thead .multi_select_column :checkbox', function(evt) {
     var $this = $(this),
