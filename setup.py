@@ -102,5 +102,6 @@ setup(name="horizon",
                    'License :: OSI Approved :: Apache Software License',
                    'Operating System :: OS Independent',
                    'Programming Language :: Python',
-                   'Topic :: Internet :: WWW/HTTP']
+                   'Topic :: Internet :: WWW/HTTP',
+                   'Environment :: OpenStack']
 )
