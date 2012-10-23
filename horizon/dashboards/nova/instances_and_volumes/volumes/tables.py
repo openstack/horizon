@@ -85,7 +85,7 @@ def get_size(volume):
 
 def get_attachment(volume):
     attachments = []
-    link = '<a href="%(url)s">Instance %(name)s (%(instance)s)</a>&nbsp;' \
+    link = '<a href="%(url)s">Instance %(name)s </a>&nbsp;' \
            'on %(dev)s'
     # Filter out "empty" attachments which the client returns...
     for attachment in [att for att in volume.attachments if att]:
