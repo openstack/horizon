@@ -253,6 +253,12 @@ class HorizonTests(BaseHorizonTests):
                                HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertEqual(resp.status_code, 401)
 
+        # Test insufficient permissions for logged-in user
+        resp = self.client.get(panel.get_absolute_url(), follow=True)
+        self.assertEqual(resp.status_code, 200)
+        self.assertTemplateUsed(resp, "auth/login.html")
+        self.assertContains(resp, "Login as different user", 1, 200)
+
         # Set roles for admin user
         self.set_permissions(permissions=['test'])
 
