@@ -28,6 +28,8 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard.api import cinder, nova
+from openstack_dashboard.api.base import is_service_enabled
 
 
 INDEX_URL = "horizon:admin:projects:index"
@@ -361,17 +363,25 @@ class UpdateProject(workflows.Workflow):
         # update the project quota
         ifcb = data['injected_file_content_bytes']
         try:
-            api.tenant_quota_update(request,
-                                    project_id,
-                                    metadata_items=data['metadata_items'],
-                                    injected_file_content_bytes=ifcb,
-                                    volumes=data['volumes'],
-                                    gigabytes=data['gigabytes'],
-                                    ram=data['ram'],
-                                    floating_ips=data['floating_ips'],
-                                    instances=data['instances'],
-                                    injected_files=data['injected_files'],
-                                    cores=data['cores'])
+            # TODO(gabriel): Once nova-volume is fully deprecated the
+            # "volumes" and "gigabytes" quotas should no longer be sent to
+            # the nova API to be updated anymore.
+            nova.tenant_quota_update(request,
+                                     project_id,
+                                     metadata_items=data['metadata_items'],
+                                     injected_file_content_bytes=ifcb,
+                                     volumes=data['volumes'],
+                                     gigabytes=data['gigabytes'],
+                                     ram=data['ram'],
+                                     floating_ips=data['floating_ips'],
+                                     instances=data['instances'],
+                                     injected_files=data['injected_files'],
+                                     cores=data['cores'])
+            if is_service_enabled(request, 'volume'):
+                cinder.tenant_quota_update(request,
+                                           project_id,
+                                           volumes=data['volumes'],
+                                           gigabytes=data['gigabytes'])
             return True
         except:
             exceptions.handle(request, _('Modified project information and '

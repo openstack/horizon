@@ -140,7 +140,7 @@ horizon.Quota = {
       element.removeClass('progress_bar_over');
     }
 
-    element.animate({width: update_width + "%"}, 300);
+    element.animate({width: parseInt(update_width, 10) + "%"}, 300);
   },
 
   /*

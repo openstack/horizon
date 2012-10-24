@@ -20,7 +20,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tabs
 
-from openstack_dashboard import api
+from openstack_dashboard.api import cinder
 
 
 class OverviewTab(tabs.Tab):
@@ -32,8 +32,8 @@ class OverviewTab(tabs.Tab):
     def get_context_data(self, request):
         snapshot_id = self.tab_group.kwargs['snapshot_id']
         try:
-            snapshot = api.nova.volume_snapshot_get(request, snapshot_id)
-            volume = api.nova.volume_get(request, snapshot.volume_id)
+            snapshot = cinder.volume_snapshot_get(request, snapshot_id)
+            volume = cinder.volume_get(request, snapshot.volume_id)
             volume.display_name = None
         except:
             redirect = reverse('horizon:project:images_and_snapshots:index')

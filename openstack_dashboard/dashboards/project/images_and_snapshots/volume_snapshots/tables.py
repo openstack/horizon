@@ -24,6 +24,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.api import cinder
 from ...volumes import tables as volume_tables
 
 
@@ -57,7 +58,7 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, snapshot_id):
-        snapshot = api.nova.volume_snapshot_get(request, snapshot_id)
+        snapshot = cinder.volume_snapshot_get(request, snapshot_id)
         return snapshot
 
 

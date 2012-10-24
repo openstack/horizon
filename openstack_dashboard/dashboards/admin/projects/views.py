@@ -29,6 +29,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard import usage
+from openstack_dashboard.usage import quotas
 from openstack_dashboard.dashboards.admin.users.views import CreateView
 from .forms import CreateUser
 from .tables import TenantsTable, TenantUsersTable, AddUsersTable
@@ -145,10 +146,9 @@ class CreateProjectView(workflows.WorkflowView):
 
         # get initial quota defaults
         try:
-            quota_defaults = api.tenant_quota_defaults(self.request,
-                                        self.request.user.tenant_id)
+            quota_defaults = quotas.get_default_quota_data(self.request)
             for field in QUOTA_FIELDS:
-                initial[field] = getattr(quota_defaults, field, None)
+                initial[field] = quota_defaults.get(field).limit
 
         except:
             error_msg = _('Unable to retrieve default quota values.')
@@ -174,9 +174,9 @@ class UpdateProjectView(workflows.WorkflowView):
                 initial[field] = getattr(project_info, field, None)
 
             # get initial project quota
-            quota_data = api.tenant_quota_get(self.request, project_id)
+            quota_data = quotas.get_tenant_quota_data(self.request)
             for field in QUOTA_FIELDS:
-                initial[field] = getattr(quota_data, field, None)
+                initial[field] = quota_data.get(field).limit
         except:
             exceptions.handle(self.request,
                                 _('Unable to retrieve project details.'),

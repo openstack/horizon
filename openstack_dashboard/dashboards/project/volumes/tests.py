@@ -26,12 +26,15 @@ from django.forms import widgets
 from mox import IsA
 
 from openstack_dashboard import api
+from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
 
 class VolumeViewTests(test.TestCase):
-    @test.create_stubs({api: ('tenant_quota_usages', 'volume_create',
-                              'volume_snapshot_list')})
+    @test.create_stubs({api: ('volume_create',
+                              'volume_snapshot_list'),
+                        quotas: ('tenant_quota_usages',)})
     def test_create_volume(self):
         volume = self.volumes.first()
         usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
@@ -40,7 +43,7 @@ class VolumeViewTests(test.TestCase):
                     'method': u'CreateForm',
                     'size': 50, 'snapshot_source': ''}
 
-        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         api.volume_snapshot_list(IsA(http.HttpRequest)).\
                                  AndReturn(self.volume_snapshots.list())
         api.volume_create(IsA(http.HttpRequest),
@@ -57,9 +60,10 @@ class VolumeViewTests(test.TestCase):
         redirect_url = reverse('horizon:project:volumes:index')
         self.assertRedirectsNoFollow(res, redirect_url)
 
-    @test.create_stubs({api: ('tenant_quota_usages', 'volume_create',
+    @test.create_stubs({api: ('volume_create',
                               'volume_snapshot_list'),
-                        api.nova: ('volume_snapshot_get',)})
+                        cinder: ('volume_snapshot_get',),
+                        quotas: ('tenant_quota_usages',)})
     def test_create_volume_from_snapshot(self):
         volume = self.volumes.first()
         usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
@@ -70,9 +74,9 @@ class VolumeViewTests(test.TestCase):
                     'size': 50, 'snapshot_source': snapshot.id}
 
         # first call- with url param
-        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
-        api.nova.volume_snapshot_get(IsA(http.HttpRequest),
-                        str(snapshot.id)).AndReturn(snapshot)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        cinder.volume_snapshot_get(IsA(http.HttpRequest),
+                                   str(snapshot.id)).AndReturn(snapshot)
         api.volume_create(IsA(http.HttpRequest),
                           formData['size'],
                           formData['name'],
@@ -80,11 +84,11 @@ class VolumeViewTests(test.TestCase):
                           snapshot_id=snapshot.id).\
                           AndReturn(volume)
         # second call- with dropdown
-        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         api.volume_snapshot_list(IsA(http.HttpRequest)).\
                                  AndReturn(self.volume_snapshots.list())
-        api.nova.volume_snapshot_get(IsA(http.HttpRequest),
-                        str(snapshot.id)).AndReturn(snapshot)
+        cinder.volume_snapshot_get(IsA(http.HttpRequest),
+                                   str(snapshot.id)).AndReturn(snapshot)
         api.volume_create(IsA(http.HttpRequest),
                           formData['size'],
                           formData['name'],
@@ -110,8 +114,8 @@ class VolumeViewTests(test.TestCase):
         redirect_url = reverse('horizon:project:volumes:index')
         self.assertRedirectsNoFollow(res, redirect_url)
 
-    @test.create_stubs({api: ('tenant_quota_usages',),
-                        api.nova: ('volume_snapshot_get',)})
+    @test.create_stubs({cinder: ('volume_snapshot_get',),
+                        quotas: ('tenant_quota_usages',)})
     def test_create_volume_from_snapshot_invalid_size(self):
         usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
         snapshot = self.volume_snapshots.first()
@@ -120,10 +124,10 @@ class VolumeViewTests(test.TestCase):
                     'method': u'CreateForm',
                     'size': 20, 'snapshot_source': snapshot.id}
 
-        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
-        api.nova.volume_snapshot_get(IsA(http.HttpRequest),
-                        str(snapshot.id)).AndReturn(snapshot)
-        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        cinder.volume_snapshot_get(IsA(http.HttpRequest),
+                                   str(snapshot.id)).AndReturn(snapshot)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
 
         self.mox.ReplayAll()
 
@@ -136,7 +140,8 @@ class VolumeViewTests(test.TestCase):
                              "The volume size cannot be less than the "
                              "snapshot size (40GB)")
 
-    @test.create_stubs({api: ('tenant_quota_usages', 'volume_snapshot_list')})
+    @test.create_stubs({api: ('volume_snapshot_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_create_volume_gb_used_over_alloted_quota(self):
         usage = {'gigabytes': {'available': 100, 'used': 20}}
         formData = {'name': u'This Volume Is Huge!',
@@ -144,10 +149,10 @@ class VolumeViewTests(test.TestCase):
                     'method': u'CreateForm',
                     'size': 5000}
 
-        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         api.volume_snapshot_list(IsA(http.HttpRequest)).\
                                  AndReturn(self.volume_snapshots.list())
-        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
 
         self.mox.ReplayAll()
 
@@ -158,7 +163,8 @@ class VolumeViewTests(test.TestCase):
                           ' have 100GB of your quota available.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
-    @test.create_stubs({api: ('tenant_quota_usages', 'volume_snapshot_list')})
+    @test.create_stubs({api: ('volume_snapshot_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_create_volume_number_over_alloted_quota(self):
         usage = {'gigabytes': {'available': 100, 'used': 20},
                  'volumes': {'available': 0}}
@@ -167,10 +173,10 @@ class VolumeViewTests(test.TestCase):
                     'method': u'CreateForm',
                     'size': 10}
 
-        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         api.volume_snapshot_list(IsA(http.HttpRequest)).\
                                  AndReturn(self.volume_snapshots.list())
-        api.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
 
         self.mox.ReplayAll()
 
@@ -297,14 +303,15 @@ class VolumeViewTests(test.TestCase):
                          server.id)
         self.assertEqual(res.status_code, 200)
 
-    @test.create_stubs({api.nova: ('volume_get', 'server_get',)})
+    @test.create_stubs({cinder: ('volume_get',),
+                        api.nova: ('server_get',)})
     def test_detail_view(self):
         volume = self.volumes.first()
         server = self.servers.first()
 
         volume.attachments = [{"server_id": server.id}]
 
-        api.nova.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
 
         self.mox.ReplayAll()

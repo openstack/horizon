@@ -19,6 +19,8 @@ from horizon.utils.fields import SelectWidget
 from horizon.utils.memoized import memoized
 
 from openstack_dashboard import api
+from openstack_dashboard.api import cinder
+from openstack_dashboard.usage import quotas
 from ..instances.tables import ACTIVE_STATES
 
 
@@ -71,7 +73,7 @@ class CreateForm(forms.SelfHandlingForm):
             # error message when the quota is exceeded when trying to create
             # a volume, so we need to check for that scenario here before we
             # send it off to try and create.
-            usages = api.tenant_quota_usages(request)
+            usages = quotas.tenant_quota_usages(request)
 
             snapshot_id = None
             if (data.get("snapshot_source", None)):
@@ -116,7 +118,7 @@ class CreateForm(forms.SelfHandlingForm):
 
     @memoized
     def get_snapshot(self, request, id):
-        return api.nova.volume_snapshot_get(request, id)
+        return cinder.volume_snapshot_get(request, id)
 
 
 class AttachForm(forms.SelfHandlingForm):
@@ -170,10 +172,10 @@ class AttachForm(forms.SelfHandlingForm):
         # it, so let's slice that off...
         instance_name = instance_name.rsplit(" (")[0]
         try:
-            vol = api.volume_attach(request,
-                                    data['volume_id'],
-                                    data['instance'],
-                                    data.get('device', ''))
+            vol = api.instance_volume_attach(request,
+                                             data['volume_id'],
+                                             data['instance'],
+                                             data.get('device', ''))
             vol_name = api.volume_get(request, data['volume_id']).display_name
 
             message = _('Attaching volume %(vol)s to instance '

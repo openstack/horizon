@@ -38,7 +38,7 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         try:
-            quota_set = api.tenant_quota_defaults(self.request,
+            quota_set = api.default_quota_get(self.request,
                                                   self.request.user.tenant_id)
             data = quota_set.items
         except:

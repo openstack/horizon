@@ -29,6 +29,8 @@ from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.api import cinder
+from openstack_dashboard.usage import quotas
 
 
 LOG = logging.getLogger(__name__)
@@ -116,7 +118,7 @@ class VolumeOptionsAction(workflows.Action):
     def populate_volume_id_choices(self, request, context):
         volume_options = [("", _("Select Volume"))]
         try:
-            volumes = [v for v in api.nova.volume_list(self.request)
+            volumes = [v for v in cinder.volume_list(self.request)
                        if v.status == api.VOLUME_STATE_AVAILABLE]
             volume_options.extend([self._get_volume_display_name(vol)
                                    for vol in volumes])
@@ -128,7 +130,7 @@ class VolumeOptionsAction(workflows.Action):
     def populate_volume_snapshot_id_choices(self, request, context):
         volume_options = [("", _("Select Volume Snapshot"))]
         try:
-            snapshots = api.nova.volume_snapshot_list(self.request)
+            snapshots = cinder.volume_snapshot_list(self.request)
             snapshots = [s for s in snapshots
                          if s.status == api.VOLUME_STATE_AVAILABLE]
             volume_options.extend([self._get_volume_display_name(snap)
@@ -294,7 +296,7 @@ class SetInstanceDetailsAction(workflows.Action):
     def get_help_text(self):
         extra = {}
         try:
-            extra['usages'] = api.nova.tenant_quota_usages(self.request)
+            extra['usages'] = quotas.tenant_quota_usages(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])
             flavors = json.dumps([f._info for f in
                                        api.nova.flavor_list(self.request)])

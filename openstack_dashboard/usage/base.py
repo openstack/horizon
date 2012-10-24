@@ -12,6 +12,7 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard.usage import quotas
 
 
 LOG = logging.getLogger(__name__)
@@ -108,7 +109,7 @@ class BaseUsage(object):
 
     def get_quotas(self):
         try:
-            self.quotas = api.nova.tenant_quota_usages(self.request)
+            self.quotas = quotas.tenant_quota_usages(self.request)
         except:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
