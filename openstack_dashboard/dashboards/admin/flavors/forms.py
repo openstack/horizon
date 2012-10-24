@@ -19,6 +19,7 @@
 #    under the License.
 
 import logging
+import uuid
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -39,22 +40,6 @@ class CreateFlavor(forms.SelfHandlingForm):
     disk_gb = forms.IntegerField(label=_("Root Disk GB"))
     eph_gb = forms.IntegerField(label=_("Ephemeral Disk GB"))
 
-    def _get_new_flavor_id(self):
-        # TODO(gabriel): Get rid of this hack after flavor
-        # id handling is improved in Nova's API.
-        flavors = []
-        try:
-            flavors = api.nova.flavor_list(self.request)
-        except:
-            exceptions.handle(self.request,
-                              _("Unable to get unique ID for new flavor."))
-        if flavors:
-            largest_id = max(flavors, key=lambda f: f.id).id
-            flavor_id = int(largest_id) + 1
-        else:
-            flavor_id = 1
-        return flavor_id
-
     def handle(self, request, data):
         try:
             flavor = api.nova.flavor_create(request,
@@ -62,7 +47,7 @@ class CreateFlavor(forms.SelfHandlingForm):
                                             data['memory_mb'],
                                             data['vcpus'],
                                             data['disk_gb'],
-                                            self._get_new_flavor_id(),
+                                            uuid.uuid4(),
                                             ephemeral=data['eph_gb'])
             msg = _('Created flavor "%s".') % data['name']
             messages.success(request, msg)
@@ -87,7 +72,7 @@ class EditFlavor(CreateFlavor):
                                             data['memory_mb'],
                                             data['vcpus'],
                                             data['disk_gb'],
-                                            self._get_new_flavor_id(),
+                                            uuid.uuid4(),
                                             ephemeral=data['eph_gb'])
             msg = _('Updated flavor "%s".') % data['name']
             messages.success(request, msg)
