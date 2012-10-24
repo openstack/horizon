@@ -1,0 +1,108 @@
+from collections import defaultdict
+import itertools
+
+from horizon import exceptions
+from horizon.utils.memoized import memoized
+
+from openstack_dashboard.api import nova, cinder
+from openstack_dashboard.api.base import is_service_enabled, QuotaSet
+
+
+class QuotaUsage(dict):
+    """ Tracks quota limit, used, and available for a given set of quotas."""
+
+    def __init__(self):
+        self.usages = defaultdict(dict)
+
+    def __getitem__(self, key):
+        return self.usages[key]
+
+    def __setitem__(self, key, value):
+        raise NotImplemented("Directly setting QuotaUsage values is not "
+                             "supported. Please use the add_quota and "
+                             "tally methods.")
+
+    def __repr__(self):
+        return repr(dict(self.usages))
+
+    def add_quota(self, quota):
+        """ Adds an internal tracking reference for the given quota. """
+        if quota.limit is None:
+            # Handle "unlimited" quotas.
+            self.usages[quota.name]['quota'] = float("inf")
+            self.usages[quota.name]['available'] = float("inf")
+        else:
+            self.usages[quota.name]['quota'] = int(quota.limit)
+
+    def tally(self, name, value):
+        """ Adds to the "used" metric for the given quota. """
+        value = value or 0  # Protection against None.
+        # Start at 0 if this is the first value.
+        if 'used' not in self.usages[name]:
+            self.usages[name]['used'] = 0
+        # Increment our usage and update the "available" metric.
+        self.usages[name]['used'] += int(value)  # Fail if can't coerce to int.
+        self.update_available(name)
+
+    def update_available(self, name):
+        """ Updates the "available" metric for the given quota. """
+        available = self.usages[name]['quota'] - self.usages[name]['used']
+        if available < 0:
+            available = 0
+        self.usages[name]['available'] = available
+
+
+def get_quota_data(request, method_name):
+    quotasets = []
+    tenant_id = request.user.tenant_id
+    quotasets.append(getattr(nova, method_name)(request, tenant_id))
+    if is_service_enabled(request, 'volume'):
+        quotasets.append(getattr(cinder, method_name)(request, tenant_id))
+    qs = QuotaSet()
+    for quota in itertools.chain(*quotasets):
+        qs[quota.name] = quota.limit
+    return qs
+
+
+def get_default_quota_data(request):
+    return get_quota_data(request, "default_quota_get")
+
+
+def get_tenant_quota_data(request):
+    return get_quota_data(request, "tenant_quota_get")
+
+
+@memoized
+def tenant_quota_usages(request):
+    # Get our quotas and construct our usage object.
+    usages = QuotaUsage()
+    for quota in get_tenant_quota_data(request):
+        usages.add_quota(quota)
+
+    # Get our usages.
+    floating_ips = nova.tenant_floating_ip_list(request)
+    flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
+    volumes = cinder.volume_list(request)
+    instances = nova.server_list(request)
+    # Fetch deleted flavors if necessary.
+    missing_flavors = [instance.flavor['id'] for instance in instances
+                       if instance.flavor['id'] not in flavors]
+    for missing in missing_flavors:
+        if missing not in flavors:
+            try:
+                flavors[missing] = nova.flavor_get(request, missing)
+            except:
+                flavors[missing] = {}
+                exceptions.handle(request, ignore=True)
+
+    usages.tally('instances', len(instances))
+    usages.tally('floating_ips', len(floating_ips))
+    usages.tally('volumes', len(volumes))
+    usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
+
+    # Sum our usage based on the flavors of the instances.
+    for flavor in [flavors[instance.flavor['id']] for instance in instances]:
+        usages.tally('cores', getattr(flavor, 'vcpus', None))
+        usages.tally('ram', getattr(flavor, 'ram', None))
+
+    return usages

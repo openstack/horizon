@@ -31,6 +31,7 @@ from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.usage import quotas
 from .forms import FloatingIpAllocate
 from .workflows import IPAssociationWorkflow
 
@@ -51,7 +52,7 @@ class AllocateView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(AllocateView, self).get_context_data(**kwargs)
         try:
-            context['usages'] = api.tenant_quota_usages(self.request)
+            context['usages'] = quotas.tenant_quota_usages(self.request)
         except:
             exceptions.handle(self.request)
         return context

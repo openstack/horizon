@@ -20,6 +20,8 @@ from novaclient.v1_1 import (flavors, keypairs, servers, volumes, quotas,
                              security_group_rules as rules,
                              security_groups as sec_groups)
 
+from openstack_dashboard.api.base import Quota, QuotaSet as QuotaSetWrapper
+from openstack_dashboard.usage.quotas import QuotaUsage
 from .utils import TestDataContainer
 
 
@@ -265,21 +267,23 @@ def data(TEST):
                       injected_files='1',
                       cores='10')
     quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
-    TEST.quotas.add(quota)
+    TEST.quotas.add(QuotaSetWrapper(quota))
 
     # Quota Usages
-    TEST.quota_usages.add({'gigabytes': {'available': 1000,
-                                         'used': 0,
-                                         'quota': 1000},
-                           'instances': {'available': 10,
-                                         'used': 0,
-                                         'quota': 10},
-                           'ram': {'available': 10000,
-                                         'used': 0,
-                                         'quota': 10000},
-                           'cores': {'available': 20,
-                                         'used': 0,
-                                         'quota': 20}})
+    quota_usage_data = {'gigabytes': {'used': 0,
+                                      'quota': 1000},
+                        'instances': {'used': 0,
+                                      'quota': 10},
+                        'ram': {'used': 0,
+                                'quota': 10000},
+                        'cores': {'used': 0,
+                                  'quota': 20}}
+    quota_usage = QuotaUsage()
+    for k, v in quota_usage_data.items():
+        quota_usage.add_quota(Quota(k, v['quota']))
+        quota_usage.tally(k, v['used'])
+
+    TEST.quota_usages.add(quota_usage)
 
     # Servers
     vals = {"host": "http://nova.example.com:8774",

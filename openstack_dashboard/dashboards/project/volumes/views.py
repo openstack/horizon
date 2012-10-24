@@ -30,6 +30,7 @@ from horizon import tables
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard.usage import quotas
 from .forms import CreateForm, AttachForm, CreateSnapshotForm
 from .tables import AttachmentsTable, VolumesTable
 from .tabs import VolumeDetailTabs
@@ -93,7 +94,7 @@ class CreateView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
         try:
-            context['usages'] = api.tenant_quota_usages(self.request)
+            context['usages'] = quotas.tenant_quota_usages(self.request)
         except:
             exceptions.handle(self.request)
         return context

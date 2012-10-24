@@ -26,7 +26,9 @@ from django.utils.datastructures import SortedDict
 from mox import IsA, IgnoreArg
 
 from openstack_dashboard import api
+from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 from .tabs import InstanceDetailTabs
 from .workflows import LaunchInstance
 
@@ -324,7 +326,7 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api: ("server_get",
-                              "volume_instance_list",
+                              "instance_volumes_list",
                               "flavor_get",
                               "server_security_groups")})
     def test_instance_details_volumes(self):
@@ -332,8 +334,8 @@ class InstanceTests(test.TestCase):
         volumes = [self.volumes.list()[1]]
 
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.volume_instance_list(IsA(http.HttpRequest),
-                               server.id).AndReturn(volumes)
+        api.instance_volumes_list(IsA(http.HttpRequest),
+                                  server.id).AndReturn(volumes)
         api.flavor_get(IsA(http.HttpRequest),
                        server.flavor['id']).AndReturn(self.flavors.first())
         api.server_security_groups(IsA(http.HttpRequest),
@@ -348,7 +350,7 @@ class InstanceTests(test.TestCase):
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
 
     @test.create_stubs({api: ("server_get",
-                              "volume_instance_list",
+                              "instance_volumes_list",
                               "flavor_get",
                               "server_security_groups")})
     def test_instance_details_volume_sorting(self):
@@ -356,8 +358,8 @@ class InstanceTests(test.TestCase):
         volumes = self.volumes.list()[1:3]
 
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.volume_instance_list(IsA(http.HttpRequest),
-                               server.id).AndReturn(volumes)
+        api.instance_volumes_list(IsA(http.HttpRequest),
+                                  server.id).AndReturn(volumes)
         api.flavor_get(IsA(http.HttpRequest),
                        server.flavor['id']).AndReturn(self.flavors.first())
         api.server_security_groups(IsA(http.HttpRequest),
@@ -376,15 +378,15 @@ class InstanceTests(test.TestCase):
                           "/dev/hdk")
 
     @test.create_stubs({api: ("server_get",
-                              "volume_instance_list",
+                              "instance_volumes_list",
                               "flavor_get",
                               "server_security_groups",)})
     def test_instance_details_metadata(self):
         server = self.servers.first()
 
         api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.volume_instance_list(IsA(http.HttpRequest),
-                               server.id).AndReturn([])
+        api.instance_volumes_list(IsA(http.HttpRequest),
+                                  server.id).AndReturn([])
         api.flavor_get(IsA(http.HttpRequest),
                        server.flavor['id']).AndReturn(self.flavors.first())
         api.server_security_groups(IsA(http.HttpRequest),
@@ -582,30 +584,30 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('tenant_quota_usages',
-                                   'flavor_list',
+    @test.create_stubs({api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
-                                   'volume_snapshot_list',
-                                   'volume_list',),
+                                   'security_group_list',),
+                        cinder: ('volume_snapshot_list',
+                                 'volume_list',),
+                        quotas: ('tenant_quota_usages',),
                         api.quantum: ('network_list',),
                         api.glance: ('image_list_detailed',)})
     def test_launch_instance_get(self):
         quota_usages = self.quota_usages.first()
         image = self.images.first()
 
-        api.nova.volume_list(IsA(http.HttpRequest)) \
+        cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
-        api.nova.volume_snapshot_list(IsA(http.HttpRequest)) \
-                                .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                .AndReturn([self.images.list(), False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                .AndReturn([[], False])
         api.quantum.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -613,7 +615,7 @@ class InstanceTests(test.TestCase):
         api.quantum.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -646,13 +648,13 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
+                        quotas: ('tenant_quota_usages',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
-                                   'volume_list',
-                                   'volume_snapshot_list',
-                                   'tenant_quota_usages',
-                                   'server_create',)})
+                                   'server_create',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',)})
     def test_launch_instance_post(self):
         flavor = self.flavors.first()
         image = self.images.first()
@@ -687,9 +689,9 @@ class InstanceTests(test.TestCase):
         api.quantum.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        api.nova.volume_list(IsA(http.HttpRequest)) \
+        cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
-        api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
                                image.id,
@@ -725,12 +727,12 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
-                    api.nova: ('flavor_list',
-                               'keypair_list',
-                               'security_group_list',
-                               'volume_list',
-                               'tenant_quota_usages',
-                               'volume_snapshot_list',)})
+                        quotas: ('tenant_quota_usages',),
+                        api.nova: ('flavor_list',
+                                   'keypair_list',
+                                   'security_group_list',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',)})
     def test_launch_instance_post_no_images_available(self):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
@@ -743,7 +745,7 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
-        api.nova.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn({})
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn({})
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
@@ -765,9 +767,9 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.keypairs.list())
         api.nova.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
-        api.nova.volume_list(IsA(http.HttpRequest)) \
+        cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
-        api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
 
         self.mox.ReplayAll()
 
@@ -795,16 +797,16 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
-                        api.nova: ('tenant_quota_usages',
-                                   'flavor_list',
+                        quotas: ('tenant_quota_usages',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',),
+                        api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'volume_list',
-                                   'security_group_list',
-                                   'volume_snapshot_list',)})
+                                   'security_group_list',)})
     def test_launch_flavorlist_error(self):
-        api.nova.volume_list(IsA(http.HttpRequest)) \
+        cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
-        api.nova.volume_snapshot_list(IsA(http.HttpRequest)) \
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
@@ -821,7 +823,7 @@ class InstanceTests(test.TestCase):
         api.quantum.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(self.quota_usages.first())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndRaise(self.exceptions.nova)
@@ -845,9 +847,9 @@ class InstanceTests(test.TestCase):
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
-                                   'volume_list',
-                                   'server_create',
-                                   'volume_snapshot_list',)})
+                                   'server_create',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',)})
     def test_launch_form_keystone_exception(self):
         flavor = self.flavors.first()
         image = self.images.first()
@@ -857,8 +859,8 @@ class InstanceTests(test.TestCase):
         customization_script = 'userData'
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
 
-        api.nova.volume_snapshot_list(IsA(http.HttpRequest)) \
-                                .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.nova.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
         api.nova.security_group_list(IsA(http.HttpRequest)) \
@@ -878,7 +880,7 @@ class InstanceTests(test.TestCase):
         api.quantum.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        api.nova.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
+        cinder.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
                                image.id,
@@ -912,12 +914,12 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
+                        quotas: ('tenant_quota_usages',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
-                                   'volume_list',
-                                   'tenant_quota_usages',
-                                   'volume_snapshot_list',)})
+                                   'security_group_list',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',)})
     def test_launch_form_instance_count_error(self):
         flavor = self.flavors.first()
         image = self.images.first()
@@ -950,13 +952,13 @@ class InstanceTests(test.TestCase):
         api.quantum.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        api.nova.volume_list(IsA(http.HttpRequest)) \
+        cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
-        api.nova.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
-        api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(self.quota_usages.first())
 
         self.mox.ReplayAll()

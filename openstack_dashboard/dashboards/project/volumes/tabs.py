@@ -20,7 +20,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tabs
 
-from openstack_dashboard import api
+from openstack_dashboard.api import cinder, nova
 
 
 class OverviewTab(tabs.Tab):
@@ -32,10 +32,9 @@ class OverviewTab(tabs.Tab):
     def get_context_data(self, request):
         volume_id = self.tab_group.kwargs['volume_id']
         try:
-            volume = api.nova.volume_get(request, volume_id)
+            volume = cinder.volume_get(request, volume_id)
             for att in volume.attachments:
-                att['instance'] = api.nova.server_get(request,
-                                                      att['server_id'])
+                att['instance'] = nova.server_get(request, att['server_id'])
         except:
             redirect = reverse('horizon:project:volumes:index')
             exceptions.handle(self.request,

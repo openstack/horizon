@@ -21,6 +21,7 @@ from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 from .workflows import CreateProject, UpdateProject
 from .views import QUOTA_FIELDS
 
@@ -55,7 +56,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     def _get_quota_info(self, quota):
         quota_data = {}
         for field in QUOTA_FIELDS:
-            quota_data[field] = int(getattr(quota, field, None))
+            quota_data[field] = int(quota.get(field).limit)
         return quota_data
 
     def _get_workflow_data(self, project, quota):
@@ -64,18 +65,17 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         project_info.update(quota_data)
         return project_info
 
-    @test.create_stubs({api: ('tenant_quota_defaults',
-                              'get_default_role',),
-                       api.keystone: ('user_list',
-                                      'role_list',)})
+    @test.create_stubs({api: ('get_default_role',),
+                        quotas: ('get_default_quota_data',),
+                        api.keystone: ('user_list',
+                                       'role_list',)})
     def test_add_project_get(self):
         quota = self.quotas.first()
         default_role = self.roles.first()
         users = self.users.list()
         roles = self.roles.list()
 
-        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         # init
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
@@ -93,20 +93,21 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(res.context['workflow'].name, CreateProject.name)
 
         step = workflow.get_step("createprojectinfoaction")
-        self.assertEqual(step.action.initial['ram'], quota.ram)
+        self.assertEqual(step.action.initial['ram'], quota.get('ram').limit)
         self.assertEqual(step.action.initial['injected_files'],
-                         quota.injected_files)
+                         quota.get('injected_files').limit)
         self.assertQuerysetEqual(workflow.steps,
                             ['<CreateProjectInfo: createprojectinfoaction>',
                              '<UpdateProjectMembers: update_members>',
                              '<UpdateProjectQuota: update_quotas>'])
 
     @test.create_stubs({api: ('get_default_role',
-                              'tenant_quota_defaults',
                               'add_tenant_user_role',),
                         api.keystone: ('tenant_create',
                                        'user_list',
                                        'role_list'),
+                        quotas: ('get_default_quota_data',),
+                        api.cinder: ('tenant_quota_update',),
                         api.nova: ('tenant_quota_update',)})
     def test_add_project_post(self):
         project = self.tenants.first()
@@ -116,8 +117,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         roles = self.roles.list()
 
         # init
-        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -159,8 +159,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('tenant_quota_defaults',
-                              'get_default_role',),
+    @test.create_stubs({api: ('get_default_role',),
+                        quotas: ('get_default_quota_data',),
                         api.keystone: ('user_list',
                                        'role_list',)})
     def test_add_project_quota_defaults_error(self):
@@ -169,8 +169,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         roles = self.roles.list()
 
         # init
-        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
-           .AndRaise(self.exceptions.nova)
+        quotas.get_default_quota_data(IsA(http.HttpRequest)) \
+                .AndRaise(self.exceptions.nova)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -184,8 +184,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/projects/create.html')
         self.assertContains(res, "Unable to retrieve default quota values")
 
-    @test.create_stubs({api: ('get_default_role',
-                              'tenant_quota_defaults',),
+    @test.create_stubs({api: ('get_default_role',),
+                        quotas: ('get_default_quota_data',),
                         api.keystone: ('tenant_create',
                                        'user_list',
                                        'role_list',)})
@@ -197,8 +197,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         roles = self.roles.list()
 
         # init
-        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -224,11 +223,11 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api: ('get_default_role',
-                              'tenant_quota_defaults',
                               'add_tenant_user_role',),
                         api.keystone: ('tenant_create',
                                        'user_list',
                                        'role_list'),
+                        quotas: ('get_default_quota_data',),
                         api.nova: ('tenant_quota_update',)})
     def test_add_project_quota_update_error(self):
         project = self.tenants.first()
@@ -238,8 +237,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         roles = self.roles.list()
 
         # init
-        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -283,11 +281,11 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api: ('get_default_role',
-                              'tenant_quota_defaults',
                               'add_tenant_user_role',),
                         api.keystone: ('tenant_create',
                                        'user_list',
                                        'role_list',),
+                        quotas: ('get_default_quota_data',),
                         api.nova: ('tenant_quota_update',)})
     def test_add_project_user_update_error(self):
         project = self.tenants.first()
@@ -297,8 +295,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         roles = self.roles.list()
 
         # init
-        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -343,8 +340,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('get_default_role',
-                              'tenant_quota_defaults',),
+    @test.create_stubs({api: ('get_default_role',),
+                        quotas: ('get_default_quota_data',),
                         api.keystone: ('user_list',
                                        'role_list',)})
     def test_add_project_missing_field_error(self):
@@ -355,8 +352,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         roles = self.roles.list()
 
         # init
-        api.tenant_quota_defaults(IsA(http.HttpRequest), self.tenant.id) \
-           .AndReturn(quota)
+        quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -380,13 +376,13 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
     def _get_quota_info(self, quota):
         quota_data = {}
         for field in QUOTA_FIELDS:
-            quota_data[field] = int(getattr(quota, field, None))
+            quota_data[field] = int(quota.get(field).limit)
         return quota_data
 
     @test.create_stubs({api: ('get_default_role',
                               'roles_for_user',
-                              'tenant_get',
-                              'tenant_quota_get',),
+                              'tenant_get',),
+                        quotas: ('get_tenant_quota_data',),
                         api.keystone: ('user_list',
                                        'role_list',)})
     def test_update_project_get(self):
@@ -398,8 +394,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
 
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
             .AndReturn(project)
-        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -422,9 +417,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(res.context['workflow'].name, UpdateProject.name)
 
         step = workflow.get_step("update_info")
-        self.assertEqual(step.action.initial['ram'], quota.ram)
+        self.assertEqual(step.action.initial['ram'], quota.get('ram').limit)
         self.assertEqual(step.action.initial['injected_files'],
-                         quota.injected_files)
+                         quota.get('injected_files').limit)
         self.assertEqual(step.action.initial['name'], project.name)
         self.assertEqual(step.action.initial['description'],
                          project.description)
@@ -434,13 +429,14 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                              '<UpdateProjectQuota: update_quotas>'])
 
     @test.create_stubs({api: ('tenant_get',
-                              'tenant_quota_get',
                               'tenant_update',
-                              'tenant_quota_update',
                               'get_default_role',
                               'roles_for_user',
                               'remove_tenant_user_role',
                               'add_tenant_user_role'),
+                        api.nova: ('tenant_quota_update',),
+                        api.cinder: ('tenant_quota_update',),
+                        quotas: ('get_tenant_quota_data',),
                         api.keystone: ('user_list',
                                        'role_list',)})
     def test_update_project_save(self):
@@ -453,8 +449,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         # get/init
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
             .AndReturn(project)
-        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -524,9 +519,13 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                      user_id='3',
                                      role_id='1')
 
-        api.tenant_quota_update(IsA(http.HttpRequest),
+        api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                 project.id,
                                 **updated_quota)
+        api.cinder.tenant_quota_update(IsA(http.HttpRequest),
+                                       project.id,
+                                       volumes=updated_quota['volumes'],
+                                       gigabytes=updated_quota['gigabytes'])
         self.mox.ReplayAll()
 
         # submit form data
@@ -559,13 +558,13 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api: ('tenant_get',
-                              'tenant_quota_get',
                               'tenant_update',
-                              'tenant_quota_update',
                               'get_default_role',
                               'roles_for_user',
                               'remove_tenant_user',
                               'add_tenant_user_role'),
+                        quotas: ('get_tenant_quota_data',),
+                        api.nova: ('tenant_quota_update',),
                         api.keystone: ('user_list',
                                        'role_list',)})
     def test_update_project_tenant_update_error(self):
@@ -578,8 +577,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         # get/init
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
             .AndReturn(project)
-        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -631,13 +629,13 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api: ('tenant_get',
-                              'tenant_quota_get',
                               'tenant_update',
-                              'tenant_quota_update',
                               'get_default_role',
                               'roles_for_user',
                               'remove_tenant_user_role',
                               'add_tenant_user_role'),
+                        quotas: ('get_tenant_quota_data',),
+                        api.nova: ('tenant_quota_update',),
                         api.keystone: ('user_list',
                                        'role_list',)})
     def test_update_project_quota_update_error(self):
@@ -650,8 +648,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         # get/init
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
             .AndReturn(project)
-        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)
@@ -708,7 +705,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                      user_id='3',
                                      role_id='2')
 
-        api.tenant_quota_update(IsA(http.HttpRequest),
+        api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                 project.id,
                                 **updated_quota).AndRaise(self.exceptions.nova)
 
@@ -730,12 +727,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api: ('tenant_get',
-                              'tenant_quota_get',
                               'tenant_update',
                               'get_default_role',
                               'roles_for_user',
                               'remove_tenant_user_role',
                               'add_tenant_user_role'),
+                        quotas: ('get_tenant_quota_data',),
                         api.keystone: ('user_list',
                                        'role_list',)})
     def test_update_project_member_update_error(self):
@@ -748,8 +745,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         # get/init
         api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
             .AndReturn(project)
-        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.get_default_role(IsA(http.HttpRequest)).AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest)).AndReturn(users)

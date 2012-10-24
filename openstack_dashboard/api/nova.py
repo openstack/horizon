@@ -27,17 +27,14 @@ import logging
 from django.conf import settings
 from django.utils.translation import ugettext as _
 
-from cinderclient.v1 import client as cinder_client
-
 from novaclient.v1_1 import client as nova_client
 from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.security_groups import SecurityGroup as NovaSecurityGroup
 from novaclient.v1_1.servers import REBOOT_HARD
 
-from horizon import exceptions
 from horizon.utils.memoized import memoized
 
-from openstack_dashboard.api.base import (APIResourceWrapper,
+from openstack_dashboard.api.base import (APIResourceWrapper, QuotaSet,
                                           APIDictWrapper, url_for)
 
 
@@ -54,32 +51,6 @@ class VNCConsole(APIDictWrapper):
     novaclient.servers.get_vnc_console method.
     """
     _attrs = ['url', 'type']
-
-
-class Quota(object):
-    """Wrapper for individual limits in a quota."""
-    def __init__(self, name, limit):
-        self.name = name
-        self.limit = limit
-
-    def __repr__(self):
-        return "<Quota: (%s, %s)>" % (self.name, self.limit)
-
-
-class QuotaSet(object):
-    """Wrapper for novaclient.quotas.QuotaSet objects which wraps the
-    individual quotas inside Quota objects.
-    """
-    def __init__(self, apiresource):
-        self.items = []
-        for k in apiresource._info.keys():
-            if k in ['id']:
-                continue
-            limit = apiresource._info[k]
-            v = int(limit) if limit is not None else limit
-            q = Quota(k, v)
-            self.items.append(q)
-            setattr(self, k, v)
 
 
 class Server(APIResourceWrapper):
@@ -117,7 +88,7 @@ class Server(APIResourceWrapper):
         novaclient(self.request).servers.reboot(self.id, hardness)
 
 
-class Usage(APIResourceWrapper):
+class NovaUsage(APIResourceWrapper):
     """Simple wrapper around contrib/simple_usage.py."""
     _attrs = ['start', 'server_usages', 'stop', 'tenant_id',
              'total_local_gb_usage', 'total_memory_mb_usage',
@@ -207,20 +178,6 @@ def novaclient(request):
                            insecure=insecure)
     c.client.auth_token = request.user.token.id
     c.client.management_url = url_for(request, 'compute')
-    return c
-
-
-def cinderclient(request):
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    LOG.debug('cinderclient connection created using token "%s" and url "%s"' %
-              (request.user.token.id, url_for(request, 'volume')))
-    c = cinder_client.Client(request.user.username,
-                             request.user.token.id,
-                             project_id=request.user.tenant_id,
-                             auth_url=url_for(request, 'volume'),
-                             insecure=insecure)
-    c.client.auth_token = request.user.token.id
-    c.client.management_url = url_for(request, 'volume')
     return c
 
 
@@ -408,68 +365,17 @@ def tenant_quota_update(request, tenant_id, **kwargs):
     novaclient(request).quotas.update(tenant_id, **kwargs)
 
 
-def tenant_quota_defaults(request, tenant_id):
+def default_quota_get(request, tenant_id):
     return QuotaSet(novaclient(request).quotas.defaults(tenant_id))
 
 
 def usage_get(request, tenant_id, start, end):
-    return Usage(novaclient(request).usage.get(tenant_id, start, end))
+    return NovaUsage(novaclient(request).usage.get(tenant_id, start, end))
 
 
 def usage_list(request, start, end):
-    return [Usage(u) for u in novaclient(request).usage.list(start, end, True)]
-
-
-@memoized
-def tenant_quota_usages(request):
-    """
-    Builds a dictionary of current usage against quota for the current
-    project.
-    """
-    instances = server_list(request)
-    floating_ips = tenant_floating_ip_list(request)
-    quotas = tenant_quota_get(request, request.user.tenant_id)
-    flavors = dict([(f.id, f) for f in flavor_list(request)])
-    volumes = volume_list(request)
-
-    usages = {'instances': {'flavor_fields': [], 'used': len(instances)},
-              'cores': {'flavor_fields': ['vcpus'], 'used': 0},
-              'gigabytes': {'used': sum([int(v.size) for v in volumes]),
-                            'flavor_fields': []},
-              'volumes': {'used': len(volumes), 'flavor_fields': []},
-              'ram': {'flavor_fields': ['ram'], 'used': 0},
-              'floating_ips': {'flavor_fields': [], 'used': len(floating_ips)}}
-
-    for usage in usages:
-        for instance in instances:
-            used_flavor = instance.flavor['id']
-            if used_flavor not in flavors:
-                try:
-                    flavors[used_flavor] = flavor_get(request, used_flavor)
-                except:
-                    flavors[used_flavor] = {}
-                    exceptions.handle(request, ignore=True)
-            for flavor_field in usages[usage]['flavor_fields']:
-                instance_flavor = flavors[used_flavor]
-                usages[usage]['used'] += getattr(instance_flavor,
-                                                 flavor_field,
-                                                 0)
-
-        usages[usage]['quota'] = getattr(quotas, usage)
-
-        if usages[usage]['quota'] is None:
-            usages[usage]['quota'] = float("inf")
-            usages[usage]['available'] = float("inf")
-        elif type(usages[usage]['quota']) is str:
-            usages[usage]['quota'] = int(usages[usage]['quota'])
-        else:
-            if type(usages[usage]['used']) is str:
-                usages[usage]['used'] = int(usages[usage]['used'])
-
-            usages[usage]['available'] = usages[usage]['quota'] - \
-                                         usages[usage]['used']
-
-    return usages
+    return [NovaUsage(u) for u in
+            novaclient(request).usage.list(start, end, True)]
 
 
 def security_group_list(request):
@@ -510,30 +416,28 @@ def virtual_interfaces_list(request, instance_id):
     return novaclient(request).virtual_interfaces.list(instance_id)
 
 
-def volume_list(request, search_opts=None):
-    """
-    To see all volumes in the cloud as an admin you can pass in a special
-    search option: {'all_tenants': 1}
-    """
-    return cinderclient(request).volumes.list(search_opts=search_opts)
+def get_x509_credentials(request):
+    return novaclient(request).certs.create()
 
 
-def volume_get(request, volume_id):
-    volume_data = cinderclient(request).volumes.get(volume_id)
-
-    for attachment in volume_data.attachments:
-        if "server_id" in attachment:
-            instance = server_get(request, attachment['server_id'])
-            attachment['instance_name'] = instance.name
-        else:
-            # Nova volume can occasionally send back error'd attachments
-            # the lack a server_id property; to work around that we'll
-            # give the attached instance a generic name.
-            attachment['instance_name'] = _("Unknown instance")
-    return volume_data
+def get_x509_root_certificate(request):
+    return novaclient(request).certs.get()
 
 
-def volume_instance_list(request, instance_id):
+def instance_volume_attach(request, volume_id, instance_id, device):
+    return novaclient(request).volumes.create_server_volume(instance_id,
+                                                              volume_id,
+                                                              device)
+
+
+def instance_volume_detach(request, instance_id, att_id):
+    return novaclient(request).volumes.delete_server_volume(instance_id,
+                                                              att_id)
+
+
+def instance_volumes_list(request, instance_id):
+    from openstack_dashboard.api.cinder import cinderclient
+
     volumes = novaclient(request).volumes.get_server_volumes(instance_id)
 
     for volume in volumes:
@@ -541,47 +445,3 @@ def volume_instance_list(request, instance_id):
         volume.name = volume_data.display_name
 
     return volumes
-
-
-def volume_create(request, size, name, description, snapshot_id=None):
-    return cinderclient(request).volumes.create(size, display_name=name,
-            display_description=description, snapshot_id=snapshot_id)
-
-
-def volume_delete(request, volume_id):
-    cinderclient(request).volumes.delete(volume_id)
-
-
-def volume_attach(request, volume_id, instance_id, device):
-    return novaclient(request).volumes.create_server_volume(instance_id,
-                                                            volume_id,
-                                                            device)
-
-
-def volume_detach(request, instance_id, att_id):
-    novaclient(request).volumes.delete_server_volume(instance_id, att_id)
-
-
-def volume_snapshot_get(request, snapshot_id):
-    return cinderclient(request).volume_snapshots.get(snapshot_id)
-
-
-def volume_snapshot_list(request):
-    return cinderclient(request).volume_snapshots.list()
-
-
-def volume_snapshot_create(request, volume_id, name, description):
-    return cinderclient(request).volume_snapshots.create(
-            volume_id, display_name=name, display_description=description)
-
-
-def volume_snapshot_delete(request, snapshot_id):
-    cinderclient(request).volume_snapshots.delete(snapshot_id)
-
-
-def get_x509_credentials(request):
-    return novaclient(request).certs.create()
-
-
-def get_x509_root_certificate(request):
-    return novaclient(request).certs.get()

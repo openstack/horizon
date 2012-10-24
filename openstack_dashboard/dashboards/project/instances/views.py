@@ -165,8 +165,8 @@ class DetailView(tabs.TabView):
             try:
                 instance_id = self.kwargs['instance_id']
                 instance = api.server_get(self.request, instance_id)
-                instance.volumes = api.volume_instance_list(self.request,
-                                                            instance_id)
+                instance.volumes = api.instance_volumes_list(self.request,
+                                                             instance_id)
                 # Sort by device name
                 instance.volumes.sort(key=lambda vol: vol.device)
                 instance.full_flavor = api.flavor_get(self.request,

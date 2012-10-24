@@ -29,8 +29,9 @@ from mox import IsA, Func
 from horizon.templatetags.sizeformat import mbformat
 
 from openstack_dashboard import api
-from openstack_dashboard.test import helpers as test
 from openstack_dashboard import usage
+from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
 
 INDEX_URL = reverse('horizon:project:overview:index')
@@ -38,19 +39,19 @@ INDEX_URL = reverse('horizon:project:overview:index')
 
 class UsageViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api: ('usage_list',),
-                        api.nova: ('tenant_quota_usages',),
+                        quotas: ('tenant_quota_usages',),
                         api.keystone: ('tenant_list',)})
     def test_usage(self):
         now = timezone.now()
-        usage_obj = api.nova.Usage(self.usages.first())
-        quotas = self.quota_usages.first()
+        usage_obj = api.nova.NovaUsage(self.usages.first())
+        quota_data = self.quota_usages.first()
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
                     .AndReturn(self.tenants.list())
         api.usage_list(IsA(http.HttpRequest),
                       datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                       Func(usage.almost_now)) \
                       .AndReturn([usage_obj])
-        api.nova.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quotas)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:overview:index'))
         self.assertTemplateUsed(res, 'admin/overview/usage.html')
@@ -70,19 +71,19 @@ class UsageViewTests(test.BaseAdminViewTests):
                              usage_obj.total_local_gb_usage))
 
     @test.create_stubs({api: ('usage_list',),
-                        api.nova: ('tenant_quota_usages',),
+                        quotas: ('tenant_quota_usages',),
                         api.keystone: ('tenant_list',)})
     def test_usage_csv(self):
         now = timezone.now()
-        usage_obj = api.nova.Usage(self.usages.first())
-        quotas = self.quota_usages.first()
+        usage_obj = api.nova.NovaUsage(self.usages.first())
+        quota_data = self.quota_usages.first()
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
                     .AndReturn(self.tenants.list())
         api.usage_list(IsA(http.HttpRequest),
                       datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                       Func(usage.almost_now)) \
                       .AndReturn([usage_obj])
-        api.nova.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quotas)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
         self.mox.ReplayAll()
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"
         res = self.client.get(csv_url)

@@ -37,3 +37,4 @@ from openstack_dashboard.api.keystone import *
 from openstack_dashboard.api.nova import *
 from openstack_dashboard.api.swift import *
 from openstack_dashboard.api.quantum import *
+from openstack_dashboard.api.cinder import *
