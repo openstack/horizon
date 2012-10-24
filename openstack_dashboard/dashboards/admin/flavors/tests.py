@@ -1,3 +1,5 @@
+import uuid
+
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
@@ -14,13 +16,12 @@ class FlavorsTests(test.BaseAdminViewTests):
         self.mox.StubOutWithMock(api.nova, 'flavor_create')
 
         # no pre-existing flavors
-        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn([])
         api.nova.flavor_create(IsA(http.HttpRequest),
                                flavor.name,
                                flavor.ram,
                                flavor.vcpus,
                                flavor.disk,
-                               1,  # Flavor id 1 because there are no others.
+                               IsA(uuid.uuid4()),
                                ephemeral=eph).AndReturn(flavor)
         self.mox.ReplayAll()
 
@@ -39,9 +40,7 @@ class FlavorsTests(test.BaseAdminViewTests):
                                      reverse("horizon:admin:flavors:index"))
 
     def test_edit_flavor(self):
-        flavors = self.flavors.list()
         flavor = self.flavors.first()
-        next_id = int(max(flavors, key=lambda f: f.id).id) + 1
         eph = getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral')
         self.mox.StubOutWithMock(api.nova, 'flavor_list')
         self.mox.StubOutWithMock(api.nova, 'flavor_get')
@@ -54,14 +53,12 @@ class FlavorsTests(test.BaseAdminViewTests):
         # POST
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
         api.nova.flavor_delete(IsA(http.HttpRequest), int(flavor.id))
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-                .AndReturn(flavors)
         api.nova.flavor_create(IsA(http.HttpRequest),
                                flavor.name,
                                flavor.ram,
                                flavor.vcpus + 1,
                                flavor.disk,
-                               next_id,
+                               IsA(uuid.uuid4()),
                                ephemeral=eph).AndReturn(flavor)
         self.mox.ReplayAll()
 
