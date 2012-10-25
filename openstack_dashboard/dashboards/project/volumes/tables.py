@@ -26,6 +26,7 @@ from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.api import cinder
 
 
 LOG = logging.getLogger(__name__)
@@ -41,7 +42,7 @@ class DeleteVolume(tables.DeleteAction):
         obj = self.table.get_object_by_id(obj_id)
         name = self.table.get_object_display(obj)
         try:
-            api.volume_delete(request, obj_id)
+            cinder.volume_delete(request, obj_id)
         except:
             msg = _('Unable to delete volume "%s". One or more snapshots '
                     'depend on it.')
@@ -85,7 +86,7 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, volume_id):
-        volume = api.volume_get(request, volume_id)
+        volume = cinder.volume_get(request, volume_id)
         return volume
 
 
@@ -133,6 +134,10 @@ class AttachmentColumn(tables.Column):
         return safestring.mark_safe(", ".join(attachments))
 
 
+def get_volume_type(volume):
+    return volume.volume_type if volume.volume_type != "None" else None
+
+
 class VolumesTableBase(tables.DataTable):
     STATUS_CHOICES = (
         ("in-use", True),
@@ -163,6 +168,9 @@ class VolumesTable(VolumesTableBase):
     name = tables.Column("display_name",
                          verbose_name=_("Name"),
                          link="horizon:project:volumes:detail")
+    volume_type = tables.Column(get_volume_type,
+                                verbose_name=_("Type"),
+                                empty_value="-")
     attachments = AttachmentColumn("attachments",
                                 verbose_name=_("Attached To"))
 

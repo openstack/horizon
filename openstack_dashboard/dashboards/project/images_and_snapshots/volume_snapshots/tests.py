@@ -22,7 +22,7 @@ from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
 
-from openstack_dashboard import api
+from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
 
@@ -38,16 +38,16 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         self.assertTemplateUsed(res, 'project/volumes/create_snapshot.html')
 
+    @test.create_stubs({cinder: ('volume_snapshot_create',)})
     def test_create_snapshot_post(self):
         volume = self.volumes.first()
         snapshot = self.volume_snapshots.first()
 
-        self.mox.StubOutWithMock(api, 'volume_snapshot_create')
-        api.volume_snapshot_create(IsA(http.HttpRequest),
-                                   volume.id,
-                                   snapshot.display_name,
-                                   snapshot.display_description) \
-                                   .AndReturn(snapshot)
+        cinder.volume_snapshot_create(IsA(http.HttpRequest),
+                                      volume.id,
+                                      snapshot.display_name,
+                                      snapshot.display_description) \
+                                      .AndReturn(snapshot)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateSnapshotForm',

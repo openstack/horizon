@@ -30,6 +30,7 @@ from horizon import tables
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
 from .forms import CreateForm, AttachForm, CreateSnapshotForm
 from .tables import AttachmentsTable, VolumesTable
@@ -39,22 +40,18 @@ from .tabs import VolumeDetailTabs
 LOG = logging.getLogger(__name__)
 
 
-class IndexView(tables.DataTableView):
-    table_class = VolumesTable
-    template_name = 'project/volumes/index.html'
-
+class VolumeTableMixIn(object):
     def _get_volumes(self, search_opts=None):
         try:
-            return api.volume_list(self.request, search_opts=search_opts)
+            return cinder.volume_list(self.request, search_opts=search_opts)
         except:
             exceptions.handle(self.request,
                               _('Unable to retrieve volume list.'))
 
     def _get_instances(self):
         try:
-            return api.server_list(self.request)
+            return api.nova.server_list(self.request)
         except:
-            instance_list = []
             exceptions.handle(self.request,
                               _("Unable to retrieve volume/instance "
                                 "attachment information"))
@@ -72,6 +69,11 @@ class IndexView(tables.DataTableView):
             for att in volume.attachments:
                 server_id = att.get('server_id', None)
                 att['instance'] = instances.get(server_id, None)
+
+
+class IndexView(tables.DataTableView, VolumeTableMixIn):
+    table_class = VolumesTable
+    template_name = 'project/volumes/index.html'
 
     def get_data(self):
         volumes = self._get_volumes()
@@ -124,7 +126,7 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
         if not hasattr(self, "_object"):
             volume_id = self.kwargs['volume_id']
             try:
-                self._object = api.volume_get(self.request, volume_id)
+                self._object = cinder.volume_get(self.request, volume_id)
             except:
                 self._object = None
                 exceptions.handle(self.request,

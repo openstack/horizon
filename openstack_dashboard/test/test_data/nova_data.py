@@ -14,7 +14,8 @@
 
 import json
 
-from novaclient.v1_1 import (flavors, keypairs, servers, volumes, quotas,
+from novaclient.v1_1 import (flavors, keypairs, servers, volumes,
+                             volume_types, quotas,
                              floating_ips, usage, certs,
                              volume_snapshots as vol_snaps,
                              security_group_rules as rules,
@@ -145,6 +146,7 @@ def data(TEST):
     TEST.usages = TestDataContainer()
     TEST.certs = TestDataContainer()
     TEST.volume_snapshots = TestDataContainer()
+    TEST.volume_types = TestDataContainer()
 
     # Volumes
     volume = volumes.Volume(volumes.VolumeManager(None),
@@ -154,6 +156,7 @@ def data(TEST):
                                  size=40,
                                  display_name='Volume name',
                                  created_at='2012-04-01 10:30:00',
+                                 volume_type=None,
                                  attachments=[]))
     nameless_volume = volumes.Volume(volumes.VolumeManager(None),
                          dict(id="3b189ac8-9166-ac7f-90c9-16c8bf9e01ac",
@@ -164,6 +167,7 @@ def data(TEST):
                               display_description='',
                               device="/dev/hda",
                               created_at='2010-11-21 18:34:25',
+                              volume_type='vol_type_1',
                               attachments=[{"id": "1", "server_id": '1',
                                             "device": "/dev/hda"}]))
     attached_volume = volumes.Volume(volumes.VolumeManager(None),
@@ -175,11 +179,20 @@ def data(TEST):
                               display_description='',
                               device="/dev/hdk",
                               created_at='2011-05-01 11:54:33',
+                              volume_type='vol_type_2',
                               attachments=[{"id": "2", "server_id": '1',
                                             "device": "/dev/hdk"}]))
     TEST.volumes.add(volume)
     TEST.volumes.add(nameless_volume)
     TEST.volumes.add(attached_volume)
+
+    vol_type1 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
+                                        {'id': 1,
+                                         'name': 'vol_type_1'})
+    vol_type2 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
+                                        {'id': 2,
+                                         'name': 'vol_type_2'})
+    TEST.volume_types.add(vol_type1, vol_type2)
 
     # Flavors
     flavor_1 = flavors.Flavor(flavors.FlavorManager(None),

@@ -19,15 +19,21 @@ from django.core.urlresolvers import reverse
 from mox import IsA
 
 from openstack_dashboard import api
+from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
 
 class VolumeTests(test.BaseAdminViewTests):
-    @test.create_stubs({api: ('server_list', 'volume_list',)})
+    @test.create_stubs({api.nova: ('server_list',),
+                        cinder: ('volume_list',
+                                 'volume_type_list',)})
     def test_index(self):
-        api.volume_list(IsA(http.HttpRequest), search_opts={
-                            'all_tenants': 1}).AndReturn(self.volumes.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        cinder.volume_list(IsA(http.HttpRequest), search_opts={
+                           'all_tenants': 1}).AndReturn(self.volumes.list())
+        api.nova.server_list(IsA(http.HttpRequest)).\
+                             AndReturn(self.servers.list())
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                               AndReturn(self.volume_types.list())
 
         self.mox.ReplayAll()
 
@@ -37,3 +43,43 @@ class VolumeTests(test.BaseAdminViewTests):
         volumes = res.context['volumes_table'].data
 
         self.assertItemsEqual(volumes, self.volumes.list())
+
+    @test.create_stubs({cinder: ('volume_type_create',)})
+    def test_create_volume_type(self):
+        formData = {'name': 'volume type 1'}
+        cinder.volume_type_create(IsA(http.HttpRequest),
+                                  formData['name']).\
+                                  AndReturn(self.volume_types.first())
+        self.mox.ReplayAll()
+
+        res = self.client.post(reverse('horizon:admin:volumes:create_type'),
+                               formData)
+
+        redirect = reverse('horizon:admin:volumes:index')
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, redirect)
+
+    @test.create_stubs({api.nova: ('server_list',),
+                        cinder: ('volume_list',
+                                 'volume_type_list',
+                                 'volume_type_delete',)})
+    def test_delete_volume_type(self):
+        volume_type = self.volume_types.first()
+        formData = {'action': 'volume_types__delete__%s' % volume_type.id}
+
+        cinder.volume_list(IsA(http.HttpRequest), search_opts={
+                           'all_tenants': 1}).AndReturn(self.volumes.list())
+        api.nova.server_list(IsA(http.HttpRequest)).\
+                             AndReturn(self.servers.list())
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
+        cinder.volume_type_delete(IsA(http.HttpRequest),
+                                  str(volume_type.id))
+        self.mox.ReplayAll()
+
+        res = self.client.post(reverse('horizon:admin:volumes:index'),
+                               formData)
+
+        redirect = reverse('horizon:admin:volumes:index')
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, redirect)

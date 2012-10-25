@@ -32,25 +32,32 @@ from openstack_dashboard.usage import quotas
 
 
 class VolumeViewTests(test.TestCase):
-    @test.create_stubs({api: ('volume_create',
-                              'volume_snapshot_list'),
+    @test.create_stubs({cinder: ('volume_create',
+                                 'volume_snapshot_list',
+                                 'volume_type_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume(self):
         volume = self.volumes.first()
+        volume_type = self.volume_types.first()
         usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
         formData = {'name': u'A Volume I Am Making',
                     'description': u'This is a volume I am making for a test.',
                     'method': u'CreateForm',
-                    'size': 50, 'snapshot_source': ''}
+                    'type': volume_type.name,
+                    'size': 50,
+                    'snapshot_source': ''}
 
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
-        api.volume_snapshot_list(IsA(http.HttpRequest)).\
-                                 AndReturn(self.volume_snapshots.list())
-        api.volume_create(IsA(http.HttpRequest),
-                          formData['size'],
-                          formData['name'],
-                          formData['description'],
-                          snapshot_id=None).AndReturn(volume)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+                                    AndReturn(self.volume_snapshots.list())
+        cinder.volume_create(IsA(http.HttpRequest),
+                             formData['size'],
+                             formData['name'],
+                             formData['description'],
+                             formData['type'],
+                             snapshot_id=None).AndReturn(volume)
 
         self.mox.ReplayAll()
 
@@ -60,9 +67,11 @@ class VolumeViewTests(test.TestCase):
         redirect_url = reverse('horizon:project:volumes:index')
         self.assertRedirectsNoFollow(res, redirect_url)
 
-    @test.create_stubs({api: ('volume_create',
-                              'volume_snapshot_list'),
-                        cinder: ('volume_snapshot_get',),
+    @test.create_stubs({cinder: ('volume_create',
+                                 'volume_snapshot_list',
+                                 'volume_snapshot_get',
+                                 'volume_get',
+                                 'volume_type_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume_from_snapshot(self):
         volume = self.volumes.first()
@@ -71,30 +80,40 @@ class VolumeViewTests(test.TestCase):
         formData = {'name': u'A Volume I Am Making',
                     'description': u'This is a volume I am making for a test.',
                     'method': u'CreateForm',
-                    'size': 50, 'snapshot_source': snapshot.id}
+                    'size': 50,
+                    'type': '',
+                    'snapshot_source': snapshot.id}
 
         # first call- with url param
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         cinder.volume_snapshot_get(IsA(http.HttpRequest),
                                    str(snapshot.id)).AndReturn(snapshot)
-        api.volume_create(IsA(http.HttpRequest),
-                          formData['size'],
-                          formData['name'],
-                          formData['description'],
-                          snapshot_id=snapshot.id).\
-                          AndReturn(volume)
+        cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
+                          AndReturn(self.volumes.first())
+        cinder.volume_create(IsA(http.HttpRequest),
+                             formData['size'],
+                             formData['name'],
+                             formData['description'],
+                             '',
+                             snapshot_id=snapshot.id).\
+                             AndReturn(volume)
         # second call- with dropdown
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
-        api.volume_snapshot_list(IsA(http.HttpRequest)).\
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
                                  AndReturn(self.volume_snapshots.list())
         cinder.volume_snapshot_get(IsA(http.HttpRequest),
                                    str(snapshot.id)).AndReturn(snapshot)
-        api.volume_create(IsA(http.HttpRequest),
-                          formData['size'],
-                          formData['name'],
-                          formData['description'],
-                          snapshot_id=snapshot.id).\
-                          AndReturn(volume)
+        cinder.volume_create(IsA(http.HttpRequest),
+                             formData['size'],
+                             formData['name'],
+                             formData['description'],
+                             '',
+                             snapshot_id=snapshot.id).\
+                             AndReturn(volume)
 
         self.mox.ReplayAll()
 
@@ -114,7 +133,9 @@ class VolumeViewTests(test.TestCase):
         redirect_url = reverse('horizon:project:volumes:index')
         self.assertRedirectsNoFollow(res, redirect_url)
 
-    @test.create_stubs({cinder: ('volume_snapshot_get',),
+    @test.create_stubs({cinder: ('volume_snapshot_get',
+                                 'volume_type_list',
+                                 'volume_get',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume_from_snapshot_invalid_size(self):
         usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
@@ -124,9 +145,13 @@ class VolumeViewTests(test.TestCase):
                     'method': u'CreateForm',
                     'size': 20, 'snapshot_source': snapshot.id}
 
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         cinder.volume_snapshot_get(IsA(http.HttpRequest),
                                    str(snapshot.id)).AndReturn(snapshot)
+        cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
+                          AndReturn(self.volumes.first())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
 
         self.mox.ReplayAll()
@@ -140,7 +165,7 @@ class VolumeViewTests(test.TestCase):
                              "The volume size cannot be less than the "
                              "snapshot size (40GB)")
 
-    @test.create_stubs({api: ('volume_snapshot_list',),
+    @test.create_stubs({cinder: ('volume_snapshot_list', 'volume_type_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume_gb_used_over_alloted_quota(self):
         usage = {'gigabytes': {'available': 100, 'used': 20}}
@@ -149,9 +174,11 @@ class VolumeViewTests(test.TestCase):
                     'method': u'CreateForm',
                     'size': 5000}
 
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
-        api.volume_snapshot_list(IsA(http.HttpRequest)).\
-                                 AndReturn(self.volume_snapshots.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+                                    AndReturn(self.volume_snapshots.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
 
         self.mox.ReplayAll()
@@ -163,7 +190,7 @@ class VolumeViewTests(test.TestCase):
                           ' have 100GB of your quota available.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
-    @test.create_stubs({api: ('volume_snapshot_list',),
+    @test.create_stubs({cinder: ('volume_snapshot_list', 'volume_type_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume_number_over_alloted_quota(self):
         usage = {'gigabytes': {'available': 100, 'used': 20},
@@ -173,9 +200,11 @@ class VolumeViewTests(test.TestCase):
                     'method': u'CreateForm',
                     'size': 10}
 
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
-        api.volume_snapshot_list(IsA(http.HttpRequest)).\
-                                 AndReturn(self.volume_snapshots.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+                                    AndReturn(self.volume_snapshots.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
 
         self.mox.ReplayAll()
@@ -187,21 +216,23 @@ class VolumeViewTests(test.TestCase):
                           ' volumes.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
-    @test.create_stubs({api: ('volume_list',
-                              'volume_delete',
-                              'server_list')})
+    @test.create_stubs({cinder: ('volume_list',
+                                 'volume_delete',),
+                        api.nova: ('server_list',)})
     def test_delete_volume(self):
         volume = self.volumes.first()
         formData = {'action':
                     'volumes__delete__%s' % volume.id}
 
-        api.volume_list(IsA(http.HttpRequest), search_opts=None).\
-                                 AndReturn(self.volumes.list())
-        api.volume_delete(IsA(http.HttpRequest), volume.id)
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.volume_list(IsA(http.HttpRequest), search_opts=None).\
-                                 AndReturn(self.volumes.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
+                           AndReturn(self.volumes.list())
+        cinder.volume_delete(IsA(http.HttpRequest), volume.id)
+        api.nova.server_list(IsA(http.HttpRequest)).\
+                             AndReturn(self.servers.list())
+        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
+                           AndReturn(self.volumes.list())
+        api.nova.server_list(IsA(http.HttpRequest)).\
+                             AndReturn(self.servers.list())
 
         self.mox.ReplayAll()
 
@@ -209,9 +240,9 @@ class VolumeViewTests(test.TestCase):
         res = self.client.post(url, formData, follow=True)
         self.assertMessageCount(res, count=0)
 
-    @test.create_stubs({api: ('volume_list',
-                              'volume_delete',
-                              'server_list')})
+    @test.create_stubs({cinder: ('volume_list',
+                                 'volume_delete',),
+                        api.nova: ('server_list',)})
     def test_delete_volume_error_existing_snapshot(self):
         volume = self.volumes.first()
         formData = {'action':
@@ -219,14 +250,16 @@ class VolumeViewTests(test.TestCase):
         exc = self.exceptions.cinder.__class__(400,
                                                "error: dependent snapshots")
 
-        api.volume_list(IsA(http.HttpRequest), search_opts=None).\
-                                 AndReturn(self.volumes.list())
-        api.volume_delete(IsA(http.HttpRequest), volume.id). \
-                          AndRaise(exc)
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.volume_list(IsA(http.HttpRequest), search_opts=None).\
-                                 AndReturn(self.volumes.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
+                           AndReturn(self.volumes.list())
+        cinder.volume_delete(IsA(http.HttpRequest), volume.id).\
+                             AndRaise(exc)
+        api.nova.server_list(IsA(http.HttpRequest)).\
+                             AndReturn(self.servers.list())
+        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
+                           AndReturn(self.volumes.list())
+        api.nova.server_list(IsA(http.HttpRequest)).\
+                             AndReturn(self.servers.list())
 
         self.mox.ReplayAll()
 
@@ -238,12 +271,12 @@ class VolumeViewTests(test.TestCase):
                          u'One or more snapshots depend on it.' %
                          volume.display_name)
 
-    @test.create_stubs({api: ('volume_get',), api.nova: ('server_list',)})
+    @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
     def test_edit_attachments(self):
         volume = self.volumes.first()
         servers = self.servers.list()
 
-        api.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
         self.mox.ReplayAll()
 
@@ -258,7 +291,7 @@ class VolumeViewTests(test.TestCase):
         self.assertTrue(isinstance(form.fields['device'].widget,
                                    widgets.TextInput))
 
-    @test.create_stubs({api: ('volume_get',), api.nova: ('server_list',)})
+    @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
     def test_edit_attachments_cannot_set_mount_point(self):
         PREV = settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point']
         settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = False
@@ -266,7 +299,7 @@ class VolumeViewTests(test.TestCase):
         volume = self.volumes.first()
         servers = self.servers.list()
 
-        api.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
         self.mox.ReplayAll()
 
@@ -278,14 +311,14 @@ class VolumeViewTests(test.TestCase):
                                    widgets.HiddenInput))
         settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = PREV
 
-    @test.create_stubs({api: ('volume_get',),
+    @test.create_stubs({cinder: ('volume_get',),
                         api.nova: ('server_get', 'server_list',)})
     def test_edit_attachments_attached_volume(self):
         server = self.servers.first()
         volume = self.volumes.list()[0]
 
-        api.volume_get(IsA(http.HttpRequest), volume.id) \
-                       .AndReturn(volume)
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+                          .AndReturn(volume)
         api.nova.server_list(IsA(http.HttpRequest)) \
                              .AndReturn(self.servers.list())
 

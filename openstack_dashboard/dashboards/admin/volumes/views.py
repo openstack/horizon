@@ -18,22 +18,48 @@
 Admin views for managing volumes.
 """
 
+from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse
 from openstack_dashboard.dashboards.project.volumes.views import \
-        IndexView as _IndexView, DetailView as _DetailView
-from .tables import VolumesTable
+        VolumeTableMixIn, DetailView as _DetailView
+from openstack_dashboard.api import cinder
+
+from .tables import VolumesTable, VolumeTypesTable
+from .forms import CreateVolumeType
+from horizon import exceptions
+from horizon import forms
+from horizon import tables
 
 
-class IndexView(_IndexView):
-    table_class = VolumesTable
+class IndexView(tables.MultiTableView, VolumeTableMixIn):
+    table_classes = (VolumesTable, VolumeTypesTable)
     template_name = "admin/volumes/index.html"
 
-    def get_data(self):
+    def get_volumes_data(self):
         volumes = self._get_volumes(search_opts={'all_tenants': 1})
         instances = self._get_instances()
         self._set_id_if_nameless(volumes, instances)
         self._set_attachments_string(volumes, instances)
         return volumes
 
+    def get_volume_types_data(self):
+        try:
+            volume_types = cinder.volume_type_list(self.request)
+        except:
+            volume_types = []
+            exceptions.handle(self.request,
+                              _("Unable to retrieve volume types"))
+        return volume_types
+
 
 class DetailView(_DetailView):
     template_name = "admin/volumes/detail.html"
+
+
+class CreateVolumeTypeView(forms.ModalFormView):
+    form_class = CreateVolumeType
+    template_name = 'admin/volumes/create_volume_type.html'
+    success_url = 'horizon:admin:volumes:index'
+
+    def get_success_url(self):
+        return reverse(self.success_url)

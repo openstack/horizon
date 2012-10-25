@@ -77,9 +77,11 @@ def volume_get(request, volume_id):
     return volume_data
 
 
-def volume_create(request, size, name, description, snapshot_id=None):
+def volume_create(request, size, name, description, volume_type,
+                  snapshot_id=None):
     return cinderclient(request).volumes.create(size, display_name=name,
-            display_description=description, snapshot_id=snapshot_id)
+            display_description=description, volume_type=volume_type,
+            snapshot_id=snapshot_id)
 
 
 def volume_delete(request, volume_id):
@@ -113,3 +115,15 @@ def tenant_quota_update(request, tenant_id, **kwargs):
 
 def default_quota_get(request, tenant_id):
     return QuotaSet(cinderclient(request).quotas.defaults(tenant_id))
+
+
+def volume_type_list(request):
+    return cinderclient(request).volume_types.list()
+
+
+def volume_type_create(request, name):
+    return cinderclient(request).volume_types.create(name)
+
+
+def volume_type_delete(request, volume_type_id):
+    return cinderclient(request).volume_types.delete(volume_type_id)

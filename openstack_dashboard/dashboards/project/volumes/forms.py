@@ -28,6 +28,8 @@ class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length="255", label=_("Volume Name"))
     description = forms.CharField(widget=forms.Textarea,
             label=_("Description"), required=False)
+    type = forms.ChoiceField(label=_("Type"),
+                             required=False)
     size = forms.IntegerField(min_value=1, label=_("Size (GB)"))
     snapshot_source = forms.ChoiceField(label=_("Use snapshot as a source"),
                                         widget=SelectWidget(
@@ -40,6 +42,10 @@ class CreateForm(forms.SelfHandlingForm):
 
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
+        volume_types = cinder.volume_type_list(request)
+        self.fields['type'].choices = [("", "")] + \
+                                      [(type.name, type.name)
+                                       for type in volume_types]
         if ("snapshot_id" in request.GET):
             try:
                 snapshot = self.get_snapshot(request,
@@ -48,6 +54,13 @@ class CreateForm(forms.SelfHandlingForm):
                 self.fields['size'].initial = snapshot.size
                 self.fields['snapshot_source'].choices = ((snapshot.id,
                                                            snapshot),)
+                try:
+                    # Set the volume type from the original volume
+                    orig_volume = cinder.volume_get(request,
+                                                    snapshot.volume_id)
+                    self.fields['type'].initial = orig_volume.volume_type
+                except:
+                    pass
                 self.fields['size'].help_text = _('Volume size must be equal '
                                 'to or greater than the snapshot size (%sGB)'
                                 % snapshot.size)
@@ -56,7 +69,7 @@ class CreateForm(forms.SelfHandlingForm):
                                   _('Unable to load the specified snapshot.'))
         else:
             try:
-                snapshots = api.volume_snapshot_list(request)
+                snapshots = cinder.volume_snapshot_list(request)
                 if snapshots:
                     choices = [('', _("Choose a snapshot"))] + \
                               [(s.id, s) for s in snapshots]
@@ -102,19 +115,22 @@ class CreateForm(forms.SelfHandlingForm):
                                   ' volumes.')
                 raise ValidationError(error_message)
 
-            volume = api.volume_create(request,
-                                       data['size'],
-                                       data['name'],
-                                       data['description'],
-                                       snapshot_id=snapshot_id)
+            volume = cinder.volume_create(request,
+                                          data['size'],
+                                          data['name'],
+                                          data['description'],
+                                          data['type'],
+                                          snapshot_id=snapshot_id)
             message = 'Creating volume "%s"' % data['name']
             messages.info(request, message)
             return volume
         except ValidationError, e:
-            return self.api_error(e.messages[0])
+            self.api_error(e.messages[0])
+            return False
         except:
             exceptions.handle(request, ignore=True)
-            return self.api_error(_("Unable to create volume."))
+            self.api_error(_("Unable to create volume."))
+            return False
 
     @memoized
     def get_snapshot(self, request, id):
@@ -176,7 +192,8 @@ class AttachForm(forms.SelfHandlingForm):
                                              data['volume_id'],
                                              data['instance'],
                                              data.get('device', ''))
-            vol_name = api.volume_get(request, data['volume_id']).display_name
+            vol_name = cinder.volume_get(request,
+                                         data['volume_id']).display_name
 
             message = _('Attaching volume %(vol)s to instance '
                          '%(inst)s on %(dev)s.') % {"vol": vol_name,
@@ -206,10 +223,10 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            snapshot = api.volume_snapshot_create(request,
-                                                  data['volume_id'],
-                                                  data['name'],
-                                                  data['description'])
+            snapshot = cinder.volume_snapshot_create(request,
+                                                     data['volume_id'],
+                                                     data['name'],
+                                                     data['description'])
 
             message = _('Creating volume snapshot "%s"') % data['name']
             messages.info(request, message)
