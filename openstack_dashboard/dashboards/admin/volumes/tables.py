@@ -25,6 +25,7 @@ class VolumesTable(_VolumesTable):
     name = tables.Column("display_name",
                          verbose_name=_("Name"),
                          link="horizon:admin:volumes:detail")
+    host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
 
     class Meta:
         name = "volumes"
