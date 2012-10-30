@@ -26,6 +26,7 @@ class VolumesTable(_VolumesTable):
                          verbose_name=_("Name"),
                          link="horizon:admin:volumes:detail")
     host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
+    tenant = tables.Column("tenant_name", verbose_name=_("Project"))
 
     class Meta:
         name = "volumes"
@@ -34,6 +35,8 @@ class VolumesTable(_VolumesTable):
         row_class = UpdateRow
         table_actions = (DeleteVolume,)
         row_actions = (DeleteVolume,)
+        columns = ('tenant', 'host', 'name', 'size', 'status', 'volume_type',
+                   'attachments',)
 
 
 class VolumeTypesTable(tables.DataTable):

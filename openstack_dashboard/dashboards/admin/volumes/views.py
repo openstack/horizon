@@ -18,11 +18,13 @@
 Admin views for managing volumes.
 """
 
+from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from openstack_dashboard.dashboards.project.volumes.views import \
         VolumeTableMixIn, DetailView as _DetailView
 from openstack_dashboard.api import cinder
+from openstack_dashboard.api import keystone
 
 from .tables import VolumesTable, VolumeTypesTable
 from .forms import CreateVolumeType
@@ -40,6 +42,21 @@ class IndexView(tables.MultiTableView, VolumeTableMixIn):
         instances = self._get_instances()
         self._set_id_if_nameless(volumes, instances)
         self._set_attachments_string(volumes, instances)
+
+        # Gather our tenants to correlate against IDs
+        try:
+            tenants = keystone.tenant_list(self.request, admin=True)
+        except:
+            tenants = []
+            msg = _('Unable to retrieve volume tenant information.')
+            exceptions.handle(self.request, msg)
+
+        tenant_dict = SortedDict([(t.id, t) for t in tenants])
+        for volume in volumes:
+            tenant_id = getattr(volume, "os-vol-tenant-attr:tenant_id", None)
+            tenant = tenant_dict.get(tenant_id, None)
+            volume.tenant_name = getattr(tenant, "name", None)
+
         return volumes
 
     def get_volume_types_data(self):

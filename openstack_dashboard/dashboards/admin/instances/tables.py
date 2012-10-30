@@ -57,7 +57,7 @@ class AdminInstancesTable(tables.DataTable):
     TASK_DISPLAY_CHOICES = (
         ("image_snapshot", "Snapshotting"),
     )
-    tenant = tables.Column("tenant_name", verbose_name=_("Project Name"))
+    tenant = tables.Column("tenant_name", verbose_name=_("Project"))
     # NOTE(gabriel): Commenting out the user column because all we have
     # is an ID, and correlating that at production scale using our current
     # techniques isn't practical. It can be added back in when we have names
@@ -68,7 +68,7 @@ class AdminInstancesTable(tables.DataTable):
                          classes=('nowrap-col',))
     name = tables.Column("name",
                          link=("horizon:project:instances:detail"),
-                         verbose_name=_("Instance Name"))
+                         verbose_name=_("Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))
     size = tables.Column(get_size,
                          verbose_name=_("Size"),
