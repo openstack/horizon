@@ -247,6 +247,7 @@ function restore_environment {
 
 function install_venv {
   # Install with install_venv.py
+  export VIRTUALENV_DISTRIBUTE=true
   export PIP_DOWNLOAD_CACHE=${PIP_DOWNLOAD_CACHE-/tmp/.pip_download_cache}
   export PIP_USE_MIRRORS=true
   if [ $quiet -eq 1 ]; then
