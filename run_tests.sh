@@ -129,7 +129,7 @@ function run_pylint {
 
 function run_pep8 {
   echo "Running pep8 ..."
-  ${command_wrapper} pep8 $included_dirs || true
+  ${command_wrapper} pep8 $included_dirs
 }
 
 function run_sphinx {
