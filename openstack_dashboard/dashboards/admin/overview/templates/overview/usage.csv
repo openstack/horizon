@@ -1,4 +1,4 @@
-Usage Report For Period:,{{ usage.start|date:"b. d Y" }},/,{{ usage.end|date:"b. d Y" }}
+Usage Report For Period:,{{ usage.start|date:"b. d Y" }},{{ usage.end|date:"b. d Y" }}
 Active Instances:,{{ usage.summary.instances }}
 CPU-HRs Used:,{{ usage.summary.vcpu_hours|floatformat:2 }}
 Total Active RAM (MB):,{{ usage.summary.memory_mb }}
