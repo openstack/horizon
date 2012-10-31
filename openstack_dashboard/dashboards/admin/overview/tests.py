@@ -82,17 +82,17 @@ class UsageViewTests(test.BaseAdminViewTests):
         api.usage_list(IsA(http.HttpRequest),
                       datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                       Func(usage.almost_now)) \
-                      .AndReturn([usage_obj])
+                      .AndReturn([usage_obj, usage_obj])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
         self.mox.ReplayAll()
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"
         res = self.client.get(csv_url)
         self.assertTemplateUsed(res, 'admin/overview/usage.csv')
         self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
-        self.assertContains(res, 'Tenant,VCPUs,RamMB,DiskGB,Usage(Hours)\n'
-                            '%s,%s,%s,%s,%f' %
-                            (usage_obj.tenant_id,
-                             usage_obj.vcpus,
-                             usage_obj.memory_mb,
-                             usage_obj.disk_gb_hours,
-                             usage_obj.vcpu_hours))
+        hdr = 'Tenant,VCPUs,RamMB,DiskGB,Usage(Hours)'
+        row = '%s,%s,%s,%s,%.2f' % (usage_obj.tenant_id,
+                                  usage_obj.vcpus,
+                                  usage_obj.memory_mb,
+                                  usage_obj.disk_gb_hours,
+                                  usage_obj.vcpu_hours)
+        self.assertContains(res, '%s\n%s\n%s\n' % (hdr, row, row))

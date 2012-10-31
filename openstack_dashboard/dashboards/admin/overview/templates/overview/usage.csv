@@ -6,4 +6,5 @@ Total Disk Size:,{{ usage.summary.local_gb }}
 Total Disk Usage:,{{ usage.summary.disk_gb_hours }}
 
 Tenant,VCPUs,RamMB,DiskGB,Usage(Hours)
-{% for u in usage.usage_list %}{{ u.tenant_id|addslashes }},{{ u.vcpus|addslashes }},{{ u.memory_mb|addslashes }},{{ u.local_gb|addslashes }},{{ u.vcpu_hours}}{% endfor %}
+{% for u in usage.usage_list %}{{ u.tenant_id|addslashes }},{{ u.vcpus|addslashes }},{{ u.memory_mb|addslashes }},{{u.local_gb|addslashes }},{{ u.vcpu_hours|floatformat:2}}
+{% endfor %}
