@@ -23,6 +23,7 @@ import logging
 from django import shortcuts
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import forms
 from horizon import messages
 
@@ -39,7 +40,12 @@ class DownloadOpenRCForm(forms.SelfHandlingForm):
         super(DownloadOpenRCForm, self).__init__(request, *args, **kwargs)
         # Populate tenant choices
         tenant_choices = []
-        for tenant in api.tenant_list(request):
+        try:
+            tenants = api.tenant_list(request)
+        except:
+            tenants = []
+            exceptions.handle(request, _("Unable to retrieve project list."))
+        for tenant in tenants:
             if tenant.enabled:
                 tenant_choices.append((tenant.id, tenant.name))
         self.fields['tenant'].choices = tenant_choices
