@@ -34,6 +34,7 @@ LOG = logging.getLogger(__name__)
 class DeleteVolumeSnapshot(tables.DeleteAction):
     data_type_singular = _("Volume Snapshot")
     data_type_plural = _("Volume Snapshots")
+    action_past = _("Scheduled deletion of")
 
     def delete(self, request, obj_id):
         api.volume_snapshot_delete(request, obj_id)
