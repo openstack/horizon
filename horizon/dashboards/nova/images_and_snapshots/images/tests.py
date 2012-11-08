@@ -94,3 +94,25 @@ class ImageViewTests(test.TestCase):
                       args=[image.id])
         res = self.client.get(url)
         self.assertRedirectsNoFollow(res, IMAGES_INDEX_URL)
+
+    @test.create_stubs({api: ('image_get',)})
+    def test_image_update_get(self):
+        image = self.images.first()
+        image.disk_format = "ami"
+        image.is_public = True
+        api.image_get(IsA(http.HttpRequest), str(image.id)) \
+           .AndReturn(image)
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse('horizon:nova:images_and_snapshots:images:update',
+                    args=[image.id]))
+
+        self.assertTemplateUsed(res,
+                            'nova/images_and_snapshots/images/_update.html')
+        self.assertEqual(res.context['image'].name, image.name)
+        # Bug 1076216 - is_public checkbox not being set correctly
+        self.assertContains(res, "<input type='checkbox' id='id_public'"
+                                 " name='public' checked='checked'>",
+                            html=True,
+                            msg_prefix="The is_public checkbox is not checked")
