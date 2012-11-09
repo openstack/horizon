@@ -10,4 +10,12 @@
 
     <strong>{% trans "Used" %} <span> {{ usage.quotas.ram.used|intcomma }} MB </span>{% trans "of" %}<span> {{ usage.quotas.ram.quota|intcomma }} MB </span>{% trans "Available RAM" %} </strong>
     {% horizon_progress_bar usage.quotas.ram.used usage.quotas.ram.quota %}
+
+    {% if usage.quotas.volumes %}
+      <strong>{% trans "Used" %} <span> {{ usage.quotas.volumes.used|intcomma }} </span>{% trans "of" %}<span> {{ usage.quotas.volumes.quota|intcomma }} </span>{% trans "Available volumes" %} </strong>
+      {% horizon_progress_bar usage.quotas.volumes.used usage.quotas.volumes.quota %}
+
+      <strong>{% trans "Used" %} <span> {{ usage.quotas.gigabytes.used|intcomma }} GB </span>{% trans "of" %}<span> {{ usage.quotas.gigabytes.quota|intcomma }} GB </span>{% trans "Available volume storage" %} </strong>
+      {% horizon_progress_bar usage.quotas.gigabytes.used usage.quotas.gigabytes.quota %}
+    {% endif %}
 </div>
