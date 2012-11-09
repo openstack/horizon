@@ -238,7 +238,8 @@ class VolumeViewTests(test.TestCase):
 
         url = reverse('horizon:project:volumes:index')
         res = self.client.post(url, formData, follow=True)
-        self.assertMessageCount(res, count=0)
+        self.assertIn("Scheduled deletion of Volume: Volume name",
+                      [m.message for m in res.context['messages']])
 
     @test.create_stubs({cinder: ('volume_list',
                                  'volume_delete',),

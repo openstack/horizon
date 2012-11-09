@@ -346,12 +346,12 @@ def data(TEST):
     TEST.usages.add(usage_obj)
 
     volume_snapshot = vol_snaps.Snapshot(vol_snaps.SnapshotManager(None),
-                                         {'id': 2,
-                                          'display_name': 'test snapshot',
-                                          'display_description': 'vol snap!',
-                                          'size': 40,
-                                          'status': 'available',
-                                          'volume_id': 1})
+                        {'id': '40f3fabf-3613-4f5e-90e5-6c9a08333fc3',
+                         'display_name': 'test snapshot',
+                         'display_description': 'vol snap!',
+                         'size': 40,
+                         'status': 'available',
+                         'volume_id': '41023e92-8008-4c8b-8059-7f2293ff3775'})
     TEST.volume_snapshots.add(volume_snapshot)
 
     cert_data = {'private_key': 'private',

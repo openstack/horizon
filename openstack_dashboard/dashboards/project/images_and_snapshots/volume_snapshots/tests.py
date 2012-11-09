@@ -22,6 +22,7 @@ from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
 
+from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
@@ -59,3 +60,33 @@ class VolumeSnapshotsViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api: ['image_list_detailed',
+                              'snapshot_list_detailed',
+                              'volume_snapshot_list',
+                              'volume_snapshot_delete', ], })
+    def test_delete_volume_snapshot(self):
+        vol_snapshots = self.volume_snapshots.list()
+        snapshot = self.volume_snapshots.first()
+
+        api.image_list_detailed(IsA(http.HttpRequest),
+                                marker=None).AndReturn(([], False))
+        api.snapshot_list_detailed(IsA(http.HttpRequest),
+                                   marker=None).AndReturn(([], False))
+        api.volume_snapshot_list(IsA(http.HttpRequest)). \
+                                 AndReturn(vol_snapshots)
+        api.volume_snapshot_delete(IsA(http.HttpRequest), snapshot.id)
+        api.image_list_detailed(IsA(http.HttpRequest),
+                                marker=None).AndReturn(([], False))
+        api.snapshot_list_detailed(IsA(http.HttpRequest),
+                                   marker=None).AndReturn(([], False))
+        api.volume_snapshot_list(IsA(http.HttpRequest)). \
+                                 AndReturn([])
+        self.mox.ReplayAll()
+
+        formData = {'action':
+                    'volume_snapshots__delete__%s' % snapshot.id}
+        res = self.client.post(INDEX_URL, formData, follow=True)
+
+        self.assertIn("Scheduled deletion of Volume Snapshot: test snapshot",
+                      [m.message for m in res.context['messages']])
