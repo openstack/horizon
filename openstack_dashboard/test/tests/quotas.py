@@ -35,8 +35,11 @@ class QuotaTests(test.APITestCase):
                                    'flavor_list',
                                    'tenant_floating_ip_list',
                                    'tenant_quota_get',),
+                        quotas: ('is_service_enabled',),
                         cinder: ('volume_list', 'tenant_quota_get',)})
     def test_tenant_quota_usages(self):
+        quotas.is_service_enabled(IsA(http.HttpRequest),
+                                  'volume').AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -62,6 +65,39 @@ class QuotaTests(test.APITestCase):
             'floating_ips': {'available': 0, 'used': 2, 'quota': 1},
             'instances': {'available': 8, 'used': 2, 'quota': 10},
             'volumes': {'available': 0, 'used': 3, 'quota': 1},
+            'cores': {'available': 8, 'used': 2, 'quota': 10}
+        }
+
+        # Compare internal structure of usages to expected.
+        self.assertEquals(quota_usages.usages, expected_output)
+
+    @test.create_stubs({api.nova: ('server_list',
+                                   'flavor_list',
+                                   'tenant_floating_ip_list',
+                                   'tenant_quota_get',),
+                        quotas: ('is_service_enabled',)})
+    def test_tenant_quota_usages_without_volume(self):
+        quotas.is_service_enabled(IsA(http.HttpRequest),
+                                  'volume').AndReturn(False)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
+                .AndReturn(self.quotas.first())
+        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.floating_ips.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.servers.list())
+
+        self.mox.ReplayAll()
+
+        quota_usages = quotas.tenant_quota_usages(self.request)
+        expected_output = {
+            'injected_file_content_bytes': {'quota': 1},
+            'metadata_items': {'quota': 1},
+            'injected_files': {'quota': 1},
+            'ram': {'available': 8976, 'used': 1024, 'quota': 10000},
+            'floating_ips': {'available': 0, 'used': 2, 'quota': 1},
+            'instances': {'available': 8, 'used': 2, 'quota': 10},
             'cores': {'available': 8, 'used': 2, 'quota': 10}
         }
 

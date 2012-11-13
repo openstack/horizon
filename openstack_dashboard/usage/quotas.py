@@ -52,37 +52,41 @@ class QuotaUsage(dict):
         self.usages[name]['available'] = available
 
 
-def get_quota_data(request, method_name):
+def _get_quota_data(request, method_name, disabled_quotas=[]):
     quotasets = []
     tenant_id = request.user.tenant_id
     quotasets.append(getattr(nova, method_name)(request, tenant_id))
-    if is_service_enabled(request, 'volume'):
-        quotasets.append(getattr(cinder, method_name)(request, tenant_id))
     qs = QuotaSet()
+    if 'volumes' not in disabled_quotas:
+        quotasets.append(getattr(cinder, method_name)(request, tenant_id))
     for quota in itertools.chain(*quotasets):
-        qs[quota.name] = quota.limit
+        if quota.name not in disabled_quotas:
+            qs[quota.name] = quota.limit
     return qs
 
 
-def get_default_quota_data(request):
-    return get_quota_data(request, "default_quota_get")
+def get_default_quota_data(request, disabled_quotas=[]):
+    return _get_quota_data(request, "default_quota_get", disabled_quotas)
 
 
-def get_tenant_quota_data(request):
-    return get_quota_data(request, "tenant_quota_get")
+def get_tenant_quota_data(request, disabled_quotas=[]):
+    return _get_quota_data(request, "tenant_quota_get", disabled_quotas)
 
 
 @memoized
 def tenant_quota_usages(request):
     # Get our quotas and construct our usage object.
+    disabled_quotas = []
+    if not is_service_enabled(request, 'volume'):
+        disabled_quotas.extend(['volumes', 'gigabytes'])
+
     usages = QuotaUsage()
-    for quota in get_tenant_quota_data(request):
+    for quota in get_tenant_quota_data(request, disabled_quotas):
         usages.add_quota(quota)
 
     # Get our usages.
     floating_ips = nova.tenant_floating_ip_list(request)
     flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
-    volumes = cinder.volume_list(request)
     instances = nova.server_list(request)
     # Fetch deleted flavors if necessary.
     missing_flavors = [instance.flavor['id'] for instance in instances
@@ -97,8 +101,11 @@ def tenant_quota_usages(request):
 
     usages.tally('instances', len(instances))
     usages.tally('floating_ips', len(floating_ips))
-    usages.tally('volumes', len(volumes))
-    usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
+
+    if 'volumes' not in disabled_quotas:
+        volumes = cinder.volume_list(request)
+        usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
+        usages.tally('volumes', len(volumes))
 
     # Sum our usage based on the flavors of the instances.
     for flavor in [flavors[instance.flavor['id']] for instance in instances]:
