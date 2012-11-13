@@ -86,3 +86,9 @@ class AccessAndSecurityTests(test.TestCase):
         self.assertContains(res,
                             '<option value="101">server_1 (101)</option>')
         self.assertContains(res, '<option value="2">server_2 (2)</option>')
+
+
+class AccessAndSecurityQuantumTests(AccessAndSecurityTests):
+    def setUp(self):
+        super(AccessAndSecurityTests, self).setUp()
+        self.floating_ips = self.floating_ips_uuid

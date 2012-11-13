@@ -19,6 +19,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import uuid
+
 from django import http
 from django.core.urlresolvers import reverse
 
@@ -26,6 +28,8 @@ from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+
+from .utils import get_int_or_uuid
 
 
 INDEX_URL = reverse('horizon:project:access_and_security:index')
@@ -49,10 +53,10 @@ class FloatingIpViewTests(test.TestCase):
         workflow = res.context['workflow']
         choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
         # Verify that our "associated" floating IP isn't in the choices list.
-        self.assertTrue(self.floating_ips.get(id=1) not in choices)
+        self.assertTrue(self.floating_ips.first() not in choices)
 
     def test_associate_post(self):
-        floating_ip = self.floating_ips.get(id=2)
+        floating_ip = self.floating_ips.list()[1]
         server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'server_add_floating_ip')
         self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
@@ -74,7 +78,7 @@ class FloatingIpViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_associate_post_with_redirect(self):
-        floating_ip = self.floating_ips.get(id=2)
+        floating_ip = self.floating_ips.list()[1]
         server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'server_add_floating_ip')
         self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
@@ -97,7 +101,7 @@ class FloatingIpViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, next)
 
     def test_associate_post_with_exception(self):
-        floating_ip = self.floating_ips.get(id=2)
+        floating_ip = self.floating_ips.list()[1]
         server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'server_add_floating_ip')
         self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
@@ -175,3 +179,30 @@ class FloatingIpViewTests(test.TestCase):
         action = "floating_ips__disassociate__%s" % floating_ip.id
         res = self.client.post(INDEX_URL, {"action": action})
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+
+class FloatingIpQuantumViewTests(FloatingIpViewTests):
+    def setUp(self):
+        super(FloatingIpViewTests, self).setUp()
+        self.floating_ips = self.floating_ips_uuid
+
+
+class FloatingIpUtilsTests(test.TestCase):
+    def test_accept_valid_integer(self):
+        val = 100
+        ret = get_int_or_uuid(val)
+        self.assertEqual(val, ret)
+
+    def test_accept_valid_integer_string(self):
+        val = '100'
+        ret = get_int_or_uuid(val)
+        self.assertEqual(int(val), ret)
+
+    def test_accept_valid_uuid(self):
+        val = str(uuid.uuid4())
+        ret = get_int_or_uuid(val)
+        self.assertEqual(val, ret)
+
+    def test_reject_random_string(self):
+        val = '55WbJTpJDf'
+        self.assertRaises(ValueError, get_int_or_uuid, val)
