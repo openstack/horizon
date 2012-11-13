@@ -2,6 +2,7 @@
 Django>=1.4
 django_compressor
 django_openstack_auth>=1.0.3
+netaddr
 python-cinderclient
 python-glanceclient<2
 python-keystoneclient
