@@ -23,13 +23,15 @@ from horizon import exceptions
 from horizon import workflows
 from horizon import forms
 
+from .utils import get_int_or_uuid
+
 
 ALLOCATE_URL = "horizon:nova:access_and_security:floating_ips:allocate"
 
 
 class AssociateIPAction(workflows.Action):
     ip_id = forms.DynamicTypedChoiceField(label=_("IP Address"),
-                                          coerce=int,
+                                          coerce=get_int_or_uuid,
                                           empty_value=None,
                                           add_item_link=ALLOCATE_URL)
     instance_id = forms.ChoiceField(label=_("Instance"))
