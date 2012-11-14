@@ -41,7 +41,6 @@ class LaunchImage(tables.LinkAction):
                             "source_id": self.table.get_object_id(datum)})
         return "?".join([base_url, params])
 
-
 class DeleteImage(tables.DeleteAction):
     data_type_singular = _("Image")
     data_type_plural = _("Images")
@@ -109,6 +108,16 @@ class UpdateBuildingImageRow(tables.Row):
         image = api.imagefactory.image_get(request, image_id)
         return image
 
+class DeleteBuild(tables.LinkAction):
+    name = "delete"
+    verbose_name = _("Delete")
+    url = "horizon:project:images_and_snapshots:builds:delete"
+    classes = ("ajax-modal", "btn-delete")
+
+    def allowed(self, request, image=None):
+        return True
+
+
 class ImagesTable(tables.DataTable):
     STATUS_CHOICES = (
         ("active", True),
@@ -166,4 +175,5 @@ class BuildingImagesTable(tables.DataTable):
     class Meta:
         name = "building_images"
         row_class = UpdateBuildingImageRow
-        verbose_name = _("Images in Progress")
+        verbose_name = _("Image Factory")
+        row_actions = (DeleteBuild, EditImage)#, DeleteImageBuild]

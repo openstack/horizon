@@ -31,7 +31,7 @@ class FactoryImage:
             except:
                 LOG.error("Unable to parse Template")
 
-def imagefactory_request(request, path, body=None):
+def imagefactory_request(request, path, body=None, method=None):
     LOG.debug('Looking up Imagefactory entrypoint URL')
     imagefactory_url = urlparse.urlparse(url_for(request, "image-build"))
 
@@ -40,6 +40,10 @@ def imagefactory_request(request, path, body=None):
     imagefactory_request.add_header('Accept', 'application/json')
     if body:
       imagefactory_request.add_data(json.dumps(body))
+
+    if method:
+        request.get_method = lambda: method
+
     return urllib2.urlopen(imagefactory_request)
 
 def image_create(request, template):
@@ -64,7 +68,10 @@ def image_create(request, template):
 
 def image_get(request, image_id):
     response = json.loads(imagefactory_request(request, "/provider_images/" + image_id).read)
-    print response
+    return FactoryImage(response)
+
+def image_delete(request, image_id):
+    response = json.loads(imagefactory_request(request, "/provider_images/" + image_id).read)
     return FactoryImage(response)
 
 def image_list(request):
