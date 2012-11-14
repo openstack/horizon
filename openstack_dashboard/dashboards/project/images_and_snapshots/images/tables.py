@@ -102,6 +102,12 @@ class UpdateRow(tables.Row):
         image = api.image_get(request, image_id)
         return image
 
+class UpdateBuildingImageRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, image_id):
+        image = api.imagefactory.image_get(request, image_id)
+        return image
 
 class ImagesTable(tables.DataTable):
     STATUS_CHOICES = (
@@ -138,3 +144,26 @@ class ImagesTable(tables.DataTable):
         table_actions = (BuildImage, CreateImage, DeleteImage,)
         row_actions = (LaunchImage, EditImage, DeleteImage,)
         pagination_param = "image_marker"
+
+class BuildingImagesTable(tables.DataTable):
+    name = tables.Column("name",
+                         link=("horizon:project:images_and_snapshots:"
+                               "images:detail"),
+                         verbose_name=_("Image Name"))
+    template = tables.Column("template",
+                             link=("horizon:project:images_and_snapshots:"
+                             "images:detail"),
+                              verbose_name=_("Template"))
+    os_name = tables.Column("os_name",
+                              verbose_name=_("Operating System"))
+    arch = tables.Column("arch",
+                              verbose_name=_("Arch"))
+    description = tables.Column("description",
+                              verbose_name=_("Description"))
+    status = tables.Column("status",
+                           verbose_name=_("Status"))
+
+    class Meta:
+        name = "building_images"
+        row_class = UpdateBuildingImageRow
+        verbose_name = _("Images in Progress")

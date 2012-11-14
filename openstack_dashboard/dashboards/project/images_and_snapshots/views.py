@@ -33,6 +33,7 @@ from horizon import tabs
 
 from openstack_dashboard import api
 from .images.tables import ImagesTable
+from .images.tables import BuildingImagesTable
 from .snapshots.tables import SnapshotsTable
 from .volume_snapshots.tables import VolumeSnapshotsTable
 from .volume_snapshots.tabs import SnapshotDetailTabs
@@ -41,7 +42,7 @@ LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.MultiTableView):
-    table_classes = (ImagesTable, SnapshotsTable, VolumeSnapshotsTable)
+    table_classes = (ImagesTable, BuildingImagesTable, SnapshotsTable, VolumeSnapshotsTable)
     template_name = 'project/images_and_snapshots/index.html'
 
     def has_more_data(self, table):
@@ -61,6 +62,16 @@ class IndexView(tables.MultiTableView):
         except:
             images = []
             exceptions.handle(self.request, _("Unable to retrieve images."))
+        return images
+
+    def get_building_images_data(self):
+        # FIXME Add Pagination 
+        try:
+            images = api.imagefactory.image_list(self.request)
+        except:
+            images = []
+            exceptions.handle(self.request, _("Unable to retrieve images."))
+            LOG.error('Unable retrieve building image list')
         return images
 
     def get_snapshots_data(self):

@@ -118,27 +118,11 @@ class BuildImageForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            image = api.imagefactory.image_create(request, data['template'])
             messages.success(request,_('Your image %s has been queued for creation.'))
-
-            # FIXME look up imagefactory URL using keystone
-            url = 'http://172.17.130.58:8075/imagefactory/provider_images'
-
-            # FIXME We should use Imagefactory Client library for this
-            data = { "provider_image": {"template":data['template'],
-                                        "target":"openstack-kvm",
-                                        "provider":"{\"glance-host\":\"192.168.122.104\", \"glance-port\": 9292 }",
-                                        # FIXME Get proper user credentials
-                                        "credentials":"<provider_credentials><openstack_credentials><username>admin</username><tenant>admin</tenant><password>verybadpass</password><strategy>keystone</strategy><auth_url>http://192.168.122.104:5000/v2.0</auth_url></openstack_credentials></provider_credentials>"}}
-            headers = {'content-type': 'application/json'}
-
-            request = urllib2.Request(url)
-            request.add_header('Content-type', 'application/json')
-            request.add_header('Accept', 'application/json')
-            request.add_data(json.dumps(data))
-            response = urllib2.urlopen(request)
-
-            return ""
+            return image
         except:
+            LOG.error(exceptions)
             exceptions.handle(request, _('Unable to create new image.'))
 
 class UpdateImageForm(forms.SelfHandlingForm):
