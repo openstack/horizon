@@ -34,6 +34,7 @@ from horizon import tabs
 from openstack_dashboard import api
 from .forms import UpdateImageForm
 from .forms import CreateImageForm
+from .forms import BuildImageForm
 from .tabs import ImageDetailTabs
 
 
@@ -46,6 +47,11 @@ class CreateView(forms.ModalFormView):
     context_object_name = 'image'
     success_url = reverse_lazy("horizon:project:images_and_snapshots:index")
 
+class BuildView(forms.ModalFormView):
+    form_class = BuildImageForm
+    template_name = 'project/images_and_snapshots/images/build.html'
+    context_object_name = 'image'
+    success_url = reverse_lazy("horizon:project:images_and_snapshots:index")
 
 class UpdateView(forms.ModalFormView):
     form_class = UpdateImageForm

@@ -1,0 +1,41 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}build_image_form{% endblock %}
+{% block form_action %}{% url horizon:project:images_and_snapshots:images:build %}{% endblock %}
+
+{% block modal-header %}{% trans "Build an Image from Template" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}</h3>
+    <p>
+        {% trans "Copy and Paste an Image Template definition: " %}
+        <a href="http://github.com/clalancette/oz/blob/master/docs/tdl.rng">{% trans "TDL" %}</a>
+        {% trans " into the Template XML field and click 'Build Image." %}
+    </p>
+    <P>
+        {% trans "Openstack will use " %}
+        <a href="http://www.aeolusproject.org/projects.html">Aeolus Imagefactory</a>
+        {% trans " to build an image based on the template and upload it to Glance for later use." %}
+    </P>
+    <p>
+        {% trans "Example Templates found  " %}
+        <a href="https://github.com/aeolus-incubator/templates">{% trans "here" %}</a>
+    </p>
+    <p>
+        <strong>{% trans "Note: " %}</strong>
+        {% trans "This is a proof of concept only.  Some features have been ommitted and/or simplified for demonstration purposes." %}
+    </p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Build Image" %}" />
+  <a href="{% url horizon:project:images_and_snapshots:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

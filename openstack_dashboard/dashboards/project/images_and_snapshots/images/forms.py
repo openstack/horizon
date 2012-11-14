@@ -23,6 +23,8 @@ Views for managing images.
 """
 
 import logging
+import urllib2
+import json
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -109,6 +111,35 @@ class CreateImageForm(forms.SelfHandlingForm):
         except:
             exceptions.handle(request, _('Unable to create new image.'))
 
+class BuildImageForm(forms.SelfHandlingForm):
+    template = forms.CharField(max_length="5000", label=_("Template XML"),
+                               required=True,
+                               widget=forms.widgets.Textarea(attrs={'class':'template'}))
+
+    def handle(self, request, data):
+        try:
+            messages.success(request,_('Your image %s has been queued for creation.'))
+
+            # FIXME look up imagefactory URL using keystone
+            url = 'http://172.17.130.58:8075/imagefactory/provider_images'
+
+            # FIXME We should use Imagefactory Client library for this
+            data = { "provider_image": {"template":data['template'],
+                                        "target":"openstack-kvm",
+                                        "provider":"{\"glance-host\":\"192.168.122.104\", \"glance-port\": 9292 }",
+                                        # FIXME Get proper user credentials
+                                        "credentials":"<provider_credentials><openstack_credentials><username>admin</username><tenant>admin</tenant><password>verybadpass</password><strategy>keystone</strategy><auth_url>http://192.168.122.104:5000/v2.0</auth_url></openstack_credentials></provider_credentials>"}}
+            headers = {'content-type': 'application/json'}
+
+            request = urllib2.Request(url)
+            request.add_header('Content-type', 'application/json')
+            request.add_header('Accept', 'application/json')
+            request.add_data(json.dumps(data))
+            response = urllib2.urlopen(request)
+
+            return ""
+        except:
+            exceptions.handle(request, _('Unable to create new image.'))
 
 class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())

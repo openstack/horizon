@@ -58,10 +58,15 @@ class DeleteImage(tables.DeleteAction):
 
 class CreateImage(tables.LinkAction):
     name = "create"
-    verbose_name = _("Create Image")
+    verbose_name = _("Upload Image")
     url = "horizon:project:images_and_snapshots:images:create"
     classes = ("ajax-modal", "btn-create")
 
+class BuildImage(tables.LinkAction):
+    name = "build"
+    verbose_name = _("Build Image")
+    url = "horizon:project:images_and_snapshots:images:build"
+    classes = ("ajax-modal", "btn-create")
 
 class EditImage(tables.LinkAction):
     name = "edit"
@@ -130,6 +135,6 @@ class ImagesTable(tables.DataTable):
         row_class = UpdateRow
         status_columns = ["status"]
         verbose_name = _("Images")
-        table_actions = (CreateImage, DeleteImage,)
+        table_actions = (BuildImage, CreateImage, DeleteImage,)
         row_actions = (LaunchImage, EditImage, DeleteImage,)
         pagination_param = "image_marker"

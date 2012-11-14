@@ -20,7 +20,7 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import UpdateView, DetailView, CreateView
+from .views import UpdateView, DetailView, CreateView, BuildView
 
 
 VIEWS_MOD = ('openstack_dashboard.dashboards.project'
@@ -29,6 +29,7 @@ VIEWS_MOD = ('openstack_dashboard.dashboards.project'
 
 urlpatterns = patterns(VIEWS_MOD,
     url(r'^create/$', CreateView.as_view(), name='create'),
+    url(r'^build/$', BuildView.as_view(), name='build'),
     url(r'^(?P<image_id>[^/]+)/update/$', UpdateView.as_view(), name='update'),
     url(r'^(?P<image_id>[^/]+)/$', DetailView.as_view(), name='detail'),
 )
