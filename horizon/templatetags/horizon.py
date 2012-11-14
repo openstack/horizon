@@ -21,6 +21,7 @@ from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext as _
 
 from horizon.base import Horizon
+from horizon import conf
 
 
 register = template.Library()
@@ -135,3 +136,8 @@ def jstemplate(parser, token):
     nodelist = parser.parse(('endjstemplate',))
     parser.delete_first_token()
     return JSTemplateNode(nodelist)
+
+
+@register.assignment_tag
+def load_config():
+    return conf.HORIZON_CONFIG
