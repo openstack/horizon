@@ -1,27 +1,82 @@
-{% extends "base.html" %}
-{% load i18n %}
+{% load branding i18n staticfiles %}
+{% load load_config from horizon %}
 
-{% block title %} - {% trans "Internal Server Error" %}{% endblock %}
+{% load_config as HORIZON_CONFIG %}
 
-{% block content %}
-  <div id="right_content">
-    <div id="page_head">
-      <h2 id="page_heading">{% trans "Internal Server Error" %}</h2>
-      <p id="page_description">{% trans "An unexpected error occurred while processing your request.  Please try your request again." %}</p>
+
+{% comment %}
+
+    NB: The context for 500 pages is an empty dict.
+        Don't add any content here that depends on things from
+        the context.
+
+{% endcomment %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <link rel="shortcut icon" href="{% static "dashboard/img/favicon.ico" %}"/>
+    <title>{% trans "Server error" %} - {% site_branding %}</title>
+    {% block css %}
+    <style>
+    a {
+        color: #43a1d6;
+        text-decoration: none;
+    }
+    body {
+      color: rgb(106, 106, 106);
+      text-align: center;
+      font-weight: normal;
+      background: none repeat scroll 0% 0% rgb(250, 250, 250);
+    }
+    div#container {
+      position: absolute;
+      top: 80px;
+      padding-top: 170px;
+      margin: 0px 0px 0px -196px;
+      left: 50%;
+      width: 390px;
+
+      background: url("{% static "dashboard/img/logo.png" %}") no-repeat scroll center 35px padding-box rgb(255, 255, 255);
+      border: 1px solid rgb(225, 225, 225);
+
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+
+      box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
+    }
+    h2 {
+      font-weight: normal;
+    }
+    div#container > div {
+      padding: 25px;
+    }
+    </style>
+    {% endblock %}
+  </head>
+  <body id="{% block body_id %}{% endblock %}">
+    {% block page_header %}{% endblock %}
+    {% block content %}
+    <div id="container">
+      <div id="text">
+        {% block text %}
+        <h2>{% trans "Something went wrong!" %}</h2>
+        <p>{% trans "An unexpected error has occurred. Try refreshing the page. If that doesn't help, contact your local administrator." %}</p>
+        {% endblock %}
+      </div>
+      <div id="links">
+        {% block links %}
+        <p><a href="/">{% trans "Home" %}</a></p>
+        <p><a href="{{ HORIZON_CONFIG.help_url }}">{% trans "Help" %}</a></p>
+        {% endblock %}
+      </div>
     </div>
-  </div>
-{% endblock %}
-
-{% block sidebar %}
-  <div id="sidebar">
-    <ul id="navigation">
-      {% block nav_home %}
-      <li><h3><a href="{% url index %}">{% trans "Home" %}</a></h3></li>
-      {% endblock %}
-
-      {% block nav_projects %}
-      <li><h3><a href="{% url index %}">{% trans "Projects" %}</a></h3></li>
-      {% endblock %}
-    </ul>
-  </div> <!-- end sidebar -->
-{% endblock %}
+    {% endblock %}
+    {% block footer %}{% endblock %}
+    {% block js %}{% endblock %}
+  </body>
+</html>
