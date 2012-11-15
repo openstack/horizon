@@ -43,6 +43,25 @@ tests by using the ``--skip-selenium`` flag::
 This isn't recommended, but can be a timesaver when you only need to run
 the code tests and not the frontend tests during development.
 
+Running a subset of tests
+-------------------------
+
+Instead of running all tests, you can specify an individual directory, file,
+class, or method that contains test code.
+
+To run the tests in the ``horizon/test/tests/tables.py`` file::
+
+    ./run_tests.sh horizon.test.tests.tables
+
+To run the tests in the `WorkflowsTests` class in
+``horizon/test/tests/workflows``::
+
+    ./run_tests.sh horizon.test.tests.workflows:WorkflowsTests
+
+To run just the `WorkflowsTests.test_workflow_view` test method::
+
+    ./run_tests.sh horizon.test.tests.workflows:WorkflowsTests.test_workflow_view
+
 Using Dashboard and Panel Templates
 ===================================
 

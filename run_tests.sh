@@ -69,6 +69,7 @@ restore_env=0
 runserver=0
 only_selenium=0
 with_selenium=0
+testopts=""
 testargs=""
 with_coverage=0
 makemessages=0
@@ -99,17 +100,18 @@ function process_option {
     --backup-environment) backup_env=1;;
     --restore-environment) restore_env=1;;
     --destroy-environment) destroy=1;;
+    -*) testopts="$testopts $1";;
     *) testargs="$testargs $1"
   esac
 }
 
 function run_management_command {
-  ${command_wrapper} python $root/manage.py $testargs
+  ${command_wrapper} python $root/manage.py $testopts $testargs
 }
 
 function run_server {
   echo "Starting Django development server..."
-  ${command_wrapper} python $root/manage.py runserver $testargs
+  ${command_wrapper} python $root/manage.py runserver $testopts $testargs
   echo "Server stopped."
 }
 
@@ -272,13 +274,26 @@ function run_tests {
     export SKIP_UNITTESTS=1
   fi
 
+  if [ -z "$testargs" ]; then
+     run_tests_all
+  else
+     run_tests_subset
+  fi
+}
+
+function run_tests_subset {
+  project=`echo $testargs | awk -F. '{print $1}'`
+  ${command_wrapper} python $root/manage.py test --settings=$project.test.settings $testopts $testargs
+}
+
+function run_tests_all {
   echo "Running Horizon application tests"
   export NOSE_XUNIT_FILE=horizon/nosetests.xml
   if [ "$NOSE_WITH_HTML_OUTPUT" = '1' ]; then
     export NOSE_HTML_OUT_FILE='horizon_nose_results.html'
   fi
   ${command_wrapper} coverage erase
-  ${command_wrapper} coverage run -p $root/manage.py test horizon --settings=horizon.test.settings $testargs
+  ${command_wrapper} coverage run -p $root/manage.py test horizon --settings=horizon.test.settings $testopts
   # get results of the Horizon tests
   HORIZON_RESULT=$?
 
@@ -287,7 +302,7 @@ function run_tests {
   if [ "$NOSE_WITH_HTML_OUTPUT" = '1' ]; then
     export NOSE_HTML_OUT_FILE='dashboard_nose_results.html'
   fi
-  ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=openstack_dashboard.test.settings $testargs
+  ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=openstack_dashboard.test.settings $testopts
   # get results of the openstack_dashboard tests
   DASHBOARD_RESULT=$?
 

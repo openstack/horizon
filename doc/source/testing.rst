@@ -19,6 +19,8 @@ before you submit any pull requests/patches.
 To run the tests::
 
     $ ./run_tests.sh
+   
+It's also possible to :doc:`run a subset of unit tests<ref/run_tests>`.
 
 .. seealso::
 
