@@ -33,7 +33,7 @@ LOG = logging.getLogger(__name__)
 class CreateExtraSpec(forms.SelfHandlingForm):
     key = forms.CharField(max_length="25", label=_("Key"))
     value = forms.CharField(max_length="25", label=_("Value"))
-    flavor_id = forms.IntegerField(widget=forms.widgets.HiddenInput)
+    flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
     def handle(self, request, data):
         try:
@@ -51,7 +51,7 @@ class CreateExtraSpec(forms.SelfHandlingForm):
 class EditExtraSpec(forms.SelfHandlingForm):
     key = forms.CharField(max_length="25", label=_("Key"))
     value = forms.CharField(max_length="25", label=_("Value"))
-    flavor_id = forms.IntegerField(widget=forms.widgets.HiddenInput)
+    flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
     def handle(self, request, data):
         flavor_id = data['flavor_id']

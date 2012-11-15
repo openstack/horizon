@@ -198,14 +198,14 @@ def data(TEST):
 
     # Flavors
     flavor_1 = flavors.Flavor(flavors.FlavorManager(None),
-                              {'id': "1",
+                              {'id': "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
                                'name': 'm1.tiny',
                                'vcpus': 1,
                                'disk': 0,
                                'ram': 512,
                                'OS-FLV-EXT-DATA:ephemeral': 0})
     flavor_2 = flavors.Flavor(flavors.FlavorManager(None),
-                              {'id': "2",
+                              {'id': "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
                                'name': 'm1.massive',
                                'vcpus': 1000,
                                'disk': 1024,

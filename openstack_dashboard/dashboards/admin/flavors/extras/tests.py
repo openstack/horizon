@@ -37,7 +37,7 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
 
         # GET to display the flavor_name
         api.nova.flavor_extra_set(IsA(http.HttpRequest),
-                                  int(flavor.id),
+                                  flavor.id,
                                   {'k1': 'v1'})
         self.mox.ReplayAll()
 

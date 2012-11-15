@@ -19,7 +19,6 @@
 #    under the License.
 
 import logging
-import uuid
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -65,7 +64,6 @@ class CreateFlavor(forms.SelfHandlingForm):
                                             data['memory_mb'],
                                             data['vcpus'],
                                             data['disk_gb'],
-                                            uuid.uuid4(),
                                             ephemeral=data['eph_gb'])
             msg = _('Created flavor "%s".') % data['name']
             messages.success(request, msg)
@@ -75,7 +73,7 @@ class CreateFlavor(forms.SelfHandlingForm):
 
 
 class EditFlavor(CreateFlavor):
-    flavor_id = forms.IntegerField(widget=forms.widgets.HiddenInput)
+    flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
     def clean_name(self):
         return self.cleaned_data['name']
@@ -92,16 +90,14 @@ class EditFlavor(CreateFlavor):
             # This is in the same try/except block as the delete call
             # because if the delete fails the API will error out because
             # active flavors can't have the same name.
-            new_flavor_id = uuid.uuid4()
             flavor = api.nova.flavor_create(request,
                                             data['name'],
                                             data['memory_mb'],
                                             data['vcpus'],
                                             data['disk_gb'],
-                                            new_flavor_id,
                                             ephemeral=data['eph_gb'])
             if (len(extras_dict) > 0):
-                api.nova.flavor_extra_set(request, new_flavor_id, extras_dict)
+                api.nova.flavor_extra_set(request, flavor.id, extras_dict)
             msg = _('Updated flavor "%s".') % data['name']
             messages.success(request, msg)
             return flavor

@@ -6,7 +6,7 @@ netaddr
 python-cinderclient
 python-glanceclient<2
 python-keystoneclient
-python-novaclient
+python-novaclient>=2.10.0,<3
 python-quantumclient>=2.0
 python-swiftclient>1.1,<2
 pytz

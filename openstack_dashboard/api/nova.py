@@ -195,10 +195,9 @@ def server_vnc_console(request, instance_id, console_type='novnc'):
                                                   console_type)['console'])
 
 
-def flavor_create(request, name, memory, vcpu, disk, flavor_id, ephemeral=0):
-    return novaclient(request).flavors.create(name, int(memory), int(vcpu),
-                                              int(disk), flavor_id,
-                                              ephemeral=int(ephemeral))
+def flavor_create(request, name, memory, vcpu, disk, ephemeral=0):
+    return novaclient(request).flavors.create(name, memory, vcpu,
+                                              disk, ephemeral=ephemeral)
 
 
 def flavor_delete(request, flavor_id):

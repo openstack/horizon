@@ -21,7 +21,6 @@ class FlavorsTests(test.BaseAdminViewTests):
                                flavor.ram,
                                flavor.vcpus,
                                flavor.disk,
-                               IsA(uuid.uuid4()),
                                ephemeral=eph).AndReturn(flavor)
         api.nova.flavor_list(IsA(http.HttpRequest))
         self.mox.ReplayAll()
@@ -55,15 +54,14 @@ class FlavorsTests(test.BaseAdminViewTests):
 
         # POST
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
-        api.nova.flavor_get_extras(IsA(http.HttpRequest), int(flavor.id))\
+        api.nova.flavor_get_extras(IsA(http.HttpRequest), flavor.id)\
            .AndReturn(extras)
-        api.nova.flavor_delete(IsA(http.HttpRequest), int(flavor.id))
+        api.nova.flavor_delete(IsA(http.HttpRequest), flavor.id)
         api.nova.flavor_create(IsA(http.HttpRequest),
                                flavor.name,
                                flavor.ram,
                                flavor.vcpus + 1,
                                flavor.disk,
-                               IsA(uuid.uuid4()),
                                ephemeral=eph).AndReturn(flavor)
         self.mox.ReplayAll()
 

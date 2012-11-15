@@ -14,6 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import uuid
+
 from django import http
 from django.core.urlresolvers import reverse
 from django.utils.datastructures import SortedDict
@@ -76,10 +78,10 @@ class InstanceViewTest(test.BaseAdminViewTests):
         servers = self.servers.list()
         flavors = self.flavors.list()
         tenants = self.tenants.list()
-        max_id = max([int(flavor.id) for flavor in flavors])
-        for server in servers:
-            max_id += 1
-            server.flavor["id"] = max_id
+        # UUIDs generated using indexes are unlikely to match
+        # any of existing flavor ids and are guaranteed to be deterministic.
+        for i, server in enumerate(servers):
+            server.flavor['id'] = str(uuid.UUID(int=i))
 
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(servers)
