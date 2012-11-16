@@ -16,6 +16,16 @@
     <h3>{% trans "Description" %}:</h3>
     <p>{% trans "From here you can create a new user and assign them to a project." %}</p>
 </div>
+
+<script type="text/javascript">
+  if (typeof horizon.user !== 'undefined') {
+    horizon.user.init();
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.user.init();
+    });
+  }
+</script>
 {% endblock %}
 
 {% block modal-footer %}

@@ -296,3 +296,55 @@ class APITestCase(TestCase):
                             .AndReturn(self.swiftclient)
                 expected_calls -= 1
         return self.swiftclient
+
+
+@unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
+                     "The WITH_SELENIUM env variable is not set.")
+class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
+
+    def setUp(self):
+        super(SeleniumTestCase, self).setUp()
+
+        load_test_data(self)
+        self.mox = mox.Mox()
+
+        self._real_get_user = utils.get_user
+        self.setActiveUser(id=self.user.id,
+                           token=self.token,
+                           username=self.user.name,
+                           tenant_id=self.tenant.id,
+                           service_catalog=self.service_catalog,
+                           authorized_tenants=self.tenants.list())
+        os.environ["HORIZON_TEST_RUN"] = "True"
+
+    def tearDown(self):
+        self.mox.UnsetStubs()
+        utils.get_user = self._real_get_user
+        self.mox.VerifyAll()
+        del os.environ["HORIZON_TEST_RUN"]
+
+    def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
+                        service_catalog=None, tenant_name=None, roles=None,
+                        authorized_tenants=None, enabled=True):
+        def get_user(request):
+            return user.User(id=id,
+                             token=token,
+                             user=username,
+                             tenant_id=tenant_id,
+                             service_catalog=service_catalog,
+                             roles=roles,
+                             enabled=enabled,
+                             authorized_tenants=authorized_tenants,
+                             endpoint=settings.OPENSTACK_KEYSTONE_URL)
+        utils.get_user = get_user
+
+
+class SeleniumAdminTestCase(SeleniumTestCase):
+    """
+    A ``TestCase`` subclass which sets an active user with the "admin" role
+    for testing admin-only views and functionality.
+    """
+    def setActiveUser(self, *args, **kwargs):
+        if "roles" not in kwargs:
+            kwargs['roles'] = [self.roles.admin._info]
+        super(SeleniumAdminTestCase, self).setActiveUser(*args, **kwargs)

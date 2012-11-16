@@ -355,3 +355,54 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertEqual(list(res.context['messages'])[0].message,
                          u'You do not have permission to delete user: %s'
                          % self.request.user.username)
+
+
+class SeleniumTests(test.SeleniumAdminTestCase):
+    @test.create_stubs({api: ('tenant_list',),
+                        api.keystone: ('get_default_role', 'role_list',
+                                       'user_list')})
+    def test_modal_create_user_with_passwords_not_matching(self):
+        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.keystone.get_default_role(IgnoreArg()) \
+                    .AndReturn(self.roles.first())
+        self.mox.ReplayAll()
+
+        self.selenium.get("%s%s" % (self.live_server_url, USERS_INDEX_URL))
+
+        # Open the modal menu
+        self.selenium.find_element_by_id("users__action_create") \
+                     .send_keys("\n")
+        wait = self.ui.WebDriverWait(self.selenium, 10)
+        wait.until(lambda x: self.selenium.find_element_by_id("id_name"))
+
+        body = self.selenium.find_element_by_tag_name("body")
+        self.assertFalse("Passwords do not match" in body.text,
+                         "Error message should not be visible at loading time")
+        self.selenium.find_element_by_id("id_name").send_keys("Test User")
+        self.selenium.find_element_by_id("id_password").send_keys("test")
+        self.selenium.find_element_by_id("id_confirm_password").send_keys("te")
+        self.selenium.find_element_by_id("id_email").send_keys("a@b.com")
+        body = self.selenium.find_element_by_tag_name("body")
+        self.assertTrue("Passwords do not match" in body.text,
+                        "Error message not found in body")
+
+    @test.create_stubs({api: ('tenant_list', 'user_get')})
+    def test_update_user_with_passwords_not_matching(self):
+        api.user_get(IsA(http.HttpRequest), '1',
+                     admin=True).AndReturn(self.user)
+        api.tenant_list(IgnoreArg(), admin=True).AndReturn(self.tenants.list())
+        self.mox.ReplayAll()
+
+        self.selenium.get("%s%s" % (self.live_server_url, USER_UPDATE_URL))
+
+        body = self.selenium.find_element_by_tag_name("body")
+        self.assertFalse("Passwords do not match" in body.text,
+                         "Error message should not be visible at loading time")
+        self.selenium.find_element_by_id("id_password").send_keys("test")
+        self.selenium.find_element_by_id("id_confirm_password").send_keys("te")
+        self.selenium.find_element_by_id("id_email").clear()
+        body = self.selenium.find_element_by_tag_name("body")
+        self.assertTrue("Passwords do not match" in body.text,
+                        "Error message not found in body")
