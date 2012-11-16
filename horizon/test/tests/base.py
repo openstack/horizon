@@ -226,7 +226,7 @@ class HorizonTests(BaseHorizonTests):
         self.client.logout()
 
         resp = self.client.get(url)
-        redirect_url = "?".join([urlresolvers.reverse("login"),
+        redirect_url = "?".join(['http://testserver' + settings.LOGIN_URL,
                                  "next=%s" % url])
         self.assertRedirects(resp, redirect_url)
 
@@ -235,8 +235,7 @@ class HorizonTests(BaseHorizonTests):
         # Response should be HTTP 401 with redirect header
         self.assertEquals(resp.status_code, 401)
         self.assertEquals(resp["X-Horizon-Location"],
-                          "?".join([urlresolvers.reverse("login"),
-                                    "next=%s" % url]))
+                          redirect_url)
 
     def test_required_permissions(self):
         dash = horizon.get_dashboard("cats")
@@ -275,7 +274,7 @@ class HorizonTests(BaseHorizonTests):
         dogs = horizon.get_dashboard("dogs")
         puppies = dogs.get_panel("puppies")
         url = puppies.get_absolute_url()
-        redirect_url = "?".join([urlresolvers.reverse("login"),
+        redirect_url = "?".join([settings.LOGIN_URL,
                                  "next=%s" % url])
 
         self.client.logout()
