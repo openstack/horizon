@@ -18,30 +18,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
+from django.utils.translation import ugettext_lazy as _
 
-from django.utils.translation import ugettext as _
+import horizon
 
-from horizon import exceptions
-from horizon import tables
-
-from openstack_dashboard import api
-from .tables import QuotasTable
+from openstack_dashboard.dashboards.admin import dashboard
 
 
-LOG = logging.getLogger(__name__)
+class Quotas(horizon.Panel):
+    name = _("System Info")
+    slug = 'info'
 
 
-class IndexView(tables.DataTableView):
-    table_class = QuotasTable
-    template_name = 'admin/quotas/index.html'
-
-    def get_data(self):
-        try:
-            quota_set = api.default_quota_get(self.request,
-                                                  self.request.user.tenant_id)
-            data = quota_set.items
-        except:
-            data = []
-            exceptions.handle(self.request, _('Unable to get quota info.'))
-        return data
+dashboard.Admin.register(Quotas)
