@@ -25,7 +25,7 @@ from .utils import TestDataContainer
 def create_stubbed_exception(cls, status_code=500):
     msg = "Expected failure."
 
-    def fake_init_exception(self, code, message):
+    def fake_init_exception(self, code, message, **kwargs):
         self.code = code
         self.message = message
 

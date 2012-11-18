@@ -2,6 +2,8 @@ import os
 
 from django.utils.translation import ugettext_lazy as _
 
+from openstack_dashboard import exceptions
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -12,14 +14,23 @@ TEMPLATE_DEBUG = DEBUG
 # https://docs.djangoproject.com/en/1.4/ref/settings/#secure-proxy-ssl-header
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
 
+# Default OpenStack Dashboard configuration.
+HORIZON_CONFIG = {
+    'dashboards': ('project', 'admin', 'settings',),
+    'default_dashboard': 'project',
+    'user_home': 'openstack_dashboard.views.get_user_home',
+    'ajax_queue_limit': 10,
+    'help_url': "http://docs.openstack.org",
+    'exceptions': {'recoverable': exceptions.RECOVERABLE,
+                   'not_found': exceptions.NOT_FOUND,
+                   'unauthorized': exceptions.UNAUTHORIZED},
+}
+
 # Specify a regular expression to validate user passwords.
-# HORIZON_CONFIG = {
-#     "password_validator": {
-#         "regex": '.*',
-#         "help_text": _("Your password does not meet the requirements.")
-#     },
-#    'help_url': "http://docs.openstack.org"
-# }
+# HORIZON_CONFIG["password_validator"] = {
+#     "regex": '.*',
+#     "help_text": _("Your password does not meet the requirements.")
+# },
 
 LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 

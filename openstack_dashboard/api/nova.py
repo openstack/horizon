@@ -183,7 +183,8 @@ def novaclient(request):
                            request.user.token.id,
                            project_id=request.user.tenant_id,
                            auth_url=url_for(request, 'compute'),
-                           insecure=insecure)
+                           insecure=insecure,
+                           http_log_debug=settings.DEBUG)
     c.client.auth_token = request.user.token.id
     c.client.management_url = url_for(request, 'compute')
     return c

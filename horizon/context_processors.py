@@ -21,7 +21,7 @@
 Context processors used by Horizon.
 """
 
-from django.conf import settings
+from horizon import conf
 
 
 def horizon(request):
@@ -37,7 +37,7 @@ def horizon(request):
         for each template/template fragment which takes context that is used
         to render the complete output.
     """
-    context = {"HORIZON_CONFIG": getattr(settings, "HORIZON_CONFIG", {}),
+    context = {"HORIZON_CONFIG": conf.HORIZON_CONFIG,
                "True": True,
                "False": False}
 
