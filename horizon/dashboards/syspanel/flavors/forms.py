@@ -54,6 +54,24 @@ class CreateFlavor(forms.SelfHandlingForm):
             flavor_id = 1
         return flavor_id
 
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        try:
+            flavors = api.nova.flavor_list(self.request)
+        except:
+            flavors = []
+            msg = _('Unable to get flavor list')
+            exceptions.check_message(["Connection", "refused"], msg)
+            raise
+        if flavors is not None:
+            for flavor in flavors:
+                if flavor.name == name:
+                    raise forms.ValidationError(
+                      _('The name "%s" is already used by another flavor.')
+                      % name
+                    )
+        return name
+
     def handle(self, request, data):
         try:
             flavor = api.nova.flavor_create(request,
@@ -72,6 +90,9 @@ class CreateFlavor(forms.SelfHandlingForm):
 
 class EditFlavor(CreateFlavor):
     flavor_id = forms.IntegerField(widget=forms.widgets.HiddenInput)
+
+    def clean_name(self):
+        return self.cleaned_data['name']
 
     def handle(self, request, data):
         try:

@@ -22,6 +22,7 @@ class FlavorsTests(test.BaseAdminViewTests):
                                flavor.disk,
                                1,  # Flavor id 1 because there are no others.
                                ephemeral=eph).AndReturn(flavor)
+        api.nova.flavor_list(IsA(http.HttpRequest))
         self.mox.ReplayAll()
 
         url = reverse('horizon:syspanel:flavors:create')
