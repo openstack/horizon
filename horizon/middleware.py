@@ -26,8 +26,10 @@ import logging
 
 from django import http
 from django import shortcuts
+from django.conf import settings
 from django.contrib import messages as django_messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.contrib.auth.views import redirect_to_login
 from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.utils.encoding import iri_to_uri
@@ -59,20 +61,23 @@ class HorizonMiddleware(object):
         """
         if isinstance(exception, (exceptions.NotAuthorized,
                                   exceptions.NotAuthenticated)):
-            auth_url = reverse("login")
+            auth_url = settings.LOGIN_URL
             next_url = iri_to_uri(request.get_full_path())
             if next_url != auth_url:
-                param = "?%s=%s" % (REDIRECT_FIELD_NAME, next_url)
-                redirect_to = "".join((auth_url, param))
+                field_name = REDIRECT_FIELD_NAME
             else:
-                redirect_to = auth_url
+                field_name = None
+            login_url = request.build_absolute_uri(auth_url)
+            response = redirect_to_login(next_url, login_url=login_url,
+                                         redirect_field_name=field_name)
+
             # TODO(gabriel): Find a way to display an appropriate message to
             # the user *on* the login form...
             if request.is_ajax():
                 response_401 = http.HttpResponse(status=401)
-                response_401['X-Horizon-Location'] = redirect_to
+                response_401['X-Horizon-Location'] = response['location']
                 return response_401
-            return shortcuts.redirect(redirect_to)
+            return response
 
         # If an internal "NotFound" error gets this far, return a real 404.
         if isinstance(exception, exceptions.NotFound):
