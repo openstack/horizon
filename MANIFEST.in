@@ -1,7 +1,7 @@
 recursive-include bin *.js
 recursive-include doc *.py *.rst *.css *.js *.html *.conf *.jpg *.gif *.png *.css_t
 recursive-include horizon *.html *.css *.js *.csv *.template *.tmpl *.mo *.po
-recursive-include openstack_dashboard *.html *.js *.less *.mo *.po *.example *.eot *.svg *.ttf *.woff *.png *.ico *.wsgi *.gif
+recursive-include openstack_dashboard *.html *.js *.less *.mo *.po *.example *.eot *.svg *.ttf *.woff *.png *.ico *.wsgi *.gif *.csv *.template
 recursive-include tools *.py *.sh
 
 include AUTHORS
