@@ -18,16 +18,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
+from django.conf.urls.defaults import patterns, url
 
-import horizon
-
-from openstack_dashboard.dashboards.admin import dashboard
+from .views import IndexView
 
 
-class Quotas(horizon.Panel):
-    name = _("Quotas")
-    slug = 'quotas'
-
-
-dashboard.Admin.register(Quotas)
+urlpatterns = patterns('openstack_dashboard.dashboards.admin.info.views',
+    url(r'^$', IndexView.as_view(), name='index'))

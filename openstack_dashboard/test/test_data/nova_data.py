@@ -280,6 +280,7 @@ def data(TEST):
                       injected_files='1',
                       cores='10')
     quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
+    TEST.quotas.nova = QuotaSetWrapper(quota)
     TEST.quotas.add(QuotaSetWrapper(quota))
 
     # Quota Usages

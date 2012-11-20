@@ -18,10 +18,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+import logging
 
-from .views import IndexView
+from horizon import tabs
+
+from .tabs import SystemInfoTabs
 
 
-urlpatterns = patterns('openstack_dashboard.dashboards.admin.quotas.views',
-    url(r'^$', IndexView.as_view(), name='index'))
+LOG = logging.getLogger(__name__)
+
+
+class IndexView(tabs.TabbedTableView):
+    tab_group_class = SystemInfoTabs
+    template_name = 'admin/info/index.html'
