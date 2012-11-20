@@ -16,7 +16,6 @@ SECRET_KEY = generate_or_read_from_file(os.path.join(TEST_DIR,
 ROOT_URLCONF = 'openstack_dashboard.urls'
 TEMPLATE_DIRS = (
     os.path.join(TEST_DIR, 'templates'),
-    #os.path.join(ROOT_PATH, 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (

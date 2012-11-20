@@ -2,7 +2,7 @@
  *
  * Note: The number of concurrent AJAX connections hanlded in the queue
  * can be configured by setting an "ajax_queue_limit" key in
- * settings.HORIZON_CONFIG to the desired number (or None to disable queue
+ * HORIZON_CONFIG to the desired number (or None to disable queue
  * limiting).
  */
 horizon.ajax = {

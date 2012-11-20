@@ -35,6 +35,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 from django.utils import termcolors
 
+from horizon import conf
 from horizon import exceptions
 from horizon import messages
 from horizon.utils import html
@@ -359,7 +360,7 @@ class Row(html.HTMLElement):
     lookup versus the table's "list" lookup).
 
     The automatic update interval is configurable by setting the key
-    ``ajax_poll_interval`` in the ``settings.HORIZON_CONFIG`` dictionary.
+    ``ajax_poll_interval`` in the ``HORIZON_CONFIG`` dictionary.
     Default: ``2500`` (measured in milliseconds).
 
     .. attribute:: table
@@ -452,7 +453,7 @@ class Row(html.HTMLElement):
         self.cells = SortedDict(cells)
 
         if self.ajax:
-            interval = settings.HORIZON_CONFIG.get('ajax_poll_interval', 2500)
+            interval = conf.HORIZON_CONFIG['ajax_poll_interval']
             self.attrs['data-update-interval'] = interval
             self.attrs['data-update-url'] = self.get_ajax_update_url()
             self.classes.append("ajax-update")

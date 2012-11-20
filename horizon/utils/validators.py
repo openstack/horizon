@@ -14,12 +14,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext as _
 
-horizon_config = getattr(settings, "HORIZON_CONFIG", {})
-password_config = horizon_config.get("password_validator", {})
+from horizon import conf
 
 
 def validate_port_range(port):
@@ -28,8 +25,8 @@ def validate_port_range(port):
 
 
 def password_validator():
-    return password_config.get("regex", ".*")
+    return conf.HORIZON_CONFIG["password_validator"]["regex"]
 
 
 def password_validator_msg():
-    return password_config.get("help_text", _("Password is not accepted"))
+    return conf.HORIZON_CONFIG["password_validator"]["help_text"]

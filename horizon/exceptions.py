@@ -22,7 +22,6 @@ import logging
 import os
 import sys
 
-from django.conf import settings
 from django.contrib.auth import logout
 from django.http import HttpRequest
 from django.utils import termcolors
@@ -30,6 +29,7 @@ from django.utils.translation import ugettext as _
 from django.views.debug import SafeExceptionReporterFilter, CLEANSED_SUBSTITUTE
 
 from horizon import messages
+from horizon.conf import HORIZON_CONFIG
 
 LOG = logging.getLogger(__name__)
 PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]
@@ -194,12 +194,10 @@ class HandledException(HorizonException):
         self.wrapped = wrapped
 
 
-HORIZON_CONFIG = getattr(settings, "HORIZON_CONFIG", {})
-EXCEPTION_CONFIG = HORIZON_CONFIG.get("exceptions", {})
-UNAUTHORIZED = tuple(EXCEPTION_CONFIG.get('unauthorized', []))
-NOT_FOUND = tuple(EXCEPTION_CONFIG.get('not_found', []))
+UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
+NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
 RECOVERABLE = (AlreadyExists,)
-RECOVERABLE += tuple(EXCEPTION_CONFIG.get('recoverable', []))
+RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
 
 
 def error_color(msg):
