@@ -18,6 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from socket import timeout as socket_timeout
+
 from django import http
 from django.core.urlresolvers import reverse
 
@@ -374,7 +376,8 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         # Open the modal menu
         self.selenium.find_element_by_id("users__action_create") \
                      .send_keys("\n")
-        wait = self.ui.WebDriverWait(self.selenium, 10)
+        wait = self.ui.WebDriverWait(self.selenium, 10,
+                                     ignored_exceptions=[socket_timeout])
         wait.until(lambda x: self.selenium.find_element_by_id("id_name"))
 
         body = self.selenium.find_element_by_tag_name("body")
