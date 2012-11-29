@@ -87,17 +87,11 @@ class DeleteUsersAction(tables.DeleteAction):
 
 class UserFilterAction(tables.FilterAction):
     def filter(self, table, users, filter_string):
-        """ Really naive case-insensitive search. """
-        # FIXME(gabriel): This should be smarter. Written for demo purposes.
+        """ Naive case-insensitive search """
         q = filter_string.lower()
-
-        def comp(user):
-            if any([q in (user.name or "").lower(),
-                    q in (user.email or "").lower()]):
-                return True
-            return False
-
-        return filter(comp, users)
+        return [user for user in users
+                if q in user.get('name', '').lower()
+                or q in user.get('email', '').lower()]
 
 
 class UsersTable(tables.DataTable):
