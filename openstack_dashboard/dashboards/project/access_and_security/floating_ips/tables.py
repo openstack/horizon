@@ -28,6 +28,8 @@ from horizon import tables
 
 from openstack_dashboard import api
 
+from .utils import get_int_or_uuid
+
 
 LOG = logging.getLogger(__name__)
 
@@ -83,7 +85,7 @@ class DisassociateIP(tables.Action):
 
     def single(self, table, request, obj_id):
         try:
-            fip = table.get_object_by_id(int(obj_id))
+            fip = table.get_object_by_id(get_int_or_uuid(obj_id))
             api.server_remove_floating_ip(request, fip.instance_id, fip.id)
             LOG.info('Disassociating Floating IP "%s".' % obj_id)
             messages.success(request,
@@ -118,7 +120,7 @@ class FloatingIPsTable(tables.DataTable):
                          empty_value="-")
 
     def sanitize_id(self, obj_id):
-        return int(obj_id)
+        return get_int_or_uuid(obj_id)
 
     def get_object_display(self, datum):
         return datum.ip
