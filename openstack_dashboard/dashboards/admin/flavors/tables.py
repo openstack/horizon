@@ -43,6 +43,10 @@ def get_size(flavor):
     return _("%sMB") % flavor.ram
 
 
+def get_swap_size(flavor):
+    return _("%sMB") % (flavor.swap or 0)
+
+
 class FlavorsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Flavor Name'))
     vcpus = tables.Column('vcpus', verbose_name=_('VCPUs'))
@@ -52,6 +56,9 @@ class FlavorsTable(tables.DataTable):
     disk = tables.Column('disk', verbose_name=_('Root Disk'))
     ephemeral = tables.Column('OS-FLV-EXT-DATA:ephemeral',
                               verbose_name=_('Ephemeral Disk'))
+    swap = tables.Column(get_swap_size,
+                         verbose_name=_('Swap Disk'),
+                         attrs={'data-type': 'size'})
     flavor_id = tables.Column('id', verbose_name=('ID'))
 
     class Meta:

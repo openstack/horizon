@@ -38,6 +38,7 @@ class CreateFlavor(forms.SelfHandlingForm):
     memory_mb = forms.IntegerField(label=_("RAM MB"))
     disk_gb = forms.IntegerField(label=_("Root Disk GB"))
     eph_gb = forms.IntegerField(label=_("Ephemeral Disk GB"))
+    swap_mb = forms.IntegerField(label=_("Swap Disk MB"))
 
     def clean_name(self):
         name = self.cleaned_data.get('name')
@@ -64,7 +65,8 @@ class CreateFlavor(forms.SelfHandlingForm):
                                             data['memory_mb'],
                                             data['vcpus'],
                                             data['disk_gb'],
-                                            ephemeral=data['eph_gb'])
+                                            ephemeral=data['eph_gb'],
+                                            swap=data['swap_mb'])
             msg = _('Created flavor "%s".') % data['name']
             messages.success(request, msg)
             return flavor
@@ -95,7 +97,8 @@ class EditFlavor(CreateFlavor):
                                             data['memory_mb'],
                                             data['vcpus'],
                                             data['disk_gb'],
-                                            ephemeral=data['eph_gb'])
+                                            ephemeral=data['eph_gb'],
+                                            swap=data['swap_mb'])
             if (len(extras_dict) > 0):
                 api.nova.flavor_extra_set(request, flavor.id, extras_dict)
             msg = _('Updated flavor "%s".') % data['name']

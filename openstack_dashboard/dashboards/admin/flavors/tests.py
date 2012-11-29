@@ -21,6 +21,7 @@ class FlavorsTests(test.BaseAdminViewTests):
                                flavor.ram,
                                flavor.vcpus,
                                flavor.disk,
+                               swap=flavor.swap or 0,
                                ephemeral=eph).AndReturn(flavor)
         api.nova.flavor_list(IsA(http.HttpRequest))
         self.mox.ReplayAll()
@@ -34,6 +35,7 @@ class FlavorsTests(test.BaseAdminViewTests):
                 'vcpus': flavor.vcpus,
                 'memory_mb': flavor.ram,
                 'disk_gb': flavor.disk,
+                'swap_mb': flavor.swap or 0,
                 'eph_gb': eph}
         resp = self.client.post(url, data)
         self.assertRedirectsNoFollow(resp,
@@ -62,6 +64,7 @@ class FlavorsTests(test.BaseAdminViewTests):
                                flavor.ram,
                                flavor.vcpus + 1,
                                flavor.disk,
+                               swap=flavor.swap or 0,
                                ephemeral=eph).AndReturn(flavor)
         self.mox.ReplayAll()
 
@@ -77,6 +80,7 @@ class FlavorsTests(test.BaseAdminViewTests):
                 'vcpus': flavor.vcpus + 1,
                 'memory_mb': flavor.ram,
                 'disk_gb': flavor.disk,
+                'swap_mb': flavor.swap or 0,
                 'eph_gb': eph}
         resp = self.client.post(url, data)
         self.assertRedirectsNoFollow(resp,
