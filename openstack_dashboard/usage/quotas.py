@@ -112,4 +112,9 @@ def tenant_quota_usages(request):
         usages.tally('cores', getattr(flavor, 'vcpus', None))
         usages.tally('ram', getattr(flavor, 'ram', None))
 
+    # Initialise the tally if no instances have been launched yet
+    if len(instances) == 0:
+        usages.tally('cores', 0)
+        usages.tally('ram', 0)
+
     return usages
