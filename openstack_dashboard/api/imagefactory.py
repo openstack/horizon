@@ -61,7 +61,7 @@ def image_create(request, template):
                                                           <tenant>admin</tenant>
                                                           <password>verybadpass</password>
                                                           <strategy>keystone</strategy>
-                                                          <auth_url>http://192.168.122.104:5000/v2.0</auth_url>
+                                                          <auth_url>http://localhost:5000/v2.0</auth_url>
                                                       </openstack_credentials>
                                                   </provider_credentials>"""}}
     return imagefactory_request(request, "/provider_images", body)
