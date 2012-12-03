@@ -27,7 +27,7 @@ class QuotaUsage(dict):
 
     def add_quota(self, quota):
         """ Adds an internal tracking reference for the given quota. """
-        if quota.limit is None:
+        if quota.limit is None or quota.limit == -1:
             # Handle "unlimited" quotas.
             self.usages[quota.name]['quota'] = float("inf")
             self.usages[quota.name]['available'] = float("inf")
