@@ -81,6 +81,20 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    def test_create_security_groups_post_wrong_name(self):
+        sec_group = self.security_groups.first()
+        self.mox.StubOutWithMock(api, 'security_group_create')
+        fail_name = sec_group.name + ' invalid'
+        self.mox.ReplayAll()
+
+        formData = {'method': 'CreateGroup',
+                    'name': fail_name,
+                    'description': sec_group.description}
+        res = self.client.post(SG_CREATE_URL, formData)
+        self.assertTemplateUsed(res,
+                    'project/access_and_security/security_groups/create.html')
+        self.assertContains(res, "ASCII")
+
     def test_edit_rules_get(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()

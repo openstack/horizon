@@ -34,6 +34,10 @@ from openstack_dashboard import api
 
 class CreateGroup(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"),
+                           error_messages={
+                            'required': _('This field is required.'),
+                            'invalid': _("The string may only contain"
+                                         " ASCII characters and numbers.")},
                            validators=[validators.validate_slug])
     description = forms.CharField(label=_("Description"))
 
