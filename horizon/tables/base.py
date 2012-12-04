@@ -160,6 +160,13 @@ class Column(html.HTMLElement):
         this column will be truncated and an ellipsis will be appended to the
         truncated data.
         Defaults to ``None``.
+
+    .. attribute:: link_classes
+
+        An iterable of CSS classes which will be added when the column's text
+        is displayed as a link.
+        Example: ``classes=('link-foo', 'link-bar')``.
+        Defaults to ``None``.
     """
     summation_methods = {
         "sum": sum,
@@ -191,7 +198,7 @@ class Column(html.HTMLElement):
                  link=None, allowed_data_types=[], hidden=False, attrs=None,
                  status=False, status_choices=None, display_choices=None,
                  empty_value=None, filters=None, classes=None, summation=None,
-                 auto=None, truncate=None):
+                 auto=None, truncate=None, link_classes=None):
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
@@ -219,6 +226,7 @@ class Column(html.HTMLElement):
         self.empty_value = empty_value or '-'
         self.filters = filters or []
         self.truncate = truncate
+        self.link_classes = link_classes or []
 
         if status_choices:
             self.status_choices = status_choices
@@ -551,8 +559,10 @@ class Cell(html.HTMLElement):
             exc_info = sys.exc_info()
             raise template.TemplateSyntaxError, exc_info[1], exc_info[2]
         if self.url:
+            link_classes = ' '.join(self.column.link_classes)
             # Escape the data inside while allowing our HTML to render
-            data = mark_safe('<a href="%s">%s</a>' % (self.url, escape(data)))
+            data = mark_safe('<a href="%s" class="%s">%s</a>' %
+                             (self.url, link_classes, escape(data)))
         return data
 
     @property

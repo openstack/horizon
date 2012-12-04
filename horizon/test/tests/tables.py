@@ -161,7 +161,8 @@ class MyTable(tables.DataTable):
                           link='http://example.com/',
                           attrs={'class': 'green blue'},
                           summation="average",
-                          truncate=35)
+                          truncate=35,
+                          link_classes=('link-modal',))
     status = tables.Column('status', link=get_link)
     optional = tables.Column('optional', empty_value='N/A')
     excluded = tables.Column('excluded')
@@ -352,8 +353,9 @@ class DataTableTests(test.TestCase):
         self.assertIn("hide", id_col.get_final_attrs().get('class', ""))
         self.assertEqual(name_col.hidden, False)
         self.assertNotIn("hide", name_col.get_final_attrs().get('class', ""))
-        # link and get_link_url
+        # link, link_classes and get_link_url
         self.assertIn('href="http://example.com/"', row.cells['value'].value)
+        self.assertIn('class="link-modal"', row.cells['value'].value)
         self.assertIn('href="/auth/login/"', row.cells['status'].value)
         # empty_value
         self.assertEqual(row3.cells['optional'].value, "N/A")
@@ -434,7 +436,8 @@ class DataTableTests(test.TestCase):
         self.assertContains(resp, update_string, 3)
         self.assertContains(resp, "data-update-interval", 3)
         # Verify our XSS protection
-        self.assertContains(resp, '<a href="http://example.com/">'
+        self.assertContains(resp, '<a href="http://example.com/" '
+                                  'class="link-modal">'
                                   '&lt;strong&gt;evil&lt;/strong&gt;</a>', 1)
         # Filter = False hides the search box
         self.table._meta.filter = False
