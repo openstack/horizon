@@ -18,6 +18,8 @@ from collections import defaultdict
 
 from django.views import generic
 
+from horizon.templatetags.horizon import has_permissions
+
 
 class MultiTableMixin(object):
     """ A generic mixin which provides methods for handling DataTables. """
@@ -73,7 +75,7 @@ class MultiTableMixin(object):
         func = getattr(self, func_name, None)
         if not func or not callable(func):
             cls_name = self.__class__.__name__
-            raise NotImplementedError("You must define a %s method"
+            raise NotImplementedError("You must define a %s method "
                                       "in %s." % (func_name, cls_name))
         else:
             return func
@@ -89,6 +91,9 @@ class MultiTableMixin(object):
                                  'on %s.' % self.__class__.__name__)
         if not self._tables:
             for table in self.table_classes:
+                if not has_permissions(self.request.user,
+                                       table._meta):
+                    continue
                 func_name = "get_%s_table" % table._meta.name
                 table_func = getattr(self, func_name, None)
                 if table_func is None:
@@ -183,7 +188,10 @@ class DataTableView(MultiTableView):
 
     def get_tables(self):
         if not self._tables:
-            self._tables = {self.table_class._meta.name: self.get_table()}
+            self._tables = {}
+            if has_permissions(self.request.user,
+                               self.table_class._meta):
+                self._tables[self.table_class._meta.name] = self.get_table()
         return self._tables
 
     def get_table(self):
@@ -197,7 +205,8 @@ class DataTableView(MultiTableView):
 
     def get_context_data(self, **kwargs):
         context = super(DataTableView, self).get_context_data(**kwargs)
-        context[self.context_object_name] = self.table
+        if hasattr(self, "table"):
+            context[self.context_object_name] = self.table
         return context
 
 

@@ -22,6 +22,7 @@ from django.utils.translation import ugettext_lazy as _
 from mox import IsA
 
 from horizon import tables
+from horizon.tables import views as table_views
 from horizon.test import helpers as test
 
 
@@ -676,3 +677,79 @@ class DataTableTests(test.TestCase):
         self.assertEqual(handled["location"], "/my_url/")
         self.assertEqual(list(req._messages)[0].message,
                         u"Downed Item: N/A")
+
+
+class SingleTableView(table_views.DataTableView):
+    table_class = MyTable
+    name = _("Single Table")
+    slug = "single"
+    template_name = "horizon/common/_detail_table.html"
+
+    def get_data(self):
+        return TEST_DATA
+
+
+class TableWithPermissions(tables.DataTable):
+    id = tables.Column('id')
+
+    class Meta:
+        name = "table_with_permissions"
+        permissions = ('horizon.test',)
+
+
+class SingleTableViewWithPermissions(SingleTableView):
+    table_class = TableWithPermissions
+
+
+class MultiTableView(tables.MultiTableView):
+    table_classes = (TableWithPermissions, MyTable)
+
+    def get_table_with_permissions_data(self):
+        return TEST_DATA
+
+    def get_my_table_data(self):
+        return TEST_DATA
+
+
+class DataTableViewTests(test.TestCase):
+    def _prepare_view(self, cls, *args, **kwargs):
+        req = self.factory.get('/my_url/')
+        req.user = self.user
+        view = cls()
+        view.request = req
+        view.args = args
+        view.kwargs = kwargs
+        return view
+
+    def test_data_table_view(self):
+        view = self._prepare_view(SingleTableView)
+        context = view.get_context_data()
+        self.assertEqual(context['table'].__class__,
+                         SingleTableView.table_class)
+
+    def test_data_table_view_not_authorized(self):
+        view = self._prepare_view(SingleTableViewWithPermissions)
+        context = view.get_context_data()
+        self.assertNotIn('table', context)
+
+    def test_data_table_view_authorized(self):
+        view = self._prepare_view(SingleTableViewWithPermissions)
+        self.set_permissions(permissions=['test'])
+        context = view.get_context_data()
+        self.assertIn('table', context)
+        self.assertEqual(context['table'].__class__,
+                         SingleTableViewWithPermissions.table_class)
+
+    def test_multi_table_view_not_authorized(self):
+        view = self._prepare_view(MultiTableView)
+        context = view.get_context_data()
+        self.assertEqual(context['my_table_table'].__class__, MyTable)
+        self.assertNotIn('table_with_permissions_table', context)
+
+    def test_multi_table_view_authorized(self):
+        view = self._prepare_view(MultiTableView)
+        self.set_permissions(permissions=['test'])
+        context = view.get_context_data()
+        self.assertEqual(context['my_table_table'].__class__, MyTable)
+        self.assertEqual(context['table_with_permissions_table'].__class__,
+                         TableWithPermissions)

@@ -718,6 +718,11 @@ class DataTableOptions(object):
 
         Boolean to control whether or not to show the table's footer.
         Default: ``True``.
+
+    .. attribute:: permissions
+
+        A list of permission names which this table requires in order to be
+        displayed. Defaults to an empty list (``[]``).
     """
     def __init__(self, options):
         self.name = getattr(options, 'name', self.__class__.__name__)
@@ -736,6 +741,7 @@ class DataTableOptions(object):
         self.no_data_message = getattr(options,
                                        "no_data_message",
                                        _("No items to display."))
+        self.permissions = getattr(options, 'permissions', [])
 
         # Set self.filter if we have any FilterActions
         filter_actions = [action for action in self.table_actions if
@@ -895,6 +901,7 @@ class DataTable(object):
         self._no_data_message = self._meta.no_data_message
         self.breadcrumb = None
         self.current_item_id = None
+        self.permissions = self._meta.permissions
 
         # Create a new set
         columns = []
