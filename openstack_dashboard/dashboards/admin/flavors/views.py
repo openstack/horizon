@@ -79,4 +79,5 @@ class EditView(forms.ModalFormView):
                 'vcpus': flavor.vcpus,
                 'memory_mb': flavor.ram,
                 'disk_gb': flavor.disk,
+                'swap_mb': flavor.swap or 0,
                 'eph_gb': getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral', None)}
