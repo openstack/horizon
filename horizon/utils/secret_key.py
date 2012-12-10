@@ -20,7 +20,6 @@ from __future__ import with_statement  # Python 2.5 compliance
 import lockfile
 import random
 import string
-import tempfile
 import os
 
 
