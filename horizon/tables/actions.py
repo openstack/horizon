@@ -524,7 +524,7 @@ class BatchAction(Action):
                     action_failure.append(datum_display)
                 exceptions.handle(request, ignore=ignore)
 
-        #Begin with success message class, downgrade to info if problems
+        # Begin with success message class, downgrade to info if problems.
         success_message_level = messages.success
         if action_not_allowed:
             msg = _('You do not have permission to %(action)s: %(objs)s')

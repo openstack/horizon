@@ -30,7 +30,11 @@ HORIZON_CONFIG = {
 # HORIZON_CONFIG["password_validator"] = {
 #     "regex": '.*',
 #     "help_text": _("Your password does not meet the requirements.")
-# },
+# }
+
+# Disable simplified floating IP address management for deployments with
+# multiple floating IP pools or complex network requirements.
+# HORIZON_CONFIG["simple_ip_management"] = False
 
 LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 

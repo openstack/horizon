@@ -7,15 +7,15 @@
 {% endblock page_header %}
 
 {% block main %}
-  <div id="floating_ips">
-      {{ floating_ips_table.render }}
-  </div>
-
   <div id="security_groups">
       {{ security_groups_table.render }}
   </div>
 
   <div id="keypairs">
       {{ keypairs_table.render }}
+  </div>
+
+  <div id="floating_ips">
+      {{ floating_ips_table.render }}
   </div>
 {% endblock %}
