@@ -195,9 +195,14 @@ def server_vnc_console(request, instance_id, console_type='novnc'):
                                                   console_type)['console'])
 
 
-def flavor_create(request, name, memory, vcpu, disk, ephemeral=0, swap=0):
-    return novaclient(request).flavors.create(name, memory, vcpu, disk,
-                                              ephemeral=ephemeral, swap=swap)
+def flavor_create(request, name, memory, vcpu, disk, ephemeral=0, swap=0,
+                  metadata=None):
+    flavor = novaclient(request).flavors.create(name, memory, vcpu, disk,
+                                                ephemeral=ephemeral,
+                                                swap=swap)
+    if (metadata):
+        flavor_extra_set(request, flavor.id, metadata)
+    return flavor
 
 
 def flavor_delete(request, flavor_id):
@@ -233,6 +238,8 @@ def flavor_extra_delete(request, flavor_id, keys):
 def flavor_extra_set(request, flavor_id, metadata):
     """Set the flavor extra spec keys."""
     flavor = novaclient(request).flavors.get(flavor_id)
+    if (not metadata):  # not a way to delete keys
+        return None
     return flavor.set_keys(metadata)
 
 

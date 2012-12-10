@@ -204,6 +204,7 @@ def data(TEST):
                                'disk': 0,
                                'ram': 512,
                                'swap': 0,
+                               'extra_specs': {},
                                'OS-FLV-EXT-DATA:ephemeral': 0})
     flavor_2 = flavors.Flavor(flavors.FlavorManager(None),
                               {'id': "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
@@ -212,6 +213,7 @@ def data(TEST):
                                'disk': 1024,
                                'ram': 10000,
                                'swap': 0,
+                               'extra_specs': {'Trusted': True, 'foo': 'bar'},
                                'OS-FLV-EXT-DATA:ephemeral': 2048})
     TEST.flavors.add(flavor_1, flavor_2)
 

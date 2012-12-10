@@ -85,7 +85,9 @@ class EditFlavor(CreateFlavor):
             flavor_id = data['flavor_id']
             # grab any existing extra specs, because flavor edit currently
             # implemented as a delete followed by a create
-            extras_dict = api.nova.flavor_get_extras(self.request, flavor_id)
+            extras_dict = api.nova.flavor_get_extras(self.request,
+                                                     flavor_id,
+                                                     raw=True)
             # First mark the existing flavor as deleted.
             api.nova.flavor_delete(request, data['flavor_id'])
             # Then create a new flavor with the same name but a new ID.
@@ -99,7 +101,7 @@ class EditFlavor(CreateFlavor):
                                             data['disk_gb'],
                                             ephemeral=data['eph_gb'],
                                             swap=data['swap_mb'])
-            if (len(extras_dict) > 0):
+            if (extras_dict):
                 api.nova.flavor_extra_set(request, flavor.id, extras_dict)
             msg = _('Updated flavor "%s".') % data['name']
             messages.success(request, msg)

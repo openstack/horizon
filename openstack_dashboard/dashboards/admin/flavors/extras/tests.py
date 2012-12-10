@@ -9,12 +9,11 @@ from openstack_dashboard.test import helpers as test
 
 class FlavorExtrasTests(test.BaseAdminViewTests):
 
+    @test.create_stubs({api.nova: ('flavor_get_extras',
+                                   'flavor_get'), })
     def test_list_extras_when_none_exists(self):
         flavor = self.flavors.first()
         extras = [api.FlavorExtraSpec(flavor.id, 'k1', 'v1')]
-
-        self.mox.StubOutWithMock(api.nova, 'flavor_get')
-        self.mox.StubOutWithMock(api.nova, 'flavor_get_extras')
 
         # GET -- to determine correctness of output
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
@@ -26,14 +25,13 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
         self.assertEqual(resp.status_code, 200)
         self.assertTemplateUsed(resp, "admin/flavors/extras/index.html")
 
+    @test.create_stubs({api.nova: ('flavor_extra_set', ), })
     def test_extra_create_post(self):
         flavor = self.flavors.first()
         create_url = reverse('horizon:admin:flavors:extras:create',
                              args=[flavor.id])
         index_url = reverse('horizon:admin:flavors:extras:index',
                             args=[flavor.id])
-
-        self.mox.StubOutWithMock(api.nova, 'flavor_extra_set')
 
         # GET to display the flavor_name
         api.nova.flavor_extra_set(IsA(http.HttpRequest),
@@ -49,12 +47,11 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(resp, index_url)
 
+    @test.create_stubs({api.nova: ('flavor_get', ), })
     def test_extra_create_get(self):
         flavor = self.flavors.first()
         create_url = reverse('horizon:admin:flavors:extras:create',
                              args=[flavor.id])
-
-        self.mox.StubOutWithMock(api.nova, 'flavor_get')
 
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
         self.mox.ReplayAll()
