@@ -22,6 +22,7 @@ from horizon import tabs
 from openstack_dashboard.api import keystone
 from openstack_dashboard.usage import quotas
 from .tables import QuotasTable, ServicesTable
+from openstack_dashboard.api.base import is_service_enabled
 
 
 class DefaultQuotasTab(tabs.TableTab):
@@ -32,8 +33,11 @@ class DefaultQuotasTab(tabs.TableTab):
 
     def get_quotas_data(self):
         request = self.tab_group.request
+        disabled_quotas = []
+        if not is_service_enabled(self.request, 'volume'):
+            disabled_quotas.extend(['volumes', 'gigabytes'])
         try:
-            quota_set = quotas.get_default_quota_data(request)
+            quota_set = quotas.get_default_quota_data(request, disabled_quotas)
             data = quota_set.items
         except:
             data = []

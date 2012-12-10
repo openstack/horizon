@@ -31,7 +31,7 @@ from cinderclient.v1 import client as cinder_client
 
 from openstack_dashboard.api.base import url_for
 from openstack_dashboard.api import nova, QuotaSet
-
+from horizon import exceptions
 
 LOG = logging.getLogger(__name__)
 
@@ -42,15 +42,21 @@ VOLUME_STATE_AVAILABLE = "available"
 
 def cinderclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cinder_url = ""
+    try:
+        cinder_url = url_for(request, 'volume')
+    except exceptions.ServiceCatalogException:
+        LOG.debug('no volume service configured.')
+        return None
     LOG.debug('cinderclient connection created using token "%s" and url "%s"' %
-              (request.user.token.id, url_for(request, 'volume')))
+              (request.user.token.id, cinder_url))
     c = cinder_client.Client(request.user.username,
                              request.user.token.id,
                              project_id=request.user.tenant_id,
-                             auth_url=url_for(request, 'volume'),
+                             auth_url=cinder_url,
                              insecure=insecure)
     c.client.auth_token = request.user.token.id
-    c.client.management_url = url_for(request, 'volume')
+    c.client.management_url = cinder_url
     return c
 
 
@@ -93,7 +99,10 @@ def volume_snapshot_get(request, snapshot_id):
 
 
 def volume_snapshot_list(request):
-    return cinderclient(request).volume_snapshots.list()
+    c_client = cinderclient(request)
+    if c_client is None:
+        return []
+    return c_client.volume_snapshots.list()
 
 
 def volume_snapshot_create(request, volume_id, name, description):
@@ -106,7 +115,10 @@ def volume_snapshot_delete(request, snapshot_id):
 
 
 def tenant_quota_get(request, tenant_id):
-    return QuotaSet(cinderclient(request).quotas.get(tenant_id))
+    c_client = cinderclient(request)
+    if c_client is None:
+        return QuotaSet()
+    return QuotaSet(c_client.quotas.get(tenant_id))
 
 
 def tenant_quota_update(request, tenant_id, **kwargs):
