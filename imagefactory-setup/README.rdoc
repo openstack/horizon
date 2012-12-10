@@ -1,0 +1,49 @@
+= Image Building in OpenStack
+
+== Requirements
+
+This PoC is rather limited and is only tested on Fedora linux.  This giude requires a Bare Metal (no VM) Fedora 16, 17 or 18.
+
+== 1. Install OpenStack
+
+The first thing you will need is a working OpenStack installation.  There are a few restrictions within the proof of concept that require Horizon and Imagefactory running on Bare Metal and on the same machine.
+
+There is also an installation script found in the heat project that sets up OpenStack on one machine.  Great for trying this project out.  To use the heat tool, checkout the HEAT-API repo here: git://github.com/openstack/heat.git.  Then run:
+
+  ./tools/openstack install
+
+== 2. Install ImageFactory.
+
+The easiest way to install ImageFactory is to checkout the src and build the rpms.  You will need the hardys fork of ImageFactory found here:  https://github.com/hardys/imagefactory/tree/sh_glance_plugin
+
+Once you checked out the src build the rpms.
+
+  make rpm # from project root dir
+  cd imagefactory-plugins; make rpm
+
+Once you have biult the rpms then install via yum
+
+  sudo yum install <path-to-rpms> --skip-broken # There is a single package dep missing, we do not need it for this demo
+
+== 3. Register ImageFactory with OpenStack Keystone Service
+
+Checkout the extended version of horizon here:
+
+  git clone git@github.com:mtaylor/horizon.git
+
+Run the imagefactory horizon setup script.  This will register ImageFactory with keystone.  
+
+  ./tools/imagefactory-keystone-setup
+
+== 4. Boot Horizon
+
+Boot a development server of horizon.  
+
+  ./run_tests.sh --runserver
+
+== 5. Go create some images
+
+There are some sample image templates here:  https://github.com/aeolus-incubator/templates
+
+
+

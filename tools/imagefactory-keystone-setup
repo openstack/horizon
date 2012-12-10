@@ -1,0 +1,213 @@
+#!/bin/bash
+
+set +e
+
+KEYSTONE_CONF=${KEYSTONE_CONF:-/etc/keystone/keystone.conf}
+
+# Extract some info from Keystone's configuration file
+if [[ -r "$KEYSTONE_CONF" ]]; then
+    CONFIG_SERVICE_TOKEN=$(sed 's/[[:space:]]//g' $KEYSTONE_CONF | grep ^admin_token= | cut -d'=' -f2)
+    CONFIG_ADMIN_PORT=$(sed 's/[[:space:]]//g' $KEYSTONE_CONF | grep ^admin_port= | cut -d'=' -f2)
+fi
+
+SERVICE_TOKEN=${SERVICE_TOKEN:-$CONFIG_SERVICE_TOKEN}
+SERVICE_ENDPOINT=${SERVICE_ENDPOINT:-http://127.0.0.1:${CONFIG_ADMIN_PORT:-35357}/v2.0}
+if [[ -z "$SERVICE_TOKEN" ]]; then
+    echo "No service token found." >&2
+    echo "Set SERVICE_TOKEN manually from keystone.conf admin_token." >&2
+    exit 1
+fi
+
+set_admin_token() {
+    alias keystone="keystone --token $SERVICE_TOKEN \
+                             --endpoint $SERVICE_ENDPOINT"
+}
+
+unset_admin_token() {
+    unalias keystone
+}
+
+
+get_data() {
+    local match_column=$(($1 + 1))
+    local regex="$2"
+    local output_column=$(($3 + 1))
+    shift 3
+
+    echo $("$@" | \
+           awk -F'|' \
+               "! /^+/ && \$${match_column} ~ \"^ *${regex} *\$\" \
+                { print \$${output_column} }")
+}
+
+get_id () {
+    get_data 1 id 2 "$@"
+}
+
+get_column_num() {
+    local name=$1
+    shift
+    $@ | awk -F'|' "NR == 2 { for (i=2; i<NF; i++) if (\$i ~ \"^ *${name} *\$\") print (i - 1) }"
+}
+
+get_user() {
+    local username=$1
+
+    # Outut format of keystone user-list changed between essex and
+    # folsom - the columns have been re-ordered (!?), so detect what
+    # column to pass to get_data via get_column_num
+    namecol=$(get_column_num name keystone user-list)
+
+    local user_id=$(get_data $namecol $username 1 keystone user-list)
+
+    if [ -n "$user_id" ]; then
+        echo "Found existing $username user" >&2
+        echo $user_id
+    else
+        echo "Creating $username user..." >&2
+        get_id keystone user-create --name=$username \
+                                    --pass="$SERVICE_PASSWORD" \
+                                    --tenant_id $SERVICE_TENANT \
+                                    --email=imagefactory@example.com
+    fi
+}
+
+add_role() {
+    local user_id=$1
+    local tenant=$2
+    local role_id=$3
+    local username=$4
+
+    # The keystone argument format changed between essex and folsom
+    # so we use the fact that the folsom keystone version has a new
+    # option "user-role-list" to detect we're on that newer version
+    # This also allows us to detect when the user already has the
+    # requested role_id, preventing an error on folsom
+    user_roles=$(keystone user-role-list \
+                          --user_id $user_id\
+                          --tenant_id $tenant 2>/dev/null)
+    if [ $? == 0 ]; then
+        # Folsom
+        existing_role=$(get_data 1 $role_id 1 echo "$user_roles")
+        if [ -n "$existing_role" ]
+        then
+            echo "User $username already has role $role_id" >&2
+            return
+        fi
+        keystone user-role-add --tenant_id $tenant \
+                           --user_id $user_id \
+                           --role_id $role_id
+    else
+        # Essex
+        keystone user-role-add --tenant_id $tenant \
+                               --user $user_id \
+                               --role $role_id
+    fi
+}
+
+create_role() {
+    local role_name=$1
+
+    role_id=$(get_data 2 $role_name 1 keystone role-list)
+    if [ -n "$role_id" ]
+    then
+        echo "Role $role_name already exists : $role_id" >&2
+    else
+        keystone role-create --name $role_name
+    fi
+}
+
+get_endpoint() {
+    local service_type=$1
+
+    unset_admin_token
+    keystone endpoint-get --service $service_type
+    set_admin_token
+}
+
+delete_endpoint() {
+    local service_type=$1
+
+    local url=$(get_data 1 "${service_type}[.]publicURL" 2 \
+                get_endpoint $service_type 2>/dev/null | \
+                    sed -e "s/${TENANT_ID}/%[(]tenant_id[)]s/")
+
+    if [ -n "$url" ]; then
+        local endpoints=$(get_data 3 $url 1 keystone endpoint-list)
+
+        for endpoint in $endpoints; do
+            echo "Removing $service_type endpoint ${endpoint}..." >&2
+            keystone endpoint-delete "$endpoint" >&2
+        done
+
+        if [ -z "$endpoints" ]; then false; fi
+    else
+        false
+    fi
+}
+
+delete_all_endpoints() {
+    while delete_endpoint $1; do
+        true
+    done
+}
+
+delete_service() {
+    local service_type=$1
+
+    delete_all_endpoints $service_type
+
+    local service_ids=$(get_data 3 $service_type 1 keystone service-list)
+
+    for service in $service_ids; do
+        local service_name=$(get_data 1 $service 2 keystone service-list)
+        echo "Removing $service_name:$service_type service..." >&2
+        keystone service-delete $service >&2
+    done
+}
+
+get_service() {
+    local service_name=$1
+    local service_type=$2
+    local description="$3"
+
+    delete_service $service_type
+
+    get_id keystone service-create --name=$service_name \
+                                   --type=$service_type \
+                                   --description="$description"
+}
+
+add_endpoint() {
+    local service_id=$1
+    local url="$2"
+
+    keystone endpoint-create --region RegionOne --service_id $service_id \
+        --publicurl "$url" --adminurl "$url" --internalurl "$url" >&2
+}
+
+
+TENANT_ID=$(get_data 1 tenant_id 2 keystone token-get)
+set_admin_token
+
+ADMIN_ROLE=$(get_data 2 admin 1 keystone role-list)
+SERVICE_TENANT=$(get_data 2 service 1 keystone tenant-list)
+SERVICE_PASSWORD=${SERVICE_PASSWORD:-$OS_PASSWORD}
+if [[ "$SERVICE_PASSWORD" == "$OS_PASSWORD" ]]; then
+    echo "Using the OS_PASSWORD for the SERVICE_PASSWORD." >&2
+fi
+
+echo ADMIN_ROLE $ADMIN_ROLE
+echo SERVICE_TENANT $SERVICE_TENANT
+echo SERVICE_PASSWORD $SERVICE_PASSWORD
+echo SERVICE_TOKEN $SERVICE_TOKEN
+
+IMAGEFACTORY_USERNAME="imagefactory"
+IMAGEFACTORY_USERID=$(get_user $IMAGEFACTORY_USERNAME)
+echo IMAGEFACTORY_USERID $IMAGEFACTORY_USERID
+add_role $IMAGEFACTORY_USERID $SERVICE_TENANT $ADMIN_ROLE $IMAGEFACTORY_USERNAME
+
+IMAGEFACTORY_SERVICE=$(get_service imagefactory image-build \
+                   "ImageFactory API")
+add_endpoint $IMAGEFACTORY_SERVICE 'http://localhost:8075/imagefactory'
+
