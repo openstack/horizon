@@ -204,19 +204,6 @@ def wildcard_search(string, q):
 
 def swift_copy_object(request, orig_container_name, orig_object_name,
                       new_container_name, new_object_name):
-    try:
-        # FIXME(gabriel): The swift currently fails at unicode in the
-        # copy_to method, so to provide a better experience we check for
-        # unicode here and pre-empt with an error message rather than
-        # letting the call fail.
-        str(orig_container_name)
-        str(orig_object_name)
-        str(new_container_name)
-        str(new_object_name)
-    except UnicodeEncodeError:
-        raise exceptions.HorizonException(_("Unicode is not currently "
-                                            "supported for object copy."))
-
     if swift_object_exists(request, new_container_name, new_object_name):
         raise exceptions.AlreadyExists(new_object_name, 'object')
 

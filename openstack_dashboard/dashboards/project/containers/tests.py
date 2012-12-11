@@ -36,9 +36,9 @@ CONTAINER_INDEX_URL = reverse('horizon:project:containers:index')
 
 
 class SwiftTests(test.TestCase):
+    @test.create_stubs({api: ('swift_get_containers',)})
     def test_index_no_container_selected(self):
         containers = self.containers.list()
-        self.mox.StubOutWithMock(api, 'swift_get_containers')
         api.swift_get_containers(IsA(http.HttpRequest), marker=None) \
                                 .AndReturn((containers, False))
         self.mox.ReplayAll()
@@ -50,9 +50,9 @@ class SwiftTests(test.TestCase):
         resp_containers = res.context['table'].data
         self.assertEqual(len(resp_containers), len(containers))
 
+    @test.create_stubs({api: ('swift_delete_container',)})
     def test_delete_container(self):
         container = self.containers.get(name=u"container_two\u6346")
-        self.mox.StubOutWithMock(api, 'swift_delete_container')
         api.swift_delete_container(IsA(http.HttpRequest), container.name)
         self.mox.ReplayAll()
 
@@ -63,9 +63,9 @@ class SwiftTests(test.TestCase):
         handled = table.maybe_handle()
         self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
 
+    @test.create_stubs({api: ('swift_delete_container',)})
     def test_delete_container_nonempty(self):
         container = self.containers.first()
-        self.mox.StubOutWithMock(api, 'swift_delete_container')
         exc = self.exceptions.swift
         exc.silence_logging = True
         api.swift_delete_container(IsA(http.HttpRequest),
@@ -83,8 +83,8 @@ class SwiftTests(test.TestCase):
         res = self.client.get(reverse('horizon:project:containers:create'))
         self.assertTemplateUsed(res, 'project/containers/create.html')
 
+    @test.create_stubs({api: ('swift_create_container',)})
     def test_create_container_post(self):
-        self.mox.StubOutWithMock(api, 'swift_create_container')
         api.swift_create_container(IsA(http.HttpRequest),
                                    self.containers.first().name)
         self.mox.ReplayAll()
@@ -97,9 +97,8 @@ class SwiftTests(test.TestCase):
                       args=[wrap_delimiter(self.containers.first().name)])
         self.assertRedirectsNoFollow(res, url)
 
+    @test.create_stubs({api: ('swift_get_containers', 'swift_get_objects')})
     def test_index_container_selected(self):
-        self.mox.StubOutWithMock(api, 'swift_get_containers')
-        self.mox.StubOutWithMock(api, 'swift_get_objects')
         containers = (self.containers.list(), False)
         ret = (self.objects.list(), False)
         api.swift_get_containers(IsA(http.HttpRequest),
@@ -121,6 +120,7 @@ class SwiftTests(test.TestCase):
                                  expected,
                                  lambda obj: obj.name.encode('utf8'))
 
+    @test.create_stubs({api: ('swift_upload_object',)})
     def test_upload(self):
         container = self.containers.first()
         obj = self.objects.first()
@@ -131,7 +131,6 @@ class SwiftTests(test.TestCase):
         temp_file.flush()
         temp_file.seek(0)
 
-        self.mox.StubOutWithMock(api, 'swift_upload_object')
         api.swift_upload_object(IsA(http.HttpRequest),
                                 container.name,
                                 obj.name,
@@ -163,12 +162,12 @@ class SwiftTests(test.TestCase):
         self.assertNoMessages()
         self.assertContains(res, "Slash is not an allowed character.")
 
+    @test.create_stubs({api: ('swift_delete_object',)})
     def test_delete(self):
         container = self.containers.first()
         obj = self.objects.first()
         index_url = reverse('horizon:project:containers:index',
                             args=[wrap_delimiter(container.name)])
-        self.mox.StubOutWithMock(api, 'swift_delete_object')
         api.swift_delete_object(IsA(http.HttpRequest),
                                 container.name,
                                 obj.name)
@@ -182,11 +181,11 @@ class SwiftTests(test.TestCase):
         handled = table.maybe_handle()
         self.assertEqual(handled['location'], index_url)
 
+    @test.create_stubs({api.swift: ('swift_get_object',)})
     def test_download(self):
         container = self.containers.first()
         obj = self.objects.first()
 
-        self.mox.StubOutWithMock(api.swift, 'swift_get_object')
         api.swift.swift_get_object(IsA(http.HttpRequest),
                                    container.name,
                                    obj.name).AndReturn(obj)
@@ -198,8 +197,8 @@ class SwiftTests(test.TestCase):
         self.assertEqual(res.content, obj.data)
         self.assertTrue(res.has_header('Content-Disposition'))
 
+    @test.create_stubs({api: ('swift_get_containers',)})
     def test_copy_index(self):
-        self.mox.StubOutWithMock(api, 'swift_get_containers')
         ret = (self.containers.list(), False)
         api.swift_get_containers(IsA(http.HttpRequest)).AndReturn(ret)
         self.mox.ReplayAll()
@@ -209,13 +208,12 @@ class SwiftTests(test.TestCase):
                                             self.objects.first().name]))
         self.assertTemplateUsed(res, 'project/containers/copy.html')
 
+    @test.create_stubs({api: ('swift_get_containers', 'swift_copy_object')})
     def test_copy(self):
         container_1 = self.containers.get(name=u"container_one\u6346")
         container_2 = self.containers.get(name=u"container_two\u6346")
         obj = self.objects.first()
 
-        self.mox.StubOutWithMock(api, 'swift_get_containers')
-        self.mox.StubOutWithMock(api, 'swift_copy_object')
         ret = (self.containers.list(), False)
         api.swift_get_containers(IsA(http.HttpRequest)).AndReturn(ret)
         api.swift_copy_object(IsA(http.HttpRequest),

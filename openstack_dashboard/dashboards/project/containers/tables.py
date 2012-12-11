@@ -31,7 +31,7 @@ LOG = logging.getLogger(__name__)
 
 
 def wrap_delimiter(name):
-    if not name.endswith(FOLDER_DELIMITER):
+    if name and not name.endswith(FOLDER_DELIMITER):
         return name + FOLDER_DELIMITER
     return name
 
@@ -54,7 +54,7 @@ class DeleteContainer(tables.DeleteAction):
         # completion url
         if current_container in self.success_ids:
             return self.success_url
-        return  request.get_full_path()
+        return request.get_full_path()
 
 
 class CreateContainer(tables.LinkAction):

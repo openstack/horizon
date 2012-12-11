@@ -119,12 +119,15 @@ class CopyObject(forms.SelfHandlingForm):
         orig_object = data['orig_object_name']
         new_container = data['new_container_name']
         new_object = data['new_object_name']
-        new_path = "%s%s" % (data['path'], new_object)
+        path = data['path']
+        if path and not path.endswith("/"):
+            path = path + "/"
+        new_path = "%s%s" % (path, new_object)
 
         # Iteratively make sure all the directory markers exist.
-        if data['path']:
+        if path:
             path_component = ""
-            for bit in [i for i in data['path'].split("/") if i]:
+            for bit in [i for i in path.split("/") if i]:
                 path_component += bit
                 try:
                     api.swift.swift_create_subfolder(request,
@@ -145,7 +148,7 @@ class CopyObject(forms.SelfHandlingForm):
                                   orig_object,
                                   new_container,
                                   new_path)
-            dest = "%s/%s" % (new_container, data['path'])
+            dest = "%s/%s" % (new_container, path)
             vals = {"dest": dest.rstrip("/"),
                     "orig": orig_object.split("/")[-1],
                     "new": new_object}
