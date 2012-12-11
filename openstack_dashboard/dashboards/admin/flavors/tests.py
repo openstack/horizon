@@ -1,5 +1,3 @@
-import uuid
-
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA

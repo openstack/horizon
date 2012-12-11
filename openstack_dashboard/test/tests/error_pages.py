@@ -19,7 +19,6 @@ from os import path
 
 from django.conf import settings
 
-from horizon import exceptions
 from openstack_dashboard.test import helpers as test
 
 

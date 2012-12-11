@@ -30,7 +30,6 @@ from django.conf import settings
 from django.contrib import messages as django_messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.views import redirect_to_login
-from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.utils.encoding import iri_to_uri
 

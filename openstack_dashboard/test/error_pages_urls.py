@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import patterns
 
 from openstack_dashboard.urls import urlpatterns
 
