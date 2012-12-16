@@ -52,7 +52,8 @@ class UserSettingsForm(forms.SelfHandlingForm):
                 response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
 
         # Timezone
-        request.session['django_timezone'] = pytz.timezone(data['timezone'])
+        request.session['django_timezone'] = pytz.timezone(
+            data['timezone']).zone
 
         messages.success(request, translation.ugettext("Settings saved."))
 
