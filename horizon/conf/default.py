@@ -26,5 +26,8 @@ HORIZON_CONFIG = {
 
     # Password configuration.
     'password_validator': {'regex': '.*',
-                           'help_text': _("Password is not accepted")}
+                           'help_text': _("Password is not accepted")},
+
+    # Enable or disable simplified floating IP address management.
+    'simple_ip_management': True
 }

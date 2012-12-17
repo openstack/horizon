@@ -16,12 +16,16 @@
 
 import logging
 
+from django import shortcuts
 from django import template
 from django.core import urlresolvers
 from django.template.defaultfilters import title
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
+from horizon.conf import HORIZON_CONFIG
+from horizon import exceptions
+from horizon import messages
 from horizon import tables
 from horizon.templatetags import sizeformat
 from horizon.utils.filters import replace_underscores
@@ -221,6 +225,8 @@ class AssociateIP(tables.LinkAction):
     classes = ("ajax-modal", "btn-associate")
 
     def allowed(self, request, instance):
+        if HORIZON_CONFIG["simple_ip_management"]:
+            return False
         return not _is_deleting(instance)
 
     def get_link_url(self, datum):
@@ -230,6 +236,68 @@ class AssociateIP(tables.LinkAction):
                   IPAssociationWorkflow.redirect_param_name: next}
         params = urlencode(params)
         return "?".join([base_url, params])
+
+
+class SimpleAssociateIP(tables.Action):
+    name = "associate"
+    verbose_name = _("Associate Floating IP")
+    classes = ("btn-associate",)
+
+    def allowed(self, request, instance):
+        if not HORIZON_CONFIG["simple_ip_management"]:
+            return False
+        return not _is_deleting(instance)
+
+    def single(self, table, request, instance):
+        try:
+            fip = api.nova.tenant_floating_ip_allocate(request)
+            api.nova.server_add_floating_ip(request, instance, fip.id)
+            messages.success(request,
+                             _("Successfully associated floating IP: %s")
+                             % fip.ip)
+        except:
+            exceptions.handle(request,
+                              _("Unable to associate floating IP."))
+        return shortcuts.redirect("horizon:project:instances:index")
+
+
+if HORIZON_CONFIG["simple_ip_management"]:
+    CurrentAssociateIP = SimpleAssociateIP
+else:
+    CurrentAssociateIP = AssociateIP
+
+
+class SimpleDisassociateIP(tables.Action):
+    name = "disassociate"
+    verbose_name = _("Disassociate Floating IP")
+    classes = ("btn-danger", "btn-disassociate",)
+
+    def allowed(self, request, instance):
+        if not HORIZON_CONFIG["simple_ip_management"]:
+            return False
+        return not _is_deleting(instance)
+
+    def single(self, table, request, instance_id):
+        try:
+            fips = [fip for fip in api.nova.tenant_floating_ip_list(request)
+                    if fip.instance_id == instance_id]
+            # Removing multiple floating IPs at once doesn't work, so this pops
+            # off the first one.
+            if fips:
+                fip = fips.pop()
+                api.nova.server_remove_floating_ip(request,
+                                                   instance_id,
+                                                   fip.id)
+                api.nova.tenant_floating_ip_release(request, fip.id)
+                messages.success(request,
+                                 _("Successfully disassociated "
+                                   "floating IP: %s") % fip.ip)
+            else:
+                messages.info(request, _("No floating IPs to disassociate."))
+        except:
+            exceptions.handle(request,
+                              _("Unable to disassociate floating IP."))
+        return shortcuts.redirect("horizon:project:instances:index")
 
 
 class UpdateRow(tables.Row):
@@ -314,6 +382,7 @@ class InstancesTable(tables.DataTable):
         status_columns = ["status", "task"]
         row_class = UpdateRow
         table_actions = (LaunchLink, TerminateInstance)
-        row_actions = (CreateSnapshot, AssociateIP, EditInstance, ConsoleLink,
+        row_actions = (CreateSnapshot, CurrentAssociateIP,
+                       SimpleDisassociateIP, EditInstance, ConsoleLink,
                        LogLink, TogglePause, ToggleSuspend, RebootInstance,
                        TerminateInstance)
