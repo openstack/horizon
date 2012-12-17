@@ -32,6 +32,7 @@ from horizon import tables
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard.api.base import is_service_enabled
 from .images.tables import ImagesTable
 from .snapshots.tables import SnapshotsTable
 from .volume_snapshots.tables import VolumeSnapshotsTable
@@ -75,12 +76,15 @@ class IndexView(tables.MultiTableView):
         return snaps
 
     def get_volume_snapshots_data(self):
-        try:
-            snapshots = api.volume_snapshot_list(self.request)
-        except:
+        if is_service_enabled(self.request, 'volume'):
+            try:
+                snapshots = api.volume_snapshot_list(self.request)
+            except:
+                snapshots = []
+                exceptions.handle(self.request, _("Unable to retrieve "
+                                                  "volume snapshots."))
+        else:
             snapshots = []
-            exceptions.handle(self.request, _("Unable to retrieve "
-                                              "volume snapshots."))
         return snapshots
 
 
