@@ -28,6 +28,7 @@ import logging
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
+from horizon.api.base import is_service_enabled
 from horizon import exceptions
 from horizon import tables
 from horizon import tabs
@@ -74,12 +75,15 @@ class IndexView(tables.MultiTableView):
         return snaps
 
     def get_volume_snapshots_data(self):
-        try:
-            snapshots = api.volume_snapshot_list(self.request)
-        except:
+        if is_service_enabled(self.request, 'volume'):
+            try:
+                snapshots = api.volume_snapshot_list(self.request)
+            except:
+                snapshots = []
+                exceptions.handle(self.request, _("Unable to retrieve "
+                                                  "volume snapshots."))
+        else:
             snapshots = []
-            exceptions.handle(self.request, _("Unable to retrieve "
-                                              "volume snapshots."))
         return snapshots
 
 
