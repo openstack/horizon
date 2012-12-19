@@ -53,7 +53,7 @@ class DeleteContainer(tables.DeleteAction):
         # completion url
         if current_container in self.success_ids:
             return self.success_url
-        return  request.get_full_path()
+        return request.get_full_path()
 
 
 class CreateContainer(tables.LinkAction):

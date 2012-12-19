@@ -40,7 +40,7 @@ class CreateNetwork(forms.SelfHandlingForm):
     def _instantiate(cls, request, *args, **kwargs):
         return cls(request, *args, **kwargs)
 
-    def  __init__(self, request, *args, **kwargs):
+    def __init__(self, request, *args, **kwargs):
         super(CreateNetwork, self).__init__(request, *args, **kwargs)
         tenant_choices = [('', _("Select a project"))]
         for tenant in api.keystone.tenant_list(request, admin=True):
