@@ -229,8 +229,8 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
 
 
 def swift_create_subfolder(request, container_name, folder_name):
-    headers = {'content-type': 'application/directory',
-               'content-length': 0}
+    headers = {'Content-Type': 'application/directory',
+               'Content-Length': 0}
     etag = swift_api(request).put_object(container_name,
                                          folder_name,
                                          None,
