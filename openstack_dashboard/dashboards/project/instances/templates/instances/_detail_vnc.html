@@ -5,11 +5,15 @@
 <p class='alert alert-info'>{% blocktrans %}If VNC console is not responding to keyboard input: click the grey status bar below.{% endblocktrans %} <a href="{{ vnc_url }}">{% trans "Click here to show only VNC" %}</a></p>
 <iframe id="vnc_console" src="{{ vnc_url }}" style="width:100%;height:100%"></iframe>
 <script type="text/javascript">
-    addHorizonLoadEvent(function() {
-        $('iframe#vnc_console').css({
-            height: $(document).height() + 'px'
-        });
-    });
+    var fix_height = function() {
+        $('iframe#vnc_console').css({ height: $(document).height() + 'px' });
+    };
+    // there are two code paths to this particular block; handle them both
+    if (typeof($) != 'undefined') {
+        $(document).ready(fix_height);
+    } else {
+        addHorizonLoadEvent(fix_height);
+    }
 </script>
 {% else %}
 <p class='alert alert-error'>{% blocktrans %}VNC console is currently unavailable. Please try again later.{% endblocktrans %}
