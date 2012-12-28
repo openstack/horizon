@@ -826,6 +826,9 @@ td.actions_column {
 #floating_ips td.actions_column {
   width: 180px;
 }
+#instances td.actions_column {
+  width: 175px;
+}
 
 td.actions_column .row_actions a,
 td.actions_column .row_actions input,
@@ -845,6 +848,10 @@ td.actions_column .row_actions button {
 
 td.actions_column .row_actions .hide {
   display: none;
+}
+
+td.actions_column .btn-action-required {
+  font-weight: bold;
 }
 
 /* Makes size consistent across browsers when mixing "btn-group" and "small" */
@@ -1388,6 +1395,14 @@ label.log-length {
 
 /* Replaces CPU hungry spin.js with animated gif */
 .loading_gif {
+  width: 35px;
+  height: 13px;
+  padding-top: 2px;
+  padding-right: 5px;
+  float: left;
+}
+
+.action_required_img {
   width: 35px;
   height: 13px;
   padding-top: 2px;

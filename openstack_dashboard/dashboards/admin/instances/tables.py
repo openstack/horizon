@@ -26,10 +26,29 @@ from horizon.utils.filters import replace_underscores
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances.tables import (
         TerminateInstance, EditInstance, ConsoleLink, LogLink, CreateSnapshot,
-        TogglePause, ToggleSuspend, RebootInstance, get_size, UpdateRow,
-        get_ips, get_power_state)
+        TogglePause, ToggleSuspend, RebootInstance, ConfirmResize,
+        RevertResize, get_size, UpdateRow, get_ips, get_power_state,
+        is_deleting, ACTIVE_STATES, STATUS_DISPLAY_CHOICES,
+        TASK_DISPLAY_CHOICES)
 
 LOG = logging.getLogger(__name__)
+
+
+class MigrateInstance(tables.BatchAction):
+    name = "migrate"
+    action_present = _("Migrate")
+    action_past = _("Scheduled migration (pending confirmation) of")
+    data_type_singular = _("Instance")
+    data_type_plural = _("Instances")
+    classes = ("btn-migrate", "btn-danger")
+
+    def allowed(self, request, instance):
+        return ((instance.status in ACTIVE_STATES
+                 or instance.status == 'SHUTOFF')
+                and not is_deleting(instance))
+
+    def action(self, request, obj_id):
+        api.server_migrate(request, obj_id)
 
 
 class AdminUpdateRow(UpdateRow):
@@ -54,9 +73,6 @@ class AdminInstancesTable(tables.DataTable):
         ("paused", True),
         ("error", False),
     )
-    TASK_DISPLAY_CHOICES = (
-        ("image_snapshot", "Snapshotting"),
-    )
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
     # NOTE(gabriel): Commenting out the user column because all we have
     # is an ID, and correlating that at production scale using our current
@@ -78,7 +94,8 @@ class AdminInstancesTable(tables.DataTable):
                            filters=(title, replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
-                           status_choices=STATUS_CHOICES)
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
                          filters=(title, replace_underscores),
@@ -95,6 +112,6 @@ class AdminInstancesTable(tables.DataTable):
         status_columns = ["status", "task"]
         table_actions = (TerminateInstance,)
         row_class = AdminUpdateRow
-        row_actions = (EditInstance, ConsoleLink, LogLink, CreateSnapshot,
-                       TogglePause, ToggleSuspend, RebootInstance,
-                       TerminateInstance)
+        row_actions = (ConfirmResize, RevertResize, EditInstance, ConsoleLink,
+                       LogLink, CreateSnapshot, TogglePause, ToggleSuspend,
+                       MigrateInstance, RebootInstance, TerminateInstance)

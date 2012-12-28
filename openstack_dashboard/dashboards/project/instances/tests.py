@@ -1020,3 +1020,20 @@ class InstanceTests(test.TestCase):
                                  % (url, " ".join(classes), link_name),
                             html=True,
                             msg_prefix="The launch button is not disabled")
+
+    @test.create_stubs({api: ('flavor_list', 'server_list',
+                              'tenant_absolute_limits')})
+    def test_index_options_after_migrate(self):
+        server = self.servers.first()
+        server.status = "VERIFY_RESIZE"
+
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+        self.assertContains(res, "instances__confirm")
+        self.assertContains(res, "instances__revert")

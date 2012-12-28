@@ -59,7 +59,7 @@ SUSPEND = 0
 RESUME = 1
 
 
-def _is_deleting(instance):
+def is_deleting(instance):
     task_state = getattr(instance, "OS-EXT-STS:task_state", None)
     if not task_state:
         return False
@@ -97,7 +97,7 @@ class RebootInstance(tables.BatchAction):
     def allowed(self, request, instance=None):
         return ((instance.status in ACTIVE_STATES
                  or instance.status == 'SHUTOFF')
-                and not _is_deleting(instance))
+                and not is_deleting(instance))
 
     def action(self, request, obj_id):
         api.server_reboot(request, obj_id)
@@ -121,7 +121,7 @@ class TogglePause(tables.BatchAction):
         else:
             self.current_present_action = PAUSE
         return ((instance.status in ACTIVE_STATES or self.paused)
-                and not _is_deleting(instance))
+                and not is_deleting(instance))
 
     def action(self, request, obj_id):
         if self.paused:
@@ -150,7 +150,7 @@ class ToggleSuspend(tables.BatchAction):
         else:
             self.current_present_action = SUSPEND
         return ((instance.status in ACTIVE_STATES or self.suspended)
-                and not _is_deleting(instance))
+                and not is_deleting(instance))
 
     def action(self, request, obj_id):
         if self.suspended:
@@ -202,7 +202,7 @@ class EditInstance(tables.LinkAction):
     classes = ("ajax-modal", "btn-edit")
 
     def allowed(self, request, instance):
-        return not _is_deleting(instance)
+        return not is_deleting(instance)
 
 
 class CreateSnapshot(tables.LinkAction):
@@ -212,7 +212,7 @@ class CreateSnapshot(tables.LinkAction):
     classes = ("ajax-modal", "btn-camera")
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES and not _is_deleting(instance)
+        return instance.status in ACTIVE_STATES and not is_deleting(instance)
 
 
 class ConsoleLink(tables.LinkAction):
@@ -222,7 +222,7 @@ class ConsoleLink(tables.LinkAction):
     classes = ("btn-console",)
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES and not _is_deleting(instance)
+        return instance.status in ACTIVE_STATES and not is_deleting(instance)
 
     def get_link_url(self, datum):
         base_url = super(ConsoleLink, self).get_link_url(datum)
@@ -237,12 +237,36 @@ class LogLink(tables.LinkAction):
     classes = ("btn-log",)
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES and not _is_deleting(instance)
+        return instance.status in ACTIVE_STATES and not is_deleting(instance)
 
     def get_link_url(self, datum):
         base_url = super(LogLink, self).get_link_url(datum)
         tab_query_string = LogTab(InstanceDetailTabs).get_query_string()
         return "?".join([base_url, tab_query_string])
+
+
+class ConfirmResize(tables.Action):
+    name = "confirm"
+    verbose_name = _("Confirm Resize/Migrate")
+    classes = ("btn-confirm", "btn-action-required")
+
+    def allowed(self, request, instance):
+        return instance.status == 'VERIFY_RESIZE'
+
+    def single(self, table, request, instance):
+        api.server_confirm_resize(request, instance)
+
+
+class RevertResize(tables.Action):
+    name = "revert"
+    verbose_name = _("Revert Resize/Migrate")
+    classes = ("btn-revert", "btn-action-required")
+
+    def allowed(self, request, instance):
+        return instance.status == 'VERIFY_RESIZE'
+
+    def single(self, table, request, instance):
+        api.server_revert_resize(request, instance)
 
 
 class AssociateIP(tables.LinkAction):
@@ -254,7 +278,7 @@ class AssociateIP(tables.LinkAction):
     def allowed(self, request, instance):
         if HORIZON_CONFIG["simple_ip_management"]:
             return False
-        return not _is_deleting(instance)
+        return not is_deleting(instance)
 
     def get_link_url(self, datum):
         base_url = urlresolvers.reverse(self.url)
@@ -273,7 +297,7 @@ class SimpleAssociateIP(tables.Action):
     def allowed(self, request, instance):
         if not HORIZON_CONFIG["simple_ip_management"]:
             return False
-        return not _is_deleting(instance)
+        return not is_deleting(instance)
 
     def single(self, table, request, instance):
         try:
@@ -302,7 +326,7 @@ class SimpleDisassociateIP(tables.Action):
     def allowed(self, request, instance):
         if not HORIZON_CONFIG["simple_ip_management"]:
             return False
-        return not _is_deleting(instance)
+        return not is_deleting(instance)
 
     def single(self, table, request, instance_id):
         try:
@@ -365,6 +389,24 @@ def get_power_state(instance):
     return POWER_STATES.get(getattr(instance, "OS-EXT-STS:power_state", 0), '')
 
 
+STATUS_DISPLAY_CHOICES = (
+    ("resize", "Resize/Migrate"),
+    ("verify_resize", "Confirm or Revert Resize/Migrate"),
+    ("revert_resize", "Revert Resize/Migrate"),
+)
+
+
+TASK_DISPLAY_CHOICES = (
+    ("image_snapshot", "Snapshotting"),
+    ("resize_prep", "Preparing Resize or Migrate"),
+    ("resize_migrating", "Resizing or Migrating"),
+    ("resize_migrated", "Resized or Migrated"),
+    ("resize_finish", "Finishing Resize or Migrate"),
+    ("resize_confirming", "Confirming Resize or Nigrate"),
+    ("resize_reverting", "Reverting Resize or Migrate"),
+)
+
+
 class InstancesTable(tables.DataTable):
     TASK_STATUS_CHOICES = (
         (None, True),
@@ -376,9 +418,6 @@ class InstancesTable(tables.DataTable):
         ("suspended", True),
         ("paused", True),
         ("error", False),
-    )
-    TASK_DISPLAY_CHOICES = (
-        ("image_snapshot", "Snapshotting"),
     )
     name = tables.Column("name",
                          link=("horizon:project:instances:detail"),
@@ -392,7 +431,8 @@ class InstancesTable(tables.DataTable):
                            filters=(title, replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
-                           status_choices=STATUS_CHOICES)
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
                          filters=(title, replace_underscores),
@@ -409,7 +449,7 @@ class InstancesTable(tables.DataTable):
         status_columns = ["status", "task"]
         row_class = UpdateRow
         table_actions = (LaunchLink, TerminateInstance)
-        row_actions = (CreateSnapshot, CurrentAssociateIP,
-                       SimpleDisassociateIP, EditInstance, ConsoleLink,
-                       LogLink, TogglePause, ToggleSuspend, RebootInstance,
-                       TerminateInstance)
+        row_actions = (ConfirmResize, RevertResize, CreateSnapshot,
+                       CurrentAssociateIP, SimpleDisassociateIP, EditInstance,
+                       ConsoleLink, LogLink, TogglePause, ToggleSuspend,
+                       RebootInstance, TerminateInstance)

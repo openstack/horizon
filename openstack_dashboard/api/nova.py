@@ -378,6 +378,18 @@ def server_update(request, instance_id, name):
         return response
 
 
+def server_migrate(request, instance_id):
+    novaclient(request).servers.migrate(instance_id)
+
+
+def server_confirm_resize(request, instance_id):
+    novaclient(request).servers.confirm_resize(instance_id)
+
+
+def server_revert_resize(request, instance_id):
+    novaclient(request).servers.revert_resize(instance_id)
+
+
 def server_add_floating_ip(request, server, floating_ip):
     """Associates floating IP to server's fixed IP.
     """

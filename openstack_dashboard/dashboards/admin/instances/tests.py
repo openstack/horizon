@@ -140,3 +140,37 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertContains(res, "512MB RAM | 1 VCPU | 0 Disk", 1, 200)
         self.assertContains(res, "Active", 1, 200)
         self.assertContains(res, "Running", 1, 200)
+
+    @test.create_stubs({api.nova: ('flavor_list', 'server_list',),
+                        api.keystone: ('tenant_list',)})
+    def test_index_options_before_migrate(self):
+        api.keystone.tenant_list(IsA(http.HttpRequest), admin=True).\
+                                 AndReturn(self.tenants.list())
+        api.nova.server_list(IsA(http.HttpRequest),
+                             all_tenants=True).AndReturn(self.servers.list())
+        api.nova.flavor_list(IsA(http.HttpRequest)).\
+                             AndReturn(self.flavors.list())
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:admin:instances:index'))
+        self.assertContains(res, "instances__migrate")
+        self.assertNotContains(res, "instances__confirm")
+        self.assertNotContains(res, "instances__revert")
+
+    @test.create_stubs({api.nova: ('flavor_list', 'server_list',),
+                        api.keystone: ('tenant_list',)})
+    def test_index_options_after_migrate(self):
+        server = self.servers.first()
+        server.status = "VERIFY_RESIZE"
+        api.keystone.tenant_list(IsA(http.HttpRequest), admin=True).\
+                                 AndReturn(self.tenants.list())
+        api.nova.server_list(IsA(http.HttpRequest),
+                             all_tenants=True).AndReturn(self.servers.list())
+        api.nova.flavor_list(IsA(http.HttpRequest)).\
+                             AndReturn(self.flavors.list())
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:admin:instances:index'))
+        self.assertContains(res, "instances__confirm")
+        self.assertContains(res, "instances__revert")
+        self.assertNotContains(res, "instances__migrate")
