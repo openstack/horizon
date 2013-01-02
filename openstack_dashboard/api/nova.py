@@ -53,6 +53,13 @@ class VNCConsole(APIDictWrapper):
     _attrs = ['url', 'type']
 
 
+class SPICEConsole(APIDictWrapper):
+    """Wrapper for the "console" dictionary returned by the
+    novaclient.servers.get_spice_console method.
+    """
+    _attrs = ['url', 'type']
+
+
 class Server(APIResourceWrapper):
     """Simple wrapper around novaclient.server.Server
 
@@ -193,6 +200,11 @@ def novaclient(request):
 def server_vnc_console(request, instance_id, console_type='novnc'):
     return VNCConsole(novaclient(request).servers.get_vnc_console(instance_id,
                                                   console_type)['console'])
+
+
+def server_spice_console(request, instance_id, console_type='spice-html5'):
+    return SPICEConsole(novaclient(request).servers.get_spice_console(
+            instance_id, console_type)['console'])
 
 
 def flavor_create(request, name, memory, vcpu, disk, ephemeral=0, swap=0,

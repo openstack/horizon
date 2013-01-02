@@ -33,7 +33,7 @@ from horizon.utils.filters import replace_underscores
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security \
         .floating_ips.workflows import IPAssociationWorkflow
-from .tabs import InstanceDetailTabs, LogTab, VNCTab
+from .tabs import InstanceDetailTabs, LogTab, ConsoleTab
 
 
 LOG = logging.getLogger(__name__)
@@ -217,7 +217,7 @@ class CreateSnapshot(tables.LinkAction):
 
 class ConsoleLink(tables.LinkAction):
     name = "console"
-    verbose_name = _("VNC Console")
+    verbose_name = _("Console")
     url = "horizon:project:instances:detail"
     classes = ("btn-console",)
 
@@ -226,7 +226,7 @@ class ConsoleLink(tables.LinkAction):
 
     def get_link_url(self, datum):
         base_url = super(ConsoleLink, self).get_link_url(datum)
-        tab_query_string = VNCTab(InstanceDetailTabs).get_query_string()
+        tab_query_string = ConsoleTab(InstanceDetailTabs).get_query_string()
         return "?".join([base_url, tab_query_string])
 
 

@@ -51,28 +51,35 @@ class LogTab(tabs.Tab):
                 "console_log": data}
 
 
-class VNCTab(tabs.Tab):
-    name = _("VNC")
-    slug = "vnc"
-    template_name = "project/instances/_detail_vnc.html"
+class ConsoleTab(tabs.Tab):
+    name = _("Console")
+    slug = "console"
+    template_name = "project/instances/_detail_console.html"
     preload = False
 
     def get_context_data(self, request):
         instance = self.tab_group.kwargs['instance']
+        # Currently prefer VNC over SPICE, since noVNC has had much more
+        # testing than spice-html5
         try:
             console = api.nova.server_vnc_console(request, instance.id)
-            vnc_url = "%s&title=%s(%s)" % (console.url,
-                                           getattr(instance, "name", ""),
-                                           instance.id)
+            console_url = "%s&title=%s(%s)" % (
+                console.url,
+                getattr(instance, "name", ""),
+                instance.id)
         except:
-            vnc_url = None
-            exceptions.handle(request,
-                              _('Unable to get VNC console for '
-                                'instance "%s".') % instance.id)
-        return {'vnc_url': vnc_url, 'instance_id': instance.id}
+            try:
+                console = api.nova.server_spice_console(request, instance.id)
+                console_url = "%s&title=%s(%s)" % (
+                    console.url,
+                    getattr(instance, "name", ""),
+                    instance.id)
+            except:
+                console_url = None
+        return {'console_url': console_url, 'instance_id': instance.id}
 
 
 class InstanceDetailTabs(tabs.TabGroup):
     slug = "instance_details"
-    tabs = (OverviewTab, LogTab, VNCTab)
+    tabs = (OverviewTab, LogTab, ConsoleTab)
     sticky = True

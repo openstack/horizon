@@ -1,0 +1,21 @@
+{% load i18n %}
+
+<h3>{% trans "Instance Console" %}</h3>
+{% if console_url %}
+<p class='alert alert-info'>{% blocktrans %}If console is not responding to keyboard input: click the grey status bar below.{% endblocktrans %} <a href="{{ console_url }}"  style="text-decoration: underline">{% trans "Click here to show only console" %}</a></p>
+<iframe id="console_embed" src="{{ console_url }}" style="width:100%;height:100%"></iframe>
+<script type="text/javascript">
+    var fix_height = function() {
+        $('iframe#console_embed').css({ height: $(document).height() + 'px' });
+    };
+    // there are two code paths to this particular block; handle them both
+    if (typeof($) != 'undefined') {
+        $(document).ready(fix_height);
+    } else {
+        addHorizonLoadEvent(fix_height);
+    }
+</script>
+{% else %}
+<p class='alert alert-error'>{% blocktrans %}console is currently unavailable. Please try again later.{% endblocktrans %}
+<a class='btn btn-mini' href="{% url horizon:project:instances:detail instance_id %}">{% trans "Reload" %}</a></p>
+{% endif %}

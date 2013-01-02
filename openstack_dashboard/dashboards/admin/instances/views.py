@@ -31,7 +31,7 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.instances.tables import \
         AdminInstancesTable
 from openstack_dashboard.dashboards.project.instances.views import \
-        console, DetailView, vnc
+        console, DetailView, vnc, spice
 
 LOG = logging.getLogger(__name__)
 

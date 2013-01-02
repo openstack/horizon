@@ -61,7 +61,7 @@ class ComputeApiTests(test.APITestCase):
 
     def test_server_vnc_console(self):
         server = self.servers.first()
-        console = self.servers.console_data
+        console = self.servers.vnc_console_data
         console_type = console["console"]["type"]
 
         novaclient = self.stub_novaclient()
@@ -74,6 +74,22 @@ class ComputeApiTests(test.APITestCase):
                                               server.id,
                                               console_type)
         self.assertIsInstance(ret_val, api.nova.VNCConsole)
+
+    def test_server_spice_console(self):
+        server = self.servers.first()
+        console = self.servers.spice_console_data
+        console_type = console["console"]["type"]
+
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.get_spice_console(server.id,
+                                           console_type).AndReturn(console)
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.server_spice_console(self.request,
+                                                server.id,
+                                                console_type)
+        self.assertIsInstance(ret_val, api.nova.SPICEConsole)
 
     def test_server_list(self):
         servers = self.servers.list()

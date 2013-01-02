@@ -346,7 +346,11 @@ def data(TEST):
     # VNC Console Data
     console = {u'console': {u'url': u'http://example.com:6080/vnc_auto.html',
                             u'type': u'novnc'}}
-    TEST.servers.console_data = console
+    TEST.servers.vnc_console_data = console
+    # SPICE Console Data
+    console = {u'console': {u'url': u'http://example.com:6080/spice_auto.html',
+                            u'type': u'spice'}}
+    TEST.servers.spice_console_data = console
     # Floating IPs
     fip_1 = floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
                                     {'id': 1,

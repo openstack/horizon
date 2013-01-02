@@ -33,5 +33,6 @@ urlpatterns = patterns(VIEW_MOD,
     url(r'^(?P<instance_id>[^/]+)/$', DetailView.as_view(), name='detail'),
     url(INSTANCES % 'update', UpdateView.as_view(), name='update'),
     url(INSTANCES % 'console', 'console', name='console'),
-    url(INSTANCES % 'vnc', 'vnc', name='vnc')
+    url(INSTANCES % 'vnc', 'vnc', name='vnc'),
+    url(INSTANCES % 'spice', 'spice', name='spice'),
 )

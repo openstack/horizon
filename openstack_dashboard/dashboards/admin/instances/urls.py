@@ -31,4 +31,5 @@ urlpatterns = patterns('openstack_dashboard.dashboards.admin.instances.views',
     url(INSTANCES % 'detail', DetailView.as_view(), name='detail'),
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
+    url(INSTANCES % 'spice', 'spice', name='spice'),
 )
