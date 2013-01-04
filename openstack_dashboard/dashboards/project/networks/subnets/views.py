@@ -22,26 +22,21 @@ import logging
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import forms
 from horizon import exceptions
 from horizon import tabs
+from horizon import workflows
 
 from openstack_dashboard import api
-from .forms import CreateSubnet, UpdateSubnet
 from .tabs import SubnetDetailTabs
+from .workflows import CreateSubnet, UpdateSubnet
 
 
 LOG = logging.getLogger(__name__)
 
 
-class CreateView(forms.ModalFormView):
-    form_class = CreateSubnet
+class CreateView(workflows.WorkflowView):
+    workflow_class = CreateSubnet
     template_name = 'project/networks/subnets/create.html'
-    success_url = 'horizon:project:networks:detail'
-
-    def get_success_url(self):
-        return reverse(self.success_url,
-                       args=(self.kwargs['network_id'],))
 
     def get_object(self):
         if not hasattr(self, "_object"):
@@ -49,16 +44,12 @@ class CreateView(forms.ModalFormView):
                 network_id = self.kwargs["network_id"]
                 self._object = api.quantum.network_get(self.request,
                                                        network_id)
+                self._object.set_id_as_name_if_empty()
             except:
                 redirect = reverse('horizon:project:networks:index')
                 msg = _("Unable to retrieve network.")
                 exceptions.handle(self.request, msg, redirect=redirect)
         return self._object
-
-    def get_context_data(self, **kwargs):
-        context = super(CreateView, self).get_context_data(**kwargs)
-        context['network'] = self.get_object()
-        return context
 
     def get_initial(self):
         network = self.get_object()
@@ -66,15 +57,9 @@ class CreateView(forms.ModalFormView):
                 "network_name": network.name}
 
 
-class UpdateView(forms.ModalFormView):
-    form_class = UpdateSubnet
+class UpdateView(workflows.WorkflowView):
+    workflow_class = UpdateSubnet
     template_name = 'project/networks/subnets/update.html'
-    context_object_name = 'subnet'
-    success_url = reverse_lazy('horizon:project:networks:detail')
-
-    def get_success_url(self):
-        return reverse('horizon:project:networks:detail',
-                       args=(self.kwargs['network_id'],))
 
     def _get_object(self, *args, **kwargs):
         if not hasattr(self, "_object"):
@@ -87,23 +72,30 @@ class UpdateView(forms.ModalFormView):
                 exceptions.handle(self.request, msg, redirect=redirect)
         return self._object
 
-    def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
-        subnet = self._get_object()
-        context['subnet_id'] = subnet.id
-        context['network_id'] = subnet.network_id
-        context['cidr'] = subnet.cidr
-        context['ip_version'] = subnet.ipver_str
-        return context
-
     def get_initial(self):
+        initial = super(UpdateView, self).get_initial()
+
         subnet = self._get_object()
-        return {'network_id': self.kwargs['network_id'],
-                'subnet_id': subnet['id'],
-                'cidr': subnet['cidr'],
-                'ip_version': subnet['ip_version'],
-                'name': subnet['name'],
-                'gateway_ip': subnet['gateway_ip']}
+
+        initial['network_id'] = self.kwargs['network_id']
+        initial['subnet_id'] = subnet['id']
+        initial['subnet_name'] = subnet['name']
+
+        for key in ('cidr', 'ip_version', 'enable_dhcp'):
+            initial[key] = subnet[key]
+
+        initial['gateway_ip'] = subnet['gateway_ip'] or ''
+        initial['no_gateway'] = (subnet['gateway_ip'] is None)
+
+        initial['dns_nameservers'] = '\n'.join(subnet['dns_nameservers'])
+        pools = ['%s,%s' % (p['start'], p['end'])
+                 for p in subnet['allocation_pools']]
+        initial['allocation_pools'] = '\n'.join(pools)
+        routes = ['%s,%s' % (r['destination'], r['nexthop'])
+                 for r in subnet['host_routes']]
+        initial['host_routes'] = '\n'.join(routes)
+
+        return initial
 
 
 class DetailView(tabs.TabView):

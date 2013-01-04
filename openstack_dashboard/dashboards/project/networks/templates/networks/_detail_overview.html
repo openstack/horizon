@@ -16,5 +16,13 @@
     <dd>{{ network.admin_state|default:"Unknown" }}</dd>
     <dt>{% trans "Shared" %}</dt>
     <dd>{{ network.shared|yesno|capfirst }}</dd>
+    <dt>{% trans "External Network" %}</dt>
+    <dd>{{ network.router__external|yesno|capfirst }}</dd>
+    {% if network.provider__network_type %}
+    <dt>{% trans "Provider Network" %}</dt>
+    <dd>{% trans "Network Type" %}: {{ network.provider__network_type|default:"Unknown" }}</dd>
+    <dd>{% trans "Physical Network" %}: {{ network.provider__physical_network|default:"-" }}</dd>
+    <dd>{% trans "Segmentation ID" %}: {{ network.provider__segmentation_id|default:"-" }}</dd>
+    {% endif %}
   </dl>
 </div>

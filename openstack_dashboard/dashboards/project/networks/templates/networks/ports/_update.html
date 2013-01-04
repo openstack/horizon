@@ -1,20 +1,16 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
-{% block form_id %}update_subnet_form{% endblock %}
-{% block form_action %}{% url horizon:project:networks:editsubnet network_id subnet_id %}{% endblock %}
+{% block form_id %}update_port_form{% endblock %}
+{% block form_action %}{% url horizon:project:networks:editport network_id port_id %}{% endblock %}
 
-{% block modal-header %}{% trans "Edit Subnet" %}{% endblock %}
+{% block modal-header %}{% trans "Edit Port" %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
     <dl>
       <dt>{% trans "ID" %}</dt>
-      <dd>{{ subnet_id }}</dd>
-      <dt>{% trans "Network Address" %}</dt>
-      <dd>{{ cidr }}</dd>
-      <dt>{% trans "IP version" %}</dt>
-      <dd>{{ ip_version }}</dd>
+      <dd>{{ port_id }}</dd>
     </dl>
     <hr>
     <fieldset>
@@ -23,7 +19,7 @@
 </div>
 <div class="right">
     <h3>{% trans "Description:" %}</h3>
-    <p>{% trans "You may update the editable properties of your subnet here." %}</p>
+    <p>{% trans "You may update the editable properties of your port here." %}</p>
 </div>
 {% endblock %}
 

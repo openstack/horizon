@@ -50,19 +50,19 @@ class QuantumAPIDictWrapper(APIDictWrapper):
 
 class Network(QuantumAPIDictWrapper):
     """Wrapper for quantum Networks"""
-    _attrs = ['name', 'id', 'subnets', 'tenant_id', 'status',
-              'admin_state_up', 'shared']
 
     def __init__(self, apiresource):
         apiresource['admin_state'] = \
             'UP' if apiresource['admin_state_up'] else 'DOWN'
+        # Django cannot handle a key name with a colon, so remap another key
+        for key in apiresource.keys():
+            if key.find(':'):
+                apiresource['__'.join(key.split(':'))] = apiresource[key]
         super(Network, self).__init__(apiresource)
 
 
 class Subnet(QuantumAPIDictWrapper):
     """Wrapper for quantum subnets"""
-    _attrs = ['name', 'id', 'cidr', 'network_id', 'tenant_id',
-              'ip_version', 'ipver_str']
 
     def __init__(self, apiresource):
         apiresource['ipver_str'] = get_ipver_str(apiresource['ip_version'])
@@ -71,9 +71,6 @@ class Subnet(QuantumAPIDictWrapper):
 
 class Port(QuantumAPIDictWrapper):
     """Wrapper for quantum ports"""
-    _attrs = ['name', 'id', 'network_id', 'tenant_id',
-              'admin_state_up', 'status', 'mac_address',
-              'fixed_ips', 'host_routes', 'device_id']
 
     def __init__(self, apiresource):
         apiresource['admin_state'] = \

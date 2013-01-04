@@ -21,6 +21,8 @@ from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.dashboards.project.networks.tests \
+    import form_data_subnet
 
 
 INDEX_URL = reverse('horizon:admin:networks:index')
@@ -166,13 +168,19 @@ class NetworkTests(test.BaseAdminViewTests):
         network = self.networks.first()
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True)\
             .AndReturn(tenants)
-        api.quantum.network_create(IsA(http.HttpRequest), name=network.name,
-                                   tenant_id=tenant_id, shared=True)\
+        params = {'name': network.name,
+                  'tenant_id': tenant_id,
+                  'admin_state_up': network.admin_state_up,
+                  'router:external': True,
+                  'shared': True}
+        api.quantum.network_create(IsA(http.HttpRequest), **params)\
             .AndReturn(network)
         self.mox.ReplayAll()
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'external': True,
                      'shared': True}
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
@@ -188,13 +196,19 @@ class NetworkTests(test.BaseAdminViewTests):
         network = self.networks.first()
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True)\
             .AndReturn(tenants)
-        api.quantum.network_create(IsA(http.HttpRequest), name=network.name,
-                                   tenant_id=tenant_id, shared=False)\
+        params = {'name': network.name,
+                  'tenant_id': tenant_id,
+                  'admin_state_up': network.admin_state_up,
+                  'router:external': True,
+                  'shared': False}
+        api.quantum.network_create(IsA(http.HttpRequest), **params)\
             .AndRaise(self.exceptions.quantum)
         self.mox.ReplayAll()
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'external': True,
                      'shared': False}
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
@@ -233,19 +247,25 @@ class NetworkTests(test.BaseAdminViewTests):
                                       'network_get',)})
     def test_network_update_post(self):
         network = self.networks.first()
+        params = {'name': network.name,
+                  'shared': True,
+                  'admin_state_up': network.admin_state_up,
+                  'router:external': True}
         api.quantum.network_modify(IsA(http.HttpRequest), network.id,
-                                   name=network.name, shared=True)\
+                                   **params)\
             .AndReturn(network)
         api.quantum.network_get(IsA(http.HttpRequest), network.id)\
             .AndReturn(network)
         self.mox.ReplayAll()
 
-        formData = {'network_id': network.id,
-                    'name': network.name,
-                    'tenant_id': network.tenant_id,
-                    'shared': True}
+        form_data = {'network_id': network.id,
+                     'name': network.name,
+                     'tenant_id': network.tenant_id,
+                     'admin_state': network.admin_state_up,
+                     'shared': True,
+                     'external': True}
         url = reverse('horizon:admin:networks:update', args=[network.id])
-        res = self.client.post(url, formData)
+        res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
@@ -253,8 +273,12 @@ class NetworkTests(test.BaseAdminViewTests):
                                       'network_get',)})
     def test_network_update_post_exception(self):
         network = self.networks.first()
+        params = {'name': network.name,
+                  'shared': False,
+                  'admin_state_up': network.admin_state_up,
+                  'router:external': False}
         api.quantum.network_modify(IsA(http.HttpRequest), network.id,
-                                   name=network.name, shared=False)\
+                                   **params)\
             .AndRaise(self.exceptions.quantum)
         api.quantum.network_get(IsA(http.HttpRequest), network.id)\
             .AndReturn(network)
@@ -263,7 +287,9 @@ class NetworkTests(test.BaseAdminViewTests):
         form_data = {'network_id': network.id,
                      'name': network.name,
                      'tenant_id': network.tenant_id,
-                     'shared': False}
+                     'admin_state': network.admin_state_up,
+                     'shared': False,
+                     'external': False}
         url = reverse('horizon:admin:networks:update', args=[network.id])
         res = self.client.post(url, form_data)
 
@@ -307,6 +333,9 @@ class NetworkTests(test.BaseAdminViewTests):
         res = self.client.post(INDEX_URL, form_data)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+
+class NetworkSubnetTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.quantum: ('subnet_get',)})
     def test_subnet_detail(self):
@@ -367,21 +396,17 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn(self.networks.first())
         api.quantum.subnet_create(IsA(http.HttpRequest),
                                   network_id=network.id,
-                                  network_name=network.name,
                                   name=subnet.name,
                                   cidr=subnet.cidr,
                                   ip_version=subnet.ip_version,
                                   gateway_ip=subnet.gateway_ip,
+                                  enable_dhcp=subnet.enable_dhcp,
+                                  allocation_pools=subnet.allocation_pools,
                                   tenant_id=subnet.tenant_id)\
             .AndReturn(subnet)
         self.mox.ReplayAll()
 
-        form_data = {'network_id': subnet.network_id,
-                     'network_name': network.name,
-                     'name': subnet.name,
-                     'cidr': subnet.cidr,
-                     'ip_version': subnet.ip_version,
-                     'gateway_ip': subnet.gateway_ip}
+        form_data = form_data_subnet(subnet)
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -401,12 +426,7 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndRaise(self.exceptions.quantum)
         self.mox.ReplayAll()
 
-        form_data = {'network_id': subnet.network_id,
-                     'network_name': network.name,
-                     'name': subnet.name,
-                     'cidr': subnet.cidr,
-                     'ip_version': subnet.ip_version,
-                     'gateway_ip': subnet.gateway_ip}
+        form_data = form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -430,21 +450,16 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn(self.networks.first())
         api.quantum.subnet_create(IsA(http.HttpRequest),
                                   network_id=network.id,
-                                  network_name=network.name,
                                   name=subnet.name,
                                   cidr=subnet.cidr,
                                   ip_version=subnet.ip_version,
                                   gateway_ip=subnet.gateway_ip,
+                                  enable_dhcp=subnet.enable_dhcp,
                                   tenant_id=subnet.tenant_id)\
             .AndRaise(self.exceptions.quantum)
         self.mox.ReplayAll()
 
-        form_data = {'network_id': subnet.network_id,
-                     'network_name': network.name,
-                     'name': subnet.name,
-                     'cidr': subnet.cidr,
-                     'ip_version': subnet.ip_version,
-                     'gateway_ip': subnet.gateway_ip}
+        form_data = form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -464,12 +479,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         # dummy IPv6 address
         cidr = '2001:0DB8:0:CD30:123:4567:89AB:CDEF/60'
-        form_data = {'network_id': subnet.network_id,
-                     'network_name': network.name,
-                     'name': subnet.name,
-                     'cidr': cidr,
-                     'ip_version': subnet.ip_version,
-                     'gateway_ip': subnet.gateway_ip}
+        form_data = form_data_subnet(subnet, cidr=cidr, allocation_pools=[])
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -488,12 +498,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
-        form_data = {'network_id': subnet.network_id,
-                     'network_name': network.name,
-                     'name': subnet.name,
-                     'cidr': subnet.cidr,
-                     'ip_version': subnet.ip_version,
-                     'gateway_ip': gateway_ip}
+        form_data = form_data_subnet(subnet, gateway_ip=gateway_ip,
+                                     allocation_pools=[])
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -508,20 +514,17 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn(subnet)
         api.quantum.subnet_modify(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
-                                  gateway_ip=subnet.gateway_ip)\
+                                  gateway_ip=subnet.gateway_ip,
+                                  enable_dhcp=subnet.enable_dhcp,
+                                  dns_nameservers=[],
+                                  host_routes=[])\
             .AndReturn(subnet)
         self.mox.ReplayAll()
 
-        formData = {'network_id': subnet.network_id,
-                    'tenant_id': subnet.tenant_id,
-                    'subnet_id': subnet.id,
-                    'name': subnet.name,
-                    'cidr': subnet.cidr,
-                    'ip_version': subnet.ip_version,
-                    'gateway_ip': subnet.gateway_ip}
+        form_data = form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:admin:networks:editsubnet',
                       args=[subnet.network_id, subnet.id])
-        res = self.client.post(url, formData)
+        res = self.client.post(url, form_data)
 
         redir_url = reverse('horizon:admin:networks:detail',
                             args=[subnet.network_id])
@@ -537,16 +540,11 @@ class NetworkTests(test.BaseAdminViewTests):
 
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
-        formData = {'network_id': subnet.network_id,
-                    'tenant_id': subnet.tenant_id,
-                    'subnet_id': subnet.id,
-                    'name': subnet.name,
-                    'cidr': subnet.cidr,
-                    'ip_version': subnet.ip_version,
-                    'gateway_ip': gateway_ip}
+        form_data = form_data_subnet(subnet, gateway_ip=gateway_ip,
+                                     allocation_pools=[])
         url = reverse('horizon:admin:networks:editsubnet',
                       args=[subnet.network_id, subnet.id])
-        res = self.client.post(url, formData)
+        res = self.client.post(url, form_data)
 
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
 
@@ -563,10 +561,10 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn([self.ports.first()])
         self.mox.ReplayAll()
 
-        formData = {'action': 'subnets__delete__%s' % subnet.id}
+        form_data = {'action': 'subnets__delete__%s' % subnet.id}
         url = reverse('horizon:admin:networks:detail',
                       args=[network_id])
-        res = self.client.post(url, formData)
+        res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, url)
 
@@ -584,12 +582,15 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn([self.ports.first()])
         self.mox.ReplayAll()
 
-        formData = {'action': 'subnets__delete__%s' % subnet.id}
+        form_data = {'action': 'subnets__delete__%s' % subnet.id}
         url = reverse('horizon:admin:networks:detail',
                       args=[network_id])
-        res = self.client.post(url, formData)
+        res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, url)
+
+
+class NetworkPortTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.quantum: ('port_get',)})
     def test_port_detail(self):
@@ -651,14 +652,18 @@ class NetworkTests(test.BaseAdminViewTests):
                                 network_id=network.id,
                                 network_name=network.name,
                                 name=port.name,
-                                device_id=port.device_id)\
+                                admin_state_up=port.admin_state_up,
+                                device_id=port.device_id,
+                                device_owner=port.device_owner)\
             .AndReturn(port)
         self.mox.ReplayAll()
 
         form_data = {'network_id': port.network_id,
                      'network_name': network.name,
                      'name': port.name,
-                     'device_id': port.device_id}
+                     'admin_state': port.admin_state_up,
+                     'device_id': port.device_id,
+                     'device_owner': port.device_owner}
         url = reverse('horizon:admin:networks:addport',
                       args=[port.network_id])
         res = self.client.post(url, form_data)
@@ -684,14 +689,18 @@ class NetworkTests(test.BaseAdminViewTests):
                                 network_id=network.id,
                                 network_name=network.name,
                                 name=port.name,
-                                device_id=port.device_id)\
+                                admin_state_up=port.admin_state_up,
+                                device_id=port.device_id,
+                                device_owner=port.device_owner)\
             .AndRaise(self.exceptions.quantum)
         self.mox.ReplayAll()
 
         form_data = {'network_id': port.network_id,
                      'network_name': network.name,
                      'name': port.name,
-                     'device_id': port.device_id}
+                     'admin_state': port.admin_state_up,
+                     'device_id': port.device_id,
+                     'device_owner': port.device_owner}
         url = reverse('horizon:admin:networks:addport',
                       args=[port.network_id])
         res = self.client.post(url, form_data)
@@ -722,18 +731,22 @@ class NetworkTests(test.BaseAdminViewTests):
         api.quantum.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
         api.quantum.port_modify(IsA(http.HttpRequest), port.id,
-                                name=port.name, device_id=port.device_id)\
+                                name=port.name,
+                                admin_state_up=port.admin_state_up,
+                                device_id=port.device_id,
+                                device_owner=port.device_owner)\
             .AndReturn(port)
         self.mox.ReplayAll()
 
-        formData = {'tenant_id': port.tenant_id,
-                    'network_id': port.network_id,
-                    'port_id': port.id,
-                    'name': port.name,
-                    'device_id': port.device_id}
+        form_data = {'network_id': port.network_id,
+                     'port_id': port.id,
+                     'name': port.name,
+                     'admin_state': port.admin_state_up,
+                     'device_id': port.device_id,
+                     'device_owner': port.device_owner}
         url = reverse('horizon:admin:networks:editport',
                       args=[port.network_id, port.id])
-        res = self.client.post(url, formData)
+        res = self.client.post(url, form_data)
 
         redir_url = reverse('horizon:admin:networks:detail',
                             args=[port.network_id])
@@ -746,18 +759,22 @@ class NetworkTests(test.BaseAdminViewTests):
         api.quantum.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
         api.quantum.port_modify(IsA(http.HttpRequest), port.id,
-                                name=port.name, device_id=port.device_id)\
+                                name=port.name,
+                                admin_state_up=port.admin_state_up,
+                                device_id=port.device_id,
+                                device_owner=port.device_owner)\
             .AndRaise(self.exceptions.quantum)
         self.mox.ReplayAll()
 
-        formData = {'tenant_id': port.tenant_id,
-                    'network_id': port.network_id,
-                    'port_id': port.id,
-                    'name': port.name,
-                    'device_id': port.device_id}
+        form_data = {'network_id': port.network_id,
+                     'port_id': port.id,
+                     'name': port.name,
+                     'admin_state': port.admin_state_up,
+                     'device_id': port.device_id,
+                     'device_owner': port.device_owner}
         url = reverse('horizon:admin:networks:editport',
                       args=[port.network_id, port.id])
-        res = self.client.post(url, formData)
+        res = self.client.post(url, form_data)
 
         redir_url = reverse('horizon:admin:networks:detail',
                             args=[port.network_id])
@@ -776,10 +793,10 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn([self.ports.first()])
         self.mox.ReplayAll()
 
-        formData = {'action': 'ports__delete__%s' % port.id}
+        form_data = {'action': 'ports__delete__%s' % port.id}
         url = reverse('horizon:admin:networks:detail',
                       args=[network_id])
-        res = self.client.post(url, formData)
+        res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, url)
 
@@ -797,9 +814,9 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn([self.ports.first()])
         self.mox.ReplayAll()
 
-        formData = {'action': 'ports__delete__%s' % port.id}
+        form_data = {'action': 'ports__delete__%s' % port.id}
         url = reverse('horizon:admin:networks:detail',
                       args=[network_id])
-        res = self.client.post(url, formData)
+        res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, url)

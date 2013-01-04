@@ -16,6 +16,7 @@
 
 import logging
 
+from django.core.urlresolvers import reverse
 from django import template
 from django.utils.translation import ugettext_lazy as _
 
@@ -32,7 +33,23 @@ def get_fixed_ips(port):
 
 
 def get_attached(port):
-    return _('Attached') if port['device_id'] else _('Detached')
+    if port['device_owner']:
+        return port['device_owner']
+    elif port['device_id']:
+        return _('Attached')
+    else:
+        return _('Detached')
+
+
+class UpdatePort(tables.LinkAction):
+    name = "update"
+    verbose_name = _("Edit Port")
+    url = "horizon:project:networks:editport"
+    classes = ("ajax-modal", "btn-edit")
+
+    def get_link_url(self, port):
+        network_id = self.table.kwargs['network_id']
+        return reverse(self.url, args=(network_id, port.id))
 
 
 class PortsTable(tables.DataTable):
@@ -40,7 +57,7 @@ class PortsTable(tables.DataTable):
                          verbose_name=_("Name"),
                          link="horizon:project:networks:ports:detail")
     fixed_ips = tables.Column(get_fixed_ips, verbose_name=_("Fixed IPs"))
-    attached = tables.Column(get_attached, verbose_name=_("Device Attached"))
+    attached = tables.Column(get_attached, verbose_name=_("Attached Device"))
     status = tables.Column("status", verbose_name=_("Status"))
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"))
@@ -51,3 +68,4 @@ class PortsTable(tables.DataTable):
     class Meta:
         name = "ports"
         verbose_name = _("Ports")
+        row_actions = (UpdatePort,)

@@ -10,8 +10,9 @@
     <dd>{{ port.name|default:"None" }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ port.id|default:"None" }}</dd>
+    {% url horizon:project:networks:detail port.network_id as network_url %}
     <dt>{% trans "Network ID" %}</dt>
-    <dd>{{ port.network_id|default:"None" }}</dd>
+    <dd><a href="{{ network_url }}">{{ port.network_id|default:"None" }}</a></dd>
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ port.tenant_id|default:"-" }}</dd>
     <dt>{% trans "Fixed IP" %}</dt>
@@ -31,9 +32,10 @@
     <dd>{{ port.status|default:"None" }}</dd>
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ port.admin_state|default:"None" }}</dd>
-    <dt>{% trans "Device ID" %}</dt>
-    {% if port.device_id|length  > 1 %}
-    <dd>{{ port.device_id }}</dd>
+    <dt>{% trans "Attached Device" %}</dt>
+    {% if port.device_id|length > 1 or port.device_owner %}
+    <dd><b>{% trans "Device Owner" %}</b>: {{ port.device_owner|default:"None" }}</dd>
+    <dd><b>{% trans "Device ID" %}</b>: {{ port.device_id|default:"-" }}</dd>
     {% else %}
     <dd>No attached device</dd>
     {% endif %}
