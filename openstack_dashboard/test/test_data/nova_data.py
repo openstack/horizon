@@ -305,6 +305,25 @@ def data(TEST):
 
     TEST.quota_usages.add(quota_usage)
 
+    # Limits
+    limits = {"absolute": {"maxImageMeta": 128,
+                           "maxPersonality": 5,
+                           "maxPersonalitySize": 10240,
+                           "maxSecurityGroupRules": 20,
+                           "maxSecurityGroups": 10,
+                           "maxServerMeta": 128,
+                           "maxTotalCores": 20,
+                           "maxTotalFloatingIps": 10,
+                           "maxTotalInstances": 10,
+                           "maxTotalKeypairs": 100,
+                           "maxTotalRAMSize": 10000,
+                           "totalCoresUsed": 0,
+                           "totalInstancesUsed": 0,
+                           "totalKeyPairsUsed": 0,
+                           "totalRAMUsed": 0,
+                           "totalSecurityGroupsUsed": 0}}
+    TEST.limits = limits
+
     # Servers
     vals = {"host": "http://nova.example.com:8774",
             "name": "server_1",

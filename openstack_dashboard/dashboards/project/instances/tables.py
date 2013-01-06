@@ -21,7 +21,7 @@ from django import template
 from django.core import urlresolvers
 from django.template.defaultfilters import title
 from django.utils.http import urlencode
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import string_concat, ugettext_lazy as _
 
 from horizon.conf import HORIZON_CONFIG
 from horizon import exceptions
@@ -166,6 +166,33 @@ class LaunchLink(tables.LinkAction):
     verbose_name = _("Launch Instance")
     url = "horizon:project:instances:launch"
     classes = ("btn-launch", "ajax-modal")
+
+    def allowed(self, request, datum):
+        try:
+            limits = api.tenant_absolute_limits(request, reserved=True)
+
+            instances_available = limits['maxTotalInstances'] \
+                - limits['totalInstancesUsed']
+            cores_available = limits['maxTotalCores'] \
+                - limits['totalCoresUsed']
+            ram_available = limits['maxTotalRAMSize'] - limits['totalRAMUsed']
+
+            if instances_available <= 0 or cores_available <= 0 \
+                    or ram_available <= 0:
+                if "disabled" not in self.classes:
+                    self.classes = [c for c in self.classes] + ['disabled']
+                    self.verbose_name = string_concat(self.verbose_name, ' ',
+                                                      _("(Quota exceeded)"))
+            else:
+                self.verbose_name = _("Launch Instance")
+                classes = [c for c in self.classes if c != "disabled"]
+                self.classes = classes
+        except:
+            LOG.exception("Failed to retrieve quota information")
+            # If we can't get the quota information, leave it to the
+            # API to check when launching
+
+        return True  # The action should always be displayed
 
 
 class EditInstance(tables.LinkAction):

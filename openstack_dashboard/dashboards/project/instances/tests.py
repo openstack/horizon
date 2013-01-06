@@ -31,6 +31,7 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
+from .tables import LaunchLink
 from .tabs import InstanceDetailTabs
 from .workflows import LaunchInstance
 
@@ -39,10 +40,13 @@ INDEX_URL = reverse('horizon:project:instances:index')
 
 
 class InstanceTests(test.TestCase):
-    @test.create_stubs({api: ('flavor_list', 'server_list',)})
+    @test.create_stubs({api: ('flavor_list', 'server_list',
+                              'tenant_absolute_limits')})
     def test_index(self):
         api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
 
@@ -55,9 +59,11 @@ class InstanceTests(test.TestCase):
 
         self.assertItemsEqual(instances, self.servers.list())
 
-    @test.create_stubs({api: ('server_list',)})
+    @test.create_stubs({api: ('server_list', 'tenant_absolute_limits')})
     def test_index_server_list_exception(self):
         api.server_list(IsA(http.HttpRequest)).AndRaise(self.exceptions.nova)
+        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
 
@@ -67,7 +73,8 @@ class InstanceTests(test.TestCase):
         self.assertEqual(len(res.context['instances_table'].data), 0)
         self.assertMessageCount(res, error=1)
 
-    @test.create_stubs({api: ('flavor_list', 'server_list', 'flavor_get',)})
+    @test.create_stubs({api: ('flavor_list', 'server_list', 'flavor_get',
+                              'tenant_absolute_limits')})
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
@@ -78,6 +85,8 @@ class InstanceTests(test.TestCase):
         for server in servers:
             api.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
                                 AndReturn(full_flavors[server.flavor["id"]])
+        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
 
@@ -88,7 +97,8 @@ class InstanceTests(test.TestCase):
 
         self.assertItemsEqual(instances, self.servers.list())
 
-    @test.create_stubs({api: ('flavor_list', 'server_list', 'flavor_get',)})
+    @test.create_stubs({api: ('flavor_list', 'server_list', 'flavor_get',
+                              'tenant_absolute_limits')})
     def test_index_flavor_get_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
@@ -102,6 +112,8 @@ class InstanceTests(test.TestCase):
         for server in servers:
             api.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
                                 AndRaise(self.exceptions.nova)
+        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
 
@@ -982,3 +994,29 @@ class InstanceTests(test.TestCase):
         res = self.client.post(url, form_data)
 
         self.assertContains(res, "greater than or equal to 1")
+
+    @test.create_stubs({api: ('flavor_list', 'server_list',
+                              'tenant_absolute_limits',)})
+    def test_launch_button_disabled_when_quota_exceeded(self):
+        limits = self.limits['absolute']
+        limits['totalInstancesUsed'] = limits['maxTotalInstances']
+
+        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(limits)
+
+        self.mox.ReplayAll()
+
+        launch = LaunchLink()
+        url = launch.get_link_url()
+        classes = list(launch.get_default_classes()) + list(launch.classes)
+        link_name = "%s (%s)" % (unicode(launch.verbose_name),
+                                 "Quota exceeded")
+
+        res = self.client.get(INDEX_URL)
+        self.assertContains(res, "<a href='%s' id='instances__action_launch'"
+                                 " class='%s disabled'>%s</a>"
+                                 % (url, " ".join(classes), link_name),
+                            html=True,
+                            msg_prefix="The launch button is not disabled")

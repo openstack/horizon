@@ -482,3 +482,11 @@ def instance_volumes_list(request, instance_id):
         volume.name = volume_data.display_name
 
     return volumes
+
+
+def tenant_absolute_limits(request, reserved=False):
+    limits = novaclient(request).limits.get(reserved=reserved).absolute
+    limits_dict = {}
+    for limit in limits:
+        limits_dict[limit.name] = limit.value
+    return limits_dict

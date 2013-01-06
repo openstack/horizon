@@ -29,6 +29,17 @@ horizon.instances = {
         }
       }
     });
+  },
+
+  disable_launch_button: function() {
+    var launch_button = "#instances__action_launch";
+
+    $(launch_button).click(function(e) {
+      if ($(launch_button).hasClass("disabled")) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    });
   }
 };
 
@@ -38,6 +49,9 @@ horizon.addInitFunction(function () {
     horizon.instances.getConsoleLog(true);
     evt.preventDefault();
   });
+
+  // Disable the launch button if required
+  horizon.instances.disable_launch_button();
 
   /* Launch instance workflow */
 
