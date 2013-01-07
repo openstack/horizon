@@ -188,7 +188,8 @@ class CopyView(forms.ModalFormView):
         new_container_name = self.request.POST['new_container_name']
         return reverse(self.success_url,
                        args=(wrap_delimiter(new_container_name),
-                             self.request.POST.get('path', '')))
+                             wrap_delimiter(self.request.POST.get('path',
+                                                                  ''))))
 
     def get_form_kwargs(self):
         kwargs = super(CopyView, self).get_form_kwargs()
