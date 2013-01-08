@@ -88,6 +88,8 @@ class UpdateRow(tables.Row):
 
     def get_data(self, request, volume_id):
         volume = cinder.volume_get(request, volume_id)
+        if not volume.display_name:
+            volume.display_name = volume_id
         return volume
 
 

@@ -368,3 +368,21 @@ class VolumeViewTests(test.TestCase):
                             200)
 
         self.assertNoMessages()
+
+    @test.create_stubs({cinder: ('volume_get',)})
+    def test_get_data(self):
+        volume = self.volumes.first()
+        volume.display_name = ''
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:index') + \
+                "?action=row_update&table=volumes&obj_id=" + volume.id
+
+        res = self.client.get(url, {},
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(volume.display_name, volume.id)

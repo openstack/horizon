@@ -188,17 +188,19 @@ class AttachForm(forms.SelfHandlingForm):
         # it, so let's slice that off...
         instance_name = instance_name.rsplit(" (")[0]
         try:
-            vol = api.instance_volume_attach(request,
-                                             data['volume_id'],
-                                             data['instance'],
-                                             data.get('device', ''))
-            vol_name = cinder.volume_get(request,
-                                         data['volume_id']).display_name
-
+            attach = api.instance_volume_attach(request,
+                                                data['volume_id'],
+                                                data['instance'],
+                                                data.get('device', ''))
+            volume = cinder.volume_get(request, data['volume_id'])
+            if not volume.display_name:
+                volume_name = volume.id
+            else:
+                volume_name = volume.display_name
             message = _('Attaching volume %(vol)s to instance '
-                         '%(inst)s on %(dev)s.') % {"vol": vol_name,
+                         '%(inst)s on %(dev)s.') % {"vol": volume_name,
                                                     "inst": instance_name,
-                                                    "dev": vol.device}
+                                                    "dev": attach.device}
             messages.info(request, message)
             return True
         except:
