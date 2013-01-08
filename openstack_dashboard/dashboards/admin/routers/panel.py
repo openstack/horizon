@@ -1,6 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2012 Nebula, Inc.
+# Copyright 2012,  Nachi Ueno,  NTT MCL,  Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -18,20 +18,12 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-
-class SystemPanels(horizon.PanelGroup):
-    slug = "admin"
-    name = _("System Panel")
-    panels = ('overview', 'instances', 'volumes', 'flavors',
-              'images', 'projects', 'users', 'networks', 'routers', 'info')
+from openstack_dashboard.dashboards.admin import dashboard
 
 
-class Admin(horizon.Dashboard):
-    name = _("Admin")
-    slug = "admin"
-    panels = (SystemPanels,)
-    default_panel = 'overview'
-    permissions = ('openstack.roles.admin',)
+class Routers(horizon.Panel):
+    name = "Routers"
+    slug = 'routers'
+    permissions = ('openstack.services.network',)
 
-
-horizon.register(Admin)
+dashboard.Admin.register(Routers)

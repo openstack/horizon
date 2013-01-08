@@ -14,7 +14,7 @@
 
 import copy
 
-from openstack_dashboard.api.quantum import Network, Subnet, Port
+from openstack_dashboard.api.quantum import Network, Subnet, Port, Router
 
 from .utils import TestDataContainer
 
@@ -24,11 +24,13 @@ def data(TEST):
     TEST.networks = TestDataContainer()
     TEST.subnets = TestDataContainer()
     TEST.ports = TestDataContainer()
+    TEST.routers = TestDataContainer()
 
     # data return by quantumclient
     TEST.api_networks = TestDataContainer()
     TEST.api_subnets = TestDataContainer()
     TEST.api_ports = TestDataContainer()
+    TEST.api_routers = TestDataContainer()
 
     # 1st network
     network_dict = {'admin_state_up': True,
@@ -62,7 +64,6 @@ def data(TEST):
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
                  'tenant_id': network_dict['tenant_id']}
-
     TEST.api_networks.add(network_dict)
     TEST.api_subnets.add(subnet_dict)
     TEST.api_ports.add(port_dict)
@@ -109,7 +110,6 @@ def data(TEST):
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
                  'tenant_id': network_dict['tenant_id']}
-
     TEST.api_networks.add(network_dict)
     TEST.api_subnets.add(subnet_dict)
     TEST.api_ports.add(port_dict)
@@ -120,3 +120,29 @@ def data(TEST):
     TEST.networks.add(Network(network))
     TEST.subnets.add(subnet)
     TEST.ports.add(Port(port_dict))
+
+    # Set up router data
+    port_dict = {'admin_state_up': True,
+                 'device_id': '7180cede-bcd8-4334-b19f-f7ef2f331f53',
+                 'device_owner': 'network:router_gateway',
+                 'fixed_ips': [{'ip_address': '10.0.0.3',
+                                'subnet_id': subnet_dict['id']}],
+                 'id': '3ec7f3db-cb2f-4a34-ab6b-69a64d3f008c',
+                 'mac_address': 'fa:16:3e:9c:d5:7e',
+                 'name': '',
+                 'network_id': network_dict['id'],
+                 'status': 'ACTIVE',
+                 'tenant_id': '1'}
+    TEST.api_ports.add(port_dict)
+    TEST.ports.add(Port(port_dict))
+
+    router_dict = {'id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
+                   'name': 'router1',
+                   'tenant_id': '1'}
+    TEST.api_routers.add(router_dict)
+    TEST.routers.add(Router(router_dict))
+    router_dict = {'id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
+                   'name': 'router1',
+                   'tenant_id': '1'}
+    TEST.api_routers.add(router_dict)
+    TEST.routers.add(Router(router_dict))
