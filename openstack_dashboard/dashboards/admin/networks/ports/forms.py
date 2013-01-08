@@ -24,6 +24,8 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.networks.ports \
+    import forms as project_forms
 
 
 LOG = logging.getLogger(__name__)
@@ -39,8 +41,13 @@ class CreatePort(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
+    admin_state = forms.BooleanField(label=_("Admin State"),
+                                     initial=True, required=False)
     device_id = forms.CharField(max_length=100, label=_("Device ID"),
                                 help_text='Device ID attached to the port',
+                                required=False)
+    device_owner = forms.CharField(max_length=100, label=_("Device Owner"),
+                                help_text='Device owner attached to the port',
                                 required=False)
 
     def handle(self, request, data):
@@ -49,6 +56,8 @@ class CreatePort(forms.SelfHandlingForm):
             # created for if admin user does not belong to the tenant.
             network = api.quantum.network_get(request, data['network_id'])
             data['tenant_id'] = network.tenant_id
+            data['admin_state_up'] = data['admin_state']
+            del data['admin_state']
 
             port = api.quantum.port_create(request, **data)
             msg = _('Port %s was successfully created.') % port['id']
@@ -64,23 +73,24 @@ class CreatePort(forms.SelfHandlingForm):
             exceptions.handle(request, msg, redirect=redirect)
 
 
-class UpdatePort(forms.SelfHandlingForm):
-    network_id = forms.CharField(widget=forms.HiddenInput())
-    tenant_id = forms.CharField(widget=forms.HiddenInput())
-    port_id = forms.CharField(widget=forms.HiddenInput())
-    name = forms.CharField(max_length=255,
-                           label=_("Name"),
-                           required=False)
+class UpdatePort(project_forms.UpdatePort):
+    #tenant_id = forms.CharField(widget=forms.HiddenInput())
     device_id = forms.CharField(max_length=100, label=_("Device ID"),
                                 help_text='Device ID attached to the port',
                                 required=False)
+    device_owner = forms.CharField(max_length=100, label=_("Device Owner"),
+                                help_text='Device owner attached to the port',
+                                required=False)
+    failure_url = 'horizon:admin:networks:detail'
 
     def handle(self, request, data):
         try:
             LOG.debug('params = %s' % data)
             port = api.quantum.port_modify(request, data['port_id'],
                                            name=data['name'],
-                                           device_id=data['device_id'])
+                                           admin_state_up=data['admin_state'],
+                                           device_id=data['device_id'],
+                                           device_owner=data['device_owner'])
             msg = _('Port %s was successfully updated.') % data['port_id']
             LOG.debug(msg)
             messages.success(request, msg)
@@ -88,6 +98,6 @@ class UpdatePort(forms.SelfHandlingForm):
         except Exception:
             msg = _('Failed to update port %s') % data['port_id']
             LOG.info(msg)
-            redirect = reverse('horizon:admin:networks:detail',
+            redirect = reverse(self.failure_url,
                                args=[data['network_id']])
             exceptions.handle(request, msg, redirect=redirect)

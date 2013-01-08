@@ -34,8 +34,12 @@ class CreateNetwork(forms.SelfHandlingForm):
                            label=_("Name"),
                            required=False)
     tenant_id = forms.ChoiceField(label=_("Project"))
+    admin_state = forms.BooleanField(label=_("Admin State"),
+                                     initial=True, required=False)
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False, required=False)
+    external = forms.BooleanField(label=_("External Network"),
+                                  initial=False, required=False)
 
     @classmethod
     def _instantiate(cls, request, *args, **kwargs):
@@ -51,10 +55,12 @@ class CreateNetwork(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            network = api.quantum.network_create(request,
-                                                 name=data['name'],
-                                                 tenant_id=data['tenant_id'],
-                                                 shared=data['shared'])
+            params = {'name': data['name'],
+                      'tenant_id': data['tenant_id'],
+                      'admin_state_up': data['admin_state'],
+                      'shared': data['shared'],
+                      'router:external': data['external']}
+            network = api.quantum.network_create(request, **params)
             msg = _('Network %s was successfully created.') % data['name']
             LOG.debug(msg)
             messages.success(request, msg)
@@ -71,14 +77,19 @@ class UpdateNetwork(forms.SelfHandlingForm):
     network_id = forms.CharField(label=_("ID"),
                                  widget=forms.TextInput(
                                      attrs={'readonly': 'readonly'}))
+    admin_state = forms.BooleanField(label=_("Admin State"), required=False)
     shared = forms.BooleanField(label=_("Shared"), required=False)
+    external = forms.BooleanField(label=_("External Network"), required=False)
     failure_url = 'horizon:admin:networks:index'
 
     def handle(self, request, data):
         try:
+            params = {'name': data['name'],
+                      'admin_state_up': data['admin_state'],
+                      'shared': data['shared'],
+                      'router:external': data['external']}
             network = api.quantum.network_modify(request, data['network_id'],
-                                                 name=data['name'],
-                                                 shared=data['shared'])
+                                                 **params)
             msg = _('Network %s was successfully updated.') % data['name']
             LOG.debug(msg)
             messages.success(request, msg)

@@ -1,9 +1,5 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
 # Copyright 2012 NEC Corporation
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -33,27 +29,28 @@ from openstack_dashboard import api
 LOG = logging.getLogger(__name__)
 
 
-class UpdateNetwork(forms.SelfHandlingForm):
-    name = forms.CharField(label=_("Name"), required=False)
-    tenant_id = forms.CharField(widget=forms.HiddenInput)
-    network_id = forms.CharField(label=_("ID"),
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}))
+class UpdatePort(forms.SelfHandlingForm):
+    network_id = forms.CharField(widget=forms.HiddenInput())
+    port_id = forms.CharField(widget=forms.HiddenInput())
+    name = forms.CharField(max_length=255,
+                           label=_("Name"),
+                           required=False)
     admin_state = forms.BooleanField(label=_("Admin State"), required=False)
-    failure_url = 'horizon:project:networks:index'
+    failure_url = 'horizon:project:networks:detail'
 
     def handle(self, request, data):
         try:
-            params = {'admin_state_up': data['admin_state'],
-                      'name': data['name']}
-            network = api.quantum.network_modify(request, data['network_id'],
-                                                 **params)
-            msg = _('Network %s was successfully updated.') % data['name']
+            LOG.debug('params = %s' % data)
+            port = api.quantum.port_modify(request, data['port_id'],
+                                           name=data['name'],
+                                           admin_state_up=data['admin_state'])
+            msg = _('Port %s was successfully updated.') % data['port_id']
             LOG.debug(msg)
             messages.success(request, msg)
-            return network
-        except:
-            msg = _('Failed to update network %s') % data['name']
+            return port
+        except Exception:
+            msg = _('Failed to update port %s') % data['port_id']
             LOG.info(msg)
-            redirect = reverse(self.failure_url)
+            redirect = reverse(self.failure_url,
+                               args=[data['network_id']])
             exceptions.handle(request, msg, redirect=redirect)

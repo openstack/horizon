@@ -20,6 +20,7 @@ from .views import IndexView, CreateView, DetailView, UpdateView
 from .subnets.views import CreateView as AddSubnetView
 from .subnets.views import UpdateView as EditSubnetView
 from .subnets import urls as subnet_urls
+from .ports.views import UpdateView as EditPortView
 from .ports import urls as port_urls
 
 
@@ -35,5 +36,7 @@ urlpatterns = patterns('',
         name='addsubnet'),
     url(r'^(?P<network_id>[^/]+)/subnets/(?P<subnet_id>[^/]+)/update$',
         EditSubnetView.as_view(), name='editsubnet'),
+    url(r'^(?P<network_id>[^/]+)/ports/(?P<port_id>[^/]+)/update$',
+        EditPortView.as_view(), name='editport'),
     url(r'^subnets/', include(subnet_urls, namespace='subnets')),
     url(r'^ports/', include(port_urls, namespace='ports')))

@@ -10,19 +10,39 @@
     <dd>{{ subnet.name|default:"None" }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ subnet.id|default:"None" }}</dd>
+    {% url horizon:project:networks:detail subnet.network_id as network_url %}
     <dt>{% trans "Network ID" %}</dt>
-    <dd>{{ subnet.network_id|default:"None" }}</dd>
-    <dt>{% trans "CIDR" %}</dt>
-    <dd>{{ subnet.cidr|default:"None" }}</dd>
+    <dd><a href="{{ network_url }}">{{ subnet.network_id|default:"None" }}</a></dd>
     <dt>{% trans "IP version" %}</dt>
     <dd>{{ subnet.ipver_str|default:"-" }}</dd>
-    <dt>{% trans "Gateway IP" %}</dt>
-    <dd>{{ subnet.gateway_ip|default:"-" }}</dd>
+    <dt>{% trans "CIDR" %}</dt>
+    <dd>{{ subnet.cidr|default:"None" }}</dd>
     <dt>{% trans "IP allocation pool" %}</dt>
     <dd>
       {% for pool in subnet.allocation_pools %}
       {% trans "Start" %}  {{ pool.start }}
       {% trans " - End" %} {{ pool.end   }}<br>
+      {% endfor %}
+    </dd>
+    <dt>{% trans "DHCP Enable" %}<dt>
+    <dd>{{ subnet.enable_dhcp|yesno|capfirst }}</dd>
+    <dt>{% trans "Gateway IP" %}</dt>
+    <dd>{{ subnet.gateway_ip|default:"-" }}</dd>
+    <dt>{% trans "Additional routes" %}</dt>
+    <dd>
+      {% for route in subnet.host_routes %}
+      {% trans "Destination" %} {{ route.destination }}
+      {% trans " : Next hop" %} {{ route.nexthop }}<br>
+      {% empty %}
+      {% trans "None" %}
+      {% endfor %}
+    </dd>
+    <dt>{% trans "DNS name server" %}</dt>
+    <dd>
+      {% for dns in subnet.dns_nameservers %}
+      {{ dns }}
+      {% empty %}
+      {% trans "None" %}
       {% endfor %}
     </dd>
   </dl>

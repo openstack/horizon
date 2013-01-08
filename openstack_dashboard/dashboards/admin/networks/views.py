@@ -137,4 +137,6 @@ class UpdateView(user_views.UpdateView):
         return {'network_id': network['id'],
                 'tenant_id': network['tenant_id'],
                 'name': network['name'],
-                'shared': network['shared']}
+                'admin_state': network['admin_state_up'],
+                'shared': network['shared'],
+                'external': network['router__external']}
