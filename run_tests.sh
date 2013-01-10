@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependency changes, directory renames, etc.
 # Simple integer sequence: 1, 2, 3...
-environment_version=41
+environment_version=42
 #--------------------------------------------------------#
 
 function usage {
@@ -32,6 +32,8 @@ function usage {
   echo "                           Implies -V if -N is not set."
   echo "  --only-selenium          Run only the Selenium unit tests"
   echo "  --with-selenium          Run unit tests including Selenium tests"
+  echo "  --integration            Run the integration tests (requires a running "
+  echo "                           OpenStack environment)"
   echo "  --runserver              Run the Django development server for"
   echo "                           openstack_dashboard in the virtual"
   echo "                           environment."
@@ -71,6 +73,7 @@ restore_env=0
 runserver=0
 only_selenium=0
 with_selenium=0
+integration=0
 testopts=""
 testargs=""
 with_coverage=0
@@ -104,6 +107,7 @@ function process_option {
     --compilemessages) compilemessages=1;;
     --only-selenium) only_selenium=1;;
     --with-selenium) with_selenium=1;;
+    --integration) integration=1;;
     --docs) just_docs=1;;
     --runserver) runserver=1;;
     --backup-environment) backup_env=1;;
@@ -351,6 +355,14 @@ function run_tests_all {
   exit $TEST_RESULT
 }
 
+function run_integration_tests {
+  export INTEGRATION_TESTS=1
+
+  echo "Running Horizon integration tests..."
+  ${command_wrapper} nosetests openstack_dashboard/test/integration_tests/tests
+  exit 0
+}
+
 function run_makemessages {
   OPTS="-l en --no-obsolete"
   DASHBOARD_OPTS="--extension=html,txt,csv --ignore=openstack/common/*"
@@ -462,6 +474,12 @@ fi
 # Tab checker
 if [ $just_tabs -eq 1 ]; then
     tab_check
+    exit $?
+fi
+
+# Integration tests
+if [ $integration -eq 1 ]; then
+    run_integration_tests
     exit $?
 fi
 

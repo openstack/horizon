@@ -70,6 +70,21 @@ To run just the `WorkflowsTests.test_workflow_view` test method::
 
     ./run_tests.sh horizon.test.tests.workflows:WorkflowsTests.test_workflow_view
 
+Running the integration tests
+-----------------------------
+
+The Horizon integration tests treat Horizon as a black box, and similar
+to Tempest must be run against an existing OpenStack system. These
+tests are not run by default.
+
+#. Update the configuration file
+   `openstack_dashboard/test/integration_tests/horizon.conf` as
+   required (the format is similar to the Tempest configuration file).
+
+#. Run the tests with the following command: ::
+
+    $ ./run_tests.sh --integration
+
 Using Dashboard and Panel Templates
 ===================================
 
