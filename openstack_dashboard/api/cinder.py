@@ -65,7 +65,10 @@ def volume_list(request, search_opts=None):
     To see all volumes in the cloud as an admin you can pass in a special
     search option: {'all_tenants': 1}
     """
-    return cinderclient(request).volumes.list(search_opts=search_opts)
+    c_client = cinderclient(request)
+    if c_client is None:
+        return []
+    return c_client.volumes.list(search_opts=search_opts)
 
 
 def volume_get(request, volume_id):
