@@ -455,7 +455,7 @@ def tenant_quota_usages(request):
 
         usages[usage]['quota'] = getattr(quotas, usage)
 
-        if usages[usage]['quota'] is None:
+        if usages[usage]['quota'] is None or usages[usage]['quota'] == -1:
             usages[usage]['quota'] = float("inf")
             usages[usage]['available'] = float("inf")
         elif type(usages[usage]['quota']) is str:
