@@ -34,7 +34,9 @@ horizon.addInitFunction(function () {
   $(document).on("shown", ".nav-tabs a[data-toggle='tab']", function (evt) {
     var $tab = $(evt.target),
         $content = $($(evt.target).attr('data-target'));
-    horizon.datatables.update_footer_count($content.find("table"));
+    $content.find("table.datatable").each(function () {
+        horizon.datatables.update_footer_count($(this));
+    });
     horizon.cookies.update("tabs", $tab.closest(".nav-tabs").attr("id"), $tab.attr('data-target'));
   });
 

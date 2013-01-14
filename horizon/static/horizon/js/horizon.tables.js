@@ -18,7 +18,7 @@ horizon.datatables = {
       // Trigger the update handlers.
       $rows_to_update.each(function(index, row) {
         var $row = $(this),
-            $table = $row.closest('table');
+            $table = $row.closest('table.datatable');
         horizon.ajax.queue({
           url: $row.attr('data-update-url'),
           error: function (jqXHR, textStatus, errorThrown) {
@@ -185,10 +185,10 @@ horizon.datatables.update_footer_count = function (el, modifier) {
   // code paths for table or browser footers...
   $browser = $el.closest("#browser_wrapper");
   if ($browser.length) {
-    $footer = $($browser.find('.tfoot span')[1]);
+    $footer = $browser.find('.tfoot span.content_table_count');
   }
   else {
-    $footer = $el.find('tr:last span:first');
+    $footer = $el.find('table.datatable tfoot span.table_count');
   }
   row_count = $el.find('tbody tr:visible').length + modifier - $el.find('.empty').length;
   footer_text_template = ngettext("Displaying %s item", "Displaying %s items", row_count);
@@ -198,7 +198,7 @@ horizon.datatables.update_footer_count = function (el, modifier) {
 
 horizon.datatables.set_table_sorting = function (parent) {
 // Function to initialize the tablesorter plugin strictly on sortable columns.
-$(parent).find("table.table").each(function () {
+$(parent).find("table.datatable").each(function () {
   var $table = $(this),
       header_options = {};
   // Disable if not sortable or has <= 1 item
@@ -289,7 +289,7 @@ horizon.datatables.set_table_filter = function (parent) {
 
 horizon.addInitFunction(function() {
   horizon.datatables.validate_button();
-  horizon.datatables.update_footer_count($.find('table'),0);
+  horizon.datatables.update_footer_count($.find('table.datatable'),0);
   // Bind the "select all" checkbox action.
   $('div.table_wrapper, #modal_wrapper').on('click', 'table thead .multi_select_column :checkbox', function(evt) {
     var $this = $(this),
