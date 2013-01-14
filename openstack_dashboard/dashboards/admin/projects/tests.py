@@ -667,8 +667,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         # update some fields
         project._info["name"] = "updated name"
         project._info["description"] = "updated description"
-        quota.metadata_items = 444
-        quota.volumes = 444
+        quota[0].limit = 444
+        quota[1].limit = -1
 
         updated_project = {"tenant_name": project._info["name"],
                            "tenant_id": project.id,
