@@ -817,17 +817,14 @@ td.select {
 /* Actions dropdown */
 
 td.actions_column {
-  width: 150px;
+  white-space: nowrap;
   padding: 10px;
   position: relative;
-  min-width: 140px;
-  min-height: 20px;
+  width: 200px;
 }
-#floating_ips td.actions_column {
-  width: 180px;
-}
-#instances td.actions_column {
-  width: 175px;
+
+td.actions_column .btn-group {
+  display: inline-block;
 }
 
 td.actions_column .row_actions a,

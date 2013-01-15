@@ -1,4 +1,4 @@
-{% load horizon %}
+{% load horizon i18n %}
 
 {% spaceless %} {# This makes sure whitespace doesn't affect positioning for dropdown. #}
 {% if row_actions|length > 1 %}
@@ -6,7 +6,8 @@
     {% for action in row_actions %}
         {% if forloop.first %}
           {% include "horizon/common/_data_table_row_action.html" %}
-          <a class="btn dropdown-toggle {{ action.class_string|safe }}" data-toggle="dropdown" href="#">
+          <a class="btn btn-small dropdown-toggle {{ action.class_string|safe }}" data-toggle="dropdown" href="#">
+            {% trans "More" %}
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu row_actions clearfix">
