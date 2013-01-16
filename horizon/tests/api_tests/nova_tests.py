@@ -204,3 +204,54 @@ class ComputeApiTests(test.APITestCase):
                                 'quota': 10}}
 
         self.assertEquals(quota_usages, expected_output)
+
+    @test.create_stubs({api.nova: ('volume_list',
+                                   'server_list',
+                                   'flavor_list',
+                                   'tenant_floating_ip_list',
+                                   'tenant_quota_get',)})
+    def test_tenant_quota_usages_unlimited_quota(self):
+        inf_quota = self.quotas.first()
+        inf_quota.ram = -1
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
+            .AndReturn(inf_quota)
+        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.floating_ips.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.volume_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.volumes.list())
+
+        self.mox.ReplayAll()
+
+        quota_usages = api.tenant_quota_usages(self.request)
+        expected_output = {'gigabytes': {
+                                'used': 80,
+                                'flavor_fields': [],
+                                'quota': 1000},
+                           'ram': {
+                                'available': float("inf"),
+                                'used': 1024,
+                                'flavor_fields': ['ram'],
+                                'quota': float("inf")},
+                           'floating_ips': {
+                                'used': 2,
+                                'flavor_fields': [],
+                                'quota': 1},
+                           'instances': {
+                                'used': 2,
+                                'flavor_fields': [],
+                                'quota': 10},
+                           'volumes': {
+                                'used': 3,
+                                'flavor_fields': [],
+                                'quota': 1},
+                           'cores': {
+                                'used': 2,
+                                'flavor_fields': ['vcpus'],
+                                'quota': 10}}
+
+        self.assertEquals(quota_usages, expected_output)
