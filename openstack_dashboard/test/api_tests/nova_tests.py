@@ -156,3 +156,24 @@ class ComputeApiTests(test.APITestCase):
                                             server.id,
                                             floating_ip.id)
         self.assertIsInstance(server, api.nova.Server)
+
+    def test_absolute_limits_handle_unlimited(self):
+        values = {"maxTotalCores": -1, "maxTotalInstances": 10}
+        limits = self.mox.CreateMockAnything()
+        limits.absolute = []
+        for key, val in values.iteritems():
+            limit = self.mox.CreateMockAnything()
+            limit.name = key
+            limit.value = val
+            limits.absolute.append(limit)
+
+        novaclient = self.stub_novaclient()
+        novaclient.limits = self.mox.CreateMockAnything()
+        novaclient.limits.get(reserved=True).AndReturn(limits)
+        self.mox.ReplayAll()
+
+        ret_val = api.tenant_absolute_limits(self.request, reserved=True)
+        expected_results = {"maxTotalCores": float("inf"),
+                            "maxTotalInstances": 10}
+        for key in expected_results.keys():
+            self.assertEquals(ret_val[key], expected_results[key])
