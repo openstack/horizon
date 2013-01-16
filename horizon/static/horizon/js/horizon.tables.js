@@ -128,13 +128,35 @@ horizon.datatables = {
 horizon.datatables.confirm = function (action) {
   var $action = $(action),
       $modal_parent = $(action).closest('.modal'),
-      action_string, title, body, modal, form;
+      name_array = new Array(),
+      name_thead, row_index, col_index, closest_table_id,
+      action_string, name_string, title, body, modal, form;
   if($action.hasClass("disabled")) {
     return;
   }
   action_string = $action.text();
+  name_string = "";
+  // Searchs a name field
+  closest_table_id = $(action).closest("table").attr("id");
+  name_thead = $("#"+closest_table_id+" thead").first().find("th:contains('Name')");
+  row_index = $(name_thead).parent().index("tr");
+  col_index = $(name_thead).index("tr:eq("+row_index+") th");
+  if (col_index != -1) {
+   name_string = gettext("You have selected ");
+   if($(action).closest("div").hasClass("table_actions")) {
+       // One or more checkboxes selected
+       $("#"+closest_table_id+" tr").has(":checkbox:checked").find("td:eq("+col_index+")").each(function() {
+	   name_array.push(" \"" + $(this).text() + "\"");
+       });
+       name_array.join(", ");
+       name_string += name_array.toString() + ". ";
+    } else {
+       // If no checkbox is selected
+       name_string += " \"" + $(action).closest("tr").find("td:eq("+col_index+")").text() + "\". ";
+    }
+  }
   title = gettext("Confirm ") + action_string;
-  body = gettext("Please confirm your selection. This action cannot be undone.");
+  body = name_string + gettext("Please confirm your selection. This action cannot be undone.");
   modal = horizon.modals.create(title, body, action_string);
   modal.modal();
   if($modal_parent.length) {
