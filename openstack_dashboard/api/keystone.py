@@ -113,13 +113,11 @@ def keystoneclient(request, admin=False):
         conn = getattr(request, cache_attr)
     else:
         endpoint = _get_endpoint_url(request, endpoint_type)
-        # FIXME(ttrifonov): temporarily commented,
-        # as the fix in Keystone is not merged yet
-        #insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+        insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
         LOG.debug("Creating a new keystoneclient connection to %s." % endpoint)
         conn = keystone_client.Client(token=user.token.id,
-                                      endpoint=endpoint)
-        #                              insecure=insecure)
+                                      endpoint=endpoint,
+                                      insecure=insecure)
         setattr(request, cache_attr, conn)
     return conn
 
