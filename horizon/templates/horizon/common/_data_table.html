@@ -43,7 +43,7 @@
           {% if forloop.first %}
           <td>{% trans "Summary" %}</td>
           {% else %}
-          <td>{{ column.get_summation|default:"&ndash;"}}</td>
+          <td>{{ column.get_summation|default_if_none:"&ndash;"}}</td>
           {% endif %}
         {% endfor %}
       </tr>
