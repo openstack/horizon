@@ -346,13 +346,18 @@ class Column(html.HTMLElement):
         """
         if self.summation not in self.summation_methods:
             return None
+
         summation_function = self.summation_methods[self.summation]
         data = [self.get_raw_data(datum) for datum in self.table.data]
         data = filter(lambda datum: datum is not None, data)
-        summation = summation_function(data)
-        for filter_func in self.filters:
-            summation = filter_func(summation)
-        return summation
+
+        if len(data):
+            summation = summation_function(data)
+            for filter_func in self.filters:
+                summation = filter_func(summation)
+            return summation
+        else:
+            return None
 
 
 class Row(html.HTMLElement):
