@@ -3,14 +3,18 @@
 <div class="table_wrapper">
   {% if needs_form_wrapper %}<form action="{{ table.get_absolute_url }}" method="POST">{% csrf_token %}{% endif %}
   {% with columns=table.get_columns rows=table.get_rows %}
+{% block table %}
   <table id="{{ table.name }}" class="table table-bordered table-striped datatable">
     <thead>
+  {% block table_caption %}
       <tr class='table_caption'>
         <th class='table_header' colspan='{{ columns|length }}'>
           <h3 class='table_title'>{{ table }}</h3>
           {{ table.render_table_actions }}
         </th>
       </tr>
+  {% endblock table_caption %}
+  {% block table_breadcrumb %}
       {% if table.breadcrumb %}
         <tr>
           <td class="breadcrumb_td" colspan="{{ table.get_columns|length }}">
@@ -18,6 +22,8 @@
           </td>
         </tr>
       {% endif %}
+  {% endblock table_breadcrumb %}
+  {% block table_columns %}
       {% if not table.is_browser_table %}
       <tr>
         {% for column in columns %}
@@ -25,7 +31,9 @@
         {% endfor %}
       </tr>
       {% endif %}
+  {% endblock table_columns %}
     </thead>
+  {% block table_body %}
     <tbody>
     {% for row in rows %}
       {{ row.render }}
@@ -35,6 +43,8 @@
     </tr>
     {% endfor %}
     </tbody>
+  {% endblock table_body %}
+  {% block table_footer %}
     {% if table.footer %}
     <tfoot>
       {% if table.needs_summary_row %}
@@ -59,7 +69,9 @@
       </tr>
     </tfoot>
     {% endif %}
+  {% endblock table_footer %}
   </table>
+{% endblock table %}
   {% endwith %}
   {% if needs_form_wrapper %}</form>{% endif %}
 </div>
