@@ -2,7 +2,7 @@
 
 <h3>{% trans "Instance VNC Console" %}</h3>
 {% if vnc_url %}
-<p class='alert alert-info'>{% blocktrans %}If VNC console is not responding to keyboard input: click the grey status bar below.{% endblocktrans %} <a href="{{ vnc_url }}">{% trans "Click here to show only VNC" %}</a></p>
+<p class='alert alert-info'>{% blocktrans %}If VNC console is not responding to keyboard input: click the grey status bar below.{% endblocktrans %} <a href="{{ vnc_url }}" style="text-decoration: underline">{% trans "Show only VNC" %}</a></p>
 <iframe id="vnc_console" src="{{ vnc_url }}" style="width:100%;height:100%"></iframe>
 <script type="text/javascript">
     var fix_height = function() {
