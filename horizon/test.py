@@ -36,6 +36,7 @@ from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
 from quantumclient.v2_0 import client as quantum_client
 from swiftclient import client as swift_client
+from cinderclient import client as cinder_client
 
 from selenium.webdriver.firefox.webdriver import WebDriver
 
@@ -293,12 +294,14 @@ class APITestCase(TestCase):
         self._original_keystoneclient = api.keystone.keystoneclient
         self._original_novaclient = api.nova.novaclient
         self._original_quantumclient = api.quantum.quantumclient
+        self._original_cinderclient = api.nova.cinderclient
 
         # Replace the clients with our stubs.
         api.glance.glanceclient = lambda request: self.stub_glanceclient()
         api.keystone.keystoneclient = fake_keystoneclient
         api.nova.novaclient = lambda request: self.stub_novaclient()
         api.quantum.quantumclient = lambda request: self.stub_quantumclient()
+        api.nova.cinderclient = lambda request: self.stub_cinderclient()
 
     def tearDown(self):
         super(APITestCase, self).tearDown()
@@ -306,12 +309,19 @@ class APITestCase(TestCase):
         api.nova.novaclient = self._original_novaclient
         api.keystone.keystoneclient = self._original_keystoneclient
         api.quantum.quantumclient = self._original_quantumclient
+        api.nova.cinderclient = self._original_cinderclient
 
     def stub_novaclient(self):
         if not hasattr(self, "novaclient"):
             self.mox.StubOutWithMock(nova_client, 'Client')
             self.novaclient = self.mox.CreateMock(nova_client.Client)
         return self.novaclient
+
+    def stub_cinderclient(self):
+        if not hasattr(self, "cinderclient"):
+            self.mox.StubOutWithMock(cinder_client, 'Client')
+            self.cinderclient = self.mox.CreateMock(cinder_client.Client)
+        return self.cinderclient
 
     def stub_keystoneclient(self):
         if not hasattr(self, "keystoneclient"):

@@ -116,3 +116,12 @@ def url_for(request, service_type, admin=False, endpoint_type=None):
             raise exceptions.ServiceCatalogException(service_type)
     else:
         raise exceptions.ServiceCatalogException(service_type)
+
+
+def is_service_enabled(request, service_type, service_name=None):
+    service = get_service_from_catalog(request.user.service_catalog,
+                                       service_type)
+    if service and service_name:
+        return service['name'] == service_name
+    else:
+        return service is not None
