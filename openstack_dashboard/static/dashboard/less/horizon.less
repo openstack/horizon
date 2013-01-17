@@ -244,6 +244,16 @@ a.current_item:hover h3, a.current_item:hover h4 {
     font-size: 16px;
     margin: -6px 0 0 14px;
     padding: 0;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    &:hover {
+      white-space: normal;
+      overflow: visible;
+      text-overflow: none;
+      padding-right: 1em;
+      word-wrap: break-word;
+    }
 }
 
 .sidebar .switcher_bar h4 {
