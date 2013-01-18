@@ -58,21 +58,20 @@ class WorkflowContext(dict):
 
 class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
     def __new__(mcs, name, bases, attrs):
-        super(ActionMetaclass, mcs).__new__(mcs, name, bases, attrs)
-
-        # Process options from Meta
+        # Pop Meta for later processing
         opts = attrs.pop("Meta", None)
-        attrs['name'] = getattr(opts, "name", name)
-        attrs['slug'] = getattr(opts, "slug", slugify(name))
-        attrs['permissions'] = getattr(opts, "permissions", ())
-        attrs['progress_message'] = getattr(opts,
+        # Create our new class
+        cls = super(ActionMetaclass, mcs).__new__(mcs, name, bases, attrs)
+        # Process options from Meta
+        cls.name = getattr(opts, "name", name)
+        cls.slug = getattr(opts, "slug", slugify(name))
+        cls.permissions = getattr(opts, "permissions", ())
+        cls.progress_message = getattr(opts,
                                             "progress_message",
                                             _("Processing..."))
-        attrs['help_text'] = getattr(opts, "help_text", "")
-        attrs['help_text_template'] = getattr(opts, "help_text_template", None)
-
-        # Create our new class!
-        return type.__new__(mcs, name, bases, attrs)
+        cls.help_text = getattr(opts, "help_text", "")
+        cls.help_text_template = getattr(opts, "help_text_template", None)
+        return cls
 
 
 class Action(forms.Form):
