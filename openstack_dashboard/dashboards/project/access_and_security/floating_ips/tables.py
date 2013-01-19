@@ -53,7 +53,7 @@ class ReleaseIPs(tables.BatchAction):
     classes = ('btn-danger', 'btn-release')
 
     def action(self, request, obj_id):
-        api.nova.tenant_floating_ip_release(request, obj_id)
+        api.network.tenant_floating_ip_release(request, obj_id)
 
 
 class AssociateIP(tables.LinkAction):
@@ -63,7 +63,7 @@ class AssociateIP(tables.LinkAction):
     classes = ("ajax-modal", "btn-associate")
 
     def allowed(self, request, fip):
-        if fip.instance_id:
+        if fip.port_id:
             return False
         return True
 
@@ -79,15 +79,15 @@ class DisassociateIP(tables.Action):
     classes = ("btn-disassociate", "btn-danger")
 
     def allowed(self, request, fip):
-        if fip.instance_id:
+        if fip.port_id:
             return True
         return False
 
     def single(self, table, request, obj_id):
         try:
             fip = table.get_object_by_id(get_int_or_uuid(obj_id))
-            api.nova.server_remove_floating_ip(request, fip.instance_id,
-                                               fip.id)
+            api.network.floating_ip_disassociate(request, fip.id,
+                                                 fip.port_id)
             LOG.info('Disassociating Floating IP "%s".' % obj_id)
             messages.success(request,
                              _('Successfully disassociated Floating IP: %s')
@@ -116,7 +116,7 @@ class FloatingIPsTable(tables.DataTable):
                              link=get_instance_link,
                              verbose_name=_("Instance"),
                              empty_value="-")
-    pool = tables.Column("pool",
+    pool = tables.Column("pool_name",
                          verbose_name=_("Floating IP Pool"),
                          empty_value="-")
 

@@ -42,15 +42,34 @@ class AssociateIPAction(workflows.Action):
         help_text = _("Select the IP address you wish to associate with "
                       "the selected instance.")
 
+    def __init__(self, *args, **kwargs):
+        super(AssociateIPAction, self).__init__(*args, **kwargs)
+        if api.base.is_service_enabled(self.request, 'network'):
+            label = _("Port to be associated")
+        else:
+            label = _("Instance to be associated")
+        self.fields['instance_id'].label = label
+
+        # If AssociateIP is invoked from instance menu, instance_id parameter
+        # is passed in URL. In Quantum based Floating IP implementation
+        # an association target is not an instance but a port, so we need
+        # to get an association target based on a received instance_id
+        # and set the initial value of instance_id ChoiceField.
+        q_instance_id = self.request.GET.get('instance_id')
+        if q_instance_id:
+            target_id = api.network.floating_ip_target_get_by_instance(
+                self.request, q_instance_id)
+            self.initial['instance_id'] = target_id
+
     def populate_ip_id_choices(self, request, context):
         try:
-            ips = api.nova.tenant_floating_ip_list(self.request)
+            ips = api.network.tenant_floating_ip_list(self.request)
         except:
             redirect = reverse('horizon:project:access_and_security:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve floating IP addresses.'),
                               redirect=redirect)
-        options = sorted([(ip.id, ip.ip) for ip in ips if not ip.instance_id])
+        options = sorted([(ip.id, ip.ip) for ip in ips if not ip.port_id])
         if options:
             options.insert(0, ("", _("Select an IP address")))
         else:
@@ -60,24 +79,32 @@ class AssociateIPAction(workflows.Action):
 
     def populate_instance_id_choices(self, request, context):
         try:
-            servers = api.nova.server_list(self.request)
+            targets = api.network.floating_ip_target_list(self.request)
         except:
             redirect = reverse('horizon:project:access_and_security:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'),
                               redirect=redirect)
         instances = []
-        for server in servers:
-            server_name = "%s (%s)" % (server.name, server.id)
-            instances.append((server.id, server_name))
+        for target in targets:
+            instances.append((target.id, target.name))
 
         # Sort instances for easy browsing
         instances = sorted(instances, key=lambda x: x[1])
 
+        quantum_enabled = api.base.is_service_enabled(request, 'network')
         if instances:
-            instances.insert(0, ("", _("Select an instance")))
+            if quantum_enabled:
+                label = _("Select a port")
+            else:
+                label = _("Select an instance")
+            instances.insert(0, ("", label))
         else:
-            instances = (("", _("No instances available")),)
+            if quantum_enabled:
+                label = _("No ports available")
+            else:
+                label = _("No instances available")
+            instances = (("", label),)
         return instances
 
 
@@ -108,9 +135,9 @@ class IPAssociationWorkflow(workflows.Workflow):
 
     def handle(self, request, data):
         try:
-            api.nova.server_add_floating_ip(request,
-                                            data['instance_id'],
-                                            data['ip_id'])
+            api.network.floating_ip_associate(request,
+                                              data['ip_id'],
+                                              data['instance_id'])
         except:
             exceptions.handle(request)
             return False

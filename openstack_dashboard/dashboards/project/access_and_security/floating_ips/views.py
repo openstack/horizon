@@ -59,12 +59,12 @@ class AllocateView(forms.ModalFormView):
 
     def get_initial(self):
         try:
-            pools = api.nova.floating_ip_pools_list(self.request)
+            pools = api.network.floating_ip_pools_list(self.request)
         except:
             pools = []
             exceptions.handle(self.request,
                               _("Unable to retrieve floating IP pools."))
-        pool_list = [(pool.name, pool.name) for pool in pools]
+        pool_list = [(pool.id, pool.name) for pool in pools]
         if not pool_list:
             pool_list = [(None, _("No floating IP pools available."))]
         return {'pool_list': pool_list}

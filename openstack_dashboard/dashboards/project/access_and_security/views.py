@@ -27,9 +27,11 @@ import logging
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon import messages
 from horizon import tables
 
-from openstack_dashboard import api
+from openstack_dashboard.api import network
+from openstack_dashboard.api import nova
 from .keypairs.tables import KeypairsTable
 from .floating_ips.tables import FloatingIPsTable
 from .security_groups.tables import SecurityGroupsTable
@@ -44,7 +46,7 @@ class IndexView(tables.MultiTableView):
 
     def get_keypairs_data(self):
         try:
-            keypairs = api.nova.keypair_list(self.request)
+            keypairs = nova.keypair_list(self.request)
         except:
             keypairs = []
             exceptions.handle(self.request,
@@ -53,7 +55,7 @@ class IndexView(tables.MultiTableView):
 
     def get_security_groups_data(self):
         try:
-            security_groups = api.nova.security_group_list(self.request)
+            security_groups = nova.security_group_list(self.request)
         except:
             security_groups = []
             exceptions.handle(self.request,
@@ -62,15 +64,23 @@ class IndexView(tables.MultiTableView):
 
     def get_floating_ips_data(self):
         try:
-            floating_ips = api.nova.tenant_floating_ip_list(self.request)
+            floating_ips = network.tenant_floating_ip_list(self.request)
         except:
             floating_ips = []
             exceptions.handle(self.request,
                               _('Unable to retrieve floating IP addresses.'))
 
+        try:
+            floating_ip_pools = network.floating_ip_pools_list(self.request)
+        except:
+            floating_ip_pools = []
+            messages.warning(self.request,
+                             _('Unable to retrieve floating IP pools.'))
+        pool_dict = dict([(obj.id, obj.name) for obj in floating_ip_pools])
+
         instances = []
         try:
-            instances = api.nova.server_list(self.request, all_tenants=True)
+            instances = nova.server_list(self.request, all_tenants=True)
         except:
             exceptions.handle(self.request,
                         _('Unable to retrieve instance list.'))
@@ -80,5 +90,6 @@ class IndexView(tables.MultiTableView):
         for ip in floating_ips:
             ip.instance_name = instances_dict[ip.instance_id].name \
                 if ip.instance_id in instances_dict else None
+            ip.pool_name = pool_dict.get(ip.pool, ip.pool)
 
         return floating_ips

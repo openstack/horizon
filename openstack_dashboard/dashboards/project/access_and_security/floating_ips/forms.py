@@ -38,7 +38,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            fip = api.nova.tenant_floating_ip_allocate(request,
+            fip = api.network.tenant_floating_ip_allocate(request,
                                                        pool=data['pool'])
             messages.success(request,
                              _('Allocated Floating IP %(ip)s.')

@@ -36,6 +36,7 @@ from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import glance
 from openstack_dashboard.api import keystone
+from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
 from openstack_dashboard.api import quantum
 from openstack_dashboard.api import swift

@@ -38,11 +38,11 @@ NAMESPACE = "horizon:project:access_and_security:floating_ips"
 
 class FloatingIpViewTests(test.TestCase):
     def test_associate(self):
-        self.mox.StubOutWithMock(api.nova, 'server_list')
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.servers.list())
-        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
@@ -58,17 +58,17 @@ class FloatingIpViewTests(test.TestCase):
     def test_associate_post(self):
         floating_ip = self.floating_ips.list()[1]
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.nova, 'server_add_floating_ip')
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.nova, 'server_list')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_associate')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
 
-        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.servers.list())
-        api.nova.server_add_floating_ip(IsA(http.HttpRequest),
-                                        server.id,
-                                        floating_ip.id)
+        api.network.floating_ip_associate(IsA(http.HttpRequest),
+                                          floating_ip.id,
+                                          server.id)
         self.mox.ReplayAll()
 
         form_data = {'instance_id': server.id,
@@ -80,17 +80,17 @@ class FloatingIpViewTests(test.TestCase):
     def test_associate_post_with_redirect(self):
         floating_ip = self.floating_ips.list()[1]
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.nova, 'server_add_floating_ip')
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.nova, 'server_list')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_associate')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
 
-        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.servers.list())
-        api.nova.server_add_floating_ip(IsA(http.HttpRequest),
-                                        server.id,
-                                        floating_ip.id)
+        api.network.floating_ip_associate(IsA(http.HttpRequest),
+                                          floating_ip.id,
+                                          server.id)
         self.mox.ReplayAll()
 
         form_data = {'instance_id': server.id,
@@ -103,17 +103,17 @@ class FloatingIpViewTests(test.TestCase):
     def test_associate_post_with_exception(self):
         floating_ip = self.floating_ips.list()[1]
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.nova, 'server_add_floating_ip')
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.nova, 'server_list')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_associate')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
 
-        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.servers.list())
-        api.nova.server_add_floating_ip(IsA(http.HttpRequest),
-                                        server.id,
-                                        floating_ip.id) \
+        api.network.floating_ip_associate(IsA(http.HttpRequest),
+                                          floating_ip.id,
+                                          server.id) \
                 .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
@@ -128,9 +128,9 @@ class FloatingIpViewTests(test.TestCase):
         server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'security_group_list')
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_get')
-        self.mox.StubOutWithMock(api.nova, 'server_remove_floating_ip')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_get')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest),
@@ -139,11 +139,11 @@ class FloatingIpViewTests(test.TestCase):
                               .AndReturn(self.keypairs.list())
         api.nova.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
-        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                                     .AndReturn(self.floating_ips.list())
-        api.nova.server_remove_floating_ip(IsA(http.HttpRequest),
-                                           server.id,
-                                           floating_ip.id)
+        api.network.floating_ip_disassociate(IsA(http.HttpRequest),
+                                             floating_ip.id,
+                                             server.id)
         self.mox.ReplayAll()
 
         action = "floating_ips__disassociate__%s" % floating_ip.id
@@ -156,9 +156,9 @@ class FloatingIpViewTests(test.TestCase):
         server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'security_group_list')
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_get')
-        self.mox.StubOutWithMock(api.nova, 'server_remove_floating_ip')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_get')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest),
@@ -167,13 +167,13 @@ class FloatingIpViewTests(test.TestCase):
             .AndReturn(self.keypairs.list())
         api.nova.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.security_groups.list())
-        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
 
-        api.nova.server_remove_floating_ip(IsA(http.HttpRequest),
-                                           server.id,
-                                           floating_ip.id) \
-                                           .AndRaise(self.exceptions.nova)
+        api.network.floating_ip_disassociate(IsA(http.HttpRequest),
+                                             floating_ip.id,
+                                             server.id) \
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         action = "floating_ips__disassociate__%s" % floating_ip.id
@@ -184,7 +184,12 @@ class FloatingIpViewTests(test.TestCase):
 class FloatingIpQuantumViewTests(FloatingIpViewTests):
     def setUp(self):
         super(FloatingIpViewTests, self).setUp()
+        self._floating_ips_orig = self.floating_ips
         self.floating_ips = self.floating_ips_uuid
+
+    def tearDown(self):
+        self.floating_ips = self._floating_ips_orig
+        super(FloatingIpViewTests, self).tearDown()
 
 
 class FloatingIpUtilsTests(test.TestCase):
