@@ -48,8 +48,8 @@ class IndexView(tables.DataTableView):
         marker = self.request.GET.get(AdminImagesTable._meta.pagination_param,
                                       None)
         try:
-            images, self._more = api.image_list_detailed(self.request,
-                                                         marker=marker)
+            images, self._more = api.glance.image_list_detailed(self.request,
+                                                                marker=marker)
         except:
             self._more = False
             msg = _('Unable to retrieve image list.')

@@ -15,7 +15,7 @@ class DeleteFlavor(tables.DeleteAction):
     data_type_plural = _("Flavors")
 
     def delete(self, request, obj_id):
-        api.flavor_delete(request, obj_id)
+        api.nova.flavor_delete(request, obj_id)
 
 
 class CreateFlavor(tables.LinkAction):

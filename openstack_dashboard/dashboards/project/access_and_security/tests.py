@@ -34,17 +34,18 @@ class AccessAndSecurityTests(test.TestCase):
         keypairs = self.keypairs.list()
         sec_groups = self.security_groups.list()
         floating_ips = self.floating_ips.list()
-        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(self.servers.list())
         api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(keypairs)
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                                    .AndReturn(floating_ips)
-        api.security_group_list(IsA(http.HttpRequest)).AndReturn(sec_groups)
+        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .AndReturn(floating_ips)
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(sec_groups)
 
         self.mox.ReplayAll()
 

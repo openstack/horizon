@@ -127,23 +127,23 @@ class FloatingIpViewTests(test.TestCase):
         floating_ip = self.floating_ips.first()
         server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
-        self.mox.StubOutWithMock(api, 'server_remove_floating_ip')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_get')
+        self.mox.StubOutWithMock(api.nova, 'server_remove_floating_ip')
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(self.servers.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                               .AndReturn(self.keypairs.list())
-        api.security_group_list(IsA(http.HttpRequest)) \
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                                     .AndReturn(self.floating_ips.list())
-        api.server_remove_floating_ip(IsA(http.HttpRequest),
-                                      server.id,
-                                      floating_ip.id)
+        api.nova.server_remove_floating_ip(IsA(http.HttpRequest),
+                                           server.id,
+                                           floating_ip.id)
         self.mox.ReplayAll()
 
         action = "floating_ips__disassociate__%s" % floating_ip.id
@@ -155,25 +155,25 @@ class FloatingIpViewTests(test.TestCase):
         floating_ip = self.floating_ips.first()
         server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api, 'tenant_floating_ip_get')
-        self.mox.StubOutWithMock(api, 'server_remove_floating_ip')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_get')
+        self.mox.StubOutWithMock(api.nova, 'server_remove_floating_ip')
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(self.servers.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
-                              .AndReturn(self.keypairs.list())
-        api.security_group_list(IsA(http.HttpRequest)) \
-                                .AndReturn(self.security_groups.list())
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                                    .AndReturn(self.floating_ips.list())
+            .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.security_groups.list())
+        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.floating_ips.list())
 
-        api.server_remove_floating_ip(IsA(http.HttpRequest),
-                                      server.id,
-                                      floating_ip.id) \
-                                .AndRaise(self.exceptions.nova)
+        api.nova.server_remove_floating_ip(IsA(http.HttpRequest),
+                                           server.id,
+                                           floating_ip.id) \
+                                           .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         action = "floating_ips__disassociate__%s" % floating_ip.id

@@ -40,12 +40,12 @@ class UsageViewTests(test.TestCase):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
         quota_data = self.quota_usages.first()
-        self.mox.StubOutWithMock(api, 'usage_get')
+        self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
-        api.usage_get(IsA(http.HttpRequest), self.tenant.id,
-                      datetime.datetime(now.year, now.month, 1, 0, 0, 0),
-                      Func(usage.almost_now)) \
-                      .AndReturn(usage_obj)
+        api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
+                           datetime.datetime(now.year, now.month, 1, 0, 0, 0),
+                           Func(usage.almost_now)) \
+                           .AndReturn(usage_obj)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
         self.mox.ReplayAll()
 
@@ -57,11 +57,11 @@ class UsageViewTests(test.TestCase):
     def test_unauthorized(self):
         exc = self.exceptions.keystone_unauthorized
         now = timezone.now()
-        self.mox.StubOutWithMock(api, 'usage_get')
-        api.usage_get(IsA(http.HttpRequest), self.tenant.id,
-                      datetime.datetime(now.year, now.month, 1, 0, 0, 0),
-                      Func(usage.almost_now)) \
-                      .AndRaise(exc)
+        self.mox.StubOutWithMock(api.nova, 'usage_get')
+        api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
+                           datetime.datetime(now.year, now.month, 1, 0, 0, 0),
+                           Func(usage.almost_now)) \
+                           .AndRaise(exc)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:overview:index')
@@ -72,14 +72,14 @@ class UsageViewTests(test.TestCase):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
         quota_data = self.quota_usages.first()
-        self.mox.StubOutWithMock(api, 'usage_get')
+        self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
         timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
-        api.usage_get(IsA(http.HttpRequest),
-                      self.tenant.id,
-                      timestamp,
-                      Func(usage.almost_now)) \
-                      .AndReturn(usage_obj)
+        api.nova.usage_get(IsA(http.HttpRequest),
+                           self.tenant.id,
+                           timestamp,
+                           Func(usage.almost_now)) \
+                           .AndReturn(usage_obj)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -91,14 +91,14 @@ class UsageViewTests(test.TestCase):
     def test_usage_exception_usage(self):
         now = timezone.now()
         quota_data = self.quota_usages.first()
-        self.mox.StubOutWithMock(api, 'usage_get')
+        self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
         timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
-        api.usage_get(IsA(http.HttpRequest),
-                      self.tenant.id,
-                      timestamp,
-                      Func(usage.almost_now)) \
-                      .AndRaise(self.exceptions.nova)
+        api.nova.usage_get(IsA(http.HttpRequest),
+                           self.tenant.id,
+                           timestamp,
+                           Func(usage.almost_now)) \
+                           .AndRaise(self.exceptions.nova)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
         self.mox.ReplayAll()
 
@@ -109,14 +109,14 @@ class UsageViewTests(test.TestCase):
     def test_usage_exception_quota(self):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
-        self.mox.StubOutWithMock(api, 'usage_get')
+        self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
         timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
-        api.usage_get(IsA(http.HttpRequest),
-                      self.tenant.id,
-                      timestamp,
-                      Func(usage.almost_now)) \
-                      .AndReturn(usage_obj)
+        api.nova.usage_get(IsA(http.HttpRequest),
+                           self.tenant.id,
+                           timestamp,
+                           Func(usage.almost_now)) \
+                           .AndReturn(usage_obj)
         quotas.tenant_quota_usages(IsA(http.HttpRequest))\
             .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
@@ -129,14 +129,14 @@ class UsageViewTests(test.TestCase):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
         quota_data = self.quota_usages.first()
-        self.mox.StubOutWithMock(api, 'usage_get')
+        self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
         timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
-        api.usage_get(IsA(http.HttpRequest),
-                      self.tenant.id,
-                      timestamp,
-                      Func(usage.almost_now)) \
-                      .AndReturn(usage_obj)
+        api.nova.usage_get(IsA(http.HttpRequest),
+                           self.tenant.id,
+                           timestamp,
+                           Func(usage.almost_now)) \
+                           .AndReturn(usage_obj)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
         self.mox.ReplayAll()
 

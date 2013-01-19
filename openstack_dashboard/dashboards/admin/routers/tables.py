@@ -45,7 +45,7 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, router_id):
-        router = api.router_get(request, router_id)
+        router = api.quantum.router_get(request, router_id)
         return router
 
 

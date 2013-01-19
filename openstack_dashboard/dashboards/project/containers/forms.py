@@ -53,7 +53,7 @@ class CreateContainer(forms.SelfHandlingForm):
         try:
             if not data['parent']:
                 # Create a container
-                api.swift_create_container(request, data["name"])
+                api.swift.swift_create_container(request, data["name"])
                 messages.success(request, _("Container created successfully."))
             else:
                 # Create a pseudo-folder
@@ -62,9 +62,9 @@ class CreateContainer(forms.SelfHandlingForm):
                 subfolder_name = "/".join([bit for bit
                                            in (remainder, data['name'])
                                            if bit])
-                api.swift_create_subfolder(request,
-                                           container,
-                                           subfolder_name)
+                api.swift.swift_create_subfolder(request,
+                                                 container,
+                                                 subfolder_name)
                 messages.success(request, _("Folder created successfully."))
             return True
         except:
@@ -88,10 +88,10 @@ class UploadObject(forms.SelfHandlingForm):
         else:
             object_path = data['name']
         try:
-            obj = api.swift_upload_object(request,
-                                          data['container_name'],
-                                          object_path,
-                                          object_file)
+            obj = api.swift.swift_upload_object(request,
+                                                data['container_name'],
+                                                object_path,
+                                                object_file)
             messages.success(request, _("Object was successfully uploaded."))
             return obj
         except:
@@ -143,11 +143,11 @@ class CopyObject(forms.SelfHandlingForm):
 
         # Now copy the object itself.
         try:
-            api.swift_copy_object(request,
-                                  orig_container,
-                                  orig_object,
-                                  new_container,
-                                  new_path)
+            api.swift.swift_copy_object(request,
+                                        orig_container,
+                                        orig_object,
+                                        new_container,
+                                        new_path)
             dest = "%s/%s" % (new_container, path)
             vals = {"dest": dest.rstrip("/"),
                     "orig": orig_object.split("/")[-1],

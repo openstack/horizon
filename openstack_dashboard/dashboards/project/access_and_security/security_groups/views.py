@@ -49,8 +49,8 @@ class EditRulesView(tables.DataTableView, forms.ModalFormView):
     def get_data(self):
         security_group_id = int(self.kwargs['security_group_id'])
         try:
-            self.object = api.security_group_get(self.request,
-                                                 security_group_id)
+            self.object = api.nova.security_group_get(self.request,
+                                                      security_group_id)
             rules = [api.nova.SecurityGroupRule(rule) for
                      rule in self.object.rules]
         except:
@@ -67,7 +67,7 @@ class EditRulesView(tables.DataTableView, forms.ModalFormView):
         kwargs = super(EditRulesView, self).get_form_kwargs()
 
         try:
-            groups = api.security_group_list(self.request)
+            groups = api.nova.security_group_list(self.request)
         except:
             groups = []
             exceptions.handle(self.request,

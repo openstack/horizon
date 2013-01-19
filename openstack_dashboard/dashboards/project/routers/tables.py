@@ -38,7 +38,7 @@ class DeleteRouter(tables.DeleteAction):
         obj = self.table.get_object_by_id(obj_id)
         name = self.table.get_object_display(obj)
         try:
-            api.router_delete(request, obj_id)
+            api.quantum.router_delete(request, obj_id)
         except q_ext.QuantumClientException as e:
             msg = _('Unable to delete router "%s"') % e.message
             LOG.info(msg)
@@ -65,7 +65,7 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, router_id):
-        router = api.router_get(request, router_id)
+        router = api.quantum.router_get(request, router_id)
         return router
 
 

@@ -41,7 +41,7 @@ class BaseUserForm(forms.SelfHandlingForm):
         # Populate tenant choices
         tenant_choices = [('', _("Select a project"))]
 
-        for tenant in api.tenant_list(request, admin=True):
+        for tenant in api.keystone.tenant_list(request, admin=True):
             if tenant.enabled:
                 tenant_choices.append((tenant.id, tenant.name))
         self.fields['tenant_id'].choices = tenant_choices
@@ -86,18 +86,18 @@ class CreateUserForm(BaseUserForm):
     def handle(self, request, data):
         try:
             LOG.info('Creating user with name "%s"' % data['name'])
-            new_user = api.user_create(request,
-                            data['name'],
-                            data['email'],
-                            data['password'],
-                            data['tenant_id'],
-                            True)
+            new_user = api.keystone.user_create(request,
+                                                data['name'],
+                                                data['email'],
+                                                data['password'],
+                                                data['tenant_id'],
+                                                True)
             messages.success(request,
                              _('User "%s" was successfully created.')
                              % data['name'])
             if data['role_id']:
                 try:
-                    api.add_tenant_user_role(request,
+                    api.keystone.add_tenant_user_role(request,
                                              data['tenant_id'],
                                              new_user.id,
                                              data['role_id'])
@@ -129,7 +129,7 @@ class UpdateUserForm(BaseUserForm):
     def __init__(self, request, *args, **kwargs):
         super(UpdateUserForm, self).__init__(request, *args, **kwargs)
 
-        if api.keystone_can_edit_user() is False:
+        if api.keystone.keystone_can_edit_user() is False:
             for field in ('name', 'email', 'password', 'confirm_password'):
                 self.fields.pop(field)
 
@@ -138,7 +138,7 @@ class UpdateUserForm(BaseUserForm):
     @sensitive_variables('data', 'password')
     def handle(self, request, data):
         failed, succeeded = [], []
-        user_is_editable = api.keystone_can_edit_user()
+        user_is_editable = api.keystone.keystone_can_edit_user()
         user = data.pop('id')
         tenant = data.pop('tenant_id')
 
@@ -159,7 +159,7 @@ class UpdateUserForm(BaseUserForm):
         # Update default tenant
         msg_bits = (_('primary project'),)
         try:
-            api.user_update_tenant(request, user, tenant)
+            api.keystone.user_update_tenant(request, user, tenant)
             succeeded.extend(msg_bits)
         except:
             failed.append(msg_bits)
@@ -180,7 +180,7 @@ class UpdateUserForm(BaseUserForm):
             if password:
                 msg_bits = (_('password'),)
                 try:
-                    api.user_update_password(request, user, password)
+                    api.keystone.user_update_password(request, user, password)
                     succeeded.extend(msg_bits)
                 except:
                     failed.extend(msg_bits)

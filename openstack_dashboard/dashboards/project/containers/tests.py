@@ -36,11 +36,11 @@ CONTAINER_INDEX_URL = reverse('horizon:project:containers:index')
 
 
 class SwiftTests(test.TestCase):
-    @test.create_stubs({api: ('swift_get_containers',)})
+    @test.create_stubs({api.swift: ('swift_get_containers',)})
     def test_index_no_container_selected(self):
         containers = self.containers.list()
-        api.swift_get_containers(IsA(http.HttpRequest), marker=None) \
-                                .AndReturn((containers, False))
+        api.swift.swift_get_containers(IsA(http.HttpRequest), marker=None) \
+            .AndReturn((containers, False))
         self.mox.ReplayAll()
 
         res = self.client.get(CONTAINER_INDEX_URL)
@@ -50,10 +50,10 @@ class SwiftTests(test.TestCase):
         resp_containers = res.context['table'].data
         self.assertEqual(len(resp_containers), len(containers))
 
-    @test.create_stubs({api: ('swift_delete_container',)})
+    @test.create_stubs({api.swift: ('swift_delete_container',)})
     def test_delete_container(self):
         container = self.containers.get(name=u"container_two\u6346")
-        api.swift_delete_container(IsA(http.HttpRequest), container.name)
+        api.swift.swift_delete_container(IsA(http.HttpRequest), container.name)
         self.mox.ReplayAll()
 
         action_string = u"containers__delete__%s" % container.name
@@ -63,13 +63,13 @@ class SwiftTests(test.TestCase):
         handled = table.maybe_handle()
         self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
 
-    @test.create_stubs({api: ('swift_delete_container',)})
+    @test.create_stubs({api.swift: ('swift_delete_container',)})
     def test_delete_container_nonempty(self):
         container = self.containers.first()
         exc = self.exceptions.swift
         exc.silence_logging = True
-        api.swift_delete_container(IsA(http.HttpRequest),
-                                   container.name).AndRaise(exc)
+        api.swift.swift_delete_container(IsA(http.HttpRequest),
+                                         container.name).AndRaise(exc)
         self.mox.ReplayAll()
 
         action_string = u"containers__delete__%s" % container.name
@@ -83,10 +83,10 @@ class SwiftTests(test.TestCase):
         res = self.client.get(reverse('horizon:project:containers:create'))
         self.assertTemplateUsed(res, 'project/containers/create.html')
 
-    @test.create_stubs({api: ('swift_create_container',)})
+    @test.create_stubs({api.swift: ('swift_create_container',)})
     def test_create_container_post(self):
-        api.swift_create_container(IsA(http.HttpRequest),
-                                   self.containers.first().name)
+        api.swift.swift_create_container(IsA(http.HttpRequest),
+                                         self.containers.first().name)
         self.mox.ReplayAll()
 
         formData = {'name': self.containers.first().name,
@@ -97,16 +97,17 @@ class SwiftTests(test.TestCase):
                       args=[wrap_delimiter(self.containers.first().name)])
         self.assertRedirectsNoFollow(res, url)
 
-    @test.create_stubs({api: ('swift_get_containers', 'swift_get_objects')})
+    @test.create_stubs({api.swift: ('swift_get_containers',
+                                    'swift_get_objects')})
     def test_index_container_selected(self):
         containers = (self.containers.list(), False)
         ret = (self.objects.list(), False)
-        api.swift_get_containers(IsA(http.HttpRequest),
-                                 marker=None).AndReturn(containers)
-        api.swift_get_objects(IsA(http.HttpRequest),
-                              self.containers.first().name,
-                              marker=None,
-                              prefix=None).AndReturn(ret)
+        api.swift.swift_get_containers(IsA(http.HttpRequest),
+                                       marker=None).AndReturn(containers)
+        api.swift.swift_get_objects(IsA(http.HttpRequest),
+                                    self.containers.first().name,
+                                    marker=None,
+                                    prefix=None).AndReturn(ret)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:containers:index',
@@ -120,7 +121,7 @@ class SwiftTests(test.TestCase):
                                  expected,
                                  lambda obj: obj.name.encode('utf8'))
 
-    @test.create_stubs({api: ('swift_upload_object',)})
+    @test.create_stubs({api.swift: ('swift_upload_object',)})
     def test_upload(self):
         container = self.containers.first()
         obj = self.objects.first()
@@ -131,10 +132,10 @@ class SwiftTests(test.TestCase):
         temp_file.flush()
         temp_file.seek(0)
 
-        api.swift_upload_object(IsA(http.HttpRequest),
-                                container.name,
-                                obj.name,
-                                IsA(InMemoryUploadedFile)).AndReturn(obj)
+        api.swift.swift_upload_object(IsA(http.HttpRequest),
+                                      container.name,
+                                      obj.name,
+                                      IsA(InMemoryUploadedFile)).AndReturn(obj)
         self.mox.ReplayAll()
 
         upload_url = reverse('horizon:project:containers:object_upload',
@@ -162,15 +163,15 @@ class SwiftTests(test.TestCase):
         self.assertNoMessages()
         self.assertContains(res, "Slash is not an allowed character.")
 
-    @test.create_stubs({api: ('swift_delete_object',)})
+    @test.create_stubs({api.swift: ('swift_delete_object',)})
     def test_delete(self):
         container = self.containers.first()
         obj = self.objects.first()
         index_url = reverse('horizon:project:containers:index',
                             args=[wrap_delimiter(container.name)])
-        api.swift_delete_object(IsA(http.HttpRequest),
-                                container.name,
-                                obj.name)
+        api.swift.swift_delete_object(IsA(http.HttpRequest),
+                                      container.name,
+                                      obj.name)
         self.mox.ReplayAll()
 
         action_string = "objects__delete_object__%s" % obj.name
@@ -197,10 +198,10 @@ class SwiftTests(test.TestCase):
         self.assertEqual(res.content, obj.data)
         self.assertTrue(res.has_header('Content-Disposition'))
 
-    @test.create_stubs({api: ('swift_get_containers',)})
+    @test.create_stubs({api.swift: ('swift_get_containers',)})
     def test_copy_index(self):
         ret = (self.containers.list(), False)
-        api.swift_get_containers(IsA(http.HttpRequest)).AndReturn(ret)
+        api.swift.swift_get_containers(IsA(http.HttpRequest)).AndReturn(ret)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:containers:object_copy',
@@ -208,19 +209,20 @@ class SwiftTests(test.TestCase):
                                             self.objects.first().name]))
         self.assertTemplateUsed(res, 'project/containers/copy.html')
 
-    @test.create_stubs({api: ('swift_get_containers', 'swift_copy_object')})
+    @test.create_stubs({api.swift: ('swift_get_containers',
+                                    'swift_copy_object')})
     def test_copy(self):
         container_1 = self.containers.get(name=u"container_one\u6346")
         container_2 = self.containers.get(name=u"container_two\u6346")
         obj = self.objects.first()
 
         ret = (self.containers.list(), False)
-        api.swift_get_containers(IsA(http.HttpRequest)).AndReturn(ret)
-        api.swift_copy_object(IsA(http.HttpRequest),
-                              container_1.name,
-                              obj.name,
-                              container_2.name,
-                              obj.name)
+        api.swift.swift_get_containers(IsA(http.HttpRequest)).AndReturn(ret)
+        api.swift.swift_copy_object(IsA(http.HttpRequest),
+                                    container_1.name,
+                                    obj.name,
+                                    container_2.name,
+                                    obj.name)
         self.mox.ReplayAll()
 
         formData = {'method': forms.CopyObject.__name__,

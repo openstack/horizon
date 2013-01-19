@@ -48,7 +48,7 @@ class MigrateInstance(tables.BatchAction):
                 and not is_deleting(instance))
 
     def action(self, request, obj_id):
-        api.server_migrate(request, obj_id)
+        api.nova.server_migrate(request, obj_id)
 
 
 class AdminUpdateRow(UpdateRow):

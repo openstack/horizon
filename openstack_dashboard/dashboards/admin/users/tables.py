@@ -22,7 +22,7 @@ class CreateUserLink(tables.LinkAction):
     classes = ("ajax-modal", "btn-create")
 
     def allowed(self, request, user):
-        if api.keystone_can_edit_user():
+        if api.keystone.keystone_can_edit_user():
             return True
         return False
 
@@ -76,7 +76,7 @@ class DeleteUsersAction(tables.DeleteAction):
     data_type_plural = _("Users")
 
     def allowed(self, request, datum):
-        if not api.keystone_can_edit_user() or \
+        if not api.keystone.keystone_can_edit_user() or \
                 (datum and datum.id == request.user.id):
             return False
         return True

@@ -32,8 +32,9 @@ INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
 
 
 class ImagesAndSnapshotsTests(test.TestCase):
-    @test.create_stubs({api: ('image_list_detailed', 'snapshot_list_detailed',
-                              'volume_snapshot_list', 'volume_get',)})
+    @test.create_stubs({api.glance: ('image_list_detailed',
+                                     'snapshot_list_detailed'),
+                        api.cinder: ('volume_snapshot_list', 'volume_get')})
     def test_index(self):
         images = self.images.list()
         snapshots = self.snapshots.list()
@@ -42,19 +43,19 @@ class ImagesAndSnapshotsTests(test.TestCase):
         for volume in volumes:
             volume.volume_id = volume.id
         for volume in volumes:
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id) \
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
                           .AndReturn(volume)
         for volume in volumes:
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id) \
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
                           .AndReturn(volume)
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id)
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
 
-        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
                                 .AndReturn(volumes)
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                marker=None).AndReturn([images, False])
-        api.snapshot_list_detailed(IsA(http.HttpRequest),
-                                marker=None).AndReturn([snapshots, False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None).AndReturn([images, False])
+        api.glance.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
+                                .AndReturn([snapshots, False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -65,60 +66,64 @@ class ImagesAndSnapshotsTests(test.TestCase):
         filtered_images = filter(filter_func, images)
         self.assertItemsEqual(images, filtered_images)
 
-    @test.create_stubs({api: ('image_list_detailed', 'snapshot_list_detailed',
-                              'volume_snapshot_list', 'volume_get',)})
+    @test.create_stubs({api.glance: ('image_list_detailed',
+                                     'snapshot_list_detailed'),
+                        api.cinder: ('volume_snapshot_list', 'volume_get')})
     def test_index_no_images(self):
         volumes = self.volumes.list()
 
         for volume in volumes:
             volume.volume_id = volume.id
         for volume in volumes:
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id) \
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
                           .AndReturn(volume)
         for volume in volumes:
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id) \
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
                           .AndReturn(volume)
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id)
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
 
-        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
                                 .AndReturn(volumes)
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                marker=None).AndReturn([(), False])
-        api.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None).AndReturn([(), False])
+        api.glance.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
                                 .AndReturn([self.snapshots.list(), False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/images_and_snapshots/index.html')
 
-    @test.create_stubs({api: ('image_list_detailed', 'snapshot_list_detailed',
-                              'volume_snapshot_list', 'volume_get',)})
+    @test.create_stubs({api.glance: ('image_list_detailed',
+                                     'snapshot_list_detailed'),
+                        api.cinder: ('volume_snapshot_list', 'volume_get')})
     def test_index_error(self):
         volumes = self.volumes.list()
 
         for volume in volumes:
             volume.volume_id = volume.id
         for volume in volumes:
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id) \
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
                           .AndReturn(volume)
         for volume in volumes:
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id) \
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
                           .AndReturn(volume)
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id)
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
 
-        api.volume_snapshot_list(IsA(http.HttpRequest)) \
+        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
                                 .AndReturn(volumes)
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                marker=None).AndRaise(self.exceptions.glance)
-        api.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None) \
+                                .AndRaise(self.exceptions.glance)
+        api.glance.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
                                 .AndReturn([self.snapshots.list(), False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/images_and_snapshots/index.html')
 
-    @test.create_stubs({api: ('image_list_detailed', 'snapshot_list_detailed',
-                              'volume_snapshot_list', 'volume_get',)})
+    @test.create_stubs({api.glance: ('image_list_detailed',
+                                     'snapshot_list_detailed'),
+                        api.cinder: ('volume_snapshot_list', 'volume_get')})
     def test_queued_snapshot_actions(self):
         images = self.images.list()
         snapshots = self.snapshots.list()
@@ -127,19 +132,19 @@ class ImagesAndSnapshotsTests(test.TestCase):
         for volume in volumes:
             volume.volume_id = volume.id
         for volume in volumes:
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id) \
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
                           .AndReturn(volume)
         for volume in volumes:
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id) \
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
                           .AndReturn(volume)
-            api.volume_get(IsA(http.HttpRequest), volume.volume_id)
+            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
 
-        api.volume_snapshot_list(IsA(http.HttpRequest)) \
-                                .AndReturn(volumes)
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                marker=None).AndReturn([images, False])
-        api.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
-                                .AndReturn([snapshots, False])
+        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+            .AndReturn(volumes)
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None).AndReturn([images, False])
+        api.glance.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
+            .AndReturn([snapshots, False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)

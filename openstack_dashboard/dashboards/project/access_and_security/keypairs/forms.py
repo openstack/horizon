@@ -54,9 +54,9 @@ class ImportKeypair(forms.SelfHandlingForm):
         try:
             # Remove any new lines in the public key
             data['public_key'] = NEW_LINES.sub("", data['public_key'])
-            keypair = api.keypair_import(request,
-                                         data['name'],
-                                         data['public_key'])
+            keypair = api.nova.keypair_import(request,
+                                              data['name'],
+                                              data['public_key'])
             messages.success(request, _('Successfully imported public key: %s')
                                        % data['name'])
             return keypair

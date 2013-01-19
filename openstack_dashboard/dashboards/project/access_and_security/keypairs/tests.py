@@ -36,15 +36,15 @@ class KeyPairViewTests(test.TestCase):
 
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_delete')
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(self.servers.list())
-        api.security_group_list(IsA(http.HttpRequest)) \
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                                    .AndReturn(self.floating_ips.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
@@ -59,15 +59,15 @@ class KeyPairViewTests(test.TestCase):
         keypair = self.keypairs.first()
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_delete')
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        self.mox.StubOutWithMock(api, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(self.servers.list())
-        api.security_group_list(IsA(http.HttpRequest)) \
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
-        api.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                                    .AndReturn(self.floating_ips.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
@@ -98,9 +98,9 @@ class KeyPairViewTests(test.TestCase):
         keypair = self.keypairs.first()
         keypair.private_key = "secret"
 
-        self.mox.StubOutWithMock(api, 'keypair_create')
-        api.keypair_create(IsA(http.HttpRequest),
-                           keypair.name).AndReturn(keypair)
+        self.mox.StubOutWithMock(api.nova, 'keypair_create')
+        api.nova.keypair_create(IsA(http.HttpRequest),
+                                keypair.name).AndReturn(keypair)
         self.mox.ReplayAll()
 
         context = {'keypair_name': keypair.name}
@@ -110,15 +110,14 @@ class KeyPairViewTests(test.TestCase):
 
         self.assertTrue(res.has_header('content-disposition'))
 
-    @test.create_stubs({api: ("keypair_import",)})
+    @test.create_stubs({api.nova: ("keypair_import",)})
     def test_import_keypair(self):
         key1_name = "new key pair"
         public_key = "ssh-rsa ABCDEFGHIJKLMNOPQR\r\n" \
                      "STUVWXYZ1234567890\r" \
                      "XXYYZZ user@computer\n\n"
-        api.keypair_import(IsA(http.HttpRequest), key1_name,
-                           public_key.replace("\r", "")
-                                     .replace("\n", ""))
+        api.nova.keypair_import(IsA(http.HttpRequest), key1_name,
+                                public_key.replace("\r", "").replace("\n", ""))
         self.mox.ReplayAll()
 
         formData = {'method': 'ImportKeypair',
@@ -132,8 +131,8 @@ class KeyPairViewTests(test.TestCase):
         key_name = "new key pair"
         public_key = "ABCDEF"
 
-        self.mox.StubOutWithMock(api, 'keypair_import')
-        api.keypair_import(IsA(http.HttpRequest), key_name, public_key) \
+        self.mox.StubOutWithMock(api.nova, 'keypair_import')
+        api.nova.keypair_import(IsA(http.HttpRequest), key_name, public_key) \
                         .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
@@ -149,8 +148,8 @@ class KeyPairViewTests(test.TestCase):
     def test_generate_keypair_exception(self):
         keypair = self.keypairs.first()
 
-        self.mox.StubOutWithMock(api, 'keypair_create')
-        api.keypair_create(IsA(http.HttpRequest), keypair.name) \
+        self.mox.StubOutWithMock(api.nova, 'keypair_create')
+        api.nova.keypair_create(IsA(http.HttpRequest), keypair.name) \
                         .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 

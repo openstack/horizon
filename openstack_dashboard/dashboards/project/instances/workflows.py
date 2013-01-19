@@ -30,6 +30,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+from openstack_dashboard.api import glance
 from openstack_dashboard.usage import quotas
 
 
@@ -119,7 +120,7 @@ class VolumeOptionsAction(workflows.Action):
         volume_options = [("", _("Select Volume"))]
         try:
             volumes = [v for v in cinder.volume_list(self.request)
-                       if v.status == api.VOLUME_STATE_AVAILABLE]
+                       if v.status == api.cinder.VOLUME_STATE_AVAILABLE]
             volume_options.extend([self._get_volume_display_name(vol)
                                    for vol in volumes])
         except:
@@ -132,7 +133,7 @@ class VolumeOptionsAction(workflows.Action):
         try:
             snapshots = cinder.volume_snapshot_list(self.request)
             snapshots = [s for s in snapshots
-                         if s.status == api.VOLUME_STATE_AVAILABLE]
+                         if s.status == api.cinder.VOLUME_STATE_AVAILABLE]
             volume_options.extend([self._get_volume_display_name(snap)
                                    for snap in snapshots])
         except:
@@ -223,8 +224,8 @@ class SetInstanceDetailsAction(workflows.Action):
             public = {"is_public": True,
                       "status": "active"}
             try:
-                public_images, _more = api.glance.image_list_detailed(request,
-                                                           filters=public)
+                public_images, _more = glance.image_list_detailed(
+                    request, filters=public)
             except:
                 public_images = []
                 exceptions.handle(request,
@@ -239,8 +240,8 @@ class SetInstanceDetailsAction(workflows.Action):
             owner = {"property-owner_id": project_id,
                      "status": "active"}
             try:
-                owned_images, _more = api.glance.image_list_detailed(request,
-                                                          filters=owner)
+                owned_images, _more = glance.image_list_detailed(
+                    request, filters=owner)
             except:
                 exceptions.handle(request,
                                   _("Unable to retrieve images for "

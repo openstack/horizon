@@ -169,7 +169,8 @@ class UpdateProjectView(workflows.WorkflowView):
 
         try:
             # get initial project info
-            project_info = api.tenant_get(self.request, project_id, admin=True)
+            project_info = api.keystone.tenant_get(self.request, project_id,
+                                                   admin=True)
             for field in PROJECT_INFO_FIELDS:
                 initial[field] = getattr(project_info, field, None)
 
@@ -197,7 +198,8 @@ class CreateUserView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(CreateUserView, self).get_context_data(**kwargs)
         context['tenant_id'] = self.kwargs['tenant_id']
-        context['tenant_name'] = api.tenant_get(self.request,
-                                                 self.kwargs['tenant_id'],
-                                                 admin=True).name
+        context['tenant_name'] = api.keystone.tenant_get(
+            self.request,
+            self.kwargs['tenant_id'],
+            admin=True).name
         return context

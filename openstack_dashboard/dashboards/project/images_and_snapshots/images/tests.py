@@ -95,12 +95,12 @@ class ImageViewTests(test.TestCase):
         res = self.client.get(url)
         self.assertRedirectsNoFollow(res, IMAGES_INDEX_URL)
 
-    @test.create_stubs({api: ('image_get',)})
+    @test.create_stubs({api.glance: ('image_get',)})
     def test_image_update_get(self):
         image = self.images.first()
         image.disk_format = "ami"
         image.is_public = True
-        api.image_get(IsA(http.HttpRequest), str(image.id)) \
+        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
            .AndReturn(image)
         self.mox.ReplayAll()
 

@@ -54,8 +54,8 @@ class IndexView(tables.MultiTableView):
             # FIXME(gabriel): The paging is going to be strange here due to
             # our filtering after the fact.
             (all_images,
-             self._more_images) = api.image_list_detailed(self.request,
-                                                          marker=marker)
+             self._more_images) = api.glance.image_list_detailed(self.request,
+                                                                 marker=marker)
             images = [im for im in all_images
                       if im.container_format not in ['aki', 'ari'] and
                       im.properties.get("image_type", '') != "snapshot"]
@@ -68,8 +68,8 @@ class IndexView(tables.MultiTableView):
         req = self.request
         marker = req.GET.get(SnapshotsTable._meta.pagination_param, None)
         try:
-            snaps, self._more_snapshots = api.snapshot_list_detailed(req,
-                                                                marker=marker)
+            snaps, self._more_snapshots = api.glance.snapshot_list_detailed(
+                req, marker=marker)
         except:
             snaps = []
             exceptions.handle(req, _("Unable to retrieve snapshots."))
@@ -78,7 +78,7 @@ class IndexView(tables.MultiTableView):
     def get_volume_snapshots_data(self):
         if is_service_enabled(self.request, 'volume'):
             try:
-                snapshots = api.volume_snapshot_list(self.request)
+                snapshots = api.cinder.volume_snapshot_list(self.request)
             except:
                 snapshots = []
                 exceptions.handle(self.request, _("Unable to retrieve "

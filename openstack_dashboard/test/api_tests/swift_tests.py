@@ -37,7 +37,7 @@ class SwiftApiTests(test.APITestCase):
                               full_listing=True).AndReturn([{}, cont_data])
         self.mox.ReplayAll()
 
-        (conts, more) = api.swift_get_containers(self.request)
+        (conts, more) = api.swift.swift_get_containers(self.request)
         self.assertEqual(len(conts), len(containers))
         self.assertFalse(more)
 
@@ -50,7 +50,7 @@ class SwiftApiTests(test.APITestCase):
         swift_api.put_container(container.name).AndReturn(container)
         self.mox.ReplayAll()
         # Verification handled by mox, no assertions needed.
-        api.swift_create_container(self.request, container.name)
+        api.swift.swift_create_container(self.request, container.name)
 
     def test_swift_create_container(self):
         container = self.containers.first()
@@ -59,7 +59,7 @@ class SwiftApiTests(test.APITestCase):
         self.mox.ReplayAll()
         # Verification handled by mox, no assertions needed.
         with self.assertRaises(exceptions.AlreadyExists):
-            api.swift_create_container(self.request, container.name)
+            api.swift.swift_create_container(self.request, container.name)
 
     def test_swift_get_objects(self):
         container = self.containers.first()
@@ -74,7 +74,8 @@ class SwiftApiTests(test.APITestCase):
                                 full_listing=True).AndReturn([{}, objects])
         self.mox.ReplayAll()
 
-        (objs, more) = api.swift_get_objects(self.request, container.name)
+        (objs, more) = api.swift.swift_get_objects(self.request,
+                                                   container.name)
         self.assertEqual(len(objs), len(objects))
         self.assertFalse(more)
 
@@ -98,10 +99,10 @@ class SwiftApiTests(test.APITestCase):
                              headers=headers)
         self.mox.ReplayAll()
 
-        api.swift_upload_object(self.request,
-                                container.name,
-                                obj.name,
-                                FakeFile())
+        api.swift.swift_upload_object(self.request,
+                                      container.name,
+                                      obj.name,
+                                      FakeFile())
 
     def test_swift_object_exists(self):
         container = self.containers.first()
@@ -115,6 +116,6 @@ class SwiftApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         args = self.request, container.name, obj.name
-        self.assertTrue(api.swift_object_exists(*args))
+        self.assertTrue(api.swift.swift_object_exists(*args))
         # Again, for a "non-existent" object
-        self.assertFalse(api.swift_object_exists(*args))
+        self.assertFalse(api.swift.swift_object_exists(*args))

@@ -37,7 +37,7 @@ class DeleteVolumeSnapshot(tables.DeleteAction):
     action_past = _("Scheduled deletion of")
 
     def delete(self, request, obj_id):
-        api.volume_snapshot_delete(request, obj_id)
+        api.cinder.volume_snapshot_delete(request, obj_id)
 
 
 class CreateVolumeFromSnapshot(tables.LinkAction):
@@ -66,11 +66,13 @@ class UpdateRow(tables.Row):
 class SnapshotVolumeNameColumn(tables.Column):
     def get_raw_data(self, snapshot):
         request = self.table.request
-        volume_name = api.volume_get(request, snapshot.volume_id).display_name
+        volume_name = api.cinder.volume_get(request,
+                                            snapshot.volume_id).display_name
         return safestring.mark_safe(volume_name)
 
     def get_link_url(self, snapshot):
-        volume_id = api.volume_get(self.table.request, snapshot.volume_id).id
+        volume_id = api.cinder.volume_get(self.table.request,
+                                          snapshot.volume_id).id
         return reverse(self.link, args=(volume_id,))
 
 

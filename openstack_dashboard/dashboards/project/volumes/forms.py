@@ -188,10 +188,10 @@ class AttachForm(forms.SelfHandlingForm):
         # it, so let's slice that off...
         instance_name = instance_name.rsplit(" (")[0]
         try:
-            attach = api.instance_volume_attach(request,
-                                                data['volume_id'],
-                                                data['instance'],
-                                                data.get('device', ''))
+            attach = api.nova.instance_volume_attach(request,
+                                                     data['volume_id'],
+                                                     data['instance'],
+                                                     data.get('device', ''))
             volume = cinder.volume_get(request, data['volume_id'])
             if not volume.display_name:
                 volume_name = volume.id

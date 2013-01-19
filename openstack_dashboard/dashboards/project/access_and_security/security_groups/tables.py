@@ -37,7 +37,7 @@ class DeleteGroup(tables.DeleteAction):
         return security_group.name != 'default'
 
     def delete(self, request, obj_id):
-        api.security_group_delete(request, obj_id)
+        api.nova.security_group_delete(request, obj_id)
 
 
 class CreateGroup(tables.LinkAction):
@@ -73,7 +73,7 @@ class DeleteRule(tables.DeleteAction):
     data_type_plural = _("Rules")
 
     def delete(self, request, obj_id):
-        api.security_group_rule_delete(request, obj_id)
+        api.nova.security_group_rule_delete(request, obj_id)
 
     def get_success_url(self, request):
         return reverse("horizon:project:access_and_security:index")

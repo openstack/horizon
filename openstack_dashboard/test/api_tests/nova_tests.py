@@ -41,7 +41,7 @@ class ServerWrapperTests(test.TestCase):
                                   image.id).AndReturn(image)
         self.mox.ReplayAll()
 
-        server = api.Server(self.servers.first(), self.request)
+        server = api.nova.Server(self.servers.first(), self.request)
         self.assertEqual(server.image_name, image.name)
 
 
@@ -70,9 +70,9 @@ class ComputeApiTests(test.APITestCase):
                                            console_type).AndReturn(console)
         self.mox.ReplayAll()
 
-        ret_val = api.server_vnc_console(self.request,
-                                         server.id,
-                                         console_type)
+        ret_val = api.nova.server_vnc_console(self.request,
+                                              server.id,
+                                              console_type)
         self.assertIsInstance(ret_val, api.nova.VNCConsole)
 
     def test_server_list(self):
@@ -85,7 +85,7 @@ class ComputeApiTests(test.APITestCase):
 
         ret_val = api.nova.server_list(self.request, all_tenants=True)
         for server in ret_val:
-            self.assertIsInstance(server, api.Server)
+            self.assertIsInstance(server, api.nova.Server)
 
     def test_usage_get(self):
         novaclient = self.stub_novaclient()
@@ -95,7 +95,8 @@ class ComputeApiTests(test.APITestCase):
                              'end').AndReturn(self.usages.first())
         self.mox.ReplayAll()
 
-        ret_val = api.usage_get(self.request, self.tenant.id, 'start', 'end')
+        ret_val = api.nova.usage_get(self.request, self.tenant.id,
+                                     'start', 'end')
         self.assertIsInstance(ret_val, api.nova.NovaUsage)
 
     def test_usage_list(self):
@@ -106,9 +107,9 @@ class ComputeApiTests(test.APITestCase):
         novaclient.usage.list('start', 'end', True).AndReturn(usages)
         self.mox.ReplayAll()
 
-        ret_val = api.usage_list(self.request, 'start', 'end')
+        ret_val = api.nova.usage_list(self.request, 'start', 'end')
         for usage in ret_val:
-            self.assertIsInstance(usage, api.NovaUsage)
+            self.assertIsInstance(usage, api.nova.NovaUsage)
 
     def test_server_get(self):
         server = self.servers.first()
@@ -118,7 +119,7 @@ class ComputeApiTests(test.APITestCase):
         novaclient.servers.get(server.id).AndReturn(server)
         self.mox.ReplayAll()
 
-        ret_val = api.server_get(self.request, server.id)
+        ret_val = api.nova.server_get(self.request, server.id)
         self.assertIsInstance(ret_val, api.nova.Server)
 
     def test_server_remove_floating_ip(self):
@@ -134,9 +135,9 @@ class ComputeApiTests(test.APITestCase):
                           .AndReturn(server)
         self.mox.ReplayAll()
 
-        server = api.server_remove_floating_ip(self.request,
-                                               server.id,
-                                               floating_ip.id)
+        server = api.nova.server_remove_floating_ip(self.request,
+                                                    server.id,
+                                                    floating_ip.id)
         self.assertIsInstance(server, api.nova.Server)
 
     def test_server_add_floating_ip(self):
@@ -152,9 +153,9 @@ class ComputeApiTests(test.APITestCase):
                           .AndReturn(server)
         self.mox.ReplayAll()
 
-        server = api.server_add_floating_ip(self.request,
-                                            server.id,
-                                            floating_ip.id)
+        server = api.nova.server_add_floating_ip(self.request,
+                                                 server.id,
+                                                 floating_ip.id)
         self.assertIsInstance(server, api.nova.Server)
 
     def test_absolute_limits_handle_unlimited(self):
@@ -172,7 +173,7 @@ class ComputeApiTests(test.APITestCase):
         novaclient.limits.get(reserved=True).AndReturn(limits)
         self.mox.ReplayAll()
 
-        ret_val = api.tenant_absolute_limits(self.request, reserved=True)
+        ret_val = api.nova.tenant_absolute_limits(self.request, reserved=True)
         expected_results = {"maxTotalCores": float("inf"),
                             "maxTotalInstances": 10}
         for key in expected_results.keys():
