@@ -3,9 +3,7 @@
 {% block title %}Projects{% endblock %}
 
 {% block page_header %}
-  {% url horizon:admin:projects:index as refresh_link %}
-  {# to make searchable false, just remove it from the include statement #}
-  {% include "horizon/common/_page_header.html" with title=_("Projects") refresh_link=refresh_link searchable="true" %}
+  {% include "horizon/common/_page_header.html" with title=_("Projects") %}
 {% endblock page_header %}
 
 {% block main %}
