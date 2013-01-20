@@ -105,8 +105,8 @@ class RebootInstance(tables.BatchAction):
 
 class TogglePause(tables.BatchAction):
     name = "pause"
-    action_present = (_("Pause"), _("Unpause"))
-    action_past = (_("Paused"), _("Unpaused"))
+    action_present = (_("Pause"), _("Resume"))
+    action_past = (_("Paused"), _("Resumed"))
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
     classes = ("btn-pause",)
@@ -404,6 +404,7 @@ TASK_DISPLAY_CHOICES = (
     ("resize_finish", "Finishing Resize or Migrate"),
     ("resize_confirming", "Confirming Resize or Nigrate"),
     ("resize_reverting", "Reverting Resize or Migrate"),
+    ("unpausing", "Resuming"),
 )
 
 
