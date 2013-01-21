@@ -176,6 +176,11 @@ try:
 except ImportError:
     logging.warning("No local_settings file found.")
 
+# Add HORIZON_CONFIG to the context information for offline compression
+COMPRESS_OFFLINE_CONTEXT = {
+    'STATIC_URL': STATIC_URL,
+    'HORIZON_CONFIG': HORIZON_CONFIG
+}
 
 # Deprecation for Essex/Folsom dashboard names; remove this code in H.
 _renames = (
