@@ -23,6 +23,7 @@ from horizon.dashboards.settings import dashboard
 class EC2Panel(horizon.Panel):
     name = _("EC2 Credentials")
     slug = 'ec2'
+    permissions = ('openstack.services.ec2',)
 
 
 dashboard.Settings.register(EC2Panel)
