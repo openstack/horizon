@@ -22,5 +22,9 @@ from openstack_dashboard.dashboards.project.images_and_snapshots \
         .images import forms
 
 
+class AdminCreateImageForm(forms.CreateImageForm):
+    pass
+
+
 class AdminUpdateImageForm(forms.UpdateImageForm):
     pass

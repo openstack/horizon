@@ -20,11 +20,12 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import IndexView, UpdateView, DetailView
+from .views import IndexView, CreateView, UpdateView, DetailView
 
 
 urlpatterns = patterns('openstack_dashboard.dashboards.admin.images.views',
     url(r'^images/$', IndexView.as_view(), name='index'),
+    url(r'^create/$', CreateView.as_view(), name='create'),
     url(r'^(?P<image_id>[^/]+)/update/$', UpdateView.as_view(), name='update'),
     url(r'^(?P<image_id>[^/]+)/detail/$', DetailView.as_view(), name='detail')
 )

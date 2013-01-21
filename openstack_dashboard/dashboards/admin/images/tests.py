@@ -24,6 +24,13 @@ from openstack_dashboard.test import helpers as test
 from .tables import AdminImagesTable
 
 
+class ImageCreateViewTest(test.BaseAdminViewTests):
+    def test_admin_image_create_view_uses_admin_template(self):
+        res = self.client.get(
+            reverse('horizon:admin:images:create'))
+        self.assertTemplateUsed(res, 'admin/images/create.html')
+
+
 class ImagesViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api: ('image_list_detailed',)})
     def test_images_list(self):
