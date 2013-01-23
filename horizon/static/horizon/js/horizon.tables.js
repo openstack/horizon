@@ -218,6 +218,20 @@ horizon.datatables.update_footer_count = function (el, modifier) {
   $footer.text(footer_text);
 };
 
+horizon.datatables.add_no_results_row = function (table) {
+  // Add a "no results" row if there are no results.
+  template = horizon.templates.compiled_templates["#empty_row_template"];
+  if (!table.find("tbody tr:visible").length && typeof(template) !== "undefined") {
+    colspan = table.find("th[colspan]").attr('colspan');
+    params = {"colspan": colspan};
+    table.find("tbody").append(template.render(params));
+  }
+};
+
+horizon.datatables.remove_no_results_row = function (table) {
+  table.find("tr.empty").remove();
+};
+
 horizon.datatables.set_table_sorting = function (parent) {
 // Function to initialize the tablesorter plugin strictly on sortable columns.
 $(parent).find("table.datatable").each(function () {
@@ -252,7 +266,7 @@ horizon.datatables.add_table_checkboxes = function(parent) {
   });
 };
 
-horizon.datatables.set_table_filter = function (parent) {
+horizon.datatables.set_table_query_filter = function (parent) {
   $(parent).find('table').each(function (index, elm) {
     var input = $($(elm).find('div.table_search input')),
         table_selector;
@@ -280,23 +294,14 @@ horizon.datatables.set_table_filter = function (parent) {
         'show': this.show,
         'hide': this.hide,
         onBefore: function () {
-          // Clear the "no results" row.
           var table = $(table_selector);
-          table.find("tr.empty").remove();
+          horizon.datatables.remove_no_results_row(table);
         },
         onAfter: function () {
           var template, table, colspan, params;
           table = $(table_selector);
           horizon.datatables.update_footer_count(table);
-          // Add a "no results" row if there are no results.
-          template = horizon.templates.compiled_templates["#empty_row_template"];
-          if (!$(table_selector + " tbody tr:visible").length && typeof(template) !== "undefined") {
-            colspan = table.find("th[colspan]").attr('colspan');
-            params = {"colspan": colspan};
-            table.find("tbody").append(template.render(params));
-          }
-          // Update footer count
-
+          horizon.datatables.add_no_results_row(table);
         },
         prepareQuery: function (val) {
           return new RegExp(val, "i");
@@ -306,6 +311,29 @@ horizon.datatables.set_table_filter = function (parent) {
         }
       });
     }
+  });
+};
+
+horizon.datatables.set_table_fixed_filter = function (parent) {
+  $(parent).find('table.datatable').each(function (index, elm) {
+    $(elm).on('click', 'div.table_filter button', function(evt) {
+      var table = $(elm);
+      var category = $(this).val();
+      evt.preventDefault();
+      horizon.datatables.remove_no_results_row(table);
+      table.find('tbody tr').hide();
+      table.find('tbody tr.category-' + category).show();
+      horizon.datatables.update_footer_count(table);
+      horizon.datatables.add_no_results_row(table);
+    });
+    $(elm).find('div.table_filter button').each(function (i, button) {
+      // Select the first non-empty category
+      if ($(button).text().indexOf(' (0)') == -1) {
+        $(button).addClass('active');
+        $(button).trigger('click');
+        return false;
+      }
+    });
   });
 };
 
@@ -341,12 +369,14 @@ horizon.addInitFunction(function() {
   // Trigger run-once setup scripts for tables.
   horizon.datatables.add_table_checkboxes($('body'));
   horizon.datatables.set_table_sorting($('body'));
-  horizon.datatables.set_table_filter($('body'));
+  horizon.datatables.set_table_query_filter($('body'));
+  horizon.datatables.set_table_fixed_filter($('body'));
 
   // Also apply on tables in modal views.
   horizon.modals.addModalInitFunction(horizon.datatables.add_table_checkboxes);
   horizon.modals.addModalInitFunction(horizon.datatables.set_table_sorting);
-  horizon.modals.addModalInitFunction(horizon.datatables.set_table_filter);
+  horizon.modals.addModalInitFunction(horizon.datatables.set_table_query_filter);
+  horizon.modals.addModalInitFunction(horizon.datatables.set_table_fixed_filter);
 
   horizon.datatables.update();
 });

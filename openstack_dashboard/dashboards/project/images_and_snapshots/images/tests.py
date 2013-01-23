@@ -19,12 +19,17 @@
 #    under the License.
 
 from django import http
+from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.test.utils import override_settings
 
 from mox import IsA
 
+from horizon import tables as horizon_tables
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+
+from . import tables
 
 
 IMAGES_INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
@@ -116,3 +121,48 @@ class ImageViewTests(test.TestCase):
                                  " name='public' checked='checked'>",
                             html=True,
                             msg_prefix="The is_public checkbox is not checked")
+
+
+class OwnerFilterTests(test.TestCase):
+    def setUp(self):
+        super(OwnerFilterTests, self).setUp()
+        self.table = self.mox.CreateMock(horizon_tables.DataTable)
+        self.table.request = self.request
+
+    @override_settings(IMAGES_LIST_FILTER_TENANTS=[{'name': 'Official',
+                                                    'tenant': 'officialtenant',
+                                                    'icon': 'icon-ok'}])
+    def test_filter(self):
+        self.mox.ReplayAll()
+        all_images = self.images.list()
+        table = self.table
+        self.filter_tenants = settings.IMAGES_LIST_FILTER_TENANTS
+
+        filter_ = tables.OwnerFilter()
+
+        images = filter_.filter(table, all_images, 'project')
+        self.assertEqual(images, self._expected('project'))
+
+        images = filter_.filter(table, all_images, 'public')
+        self.assertEqual(images, self._expected('public'))
+
+        images = filter_.filter(table, all_images, 'shared')
+        self.assertEqual(images, self._expected('shared'))
+
+        images = filter_.filter(table, all_images, 'officialtenant')
+        self.assertEqual(images, self._expected('officialtenant'))
+
+    def _expected(self, filter_string):
+        my_tenant_id = self.request.user.tenant_id
+        images = self.images.list()
+        special = map(lambda t: t['tenant'], self.filter_tenants)
+
+        if filter_string == 'public':
+            return filter(lambda im: im.is_public, images)
+        if filter_string == 'shared':
+            return filter(lambda im: not im.is_public and
+                                     im.owner != my_tenant_id and
+                                     im.owner not in special, images)
+        if filter_string == 'project':
+            filter_string = my_tenant_id
+        return filter(lambda im: im.owner == filter_string, images)

@@ -16,6 +16,7 @@
 
 import logging
 import new
+from collections import defaultdict
 
 from django import shortcuts
 from django.conf import settings
@@ -328,6 +329,16 @@ class FilterAction(BaseAction):
 
         A string representing the name of the request parameter used for the
         search term. Default: ``"q"``.
+
+    .. attribute: filter_type
+
+        A string representing the type of this filter. Default: ``"query"``.
+
+    .. attribute: needs_preloading
+
+        If True, the filter function will be called for the initial
+        GET request with an empty ``filter_string``, regardless of the
+        value of ``method``.
     """
     # TODO(gabriel): The method for a filter action should be a GET,
     # but given the form structure of the table that's currently impossible.
@@ -336,6 +347,8 @@ class FilterAction(BaseAction):
     method = "POST"
     name = "filter"
     verbose_name = _("Filter")
+    filter_type = "query"
+    needs_preloading = False
 
     def __init__(self, verbose_name=None, param_name=None):
         super(FilterAction, self).__init__()
@@ -384,6 +397,52 @@ class FilterAction(BaseAction):
         the filtered data.
         """
         raise NotImplementedError("The filter method has not been "
+                                  "implemented by %s." % self.__class__)
+
+
+class FixedFilterAction(FilterAction):
+    """ A filter action with fixed buttons.
+    """
+    filter_type = 'fixed'
+    needs_preloading = True
+
+    def __init__(self, *args, **kwargs):
+        super(FixedFilterAction, self).__init__(args, kwargs)
+        self.fixed_buttons = self.get_fixed_buttons()
+        self.filter_string = ''
+
+    def filter(self, table, images, filter_string):
+        self.filter_string = filter_string
+        categories = self.categorize(table, images)
+        self.categories = defaultdict(list, categories)
+        for button in self.fixed_buttons:
+            button['count'] = len(self.categories[button['value']])
+        if not filter_string:
+            return images
+        return self.categories[filter_string]
+
+    def get_fixed_buttons(self):
+        """Returns a list of dictionaries describing the fixed buttons
+        to use for filtering.
+
+        Each list item should be a dict with the keys:
+            text:  Text to display on the button
+            icon:  Icon class for icon element (inserted before text).
+            value: Value returned when the button is clicked.
+                   This value is passed to ``filter()`` as
+                   ``filter_string``.
+        """
+        raise NotImplementedError("The get_fixed_buttons method has "
+                                  "not been implemented by %s." %
+                                  self.__class__)
+
+    def categorize(self, table, images):
+        """Override to separate images into categories.
+
+        Return a dict with a key for the value of each fixed button,
+        and a value that is a list of images in that category.
+        """
+        raise NotImplementedError("The categorize method has not been "
                                   "implemented by %s." % self.__class__)
 
 

@@ -48,21 +48,23 @@ class ImagesViewTest(test.BaseAdminViewTests):
 
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_images_list_get_pagination(self):
+        images = self.images.list()[:5]
+
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None) \
-                                .AndReturn([self.images.list(),
+                                .AndReturn([images,
                                             True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None) \
-                                .AndReturn([self.images.list()[:2],
+                                .AndReturn([images[:2],
                                             True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=self.images.list()[2].id) \
-                                .AndReturn([self.images.list()[2:4],
+                                       marker=images[2].id) \
+                                .AndReturn([images[2:4],
                                             True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=self.images.list()[4].id) \
-                                .AndReturn([self.images.list()[4:],
+                                       marker=images[4].id) \
+                                .AndReturn([images[4:],
                                             True])
         self.mox.ReplayAll()
 
@@ -70,7 +72,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         res = self.client.get(url)
         # get all
         self.assertEqual(len(res.context['images_table'].data),
-                         len(self.images.list()))
+                         len(images))
         self.assertTemplateUsed(res, 'admin/images/index.html')
 
         page_size = getattr(settings, "API_RESULT_PAGE_SIZE", None)
@@ -83,7 +85,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
 
         url = "?".join([reverse('horizon:admin:images:index'),
                         "=".join([AdminImagesTable._meta.pagination_param,
-                                  self.images.list()[2].id])])
+                                  images[2].id])])
         res = self.client.get(url)
         # get second page (items 2-4)
         self.assertEqual(len(res.context['images_table'].data),
@@ -91,7 +93,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
 
         url = "?".join([reverse('horizon:admin:images:index'),
                         "=".join([AdminImagesTable._meta.pagination_param,
-                                  self.images.list()[4].id])])
+                                  images[4].id])])
         res = self.client.get(url)
         # get third page (item 5)
         self.assertEqual(len(res.context['images_table'].data),
