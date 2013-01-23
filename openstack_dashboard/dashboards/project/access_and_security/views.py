@@ -53,7 +53,7 @@ class IndexView(tables.MultiTableView):
 
     def get_security_groups_data(self):
         try:
-            security_groups = api.security_group_list(self.request)
+            security_groups = api.nova.security_group_list(self.request)
         except:
             security_groups = []
             exceptions.handle(self.request,
@@ -62,7 +62,7 @@ class IndexView(tables.MultiTableView):
 
     def get_floating_ips_data(self):
         try:
-            floating_ips = api.tenant_floating_ip_list(self.request)
+            floating_ips = api.nova.tenant_floating_ip_list(self.request)
         except:
             floating_ips = []
             exceptions.handle(self.request,

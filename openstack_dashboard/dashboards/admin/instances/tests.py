@@ -111,16 +111,16 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/instances/index.html')
         self.assertEqual(len(res.context['instances_table'].data), 0)
 
-    @test.create_stubs({api: ('server_get', 'flavor_get',),
+    @test.create_stubs({api.nova: ('server_get', 'flavor_get',),
                         api.keystone: ('tenant_get',)})
     def test_ajax_loading_instances(self):
         server = self.servers.first()
         flavor = self.flavors.list()[0]
         tenant = self.tenants.list()[0]
 
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.flavor_get(IsA(http.HttpRequest),
-                       server.flavor['id']).AndReturn(flavor)
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.flavor_get(IsA(http.HttpRequest),
+                            server.flavor['id']).AndReturn(flavor)
         api.keystone.tenant_get(IsA(http.HttpRequest),
                                 server.tenant_id,
                                 admin=True).AndReturn(tenant)

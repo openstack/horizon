@@ -41,11 +41,11 @@ class CreateSnapshot(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            snapshot = api.snapshot_create(request,
-                                           data['instance_id'],
-                                           data['name'])
+            snapshot = api.nova.snapshot_create(request,
+                                                data['instance_id'],
+                                                data['name'])
             # NOTE(gabriel): This API call is only to display a pretty name.
-            instance = api.server_get(request, data['instance_id'])
+            instance = api.nova.server_get(request, data['instance_id'])
             vals = {"name": data['name'], "inst": instance.name}
             messages.success(request, _('Snapshot "%(name)s" created for '
                                         'instance "%(inst)s"') % vals)

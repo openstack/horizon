@@ -43,9 +43,9 @@ class CreateGroup(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            sg = api.security_group_create(request,
-                                           data['name'],
-                                           data['description'])
+            sg = api.nova.security_group_create(request,
+                                                data['name'],
+                                                data['description'])
             messages.success(request,
                              _('Successfully created security group: %s')
                                % data['name'])
@@ -161,13 +161,14 @@ class AddRule(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            rule = api.security_group_rule_create(request,
-                                                  data['security_group_id'],
-                                                  data['ip_protocol'],
-                                                  data['from_port'],
-                                                  data['to_port'],
-                                                  data['cidr'],
-                                                  data['source_group'])
+            rule = api.nova.security_group_rule_create(
+                        request,
+                        data['security_group_id'],
+                        data['ip_protocol'],
+                        data['from_port'],
+                        data['to_port'],
+                        data['cidr'],
+                        data['source_group'])
             messages.success(request,
                              _('Successfully added rule: %s') % unicode(rule))
             return rule

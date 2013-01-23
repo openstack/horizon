@@ -24,7 +24,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.api import FOLDER_DELIMITER
+from openstack_dashboard.api.swift import FOLDER_DELIMITER
 
 
 LOG = logging.getLogger(__name__)
@@ -42,7 +42,7 @@ class DeleteContainer(tables.DeleteAction):
     success_url = "horizon:project:containers:index"
 
     def delete(self, request, obj_id):
-        api.swift_delete_container(request, obj_id)
+        api.swift.swift_delete_container(request, obj_id)
 
     def get_success_url(self, request=None):
         """
@@ -141,7 +141,7 @@ class DeleteObject(tables.DeleteAction):
     def delete(self, request, obj_id):
         obj = self.table.get_object_by_id(obj_id)
         container_name = obj.container_name
-        api.swift_delete_object(request, container_name, obj_id)
+        api.swift.swift_delete_object(request, container_name, obj_id)
 
 
 class DeleteSubfolder(DeleteObject):
@@ -190,10 +190,10 @@ class ObjectFilterAction(tables.FilterAction):
         container = self.table.kwargs['container_name']
         subfolder = self.table.kwargs['subfolder_path']
         prefix = wrap_delimiter(subfolder) if subfolder else ''
-        self.filtered_data = api.swift_filter_objects(request,
-                                                        filter_string,
-                                                        container,
-                                                        prefix=prefix)
+        self.filtered_data = api.swift.swift_filter_objects(request,
+                                                            filter_string,
+                                                            container,
+                                                            prefix=prefix)
         return self.filtered_data
 
     def filter_subfolders_data(self, table, objects, filter_string):

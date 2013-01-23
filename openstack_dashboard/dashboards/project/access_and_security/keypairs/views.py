@@ -67,7 +67,7 @@ class DownloadView(TemplateView):
 class GenerateView(View):
     def get(self, request, keypair_name=None):
         try:
-            keypair = api.keypair_create(request, keypair_name)
+            keypair = api.nova.keypair_create(request, keypair_name)
         except:
             redirect = reverse('horizon:project:access_and_security:index')
             exceptions.handle(self.request,

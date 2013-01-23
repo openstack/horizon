@@ -59,7 +59,7 @@ class AllocateView(forms.ModalFormView):
 
     def get_initial(self):
         try:
-            pools = api.floating_ip_pools_list(self.request)
+            pools = api.nova.floating_ip_pools_list(self.request)
         except:
             pools = []
             exceptions.handle(self.request,

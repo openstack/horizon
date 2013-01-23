@@ -30,7 +30,8 @@ from django.utils.translation import ugettext as _
 from cinderclient.v1 import client as cinder_client
 
 from openstack_dashboard.api.base import url_for
-from openstack_dashboard.api import nova, QuotaSet
+from openstack_dashboard.api import nova
+from openstack_dashboard.api.base import QuotaSet
 from horizon import exceptions
 
 LOG = logging.getLogger(__name__)

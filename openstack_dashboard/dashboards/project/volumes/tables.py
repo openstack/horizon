@@ -196,9 +196,9 @@ class DetachVolume(tables.BatchAction):
 
     def action(self, request, obj_id):
         attachment = self.table.get_object_by_id(obj_id)
-        api.instance_volume_detach(request,
-                                   attachment.get('server_id', None),
-                                   obj_id)
+        api.nova.instance_volume_detach(request,
+                                        attachment.get('server_id', None),
+                                        obj_id)
 
     def get_success_url(self, request):
         return reverse('horizon:project:volumes:index')

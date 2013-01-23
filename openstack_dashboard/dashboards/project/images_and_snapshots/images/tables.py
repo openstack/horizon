@@ -53,7 +53,7 @@ class DeleteImage(tables.DeleteAction):
         return True
 
     def delete(self, request, obj_id):
-        api.image_delete(request, obj_id)
+        api.glance.image_delete(request, obj_id)
 
 
 class CreateImage(tables.LinkAction):
@@ -94,7 +94,7 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, image_id):
-        image = api.image_get(request, image_id)
+        image = api.glance.image_get(request, image_id)
         return image
 
 

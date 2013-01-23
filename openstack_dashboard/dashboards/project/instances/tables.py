@@ -83,7 +83,7 @@ class TerminateInstance(tables.BatchAction):
         return True
 
     def action(self, request, obj_id):
-        api.server_delete(request, obj_id)
+        api.nova.server_delete(request, obj_id)
 
 
 class RebootInstance(tables.BatchAction):
@@ -100,7 +100,7 @@ class RebootInstance(tables.BatchAction):
                 and not is_deleting(instance))
 
     def action(self, request, obj_id):
-        api.server_reboot(request, obj_id)
+        api.nova.server_reboot(request, obj_id)
 
 
 class TogglePause(tables.BatchAction):
@@ -125,10 +125,10 @@ class TogglePause(tables.BatchAction):
 
     def action(self, request, obj_id):
         if self.paused:
-            api.server_unpause(request, obj_id)
+            api.nova.server_unpause(request, obj_id)
             self.current_past_action = UNPAUSE
         else:
-            api.server_pause(request, obj_id)
+            api.nova.server_pause(request, obj_id)
             self.current_past_action = PAUSE
 
 
@@ -154,10 +154,10 @@ class ToggleSuspend(tables.BatchAction):
 
     def action(self, request, obj_id):
         if self.suspended:
-            api.server_resume(request, obj_id)
+            api.nova.server_resume(request, obj_id)
             self.current_past_action = RESUME
         else:
-            api.server_suspend(request, obj_id)
+            api.nova.server_suspend(request, obj_id)
             self.current_past_action = SUSPEND
 
 
@@ -169,7 +169,7 @@ class LaunchLink(tables.LinkAction):
 
     def allowed(self, request, datum):
         try:
-            limits = api.tenant_absolute_limits(request, reserved=True)
+            limits = api.nova.tenant_absolute_limits(request, reserved=True)
 
             instances_available = limits['maxTotalInstances'] \
                 - limits['totalInstancesUsed']
@@ -254,7 +254,7 @@ class ConfirmResize(tables.Action):
         return instance.status == 'VERIFY_RESIZE'
 
     def single(self, table, request, instance):
-        api.server_confirm_resize(request, instance)
+        api.nova.server_confirm_resize(request, instance)
 
 
 class RevertResize(tables.Action):
@@ -266,7 +266,7 @@ class RevertResize(tables.Action):
         return instance.status == 'VERIFY_RESIZE'
 
     def single(self, table, request, instance):
-        api.server_revert_resize(request, instance)
+        api.nova.server_revert_resize(request, instance)
 
 
 class AssociateIP(tables.LinkAction):
@@ -355,8 +355,9 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, instance_id):
-        instance = api.server_get(request, instance_id)
-        instance.full_flavor = api.flavor_get(request, instance.flavor["id"])
+        instance = api.nova.server_get(request, instance_id)
+        instance.full_flavor = api.nova.flavor_get(request,
+                                                   instance.flavor["id"])
         return instance
 
 

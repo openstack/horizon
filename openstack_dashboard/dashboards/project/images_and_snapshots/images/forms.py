@@ -158,7 +158,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
         meta['purge_props'] = False
 
         try:
-            image = api.image_update(request, image_id, **meta)
+            image = api.glance.image_update(request, image_id, **meta)
             messages.success(request, _('Image was successfully updated.'))
             return image
         except:

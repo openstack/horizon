@@ -53,10 +53,11 @@ class SecurityGroupsViewTests(test.TestCase):
 
     def test_create_security_groups_post(self):
         sec_group = self.security_groups.first()
-        self.mox.StubOutWithMock(api, 'security_group_create')
-        api.security_group_create(IsA(http.HttpRequest),
-                                  sec_group.name,
-                                  sec_group.description).AndReturn(sec_group)
+        self.mox.StubOutWithMock(api.nova, 'security_group_create')
+        api.nova.security_group_create(IsA(http.HttpRequest),
+                                       sec_group.name,
+                                       sec_group.description) \
+            .AndReturn(sec_group)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateGroup',
@@ -67,11 +68,11 @@ class SecurityGroupsViewTests(test.TestCase):
 
     def test_create_security_groups_post_exception(self):
         sec_group = self.security_groups.first()
-        self.mox.StubOutWithMock(api, 'security_group_create')
-        api.security_group_create(IsA(http.HttpRequest),
-                                  sec_group.name,
-                                  sec_group.description) \
-                                .AndRaise(self.exceptions.nova)
+        self.mox.StubOutWithMock(api.nova, 'security_group_create')
+        api.nova.security_group_create(IsA(http.HttpRequest),
+                                       sec_group.name,
+                                       sec_group.description) \
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateGroup',
@@ -83,7 +84,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
     def test_create_security_groups_post_wrong_name(self):
         sec_group = self.security_groups.first()
-        self.mox.StubOutWithMock(api, 'security_group_create')
+        self.mox.StubOutWithMock(api.nova, 'security_group_create')
         fail_name = sec_group.name + ' invalid'
         self.mox.ReplayAll()
 
@@ -99,12 +100,12 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
 
-        self.mox.StubOutWithMock(api, 'security_group_get')
-        api.security_group_get(IsA(http.HttpRequest),
-                               sec_group.id).AndReturn(sec_group)
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.StubOutWithMock(api.nova, 'security_group_get')
+        api.nova.security_group_get(IsA(http.HttpRequest),
+                                    sec_group.id).AndReturn(sec_group)
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        api.nova.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         res = self.client.get(self.edit_url)
@@ -116,11 +117,12 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_edit_rules_get_exception(self):
         sec_group = self.security_groups.first()
 
-        self.mox.StubOutWithMock(api, 'security_group_get')
-        self.mox.StubOutWithMock(api, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'security_group_get')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
 
-        api.security_group_get(IsA(http.HttpRequest),
-                               sec_group.id).AndRaise(self.exceptions.nova)
+        api.nova.security_group_get(IsA(http.HttpRequest),
+                                    sec_group.id) \
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         res = self.client.get(self.edit_url)
@@ -131,16 +133,16 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api, 'security_group_rule_create')
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_rule_create(IsA(http.HttpRequest),
-                                       sec_group.id,
-                                       rule.ip_protocol,
-                                       int(rule.from_port),
-                                       int(rule.to_port),
-                                       rule.ip_range['cidr'],
-                                       None).AndReturn(rule)
-        api.security_group_list(
+        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        api.nova.security_group_rule_create(IsA(http.HttpRequest),
+                                            sec_group.id,
+                                            rule.ip_protocol,
+                                            int(rule.from_port),
+                                            int(rule.to_port),
+                                            rule.ip_range['cidr'],
+                                            None).AndReturn(rule)
+        api.nova.security_group_list(
                         IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -160,11 +162,11 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api, 'security_group_get')
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_get(IsA(http.HttpRequest),
-                               sec_group.id).AndReturn(sec_group)
-        api.security_group_list(
+        self.mox.StubOutWithMock(api.nova, 'security_group_get')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        api.nova.security_group_get(IsA(http.HttpRequest),
+                                    sec_group.id).AndReturn(sec_group)
+        api.nova.security_group_list(
                         IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -185,17 +187,18 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.get(id=3)
 
-        self.mox.StubOutWithMock(api, 'security_group_rule_create')
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_rule_create(IsA(http.HttpRequest),
-                                       sec_group.id,
-                                       rule.ip_protocol,
-                                       int(rule.from_port),
-                                       int(rule.to_port),
-                                       None,
-                                       u'%s' % sec_group.id).AndReturn(rule)
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        api.nova.security_group_rule_create(
+            IsA(http.HttpRequest),
+            sec_group.id,
+            rule.ip_protocol,
+            int(rule.from_port),
+            int(rule.to_port),
+            None,
+            u'%s' % sec_group.id).AndReturn(rule)
+        api.nova.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -213,12 +216,12 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api, 'security_group_get')
-        api.security_group_get(IsA(http.HttpRequest),
-                               sec_group.id).AndReturn(sec_group)
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.StubOutWithMock(api.nova, 'security_group_get')
+        api.nova.security_group_get(IsA(http.HttpRequest),
+                                    sec_group.id).AndReturn(sec_group)
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        api.nova.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -232,28 +235,29 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertNoMessages()
         self.assertContains(res, "greater than or equal to")
 
-    @test.create_stubs({api: ('security_group_get', 'security_group_list')})
+    @test.create_stubs({api.nova: ('security_group_get',
+                                   'security_group_list')})
     def test_edit_rules_invalid_icmp_rule(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         icmp_rule = self.security_group_rules.list()[1]
 
-        api.security_group_get(IsA(http.HttpRequest),
-                               sec_group.id).AndReturn(sec_group)
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
-        api.security_group_get(IsA(http.HttpRequest),
-                               sec_group.id).AndReturn(sec_group)
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
-        api.security_group_get(IsA(http.HttpRequest),
-                               sec_group.id).AndReturn(sec_group)
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
-        api.security_group_get(IsA(http.HttpRequest),
-                               sec_group.id).AndReturn(sec_group)
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        api.nova.security_group_get(IsA(http.HttpRequest),
+                                    sec_group.id).AndReturn(sec_group)
+        api.nova.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        api.nova.security_group_get(IsA(http.HttpRequest),
+                                    sec_group.id).AndReturn(sec_group)
+        api.nova.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        api.nova.security_group_get(IsA(http.HttpRequest),
+                                    sec_group.id).AndReturn(sec_group)
+        api.nova.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        api.nova.security_group_get(IsA(http.HttpRequest),
+                                    sec_group.id).AndReturn(sec_group)
+        api.nova.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -305,17 +309,18 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api, 'security_group_rule_create')
-        self.mox.StubOutWithMock(api, 'security_group_list')
-        api.security_group_rule_create(IsA(http.HttpRequest),
-                                       sec_group.id,
-                                       rule.ip_protocol,
-                                       int(rule.from_port),
-                                       int(rule.to_port),
-                                       rule.ip_range['cidr'],
-                                       None).AndRaise(self.exceptions.nova)
-        api.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        api.nova.security_group_rule_create(
+            IsA(http.HttpRequest),
+            sec_group.id,
+            rule.ip_protocol,
+            int(rule.from_port),
+            int(rule.to_port),
+            rule.ip_range['cidr'],
+            None).AndRaise(self.exceptions.nova)
+        api.nova.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -332,8 +337,8 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group = self.security_groups.first()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api, 'security_group_rule_delete')
-        api.security_group_rule_delete(IsA(http.HttpRequest), rule.id)
+        self.mox.StubOutWithMock(api.nova, 'security_group_rule_delete')
+        api.nova.security_group_rule_delete(IsA(http.HttpRequest), rule.id)
         self.mox.ReplayAll()
 
         form_data = {"action": "rules__delete__%s" % rule.id}
@@ -345,9 +350,10 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_edit_rules_delete_rule_exception(self):
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api, 'security_group_rule_delete')
-        api.security_group_rule_delete(IsA(http.HttpRequest),
-                                       rule.id).AndRaise(self.exceptions.nova)
+        self.mox.StubOutWithMock(api.nova, 'security_group_rule_delete')
+        api.nova.security_group_rule_delete(
+            IsA(http.HttpRequest),
+            rule.id).AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         form_data = {"action": "rules__delete__%s" % rule.id}
@@ -360,8 +366,8 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_delete_group(self):
         sec_group = self.security_groups.get(name="other_group")
 
-        self.mox.StubOutWithMock(api, 'security_group_delete')
-        api.security_group_delete(IsA(http.HttpRequest), sec_group.id)
+        self.mox.StubOutWithMock(api.nova, 'security_group_delete')
+        api.nova.security_group_delete(IsA(http.HttpRequest), sec_group.id)
         self.mox.ReplayAll()
 
         form_data = {"action": "security_groups__delete__%s" % sec_group.id}
@@ -374,9 +380,10 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_delete_group_exception(self):
         sec_group = self.security_groups.get(name="other_group")
 
-        self.mox.StubOutWithMock(api, 'security_group_delete')
-        api.security_group_delete(IsA(http.HttpRequest),
-                                  sec_group.id).AndRaise(self.exceptions.nova)
+        self.mox.StubOutWithMock(api.nova, 'security_group_delete')
+        api.nova.security_group_delete(
+            IsA(http.HttpRequest),
+            sec_group.id).AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 

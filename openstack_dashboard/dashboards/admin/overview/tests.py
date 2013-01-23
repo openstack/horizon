@@ -38,7 +38,7 @@ INDEX_URL = reverse('horizon:project:overview:index')
 
 
 class UsageViewTests(test.BaseAdminViewTests):
-    @test.create_stubs({api: ('usage_list',),
+    @test.create_stubs({api.nova: ('usage_list',),
                         quotas: ('tenant_quota_usages',),
                         api.keystone: ('tenant_list',)})
     def test_usage(self):
@@ -47,10 +47,10 @@ class UsageViewTests(test.BaseAdminViewTests):
         quota_data = self.quota_usages.first()
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
                     .AndReturn(self.tenants.list())
-        api.usage_list(IsA(http.HttpRequest),
-                      datetime.datetime(now.year, now.month, 1, 0, 0, 0),
-                      Func(usage.almost_now)) \
-                      .AndReturn([usage_obj])
+        api.nova.usage_list(IsA(http.HttpRequest),
+                            datetime.datetime(now.year, now.month, 1, 0, 0, 0),
+                            Func(usage.almost_now)) \
+                            .AndReturn([usage_obj])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:overview:index'))
@@ -70,7 +70,7 @@ class UsageViewTests(test.BaseAdminViewTests):
                              usage_obj.vcpu_hours,
                              usage_obj.total_local_gb_usage))
 
-    @test.create_stubs({api: ('usage_list',),
+    @test.create_stubs({api.nova: ('usage_list',),
                         quotas: ('tenant_quota_usages',),
                         api.keystone: ('tenant_list',)})
     def test_usage_csv(self):
@@ -79,10 +79,10 @@ class UsageViewTests(test.BaseAdminViewTests):
         quota_data = self.quota_usages.first()
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
                     .AndReturn(self.tenants.list())
-        api.usage_list(IsA(http.HttpRequest),
-                      datetime.datetime(now.year, now.month, 1, 0, 0, 0),
-                      Func(usage.almost_now)) \
-                      .AndReturn([usage_obj, usage_obj])
+        api.nova.usage_list(IsA(http.HttpRequest),
+                            datetime.datetime(now.year, now.month, 1, 0, 0, 0),
+                            Func(usage.almost_now)) \
+                            .AndReturn([usage_obj, usage_obj])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
         self.mox.ReplayAll()
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"

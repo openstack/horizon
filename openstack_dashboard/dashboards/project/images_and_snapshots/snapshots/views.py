@@ -45,8 +45,8 @@ class CreateView(forms.ModalFormView):
     def get_object(self):
         if not hasattr(self, "_object"):
             try:
-                self._object = api.server_get(self.request,
-                                              self.kwargs["instance_id"])
+                self._object = api.nova.server_get(self.request,
+                                                   self.kwargs["instance_id"])
             except:
                 redirect = reverse('horizon:project:instances:index')
                 exceptions.handle(self.request,

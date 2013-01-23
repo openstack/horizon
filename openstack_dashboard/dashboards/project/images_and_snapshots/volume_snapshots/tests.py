@@ -61,27 +61,27 @@ class VolumeSnapshotsViewTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ['image_list_detailed',
-                              'snapshot_list_detailed',
-                              'volume_snapshot_list',
-                              'volume_snapshot_delete', ], })
+    @test.create_stubs({api.glance: ('image_list_detailed',
+                                     'snapshot_list_detailed'),
+                        api.cinder: ('volume_snapshot_list',
+                                     'volume_snapshot_delete')})
     def test_delete_volume_snapshot(self):
         vol_snapshots = self.volume_snapshots.list()
         snapshot = self.volume_snapshots.first()
 
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                marker=None).AndReturn(([], False))
-        api.snapshot_list_detailed(IsA(http.HttpRequest),
-                                   marker=None).AndReturn(([], False))
-        api.volume_snapshot_list(IsA(http.HttpRequest)). \
-                                 AndReturn(vol_snapshots)
-        api.volume_snapshot_delete(IsA(http.HttpRequest), snapshot.id)
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                marker=None).AndReturn(([], False))
-        api.snapshot_list_detailed(IsA(http.HttpRequest),
-                                   marker=None).AndReturn(([], False))
-        api.volume_snapshot_list(IsA(http.HttpRequest)). \
-                                 AndReturn([])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None).AndReturn(([], False))
+        api.glance.snapshot_list_detailed(IsA(http.HttpRequest),
+                                          marker=None).AndReturn(([], False))
+        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
+            AndReturn(vol_snapshots)
+        api.cinder.volume_snapshot_delete(IsA(http.HttpRequest), snapshot.id)
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None).AndReturn(([], False))
+        api.glance.snapshot_list_detailed(IsA(http.HttpRequest),
+                                          marker=None).AndReturn(([], False))
+        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
+            AndReturn([])
         self.mox.ReplayAll()
 
         formData = {'action':

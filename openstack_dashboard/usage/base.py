@@ -127,7 +127,7 @@ class GlobalUsage(BaseUsage):
     show_terminated = True
 
     def get_usage_list(self, start, end):
-        return api.usage_list(self.request, start, end)
+        return api.nova.usage_list(self.request, start, end)
 
 
 class TenantUsage(BaseUsage):
@@ -139,7 +139,7 @@ class TenantUsage(BaseUsage):
                                                self.show_terminated)
         instances = []
         terminated_instances = []
-        usage = api.usage_get(self.request, self.tenant_id, start, end)
+        usage = api.nova.usage_get(self.request, self.tenant_id, start, end)
         # Attribute may not exist if there are no instances
         if hasattr(usage, 'server_usages'):
             now = self.today

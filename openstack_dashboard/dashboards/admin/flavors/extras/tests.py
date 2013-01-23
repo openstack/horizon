@@ -13,7 +13,7 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
                                    'flavor_get'), })
     def test_list_extras_when_none_exists(self):
         flavor = self.flavors.first()
-        extras = [api.FlavorExtraSpec(flavor.id, 'k1', 'v1')]
+        extras = [api.nova.FlavorExtraSpec(flavor.id, 'k1', 'v1')]
 
         # GET -- to determine correctness of output
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)

@@ -41,7 +41,7 @@ class DownloadOpenRCForm(forms.SelfHandlingForm):
         # Populate tenant choices
         tenant_choices = []
         try:
-            tenants = api.tenant_list(request)
+            tenants = api.keystone.tenant_list(request)
         except:
             tenants = []
             exceptions.handle(request, _("Unable to retrieve project list."))
@@ -55,9 +55,9 @@ class DownloadOpenRCForm(forms.SelfHandlingForm):
             tenant_id = data['tenant']
             tenant_name = dict(self.fields['tenant'].choices)[tenant_id]
 
-            keystone_url = api.url_for(request,
-                                       'identity',
-                                       endpoint_type='publicURL')
+            keystone_url = api.base.url_for(request,
+                                            'identity',
+                                            endpoint_type='publicURL')
 
             context = {'user': request.user,
                        'auth_url': keystone_url,

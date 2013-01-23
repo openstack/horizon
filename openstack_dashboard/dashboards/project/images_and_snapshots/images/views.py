@@ -55,8 +55,8 @@ class UpdateView(forms.ModalFormView):
     def get_object(self):
         if not hasattr(self, "_object"):
             try:
-                self._object = api.image_get(self.request,
-                                             self.kwargs['image_id'])
+                self._object = api.glance.image_get(self.request,
+                                                    self.kwargs['image_id'])
             except:
                 msg = _('Unable to retrieve image.')
                 url = reverse('horizon:project:images_and_snapshots:index')

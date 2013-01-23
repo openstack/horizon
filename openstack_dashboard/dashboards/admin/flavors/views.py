@@ -43,7 +43,7 @@ class IndexView(tables.DataTableView):
         request = self.request
         flavors = []
         try:
-            flavors = api.flavor_list(request)
+            flavors = api.nova.flavor_list(request)
         except:
             exceptions.handle(request,
                               _('Unable to retrieve flavor list.'))

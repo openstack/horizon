@@ -40,12 +40,15 @@ INDEX_URL = reverse('horizon:project:instances:index')
 
 
 class InstanceTests(test.TestCase):
-    @test.create_stubs({api: ('flavor_list', 'server_list',
-                              'tenant_absolute_limits')})
+    @test.create_stubs({api.nova: ('flavor_list',
+                                   'server_list',
+                                   'tenant_absolute_limits')})
     def test_index(self):
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
@@ -59,10 +62,12 @@ class InstanceTests(test.TestCase):
 
         self.assertItemsEqual(instances, self.servers.list())
 
-    @test.create_stubs({api: ('server_list', 'tenant_absolute_limits')})
+    @test.create_stubs({api.nova: ('server_list',
+                                   'tenant_absolute_limits')})
     def test_index_server_list_exception(self):
-        api.server_list(IsA(http.HttpRequest)).AndRaise(self.exceptions.nova)
-        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndRaise(self.exceptions.nova)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
@@ -73,19 +78,22 @@ class InstanceTests(test.TestCase):
         self.assertEqual(len(res.context['instances_table'].data), 0)
         self.assertMessageCount(res, error=1)
 
-    @test.create_stubs({api: ('flavor_list', 'server_list', 'flavor_get',
-                              'tenant_absolute_limits')})
+    @test.create_stubs({api.nova: ('flavor_list',
+                                   'server_list',
+                                   'flavor_get',
+                                   'tenant_absolute_limits')})
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
         full_flavors = SortedDict([(f.id, f) for f in flavors])
 
-        api.server_list(IsA(http.HttpRequest)).AndReturn(servers)
-        api.flavor_list(IsA(http.HttpRequest)).AndRaise(self.exceptions.nova)
+        api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndRaise(self.exceptions.nova)
         for server in servers:
-            api.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
+            api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
                                 AndReturn(full_flavors[server.flavor["id"]])
-        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
@@ -97,8 +105,10 @@ class InstanceTests(test.TestCase):
 
         self.assertItemsEqual(instances, self.servers.list())
 
-    @test.create_stubs({api: ('flavor_list', 'server_list', 'flavor_get',
-                              'tenant_absolute_limits')})
+    @test.create_stubs({api.nova: ('flavor_list',
+                                   'server_list',
+                                   'flavor_get',
+                                   'tenant_absolute_limits')})
     def test_index_flavor_get_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
@@ -107,12 +117,12 @@ class InstanceTests(test.TestCase):
         for i, server in enumerate(servers):
             server.flavor['id'] = str(uuid.UUID(int=i))
 
-        api.server_list(IsA(http.HttpRequest)).AndReturn(servers)
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
+        api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         for server in servers:
-            api.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
+            api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
                                 AndRaise(self.exceptions.nova)
-        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
@@ -125,15 +135,16 @@ class InstanceTests(test.TestCase):
         self.assertMessageCount(res, error=len(servers))
         self.assertItemsEqual(instances, self.servers.list())
 
-    @test.create_stubs({api: ('server_list',
-                              'flavor_list',
-                              'server_delete',)})
+    @test.create_stubs({api.nova: ('server_list',
+                                   'flavor_list',
+                                   'server_delete',)})
     def test_terminate_instance(self):
         server = self.servers.first()
 
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
-        api.server_delete(IsA(http.HttpRequest), server.id)
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        api.nova.server_delete(IsA(http.HttpRequest), server.id)
 
         self.mox.ReplayAll()
 
@@ -142,15 +153,16 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_list',
-                              'flavor_list',
-                              'server_delete',)})
+    @test.create_stubs({api.nova: ('server_list',
+                                   'flavor_list',
+                                   'server_delete',)})
     def test_terminate_instance_exception(self):
         server = self.servers.first()
 
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
-        api.server_delete(IsA(http.HttpRequest), server.id) \
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        api.nova.server_delete(IsA(http.HttpRequest), server.id) \
                           .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -160,15 +172,17 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_pause',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_pause',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_pause_instance(self):
         server = self.servers.first()
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_pause(IsA(http.HttpRequest), server.id)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_pause(IsA(http.HttpRequest), server.id)
 
         self.mox.ReplayAll()
 
@@ -177,15 +191,17 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_pause',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_pause',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_pause_instance_exception(self):
         server = self.servers.first()
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_pause(IsA(http.HttpRequest), server.id) \
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_pause(IsA(http.HttpRequest), server.id) \
                         .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -195,16 +211,18 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_unpause',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_unpause',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_unpause_instance(self):
         server = self.servers.first()
         server.status = "PAUSED"
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_unpause(IsA(http.HttpRequest), server.id)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_unpause(IsA(http.HttpRequest), server.id)
 
         self.mox.ReplayAll()
 
@@ -213,16 +231,18 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_unpause',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_unpause',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_unpause_instance_exception(self):
         server = self.servers.first()
         server.status = "PAUSED"
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_unpause(IsA(http.HttpRequest), server.id) \
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_unpause(IsA(http.HttpRequest), server.id) \
                           .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -232,15 +252,17 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_reboot',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_reboot',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_reboot_instance(self):
         server = self.servers.first()
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_reboot(IsA(http.HttpRequest), server.id)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_reboot(IsA(http.HttpRequest), server.id)
 
         self.mox.ReplayAll()
 
@@ -249,16 +271,18 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_reboot',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_reboot',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_reboot_instance_exception(self):
         server = self.servers.first()
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_reboot(IsA(http.HttpRequest), server.id) \
-                        .AndRaise(self.exceptions.nova)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_reboot(IsA(http.HttpRequest), server.id) \
+            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
@@ -267,15 +291,17 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_suspend',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_suspend',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_suspend_instance(self):
         server = self.servers.first()
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_suspend(IsA(http.HttpRequest), unicode(server.id))
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_suspend(IsA(http.HttpRequest), unicode(server.id))
 
         self.mox.ReplayAll()
 
@@ -284,16 +310,18 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_suspend',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_suspend',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_suspend_instance_exception(self):
         server = self.servers.first()
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_suspend(IsA(http.HttpRequest),
-                          unicode(server.id)).AndRaise(self.exceptions.nova)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_suspend(IsA(http.HttpRequest), unicode(server.id)) \
+            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
@@ -302,16 +330,18 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_resume',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_resume',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_resume_instance(self):
         server = self.servers.first()
         server.status = "SUSPENDED"
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_resume(IsA(http.HttpRequest), unicode(server.id))
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_resume(IsA(http.HttpRequest), unicode(server.id))
 
         self.mox.ReplayAll()
 
@@ -320,17 +350,20 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_resume',
-                              'server_list',
-                              'flavor_list',)})
+    @test.create_stubs({api.nova: ('server_resume',
+                                   'server_list',
+                                   'flavor_list',)})
     def test_resume_instance_exception(self):
         server = self.servers.first()
         server.status = "SUSPENDED"
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.server_resume(IsA(http.HttpRequest),
-                          unicode(server.id)).AndRaise(self.exceptions.nova)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_resume(IsA(http.HttpRequest),
+                               unicode(server.id)) \
+            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
@@ -339,21 +372,21 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ("server_get",
-                              "instance_volumes_list",
-                              "flavor_get",
-                              "server_security_groups")})
+    @test.create_stubs({api.nova: ("server_get",
+                                   "instance_volumes_list",
+                                   "flavor_get",
+                                   "server_security_groups")})
     def test_instance_details_volumes(self):
         server = self.servers.first()
         volumes = [self.volumes.list()[1]]
 
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.instance_volumes_list(IsA(http.HttpRequest),
-                                  server.id).AndReturn(volumes)
-        api.flavor_get(IsA(http.HttpRequest),
-                       server.flavor['id']).AndReturn(self.flavors.first())
-        api.server_security_groups(IsA(http.HttpRequest),
-                       server.id).AndReturn(self.security_groups.first())
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.instance_volumes_list(IsA(http.HttpRequest),
+                                       server.id).AndReturn(volumes)
+        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
+                .AndReturn(self.flavors.first())
+        api.nova.server_security_groups(IsA(http.HttpRequest), server.id) \
+                .AndReturn(self.security_groups.first())
 
         self.mox.ReplayAll()
 
@@ -363,21 +396,21 @@ class InstanceTests(test.TestCase):
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
 
-    @test.create_stubs({api: ("server_get",
-                              "instance_volumes_list",
-                              "flavor_get",
-                              "server_security_groups")})
+    @test.create_stubs({api.nova: ("server_get",
+                                   "instance_volumes_list",
+                                   "flavor_get",
+                                   "server_security_groups")})
     def test_instance_details_volume_sorting(self):
         server = self.servers.first()
         volumes = self.volumes.list()[1:3]
 
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.instance_volumes_list(IsA(http.HttpRequest),
-                                  server.id).AndReturn(volumes)
-        api.flavor_get(IsA(http.HttpRequest),
-                       server.flavor['id']).AndReturn(self.flavors.first())
-        api.server_security_groups(IsA(http.HttpRequest),
-                       server.id).AndReturn(self.security_groups.first())
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.instance_volumes_list(IsA(http.HttpRequest),
+                                       server.id).AndReturn(volumes)
+        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
+                .AndReturn(self.flavors.first())
+        api.nova.server_security_groups(IsA(http.HttpRequest), server.id) \
+                .AndReturn(self.security_groups.first())
 
         self.mox.ReplayAll()
 
@@ -391,20 +424,20 @@ class InstanceTests(test.TestCase):
         self.assertEquals(res.context['instance'].volumes[1].device,
                           "/dev/hdk")
 
-    @test.create_stubs({api: ("server_get",
-                              "instance_volumes_list",
-                              "flavor_get",
-                              "server_security_groups",)})
+    @test.create_stubs({api.nova: ("server_get",
+                                   "instance_volumes_list",
+                                   "flavor_get",
+                                   "server_security_groups",)})
     def test_instance_details_metadata(self):
         server = self.servers.first()
 
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.instance_volumes_list(IsA(http.HttpRequest),
-                                  server.id).AndReturn([])
-        api.flavor_get(IsA(http.HttpRequest),
-                       server.flavor['id']).AndReturn(self.flavors.first())
-        api.server_security_groups(IsA(http.HttpRequest),
-                       server.id).AndReturn(self.security_groups.list())
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.instance_volumes_list(IsA(http.HttpRequest),
+                                       server.id).AndReturn([])
+        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
+                .AndReturn(self.flavors.first())
+        api.nova.server_security_groups(IsA(http.HttpRequest), server.id) \
+                .AndReturn(self.security_groups.list())
 
         self.mox.ReplayAll()
 
@@ -423,13 +456,13 @@ class InstanceTests(test.TestCase):
         self.assertContains(res, "<dt>empty</dt>", 1)
         self.assertContains(res, "<dd><em>N/A</em></dd>", 1)
 
-    @test.create_stubs({api: ('server_console_output',)})
+    @test.create_stubs({api.nova: ('server_console_output',)})
     def test_instance_log(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = 'output'
 
-        api.server_console_output(IsA(http.HttpRequest),
-                                  server.id, tail_length=None) \
+        api.nova.server_console_output(IsA(http.HttpRequest),
+                                       server.id, tail_length=None) \
                                   .AndReturn(CONSOLE_OUTPUT)
 
         self.mox.ReplayAll()
@@ -444,12 +477,12 @@ class InstanceTests(test.TestCase):
         self.assertIsInstance(res, http.HttpResponse)
         self.assertContains(res, CONSOLE_OUTPUT)
 
-    @test.create_stubs({api: ('server_console_output',)})
+    @test.create_stubs({api.nova: ('server_console_output',)})
     def test_instance_log_exception(self):
         server = self.servers.first()
 
-        api.server_console_output(IsA(http.HttpRequest),
-                                  server.id, tail_length=None) \
+        api.nova.server_console_output(IsA(http.HttpRequest),
+                                       server.id, tail_length=None) \
                                 .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -466,13 +499,15 @@ class InstanceTests(test.TestCase):
         server = self.servers.first()
         CONSOLE_OUTPUT = '/vncserver'
 
-        console_mock = self.mox.CreateMock(api.VNCConsole)
+        console_mock = self.mox.CreateMock(api.nova.VNCConsole)
         console_mock.url = CONSOLE_OUTPUT
 
-        self.mox.StubOutWithMock(api, 'server_vnc_console')
-        self.mox.StubOutWithMock(api, 'server_get')
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.server_vnc_console(IgnoreArg(), server.id).AndReturn(console_mock)
+        self.mox.StubOutWithMock(api.nova, 'server_vnc_console')
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+            .AndReturn(server)
+        api.nova.server_vnc_console(IgnoreArg(), server.id) \
+            .AndReturn(console_mock)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:instances:vnc',
@@ -481,11 +516,11 @@ class InstanceTests(test.TestCase):
         redirect = CONSOLE_OUTPUT + '&title=%s(1)' % server.name
         self.assertRedirectsNoFollow(res, redirect)
 
-    @test.create_stubs({api: ('server_vnc_console',)})
+    @test.create_stubs({api.nova: ('server_vnc_console',)})
     def test_instance_vnc_exception(self):
         server = self.servers.first()
 
-        api.server_vnc_console(IsA(http.HttpRequest), server.id) \
+        api.nova.server_vnc_console(IsA(http.HttpRequest), server.id) \
                         .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -496,27 +531,27 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_get',
-                              'snapshot_create',
-                              'snapshot_list_detailed',
-                              'image_list_detailed',
-                              'volume_snapshot_list',
-                              'server_list',
-                              'flavor_list',
-                              'server_delete',)})
+    @test.create_stubs({api.nova: ('server_get',
+                                   'snapshot_create',
+                                   'server_list',
+                                   'flavor_list',
+                                   'server_delete'),
+                        cinder: ('volume_snapshot_list',),
+                        api.glance: ('snapshot_list_detailed',
+                                     'image_list_detailed')})
     def test_create_instance_snapshot(self):
         server = self.servers.first()
 
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.snapshot_create(IsA(http.HttpRequest),
-                            server.id,
-                            "snapshot1").AndReturn(self.snapshots.first())
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.snapshot_create(IsA(http.HttpRequest),
+                                 server.id,
+                                 "snapshot1").AndReturn(self.snapshots.first())
 
-        api.snapshot_list_detailed(IsA(http.HttpRequest),
-                                   marker=None).AndReturn([[], False])
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                marker=None).AndReturn([[], False])
-        api.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        api.glance.snapshot_list_detailed(IsA(http.HttpRequest),
+                                          marker=None).AndReturn([[], False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None).AndReturn([[], False])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
 
         self.mox.ReplayAll()
 
@@ -529,11 +564,11 @@ class InstanceTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirects(res, redir_url)
 
-    @test.create_stubs({api: ('server_get',)})
+    @test.create_stubs({api.nova: ('server_get',)})
     def test_instance_update_get(self):
         server = self.servers.first()
 
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
 
         self.mox.ReplayAll()
 
@@ -542,11 +577,11 @@ class InstanceTests(test.TestCase):
 
         self.assertTemplateUsed(res, 'project/instances/update.html')
 
-    @test.create_stubs({api: ('server_get',)})
+    @test.create_stubs({api.nova: ('server_get',)})
     def test_instance_update_get_server_get_exception(self):
         server = self.servers.first()
 
-        api.server_get(IsA(http.HttpRequest), server.id) \
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
                         .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -557,14 +592,14 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_get', 'server_update')})
+    @test.create_stubs({api.nova: ('server_get', 'server_update')})
     def test_instance_update_post(self):
         server = self.servers.first()
 
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.server_update(IsA(http.HttpRequest),
-                          server.id,
-                          server.name).AndReturn(server)
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.server_update(IsA(http.HttpRequest),
+                               server.id,
+                               server.name).AndReturn(server)
 
         self.mox.ReplayAll()
 
@@ -578,12 +613,12 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api: ('server_get', 'server_update')})
+    @test.create_stubs({api.nova: ('server_get', 'server_update')})
     def test_instance_update_post_api_exception(self):
         server = self.servers.first()
 
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.server_update(IsA(http.HttpRequest), server.id, server.name) \
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.server_update(IsA(http.HttpRequest), server.id, server.name) \
                           .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -617,7 +652,7 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
@@ -995,16 +1030,18 @@ class InstanceTests(test.TestCase):
 
         self.assertContains(res, "greater than or equal to 1")
 
-    @test.create_stubs({api: ('flavor_list', 'server_list',
-                              'tenant_absolute_limits',)})
+    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
+                                   'tenant_absolute_limits',)})
     def test_launch_button_disabled_when_quota_exceeded(self):
         limits = self.limits['absolute']
         limits['totalInstancesUsed'] = limits['maxTotalInstances']
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
-           .MultipleTimes().AndReturn(limits)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+            .MultipleTimes().AndReturn(limits)
 
         self.mox.ReplayAll()
 
@@ -1021,15 +1058,17 @@ class InstanceTests(test.TestCase):
                             html=True,
                             msg_prefix="The launch button is not disabled")
 
-    @test.create_stubs({api: ('flavor_list', 'server_list',
-                              'tenant_absolute_limits')})
+    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
+                                   'tenant_absolute_limits')})
     def test_index_options_after_migrate(self):
         server = self.servers.first()
         server.status = "VERIFY_RESIZE"
 
-        api.flavor_list(IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.server_list(IsA(http.HttpRequest)).AndReturn(self.servers.list())
-        api.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()

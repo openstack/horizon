@@ -32,7 +32,7 @@ from horizon import exceptions
 from horizon import forms
 
 from openstack_dashboard import api
-from openstack_dashboard.api import FOLDER_DELIMITER
+from openstack_dashboard.api.swift import FOLDER_DELIMITER
 from .browsers import ContainerBrowser
 from .forms import CreateContainer, UploadObject, CopyObject
 from .tables import wrap_delimiter
@@ -47,8 +47,8 @@ class ContainerView(browsers.ResourceBrowserView):
         self._more = None
         marker = self.request.GET.get('marker', None)
         try:
-            containers, self._more = api.swift_get_containers(self.request,
-                                                              marker=marker)
+            containers, self._more = api.swift.swift_get_containers(
+                self.request, marker=marker)
         except:
             msg = _('Unable to retrieve container list.')
             exceptions.handle(self.request, msg)
@@ -72,10 +72,11 @@ class ContainerView(browsers.ResourceBrowserView):
                 if subfolder:
                     prefix = subfolder
                 try:
-                    objects, self._more = api.swift_get_objects(self.request,
-                                                                container_name,
-                                                                marker=marker,
-                                                                prefix=prefix)
+                    objects, self._more = api.swift.swift_get_objects(
+                        self.request,
+                        container_name,
+                        marker=marker,
+                        prefix=prefix)
                 except:
                     self._more = None
                     objects = []
@@ -194,7 +195,7 @@ class CopyView(forms.ModalFormView):
     def get_form_kwargs(self):
         kwargs = super(CopyView, self).get_form_kwargs()
         try:
-            containers = api.swift_get_containers(self.request)
+            containers = api.swift.swift_get_containers(self.request)
         except:
             redirect = reverse("horizon:project:containers:index")
             exceptions.handle(self.request,

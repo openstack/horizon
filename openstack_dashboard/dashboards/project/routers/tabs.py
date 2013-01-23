@@ -31,7 +31,7 @@ class OverviewTab(tabs.Tab):
     def get_context_data(self, request):
         router_id = self.tab_group.kwargs['router_id']
         try:
-            router = api.router_get(request, router_id)
+            router = api.quantum.router_get(request, router_id)
         except:
             redirect = reverse(redirect_url)
             exceptions.handle(self.request,

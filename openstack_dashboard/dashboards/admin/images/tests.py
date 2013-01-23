@@ -25,12 +25,12 @@ from .tables import AdminImagesTable
 
 
 class ImagesViewTest(test.BaseAdminViewTests):
-    @test.create_stubs({api: ('image_list_detailed',)})
+    @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_images_list(self):
-        api.image_list_detailed(IsA(http.HttpRequest),
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None) \
-                                       .AndReturn([self.images.list(),
-                                                   False])
+                                .AndReturn([self.images.list(),
+                                            False])
         self.mox.ReplayAll()
 
         res = self.client.get(
@@ -39,24 +39,24 @@ class ImagesViewTest(test.BaseAdminViewTests):
         self.assertEqual(len(res.context['images_table'].data),
                          len(self.images.list()))
 
-    @test.create_stubs({api: ('image_list_detailed',)})
+    @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_images_list_get_pagination(self):
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                    marker=None) \
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None) \
                                 .AndReturn([self.images.list(),
-                                           True])
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                    marker=None) \
+                                            True])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None) \
                                 .AndReturn([self.images.list()[:2],
-                                           True])
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                    marker=self.images.list()[2].id) \
+                                            True])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=self.images.list()[2].id) \
                                 .AndReturn([self.images.list()[2:4],
-                                           True])
-        api.image_list_detailed(IsA(http.HttpRequest),
-                                    marker=self.images.list()[4].id) \
+                                            True])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=self.images.list()[4].id) \
                                 .AndReturn([self.images.list()[4:],
-                                           True])
+                                            True])
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:images:index')

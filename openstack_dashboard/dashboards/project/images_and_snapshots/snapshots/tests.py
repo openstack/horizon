@@ -33,8 +33,8 @@ INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
 class SnapshotsViewTests(test.TestCase):
     def test_create_snapshot_get(self):
         server = self.servers.first()
-        self.mox.StubOutWithMock(api, 'server_get')
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:images_and_snapshots:snapshots:create',
@@ -45,8 +45,8 @@ class SnapshotsViewTests(test.TestCase):
 
     def test_create_get_server_exception(self):
         server = self.servers.first()
-        self.mox.StubOutWithMock(api, 'server_get')
-        api.server_get(IsA(http.HttpRequest), server.id) \
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
                     .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
@@ -60,11 +60,11 @@ class SnapshotsViewTests(test.TestCase):
         server = self.servers.first()
         snapshot = self.snapshots.first()
 
-        self.mox.StubOutWithMock(api, 'server_get')
-        self.mox.StubOutWithMock(api, 'snapshot_create')
-        api.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.snapshot_create(IsA(http.HttpRequest), server.id, snapshot.name) \
-                            .AndReturn(snapshot)
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        self.mox.StubOutWithMock(api.nova, 'snapshot_create')
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.snapshot_create(IsA(http.HttpRequest), server.id,
+                                 snapshot.name).AndReturn(snapshot)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateSnapshot',
@@ -81,10 +81,10 @@ class SnapshotsViewTests(test.TestCase):
         server = self.servers.first()
         snapshot = self.snapshots.first()
 
-        self.mox.StubOutWithMock(api, 'server_get')
-        self.mox.StubOutWithMock(api, 'snapshot_create')
-        api.snapshot_create(IsA(http.HttpRequest), server.id, snapshot.name) \
-                            .AndRaise(self.exceptions.nova)
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        self.mox.StubOutWithMock(api.nova, 'snapshot_create')
+        api.nova.snapshot_create(IsA(http.HttpRequest), server.id,
+                                 snapshot.name).AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateSnapshot',

@@ -40,7 +40,8 @@ class UpdateInstance(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            server = api.server_update(request, data['instance'], data['name'])
+            server = api.nova.server_update(request, data['instance'],
+                                            data['name'])
             messages.success(request,
                              _('Instance "%s" updated.') % data['name'])
             return server

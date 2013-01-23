@@ -61,9 +61,9 @@ class UpdateView(forms.ModalFormView):
     def get_object(self):
         if not hasattr(self, "_object"):
             try:
-                self._object = api.user_get(self.request,
-                                            self.kwargs['user_id'],
-                                            admin=True)
+                self._object = api.keystone.user_get(self.request,
+                                                     self.kwargs['user_id'],
+                                                     admin=True)
             except:
                 redirect = reverse("horizon:admin:users:index")
                 exceptions.handle(self.request,
