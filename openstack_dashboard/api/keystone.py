@@ -115,9 +115,10 @@ def keystoneclient(request, admin=False):
         endpoint = _get_endpoint_url(request, endpoint_type)
         insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
         LOG.debug("Creating a new keystoneclient connection to %s." % endpoint)
-        conn = keystone_client.Client(token=user.token.id,
-                                      endpoint=endpoint,
-                                      insecure=insecure)
+        conn = keystone_client.Client(
+            token=user.token.id, endpoint=endpoint,
+            original_ip=request.environ.get('REMOTE_ADDR', ''),
+            insecure=insecure)
         setattr(request, cache_attr, conn)
     return conn
 
