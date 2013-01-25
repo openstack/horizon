@@ -364,6 +364,21 @@ class NetworkTests(test.TestCase):
         self.assertContains(res, escape('Specify "Network Address" or '
                                         'clear "Create Subnet" checkbox.'))
 
+    def test_network_create_post_with_subnet_cidr_without_mask(self):
+        network = self.networks.first()
+        subnet = self.subnets.first()
+
+        form_data = {'net_name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'with_subnet': True}
+        form_data.update(form_data_subnet(subnet, cidr='10.0.0.0',
+                                          allocation_pools=[]))
+        url = reverse('horizon:project:networks:create')
+        res = self.client.post(url, form_data)
+
+        expected_msg = "The subnet in the Network Address is too small (/32)."
+        self.assertContains(res, expected_msg)
+
     def test_network_create_post_with_subnet_cidr_inconsistent(self):
         network = self.networks.first()
         subnet = self.subnets.first()
