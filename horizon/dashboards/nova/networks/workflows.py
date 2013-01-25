@@ -89,8 +89,14 @@ class CreateSubnetInfoAction(workflows.Action):
                     'clear "Create Subnet" checkbox.')
             raise forms.ValidationError(msg)
         if cidr:
-            if netaddr.IPNetwork(cidr).version is not ip_version:
+            subnet = netaddr.IPNetwork(cidr)
+            if subnet.version != ip_version:
                 msg = _('Network Address and IP version are inconsistent.')
+                raise forms.ValidationError(msg)
+            if (ip_version == 4 and subnet.prefixlen == 32) or \
+                    (ip_version == 6 and subnet.prefixlen == 128):
+                msg = _("The subnet in the Network Address is too small (/%s)."
+                        % subnet.prefixlen)
                 raise forms.ValidationError(msg)
         if gateway_ip:
             if netaddr.IPAddress(gateway_ip).version is not ip_version:
