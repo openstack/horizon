@@ -201,8 +201,29 @@ class EditInstance(tables.LinkAction):
     url = "horizon:project:instances:update"
     classes = ("ajax-modal", "btn-edit")
 
+    def get_link_url(self, project):
+        return self._get_link_url(project, 'instance_info')
+
+    def _get_link_url(self, project, step_slug):
+        base_url = urlresolvers.reverse(self.url, args=[project.id])
+        param = urlencode({"step": step_slug})
+        return "?".join([base_url, param])
+
     def allowed(self, request, instance):
         return not is_deleting(instance)
+
+
+class EditInstanceSecurityGroups(EditInstance):
+    name = "edit_secgroups"
+    verbose_name = _("Edit Security Groups")
+
+    def get_link_url(self, project):
+        return self._get_link_url(project, 'update_security_groups')
+
+    def allowed(self, request, instance=None):
+        return (instance.status in ACTIVE_STATES and
+                not is_deleting(instance) and
+                request.user.tenant_id == instance.tenant_id)
 
 
 class CreateSnapshot(tables.LinkAction):
@@ -449,5 +470,6 @@ class InstancesTable(tables.DataTable):
         row_actions = (ConfirmResize, RevertResize, CreateSnapshot,
                        SimpleAssociateIP, AssociateIP,
                        SimpleDisassociateIP, EditInstance,
-                       ConsoleLink, LogLink, TogglePause, ToggleSuspend,
-                       RebootInstance, TerminateInstance)
+                       EditInstanceSecurityGroups, ConsoleLink, LogLink,
+                       TogglePause, ToggleSuspend, RebootInstance,
+                       TerminateInstance)

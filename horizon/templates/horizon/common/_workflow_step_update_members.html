@@ -1,0 +1,39 @@
+{% load i18n %}
+
+<noscript><h3>{{ step }}</h3></noscript>
+
+<div class="project_membership" data-show-roles="{{ step.show_roles|yesno }}">
+  <div class="header">
+    <div class="help_text">{{ step.help_text }}</div>
+    <div class="left">
+      <div class="fake_table fake_table_header">
+        <span class="users_title">{{ step.available_list_title }}</span>
+        <input type="text" name="available_users_filter" id="available_users" class="filter" placeholder="Filter">
+      </div>
+    </div>
+    <div class="right">
+      <div class="fake_table fake_table_header">
+        <span class="users_title">{{ step.members_list_title }}</span>
+        <input type="text" name="project_members_filter" id="project_members" class="filter" placeholder="Filter">
+      </div>
+    </div>
+  </div>
+
+  <div class="left filterable">
+    <div class="fake_table" id="available_users">
+      <ul class="available_users"></ul>
+      <ul class="no_results" id="no_available_users"><li>{{ step.no_available_text }}</li></ul>
+    </div>
+  </div>
+
+  <div class="right filterable">
+    <div class="fake_table" id="project_members">
+      <ul class="project_members"></ul>
+      <ul class="no_results" id="no_project_members"><li>{{ step.no_members_text }}</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class="hide">
+  {% include "horizon/common/_form_fields.html" %}
+</div>

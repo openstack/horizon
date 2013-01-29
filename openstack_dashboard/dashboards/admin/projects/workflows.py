@@ -169,9 +169,12 @@ class UpdateProjectMembersAction(workflows.Action):
         slug = "update_members"
 
 
-class UpdateProjectMembers(workflows.Step):
+class UpdateProjectMembers(workflows.UpdateMembersStep):
     action_class = UpdateProjectMembersAction
-    template_name = "admin/projects/_update_members.html"
+    available_list_title = _("All Users")
+    members_list_title = _("Project Members")
+    no_available_text = _("No users found.")
+    no_members_text = _("No users.")
 
     def contribute(self, data, context):
         if data:

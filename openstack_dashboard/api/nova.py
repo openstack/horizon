@@ -400,6 +400,17 @@ def server_security_groups(request, instance_id):
     return security_groups
 
 
+def server_add_security_group(request, instance_id, security_group_name):
+    return novaclient(request).servers.add_security_group(instance_id,
+                                                          security_group_name)
+
+
+def server_remove_security_group(request, instance_id, security_group_name):
+    return novaclient(request).servers.remove_security_group(
+                instance_id,
+                security_group_name)
+
+
 def server_pause(request, instance_id):
     novaclient(request).servers.pause(instance_id)
 

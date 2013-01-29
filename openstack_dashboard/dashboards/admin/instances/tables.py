@@ -34,6 +34,10 @@ from openstack_dashboard.dashboards.project.instances.tables import (
 LOG = logging.getLogger(__name__)
 
 
+class AdminEditInstance(EditInstance):
+    url = "horizon:admin:instances:update"
+
+
 class MigrateInstance(tables.BatchAction):
     name = "migrate"
     action_present = _("Migrate")
@@ -112,6 +116,7 @@ class AdminInstancesTable(tables.DataTable):
         status_columns = ["status", "task"]
         table_actions = (TerminateInstance,)
         row_class = AdminUpdateRow
-        row_actions = (ConfirmResize, RevertResize, EditInstance, ConsoleLink,
-                       LogLink, CreateSnapshot, TogglePause, ToggleSuspend,
-                       MigrateInstance, RebootInstance, TerminateInstance)
+        row_actions = (ConfirmResize, RevertResize, AdminEditInstance,
+                       ConsoleLink, LogLink, CreateSnapshot, TogglePause,
+                       ToggleSuspend, MigrateInstance, RebootInstance,
+                       TerminateInstance)

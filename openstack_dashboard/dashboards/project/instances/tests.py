@@ -600,11 +600,20 @@ class InstanceTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirects(res, redir_url)
 
-    @test.create_stubs({api.nova: ('server_get',)})
+    instance_update_get_stubs = {
+        api.nova: ('server_get',
+                   'security_group_list',
+                   'server_security_groups',)}
+
+    @test.create_stubs(instance_update_get_stubs)
     def test_instance_update_get(self):
         server = self.servers.first()
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+        api.nova.server_security_groups(IsA(http.HttpRequest),
+                                        server.id).AndReturn([])
 
         self.mox.ReplayAll()
 
@@ -613,7 +622,7 @@ class InstanceTests(test.TestCase):
 
         self.assertTemplateUsed(res, 'project/instances/update.html')
 
-    @test.create_stubs({api.nova: ('server_get',)})
+    @test.create_stubs(instance_update_get_stubs)
     def test_instance_update_get_server_get_exception(self):
         server = self.servers.first()
 
@@ -628,45 +637,121 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_get', 'server_update')})
+    def _instance_update_post(self, server_id, server_name, secgroups):
+        formData = {'name': server_name,
+                    'default_role': 'member',
+                    'role_member': secgroups}
+        url = reverse('horizon:project:instances:update',
+                      args=[server_id])
+        return self.client.post(url, formData)
+
+    instance_update_post_stubs = {
+        api.nova: ('server_get', 'server_update',
+                   'security_group_list',
+                   'server_security_groups',
+                   'server_add_security_group',
+                   'server_remove_security_group')}
+
+    @test.create_stubs(instance_update_post_stubs)
     def test_instance_update_post(self):
         server = self.servers.first()
+        secgroups = self.security_groups.list()[:3]
+        new_name = 'manuel'
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(secgroups)
+        api.nova.server_security_groups(IsA(http.HttpRequest),
+                                        server.id).AndReturn([])
+
         api.nova.server_update(IsA(http.HttpRequest),
                                server.id,
-                               server.name).AndReturn(server)
+                               new_name).AndReturn(server)
+        api.nova.server_security_groups(IsA(http.HttpRequest),
+                                        server.id).AndReturn([])
 
         self.mox.ReplayAll()
 
-        formData = {'method': 'UpdateInstance',
-                    'instance': server.id,
-                    'name': server.name,
-                    'tenant_id': self.tenant.id}
-        url = reverse('horizon:project:instances:update',
-                      args=[server.id])
-        res = self.client.post(url, formData)
-
+        res = self._instance_update_post(server.id, new_name, [])
+        self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_get', 'server_update')})
+    @test.create_stubs(instance_update_post_stubs)
+    def test_instance_update_secgroup_post(self):
+        server = self.servers.first()
+        secgroups = self.security_groups.list()[:3]
+
+        server_groups = [secgroups[0], secgroups[1]]
+        wanted_groups = [secgroups[1].name, secgroups[2].name]
+        expect_add = secgroups[2].name
+        expect_rm = secgroups[0].name
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(secgroups)
+        api.nova.server_security_groups(IsA(http.HttpRequest),
+                                        server.id).AndReturn(server_groups)
+
+        api.nova.server_update(IsA(http.HttpRequest),
+                               server.id,
+                               server.name).AndReturn(server)
+        api.nova.server_security_groups(IsA(http.HttpRequest),
+                                        server.id).AndReturn(server_groups)
+
+        api.nova.server_add_security_group(IsA(http.HttpRequest),
+                                           server.id,
+                                           expect_add).AndReturn(server)
+        api.nova.server_remove_security_group(IsA(http.HttpRequest),
+                                              server.id,
+                                              expect_rm).AndReturn(server)
+
+        self.mox.ReplayAll()
+
+        res = self._instance_update_post(server.id, server.name, wanted_groups)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs(instance_update_post_stubs)
     def test_instance_update_post_api_exception(self):
         server = self.servers.first()
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+        api.nova.server_security_groups(IsA(http.HttpRequest),
+                                        server.id).AndReturn([])
+
         api.nova.server_update(IsA(http.HttpRequest), server.id, server.name) \
                           .AndRaise(self.exceptions.nova)
+        api.nova.server_security_groups(IsA(http.HttpRequest),
+                                        server.id) \
+                                        .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
-        formData = {'method': 'UpdateInstance',
-                    'instance': server.id,
-                    'name': server.name,
-                    'tenant_id': self.tenant.id}
-        url = reverse('horizon:project:instances:update',
-                      args=[server.id])
-        res = self.client.post(url, formData)
+        res = self._instance_update_post(server.id, server.name, [])
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs(instance_update_post_stubs)
+    def test_instance_update_post_secgroup_api_exception(self):
+        server = self.servers.first()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+        api.nova.server_security_groups(IsA(http.HttpRequest),
+                                        server.id).AndReturn([])
+
+        api.nova.server_update(IsA(http.HttpRequest),
+                               server.id,
+                               server.name).AndReturn(server)
+        api.nova.server_security_groups(IsA(http.HttpRequest),
+                                        server.id) \
+                                        .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        res = self._instance_update_post(server.id, server.name, [])
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.nova: ('flavor_list',

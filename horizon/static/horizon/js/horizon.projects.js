@@ -6,12 +6,8 @@ horizon.projects = {
   roles: [],
   networks_selected: [],
   networks_available: [],
+  has_roles: true,
   default_role_id: "",
-  workflow_loaded: false,
-  no_project_members: gettext('This project currently has no members.'),
-  no_available_users: gettext('No more available users to add.'),
-  no_filter_results: gettext('No users found.'),
-  filter_btn_text: gettext('Filter'),
 
   /* Parses the form field selector's ID to get either the
    * role or user id (i.e. returns "id12345" when
@@ -43,6 +39,7 @@ horizon.projects = {
    * default role id.
    **/
   init_properties: function() {
+    horizon.projects.has_roles = $(".project_membership").data('show-roles') !== "no";
     horizon.projects.default_role_id = $('#id_default_role').attr('value');
     horizon.projects.init_user_list();
     horizon.projects.init_role_list();
@@ -53,6 +50,7 @@ horizon.projects = {
    * Initializes an associative array mapping user ids to user names.
    **/
   init_user_list: function() {
+    horizon.projects.users = [];
     _.each($(this.get_role_element("")).find("option"), function (option) {
       horizon.projects.users[option.value] = option.text;
     });
@@ -62,6 +60,7 @@ horizon.projects = {
    * Initializes an associative array mapping role ids to role names.
    **/
   init_role_list: function() {
+    horizon.projects.roles = [];
     _.each($('label[for^="id_role_"]'), function(role) {
       var id = horizon.projects.get_field_id($(role).attr('for'));
       horizon.projects.roles[id] = $(role).text();
@@ -73,6 +72,7 @@ horizon.projects = {
    * members for each available role.
    **/
   init_current_membership: function() {
+    horizon.projects.current_membership = [];
     var members_list = [];
     var role_name, role_id, selected_members;
     _.each(this.get_role_element(''), function(value, key) {
@@ -229,8 +229,8 @@ horizon.projects = {
       var role_id = this.is_project_member(user_id);
       if (role_id) {
         $(".project_members").append(this.generate_user_element(user_name, user_id, "-"));
-          var $selected_role = $("li[data-user-id$='" + user_id + "']").siblings('.dropdown').children('.dropdown-toggle').children('span');
-          horizon.projects.set_selected_role($selected_role, role_id);
+        var $selected_role = $("li[data-user-id$='" + user_id + "']").siblings('.dropdown').children('.dropdown-toggle').children('span');
+        horizon.projects.set_selected_role($selected_role, role_id);
       }
       else {
         $(".available_users").append(this.generate_user_element(user_name, user_id, "+"));
@@ -310,12 +310,15 @@ horizon.projects = {
   **/
   update_membership: function() {
     $(".available_users, .project_members").on('click', ".btn-group a[href='#add_remove']", function (evt) {
+      evt.preventDefault();
       var available = $(".available_users").has($(this)).length;
       var user_id = horizon.projects.get_field_id($(this).parent().siblings().attr('data-user-id'));
 
       if (available) {
         $(this).text("-");
-        $(this).parent().siblings(".role_options").show();
+        if (horizon.projects.has_roles) {
+          $(this).parent().siblings(".role_options").show();
+        }
         $(".project_members").append($(this).parent().parent());
 
         horizon.projects.add_user_to_role(user_id, horizon.projects.default_role_id);
@@ -337,7 +340,7 @@ horizon.projects = {
       horizon.projects.detect_no_results();
 
       // remove input filters
-      $("input.filter").val(horizon.projects.filter_btn_text);
+      $("input.filter").val("");
     });
   },
 
@@ -347,15 +350,9 @@ horizon.projects = {
    **/
   detect_no_results: function () {
     $('.filterable').each( function () {
-      var filter = $(this).find('ul').attr('class'),
-          text;
-      if (filter == 'project_members')
-        text = horizon.projects.no_project_members;
-      else
-        text = horizon.projects.no_available_users;
+      var filter = $(this).find('ul').attr('class');
 
       if (!$('.' + filter).children('ul').length) {
-        $('#no_' + filter).text(text);
         $('#no_' + filter).show();
         $("input[id='" + filter + "']").attr('disabled', 'disabled');
       }
@@ -406,7 +403,7 @@ horizon.projects = {
       // reset lists and input filters
       horizon.projects.list_filtering();
       horizon.projects.detect_no_results();
-      $("input.filter").val(horizon.projects.filter_btn_text);
+      $("input.filter").val("");
 
       // fix styling
       $(".project_members .btn-group").removeClass('last_stripe');
@@ -454,13 +451,6 @@ horizon.projects = {
     // remove previous lists' quicksearch events
     $('input.filter').unbind();
 
-    // set up what happens on focus of input boxes
-    $("input.filter").on('focus', function() {
-      if ($(this).val() === horizon.projects.filter_btn_text) {
-        $(this).val("");
-      }
-    });
-
     // set up quicksearch to filter on input
     $('.filterable').each(function () {
       var filter = $(this).children().children('ul').attr('class');
@@ -478,9 +468,6 @@ horizon.projects = {
               $(this).parent().parent().hide();
             },
             'noResults': 'ul#no_' + filter,
-            'onBefore': function () {
-              $('ul#no_' + filter).text(horizon.projects.no_filter_results);
-            },
             'onAfter': function () {
                 horizon.projects.fix_stripes();
             },
@@ -504,8 +491,18 @@ horizon.projects = {
    **/
   workflow_init: function(modal) {
     horizon.projects.generate_networklist_html();
-    if (!horizon.projects.workflow_loaded) {
-      $(modal).find('form').each( function () {
+
+    // fix the dropdown menu overflow issues
+    $(".tab-content, .workflow").addClass("dropdown_fix");
+
+    $(modal).find('form').each( function () {
+        var $form = $(this);
+
+        // Do nothing if this isn't a membership modal
+        if ($form.find('div.project_membership').length == 0) {
+           return; // continue
+        }
+
         // call the initalization functions
         horizon.projects.init_properties();
         horizon.projects.generate_html();
@@ -514,16 +511,18 @@ horizon.projects = {
         horizon.projects.add_new_user();
 
         // initially hide role dropdowns for available users list
-        $(".available_users .role_options").hide();
+        $form.find(".available_users .role_options").hide();
 
-        // fix the dropdown menu overflow issues
-        $(".tab-content, .workflow").addClass("dropdown_fix");
+        // hide the dropdown for members too if we don't need to show it
+        if (!horizon.projects.has_roles) {
+          $form.find(".project_members .role_options").hide();
+        }
 
         // unfocus filter fields
-        $("#update_project__update_members input").blur();
+        $form.find("#update_project__update_members input").blur();
 
         // prevent filter inputs from submitting form on 'enter'
-        $('.project_membership').keydown(function(event){
+        $form.find('.project_membership').keydown(function(event){
           if(event.keyCode == 13) {
             event.preventDefault();
             return false;
@@ -534,23 +533,18 @@ horizon.projects = {
         horizon.projects.add_new_user_styling();
         horizon.projects.list_filtering();
         horizon.projects.detect_no_results();
-        horizon.projects.workflow_loaded = true;
 
         // fix initial striping of rows
-        $('.fake_table').each( function () {
+        $form.find('.fake_table').each( function () {
           var filter = "." + $(this).attr('id');
           $(filter + ' .btn-group:even').addClass('dark_stripe');
           $(filter + ' .btn-group:last').addClass('last_stripe');
         });
-      });
-    }
+    });
   }
 };
 
 
 horizon.addInitFunction(function() {
-  $('.btn').on('click', function (evt) {
-    horizon.projects.workflow_loaded = false;
-  });
   horizon.modals.addModalInitFunction(horizon.projects.workflow_init);
 });

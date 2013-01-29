@@ -20,7 +20,7 @@
 
 from django.conf.urls.defaults import url, patterns
 
-from .views import DetailView, AdminIndexView
+from .views import DetailView, AdminIndexView, AdminUpdateView
 
 
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
@@ -28,6 +28,7 @@ INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
 
 urlpatterns = patterns('openstack_dashboard.dashboards.admin.instances.views',
     url(r'^$', AdminIndexView.as_view(), name='index'),
+    url(INSTANCES % 'update', AdminUpdateView.as_view(), name='update'),
     url(INSTANCES % 'detail', DetailView.as_view(), name='detail'),
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),

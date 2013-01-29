@@ -36,10 +36,9 @@ from horizon import tables
 from horizon import workflows
 
 from openstack_dashboard import api
-from .forms import UpdateInstance
 from .tabs import InstanceDetailTabs
 from .tables import InstancesTable
-from .workflows import LaunchInstance
+from .workflows import LaunchInstance, UpdateInstance
 
 
 LOG = logging.getLogger(__name__)
@@ -135,10 +134,9 @@ def spice(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
-class UpdateView(forms.ModalFormView):
-    form_class = UpdateInstance
+class UpdateView(workflows.WorkflowView):
+    workflow_class = UpdateInstance
     template_name = 'project/instances/update.html'
-    context_object_name = 'instance'
     success_url = reverse_lazy("horizon:project:instances:index")
 
     def get_context_data(self, **kwargs):
@@ -158,9 +156,10 @@ class UpdateView(forms.ModalFormView):
         return self._object
 
     def get_initial(self):
-        return {'instance': self.kwargs['instance_id'],
-                'tenant_id': self.request.user.tenant_id,
-                'name': getattr(self.get_object(), 'name', '')}
+        initial = super(UpdateView, self).get_initial()
+        initial.update({'instance_id': self.kwargs['instance_id'],
+                'name': getattr(self.get_object(), 'name', '')})
+        return initial
 
 
 class DetailView(tabs.TabView):

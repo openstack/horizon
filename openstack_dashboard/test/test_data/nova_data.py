@@ -243,6 +243,12 @@ def data(TEST):
                                             "id": 2,
                                             "name": u"other_group",
                                             "description": u"Not default."})
+    sec_group_3 = sec_groups.SecurityGroup(sg_manager,
+                                           {"rules": [],
+                                            "tenant_id": TEST.tenant.id,
+                                            "id": 3,
+                                            "name": u"another_group",
+                                            "description": u"Not default."})
 
     rule = {'id': 1,
             'ip_protocol': u"tcp",
@@ -278,7 +284,7 @@ def data(TEST):
 
     sec_group_1.rules = [rule_obj]
     sec_group_2.rules = [rule_obj]
-    TEST.security_groups.add(sec_group_1, sec_group_2)
+    TEST.security_groups.add(sec_group_1, sec_group_2, sec_group_3)
 
     # Security Group Rules
 

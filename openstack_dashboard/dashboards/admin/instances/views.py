@@ -31,9 +31,15 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.instances.tables import \
         AdminInstancesTable
 from openstack_dashboard.dashboards.project.instances.views import \
-        console, DetailView, vnc, spice
+        console, DetailView, vnc, spice, UpdateView
+from openstack_dashboard.dashboards.project.instances.workflows.\
+        update_instance import AdminUpdateInstance
 
 LOG = logging.getLogger(__name__)
+
+
+class AdminUpdateView(UpdateView):
+    workflow_class = AdminUpdateInstance
 
 
 class AdminIndexView(tables.DataTableView):
