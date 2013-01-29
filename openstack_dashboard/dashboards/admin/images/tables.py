@@ -19,7 +19,12 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 from openstack_dashboard.dashboards.project.images_and_snapshots \
-        .images.tables import (ImagesTable, EditImage, DeleteImage)
+        .images.tables import (ImagesTable, CreateImage, EditImage,
+                DeleteImage)
+
+
+class AdminCreateImage(CreateImage):
+    url = "horizon:admin:images:create"
 
 
 class AdminDeleteImage(DeleteImage):
@@ -42,5 +47,5 @@ class AdminImagesTable(ImagesTable):
     class Meta:
         name = "images"
         verbose_name = _("Images")
-        table_actions = (AdminDeleteImage,)
+        table_actions = (AdminCreateImage, AdminDeleteImage)
         row_actions = (AdminEditImage, AdminDeleteImage)
