@@ -432,6 +432,7 @@ class TableTab(Tab):
                                               "on %s." % (func_name, cls_name))
                 # Load the data.
                 table.data = data_func()
+                table._meta.has_more_data = self.has_more_data(table)
             # Mark our data as loaded so we don't run the loaders again.
             self._table_data_loaded = True
 
@@ -453,3 +454,6 @@ class TableTab(Tab):
                 context["table"] = table
             context["%s_table" % table_name] = table
         return context
+
+    def has_more_data(self, table):
+        return False
