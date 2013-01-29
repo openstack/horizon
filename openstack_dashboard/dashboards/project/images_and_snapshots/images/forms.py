@@ -24,6 +24,9 @@ Views for managing images.
 
 import logging
 
+from django.conf import settings
+from django.forms import ValidationError
+from django.forms.widgets import HiddenInput
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -42,7 +45,10 @@ class CreateImageForm(forms.SelfHandlingForm):
                                 label=_("Image Location"),
                                 help_text=_("An external (HTTP) URL to load "
                                             "the image from."),
-                                required=True)
+                                required=False)
+    image_file = forms.FileField(label=_("Image File"),
+                                 help_text=("A local image to upload."),
+                                 required=False)
     disk_format = forms.ChoiceField(label=_('Format'),
                                     required=True,
                                     choices=[('', ''),
@@ -81,6 +87,22 @@ class CreateImageForm(forms.SelfHandlingForm):
                                     required=False)
     is_public = forms.BooleanField(label=_("Public"), required=False)
 
+    def __init__(self, *args, **kwargs):
+        super(CreateImageForm, self).__init__(*args, **kwargs)
+        if not settings.HORIZON_IMAGES_ALLOW_UPLOAD:
+            self.fields['image_file'].widget = HiddenInput()
+
+    def clean(self):
+        data = super(CreateImageForm, self).clean()
+        if not data['copy_from'] and not data['image_file']:
+            raise ValidationError(
+                _("A image or external image location must be specified."))
+        elif data['copy_from'] and data['image_file']:
+            raise ValidationError(
+                _("Can not specify both image and external image location."))
+        else:
+            return data
+
     def handle(self, request, data):
         # Glance does not really do anything with container_format at the
         # moment. It requires it is set to the same disk_format for the three
@@ -95,10 +117,14 @@ class CreateImageForm(forms.SelfHandlingForm):
         meta = {'is_public': data['is_public'],
                 'disk_format': data['disk_format'],
                 'container_format': container_format,
-                'copy_from': data['copy_from'],
                 'min_disk': (data['minimum_disk'] or 0),
                 'min_ram': (data['minimum_ram'] or 0),
                 'name': data['name']}
+
+        if settings.HORIZON_IMAGES_ALLOW_UPLOAD and data['image_file']:
+            meta['data'] = self.files['image_file']
+        else:
+            meta['copy_from'] = data['copy_from']
 
         try:
             image = api.glance.image_create(request, **meta)
