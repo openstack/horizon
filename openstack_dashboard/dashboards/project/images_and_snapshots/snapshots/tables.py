@@ -50,7 +50,7 @@ class DeleteSnapshot(DeleteImage):
 
 
 class SnapshotsTable(ImagesTable):
-    class Meta:
+    class Meta(ImagesTable.Meta):
         name = "snapshots"
         verbose_name = _("Instance Snapshots")
         table_actions = (DeleteSnapshot,)
