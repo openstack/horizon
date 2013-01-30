@@ -12,6 +12,7 @@
     <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/messages.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/modals.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/templates.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/tables.js"></script>
     {% comment %}End test modules.{% endcomment %}
 
     {% include "horizon/_scripts.html" %}
@@ -24,10 +25,27 @@
     <ol id="qunit-tests"></ol>
     <div id="qunit-fixture">
       <!-- Test markup; will be hidden. -->
+
       <div id="main_content">
         <div class="messages"></div>
         <div id="modal_wrapper"></div>
       </div>
+
+      <table id="table1" class="datatable">
+        <tbody>
+          <tr id="cat1"><td>cat1</td></tr>
+          <tr id="dog1"><td>dog1</td></tr>
+          <tr id="cat2"><td>cat2</td></tr>
+          <tr id="dog2"><td>dog2</td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="1">
+              <span class="table_count">Displaying 4 items</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
   </body>
 </html>
