@@ -86,7 +86,8 @@ class ContainerView(browsers.ResourceBrowserView):
         return self._objects
 
     def is_subdir(self, item):
-        return getattr(item, "content_type", None) == "application/directory"
+        content_type = "application/pseudo-folder"
+        return getattr(item, "content_type", None) == content_type
 
     def get_objects_data(self):
         """ Returns a list of objects within the current folder. """

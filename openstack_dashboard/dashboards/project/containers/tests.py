@@ -157,12 +157,6 @@ class SwiftTests(test.TestCase):
                             args=[wrap_delimiter(container.name)])
         self.assertRedirectsNoFollow(res, index_url)
 
-        # Test invalid filename
-        formData['name'] = "contains/a/slash"
-        res = self.client.post(upload_url, formData)
-        self.assertNoMessages()
-        self.assertContains(res, "Slash is not an allowed character.")
-
     @test.create_stubs({api.swift: ('swift_delete_object',)})
     def test_delete(self):
         container = self.containers.first()

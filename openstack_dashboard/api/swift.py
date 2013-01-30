@@ -23,7 +23,6 @@ import logging
 import swiftclient
 
 from django.conf import settings
-from django.utils.translation import ugettext as _
 
 from horizon import exceptions
 
@@ -45,56 +44,47 @@ class StorageObject(APIDictWrapper):
         self.orig_name = orig_name
         self.data = data
 
+    @property
+    def id(self):
+        return self.name
+
 
 class PseudoFolder(APIDictWrapper):
-    """
-    Wrapper to smooth out discrepencies between swift "subdir" items
-    and swift pseudo-folder objects.
-    """
-
     def __init__(self, apidict, container_name):
         super(PseudoFolder, self).__init__(apidict)
         self.container_name = container_name
 
-    def _has_content_type(self):
-        content_type = self._apidict.get("content_type", None)
-        return content_type == "application/directory"
+    @property
+    def id(self):
+        return '%s/%s' % (self.container_name, self.name)
 
     @property
     def name(self):
-        if self._has_content_type():
-            return self._apidict['name']
         return self.subdir.rstrip(FOLDER_DELIMITER)
 
     @property
     def bytes(self):
-        if self._has_content_type():
-            return self._apidict['bytes']
         return None
 
     @property
     def content_type(self):
-        return "application/directory"
+        return "application/pseudo-folder"
 
 
 def _objectify(items, container_name):
     """ Splits a listing of objects into their appropriate wrapper classes. """
-    objects = {}
-    subdir_markers = []
+    objects = []
 
     # Deal with objects and object pseudo-folders first, save subdirs for later
     for item in items:
-        if item.get("content_type", None) == "application/directory":
-            objects[item['name']] = PseudoFolder(item, container_name)
-        elif item.get("subdir", None) is not None:
-            subdir_markers.append(PseudoFolder(item, container_name))
+        if item.get("subdir", None) is not None:
+            object_cls = PseudoFolder
         else:
-            objects[item['name']] = StorageObject(item, container_name)
-    # Revisit subdirs to see if we have any non-duplicates
-    for item in subdir_markers:
-        if item.name not in objects.keys():
-            objects[item.name] = item
-    return objects.values()
+            object_cls = StorageObject
+
+        objects.append(object_cls(item, container_name))
+
+    return objects
 
 
 def swift_api(request):
@@ -213,17 +203,6 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
                                          new_object_name,
                                          None,
                                          headers=headers)
-
-
-def swift_create_subfolder(request, container_name, folder_name):
-    headers = {'content-type': 'application/directory',
-               'content-length': 0}
-    etag = swift_api(request).put_object(container_name,
-                                         folder_name,
-                                         None,
-                                         headers=headers)
-    obj_info = {'subdir': folder_name, 'etag': etag}
-    return PseudoFolder(obj_info, container_name)
 
 
 def swift_upload_object(request, container_name, object_name, object_file):
