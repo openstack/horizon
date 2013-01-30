@@ -298,6 +298,8 @@ def handle(request, message=None, redirect=None, ignore=False,
     if issubclass(exc_type, RECOVERABLE):
         wrap = True
         if not force_silence and not handled and (not ignore or force_log):
+            # Default recoverable error to WARN log level
+            log_method = getattr(LOG, log_level or "warning")
             log_method(error_color("Recoverable error: %s" % exc_value))
         if not ignore and not handled:
             messages.error(request, message or exc_value)
