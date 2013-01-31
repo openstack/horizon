@@ -1,0 +1,35 @@
+{% load i18n %}
+
+<noscript><h3>{{ step }}</h3></noscript>
+<table class="table-fixed" id="networkListSortContainer">
+  <tbody>
+    <tr>
+      <td class="actions">
+        <h4 id="selected_network_h4">{% trans "Selected Networks" %}</h4>
+        <ul id="selected_network" class="networklist">
+        </ul>
+        <h4>{% trans "Available networks" %}</h4>
+        <ul id="available_network" class="networklist">
+        </ul>
+      </td>
+      <td class="help_text">
+          {% include "project/instances/_launch_network_help.html" %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table-fixed" id="networkListIdContainer">
+  <tbody>
+    <tr>
+      <td class="actions">
+          <div id="networkListId">
+            {% include "horizon/common/_form_fields.html" %}
+          </div>
+      </td>
+      <td class="help_text">
+          {{ step.get_help_text }}
+      </td>
+    </tr>
+  </tbody>
+</table>

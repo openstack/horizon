@@ -415,6 +415,10 @@ class SetNetworkAction(workflows.Action):
     network = forms.MultipleChoiceField(label=_("Networks"),
                                         required=True,
                                         widget=forms.CheckboxSelectMultiple(),
+                                        error_messages={
+                                            'required': _(
+                                                "At least one network must"
+                                                " be specified.")},
                                         help_text=_("Launch instance with"
                                                     "these networks"))
 
@@ -439,6 +443,7 @@ class SetNetworkAction(workflows.Action):
 
 class SetNetwork(workflows.Step):
     action_class = SetNetworkAction
+    template_name = "project/instances/_update_networks.html"
     contributes = ("network_id",)
 
     def contribute(self, data, context):
