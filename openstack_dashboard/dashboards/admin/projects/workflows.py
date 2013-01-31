@@ -181,9 +181,9 @@ class UpdateProjectMembers(workflows.Step):
 
 
 class CreateProject(workflows.Workflow):
-    slug = "add_project"
-    name = _("Add Project")
-    finalize_button_name = _("Finish")
+    slug = "create_project"
+    name = _("Create Project")
+    finalize_button_name = _("Create Project")
     success_message = _('Created new project "%s".')
     failure_message = _('Unable to create project "%s".')
     success_url = "horizon:admin:projects:index"
