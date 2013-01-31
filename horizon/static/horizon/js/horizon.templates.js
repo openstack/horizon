@@ -7,7 +7,7 @@ horizon.templates = {
 /* Pre-loads and compiles the client-side templates. */
 horizon.templates.compile_templates = function () {
   $.each(horizon.templates.template_ids, function (ind, template_id) {
-    horizon.templates.compiled_templates[template_id] = Hogan.compile($(template_id).text());
+    horizon.templates.compiled_templates[template_id] = Hogan.compile($(template_id).html());
   });
 };
 
