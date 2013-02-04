@@ -14,22 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-version_info = {'branch_nick': u'LOCALBRANCH',
-                'revision_id': 'LOCALREVISION',
-                'revno': 0}
+from openstack_dashboard.openstack.common import version as common_version
 
-
-HORIZON_VERSION = ['2013', '1', None]
-YEAR, COUNT, REVISION = HORIZON_VERSION
-FINAL = False   # This becomes true at Release Candidate time
-
-
-def canonical_version_string():
-    return '.'.join(filter(None, HORIZON_VERSION))
-
-
-def version_string():
-    if FINAL:
-        return canonical_version_string()
-    else:
-        return '%s-dev' % (canonical_version_string(),)
+version_info = common_version.VersionInfo('horizon')

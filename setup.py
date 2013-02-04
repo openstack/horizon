@@ -24,13 +24,13 @@ import os
 from distutils.core import setup
 from distutils.command.install import INSTALL_SCHEMES
 
-from horizon import version
 from openstack_dashboard.openstack.common import setup as os_common_setup
 
 
 requires = os_common_setup.parse_requirements()
 depend_links = os_common_setup.parse_dependency_links()
 tests_require = os_common_setup.parse_requirements(['tools/test-requires'])
+project = 'horizon'
 
 ROOT = os.path.dirname(__file__)
 target_dirs = ['horizon', 'openstack_dashboard', 'bin']
@@ -80,8 +80,8 @@ for target_dir in target_dirs:
                                for f in filenames]])
 
 
-setup(name="horizon",
-      version=version.canonical_version_string(),
+setup(name=project,
+      version=os_common_setup.get_version(project, '2013.1'),
       url='https://github.com/openstack/horizon/',
       license='Apache 2.0',
       description="The OpenStack Dashboard.",
