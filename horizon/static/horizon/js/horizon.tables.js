@@ -188,7 +188,7 @@ horizon.datatables.update_footer_count = function (el, modifier) {
     $footer = $browser.find('.tfoot span.content_table_count');
   }
   else {
-    $footer = $el.find('table.datatable tfoot span.table_count');
+    $footer = $el.find('tfoot span.table_count');
   }
   row_count = $el.find('tbody tr:visible').length + modifier - $el.find('.empty').length;
   footer_text_template = ngettext("Displaying %s item", "Displaying %s items", row_count);
