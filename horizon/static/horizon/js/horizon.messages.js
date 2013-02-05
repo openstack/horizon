@@ -1,9 +1,15 @@
-horizon.alert = function (type, message) {
+horizon.alert = function (type, message, extra_tags) {
+  safe = false
+  // Check if the message is tagged as safe.
+  if (typeof(extra_tags) !== "undefined" && _.contains(extra_tags.split(' '), 'safe')) {
+    safe = true
+  }
   var template = horizon.templates.compiled_templates["#alert_message_template"],
       params = {
         "type": type,
         "type_capitalized": horizon.utils.capitalize(type),
-        "message": message
+        "message": message,
+        "safe": safe
       };
   return $(template.render(params)).hide().prependTo("#main_content .messages").fadeIn(100);
 };
@@ -26,7 +32,7 @@ horizon.addInitFunction(function () {
   $("body").ajaxComplete(function(event, request, settings){
     var message_array = $.parseJSON(horizon.ajax.get_messages(request));
     $(message_array).each(function (index, item) {
-      horizon.alert(item[0], item[1]);
+      horizon.alert(item[0], item[1], item[2]);
     });
   });
 

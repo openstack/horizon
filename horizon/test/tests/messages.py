@@ -18,6 +18,7 @@ import json
 
 from django import http
 from django.utils.encoding import force_unicode
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import messages
@@ -29,7 +30,21 @@ class MessageTests(test.TestCase):
     def test_middleware_header(self):
         req = self.request
         string = _("Giant ants are attacking San Francisco!")
-        expected = ["error", force_unicode(string)]
+        expected = ["error", force_unicode(string), ""]
+        self.assertTrue("async_messages" in req.horizon)
+        self.assertItemsEqual(req.horizon['async_messages'], [])
+        req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
+        messages.error(req, string)
+        self.assertItemsEqual(req.horizon['async_messages'], [expected])
+        res = http.HttpResponse()
+        res = middleware.HorizonMiddleware().process_response(req, res)
+        self.assertEqual(res['X-Horizon-Messages'],
+                         json.dumps([expected]))
+
+    def test_safe_message(self):
+        req = self.request
+        string = mark_safe(_("We are now safe from ants! Go <a>here</a>!"))
+        expected = ["error", force_unicode(string), " safe"]
         self.assertTrue("async_messages" in req.horizon)
         self.assertItemsEqual(req.horizon['async_messages'], [])
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'

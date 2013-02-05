@@ -25,4 +25,14 @@ horizon.addInitFunction(function () {
         equal($('#main_content .messages .alert-success').length, 0, "Verify our success message was removed.");
         equal($('#main_content .messages .alert').length, 0, "Verify no messages remain.");
     });
+
+    test("Alert With HTML Tag", function () {
+        safe_string = "A safe message <a>here</a>!"
+        message = horizon.alert("success", safe_string, "safe");
+        ok(message, "Create a message with extra tag.");
+        ok((message.html().indexOf(safe_string ) != -1), 'Verify the message with HTML tag was not escaped.');
+        equal($('#main_content .messages .alert').length, 1, "Verify our message was added to the DOM.");
+        horizon.clearAllMessages();
+        equal($('#main_content .messages .alert').length, 0, "Verify our message was removed.");
+    });
 });

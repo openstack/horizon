@@ -98,8 +98,8 @@ class HorizonMiddleware(object):
                 # Drop our messages back into the session as per usual so they
                 # don't disappear during the redirect. Not that we explicitly
                 # use django's messages methods here.
-                for tag, message in queued_msgs:
-                    getattr(django_messages, tag)(request, message)
+                for tag, message, extra_tags in queued_msgs:
+                    getattr(django_messages, tag)(request, message, extra_tags)
                 redirect_response = http.HttpResponse()
                 redirect_response['X-Horizon-Location'] = response['location']
                 return redirect_response
