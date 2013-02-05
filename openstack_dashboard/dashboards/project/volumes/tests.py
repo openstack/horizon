@@ -57,6 +57,7 @@ class VolumeViewTests(test.TestCase):
                              formData['name'],
                              formData['description'],
                              formData['type'],
+                             metadata={},
                              snapshot_id=None).AndReturn(volume)
 
         self.mox.ReplayAll()
@@ -97,6 +98,7 @@ class VolumeViewTests(test.TestCase):
                              formData['name'],
                              formData['description'],
                              '',
+                             metadata={},
                              snapshot_id=snapshot.id).\
                              AndReturn(volume)
         # second call- with dropdown
@@ -112,6 +114,7 @@ class VolumeViewTests(test.TestCase):
                              formData['name'],
                              formData['description'],
                              '',
+                             metadata={},
                              snapshot_id=snapshot.id).\
                              AndReturn(volume)
 
@@ -215,6 +218,89 @@ class VolumeViewTests(test.TestCase):
         expected_error = [u'You are already using all of your available'
                           ' volumes.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
+
+    @test.create_stubs({cinder: ('volume_create',
+                                 'volume_snapshot_list',
+                                 'volume_type_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_volume_encrypted(self):
+        volume = self.volumes.first()
+        volume_type = self.volume_types.first()
+        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
+        formData = {'name': u'An Encrypted Volume',
+                    'description': u'This volume has metadata for encryption.',
+                    'method': u'CreateForm',
+                    'type': volume_type.name,
+                    'size': 50,
+                    'snapshot_source': '',
+                    'encryption': u'LUKS'}
+
+        # check normal operation with can_encrypt_volumes = true
+        PREV = settings.OPENSTACK_HYPERVISOR_FEATURES['can_encrypt_volumes']
+        settings.OPENSTACK_HYPERVISOR_FEATURES['can_encrypt_volumes'] = True
+
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+                                    AndReturn(self.volume_snapshots.list())
+        cinder.volume_create(IsA(http.HttpRequest),
+                             formData['size'],
+                             formData['name'],
+                             formData['description'],
+                             formData['type'],
+                             metadata={'encryption': formData['encryption']},
+                             snapshot_id=None).AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:create')
+        res = self.client.post(url, formData)
+
+        redirect_url = reverse('horizon:project:volumes:index')
+        self.assertRedirectsNoFollow(res, redirect_url)
+
+        settings.OPENSTACK_HYPERVISOR_FEATURES['can_encrypt_volumes'] = PREV
+
+    @test.create_stubs({cinder: ('volume_snapshot_list', 'volume_type_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_volume_cannot_encrypt(self):
+        volume = self.volumes.first()
+        volume_type = self.volume_types.first()
+        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
+        formData = {'name': u'An Encrypted Volume',
+                    'description': u'This volume has metadata for encryption.',
+                    'method': u'CreateForm',
+                    'type': volume_type.name,
+                    'size': 50,
+                    'snapshot_source': '',
+                    'encryption': u'LUKS'}
+
+        # check that widget is hidden if can_encrypt_volumes = false
+        PREV = settings.OPENSTACK_HYPERVISOR_FEATURES['can_encrypt_volumes']
+        settings.OPENSTACK_HYPERVISOR_FEATURES['can_encrypt_volumes'] = False
+
+        volume = self.volumes.first()
+        volume_type = self.volume_types.first()
+        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
+
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+                                    AndReturn(self.volume_snapshots.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:create')
+        res = self.client.get(url)
+
+        # Assert the encryption field is hidden.
+        form = res.context['form']
+        self.assertTrue(isinstance(form.fields['encryption'].widget,
+                                   widgets.HiddenInput))
+
+        settings.OPENSTACK_HYPERVISOR_FEATURES['can_encrypt_volumes'] = PREV
 
     @test.create_stubs({cinder: ('volume_list',
                                  'volume_delete',),
