@@ -28,6 +28,6 @@
 {% endblock %}
 
 {% block modal-footer %}
-  <input class="btn btn-primary pull-right {% ifequal usages.floating_ips.used usages.floating_ips.quota %}disabled" type="button"{% else %}" type="submit"{% endifequal %} value="{% trans "Allocate IP" %}" />
+  <input class="btn btn-primary pull-right {% if usages.floating_ips.used >= usages.floating_ips.quota %}disabled" type="button"{% else %}" type="submit"{% endif %} value="{% trans "Allocate IP" %}" />
   <a href="{% url horizon:project:access_and_security:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}
