@@ -167,10 +167,6 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'Member'
 
 DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
 
-if DEBUG:
-    logging.basicConfig(level=logging.DEBUG)
-
-
 try:
     from local.local_settings import *
 except ImportError:
@@ -181,6 +177,10 @@ COMPRESS_OFFLINE_CONTEXT = {
     'STATIC_URL': STATIC_URL,
     'HORIZON_CONFIG': HORIZON_CONFIG
 }
+
+if DEBUG:
+    logging.basicConfig(level=logging.DEBUG)
+
 
 # Deprecation for Essex/Folsom dashboard names; remove this code in H.
 _renames = (
