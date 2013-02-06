@@ -28,6 +28,8 @@ HORIZON_CONFIG = {
     'password_validator': {'regex': '.*',
                            'help_text': _("Password is not accepted")},
 
+    'password_autocomplete': 'on',
+
     # Enable or disable simplified floating IP address management.
     'simple_ip_management': True
 }
