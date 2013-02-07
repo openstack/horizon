@@ -26,10 +26,16 @@ import logging
 from quantumclient.v2_0 import client as quantum_client
 from django.utils.datastructures import SortedDict
 
+from horizon.conf import HORIZON_CONFIG
+
 from openstack_dashboard.api.base import APIDictWrapper, url_for
+from openstack_dashboard.api import network
+from openstack_dashboard.api import nova
 
 
 LOG = logging.getLogger(__name__)
+
+IP_VERSION_DICT = {4: 'IPv4', 6: 'IPv6'}
 
 
 class QuantumAPIDictWrapper(APIDictWrapper):
@@ -87,7 +93,116 @@ class Router(QuantumAPIDictWrapper):
         super(Router, self).__init__(apiresource)
 
 
-IP_VERSION_DICT = {4: 'IPv4', 6: 'IPv6'}
+class FloatingIp(APIDictWrapper):
+    _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id', 'pool']
+
+    def __init__(self, fip):
+        fip['ip'] = fip['floating_ip_address']
+        fip['fixed_ip'] = fip['fixed_ip_address']
+        fip['pool'] = fip['floating_network_id']
+        super(FloatingIp, self).__init__(fip)
+
+
+class FloatingIpPool(APIDictWrapper):
+    pass
+
+
+class FloatingIpTarget(APIDictWrapper):
+    pass
+
+
+class FloatingIpManager(network.FloatingIpManager):
+    def __init__(self, request):
+        self.request = request
+        self.client = quantumclient(request)
+
+    def list_pools(self):
+        search_opts = {'router:external': True}
+        return [FloatingIpPool(pool) for pool
+                in self.client.list_networks(**search_opts).get('networks')]
+
+    def list(self):
+        fips = self.client.list_floatingips().get('floatingips')
+        # Get port list to add instance_id to floating IP list
+        # instance_id is stored in device_id attribute
+        ports = port_list(self.request)
+        device_id_dict = SortedDict([(p['id'], p['device_id']) for p in ports])
+        for fip in fips:
+            if fip['port_id']:
+                fip['instance_id'] = device_id_dict[fip['port_id']]
+            else:
+                fip['instance_id'] = None
+        return [FloatingIp(fip) for fip in fips]
+
+    def get(self, floating_ip_id):
+        fip = self.client.show_floatingip(floating_ip_id).get('floatingip')
+        if fip['port_id']:
+            fip['instance_id'] = port_get(self.request,
+                                          fip['port_id']).device_id
+        else:
+            fip['instance_id'] = None
+        return FloatingIp(fip)
+
+    def allocate(self, pool):
+        body = {'floatingip': {'floating_network_id': pool}}
+        fip = self.client.create_floatingip(body).get('floatingip')
+        fip['instance_id'] = None
+        return FloatingIp(fip)
+
+    def release(self, floating_ip_id):
+        self.client.delete_floatingip(floating_ip_id)
+
+    def associate(self, floating_ip_id, port_id):
+        # NOTE: In Quantum Horizon floating IP support, port_id is
+        # "<port_id>_<ip_address>" format to identify multiple ports.
+        pid, ip_address = port_id.split('_', 1)
+        update_dict = {'port_id': pid,
+                       'fixed_ip_address': ip_address}
+        self.client.update_floatingip(floating_ip_id,
+                                      {'floatingip': update_dict})
+
+    def disassociate(self, floating_ip_id, port_id):
+        update_dict = {'port_id': None}
+        self.client.update_floatingip(floating_ip_id,
+                                      {'floatingip': update_dict})
+
+    def list_targets(self):
+        ports = port_list(self.request)
+        servers = nova.server_list(self.request)
+        server_dict = SortedDict([(s.id, s.name) for s in servers])
+        targets = []
+        for p in ports:
+            # Remove network ports from Floating IP targets
+            if p.device_owner.startswith('network:'):
+                continue
+            port_id = p.id
+            server_name = server_dict.get(p.device_id)
+            for ip in p.fixed_ips:
+                target = {'name': '%s: %s' % (server_name, ip['ip_address']),
+                          'id': '%s_%s' % (port_id, ip['ip_address'])}
+                targets.append(FloatingIpTarget(target))
+        return targets
+
+    def get_target_id_by_instance(self, instance_id):
+        # In Quantum one port can have multiple ip addresses, so this method
+        # picks up the first one and generate target id.
+        if not instance_id:
+            return None
+        search_opts = {'device_id': instance_id}
+        ports = port_list(self.request, **search_opts)
+        if not ports:
+            return None
+        return '%s_%s' % (ports[0].id, ports[0].fixed_ips[0]['ip_address'])
+
+    def is_simple_associate_supported(self):
+        # NOTE: There are two reason that simple association support
+        # needs more considerations. (1) Quantum does not support the
+        # default floating IP pool at the moment. It can be avoided
+        # in case where only one floating IP pool exists.
+        # (2) Quantum floating IP is associated with each VIF and
+        # we need to check whether such VIF is only one for an instance
+        # to enable simple association support.
+        return False
 
 
 def get_ipver_str(ip_version):

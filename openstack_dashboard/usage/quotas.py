@@ -4,7 +4,7 @@ import itertools
 from horizon import exceptions
 from horizon.utils.memoized import memoized
 
-from openstack_dashboard.api import nova, cinder
+from openstack_dashboard.api import nova, cinder, network
 from openstack_dashboard.api.base import is_service_enabled, QuotaSet
 
 
@@ -85,7 +85,7 @@ def tenant_quota_usages(request):
         usages.add_quota(quota)
 
     # Get our usages.
-    floating_ips = nova.tenant_floating_ip_list(request)
+    floating_ips = network.tenant_floating_ip_list(request)
     flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
     instances = nova.server_list(request)
     # Fetch deleted flavors if necessary.

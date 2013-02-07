@@ -30,11 +30,14 @@ from openstack_dashboard.test import helpers as test
 
 
 class AccessAndSecurityTests(test.TestCase):
+    def setUp(self):
+        super(AccessAndSecurityTests, self).setUp()
+
     def test_index(self):
         keypairs = self.keypairs.list()
         sec_groups = self.security_groups.list()
         floating_ips = self.floating_ips.list()
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.nova, 'security_group_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'server_list')
@@ -42,7 +45,7 @@ class AccessAndSecurityTests(test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(self.servers.list())
         api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(keypairs)
-        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(floating_ips)
         api.nova.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
@@ -60,21 +63,24 @@ class AccessAndSecurityTests(test.TestCase):
                               floating_ips)
 
     def test_association(self):
-        servers = self.servers.list()
-
-        # Add duplicate instance name to test instance name with [IP]
-        # change id and private IP
+        servers = [api.nova.Server(s, self.request)
+                   for s in self.servers.list()]
+        # Add duplicate instance name to test instance name with [ID]
+        # Change id and private IP
         server3 = api.nova.Server(self.servers.first(), self.request)
         server3.id = 101
         server3.addresses = deepcopy(server3.addresses)
         server3.addresses['private'][0]['addr'] = "10.0.0.5"
-        self.servers.add(server3)
+        servers.append(server3)
 
-        self.mox.StubOutWithMock(api.nova, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.nova, 'server_list')
-        api.nova.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        targets = [api.nova.FloatingIpTarget(s) for s in servers]
+
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
-        api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
+                .AndReturn(targets)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse("horizon:project:access_and_security:"
@@ -89,7 +95,7 @@ class AccessAndSecurityTests(test.TestCase):
         self.assertContains(res, '<option value="2">server_2 (2)</option>')
 
 
-class AccessAndSecurityQuantumTests(AccessAndSecurityTests):
+class AccessAndSecurityQuantumProxyTests(AccessAndSecurityTests):
     def setUp(self):
-        super(AccessAndSecurityTests, self).setUp()
+        super(AccessAndSecurityQuantumProxyTests, self).setUp()
         self.floating_ips = self.floating_ips_uuid
