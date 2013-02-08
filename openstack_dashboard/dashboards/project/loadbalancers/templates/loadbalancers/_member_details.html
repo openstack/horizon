@@ -1,0 +1,30 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="info row-fluid detail">
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "ID: " %}</dt>
+    <dd>{{ member.id }}</dd>
+
+    <dt>{% trans "Tenant ID: " %}</dt>
+    <dd>{{ member.tenant_id }}</dd>
+
+    <dt>{% trans "Pool ID: " %}</dt>
+    <dd>{{ member.pool_id }}</dd>
+
+    <dt>{% trans "Address: " %}</dt>
+    <dd>{{ member.address }}</dd>
+
+    <dt>{% trans "Protocol Port: " %}</dt>
+    <dd>{{ member.protocol_port }}</dd>
+
+    <dt>{% trans "Weight: " %}</dt>
+    <dd>{{ member.weight }}</dd>
+
+    <dt>{% trans "Admin State Up: " %}</dt>
+    <dd>{{ member.admin_state_up }}</dd>
+
+    <dt>{% trans "Status: " %}</dt>
+    <dd>{{ member.status }}</dd>
+  </dl>
+</div>
