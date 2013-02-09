@@ -20,6 +20,7 @@
 
 from django.conf.urls.defaults import url, patterns, include
 
+from .api_access import urls as api_access_urls
 from .floating_ips import urls as fip_urls
 from .keypairs import urls as keypair_urls
 from .security_groups import urls as sec_group_urls
@@ -28,6 +29,7 @@ from .views import IndexView
 
 urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),
+    url(r'api_access/', include(api_access_urls, namespace='api_access')),
     url(r'keypairs/', include(keypair_urls, namespace='keypairs')),
     url(r'floating_ips/', include(fip_urls, namespace='floating_ips')),
     url(r'security_groups/',

@@ -1,5 +1,9 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+# Copyright 2012 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -14,20 +18,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext as _
+from django.conf.urls.defaults import patterns, url
 
-from horizon import tables
-
-
-def get_endpoint(service):
-    return service.endpoints[0]['publicURL']
+from .views import download_ec2_bundle, download_rc_file
 
 
-class EndpointsTable(tables.DataTable):
-    api_name = tables.Column('name', verbose_name=_("Service Name"))
-    api_endpoint = tables.Column(get_endpoint,
-                                 verbose_name=_("Service Endpoint"))
-
-    class Meta:
-        name = "endpoints"
-        verbose_name = _("API Endpoints")
+urlpatterns = patterns('',
+    url(r'^ec2/$', download_ec2_bundle, name='ec2'),
+    url(r'^openrc/$', download_rc_file, name='openrc'),
+)

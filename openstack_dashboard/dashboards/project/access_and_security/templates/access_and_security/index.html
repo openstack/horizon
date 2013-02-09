@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}Access &amp; Security{% endblock %}
+{% block title %}{% trans "Access &amp; Security" %}{% endblock %}
 
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Access &amp; Security") %}
 {% endblock page_header %}
 
 {% block main %}
-  <div id="security_groups">
-      {{ security_groups_table.render }}
+<div class="row-fluid">
+  <div class="span12">
+  {{ tab_group.render }}
   </div>
-
-  <div id="keypairs">
-      {{ keypairs_table.render }}
-  </div>
-
-  <div id="floating_ips">
-      {{ floating_ips_table.render }}
-  </div>
+</div>
 {% endblock %}
