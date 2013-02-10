@@ -1,16 +1,5 @@
 /* Namespace for core functionality related to Forms. */
 horizon.forms = {
-  handle_source_group: function() {
-    $("div.table_wrapper, #modal_wrapper").on("change", "#id_source_group", function (evt) {
-      var $sourceGroup = $('#id_source_group'),
-          $cidrContainer = $('#id_cidr').closest(".control-group");
-      if($sourceGroup.val() === "") {
-        $cidrContainer.removeClass("hide");
-      } else {
-        $cidrContainer.addClass("hide");
-      }
-    });
-  },
   handle_snapshot_source: function() {
     $("div.table_wrapper, #modal_wrapper").on("change", "select#id_snapshot_source", function(evt) {
       var $option = $(this).find("option:selected");
@@ -77,7 +66,6 @@ horizon.addInitFunction(function () {
   horizon.forms.init_examples($("body"));
   horizon.modals.addModalInitFunction(horizon.forms.init_examples);
 
-  horizon.forms.handle_source_group();
   horizon.forms.handle_snapshot_source();
 
   // Bind event handlers to confirm dangerous actions.
@@ -86,25 +74,36 @@ horizon.addInitFunction(function () {
     evt.preventDefault();
   });
 
-  /* Switchable fields */
+  /* Switchable Fields (See Horizon's Forms docs for more information) */
 
   // Bind handler for swapping labels on "switchable" fields.
   $(document).on("change", 'select.switchable', function (evt) {
-    var type = $(this).val();
-    $(this).closest('fieldset').find('input[type=text]').each(function(index, obj){
-      var label_val = "";
-      if ($(obj).data(type)){
-        label_val = $(obj).data(type);
-      } else if ($(obj).attr("data")){
-        label_val = $(obj).attr("data");
-      } else
-         return true;
-      $('label[for=' + $(obj).attr('id') + ']').html(label_val);
+    var $fieldset = $(evt.target).closest('fieldset'),
+        $switchables = $fieldset.find('.switchable');
+
+    $switchables.each(function (index, switchable) {
+      var $switchable = $(switchable),
+          slug = $switchable.data('slug'),
+          visible = $switchable.is(':visible'),
+          val = $switchable.val();
+
+      $fieldset.find('.switched[data-switch-on*="' + slug + '"]').each(function(index, input){
+        var $input = $(input),
+            data = $input.data(slug + "-" + val);
+
+        if (typeof data === "undefined" || !visible) {
+          $input.closest('.form-field').hide();
+        } else {
+          $('label[for=' + $input.attr('id') + ']').html(data);
+          $input.closest('.form-field').show();
+        }
+      });
     });
   });
+
   // Fire off the change event to trigger the proper initial values.
   $('select.switchable').trigger('change');
-  // Queue up the even for use in new modals, too.
+  // Queue up the for new modals, too.
   horizon.modals.addModalInitFunction(function (modal) {
     $(modal).find('select.switchable').trigger('change');
   });

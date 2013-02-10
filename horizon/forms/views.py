@@ -49,10 +49,35 @@ class ModalFormMixin(object):
 
 
 class ModalFormView(ModalFormMixin, generic.FormView):
+    """
+    The main view class from which all views which handle forms in Horizon
+    should inherit. It takes care of all details with processing
+    :class:`~horizon.forms.base.SelfHandlingForm` classes, and modal concerns
+    when the associated template inherits from
+    `horizon/common/_modal_form.html`.
+
+    Subclasses must define a ``form_class`` and ``template_name`` attribute
+    at minimum.
+
+    See Django's documentation on the `FormView <https://docs.djangoproject.com
+    /en/dev/ref/class-based-views/generic-editing/#formview>`_ class for
+    more details.
+    """
+
     def get_object_id(self, obj):
+        """
+        For dynamic insertion of resources created in modals, this method
+        returns the id of the created object. Defaults to returning the ``id``
+        attribute.
+        """
         return obj.id
 
     def get_object_display(self, obj):
+        """
+        For dynamic insertion of resources created in modals, this method
+        returns the display name of the created object. Defaults to returning
+        the ``name`` attribute.
+        """
         return obj.name
 
     def get_form(self, form_class):

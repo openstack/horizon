@@ -58,104 +58,173 @@ class CreateGroup(forms.SelfHandlingForm):
 
 
 class AddRule(forms.SelfHandlingForm):
+    id = forms.IntegerField(widget=forms.HiddenInput())
     ip_protocol = forms.ChoiceField(label=_('IP Protocol'),
-                                    choices=[('tcp', 'TCP'),
-                                             ('udp', 'UDP'),
-                                             ('icmp', 'ICMP')],
+                                    choices=[('tcp', _('TCP')),
+                                             ('udp', _('UDP')),
+                                             ('icmp', _('ICMP'))],
                                     help_text=_("The protocol which this "
                                                 "rule should be applied to."),
-                                    widget=forms.Select(attrs={'class':
-                                                               'switchable'}))
+                                    widget=forms.Select(attrs={
+                                            'class': 'switchable',
+                                            'data-slug': 'protocol'}))
+
+    port_or_range = forms.ChoiceField(label=_('Open'),
+                                      choices=[('port', _('Port')),
+                                               ('range', _('Port Range'))],
+                                      widget=forms.Select(attrs={
+                                            'class': 'switchable switched',
+                                            'data-slug': 'range',
+                                            'data-switch-on': 'protocol',
+                                            'data-protocol-tcp': _('Open'),
+                                            'data-protocol-udp': _('Open')}))
+
+    port = forms.IntegerField(label=_("Port"),
+                              required=False,
+                              help_text=_("Enter an integer value "
+                                          "between 1 and 65535."),
+                              widget=forms.TextInput(attrs={
+                                   'class': 'switched',
+                                   'data-switch-on': 'range',
+                                   'data-range-port': _('Port')}),
+                              validators=[validate_port_range])
+
     from_port = forms.IntegerField(label=_("From Port"),
-                                   help_text=_("TCP/UDP: Enter integer value "
-                                               "between 1 and 65535. ICMP: "
-                                               "enter a value for ICMP type "
-                                               "in the range (-1: 255)"),
-                                   widget=forms.TextInput(
-                                          attrs={'data': _('From Port'),
-                                                 'data-icmp': _('Type')}),
+                                   required=False,
+                                   help_text=_("Enter an integer value "
+                                               "between 1 and 65535."),
+                                   widget=forms.TextInput(attrs={
+                                        'class': 'switched',
+                                        'data-switch-on': 'range',
+                                        'data-range-range': _('From Port')}),
                                    validators=[validate_port_range])
+
     to_port = forms.IntegerField(label=_("To Port"),
-                                 help_text=_("TCP/UDP: Enter integer value "
-                                             "between 1 and 65535. ICMP: "
-                                             "enter a value for ICMP code "
-                                             "in the range (-1: 255)"),
-                                 widget=forms.TextInput(
-                                        attrs={'data': _('To Port'),
-                                               'data-icmp': _('Code')}),
+                                 required=False,
+                                 help_text=_("Enter an integer value "
+                                             "between 1 and 65535."),
+                                 widget=forms.TextInput(attrs={
+                                        'class': 'switched',
+                                        'data-switch-on': 'range',
+                                        'data-range-range': _('To Port')}),
                                  validators=[validate_port_range])
 
-    source_group = forms.ChoiceField(label=_('Source Group'),
-                                     required=False,
-                                     help_text=_("To specify an allowed IP "
-                                                 "range, select CIDR. To "
-                                                 "allow access from all "
-                                                 "members of another security "
-                                                 "group select Source Group."))
-    cidr = fields.IPField(label=_("CIDR"),
-                           required=False,
-                           initial="0.0.0.0/0",
-                           help_text=_("Classless Inter-Domain Routing "
-                                       "(e.g. 192.168.0.0/24)"),
-                           version=fields.IPv4 | fields.IPv6,
-                           mask=True)
+    icmp_type = forms.IntegerField(label=_("Type"),
+                                   required=False,
+                                   help_text=_("Enter a value for ICMP type "
+                                               "in the range (-1: 255)"),
+                                   widget=forms.TextInput(attrs={
+                                        'class': 'switched',
+                                        'data-switch-on': 'protocol',
+                                        'data-protocol-icmp': _('Type')}),
+                                   validators=[validate_port_range])
 
-    security_group_id = forms.IntegerField(widget=forms.HiddenInput())
+    icmp_code = forms.IntegerField(label=_("Code"),
+                                   required=False,
+                                   help_text=_("Enter a value for ICMP code "
+                                               "in the range (-1: 255)"),
+                                   widget=forms.TextInput(attrs={
+                                          'class': 'switched',
+                                          'data-switch-on': 'protocol',
+                                          'data-protocol-icmp': _('Code')}),
+                                   validators=[validate_port_range])
+
+    source = forms.ChoiceField(label=_('Source'),
+                               choices=[('cidr', _('CIDR')),
+                                        ('sg', _('Security Group'))],
+                               help_text=_('To specify an allowed IP '
+                                           'range, select "CIDR". To '
+                                           'allow access from all '
+                                           'members of another security '
+                                           'group select "Security '
+                                           'Group".'),
+                               widget=forms.Select(attrs={
+                                      'class': 'switchable',
+                                      'data-slug': 'source'}))
+
+    cidr = fields.IPField(label=_("CIDR"),
+                          required=False,
+                          initial="0.0.0.0/0",
+                          help_text=_("Classless Inter-Domain Routing "
+                                      "(e.g. 192.168.0.0/24)"),
+                          version=fields.IPv4 | fields.IPv6,
+                          mask=True,
+                          widget=forms.TextInput(
+                                attrs={'class': 'switched',
+                                       'data-switch-on': 'source',
+                                       'data-source-cidr': _('CIDR')}))
+
+    security_group = forms.ChoiceField(label=_('Security Group'),
+                                       required=False,
+                                       widget=forms.Select(attrs={
+                                          'class': 'switched',
+                                          'data-switch-on': 'source',
+                                          'data-source-sg': _('Security '
+                                                              'Group')}))
 
     def __init__(self, *args, **kwargs):
         sg_list = kwargs.pop('sg_list', [])
         super(AddRule, self).__init__(*args, **kwargs)
         # Determine if there are security groups available for the
         # source group option; add the choices and enable the option if so.
-        security_groups_choices = [("", "CIDR")]
         if sg_list:
-            security_groups_choices.append(('Security Group', sg_list))
-        self.fields['source_group'].choices = security_groups_choices
+            security_groups_choices = sg_list
+        else:
+            security_groups_choices = [("", _("No security groups available"))]
+        self.fields['security_group'].choices = security_groups_choices
 
     def clean(self):
         cleaned_data = super(AddRule, self).clean()
+
+        ip_proto = cleaned_data.get('ip_protocol')
+        port_or_range = cleaned_data.get("port_or_range")
+        source = cleaned_data.get("source")
+
+        icmp_type = cleaned_data.get("icmp_type", None)
+        icmp_code = cleaned_data.get("icmp_code", None)
+
         from_port = cleaned_data.get("from_port", None)
         to_port = cleaned_data.get("to_port", None)
-        cidr = cleaned_data.get("cidr", None)
-        ip_proto = cleaned_data.get('ip_protocol', None)
-        source_group = cleaned_data.get("source_group", None)
+        port = cleaned_data.get("port", None)
 
         if ip_proto == 'icmp':
-            if from_port is None:
+            if icmp_type is None:
                 msg = _('The ICMP type is invalid.')
                 raise ValidationError(msg)
-            if to_port is None:
+            if icmp_code is None:
                 msg = _('The ICMP code is invalid.')
                 raise ValidationError(msg)
-            if from_port not in xrange(-1, 256):
+            if icmp_type not in xrange(-1, 256):
                 msg = _('The ICMP type not in range (-1, 255)')
                 raise ValidationError(msg)
-            if to_port not in xrange(-1, 256):
+            if icmp_code not in xrange(-1, 256):
                 msg = _('The ICMP code not in range (-1, 255)')
                 raise ValidationError(msg)
+            cleaned_data['from_port'] = icmp_type
+            cleaned_data['to_port'] = icmp_code
         else:
-            if from_port is None:
-                msg = _('The "from" port number is invalid.')
-                raise ValidationError(msg)
-            if to_port is None:
-                msg = _('The "to" port number is invalid.')
-                raise ValidationError(msg)
-            if to_port < from_port:
-                msg = _('The "to" port number must be greater than '
-                        'or equal to the "from" port number.')
-                raise ValidationError(msg)
+            if port_or_range == "port":
+                cleaned_data["from_port"] = port
+                cleaned_data["to_port"] = port
+                if port is None:
+                    msg = _('The specified port is invalid.')
+                    raise ValidationError(msg)
+            else:
+                if from_port is None:
+                    msg = _('The "from" port number is invalid.')
+                    raise ValidationError(msg)
+                if to_port is None:
+                    msg = _('The "to" port number is invalid.')
+                    raise ValidationError(msg)
+                if to_port < from_port:
+                    msg = _('The "to" port number must be greater than '
+                            'or equal to the "from" port number.')
+                    raise ValidationError(msg)
 
-        if source_group and cidr != self.fields['cidr'].initial:
-            # Specifying a source group *and* a custom CIDR is invalid.
-            msg = _('Either CIDR or Source Group may be specified, '
-                    'but not both.')
-            raise ValidationError(msg)
-        elif source_group:
-            # If a source group is specified, clear the CIDR from its default
-            cleaned_data['cidr'] = None
+        if source == "cidr":
+            cleaned_data['security_group'] = None
         else:
-            # If only cidr is specified, clear the source_group entirely
-            cleaned_data['source_group'] = None
+            cleaned_data['cidr'] = None
 
         return cleaned_data
 
@@ -163,17 +232,18 @@ class AddRule(forms.SelfHandlingForm):
         try:
             rule = api.nova.security_group_rule_create(
                         request,
-                        data['security_group_id'],
+                        data['id'],
                         data['ip_protocol'],
                         data['from_port'],
                         data['to_port'],
                         data['cidr'],
-                        data['source_group'])
+                        data['security_group'])
             messages.success(request,
                              _('Successfully added rule: %s') % unicode(rule))
             return rule
         except:
-            redirect = reverse("horizon:project:access_and_security:index")
+            redirect = reverse("horizon:project:access_and_security:"
+                               "security_groups:detail", args=[data['id']])
             exceptions.handle(request,
                               _('Unable to add rule to security group.'),
                               redirect=redirect)

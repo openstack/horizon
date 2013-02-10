@@ -14,11 +14,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-"""Abstraction layer of networking functionalities.
+"""Abstraction layer for networking functionalities.
 
-Now Nova and Quantum have duplicated features.
-Thie API layer is introduced to hide the differences between them
-from dashboard implementations.
+Currently Nova and Quantum have duplicated features. This API layer is
+introduced to astract the differences between them for seamless consumption by
+different dashboard implementations.
 """
 
 import abc
@@ -36,16 +36,17 @@ class NetworkClient(object):
 class FloatingIpManager(object):
     """Abstract class to implement Floating IP methods
 
-    FloatingIP object returned from methods in this class
+    The FloatingIP object returned from methods in this class
     must contains the following attributes:
-    - id : ID of Floating IP
-    - ip : Floating IP address
-    - pool : ID of Floating IP pool from which the address is allocated
-    - fixed_ip : Fixed IP address of a VIF associated with the address
-    - port_id : ID of a VIF associated with the address
+
+    * id: ID of Floating IP
+    * ip: Floating IP address
+    * pool: ID of Floating IP pool from which the address is allocated
+    * fixed_ip: Fixed IP address of a VIF associated with the address
+    * port_id: ID of a VIF associated with the address
                 (instance_id when Nova floating IP is used)
-    - instance_id : Instance ID of an associated with the Floating IP
-"""
+    * instance_id: Instance ID of an associated with the Floating IP
+    """
 
     __metaclass__ = abc.ABCMeta
 
@@ -53,7 +54,7 @@ class FloatingIpManager(object):
     def list_pools(self):
         """Fetches a list of all floating IP pools.
 
-        A list of FloatingIpPool object is returned.
+        A list of FloatingIpPool objects is returned.
         FloatingIpPool object is an APIResourceWrapper/APIDictWrapper
         where 'id' and 'name' attributes are defined.
         """

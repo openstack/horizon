@@ -20,11 +20,15 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import CreateView, EditRulesView
+from .views import CreateView, DetailView, AddRuleView
 
 
 urlpatterns = patterns('',
     url(r'^create/$', CreateView.as_view(), name='create'),
-    url(r'^(?P<security_group_id>[^/]+)/edit_rules/$',
-        EditRulesView.as_view(),
-        name='edit_rules'))
+    url(r'^(?P<security_group_id>[^/]+)/$',
+        DetailView.as_view(),
+        name='detail'),
+    url(r'^(?P<security_group_id>[^/]+)/add_rule/$',
+        AddRuleView.as_view(),
+        name='add_rule')
+)

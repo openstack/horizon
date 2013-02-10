@@ -50,8 +50,8 @@ class CreateGroup(tables.LinkAction):
 class EditRules(tables.LinkAction):
     name = "edit_rules"
     verbose_name = _("Edit Rules")
-    url = "horizon:project:access_and_security:security_groups:edit_rules"
-    classes = ("ajax-modal", "btn-edit")
+    url = "horizon:project:access_and_security:security_groups:detail"
+    classes = ("btn-edit")
 
 
 class SecurityGroupsTable(tables.DataTable):
@@ -68,6 +68,16 @@ class SecurityGroupsTable(tables.DataTable):
         row_actions = (EditRules, DeleteGroup)
 
 
+class CreateRule(tables.LinkAction):
+    name = "add_rule"
+    verbose_name = _("Add Rule")
+    url = "horizon:project:access_and_security:security_groups:add_rule"
+    classes = ("ajax-modal", "btn-create")
+
+    def get_link_url(self):
+        return reverse(self.url, args=[self.table.kwargs['security_group_id']])
+
+
 class DeleteRule(tables.DeleteAction):
     data_type_singular = _("Rule")
     data_type_plural = _("Rules")
@@ -76,7 +86,9 @@ class DeleteRule(tables.DeleteAction):
         api.nova.security_group_rule_delete(request, obj_id)
 
     def get_success_url(self, request):
-        return reverse("horizon:project:access_and_security:index")
+        sg_id = self.table.kwargs['security_group_id']
+        return reverse("horizon:project:access_and_security:"
+                       "security_groups:detail", args=[sg_id])
 
 
 def get_source(rule):
@@ -105,5 +117,5 @@ class RulesTable(tables.DataTable):
     class Meta:
         name = "rules"
         verbose_name = _("Security Group Rules")
-        table_actions = (DeleteRule,)
+        table_actions = (CreateRule, DeleteRule)
         row_actions = (DeleteRule,)
