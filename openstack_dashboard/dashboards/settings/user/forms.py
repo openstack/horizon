@@ -39,7 +39,7 @@ class UserSettingsForm(forms.SelfHandlingForm):
         self.fields['language'].choices = languages
 
         # Timezones
-        d = datetime(2011, 1, 1)
+        d = datetime(datetime.today().year, 1, 1)
         timezones = []
         for tz in pytz.common_timezones:
             try:

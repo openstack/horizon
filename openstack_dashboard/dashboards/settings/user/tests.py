@@ -29,3 +29,4 @@ class UserSettingsTest(test.TestCase):
 
         self.assertContains(res, "Australia/Melbourne (UTC +11:00)")
         self.assertContains(res, "Canada/Newfoundland (UTC -03:30)")
+        self.assertContains(res, "Europe/Moscow (UTC +04:00)")
