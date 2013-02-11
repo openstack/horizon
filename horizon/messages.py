@@ -22,6 +22,7 @@ messaging needs (e.g. AJAX communication, etc.).
 from django.contrib import messages as _messages
 from django.contrib.messages import constants
 from django.utils.encoding import force_unicode
+from django.utils.safestring import SafeData
 
 
 def add_message(request, level, message, extra_tags='', fail_silently=False):
@@ -30,8 +31,13 @@ def add_message(request, level, message, extra_tags='', fail_silently=False):
     """
     if request.is_ajax():
         tag = constants.DEFAULT_TAGS[level]
+        # if message is marked as safe, pass "safe" tag as extra_tags so that
+        # client can skip HTML escape for the message when rendering
+        if isinstance(message, SafeData):
+            extra_tags = extra_tags + ' safe'
         request.horizon['async_messages'].append([tag,
-                                                  force_unicode(message)])
+                                                  force_unicode(message),
+                                                  extra_tags])
     else:
         return _messages.add_message(request, level, message,
                                      extra_tags, fail_silently)

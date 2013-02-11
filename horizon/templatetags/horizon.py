@@ -120,6 +120,7 @@ class JSTemplateNode(template.Node):
 
     def render(self, context, ):
         output = self.nodelist.render(context)
+        output = output.replace('[[[', '{{{').replace(']]]', '}}}')
         output = output.replace('[[', '{{').replace(']]', '}}')
         output = output.replace('[%', '{%').replace('%]', '%}')
         return output
@@ -128,7 +129,8 @@ class JSTemplateNode(template.Node):
 @register.tag
 def jstemplate(parser, token):
     """
-    Replaces ``[[`` and ``]]`` with ``{{`` and ``}}`` and
+    Replaces ``[[[`` and ``]]]`` with ``{{{`` and ``}}}``,
+    ``[[`` and ``]]`` with ``{{`` and ``}}``  and
     ``[%`` and ``%]`` with ``{%`` and ``%}`` to avoid conflicts
     with Django's template engine when using any of the Mustache-based
     templating libraries.

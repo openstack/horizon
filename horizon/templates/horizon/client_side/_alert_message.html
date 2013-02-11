@@ -7,7 +7,15 @@
 {% jstemplate %}
 <div class="alert alert-block fade in alert-[[type]]">
   <a class="close" data-dismiss="alert" href="#">&times;</a>
-  <p><strong>[[type_capitalized]]: </strong>[[message]]</p>
+  <p>
+    <strong>[[type_capitalized]]: </strong>
+    [[#safe]]
+      [[[message]]]
+    [[/safe]]
+    [[^safe]]
+      [[message]]
+    [[/safe]]
+  </p>
 </div>
 {% endjstemplate %}
 {% endblock %}
