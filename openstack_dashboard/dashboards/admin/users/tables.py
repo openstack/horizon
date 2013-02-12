@@ -90,8 +90,8 @@ class UserFilterAction(tables.FilterAction):
         """ Naive case-insensitive search """
         q = filter_string.lower()
         return [user for user in users
-                if q in user.get('name', '').lower()
-                or q in user.get('email', '').lower()]
+                if q in user.name.lower()
+                or q in user.email.lower()]
 
 
 class UsersTable(tables.DataTable):
