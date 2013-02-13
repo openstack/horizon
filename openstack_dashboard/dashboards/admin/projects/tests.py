@@ -14,10 +14,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django import http
 from django.core.urlresolvers import reverse
 
 from mox import IsA
+
+from horizon import exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -844,3 +848,29 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=1, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.keystone: ('get_default_role', 'tenant_get'),
+                        quotas: ('get_tenant_quota_data',)})
+    def test_update_project_when_default_role_does_not_exist(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        api.keystone.get_default_role(IsA(http.HttpRequest)) \
+            .AndReturn(None)  # Default role doesn't exist
+        api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
+                                admin=True) \
+            .AndReturn(project)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:projects:update',
+                      args=[self.tenant.id])
+
+        try:
+            # Avoid the log message in the test output when the workflow's
+            # step action cannot be instantiated
+            logging.disable(logging.ERROR)
+            with self.assertRaises(exceptions.NotFound):
+                res = self.client.get(url)
+        finally:
+            logging.disable(logging.NOTSET)
