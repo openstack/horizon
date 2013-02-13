@@ -22,7 +22,7 @@ import json
 import logging
 
 from django.utils.text import normalize_newlines
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
