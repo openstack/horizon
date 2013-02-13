@@ -277,10 +277,13 @@ def get_user_ec2_credentials(request, user_id, access_token):
 
 
 def keystone_can_edit_user():
-    if hasattr(settings, "OPENSTACK_KEYSTONE_BACKEND"):
-        return settings.OPENSTACK_KEYSTONE_BACKEND['can_edit_user']
-    else:
-        return False
+    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
+    return backend_settings.get('can_edit_user', True)
+
+
+def keystone_can_edit_project():
+    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
+    return backend_settings.get('can_edit_project', True)
 
 
 def keystone_backend_name():

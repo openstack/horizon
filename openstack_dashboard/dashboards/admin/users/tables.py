@@ -22,9 +22,7 @@ class CreateUserLink(tables.LinkAction):
     classes = ("ajax-modal", "btn-create")
 
     def allowed(self, request, user):
-        if api.keystone.keystone_can_edit_user():
-            return True
-        return False
+        return api.keystone.keystone_can_edit_user()
 
 
 class EditUserLink(tables.LinkAction):
@@ -32,6 +30,9 @@ class EditUserLink(tables.LinkAction):
     verbose_name = _("Edit")
     url = "horizon:admin:users:update"
     classes = ("ajax-modal", "btn-edit")
+
+    def allowed(self, request, user):
+        return api.keystone.keystone_can_edit_user()
 
 
 class ToggleEnabled(tables.BatchAction):
@@ -43,6 +44,9 @@ class ToggleEnabled(tables.BatchAction):
     classes = ("btn-enable",)
 
     def allowed(self, request, user=None):
+        if not api.keystone.keystone_can_edit_user():
+            return False
+
         self.enabled = True
         if not user:
             return self.enabled

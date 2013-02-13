@@ -87,7 +87,8 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 # TODO(tres): Remove these once Keystone has an API to identify auth backend.
 OPENSTACK_KEYSTONE_BACKEND = {
     'name': 'native',
-    'can_edit_user': True
+    'can_edit_user': True,
+    'can_edit_project': True
 }
 
 OPENSTACK_HYPERVISOR_FEATURES = {

@@ -40,12 +40,18 @@ class CreateProject(tables.LinkAction):
     url = "horizon:admin:projects:create"
     classes = ("btn-launch", "ajax-modal",)
 
+    def allowed(self, request, project):
+        return api.keystone.keystone_can_edit_project()
+
 
 class UpdateProject(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Project")
     url = "horizon:admin:projects:update"
     classes = ("ajax-modal", "btn-edit")
+
+    def allowed(self, request, project):
+        return api.keystone.keystone_can_edit_project()
 
 
 class ModifyQuotas(tables.LinkAction):
@@ -64,6 +70,9 @@ class ModifyQuotas(tables.LinkAction):
 class DeleteTenantsAction(tables.DeleteAction):
     data_type_singular = _("Project")
     data_type_plural = _("Projects")
+
+    def allowed(self, request, project):
+        return api.keystone.keystone_can_edit_project()
 
     def delete(self, request, obj_id):
         api.keystone.tenant_delete(request, obj_id)
