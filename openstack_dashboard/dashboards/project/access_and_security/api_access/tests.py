@@ -21,35 +21,21 @@ from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
-from .forms import DownloadX509Credentials
 
 
-INDEX_URL = reverse("horizon:settings:ec2:index")
+EC2_URL = reverse("horizon:project:access_and_security:api_access:ec2")
 
 
-class EC2SettingsTest(test.TestCase):
+class APIAccessTests(test.TestCase):
     def test_ec2_download_view(self):
         creds = self.ec2.first()
         cert = self.certs.first()
 
-        self.mox.StubOutWithMock(api.keystone, "tenant_list")
-        self.mox.StubOutWithMock(api.keystone, "token_create_scoped")
         self.mox.StubOutWithMock(api.keystone, "list_ec2_credentials")
         self.mox.StubOutWithMock(api.nova, "get_x509_credentials")
         self.mox.StubOutWithMock(api.nova, "get_x509_root_certificate")
         self.mox.StubOutWithMock(api.keystone, "create_ec2_credentials")
 
-        # GET request
-        api.keystone.tenant_list(IsA(HttpRequest)) \
-                    .AndReturn(self.tenants.list())
-
-        # POST request
-        api.keystone.token_create_scoped(IsA(HttpRequest),
-                                         self.tenant.id,
-                                         IsA(str)) \
-                                         .AndReturn(self.tokens.scoped_token)
-        api.keystone.tenant_list(IsA(HttpRequest)) \
-                    .AndReturn(self.tenants.list())
         api.keystone.list_ec2_credentials(IsA(HttpRequest), self.user.id) \
                     .AndReturn([])
         api.nova.get_x509_credentials(IsA(HttpRequest)).AndReturn(cert)
@@ -60,11 +46,6 @@ class EC2SettingsTest(test.TestCase):
                                             self.tenant.id).AndReturn(creds)
         self.mox.ReplayAll()
 
-        res = self.client.get(INDEX_URL)
-        self.assertNoMessages()
+        res = self.client.get(EC2_URL)
         self.assertEqual(res.status_code, 200)
-
-        data = {'method': DownloadX509Credentials.__name__,
-                'tenant': self.tenant.id}
-        res = self.client.post(INDEX_URL, data)
         self.assertEqual(res['content-type'], 'application/zip')

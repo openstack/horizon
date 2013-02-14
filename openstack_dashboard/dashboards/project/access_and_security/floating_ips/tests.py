@@ -126,8 +126,6 @@ class FloatingIpViewTests(test.TestCase):
     def test_disassociate_post(self):
         floating_ip = self.floating_ips.first()
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.nova, 'keypair_list')
-        self.mox.StubOutWithMock(api.nova, 'security_group_list')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_get')
         self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
@@ -135,10 +133,6 @@ class FloatingIpViewTests(test.TestCase):
 
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(self.servers.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-                              .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
-                                .AndReturn(self.security_groups.list())
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                                     .AndReturn(self.floating_ips.list())
         api.network.floating_ip_disassociate(IsA(http.HttpRequest),
@@ -154,8 +148,6 @@ class FloatingIpViewTests(test.TestCase):
     def test_disassociate_post_with_exception(self):
         floating_ip = self.floating_ips.first()
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.nova, 'keypair_list')
-        self.mox.StubOutWithMock(api.nova, 'security_group_list')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_get')
         self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
@@ -163,10 +155,6 @@ class FloatingIpViewTests(test.TestCase):
 
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True).AndReturn(self.servers.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
 
