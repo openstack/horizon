@@ -15,13 +15,16 @@
 #    under the License.
 
 import logging
+from collections import defaultdict
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
+from horizon.utils.memoized import memoized
 
 from openstack_dashboard import api
 
@@ -78,6 +81,52 @@ class EditImage(tables.LinkAction):
         return False
 
 
+def filter_tenants():
+    return getattr(settings, 'IMAGES_LIST_FILTER_TENANTS', [])
+
+
+@memoized
+def filter_tenant_ids():
+    return map(lambda ft: ft['tenant'], filter_tenants())
+
+
+class OwnerFilter(tables.FixedFilterAction):
+    def get_fixed_buttons(self):
+        def make_dict(text, tenant, icon):
+            return dict(text=text, value=tenant, icon=icon)
+
+        buttons = [make_dict('Project', 'project', 'icon-home')]
+        for button_dict in filter_tenants():
+            new_dict = button_dict.copy()
+            new_dict['value'] = new_dict['tenant']
+            buttons.append(new_dict)
+        buttons.append(make_dict('Shared with Me', 'shared', 'icon-share'))
+        buttons.append(make_dict('Public', 'public', 'icon-fire'))
+        return buttons
+
+    def categorize(self, table, images):
+        user_tenant_id = table.request.user.tenant_id
+        tenants = defaultdict(list)
+        for im in images:
+            categories = get_image_categories(im, user_tenant_id)
+            for category in categories:
+                tenants[category].append(im)
+        return tenants
+
+
+def get_image_categories(im, user_tenant_id):
+    categories = []
+    if im.is_public:
+        categories.append('public')
+    if im.owner == user_tenant_id:
+        categories.append('project')
+    elif im.owner in filter_tenant_ids():
+        categories.append(im.owner)
+    elif not im.is_public:
+        categories.append('shared')
+    return categories
+
+
 def get_image_type(image):
     return getattr(image, "properties", {}).get("image_type", _("Image"))
 
@@ -96,6 +145,15 @@ class UpdateRow(tables.Row):
     def get_data(self, request, image_id):
         image = api.glance.image_get(request, image_id)
         return image
+
+    def load_cells(self, image=None):
+        super(UpdateRow, self).load_cells(image)
+        # Tag the row with the image category for client-side filtering.
+        image = self.datum
+        my_tenant_id = self.table.request.user.tenant_id
+        image_categories = get_image_categories(image, my_tenant_id)
+        for category in image_categories:
+            self.classes.append('category-' + category)
 
 
 class ImagesTable(tables.DataTable):
@@ -133,6 +191,6 @@ class ImagesTable(tables.DataTable):
         # Hide the image_type column. Done this way so subclasses still get
         # all the columns by default.
         columns = ["name", "status", "public", "disk_format"]
-        table_actions = (CreateImage, DeleteImage,)
+        table_actions = (OwnerFilter, CreateImage, DeleteImage,)
         row_actions = (LaunchImage, EditImage, DeleteImage,)
         pagination_param = "image_marker"

@@ -545,7 +545,7 @@ table form {
     min-width: 400px;
 }
 
-.table_actions .table_search {
+.table_actions .table_search, .table_actions .table_filter {
     display: inline-block;
 }
 
@@ -568,9 +568,18 @@ table form {
   min-width: 0;
 }
 
-.table_header .table_actions a, .table_header .table_actions button {
+.table_header .table_actions a, .table_header .table_actions > button {
   display: inline-block;
   float: none;
+}
+
+.table_header .table_filter {
+  vertical-align: bottom;
+  margin-right: 20px;
+}
+
+.table_header .table_filter i {
+  vertical-align: middle;
 }
 
 .table_actions form {

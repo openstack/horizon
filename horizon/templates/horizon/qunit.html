@@ -33,10 +33,10 @@
 
       <table id="table1" class="datatable">
         <tbody>
-          <tr id="cat1"><td>cat1</td></tr>
-          <tr id="dog1"><td>dog1</td></tr>
-          <tr id="cat2"><td>cat2</td></tr>
-          <tr id="dog2"><td>dog2</td></tr>
+          <tr><td>cat1</td></tr>
+          <tr><td>dog1</td></tr>
+          <tr><td>cat2</td></tr>
+          <tr><td>dog2</td></tr>
         </tbody>
         <tfoot>
           <tr>
@@ -46,6 +46,28 @@
           </tr>
         </tfoot>
       </table>
+
+      <table id="table2" class="datatable">
+        <thead><tr><th><div class="table_filter" data-toggle="buttons-radio">
+          <button name="cats" type="submit" value="cats" id="button_cats">Cats</button>
+          <button name="dogs" type="submit" value="dogs" id="button_dogs">Dogs</button>
+          <button name="big" type="submit" value="big" id="button_big">Big Animals</button>
+        </div></th></tr></thead>
+        <tbody>
+          <tr class="category-cat"><td>cat1</td></tr>
+          <tr class="category-big category-dog"><td>dog1</td></tr>
+          <tr class="category-big category-cat"><td>cat2</td></tr>
+          <tr class="category-dog"><td>dog2</td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="1">
+              <span class="table_count">Displaying 4 items</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
     </div>
   </body>
 </html>
