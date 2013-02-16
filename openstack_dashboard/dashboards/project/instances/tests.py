@@ -1086,12 +1086,12 @@ class InstanceTests(test.TestCase):
         classes = list(launch.get_default_classes()) + list(launch.classes)
         link_name = "%s (%s)" % (unicode(launch.verbose_name),
                                  "Quota exceeded")
+        expected_string = "<a href='%s' id='instances__action_launch' " \
+            "title='%s' class='%s disabled'>%s</a>" \
+            % (url, link_name, " ".join(classes), link_name)
 
         res = self.client.get(INDEX_URL)
-        self.assertContains(res, "<a href='%s' id='instances__action_launch'"
-                                 " class='%s disabled'>%s</a>"
-                                 % (url, " ".join(classes), link_name),
-                            html=True,
+        self.assertContains(res, expected_string, html=True,
                             msg_prefix="The launch button is not disabled")
 
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
