@@ -14,6 +14,11 @@ TEMPLATE_DEBUG = DEBUG
 # https://docs.djangoproject.com/en/1.4/ref/settings/#secure-proxy-ssl-header
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
 
+# If Horizon is being served through SSL, then uncomment the following two
+# settings to better secure the cookies from security exploits
+#CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
+
 # Default OpenStack Dashboard configuration.
 HORIZON_CONFIG = {
     'dashboards': ('project', 'admin', 'settings',),

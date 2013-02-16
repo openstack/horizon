@@ -145,3 +145,25 @@ For a thorough discussion of the security implications of this session backend,
 please read the `Django documentation on cookie-based sessions`_.
 
 .. _Django documentation on cookie-based sessions: https://docs.djangoproject.com/en/dev/topics/http/sessions/#using-cookie-based-sessions
+
+Secure Site Recommendations
+---------------------------
+
+When implementing Horizon for public usage, with the website served through
+HTTPS, it is recommended that the following settings are applied.
+
+To help protect the session cookies from `cross-site scripting`_, add the
+following to ``local_settings.py`` :
+
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_HTTPONLY = True
+
+Note that the CSRF_COOKIE_SECURE option is only available from Django 1.4. It
+does no harm to have the setting in earlier versions, but it does not take effect.
+
+You can also disable `browser autocompletion`_ for the authentication form by
+changing the ``password_autocomplete`` attribute to ``off`` in ``horizon/conf/default.py``
+
+.. _cross-site scripting: https://www.owasp.org/index.php/HttpOnly
+.. _browser autocompletion: https://wiki.mozilla.org/The_autocomplete_attribute_and_web_documents_using_XHTML
