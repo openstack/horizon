@@ -14,6 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from datetime import datetime
 import pytz
 
 from django import shortcuts
@@ -38,7 +39,21 @@ class UserSettingsForm(forms.SelfHandlingForm):
         self.fields['language'].choices = languages
 
         # Timezones
-        timezones = [(tz, tz) for tz in pytz.common_timezones]
+        d = datetime(datetime.today().year, 1, 1)
+        timezones = []
+        for tz in pytz.common_timezones:
+            try:
+                utc_offset = pytz.timezone(tz).localize(d).strftime('%z')
+                utc_offset = " (UTC %s:%s)" % (utc_offset[:3], utc_offset[3:])
+            except:
+                utc_offset = ""
+
+            if tz != "UTC":
+                tz_name = "%s%s" % (tz, utc_offset)
+            else:
+                tz_name = tz
+            timezones.append((tz, tz_name))
+
         self.fields['timezone'].choices = timezones
 
     def handle(self, request, data):
