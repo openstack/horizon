@@ -270,7 +270,7 @@ horizon.datatables.set_table_query_filter = function (parent) {
   $(parent).find('table').each(function (index, elm) {
     var input = $($(elm).find('div.table_search input')),
         table_selector;
-    if (input) {
+    if (input.length > 0) {
       // Disable server-side searcing if we have client-side searching since
       // (for now) the client-side is actually superior. Server-side filtering
       // remains as a noscript fallback.
