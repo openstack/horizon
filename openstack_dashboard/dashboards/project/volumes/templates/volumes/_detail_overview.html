@@ -47,3 +47,14 @@
   {% endfor %}
   </dl>
 </div>
+
+<div class="status row-fluid detail">
+  <h4>{% trans "Metadata" %}</h4>
+  <hr class="header_rule">
+  <dl>
+  {% for key, value in volume.metadata.items %}
+    <dt>{{ key }}</dt>
+    <dd>{{ value }}</dd>
+  {% endfor %}
+  </dl>
+</div>
