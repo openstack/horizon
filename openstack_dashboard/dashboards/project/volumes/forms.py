@@ -10,17 +10,21 @@ Views for managing volumes.
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import ValidationError
+from django.template.defaultfilters import filesizeformat
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import forms
 from horizon import exceptions
 from horizon import messages
 from horizon.utils.fields import SelectWidget
+from horizon.utils.functions import bytes_to_gigabytes
 from horizon.utils.memoized import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+from openstack_dashboard.api import glance
 from openstack_dashboard.usage import quotas
+from ..images_and_snapshots.utils import get_available_images
 from ..instances.tables import ACTIVE_STATES
 
 
@@ -32,6 +36,8 @@ class CreateForm(forms.SelfHandlingForm):
                              required=False)
     size = forms.IntegerField(min_value=1, label=_("Size (GB)"))
     encryption = forms.ChoiceField(label=_("Encryption"), required=False)
+    volume_source_type = forms.ChoiceField(label=_("Volume Source"),
+                                           required=False)
     snapshot_source = forms.ChoiceField(label=_("Use snapshot as a source"),
                                         widget=SelectWidget(
                                           attrs={'class': 'snapshot-selector'},
@@ -40,6 +46,15 @@ class CreateForm(forms.SelfHandlingForm):
                                                 ("%s (%sGB)" % (x.display_name,
                                                                 x.size))),
                                         required=False)
+    image_source = forms.ChoiceField(label=_("Use image as a source"),
+                                     widget=SelectWidget(
+                                         attrs={'class': 'image-selector'},
+                                         data_attrs=('size', 'name'),
+                                         transform=lambda x:
+                                             ("%s (%s)" %
+                                                 (x.name,
+                                                  filesizeformat(x.bytes)))),
+                                     required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
@@ -84,13 +99,35 @@ class CreateForm(forms.SelfHandlingForm):
                 self.fields['size'].help_text = _('Volume size must be equal '
                                 'to or greater than the snapshot size (%sGB)'
                                 % snapshot.size)
+                del self.fields['image_source']
+                del self.fields['volume_source_type']
             except:
                 exceptions.handle(request,
                                   _('Unable to load the specified snapshot.'))
+        elif ('image_id' in request.GET):
+            try:
+                image = self.get_image(request,
+                                       request.GET["image_id"])
+                image.bytes = image.size
+                self.fields['name'].initial = image.name
+                self.fields['size'].initial = bytes_to_gigabytes(image.size)
+                self.fields['image_source'].choices = ((image.id, image),)
+                self.fields['size'].help_text = _('Volume size must be equal '
+                                'to or greater than the image size (%s)'
+                                % filesizeformat(image.size))
+                del self.fields['snapshot_source']
+                del self.fields['volume_source_type']
+            except:
+                msg = _('Unable to load the specified image. %s')
+                exceptions.handle(request, msg % request.GET['image_id'])
         else:
+            source_type_choices = []
+
             try:
                 snapshots = cinder.volume_snapshot_list(request)
                 if snapshots:
+                    source_type_choices.append(("snapshot_source",
+                                                _("Snapshot")))
                     choices = [('', _("Choose a snapshot"))] + \
                               [(s.id, s) for s in snapshots]
                     self.fields['snapshot_source'].choices = choices
@@ -99,6 +136,27 @@ class CreateForm(forms.SelfHandlingForm):
             except:
                 exceptions.handle(request, _("Unable to retrieve "
                         "volume snapshots."))
+
+            images = get_available_images(request,
+                                          request.user.tenant_id)
+            if images:
+                source_type_choices.append(("image_source", _("Image")))
+                choices = [('', _("Choose an image"))]
+                for image in images:
+                    image.bytes = image.size
+                    image.size = bytes_to_gigabytes(image.bytes)
+                    choices.append((image.id, image))
+                self.fields['image_source'].choices = choices
+            else:
+                del self.fields['image_source']
+
+            if source_type_choices:
+                choices = ([('no_source_type',
+                             _("No source, empty volume."))] +
+                            source_type_choices)
+                self.fields['volume_source_type'].choices = choices
+            else:
+                del self.fields['volume_source_type']
 
     def handle(self, request, data):
         try:
@@ -109,7 +167,10 @@ class CreateForm(forms.SelfHandlingForm):
             usages = quotas.tenant_quota_usages(request)
 
             snapshot_id = None
-            if (data.get("snapshot_source", None)):
+            image_id = None
+            source_type = data.get('volume_source_type', None)
+            if (data.get("snapshot_source", None) and
+                  source_type in [None, 'snapshot_source']):
                 # Create from Snapshot
                 snapshot = self.get_snapshot(request,
                                              data["snapshot_source"])
@@ -118,6 +179,18 @@ class CreateForm(forms.SelfHandlingForm):
                     error_message = _('The volume size cannot be less than '
                                       'the snapshot size (%sGB)' %
                                       snapshot.size)
+                    raise ValidationError(error_message)
+            elif (data.get("image_source", None) and
+                  source_type in [None, 'image_source']):
+                # Create from Snapshot
+                image = self.get_image(request,
+                                       data["image_source"])
+                image_id = image.id
+                image_size = bytes_to_gigabytes(image.size)
+                if (data['size'] < image_size):
+                    error_message = _('The volume size cannot be less than '
+                                      'the image size (%s)' %
+                                      filesizeformat(image.size))
                     raise ValidationError(error_message)
             else:
                 if type(data['size']) is str:
@@ -146,6 +219,7 @@ class CreateForm(forms.SelfHandlingForm):
                                           data['description'],
                                           data['type'],
                                           snapshot_id=snapshot_id,
+                                          image_id=image_id,
                                           metadata=metadata)
             message = 'Creating volume "%s"' % data['name']
             messages.info(request, message)
@@ -161,6 +235,10 @@ class CreateForm(forms.SelfHandlingForm):
     @memoized
     def get_snapshot(self, request, id):
         return cinder.volume_snapshot_get(request, id)
+
+    @memoized
+    def get_image(self, request, id):
+        return glance.image_get(request, id)
 
 
 class AttachForm(forms.SelfHandlingForm):

@@ -84,6 +84,23 @@ class EditImage(tables.LinkAction):
         return False
 
 
+class CreateVolumeFromImage(tables.LinkAction):
+    name = "create_volume_from_image"
+    verbose_name = _("Create Volume")
+    url = "horizon:project:volumes:create"
+    classes = ("ajax-modal", "btn-camera")
+
+    def get_link_url(self, datum):
+        base_url = reverse(self.url)
+        params = urlencode({"image_id": self.table.get_object_id(datum)})
+        return "?".join([base_url, params])
+
+    def allowed(self, request, image=None):
+        if image:
+            return image.status == "active"
+        return False
+
+
 def filter_tenants():
     return getattr(settings, 'IMAGES_LIST_FILTER_TENANTS', [])
 
@@ -199,5 +216,6 @@ class ImagesTable(tables.DataTable):
         # all the columns by default.
         columns = ["name", "status", "public", "protected", "disk_format"]
         table_actions = (OwnerFilter, CreateImage, DeleteImage,)
-        row_actions = (LaunchImage, EditImage, DeleteImage,)
+        row_actions = (LaunchImage, CreateVolumeFromImage,
+                       EditImage, DeleteImage,)
         pagination_param = "image_marker"

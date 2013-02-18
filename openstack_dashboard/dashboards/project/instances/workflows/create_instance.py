@@ -30,8 +30,8 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
-from openstack_dashboard.api import glance
 from openstack_dashboard.usage import quotas
+from ...images_and_snapshots.utils import get_available_images
 
 
 LOG = logging.getLogger(__name__)
@@ -219,52 +219,14 @@ class SetInstanceDetailsAction(workflows.Action):
 
         return cleaned_data
 
-    def _get_available_images(self, request, context):
-        project_id = context.get('project_id', None)
-        if not hasattr(self, "_public_images"):
-            public = {"is_public": True,
-                      "status": "active"}
-            try:
-                public_images, _more = glance.image_list_detailed(
-                    request, filters=public)
-            except:
-                public_images = []
-                exceptions.handle(request,
-                                  _("Unable to retrieve public images."))
-            self._public_images = public_images
-
-        # Preempt if we don't have a project_id yet.
-        if project_id is None:
-            setattr(self, "_images_for_%s" % project_id, [])
-
-        if not hasattr(self, "_images_for_%s" % project_id):
-            owner = {"property-owner_id": project_id,
-                     "status": "active"}
-            try:
-                owned_images, _more = glance.image_list_detailed(
-                    request, filters=owner)
-            except:
-                owned_images = []
-                exceptions.handle(request,
-                                  _("Unable to retrieve images for "
-                                    "the current project."))
-            setattr(self, "_images_for_%s" % project_id, owned_images)
-
-        owned_images = getattr(self, "_images_for_%s" % project_id)
-        images = owned_images + self._public_images
-
-        # Remove duplicate images
-        image_ids = []
-        final_images = []
-        for image in images:
-            if image.id not in image_ids:
-                image_ids.append(image.id)
-                final_images.append(image)
-        return [image for image in final_images
-                if image.container_format not in ('aki', 'ari')]
+    def _init_images_cache(self):
+        if not hasattr(self, '_images_cache'):
+            self._images_cache = {}
 
     def populate_image_id_choices(self, request, context):
-        images = self._get_available_images(request, context)
+        self._init_images_cache()
+        images = get_available_images(request, context.get('project_id'),
+                                      self._images_cache)
         choices = [(image.id, image.name)
                    for image in images
                    if image.properties.get("image_type", '') != "snapshot"]
@@ -275,7 +237,9 @@ class SetInstanceDetailsAction(workflows.Action):
         return choices
 
     def populate_instance_snapshot_id_choices(self, request, context):
-        images = self._get_available_images(request, context)
+        self._init_images_cache()
+        images = get_available_images(request, context.get('project_id'),
+                                      self._images_cache)
         choices = [(image.id, image.name)
                    for image in images
                    if image.properties.get("image_type", '') == "snapshot"]
