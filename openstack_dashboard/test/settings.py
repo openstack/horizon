@@ -55,6 +55,11 @@ HORIZON_CONFIG = {
                    'unauthorized': UNAUTHORIZED},
 }
 
+# Set to True to allow users to upload images to glance via Horizon server.
+# When enabled, a file form field will appear on the create image form.
+# See documentation for deployment considerations.
+HORIZON_IMAGES_ALLOW_UPLOAD = True
+
 AVAILABLE_REGIONS = [
     ('http://localhost:5000/v2.0', 'local'),
     ('http://remote:5000/v2.0', 'remote'),

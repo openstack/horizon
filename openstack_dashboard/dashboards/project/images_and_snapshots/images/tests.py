@@ -18,9 +18,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import tempfile
+
 from django import http
 from django.conf import settings
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.urlresolvers import reverse
+from django.forms.widgets import HiddenInput
 from django.test.utils import override_settings
 
 from mox import IsA
@@ -30,9 +34,37 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 from . import tables
+from .forms import CreateImageForm
 
 
 IMAGES_INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
+
+
+class CreateImageFormTests(test.TestCase):
+    def test_no_location_or_file(self):
+        """
+        The form will not be valid if both copy_from and image_file are not
+        provided.
+        """
+        post = {
+            'name': u'Ubuntu 11.10',
+            'disk_format': u'qcow2',
+            'minimum_disk': 15,
+            'minimum_ram': 512,
+            'is_public': 1}
+        files = {}
+        form = CreateImageForm(post, files)
+        self.assertEqual(form.is_valid(), False)
+
+    @override_settings(HORIZON_IMAGES_ALLOW_UPLOAD=False)
+    def test_image_upload_disabled(self):
+        """
+        If HORIZON_IMAGES_ALLOW_UPLOAD is false, the image_file field widget
+        will be a HiddenInput widget instead of a FileInput widget.
+        """
+        form = CreateImageForm({})
+        self.assertEqual(
+            isinstance(form.fields['image_file'].widget, HiddenInput), True)
 
 
 class ImageViewTests(test.TestCase):
@@ -43,7 +75,7 @@ class ImageViewTests(test.TestCase):
                             'project/images_and_snapshots/images/create.html')
 
     @test.create_stubs({api.glance: ('image_create',)})
-    def test_image_create_post(self):
+    def test_image_create_post_copy_from(self):
         data = {
             'name': u'Ubuntu 11.10',
             'copy_from': u'http://cloud-images.ubuntu.com/releases/'
@@ -63,6 +95,38 @@ class ImageViewTests(test.TestCase):
                                 min_disk=data['minimum_disk'],
                                 min_ram=data['minimum_ram'],
                                 name=data['name']). \
+                        AndReturn(self.images.first())
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:images_and_snapshots:images:create')
+        res = self.client.post(url, data)
+
+        self.assertNoFormErrors(res)
+        self.assertEqual(res.status_code, 302)
+
+    @test.create_stubs({api.glance: ('image_create',)})
+    def test_image_create_post_upload(self):
+        temp_file = tempfile.TemporaryFile()
+        temp_file.write('123')
+        temp_file.flush()
+        temp_file.seek(0)
+        data = {
+            'name': u'Test Image',
+            'image_file': temp_file,
+            'disk_format': u'qcow2',
+            'minimum_disk': 15,
+            'minimum_ram': 512,
+            'is_public': 1,
+            'method': 'CreateImageForm'}
+
+        api.glance.image_create(IsA(http.HttpRequest),
+                                container_format="bare",
+                                disk_format=data['disk_format'],
+                                is_public=True,
+                                min_disk=data['minimum_disk'],
+                                min_ram=data['minimum_ram'],
+                                name=data['name'],
+                                data=IsA(InMemoryUploadedFile)). \
                         AndReturn(self.images.first())
         self.mox.ReplayAll()
 
