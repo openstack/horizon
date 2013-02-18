@@ -77,7 +77,9 @@ class UploadObject(forms.SelfHandlingForm):
                            widget=forms.HiddenInput)
     name = forms.CharField(max_length=255,
                            label=_("Object Name"),
-                           validators=[no_slash_validator])
+                           help_text=_("Slashes are allowed, and are treated "
+                                       "as pseudo-folders by the Object "
+                                       "Store."))
     object_file = forms.FileField(label=_("File"), allow_empty_file=True)
     container_name = forms.CharField(widget=forms.HiddenInput())
 
@@ -123,23 +125,6 @@ class CopyObject(forms.SelfHandlingForm):
         if path and not path.endswith("/"):
             path = path + "/"
         new_path = "%s%s" % (path, new_object)
-
-        # Iteratively make sure all the directory markers exist.
-        if path:
-            path_component = ""
-            for bit in [i for i in path.split("/") if i]:
-                path_component += bit
-                try:
-                    api.swift.swift_create_subfolder(request,
-                                                     new_container,
-                                                     path_component)
-                except:
-                    redirect = reverse(index,
-                                       args=(wrap_delimiter(orig_container),))
-                    exceptions.handle(request,
-                                      _("Unable to copy object."),
-                                      redirect=redirect)
-                path_component += "/"
 
         # Now copy the object itself.
         try:
