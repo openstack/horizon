@@ -60,6 +60,8 @@ class ServicessViewTests(test.BaseAdminViewTests):
                                  '<Quota: (instances, 10)>',
                                  '<Quota: (volumes, 1)>',
                                  '<Quota: (cores, 10)>',
+                                 '<Quota: (security_groups, 10)>',
+                                 '<Quota: (security_group_rules, 20)>',
                                  '<Quota: (injected_file_content_bytes, 1)>',
                                  '<Quota: (metadata_items, 1)>',
                                  '<Quota: (injected_files, 1)>',
@@ -68,4 +70,7 @@ class ServicessViewTests(test.BaseAdminViewTests):
                                  '<Quota: (floating_ips, 1)>',
                                  '<Quota: (instances, 10)>',
                                  '<Quota: (volumes, 1)>',
-                                 '<Quota: (cores, 10)>'])
+                                 '<Quota: (cores, 10)>',
+                                 '<Quota: (security_groups, 10)>',
+                                 '<Quota: (security_group_rules, 20)>'],
+                                 ordered=False)

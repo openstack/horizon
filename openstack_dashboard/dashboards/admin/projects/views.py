@@ -46,7 +46,9 @@ QUOTA_FIELDS = ("metadata_items",
                 "volumes",
                 "gigabytes",
                 "ram",
-                "floating_ips")
+                "floating_ips",
+                "security_groups",
+                "security_group_rules")
 
 PROJECT_INFO_FIELDS = ("name",
                        "description",

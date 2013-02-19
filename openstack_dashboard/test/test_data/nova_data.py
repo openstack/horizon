@@ -297,7 +297,9 @@ def data(TEST):
                       floating_ips='1',
                       instances='10',
                       injected_files='1',
-                      cores='10')
+                      cores='10',
+                      security_groups='10',
+                      security_group_rules='20')
     quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
     TEST.quotas.nova = QuotaSetWrapper(quota)
     TEST.quotas.add(QuotaSetWrapper(quota))
