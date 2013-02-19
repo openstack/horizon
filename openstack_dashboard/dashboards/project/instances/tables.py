@@ -88,8 +88,8 @@ class TerminateInstance(tables.BatchAction):
 
 class RebootInstance(tables.BatchAction):
     name = "reboot"
-    action_present = _("Reboot")
-    action_past = _("Rebooted")
+    action_present = _("Hard Reboot")
+    action_past = _("Hard Rebooted")
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
     classes = ('btn-danger', 'btn-reboot')
@@ -100,7 +100,16 @@ class RebootInstance(tables.BatchAction):
                 and not is_deleting(instance))
 
     def action(self, request, obj_id):
-        api.nova.server_reboot(request, obj_id)
+        api.nova.server_reboot(request, obj_id, api.nova.REBOOT_HARD)
+
+
+class SoftRebootInstance(RebootInstance):
+    name = "soft_reboot"
+    action_present = _("Soft Reboot")
+    action_past = _("Soft Rebooted")
+
+    def action(self, request, obj_id):
+        api.nova.server_reboot(request, obj_id, api.nova.REBOOT_SOFT)
 
 
 class TogglePause(tables.BatchAction):
@@ -471,5 +480,5 @@ class InstancesTable(tables.DataTable):
                        SimpleAssociateIP, AssociateIP,
                        SimpleDisassociateIP, EditInstance,
                        EditInstanceSecurityGroups, ConsoleLink, LogLink,
-                       TogglePause, ToggleSuspend, RebootInstance,
-                       TerminateInstance)
+                       TogglePause, ToggleSuspend, SoftRebootInstance,
+                       RebootInstance, TerminateInstance)
