@@ -19,6 +19,7 @@
 #    under the License.
 
 
+from django.conf import settings
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 
@@ -105,12 +106,19 @@ class UpdateProjectMembersAction(workflows.Action):
 
         # Get the default role
         try:
-            default_role = api.get_default_role(self.request).id
+            default_role = api.get_default_role(self.request)
+            # Default role is necessary to add members to a project
+            if default_role is None:
+                default = getattr(settings,
+                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                msg = _('Could not find default role "%s" in Keystone'
+                        % default)
+                raise exceptions.NotFound(msg)
         except:
             exceptions.handle(self.request,
                               err_msg,
                               redirect=reverse(INDEX_URL))
-        self.fields['default_role'].initial = default_role
+        self.fields['default_role'].initial = default_role.id
 
         # Get list of available users
         all_users = []
