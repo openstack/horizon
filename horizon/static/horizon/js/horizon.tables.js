@@ -339,7 +339,9 @@ horizon.datatables.set_table_fixed_filter = function (parent) {
 
 horizon.addInitFunction(function() {
   horizon.datatables.validate_button();
-  horizon.datatables.update_footer_count($.find('table.datatable'),0);
+  $('table.datatable').each(function (idx, el) {
+    horizon.datatables.update_footer_count($(el), 0);
+  });
   // Bind the "select all" checkbox action.
   $('div.table_wrapper, #modal_wrapper').on('click', 'table thead .multi_select_column :checkbox', function(evt) {
     var $this = $(this),
