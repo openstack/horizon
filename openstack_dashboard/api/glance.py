@@ -20,6 +20,7 @@
 
 from __future__ import absolute_import
 
+import itertools
 import logging
 import thread
 import urlparse
@@ -56,20 +57,31 @@ def image_get(request, image_id):
     return glanceclient(request).images.get(image_id)
 
 
-def image_list_detailed(request, marker=None, filters=None):
+def image_list_detailed(request, marker=None, filters=None, paginate=False):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+
+    if paginate:
+        request_size = page_size + 1
+    else:
+        request_size = limit
+
     kwargs = {'filters': filters or {}}
     if marker:
         kwargs['marker'] = marker
-    images = list(glanceclient(request).images.list(page_size=page_size,
+
+    images_iter = glanceclient(request).images.list(page_size=request_size,
                                                     limit=limit,
-                                                    **kwargs))
-    # Glance returns (page_size + 1) items if more items are available
-    if(len(images) > page_size):
-        return (images[0:-1], True)
+                                                    **kwargs)
+    has_more_data = False
+    if paginate:
+        images = list(itertools.islice(images_iter, request_size))
+        if len(images) > page_size:
+            images.pop(-1)
+            has_more_data = True
     else:
-        return (images, False)
+        images = list(images_iter)
+    return (images, has_more_data)
 
 
 def image_update(request, image_id, **kwargs):
@@ -95,4 +107,4 @@ def image_create(request, **kwargs):
 def snapshot_list_detailed(request, marker=None, extra_filters=None):
     filters = {'property-image_type': 'snapshot'}
     filters.update(extra_filters or {})
-    return image_list_detailed(request, marker, filters)
+    return image_list_detailed(request, marker, filters, paginate=True)
