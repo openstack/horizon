@@ -59,6 +59,19 @@ class ComputeApiTests(test.APITestCase):
         ret_val = api.nova.server_reboot(self.request, server.id)
         self.assertIsNone(ret_val)
 
+    def test_server_soft_reboot(self):
+        server = self.servers.first()
+        HARDNESS = servers.REBOOT_SOFT
+
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.get(server.id).AndReturn(server)
+        novaclient.servers.reboot(server.id, HARDNESS)
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.server_reboot(self.request, server.id, HARDNESS)
+        self.assertIsNone(ret_val)
+
     def test_server_vnc_console(self):
         server = self.servers.first()
         console = self.servers.vnc_console_data

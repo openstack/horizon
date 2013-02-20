@@ -262,7 +262,8 @@ class InstanceTests(test.TestCase):
             .AndReturn(self.flavors.list())
         api.nova.server_list(IsA(http.HttpRequest)) \
             .AndReturn(self.servers.list())
-        api.nova.server_reboot(IsA(http.HttpRequest), server.id)
+        api.nova.server_reboot(IsA(http.HttpRequest), server.id,
+                               api.nova.REBOOT_HARD)
 
         self.mox.ReplayAll()
 
@@ -281,12 +282,33 @@ class InstanceTests(test.TestCase):
             .AndReturn(self.flavors.list())
         api.nova.server_list(IsA(http.HttpRequest)) \
             .AndReturn(self.servers.list())
-        api.nova.server_reboot(IsA(http.HttpRequest), server.id) \
+        api.nova.server_reboot(IsA(http.HttpRequest), server.id,
+                               api.nova.REBOOT_HARD) \
             .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
         formData = {'action': 'instances__reboot__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.nova: ('server_reboot',
+                                   'server_list',
+                                   'flavor_list',)})
+    def test_soft_reboot_instance(self):
+        server = self.servers.first()
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.nova.server_reboot(IsA(http.HttpRequest), server.id,
+                               api.nova.REBOOT_SOFT)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__soft_reboot__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
