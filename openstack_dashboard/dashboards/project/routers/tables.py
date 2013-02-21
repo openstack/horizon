@@ -61,12 +61,61 @@ class CreateRouter(tables.LinkAction):
     classes = ("ajax-modal", "btn-create")
 
 
+class SetGateway(tables.LinkAction):
+    name = "setgateway"
+    verbose_name = _("Set Gateway")
+    url = "horizon:project:routers:setgateway"
+    classes = ("ajax-modal", "btn-camera")
+
+    def allowed(self, request, datum=None):
+        if datum.external_gateway_info:
+            return False
+        return True
+
+
+class ClearGateway(tables.BatchAction):
+    name = "cleargateway"
+    action_present = _("Clear")
+    action_past = _("Cleared")
+    data_type_singular = _("Gateway")
+    data_type_plural = _("Gateways")
+    classes = ('btn-danger', 'btn-cleargateway')
+    redirect_url = "horizon:project:routers:index"
+
+    def action(self, request, obj_id):
+        obj = self.table.get_object_by_id(obj_id)
+        name = self.table.get_object_display(obj)
+        try:
+            api.quantum.router_remove_gateway(request, obj_id)
+        except Exception as e:
+            msg = (_('Unable to clear gateway for router "%s": "%s"') %
+                   (name, e.message))
+            LOG.info(msg)
+            redirect = reverse(self.redirect_url)
+            exceptions.handle(request, msg, redirect=redirect)
+
+    def get_success_url(self, request):
+        return reverse(self.redirect_url)
+
+    def allowed(self, request, datum=None):
+        if datum.external_gateway_info:
+            return True
+        return False
+
+
 class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, router_id):
         router = api.quantum.router_get(request, router_id)
         return router
+
+
+def get_external_network(router):
+    if router.external_gateway_info:
+        return router.external_gateway_info['network']
+    else:
+        return "-"
 
 
 class RoutersTable(tables.DataTable):
@@ -77,6 +126,8 @@ class RoutersTable(tables.DataTable):
                            filters=(title,),
                            verbose_name=_("Status"),
                            status=True)
+    ext_net = tables.Column(get_external_network,
+                            verbose_name=_("External Network"))
 
     def get_object_display(self, obj):
         return obj.name
@@ -87,4 +138,4 @@ class RoutersTable(tables.DataTable):
         status_columns = ["status"]
         row_class = UpdateRow
         table_actions = (CreateRouter, DeleteRouter)
-        row_actions = (DeleteRouter, )
+        row_actions = (SetGateway, ClearGateway, DeleteRouter)

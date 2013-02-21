@@ -35,17 +35,6 @@ def get_device_owner(port):
         return ' '
 
 
-class SetGateway(tables.LinkAction):
-    name = "setgateway"
-    verbose_name = _("Set Gateway")
-    url = "horizon:project:routers:setgateway"
-    classes = ("ajax-modal", "btn-create")
-
-    def get_link_url(self, datum=None):
-        router_id = self.table.kwargs['router_id']
-        return reverse(self.url, args=(router_id,))
-
-
 class AddInterface(tables.LinkAction):
     name = "create"
     verbose_name = _("Add Interface")
@@ -99,5 +88,5 @@ class PortsTable(tables.DataTable):
     class Meta:
         name = "interfaces"
         verbose_name = _("Interfaces")
-        table_actions = (AddInterface, SetGateway, RemoveInterface)
+        table_actions = (AddInterface, RemoveInterface)
         row_actions = (RemoveInterface, )

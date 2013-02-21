@@ -27,7 +27,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
-    @test.create_stubs({api.quantum: ('router_list',),
+    @test.create_stubs({api.quantum: ('router_list', 'network_list'),
                         api.keystone: ('tenant_list',)})
     def test_index(self):
         tenants = self.tenants.list()
@@ -36,6 +36,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
             search_opts=None).AndReturn(self.routers.list())
         api.keystone.tenant_list(IsA(http.HttpRequest), admin=True)\
             .AndReturn(tenants)
+        self._mock_external_network_list()
 
         self.mox.ReplayAll()
 

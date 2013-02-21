@@ -33,10 +33,9 @@ class OverviewTab(tabs.Tab):
         try:
             router = api.quantum.router_get(request, router_id)
         except:
-            redirect = reverse(redirect_url)
             exceptions.handle(self.request,
                               _('Unable to retrieve router details.'),
-                              redirect=redirect)
+                              redirect=reverse(self.redirect_url))
         return {'router': router}
 
 

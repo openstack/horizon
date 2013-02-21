@@ -65,12 +65,11 @@ class AddInterfaceView(forms.ModalFormView):
 class SetGatewayView(forms.ModalFormView):
     form_class = SetGatewayForm
     template_name = 'project/routers/ports/setgateway.html'
-    success_url = 'horizon:project:routers:detail'
-    failure_url = 'horizon:project:routers:detail'
+    success_url = 'horizon:project:routers:index'
+    failure_url = 'horizon:project:routers:index'
 
     def get_success_url(self):
-        return reverse(self.success_url,
-                       args=(self.kwargs['router_id'],))
+        return reverse(self.success_url)
 
     def get_object(self):
         if not hasattr(self, "_object"):

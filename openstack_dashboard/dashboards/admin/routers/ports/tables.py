@@ -30,10 +30,6 @@ from openstack_dashboard.dashboards.project.routers.ports.tables import\
 LOG = logging.getLogger(__name__)
 
 
-class SetGateway(r_tables.SetGateway):
-    url = "horizon:admin:routers:setgateway"
-
-
 class AddInterface(r_tables.AddInterface):
     url = "horizon:admin:routers:addinterface"
 
@@ -60,5 +56,5 @@ class PortsTable(tables.DataTable):
     class Meta:
         name = "interfaces"
         verbose_name = _("Interfaces")
-        table_actions = (AddInterface, SetGateway, RemoveInterface)
+        table_actions = (AddInterface, RemoveInterface)
         row_actions = (RemoveInterface, )

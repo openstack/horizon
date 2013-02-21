@@ -41,6 +41,14 @@ class CreateRouter(tables.LinkAction):
     classes = ("ajax-modal", "btn-create")
 
 
+class SetGateway(r_tables.SetGateway):
+    url = "horizon:admin:routers:setgateway"
+
+
+class ClearGateway(r_tables.ClearGateway):
+    redirect_url = "horizon:admin:routers:index"
+
+
 class UpdateRow(tables.Row):
     ajax = True
 
@@ -58,6 +66,8 @@ class RoutersTable(tables.DataTable):
                            filters=(title,),
                            verbose_name=_("Status"),
                            status=True)
+    ext_net = tables.Column(r_tables.get_external_network,
+                            verbose_name=_("External Network"))
 
     def get_object_display(self, obj):
         return obj.name
@@ -68,4 +78,4 @@ class RoutersTable(tables.DataTable):
         status_columns = ["status"]
         row_class = UpdateRow
         table_actions = (CreateRouter, DeleteRouter)
-        row_actions = (DeleteRouter, )
+        row_actions = (SetGateway, ClearGateway, DeleteRouter)

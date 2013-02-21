@@ -199,11 +199,15 @@ def data(TEST):
 
     router_dict = {'id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
                    'name': 'router1',
+                   'external_gateway_info':
+                       {'network_id': ext_net['id']},
                    'tenant_id': '1'}
     TEST.api_routers.add(router_dict)
     TEST.routers.add(Router(router_dict))
     router_dict = {'id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
                    'name': 'router1',
+                   'external_gateway_info':
+                       {'network_id': ext_net['id']},
                    'tenant_id': '1'}
     TEST.api_routers.add(router_dict)
     TEST.routers.add(Router(router_dict))

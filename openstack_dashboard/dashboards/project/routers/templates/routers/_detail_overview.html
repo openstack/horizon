@@ -10,6 +10,11 @@
     <dd>{{ router.id|default:"None" }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ router.status|default:"Unknown" }}</dd>
+    {% if router.external_gateway_info %}
+    <dt>{% trans "External Gateway Information" %}</dt>
+    <dd>{% trans "Connected External Network" %}:
+      {{ router.external_gateway_info.network }}</dd>
+    {% endif %}
   </dl>
 </div>
 

@@ -49,7 +49,7 @@ class CreateForm(forms.SelfHandlingForm):
             LOG.warn(msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
-            return False
+            return
 
         self.fields['tenant_id'].choices = tenant_choices
 

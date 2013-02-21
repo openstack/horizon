@@ -28,4 +28,4 @@ class AddInterface(p_forms.AddInterface):
 
 
 class SetGatewayForm(p_forms.SetGatewayForm):
-    failure_url = 'horizon:admin:routers:detail'
+    failure_url = 'horizon:admin:routers:index'

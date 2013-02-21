@@ -26,7 +26,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import forms
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.admin.networks import views
+from openstack_dashboard.dashboards.admin.networks import views as n_views
 from openstack_dashboard.dashboards.project.routers import views as r_views
 
 from .ports.tables import PortsTable
@@ -37,7 +37,7 @@ from .tables import RoutersTable
 LOG = logging.getLogger(__name__)
 
 
-class IndexView(views.IndexView):
+class IndexView(r_views.IndexView, n_views.IndexView):
     table_class = RoutersTable
     template_name = 'admin/routers/index.html'
 
@@ -51,12 +51,15 @@ class IndexView(views.IndexView):
                               _('Unable to retrieve router list.'))
         if routers:
             tenant_dict = self._get_tenant_list()
+            ext_net_dict = self._list_external_networks()
             for r in routers:
                  # Set tenant name
                 tenant = tenant_dict.get(r.tenant_id, None)
                 r.tenant_name = getattr(tenant, 'name', None)
                 # If name is empty use UUID as name
                 r.set_id_as_name_if_empty()
+                # Set external network name
+                self._set_external_network(r, ext_net_dict)
         return routers
 
     def get_data(self):

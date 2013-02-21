@@ -8,8 +8,15 @@
     <dd>{{ router.name|default:"None" }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ router.id }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ router.tenant_id }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ router.status|capfirst }}</dd>
+    {% if router.external_gateway_info %}
+    <dt>{% trans "External Gateway Information" %}</dt>
+    <dd>{% trans "Connected External Network" %}:
+      {{ router.external_gateway_info.network }}</dd>
+    {% endif %}
   </dl>
 </div>
 
