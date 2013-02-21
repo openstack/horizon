@@ -28,7 +28,10 @@ LOG = logging.getLogger(__name__)
 
 
 class AddInterface(forms.SelfHandlingForm):
-    subnet_id = forms.ChoiceField(label=_("Subnet ID"), required=False)
+    subnet_id = forms.ChoiceField(label=_("Subnet"), required=False)
+    router_name = forms.CharField(label=_("Router Name"),
+                                  widget=forms.TextInput(
+                                      attrs={'readonly': 'readonly'}))
     router_id = forms.CharField(label=_("Router ID"),
                                 widget=forms.TextInput(
                                     attrs={'readonly': 'readonly'}))
@@ -84,7 +87,10 @@ class AddInterface(forms.SelfHandlingForm):
 
 
 class SetGatewayForm(forms.SelfHandlingForm):
-    network_id = forms.ChoiceField(label=_("Network ID"), required=False)
+    network_id = forms.ChoiceField(label=_("External Network"), required=False)
+    router_name = forms.CharField(label=_("Router Name"),
+                                  widget=forms.TextInput(
+                                      attrs={'readonly': 'readonly'}))
     router_id = forms.CharField(label=_("Router ID"),
                                 widget=forms.TextInput(
                                     attrs={'readonly': 'readonly'}))

@@ -140,6 +140,7 @@ class RouterTests(test.TestCase):
         self.mox.ReplayAll()
 
         form_data = {'router_id': router.id,
+                     'router_name': router.name,
                      'subnet_id': subnet.id}
 
         url = reverse('horizon:%s:routers:addinterface' % self.DASHBOARD,
@@ -171,6 +172,7 @@ class RouterTests(test.TestCase):
         self.mox.ReplayAll()
 
         form_data = {'router_id': router.id,
+                     'router_name': router.name,
                      'subnet_id': subnet.id}
 
         url = reverse('horizon:%s:routers:addinterface' % self.DASHBOARD,
@@ -198,6 +200,7 @@ class RouterTests(test.TestCase):
         self.mox.ReplayAll()
 
         form_data = {'router_id': router.id,
+                     'router_name': router.name,
                      'network_id': network.id}
 
         url = reverse('horizon:%s:routers:setgateway' % self.DASHBOARD,
@@ -225,6 +228,7 @@ class RouterTests(test.TestCase):
         self.mox.ReplayAll()
 
         form_data = {'router_id': router.id,
+                     'router_name': router.name,
                      'network_id': network.id}
 
         url = reverse('horizon:%s:routers:setgateway' % self.DASHBOARD,

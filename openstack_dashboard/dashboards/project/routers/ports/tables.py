@@ -37,9 +37,9 @@ def get_device_owner(port):
 
 class SetGateway(tables.LinkAction):
     name = "setgateway"
-    verbose_name = _("Add Gateway Interface")
+    verbose_name = _("Set Gateway")
     url = "horizon:project:routers:setgateway"
-    classes = ("ajax-modal", "btn-camera")
+    classes = ("ajax-modal", "btn-create")
 
     def get_link_url(self, datum=None):
         router_id = self.table.kwargs['router_id']

@@ -34,6 +34,7 @@ class AddInterfaceView(views.AddInterfaceView):
 
 class SetGatewayView(views.SetGatewayView):
     form_class = SetGatewayForm
+    template_name = 'admin/routers/ports/setgateway.html'
     success_url = 'horizon:admin:routers:detail'
     failure_url = 'horizon:admin:routers:detail'
 
