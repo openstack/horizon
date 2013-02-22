@@ -243,6 +243,7 @@ class SetInstanceDetailsAction(workflows.Action):
                 owned_images, _more = glance.image_list_detailed(
                     request, filters=owner)
             except:
+                owned_images = []
                 exceptions.handle(request,
                                   _("Unable to retrieve images for "
                                     "the current project."))
