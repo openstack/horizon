@@ -636,6 +636,25 @@ table form {
   display: none;
 }
 
+/*
+ * Bootstrap styles table backgrounds using nth-child(2n+1), which is
+ * oblivious to hidden elements. The styles below allow us to override
+ * the bootstrap style when neccessary by setting the odd/even classes.
+ */
+.table-striped.datatable tbody {
+  tr.odd td {
+    background-color: #f9f9f9;
+  }
+  tr.even td {
+    background-color: inherit;
+  }
+  tr.odd:hover td,
+  tr.even:hover td,
+  tr:hover th {
+    background-color: #f5f5f5;
+  }
+}
+
 .table-striped tbody tr.status_unknown:nth-child(odd) td {
   background-color: #ffffb5;
 }
