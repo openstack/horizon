@@ -19,11 +19,20 @@ horizon.projects = {
 
   /*
    * Gets the html select element associated with a given
-   * role id for role_id.
+   * role id.
    **/
   get_role_element: function(role_id) {
       return $('select[id^="id_role_' + role_id + '"]');
   },
+
+  /*
+   * Gets the html ul element associated with a given
+   * user id. I.e., the user's row.
+   **/
+  get_user_element: function(user_id) {
+      return $('li[data-user-id$=' + user_id + ']').parent();
+  },
+
   /*
 
    * Gets the html select element associated with a given
@@ -115,16 +124,16 @@ horizon.projects = {
     });
   },
   /*
-   * Checks to see whether a user is a member of the current project.
-   * If they are, returns the id of their primary role.
+   * Returns the ids of roles the user is a member of.
    **/
-  is_project_member: function(user_id) {
+  get_user_roles: function(user_id) {
+    var roles = [];
     for (var role in horizon.projects.current_membership) {
       if ($.inArray(user_id, horizon.projects.current_membership[role]) >= 0) {
-        return role;
+        roles.push(role);
       }
     }
-    return false;
+    return roles;
   },
 
   /*
@@ -133,8 +142,6 @@ horizon.projects = {
    **/
   update_role_lists: function(role_id, new_list) {
     this.get_role_element(role_id).val(new_list);
-    this.get_role_element(role_id).find("option[value='" + role_id + "").attr("selected", "selected");
-
     horizon.projects.current_membership[role_id] = new_list;
   },
 
@@ -178,11 +185,45 @@ horizon.projects = {
     horizon.projects.update_role_lists(role_id, role_list);
   },
 
+  update_user_role_dropdown: function(user_id, role_ids, user_el) {
+    if (typeof(role_ids) === 'undefined') {
+       role_ids = horizon.projects.get_user_roles(user_id);
+    }
+    if (typeof(user_el) === 'undefined') {
+       user_el = horizon.projects.get_user_element(user_id);
+    }
+
+    var $dropdown = user_el.find("li.member").siblings('.dropdown');
+    var $role_items = $dropdown.children('.role_dropdown').children('li');
+
+    $role_items.each(function (idx, el) {
+      if (_.contains(role_ids, $(el).data('role-id'))) {
+        $(el).addClass('selected');
+      } else {
+        $(el).removeClass('selected');
+      }
+    });
+
+    // set the selection back to default role
+    var $roles_display = $dropdown.children('.dropdown-toggle').children('.roles_display');
+    var roles_to_display = [];
+    for (var i = 0; i < role_ids.length; i++) {
+        if (i == 2) {
+            roles_to_display.push('...');
+            break;
+        }
+        roles_to_display.push(horizon.projects.roles[role_ids[i]]);
+    }
+    text = roles_to_display.join(', ');
+    if (text.length == 0) text = 'No roles';
+    $roles_display.text(text);
+  },
+
   /*
    * Generates the HTML structure for a user that will be displayed
    * as a list item in the project member list.
    **/
-  generate_user_element: function(user_name, user_id, text) {
+  generate_user_element: function(user_name, user_id, role_ids, text) {
     var str_id = "id_user_" + user_id;
 
     var roles = [];
@@ -200,6 +241,7 @@ horizon.projects = {
               text: text,
               roles: roles},
     user_el = $(template.render(params));
+    this.update_user_role_dropdown(str_id, role_ids, user_el);
     return $(user_el);
   },
 
@@ -213,11 +255,6 @@ horizon.projects = {
     return $li;
   },
 
-  set_selected_role: function(selected_el, role_id) {
-    $(selected_el).text(horizon.projects.roles[role_id]);
-    $(selected_el).attr('data-role-id', role_id);
-  },
-
   /*
   * Generates the HTML structure for the project membership UI.
   **/
@@ -226,14 +263,12 @@ horizon.projects = {
     for (user in horizon.projects.users) {
       var user_id = user;
       var user_name = horizon.projects.users[user];
-      var role_id = this.is_project_member(user_id);
-      if (role_id) {
-        $(".project_members").append(this.generate_user_element(user_name, user_id, "-"));
-        var $selected_role = $("li[data-user-id$='" + user_id + "']").siblings('.dropdown').children('.dropdown-toggle').children('span');
-        horizon.projects.set_selected_role($selected_role, role_id);
+      var role_ids = this.get_user_roles(user_id);
+      if (role_ids.length > 0) {
+        $(".project_members").append(this.generate_user_element(user_name, user_id, role_ids, "-"));
       }
       else {
-        $(".available_users").append(this.generate_user_element(user_name, user_id, "+"));
+        $(".available_users").append(this.generate_user_element(user_name, user_id, role_ids, "+"));
       }
     }
     horizon.projects.detect_no_results();
@@ -313,26 +348,24 @@ horizon.projects = {
       evt.preventDefault();
       var available = $(".available_users").has($(this)).length;
       var user_id = horizon.projects.get_field_id($(this).parent().siblings().attr('data-user-id'));
+      var user_el = $(this).parent().parent();
 
       if (available) {
         $(this).text("-");
-        if (horizon.projects.has_roles) {
-          $(this).parent().siblings(".role_options").show();
-        }
-        $(".project_members").append($(this).parent().parent());
+        $(".project_members").append(user_el);
 
-        horizon.projects.add_user_to_role(user_id, horizon.projects.default_role_id);
+        if (horizon.projects.has_roles) {
+          var default_role = horizon.projects.default_role_id;
+          $(this).parent().siblings(".role_options").show();
+          horizon.projects.add_user_to_role(user_id, default_role);
+          horizon.projects.update_user_role_dropdown(user_id, [default_role], user_el);
+        }
       }
       else {
         $(this).text("+");
         $(this).parent().siblings(".role_options").hide();
-        $(".available_users").append($(this).parent().parent());
-
+        $(".available_users").append(user_el);
         horizon.projects.remove_user_from_role(user_id);
-
-        // set the selection back to default role
-        var $selected_role = $(this).parent().siblings('.dropdown').children('.dropdown-toggle').children('.selected_role');
-        horizon.projects.set_selected_role($selected_role, horizon.projects.default_role_id);
       }
 
       // update lists
@@ -368,8 +401,8 @@ horizon.projects = {
   **/
   select_member_role: function() {
     $(".available_users, .project_members").on('click', '.role_dropdown li', function (evt) {
-      var $selected_el = $(this).parent().prev().children('.selected_role');
-      $selected_el.text($(this).text());
+      evt.preventDefault();
+      evt.stopPropagation();
 
       // get the newly selected role and the member's name
       var new_role_id = $(this).attr("data-role-id");
@@ -377,8 +410,14 @@ horizon.projects = {
       var user_id = horizon.projects.get_field_id(id_str);
 
       // update role lists
-      horizon.projects.remove_user_from_role(user_id, $selected_el.attr('data-role-id'));
-      horizon.projects.add_user_to_role(user_id, new_role_id);
+      if ($(this).hasClass('selected')) {
+        $(this).removeClass('selected');
+        horizon.projects.remove_user_from_role(user_id, new_role_id);
+      } else {
+        $(this).addClass('selected');
+        horizon.projects.add_user_to_role(user_id, new_role_id);
+      }
+      horizon.projects.update_user_role_dropdown(user_id);
     });
   },
 
@@ -390,12 +429,13 @@ horizon.projects = {
       // add the user to the visible list
       var user_name = $(this).find("option").text();
       var user_id = $(this).find("option").attr("value");
-      $(".project_members").append(horizon.projects.generate_user_element(user_name, user_id, "-"));
+      var default_role_id = horizon.projects.default_role_id;
+      $(".project_members").append(horizon.projects.generate_user_element(user_name, user_id, [default_role_id], "-"));
 
       // add the user to the hidden role lists and the users list
       horizon.projects.users[user_id] = user_name;
       $("select[multiple='multiple']").append("<option value='" + user_id + "'>" + horizon.projects.users[user_id] + "</option>");
-      horizon.projects.add_user_to_role(user_id, horizon.projects.default_role_id);
+      horizon.projects.add_user_to_role(user_id, default_role_id);
 
       // remove option from hidden select
       $(this).text("");

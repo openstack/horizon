@@ -166,9 +166,8 @@ class UpdateProjectMembersAction(workflows.Action):
                     exceptions.handle(request,
                                       err_msg,
                                       redirect=reverse(INDEX_URL))
-                if roles:
-                    primary_role = roles[0].id
-                    self.fields["role_" + primary_role].initial.append(user.id)
+                for role in roles:
+                    self.fields["role_" + role.id].initial.append(user.id)
 
     class Meta:
         name = _("Project Members")
