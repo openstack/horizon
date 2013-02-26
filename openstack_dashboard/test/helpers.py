@@ -277,6 +277,9 @@ class APITestCase(TestCase):
     def stub_keystoneclient(self):
         if not hasattr(self, "keystoneclient"):
             self.mox.StubOutWithMock(keystone_client, 'Client')
+            # NOTE(saschpe): Mock the 'auth_token' property specifically,
+            # MockObject.__init__ ignores properties altogether:
+            keystone_client.Client.auth_token = 'foo'
             self.keystoneclient = self.mox.CreateMock(keystone_client.Client)
         return self.keystoneclient
 
