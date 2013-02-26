@@ -1,5 +1,5 @@
 # Horizon Core Requirements
-Django>=1.4
+Django>=1.4,<1.5
 django_compressor
 django_openstack_auth
 python-cinderclient
