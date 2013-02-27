@@ -49,7 +49,8 @@ class IndexView(tables.DataTableView):
                                       None)
         try:
             images, self._more = api.glance.image_list_detailed(self.request,
-                                                                marker=marker)
+                                                                marker=marker,
+                                                                paginate=True)
         except:
             self._more = False
             msg = _('Unable to retrieve image list.')
