@@ -232,6 +232,13 @@ horizon.datatables.remove_no_results_row = function (table) {
   table.find("tr.empty").remove();
 };
 
+/*
+ * Fixes the striping of the table after filtering results.
+**/
+horizon.datatables.fix_row_striping = function (table) {
+  table.trigger('applyWidgetId', ['zebra']);
+};
+
 horizon.datatables.set_table_sorting = function (parent) {
 // Function to initialize the tablesorter plugin strictly on sortable columns.
 $(parent).find("table.datatable").each(function () {
@@ -302,6 +309,7 @@ horizon.datatables.set_table_query_filter = function (parent) {
           table = $(table_selector);
           horizon.datatables.update_footer_count(table);
           horizon.datatables.add_no_results_row(table);
+          horizon.datatables.fix_row_striping(table);
         },
         prepareQuery: function (val) {
           return new RegExp(val, "i");
@@ -325,6 +333,7 @@ horizon.datatables.set_table_fixed_filter = function (parent) {
       table.find('tbody tr.category-' + category).show();
       horizon.datatables.update_footer_count(table);
       horizon.datatables.add_no_results_row(table);
+      horizon.datatables.fix_row_striping(table);
     });
     $(elm).find('div.table_filter button').each(function (i, button) {
       // Select the first non-empty category
