@@ -7,7 +7,7 @@
       <li class='divider'></li>
       {% for region in regions.available %}
         {% if region.name != regions.current.name %}
-          <li><a class="ajax-modal" href="{% url login %}?region={{ region.endpoint }}">{{ region.name }}</a></li>
+          <li><a class="ajax-modal" href="{% url login %}?region={{ region.endpoint|urlencode }}">{{ region.name }}</a></li>
         {% endif %}
       {% endfor %}
     </ul>
