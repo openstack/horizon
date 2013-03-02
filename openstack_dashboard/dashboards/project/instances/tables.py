@@ -75,11 +75,6 @@ class TerminateInstance(tables.BatchAction):
     classes = ('btn-danger', 'btn-terminate')
 
     def allowed(self, request, instance=None):
-        if instance:
-            # FIXME(gabriel): This is true in Essex, but in FOLSOM an instance
-            # can be terminated in any state. We should improve this error
-            # handling when LP bug 1037241 is implemented.
-            return instance.status not in ("PAUSED", "SUSPENDED")
         return True
 
     def action(self, request, obj_id):
