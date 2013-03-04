@@ -21,11 +21,11 @@ horizon.network_topology = {
     $("#topologyCanvas").spin(horizon.conf.spinner_options.modal);
     self.retrieve_network_info();
     setInterval(horizon.network_topology.retrieve_network_info,
-               horizon.network_topology.reload_duration);
+                horizon.network_topology.reload_duration);
   },
   retrieve_network_info: function(){
     var self = this;
-    if(!$("#networktopology")) {
+    if($("#networktopology").length === 0) {
         return;
     }
     $.getJSON($("#networktopology").data('networktopology'),
