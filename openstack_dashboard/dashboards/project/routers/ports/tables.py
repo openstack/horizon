@@ -71,6 +71,11 @@ class RemoveInterface(tables.DeleteAction):
                                args=[router_id])
             exceptions.handle(request, msg, redirect=redirect)
 
+    def allowed(self, request, datum=None):
+        if datum and datum['device_owner'] == 'network:router_gateway':
+            return False
+        return True
+
 
 class PortsTable(tables.DataTable):
     name = tables.Column("name",
