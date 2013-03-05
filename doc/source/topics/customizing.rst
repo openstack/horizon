@@ -56,13 +56,44 @@ example, you could change the name of a panel::
 
     import horizon
 
-    # Rename "OpenStack Credentials" to "OS Credentials"
+    # Rename "User Settings" to "User Options"
     settings = horizon.get_dashboard("settings")
-    project_panel = settings.get_panel("project")
-    project_panel.name = _("OS Credentials")
+    user_panel = settings.get_panel("user")
+    user_panel.name = _("User Options")
 
-Other common options might include removing default panels, adding or
-changing permissions on panels and dashboards, etc.
+Or get the instances panel::
+
+    projects_dashboard = horizon.get_dashboard("project")
+    instances_panel = projects_dashboard.get_panel("instances")
+
+And limit access to users with the Keystone Admin role::
+
+    permissions = list(getattr(instances_panel, 'permissions', []))
+    permissions.append('openstack.roles.admin')
+    instances_panel.permissions = tuple(permissions)
+
+Or just remove it entirely::
+
+    projects_dashboard.unregister(instances_panel.__class__)
+
+
+
+.. NOTE::
+
+    ``my_project.overrides`` needs to be importable by the python process running
+    Horizon.
+    If your module is not installed as a system-wide python package,
+    you can either make it installable (e.g., with a setup.py)
+    or you can adjust the python path used by your WSGI server to include its location.
+
+    Probably the easiest way is to add a ``python-path`` argument to
+    the ``WSGIDaemonProcess`` line in Apache's Horizon config.
+
+    Assuming your ``my_project`` module lives in ``/opt/python/my_project``,
+    you'd make it look like the following::
+
+        WSGIDaemonProcess [... existing options ...] python-path=/opt/python
+
 
 Button Icons
 ============
