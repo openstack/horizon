@@ -1834,6 +1834,13 @@ label.log-length {
   padding: 25px;
   padding-left: 50px;
   background: #efefef;
+  div.nodata {
+    font-size: 150%;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 200px;
+    display: none;
+  }
 }
 div.networks {
   height: 100%;
@@ -1863,12 +1870,18 @@ div.network {
       background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
       background-size: 10px 10px;
     }
+    &.nourl {
+      cursor: auto;
+      &:hover {
+        background-image:none;
+      }
+    }
     h3 {
       font-size: 12px;
       line-height: 1;
       position: relative;
       font-weight: normal;
-      top:60%;
+      top:55%;
       color:#fff;
       left:-1px;
       letter-spacing: 0.2em;
@@ -1877,71 +1890,83 @@ div.network {
       -ms-transform: rotate(-90deg);
       -o-transform: rotate(-90deg);
       transform: rotate(-90deg);
+
       white-space: nowrap;
       text-shadow: 0px 0px 5px #000;
-      span.ip {
-        margin-left: 0.5em;
-        color: #000;
-        font-weight: normal;
-        font-size: 90%;
-        text-shadow: 0px 0px 0px #000;
-      }
+    }
+    span.ip {
+      position: absolute;
+      bottom:-10px;
+      left:20px;
+      color: #000;
+      display: block;
+      font-weight: normal;
+      font-size: 90%;
+      letter-spacing: 0.2em;
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      -webkit-transform-origin: 0% 0%;
+      -moz-transform-origin: 0% 0%;
+      -ms-transform-origin: 0% 0%;
+      -o-transform-origin:  0% 0%;
+      transform-origin:  0% 0%;
+      white-space: nowrap;
+      text-shadow: 0px 0px 2px #fff,0px 0px 2px #fff;
     }
   }
   .router, .server, .device {
     .box-sizing();
     cursor: pointer;
     width: 90px;
-    border: 3px solid #666;
+    border: 3px solid #444;
     position: absolute;
     top:30px;
     left:90px;
+    color:#fff;
     padding: 0 3px;
     background: #666;
     margin-bottom: 20px;
-    &:before,&:after  {
+    border-radius: 8px;
+    &:before {
       content: "";
-      width: 90px;
-      height: 34px;
-      text-align: center;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #444;
+      line-height: 1.2;
       position: absolute;
-      border: 3px solid #666;
-      .box-sizing();
-      background: #fff;
-      border-radius:50%;
-      top:-19px;
-      left:-3px;
+      border-radius: 20px;
+      top:-10px;
+      left:-10px;
+      background:#fff url(/static/dashboard/img/router.png) no-repeat center center;
+      background-size: 16px 16px;
     }
     &:after {
-      content:"";
+      content: "";
+      width: 100%;
+      line-height: 1.2;
+      position: absolute;
+      text-align: center;
+      border-radius: 0;
+      background: #444;
       color: #fff;
-      background:#666;
-      border-radius:50%;
-      top:auto;
-      bottom:-19px;
       font-size: 11px;
-      line-height: 30px;
+      height: 1.5em;
+      bottom:0px;
+      left: 0px;
     }
     span.devicename {
       position: absolute;
       color: #fff;
-      bottom: -10px;
+      bottom: 0px;
       font-size: 12px;
       line-height: 14px;
-      left:-4px;
       width: 100%;
       text-align: center;
       z-index:300;
-      i {
-        display: inline-block;
-        width: 14px;
-        height:14px;
-        background: #fff url(/static/dashboard/img/router.png) no-repeat center center;
-        background-size: 12px 12px;
-        margin-right: 3px;
-        vertical-align: middle;
-        border-radius: 20px;
-      }
+      left:-2px;
     }
     span.name {
       overflow: hidden;
@@ -1952,7 +1977,7 @@ div.network {
       position: relative;
       z-index:10;
       text-align: center;
-      top:-10px;
+      top:4px;
       padding: 0 3px;
     }
     div.port {
@@ -1972,6 +1997,7 @@ div.network {
       z-index:100;
       span.ip {
         .box-sizing();
+        color: #333;
         font-size: 9px;
         line-height: 1;
         text-shadow: 0px -1px #fff;
@@ -2010,14 +2036,10 @@ div.network {
                 animation: progress-bar-stripes 0.3s linear infinite;
         }
       }
-      background-color: #444;
-      border-color: #444;
-      &:before {
-        border-color: #444;
-      }
+      border-color: #222;
       &:after {
-        background-color: #444;
-        border-color: #444;
+        background-color: #222;
+        border-color: #222;
       }
     }
   }
@@ -2026,48 +2048,12 @@ div.network {
     background: transparent;
   }
   .server {
-    border-radius: 5px;
-    background: #fff;
-    span.devicename {
-      bottom: 0px;
-      font-size: 12px;
-      line-height: 14px;
-      left:-4px;
-      i {
-        display: inline-block;
-        width: 14px;
-        height:14px;
-        background: url(/static/dashboard/img/server.png) no-repeat center center;
-        background-size: 12px 12px;
-        margin-right: 3px;
-        vertical-align: middle;
-      }
-    }
-    span.name {
-      top:5px;
-      padding: 0 3px;
-    }
     &:before {
-      border:none;
-      background: transparent;
+      background:#fff url(/static/dashboard/img/server.png) no-repeat center center;
+      background-size: 14px 14px;
     }
-    &:after {
-      content: "";
-      width: 100%;
-      line-height: 1.2;
-      position: absolute;
-      text-align: center;
-      border-radius: 0;
-      background: #666;
-      color: #fff;
-      font-size: 11px;
-      height: 1.5em;
-      bottom:0px;
-      left: 0px;
-    }
-    &:hover {
-      background: #fff;
-    }
+    background: #fff;
+    color:#333;
   }
 }
 

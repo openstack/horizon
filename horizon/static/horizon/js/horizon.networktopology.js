@@ -2,6 +2,7 @@
 horizon.network_topology = {
   model: null,
   network_margin: 270,
+  topologyCanvas_padding: 120,
   min_network_height:500,
   port_margin: 20,
   device_initial_position : 40,
@@ -20,15 +21,16 @@ horizon.network_topology = {
     var self = this;
     $("#topologyCanvas").spin(horizon.conf.spinner_options.modal);
     self.retrieve_network_info();
-    setInterval(horizon.network_topology.retrieve_network_info,
-                horizon.network_topology.reload_duration);
+    setInterval(function(){
+      self.retrieve_network_info();
+    }, self.reload_duration);
   },
   retrieve_network_info: function(){
     var self = this;
     if($("#networktopology").length === 0) {
         return;
     }
-    $.getJSON($("#networktopology").data('networktopology'),
+    $.getJSON($("#networktopology").data("networktopology"),
       function(data) {
         self.draw_graph(data);
       }
@@ -40,19 +42,27 @@ horizon.network_topology = {
   draw_graph: function(data){
     var canvas = $("#topologyCanvas");
     var networks = $("#topologyCanvas > .networks");
+    var nodata = $("#topologyCanvas > .nodata");
+    networks.show();
+    nodata.hide();
     canvas.spin(false);
     networks.empty();
     this.model = data;
     this.device_last_position = this.device_initial_position;
-    this.draw_networks();
-    this.draw_routers();
-    this.draw_servers();
-    canvas.height(
-      Math.max(this.device_last_position,this.min_network_height)
-    );
-    networks.width(
-      this.model.networks.length * this.network_margin
-    );
+    var network_elements = this.draw_networks();
+    var router_elements = this.draw_routers();
+    var server_elements = this.draw_servers();
+    if ((network_elements + router_elements + server_elements) <= 0){
+      networks.hide();
+      nodata.show();
+    } else {
+      canvas.height(
+        Math.max(this.device_last_position + this.topologyCanvas_padding, this.min_network_height)
+      );
+      networks.width(
+        this.model.networks.length * this.network_margin
+      );
+    }
   },
   network_color: function(network_id){
     var max_hue = 360;
@@ -115,18 +125,24 @@ horizon.network_topology = {
       if(network['router:external']){
          label += " (external) ";
       }
-      label += self.select_cidr(network.id);
       self.network_index[network.id] = index;
       var network_html = $("<div class='network' />").attr("id", network.id);
-      var nicname_html = $("<div class='nicname'><h3>" + label + "</h3></div>");
+      var nicname_html = $("<div class='nicname'><h3>" + label +
+        "</h3><span class='ip'>" + self.select_cidr(network.id) + "</span></div>");
+      if (network.url == undefined) {
+        nicname_html.addClass("nourl");
+      } else {
+        nicname_html.click(function (){
+          window.location.href = network.url;
+        });
+      }
       nicname_html
-        .click(function (){
-          window.location.href = network.url;})
         .css (
           {'background-color':self.network_color(network.id)})
         .appendTo(network_html);
       networks.append(network_html);
     });
+    return self.model.networks.length;
   },
   select_cidr:function(network_id){
     var cidr = "";
@@ -134,13 +150,13 @@ horizon.network_topology = {
         if(subnet.network_id != network_id){
             return;
         }
-        cidr += " <span class=\"ip\">[ " + subnet.cidr + " ]</span>";
+        cidr += subnet.cidr;
     });
     return cidr;
   },
   draw_devices: function(type){
     var self = this;
-     $.each(self.model[type + 's'], function(index, device){
+    $.each(self.model[type + 's'], function(index, device){
       var id = device.id;
       var name = (device.name != "")? device.name : device.id;
       var ports = self.select_port(id);
@@ -176,6 +192,7 @@ horizon.network_topology = {
       self.device_last_position += device_html.height() + self.device_margin;
       $("#" + parent_network).append(device_html);
     });
+    return self.model[type + 's'].length;
   },
   sum_port_length: function(network_id, ports){
     var self = this;
@@ -200,10 +217,10 @@ horizon.network_topology = {
     return ports[main_port_index];
   },
   draw_routers: function(){
-      this.draw_devices('router');
+      return this.draw_devices('router');
   },
   draw_servers: function(){
-      this.draw_devices('server');
+      return this.draw_devices('server');
   },
   select_port: function(device_id){
      return $.map(this.model.ports,function(port, index){

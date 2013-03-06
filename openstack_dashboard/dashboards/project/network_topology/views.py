@@ -33,7 +33,11 @@ class NetworkTopology(TemplateView):
 
 class JSONView(View):
     def add_resource_url(self, view, resources):
+        tenant_id = self.request.user.tenant_id
         for resource in resources:
+            if (resource.get('tenant_id')
+                    and tenant_id != resource.get('tenant_id')):
+                continue
             resource['url'] = reverse(view, None, [str(resource['id'])])
 
     def _select_port_by_network_id(self, ports, network_id):
