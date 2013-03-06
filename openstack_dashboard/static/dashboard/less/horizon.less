@@ -1453,10 +1453,20 @@ label.log-length {
     -moz-box-shadow: none;
     box-shadow: none;
     z-index: 99999;
+    i {
+      opacity: 0;
+    }
 
     &:hover {
       background-color: #CDCDCD;
     }
+    &.selected i {
+      opacity: 1;
+    }
+  }
+  .dropdown-menu.role_dropdown {
+    right: 0;
+    left: auto;
   }
   .nav .role_options {
     float: right;
