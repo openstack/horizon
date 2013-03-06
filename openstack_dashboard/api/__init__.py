@@ -5,6 +5,7 @@
 # All Rights Reserved.
 #
 # Copyright 2012 Nebula, Inc.
+# Copyright 2013 Big Switch Networks
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -32,11 +33,12 @@ In other words, Horizon developers not working on openstack_dashboard.api
 shouldn't need to understand the finer details of APIs for
 Keystone/Nova/Glance/Swift et. al.
 """
-import base
-import cinder
-import glance
-import keystone
-import network
-import nova
-import quantum
-import swift
+from openstack_dashboard.api import base
+from openstack_dashboard.api import cinder
+from openstack_dashboard.api import glance
+from openstack_dashboard.api import keystone
+from openstack_dashboard.api import network
+from openstack_dashboard.api import nova
+from openstack_dashboard.api import quantum
+from openstack_dashboard.api import lbaas
+from openstack_dashboard.api import swift

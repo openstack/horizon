@@ -1,0 +1,39 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="info row-fluid detail">
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "ID: " %}</dt>
+    <dd>{{ monitor.id }}</dd>
+
+    <dt>{% trans "Tenant ID: " %}</dt>
+    <dd>{{ monitor.tenant_id }}</dd>
+
+    <dt>{% trans "Type: " %}</dt>
+    <dd>{{ monitor.type }}</dd>
+
+    <dt>{% trans "Delay: " %}</dt>
+    <dd>{{ monitor.delay }}</dd>
+
+    <dt>{% trans "Timeout: " %}</dt>
+    <dd>{{ monitor.timeout }}</dd>
+
+    <dt>{% trans "Max Retries: " %}</dt>
+    <dd>{{ monitor.max_retries }}</dd>
+
+    <dt>{% trans "HTTP Method: " %}</dt>
+    <dd>{{ monitor.http_method }}</dd>
+
+    <dt>{% trans "URL Path: " %}</dt>
+    <dd>{{ monitor.url_path }}</dd>
+
+    <dt>{% trans "Expected Codes: " %}</dt>
+    <dd>{{ monitor.expected_codes }}</dd>
+
+    <dt>{% trans "Admin State Up: " %}</dt>
+    <dd>{{ monitor.admin_state_up }}</dd>
+
+    <dt>{% trans "Status: " %}</dt>
+    <dd>{{ monitor.status }}</dd>
+  </dl>
+</div>

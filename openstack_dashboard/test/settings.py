@@ -74,6 +74,10 @@ OPENSTACK_KEYSTONE_BACKEND = {
     'can_edit_project': True
 }
 
+OPENSTACK_QUANTUM_NETWORK = {
+    'enable_lb': True
+}
+
 OPENSTACK_HYPERVISOR_FEATURES = {
     'can_set_mount_point': True,
 

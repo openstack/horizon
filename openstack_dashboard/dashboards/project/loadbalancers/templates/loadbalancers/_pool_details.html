@@ -1,0 +1,42 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="info row-fluid detail">
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "ID: " %}</dt>
+    <dd>{{ pool.id }}</dd>
+
+    <dt>{% trans "Tenant ID: " %}</dt>
+    <dd>{{ pool.tenant_id }}</dd>
+
+    <dt>{% trans "VIP ID: " %}</dt>
+    <dd>{{ pool.vip_id }}</dd>
+
+    <dt>{% trans "Name: " %}</dt>
+    <dd>{{ pool.name }}</dd>
+
+    <dt>{% trans "Description: " %}</dt>
+    <dd>{{ pool.description }}</dd>
+
+    <dt>{% trans "Subnet ID: " %}</dt>
+    <dd>{{ pool.subnet_id }}</dd>
+
+    <dt>{% trans "Protocol: " %}</dt>
+    <dd>{{ pool.protocol }}</dd>
+
+    <dt>{% trans "Load Balancing Method: " %}</dt>
+    <dd>{{ pool.lb_method }}</dd>
+
+    <dt>{% trans "Members: " %}</dt>
+    <dd>{{ pool.members }}</dd>
+
+    <dt>{% trans "Health Monitors: " %}</dt>
+    <dd>{{ pool.health_monitors }}</dd>
+
+    <dt>{% trans "Admin State Up: " %}</dt>
+    <dd>{{ pool.admin_state_up }}</dd>
+
+    <dt>{% trans "Status: " %}</dt>
+    <dd>{{ pool.status }}</dd>
+  </dl>
+</div>

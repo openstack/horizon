@@ -1,0 +1,48 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="info row-fluid detail">
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "ID: " %}</dt>
+    <dd>{{ vip.id }}</dd>
+
+    <dt>{% trans "Tenant ID: " %}</dt>
+    <dd>{{ vip.tenant_id }}</dd>
+
+    <dt>{% trans "Name: " %}</dt>
+    <dd>{{ vip.name }}</dd>
+
+    <dt>{% trans "Description: " %}</dt>
+    <dd>{{ vip.description }}</dd>
+
+    <dt>{% trans "Subnet ID: " %}</dt>
+    <dd>{{ vip.subnet_id }}</dd>
+
+    <dt>{% trans "Address: " %}</dt>
+    <dd>{{ vip.address }}</dd>
+
+    <dt>{% trans "Protocol Port: " %}</dt>
+    <dd>{{ vip.protocol_port }}</dd>
+
+    <dt>{% trans "Protocol: " %}</dt>
+    <dd>{{ vip.protocol }}</dd>
+
+    <dt>{% trans "Pool ID: " %}</dt>
+    <dd>{{ vip.pool_id }}</dd>
+
+    <dt>{% trans "Session Persistence: " %}</dt>
+    <dd>{% trans "Type: " %}{{ vip.session_persistence.type }}</dd>
+    {% if vip.session_persistence.cookie_name %}
+    <dd>{% trans "Cookie Name: " %}{{ vip.session_persistence.cookie_name }}</dd>
+    {% endif %}
+
+    <dt>{% trans "Connection Limit: " %}</dt>
+    <dd>{{ vip.connection_limit }}</dd>
+
+    <dt>{% trans "Admin State Up: " %}</dt>
+    <dd>{{ vip.admin_state_up }}</dd>
+
+    <dt>{% trans "Status: " %}</dt>
+    <dd>{{ vip.status }}</dd>
+  </dl>
+</div>
