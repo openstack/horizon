@@ -670,6 +670,28 @@ class NetworkTests(test.TestCase):
 
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
 
+    @test.create_stubs({api.quantum: ('network_get',)})
+    def test_subnet_create_post_cidr_without_mask(self):
+        network = self.networks.first()
+        subnet = self.subnets.first()
+        api.quantum.network_get(IsA(http.HttpRequest),
+                                network.id) \
+            .AndReturn(self.networks.first())
+        self.mox.ReplayAll()
+
+        form_data = {'network_id': subnet.network_id,
+                     'network_name': network.name,
+                     'subnet_name': subnet.name,
+                     'cidr': '10.0.0.0',
+                     'ip_version': subnet.ip_version,
+                     'gateway_ip': subnet.gateway_ip}
+        url = reverse('horizon:nova:networks:addsubnet',
+                      args=[subnet.network_id])
+        res = self.client.post(url, form_data)
+
+        expected_msg = "The subnet in the Network Address is too small (/32)."
+        self.assertContains(res, expected_msg)
+
     @test.create_stubs({api.quantum: ('subnet_modify',
                                       'subnet_get',)})
     def test_subnet_update_post(self):
