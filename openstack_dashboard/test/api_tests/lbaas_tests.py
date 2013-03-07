@@ -206,9 +206,6 @@ class LbaasApiTests(test.APITestCase):
                      'delay': '10',
                      'timeout': '10',
                      'max_retries': '10',
-                     'http_method': 'GET',
-                     'url_path': '/monitor',
-                     'expected_codes': '200',
                      'admin_state_up': True
                      }
         form_data_with_pool_id = {
@@ -217,9 +214,6 @@ class LbaasApiTests(test.APITestCase):
             'delay': '10',
             'timeout': '10',
             'max_retries': '10',
-            'http_method': 'GET',
-            'url_path': '/monitor',
-            'expected_codes': '200',
             'admin_state_up': True}
         monitor = {'health_monitor': {
                 'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
@@ -227,9 +221,6 @@ class LbaasApiTests(test.APITestCase):
                 'delay': '10',
                 'timeout': '10',
                 'max_retries': '10',
-                'http_method': 'GET',
-                'url_path': '/monitor',
-                'expected_codes': '200',
                 'admin_state_up': True}}
         monitor_id = {'health_monitor': {
                 'id': 'abcdef-c3eb-4fee-9763-12de3338041e'}}

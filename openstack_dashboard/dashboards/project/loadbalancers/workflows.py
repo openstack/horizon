@@ -63,7 +63,7 @@ class AddPoolAction(workflows.Action):
         protocol_choices.append(('HTTPS', 'HTTPS'))
         self.fields['protocol'].choices = protocol_choices
 
-        lb_method_choices = [('', _("Select a Protocol"))]
+        lb_method_choices = [('', _("Select a Method"))]
         lb_method_choices.append(('ROUND_ROBIN', 'ROUND_ROBIN'))
         lb_method_choices.append(('LEAST_CONNECTIONS', 'LEAST_CONNECTIONS'))
         lb_method_choices.append(('SOURCE_IP', 'SOURCE_IP'))
@@ -357,18 +357,69 @@ class AddMember(workflows.Workflow):
 
 class AddMonitorAction(workflows.Action):
     pool_id = forms.ChoiceField(label=_("Pool"))
-    type = forms.ChoiceField(label=_("Type"))
-    delay = forms.CharField(max_length=80, label=_("Delay"))
-    timeout = forms.CharField(max_length=80, label=_("Timeout"))
-    max_retries = forms.CharField(max_length=80,
-                                  label=_("Max Retries (1~10)"))
+    type = forms.ChoiceField(
+        label=_("Type"),
+        choices=[('ping', _('PING')),
+                 ('tcp', _('TCP')),
+                 ('http', _('HTTP')),
+                 ('https', _('HTTPS'))],
+        widget=forms.Select(attrs={
+            'class': 'switchable',
+            'data-slug': 'type'
+        }))
+    delay = forms.CharField(
+        max_length=80,
+        label=_("Delay"),
+        help_text=_("The minimum time in seconds between regular checks "
+                    "of a member"))
+    timeout = forms.CharField(
+        max_length=80,
+        label=_("Timeout"),
+        help_text=_("The maximum time in seconds for a monitor to wait "
+                    "for a reply"))
+    max_retries = forms.CharField(
+        max_length=80,
+        label=_("Max Retries (1~10)"),
+        help_text=_("Number of permissible failures before changing "
+                    "the status of member to inactive"))
     http_method = forms.ChoiceField(
-        initial="GET", required=False, label=_("HTTP Method"))
+        initial="GET",
+        required=False,
+        choices=[('GET', _('GET'))],
+        label=_("HTTP Method"),
+        help_text=_("HTTP method used to check health status of a member"),
+        widget=forms.Select(attrs={
+            'class': 'switched',
+            'data-switch-on': 'type',
+            'data-type-http': _('HTTP Method'),
+            'data-type-https': _('HTTP Method')
+        }))
     url_path = forms.CharField(
-        initial="/", required=False, max_length=80, label=_("URL"))
-    expected_codes = forms.CharField(
-        initial="200", required=False, max_length=80,
-        label=_("Expected HTTP Status Codes"))
+        initial="/",
+        required=False,
+        max_length=80,
+        label=_("URL"),
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'type',
+            'data-type-http': _('URL'),
+            'data-type-https': _('URL')
+        }))
+    expected_codes = forms.RegexField(
+        initial="200",
+        required=False,
+        max_length=80,
+        regex=r'^(\d{3}(\s*,\s*\d{3})*)$|^(\d{3}-\d{3})$',
+        label=_("Expected HTTP Status Codes"),
+        help_text=_("Expected code may be a single value (e.g. 200), "
+                    "a list of values (e.g. 200, 202), "
+                    "or range of values (e.g. 200-204)"),
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'type',
+            'data-type-http': _('Expected HTTP Status Codes'),
+            'data-type-https': _('Expected HTTP Status Codes')
+        }))
     admin_state_up = forms.BooleanField(label=_("Admin State"),
                                         initial=True, required=False)
 
@@ -385,16 +436,27 @@ class AddMonitorAction(workflows.Action):
                               _('Unable to retrieve pools list.'))
         self.fields['pool_id'].choices = pool_id_choices
 
-        type_choices = [('', _("Select Type"))]
-        type_choices.append(('PING', 'PING'))
-        type_choices.append(('TCP', 'TCP'))
-        type_choices.append(('HTTP', 'HTTP'))
-        type_choices.append(('HTTPS', 'HTTPS'))
-        self.fields['type'].choices = type_choices
+    def clean(self):
+        cleaned_data = super(AddMonitorAction, self).clean()
+        type_opt = cleaned_data.get('type')
 
-        http_method_choices = [('', _("Select HTTP Method"))]
-        http_method_choices.append(('GET', 'GET'))
-        self.fields['http_method'].choices = http_method_choices
+        if type_opt in ['http', 'https']:
+            http_method_opt = cleaned_data.get('http_method')
+            url_path = cleaned_data.get('url_path')
+            expected_codes = cleaned_data.get('expected_codes')
+
+            if not http_method_opt:
+                msg = _('Please choose a HTTP method')
+                self._errors['http_method'] = self.error_class([msg])
+            if not url_path:
+                msg = _('Please specify an URL')
+                self._errors['url_path'] = self.error_class([msg])
+            if not expected_codes:
+                msg = _('Please enter a single value (e.g. 200), '
+                        'a list of values (e.g. 200, 202), '
+                        'or range of values (e.g. 200-204)')
+                self._errors['expected_codes'] = self.error_class([msg])
+        return cleaned_data
 
     class Meta:
         name = _("MonitorDetails")

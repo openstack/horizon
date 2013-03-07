@@ -217,15 +217,17 @@ def pool_health_monitor_create(request, **kwargs):
     :param expected_codes: http return code
     :param admin_state_up: admin state
     """
-    body = {'health_monitor': {'type': kwargs['type'],
+    monitor_type = kwargs['type'].upper()
+    body = {'health_monitor': {'type': monitor_type,
                                'delay': kwargs['delay'],
                                'timeout': kwargs['timeout'],
                                'max_retries': kwargs['max_retries'],
-                               'http_method': kwargs['http_method'],
-                               'url_path': kwargs['url_path'],
-                               'expected_codes': kwargs['expected_codes'],
                                'admin_state_up': kwargs['admin_state_up']
                                }}
+    if monitor_type in ['HTTP', 'HTTPS']:
+        body['health_monitor']['http_method'] = kwargs['http_method']
+        body['health_monitor']['url_path'] = kwargs['url_path']
+        body['health_monitor']['expected_codes'] = kwargs['expected_codes']
     mon = quantumclient(request).create_health_monitor(body).get(
         'health_monitor')
     body = {'health_monitor': {'id': mon['id']}}
