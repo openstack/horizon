@@ -163,6 +163,7 @@ def keystoneclient(request, admin=False):
                                             endpoint=endpoint,
                                             original_ip=remote_addr,
                                             insecure=insecure,
+                                            auth_url=endpoint,
                                             debug=settings.DEBUG)
         setattr(request, cache_attr, conn)
     return conn
@@ -312,6 +313,15 @@ def user_update_password(request, user, password, admin=True):
         return manager.update_password(user, password)
     else:
         return manager.update(user, password=password)
+
+
+def user_update_own_password(request, origpassword, password):
+    client = keystoneclient(request, admin=False)
+    if VERSIONS.active < 3:
+        client.user_id = request.user.id
+        return client.users.update_own_password(origpassword, password)
+    else:
+        return client.users.update(request.user.id, password=password)
 
 
 def user_update_tenant(request, user, project, admin=True):

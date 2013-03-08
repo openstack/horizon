@@ -1,0 +1,27 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}change_password_modal{% endblock %}
+{% block form_action %}{% url 'horizon:settings:password:index' %}{% endblock %}
+
+{% block modal_id %}change_password_modal{% endblock %}
+{% block modal-header %}{% trans "Change Password" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "From here you can change your password. We highly recommend you create a strong one. " %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+    <button type="submit" class="btn btn-primary">{% trans "Change" %}</button>
+    {% if hide %}<a href="{% url 'horizon:settings:password:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+{% endblock %}
+
