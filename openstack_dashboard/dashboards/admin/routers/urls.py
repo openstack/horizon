@@ -16,19 +16,12 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from .views import (IndexView, CreateView, DetailView)
-from .ports.views import (AddInterfaceView, SetGatewayView)
+from .views import (IndexView, DetailView)
 
 
 urlpatterns = patterns('horizon.dashboards.admin.routers.views',
     url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^create/$', CreateView.as_view(), name='create'),
     url(r'^(?P<router_id>[^/]+)/$',
         DetailView.as_view(),
         name='detail'),
-    url(r'^(?P<router_id>[^/]+)/addinterface', AddInterfaceView.as_view(),
-        name='addinterface'),
-    url(r'^(?P<router_id>[^/]+)/setgateway',
-        SetGatewayView.as_view(),
-        name='setgateway'),
 )

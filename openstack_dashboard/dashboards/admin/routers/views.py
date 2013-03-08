@@ -24,13 +24,11 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import forms
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.networks import views as n_views
 from openstack_dashboard.dashboards.project.routers import views as r_views
 
 from .ports.tables import PortsTable
-from .forms import CreateForm
 from .tables import RoutersTable
 
 
@@ -71,9 +69,3 @@ class DetailView(r_views.DetailView):
     table_classes = (PortsTable, )
     template_name = 'admin/routers/detail.html'
     failure_url = reverse_lazy('horizon:admin:routers:index')
-
-
-class CreateView(forms.ModalFormView):
-    form_class = CreateForm
-    template_name = 'admin/routers/create.html'
-    success_url = reverse_lazy("horizon:admin:routers:index")

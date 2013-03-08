@@ -30,23 +30,17 @@ LOG = logging.getLogger(__name__)
 class DeleteRouter(r_tables.DeleteRouter):
     redirect_url = "horizon:admin:routers:index"
 
+    def delete(self, request, obj_id):
+        search_opts = {'device_owner': 'network:router_interface',
+                       'device_id': obj_id}
+        ports = api.quantum.port_list(request, **search_opts)
+        for port in ports:
+            api.quantum.router_remove_interface(request, obj_id,
+                                                port_id=port.id)
+        super(DeleteRouter, self).delete(request, obj_id)
+
     def allowed(self, request, router=None):
         return True
-
-
-class CreateRouter(tables.LinkAction):
-    name = "create"
-    verbose_name = _("Create Router")
-    url = "horizon:admin:routers:create"
-    classes = ("ajax-modal", "btn-create")
-
-
-class SetGateway(r_tables.SetGateway):
-    url = "horizon:admin:routers:setgateway"
-
-
-class ClearGateway(r_tables.ClearGateway):
-    redirect_url = "horizon:admin:routers:index"
 
 
 class UpdateRow(tables.Row):
@@ -77,5 +71,5 @@ class RoutersTable(tables.DataTable):
         verbose_name = _("Routers")
         status_columns = ["status"]
         row_class = UpdateRow
-        table_actions = (CreateRouter, DeleteRouter)
-        row_actions = (SetGateway, ClearGateway, DeleteRouter)
+        table_actions = (DeleteRouter,)
+        row_actions = (DeleteRouter,)
