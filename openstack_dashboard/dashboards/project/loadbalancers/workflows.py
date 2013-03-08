@@ -107,11 +107,10 @@ class AddPool(workflows.Workflow):
     def handle(self, request, context):
         try:
             pool = api.lbaas.pool_create(request, **context)
-            context['name']
             return True
         except:
-            exceptions.handle(request,
-                              self.failure_message)
+            msg = self.format_status_message(self.failure_message)
+            exceptions.handle(request, msg)
             return False
 
 
@@ -240,8 +239,8 @@ class AddVip(workflows.Workflow):
             api.lbaas.vip_create(request, **context)
             return True
         except:
-            exceptions.handle(request,
-                              self.failure_message)
+            msg = self.format_status_message(self.failure_message)
+            exceptions.handle(request, msg)
             return False
 
 
@@ -329,10 +328,6 @@ class AddMember(workflows.Workflow):
     success_url = "horizon:project:loadbalancers:index"
     default_steps = (AddMemberStep,)
 
-    def format_status_message(self, message):
-        member_id = self.context.get('member_id')
-        return message % member_id
-
     def handle(self, request, context):
         if context['members'] == []:
             self.failure_message = _('No instances available.%s')
@@ -354,8 +349,7 @@ class AddMember(workflows.Workflow):
                 context['member_id'] = api.lbaas.member_create(
                     request, **context).id
             except:
-                exceptions.handle(request,
-                                  self.failure_message)
+                exceptions.handle(request, _("Unable to add member."))
                 return False
         return True
 
@@ -433,16 +427,11 @@ class AddMonitor(workflows.Workflow):
     success_url = "horizon:project:loadbalancers:index"
     default_steps = (AddMonitorStep,)
 
-    def format_status_message(self, message):
-        monitor_id = self.context.get('monitor_id')
-        return message % monitor_id
-
     def handle(self, request, context):
         try:
             context['monitor_id'] = api.lbaas.pool_health_monitor_create(
                 request, **context).get('id')
             return True
         except:
-            exceptions.handle(request,
-                              self.failure_message)
+            exceptions.handle(request, _("Unable to add monitor."))
         return False
