@@ -134,8 +134,9 @@ class CreateNetwork(workflows.Workflow):
             self.context['net_id'] = network.id
             msg = _('Network "%s" was successfully created.') % network.name
             LOG.debug(msg)
-        except:
-            msg = _('Failed to create network "%s".') % data['net_name']
+        except Exception as e:
+            msg = (_('Failed to create network "%(network)s": %(reason)s') %
+                   {"network": data['net_name'], "reason": e})
             LOG.info(msg)
             redirect = reverse('horizon:nova:networks:index')
             exceptions.handle(request, msg, redirect=redirect)
@@ -156,11 +157,13 @@ class CreateNetwork(workflows.Workflow):
             api.quantum.subnet_create(request, **params)
             msg = _('Subnet "%s" was successfully created.') % data['cidr']
             LOG.debug(msg)
-        except Exception:
-            msg = _('Failed to create subnet "%(sub)s" for network "%(net)s".')
+        except Exception as e:
+            msg = _('Failed to create subnet "%(sub)s" for network "%(net)s": '
+                    ' %(reason)s')
             redirect = reverse('horizon:nova:networks:index')
             exceptions.handle(request,
-                              msg % {"sub": data['cidr'], "net": network.id},
+                              msg % {"sub": data['cidr'], "net": network.id,
+                                     "reason": e},
                               redirect=redirect)
             return False
 
