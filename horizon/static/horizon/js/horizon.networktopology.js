@@ -240,10 +240,15 @@ horizon.network_topology = {
     port_html
       .append(ip_html)
       .css({'background-color':self.network_color(port.network_id)})
-      .click(function (e){
+      .click(function (e) {
         e.stopPropagation();
-        window.location.href = port.url;
+        if(port.url != undefined) {
+          window.location.href = port.url;
+        }
       });
+    if(port.url == undefined) {
+      port_html.addClass("nourl");
+    }
     return port_html;
   },
   port_css: function(port_html, position, network_a, network_b){
