@@ -22,7 +22,7 @@
           <li class='divider'></li>
           {% for tenant in authorized_tenants %}
             {% if tenant.enabled and tenant.id != request.user.tenant_id %}
-              <li><a href="{% url switch_tenants tenant.id %}">{{ tenant.name }}</a></li>
+              <li><a href="{% url switch_tenants tenant.id %}?next={{ request.horizon.dashboard.get_absolute_url }}">{{ tenant.name }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
