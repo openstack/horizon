@@ -63,6 +63,7 @@ class FlavorsTests(test.BaseAdminViewTests):
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
 
         # POST
+        api.nova.flavor_list(IsA(http.HttpRequest))
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
         api.nova.flavor_get_extras(IsA(http.HttpRequest), flavor.id, raw=True)\
            .AndReturn(extra_specs)
@@ -121,6 +122,7 @@ class FlavorsTests(test.BaseAdminViewTests):
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
 
         # POST
+        api.nova.flavor_list(IsA(http.HttpRequest))
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
         api.nova.flavor_get_extras(IsA(http.HttpRequest), flavor.id, raw=True)\
            .AndReturn(extra_specs)
@@ -156,3 +158,39 @@ class FlavorsTests(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(resp,
                                     reverse("horizon:admin:flavors:index"))
+
+    @test.create_stubs({api.nova: ('flavor_list',
+                                   'flavor_get'), })
+    def test_edit_flavor_set_existing_name(self):
+        flavor_a = self.flavors.list()[0]
+        flavor_b = self.flavors.list()[1]
+        eph = getattr(flavor_a, 'OS-FLV-EXT-DATA:ephemeral')
+
+        # GET
+        api.nova.flavor_get(IsA(http.HttpRequest),
+                            flavor_a.id).AndReturn(flavor_a)
+
+        # POST
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.flavor_get(IsA(http.HttpRequest),
+                            flavor_a.id).AndReturn(flavor_a)
+        self.mox.ReplayAll()
+
+        # get_test
+        url = reverse('horizon:admin:flavors:edit', args=[flavor_a.id])
+        resp = self.client.get(url)
+        self.assertEqual(resp.status_code, 200)
+        self.assertTemplateUsed(resp, "admin/flavors/edit.html")
+
+        # post test
+        data = {'flavor_id': flavor_a.id,
+                'name': flavor_b.name,
+                'vcpus': flavor_a.vcpus + 1,
+                'memory_mb': flavor_a.ram,
+                'disk_gb': flavor_a.disk,
+                'swap_mb': flavor_a.swap,
+                'eph_gb': eph}
+        resp = self.client.post(url, data)
+        self.assertFormErrors(resp, 1, 'The name &quot;m1.massive&quot; '
+                              'is already used by another flavor.')
