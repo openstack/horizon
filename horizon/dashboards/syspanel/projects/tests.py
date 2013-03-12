@@ -14,11 +14,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django import http
 from django.core.urlresolvers import reverse
 from mox import IsA
 
 from horizon import api
+from horizon import exceptions
 from horizon import test
 
 from .workflows import CreateProject, UpdateProject
@@ -840,3 +843,31 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api: ('tenant_get',
+                              'tenant_quota_get',
+                              'get_default_role',)})
+    def test_update_project_when_default_role_does_not_exist(self):
+        project = self.tenants.first()
+        quota = self.quotas.first()
+
+        # Default role doesn't exist
+        api.get_default_role(IsA(http.HttpRequest)).AndReturn(None)
+
+        api.tenant_get(IsA(http.HttpRequest), self.tenant.id, admin=True) \
+            .AndReturn(project)
+        api.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(quota)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:syspanel:projects:update',
+                      args=[self.tenant.id])
+
+        try:
+            # Avoid the log message in the test output when the workflow's
+            # step action cannot be instantiated
+            logging.disable(logging.ERROR)
+            with self.assertRaises(exceptions.NotFound):
+                res = self.client.get(url)
+        finally:
+            logging.disable(logging.NOTSET)
