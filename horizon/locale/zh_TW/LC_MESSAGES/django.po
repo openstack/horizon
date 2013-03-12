@@ -8,17 +8,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-05 19:29+0000\n"
+"POT-Creation-Date: 2013-03-12 04:08+0000\n"
 "PO-Revision-Date: 2012-08-18 09:21+0000\n"
 "Last-Translator: Chao-Hsiung Liao <pesder@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openstack/language/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/"
+"openstack/language/zh_TW/)\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:437
+#: base.py:424
 msgid "Other"
 msgstr "其它"
 
@@ -31,7 +32,7 @@ msgstr "請登入以繼續。"
 msgid "You are not authorized to access %s"
 msgstr "您的權限不足 無法查看%s"
 
-#: exceptions.py:285
+#: exceptions.py:283
 msgid "Unauthorized. Please try logging in again."
 msgstr "權限不足。 請重新登入。"
 
@@ -44,61 +45,65 @@ msgstr "導覽項目"
 msgid "Select a %s to browse."
 msgstr "選擇要瀏覽的 %s。"
 
-#: tables/actions.py:338
+#: conf/default.py:29
+msgid "Password is not accepted"
+msgstr "密碼不被接受"
+
+#: tables/actions.py:349
 msgid "Filter"
 msgstr "搜尋"
 
-#: tables/actions.py:468
+#: tables/actions.py:527
 #, python-format
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:502
+#: tables/actions.py:561
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:530
+#: tables/actions.py:589
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr "您沒有權限使用%(action)s: %(objs)s"
 
-#: tables/actions.py:536
+#: tables/actions.py:595
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "無法%(action)s: %(objs)s"
 
-#: tables/actions.py:542
+#: tables/actions.py:601
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s：%(objs)s"
 
-#: tables/actions.py:552
+#: tables/actions.py:611
 msgid "Delete"
 msgstr "刪除"
 
-#: tables/actions.py:553
+#: tables/actions.py:612
 msgid "Deleted"
 msgstr "已刪除"
 
-#: tables/base.py:266
+#: tables/base.py:275
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "此屬性%(attr)s並不在%(obj)s上存在。"
 
-#: tables/base.py:727
+#: tables/base.py:748
 msgid "No items to display."
 msgstr "沒有任何相關項目"
 
-#: tables/base.py:830
+#: tables/base.py:852
 msgid "Actions"
 msgstr "動作"
 
-#: tables/base.py:1008
+#: tables/base.py:1035
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "找不到id \"%s\"的相關項目"
 
-#: tables/base.py:1138
+#: tables/base.py:1165
 msgid "Please select a row before taking that action."
 msgstr "請選擇一個欄位後才執行動作"
 
@@ -122,7 +127,20 @@ msgstr "登入"
 msgid "Log In"
 msgstr "登入"
 
+#: templates/auth/_login.html:14
+#, fuzzy
+msgid "You don't have permissions to access:"
+msgstr "您沒有權限使用%(action)s: %(objs)s"
+
+#: templates/auth/_login.html:16
+msgid "Login as different user or go back to"
+msgstr ""
+
 #: templates/auth/_login.html:17
+msgid "home page"
+msgstr ""
+
+#: templates/auth/_login.html:27
 msgid "Sign In"
 msgstr ""
 
@@ -142,15 +160,19 @@ msgstr "成功： "
 msgid "Error: "
 msgstr "錯誤： "
 
-#: templates/horizon/common/_data_table.html:44
+#: templates/horizon/common/_data_table.html:54
 msgid "Summary"
 msgstr "摘要"
 
-#: templates/horizon/common/_data_table.html:53
+#: templates/horizon/common/_data_table.html:63
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] "顯示 %(counter)s 個項目"
+
+#: templates/horizon/common/_data_table_row_actions.html:10
+msgid "More"
+msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:4
 #, fuzzy
@@ -160,12 +182,16 @@ msgstr "摘要"
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
 #: templates/horizon/common/_quota_summary.html:11
+#: templates/horizon/common/_quota_summary.html:15
+#: templates/horizon/common/_quota_summary.html:18
 msgid "Used"
 msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
 #: templates/horizon/common/_quota_summary.html:11
+#: templates/horizon/common/_quota_summary.html:15
+#: templates/horizon/common/_quota_summary.html:18
 msgid "of"
 msgstr ""
 
@@ -183,6 +209,16 @@ msgstr "可用"
 #, fuzzy
 msgid "Available RAM"
 msgstr "可用"
+
+#: templates/horizon/common/_quota_summary.html:15
+#, fuzzy
+msgid "Available volumes"
+msgstr "可用"
+
+#: templates/horizon/common/_quota_summary.html:18
+#, fuzzy
+msgid "Available volume storage"
+msgstr "所有執行個體"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
@@ -233,11 +269,11 @@ msgstr "取消"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:108
+#: templatetags/horizon.py:109
 msgid "No Limit"
 msgstr "不限制"
 
-#: templatetags/horizon.py:110 templatetags/horizon.py:112
+#: templatetags/horizon.py:111 templatetags/horizon.py:113
 msgid "Available"
 msgstr "可用"
 
@@ -328,45 +364,53 @@ msgstr "我的面板"
 msgid "Admin Panel"
 msgstr "管理面板"
 
-#: test/tests/messages.py:31
+#: test/tests/messages.py:32
 msgid "Giant ants are attacking San Francisco!"
 msgstr ""
 
-#: test/tests/tables.py:106
+#: test/tests/messages.py:46
+msgid "We are now safe from ants! Go <a>here</a>!"
+msgstr ""
+
+#: test/tests/tables.py:107
 msgid "Batch"
 msgstr "批次"
 
-#: test/tests/tables.py:107
+#: test/tests/tables.py:108
 msgid "Batched"
 msgstr "已批次"
 
-#: test/tests/tables.py:108 test/tests/tables.py:119
+#: test/tests/tables.py:109 test/tests/tables.py:120
 msgid "Item"
 msgstr "項目"
 
-#: test/tests/tables.py:109 test/tests/tables.py:120
+#: test/tests/tables.py:110 test/tests/tables.py:121
 msgid "Items"
 msgstr "項目"
 
-#: test/tests/tables.py:117
+#: test/tests/tables.py:118
 msgid "Down"
 msgstr "下"
 
-#: test/tests/tables.py:117
+#: test/tests/tables.py:118
 msgid "Up"
 msgstr "上"
 
-#: test/tests/tables.py:118
+#: test/tests/tables.py:119
 msgid "Downed"
 msgstr ""
 
-#: test/tests/tables.py:118
+#: test/tests/tables.py:119
 msgid "Upped"
 msgstr ""
 
-#: test/tests/tables.py:185
+#: test/tests/tables.py:187
 msgid "No Actions Table"
 msgstr "沒有動作表格"
+
+#: test/tests/tables.py:684
+msgid "Single Table"
+msgstr ""
 
 #: test/tests/tabs.py:36
 msgid "Tab One"
@@ -436,24 +480,38 @@ msgstr "IP 位址版本無效"
 msgid "Invalid subnet mask"
 msgstr "無效的子網路遮罩"
 
-#: utils/validators.py:35
-msgid "Password is not accepted"
-msgstr "密碼不被接受"
-
-#: workflows/base.py:70
+#: workflows/base.py:71
 msgid "Processing..."
 msgstr "處理中…"
 
-#: workflows/base.py:538
+#: workflows/base.py:467
+#, fuzzy
+msgid "All available"
+msgstr "可用"
+
+#: workflows/base.py:468
+msgid "Members"
+msgstr ""
+
+#: workflows/base.py:469
+#, fuzzy
+msgid "None available."
+msgstr "可用"
+
+#: workflows/base.py:470
+msgid "No members."
+msgstr ""
+
+#: workflows/base.py:569
 msgid "Save"
 msgstr "儲存"
 
-#: workflows/base.py:539
+#: workflows/base.py:570
 #, python-format
 msgid "%s completed successfully."
 msgstr "%s 已成功的完成。"
 
-#: workflows/base.py:540
+#: workflows/base.py:571
 #, python-format
 msgid "%s did not complete."
 msgstr "%s 尚未完成。"

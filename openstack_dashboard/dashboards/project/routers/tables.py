@@ -88,8 +88,8 @@ class ClearGateway(tables.BatchAction):
         try:
             api.quantum.router_remove_gateway(request, obj_id)
         except Exception as e:
-            msg = (_('Unable to clear gateway for router "%s": "%s"') %
-                   (name, e.message))
+            msg = (_('Unable to clear gateway for router '
+                     '"%(name)s": "%(msg)s"') % {name: name, msg: e.message})
             LOG.info(msg)
             redirect = reverse(self.redirect_url)
             exceptions.handle(request, msg, redirect=redirect)

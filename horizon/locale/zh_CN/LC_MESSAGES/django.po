@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-05 19:29+0000\n"
+"POT-Creation-Date: 2013-03-12 04:08+0000\n"
 "PO-Revision-Date: 2012-09-12 02:05+0000\n"
 "Last-Translator: QunShi Zhang <zhang.kris@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:437
+#: base.py:424
 msgid "Other"
 msgstr "其他"
 
@@ -33,7 +33,7 @@ msgstr "请登陆后继续"
 msgid "You are not authorized to access %s"
 msgstr "您没有权限访问%s"
 
-#: exceptions.py:285
+#: exceptions.py:283
 msgid "Unauthorized. Please try logging in again."
 msgstr "认证失败。请重新登陆。"
 
@@ -46,61 +46,65 @@ msgstr ""
 msgid "Select a %s to browse."
 msgstr "选择一个%s 浏览"
 
-#: tables/actions.py:338
+#: conf/default.py:29
+msgid "Password is not accepted"
+msgstr ""
+
+#: tables/actions.py:349
 msgid "Filter"
 msgstr ""
 
-#: tables/actions.py:468
+#: tables/actions.py:527
 #, python-format
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:502
+#: tables/actions.py:561
 msgid "N/A"
 msgstr ""
 
-#: tables/actions.py:530
+#: tables/actions.py:589
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:536
+#: tables/actions.py:595
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:542
+#: tables/actions.py:601
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:552
+#: tables/actions.py:611
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:553
+#: tables/actions.py:612
 msgid "Deleted"
 msgstr ""
 
-#: tables/base.py:266
+#: tables/base.py:275
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:727
+#: tables/base.py:748
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:830
+#: tables/base.py:852
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1008
+#: tables/base.py:1035
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1138
+#: tables/base.py:1165
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -124,7 +128,19 @@ msgstr ""
 msgid "Log In"
 msgstr ""
 
+#: templates/auth/_login.html:14
+msgid "You don't have permissions to access:"
+msgstr ""
+
+#: templates/auth/_login.html:16
+msgid "Login as different user or go back to"
+msgstr ""
+
 #: templates/auth/_login.html:17
+msgid "home page"
+msgstr ""
+
+#: templates/auth/_login.html:27
 msgid "Sign In"
 msgstr ""
 
@@ -144,15 +160,19 @@ msgstr ""
 msgid "Error: "
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:44
+#: templates/horizon/common/_data_table.html:54
 msgid "Summary"
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:53
+#: templates/horizon/common/_data_table.html:63
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] ""
+
+#: templates/horizon/common/_data_table_row_actions.html:10
+msgid "More"
+msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:4
 msgid "Quota Summary"
@@ -161,12 +181,16 @@ msgstr ""
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
 #: templates/horizon/common/_quota_summary.html:11
+#: templates/horizon/common/_quota_summary.html:15
+#: templates/horizon/common/_quota_summary.html:18
 msgid "Used"
 msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
 #: templates/horizon/common/_quota_summary.html:11
+#: templates/horizon/common/_quota_summary.html:15
+#: templates/horizon/common/_quota_summary.html:18
 msgid "of"
 msgstr ""
 
@@ -182,6 +206,16 @@ msgstr ""
 #: templates/horizon/common/_quota_summary.html:11
 msgid "Available RAM"
 msgstr ""
+
+#: templates/horizon/common/_quota_summary.html:15
+#, fuzzy
+msgid "Available volumes"
+msgstr "实例"
+
+#: templates/horizon/common/_quota_summary.html:18
+#, fuzzy
+msgid "Available volume storage"
+msgstr "实例"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
@@ -231,11 +265,11 @@ msgstr "取消"
 msgid "Horizon"
 msgstr ""
 
-#: templatetags/horizon.py:108
+#: templatetags/horizon.py:109
 msgid "No Limit"
 msgstr ""
 
-#: templatetags/horizon.py:110 templatetags/horizon.py:112
+#: templatetags/horizon.py:111 templatetags/horizon.py:113
 msgid "Available"
 msgstr ""
 
@@ -326,44 +360,52 @@ msgstr ""
 msgid "Admin Panel"
 msgstr ""
 
-#: test/tests/messages.py:31
+#: test/tests/messages.py:32
 msgid "Giant ants are attacking San Francisco!"
 msgstr ""
 
-#: test/tests/tables.py:106
-msgid "Batch"
+#: test/tests/messages.py:46
+msgid "We are now safe from ants! Go <a>here</a>!"
 msgstr ""
 
 #: test/tests/tables.py:107
+msgid "Batch"
+msgstr ""
+
+#: test/tests/tables.py:108
 msgid "Batched"
 msgstr ""
 
-#: test/tests/tables.py:108 test/tests/tables.py:119
+#: test/tests/tables.py:109 test/tests/tables.py:120
 msgid "Item"
 msgstr ""
 
-#: test/tests/tables.py:109 test/tests/tables.py:120
+#: test/tests/tables.py:110 test/tests/tables.py:121
 msgid "Items"
 msgstr ""
 
-#: test/tests/tables.py:117
+#: test/tests/tables.py:118
 msgid "Down"
 msgstr ""
 
-#: test/tests/tables.py:117
+#: test/tests/tables.py:118
 msgid "Up"
 msgstr ""
 
-#: test/tests/tables.py:118
+#: test/tests/tables.py:119
 msgid "Downed"
 msgstr ""
 
-#: test/tests/tables.py:118
+#: test/tests/tables.py:119
 msgid "Upped"
 msgstr ""
 
-#: test/tests/tables.py:185
+#: test/tests/tables.py:187
 msgid "No Actions Table"
+msgstr ""
+
+#: test/tests/tables.py:684
+msgid "Single Table"
 msgstr ""
 
 #: test/tests/tabs.py:36
@@ -434,24 +476,36 @@ msgstr ""
 msgid "Invalid subnet mask"
 msgstr ""
 
-#: utils/validators.py:35
-msgid "Password is not accepted"
-msgstr ""
-
-#: workflows/base.py:70
+#: workflows/base.py:71
 msgid "Processing..."
 msgstr ""
 
-#: workflows/base.py:538
+#: workflows/base.py:467
+msgid "All available"
+msgstr ""
+
+#: workflows/base.py:468
+msgid "Members"
+msgstr ""
+
+#: workflows/base.py:469
+msgid "None available."
+msgstr ""
+
+#: workflows/base.py:470
+msgid "No members."
+msgstr ""
+
+#: workflows/base.py:569
 msgid "Save"
 msgstr ""
 
-#: workflows/base.py:539
+#: workflows/base.py:570
 #, python-format
 msgid "%s completed successfully."
 msgstr ""
 
-#: workflows/base.py:540
+#: workflows/base.py:571
 #, python-format
 msgid "%s did not complete."
 msgstr ""
