@@ -129,7 +129,7 @@ class Action(forms.Form):
 
     def __init__(self, request, context, *args, **kwargs):
         if request.method == "POST":
-            super(Action, self).__init__(request.POST)
+            super(Action, self).__init__(request.POST, initial=context)
         else:
             super(Action, self).__init__(initial=context)
 
