@@ -57,8 +57,19 @@ LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 
 # We recommend you use memcached for development; otherwise after every reload
 # of the django development server, you will have to login again. To use
-# memcached set CACHE_BACKED to something like 'memcached://127.0.0.1:11211/'
-CACHE_BACKEND = 'locmem://'
+# memcached set CACHES to something like 
+# CACHES = {
+#    'default': {
+#        'BACKEND' : 'django.core.cache.backends.memcached.MemcachedCache',
+#        'LOCATION' : '127.0.0.1:11211',
+#    }
+#}
+
+CACHES = {
+    'default': {
+        'BACKEND' : 'django.core.cache.backends.locmem.LocMemCache'
+    }
+}
 
 # Send email to the console by default
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
