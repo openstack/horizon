@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import uuid
+
 from horizon.openstack.common import jsonutils
 
 from novaclient.v1_1 import (flavors, keypairs, servers, volumes, quotas,
@@ -140,6 +142,7 @@ def data(TEST):
     TEST.quotas = TestDataContainer()
     TEST.quota_usages = TestDataContainer()
     TEST.floating_ips = TestDataContainer()
+    TEST.floating_ips_uuid = TestDataContainer()
     TEST.usages = TestDataContainer()
     TEST.certs = TestDataContainer()
     TEST.volume_snapshots = TestDataContainer()
@@ -316,6 +319,19 @@ def data(TEST):
                                      'instance_id': None,
                                      'ip': '58.58.58.58'})
     TEST.floating_ips.add(fip_1, fip_2)
+
+    # Floating IP with UUID id (for Floating IP with Quantum)
+    fip_3 = floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
+                                    {'id': str(uuid.uuid4()),
+                                     'fixed_ip': '10.0.0.4',
+                                     'instance_id': server_1.id,
+                                     'ip': '58.58.58.58'})
+    fip_4 = floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
+                                    {'id': str(uuid.uuid4()),
+                                     'fixed_ip': None,
+                                     'instance_id': None,
+                                     'ip': '58.58.58.58'})
+    TEST.floating_ips_uuid.add(fip_3, fip_4)
 
     # Usage
     usage_vals = {"tenant_id": TEST.tenant.id,
