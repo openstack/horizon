@@ -383,11 +383,11 @@ class AddMonitorAction(workflows.Action):
         pool_id_choices = [('', _("Select a Pool"))]
         try:
             pools = api.lbaas.pools_get(request)
+            for p in pools:
+                pool_id_choices.append((p.id, p.name))
         except:
             exceptions.handle(request,
                               _('Unable to retrieve pools list.'))
-        for p in pools:
-            pool_id_choices.append((p.id, p.name))
         self.fields['pool_id'].choices = pool_id_choices
 
         type_choices = [('', _("Select Type"))]
