@@ -52,6 +52,7 @@ class AddPoolAction(workflows.Action):
         except:
             exceptions.handle(request,
                               _('Unable to retrieve networks list.'))
+            networks = []
         for n in networks:
             for s in n['subnets']:
                 subnet_id_choices.append((s.id, s.cidr))
