@@ -65,7 +65,7 @@ class QuotaTests(test.APITestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
         api.nova.server_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.servers.list())
+                .AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -94,7 +94,7 @@ class QuotaTests(test.APITestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
         api.nova.server_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.servers.list())
+                .AndReturn([self.servers.list(), False])
 
         self.mox.ReplayAll()
 
@@ -118,7 +118,7 @@ class QuotaTests(test.APITestCase):
                 .AndReturn(self.quotas.first())
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest)).AndReturn([])
+        api.nova.server_list(IsA(http.HttpRequest)).AndReturn([[], False])
 
         self.mox.ReplayAll()
 
@@ -153,7 +153,7 @@ class QuotaTests(test.APITestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
         api.nova.server_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.servers.list())
+                .AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \

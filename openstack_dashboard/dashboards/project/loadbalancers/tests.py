@@ -244,8 +244,8 @@ class LoadBalancerTests(test.TestCase):
 
         api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
 
-        api.nova.server_list(IsA(http.HttpRequest)).AndReturn([server1,
-                                                               server2])
+        api.nova.server_list(IsA(http.HttpRequest)).AndReturn(
+            [[server1, server2], False])
 
         api.quantum.port_list(IsA(http.HttpRequest),
                               device_id=server1.id).AndReturn([port1, ])
@@ -288,8 +288,9 @@ class LoadBalancerTests(test.TestCase):
 
         api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
 
-        api.nova.server_list(IsA(http.HttpRequest)).AndReturn([server1,
-                                                               server2])
+        api.nova.server_list(IsA(http.HttpRequest)).AndReturn([[server1,
+                                                                server2],
+                                                                False])
 
         self.mox.ReplayAll()
 
@@ -317,7 +318,7 @@ class LoadBalancerTests(test.TestCase):
 
         api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
         api.nova.server_list(
-            IsA(http.HttpRequest)).AndReturn([server1, server2])
+            IsA(http.HttpRequest)).AndReturn([[server1, server2], False])
 
         self.mox.ReplayAll()
 

@@ -22,6 +22,9 @@
 from __future__ import absolute_import
 
 from django import http
+from django.conf import settings
+from django.test.utils import override_settings
+
 from mox import IsA
 from novaclient.v1_1 import servers
 
@@ -112,9 +115,50 @@ class ComputeApiTests(test.APITestCase):
         novaclient.servers.list(True, {'all_tenants': True}).AndReturn(servers)
         self.mox.ReplayAll()
 
-        ret_val = api.nova.server_list(self.request, all_tenants=True)
+        ret_val, has_more = api.nova.server_list(self.request,
+                                                 all_tenants=True)
         for server in ret_val:
             self.assertIsInstance(server, api.nova.Server)
+
+    def test_server_list_pagination(self):
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+        servers = self.servers.list()
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.list(True,
+                                {'all_tenants': True,
+                                 'marker': None,
+                                 'limit': page_size + 1}).AndReturn(servers)
+        self.mox.ReplayAll()
+
+        ret_val, has_more = api.nova.server_list(self.request,
+                                                 {'marker': None,
+                                                  'paginate': True},
+                                                 all_tenants=True)
+        for server in ret_val:
+            self.assertIsInstance(server, api.nova.Server)
+        self.assertFalse(has_more)
+
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_server_list_pagination_more(self):
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
+        servers = self.servers.list()
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.list(True,
+                                {'all_tenants': True,
+                                 'marker': None,
+                                 'limit': page_size + 1}).AndReturn(servers)
+        self.mox.ReplayAll()
+
+        ret_val, has_more = api.nova.server_list(self.request,
+                                                 {'marker': None,
+                                                  'paginate': True},
+                                                 all_tenants=True)
+        for server in ret_val:
+            self.assertIsInstance(server, api.nova.Server)
+        self.assertEquals(page_size, len(ret_val))
+        self.assertTrue(has_more)
 
     def test_usage_get(self):
         novaclient = self.stub_novaclient()

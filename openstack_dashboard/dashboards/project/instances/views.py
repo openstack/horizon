@@ -48,11 +48,20 @@ class IndexView(tables.DataTableView):
     table_class = InstancesTable
     template_name = 'project/instances/index.html'
 
+    def has_more_data(self, table):
+        return self._more
+
     def get_data(self):
+        marker = self.request.GET.get(
+                        InstancesTable._meta.pagination_param, None)
         # Gather our instances
         try:
-            instances = api.nova.server_list(self.request)
+            instances, self._more = api.nova.server_list(
+                                        self.request,
+                                        search_opts={'marker': marker,
+                                                     'paginate': True})
         except:
+            self._more = False
             instances = []
             exceptions.handle(self.request,
                               _('Unable to retrieve instances.'))

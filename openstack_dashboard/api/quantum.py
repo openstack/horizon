@@ -168,7 +168,7 @@ class FloatingIpManager(network.FloatingIpManager):
 
     def list_targets(self):
         ports = port_list(self.request)
-        servers = nova.server_list(self.request)
+        servers, has_more = nova.server_list(self.request)
         server_dict = SortedDict([(s.id, s.name) for s in servers])
         targets = []
         for p in ports:

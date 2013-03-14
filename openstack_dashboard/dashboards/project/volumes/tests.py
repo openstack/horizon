@@ -314,11 +314,11 @@ class VolumeViewTests(test.TestCase):
                            AndReturn(self.volumes.list())
         cinder.volume_delete(IsA(http.HttpRequest), volume.id)
         api.nova.server_list(IsA(http.HttpRequest)).\
-                             AndReturn(self.servers.list())
+                             AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
                            AndReturn(self.volumes.list())
         api.nova.server_list(IsA(http.HttpRequest)).\
-                             AndReturn(self.servers.list())
+                             AndReturn([self.servers.list(), False])
 
         self.mox.ReplayAll()
 
@@ -342,11 +342,11 @@ class VolumeViewTests(test.TestCase):
         cinder.volume_delete(IsA(http.HttpRequest), volume.id).\
                              AndRaise(exc)
         api.nova.server_list(IsA(http.HttpRequest)).\
-                             AndReturn(self.servers.list())
+                             AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
                            AndReturn(self.volumes.list())
         api.nova.server_list(IsA(http.HttpRequest)).\
-                             AndReturn(self.servers.list())
+                             AndReturn([self.servers.list(), False])
 
         self.mox.ReplayAll()
 
@@ -364,7 +364,7 @@ class VolumeViewTests(test.TestCase):
         servers = self.servers.list()
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
-        api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        api.nova.server_list(IsA(http.HttpRequest)).AndReturn([servers, False])
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:volumes:attach', args=[volume.id])
@@ -387,7 +387,7 @@ class VolumeViewTests(test.TestCase):
         servers = self.servers.list()
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
-        api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        api.nova.server_list(IsA(http.HttpRequest)).AndReturn([servers, False])
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:volumes:attach', args=[volume.id])
@@ -407,7 +407,7 @@ class VolumeViewTests(test.TestCase):
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
                           .AndReturn(volume)
         api.nova.server_list(IsA(http.HttpRequest)) \
-                             .AndReturn(self.servers.list())
+                             .AndReturn([self.servers.list(), False])
 
         self.mox.ReplayAll()
 

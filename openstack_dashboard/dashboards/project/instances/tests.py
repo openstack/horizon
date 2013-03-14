@@ -46,8 +46,9 @@ class InstanceTests(test.TestCase):
     def test_index(self):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
 
@@ -65,7 +66,8 @@ class InstanceTests(test.TestCase):
     @test.create_stubs({api.nova: ('server_list',
                                    'tenant_absolute_limits')})
     def test_index_server_list_exception(self):
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndRaise(self.exceptions.nova)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
@@ -86,8 +88,9 @@ class InstanceTests(test.TestCase):
         servers = self.servers.list()
         flavors = self.flavors.list()
         full_flavors = SortedDict([(f.id, f) for f in flavors])
-
-        api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndRaise(self.exceptions.nova)
         for server in servers:
@@ -117,7 +120,9 @@ class InstanceTests(test.TestCase):
         for i, server in enumerate(servers):
             server.flavor['id'] = str(uuid.UUID(int=i))
 
-        api.nova.server_list(IsA(http.HttpRequest)).AndReturn(servers)
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         for server in servers:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
@@ -141,8 +146,9 @@ class InstanceTests(test.TestCase):
     def test_terminate_instance(self):
         server = self.servers.first()
 
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.nova.server_delete(IsA(http.HttpRequest), server.id)
 
@@ -159,8 +165,9 @@ class InstanceTests(test.TestCase):
     def test_terminate_instance_exception(self):
         server = self.servers.first()
 
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.nova.server_delete(IsA(http.HttpRequest), server.id) \
                           .AndRaise(self.exceptions.nova)
@@ -180,8 +187,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_pause(IsA(http.HttpRequest), server.id)
 
         self.mox.ReplayAll()
@@ -199,8 +207,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_pause(IsA(http.HttpRequest), server.id) \
                         .AndRaise(self.exceptions.nova)
 
@@ -220,8 +229,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_unpause(IsA(http.HttpRequest), server.id)
 
         self.mox.ReplayAll()
@@ -240,8 +250,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_unpause(IsA(http.HttpRequest), server.id) \
                           .AndRaise(self.exceptions.nova)
 
@@ -260,8 +271,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_reboot(IsA(http.HttpRequest), server.id,
                                api.nova.REBOOT_HARD)
 
@@ -280,8 +292,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_reboot(IsA(http.HttpRequest), server.id,
                                api.nova.REBOOT_HARD) \
             .AndRaise(self.exceptions.nova)
@@ -301,8 +314,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_reboot(IsA(http.HttpRequest), server.id,
                                api.nova.REBOOT_SOFT)
 
@@ -321,8 +335,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_suspend(IsA(http.HttpRequest), unicode(server.id))
 
         self.mox.ReplayAll()
@@ -340,8 +355,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_suspend(IsA(http.HttpRequest), unicode(server.id)) \
             .AndRaise(self.exceptions.nova)
 
@@ -361,8 +377,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_resume(IsA(http.HttpRequest), unicode(server.id))
 
         self.mox.ReplayAll()
@@ -381,8 +398,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.server_resume(IsA(http.HttpRequest),
                                unicode(server.id)) \
             .AndRaise(self.exceptions.nova)
@@ -1181,8 +1199,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
             .MultipleTimes().AndReturn(limits)
 
@@ -1209,8 +1228,9 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
 
@@ -1281,8 +1301,9 @@ class InstanceTests(test.TestCase):
         server = self.servers.first()
         fip = self.q_floating_ips.first()
 
-        api.nova.server_list(
-            IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.network.floating_ip_target_get_by_instance(
             IsA(http.HttpRequest),
@@ -1310,8 +1331,9 @@ class InstanceTests(test.TestCase):
         fip = self.q_floating_ips.first()
         fip.port_id = server.id
 
-        api.nova.server_list(
-            IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([self.servers.list(), False])
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.network.floating_ip_target_get_by_instance(
             IsA(http.HttpRequest),

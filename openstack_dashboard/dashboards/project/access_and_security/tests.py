@@ -43,7 +43,8 @@ class AccessAndSecurityTests(test.TestCase):
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True).AndReturn(self.servers.list())
+                             all_tenants=True).AndReturn([self.servers.list(),
+                                                          False])
         api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(keypairs)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(floating_ips)

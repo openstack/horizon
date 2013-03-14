@@ -285,7 +285,7 @@ class AddMemberAction(workflows.Action):
 
         members_choices = []
         try:
-            servers = api.nova.server_list(request)
+            servers, has_more = api.nova.server_list(request)
         except:
             servers = []
             exceptions.handle(request,

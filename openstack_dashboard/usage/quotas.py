@@ -119,7 +119,7 @@ def tenant_quota_usages(request):
     # Get our usages.
     floating_ips = network.tenant_floating_ip_list(request)
     flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
-    instances = nova.server_list(request)
+    instances, has_more = nova.server_list(request)
     # Fetch deleted flavors if necessary.
     missing_flavors = [instance.flavor['id'] for instance in instances
                        if instance.flavor['id'] not in flavors]

@@ -46,11 +46,21 @@ class AdminIndexView(tables.DataTableView):
     table_class = AdminInstancesTable
     template_name = 'admin/instances/index.html'
 
+    def has_more_data(self, table):
+        return self._more
+
     def get_data(self):
         instances = []
+        marker = self.request.GET.get(
+                        AdminInstancesTable._meta.pagination_param, None)
         try:
-            instances = api.nova.server_list(self.request, all_tenants=True)
+            instances, self._more = api.nova.server_list(
+                                        self.request,
+                                        search_opts={'marker': marker,
+                                                     'paginate': True},
+                                        all_tenants=True)
         except:
+            self._more = False
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'))
         if instances:

@@ -362,14 +362,27 @@ def server_get(request, instance_id):
 
 
 def server_list(request, search_opts=None, all_tenants=False):
+    page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+    paginate = False
     if search_opts is None:
         search_opts = {}
+    elif 'paginate' in search_opts:
+        paginate = search_opts.pop('paginate')
+        if paginate:
+            search_opts['limit'] = page_size + 1
+
     if all_tenants:
         search_opts['all_tenants'] = True
     else:
         search_opts['project_id'] = request.user.tenant_id
-    return [Server(s, request)
-            for s in novaclient(request).servers.list(True, search_opts)]
+    servers = [Server(s, request)
+                for s in novaclient(request).servers.list(True, search_opts)]
+
+    has_more_data = False
+    if paginate and len(servers) > page_size:
+        servers.pop(-1)
+        has_more_data = True
+    return (servers, has_more_data)
 
 
 def server_console_output(request, instance_id, tail_length=None):
