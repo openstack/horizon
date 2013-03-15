@@ -104,6 +104,12 @@ class RouterTests(test.TestCase):
                                       args=[router.id]))
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
+
+class RouterActionTests(test.TestCase):
+    DASHBOARD = 'project'
+    INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
+    DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
+
     @test.create_stubs({api.quantum: ('router_create',)})
     def test_router_create_post(self):
         router = self.routers.first()

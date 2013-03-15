@@ -21,8 +21,6 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 from openstack_dashboard.dashboards.project.networks.ports.tables import\
         get_fixed_ips, get_attached
-from openstack_dashboard.dashboards.project.routers.ports import\
-        tables as r_tables
 from openstack_dashboard.dashboards.project.routers.ports.tables import\
         get_device_owner
 
@@ -30,20 +28,11 @@ from openstack_dashboard.dashboards.project.routers.ports.tables import\
 LOG = logging.getLogger(__name__)
 
 
-class AddInterface(r_tables.AddInterface):
-    url = "horizon:admin:routers:addinterface"
-
-
-class RemoveInterface(r_tables.RemoveInterface):
-    failure_url = 'horizon:admin:routers:detail'
-
-
 class PortsTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:admin:networks:ports:detail")
     fixed_ips = tables.Column(get_fixed_ips, verbose_name=_("Fixed IPs"))
-    attached = tables.Column(get_attached, verbose_name=_("Device Attached"))
     status = tables.Column("status", verbose_name=_("Status"))
     device_owner = tables.Column(get_device_owner,
                                  verbose_name=_("Type"))
@@ -56,5 +45,3 @@ class PortsTable(tables.DataTable):
     class Meta:
         name = "interfaces"
         verbose_name = _("Interfaces")
-        table_actions = (AddInterface, RemoveInterface)
-        row_actions = (RemoveInterface, )

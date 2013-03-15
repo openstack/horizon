@@ -23,14 +23,16 @@ from horizon import exceptions
 from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports.tables import\
-        get_fixed_ips, get_attached
+        get_fixed_ips
 
 LOG = logging.getLogger(__name__)
 
 
 def get_device_owner(port):
     if port['device_owner'] == 'network:router_gateway':
-        return _('Gateway')
+        return _('External Gateway')
+    elif port['device_owner'] == 'network:router_interface':
+        return _('Internal Interface')
     else:
         return ' '
 
@@ -75,7 +77,6 @@ class PortsTable(tables.DataTable):
                          verbose_name=_("Name"),
                          link="horizon:project:networks:ports:detail")
     fixed_ips = tables.Column(get_fixed_ips, verbose_name=_("Fixed IPs"))
-    attached = tables.Column(get_attached, verbose_name=_("Device Attached"))
     status = tables.Column("status", verbose_name=_("Status"))
     device_owner = tables.Column(get_device_owner,
                                  verbose_name=_("Type"))
