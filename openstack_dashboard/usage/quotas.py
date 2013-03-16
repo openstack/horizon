@@ -52,9 +52,10 @@ class QuotaUsage(dict):
         self.usages[name]['available'] = available
 
 
-def _get_quota_data(request, method_name, disabled_quotas=[]):
+def _get_quota_data(request, method_name, disabled_quotas=[], tenant_id=None):
     quotasets = []
-    tenant_id = request.user.tenant_id
+    if not tenant_id:
+        tenant_id = request.user.tenant_id
     quotasets.append(getattr(nova, method_name)(request, tenant_id))
     qs = QuotaSet()
     if 'volumes' not in disabled_quotas:
@@ -65,12 +66,18 @@ def _get_quota_data(request, method_name, disabled_quotas=[]):
     return qs
 
 
-def get_default_quota_data(request, disabled_quotas=[]):
-    return _get_quota_data(request, "default_quota_get", disabled_quotas)
+def get_default_quota_data(request, disabled_quotas=[], tenant_id=None):
+    return _get_quota_data(request,
+                           "default_quota_get",
+                           disabled_quotas,
+                           tenant_id)
 
 
-def get_tenant_quota_data(request, disabled_quotas=[]):
-    return _get_quota_data(request, "tenant_quota_get", disabled_quotas)
+def get_tenant_quota_data(request, disabled_quotas=[], tenant_id=None):
+    return _get_quota_data(request,
+                           "tenant_quota_get",
+                           disabled_quotas,
+                           tenant_id)
 
 
 @memoized

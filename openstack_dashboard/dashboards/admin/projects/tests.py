@@ -406,7 +406,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest),
                                 self.tenant.id, admin=True) \
             .AndReturn(project)
-        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id) \
+            .AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .AndReturn(default_role)
@@ -463,7 +465,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest),
                                 self.tenant.id, admin=True) \
             .AndReturn(project)
-        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id) \
+            .AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .AndReturn(default_role)
@@ -597,7 +601,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
                                 admin=True) \
             .AndReturn(project)
-        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id) \
+            .AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .AndReturn(default_role)
@@ -670,7 +676,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
                                 admin=True) \
             .AndReturn(project)
-        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id) \
+            .AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .AndReturn(default_role)
@@ -773,7 +781,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
                                 admin=True) \
             .AndReturn(project)
-        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id) \
+            .AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .AndReturn(default_role)
@@ -860,7 +870,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
                                 admin=True) \
             .AndReturn(project)
-        quotas.get_tenant_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+        quotas.get_tenant_quota_data(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id) \
+            .AndReturn(quota)
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:projects:update',

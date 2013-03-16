@@ -177,7 +177,8 @@ class UpdateProjectView(workflows.WorkflowView):
                 initial[field] = getattr(project_info, field, None)
 
             # get initial project quota
-            quota_data = quotas.get_tenant_quota_data(self.request)
+            quota_data = quotas.get_tenant_quota_data(self.request,
+                                                      tenant_id=project_id)
             for field in QUOTA_FIELDS:
                 initial[field] = quota_data.get(field).limit
         except:
