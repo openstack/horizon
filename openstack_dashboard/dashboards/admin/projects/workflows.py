@@ -32,9 +32,21 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder, nova
 from openstack_dashboard.api.base import is_service_enabled
 
-
 INDEX_URL = "horizon:admin:projects:index"
 ADD_USER_URL = "horizon:admin:projects:create_user"
+
+NOVA_QUOTA_FIELDS = ("metadata_items",
+                     "cores",
+                     "instances",
+                     "injected_files",
+                     "injected_file_content_bytes",
+                     "ram",
+                     "floating_ips",
+                     "security_groups",
+                     "security_group_rules",)
+
+CINDER_QUOTA_FIELDS = ("volumes",
+                       "gigabytes",)
 
 
 class UpdateProjectQuotaAction(workflows.Action):
@@ -81,10 +93,9 @@ class UpdateProjectQuota(workflows.Step):
 
 class CreateProjectInfoAction(workflows.Action):
     name = forms.CharField(label=_("Name"))
-    description = forms.CharField(
-            widget=forms.widgets.Textarea(),
-            label=_("Description"),
-            required=False)
+    description = forms.CharField(widget=forms.widgets.Textarea(),
+                                  label=_("Description"),
+                                  required=False)
     enabled = forms.BooleanField(label=_("Enabled"),
                                  required=False,
                                  initial=True)
@@ -187,7 +198,7 @@ class UpdateProjectMembers(workflows.UpdateMembersStep):
                 roles = api.keystone.role_list(self.workflow.request)
             except:
                 exceptions.handle(self.workflow.request,
-                                _('Unable to retrieve user list.'))
+                                  _('Unable to retrieve user list.'))
 
             post = self.workflow.request.POST
             for role in roles:
@@ -249,23 +260,17 @@ class CreateProject(workflows.Workflow):
                                          'and set project quotas.'
                                          % users_to_add))
 
-        # update the project quota
-        ifcb = data['injected_file_content_bytes']
+        # Update the project quota.
+        nova_data = dict([(key, data[key]) for key in NOVA_QUOTA_FIELDS])
         try:
-            api.nova.tenant_quota_update(
-                request,
-                project_id,
-                metadata_items=data['metadata_items'],
-                injected_file_content_bytes=ifcb,
-                volumes=data['volumes'],
-                gigabytes=data['gigabytes'],
-                ram=data['ram'],
-                floating_ips=data['floating_ips'],
-                instances=data['instances'],
-                injected_files=data['injected_files'],
-                cores=data['cores'],
-                security_groups=data['security_groups'],
-                security_group_rules=data['security_group_rules'])
+            nova.tenant_quota_update(request, project_id, **nova_data)
+
+            if is_service_enabled(request, 'volume'):
+                cinder_data = dict([(key, data[key]) for key in
+                                    CINDER_QUOTA_FIELDS])
+                cinder.tenant_quota_update(request,
+                                           project_id,
+                                           **cinder_data)
         except:
             exceptions.handle(request, _('Unable to set project quotas.'))
         return True
@@ -384,31 +389,18 @@ class UpdateProject(workflows.Workflow):
             return True
 
         # update the project quota
-        ifcb = data['injected_file_content_bytes']
+        nova_data = dict([(key, data[key]) for key in NOVA_QUOTA_FIELDS])
         try:
-            # TODO(gabriel): Once nova-volume is fully deprecated the
-            # "volumes" and "gigabytes" quotas should no longer be sent to
-            # the nova API to be updated anymore.
-            nova.tenant_quota_update(
-                request,
-                project_id,
-                metadata_items=data['metadata_items'],
-                injected_file_content_bytes=ifcb,
-                volumes=data['volumes'],
-                gigabytes=data['gigabytes'],
-                ram=data['ram'],
-                floating_ips=data['floating_ips'],
-                instances=data['instances'],
-                injected_files=data['injected_files'],
-                cores=data['cores'],
-                security_groups=data['security_groups'],
-                security_group_rules=data['security_group_rules'])
+            nova.tenant_quota_update(request,
+                                     project_id,
+                                     **nova_data)
 
             if is_service_enabled(request, 'volume'):
+                cinder_data = dict([(key, data[key]) for key in
+                                    CINDER_QUOTA_FIELDS])
                 cinder.tenant_quota_update(request,
                                            project_id,
-                                           volumes=data['volumes'],
-                                           gigabytes=data['gigabytes'])
+                                           **cinder_data)
             return True
         except:
             exceptions.handle(request, _('Modified project information and '

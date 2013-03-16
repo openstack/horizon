@@ -33,22 +33,12 @@ from openstack_dashboard.usage import quotas
 from openstack_dashboard.dashboards.admin.users.views import CreateView
 from .forms import CreateUser
 from .tables import TenantsTable, TenantUsersTable, AddUsersTable
-from .workflows import CreateProject, UpdateProject
+from .workflows import CreateProject, UpdateProject, NOVA_QUOTA_FIELDS, \
+    CINDER_QUOTA_FIELDS
 
 LOG = logging.getLogger(__name__)
 
-
-QUOTA_FIELDS = ("metadata_items",
-                "cores",
-                "instances",
-                "injected_files",
-                "injected_file_content_bytes",
-                "volumes",
-                "gigabytes",
-                "ram",
-                "floating_ips",
-                "security_groups",
-                "security_group_rules")
+QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS
 
 PROJECT_INFO_FIELDS = ("name",
                        "description",
@@ -182,8 +172,8 @@ class UpdateProjectView(workflows.WorkflowView):
                 initial[field] = quota_data.get(field).limit
         except:
             exceptions.handle(self.request,
-                                _('Unable to retrieve project details.'),
-                                redirect=reverse(INDEX_URL))
+                              _('Unable to retrieve project details.'),
+                              redirect=reverse(INDEX_URL))
         return initial
 
 

@@ -26,7 +26,8 @@ from horizon import exceptions
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
-from .workflows import CreateProject, UpdateProject
+from .workflows import CreateProject, UpdateProject, NOVA_QUOTA_FIELDS, \
+    CINDER_QUOTA_FIELDS
 from .views import QUOTA_FIELDS
 
 INDEX_URL = reverse('horizon:admin:projects:index')
@@ -151,9 +152,16 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                                       user_id=user_id,
                                                       role_id=role.id)
 
+        nova_updated_quota = dict([(key, quota_data[key]) for key in
+                                   NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
-                                     **quota_data)
+                                     **nova_updated_quota)
+        cinder_updated_quota = dict([(key, quota_data[key]) for key in
+                                   CINDER_QUOTA_FIELDS])
+        api.cinder.tenant_quota_update(IsA(http.HttpRequest),
+                                       project.id,
+                                       **cinder_updated_quota)
 
         self.mox.ReplayAll()
 
@@ -274,9 +282,11 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                                       user_id=user_id,
                                                       role_id=role.id)
 
+        nova_updated_quota = dict([(key, quota_data[key]) for key in
+                                   NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
-                                     **quota_data) \
+                                     **nova_updated_quota) \
            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -295,6 +305,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'get_default_role',
                                        'add_tenant_user_role'),
                         quotas: ('get_default_quota_data',),
+                        api.cinder: ('tenant_quota_update',),
                         api.nova: ('tenant_quota_update',)})
     def test_add_project_user_update_error(self):
         project = self.tenants.first()
@@ -336,9 +347,17 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                     break
             break
 
+        nova_updated_quota = dict([(key, quota_data[key]) for key in
+                                   NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
-                                     **quota_data)
+                                     **nova_updated_quota)
+
+        cinder_updated_quota = dict([(key, quota_data[key]) for key in
+                                    CINDER_QUOTA_FIELDS])
+        api.cinder.tenant_quota_update(IsA(http.HttpRequest),
+                                       project.id,
+                                       **cinder_updated_quota)
 
         self.mox.ReplayAll()
 
@@ -537,13 +556,17 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                           user_id='3',
                                           role_id='1')
 
+        nova_updated_quota = dict([(key, updated_quota[key]) for key in
+                                   NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
-                                     **updated_quota)
+                                     **nova_updated_quota)
+
+        cinder_updated_quota = dict([(key, updated_quota[key]) for key in
+                                   CINDER_QUOTA_FIELDS])
         api.cinder.tenant_quota_update(IsA(http.HttpRequest),
                                        project.id,
-                                       volumes=updated_quota['volumes'],
-                                       gigabytes=updated_quota['gigabytes'])
+                                       **cinder_updated_quota)
         self.mox.ReplayAll()
 
         # submit form data
@@ -731,10 +754,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                           user_id='3',
                                           role_id='2')
 
+        nova_updated_quota = dict([(key, updated_quota[key]) for key in
+                                   NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
-                                     **updated_quota) \
-                           .AndRaise(self.exceptions.nova)
+                                     **nova_updated_quota) \
+                            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
