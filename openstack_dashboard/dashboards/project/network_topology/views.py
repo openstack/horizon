@@ -40,9 +40,10 @@ class JSONView(View):
                 continue
             resource['url'] = reverse(view, None, [str(resource['id'])])
 
-    def _select_port_by_network_id(self, ports, network_id):
+    def _check_router_external_port(self, ports, router_id, network_id):
         for port in ports:
-            if port['network_id'] == network_id:
+            if (port['network_id'] == network_id
+                    and port['device_id'] == router_id):
                 return True
         return False
 
@@ -72,7 +73,7 @@ class JSONView(View):
         self.add_resource_url('horizon:project:networks:ports:detail',
                               data['ports'])
         data['routers'] = routers.get('routers', [])
-        # user can't see port on shared network. so we are
+        # user can't see port on external network. so we are
         # adding fake port based on router information
         for router in data['routers']:
             external_gateway_info = router.get('external_gateway_info')
@@ -82,15 +83,12 @@ class JSONView(View):
                 'network_id')
             if not external_network:
                 continue
-            if self._select_port_by_network_id(data['ports'],
-                                               external_network):
+            if self._check_router_external_port(data['ports'],
+                                                router['id'],
+                                                external_network):
                 continue
             fake_port = {'id': 'fake%s' % external_network,
                          'network_id': external_network,
-                         'url': reverse(
-                             'horizon:project:networks:detail',
-                             None,
-                             [external_network]),
                          'device_id': router['id'],
                          'fixed_ips': []}
             data['ports'].append(fake_port)
