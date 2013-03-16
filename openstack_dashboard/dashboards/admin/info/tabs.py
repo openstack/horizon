@@ -23,8 +23,6 @@ from openstack_dashboard.api import keystone
 from openstack_dashboard.usage import quotas
 from .tables import QuotasTable, ServicesTable
 from openstack_dashboard.api.base import is_service_enabled
-from openstack_dashboard.dashboards.admin.projects.workflows import \
-    CINDER_QUOTA_FIELDS
 
 
 class DefaultQuotasTab(tabs.TableTab):
@@ -35,11 +33,8 @@ class DefaultQuotasTab(tabs.TableTab):
 
     def get_quotas_data(self):
         request = self.tab_group.request
-        disabled_quotas = []
-        if not is_service_enabled(self.request, 'volume'):
-            disabled_quotas.extend(CINDER_QUOTA_FIELDS)
         try:
-            quota_set = quotas.get_default_quota_data(request, disabled_quotas)
+            quota_set = quotas.get_default_quota_data(request)
             data = quota_set.items
         except:
             data = []

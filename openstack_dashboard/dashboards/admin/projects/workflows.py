@@ -31,24 +31,13 @@ from horizon import messages
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder, nova
 from openstack_dashboard.api.base import is_service_enabled
+from openstack_dashboard.usage.quotas import (NOVA_QUOTA_FIELDS,
+                                              CINDER_QUOTA_FIELDS,
+                                              QUOTA_FIELDS,
+                                              get_disabled_quotas)
 
 INDEX_URL = "horizon:admin:projects:index"
 ADD_USER_URL = "horizon:admin:projects:create_user"
-
-NOVA_QUOTA_FIELDS = ("metadata_items",
-                     "cores",
-                     "instances",
-                     "injected_files",
-                     "injected_file_content_bytes",
-                     "ram",
-                     "floating_ips",
-                     "security_groups",
-                     "security_group_rules",)
-
-CINDER_QUOTA_FIELDS = ("volumes",
-                       "gigabytes",)
-
-QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS
 
 
 class UpdateProjectQuotaAction(workflows.Action):
@@ -69,6 +58,16 @@ class UpdateProjectQuotaAction(workflows.Action):
                                          label=_("Security Groups"))
     security_group_rules = forms.IntegerField(min_value=-1,
                                               label=_("Security Group Rules"))
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateProjectQuotaAction, self).__init__(request,
+                                                       *args,
+                                                       **kwargs)
+        disabled_quotas = get_disabled_quotas(request)
+        for field in disabled_quotas:
+            if field in self.fields:
+                self.fields[field].required = False
+                self.fields[field].widget = forms.HiddenInput()
 
     class Meta:
         name = _("Quota")

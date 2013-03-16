@@ -26,9 +26,7 @@ from horizon import exceptions
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
-from .workflows import CreateProject, UpdateProject, NOVA_QUOTA_FIELDS, \
-    CINDER_QUOTA_FIELDS
-from .views import QUOTA_FIELDS
+from .workflows import CreateProject, UpdateProject
 
 INDEX_URL = reverse('horizon:admin:projects:index')
 
@@ -60,7 +58,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
     def _get_quota_info(self, quota):
         quota_data = {}
-        for field in QUOTA_FIELDS:
+        for field in quotas.QUOTA_FIELDS:
             quota_data[field] = int(quota.get(field).limit)
         return quota_data
 
@@ -153,12 +151,12 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                                       role_id=role.id)
 
         nova_updated_quota = dict([(key, quota_data[key]) for key in
-                                   NOVA_QUOTA_FIELDS])
+                                   quotas.NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
                                      **nova_updated_quota)
         cinder_updated_quota = dict([(key, quota_data[key]) for key in
-                                   CINDER_QUOTA_FIELDS])
+                                   quotas.CINDER_QUOTA_FIELDS])
         api.cinder.tenant_quota_update(IsA(http.HttpRequest),
                                        project.id,
                                        **cinder_updated_quota)
@@ -283,7 +281,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                                       role_id=role.id)
 
         nova_updated_quota = dict([(key, quota_data[key]) for key in
-                                   NOVA_QUOTA_FIELDS])
+                                   quotas.NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
                                      **nova_updated_quota) \
@@ -348,13 +346,13 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             break
 
         nova_updated_quota = dict([(key, quota_data[key]) for key in
-                                   NOVA_QUOTA_FIELDS])
+                                   quotas.NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
                                      **nova_updated_quota)
 
         cinder_updated_quota = dict([(key, quota_data[key]) for key in
-                                    CINDER_QUOTA_FIELDS])
+                                    quotas.CINDER_QUOTA_FIELDS])
         api.cinder.tenant_quota_update(IsA(http.HttpRequest),
                                        project.id,
                                        **cinder_updated_quota)
@@ -405,7 +403,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
     def _get_quota_info(self, quota):
         quota_data = {}
-        for field in QUOTA_FIELDS:
+        for field in quotas.QUOTA_FIELDS:
             quota_data[field] = int(quota.get(field).limit)
         return quota_data
 
@@ -561,13 +559,13 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                           role_id='1')
 
         nova_updated_quota = dict([(key, updated_quota[key]) for key in
-                                   NOVA_QUOTA_FIELDS])
+                                   quotas.NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
                                      **nova_updated_quota)
 
         cinder_updated_quota = dict([(key, updated_quota[key]) for key in
-                                   CINDER_QUOTA_FIELDS])
+                                   quotas.CINDER_QUOTA_FIELDS])
         api.cinder.tenant_quota_update(IsA(http.HttpRequest),
                                        project.id,
                                        **cinder_updated_quota)
@@ -763,7 +761,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                           role_id='2')
 
         nova_updated_quota = dict([(key, updated_quota[key]) for key in
-                                   NOVA_QUOTA_FIELDS])
+                                   quotas.NOVA_QUOTA_FIELDS])
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
                                      **nova_updated_quota) \
