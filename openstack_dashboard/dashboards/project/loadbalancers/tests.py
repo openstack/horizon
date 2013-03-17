@@ -4,7 +4,7 @@ import json
 
 from mox import IsA
 from django import http
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -23,7 +23,7 @@ class LoadBalancerTests(test.TestCase):
             self[attr] = value
 
     DASHBOARD = 'project'
-    INDEX_URL = reverse('horizon:%s:loadbalancers:index' % DASHBOARD)
+    INDEX_URL = reverse_lazy('horizon:%s:loadbalancers:index' % DASHBOARD)
 
     ADDPOOL_PATH = 'horizon:%s:loadbalancers:addpool' % DASHBOARD
     ADDVIP_PATH = 'horizon:%s:loadbalancers:addvip' % DASHBOARD
@@ -204,7 +204,7 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.post(reverse(self.ADDPOOL_PATH), form_data)
 
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, self.INDEX_URL)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
     @test.create_stubs({api.quantum: ('network_list_for_tenant',)})
     def test_add_pool_get(self):
@@ -271,7 +271,7 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.post(reverse(self.ADDMEMBER_PATH), form_data)
 
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, self.INDEX_URL)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
     @test.create_stubs({api.lbaas: ('pools_get',),
                         api.nova: ('server_list',)})

@@ -41,6 +41,9 @@ HORIZON_CONFIG = {
 # multiple floating IP pools or complex network requirements.
 # HORIZON_CONFIG["simple_ip_management"] = False
 
+# Turn off browser autocompletion for the login form if so desired.
+# HORIZON_CONFIG["password_autocomplete"] = "off"
+
 LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 
 # Set custom secret key:
@@ -57,7 +60,7 @@ LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 
 # We recommend you use memcached for development; otherwise after every reload
 # of the django development server, you will have to login again. To use
-# memcached set CACHES to something like 
+# memcached set CACHES to something like
 # CACHES = {
 #    'default': {
 #        'BACKEND' : 'django.core.cache.backends.memcached.MemcachedCache',
@@ -138,53 +141,57 @@ API_RESULT_PAGE_SIZE = 20
 TIME_ZONE = "UTC"
 
 LOGGING = {
-        'version': 1,
-        # When set to True this will disable all logging except
-        # for loggers specified in this configuration dictionary. Note that
-        # if nothing is specified here and disable_existing_loggers is True,
-        # django.db.backends will still log unless it is disabled explicitly.
-        'disable_existing_loggers': False,
-        'handlers': {
-            'null': {
-                'level': 'DEBUG',
-                'class': 'django.utils.log.NullHandler',
-                },
-            'console': {
-                # Set the level to "DEBUG" for verbose output logging.
-                'level': 'INFO',
-                'class': 'logging.StreamHandler',
-                },
-            },
-        'loggers': {
-            # Logging from django.db.backends is VERY verbose, send to null
-            # by default.
-            'django.db.backends': {
-                'handlers': ['null'],
-                'propagate': False,
-                },
-            'horizon': {
-                'handlers': ['console'],
-                'propagate': False,
-            },
-            'openstack_dashboard': {
-                'handlers': ['console'],
-                'propagate': False,
-            },
-            'novaclient': {
-                'handlers': ['console'],
-                'propagate': False,
-            },
-            'keystoneclient': {
-                'handlers': ['console'],
-                'propagate': False,
-            },
-            'glanceclient': {
-                'handlers': ['console'],
-                'propagate': False,
-            },
-            'nose.plugins.manager': {
-                'handlers': ['console'],
-                'propagate': False,
-            }
+    'version': 1,
+    # When set to True this will disable all logging except
+    # for loggers specified in this configuration dictionary. Note that
+    # if nothing is specified here and disable_existing_loggers is True,
+    # django.db.backends will still log unless it is disabled explicitly.
+    'disable_existing_loggers': False,
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
+        'console': {
+            # Set the level to "DEBUG" for verbose output logging.
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        # Logging from django.db.backends is VERY verbose, send to null
+        # by default.
+        'django.db.backends': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'requests': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'horizon': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'openstack_dashboard': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'novaclient': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'keystoneclient': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'glanceclient': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'nose.plugins.manager': {
+            'handlers': ['console'],
+            'propagate': False,
         }
+    }
 }

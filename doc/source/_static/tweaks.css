@@ -58,6 +58,7 @@ div.related a {
 
 div.sphinxsidebarwrapper {
   padding-top: 0;
+  overflow: hidden;
 }
 
 pre {

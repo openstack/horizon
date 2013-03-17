@@ -76,8 +76,6 @@ Or just remove it entirely::
 
     projects_dashboard.unregister(instances_panel.__class__)
 
-
-
 .. NOTE::
 
     ``my_project.overrides`` needs to be importable by the python process running
