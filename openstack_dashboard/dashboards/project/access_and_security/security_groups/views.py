@@ -31,6 +31,7 @@ from horizon import forms
 from horizon import tables
 
 from openstack_dashboard import api
+from ..floating_ips.utils import get_int_or_uuid
 from .forms import CreateGroup, AddRule
 from .tables import RulesTable
 
@@ -43,7 +44,7 @@ class DetailView(tables.DataTableView):
     template_name = 'project/access_and_security/security_groups/detail.html'
 
     def get_data(self):
-        security_group_id = int(self.kwargs['security_group_id'])
+        security_group_id = get_int_or_uuid(self.kwargs['security_group_id'])
         try:
             self.object = api.nova.security_group_get(self.request,
                                                       security_group_id)
@@ -86,7 +87,7 @@ class AddRuleView(forms.ModalFormView):
 
         security_groups = []
         for group in groups:
-            if group.id == int(self.kwargs['security_group_id']):
+            if group.id == get_int_or_uuid(self.kwargs['security_group_id']):
                 security_groups.append((group.id,
                                         _("%s (current)") % group.name))
             else:

@@ -141,7 +141,9 @@ def data(TEST):
     TEST.flavors = TestDataContainer()
     TEST.keypairs = TestDataContainer()
     TEST.security_groups = TestDataContainer()
+    TEST.security_groups_uuid = TestDataContainer()
     TEST.security_group_rules = TestDataContainer()
+    TEST.security_group_rules_uuid = TestDataContainer()
     TEST.volumes = TestDataContainer()
     TEST.quotas = TestDataContainer()
     TEST.quota_usages = TestDataContainer()
@@ -229,64 +231,79 @@ def data(TEST):
                                dict(name='keyName'))
     TEST.keypairs.add(keypair)
 
-    # Security Groups
-    sg_manager = sec_groups.SecurityGroupManager(None)
-    sec_group_1 = sec_groups.SecurityGroup(sg_manager,
-                                           {"rules": [],
-                                            "tenant_id": TEST.tenant.id,
-                                            "id": 1,
-                                            "name": u"default",
-                                            "description": u"default"})
-    sec_group_2 = sec_groups.SecurityGroup(sg_manager,
-                                           {"rules": [],
-                                            "tenant_id": TEST.tenant.id,
-                                            "id": 2,
-                                            "name": u"other_group",
-                                            "description": u"Not default."})
-    sec_group_3 = sec_groups.SecurityGroup(sg_manager,
-                                           {"rules": [],
-                                            "tenant_id": TEST.tenant.id,
-                                            "id": 3,
-                                            "name": u"another_group",
-                                            "description": u"Not default."})
+    # Security Groups and Rules
+    def generate_security_groups(is_uuid=False):
 
-    rule = {'id': 1,
-            'ip_protocol': u"tcp",
-            'from_port': u"80",
-            'to_port': u"80",
-            'parent_group_id': 1,
-            'ip_range': {'cidr': u"0.0.0.0/32"}}
+        def get_id(is_uuid):
+            global current_int_id
+            if is_uuid:
+                return str(uuid.uuid4())
+            else:
+                get_id.current_int_id += 1
+                return get_id.current_int_id
 
-    icmp_rule = {'id': 2,
-            'ip_protocol': u"icmp",
-            'from_port': u"9",
-            'to_port': u"5",
-            'parent_group_id': 1,
-            'ip_range': {'cidr': u"0.0.0.0/32"}}
+        get_id.current_int_id = 0
 
-    group_rule = {'id': 3,
-            'ip_protocol': u"tcp",
-            'from_port': u"80",
-            'to_port': u"80",
-            'parent_group_id': 1,
-            'source_group_id': 1}
+        sg_manager = sec_groups.SecurityGroupManager(None)
+        rule_manager = rules.SecurityGroupRuleManager(None)
 
-    rule_obj = rules.SecurityGroupRule(rules.SecurityGroupRuleManager(None),
-                                       rule)
-    rule_obj2 = rules.SecurityGroupRule(rules.SecurityGroupRuleManager(None),
-                                       icmp_rule)
-    rule_obj3 = rules.SecurityGroupRule(rules.SecurityGroupRuleManager(None),
-                                        group_rule)
+        sec_group_1 = sec_groups.SecurityGroup(sg_manager,
+                                               {"rules": [],
+                                                "tenant_id": TEST.tenant.id,
+                                                "id": get_id(is_uuid),
+                                                "name": u"default",
+                                                "description": u"default"})
+        sec_group_2 = sec_groups.SecurityGroup(sg_manager,
+                                               {"rules": [],
+                                                "tenant_id": TEST.tenant.id,
+                                                "id": get_id(is_uuid),
+                                                "name": u"other_group",
+                                                "description": u"NotDefault."})
+        sec_group_3 = sec_groups.SecurityGroup(sg_manager,
+                                               {"rules": [],
+                                                "tenant_id": TEST.tenant.id,
+                                                "id": get_id(is_uuid),
+                                                "name": u"another_group",
+                                                "description": u"NotDefault."})
 
-    TEST.security_group_rules.add(rule_obj)
-    TEST.security_group_rules.add(rule_obj2)
-    TEST.security_group_rules.add(rule_obj3)
+        rule = {'id': get_id(is_uuid),
+                'ip_protocol': u"tcp",
+                'from_port': u"80",
+                'to_port': u"80",
+                'parent_group_id': sec_group_1.id,
+                'ip_range': {'cidr': u"0.0.0.0/32"}}
 
-    sec_group_1.rules = [rule_obj]
-    sec_group_2.rules = [rule_obj]
-    TEST.security_groups.add(sec_group_1, sec_group_2, sec_group_3)
+        icmp_rule = {'id': get_id(is_uuid),
+                     'ip_protocol': u"icmp",
+                     'from_port': u"9",
+                     'to_port': u"5",
+                     'parent_group_id': sec_group_1.id,
+                     'ip_range': {'cidr': u"0.0.0.0/32"}}
 
-    # Security Group Rules
+        group_rule = {'id': 3,
+                      'ip_protocol': u"tcp",
+                      'from_port': u"80",
+                      'to_port': u"80",
+                      'parent_group_id': sec_group_1.id,
+                      'source_group_id': sec_group_1.id}
+
+        rule_obj = rules.SecurityGroupRule(rule_manager, rule)
+        rule_obj2 = rules.SecurityGroupRule(rule_manager, icmp_rule)
+        rule_obj3 = rules.SecurityGroupRule(rule_manager, group_rule)
+
+        sec_group_1.rules = [rule_obj]
+        sec_group_2.rules = [rule_obj]
+
+        return {"rules": [rule_obj, rule_obj2, rule_obj3],
+                "groups": [sec_group_1, sec_group_2, sec_group_3]}
+
+    sg_data = generate_security_groups()
+    TEST.security_group_rules.add(*sg_data["rules"])
+    TEST.security_groups.add(*sg_data["groups"])
+
+    sg_uuid_data = generate_security_groups(is_uuid=True)
+    TEST.security_group_rules_uuid.add(*sg_uuid_data["rules"])
+    TEST.security_groups_uuid.add(*sg_uuid_data["groups"])
 
     # Quota Sets
     quota_data = dict(metadata_items='1',

@@ -149,7 +149,7 @@ class SecurityGroup(APIResourceWrapper):
     def rules(self):
         """Wraps transmitted rule info in the novaclient rule class."""
         if "_rules" not in self.__dict__:
-            manager = nova_rules.SecurityGroupRuleManager
+            manager = nova_rules.SecurityGroupRuleManager(None)
             self._rules = [nova_rules.SecurityGroupRule(manager, rule)
                            for rule in self._apiresource.rules]
         return self.__dict__['_rules']

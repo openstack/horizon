@@ -30,6 +30,7 @@ from horizon.utils.validators import validate_port_range
 from horizon.utils import fields
 
 from openstack_dashboard import api
+from ..floating_ips.utils import get_int_or_uuid
 
 
 class CreateGroup(forms.SelfHandlingForm):
@@ -58,7 +59,7 @@ class CreateGroup(forms.SelfHandlingForm):
 
 
 class AddRule(forms.SelfHandlingForm):
-    id = forms.IntegerField(widget=forms.HiddenInput())
+    id = forms.CharField(widget=forms.HiddenInput())
     ip_protocol = forms.ChoiceField(label=_('IP Protocol'),
                                     choices=[('tcp', _('TCP')),
                                              ('udp', _('UDP')),
@@ -232,7 +233,7 @@ class AddRule(forms.SelfHandlingForm):
         try:
             rule = api.nova.security_group_rule_create(
                         request,
-                        data['id'],
+                        get_int_or_uuid(data['id']),
                         data['ip_protocol'],
                         data['from_port'],
                         data['to_port'],

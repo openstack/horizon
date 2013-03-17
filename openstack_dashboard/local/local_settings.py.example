@@ -57,7 +57,7 @@ LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 
 # We recommend you use memcached for development; otherwise after every reload
 # of the django development server, you will have to login again. To use
-# memcached set CACHES to something like 
+# memcached set CACHES to something like
 # CACHES = {
 #    'default': {
 #        'BACKEND' : 'django.core.cache.backends.memcached.MemcachedCache',
@@ -119,7 +119,7 @@ OPENSTACK_HYPERVISOR_FEATURES = {
 # services provided by quantum.  Currently only the load balancer service
 # is available.
 OPENSTACK_QUANTUM_NETWORK = {
-    'enable_lb': True
+    'enable_lb': False
 }
 
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
