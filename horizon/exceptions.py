@@ -274,15 +274,22 @@ def handle(request, message=None, redirect=None, ignore=False,
     if issubclass(exc_type, UNAUTHORIZED):
         if ignore:
             return NotAuthorized
-        logout(request)
         if not force_silence and not handled:
             log_method(error_color("Unauthorized: %s" % exc_value))
         if not handled:
+            if message:
+                message = _("Unauthorized: %s") % message
             # We get some pretty useless error messages back from
             # some clients, so let's define our own fallback.
             fallback = _("Unauthorized. Please try logging in again.")
-            messages.error(request, message or fallback, extra_tags="login")
-        raise NotAuthorized  # Redirect handled in middleware
+            messages.error(request, message or fallback)
+        # Escalation means logging the user out and raising NotAuthorized
+        # so the middleware will redirect them appropriately.
+        if escalate:
+            logout(request)
+            raise NotAuthorized
+        # Otherwise continue and present our "unauthorized" error message.
+        return NotAuthorized
 
     if issubclass(exc_type, NOT_FOUND):
         wrap = True
