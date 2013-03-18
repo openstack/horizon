@@ -48,6 +48,8 @@ NOVA_QUOTA_FIELDS = ("metadata_items",
 CINDER_QUOTA_FIELDS = ("volumes",
                        "gigabytes",)
 
+QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS
+
 
 class UpdateProjectQuotaAction(workflows.Action):
     ifcb_label = _("Injected File Content Bytes")
@@ -78,17 +80,7 @@ class UpdateProjectQuotaAction(workflows.Action):
 class UpdateProjectQuota(workflows.Step):
     action_class = UpdateProjectQuotaAction
     depends_on = ("project_id",)
-    contributes = ("metadata_items",
-                   "cores",
-                   "instances",
-                   "injected_files",
-                   "injected_file_content_bytes",
-                   "volumes",
-                   "gigabytes",
-                   "ram",
-                   "floating_ips",
-                   "security_groups",
-                   "security_group_rules")
+    contributes = QUOTA_FIELDS
 
 
 class CreateProjectInfoAction(workflows.Action):

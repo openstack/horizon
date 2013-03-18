@@ -6,6 +6,8 @@ from horizon.utils.memoized import memoized
 
 from openstack_dashboard.api import nova, cinder, network
 from openstack_dashboard.api.base import is_service_enabled, QuotaSet
+from openstack_dashboard.dashboards.admin.projects.workflows import \
+    CINDER_QUOTA_FIELDS
 
 
 class QuotaUsage(dict):
@@ -85,7 +87,7 @@ def tenant_quota_usages(request):
     # Get our quotas and construct our usage object.
     disabled_quotas = []
     if not is_service_enabled(request, 'volume'):
-        disabled_quotas.extend(['volumes', 'gigabytes'])
+        disabled_quotas.extend(CINDER_QUOTA_FIELDS)
 
     usages = QuotaUsage()
     for quota in get_tenant_quota_data(request, disabled_quotas):
