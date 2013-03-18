@@ -5,6 +5,27 @@ Deploying Horizon
 This guide aims to cover some common questions, concerns and pitfalls you
 may encounter when deploying Horizon in a production environment.
 
+.. seealso:: :doc:`settings`
+
+.. note::
+
+    The Service Catalog returned by the Identity Service after a user
+    has successfully authenticated determines the dashboards and panels
+    that will be available within the OpenStack Dashboard. If you are not
+    seeing a particular service you expected (e.g. Object Storage/Swift or
+    Networking/Quantum) make sure your Service Catalog is configured correctly.
+
+    Prior to the Essex release of Horizon these features were controlled by
+    individual settings in the ``local_settings.py`` file. This code has been
+    long-since removed and those pre-Essex settings have no impact now.
+
+Configure Your Identity Service Host
+====================================
+
+The one thing you *must* do in order to run Horizon is to specify the
+host for your OpenStack Identity Service endpoint. To do this, set the value
+of the ``OPENSTACK_HOST`` settings in your ``local_settings.py`` file.
+
 Logging
 =======
 
