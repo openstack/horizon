@@ -20,6 +20,7 @@
 
 from cinderclient import exceptions as cinderclient
 from glanceclient.common import exceptions as glanceclient
+from heatclient import exc as heatclient
 from keystoneclient import exceptions as keystoneclient
 from novaclient import exceptions as novaclient
 from quantumclient.common import exceptions as quantumclient
@@ -34,14 +35,17 @@ UNAUTHORIZED = (keystoneclient.Unauthorized,
                 novaclient.Forbidden,
                 glanceclient.Unauthorized,
                 quantumclient.Unauthorized,
-                quantumclient.Forbidden)
+                quantumclient.Forbidden,
+                heatclient.HTTPUnauthorized,
+                heatclient.HTTPForbidden)
 
 NOT_FOUND = (keystoneclient.NotFound,
              cinderclient.NotFound,
              novaclient.NotFound,
              glanceclient.NotFound,
              quantumclient.NetworkNotFoundClient,
-             quantumclient.PortNotFoundClient)
+             quantumclient.PortNotFoundClient,
+             heatclient.HTTPNotFound)
 
 # NOTE(gabriel): This is very broad, and may need to be dialed in.
 RECOVERABLE = (keystoneclient.ClientException,
@@ -58,4 +62,5 @@ RECOVERABLE = (keystoneclient.ClientException,
                quantumclient.PortInUseClient,
                quantumclient.AlreadyAttachedClient,
                quantumclient.StateInvalidClient,
-               swiftclient.ClientException)
+               swiftclient.ClientException,
+               heatclient.HTTPException)

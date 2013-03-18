@@ -100,6 +100,8 @@ class ModalFormView(ModalFormMixin, generic.FormView):
                         self.get_object_display(handled)]
                 response = http.HttpResponse(json.dumps(data))
                 response["X-Horizon-Add-To-Field"] = field_id
+            elif isinstance(handled, http.HttpResponse):
+                return handled
             else:
                 success_url = self.get_success_url()
                 response = http.HttpResponseRedirect(success_url)

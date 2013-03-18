@@ -44,10 +44,17 @@ class ObjectStorePanels(horizon.PanelGroup):
     panels = ('containers',)
 
 
+class OrchestrationPanels(horizon.PanelGroup):
+    name = _("Orchestration")
+    slug = "orchestration"
+    panels = ('stacks',)
+
+
 class Project(horizon.Dashboard):
     name = _("Project")
     slug = "project"
-    panels = (BasePanels, NetworkPanels, ObjectStorePanels)
+    panels = (
+        BasePanels, NetworkPanels, ObjectStorePanels, OrchestrationPanels)
     default_panel = 'overview'
     supports_tenants = True
 

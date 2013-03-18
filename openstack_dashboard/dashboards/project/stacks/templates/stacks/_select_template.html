@@ -1,0 +1,27 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}select_template{% endblock %}
+{% block form_action %}{% url 'horizon:project:stacks:select_template' %}{% endblock %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+
+{% block modal-header %}{% trans "Select Template" %}{% endblock %}
+{% block modal_id %}select_template_modal{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% trans "Use one of the available template source options to specify the template to be used in creating this stack." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Next" %}" />
+  <a href="{% url 'horizon:project:stacks:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

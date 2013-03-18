@@ -1,0 +1,66 @@
+{% load i18n sizeformat %}
+
+<h3>{% trans "Stack Overview" %}</h3>
+
+<div class="info row-fluid detail">
+  <h4>{% trans "Info" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ stack.stack_name }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ stack.id }}</dd>
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ stack.description }}</dd>
+  </dl>
+</div>
+
+<div class="status row-fluid detail">
+  <h4>{% trans "Status" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Created" %}</dt>
+    <dd>{{ stack.creation_time|parse_isotime|timesince }}</dd>
+    <dt>{% trans "Last Updated" %}</dt>
+    <dd>{{ stack.updated_time|parse_isotime|timesince }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ stack.stack_status|title }}: {{ stack.stack_status_reason }}</dd>
+  </dl>
+</div>
+
+<div class="outputs row-fluid detail">
+  <h4>{% trans "Outputs" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    {% for output in stack.outputs %}
+    <dt>{{ output.output_key }}</dt>
+    <dd>{{ output.description }}</dd>
+    <dd>
+    {% autoescape off %}
+    {{ output.output_value|stack_output }}
+    {% endautoescape %}</dd>
+    {% endfor %}
+  </dl>
+</div>
+
+<div class="parameters row-fluid detail">
+  <h4>{% trans "Stack Parameters" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    {% for key, value in stack.parameters.items %}
+    <dt>{{ key }}</dt>
+    <dd>{{ value }}</dd>
+    {% endfor %}
+  </dl>
+</div>
+
+<div class="launch row-fluid detail">
+  <h4>{% trans "Launch Parameters" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Timeout" %}</dt>
+    <dd>{{ stack.timeout_mins }} {% trans "Minutes" %}</dd>
+    <dt>{% trans "Rollback" %}</dt>
+    <dd>{% if stack.disable_rollback %}{% trans "Disabled" %}{% else %}{% trans "Enabled" %}{% endif %}</dd>
+  </dl>
+</div>

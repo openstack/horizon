@@ -236,6 +236,10 @@ LOGGING = {
             'handlers': ['console'],
             'propagate': False,
         },
+        'heatclient': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
         'nose.plugins.manager': {
             'handlers': ['console'],
             'propagate': False,

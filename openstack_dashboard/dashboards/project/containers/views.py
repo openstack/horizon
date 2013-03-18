@@ -113,8 +113,8 @@ class ContainerView(browsers.ResourceBrowserView):
         context['container_name'] = self.kwargs["container_name"]
         context['subfolders'] = []
         if self.kwargs["subfolder_path"]:
-            (parent, slash, folder) = self.kwargs["subfolder_path"].\
-                                              strip('/').rpartition('/')
+            (parent, slash, folder) = self.kwargs["subfolder_path"] \
+                                          .strip('/').rpartition('/')
             while folder:
                 path = "%s%s%s/" % (parent, slash, folder)
                 context['subfolders'].insert(0, (folder, path))
