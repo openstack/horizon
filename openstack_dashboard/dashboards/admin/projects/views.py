@@ -33,12 +33,9 @@ from openstack_dashboard.usage import quotas
 from openstack_dashboard.dashboards.admin.users.views import CreateView
 from .forms import CreateUser
 from .tables import TenantsTable, TenantUsersTable, AddUsersTable
-from .workflows import CreateProject, UpdateProject, NOVA_QUOTA_FIELDS, \
-    CINDER_QUOTA_FIELDS
+from .workflows import CreateProject, UpdateProject, QUOTA_FIELDS
 
 LOG = logging.getLogger(__name__)
-
-QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS
 
 PROJECT_INFO_FIELDS = ("name",
                        "description",
