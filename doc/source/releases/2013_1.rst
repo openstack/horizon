@@ -190,15 +190,6 @@ a delimiting character (usually "/") in the object name.
 Horizon has been updated under the hood to use this method, which should bring
 it better into line with how most deployments are using their object storage.
 
-Easier Theming For Distros
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Many distros have policies of not modifying the source code for a package, and
-that made providing a custom theme or stylesheet for Horizon quite difficult.
-As such, new mechanisms for defining a custom theme path have been added so that
-it can be added to your local_settings file instead of having to alter any of
-the core OpenStack Dashboard files.
-
 
 Other Improvements and Fixes
 ----------------------------
