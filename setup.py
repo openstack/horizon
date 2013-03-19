@@ -81,7 +81,7 @@ for target_dir in target_dirs:
 
 
 setup(name=project,
-      version=os_common_setup.get_version(project, '2013.1'),
+      version=os_common_setup.get_version(project, '2013.2'),
       url='https://github.com/openstack/horizon/',
       license='Apache 2.0',
       description="The OpenStack Dashboard.",
