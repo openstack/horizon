@@ -11,6 +11,6 @@ class LoadBalancer(horizon.Panel):
     slug = "loadbalancers"
     permissions = ('openstack.services.network',)
 
-if hasattr(settings, 'OPENSTACK_QUANTUM_NETWORK'):
-    if getattr(settings, 'OPENSTACK_QUANTUM_NETWORK')['enable_lb']:
-        dashboard.Project.register(LoadBalancer)
+
+if getattr(settings, 'OPENSTACK_QUANTUM_NETWORK', {}).get('enable_lb', False):
+    dashboard.Project.register(LoadBalancer)

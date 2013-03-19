@@ -26,11 +26,16 @@ class BasePanels(horizon.PanelGroup):
               'instances',
               'volumes',
               'images_and_snapshots',
-              'access_and_security',
-              'networks',
+              'access_and_security',)
+
+
+class NetworkPanels(horizon.PanelGroup):
+    slug = "network"
+    name = _("Manage Network")
+    panels = ('networks',
               'routers',
-              'network_topology',
-              'loadbalancers')
+              'loadbalancers',
+              'network_topology',)
 
 
 class ObjectStorePanels(horizon.PanelGroup):
@@ -42,7 +47,7 @@ class ObjectStorePanels(horizon.PanelGroup):
 class Project(horizon.Dashboard):
     name = _("Project")
     slug = "project"
-    panels = (BasePanels, ObjectStorePanels)
+    panels = (BasePanels, NetworkPanels, ObjectStorePanels)
     default_panel = 'overview'
     supports_tenants = True
 

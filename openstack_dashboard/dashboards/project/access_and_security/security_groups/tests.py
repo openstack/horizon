@@ -106,7 +106,6 @@ class SecurityGroupsViewTests(test.TestCase):
         api.nova.security_group_get(IsA(http.HttpRequest),
                                     sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
-
         res = self.client.get(self.detail_url)
         self.assertTemplateUsed(res,
                 'project/access_and_security/security_groups/detail.html')
@@ -371,3 +370,27 @@ class SecurityGroupsViewTests(test.TestCase):
 
         self.assertEqual(strip_absolute_base(handled['location']),
                          INDEX_URL)
+
+
+class SecurityGroupsQuantumTests(SecurityGroupsViewTests):
+    def setUp(self):
+        super(SecurityGroupsQuantumTests, self).setUp()
+
+        self._sec_groups_orig = self.security_groups
+        self.security_groups = self.security_groups_uuid
+
+        self._sec_group_rules_orig = self.security_group_rules
+        self.security_group_rules = self.security_group_rules_uuid
+
+        sec_group = self.security_groups.first()
+        self.detail_url = reverse('horizon:project:access_and_security:'
+                                  'security_groups:detail',
+                                  args=[sec_group.id])
+        self.edit_url = reverse('horizon:project:access_and_security:'
+                                'security_groups:add_rule',
+                                args=[sec_group.id])
+
+    def tearDown(self):
+        self.security_groups = self._sec_groups_orig
+        self.security_group_rules = self._sec_group_rules_orig
+        super(SecurityGroupsQuantumTests, self).tearDown()

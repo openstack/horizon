@@ -22,6 +22,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 from openstack_dashboard import api
+from ..floating_ips.utils import get_int_or_uuid
 
 
 LOG = logging.getLogger(__name__)
@@ -59,7 +60,7 @@ class SecurityGroupsTable(tables.DataTable):
     description = tables.Column("description", verbose_name=_("Description"))
 
     def sanitize_id(self, obj_id):
-        return int(obj_id)
+        return get_int_or_uuid(obj_id)
 
     class Meta:
         name = "security_groups"
@@ -109,7 +110,7 @@ class RulesTable(tables.DataTable):
     source = tables.Column(get_source, verbose_name=_("Source"))
 
     def sanitize_id(self, obj_id):
-        return int(obj_id)
+        return get_int_or_uuid(obj_id)
 
     def get_object_display(self, rule):
         return unicode(rule)
