@@ -54,6 +54,9 @@ def data(TEST):
     nova_exception = nova_exceptions.ClientException
     TEST.exceptions.nova = create_stubbed_exception(nova_exception)
 
+    nova_unauth = nova_exceptions.Unauthorized
+    TEST.exceptions.nova_unauthorized = create_stubbed_exception(nova_unauth)
+
     glance_exception = glance_exceptions.ClientException
     TEST.exceptions.glance = create_stubbed_exception(glance_exception)
 

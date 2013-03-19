@@ -19,6 +19,9 @@
 #    under the License.
 
 from django.conf import settings
+from django.utils.translation import ugettext as _
+
+from horizon import exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard import usage
@@ -37,8 +40,12 @@ class GlobalOverview(usage.UsageView):
     def get_data(self):
         data = super(GlobalOverview, self).get_data()
         # Pre-fill tenant names
-        tenants = api.keystone.tenant_list(self.request,
-                                           admin=True)
+        try:
+            tenants = api.keystone.tenant_list(self.request, admin=True)
+        except:
+            tenants = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve project list.'))
         for instance in data:
             tenant = filter(lambda t: t.id == instance.tenant_id, tenants)
             if tenant:
