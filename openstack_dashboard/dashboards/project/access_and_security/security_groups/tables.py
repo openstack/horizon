@@ -101,10 +101,16 @@ def get_source(rule):
         return None
 
 
+def filter_protocol(protocol):
+    if protocol is None:
+        return _('Any')
+    return unicode.upper(protocol)
+
+
 class RulesTable(tables.DataTable):
     protocol = tables.Column("ip_protocol",
                              verbose_name=_("IP Protocol"),
-                             filters=(unicode.upper,))
+                             filters=(filter_protocol,))
     from_port = tables.Column("from_port", verbose_name=_("From Port"))
     to_port = tables.Column("to_port", verbose_name=_("To Port"))
     source = tables.Column(get_source, verbose_name=_("Source"))
