@@ -6,8 +6,21 @@ from horizon.utils.memoized import memoized
 
 from openstack_dashboard.api import nova, cinder, network
 from openstack_dashboard.api.base import is_service_enabled, QuotaSet
-from openstack_dashboard.dashboards.admin.projects.workflows import \
-    CINDER_QUOTA_FIELDS
+
+NOVA_QUOTA_FIELDS = ("metadata_items",
+                     "cores",
+                     "instances",
+                     "injected_files",
+                     "injected_file_content_bytes",
+                     "ram",
+                     "floating_ips",
+                     "security_groups",
+                     "security_group_rules",)
+
+CINDER_QUOTA_FIELDS = ("volumes",
+                       "gigabytes",)
+
+QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS
 
 
 class QuotaUsage(dict):
@@ -54,12 +67,15 @@ class QuotaUsage(dict):
         self.usages[name]['available'] = available
 
 
-def _get_quota_data(request, method_name, disabled_quotas=[], tenant_id=None):
+def _get_quota_data(request, method_name, disabled_quotas=None,
+                    tenant_id=None):
     quotasets = []
     if not tenant_id:
         tenant_id = request.user.tenant_id
     quotasets.append(getattr(nova, method_name)(request, tenant_id))
     qs = QuotaSet()
+    if disabled_quotas is None:
+        disabled_quotas = get_disabled_quotas(request)
     if 'volumes' not in disabled_quotas:
         quotasets.append(getattr(cinder, method_name)(request, tenant_id))
     for quota in itertools.chain(*quotasets):
@@ -68,29 +84,35 @@ def _get_quota_data(request, method_name, disabled_quotas=[], tenant_id=None):
     return qs
 
 
-def get_default_quota_data(request, disabled_quotas=[], tenant_id=None):
+def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
     return _get_quota_data(request,
                            "default_quota_get",
-                           disabled_quotas,
-                           tenant_id)
+                           disabled_quotas=disabled_quotas,
+                           tenant_id=tenant_id)
 
 
-def get_tenant_quota_data(request, disabled_quotas=[], tenant_id=None):
+def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     return _get_quota_data(request,
                            "tenant_quota_get",
-                           disabled_quotas,
-                           tenant_id)
+                           disabled_quotas=disabled_quotas,
+                           tenant_id=tenant_id)
+
+
+def get_disabled_quotas(request):
+    disabled_quotas = []
+    if not is_service_enabled(request, 'volume'):
+        disabled_quotas.extend(CINDER_QUOTA_FIELDS)
+    return disabled_quotas
 
 
 @memoized
 def tenant_quota_usages(request):
     # Get our quotas and construct our usage object.
-    disabled_quotas = []
-    if not is_service_enabled(request, 'volume'):
-        disabled_quotas.extend(CINDER_QUOTA_FIELDS)
+    disabled_quotas = get_disabled_quotas(request)
 
     usages = QuotaUsage()
-    for quota in get_tenant_quota_data(request, disabled_quotas):
+    for quota in get_tenant_quota_data(request,
+                                       disabled_quotas=disabled_quotas):
         usages.add_quota(quota)
 
     # Get our usages.
