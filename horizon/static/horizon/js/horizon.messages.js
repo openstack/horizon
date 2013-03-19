@@ -27,6 +27,22 @@ horizon.clearAllMessages = function() {
   horizon.clearSuccessMessages();
 };
 
+horizon.autoDismissAlerts = function() {
+  var $alerts = $('#main_content .messages .alert');
+
+  $alerts.each(function(index, alert) {
+    var $alert = $(this),
+        types = $alert.attr('class').split(' ');
+
+    // Check if alert should auto-fade
+    if (_.intersection(types, horizon.conf.auto_fade_alerts.types).length > 0) {
+      setTimeout(function() {
+        $alert.fadeOut(horizon.conf.auto_fade_alerts.fade_duration);
+      }, horizon.conf.auto_fade_alerts.delay);
+    }
+  });
+}
+
 horizon.addInitFunction(function () {
   // Bind AJAX message handling.
   $("body").ajaxComplete(function(event, request, settings){
@@ -43,4 +59,7 @@ horizon.addInitFunction(function () {
 
   // Bind dismiss(x) handlers for alert messages.
   $(".alert").alert();
+
+  // Hide alerts automatically if attribute data-dismiss-auto is set to true.
+  horizon.autoDismissAlerts();
 });
