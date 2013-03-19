@@ -1,31 +1,33 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Translators:
+#   <11315889@qq.com>, 2012.
 #   <daisy.ycguo@gmail.com>, 2012.
 # yuanke wei <weiyuanke123@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:09+0000\n"
-"PO-Revision-Date: 2012-09-11 08:10+0000\n"
-"Last-Translator: daisy.ycguo <daisy.ycguo@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2013-03-12 08:31+0000\n"
+"Last-Translator: dangdang <11315889@qq.com>\n"
+"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: settings.py:152
 msgid "Bulgarian (Bulgaria)"
-msgstr ""
+msgstr "保加利亚语(保加利亚)"
 
 #: settings.py:153
 msgid "Czech"
-msgstr ""
+msgstr "捷克语"
 
 #: settings.py:154
 msgid "English"
@@ -49,11 +51,11 @@ msgstr "日语"
 
 #: settings.py:159
 msgid "Korean (Korea)"
-msgstr ""
+msgstr "朝鲜语(韩语)"
 
 #: settings.py:160
 msgid "Dutch (Netherlands)"
-msgstr ""
+msgstr "荷兰语 (荷兰)"
 
 #: settings.py:161
 msgid "Polish"
@@ -64,7 +66,6 @@ msgid "Portuguese"
 msgstr "葡萄牙语"
 
 #: settings.py:163
-#, fuzzy
 msgid "Portuguese (Brazil)"
 msgstr "葡萄牙语"
 
@@ -78,22 +79,22 @@ msgstr "繁体中文"
 
 #: api/cinder.py:86
 msgid "Unknown instance"
-msgstr "未知的实例名"
+msgstr ""
 
 #: api/keystone.py:57
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
-msgstr "%(type)s (%(backend)s 后端)"
+msgstr ""
 
 #: api/nova.py:171
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr "允许 %(from)s:%(to)s 来自 %(group)s"
+msgstr ""
 
 #: api/nova.py:176
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr "允许 %(from)s:%(to)s 来自 %(cidr)s"
+msgstr ""
 
 #: dashboards/admin/dashboard.py:24
 msgid "System Panel"
@@ -143,7 +144,7 @@ msgstr ""
 #: dashboards/project/volumes/tables.py:172
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:9
 msgid "Name"
-msgstr "名称"
+msgstr ""
 
 #: dashboards/admin/flavors/forms.py:37 dashboards/admin/flavors/tables.py:52
 #: dashboards/admin/projects/workflows.py:44
@@ -170,9 +171,8 @@ msgid "Swap Disk MB"
 msgstr ""
 
 #: dashboards/admin/flavors/forms.py:49
-#, fuzzy
 msgid "Unable to get flavor list"
-msgstr "找不到密钥对列表。"
+msgstr ""
 
 #: dashboards/admin/flavors/forms.py:56
 #, python-format
@@ -211,7 +211,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_detail_overview.html:22
 #: dashboards/project/instances/workflows/create_instance.py:180
 msgid "Flavor"
-msgstr "类型"
+msgstr ""
 
 #: dashboards/admin/flavors/tables.py:23
 #: dashboards/admin/flavors/templates/flavors/_create.html:8
@@ -275,9 +275,8 @@ msgstr ""
 #: dashboards/admin/flavors/extras/forms.py:34
 #: dashboards/admin/flavors/extras/forms.py:52
 #: dashboards/admin/flavors/extras/tables.py:61
-#, fuzzy
 msgid "Key"
-msgstr "密钥对"
+msgstr ""
 
 #: dashboards/admin/flavors/extras/forms.py:35
 #: dashboards/admin/flavors/extras/forms.py:53
@@ -291,9 +290,8 @@ msgid "Created extra spec \"%s\"."
 msgstr ""
 
 #: dashboards/admin/flavors/extras/forms.py:48
-#, fuzzy
 msgid "Unable to create flavor extra spec."
-msgstr "无法创建容器。"
+msgstr ""
 
 #: dashboards/admin/flavors/extras/forms.py:62
 #, python-format
@@ -301,9 +299,8 @@ msgid "Saved extra spec \"%s\"."
 msgstr ""
 
 #: dashboards/admin/flavors/extras/forms.py:66
-#, fuzzy
 msgid "Unable to edit extra spec."
-msgstr "找不到对象。"
+msgstr ""
 
 #: dashboards/admin/flavors/extras/tables.py:31
 msgid "ExtraSpec"
@@ -324,21 +321,19 @@ msgstr ""
 #: dashboards/admin/users/tables.py:30
 #: dashboards/project/images_and_snapshots/images/tables.py:71
 msgid "Edit"
-msgstr "编辑"
+msgstr ""
 
 #: dashboards/admin/flavors/extras/tables.py:66
 msgid "Extra Specs"
 msgstr ""
 
 #: dashboards/admin/flavors/extras/views.py:61
-#, fuzzy
 msgid "Unable to retrieve extra spec list."
-msgstr "找不到实例列表"
+msgstr ""
 
 #: dashboards/admin/flavors/extras/views.py:90
-#, fuzzy
 msgid "Unable to retrieve flavor extra spec data."
-msgstr "找不到对象列表。"
+msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/_create.html:17
 #: dashboards/admin/flavors/templates/flavors/_edit.html:17
@@ -382,7 +377,7 @@ msgstr "找不到对象列表。"
 #: dashboards/project/volumes/templates/volumes/_create_snapshot.html:17
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:14
 msgid "Description"
-msgstr "描述"
+msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/_create.html:18
 msgid "From here you can define the sizing of a new flavor."
@@ -431,7 +426,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/_create_snapshot.html:24
 #: dashboards/settings/user/templates/user/_settings.html:24
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:18
 msgid "From here you can alter the sizing of the current flavor."
@@ -439,8 +434,8 @@ msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:19
 msgid ""
-"Note: this will not affect the resources allocated to any existing instances "
-"using this flavor."
+"Note: this will not affect the resources allocated to any existing instances"
+" using this flavor."
 msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:24
@@ -484,13 +479,13 @@ msgstr ""
 #: dashboards/project/images_and_snapshots/images/tables.py:50
 #: dashboards/project/images_and_snapshots/images/tables.py:190
 msgid "Images"
-msgstr "镜像"
+msgstr ""
 
 #: dashboards/admin/images/tables.py:45
 #: dashboards/project/images_and_snapshots/images/tables.py:171
 #: dashboards/project/instances/templates/instances/_detail_overview.html:78
 msgid "Image Name"
-msgstr "镜像名称"
+msgstr ""
 
 #: dashboards/admin/images/views.py:56
 msgid "Unable to retrieve image list."
@@ -516,7 +511,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/_update.html:21
 #: dashboards/settings/user/templates/user/_settings.html:17
 msgid "Description:"
-msgstr "说明："
+msgstr ""
 
 #: dashboards/admin/images/templates/images/_create.html:19
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:19
@@ -539,15 +534,15 @@ msgstr ""
 #: dashboards/admin/images/templates/images/_create.html:26
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:26
 msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
+"The Image Location field MUST be a valid and direct URL to the image binary."
+" URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
 
 #: dashboards/admin/images/templates/images/_create.html:32
 #: dashboards/project/images_and_snapshots/images/tables.py:64
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:32
 msgid "Create Image"
-msgstr "创建镜像"
+msgstr ""
 
 #: dashboards/admin/images/templates/images/_update.html:8
 #: dashboards/admin/images/templates/images/_update.html:23
@@ -630,7 +625,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 msgid "Instances"
-msgstr "实例"
+msgstr ""
 
 #: dashboards/admin/instances/tables.py:43
 msgid "Migrate"
@@ -649,7 +644,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:143
 #: dashboards/project/volumes/tables.py:219
 msgid "Instance"
-msgstr "实例"
+msgstr ""
 
 #: dashboards/admin/instances/tables.py:80
 #: dashboards/admin/networks/forms.py:36
@@ -659,7 +654,7 @@ msgstr "实例"
 #: dashboards/project/dashboard.py:43
 #: dashboards/project/instances/workflows/create_instance.py:41
 msgid "Project"
-msgstr "工程"
+msgstr ""
 
 #: dashboards/admin/instances/tables.py:92
 #: dashboards/project/access_and_security/floating_ips/tables.py:114
@@ -668,7 +663,7 @@ msgstr "工程"
 #: dashboards/project/instances/tables.py:447
 #: dashboards/project/loadbalancers/tables.py:138
 msgid "IP Address"
-msgstr "IP地址"
+msgstr ""
 
 #: dashboards/admin/instances/tables.py:94
 #: dashboards/project/containers/tables.py:231
@@ -678,7 +673,7 @@ msgstr "IP地址"
 #: dashboards/project/volumes/tables.py:158
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:26
 msgid "Size"
-msgstr "大小"
+msgstr ""
 
 #: dashboards/admin/instances/tables.py:99
 #: dashboards/admin/networks/tables.py:74
@@ -701,7 +696,7 @@ msgstr "大小"
 #: dashboards/project/volumes/tables.py:162
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:17
 msgid "Status"
-msgstr "状态"
+msgstr ""
 
 #: dashboards/admin/instances/tables.py:104
 #: dashboards/project/instances/tables.py:459
@@ -717,7 +712,7 @@ msgstr ""
 #: dashboards/project/access_and_security/tabs.py:97
 #: dashboards/project/access_and_security/floating_ips/workflows.py:86
 msgid "Unable to retrieve instance list."
-msgstr "找不到实例列表"
+msgstr ""
 
 #: dashboards/admin/instances/views.py:69
 #: dashboards/admin/networks/views.py:48
@@ -727,7 +722,7 @@ msgstr ""
 #: dashboards/admin/instances/views.py:86
 #: dashboards/project/instances/views.py:81
 msgid "Unable to retrieve instance size information."
-msgstr "无法获取实例的大小信息。"
+msgstr ""
 
 #: dashboards/admin/instances/templates/instances/index.html:6
 msgid "All Instances"
@@ -911,9 +906,8 @@ msgstr ""
 #: dashboards/admin/networks/ports/forms.py:49
 #: dashboards/admin/networks/ports/forms.py:81
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:37
-#, fuzzy
 msgid "Device Owner"
-msgstr "设备名称"
+msgstr ""
 
 #: dashboards/admin/networks/ports/forms.py:63
 #, python-format
@@ -1000,7 +994,7 @@ msgstr ""
 #: dashboards/project/routers/ports/tabs.py:29
 #: dashboards/project/volumes/tabs.py:27
 msgid "Overview"
-msgstr "概述"
+msgstr ""
 
 #: dashboards/admin/networks/ports/tabs.py:42
 #: dashboards/project/networks/ports/tabs.py:42
@@ -1051,7 +1045,7 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:155
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 msgid "CIDR"
-msgstr "CIDR"
+msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:73
 #: dashboards/project/networks/workflows.py:73
@@ -1142,7 +1136,7 @@ msgstr ""
 #: dashboards/admin/projects/templates/projects/index.html:6
 #: templates/403.html:24 templates/404.html:23
 msgid "Projects"
-msgstr ""
+msgstr "项目"
 
 #: dashboards/admin/projects/tables.py:19
 msgid "Modify Users"
@@ -1277,7 +1271,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:52
 #: dashboards/project/access_and_security/floating_ips/tables.py:131
 msgid "Floating IPs"
-msgstr "浮动IP"
+msgstr ""
 
 #: dashboards/admin/projects/workflows.py:55
 #: dashboards/project/access_and_security/tabs.py:40
@@ -1287,12 +1281,12 @@ msgstr "浮动IP"
 #: dashboards/project/instances/workflows/create_instance.py:344
 #: dashboards/project/instances/workflows/update_instance.py:111
 msgid "Security Groups"
-msgstr "安全组"
+msgstr ""
 
 #: dashboards/admin/projects/workflows.py:57
 #: dashboards/project/access_and_security/security_groups/tables.py:119
 msgid "Security Group Rules"
-msgstr "安全组规则"
+msgstr ""
 
 #: dashboards/admin/projects/workflows.py:60
 msgid "Quota"
@@ -1468,9 +1462,8 @@ msgid "Add New User"
 msgstr ""
 
 #: dashboards/admin/projects/templates/projects/quotas.html:3
-#, fuzzy
 msgid "Modify Project Quotas"
-msgstr "项目配额"
+msgstr ""
 
 #: dashboards/admin/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
@@ -1481,9 +1474,8 @@ msgid "Project Usage"
 msgstr ""
 
 #: dashboards/admin/projects/templates/projects/users.html:3
-#, fuzzy
 msgid "Project Users"
-msgstr "工程"
+msgstr ""
 
 #: dashboards/admin/projects/templates/projects/users.html:7
 msgid "Users for Project"
@@ -1492,27 +1484,25 @@ msgstr ""
 #: dashboards/admin/routers/forms.py:35 dashboards/project/routers/forms.py:23
 #: dashboards/project/routers/ports/forms.py:32
 #: dashboards/project/routers/ports/forms.py:91
-#, fuzzy
 msgid "Router Name"
-msgstr "容器名称"
+msgstr ""
 
 #: dashboards/admin/routers/forms.py:48
 msgid "Failed to get tenants."
 msgstr ""
 
 #: dashboards/admin/routers/forms.py:67 dashboards/project/routers/forms.py:37
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to create router \"%s\"."
-msgstr "无法创建容器。"
+msgstr ""
 
 #: dashboards/admin/routers/tables.py:39
 #: dashboards/admin/routers/templates/routers/create.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 #: dashboards/project/routers/tables.py:59
 #: dashboards/project/routers/templates/routers/create.html:3
-#, fuzzy
 msgid "Create Router"
-msgstr "创建文件夹"
+msgstr ""
 
 #: dashboards/admin/routers/tables.py:77
 #: dashboards/admin/routers/templates/routers/index.html:3
@@ -1525,9 +1515,8 @@ msgid "Routers"
 msgstr ""
 
 #: dashboards/admin/routers/views.py:51 dashboards/project/routers/views.py:55
-#, fuzzy
 msgid "Unable to retrieve router list."
-msgstr "无法检索容器列表"
+msgstr ""
 
 #: dashboards/admin/routers/ports/tables.py:49
 #: dashboards/project/access_and_security/security_groups/forms.py:112
@@ -1538,7 +1527,7 @@ msgstr "无法检索容器列表"
 #: dashboards/project/volumes/forms.py:31
 #: dashboards/project/volumes/tables.py:175
 msgid "Type"
-msgstr "类型"
+msgstr ""
 
 #: dashboards/admin/routers/ports/tables.py:58
 #: dashboards/project/routers/ports/tables.py:51
@@ -1550,15 +1539,13 @@ msgstr ""
 #: dashboards/admin/routers/templates/routers/_create.html:19
 #: dashboards/project/routers/templates/routers/_create.html:8
 #: dashboards/project/routers/templates/routers/_create.html:19
-#, fuzzy
 msgid "Create router"
-msgstr "创建文件夹"
+msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:3
 #: dashboards/project/routers/templates/routers/_detail_overview.html:3
-#, fuzzy
 msgid "Router Overview"
-msgstr "概述"
+msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/routers/templates/routers/_detail_overview.html:14
@@ -1572,9 +1559,8 @@ msgstr ""
 
 #: dashboards/admin/routers/templates/routers/create.html:6
 #: dashboards/project/routers/templates/routers/create.html:6
-#, fuzzy
 msgid "Create a Router"
-msgstr "创建文件夹"
+msgstr ""
 
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/project/routers/templates/routers/detail.html:3
@@ -1744,57 +1730,49 @@ msgid ""
 msgstr ""
 
 #: dashboards/admin/volumes/forms.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "Successfully created volume type: %s"
-msgstr "安全组创建成功：%s"
+msgstr ""
 
 #: dashboards/admin/volumes/forms.py:43
-#, fuzzy
 msgid "Unable to create volume type."
-msgstr "无法创建容器。"
+msgstr ""
 
 #: dashboards/admin/volumes/tables.py:11
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:8
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:27
 #: dashboards/admin/volumes/templates/volumes/create_volume_type.html:3
-#, fuzzy
 msgid "Create Volume Type"
-msgstr "创建文件夹"
+msgstr ""
 
 #: dashboards/admin/volumes/tables.py:17
-#, fuzzy
 msgid "Volume Type"
-msgstr "卷"
+msgstr ""
 
 #: dashboards/admin/volumes/tables.py:18 dashboards/admin/volumes/tables.py:54
-#, fuzzy
 msgid "Volume Types"
-msgstr "卷快照"
+msgstr ""
 
 #: dashboards/admin/volumes/views.py:51
-#, fuzzy
 msgid "Unable to retrieve volume tenant information."
-msgstr "无法获取实例的大小信息。"
+msgstr ""
 
 #: dashboards/admin/volumes/views.py:68
-#, fuzzy
 msgid "Unable to retrieve volume types"
-msgstr "找不到卷组快照。"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:18
 msgid ""
 "\n"
 "    The volume type defines the characteristics of a volume.\n"
-"    It usually maps to a set of capabilities of the storage back-end driver "
-"to be used for this volume.\n"
+"    It usually maps to a set of capabilities of the storage back-end driver to be used for this volume.\n"
 "    Examples: \"Performance\", \"SSD\", \"Backup\", etc.\n"
 "    "
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/create_volume_type.html:6
-#, fuzzy
 msgid "Create a Volume Type"
-msgstr "创建文件夹"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/detail.html:3
 #: dashboards/project/volumes/templates/volumes/detail.html:3
@@ -1808,41 +1786,41 @@ msgstr ""
 
 #: dashboards/project/dashboard.py:24
 msgid "Manage Compute"
-msgstr "管理计算"
+msgstr ""
 
 #: dashboards/project/dashboard.py:38
 msgid "Object Store"
-msgstr "块存储"
+msgstr ""
 
 #: dashboards/project/access_and_security/panel.py:26
 #: dashboards/project/instances/workflows/create_instance.py:352
 msgid "Access & Security"
-msgstr "访问 & 安全"
+msgstr ""
 
 #: dashboards/project/access_and_security/tabs.py:50
 #: dashboards/project/access_and_security/security_groups/views.py:85
 msgid "Unable to retrieve security groups."
-msgstr "找不到安全组"
+msgstr ""
 
 #: dashboards/project/access_and_security/tabs.py:56
 #: dashboards/project/access_and_security/keypairs/tables.py:31
 #: dashboards/project/access_and_security/keypairs/tables.py:60
 msgid "Keypairs"
-msgstr "密钥对"
+msgstr ""
 
 #: dashboards/project/access_and_security/tabs.py:66
 msgid "Unable to retrieve keypair list."
-msgstr "找不到密钥对列表。"
+msgstr ""
 
 #: dashboards/project/access_and_security/tabs.py:82
 #: dashboards/project/access_and_security/floating_ips/workflows.py:70
 msgid "Unable to retrieve floating IP addresses."
-msgstr "找不到浮动IP。"
+msgstr ""
 
 #: dashboards/project/access_and_security/tabs.py:89
 #: dashboards/project/access_and_security/floating_ips/views.py:66
 msgid "Unable to retrieve floating IP pools."
-msgstr "找不到浮动IP池"
+msgstr ""
 
 #: dashboards/project/access_and_security/tabs.py:111
 msgid "API Access"
@@ -1886,33 +1864,33 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:249
 #: dashboards/project/loadbalancers/workflows.py:364
 msgid "Pool"
-msgstr "资源池"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:44
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
-msgstr "分配到的浮动IP %(ip)s。"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:48
 msgid "Unable to allocate Floating IP."
-msgstr "无法分配浮动IP。"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:39
 msgid "Allocate IP To Project"
-msgstr "分配IP给项目"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:49
 msgid "Release"
-msgstr "释放"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:50
 msgid "Released"
-msgstr "已释放"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:51
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:22
 msgid "Floating IP"
-msgstr "浮动IP"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:61
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/associate.html:3
@@ -1920,72 +1898,69 @@ msgstr "浮动IP"
 #: dashboards/project/instances/tables.py:299
 #: dashboards/project/instances/tables.py:320
 msgid "Associate Floating IP"
-msgstr "绑定浮动IP"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:78
 #: dashboards/project/instances/tables.py:344
 msgid "Disassociate Floating IP"
-msgstr "解除浮动IP的绑定"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:93
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
-msgstr "浮动IP解除绑定成功: %s"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:97
 #: dashboards/project/instances/tables.py:370
 msgid "Unable to disassociate floating IP."
-msgstr "无法将浮动IP解除绑定"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:120
 msgid "Floating IP Pool"
-msgstr "浮动IP池"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/views.py:69
 msgid "No floating IP pools available."
-msgstr "没有可用的浮动IP池"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:42
-msgid "Select the IP address you wish to associate with the selected instance."
-msgstr "请为选中的实例选择要绑定的IP地址"
+msgid ""
+"Select the IP address you wish to associate with the selected instance."
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:48
-#, fuzzy
 msgid "Port to be associated"
-msgstr "IP地址 %s 已经被管理"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:50
-#, fuzzy
 msgid "Instance to be associated"
-msgstr "实例快照"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:74
 msgid "Select an IP address"
-msgstr "选择一个IP地址"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:76
 msgid "No IP addresses available"
-msgstr "无效的IP地址"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:98
-#, fuzzy
 msgid "Select a port"
-msgstr "选择一个密钥对"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:100
 #: dashboards/project/volumes/forms.py:204
 msgid "Select an instance"
-msgstr "请选择一个实例"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:104
-#, fuzzy
 msgid "No ports available"
-msgstr "无密钥对。"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:106
 #: dashboards/project/volumes/forms.py:206
 msgid "No instances available"
-msgstr "无效的实例"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:126
 msgid "Manage Floating IP Associations"
@@ -1998,7 +1973,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/workflows.py:128
 #, python-format
 msgid "IP address %s associated."
-msgstr "IP地址 %s 已经被管理"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:129
 #, python-format
@@ -2009,31 +1984,31 @@ msgstr ""
 #: dashboards/project/access_and_security/keypairs/forms.py:49
 #: dashboards/project/access_and_security/keypairs/tables.py:52
 msgid "Keypair Name"
-msgstr "密钥对名字"
+msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/forms.py:40
 msgid ""
 "Keypair names may only contain letters, numbers, underscores and hyphens."
-msgstr "密钥对名称只能包含字母，数字，下划线和连字符。"
+msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/forms.py:51
 msgid "Public Key"
-msgstr "公钥"
+msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/forms.py:60
 #, python-format
 msgid "Successfully imported public key: %s"
-msgstr "成功导入公钥：%s"
+msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/forms.py:65
 msgid "Unable to import keypair."
-msgstr "无法导入密钥对。"
+msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:30
 #: dashboards/project/instances/tables.py:451
 #: dashboards/project/instances/workflows/create_instance.py:339
 msgid "Keypair"
-msgstr "密钥对"
+msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:39
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:7
@@ -2041,7 +2016,7 @@ msgstr "密钥对"
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:6
 msgid "Import Keypair"
-msgstr "导入密钥对"
+msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:46
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:7
@@ -2049,16 +2024,16 @@ msgstr "导入密钥对"
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:6
 msgid "Create Keypair"
-msgstr "创建密钥对"
+msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:53
 msgid "Fingerprint"
-msgstr "指纹"
+msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/views.py:74
 #, python-format
 msgid "Unable to create keypair: %(exc)s"
-msgstr "无法创建密钥对：%(exc)s"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:38
 msgid "This field is required."
@@ -2071,16 +2046,16 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:50
 #, python-format
 msgid "Successfully created security group: %s"
-msgstr "安全组创建成功：%s"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:56
 msgid "Unable to create security group."
-msgstr "安全组创建失败"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:62
 #: dashboards/project/access_and_security/security_groups/tables.py:105
 msgid "IP Protocol"
-msgstr "IP协议"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:63
 msgid "TCP"
@@ -2105,9 +2080,8 @@ msgid "Open"
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:74
-#, fuzzy
 msgid "Port Range"
-msgstr "葡萄牙语"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:84
 #: dashboards/project/access_and_security/security_groups/forms.py:94
@@ -2119,41 +2093,39 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:99
 #: dashboards/project/access_and_security/security_groups/tables.py:107
 msgid "From Port"
-msgstr "从端口"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:102
 #: dashboards/project/access_and_security/security_groups/forms.py:109
 #: dashboards/project/access_and_security/security_groups/tables.py:108
 msgid "To Port"
-msgstr "到端口"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:114
-#, fuzzy
 msgid "Enter a value for ICMP type in the range (-1: 255)"
-msgstr "ICMP类型不在(-1, 255)范围内"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:122
 #: dashboards/project/access_and_security/security_groups/forms.py:129
 msgid "Code"
-msgstr "编码"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:124
-#, fuzzy
 msgid "Enter a value for ICMP code in the range (-1: 255)"
-msgstr "ICMP 代码不在(-1, 255)范围内 "
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:132
 #: dashboards/project/access_and_security/security_groups/tables.py:109
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid "Source"
-msgstr "源"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:134
 #: dashboards/project/access_and_security/security_groups/forms.py:157
 #: dashboards/project/access_and_security/security_groups/forms.py:162
 #: dashboards/project/access_and_security/security_groups/tables.py:31
 msgid "Security Group"
-msgstr "安全组"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:135
 msgid ""
@@ -2163,56 +2135,54 @@ msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:148
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
-msgstr "无类别域间路由(e.g. 192.168.0.0/24)"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:173
-#, fuzzy
 msgid "No security groups available"
-msgstr "无密钥对。"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:192
 msgid "The ICMP type is invalid."
-msgstr "无效的ICMP类型。"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:195
 msgid "The ICMP code is invalid."
-msgstr "无效的ICMP代码。"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:198
 msgid "The ICMP type not in range (-1, 255)"
-msgstr "ICMP类型不在(-1, 255)范围内"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:201
 msgid "The ICMP code not in range (-1, 255)"
-msgstr "ICMP 代码不在(-1, 255)范围内 "
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:210
-#, fuzzy
 msgid "The specified port is invalid."
-msgstr "\"从\"端口号不合法"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:214
 msgid "The \"from\" port number is invalid."
-msgstr "\"从\"端口号不合法"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:217
 msgid "The \"to\" port number is invalid."
-msgstr "\"到\"端口号不合法"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:220
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
-msgstr "\"到\"端口号必须大于或者等于\"从\"端口号"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:242
 #, python-format
 msgid "Successfully added rule: %s"
-msgstr "规则添加成功：%s"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:248
 msgid "Unable to add rule to security group."
-msgstr "无法为安全组添加规则。"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:45
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:7
@@ -2220,30 +2190,30 @@ msgstr "无法为安全组添加规则。"
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:6
 msgid "Create Security Group"
-msgstr "创建安全组"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:52
 msgid "Edit Rules"
-msgstr "编辑规则"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:73
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:7
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
 msgid "Add Rule"
-msgstr "添加规则"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:82
 msgid "Rule"
-msgstr "规则"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:83
 msgid "Rules"
-msgstr "规则"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/views.py:55
 msgid "Unable to retrieve security group."
-msgstr "无法检索到安全组。"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/views.py:91
 #, python-format
@@ -2253,32 +2223,32 @@ msgstr ""
 #: dashboards/project/access_and_security/templates/access_and_security/index.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/index.html:6
 msgid "Access &amp; Security"
-msgstr "访问 &amp; 安全"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/allocate.html:3
 msgid "Allocate Floating IP"
-msgstr "分配浮动IP"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
 msgid "Allocate a floating IP from a given floating ip pool."
-msgstr "从一个给定的浮动IP地址池分配一个浮动的IP。"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:20
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:19
 msgid "Project Quotas"
-msgstr "项目配额"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:31
 msgid "Allocate IP"
-msgstr "分配IP"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:17
 msgid ""
 "Keypairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
+"launched. Creating a new key pair registers the public key and downloads the"
+" private key (a .pem file)."
 msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:18
@@ -2289,7 +2259,7 @@ msgstr ""
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:6
 msgid "Download Keypair"
-msgstr "下载密钥对"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:11
 #, python-format
@@ -2313,9 +2283,8 @@ msgstr ""
 #: dashboards/project/loadbalancers/tables.py:115
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/workflows.py:132
-#, fuzzy
 msgid "Protocol"
-msgstr "IP协议"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:19
 msgid ""
@@ -2329,10 +2298,10 @@ msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid ""
-"For TCP and UDP rules you may choose to open either a single port or a range "
-"of ports. Selecting the \"Port Range\" option will provide you with space to "
-"provide both the starting and ending ports for the range. For ICMP rules you "
-"instead specify an ICMP type and code in the spaces provided."
+"For TCP and UDP rules you may choose to open either a single port or a range"
+" of ports. Selecting the \"Port Range\" option will provide you with space "
+"to provide both the starting and ending ports for the range. For ICMP rules "
+"you instead specify an ICMP type and code in the spaces provided."
 msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
@@ -2346,47 +2315,47 @@ msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:18
 msgid "From here you can create a new security group"
-msgstr "点此创建新的安全组"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:6
 msgid "Edit Security Group Rules"
-msgstr "编辑安全组的规则"
+msgstr ""
 
 #: dashboards/project/containers/browsers.py:26
 msgid "Swift"
-msgstr "Swift"
+msgstr ""
 
 #: dashboards/project/containers/browsers.py:29
 #: dashboards/project/containers/tables.py:40
 msgid "Container"
-msgstr "容器"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:39
 msgid "Slash is not an allowed character."
-msgstr "斜线是不允许的字符"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:49
 #: dashboards/project/containers/tables.py:121
 msgid "Container Name"
-msgstr "容器名称"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:57
 msgid "Container created successfully."
-msgstr "容器创建成功。"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:68
 msgid "Folder created successfully."
-msgstr "目录创建成功"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:71
 msgid "Unable to create container."
-msgstr "无法创建容器。"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:79
 #: dashboards/project/containers/tables.py:228
 msgid "Object Name"
-msgstr "对象名称"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:80
 msgid ""
@@ -2395,23 +2364,23 @@ msgstr ""
 
 #: dashboards/project/containers/forms.py:83
 msgid "File"
-msgstr "文件"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:97
 msgid "Object was successfully uploaded."
-msgstr "对象上传成功。"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:100
 msgid "Unable to upload object."
-msgstr "无法上传对象。"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:104
 msgid "Destination container"
-msgstr "目标容器"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:108
 msgid "Destination object name"
-msgstr "目标对象名称"
+msgstr ""
 
 #: dashboards/project/containers/forms.py:141
 #, python-format
@@ -2420,7 +2389,7 @@ msgstr ""
 
 #: dashboards/project/containers/forms.py:151
 msgid "Unable to copy object."
-msgstr "无法拷贝对象。"
+msgstr ""
 
 #: dashboards/project/containers/panel.py:29
 #: dashboards/project/containers/tables.py:41
@@ -2428,7 +2397,7 @@ msgstr "无法拷贝对象。"
 #: dashboards/project/containers/templates/containers/index.html:3
 #: dashboards/project/containers/templates/containers/index.html:7
 msgid "Containers"
-msgstr "容器"
+msgstr ""
 
 #: dashboards/project/containers/tables.py:62
 #: dashboards/project/containers/templates/containers/_create.html:7
@@ -2436,84 +2405,82 @@ msgstr "容器"
 #: dashboards/project/containers/templates/containers/create.html:3
 #: dashboards/project/containers/templates/containers/create.html:6
 msgid "Create Container"
-msgstr "创建容器"
+msgstr ""
 
 #: dashboards/project/containers/tables.py:69
 msgid "View Container"
-msgstr "查看容器"
+msgstr ""
 
 #: dashboards/project/containers/tables.py:81
 #: dashboards/project/containers/templates/containers/_upload.html:24
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
-msgstr "上传对象"
+msgstr ""
 
 #: dashboards/project/containers/tables.py:137
 #: dashboards/project/containers/tables.py:149
 #: dashboards/project/containers/templates/containers/_upload.html:18
 msgid "Object"
-msgstr "对象"
+msgstr ""
 
 #: dashboards/project/containers/tables.py:138
 #: dashboards/project/containers/tables.py:150
 #: dashboards/project/containers/tables.py:235
 msgid "Objects"
-msgstr "对象"
+msgstr ""
 
 #: dashboards/project/containers/tables.py:156
 msgid "Copy"
-msgstr "复制"
+msgstr ""
 
 #: dashboards/project/containers/tables.py:169
 msgid "Download"
-msgstr "下载"
+msgstr ""
 
 #: dashboards/project/containers/views.py:53
 msgid "Unable to retrieve container list."
-msgstr "无法检索容器列表"
+msgstr ""
 
 #: dashboards/project/containers/views.py:83
 msgid "Unable to retrieve object list."
-msgstr "找不到对象列表。"
+msgstr ""
 
 #: dashboards/project/containers/views.py:168
 msgid "Unable to retrieve object."
-msgstr "找不到对象。"
+msgstr ""
 
 #: dashboards/project/containers/views.py:203
 msgid "Unable to list containers."
-msgstr "找不到容器列表。"
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/_copy.html:7
 #: dashboards/project/containers/templates/containers/_copy.html:22
 #: dashboards/project/containers/templates/containers/copy.html:3
 #: dashboards/project/containers/templates/containers/copy.html:6
 msgid "Copy Object"
-msgstr "复制对象"
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/_copy.html:17
 msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may also specify a path at which the new copy should live inside of the "
-"selected container."
+"Make a new copy of an existing object to store in this or another container."
+" You may also specify a path at which the new copy should live inside of the"
+" selected container."
 msgstr ""
-"为现有对象创建一个新的副本，存储在这个或另外一个容器中。 您也可以在选中的容器"
-"中为新的副本指定存储路径 。"
 
 #: dashboards/project/containers/templates/containers/_create.html:17
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
+"Windows &reg; or a directory in UNIX &reg;. The primary difference between a"
+" container and these other file system concepts is that containers cannot be"
+" nested. You can, however, create an unlimited number of containers within "
 "your account. Data must be stored in a container so you must have at least "
 "one container defined in your account prior to uploading data."
 msgstr ""
 
 #: dashboards/project/containers/templates/containers/_upload.html:8
 msgid "Upload Object To Container"
-msgstr "上传对象到容器中"
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/_upload.html:18
 msgid ""
@@ -2533,53 +2500,52 @@ msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
 "exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
+"the object's name. A slash (/) character is used as the delimiter for "
+"pseudo-folders in the Object Store."
 msgstr ""
 
 #: dashboards/project/containers/templates/containers/upload.html:6
 msgid "Upload Objects"
-msgstr "上传对象"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/panel.py:26
 msgid "Images & Snapshots"
-msgstr "镜像 & 快照"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/views.py:64
 msgid "Unable to retrieve images."
-msgstr "找不到镜像。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/views.py:75
 msgid "Unable to retrieve snapshots."
-msgstr "找不到快照。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/views.py:84
 #: dashboards/project/volumes/forms.py:100
 msgid "Unable to retrieve volume snapshots."
-msgstr "找不到卷组快照。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:45
 msgid "Image Location"
-msgstr "查找镜像"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:46
 msgid "An external (HTTP) URL to load the image from."
-msgstr "使用外部(HTTP)URL加载镜像。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:49
-#, fuzzy
 msgid "Image File"
-msgstr "镜像名称"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:52
 #: dashboards/project/images_and_snapshots/images/forms.py:156
 #: dashboards/project/images_and_snapshots/images/tables.py:184
 msgid "Format"
-msgstr "格式化"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:56
 msgid "AKI - Amazon Kernel Image"
-msgstr "AKI - 亚马逊内核镜像"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:59
 msgid "AMI - Amazon Machine Image"
@@ -2595,29 +2561,29 @@ msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:67
 msgid "QCOW2 - QEMU Emulator"
-msgstr "QCOW2 - QEMU 模拟器"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:74
 msgid "Minimum Disk (GB)"
-msgstr "最小磁盘（GB）"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:75
 #: dashboards/project/images_and_snapshots/images/forms.py:82
 msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
-msgstr "为启动镜像设置的最小磁盘。如果不指定， 默认值为零 (没有限制)。"
+"The minimum disk size required to boot the image. If unspecified, this value"
+" defaults to 0 (no minimum)."
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:81
 msgid "Minimum Ram (MB)"
-msgstr "最小内存（MB）"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:88
 #: dashboards/project/images_and_snapshots/images/forms.py:160
 #: dashboards/project/images_and_snapshots/images/tables.py:181
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:15
 msgid "Public"
-msgstr "公有"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:99
 msgid "A image or external image location must be specified."
@@ -2634,88 +2600,88 @@ msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:136
 msgid "Unable to create new image."
-msgstr "无法创建新镜像"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:142
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:48
 msgid "Kernel ID"
-msgstr "内核ID"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:147
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:52
 msgid "Ramdisk ID"
-msgstr "内存ID"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:152
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:44
 msgid "Architecture"
-msgstr "架构"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:164
 #, python-format
 msgid "Unable to update image \"%s\"."
-msgstr "镜像更新失败 \"%s\"。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:188
 msgid "Image was successfully updated."
-msgstr "镜像上传成功。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/tables.py:37
 #: dashboards/project/images_and_snapshots/snapshots/tables.py:33
 #: dashboards/project/instances/workflows/create_instance.py:466
 msgid "Launch"
-msgstr "运行"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/tables.py:49
 #: dashboards/project/images_and_snapshots/images/tables.py:131
 #: dashboards/project/instances/workflows/create_instance.py:171
 #: dashboards/project/instances/workflows/create_instance.py:176
 msgid "Image"
-msgstr "镜像"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/tabs.py:38
 msgid "Unable to retrieve image details."
-msgstr "无法检索到镜像细节。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/views.py:61
 msgid "Unable to retrieve image."
-msgstr "无法检索到镜像。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/snapshots/forms.py:37
 msgid "Instance ID"
-msgstr "实例ID"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/snapshots/forms.py:40
 #: dashboards/project/volumes/forms.py:240
 msgid "Snapshot Name"
-msgstr "快照名称"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/snapshots/forms.py:50
 #, python-format
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
-msgstr "实例 \"%(inst)s\" 的快照 \"%(name)s\" 已经建立"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/snapshots/forms.py:56
 msgid "Unable to create snapshot."
-msgstr "无法创建快照。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/snapshots/tables.py:48
 #: dashboards/project/instances/workflows/create_instance.py:110
 #: dashboards/project/instances/workflows/create_instance.py:172
 msgid "Snapshot"
-msgstr "快照"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/snapshots/tables.py:49
 msgid "Snapshots"
-msgstr "快照"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/snapshots/tables.py:55
 msgid "Instance Snapshots"
-msgstr "实例快照"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/snapshots/views.py:53
 msgid "Unable to retrieve instance."
-msgstr "无法检索到实例。"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/index.html:3
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/index.html:6
@@ -2757,11 +2723,11 @@ msgstr ""
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:32
 msgid "Container Format"
-msgstr "容器格式"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:34
 msgid "Disk Format"
-msgstr "磁盘格式"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:40
 msgid "Custom Properties"
@@ -2798,7 +2764,7 @@ msgstr ""
 #: dashboards/project/volumes/tables.py:38
 #: dashboards/project/volumes/tables.py:193
 msgid "Volume"
-msgstr "卷"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:38
 #: dashboards/project/instances/templates/instances/_detail_overview.html:29
@@ -2815,24 +2781,22 @@ msgid "Create a Snapshot"
 msgstr ""
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:3
-#, fuzzy
 msgid "Volume Snapshot Details"
-msgstr "卷快照"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:6
-#, fuzzy
 msgid "Volume Snapshot Detail"
-msgstr "卷快照"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:35
 #: dashboards/project/instances/workflows/create_instance.py:79
 msgid "Volume Snapshot"
-msgstr "卷快照"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:36
 #: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:89
 msgid "Volume Snapshots"
-msgstr "卷快照"
+msgstr ""
 
 #: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:37
 #: dashboards/project/loadbalancers/tables.py:70
@@ -2857,41 +2821,36 @@ msgid "Volume Name"
 msgstr ""
 
 #: dashboards/project/images_and_snapshots/volume_snapshots/tabs.py:41
-#, fuzzy
 msgid "Unable to retrieve snapshot details."
-msgstr "找不到快照。"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:71
 msgid "Terminate"
-msgstr "终止"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:72
 msgid "Scheduled termination of"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:86
-#, fuzzy
 msgid "Hard Reboot"
-msgstr "重启"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:87
-#, fuzzy
 msgid "Hard Rebooted"
-msgstr "已重启"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:103
-#, fuzzy
 msgid "Soft Reboot"
-msgstr "重启"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:104
-#, fuzzy
 msgid "Soft Rebooted"
-msgstr "已重启"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:112
 msgid "Pause"
-msgstr "暂停"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:112
 #: dashboards/project/instances/tables.py:141
@@ -2936,9 +2895,8 @@ msgid "Edit Instance"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:222
-#, fuzzy
 msgid "Edit Security Groups"
-msgstr "编辑安全组的规则"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:245
 #: dashboards/project/instances/tabs.py:55
@@ -2958,24 +2916,22 @@ msgid "Revert Resize/Migrate"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:334
-#, fuzzy, python-format
+#, python-format
 msgid "Successfully associated floating IP: %s"
-msgstr "浮动IP解除绑定成功: %s"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:338
-#, fuzzy
 msgid "Unable to associate floating IP."
-msgstr "无法将浮动IP解除绑定"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:364
-#, fuzzy, python-format
+#, python-format
 msgid "Successfully disassociated floating IP: %s"
-msgstr "浮动IP解除绑定成功: %s"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:367
-#, fuzzy
 msgid "No floating IPs to disassociate."
-msgstr "没有可用的浮动IP池"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:392
 #, python-format
@@ -3005,7 +2961,7 @@ msgstr ""
 
 #: dashboards/project/instances/views.py:58
 msgid "Unable to retrieve instances."
-msgstr "无法取得实例信息。"
+msgstr ""
 
 #: dashboards/project/instances/views.py:121
 #, python-format
@@ -3013,9 +2969,9 @@ msgid "Unable to get VNC console for instance \"%s\"."
 msgstr ""
 
 #: dashboards/project/instances/views.py:133
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
-msgstr "无法取得实例信息。"
+msgstr ""
 
 #: dashboards/project/instances/views.py:154
 msgid "Unable to retrieve instance details."
@@ -3027,9 +2983,8 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr ""
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:3
-#, fuzzy
 msgid "Instance Console"
-msgstr "实例个数"
+msgstr ""
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:5
 msgid ""
@@ -3210,19 +3165,19 @@ msgstr ""
 #: dashboards/project/instances/workflows/create_instance.py:81
 #: dashboards/project/volumes/forms.py:170
 msgid "Device Name"
-msgstr "设备名称"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:84
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
-msgstr "卷的挂接点 (例如：'vda' 挂接到 '/dev/vda' 上)."
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:86
 msgid "Delete on Terminate"
-msgstr "在结束时删除"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:89
 msgid "Delete volume on instance terminate"
-msgstr "在实例结束后删除卷"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:103
 #, python-format
@@ -3231,7 +3186,7 @@ msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:120
 msgid "Select Volume"
-msgstr "选择卷"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:128
 msgid "Unable to retrieve list of volumes."
@@ -3255,15 +3210,15 @@ msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:181
 msgid "Size of image to launch."
-msgstr "建立的映像大小"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:182
 msgid "Instance Count"
-msgstr "实例个数"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:185
 msgid "Number of instances to launch."
-msgstr "启动实例的个数"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:188
 msgid "Details"
@@ -3311,7 +3266,7 @@ msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:295
 msgid "Unable to retrieve instance flavors."
-msgstr "无法检索实例类型。"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:308
 #: usage/base.py:115
@@ -3320,11 +3275,11 @@ msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:341
 msgid "Which keypair to use for authentication."
-msgstr "用于验证的密钥对。"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:348
 msgid "Launch instance in these security groups."
-msgstr "在这些安全组中启动实例。"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:353
 msgid ""
@@ -3334,19 +3289,19 @@ msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:363
 msgid "Unable to retrieve keypairs."
-msgstr "无法检索密钥对。"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:367
 msgid "Select a keypair"
-msgstr "选择一个密钥对"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:369
 msgid "No keypairs available."
-msgstr "无密钥对。"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:378
 msgid "Unable to retrieve list of security groups"
-msgstr "无法检索到安全组列表"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:398
 msgid "Customization Script"
@@ -3354,8 +3309,8 @@ msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:400
 msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
+"A script or set of commands to be executed after the instance has been built"
+" (max 16kb)."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:407
@@ -3402,9 +3357,8 @@ msgid "instance"
 msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:47
-#, fuzzy
 msgid "Unable to retrieve security group list. Please try again later."
-msgstr "找不到安全组"
+msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:81
 #, python-format
@@ -3412,9 +3366,9 @@ msgid "Couldn't get current security group list for instance %s."
 msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:103
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to modify %d instance security groups."
-msgstr "无法为安全组添加规则。"
+msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:117
 msgid ""
@@ -3423,29 +3377,24 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:119
-#, fuzzy
 msgid "All Security Groups"
-msgstr "安全组"
+msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:120
-#, fuzzy
 msgid "Instance Security Groups"
-msgstr "安全组"
+msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:121
-#, fuzzy
 msgid "No security groups found."
-msgstr "安全组"
+msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:122
-#, fuzzy
 msgid "No security groups enabled."
-msgstr "安全组规则"
+msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:150
-#, fuzzy
 msgid "From here you can edit the instance details."
-msgstr "点此创建新的安全组"
+msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:163
 #, python-format
@@ -3453,9 +3402,9 @@ msgid "Modified instance \"%s\"."
 msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:164
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to modify instance \"%s\"."
-msgstr "不能更新实例"
+msgstr ""
 
 #: dashboards/project/loadbalancers/panel.py:10
 msgid "Load Balancers"
@@ -3463,9 +3412,8 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/tables.py:32
 #: dashboards/project/loadbalancers/workflows.py:96
-#, fuzzy
 msgid "Add Pool"
-msgstr "资源池"
+msgstr ""
 
 #: dashboards/project/loadbalancers/tables.py:39
 #: dashboards/project/loadbalancers/workflows.py:193
@@ -3500,9 +3448,8 @@ msgstr ""
 #: dashboards/project/loadbalancers/tables.py:85
 #: dashboards/project/loadbalancers/tables.py:121
 #: dashboards/project/loadbalancers/tabs.py:32
-#, fuzzy
 msgid "Pools"
-msgstr "资源池"
+msgstr ""
 
 #: dashboards/project/loadbalancers/tables.py:92
 msgid "Monitor"
@@ -3531,9 +3478,8 @@ msgstr ""
 #: dashboards/project/loadbalancers/tables.py:141
 #: dashboards/project/loadbalancers/workflows.py:131
 #: dashboards/project/loadbalancers/workflows.py:257
-#, fuzzy
 msgid "Protocol Port"
-msgstr "IP协议"
+msgstr ""
 
 #: dashboards/project/loadbalancers/tables.py:156
 msgid "Monitor Type"
@@ -3542,105 +3488,90 @@ msgstr ""
 #: dashboards/project/loadbalancers/tabs.py:44
 #: dashboards/project/loadbalancers/workflows.py:270
 #: dashboards/project/loadbalancers/workflows.py:388
-#, fuzzy
 msgid "Unable to retrieve pools list."
-msgstr "找不到对象列表。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:62
-#, fuzzy
 msgid "Unable to retrieve member list."
-msgstr "找不到对象列表。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:79
-#, fuzzy
 msgid "Unable to retrieve monitor list."
-msgstr "无法检索容器列表"
+msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:90
 msgid "Pool Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:101
-#, fuzzy
 msgid "Unable to retrieve pool details."
-msgstr "找不到快照。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:106
 msgid "Vip Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:117
-#, fuzzy
 msgid "Unable to retrieve vip details."
-msgstr "无法检索到镜像细节。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:122
 msgid "Member Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:133
-#, fuzzy
 msgid "Unable to retrieve member details."
-msgstr "无法检索到镜像细节。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:138
 msgid "Monitor Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:149
-#, fuzzy
 msgid "Unable to retrieve monitor details."
-msgstr "无法检索到镜像细节。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/views.py:55
-#, fuzzy
 msgid "Unable to delete monitor."
-msgstr "无法创建容器。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/views.py:62
 msgid "Must delete Vip first."
 msgstr ""
 
 #: dashboards/project/loadbalancers/views.py:69
-#, fuzzy
 msgid "Unable to delete member."
-msgstr "无法创建新镜像"
+msgstr ""
 
 #: dashboards/project/loadbalancers/views.py:76
-#, fuzzy
 msgid "Unable to locate vip to delete."
-msgstr "无法创建快照。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/views.py:82
-#, fuzzy
 msgid "Unable to delete vip."
-msgstr "无法检索到镜像。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/views.py:112
-#, fuzzy
 msgid "Unable to retrieve pool subnet."
-msgstr "找不到对象。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:40
 msgid "Load Balancing Method"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:49
-#, fuzzy
 msgid "Select a Subnet"
-msgstr "请选择一个实例"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:54
-#, fuzzy
 msgid "Unable to retrieve networks list."
-msgstr "找不到对象列表。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:60
 #: dashboards/project/loadbalancers/workflows.py:65
 #: dashboards/project/loadbalancers/workflows.py:152
-#, fuzzy
 msgid "Select a Protocol"
-msgstr "IP协议"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:72
 msgid "PoolDetails"
@@ -3650,9 +3581,7 @@ msgstr ""
 msgid ""
 "Create Pool for current tenant.\n"
 "\n"
-"Assign a name and description for the pool. Choose one subnet where all "
-"members of this pool must be on. Select the protocol and load balancing "
-"method for this pool. Admin State is UP (checked) by defaul.t"
+"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by defaul.t"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:98
@@ -3661,23 +3590,21 @@ msgid "Added Pool \"%s\"."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:99
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to add Pool \"%s\"."
-msgstr "镜像更新失败 \"%s\"。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:124
-#, fuzzy
 msgid "Vip Address from Floating IPs"
-msgstr "绑定浮动IP"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:134
 msgid "Session Persistence"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:137
-#, fuzzy
 msgid "Cookie Name"
-msgstr "容器名称"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:138
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
@@ -3688,9 +3615,9 @@ msgid "Connection Limit"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:148
-#, fuzzy, python-format
+#, python-format
 msgid "Specify a free IP address from %s"
-msgstr "选择一个IP地址"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:157
 msgid "Set Session Persistence"
@@ -3707,9 +3634,9 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:169
 msgid ""
 "Create a vip (virtual IP) for this pool. Assign a name and description for "
-"the vip. Specify an IP address and port for the vip. Choose the protocol and "
-"session persistence method for the vip.Specify the max connections allowed. "
-"Admin State is UP (checked) by default."
+"the vip. Specify an IP address and port for the vip. Choose the protocol and"
+" session persistence method for the vip.Specify the max connections allowed."
+" Admin State is UP (checked) by default."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:195
@@ -3718,9 +3645,9 @@ msgid "Added Vip \"%s\"."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:196
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to add Vip \"%s\"."
-msgstr "镜像更新失败 \"%s\"。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:209
 #, python-format
@@ -3728,9 +3655,8 @@ msgid "Only one address can be specified.Unable to add Vip %s."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:220
-#, fuzzy
 msgid "Unable to retrieve pool."
-msgstr "找不到对象。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:227
 msgid "Cookie name must be specified with APP_COOKIE persistence."
@@ -3751,14 +3677,12 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:264
 #: dashboards/project/loadbalancers/workflows.py:383
-#, fuzzy
 msgid "Select a Pool"
-msgstr "选择卷"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:283
-#, fuzzy
 msgid "Unable to retrieve instances list."
-msgstr "找不到实例列表"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:286
 msgid "No servers available. Click Add to cancel."
@@ -3772,9 +3696,7 @@ msgstr ""
 msgid ""
 "Add member to selected pool.\n"
 "\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight for this member Specify the port number the member"
-"(s) operate on; e.g., 80."
+"Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for this member Specify the port number the member(s) operate on; e.g., 80."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:327
@@ -3783,19 +3705,18 @@ msgid "Added Member \"%s\"."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:328
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to add Member %s."
-msgstr "镜像更新失败 \"%s\"。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:338
-#, fuzzy, python-format
+#, python-format
 msgid "No instances available.%s"
-msgstr "无效的实例"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:349
-#, fuzzy
 msgid "Unable to retrieve ports list."
-msgstr "找不到对象列表。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:366
 msgid "Delay"
@@ -3822,9 +3743,8 @@ msgid "Expected HTTP Status Codes"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:393
-#, fuzzy
 msgid "Select Type"
-msgstr "选择卷"
+msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:400
 msgid "Select HTTP Method"
@@ -3838,9 +3758,7 @@ msgstr ""
 msgid ""
 "Create a monitor for a pool.\n"
 "\n"
-"Select target pool and type of monitoring. Specify delay, timeout, and retry "
-"limits required by the monitor. Specify method, URL path, and expected HTTP "
-"codes upon success."
+"Select target pool and type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:431
@@ -3849,9 +3767,9 @@ msgid "Added Monitor \"%s\"."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:432
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to add Monitor \"%s\"."
-msgstr "镜像更新失败 \"%s\"。"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
@@ -3869,21 +3787,18 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:30
-#, fuzzy
 msgid "Pool ID: "
-msgstr "资源池"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:15
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:21
-#, fuzzy
 msgid "Address: "
-msgstr "IP地址"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:18
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:24
-#, fuzzy
 msgid "Protocol Port: "
-msgstr "IP协议"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:21
 msgid "Weight: "
@@ -3900,15 +3815,13 @@ msgstr ""
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:36
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:45
-#, fuzzy
 msgid "Status: "
-msgstr "状态"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:34
-#, fuzzy
 msgid "Type: "
-msgstr "类型"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay: "
@@ -3940,15 +3853,13 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
-#, fuzzy
 msgid "Name: "
-msgstr "名称"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:18
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
-#, fuzzy
 msgid "Description: "
-msgstr "说明："
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:21
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
@@ -3957,9 +3868,8 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:24
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:27
-#, fuzzy
 msgid "Protocol: "
-msgstr "IP协议"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "Load Balancing Method: "
@@ -3978,9 +3888,8 @@ msgid "Session Persistence: "
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:36
-#, fuzzy
 msgid "Cookie Name: "
-msgstr "容器名称"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
 msgid "Connection Limit: "
@@ -4040,14 +3949,12 @@ msgstr ""
 #: dashboards/project/networks/workflows.py:47
 msgid ""
 "From here you can create a new network.\n"
-"In addition a subnet associated with the network can be created in the next "
-"panel."
+"In addition a subnet associated with the network can be created in the next panel."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:61
-#, fuzzy
 msgid "Subnet Name"
-msgstr "对象名称"
+msgstr ""
 
 #: dashboards/project/networks/workflows.py:62
 msgid "Subnet Name. This field is optional."
@@ -4071,10 +3978,10 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:78
 msgid ""
-"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
-"of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use the "
-"default, leave blank. If you want to use no gateway, check 'Disable Gateway' "
-"below."
+"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
+" of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use "
+"the default, leave blank. If you want to use no gateway, check 'Disable "
+"Gateway' below."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:87
@@ -4115,15 +4022,14 @@ msgid "Enable DHCP"
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:145
-#, fuzzy
 msgid "Allocation Pools"
-msgstr "浮动IP池"
+msgstr ""
 
 #: dashboards/project/networks/workflows.py:146
 msgid ""
-"IP address allocation pools. Each entry is &lt;start_ip_address&gt;,&lt;"
-"end_ip_address&gt; (e.g., 192.168.1.100,192.168.1.120) and one entry per "
-"line."
+"IP address allocation pools. Each entry is "
+"&lt;start_ip_address&gt;,&lt;end_ip_address&gt; (e.g., "
+"192.168.1.100,192.168.1.120) and one entry per line."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:153
@@ -4141,9 +4047,9 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:160
 msgid ""
-"Additional routes announced to the hosts. Each entry is &lt;"
-"destination_cidr&gt;,&lt;nexthop&gt; (e.g., 192.168.200.0/24,10.56.1.254)and "
-"one entry per line."
+"Additional routes announced to the hosts. Each entry is "
+"&lt;destination_cidr&gt;,&lt;nexthop&gt; (e.g., "
+"192.168.200.0/24,10.56.1.254)and one entry per line."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:168
@@ -4205,8 +4111,7 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:329
 #, python-format
-msgid ""
-"Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:345
@@ -4256,9 +4161,9 @@ msgid "Created subnet \"%s\"."
 msgstr ""
 
 #: dashboards/project/networks/subnets/workflows.py:63
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to create subnet \"%s\"."
-msgstr "无法创建快照。"
+msgstr ""
 
 #: dashboards/project/networks/subnets/workflows.py:112
 msgid ""
@@ -4283,14 +4188,14 @@ msgid "Updated subnet \"%s\"."
 msgstr ""
 
 #: dashboards/project/networks/subnets/workflows.py:157
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to update subnet \"%s\"."
-msgstr "镜像更新失败 \"%s\"。"
+msgstr ""
 
 #: dashboards/project/networks/subnets/workflows.py:185
-#, fuzzy, python-format
+#, python-format
 msgid "Subnet \"%s\" was successfully updated."
-msgstr "镜像上传成功。"
+msgstr ""
 
 #: dashboards/project/networks/subnets/workflows.py:189
 #, python-format
@@ -4371,14 +4276,12 @@ msgid "DHCP Enable"
 msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:31
-#, fuzzy
 msgid "Additional routes"
-msgstr "繁体中文"
+msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:34
-#, fuzzy
 msgid "Destination"
-msgstr "描述"
+msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:35
 msgid " : Next hop"
@@ -4404,9 +4307,9 @@ msgstr ""
 
 #: dashboards/project/routers/tables.py:43
 #: dashboards/project/routers/tables.py:49
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to delete router \"%s\""
-msgstr "镜像更新失败 \"%s\"。"
+msgstr ""
 
 #: dashboards/project/routers/tables.py:78
 msgid "Clear"
@@ -4431,14 +4334,13 @@ msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr ""
 
 #: dashboards/project/routers/tabs.py:37
-#, fuzzy
 msgid "Unable to retrieve router details."
-msgstr "无法检索到镜像细节。"
+msgstr ""
 
 #: dashboards/project/routers/views.py:77
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "无法检索到安全组列表"
+msgstr ""
 
 #: dashboards/project/routers/views.py:89
 #, python-format
@@ -4446,14 +4348,14 @@ msgid "External network \"%s\" not found."
 msgstr ""
 
 #: dashboards/project/routers/views.py:105
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
-msgstr "无法检索到镜像细节。"
+msgstr ""
 
 #: dashboards/project/routers/views.py:117
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to retrieve an external network \"%s\"."
-msgstr "无法检索容器列表"
+msgstr ""
 
 #: dashboards/project/routers/ports/forms.py:35
 #: dashboards/project/routers/ports/forms.py:94
@@ -4467,14 +4369,12 @@ msgid "Failed to get network list %s"
 msgstr ""
 
 #: dashboards/project/routers/ports/forms.py:67
-#, fuzzy
 msgid "Select Subnet"
-msgstr "选择卷"
+msgstr ""
 
 #: dashboards/project/routers/ports/forms.py:69
-#, fuzzy
 msgid "No subnets available."
-msgstr "无效的实例"
+msgstr ""
 
 #: dashboards/project/routers/ports/forms.py:77
 msgid "Interface added"
@@ -4486,14 +4386,12 @@ msgid "Failed to add_interface %s"
 msgstr ""
 
 #: dashboards/project/routers/ports/forms.py:118
-#, fuzzy
 msgid "Select network"
-msgstr "选择一个密钥对"
+msgstr ""
 
 #: dashboards/project/routers/ports/forms.py:120
-#, fuzzy
 msgid "No networks available."
-msgstr "无密钥对。"
+msgstr ""
 
 #: dashboards/project/routers/ports/forms.py:128
 msgid "Gateway interface is added"
@@ -4509,28 +4407,25 @@ msgid "Interface"
 msgstr ""
 
 #: dashboards/project/routers/ports/tables.py:65
-#, fuzzy, python-format
+#, python-format
 msgid "Failed to delete interface %s"
-msgstr "无法取得实例信息。"
+msgstr ""
 
 #: dashboards/project/routers/ports/views.py:50
-#, fuzzy
 msgid "Unable to retrieve router."
-msgstr "找不到对象。"
+msgstr ""
 
 #: dashboards/project/routers/ports/views.py:82
-#, fuzzy
 msgid "Unable to set gateway."
-msgstr "无法创建新镜像"
+msgstr ""
 
 #: dashboards/project/volumes/forms.py:33
 msgid "Size (GB)"
 msgstr ""
 
 #: dashboards/project/volumes/forms.py:34
-#, fuzzy
 msgid "Encryption"
-msgstr "描述"
+msgstr ""
 
 #: dashboards/project/volumes/forms.py:35
 msgid "Use snapshot as a source"
@@ -4557,8 +4452,8 @@ msgstr ""
 #: dashboards/project/volumes/forms.py:127
 #, python-format
 msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
+"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
+" quota available."
 msgstr ""
 
 #: dashboards/project/volumes/forms.py:134
@@ -4600,9 +4495,9 @@ msgid "Unable to create volume snapshot."
 msgstr ""
 
 #: dashboards/project/volumes/tables.py:48
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
-msgstr "找不到卷组快照。"
+msgstr ""
 
 #: dashboards/project/volumes/tables.py:68
 msgid "Edit Attachments"
@@ -4754,9 +4649,8 @@ msgid "You may have mistyped the address or the page may have moved."
 msgstr "你可能输入了错误的地址，或者该页面被删除了"
 
 #: templates/500.html:20
-#, fuzzy
 msgid "Server error"
-msgstr "内部服务器错误"
+msgstr ""
 
 #: templates/500.html:67
 msgid "Something went wrong!"

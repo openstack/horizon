@@ -1,83 +1,85 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
+# Translators:
+#   <ilyaalekseyev@acm.org>, 2012.
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2013.
+# Stanislav Hanzhin <hanzhin.stas@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:09+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-03-13 09:00+0000\n"
+"Last-Translator: adiantum <ilyaalekseyev@acm.org>\n"
+"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: settings.py:152
 msgid "Bulgarian (Bulgaria)"
-msgstr ""
+msgstr "Болгарский (Болгария)"
 
 #: settings.py:153
 msgid "Czech"
-msgstr ""
+msgstr "Чешский"
 
 #: settings.py:154
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: settings.py:155
 msgid "Spanish"
-msgstr ""
+msgstr "Испанский"
 
 #: settings.py:156
 msgid "French"
-msgstr ""
+msgstr "Французский"
 
 #: settings.py:157
 msgid "Italiano"
-msgstr ""
+msgstr "Итальянский"
 
 #: settings.py:158
 msgid "Japanese"
-msgstr ""
+msgstr "Японский"
 
 #: settings.py:159
 msgid "Korean (Korea)"
-msgstr ""
+msgstr "Корейский (Корея)"
 
 #: settings.py:160
 msgid "Dutch (Netherlands)"
-msgstr ""
+msgstr "Голландский (Нидерланды)"
 
 #: settings.py:161
 msgid "Polish"
-msgstr ""
+msgstr "Польский"
 
 #: settings.py:162
 msgid "Portuguese"
-msgstr ""
+msgstr "Португальский"
 
 #: settings.py:163
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "Португальский"
 
 #: settings.py:164
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "Упрощённый китайский"
 
 #: settings.py:165
 msgid "Traditional Chinese"
-msgstr ""
+msgstr "Традиционный китайский"
 
 #: api/cinder.py:86
 msgid "Unknown instance"
-msgstr ""
+msgstr "Неизвестный инстанс"
 
 #: api/keystone.py:57
 #, python-format
@@ -432,8 +434,8 @@ msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:19
 msgid ""
-"Note: this will not affect the resources allocated to any existing instances "
-"using this flavor."
+"Note: this will not affect the resources allocated to any existing instances"
+" using this flavor."
 msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:24
@@ -532,8 +534,8 @@ msgstr ""
 #: dashboards/admin/images/templates/images/_create.html:26
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:26
 msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
+"The Image Location field MUST be a valid and direct URL to the image binary."
+" URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
 
 #: dashboards/admin/images/templates/images/_create.html:32
@@ -652,7 +654,7 @@ msgstr ""
 #: dashboards/project/dashboard.py:43
 #: dashboards/project/instances/workflows/create_instance.py:41
 msgid "Project"
-msgstr ""
+msgstr "Проект"
 
 #: dashboards/admin/instances/tables.py:92
 #: dashboards/project/access_and_security/floating_ips/tables.py:114
@@ -710,7 +712,7 @@ msgstr ""
 #: dashboards/project/access_and_security/tabs.py:97
 #: dashboards/project/access_and_security/floating_ips/workflows.py:86
 msgid "Unable to retrieve instance list."
-msgstr ""
+msgstr "Невозможно получить список инстансов."
 
 #: dashboards/admin/instances/views.py:69
 #: dashboards/admin/networks/views.py:48
@@ -724,7 +726,7 @@ msgstr ""
 
 #: dashboards/admin/instances/templates/instances/index.html:6
 msgid "All Instances"
-msgstr ""
+msgstr "Все инстансы"
 
 #: dashboards/admin/networks/forms.py:37 dashboards/admin/networks/forms.py:80
 #: dashboards/admin/networks/tables.py:76
@@ -764,17 +766,17 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:50 dashboards/admin/routers/forms.py:42
 #: dashboards/admin/users/forms.py:42
 msgid "Select a project"
-msgstr ""
+msgstr "Выберите проект"
 
 #: dashboards/admin/networks/forms.py:64
 #, python-format
 msgid "Network %s was successfully created."
-msgstr ""
+msgstr "Сеть %s была успешно создана."
 
 #: dashboards/admin/networks/forms.py:70
 #, python-format
 msgid "Failed to create network %s"
-msgstr ""
+msgstr "Не удалось создать сеть %s"
 
 #: dashboards/admin/networks/forms.py:77
 #: dashboards/admin/networks/templates/networks/ports/_update.html:12
@@ -798,13 +800,13 @@ msgstr ""
 #: dashboards/project/networks/forms.py:51
 #, python-format
 msgid "Network %s was successfully updated."
-msgstr ""
+msgstr "Сеть %s была успешно обновлена."
 
 #: dashboards/admin/networks/forms.py:98
 #: dashboards/project/networks/forms.py:56
 #, python-format
 msgid "Failed to update network %s"
-msgstr ""
+msgstr "Не удалось обновить сеть %s"
 
 #: dashboards/admin/networks/panel.py:25
 #: dashboards/admin/networks/tables.py:35
@@ -818,20 +820,20 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 msgid "Networks"
-msgstr ""
+msgstr "Сети"
 
 #: dashboards/admin/networks/tables.py:34
 #: dashboards/project/networks/tables.py:43
 #: dashboards/project/networks/templates/networks/subnets/index.html:3
 #: dashboards/project/networks/templates/networks/subnets/index.html:6
 msgid "Network"
-msgstr ""
+msgstr "Сеть"
 
 #: dashboards/admin/networks/tables.py:41
 #: dashboards/project/networks/tables.py:59
 #, python-format
 msgid "Failed to delete network %s"
-msgstr ""
+msgstr "Не удалось удалить сеть %s"
 
 #: dashboards/admin/networks/tables.py:49
 #: dashboards/admin/networks/templates/networks/_create.html:8
@@ -846,60 +848,60 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/create.html:3
 #: dashboards/project/networks/templates/networks/create.html:6
 msgid "Create Network"
-msgstr ""
+msgstr "Создать сеть"
 
 #: dashboards/admin/networks/tables.py:56
 #: dashboards/admin/networks/templates/networks/_update.html:7
 #: dashboards/project/networks/tables.py:74
 #: dashboards/project/networks/templates/networks/_update.html:7
 msgid "Edit Network"
-msgstr ""
+msgstr "Редактировать сеть"
 
 #: dashboards/admin/networks/tables.py:68
 #: dashboards/admin/networks/ports/forms.py:35
 #: dashboards/project/networks/workflows.py:38
 msgid "Network Name"
-msgstr ""
+msgstr "Имя сети"
 
 #: dashboards/admin/networks/tables.py:71
 #: dashboards/project/networks/tables.py:97
 msgid "Subnets Associated"
-msgstr ""
+msgstr "Ассоциированные подсети"
 
 #: dashboards/admin/networks/views.py:60
 #: dashboards/project/networks/views.py:52
 msgid "Network list can not be retrieved."
-msgstr ""
+msgstr "Не удается получить список сетей."
 
 #: dashboards/admin/networks/views.py:91
 #: dashboards/project/networks/views.py:110
 msgid "Subnet list can not be retrieved."
-msgstr ""
+msgstr "Не удается получить список подсетей."
 
 #: dashboards/admin/networks/views.py:103
 #: dashboards/project/networks/views.py:122
 #: dashboards/project/routers/views.py:137
 msgid "Port list can not be retrieved."
-msgstr ""
+msgstr "Не удается получить список портов."
 
 #: dashboards/admin/networks/views.py:118
 #: dashboards/project/networks/views.py:135
 #: dashboards/project/networks/subnets/tables.py:96
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
-msgstr ""
+msgstr "Невозможно получить детальную информацию о сети \"%s\"."
 
 #: dashboards/admin/networks/ports/forms.py:38
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:14
 msgid "Network ID"
-msgstr ""
+msgstr "Идентификатор сети"
 
 #: dashboards/admin/networks/ports/forms.py:46
 #: dashboards/admin/networks/ports/forms.py:78
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:38
 msgid "Device ID"
-msgstr ""
+msgstr "Идентификатор устройства"
 
 #: dashboards/admin/networks/ports/forms.py:49
 #: dashboards/admin/networks/ports/forms.py:81
@@ -910,24 +912,24 @@ msgstr ""
 #: dashboards/admin/networks/ports/forms.py:63
 #, python-format
 msgid "Port %s was successfully created."
-msgstr ""
+msgstr "Порт %s был успешно создан."
 
 #: dashboards/admin/networks/ports/forms.py:68
 #, python-format
 msgid "Failed to create a port for network %s"
-msgstr ""
+msgstr "Не удалось создать порт для сети %s"
 
 #: dashboards/admin/networks/ports/forms.py:94
 #: dashboards/project/networks/ports/forms.py:47
 #, python-format
 msgid "Port %s was successfully updated."
-msgstr ""
+msgstr "Порт %s был успешно обновлен."
 
 #: dashboards/admin/networks/ports/forms.py:99
 #: dashboards/project/networks/ports/forms.py:52
 #, python-format
 msgid "Failed to update port %s"
-msgstr ""
+msgstr "Не удалось обновить порт %s"
 
 #: dashboards/admin/networks/ports/tables.py:34
 #: dashboards/project/access_and_security/security_groups/forms.py:73
@@ -935,20 +937,20 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:89
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:6
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: dashboards/admin/networks/ports/tables.py:35
 #: dashboards/admin/networks/ports/tables.py:83
 #: dashboards/project/networks/ports/tables.py:70
 msgid "Ports"
-msgstr ""
+msgstr "Порты"
 
 #: dashboards/admin/networks/ports/tables.py:41
 #: dashboards/admin/networks/subnets/tables.py:39
 #: dashboards/project/networks/subnets/tables.py:51
 #, python-format
 msgid "Failed to delete subnet %s"
-msgstr ""
+msgstr "Не удалось удалить подсеть %s"
 
 #: dashboards/admin/networks/ports/tables.py:51
 #: dashboards/admin/networks/templates/networks/ports/_create.html:8
@@ -956,27 +958,27 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/create.html:3
 #: dashboards/admin/networks/templates/networks/ports/create.html:6
 msgid "Create Port"
-msgstr ""
+msgstr "Создать порт"
 
 #: dashboards/admin/networks/ports/tables.py:62
 #: dashboards/admin/networks/templates/networks/ports/_update.html:7
 #: dashboards/project/networks/ports/tables.py:46
 #: dashboards/project/networks/templates/networks/ports/_update.html:7
 msgid "Edit Port"
-msgstr ""
+msgstr "Редактировать порт"
 
 #: dashboards/admin/networks/ports/tables.py:75
 #: dashboards/admin/routers/ports/tables.py:45
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/routers/ports/tables.py:77
 msgid "Fixed IPs"
-msgstr ""
+msgstr "Фиксированные IP адреса"
 
 #: dashboards/admin/networks/ports/tables.py:76
 #: dashboards/admin/routers/ports/tables.py:46
 #: dashboards/project/routers/ports/tables.py:78
 msgid "Device Attached"
-msgstr ""
+msgstr "Устройство подключено"
 
 #: dashboards/admin/networks/ports/tabs.py:32
 #: dashboards/admin/overview/panel.py:29
@@ -992,13 +994,13 @@ msgstr ""
 #: dashboards/project/routers/ports/tabs.py:29
 #: dashboards/project/volumes/tabs.py:27
 msgid "Overview"
-msgstr ""
+msgstr "Обзор"
 
 #: dashboards/admin/networks/ports/tabs.py:42
 #: dashboards/project/networks/ports/tabs.py:42
 #: dashboards/project/routers/ports/tabs.py:40
 msgid "Unable to retrieve port details."
-msgstr ""
+msgstr "Невозможно получить детальную информацию о порте."
 
 #: dashboards/admin/networks/ports/views.py:53
 #: dashboards/project/networks/subnets/views.py:50
@@ -1134,7 +1136,7 @@ msgstr ""
 #: dashboards/admin/projects/templates/projects/index.html:6
 #: templates/403.html:24 templates/404.html:23
 msgid "Projects"
-msgstr ""
+msgstr "Проекты"
 
 #: dashboards/admin/projects/tables.py:19
 msgid "Modify Users"
@@ -1763,8 +1765,7 @@ msgstr ""
 msgid ""
 "\n"
 "    The volume type defines the characteristics of a volume.\n"
-"    It usually maps to a set of capabilities of the storage back-end driver "
-"to be used for this volume.\n"
+"    It usually maps to a set of capabilities of the storage back-end driver to be used for this volume.\n"
 "    Examples: \"Performance\", \"SSD\", \"Backup\", etc.\n"
 "    "
 msgstr ""
@@ -1923,7 +1924,8 @@ msgid "No floating IP pools available."
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:42
-msgid "Select the IP address you wish to associate with the selected instance."
+msgid ""
+"Select the IP address you wish to associate with the selected instance."
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:48
@@ -2245,8 +2247,8 @@ msgstr ""
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:17
 msgid ""
 "Keypairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
+"launched. Creating a new key pair registers the public key and downloads the"
+" private key (a .pem file)."
 msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:18
@@ -2296,10 +2298,10 @@ msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid ""
-"For TCP and UDP rules you may choose to open either a single port or a range "
-"of ports. Selecting the \"Port Range\" option will provide you with space to "
-"provide both the starting and ending ports for the range. For ICMP rules you "
-"instead specify an ICMP type and code in the spaces provided."
+"For TCP and UDP rules you may choose to open either a single port or a range"
+" of ports. Selecting the \"Port Range\" option will provide you with space "
+"to provide both the starting and ending ports for the range. For ICMP rules "
+"you instead specify an ICMP type and code in the spaces provided."
 msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
@@ -2460,18 +2462,18 @@ msgstr ""
 
 #: dashboards/project/containers/templates/containers/_copy.html:17
 msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may also specify a path at which the new copy should live inside of the "
-"selected container."
+"Make a new copy of an existing object to store in this or another container."
+" You may also specify a path at which the new copy should live inside of the"
+" selected container."
 msgstr ""
 
 #: dashboards/project/containers/templates/containers/_create.html:17
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
+"Windows &reg; or a directory in UNIX &reg;. The primary difference between a"
+" container and these other file system concepts is that containers cannot be"
+" nested. You can, however, create an unlimited number of containers within "
 "your account. Data must be stored in a container so you must have at least "
 "one container defined in your account prior to uploading data."
 msgstr ""
@@ -2498,8 +2500,8 @@ msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
 "exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
+"the object's name. A slash (/) character is used as the delimiter for "
+"pseudo-folders in the Object Store."
 msgstr ""
 
 #: dashboards/project/containers/templates/containers/upload.html:6
@@ -2568,8 +2570,8 @@ msgstr ""
 #: dashboards/project/images_and_snapshots/images/forms.py:75
 #: dashboards/project/images_and_snapshots/images/forms.py:82
 msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
+"The minimum disk size required to boot the image. If unspecified, this value"
+" defaults to 0 (no minimum)."
 msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:81
@@ -3307,8 +3309,8 @@ msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:400
 msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
+"A script or set of commands to be executed after the instance has been built"
+" (max 16kb)."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:407
@@ -3579,9 +3581,7 @@ msgstr ""
 msgid ""
 "Create Pool for current tenant.\n"
 "\n"
-"Assign a name and description for the pool. Choose one subnet where all "
-"members of this pool must be on. Select the protocol and load balancing "
-"method for this pool. Admin State is UP (checked) by defaul.t"
+"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by defaul.t"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:98
@@ -3634,9 +3634,9 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:169
 msgid ""
 "Create a vip (virtual IP) for this pool. Assign a name and description for "
-"the vip. Specify an IP address and port for the vip. Choose the protocol and "
-"session persistence method for the vip.Specify the max connections allowed. "
-"Admin State is UP (checked) by default."
+"the vip. Specify an IP address and port for the vip. Choose the protocol and"
+" session persistence method for the vip.Specify the max connections allowed."
+" Admin State is UP (checked) by default."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:195
@@ -3696,9 +3696,7 @@ msgstr ""
 msgid ""
 "Add member to selected pool.\n"
 "\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight for this member Specify the port number the member"
-"(s) operate on; e.g., 80."
+"Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for this member Specify the port number the member(s) operate on; e.g., 80."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:327
@@ -3760,9 +3758,7 @@ msgstr ""
 msgid ""
 "Create a monitor for a pool.\n"
 "\n"
-"Select target pool and type of monitoring. Specify delay, timeout, and retry "
-"limits required by the monitor. Specify method, URL path, and expected HTTP "
-"codes upon success."
+"Select target pool and type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:431
@@ -3953,8 +3949,7 @@ msgstr ""
 #: dashboards/project/networks/workflows.py:47
 msgid ""
 "From here you can create a new network.\n"
-"In addition a subnet associated with the network can be created in the next "
-"panel."
+"In addition a subnet associated with the network can be created in the next panel."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:61
@@ -3983,10 +3978,10 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:78
 msgid ""
-"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
-"of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use the "
-"default, leave blank. If you want to use no gateway, check 'Disable Gateway' "
-"below."
+"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
+" of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use "
+"the default, leave blank. If you want to use no gateway, check 'Disable "
+"Gateway' below."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:87
@@ -4032,9 +4027,9 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:146
 msgid ""
-"IP address allocation pools. Each entry is &lt;start_ip_address&gt;,&lt;"
-"end_ip_address&gt; (e.g., 192.168.1.100,192.168.1.120) and one entry per "
-"line."
+"IP address allocation pools. Each entry is "
+"&lt;start_ip_address&gt;,&lt;end_ip_address&gt; (e.g., "
+"192.168.1.100,192.168.1.120) and one entry per line."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:153
@@ -4052,9 +4047,9 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:160
 msgid ""
-"Additional routes announced to the hosts. Each entry is &lt;"
-"destination_cidr&gt;,&lt;nexthop&gt; (e.g., 192.168.200.0/24,10.56.1.254)and "
-"one entry per line."
+"Additional routes announced to the hosts. Each entry is "
+"&lt;destination_cidr&gt;,&lt;nexthop&gt; (e.g., "
+"192.168.200.0/24,10.56.1.254)and one entry per line."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:168
@@ -4116,8 +4111,7 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:329
 #, python-format
-msgid ""
-"Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:345
@@ -4458,8 +4452,8 @@ msgstr ""
 #: dashboards/project/volumes/forms.py:127
 #, python-format
 msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
+"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
+" quota available."
 msgstr ""
 
 #: dashboards/project/volumes/forms.py:134
@@ -4636,23 +4630,23 @@ msgstr ""
 
 #: templates/403.html:4 templates/403.html.py:9
 msgid "Forbidden"
-msgstr ""
+msgstr "Запрещено"
 
 #: templates/403.html:20 templates/404.html:19 templates/500.html:73
 msgid "Home"
-msgstr ""
+msgstr "Домой"
 
 #: templates/404.html:4
 msgid "Page Not Found"
-msgstr ""
+msgstr "Страница не найдена"
 
 #: templates/404.html:9
 msgid "The page you were looking for doesn't exist"
-msgstr ""
+msgstr "Страница, которую вы ищите, не существует"
 
 #: templates/404.html:10
 msgid "You may have mistyped the address or the page may have moved."
-msgstr ""
+msgstr "Ошибка в адресе страницы, или страница была перемещена."
 
 #: templates/500.html:20
 msgid "Server error"

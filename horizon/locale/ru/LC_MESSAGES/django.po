@@ -1,131 +1,133 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Translators:
+#   <ilyaalekseyev@acm.org>, 2012.
+# Stanislav Hanzhin <hanzhin.stas@gmail.com>, 2012.
 #   <woof@stopme.net>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2012-08-16 08:19+0000\n"
-"Last-Translator: lykoz <woof@stopme.net>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ru\n"
+"PO-Revision-Date: 2013-03-12 08:28+0000\n"
+"Last-Translator: Stanislav Hanzhin <hanzhin.stas@gmail.com>\n"
+"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: base.py:424
 msgid "Other"
-msgstr ""
+msgstr "Другое"
 
 #: decorators.py:55
 msgid "Please log in to continue."
-msgstr ""
+msgstr "Чтобы продолжить, необходимо выполнить вход."
 
 #: decorators.py:87
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "У Вас нет доступа к %s"
+msgstr "Доступ к %s не авторизован"
 
 #: exceptions.py:283
 msgid "Unauthorized. Please try logging in again."
-msgstr ""
+msgstr "Нет авторизации. Попробуйте выполнить вход повторно."
 
 #: browsers/base.py:90
 msgid "Navigation Item"
-msgstr ""
+msgstr "Элемент навигации"
 
 #: browsers/views.py:42
 #, python-format
 msgid "Select a %s to browse."
-msgstr ""
+msgstr "Выберите %s для просмотра"
 
 #: conf/default.py:29
 msgid "Password is not accepted"
-msgstr ""
+msgstr "Пароль не принят"
 
 #: tables/actions.py:349
 msgid "Filter"
-msgstr ""
+msgstr "Фильтр"
 
 #: tables/actions.py:527
 #, python-format
 msgid "%(action)s %(data_type)s"
-msgstr ""
+msgstr "%(action)s %(data_type)s"
 
 #: tables/actions.py:561
 msgid "N/A"
-msgstr ""
+msgstr "Н/Д"
 
 #: tables/actions.py:589
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
-msgstr ""
+msgstr "У вас нет прав на выполнение %(action)s: %(objs)s"
 
 #: tables/actions.py:595
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr ""
+msgstr "Невозможно выполнить %(action)s: %(objs)s"
 
 #: tables/actions.py:601
 #, python-format
 msgid "%(action)s: %(objs)s"
-msgstr ""
+msgstr "%(action)s: %(objs)s"
 
 #: tables/actions.py:611
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: tables/actions.py:612
 msgid "Deleted"
-msgstr ""
+msgstr "Удалено"
 
 #: tables/base.py:275
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr ""
+msgstr "Атрибут %(attr)s не существует для %(obj)s."
 
 #: tables/base.py:748
 msgid "No items to display."
-msgstr ""
+msgstr "Нет элементов для отображения."
 
 #: tables/base.py:852
 msgid "Actions"
-msgstr ""
+msgstr "Действия"
 
 #: tables/base.py:1035
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr ""
+msgstr "Не найдено соответствий для id \"%s\"."
 
 #: tables/base.py:1165
 msgid "Please select a row before taking that action."
-msgstr ""
+msgstr "Выберите строку перед выполнением действия."
 
 #: templates/_header.html:3
 msgid "Logged in as"
-msgstr ""
+msgstr "Вы вошли как"
 
 #: templates/_header.html:5
 msgid "Help"
-msgstr ""
+msgstr "Помощь"
 
 #: templates/_header.html:7
 msgid "Sign Out"
-msgstr ""
+msgstr "Выйти"
 
 #: templates/splash.html:7 templates/auth/login.html:4
 msgid "Login"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: templates/auth/_login.html:4
 msgid "Log In"
-msgstr ""
+msgstr "Войти"
 
 #: templates/auth/_login.html:14
 msgid "You don't have permissions to access:"
@@ -141,35 +143,35 @@ msgstr ""
 
 #: templates/auth/_login.html:27
 msgid "Sign In"
-msgstr ""
+msgstr "Зарегистрироваться"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
-msgstr ""
+msgstr "Инфо:"
 
 #: templates/horizon/_messages.html:13
 msgid "Warning: "
-msgstr ""
+msgstr "Внимание:"
 
 #: templates/horizon/_messages.html:19
 msgid "Success: "
-msgstr ""
+msgstr "Успешно:"
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
-msgstr ""
+msgstr "Ошибка:"
 
 #: templates/horizon/common/_data_table.html:54
 msgid "Summary"
-msgstr ""
+msgstr "Итого"
 
 #: templates/horizon/common/_data_table.html:63
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Отображаем %(counter)s элемент"
+msgstr[1] "Отображаем %(counter)s элемента"
+msgstr[2] "Отображаем %(counter)s элементов"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
@@ -177,7 +179,7 @@ msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:4
 msgid "Quota Summary"
-msgstr ""
+msgstr "Итого"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -185,7 +187,7 @@ msgstr ""
 #: templates/horizon/common/_quota_summary.html:15
 #: templates/horizon/common/_quota_summary.html:18
 msgid "Used"
-msgstr ""
+msgstr "Использовано"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -193,19 +195,19 @@ msgstr ""
 #: templates/horizon/common/_quota_summary.html:15
 #: templates/horizon/common/_quota_summary.html:18
 msgid "of"
-msgstr ""
+msgstr "из"
 
 #: templates/horizon/common/_quota_summary.html:5
 msgid "Available Instances"
-msgstr ""
+msgstr "Все экземпляры"
 
 #: templates/horizon/common/_quota_summary.html:8
 msgid "Available vCPUs"
-msgstr ""
+msgstr "Доступно"
 
 #: templates/horizon/common/_quota_summary.html:11
 msgid "Available RAM"
-msgstr ""
+msgstr "Доступно"
 
 #: templates/horizon/common/_quota_summary.html:15
 msgid "Available volumes"
@@ -219,156 +221,156 @@ msgstr ""
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Отображение %(nav_items)s элемента"
+msgstr[1] "Отображение %(nav_items)s элементов"
+msgstr[2] "Отображение %(nav_items)s элементов"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Отображение %(content_items)s элемента"
+msgstr[1] "Отображение %(content_items)s элементов"
+msgstr[2] "Отображение %(content_items)s элементов"
 
 #: templates/horizon/common/_sidebar.html:14
 msgid "Current Project"
-msgstr ""
+msgstr "Текущий проект"
 
 #: templates/horizon/common/_usage_summary.html:5
 msgid "Select a month to query its usage"
-msgstr ""
+msgstr "Выберите месяц для анализа потребления ресурсов"
 
 #: templates/horizon/common/_usage_summary.html:9
 msgid "Submit"
-msgstr ""
+msgstr "Отправить"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
-msgstr ""
+msgstr "Активные экземпляры"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Active RAM"
-msgstr ""
+msgstr "Активная память"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
-msgstr ""
+msgstr "VCPU-Часов в этом месяце"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "This Month's GB-Hours"
-msgstr ""
+msgstr "ГБ-Часов в этом месяце"
 
 #: templates/horizon/common/_workflow.html:33
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: templatetags/branding.py:35
 msgid "Horizon"
-msgstr ""
+msgstr "Horizon"
 
 #: templatetags/horizon.py:109
 msgid "No Limit"
-msgstr ""
+msgstr "Нет ограничения"
 
 #: templatetags/horizon.py:111 templatetags/horizon.py:113
 msgid "Available"
-msgstr ""
+msgstr "Доступно"
 
 #: templatetags/sizeformat.py:45
 #, python-format
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(size)d байт"
+msgstr[1] "%(size)d байта"
+msgstr[2] "%(size)d байт"
 
 #: templatetags/sizeformat.py:49
 #, python-format
 msgid "%(size)d"
 msgid_plural "%(size)d"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(size)d"
+msgstr[1] "%(size)d"
+msgstr[2] "%(size)d"
 
 #: templatetags/sizeformat.py:52
 #, python-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s КБ"
 
 #: templatetags/sizeformat.py:55
 #, python-format
 msgid "%s MB"
-msgstr ""
+msgstr "%s МБ"
 
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
-msgstr ""
+msgstr "%s ГБ"
 
 #: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s ТБ"
 
 #: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s PB"
-msgstr ""
+msgstr "%s ПБ"
 
 #: test/settings.py:114
 msgid "Password must be between 8 and 18 characters."
-msgstr ""
+msgstr "Пароль должен иметь длину от 8 до 18 символов."
 
 #: test/test_dashboards/cats/dashboard.py:8
 msgid "Cute Cats"
-msgstr ""
+msgstr "Милые кошки"
 
 #: test/test_dashboards/cats/dashboard.py:14
 msgid "Fierce Cats"
-msgstr ""
+msgstr "Свирепые кошки"
 
 #: test/test_dashboards/cats/dashboard.py:19
 msgid "Cats"
-msgstr ""
+msgstr "Кошки"
 
 #: test/test_dashboards/cats/kittens/panel.py:9
 #: test/test_dashboards/cats/kittens/templates/kittens/index.html:3
 #: test/test_dashboards/cats/kittens/templates/kittens/index.html:6
 msgid "Kittens"
-msgstr ""
+msgstr "Котята"
 
 #: test/test_dashboards/cats/tigers/panel.py:9
 #: test/test_dashboards/cats/tigers/templates/tigers/index.html:3
 #: test/test_dashboards/cats/tigers/templates/tigers/index.html:6
 msgid "Tigers"
-msgstr ""
+msgstr "Тигры"
 
 #: test/test_dashboards/dogs/dashboard.py:7
 msgid "Dogs"
-msgstr ""
+msgstr "Собаки"
 
 #: test/test_dashboards/dogs/puppies/panel.py:9
 #: test/test_dashboards/dogs/puppies/templates/puppies/index.html:3
 #: test/test_dashboards/dogs/puppies/templates/puppies/index.html:6
 msgid "Puppies"
-msgstr ""
+msgstr "Щенки"
 
 #: test/tests/base.py:39
 msgid "My Dashboard"
-msgstr ""
+msgstr "Моя панель управления"
 
 #: test/tests/base.py:45
 msgid "My Panel"
-msgstr ""
+msgstr "Моя панель"
 
 #: test/tests/base.py:51
 msgid "Admin Panel"
-msgstr ""
+msgstr "Панель администратора"
 
 #: test/tests/messages.py:32
 msgid "Giant ants are attacking San Francisco!"
-msgstr ""
+msgstr "Гигантские муравьи атакуют Сан-Франциско"
 
 #: test/tests/messages.py:46
 msgid "We are now safe from ants! Go <a>here</a>!"
@@ -376,39 +378,39 @@ msgstr ""
 
 #: test/tests/tables.py:107
 msgid "Batch"
-msgstr ""
+msgstr "Пакет"
 
 #: test/tests/tables.py:108
 msgid "Batched"
-msgstr ""
+msgstr "Пакетом"
 
 #: test/tests/tables.py:109 test/tests/tables.py:120
 msgid "Item"
-msgstr ""
+msgstr "Элемент"
 
 #: test/tests/tables.py:110 test/tests/tables.py:121
 msgid "Items"
-msgstr ""
+msgstr "Элементы"
 
 #: test/tests/tables.py:118
 msgid "Down"
-msgstr ""
+msgstr "Остановлен"
 
 #: test/tests/tables.py:118
 msgid "Up"
-msgstr ""
+msgstr "Запущен"
 
 #: test/tests/tables.py:119
 msgid "Downed"
-msgstr ""
+msgstr "Опущено"
 
 #: test/tests/tables.py:119
 msgid "Upped"
-msgstr ""
+msgstr "Поднято"
 
 #: test/tests/tables.py:187
 msgid "No Actions Table"
-msgstr ""
+msgstr "Нет таблиц действий"
 
 #: test/tests/tables.py:684
 msgid "Single Table"
@@ -416,75 +418,75 @@ msgstr ""
 
 #: test/tests/tabs.py:36
 msgid "Tab One"
-msgstr ""
+msgstr "Вкладка один"
 
 #: test/tests/tabs.py:42
 msgid "Delayed Tab"
-msgstr ""
+msgstr "Вкладка с задержкой"
 
 #: test/tests/tabs.py:49
 msgid "Disabled Tab"
-msgstr ""
+msgstr "Отключенная вкладка"
 
 #: test/tests/tabs.py:58
 msgid "Disallowed Tab"
-msgstr ""
+msgstr "Запрещённая вкладка"
 
 #: test/tests/tabs.py:76
 msgid "Tab With My Table"
-msgstr ""
+msgstr "Вкладка с моей таблицей"
 
 #: test/tests/tabs.py:85
 msgid "Recoverable Error Tab"
-msgstr ""
+msgstr "Владка с восстановимой ошибкой"
 
 #: test/tests/workflows.py:43
 msgid "Project"
-msgstr ""
+msgstr "Проект"
 
 #: test/tests/workflows.py:44
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 #: test/tests/workflows.py:47
 msgid "Test Action One"
-msgstr ""
+msgstr "Тестовое действие один"
 
 #: test/tests/workflows.py:61
 msgid "Instance"
-msgstr ""
+msgstr "Экземпляр"
 
 #: test/tests/workflows.py:64
 msgid "Test Action Two"
-msgstr ""
+msgstr "Тестовое действие два"
 
 #: test/tests/workflows.py:72
 msgid "Test Action Three"
-msgstr ""
+msgstr "Тестовое действие три"
 
 #: test/tests/workflows.py:77
 msgid "Admin"
-msgstr ""
+msgstr "Администратор"
 
 #: test/tests/workflows.py:80
 msgid "Admin Action"
-msgstr ""
+msgstr "Действие адмиистратора"
 
 #: utils/fields.py:46
 msgid "Incorrect format for IP address"
-msgstr ""
+msgstr "Неправильный формат IP адреса"
 
 #: utils/fields.py:47
 msgid "Invalid version for IP address"
-msgstr ""
+msgstr "Неправильная версия для IP адреса"
 
 #: utils/fields.py:48
 msgid "Invalid subnet mask"
-msgstr ""
+msgstr "Неправльная маска подсети"
 
 #: workflows/base.py:71
 msgid "Processing..."
-msgstr ""
+msgstr "Обработка…"
 
 #: workflows/base.py:467
 msgid "All available"
@@ -504,14 +506,14 @@ msgstr ""
 
 #: workflows/base.py:569
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: workflows/base.py:570
 #, python-format
 msgid "%s completed successfully."
-msgstr ""
+msgstr "%s успешно завершено."
 
 #: workflows/base.py:571
 #, python-format
 msgid "%s did not complete."
-msgstr ""
+msgstr "%s не завершено."

@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the Horizon package.
-#
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 # Translators:
 # Chao-Hsiung Liao <pesder@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2012-08-18 09:21+0000\n"
+"PO-Revision-Date: 2013-03-12 08:28+0000\n"
 "Last-Translator: Chao-Hsiung Liao <pesder@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/"
-"openstack/language/zh_TW/)\n"
-"Language: zh_TW\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openstack/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: base.py:424
@@ -128,9 +128,8 @@ msgid "Log In"
 msgstr "登入"
 
 #: templates/auth/_login.html:14
-#, fuzzy
 msgid "You don't have permissions to access:"
-msgstr "您沒有權限使用%(action)s: %(objs)s"
+msgstr ""
 
 #: templates/auth/_login.html:16
 msgid "Login as different user or go back to"
@@ -175,9 +174,8 @@ msgid "More"
 msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:4
-#, fuzzy
 msgid "Quota Summary"
-msgstr "摘要"
+msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -196,29 +194,24 @@ msgid "of"
 msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:5
-#, fuzzy
 msgid "Available Instances"
-msgstr "所有執行個體"
+msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:8
-#, fuzzy
 msgid "Available vCPUs"
-msgstr "可用"
+msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:11
-#, fuzzy
 msgid "Available RAM"
-msgstr "可用"
+msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:15
-#, fuzzy
 msgid "Available volumes"
-msgstr "可用"
+msgstr ""
 
 #: templates/horizon/common/_quota_summary.html:18
-#, fuzzy
 msgid "Available volume storage"
-msgstr "所有執行個體"
+msgstr ""
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
@@ -249,9 +242,8 @@ msgid "Active Instances"
 msgstr "運作中執行個體"
 
 #: templates/horizon/common/_usage_summary.html:15
-#, fuzzy
 msgid "Active RAM"
-msgstr "運作中記憶體"
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
@@ -485,18 +477,16 @@ msgid "Processing..."
 msgstr "處理中…"
 
 #: workflows/base.py:467
-#, fuzzy
 msgid "All available"
-msgstr "可用"
+msgstr ""
 
 #: workflows/base.py:468
 msgid "Members"
 msgstr ""
 
 #: workflows/base.py:469
-#, fuzzy
 msgid "None available."
-msgstr "可用"
+msgstr ""
 
 #: workflows/base.py:470
 msgid "No members."

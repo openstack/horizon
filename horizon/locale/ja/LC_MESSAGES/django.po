@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Translators:
 #   <bi.yamagata@gmail.com>, 2012.
-# Tomoyuki KATO <tomo@dream.daynight.jp>, 2012.
+# Tomoyuki KATO <tomo@dream.daynight.jp>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2012-08-26 02:19+0000\n"
+"PO-Revision-Date: 2013-03-15 22:52+0000\n"
 "Last-Translator: Tomoyuki KATO <tomo@dream.daynight.jp>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
-"language/ja/)\n"
-"Language: ja\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: base.py:424
@@ -26,12 +26,12 @@ msgstr "その他"
 
 #: decorators.py:55
 msgid "Please log in to continue."
-msgstr "続けるにはログインしてください。"
+msgstr "続行するには、ログインしてください。"
 
 #: decorators.py:87
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "%s へのアクセスは許可されていません。"
+msgstr "%s へのアクセスが許可されていません。"
 
 #: exceptions.py:283
 msgid "Unauthorized. Please try logging in again."
@@ -80,7 +80,7 @@ msgstr "%(action)s: %(objs)s"
 
 #: tables/actions.py:611
 msgid "Delete"
-msgstr "削除します"
+msgstr "削除"
 
 #: tables/actions.py:612
 msgid "Deleted"
@@ -89,7 +89,7 @@ msgstr "削除しました"
 #: tables/base.py:275
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "属性 %(attr)s が %(obj)s. に存在しません。"
+msgstr "属性 %(attr)s が %(obj)s に存在しません。"
 
 #: tables/base.py:748
 msgid "No items to display."
@@ -102,11 +102,11 @@ msgstr "アクション"
 #: tables/base.py:1035
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr "ID \"%s\" に一致するものが返されませんでした。"
+msgstr "ID \"%s\" に一致するものがありません。"
 
 #: tables/base.py:1165
 msgid "Please select a row before taking that action."
-msgstr "アクションを実行する前に行を選択してください。"
+msgstr "このアクションを実行する前に、対象を選択してください。"
 
 #: templates/_header.html:3
 msgid "Logged in as"
@@ -129,17 +129,16 @@ msgid "Log In"
 msgstr "ログイン"
 
 #: templates/auth/_login.html:14
-#, fuzzy
 msgid "You don't have permissions to access:"
 msgstr "%(action)s を実行する権限がありません: %(objs)s"
 
 #: templates/auth/_login.html:16
 msgid "Login as different user or go back to"
-msgstr ""
+msgstr "他のユーザーとしてログインしてください。または、戻ってください。"
 
 #: templates/auth/_login.html:17
 msgid "home page"
-msgstr ""
+msgstr "ホームページ"
 
 #: templates/auth/_login.html:27
 msgid "Sign In"
@@ -169,16 +168,15 @@ msgstr "概要"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "%(counter)s 個の項目を表示しています"
+msgstr[0] "%(counter)s 個の項目の表示中"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
-msgstr ""
+msgstr "さらに"
 
 #: templates/horizon/common/_quota_summary.html:4
-#, fuzzy
 msgid "Quota Summary"
-msgstr "概要"
+msgstr "クォータ概要"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -186,7 +184,7 @@ msgstr "概要"
 #: templates/horizon/common/_quota_summary.html:15
 #: templates/horizon/common/_quota_summary.html:18
 msgid "Used"
-msgstr ""
+msgstr "使用済み"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -194,30 +192,25 @@ msgstr ""
 #: templates/horizon/common/_quota_summary.html:15
 #: templates/horizon/common/_quota_summary.html:18
 msgid "of"
-msgstr ""
+msgstr "の"
 
 #: templates/horizon/common/_quota_summary.html:5
-#, fuzzy
 msgid "Available Instances"
-msgstr "すべてのインスタンス"
+msgstr "利用可能なインスタンス"
 
 #: templates/horizon/common/_quota_summary.html:8
-#, fuzzy
 msgid "Available vCPUs"
-msgstr "利用可能"
+msgstr "利用可能な仮想 CPU"
 
 #: templates/horizon/common/_quota_summary.html:11
-#, fuzzy
 msgid "Available RAM"
-msgstr "利用可能"
+msgstr "利用可能なメモリー"
 
 #: templates/horizon/common/_quota_summary.html:15
-#, fuzzy
 msgid "Available volumes"
 msgstr "利用可能"
 
 #: templates/horizon/common/_quota_summary.html:18
-#, fuzzy
 msgid "Available volume storage"
 msgstr "すべてのインスタンス"
 
@@ -247,12 +240,11 @@ msgstr "送信"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
-msgstr "インスタンスの有効化"
+msgstr "稼働中のインスタンス"
 
 #: templates/horizon/common/_usage_summary.html:15
-#, fuzzy
 msgid "Active RAM"
-msgstr "メモリーの有効化"
+msgstr "使用中のメモリー"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
@@ -264,7 +256,7 @@ msgstr "今月の GB 時間"
 
 #: templates/horizon/common/_workflow.html:33
 msgid "Cancel"
-msgstr "キャンセル"
+msgstr "取り消し"
 
 #: templatetags/branding.py:35
 msgid "Horizon"
@@ -317,7 +309,7 @@ msgstr "%s PB"
 
 #: test/settings.py:114
 msgid "Password must be between 8 and 18 characters."
-msgstr "パスワードは 8 から 18 文字である必要があります。"
+msgstr "パスワードは 8 文字から 18 文字である必要があります。"
 
 #: test/test_dashboards/cats/dashboard.py:8
 msgid "Cute Cats"
@@ -371,7 +363,7 @@ msgstr "巨大な蟻がサンフランシスコを攻撃しています！"
 
 #: test/tests/messages.py:46
 msgid "We are now safe from ants! Go <a>here</a>!"
-msgstr ""
+msgstr "私たちは蟻から守られています ! <a>こちらへ</a> !"
 
 #: test/tests/tables.py:107
 msgid "Batch"
@@ -379,7 +371,7 @@ msgstr "バッチ"
 
 #: test/tests/tables.py:108
 msgid "Batched"
-msgstr "バッチしました"
+msgstr "バッチを実行しました"
 
 #: test/tests/tables.py:109 test/tests/tables.py:120
 msgid "Item"
@@ -391,11 +383,11 @@ msgstr "項目"
 
 #: test/tests/tables.py:118
 msgid "Down"
-msgstr "下"
+msgstr "下へ"
 
 #: test/tests/tables.py:118
 msgid "Up"
-msgstr "上"
+msgstr "上へ"
 
 #: test/tests/tables.py:119
 msgid "Downed"
@@ -407,11 +399,11 @@ msgstr "上げました"
 
 #: test/tests/tables.py:187
 msgid "No Actions Table"
-msgstr "アクションテーブルがありません"
+msgstr "アクション表がありません"
 
 #: test/tests/tables.py:684
 msgid "Single Table"
-msgstr ""
+msgstr "単一テーブル"
 
 #: test/tests/tabs.py:36
 msgid "Tab One"
@@ -486,22 +478,20 @@ msgid "Processing..."
 msgstr "処理中..."
 
 #: workflows/base.py:467
-#, fuzzy
 msgid "All available"
 msgstr "利用可能"
 
 #: workflows/base.py:468
 msgid "Members"
-msgstr ""
+msgstr "メンバー"
 
 #: workflows/base.py:469
-#, fuzzy
 msgid "None available."
 msgstr "利用可能"
 
 #: workflows/base.py:470
 msgid "No members."
-msgstr ""
+msgstr "メンバーがいません。"
 
 #: workflows/base.py:569
 msgid "Save"
