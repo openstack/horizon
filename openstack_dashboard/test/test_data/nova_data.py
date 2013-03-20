@@ -267,6 +267,7 @@ def data(TEST):
                                                 "description": u"NotDefault."})
 
         rule = {'id': get_id(is_uuid),
+                'group': {},
                 'ip_protocol': u"tcp",
                 'from_port': u"80",
                 'to_port': u"80",
@@ -274,6 +275,7 @@ def data(TEST):
                 'ip_range': {'cidr': u"0.0.0.0/32"}}
 
         icmp_rule = {'id': get_id(is_uuid),
+                     'group': {},
                      'ip_protocol': u"icmp",
                      'from_port': u"9",
                      'to_port': u"5",
@@ -281,6 +283,7 @@ def data(TEST):
                      'ip_range': {'cidr': u"0.0.0.0/32"}}
 
         group_rule = {'id': 3,
+                      'group': {},
                       'ip_protocol': u"tcp",
                       'from_port': u"80",
                       'to_port': u"80",

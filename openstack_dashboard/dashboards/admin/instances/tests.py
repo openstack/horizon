@@ -135,7 +135,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         self.assertContains(res, "test_tenant", 1, 200)
         self.assertContains(res, "instance-host", 1, 200)
-        self.assertContains(res, "server_1", 1, 200)
+        # two instances of name, other name comes from row data-display
+        self.assertContains(res, "server_1", 2, 200)
         self.assertContains(res, "10.0.0.1", 1, 200)
         self.assertContains(res, "512MB RAM | 1 VCPU | 0 Disk", 1, 200)
         self.assertContains(res, "Active", 1, 200)

@@ -479,6 +479,11 @@ class Row(html.HTMLElement):
         self.id = "%(table)s%(sep)srow%(sep)s%(id)s" % id_vals
         self.attrs['id'] = self.id
 
+        # Add the row's display name if available
+        display_name = table.get_object_display(datum)
+        if display_name:
+            self.attrs['data-display'] = escape(display_name)
+
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.id)
 
@@ -1249,7 +1254,9 @@ class DataTable(object):
         By default, this returns a ``name`` attribute from the given object,
         but this can be overriden to return other values.
         """
-        return datum.name
+        if hasattr(datum, 'name'):
+            return datum.name
+        return None
 
     def has_more_data(self):
         """
