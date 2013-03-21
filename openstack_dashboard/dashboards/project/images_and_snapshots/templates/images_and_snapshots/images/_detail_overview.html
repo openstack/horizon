@@ -7,19 +7,19 @@
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ image.name|default:"None" }}</dd>
+    <dd>{{ image.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
-    <dd>{{ image.id|default:"None" }}</dd>
+    <dd>{{ image.id|default:_("None") }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ image.status|default:"Unknown"|title }}</dd>
+    <dd>{{ image.status|default:_("Unknown")|title }}</dd>
     <dt>{% trans "Public" %}</dt>
     <dd>{{ image.is_public }}</dd>
     <dt>{% trans "Checksum" %}</dt>
     <dd>{{ image.checksum }}</dd>
     <dt>{% trans "Created" %}</dt>
-    <dd>{{ image.created_at|default:"Unknown" }}</dd>
+    <dd>{{ image.created_at|default:_("Unknown") }}</dd>
     <dt>{% trans "Updated" %}</dt>
-    <dd>{{ image.updated_app|default:"Never updated" }}</dd>
+    <dd>{{ image.updated_app|default:_("Never updated") }}</dd>
   </dl>
 </div>
 
@@ -30,9 +30,9 @@
     <dt>{% trans "Size" %}</dt>
     <dd>{{ image.size|filesizeformat }}</dd>
     <dt>{% trans "Container Format" %}</dt>
-    <dd>{{ image.container_format|default:"None"|upper }}</dd>
+    <dd>{{ image.container_format|default:_("None")|upper }}</dd>
     <dt>{% trans "Disk Format" %}</dt>
-    <dd>{{ image.disk_format|default:"None"|upper }}</dd>
+    <dd>{{ image.disk_format|default:_("None")|upper }}</dd>
   </dl>
 </div>
 

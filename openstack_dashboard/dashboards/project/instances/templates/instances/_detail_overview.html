@@ -73,14 +73,18 @@
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Key Name" %}</dt>
-    <dd>{{ instance.key_name|default:"<em>None</em>" }}</dd>
+    {% with default_key_name="<em>"|add:_("None")|add:"</em>" %}
+    <dd>{{ instance.key_name|default:default_key_name }}</dd>
+    {% endwith %}
     {% url horizon:project:images_and_snapshots:images:detail instance.image.id as image_url %}
     <dt>{% trans "Image Name" %}</dt>
     <dd><a href="{{ image_url }}">{{ instance.image_name }}</a></dd>
+    {% with default_item_value="<em>"|add:_("N/A")|add:"</em>" %}
     {% for key, value in instance.metadata.items %}
     <dt>{{ key|force_escape }}</dt>
-    <dd>{{ value|force_escape|default:"<em>N/A</em>" }}</dd>
+    <dd>{{ value|force_escape|default:default_item_value }}</dd>
     {% endfor%}
+    {% endwith %}
   </dl>
 </div>
 

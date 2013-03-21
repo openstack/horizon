@@ -7,16 +7,16 @@
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ subnet.name|default:"None" }}</dd>
+    <dd>{{ subnet.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
-    <dd>{{ subnet.id|default:"None" }}</dd>
+    <dd>{{ subnet.id|default:_("None") }}</dd>
     {% url horizon:project:networks:detail subnet.network_id as network_url %}
     <dt>{% trans "Network ID" %}</dt>
-    <dd><a href="{{ network_url }}">{{ subnet.network_id|default:"None" }}</a></dd>
+    <dd><a href="{{ network_url }}">{{ subnet.network_id|default:_("None") }}</a></dd>
     <dt>{% trans "IP version" %}</dt>
     <dd>{{ subnet.ipver_str|default:"-" }}</dd>
     <dt>{% trans "CIDR" %}</dt>
-    <dd>{{ subnet.cidr|default:"None" }}</dd>
+    <dd>{{ subnet.cidr|default:_("None") }}</dd>
     <dt>{% trans "IP allocation pool" %}</dt>
     <dd>
       {% for pool in subnet.allocation_pools %}
