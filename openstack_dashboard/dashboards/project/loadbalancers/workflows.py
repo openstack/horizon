@@ -78,7 +78,7 @@ class AddPoolAction(workflows.Action):
                       "pool must be on. "
                       "Select the protocol and load balancing method "
                       "for this pool. "
-                      "Admin State is UP (checked) by defaul.t")
+                      "Admin State is UP (checked) by default.")
 
 
 class AddPoolStep(workflows.Step):
