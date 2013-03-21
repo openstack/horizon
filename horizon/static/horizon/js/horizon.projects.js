@@ -351,13 +351,13 @@ horizon.projects = {
       var user_el = $(this).parent().parent();
 
       if (available) {
+        var default_role = horizon.projects.default_role_id;
         $(this).text("-");
         $(".project_members").append(user_el);
+        horizon.projects.add_user_to_role(user_id, default_role);
 
         if (horizon.projects.has_roles) {
-          var default_role = horizon.projects.default_role_id;
           $(this).parent().siblings(".role_options").show();
-          horizon.projects.add_user_to_role(user_id, default_role);
           horizon.projects.update_user_role_dropdown(user_id, [default_role], user_el);
         }
       }
