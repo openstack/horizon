@@ -570,6 +570,7 @@ class Workflow(html.HTMLElement):
     success_message = _("%s completed successfully.")
     failure_message = _("%s did not complete.")
     redirect_param_name = "next"
+    multipart = False
     _registerable_class = Step
 
     def __unicode__(self):
