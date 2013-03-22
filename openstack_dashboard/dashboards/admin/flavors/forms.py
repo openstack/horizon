@@ -33,7 +33,12 @@ LOG = logging.getLogger(__name__)
 
 
 class CreateFlavor(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="25", label=_("Name"))
+    name = forms.RegexField(label=_("Name"),
+                            max_length=25,
+                            regex=r'^[\w\.\- ]+$',
+                            error_messages={'invalid': _('Name may only '
+                                'contain letters, numbers, underscores, '
+                                'periods and hyphens.')})
     vcpus = forms.IntegerField(label=_("VCPUs"))
     memory_mb = forms.IntegerField(label=_("RAM MB"))
     disk_gb = forms.IntegerField(label=_("Root Disk GB"))
