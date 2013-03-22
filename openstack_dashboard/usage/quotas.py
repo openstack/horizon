@@ -14,6 +14,7 @@ NOVA_QUOTA_FIELDS = ("metadata_items",
                      "injected_file_content_bytes",
                      "ram",
                      "floating_ips",
+                     "fixed_ips",
                      "security_groups",
                      "security_group_rules",)
 
