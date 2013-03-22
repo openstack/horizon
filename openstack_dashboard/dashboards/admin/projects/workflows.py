@@ -54,6 +54,7 @@ class UpdateProjectQuotaAction(workflows.Action):
     gigabytes = forms.IntegerField(min_value=-1, label=_("Gigabytes"))
     ram = forms.IntegerField(min_value=-1, label=_("RAM (MB)"))
     floating_ips = forms.IntegerField(min_value=-1, label=_("Floating IPs"))
+    fixed_ips = forms.IntegerField(min_value=-1, label=_("Fixed IPs"))
     security_groups = forms.IntegerField(min_value=-1,
                                          label=_("Security Groups"))
     security_group_rules = forms.IntegerField(min_value=-1,
