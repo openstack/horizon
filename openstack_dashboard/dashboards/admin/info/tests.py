@@ -24,7 +24,7 @@ from openstack_dashboard import api
 INDEX_URL = reverse('horizon:admin:info:index')
 
 
-class ServicessViewTests(test.BaseAdminViewTests):
+class ServicesViewTests(test.BaseAdminViewTests):
     def test_index(self):
         self.mox.StubOutWithMock(api.nova, 'default_quota_get')
         self.mox.StubOutWithMock(api.cinder, 'default_quota_get')
