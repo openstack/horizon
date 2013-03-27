@@ -97,8 +97,8 @@ class AddPool(workflows.Workflow):
     slug = "addpool"
     name = _("Add Pool")
     finalize_button_name = _("Add")
-    success_message = _('Added Pool "%s".')
-    failure_message = _('Unable to add Pool "%s".')
+    success_message = _('Added pool "%s".')
+    failure_message = _('Unable to add pool "%s".')
     success_url = "horizon:project:loadbalancers:index"
     default_steps = (AddPoolStep,)
 
@@ -111,8 +111,6 @@ class AddPool(workflows.Workflow):
             pool = api.lbaas.pool_create(request, **context)
             return True
         except:
-            msg = self.format_status_message(self.failure_message)
-            exceptions.handle(request, msg)
             return False
 
 
@@ -122,7 +120,7 @@ class AddVipAction(workflows.Action):
         initial="", required=False,
         max_length=80, label=_("Description"))
     floatip_address = forms.ChoiceField(
-        label=_("Vip Address from Floating IPs"),
+        label=_("VIP Address from Floating IPs"),
         widget=forms.Select(attrs={'disabled': 'disabled'}),
         required=False)
     other_address = fields.IPField(required=False,
@@ -144,7 +142,7 @@ class AddVipAction(workflows.Action):
     connection_limit = forms.IntegerField(
         min_value=-1, label=_("Connection Limit"),
         help_text=_("Maximum number of connections allowed "
-                    "for the vip or '-1' if the limit is not set"))
+                    "for the VIP or '-1' if the limit is not set"))
     admin_state_up = forms.BooleanField(
         label=_("Admin State"), initial=True, required=False)
 
@@ -169,14 +167,22 @@ class AddVipAction(workflows.Action):
         floatip_address_choices = [('', _("Currently Not Supported"))]
         self.fields['floatip_address'].choices = floatip_address_choices
 
+    def clean(self):
+        cleaned_data = super(AddVipAction, self).clean()
+        if (cleaned_data.get('session_persistence') == 'APP_COOKIE' and
+                not cleaned_data.get('cookie_name')):
+            msg = _('Cookie name is required for APP_COOKIE persistence.')
+            self._errors['cookie_name'] = self.error_class([msg])
+        return cleaned_data
+
     class Meta:
         name = _("AddVip")
         permissions = ('openstack.services.network',)
-        help_text = _("Create a vip (virtual IP) for this pool. "
-                      "Assign a name and description for the vip. "
-                      "Specify an IP address and port for the vip. "
+        help_text = _("Create a VIP for this pool. "
+                      "Assign a name and description for the VIP. "
+                      "Specify an IP address and port for the VIP. "
                       "Choose the protocol and session persistence "
-                      "method for the vip."
+                      "method for the VIP."
                       "Specify the max connections allowed. "
                       "Admin State is UP (checked) by default.")
 
@@ -196,10 +202,10 @@ class AddVipStep(workflows.Step):
 
 class AddVip(workflows.Workflow):
     slug = "addvip"
-    name = _("Add Vip")
+    name = _("Add VIP")
     finalize_button_name = _("Add")
-    success_message = _('Added Vip "%s".')
-    failure_message = _('Unable to add Vip "%s".')
+    success_message = _('Added VIP "%s".')
+    failure_message = _('Unable to add VIP "%s".')
     success_url = "horizon:project:loadbalancers:index"
     default_steps = (AddVipStep,)
 
@@ -212,8 +218,8 @@ class AddVip(workflows.Workflow):
             context['address'] = context['floatip_address']
         else:
             if not context['floatip_address'] == '':
-                self.failure_message = _('Only one address can be specified.'
-                                         'Unable to add Vip %s.')
+                self.failure_message = _('Only one address can be specified. '
+                                         'Unable to add VIP "%s".')
                 return False
             else:
                 context['address'] = context['other_address']
@@ -222,21 +228,16 @@ class AddVip(workflows.Workflow):
             context['subnet_id'] = pool['subnet_id']
         except:
             context['subnet_id'] = None
-            exceptions.handle(request,
-                              _('Unable to retrieve pool.'))
+            self.failure_message = _('Unable to retrieve the specified pool. '
+                                     'Unable to add VIP "%s".')
             return False
 
         if context['session_persistence']:
             stype = context['session_persistence']
             if stype == 'APP_COOKIE':
-                if context['cookie_name'] == "":
-                    self.failure_message = _('Cookie name must be specified '
-                                             'with APP_COOKIE persistence.')
-                    return False
-                else:
-                    cookie = context['cookie_name']
-                    context['session_persistence'] = {'type': stype,
-                                                      'cookie_name': cookie}
+                cookie = context['cookie_name']
+                context['session_persistence'] = {'type': stype,
+                                                  'cookie_name': cookie}
             else:
                 context['session_persistence'] = {'type': stype}
         else:
@@ -246,8 +247,6 @@ class AddVip(workflows.Workflow):
             api.lbaas.vip_create(request, **context)
             return True
         except:
-            msg = self.format_status_message(self.failure_message)
-            exceptions.handle(request, msg)
             return False
 
 
@@ -258,6 +257,8 @@ class AddMemberAction(workflows.Action):
         required=True,
         initial=["default"],
         widget=forms.CheckboxSelectMultiple(),
+        error_messages={'required':
+                            _('At least one member must be specified')},
         help_text=_("Select members for this pool "))
     weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"),
                                 help_text=_("Relative part of requests this "
@@ -335,25 +336,17 @@ class AddMember(workflows.Workflow):
     slug = "addmember"
     name = _("Add Member")
     finalize_button_name = _("Add")
-    success_message = _('Added Member "%s".')
-    failure_message = _('Unable to add Member %s.')
+    success_message = _('Added member(s).')
+    failure_message = _('Unable to add member(s).')
     success_url = "horizon:project:loadbalancers:index"
     default_steps = (AddMemberStep,)
 
     def handle(self, request, context):
-        if context['members'] == []:
-            self.failure_message = _('No instances available.%s')
-            context['member_id'] = ''
-            return False
-
         for m in context['members']:
             params = {'device_id': m}
             try:
                 plist = api.quantum.port_list(request, **params)
             except:
-                plist = []
-                exceptions.handle(request,
-                                  _('Unable to retrieve ports list.'))
                 return False
             if plist:
                 context['address'] = plist[0].fixed_ips[0]['ip_address']
@@ -361,7 +354,6 @@ class AddMember(workflows.Workflow):
                 context['member_id'] = api.lbaas.member_create(
                     request, **context).id
             except:
-                exceptions.handle(request, _("Unable to add member."))
                 return False
         return True
 
@@ -496,8 +488,8 @@ class AddMonitor(workflows.Workflow):
     slug = "addmonitor"
     name = _("Add Monitor")
     finalize_button_name = _("Add")
-    success_message = _('Added Monitor "%s".')
-    failure_message = _('Unable to add Monitor "%s".')
+    success_message = _('Added monitor')
+    failure_message = _('Unable to add monitor')
     success_url = "horizon:project:loadbalancers:index"
     default_steps = (AddMonitorStep,)
 
@@ -507,5 +499,4 @@ class AddMonitor(workflows.Workflow):
                 request, **context).get('id')
             return True
         except:
-            exceptions.handle(request, _("Unable to add monitor."))
-        return False
+            return False
