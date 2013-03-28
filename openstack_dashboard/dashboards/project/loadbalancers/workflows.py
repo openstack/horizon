@@ -22,6 +22,7 @@ from django.utils.translation import ugettext as _
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import fields
+from horizon.utils.validators import validate_port_range
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -128,7 +129,10 @@ class AddVipAction(workflows.Action):
                                    initial="",
                                    version=fields.IPv4,
                                    mask=False)
-    protocol_port = forms.CharField(max_length=80, label=_("Protocol Port"))
+    protocol_port = forms.IntegerField(label=_("Protocol Port"), min_value=1,
+                              help_text=_("Enter an integer value "
+                                          "between 1 and 65535."),
+                              validators=[validate_port_range])
     protocol = forms.ChoiceField(label=_("Protocol"))
     session_persistence = forms.ChoiceField(
         required=False, initial={}, label=_("Session Persistence"))
@@ -137,8 +141,10 @@ class AddVipAction(workflows.Action):
         max_length=80, label=_("Cookie Name"),
         help_text=_("Required for APP_COOKIE persistence;"
                     " Ignored otherwise."))
-    connection_limit = forms.CharField(
-        max_length=80, label=_("Connection Limit"))
+    connection_limit = forms.IntegerField(
+        min_value=-1, label=_("Connection Limit"),
+        help_text=_("Maximum number of connections allowed "
+                    "for the vip or '-1' if the limit is not set"))
     admin_state_up = forms.BooleanField(
         label=_("Admin State"), initial=True, required=False)
 
@@ -253,8 +259,11 @@ class AddMemberAction(workflows.Action):
         initial=["default"],
         widget=forms.CheckboxSelectMultiple(),
         help_text=_("Select members for this pool "))
-    weight = forms.CharField(max_length=80, label=_("Weight"))
-    protocol_port = forms.CharField(max_length=80, label=_("Protocol Port"))
+    weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"))
+    protocol_port = forms.IntegerField(label=_("Protocol Port"), min_value=1,
+                              help_text=_("Enter an integer value "
+                                          "between 1 and 65535."),
+                              validators=[validate_port_range])
     admin_state_up = forms.BooleanField(label=_("Admin State"),
                                         initial=True, required=False)
 
@@ -367,18 +376,18 @@ class AddMonitorAction(workflows.Action):
             'class': 'switchable',
             'data-slug': 'type'
         }))
-    delay = forms.CharField(
-        max_length=80,
+    delay = forms.IntegerField(
+        min_value=1,
         label=_("Delay"),
         help_text=_("The minimum time in seconds between regular checks "
                     "of a member"))
-    timeout = forms.CharField(
-        max_length=80,
+    timeout = forms.IntegerField(
+        min_value=1,
         label=_("Timeout"),
         help_text=_("The maximum time in seconds for a monitor to wait "
                     "for a reply"))
-    max_retries = forms.CharField(
-        max_length=80,
+    max_retries = forms.IntegerField(
+        max_value=10, min_value=1,
         label=_("Max Retries (1~10)"),
         help_text=_("Number of permissible failures before changing "
                     "the status of member to inactive"))
