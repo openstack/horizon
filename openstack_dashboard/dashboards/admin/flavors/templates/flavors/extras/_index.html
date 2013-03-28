@@ -1,5 +1,6 @@
 {% extends "horizon/common/_modal.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block modal_id %}extra_specs_modal{% endblock %}
 {% block modal-header %}{% trans "Flavor Extra Specs" %}{% endblock %}
@@ -9,6 +10,6 @@
 {% endblock %}
 
 {% block modal-footer %}
-  <a href="{% url horizon:admin:flavors:index %}" class="btn secondary cancel close">{% trans "Close" %}</a>
+  <a href="{% url 'horizon:admin:flavors:index' %}" class="btn secondary cancel close">{% trans "Close" %}</a>
 {% endblock %}
 

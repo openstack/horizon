@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block form_id %}attach_volume_form{% endblock %}
-{% block form_action %}{% url horizon:project:volumes:attach volume.id %}{% endblock %}
+{% block form_action %}{% url 'horizon:project:volumes:attach' volume.id %}{% endblock %}
 {% block form_class %}{{ block.super }} horizontal {% if show_attach %}split_half{% else %} no_split{% endif %}{% endblock %}
 
 {% block modal_id %}attach_volume_modal{% endblock %}
@@ -21,5 +22,5 @@
     {% if show_attach %}
         <input class="btn btn-primary pull-right" type="submit" value="{% trans "Attach Volume" %}" />
     {% endif %}
-    <a href="{% url horizon:project:volumes:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+    <a href="{% url 'horizon:project:volumes:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

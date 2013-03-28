@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block form_id %}upload_object_form{% endblock %}
-{% block form_action %}{% url horizon:project:containers:object_upload container_name %}{% endblock %}
+{% block form_action %}{% url 'horizon:project:containers:object_upload' container_name %}{% endblock %}
 {% block form_attrs %}enctype="multipart/form-data"{% endblock %}
 
 {% block modal-header %}{% trans "Upload Object To Container" %}: {{ container_name }}{% endblock %}
@@ -22,5 +23,5 @@
 
 {% block modal-footer %}
   <input class="btn btn-primary pull-right" type="submit" value="{% trans "Upload Object" %}" />
-  <a href="{% url horizon:project:containers:index container_name|add:'/' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:project:containers:index' container_name|add:'/' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

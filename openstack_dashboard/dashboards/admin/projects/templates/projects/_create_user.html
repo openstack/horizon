@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block form_id %}create_user_form{% endblock %}
-{% block form_action %}{% url horizon:admin:projects:create_user tenant_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:projects:create_user' tenant_id %}{% endblock %}
 
 {% block modal-header %}{% blocktrans %}Create User for project '{{ tenant_name }}'.{% endblocktrans %}{% endblock %}
 
@@ -21,5 +22,5 @@
 
 {% block modal-footer %}
   <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create User" %}" />
-  <a href="{% url horizon:admin:projects:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:admin:projects:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

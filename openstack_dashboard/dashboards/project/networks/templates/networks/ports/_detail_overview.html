@@ -1,4 +1,5 @@
 {% load i18n sizeformat %}
+{% load url from future %}
 
 <h3>{% trans "Port Overview" %}</h3>
 
@@ -10,7 +11,7 @@
     <dd>{{ port.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ port.id|default:_("None") }}</dd>
-    {% url horizon:project:networks:detail port.network_id as network_url %}
+    {% url 'horizon:project:networks:detail' port.network_id as network_url %}
     <dt>{% trans "Network ID" %}</dt>
     <dd><a href="{{ network_url }}">{{ port.network_id|default:_("None") }}</a></dd>
     <dt>{% trans "Project ID" %}</dt>

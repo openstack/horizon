@@ -2,9 +2,9 @@ d2to1>=0.2.10,<0.3
 pbr>=0.5,<0.6
 
 # Horizon Core Requirements
-Django>=1.4,<1.5
+Django>=1.4,<1.6
 django_compressor
-django_openstack_auth>=1.0.7
+django_openstack_auth>=1.0.8
 netaddr
 python-cinderclient>=1.0.2,<2.0.0
 python-glanceclient<2

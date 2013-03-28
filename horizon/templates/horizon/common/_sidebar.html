@@ -1,7 +1,8 @@
 {% load branding horizon i18n %}
+{% load url from future %}
 
 <div class='sidebar'>
-  <h1 class="brand clearfix"><a href="{% url horizon:user_home %}">{% site_branding %}</a></h1>
+  <h1 class="brand clearfix"><a href="{% url 'horizon:user_home' %}">{% site_branding %}</a></h1>
 
   {% horizon_main_nav %}
 
@@ -22,7 +23,7 @@
           <li class='divider'></li>
           {% for tenant in authorized_tenants %}
             {% if tenant.enabled and tenant.id != request.user.tenant_id %}
-              <li><a href="{% url switch_tenants tenant.id %}?next={{ request.horizon.dashboard.get_absolute_url }}">{{ tenant.name }}</a></li>
+              <li><a href="{% url 'switch_tenants' tenant.id %}?next={{ request.horizon.dashboard.get_absolute_url }}">{{ tenant.name }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>

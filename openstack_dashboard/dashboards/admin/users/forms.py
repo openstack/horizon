@@ -21,7 +21,8 @@
 import logging
 
 from django.forms import ValidationError
-from django.utils.translation import force_unicode, ugettext_lazy as _
+from django.utils.encoding import force_unicode
+from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions

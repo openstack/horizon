@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block form_id %}create_image_form{% endblock %}
-{% block form_action %}{% url horizon:admin:images:create %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:images:create' %}{% endblock %}
 {% block form_attrs %}enctype="multipart/form-data"{% endblock %}
 
 {% block modal-header %}{% trans "Create An Image" %}{% endblock %}
@@ -30,5 +31,5 @@
 
 {% block modal-footer %}
   <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Image" %}" />
-  <a href="{% url horizon:admin:images:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:admin:images:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

@@ -1,10 +1,11 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block modal-header %}{% trans "Log In" %}{% endblock %}
 {% block modal_class %}login {% if hide %}modal hide{% endif %}{% endblock %}
 
-{% block form_action %}{% url login %}{% endblock %}
+{% block form_action %}{% url 'login' %}{% endblock %}
 {% block autocomplete %}{{ HORIZON_CONFIG.password_autocomplete }}{% endblock %}
 
 {% block modal-body %}
@@ -14,7 +15,7 @@
       <span class="help-inline"><p>{% trans "You don't have permissions to access:" %}</p>
         <p><b>{{ request.GET.next }}</b></p>
         <p>{% trans "Login as different user or go back to" %}
-        <a href="{% url horizon:user_home %}">{% trans "home page" %}</a></p>
+        <a href="{% url 'horizon:user_home' %}">{% trans "home page" %}</a></p>
       </span>
     </div>
     {% endif %}

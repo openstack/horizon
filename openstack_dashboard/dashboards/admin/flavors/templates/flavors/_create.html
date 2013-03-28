@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block form_id %}create_flavor_form{% endblock %}
-{% block form_action %}{% url horizon:admin:flavors:create %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:flavors:create' %}{% endblock %}
 
 {% block modal_id %}create_flavor_modal{% endblock %}
 {% block modal-header %}{% trans "Create Flavor" %}{% endblock %}
@@ -21,5 +22,5 @@
 
 {% block modal-footer %}
   <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Flavor" %}" />
-  <a href="{% url horizon:admin:flavors:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:admin:flavors:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

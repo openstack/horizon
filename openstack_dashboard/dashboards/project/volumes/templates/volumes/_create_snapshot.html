@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block form_id %}{% endblock %}
-{% block form_action %}{% url horizon:project:volumes:create_snapshot volume_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:project:volumes:create_snapshot' volume_id %}{% endblock %}
 
 {% block modal_id %}create_volume_snapshot_modal{% endblock %}
 {% block modal-header %}{% trans "Create Volume Snapshot" %}{% endblock %}
@@ -21,5 +22,5 @@
 
 {% block modal-footer %}
   <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Volume Snapshot" %}" />
-  <a href="{% url horizon:project:volumes:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:project:volumes:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

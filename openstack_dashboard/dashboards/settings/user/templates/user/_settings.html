@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block form_id %}user_settings_modal{% endblock %}
-{% block form_action %}{% url horizon:settings:user:index %}{% endblock %}
+{% block form_action %}{% url 'horizon:settings:user:index' %}{% endblock %}
 
 {% block modal_id %}user_settings_modal{% endblock %}
 {% block modal-header %}{% trans "User Settings" %}{% endblock %}
@@ -21,6 +22,6 @@
 
 {% block modal-footer %}
     <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
-    {% if hide %}<a href="{% url horizon:settings:user:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+    {% if hide %}<a href="{% url 'horizon:settings:user:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
 {% endblock %}
 

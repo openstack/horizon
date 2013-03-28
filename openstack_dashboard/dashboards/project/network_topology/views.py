@@ -18,9 +18,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import json
+
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
-from django.utils import simplejson
 from django.views.generic import TemplateView
 from django.views.generic import View
 
@@ -95,5 +96,5 @@ class JSONView(View):
 
         self.add_resource_url('horizon:project:routers:detail',
                               data['routers'])
-        json_string = simplejson.dumps(data, ensure_ascii=False)
+        json_string = json.dumps(data, ensure_ascii=False)
         return HttpResponse(json_string, mimetype='text/json')

@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block form_id %}quota_update_form{% endblock %}
-{% block form_action %}{% url horizon:admin:projects:quotas tenant.id %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:projects:quotas' tenant.id %}{% endblock %}
 
 {% block modal-header %}{% trans "Update Quota" %}{% endblock %}
 
@@ -20,5 +21,5 @@
 
 {% block modal-footer %}
     <input class="btn btn-primary pull-right" type="submit" value="{% trans "Update Quota" %}" />
-  <a href="{% url horizon:admin:projects:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:admin:projects:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

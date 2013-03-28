@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block title %} - {% trans "Page Not Found" %}{% endblock %}
 
@@ -16,11 +17,11 @@
   <div id="sidebar">
     <ul id="navigation">
       {% block nav_home %}
-      <li><h3><a href="{% url index %}">{% trans "Home" %}</a></h3></li>
+      <li><h3><a href="{% url 'index' %}">{% trans "Home" %}</a></h3></li>
       {% endblock %}
 
       {% block nav_projects %}
-      <li><h3><a href="{% url index %}">{% trans "Projects" %}</a></h3></li>
+      <li><h3><a href="{% url 'index' %}">{% trans "Projects" %}</a></h3></li>
       {% endblock %}
     </ul>
   </div> <!-- end sidebar -->

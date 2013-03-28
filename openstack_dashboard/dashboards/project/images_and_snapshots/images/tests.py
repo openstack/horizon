@@ -84,8 +84,8 @@ class ImageViewTests(test.TestCase):
             'disk_format': u'qcow2',
             'minimum_disk': 15,
             'minimum_ram': 512,
-            'is_public': 1,
-            'protected': 0,
+            'is_public': True,
+            'protected': False,
             'method': 'CreateImageForm'}
 
         api.glance.image_create(IsA(http.HttpRequest),
@@ -118,8 +118,8 @@ class ImageViewTests(test.TestCase):
             'disk_format': u'qcow2',
             'minimum_disk': 15,
             'minimum_ram': 512,
-            'is_public': 1,
-            'protected': 0,
+            'is_public': True,
+            'protected': False,
             'method': 'CreateImageForm'}
 
         api.glance.image_create(IsA(http.HttpRequest),

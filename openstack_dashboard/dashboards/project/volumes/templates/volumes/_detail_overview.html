@@ -1,4 +1,5 @@
 {% load i18n sizeformat parse_date %}
+{% load url from future %}
 
 <h3>{% trans "Volume Overview" %}: {{volume.display_name }}</h3>
 
@@ -37,7 +38,7 @@
   {% for attachment in volume.attachments %}
       <dt>{% trans "Attached To" %}</dt>
       <dd>
-        {% url horizon:project:instances:detail attachment.server_id as instance_url%}
+        {% url 'horizon:project:instances:detail' attachment.server_id as instance_url%}
         <a href="{{ instance_url }}">{{ attachment.instance.name }}</a>
         <span> {% trans "on" %} {{ attachment.device }}</span>
       </dd>

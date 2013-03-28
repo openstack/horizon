@@ -1,4 +1,5 @@
 {% load i18n sizeformat %}
+{% load url from future %}
 
 <h3>{% trans "Instance Overview" %}</h3>
 
@@ -76,7 +77,7 @@
     {% with default_key_name="<em>"|add:_("None")|add:"</em>" %}
     <dd>{{ instance.key_name|default:default_key_name }}</dd>
     {% endwith %}
-    {% url horizon:project:images_and_snapshots:images:detail instance.image.id as image_url %}
+    {% url 'horizon:project:images_and_snapshots:images:detail' instance.image.id as image_url %}
     <dt>{% trans "Image Name" %}</dt>
     <dd><a href="{{ image_url }}">{{ instance.image_name }}</a></dd>
     {% with default_item_value="<em>"|add:_("N/A")|add:"</em>" %}
@@ -95,7 +96,7 @@
       {% for volume in instance.volumes %}
         <dt>{% trans "Attached To" %}</dt>
         <dd>
-          <a href="{% url horizon:project:volumes:detail volume.volumeId %}">{{ volume.name }}</a><span> {% trans "on" %} {{ volume.device }}</span>
+          <a href="{% url 'horizon:project:volumes:detail' volume.volumeId %}">{{ volume.name }}</a><span> {% trans "on" %} {{ volume.device }}</span>
         </dd>
         {% empty %}
           <dt>{% trans "Volume" %}</dt>

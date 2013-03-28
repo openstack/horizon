@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n horizon humanize %}
+{% load url from future %}
 
 {% block form_id %}{% endblock %}
-{% block form_action %}{% url horizon:project:routers:create %}?{{ request.GET.urlencode }}{% endblock %}
+{% block form_action %}{% url 'horizon:project:routers:create' %}?{{ request.GET.urlencode }}{% endblock %}
 
 {% block modal_id %}create_router_modal{% endblock %}
 {% block modal-header %}{% trans "Create router" %}{% endblock %}
@@ -17,5 +18,5 @@
 
 {% block modal-footer %}
   <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create router" %}" />
-  <a href="{% url horizon:project:routers:index %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:project:routers:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

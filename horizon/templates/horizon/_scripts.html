@@ -1,7 +1,8 @@
 {% load compress %}
+{% load url from future %}
 
 {% comment %} Django's JavaScript i18n Implementation {% endcomment %}
-<script type="text/javascript" src="{% url horizon:jsi18n 'horizon' %}"></script>
+<script type="text/javascript" src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
 
 {% comment %} Compress jQuery, Plugins, Bootstrap, Hogan.js and Horizon-specific JS. {% endcomment %}
 {% compress js %}

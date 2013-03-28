@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block form_id %}create_port_form{% endblock %}
-{% block form_action %}{% url horizon:admin:networks:addport network.id %}
+{% block form_action %}{% url 'horizon:admin:networks:addport' network.id %}
 {% endblock %}
 
 {% block modal-header %}{% trans "Create Port" %}{% endblock %}
@@ -21,5 +22,5 @@
 
 {% block modal-footer %}
   <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Port" %}" />
-  <a href="{% url horizon:admin:networks:detail network.id %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:admin:networks:detail' network.id %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

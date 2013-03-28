@@ -1,4 +1,5 @@
 {% load i18n sizeformat %}
+{% load url from future %}
 
 <h3>{% trans "Subnet Overview" %}</h3>
 
@@ -10,7 +11,7 @@
     <dd>{{ subnet.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ subnet.id|default:_("None") }}</dd>
-    {% url horizon:project:networks:detail subnet.network_id as network_url %}
+    {% url 'horizon:project:networks:detail' subnet.network_id as network_url %}
     <dt>{% trans "Network ID" %}</dt>
     <dd><a href="{{ network_url }}">{{ subnet.network_id|default:_("None") }}</a></dd>
     <dt>{% trans "IP version" %}</dt>

@@ -451,7 +451,7 @@ class Row(html.HTMLElement):
         cells = []
         for column in table.columns.values():
             if column.auto == "multi_select":
-                widget = forms.CheckboxInput(check_test=False)
+                widget = forms.CheckboxInput(check_test=lambda value: False)
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
                                      unicode(table.get_object_id(datum)))

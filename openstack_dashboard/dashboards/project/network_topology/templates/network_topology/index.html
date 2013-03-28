@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load url from future %}
 {% block title %}{% trans "Network Topology" %}{% endblock %}
 
 {% block page_header %}
@@ -23,14 +24,14 @@ div.network .device:hover div.port {
 {% trans "This pane needs javascript support." %}
 </noscript>
 <div class="launchButtons">
-<a href="{% url horizon:project:instances:launch %}" id="instances__action_launch" class="btn btn-small btn-launch ajax-modal">{%trans "Launch Instance" %}</a>
-<a href="{% url horizon:project:networks:create %}" id="networks__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Network" %}</a>
-<a href="{% url horizon:project:routers:create %}" id="Routers__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Router" %}</a>
+<a href="{% url 'horizon:project:instances:launch' %}" id="instances__action_launch" class="btn btn-small btn-launch ajax-modal">{%trans "Launch Instance" %}</a>
+<a href="{% url 'horizon:project:networks:create' %}" id="networks__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Network" %}</a>
+<a href="{% url 'horizon:project:routers:create' %}" id="Routers__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Router" %}</a>
 </div>
 
 <div id="topologyCanvas">
     <div class="networks"></div>
     <div class="nodata">{% blocktrans %}There are no networks, routers, or connected instances to display. {% endblocktrans %}</div>
 </div>
-<span data-networktopology="{% url horizon:project:network_topology:json %}" id="networktopology"></span>
+<span data-networktopology="{% url 'horizon:project:network_topology:json' %}" id="networktopology"></span>
 {% endblock %}
