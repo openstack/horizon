@@ -246,6 +246,13 @@ The Loadbalancer feature landed in the 11th hour for both Quantum and Horizon
 and, though we did our best to test it, may still contain undiscovered bugs. It
 is best considered a "beta" or "experimental" feature for the Grizzly release.
 
+Quantum Brocade Plugin Not Compatible
+-------------------------------------
+
+The Brocade plugin for Quantum does not support key features of the floating
+IP addresses API which are considered central to Horizon's functionality. As
+such, it is not compatible with the Grizzly release's Quantum integration.
+
 Deleting large numbers of resources simultaneously
 --------------------------------------------------
 
