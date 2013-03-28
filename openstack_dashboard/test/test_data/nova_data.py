@@ -312,6 +312,7 @@ def data(TEST):
                       gigabytes='1000',
                       ram=10000,
                       floating_ips='1',
+                      fixed_ips='10',
                       instances='10',
                       injected_files='1',
                       cores='10',
