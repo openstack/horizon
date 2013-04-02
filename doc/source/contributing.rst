@@ -28,7 +28,6 @@ Second, you'll need to take care of a couple administrative tasks:
 #. Create an account on Launchpad.
 #. Sign the `OpenStack Contributor License Agreement`_ and follow the associated
    instructions to verify your signature.
-#. Request to join the `OpenStack Contributors`_ team on Launchpad.
 #. Join the `Horizon Developers`_ team on Launchpad.
 #. Follow the `instructions for setting up git-review`_ in your
    development environment.
