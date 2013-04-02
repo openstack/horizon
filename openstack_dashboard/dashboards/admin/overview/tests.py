@@ -24,7 +24,6 @@ from django.core.urlresolvers import reverse
 from django import http
 from django.utils import timezone
 
-from mox import Func
 from mox import IsA
 
 from horizon.templatetags.sizeformat import mbformat
@@ -47,10 +46,14 @@ class UsageViewTests(test.BaseAdminViewTests):
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
                     .AndReturn([self.tenants.list(), False])
         api.nova.usage_list(IsA(http.HttpRequest),
-                            datetime.datetime(now.year, now.month, 1, 0, 0, 0),
-                            Func(usage.almost_now)) \
-            .AndReturn([usage_obj])
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+                            datetime.datetime(now.year,
+                                              now.month,
+                                              now.day, 0, 0, 0, 0),
+                            datetime.datetime(now.year,
+                                              now.month,
+                                              now.day, 23, 59, 59, 0)) \
+                                              .AndReturn([usage_obj])
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:overview:index'))
@@ -78,9 +81,13 @@ class UsageViewTests(test.BaseAdminViewTests):
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
                     .AndReturn([self.tenants.list(), False])
         api.nova.usage_list(IsA(http.HttpRequest),
-                            datetime.datetime(now.year, now.month, 1, 0, 0, 0),
-                            Func(usage.almost_now)) \
-            .AndReturn(usage_obj)
+                            datetime.datetime(now.year,
+                                              now.month,
+                                              now.day, 0, 0, 0, 0),
+                            datetime.datetime(now.year,
+                                              now.month,
+                                              now.day, 23, 59, 59, 0)) \
+                                              .AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
         self.mox.ReplayAll()

@@ -1,8 +1,8 @@
 from __future__ import division
 
-from calendar import monthrange
 from csv import DictWriter
 from csv import writer
+
 import datetime
 import logging
 from StringIO import StringIO
@@ -24,12 +24,6 @@ from openstack_dashboard.usage import quotas
 LOG = logging.getLogger(__name__)
 
 
-def almost_now(input_time):
-    now = timezone.make_naive(timezone.now(), timezone.utc)
-    # If we're less than a minute apart we'll assume success here.
-    return now - input_time < datetime.timedelta(seconds=30)
-
-
 class BaseUsage(object):
     show_terminated = False
 
@@ -46,21 +40,14 @@ class BaseUsage(object):
         return timezone.now()
 
     @staticmethod
-    def get_start(year, month, day=1):
+    def get_start(year, month, day):
         start = datetime.datetime(year, month, day, 0, 0, 0)
         return timezone.make_aware(start, timezone.utc)
 
     @staticmethod
-    def get_end(year, month, day=1):
-        days_in_month = monthrange(year, month)[1]
-        period = datetime.timedelta(days=days_in_month)
-        end = BaseUsage.get_start(year, month, day) + period
-        # End our calculation at midnight of the given day.
-        date_end = datetime.datetime.combine(end, datetime.time(0, 0, 0))
-        date_end = timezone.make_aware(date_end, timezone.utc)
-        if date_end > timezone.now():
-            date_end = timezone.now()
-        return date_end
+    def get_end(year, month, day):
+        end = datetime.datetime(year, month, day, 23, 59, 59)
+        return timezone.make_aware(end, timezone.utc)
 
     def get_instances(self):
         instance_list = []
@@ -69,24 +56,50 @@ class BaseUsage(object):
 
     def get_date_range(self):
         if not hasattr(self, "start") or not hasattr(self, "end"):
-            args = (self.today.year, self.today.month)
+            args_start = args_end = (self.today.year,
+                                     self.today.month,
+                                     self.today.day)
             form = self.get_form()
             if form.is_valid():
-                args = (int(form.cleaned_data['year']),
-                        int(form.cleaned_data['month']))
-            self.start = self.get_start(*args)
-            self.end = self.get_end(*args)
+                start = form.cleaned_data['start']
+                end = form.cleaned_data['end']
+                args_start = (start.year,
+                              start.month,
+                              start.day)
+                args_end = (end.year,
+                            end.month,
+                            end.day)
+            elif form.is_bound:
+                messages.error(self.request,
+                               _("Invalid date format: "
+                                 "Using today as default."))
+        self.start = self.get_start(*args_start)
+        self.end = self.get_end(*args_end)
+        return self.start, self.end
+
+    def init_form(self):
+        today = datetime.date.today()
+        first = datetime.date(day=1, month=today.month, year=today.year)
+        if today.day in range(5):
+            self.end = first - datetime.timedelta(days=1)
+            self.start = datetime.date(day=1,
+                                       month=self.end.month,
+                                       year=self.end.year)
+        else:
+            self.end = today
+            self.start = first
         return self.start, self.end
 
     def get_form(self):
         if not hasattr(self, 'form'):
-            if any(key in ['month', 'year'] for key in self.request.GET):
+            if any(key in ['start', 'end'] for key in self.request.GET):
                 # bound form
                 self.form = forms.DateForm(self.request.GET)
             else:
                 # non-bound form
-                self.form = forms.DateForm(initial={'month': self.today.month,
-                                                    'year': self.today.year})
+                init = self.init_form()
+                self.form = forms.DateForm(initial={'start': init[0],
+                                                    'end': init[1]})
         return self.form
 
     def get_limits(self):
@@ -100,7 +113,7 @@ class BaseUsage(object):
         raise NotImplementedError("You must define a get_usage method.")
 
     def summarize(self, start, end):
-        if start <= end <= self.today:
+        if start <= end and start <= self.today:
             # The API can't handle timezone aware datetime, so convert back
             # to naive UTC just for this last step.
             start = timezone.make_naive(start, timezone.utc)
@@ -110,10 +123,14 @@ class BaseUsage(object):
             except:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve usage information.'))
-        else:
-            messages.info(self.request,
-                          _("You are viewing data for the future, "
-                            "which may or may not exist."))
+        elif end < start:
+            messages.error(self.request,
+                           _("Invalid time period. The end date should be "
+                             "more recent than the start date."))
+        elif start > self.today:
+            messages.error(self.request,
+                           _("Invalid time period. You are requesting "
+                             "data from the future which may not exist."))
 
         for project_usage in self.usage_list:
             project_summary = project_usage.get_summary()
@@ -130,11 +147,13 @@ class BaseUsage(object):
 
     def csv_link(self):
         form = self.get_form()
+        data = {}
         if hasattr(form, "cleaned_data"):
             data = form.cleaned_data
-        else:
-            data = {"month": self.today.month, "year": self.today.year}
-        return "?month=%s&year=%s&format=csv" % (data['month'], data['year'])
+        if not ('start' in data and 'end' in data):
+            data = {"start": self.today.date(), "end": self.today.date()}
+        return "?start=%s&end=%s&format=csv" % (data['start'],
+                                                data['end'])
 
 
 class GlobalUsage(BaseUsage):
