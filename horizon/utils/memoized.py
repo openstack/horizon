@@ -40,7 +40,7 @@ class memoized(object):
 
     def __repr__(self):
         '''Return the function's docstring.'''
-        return self.func.__doc__
+        return self.func.__doc__ or ''
 
     def __get__(self, obj, objtype):
         '''Support instance methods.'''
