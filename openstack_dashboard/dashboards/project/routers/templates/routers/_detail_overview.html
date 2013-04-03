@@ -1,15 +1,15 @@
 {% load i18n sizeformat parse_date %}
 
-<h3>{% trans "Router Overview" %}: {{router.name|default:"None" }}</h3>
+<h3>{% trans "Router Overview" %}: {{router.name|default:_("None") }}</h3>
 
 <div class="info detail">
   <dl>
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ router.name|default:"None" }}</dd>
+    <dd>{{ router.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
-    <dd>{{ router.id|default:"None" }}</dd>
+    <dd>{{ router.id|default:_("None") }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ router.status|default:"Unknown" }}</dd>
+    <dd>{{ router.status|default:_("Unknown") }}</dd>
     {% if router.external_gateway_info %}
     <dt>{% trans "External Gateway Information" %}</dt>
     <dd>{% trans "Connected External Network" %}:
