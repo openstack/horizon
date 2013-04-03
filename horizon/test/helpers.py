@@ -19,6 +19,7 @@
 #    under the License.
 
 import os
+import socket
 
 from django import http
 from django import test as django_test
@@ -161,10 +162,11 @@ class SeleniumTestCase(django_test.LiveServerTestCase):
 
     @classmethod
     def tearDownClass(cls):
-        super(SeleniumTestCase, cls).tearDownClass()
         if os.environ.get('WITH_SELENIUM', False):
             cls.selenium.quit()
+        super(SeleniumTestCase, cls).tearDownClass()
 
     def setUp(self):
+        socket.setdefaulttimeout(10)
         self.ui = selenium_ui
         super(SeleniumTestCase, self).setUp()
