@@ -980,3 +980,55 @@ class InstanceTests(test.TestCase):
         res = self.client.post(url, form_data)
 
         self.assertContains(res, "greater than or equal to 1")
+
+    @test.create_stubs({api.nova: ('tenant_quota_usages',
+                                   'flavor_list',
+                                   'keypair_list',
+                                   'security_group_list',
+                                   'volume_snapshot_list',
+                                   'volume_list',),
+                        api.quantum: ('network_list',),
+                        api.glance: ('image_list_detailed',)})
+    def test_select_default_keypair_if_only_one(self):
+        keypair = self.keypairs.first()
+        quota_usages = self.quota_usages.first()
+        image = self.images.first()
+
+        api.nova.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        api.nova.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.volumes.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
+        api.nova.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(quota_usages)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:nova:instances:launch')
+        res = self.client.get(url)
+        self.assertContains(res, "<option selected='selected' value='%(key)s'>"
+                                 "%(key)s</option>" % {'key': keypair.name},
+                            html=True,
+                            msg_prefix="The default keypair was not selected.")

@@ -357,6 +357,8 @@ class SetAccessControlsAction(workflows.Action):
             exceptions.handle(request,
                               _('Unable to retrieve keypairs.'))
         if keypair_list:
+            if len(keypair_list) == 1:
+                self.fields['keypair'].initial = keypair_list[0][0]
             keypair_list.insert(0, ("", _("Select a keypair")))
         else:
             keypair_list = (("", _("No keypairs available.")),)
