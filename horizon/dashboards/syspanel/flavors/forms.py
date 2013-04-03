@@ -48,7 +48,7 @@ class CreateFlavor(forms.SelfHandlingForm):
             exceptions.handle(self.request,
                               _("Unable to get unique ID for new flavor."))
         if flavors:
-            largest_id = max(flavors, key=lambda f: f.id).id
+            largest_id = max(flavors, key=lambda f: int(f.id)).id
             flavor_id = int(largest_id) + 1
         else:
             flavor_id = 1
