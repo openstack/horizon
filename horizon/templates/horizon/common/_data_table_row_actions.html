@@ -6,7 +6,7 @@
     {% for action in row_actions %}
         {% if forloop.first %}
           {% include "horizon/common/_data_table_row_action.html" %}
-          <a class="btn btn-small dropdown-toggle {{ action.class_string|safe }}" data-toggle="dropdown" href="#">
+          <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
             {% trans "More" %}
             <span class="caret"></span>
           </a>
