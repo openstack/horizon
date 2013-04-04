@@ -94,6 +94,27 @@ class EditFlavor(CreateFlavor):
     def clean_name(self):
         return self.cleaned_data['name']
 
+    def clean(self):
+        cleaned_data = super(EditFlavor, self).clean()
+        name = cleaned_data.get('name')
+        flavor_id = cleaned_data.get('flavor_id')
+        try:
+            flavors = api.nova.flavor_list(self.request)
+        except:
+            flavors = []
+            msg = _('Unable to get flavor list')
+            exceptions.check_message(["Connection", "refused"], msg)
+            raise
+        # Check if there is no flavor with the same name
+        if flavors is not None:
+            for flavor in flavors:
+                if flavor.name == name and int(flavor.id) != flavor_id:
+                    raise forms.ValidationError(
+                      _('The name "%s" is already used by another flavor.')
+                      % name
+                    )
+        return cleaned_data
+
     def handle(self, request, data):
         try:
             # First mark the existing flavor as deleted.

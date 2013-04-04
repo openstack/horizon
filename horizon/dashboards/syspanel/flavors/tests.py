@@ -53,6 +53,7 @@ class FlavorsTests(test.BaseAdminViewTests):
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
 
         # POST
+        api.nova.flavor_list(IsA(http.HttpRequest))
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
         api.nova.flavor_delete(IsA(http.HttpRequest), int(flavor.id))
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -80,3 +81,36 @@ class FlavorsTests(test.BaseAdminViewTests):
         resp = self.client.post(url, data)
         self.assertRedirectsNoFollow(resp,
                                      reverse("horizon:syspanel:flavors:index"))
+
+    def test_edit_flavor_set_existing_name(self):
+        flavor_a = self.flavors.list()[0]
+        flavor_b = self.flavors.list()[1]
+        eph = getattr(flavor_a, 'OS-FLV-EXT-DATA:ephemeral')
+        self.mox.StubOutWithMock(api.nova, 'flavor_list')
+        self.mox.StubOutWithMock(api.nova, 'flavor_get')
+
+        # GET
+        api.nova.flavor_get(IsA(http.HttpRequest), flavor_a.id) \
+                .AndReturn(flavor_a)
+
+        # POST
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.flavor_get(IsA(http.HttpRequest),
+                            flavor_a.id).AndReturn(flavor_a)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:syspanel:flavors:edit', args=[flavor_a.id])
+        resp = self.client.get(url)
+        self.assertEqual(resp.status_code, 200)
+        self.assertTemplateUsed(resp, "syspanel/flavors/edit.html")
+
+        data = {'flavor_id': flavor_a.id,
+                'name': flavor_b.name,
+                'vcpus': flavor_a.vcpus + 1,
+                'memory_mb': flavor_a.ram,
+                'disk_gb': flavor_a.disk,
+                'eph_gb': eph}
+        resp = self.client.post(url, data)
+        self.assertFormErrors(resp, 1, 'The name &quot;m1.massive&quot; '
+                              'is already used by another flavor.')
