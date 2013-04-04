@@ -282,8 +282,8 @@ def data(TEST):
                    'tenant_id': '1',
                    'pool_id': pool_dict['id'],
                    'address': '10.0.0.11',
-                   'protocol_port': '80',
-                   'weight': '10',
+                   'protocol_port': 80,
+                   'weight': 10,
                    'admin_state_up': True}
     TEST.api_members.add(member_dict)
     TEST.members.add(Member(member_dict))
@@ -293,8 +293,8 @@ def data(TEST):
                   'tenant_id': '1',
                   'pool_id': pool_dict['id'],
                   'address': '10.0.0.12',
-                  'protocol_port': '80',
-                  'weight': '10',
+                  'protocol_port': 80,
+                  'weight': 10,
                   'admin_state_up': True}
     TEST.api_members.add(member_dict)
     TEST.members.add(Member(member_dict))
@@ -331,9 +331,9 @@ def data(TEST):
     # 1st monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff96',
                     'type': 'PING',
-                    'delay': '10',
-                    'timeout': '10',
-                    'max_retries': '10',
+                    'delay': 10,
+                    'timeout': 10,
+                    'max_retries': 10,
                     'http_method': 'GET',
                     'url_path': '/',
                     'expected_codes': '200',
@@ -344,9 +344,9 @@ def data(TEST):
     # 2nd monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff97',
                     'type': 'PING',
-                    'delay': '10',
-                    'timeout': '10',
-                    'max_retries': '10',
+                    'delay': 10,
+                    'timeout': 10,
+                    'max_retries': 10,
                     'http_method': 'GET',
                     'url_path': '/',
                     'expected_codes': '200',
