@@ -265,14 +265,36 @@ def data(TEST):
     vip_dict = {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
                 'name': 'vip1',
                 'address': '10.0.0.100',
+                'floatip_address': '',
+                'other_address': '10.0.0.100',
                 'description': 'vip description',
                 'subnet_id': TEST.subnets.first().id,
-                'protocol_port': '80',
+                'subnet': TEST.subnets.first().cidr,
+                'protocol_port': 80,
                 'protocol': pool_dict['protocol'],
                 'pool_id': pool_dict['id'],
-                'session_persistence': {'type': 'SOURCE_IP',
-                                        'cookie_name': 'jssessionid'},
-                'connection_limit': '10',
+                'session_persistence': {},
+                'cookie_name': '',
+                'connection_limit': 10,
+                'admin_state_up': True}
+    TEST.api_vips.add(vip_dict)
+    TEST.vips.add(Vip(vip_dict))
+
+    # 2nd vip
+    vip_dict = {'id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
+                'name': 'vip2',
+                'address': '10.0.0.110',
+                'floatip_address': '',
+                'other_address': '10.0.0.110',
+                'description': 'vip description',
+                'subnet_id': TEST.subnets.first().id,
+                'subnet': TEST.subnets.first().cidr,
+                'protocol_port': 80,
+                'protocol': pool_dict['protocol'],
+                'pool_id': pool_dict['id'],
+                'session_persistence': 'APP_COOKIE',
+                'cookie_name': 'jssessionid',
+                'connection_limit': 10,
                 'admin_state_up': True}
     TEST.api_vips.add(vip_dict)
     TEST.vips.add(Vip(vip_dict))
@@ -312,25 +334,10 @@ def data(TEST):
     TEST.api_pools.add(pool_dict)
     TEST.pools.add(Pool(pool_dict))
 
-    # 1st vip
-    vip_dict = {'id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
-                'name': 'vip2',
-                'address': '10.0.0.110',
-                'description': 'vip description',
-                'subnet_id': TEST.subnets.first().id,
-                'protocol_port': '80',
-                'protocol': pool_dict['protocol'],
-                'pool_id': pool_dict['id'],
-                'session_persistence': {'type': 'APP_COOKIE',
-                                        'cookie_name': 'jssessionid'},
-                'connection_limit': '10',
-                'admin_state_up': True}
-    TEST.api_vips.add(vip_dict)
-    TEST.vips.add(Vip(vip_dict))
-
     # 1st monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff96',
-                    'type': 'PING',
+                    'type': 'ping',
+                    'pool_id': pool_dict['id'],
                     'delay': 10,
                     'timeout': 10,
                     'max_retries': 10,
@@ -343,7 +350,8 @@ def data(TEST):
 
     # 2nd monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff97',
-                    'type': 'PING',
+                    'type': 'ping',
+                    'pool_id': pool_dict['id'],
                     'delay': 10,
                     'timeout': 10,
                     'max_retries': 10,
