@@ -15,7 +15,12 @@
 </div>
 <div class="right">
     <h3>{% trans "Description" %}:</h3>
-    <p>{% trans "You can connect a specified subnet to the router." %}</p>
+    <p>
+      {% trans "You can connect a specified subnet to the router." %}
+    </p>
+    <p>
+      {% trans "The default IP address of the interface created is a gateway of the selected subnet. You can specify another IP address of the interface here. You must select a subnet to which the specified IP address belongs to from the above list." %}
+    </p>
 </div>
 {% endblock %}
 

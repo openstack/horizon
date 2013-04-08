@@ -22,13 +22,19 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import forms
 from horizon import messages
 from horizon import exceptions
+from horizon.utils import fields
 from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
 
 
 class AddInterface(forms.SelfHandlingForm):
-    subnet_id = forms.ChoiceField(label=_("Subnet"), required=False)
+    subnet_id = forms.ChoiceField(label=_("Subnet"))
+    ip_address = fields.IPField(
+        label=_("IP Address (optional)"), required=False, initial="",
+        help_text=_("You can specify an IP address of the interface "
+                    "created if you want (e.g. 192.168.0.254)."),
+        version=fields.IPv4 | fields.IPv6, mask=False)
     router_name = forms.CharField(label=_("Router Name"),
                                   widget=forms.TextInput(
                                       attrs={'readonly': 'readonly'}))
@@ -70,24 +76,73 @@ class AddInterface(forms.SelfHandlingForm):
         return choices
 
     def handle(self, request, data):
+        if data['ip_address']:
+            port = self._add_interface_by_port(request, data)
+        else:
+            port = self._add_interface_by_subnet(request, data)
+        msg = _('Interface added')
+        if port:
+            msg += ' ' + port.fixed_ips[0]['ip_address']
+        LOG.debug(msg)
+        messages.success(request, msg)
+        return True
+
+    def _add_interface_by_subnet(self, request, data):
+        router_id = data['router_id']
         try:
-            api.quantum.router_add_interface(request,
-                                             data['router_id'],
-                                             subnet_id=data['subnet_id'])
-            msg = _('Interface added')
-            LOG.debug(msg)
-            messages.success(request, msg)
-            return True
+            router_inf = api.quantum.router_add_interface(
+                request, router_id, subnet_id=data['subnet_id'])
         except Exception as e:
-            msg = _('Failed to add_interface %s') % e.message
+            self._handle_error(request, router_id, e)
+        try:
+            port = api.quantum.port_get(request, router_inf['port_id'])
+        except:
+            # Ignore an error when port_get() since it is just
+            # to get an IP address for the interface.
+            port = None
+        return port
+
+    def _add_interface_by_port(self, request, data):
+        router_id = data['router_id']
+        subnet_id = data['subnet_id']
+        try:
+            subnet = api.quantum.subnet_get(request, subnet_id)
+        except:
+            msg = _('Unable to get subnet "%s"') % subnet_id
+            self._handle_error(request, router_id, msg)
+        try:
+            ip_address = data['ip_address']
+            body = {'network_id': subnet.network_id,
+                    'fixed_ips': [{'subnet_id': subnet.id,
+                                   'ip_address': ip_address}]}
+            port = api.quantum.port_create(request, **body)
+        except Exception as e:
+            self._handle_error(request, router_id, e)
+        try:
+            api.quantum.router_add_interface(request, router_id,
+                                             port_id=port.id)
+        except Exception as e:
+            self._delete_port(request, port)
+            self._handle_error(request, router_id, e)
+        return port
+
+    def _handle_error(self, request, router_id, reason):
+        msg = _('Failed to add_interface: %s') % reason
+        LOG.info(msg)
+        redirect = reverse(self.failure_url, args=[router_id])
+        exceptions.handle(request, msg, redirect=redirect)
+
+    def _delete_port(self, request, port):
+        try:
+            api.quantum.port_delete(request, port.id)
+        except:
+            msg = _('Failed to delete port %s') % port.id
             LOG.info(msg)
-            messages.error(request, msg)
-            redirect = reverse(self.failure_url, args=[data['router_id']])
-            exceptions.handle(request, msg, redirect=redirect)
+            exceptions.handle(request, msg)
 
 
 class SetGatewayForm(forms.SelfHandlingForm):
-    network_id = forms.ChoiceField(label=_("External Network"), required=False)
+    network_id = forms.ChoiceField(label=_("External Network"))
     router_name = forms.CharField(label=_("Router Name"),
                                   widget=forms.TextInput(
                                       attrs={'readonly': 'readonly'}))
@@ -132,6 +187,5 @@ class SetGatewayForm(forms.SelfHandlingForm):
         except Exception as e:
             msg = _('Failed to set gateway %s') % e.message
             LOG.info(msg)
-            messages.error(request, msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

@@ -412,7 +412,8 @@ def router_add_interface(request, router_id, subnet_id=None, port_id=None):
         body['subnet_id'] = subnet_id
     if port_id:
         body['port_id'] = port_id
-    quantumclient(request).add_interface_router(router_id, body)
+    client = quantumclient(request)
+    return client.add_interface_router(router_id, body)
 
 
 def router_remove_interface(request, router_id, subnet_id=None, port_id=None):
