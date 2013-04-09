@@ -1271,3 +1271,61 @@ class InstanceTests(test.TestCase):
                                  "%(key)s</option>" % {'key': keypair.name},
                             html=True,
                             msg_prefix="The default keypair was not selected.")
+
+    @test.create_stubs({api.network: ('floating_ip_target_get_by_instance',
+                                      'tenant_floating_ip_allocate',
+                                      'floating_ip_associate'),
+                        api.nova: ('server_list',
+                                   'flavor_list')})
+    def test_associate_floating_ip(self):
+        server = self.servers.first()
+        fip = self.q_floating_ips.first()
+
+        api.nova.server_list(
+            IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        api.network.floating_ip_target_get_by_instance(
+            IsA(http.HttpRequest),
+            server.id).AndReturn(server.id)
+        api.network.tenant_floating_ip_allocate(
+            IsA(http.HttpRequest)).AndReturn(fip)
+        api.network.floating_ip_associate(
+            IsA(http.HttpRequest), fip.id, server.id)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__associate-simple__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.network: ('floating_ip_target_get_by_instance',
+                                      'tenant_floating_ip_list',
+                                      'floating_ip_disassociate',
+                                      'tenant_floating_ip_release'),
+                        api.nova: ('server_list',
+                                   'flavor_list')})
+    def test_disassociate_floating_ip(self):
+        server = self.servers.first()
+        fip = self.q_floating_ips.first()
+        fip.port_id = server.id
+
+        api.nova.server_list(
+            IsA(http.HttpRequest)).AndReturn(self.servers.list())
+        api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        api.network.floating_ip_target_get_by_instance(
+            IsA(http.HttpRequest),
+            server.id).AndReturn(server.id)
+        api.network.tenant_floating_ip_list(
+            IsA(http.HttpRequest)).AndReturn([fip])
+        api.network.floating_ip_disassociate(
+            IsA(http.HttpRequest), fip.id, server.id)
+        api.network.tenant_floating_ip_release(
+            IsA(http.HttpRequest), fip.id)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__disassociate__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
