@@ -326,10 +326,15 @@ class SimpleAssociateIP(tables.Action):
             return False
         return not is_deleting(instance)
 
-    def single(self, table, request, instance):
+    def single(self, table, request, instance_id):
         try:
+            # target_id is port_id for Quantum and instance_id for Nova Network
+            # (Quantum API wrapper returns a 'portid_fixedip' string)
+            target_id = api.network.floating_ip_target_get_by_instance(
+                request, instance_id).split('_')[0]
+
             fip = api.network.tenant_floating_ip_allocate(request)
-            api.network.floating_ip_associate(request, fip.id, instance)
+            api.network.floating_ip_associate(request, fip.id, target_id)
             messages.success(request,
                              _("Successfully associated floating IP: %s")
                              % fip.ip)
@@ -351,14 +356,19 @@ class SimpleDisassociateIP(tables.Action):
 
     def single(self, table, request, instance_id):
         try:
+            # target_id is port_id for Quantum and instance_id for Nova Network
+            # (Quantum API wrapper returns a 'portid_fixedip' string)
+            target_id = api.network.floating_ip_target_get_by_instance(
+                request, instance_id).split('_')[0]
+
             fips = [fip for fip in api.network.tenant_floating_ip_list(request)
-                    if fip.port_id == instance_id]
+                    if fip.port_id == target_id]
             # Removing multiple floating IPs at once doesn't work, so this pops
             # off the first one.
             if fips:
                 fip = fips.pop()
                 api.network.floating_ip_disassociate(request,
-                                                     fip.id, instance_id)
+                                                     fip.id, target_id)
                 api.network.tenant_floating_ip_release(request, fip.id)
                 messages.success(request,
                                  _("Successfully disassociated "
