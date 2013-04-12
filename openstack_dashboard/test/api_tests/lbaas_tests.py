@@ -196,8 +196,7 @@ class LbaasApiTests(test.APITestCase):
                                         pool['pool']['id'], **form_data)
         self.assertIsInstance(ret_val, api.lbaas.Pool)
 
-    @test.create_stubs({quantumclient: ('create_health_monitor',
-                                        'associate_health_monitor')})
+    @test.create_stubs({quantumclient: ('create_health_monitor',)})
     def test_pool_health_monitor_create(self):
         form_data = {'type': 'PING',
                      'delay': '10',
@@ -205,13 +204,6 @@ class LbaasApiTests(test.APITestCase):
                      'max_retries': '10',
                      'admin_state_up': True
                      }
-        form_data_with_pool_id = {
-            'pool_id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-            'type': 'PING',
-            'delay': '10',
-            'timeout': '10',
-            'max_retries': '10',
-            'admin_state_up': True}
         monitor = {'health_monitor': {
                 'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
                 'type': 'PING',
@@ -219,16 +211,12 @@ class LbaasApiTests(test.APITestCase):
                 'timeout': '10',
                 'max_retries': '10',
                 'admin_state_up': True}}
-        monitor_id = {'health_monitor': {
-                'id': 'abcdef-c3eb-4fee-9763-12de3338041e'}}
         quantumclient.create_health_monitor({
                 'health_monitor': form_data}).AndReturn(monitor)
-        quantumclient.associate_health_monitor(
-            form_data_with_pool_id['pool_id'], monitor_id)
         self.mox.ReplayAll()
 
         ret_val = api.lbaas.pool_health_monitor_create(
-            self.request, **form_data_with_pool_id)
+            self.request, **form_data)
         self.assertIsInstance(ret_val, api.lbaas.PoolMonitor)
 
     @test.create_stubs({quantumclient: ('list_health_monitors',)})

@@ -264,6 +264,7 @@ def data(TEST):
                  'subnet_id': TEST.subnets.first().id,
                  'protocol': 'HTTP',
                  'lb_method': 'ROUND_ROBIN',
+                 'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff96'],
                  'admin_state_up': True}
     TEST.api_pools.add(pool_dict)
     TEST.pools.add(Pool(pool_dict))
@@ -337,6 +338,7 @@ def data(TEST):
                  'subnet_id': TEST.subnets.first().id,
                  'protocol': 'HTTPS',
                  'lb_method': 'ROUND_ROBIN',
+                 'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff97'],
                  'admin_state_up': True}
     TEST.api_pools.add(pool_dict)
     TEST.pools.add(Pool(pool_dict))
@@ -344,7 +346,6 @@ def data(TEST):
     # 1st monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff96',
                     'type': 'ping',
-                    'pool_id': pool_dict['id'],
                     'delay': 10,
                     'timeout': 10,
                     'max_retries': 10,
@@ -358,7 +359,6 @@ def data(TEST):
     # 2nd monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff97',
                     'type': 'ping',
-                    'pool_id': pool_dict['id'],
                     'delay': 10,
                     'timeout': 10,
                     'max_retries': 10,

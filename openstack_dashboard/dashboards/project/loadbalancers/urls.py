@@ -26,6 +26,10 @@ from openstack_dashboard.dashboards.project.loadbalancers.views import \
 from openstack_dashboard.dashboards.project.loadbalancers.views import \
     AddVipView
 from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    AddPMAssociationView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    DeletePMAssociationView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
     IndexView
 from openstack_dashboard.dashboards.project.loadbalancers.views import \
     MemberDetailsView
@@ -59,6 +63,10 @@ urlpatterns = patterns(
     url(r'^addmonitor$', AddMonitorView.as_view(), name='addmonitor'),
     url(r'^updatemonitor/(?P<monitor_id>[^/]+)/$',
         UpdateMonitorView.as_view(), name='updatemonitor'),
+    url(r'^association/add/(?P<pool_id>[^/]+)/$',
+        AddPMAssociationView.as_view(), name='addassociation'),
+    url(r'^association/delete/(?P<pool_id>[^/]+)/$',
+        DeletePMAssociationView.as_view(), name='deleteassociation'),
     url(r'^pool/(?P<pool_id>[^/]+)/$',
         PoolDetailsView.as_view(), name='pooldetails'),
     url(r'^vip/(?P<vip_id>[^/]+)/$',
