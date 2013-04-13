@@ -19,7 +19,7 @@
     <dt>{% trans "Created" %}</dt>
     <dd>{{ image.created_at|default:_("Unknown") }}</dd>
     <dt>{% trans "Updated" %}</dt>
-    <dd>{{ image.updated_app|default:_("Never updated") }}</dd>
+    <dd>{{ image.updated_at|default:_("Never updated") }}</dd>
   </dl>
 </div>
 
