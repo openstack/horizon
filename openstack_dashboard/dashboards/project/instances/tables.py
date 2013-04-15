@@ -439,6 +439,14 @@ TASK_DISPLAY_CHOICES = (
 )
 
 
+class InstancesFilterAction(tables.FilterAction):
+    def filter(self, table, instances, filter_string):
+        """ Naive case-insensitive search. """
+        q = filter_string.lower()
+        return [instance for instance in instances
+                if q in instance.name.lower()]
+
+
 class InstancesTable(tables.DataTable):
     TASK_STATUS_CHOICES = (
         (None, True),
@@ -480,7 +488,7 @@ class InstancesTable(tables.DataTable):
         verbose_name = _("Instances")
         status_columns = ["status", "task"]
         row_class = UpdateRow
-        table_actions = (LaunchLink, TerminateInstance)
+        table_actions = (LaunchLink, TerminateInstance, InstancesFilterAction)
         row_actions = (ConfirmResize, RevertResize, CreateSnapshot,
                        SimpleAssociateIP, AssociateIP,
                        SimpleDisassociateIP, EditInstance,
