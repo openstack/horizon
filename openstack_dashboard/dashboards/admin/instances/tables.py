@@ -89,7 +89,9 @@ class AdminInstancesTable(tables.DataTable):
     name = tables.Column("name",
                          link=("horizon:admin:instances:detail"),
                          verbose_name=_("Name"))
-    ip = tables.Column(get_ips, verbose_name=_("IP Address"))
+    ip = tables.Column(get_ips,
+                       verbose_name=_("IP Address"),
+                       attrs={'data-type': "ip"})
     size = tables.Column(get_size,
                          verbose_name=_("Size"),
                          classes=('nowrap-col',),

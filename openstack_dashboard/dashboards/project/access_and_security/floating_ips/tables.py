@@ -111,7 +111,9 @@ def get_instance_link(datum):
 
 
 class FloatingIPsTable(tables.DataTable):
-    ip = tables.Column("ip", verbose_name=_("IP Address"))
+    ip = tables.Column("ip",
+                       verbose_name=_("IP Address"),
+                       attrs={'data-type': "ip"})
     instance = tables.Column(get_instance_info,
                              link=get_instance_link,
                              verbose_name=_("Instance"),

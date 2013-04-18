@@ -136,7 +136,8 @@ def get_member_link(member):
 class MembersTable(tables.DataTable):
     address = tables.Column('address',
                             verbose_name=_("IP Address"),
-                            link=get_member_link)
+                            link=get_member_link,
+                            attrs={'data-type': "ip"})
     protocol_port = tables.Column('protocol_port',
                                   verbose_name=_("Protocol Port"))
     pool_name = tables.Column("pool_name",

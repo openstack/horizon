@@ -254,6 +254,10 @@ $(parent).find("table.datatable").each(function () {
         // set as [i-1] as there is one more <th> in <thead>
         // than <td>'s in <tbody>
         header_options[i-1] = {sorter: 'sizeSorter'};
+      } else if ($th.data('type') == 'ip'){
+        // set as [i-1] as there is one more <th> in <thead>
+        // than <td>'s in <tbody>
+        header_options[i-1] = {sorter: 'ipAddress'};
       }
     });
     $table.tablesorter({
