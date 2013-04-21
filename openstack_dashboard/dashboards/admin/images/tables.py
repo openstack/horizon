@@ -29,7 +29,10 @@ class AdminCreateImage(CreateImage):
 
 class AdminDeleteImage(DeleteImage):
     def allowed(self, request, image=None):
-        return True
+        if image and image.protected:
+            return False
+        else:
+            return True
 
 
 class AdminEditImage(EditImage):

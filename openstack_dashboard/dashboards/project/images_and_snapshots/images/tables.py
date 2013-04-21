@@ -50,6 +50,9 @@ class DeleteImage(tables.DeleteAction):
     data_type_plural = _("Images")
 
     def allowed(self, request, image=None):
+        # Protected images can not be deleted.
+        if image and image.protected:
+            return False
         if image:
             return image.owner == request.user.tenant_id
         # Return True to allow table-level bulk delete action to appear.
@@ -181,6 +184,10 @@ class ImagesTable(tables.DataTable):
                            verbose_name=_("Public"),
                            empty_value=False,
                            filters=(filters.yesno, filters.capfirst))
+    protected = tables.Column("protected",
+                              verbose_name=_("Protected"),
+                              empty_value=False,
+                              filters=(filters.yesno, filters.capfirst))
     disk_format = tables.Column(get_format, verbose_name=_("Format"))
 
     class Meta:
@@ -190,7 +197,7 @@ class ImagesTable(tables.DataTable):
         verbose_name = _("Images")
         # Hide the image_type column. Done this way so subclasses still get
         # all the columns by default.
-        columns = ["name", "status", "public", "disk_format"]
+        columns = ["name", "status", "public", "protected", "disk_format"]
         table_actions = (OwnerFilter, CreateImage, DeleteImage,)
         row_actions = (LaunchImage, EditImage, DeleteImage,)
         pagination_param = "image_marker"

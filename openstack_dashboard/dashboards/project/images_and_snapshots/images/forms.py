@@ -86,6 +86,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                                             ' minimum).'),
                                     required=False)
     is_public = forms.BooleanField(label=_("Public"), required=False)
+    protected = forms.BooleanField(label=_("Protected"), required=False)
 
     def __init__(self, *args, **kwargs):
         super(CreateImageForm, self).__init__(*args, **kwargs)
@@ -115,6 +116,7 @@ class CreateImageForm(forms.SelfHandlingForm):
             container_format = 'bare'
 
         meta = {'is_public': data['is_public'],
+                'protected': data['protected'],
                 'disk_format': data['disk_format'],
                 'container_format': container_format,
                 'min_disk': (data['minimum_disk'] or 0),
@@ -158,6 +160,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
                                     attrs={'readonly': 'readonly'}
                                   ))
     public = forms.BooleanField(label=_("Public"), required=False)
+    protected = forms.BooleanField(label=_("Protected"), required=False)
 
     def handle(self, request, data):
         image_id = data['image_id']
@@ -169,6 +172,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
             container_format = 'bare'
 
         meta = {'is_public': data['public'],
+                'protected': data['protected'],
                 'disk_format': data['disk_format'],
                 'container_format': container_format,
                 'name': data['name'],

@@ -61,10 +61,21 @@ class ImagesAndSnapshotsTests(test.TestCase):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/images_and_snapshots/index.html')
         self.assertIn('images_table', res.context)
-        images = res.context['images_table'].data
+        images_table = res.context['images_table']
+        images = images_table.data
         filter_func = lambda im: im.container_format not in ['aki', 'ari']
         filtered_images = filter(filter_func, images)
         self.assertItemsEqual(images, filtered_images)
+
+        self.assertTrue(len(images), 3)
+        row_actions = images_table.get_row_actions(images[0])
+        self.assertTrue(len(row_actions), 3)
+        row_actions = images_table.get_row_actions(images[1])
+        self.assertTrue(len(row_actions), 2)
+        self.assertTrue('delete_image' not in
+                [a.name for a in row_actions])
+        row_actions = images_table.get_row_actions(images[2])
+        self.assertTrue(len(row_actions), 3)
 
     @test.create_stubs({api.glance: ('image_list_detailed',
                                      'snapshot_list_detailed'),

@@ -85,6 +85,7 @@ class ImageViewTests(test.TestCase):
             'minimum_disk': 15,
             'minimum_ram': 512,
             'is_public': 1,
+            'protected': 0,
             'method': 'CreateImageForm'}
 
         api.glance.image_create(IsA(http.HttpRequest),
@@ -92,6 +93,7 @@ class ImageViewTests(test.TestCase):
                                 copy_from=data['copy_from'],
                                 disk_format=data['disk_format'],
                                 is_public=True,
+                                protected=False,
                                 min_disk=data['minimum_disk'],
                                 min_ram=data['minimum_ram'],
                                 name=data['name']). \
@@ -117,12 +119,14 @@ class ImageViewTests(test.TestCase):
             'minimum_disk': 15,
             'minimum_ram': 512,
             'is_public': 1,
+            'protected': 0,
             'method': 'CreateImageForm'}
 
         api.glance.image_create(IsA(http.HttpRequest),
                                 container_format="bare",
                                 disk_format=data['disk_format'],
                                 is_public=True,
+                                protected=False,
                                 min_disk=data['minimum_disk'],
                                 min_ram=data['minimum_ram'],
                                 name=data['name'],
@@ -150,6 +154,22 @@ class ImageViewTests(test.TestCase):
         self.assertTemplateUsed(res,
                             'project/images_and_snapshots/images/detail.html')
         self.assertEqual(res.context['image'].name, image.name)
+        self.assertEqual(res.context['image'].protected, image.protected)
+
+    @test.create_stubs({api.glance: ('image_get',)})
+    def test_protected_image_detail_get(self):
+        image = self.images.list()[2]
+
+        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
+                                 .AndReturn(image)
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+                reverse('horizon:project:images_and_snapshots:images:detail',
+                args=[image.id]))
+        self.assertTemplateUsed(res,
+                            'project/images_and_snapshots/images/detail.html')
+        self.assertEqual(res.context['image'].protected, image.protected)
 
     @test.create_stubs({api.glance: ('image_get',)})
     def test_image_detail_get_with_exception(self):

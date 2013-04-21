@@ -28,21 +28,24 @@ def data(TEST):
                      'status': "active",
                      'owner': TEST.tenant.id,
                      'properties': {'image_type': u'snapshot'},
-                     'is_public': False}
+                     'is_public': False,
+                     'protected': False}
     snapshot_dict_no_owner = {'name': u'snapshot 2',
                               'container_format': u'ami',
                               'id': 4,
                               'status': "active",
                               'owner': None,
                               'properties': {'image_type': u'snapshot'},
-                              'is_public': False}
+                              'is_public': False,
+                              'protected': False}
     snapshot_dict_queued = {'name': u'snapshot 2',
                             'container_format': u'ami',
                             'id': 5,
                             'status': "queued",
                             'owner': TEST.tenant.id,
                             'properties': {'image_type': u'snapshot'},
-                            'is_public': False}
+                            'is_public': False,
+                            'protected': False}
     snapshot = Image(ImageManager(None), snapshot_dict)
     TEST.snapshots.add(snapshot)
     snapshot = Image(ImageManager(None), snapshot_dict_no_owner)
@@ -57,7 +60,8 @@ def data(TEST):
                   'owner': TEST.tenant.id,
                   'container_format': 'novaImage',
                   'properties': {'image_type': u'image'},
-                  'is_public': True}
+                  'is_public': True,
+                  'protected': False}
     public_image = Image(ImageManager(None), image_dict)
 
     image_dict = {'id': 'a001c047-22f8-47d0-80a1-8ec94a9524fe',
@@ -65,8 +69,19 @@ def data(TEST):
                   'status': "active",
                   'owner': TEST.tenant.id,
                   'container_format': 'aki',
-                  'is_public': False}
+                  'is_public': False,
+                  'protected': False}
     private_image = Image(ImageManager(None), image_dict)
+
+    image_dict = {'id': 'd6936c86-7fec-474a-85c5-5e467b371c3c',
+                  'name': 'protected_images',
+                  'status': "active",
+                  'owner': TEST.tenant.id,
+                  'container_format': 'novaImage',
+                  'properties': {'image_type': u'image'},
+                  'is_public': True,
+                  'protected': True}
+    protected_image = Image(ImageManager(None), image_dict)
 
     image_dict = {'id': '278905a6-4b52-4d1e-98f9-8c57bb25ba32',
                   'name': 'public_image 2',
@@ -74,7 +89,8 @@ def data(TEST):
                   'owner': TEST.tenant.id,
                   'container_format': 'novaImage',
                   'properties': {'image_type': u'image'},
-                  'is_public': True}
+                  'is_public': True,
+                  'protected': False}
     public_image2 = Image(ImageManager(None), image_dict)
 
     image_dict = {'id': '710a1acf-a3e3-41dd-a32d-5d6b6c86ea10',
@@ -82,7 +98,8 @@ def data(TEST):
                   'status': "active",
                   'owner': TEST.tenant.id,
                   'container_format': 'aki',
-                  'is_public': False}
+                  'is_public': False,
+                  'protected': False}
     private_image2 = Image(ImageManager(None), image_dict)
 
     image_dict = {'id': '7cd892fd-5652-40f3-a450-547615680132',
@@ -90,7 +107,8 @@ def data(TEST):
                   'status': "active",
                   'owner': TEST.tenant.id,
                   'container_format': 'aki',
-                  'is_public': False}
+                  'is_public': False,
+                  'protected': False}
     private_image3 = Image(ImageManager(None), image_dict)
 
     # A shared image. Not public and not local tenant.
@@ -99,7 +117,8 @@ def data(TEST):
                   'status': "active",
                   'owner': 'someothertenant',
                   'container_format': 'aki',
-                  'is_public': False}
+                  'is_public': False,
+                  'protected': False}
     shared_image1 = Image(ImageManager(None), image_dict)
 
     # "Official" image. Public and tenant matches an entry
@@ -109,9 +128,10 @@ def data(TEST):
                   'status': "active",
                   'owner': 'officialtenant',
                   'container_format': 'aki',
-                  'is_public': True}
+                  'is_public': True,
+                  'protected': False}
     official_image1 = Image(ImageManager(None), image_dict)
 
-    TEST.images.add(public_image, private_image,
+    TEST.images.add(public_image, private_image, protected_image,
                     public_image2, private_image2, private_image3,
                     shared_image1, official_image1)

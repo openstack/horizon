@@ -14,6 +14,8 @@
     <dd>{{ image.status|default:_("Unknown")|title }}</dd>
     <dt>{% trans "Public" %}</dt>
     <dd>{{ image.is_public }}</dd>
+    <dt>{% trans "Protected" %}</dt>
+    <dd>{{ image.protected }}</dd>
     <dt>{% trans "Checksum" %}</dt>
     <dd>{{ image.checksum }}</dd>
     <dt>{% trans "Created" %}</dt>
