@@ -79,7 +79,7 @@ def write_autodoc_index():
         if not(os.path.exists(MOD_DIR)):
             os.mkdir(MOD_DIR)
         for module in find_autodoc_modules(modulename, path):
-            if any([module.startswith(exclude) for exclude \
+            if any([module.startswith(exclude) for exclude
                                                 in EXCLUDED_MODULES]):
                 print "Excluded module %s." % module
                 continue
