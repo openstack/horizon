@@ -14,6 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from openstack_dashboard.openstack.common import version as common_version
+import pbr.version
 
-version_info = common_version.VersionInfo('horizon')
+version_info = pbr.version.VersionInfo('horizon')
