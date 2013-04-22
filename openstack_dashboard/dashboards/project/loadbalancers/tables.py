@@ -101,6 +101,17 @@ class DeleteMemberLink(tables.DeleteAction):
     data_type_plural = _("Members")
 
 
+class UpdatePoolLink(tables.LinkAction):
+    name = "updatepool"
+    verbose_name = _("Edit Pool")
+    classes = ("btn-updatepool",)
+
+    def get_link_url(self, pool):
+        base_url = reverse("horizon:project:loadbalancers:updatepool",
+                           kwargs={'pool_id': pool.id})
+        return base_url
+
+
 def get_vip_link(pool):
     return reverse("horizon:project:loadbalancers:vipdetails",
                    args=(http.urlquote(pool.vip_id),))
@@ -120,7 +131,8 @@ class PoolsTable(tables.DataTable):
         name = "poolstable"
         verbose_name = _("Pools")
         table_actions = (AddPoolLink, DeletePoolLink)
-        row_actions = (AddVipLink, DeleteVipLink, DeletePoolLink)
+        row_actions = (UpdatePoolLink, AddVipLink, DeleteVipLink,
+                       DeletePoolLink)
 
 
 def get_pool_link(member):
