@@ -226,6 +226,208 @@ class LoadBalancerTests(test.TestCase):
         expected_objs = ['<AddPoolStep: addpoolaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
 
+    @test.create_stubs({api.lbaas: ('pool_get', 'vip_create'),
+                        api.quantum: ('subnet_get', )})
+    def test_add_vip_post(self):
+        vip = self.vips.first()
+
+        subnet = self.subnets.first()
+        pool = self.pools.first()
+
+        api.lbaas.pool_get(
+            IsA(http.HttpRequest), pool.id).MultipleTimes().AndReturn(pool)
+
+        api.quantum.subnet_get(
+            IsA(http.HttpRequest), subnet.id).AndReturn(subnet)
+
+        api.lbaas.vip_create(
+            IsA(http.HttpRequest),
+            name=vip.name,
+            description=vip.description,
+            pool_id=vip.pool_id,
+            address=vip.address,
+            floatip_address=vip.floatip_address,
+            other_address=vip.other_address,
+            subnet=vip.subnet,
+            subnet_id=vip.subnet_id,
+            protocol_port=vip.protocol_port,
+            protocol=vip.protocol,
+            session_persistence=vip.session_persistence,
+            cookie_name=vip.cookie_name,
+            connection_limit=vip.connection_limit,
+            admin_state_up=vip.admin_state_up).AndReturn(Vip(vip))
+
+        self.mox.ReplayAll()
+
+        form_data = {'name': vip.name,
+                     'description': vip.description,
+                     'pool_id': vip.pool_id,
+                     'address': vip.address,
+                     'floatip_address': vip.floatip_address,
+                     'other_address': vip.other_address,
+                     'subnet_id': vip.subnet_id,
+                     'subnet': vip.subnet,
+                     'protocol_port': vip.protocol_port,
+                     'protocol': vip.protocol,
+                     'session_persistence': vip.session_persistence,
+                     'cookie_name': vip.cookie_name,
+                     'connection_limit': vip.connection_limit,
+                     'admin_state_up': vip.admin_state_up}
+
+        res = self.client.post(
+            reverse(self.ADDVIP_PATH, args=(pool.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.lbaas: ('pool_get', ),
+                        api.quantum: ('subnet_get', )})
+    def test_add_vip_post_with_error(self):
+        vip = self.vips.first()
+
+        subnet = self.subnets.first()
+        pool = self.pools.first()
+
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+        api.quantum.subnet_get(
+            IsA(http.HttpRequest), subnet.id).AndReturn(subnet)
+
+        self.mox.ReplayAll()
+
+        form_data = {'name': vip.name,
+                     'description': vip.description,
+                     'pool_id': vip.pool_id,
+                     'address': vip.address,
+                     'subnet_id': vip.subnet_id,
+                     'protocol_port': 65536,
+                     'protocol': vip.protocol,
+                     'session_persistence': vip.session_persistence,
+                     'cookie_name': vip.cookie_name,
+                     'connection_limit': -2,
+                     'admin_state_up': vip.admin_state_up}
+
+        res = self.client.post(
+            reverse(self.ADDVIP_PATH, args=(pool.id,)), form_data)
+
+        self.assertFormErrors(res, 2)
+
+    @test.create_stubs({api.lbaas: ('pool_get', ),
+                        api.quantum: ('subnet_get', )})
+    def test_add_vip_get(self):
+        subnet = self.subnets.first()
+        pool = self.pools.first()
+
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+        api.quantum.subnet_get(
+            IsA(http.HttpRequest), subnet.id).AndReturn(subnet)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse(self.ADDVIP_PATH, args=(pool.id,)))
+
+        workflow = res.context['workflow']
+        self.assertTemplateUsed(res, 'project/loadbalancers/addvip.html')
+        self.assertEqual(workflow.name, AddVip.name)
+
+        expected_objs = ['<AddVipStep: addvipaction>', ]
+        self.assertQuerysetEqual(workflow.steps, expected_objs)
+
+    @test.create_stubs({api.lbaas: ('pools_get',
+                                    'pool_health_monitor_create')})
+    def test_add_monitor_post(self):
+        monitor = self.monitors.first()
+
+        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+
+        api.lbaas.pool_health_monitor_create(
+            IsA(http.HttpRequest),
+            type=monitor.type,
+            pool_id=monitor.pool_id,
+            delay=monitor.delay,
+            timeout=monitor.timeout,
+            max_retries=monitor.max_retries,
+            http_method=monitor.http_method,
+            url_path=monitor.url_path,
+            expected_codes=monitor.expected_codes,
+            admin_state_up=monitor.admin_state_up).AndReturn(
+                PoolMonitor(monitor))
+
+        self.mox.ReplayAll()
+
+        form_data = {'type': monitor.type,
+                     'pool_id': monitor.pool_id,
+                     'delay': monitor.delay,
+                     'timeout': monitor.timeout,
+                     'max_retries': monitor.max_retries,
+                     'http_method': monitor.http_method,
+                     'url_path': monitor.url_path,
+                     'expected_codes': monitor.expected_codes,
+                     'admin_state_up': monitor.admin_state_up}
+
+        res = self.client.post(reverse(self.ADDMONITOR_PATH), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.lbaas: ('pools_get',)})
+    def test_add_monitor_post_with_error(self):
+        monitor = self.monitors.first()
+
+        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+
+        self.mox.ReplayAll()
+
+        form_data = {'type': monitor.type,
+                     'pool_id': monitor.pool_id,
+                     'delay': 0,
+                     'timeout': 0,
+                     'max_retries': 11,
+                     'http_method': monitor.http_method,
+                     'url_path': monitor.url_path,
+                     'expected_codes': monitor.expected_codes,
+                     'admin_state_up': monitor.admin_state_up}
+
+        res = self.client.post(reverse(self.ADDMONITOR_PATH), form_data)
+
+        self.assertFormErrors(res, 3)
+
+    @test.create_stubs({api.lbaas: ('pools_get',)})
+    def test_add_monitor_post_with_httpmethod_error(self):
+        monitor = self.monitors.first()
+
+        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+
+        self.mox.ReplayAll()
+
+        form_data = {'type': 'http',
+                     'pool_id': monitor.pool_id,
+                     'delay': monitor.delay,
+                     'timeout': monitor.timeout,
+                     'max_retries': monitor.max_retries,
+                     'http_method': '',
+                     'url_path': '',
+                     'expected_codes': '',
+                     'admin_state_up': monitor.admin_state_up}
+
+        res = self.client.post(reverse(self.ADDMONITOR_PATH), form_data)
+
+        self.assertFormErrors(res, 3)
+
+    @test.create_stubs({api.lbaas: ('pools_get',)})
+    def test_add_monitor_get(self):
+        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse(self.ADDMONITOR_PATH))
+
+        workflow = res.context['workflow']
+        self.assertTemplateUsed(res, 'project/loadbalancers/addmonitor.html')
+        self.assertEqual(workflow.name, AddMonitor.name)
+
+        expected_objs = ['<AddMonitorStep: addmonitoraction>', ]
+        self.assertQuerysetEqual(workflow.steps, expected_objs)
+
     @test.create_stubs({api.lbaas: ('pools_get', 'member_create'),
                         api.quantum: ('port_list',),
                         api.nova: ('server_list',)})
@@ -273,8 +475,7 @@ class LoadBalancerTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
-    @test.create_stubs({api.lbaas: ('pools_get', 'member_create'),
-                        api.quantum: ('port_list',),
+    @test.create_stubs({api.lbaas: ('pools_get',),
                         api.nova: ('server_list',)})
     def test_add_member_post_with_error(self):
         member = self.members.first()
