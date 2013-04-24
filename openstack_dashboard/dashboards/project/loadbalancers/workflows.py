@@ -259,7 +259,9 @@ class AddMemberAction(workflows.Action):
         initial=["default"],
         widget=forms.CheckboxSelectMultiple(),
         help_text=_("Select members for this pool "))
-    weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"))
+    weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"),
+                                help_text=_("Relative part of requests this "
+                                "pool member serves compared to others"))
     protocol_port = forms.IntegerField(label=_("Protocol Port"), min_value=1,
                               help_text=_("Enter an integer value "
                                           "between 1 and 65535."),
