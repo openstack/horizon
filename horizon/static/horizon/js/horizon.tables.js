@@ -129,30 +129,28 @@ horizon.datatables.confirm = function (action) {
   var $action = $(action),
       $modal_parent = $(action).closest('.modal'),
       name_array = new Array(),
-      name_thead, row_index, col_index, closest_table_id,
-      action_string, name_string, title, body, modal, form;
+      closest_table_id, action_string, name_string,
+      title, body, modal, form;
   if($action.hasClass("disabled")) {
     return;
   }
   action_string = $action.text();
   name_string = "";
-  // Searchs a name field
+  // Add the display name defined by table.get_object_display(datum)
   closest_table_id = $(action).closest("table").attr("id");
-  name_thead = $("#"+closest_table_id+" thead").first().find("th:contains('Name')");
-  row_index = $(name_thead).parent().index("tr");
-  col_index = $(name_thead).index("tr:eq("+row_index+") th");
-  if (col_index != -1) {
-   name_string = gettext("You have selected ");
-   if($(action).closest("div").hasClass("table_actions")) {
-       // One or more checkboxes selected
-       $("#"+closest_table_id+" tr").has(":checkbox:checked").find("td:eq("+col_index+")").each(function() {
-	   name_array.push(" \"" + $(this).text() + "\"");
-       });
-       name_array.join(", ");
-       name_string += name_array.toString() + ". ";
+  // Check if data-display attribute is available
+  if ($("#"+closest_table_id+" tr[data-display]").length > 0) {
+    name_string = gettext("You have selected ");
+    if($(action).closest("div").hasClass("table_actions")) {
+      // One or more checkboxes selected
+      $("#"+closest_table_id+" tr[data-display]").has(":checkbox:checked").each(function() {
+        name_array.push(" \"" + $(this).attr("data-display") + "\"");
+      });
+      name_array.join(", ");
+      name_string += name_array.toString() + ". ";
     } else {
-       // If no checkbox is selected
-       name_string += " \"" + $(action).closest("tr").find("td:eq("+col_index+")").text() + "\". ";
+      // If no checkbox is selected
+      name_string += " \"" + $(action).closest("tr").attr("data-display") + "\". ";
     }
   }
   title = gettext("Confirm ") + action_string;
