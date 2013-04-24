@@ -65,6 +65,14 @@ class AdminUpdateRow(UpdateRow):
         return instance
 
 
+class AdminInstanceFilterAction(tables.FilterAction):
+    def filter(self, table, instances, filter_string):
+        """ Naive case-insensitive search. """
+        q = filter_string.lower()
+        return [instance for instance in instances
+                if q in instance.name.lower()]
+
+
 class AdminInstancesTable(tables.DataTable):
     TASK_STATUS_CHOICES = (
         (None, True),
@@ -114,7 +122,7 @@ class AdminInstancesTable(tables.DataTable):
         name = "instances"
         verbose_name = _("Instances")
         status_columns = ["status", "task"]
-        table_actions = (TerminateInstance,)
+        table_actions = (TerminateInstance, AdminInstanceFilterAction)
         row_class = AdminUpdateRow
         row_actions = (ConfirmResize, RevertResize, AdminEditInstance,
                        ConsoleLink, LogLink, CreateSnapshot, TogglePause,
