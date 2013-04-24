@@ -80,6 +80,12 @@ manage=0
 [ "$JOB_NAME" ] || JOB_NAME="default"
 
 function process_option {
+  # If running manage command, treat the rest of options as arguments.
+  if [ $manage -eq 1 ]; then
+     testargs="$testargs $1"
+     return 0
+  fi
+
   case "$1" in
     -h|--help) usage;;
     -V|--virtual-env) always_venv=1; never_venv=0;;
