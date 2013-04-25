@@ -21,6 +21,10 @@ class QuotaFilterAction(tables.FilterAction):
 
 
 def get_quota_name(quota):
+    if quota.name == "cores":
+        return _('VCPUs')
+    if quota.name == "floating_ips":
+        return _('Floating IPs')
     return quota.name.replace("_", " ").title()
 
 
