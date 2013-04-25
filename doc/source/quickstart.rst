@@ -92,11 +92,13 @@ At the project level you add Horizon and any desired dashboards to your
 ``settings.INSTALLED_APPS``::
 
     INSTALLED_APPS = (
-        'django',
+        'openstack_dashboard',
         ...
         'horizon',
-        'horizon.dash',
-        'horizon.syspanel',
+        'openstack_dashboard.dashboards.project',
+        'openstack_dashboard.dashboards.admin',
+        'openstack_dashboard.dashboards.settings',
+        ...
     )
 
 URLs
@@ -138,25 +140,22 @@ Application
 Structure
 ---------
 
-An application would have the following structure (we'll use syspanel as
+An application would have the following structure (we'll use project as
 an example)::
 
-    syspanel/
+    project/
     |---__init__.py
     |---dashboard.py <-----Registers the app with Horizon and sets dashboard properties
-    |---templates/
-    |---templatetags/
     |---overview/
-    |---services/
-    |---images/
-        |---__init__.py
+    |---images_and_snapshots/
+        |-- images
+        |-- __init__.py
         |---panel.py <-----Registers the panel in the app and defines panel properties
-        |---urls.py
-        |---views.py
-        |---forms.py
-        |---tests.py
-        |---api.py <-------Optional additional API methods for non-core services
-        |---templates/
+        |-- snapshots/
+        |-- templates/
+        |-- tests.py
+        |-- urls.py
+        |-- views.py
         ...
     ...
 
@@ -168,18 +167,26 @@ process::
 
     import horizon
 
+    ....
+    # ObjectStorePanels is an example for a PanelGroup
+    # for panel classes in general, see below
+    class ObjectStorePanels(horizon.PanelGroup):
+        slug = "object_store"
+        name = _("Object Store")
+        panels = ('containers',)
 
-    class Syspanel(horizon.Dashboard):
-        name = "Syspanel" # Appears in navigation
-        slug = 'syspanel' # Appears in url
-        panels = ('overview', 'services', 'instances', 'flavors', 'images',
-                  'tenants', 'users', 'quotas',)
+
+    class Project(horizon.Dashboard):
+        name = _("Project") # Appears in navigation
+        slug = "project"    # Appears in URL
+        # panels may be strings or refer to classes, such as
+        # ObjectStorePanels
+        panels = (BasePanels, NetworkPanels, ObjectStorePanels)
         default_panel = 'overview'
-        permissions = ('openstack.roles.admin',)
+        supports_tenants = True
         ...
 
-
-    horizon.register(Syspanel)
+    horizon.register(Project)
 
 Panel Classes
 -------------
@@ -189,7 +196,7 @@ you register it in a ``panels.py`` file like so::
 
     import horizon
 
-    from horizon.dashboard.syspanel import dashboard
+    from openstack_dashboard.dashboards.project import dashboard
 
 
     class Images(horizon.Panel):
@@ -199,7 +206,7 @@ you register it in a ``panels.py`` file like so::
 
 
     # You could also register your panel with another application's dashboard
-    dashboard.Syspanel.register(Images)
+    dashboard.Project.register(Images)
 
 By default a :class:`~horizon.Panel` class looks for a ``urls.py`` file in the
 same directory as ``panel.py`` to include in the rollup of url patterns from

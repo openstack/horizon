@@ -404,7 +404,7 @@ We need three templates here: one for the view, and one for each of our two
 tabs. The view template (in this case) can inherit from one of the other
 dashboards::
 
-    {% extends 'syspanel/base.html' %}
+    {% extends 'base.html' %}
     {% load i18n %}
     {% block title %}{% trans "Flocking" %}{% endblock %}
 
@@ -412,7 +412,7 @@ dashboards::
       {% include "horizon/common/_page_header.html" with title=_("Flocking") %}
     {% endblock page_header %}
 
-    {% block syspanel_main %}
+    {% block main %}
     <div class="row-fluid">
       <div class="span12">
       {{ tab_group.render }}
@@ -475,8 +475,19 @@ The most basic thing to do is to add your own custom dashboard using the
 ``HORIZON_CONFIG`` dictionary in the settings file::
 
     HORIZON_CONFIG = {
-        'dashboards': ('nova', 'syspanel', 'visualizations', 'settings',),
+        'dashboards': ('project', 'admin', 'settings',),
     }
+
+Please note, the dashboards also must be added to settings.py::
+    INSTALLED_APPS = (
+        'openstack_dashboard',
+        ...
+        'horizon',
+        'openstack_dashboard.dashboards.project',
+        'openstack_dashboard.dashboards.admin',
+        'openstack_dashboard.dashboards.settings',
+        ...
+    )
 
 In this case, we've taken the default Horizon ``'dashboards'`` config and
 added our ``visualizations`` dashboard to it. Note that the name here is the
