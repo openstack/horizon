@@ -117,17 +117,10 @@ def keystoneclient(request, admin=False):
         insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
         LOG.debug("Creating a new keystoneclient connection to %s." % endpoint)
 
-        # TODO: to be removed in H release
-        kcversion = get_distribution("python-keystoneclient").version
-        if kcversion >= '0.2.0':
-            conn = keystone_client.Client(
-                token=user.token.id, endpoint=endpoint,
-                original_ip=request.environ.get('REMOTE_ADDR', ''),
-                insecure=insecure)
-        else:
-            conn = keystone_client.Client(
-                token=user.token.id, endpoint=endpoint,
-                insecure=insecure)
+        conn = keystone_client.Client(
+            token=user.token.id, endpoint=endpoint,
+            original_ip=request.environ.get('REMOTE_ADDR', ''),
+            insecure=insecure)
         setattr(request, cache_attr, conn)
     return conn
 
