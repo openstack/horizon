@@ -21,7 +21,8 @@ from novaclient.v1_1 import (flavors, keypairs, servers, volumes,
                              floating_ips, usage, certs,
                              volume_snapshots as vol_snaps,
                              security_group_rules as rules,
-                             security_groups as sec_groups)
+                             security_groups as sec_groups,
+                             availability_zones)
 
 from openstack_dashboard.api.base import Quota, QuotaSet as QuotaSetWrapper
 from openstack_dashboard.api.nova import FloatingIp as NetFloatingIp
@@ -153,6 +154,7 @@ def data(TEST):
     TEST.certs = TestDataContainer()
     TEST.volume_snapshots = TestDataContainer()
     TEST.volume_types = TestDataContainer()
+    TEST.availability_zones = TestDataContainer()
 
     # Data return by novaclient.
     # It is used if API layer does data conversion.
@@ -448,3 +450,11 @@ def data(TEST):
                  'data': 'certificate_data'}
     certificate = certs.Certificate(certs.CertificateManager(None), cert_data)
     TEST.certs.add(certificate)
+
+    # Availability Zones
+    TEST.availability_zones.add(
+        availability_zones.AvailabilityZone(
+            availability_zones.AvailabilityZoneManager(None),
+            {'zoneName': 'nova', 'zoneState': {'available': True}}
+        )
+    )
