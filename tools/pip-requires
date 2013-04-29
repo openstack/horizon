@@ -5,7 +5,7 @@ django_openstack_auth>=1.0.7
 netaddr
 python-cinderclient>=1.0.2,<2.0.0
 python-glanceclient<2
-python-keystoneclient
+python-keystoneclient>=0.2,<0.3
 python-novaclient>=2.12.0,<3
 python-quantumclient>=2.2.0,<3.0.0
 python-swiftclient>1.1,<2
