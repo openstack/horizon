@@ -30,6 +30,7 @@ from horizon import messages
 from horizon.utils import validators
 
 from openstack_dashboard import api
+from django.contrib.auth import logout
 
 
 LOG = logging.getLogger(__name__)
@@ -182,6 +183,8 @@ class UpdateUserForm(BaseUserForm):
                 try:
                     api.keystone.user_update_password(request, user, password)
                     succeeded.extend(msg_bits)
+                    if user == request.user.id:
+                        logout(request)
                 except:
                     failed.extend(msg_bits)
                     exceptions.handle(request, ignore=True)
