@@ -26,6 +26,15 @@ TEMPLATE_DEBUG = DEBUG
 #CSRF_COOKIE_SECURE = True
 #SESSION_COOKIE_SECURE = True
 
+# Overrides for OpenStack API versions. Use this setting to force the
+# OpenStack dashboard to use a specfic API version for a given service API.
+# NOTE: The version should be formatted as it appears in the URL for the
+# service API. For example, The identity service APIs have inconsistent
+# use of the decimal point, so valid options would be "2.0" or "3".
+# OPENSTACK_API_VERSIONS = {
+#     "identity": 3
+# }
+
 # Default OpenStack Dashboard configuration.
 HORIZON_CONFIG = {
     'dashboards': ('project', 'admin', 'settings',),

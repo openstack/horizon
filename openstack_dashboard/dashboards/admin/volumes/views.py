@@ -45,7 +45,7 @@ class IndexView(tables.MultiTableView, VolumeTableMixIn):
 
         # Gather our tenants to correlate against IDs
         try:
-            tenants = keystone.tenant_list(self.request, admin=True)
+            tenants = keystone.tenant_list(self.request)
         except:
             tenants = []
             msg = _('Unable to retrieve volume tenant information.')

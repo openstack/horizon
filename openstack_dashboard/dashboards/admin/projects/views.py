@@ -71,7 +71,7 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         tenants = []
         try:
-            tenants = api.keystone.tenant_list(self.request, admin=True)
+            tenants = api.keystone.tenant_list(self.request)
         except:
             exceptions.handle(self.request,
                               _("Unable to retrieve project list."))
@@ -183,7 +183,7 @@ class CreateUserView(CreateView):
     def get_initial(self):
         default_role = api.keystone.get_default_role(self.request)
         return {'role_id': getattr(default_role, "id", None),
-                'tenant_id': self.kwargs['tenant_id']}
+                'project': self.kwargs['tenant_id']}
 
     def get_context_data(self, **kwargs):
         context = super(CreateUserView, self).get_context_data(**kwargs)

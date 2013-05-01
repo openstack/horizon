@@ -108,6 +108,7 @@ def data(TEST):
                  'email': 'test@example.com',
                  'password': 'password',
                  'token': 'test_token',
+                 'project_id': '1',
                  'enabled': True}
     user = users.User(users.UserManager(None), user_dict)
     user_dict = {'id': "2",
@@ -115,6 +116,7 @@ def data(TEST):
                  'email': 'two@example.com',
                  'password': 'password',
                  'token': 'test_token',
+                 'project_id': '1',
                  'enabled': True}
     user2 = users.User(users.UserManager(None), user_dict)
     user_dict = {'id': "3",
@@ -122,6 +124,7 @@ def data(TEST):
                  'email': 'three@example.com',
                  'password': 'password',
                  'token': 'test_token',
+                 'project_id': '1',
                  'enabled': True}
     user3 = users.User(users.UserManager(None), user_dict)
     TEST.users.add(user, user2, user3)

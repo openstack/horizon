@@ -66,9 +66,11 @@ class RoleAPITests(test.APITestCase):
         keystoneclient.roles.roles_for_user(self.user.id,
                                             tenant.id).AndReturn(self.roles)
         for role in self.roles:
-            keystoneclient.roles.remove_user_role(self.user.id,
-                                                  role.id,
-                                                  tenant.id)
+            keystoneclient.roles.revoke(role.id,
+                                        domain=None,
+                                        group=None,
+                                        project=tenant.id,
+                                        user=self.user.id)
         self.mox.ReplayAll()
         api.keystone.remove_tenant_user(self.request, tenant.id, self.user.id)
 

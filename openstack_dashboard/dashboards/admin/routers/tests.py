@@ -34,8 +34,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         api.quantum.router_list(
             IsA(http.HttpRequest),
             search_opts=None).AndReturn(self.routers.list())
-        api.keystone.tenant_list(IsA(http.HttpRequest), admin=True)\
-            .AndReturn(tenants)
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn(tenants)
         self._mock_external_network_list()
 
         self.mox.ReplayAll()
@@ -49,7 +48,6 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
     @test.create_stubs({api.quantum: ('router_list',),
                         api.keystone: ('tenant_list',)})
     def test_index_router_list_exception(self):
-        tenants = self.tenants.list()
         api.quantum.router_list(
             IsA(http.HttpRequest),
             search_opts=None).AndRaise(self.exceptions.quantum)

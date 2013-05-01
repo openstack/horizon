@@ -80,7 +80,7 @@ class UpdateView(forms.ModalFormView):
         user = self.get_object()
         return {'id': user.id,
                 'name': user.name,
-                'tenant_id': getattr(user, 'tenantId', None),
+                'project': user.project_id,
                 'email': user.email}
 
 

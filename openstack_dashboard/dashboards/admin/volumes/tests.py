@@ -36,8 +36,8 @@ class VolumeTests(test.BaseAdminViewTests):
                              AndReturn([self.servers.list(), False])
         cinder.volume_type_list(IsA(http.HttpRequest)).\
                                AndReturn(self.volume_types.list())
-        keystone.tenant_list(IsA(http.HttpRequest),
-                             admin=True).AndReturn(self.tenants.list())
+        keystone.tenant_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.tenants.list())
 
         self.mox.ReplayAll()
 
@@ -80,8 +80,8 @@ class VolumeTests(test.BaseAdminViewTests):
                                 AndReturn(self.volume_types.list())
         cinder.volume_type_delete(IsA(http.HttpRequest),
                                   str(volume_type.id))
-        keystone.tenant_list(IsA(http.HttpRequest),
-                             admin=True).AndReturn(self.tenants.list())
+        keystone.tenant_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.tenants.list())
         self.mox.ReplayAll()
 
         res = self.client.post(reverse('horizon:admin:volumes:index'),
