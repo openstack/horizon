@@ -9,7 +9,6 @@ include ChangeLog
 include LICENSE
 include Makefile
 include manage.py
-include openstack-common.conf
 include README.rst
 include run_tests.sh
 include tox.ini
