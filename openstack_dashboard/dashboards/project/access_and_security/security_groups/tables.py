@@ -18,6 +18,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 from horizon import tables
 
@@ -110,12 +111,26 @@ def filter_protocol(protocol):
     return unicode.upper(protocol)
 
 
+def check_rule_template(port):
+    rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', {})
+    if not rules_dict:
+        return port
+    templ_rule = filter(lambda rule: str(port) == rule['from_port']
+                        and str(port) == rule['to_port'],
+                        [rule for rule in rules_dict.values()])
+    if templ_rule:
+        return u"%(from_port)s (%(name)s)" % templ_rule[0]
+    return port
+
+
 class RulesTable(tables.DataTable):
     protocol = tables.Column("ip_protocol",
                              verbose_name=_("IP Protocol"),
                              filters=(filter_protocol,))
-    from_port = tables.Column("from_port", verbose_name=_("From Port"))
-    to_port = tables.Column("to_port", verbose_name=_("To Port"))
+    from_port = tables.Column("from_port", verbose_name=_("From Port"),
+                              filters=(check_rule_template,))
+    to_port = tables.Column("to_port", verbose_name=_("To Port"),
+                              filters=(check_rule_template,))
     source = tables.Column(get_source, verbose_name=_("Source"))
 
     def sanitize_id(self, obj_id):

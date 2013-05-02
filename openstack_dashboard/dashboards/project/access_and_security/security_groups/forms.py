@@ -22,6 +22,7 @@ from django.core import validators
 from django.core.urlresolvers import reverse
 from django.forms import ValidationError
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 from horizon import exceptions
 from horizon import forms
@@ -60,12 +61,7 @@ class CreateGroup(forms.SelfHandlingForm):
 
 class AddRule(forms.SelfHandlingForm):
     id = forms.CharField(widget=forms.HiddenInput())
-    ip_protocol = forms.ChoiceField(label=_('IP Protocol'),
-                                    choices=[('tcp', _('TCP')),
-                                             ('udp', _('UDP')),
-                                             ('icmp', _('ICMP'))],
-                                    help_text=_("The protocol which this "
-                                                "rule should be applied to."),
+    ip_protocol = forms.ChoiceField(label=_('Rule'),
                                     widget=forms.Select(attrs={
                                             'class': 'switchable',
                                             'data-slug': 'protocol'}))
@@ -174,6 +170,16 @@ class AddRule(forms.SelfHandlingForm):
             security_groups_choices = [("", _("No security groups available"))]
         self.fields['security_group'].choices = security_groups_choices
 
+        rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', {})
+        common_rules = [(k, _(rules_dict[k]['name']))
+                         for k in rules_dict]
+        common_rules.sort()
+        custom_rules = [('tcp', _('Custom TCP Rule')),
+                        ('udp', _('Custom UDP Rule')),
+                        ('icmp', _('Custom ICMP Rule'))]
+        self.fields['ip_protocol'].choices = custom_rules + common_rules
+        self.rules = rules_dict
+
     def clean(self):
         cleaned_data = super(AddRule, self).clean()
 
@@ -203,7 +209,7 @@ class AddRule(forms.SelfHandlingForm):
                 raise ValidationError(msg)
             cleaned_data['from_port'] = icmp_type
             cleaned_data['to_port'] = icmp_code
-        else:
+        elif ip_proto == 'tcp' or ip_proto == 'udp':
             if port_or_range == "port":
                 cleaned_data["from_port"] = port
                 cleaned_data["to_port"] = port
@@ -221,6 +227,10 @@ class AddRule(forms.SelfHandlingForm):
                     msg = _('The "to" port number must be greater than '
                             'or equal to the "from" port number.')
                     raise ValidationError(msg)
+        else:
+            cleaned_data['ip_protocol'] = self.rules[ip_proto]['ip_protocol']
+            cleaned_data['from_port'] = int(self.rules[ip_proto]['from_port'])
+            cleaned_data['to_port'] = int(self.rules[ip_proto]['to_port'])
 
         if source == "cidr":
             cleaned_data['security_group'] = None
