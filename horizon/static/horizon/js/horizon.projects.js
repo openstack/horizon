@@ -301,9 +301,13 @@ horizon.projects = {
     $("#networkListSortContainer").show();
     $("#networkListIdContainer").hide();
     self.init_network_list();
+    // Make sure we don't duplicate the networks in the list
+    $("#available_network").empty();
     $.each(self.networks_available, function(index, value){
       $("#available_network").append(self.generate_network_element(value.name, value.id, value.value));
     });
+    // Make sure we don't duplicate the networks in the list
+    $("#selected_network").empty();
     $.each(self.networks_selected, function(index, value){
       $("#selected_network").append(self.generate_network_element(value.name, value.id, value.value));
     });
