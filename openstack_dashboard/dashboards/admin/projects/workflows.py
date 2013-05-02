@@ -125,8 +125,8 @@ class UpdateProjectMembersAction(workflows.Action):
             if default_role is None:
                 default = getattr(settings,
                                   "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-                msg = _('Could not find default role "%s" in Keystone'
-                        % default)
+                msg = _('Could not find default role "%s" in Keystone') % \
+                        default
                 raise exceptions.NotFound(msg)
         except:
             exceptions.handle(self.request,
