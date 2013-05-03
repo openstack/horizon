@@ -112,9 +112,9 @@ class VolumeOptionsAction(workflows.Action):
             vol_type = "vol"
             visible_label = _("Volume")
         return (("%s:%s" % (volume.id, vol_type)),
-                ("%s - %s GB (%s)" % (volume.display_name,
-                                     volume.size,
-                                     visible_label)))
+                (_("%s - %s GB (%s)") % (volume.display_name,
+                                         volume.size,
+                                         visible_label)))
 
     def populate_volume_id_choices(self, request, context):
         volume_options = [("", _("Select Volume"))]
