@@ -221,12 +221,22 @@ def tenant_delete(request, project):
     return manager.delete(project)
 
 
-def tenant_list(request, domain=None, user=None):
+def tenant_list(request, paginate=False, marker=None, domain=None, user=None):
     manager = VERSIONS.get_project_manager(request, admin=True)
+    page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+    limit = None
+    if paginate:
+        limit = page_size + 1
+
+    has_more_data = False
     if VERSIONS.active < 3:
-        return manager.list()
+        tenants = manager.list(limit, marker)
+        if paginate and len(tenants) > page_size:
+            tenants.pop(-1)
+            has_more_data = True
     else:
-        return manager.list(domain=domain, user=user)
+        tenants = manager.list(domain=domain, user=user)
+    return (tenants, has_more_data)
 
 
 def tenant_update(request, project, name=None, description=None,

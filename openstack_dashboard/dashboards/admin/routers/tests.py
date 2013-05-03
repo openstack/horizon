@@ -34,7 +34,8 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         api.quantum.router_list(
             IsA(http.HttpRequest),
             search_opts=None).AndReturn(self.routers.list())
-        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn(tenants)
+        api.keystone.tenant_list(IsA(http.HttpRequest))\
+             .AndReturn([tenants, False])
         self._mock_external_network_list()
 
         self.mox.ReplayAll()

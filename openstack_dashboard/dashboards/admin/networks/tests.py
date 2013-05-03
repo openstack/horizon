@@ -37,7 +37,7 @@ class NetworkTests(test.BaseAdminViewTests):
         api.quantum.network_list(IsA(http.HttpRequest)) \
             .AndReturn(self.networks.list())
         api.keystone.tenant_list(IsA(http.HttpRequest))\
-            .AndReturn(tenants)
+            .AndReturn([tenants, False])
 
         self.mox.ReplayAll()
 
@@ -153,7 +153,7 @@ class NetworkTests(test.BaseAdminViewTests):
     def test_network_create_get(self):
         tenants = self.tenants.list()
         api.keystone.tenant_list(IsA(http.HttpRequest))\
-            .AndReturn(tenants)
+            .AndReturn([tenants, False])
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:networks:create')
@@ -168,7 +168,7 @@ class NetworkTests(test.BaseAdminViewTests):
         tenant_id = self.tenants.first().id
         network = self.networks.first()
         api.keystone.tenant_list(IsA(http.HttpRequest))\
-            .AndReturn(tenants)
+            .AndReturn([tenants, False])
         params = {'name': network.name,
                   'tenant_id': tenant_id,
                   'admin_state_up': network.admin_state_up,
@@ -196,7 +196,7 @@ class NetworkTests(test.BaseAdminViewTests):
         tenant_id = self.tenants.first().id
         network = self.networks.first()
         api.keystone.tenant_list(IsA(http.HttpRequest))\
-            .AndReturn(tenants)
+            .AndReturn([tenants, False])
         params = {'name': network.name,
                   'tenant_id': tenant_id,
                   'admin_state_up': network.admin_state_up,
@@ -303,7 +303,7 @@ class NetworkTests(test.BaseAdminViewTests):
         tenants = self.tenants.list()
         network = self.networks.first()
         api.keystone.tenant_list(IsA(http.HttpRequest))\
-            .AndReturn(tenants)
+            .AndReturn([tenants, False])
         api.quantum.network_list(IsA(http.HttpRequest))\
             .AndReturn([network])
         api.quantum.network_delete(IsA(http.HttpRequest), network.id)
@@ -322,7 +322,7 @@ class NetworkTests(test.BaseAdminViewTests):
         tenants = self.tenants.list()
         network = self.networks.first()
         api.keystone.tenant_list(IsA(http.HttpRequest))\
-            .AndReturn(tenants)
+            .AndReturn([tenants, False])
         api.quantum.network_list(IsA(http.HttpRequest))\
             .AndReturn([network])
         api.quantum.network_delete(IsA(http.HttpRequest), network.id)\

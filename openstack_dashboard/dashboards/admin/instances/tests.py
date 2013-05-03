@@ -34,7 +34,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         flavors = self.flavors.list()
         tenants = self.tenants.list()
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
-                                 AndReturn(tenants)
+                                 AndReturn([tenants, False])
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
@@ -63,7 +63,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.flavor_list(IsA(http.HttpRequest)). \
                             AndRaise(self.exceptions.nova)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
-                                 AndReturn(tenants)
+                                 AndReturn([tenants, False])
         for server in servers:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
                                 AndReturn(full_flavors[server.flavor["id"]])
@@ -94,7 +94,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.flavor_list(IsA(http.HttpRequest)). \
                             AndReturn(flavors)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
-                                 AndReturn(tenants)
+                                 AndReturn([tenants, False])
         for server in servers:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
                                 AndRaise(self.exceptions.nova)
@@ -154,7 +154,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
                         api.keystone: ('tenant_list',)})
     def test_index_options_before_migrate(self):
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
-                                 AndReturn(self.tenants.list())
+                                 AndReturn([self.tenants.list(), False])
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
@@ -174,7 +174,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         server = self.servers.first()
         server.status = "VERIFY_RESIZE"
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                    .AndReturn(self.tenants.list())
+                    .AndReturn([self.tenants.list(), False])
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \

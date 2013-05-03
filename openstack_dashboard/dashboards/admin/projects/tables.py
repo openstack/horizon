@@ -106,6 +106,7 @@ class TenantsTable(tables.DataTable):
                        ModifyQuotas, DeleteTenantsAction)
         table_actions = (TenantFilterAction, CreateProject,
                          DeleteTenantsAction)
+        pagination_param = "tenant_marker"
 
 
 class RemoveUserAction(tables.BatchAction):
