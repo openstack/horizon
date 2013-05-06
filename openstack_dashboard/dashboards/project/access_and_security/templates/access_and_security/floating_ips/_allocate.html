@@ -14,7 +14,7 @@
     {% include "horizon/common/_form_fields.html" %}
     </fieldset>
 </div>
-<div class="right">
+<div class="right quota-dynamic">
     <h3>{% trans "Description:" %}</h3>
     <p>{% trans "Allocate a floating IP from a given floating ip pool." %}</p>
 
@@ -24,8 +24,18 @@
       <p>{{ usages.floating_ips.available|quota }}</p>
     </div>
     <div class="clearfix"></div>
-    <div class="quota_bar">{% horizon_progress_bar usages.floating_ips.used usages.floating_ips.quota %}</div>
+    <div id="floating_ip_progress" class="quota_bar" data-quota-used="{{ usages.floating_ips.used }}" data-quota-limit="{{ usages.floating_ips.quota }}" data-progress-indicator-step-by="1"></div>
 </div>
+
+  <script type="text/javascript" charset="utf-8">
+    if(typeof horizon.Quota !== 'undefined') {
+      horizon.Quota.init();
+    } else {
+      addHorizonLoadEvent(function() {
+        horizon.Quota.init();
+      });
+    }
+  </script>
 {% endblock %}
 
 {% block modal-footer %}

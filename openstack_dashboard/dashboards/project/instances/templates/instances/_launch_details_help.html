@@ -22,7 +22,6 @@
     <p>{{ usages.instances.available|quota|intcomma }}</p>
   </div>
   <div id="quota_instances" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.instances.quota }}" data-quota-used="{{ usages.instances.used }}">
-    {% horizon_progress_bar usages.instances.used usages.instances.quota %}
   </div>
 
   <div class="quota_title clearfix">
@@ -30,7 +29,6 @@
     <p>{{ usages.cores.available|quota|intcomma }}</p>
   </div>
   <div id="quota_vcpus" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.cores.quota }}" data-quota-used="{{ usages.cores.used }}">
-    {% horizon_progress_bar usages.cores.used usages.cores.quota %}
   </div>
 
   <div class="quota_title clearfix">
@@ -38,7 +36,6 @@
     <p>{{ usages.ram.available|quota:"MB"|intcomma }}</p>
   </div>
   <div id="quota_ram" data-progress-indicator-flavor data-quota-limit="{{ usages.ram.quota }}" data-quota-used="{{ usages.ram.used }}" class="quota_bar">
-    {% horizon_progress_bar usages.ram.used usages.ram.quota %}
   </div>
 </div>
 
