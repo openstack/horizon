@@ -136,8 +136,8 @@ function run_pylint {
 }
 
 function run_pep8 {
-  echo "Running pep8 ..."
-  ${command_wrapper} pep8 $included_dirs
+  echo "Running flake8 ..."
+  ${command_wrapper} flake8 $included_dirs
 }
 
 function run_sphinx {
