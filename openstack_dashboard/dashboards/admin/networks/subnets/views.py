@@ -34,9 +34,7 @@ LOG = logging.getLogger(__name__)
 
 class CreateView(project_views.CreateView):
     workflow_class = CreateSubnet
-    template_name = 'admin/networks/subnets/create.html'
 
 
 class UpdateView(project_views.UpdateView):
     workflow_class = UpdateSubnet
-    template_name = 'admin/networks/subnets/update.html'

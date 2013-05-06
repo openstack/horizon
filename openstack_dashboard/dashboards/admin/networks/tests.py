@@ -23,6 +23,7 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.dashboards.project.networks.tests \
     import form_data_subnet
+from horizon.workflows.views import WorkflowView
 
 
 INDEX_URL = reverse('horizon:admin:networks:index')
@@ -381,7 +382,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
                       args=[network.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'admin/networks/subnets/create.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs({api.quantum: ('network_get',
                                       'subnet_create',)})

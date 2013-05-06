@@ -12,6 +12,7 @@ from openstack_dashboard.api.lbaas import Pool, Vip, Member, PoolMonitor
 
 from .tabs import LoadBalancerTabs, MembersTab, PoolsTab, MonitorsTab
 from .workflows import AddPool, AddMember, AddMonitor, AddVip
+from horizon.workflows.views import WorkflowView
 
 
 class LoadBalancerTests(test.TestCase):
@@ -220,7 +221,7 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.ADDPOOL_PATH))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, 'project/loadbalancers/addpool.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
         self.assertEqual(workflow.name, AddPool.name)
 
         expected_objs = ['<AddPoolStep: addpoolaction>', ]
@@ -326,7 +327,7 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.ADDVIP_PATH, args=(pool.id,)))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, 'project/loadbalancers/addvip.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
         self.assertEqual(workflow.name, AddVip.name)
 
         expected_objs = ['<AddVipStep: addvipaction>', ]
@@ -422,7 +423,7 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.ADDMONITOR_PATH))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, 'project/loadbalancers/addmonitor.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
         self.assertEqual(workflow.name, AddMonitor.name)
 
         expected_objs = ['<AddMonitorStep: addmonitoraction>', ]
@@ -526,7 +527,7 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.ADDMEMBER_PATH))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, 'project/loadbalancers/addmember.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
         self.assertEqual(workflow.name, AddMember.name)
 
         expected_objs = ['<AddMemberStep: addmemberaction>', ]

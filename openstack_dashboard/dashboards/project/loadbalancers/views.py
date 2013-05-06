@@ -85,7 +85,6 @@ class IndexView(tabs.TabView):
 
 class AddPoolView(workflows.WorkflowView):
     workflow_class = AddPool
-    template_name = "project/loadbalancers/addpool.html"
 
     def get_initial(self):
         initial = super(AddPoolView, self).get_initial()
@@ -94,7 +93,6 @@ class AddPoolView(workflows.WorkflowView):
 
 class AddVipView(workflows.WorkflowView):
     workflow_class = AddVip
-    template_name = "project/loadbalancers/addvip.html"
 
     def get_context_data(self, **kwargs):
         context = super(AddVipView, self).get_context_data(**kwargs)
@@ -116,7 +114,6 @@ class AddVipView(workflows.WorkflowView):
 
 class AddMemberView(workflows.WorkflowView):
     workflow_class = AddMember
-    template_name = "project/loadbalancers/addmember.html"
 
     def get_initial(self):
         initial = super(AddMemberView, self).get_initial()
@@ -125,7 +122,6 @@ class AddMemberView(workflows.WorkflowView):
 
 class AddMonitorView(workflows.WorkflowView):
     workflow_class = AddMonitor
-    template_name = "project/loadbalancers/addmonitor.html"
 
     def get_initial(self):
         initial = super(AddMonitorView, self).get_initial()

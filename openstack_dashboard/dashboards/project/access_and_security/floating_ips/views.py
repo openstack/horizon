@@ -38,7 +38,6 @@ from .workflows import IPAssociationWorkflow
 
 class AssociateView(workflows.WorkflowView):
     workflow_class = IPAssociationWorkflow
-    template_name = "project/access_and_security/floating_ips/associate.html"
 
 
 class AllocateView(forms.ModalFormView):

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}{% trans "Associate Floating IP" %}{% endblock %}
+{% block title %}{% trans workflow.name %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Associate Floating IP") %}
+  {% include "horizon/common/_page_header.html" with title=workflow.name %}
 {% endblock page_header %}
 
 {% block main %}

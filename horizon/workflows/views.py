@@ -54,7 +54,7 @@ class WorkflowView(generic.TemplateView):
 
     """
     workflow_class = None
-    template_name = None
+    template_name = 'horizon/common/_workflow_base.html'
     context_object_name = "workflow"
     ajax_template_name = 'horizon/common/_workflow.html'
     step_errors = {}

@@ -27,6 +27,7 @@ from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+from horizon.workflows.views import WorkflowView
 
 
 class AccessAndSecurityTests(test.TestCase):
@@ -86,8 +87,7 @@ class AccessAndSecurityTests(test.TestCase):
 
         res = self.client.get(reverse("horizon:project:access_and_security:"
                                       "floating_ips:associate"))
-        self.assertTemplateUsed(res,
-                    'project/access_and_security/floating_ips/associate.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
 
         self.assertContains(res,
                             '<option value="1">server_1 (1)</option>')
