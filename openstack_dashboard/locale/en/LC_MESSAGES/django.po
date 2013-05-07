@@ -4,14 +4,16 @@
 # 
 # Translators:
 # Translators:
-# Gabriel Hurley <gabriel@strikeawe.com>, 2012.
-#   <john.postlethwait@gmail.com>, 2012.
+# Translators:
+# Gabriel Hurley <gabriel@strikeawe.com>, 2012
+# johnpostlethwait <john.postlethwait@gmail.com>, 2012
+# johnpostlethwait <john.postlethwait@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:09+0000\n"
-"PO-Revision-Date: 2013-03-12 08:31+0000\n"
+"PO-Revision-Date: 2013-04-29 08:35+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
 "MIME-Version: 1.0\n"
@@ -1182,7 +1184,7 @@ msgstr ""
 #: dashboards/admin/users/tables.py:79
 #: dashboards/project/instances/workflows/create_instance.py:42
 msgid "User"
-msgstr ""
+msgstr "მომხმარებელი"
 
 #: dashboards/admin/projects/tables.py:116 dashboards/admin/users/panel.py:29
 #: dashboards/admin/users/tables.py:43 dashboards/admin/users/tables.py:80

@@ -1,19 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Akihiro MOTOKI <amotoki@gmail.com>, 2013.
-# Masayuki Igawa <masayuki.igawa@gmail.com>, 2013.
-# Tomoyuki KATO <tomo@dream.daynight.jp>, 2012-2013.
+# Translators:
+# Akihiro MOTOKI <amotoki@gmail.com>, 2013
+# masayukig <masayuki.igawa@gmail.com>, 2013
+# masayukig <masayuki.igawa@gmail.com>, 2013
+# Tomoyuki KATO <tomo@dream.daynight.jp>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:09+0000\n"
-"PO-Revision-Date: 2013-03-19 03:54+0000\n"
-"Last-Translator: Tomoyuki KATO <tomo@dream.daynight.jp>\n"
+"PO-Revision-Date: 2013-05-07 10:27+0000\n"
+"Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -489,7 +491,7 @@ msgstr "イメージ名"
 
 #: dashboards/admin/images/views.py:56
 msgid "Unable to retrieve image list."
-msgstr "イメージの一覧を取り出せません。"
+msgstr "イメージの一覧を取得できません。"
 
 #: dashboards/admin/images/templates/images/_create.html:8
 #: dashboards/admin/images/templates/images/create.html:3
@@ -524,7 +526,7 @@ msgid ""
 "Currently only images available via an HTTP URL are supported. The image "
 "location must be accessible to the Image Service. Compressed image binaries "
 "are supported (.zip and .tar.gz.)"
-msgstr "現在は HTTP URL 経由で利用可能なイメージのみがサポートされます。イメージの場所は Image Service にアクセス可能である必要があります。圧縮イメージがサポートされます (.zip および .tar.gz.)。"
+msgstr "今のところ HTTP URL 経由で取得できるイメージのみがサポートされています。イメージの場所は Image Service からアクセスできる必要があります。圧縮イメージがサポートされています (.zip および .tar.gz.)。"
 
 #: dashboards/admin/images/templates/images/_create.html:25
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:25
@@ -536,7 +538,7 @@ msgstr "注意: "
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary."
 " URLs that redirect or serve error pages will result in unusable images."
-msgstr "イメージの場所の項目は、イメージバイナリーへの有効かつ直接の URL である必要があります。リダイレクトや処理エラーページの URL ならば、イメージが利用不可能になります。"
+msgstr "イメージの場所は、イメージバイナリーへの有効かつ直接の URL である必要があります。 URL がリダイレクトや処理エラーページであった場合、結果的に利用できないイメージが登録されます。"
 
 #: dashboards/admin/images/templates/images/_create.html:32
 #: dashboards/project/images_and_snapshots/images/tables.py:64
@@ -572,7 +574,7 @@ msgstr "クォータ名"
 
 #: dashboards/admin/info/tables.py:29
 msgid "Limit"
-msgstr "制限値"
+msgstr "上限値"
 
 #: dashboards/admin/info/tables.py:36
 msgid "Quotas"
@@ -629,11 +631,11 @@ msgstr "インスタンス"
 
 #: dashboards/admin/instances/tables.py:43
 msgid "Migrate"
-msgstr ""
+msgstr "マイグレーション"
 
 #: dashboards/admin/instances/tables.py:44
 msgid "Scheduled migration (pending confirmation) of"
-msgstr "スケジュール削除"
+msgstr "(確認待ちで) マイグレーション予約しました"
 
 #: dashboards/admin/instances/tables.py:45
 #: dashboards/project/access_and_security/floating_ips/tables.py:117
@@ -1093,7 +1095,7 @@ msgstr "ネットワークの更新"
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
 "attached, the device specified will be attached to the port created."
-msgstr "ネットワークのポートを作成できます。接続するデバイス ID を指定すると、指定されたデバイスが作成されたポートに接続されます。"
+msgstr "ネットワークのポートを作成できます。接続するデバイス ID を指定すると、指定したデバイスが作成されたポートに接続されます。"
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
 #: dashboards/project/networks/templates/networks/ports/_update.html:22
@@ -1215,7 +1217,7 @@ msgstr "新規ユーザーの追加"
 
 #: dashboards/admin/projects/views.py:70
 msgid "Unable to retrieve project information."
-msgstr "プロジェクトの情報を取得できません。"
+msgstr "プロジェクト情報を取得できません。"
 
 #: dashboards/admin/projects/views.py:90
 msgid "Unable to retrieve project list."
@@ -1223,11 +1225,11 @@ msgstr "プロジェクト一覧を取得できません。"
 
 #: dashboards/admin/projects/views.py:113
 msgid "Unable to retrieve users."
-msgstr "ユーザーを取得できません。"
+msgstr "ユーザー一覧を取得できません。"
 
 #: dashboards/admin/projects/views.py:156
 msgid "Unable to retrieve default quota values."
-msgstr "クォータの初期値を取得できません。"
+msgstr "クォータのデフォルト値を取得できません。"
 
 #: dashboards/admin/projects/views.py:185
 msgid "Unable to retrieve project details."
@@ -1235,7 +1237,7 @@ msgstr "プロジェクトの詳細を取得できません。"
 
 #: dashboards/admin/projects/workflows.py:41
 msgid "Injected File Content Bytes"
-msgstr "挿入されたファイルのバイト数"
+msgstr "注入されたファイルのバイト数"
 
 #: dashboards/admin/projects/workflows.py:43
 msgid "Metadata Items"
@@ -1243,7 +1245,7 @@ msgstr "メタデータ項目"
 
 #: dashboards/admin/projects/workflows.py:47
 msgid "Injected Files"
-msgstr "挿入されたファイル"
+msgstr "注入されたファイル"
 
 #: dashboards/admin/projects/workflows.py:50
 #: dashboards/admin/volumes/panel.py:9 dashboards/admin/volumes/tables.py:33
@@ -1286,7 +1288,7 @@ msgstr "セキュリティグループ"
 #: dashboards/admin/projects/workflows.py:57
 #: dashboards/project/access_and_security/security_groups/tables.py:119
 msgid "Security Group Rules"
-msgstr "セキュリティグループ"
+msgstr "セキュリティグループのルール"
 
 #: dashboards/admin/projects/workflows.py:60
 msgid "Quota"
@@ -1294,7 +1296,7 @@ msgstr "クォータ"
 
 #: dashboards/admin/projects/workflows.py:62
 msgid "From here you can set quotas (max limits) for the project."
-msgstr "ここからプロジェクトのクォータ (最大制限) を設定できます。"
+msgstr "ここからプロジェクトのクォータ (上限) を設定できます。"
 
 #: dashboards/admin/projects/workflows.py:93
 #: dashboards/admin/projects/workflows.py:278
@@ -1304,11 +1306,11 @@ msgstr "プロジェクトの情報"
 #: dashboards/admin/projects/workflows.py:94
 #: dashboards/admin/projects/templates/projects/_create.html:18
 msgid "From here you can create a new project to organize users."
-msgstr "ユーザーを組織するために新しいプロジェクトをここから作成できます。"
+msgstr "ユーザーをグルーピングする新しいプロジェクトをここから作成できます。"
 
 #: dashboards/admin/projects/workflows.py:113
 msgid "Unable to retrieve user list. Please try again later."
-msgstr "ユーザー一覧を取得できません。後ほど再びお試しください。"
+msgstr "ユーザー一覧を取得できません。後からもう一度お試しください。"
 
 #: dashboards/admin/projects/workflows.py:125
 #, python-format
@@ -1454,7 +1456,7 @@ msgstr "プロジェクトを編集できます。"
 msgid ""
 "From here you can add and remove members to this project from the list of "
 "all available users."
-msgstr "すべての利用可能なユーザー一覧から、このプロジェクトにメンバーを追加または削除できます。"
+msgstr "このプロジェクトのメンバーの追加・削除を、有効になっている全ユーザーの一覧から行えます。"
 
 #: dashboards/admin/projects/templates/projects/create_user.html:3
 #: dashboards/admin/projects/templates/projects/create_user.html:6
@@ -1463,7 +1465,7 @@ msgstr "新規ユーザーの追加"
 
 #: dashboards/admin/projects/templates/projects/quotas.html:3
 msgid "Modify Project Quotas"
-msgstr "プロジェクトのクォータ"
+msgstr "プロジェクトのクォータの変更"
 
 #: dashboards/admin/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
@@ -1475,7 +1477,7 @@ msgstr "プロジェクトの使用状況"
 
 #: dashboards/admin/projects/templates/projects/users.html:3
 msgid "Project Users"
-msgstr "プロジェクト & ユーザー"
+msgstr "プロジェクトのユーザー"
 
 #: dashboards/admin/projects/templates/projects/users.html:7
 msgid "Users for Project"
@@ -1489,12 +1491,12 @@ msgstr "ルーター名"
 
 #: dashboards/admin/routers/forms.py:48
 msgid "Failed to get tenants."
-msgstr "プロジェクトリストを取得できません。"
+msgstr "プロジェクト一覧を取得できません。"
 
 #: dashboards/admin/routers/forms.py:67 dashboards/project/routers/forms.py:37
 #, python-format
 msgid "Failed to create router \"%s\"."
-msgstr "ユーザー\"%s\"を作成できません。"
+msgstr "ルーター \"%s\" を作成できません。"
 
 #: dashboards/admin/routers/tables.py:39
 #: dashboards/admin/routers/templates/routers/create.html:3
@@ -1727,39 +1729,39 @@ msgstr "ユーザーの更新"
 #: dashboards/admin/users/templates/users/_update.html:17
 msgid ""
 "From here you can edit the user's details, including their default project."
-msgstr "ここから、ユーザーの初期プロジェクトを含め、詳細を編集できます。"
+msgstr "ここから、ユーザーのデフォルトプロジェクトを含め、詳細を編集できます。"
 
 #: dashboards/admin/volumes/forms.py:38
 #, python-format
 msgid "Successfully created volume type: %s"
-msgstr "セキュリティグループを正常に作成しました: %s"
+msgstr "ボリューム種別が正常に作成されました: %s"
 
 #: dashboards/admin/volumes/forms.py:43
 msgid "Unable to create volume type."
-msgstr "ボリュームを作成できません。"
+msgstr "ボリューム種別を作成できません。"
 
 #: dashboards/admin/volumes/tables.py:11
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:8
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:27
 #: dashboards/admin/volumes/templates/volumes/create_volume_type.html:3
 msgid "Create Volume Type"
-msgstr "ボリュームの作成"
+msgstr "ボリューム種別の作成"
 
 #: dashboards/admin/volumes/tables.py:17
 msgid "Volume Type"
-msgstr "ボリューム"
+msgstr "ボリューム種別"
 
 #: dashboards/admin/volumes/tables.py:18 dashboards/admin/volumes/tables.py:54
 msgid "Volume Types"
-msgstr "ボリューム"
+msgstr "ボリューム種別"
 
 #: dashboards/admin/volumes/views.py:51
 msgid "Unable to retrieve volume tenant information."
-msgstr "ボリューム情報を取得できません。"
+msgstr "ボリュームのプロジェクト情報を取得できません。"
 
 #: dashboards/admin/volumes/views.py:68
 msgid "Unable to retrieve volume types"
-msgstr "ボリューム一覧を取得できません。"
+msgstr "ボリューム種別を取得できません。"
 
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:18
 msgid ""
@@ -1772,7 +1774,7 @@ msgstr "\n    ボリューム種別によりボリュームの特性がきまり
 
 #: dashboards/admin/volumes/templates/volumes/create_volume_type.html:6
 msgid "Create a Volume Type"
-msgstr "ボリュームの作成"
+msgstr "ボリューム種別の作成"
 
 #: dashboards/admin/volumes/templates/volumes/detail.html:3
 #: dashboards/project/volumes/templates/volumes/detail.html:3
@@ -1800,7 +1802,7 @@ msgstr "アクセスとセキュリティ"
 #: dashboards/project/access_and_security/tabs.py:50
 #: dashboards/project/access_and_security/security_groups/views.py:85
 msgid "Unable to retrieve security groups."
-msgstr "セキュリティグループを取得できません。"
+msgstr "セキュリティグループの一覧を取得できません。"
 
 #: dashboards/project/access_and_security/tabs.py:56
 #: dashboards/project/access_and_security/keypairs/tables.py:31
@@ -1869,15 +1871,15 @@ msgstr "プール"
 #: dashboards/project/access_and_security/floating_ips/forms.py:44
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
-msgstr "Floating IP %(ip)s を割り当てました。"
+msgstr "Floating IP %(ip)s を確保しました。"
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:48
 msgid "Unable to allocate Floating IP."
-msgstr "Floating IP を割り当てられません。"
+msgstr "Floating IP を確保できません。"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:39
 msgid "Allocate IP To Project"
-msgstr "IP をプロジェクトに割り当てます"
+msgstr "Floating IP の確保"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:49
 msgid "Release"
@@ -1930,15 +1932,15 @@ msgstr "選択されたインスタンスに割り当てたい IP アドレス�
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:48
 msgid "Port to be associated"
-msgstr "IP アドレス %s を割り当てました。"
+msgstr "IP を割り当てるポート"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:50
 msgid "Instance to be associated"
-msgstr "インスタンスのスナップショット"
+msgstr "IP を割り当てるインスタンス"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:74
 msgid "Select an IP address"
-msgstr "IP アドレスの選択"
+msgstr "IP アドレスを選択してください"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:76
 msgid "No IP addresses available"
@@ -1946,7 +1948,7 @@ msgstr "利用可能な IP アドレスがありません"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:98
 msgid "Select a port"
-msgstr "プロジェクトの選択"
+msgstr "ポートを選択してください"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:100
 #: dashboards/project/volumes/forms.py:204
@@ -1955,7 +1957,7 @@ msgstr "インスタンスを選択してください"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:104
 msgid "No ports available"
-msgstr "利用できません"
+msgstr "ポートがありません"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:106
 #: dashboards/project/volumes/forms.py:206
@@ -2103,7 +2105,7 @@ msgstr "ポート番号 (上限)"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:114
 msgid "Enter a value for ICMP type in the range (-1: 255)"
-msgstr "ICMP 形式が範囲 (-1, 255) にありません"
+msgstr "ICMP タイプの値が (-1, 255) の範囲ではありません"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:122
 #: dashboards/project/access_and_security/security_groups/forms.py:129
@@ -2112,7 +2114,7 @@ msgstr "コード"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:124
 msgid "Enter a value for ICMP code in the range (-1: 255)"
-msgstr "ICMP コードが範囲 (-1, 255) にありません"
+msgstr "ICMP コードが (-1, 255) の範囲ではありません"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:132
 #: dashboards/project/access_and_security/security_groups/tables.py:109
@@ -2139,7 +2141,7 @@ msgstr "ネットワークアドレス (例: 192.168.0.0/24)"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:173
 msgid "No security groups available"
-msgstr "利用可能なキーペアがありません。"
+msgstr "セキュリティグループがありません。"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:192
 msgid "The ICMP type is invalid."
@@ -2151,11 +2153,11 @@ msgstr "ICMP コードが無効です。"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:198
 msgid "The ICMP type not in range (-1, 255)"
-msgstr "ICMP 形式が範囲 (-1, 255) にありません"
+msgstr "ICMP タイプが (-1, 255) の範囲ではありません"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:201
 msgid "The ICMP code not in range (-1, 255)"
-msgstr "ICMP コードが範囲 (-1, 255) にありません"
+msgstr "ICMP コードが (-1, 255) の範囲ではありません"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:210
 msgid "The specified port is invalid."
@@ -2277,7 +2279,7 @@ msgstr "キーペア &quot;%(keypair_name)s&quot; のダウンロード"
 msgid ""
 "Rules define which traffic is allowed to instances assigned to the security "
 "group. A security group rule consists of three main parts:"
-msgstr "セキュリティグループに割り当てられたインスタンスに対して許可する通信を定義するルール。セキュリティグループルールは 3 つの部分から構成されます:"
+msgstr "ルールは、セキュリティグループに割り当てられたインスタンスに対して許可する通信を定義します。セキュリティグループルールは 3 つの部分から構成されます:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:19
 #: dashboards/project/loadbalancers/tables.py:115
@@ -2294,7 +2296,7 @@ msgstr "このルールに適用したい IP プロトコルを指定する必�
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid "Open Port/Port Range"
-msgstr ""
+msgstr "オープンするポート/ポート範囲"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid ""
@@ -2302,7 +2304,7 @@ msgid ""
 " of ports. Selecting the \"Port Range\" option will provide you with space "
 "to provide both the starting and ending ports for the range. For ICMP rules "
 "you instead specify an ICMP type and code in the spaces provided."
-msgstr "TCP および UDP の場合、ポート番号またはポート範囲を選択できます。 \"ポート範囲\" オプションを選択することにより、範囲の開始ポートおよび終了ポートを空白区切りで指定できます。ICMP の場合、ICMP タイプおよびコードを空白区切りで指定します。"
+msgstr "TCP および UDP の場合、ポート番号またはポート範囲を選択できます。 \"ポート範囲\" オプションを選択すると、範囲の開始ポートおよび終了ポートを空白区切りで指定できます。ICMP の場合、ICMP タイプおよびコードを空白区切りで指定します。"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid ""
@@ -2311,7 +2313,7 @@ msgid ""
 "group (Security Group). Selecting a security group as the source will allow "
 "any other instance in that security group access to any other instance via "
 "this rule."
-msgstr "このルールにより許可される通信のソースを指定する必要があります。IP アドレスブロック (CIDR) の形式またはソースグループ (セキュリティグループ) で指定します。ソースとしてセキュリティグループを選択することにより、セキュリティグループにある他のすべてのインスタンスが、このルールにより他のすべてのインスタンスにアクセスできるようになります。"
+msgstr "このルールにより許可される通信のソースを指定する必要があります。IP アドレスブロック (CIDR) またはソースグループ (セキュリティグループ) で指定します。接続元としてセキュリティグループを選択すると、そのセキュリティグループに所属するすべてのインスタンスが、このルールが適用されるすべてのインスタンスにアクセスできるようになります。"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:18
 msgid "From here you can create a new security group"
@@ -2320,7 +2322,7 @@ msgstr "ここから新しいセキュリティグループを作成できます
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:6
 msgid "Edit Security Group Rules"
-msgstr "セキュリティグループのルールの変更"
+msgstr "セキュリティグループのルールの編集"
 
 #: dashboards/project/containers/browsers.py:26
 msgid "Swift"
@@ -2360,7 +2362,7 @@ msgstr "オブジェクト名"
 #: dashboards/project/containers/forms.py:80
 msgid ""
 "Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "スラッシュが許可されます。オブジェクトストアにより擬似フォルダとして取り扱われます。"
+msgstr "スラッシュを使うことができます。オブジェクトストアにより擬似フォルダとして取り扱われます。"
 
 #: dashboards/project/containers/forms.py:83
 msgid "File"
@@ -2502,7 +2504,7 @@ msgid ""
 "exception that they are virtual collections defined by a common prefix on "
 "the object's name. A slash (/) character is used as the delimiter for "
 "pseudo-folders in the Object Store."
-msgstr ""
+msgstr "コンテナーの中では、オブジェクトを擬似フォルダーの中にまとめることができます。これはデスクトップ OS のフォルダーと同じようなものです。オブジェクトの名前において、共通の接頭辞をつけることにより定義される仮想的なものです。スラッシュ (/) 文字がオブジェクトストアにおいて擬似フォルダーの区切り文字として使用されます。"
 
 #: dashboards/project/containers/templates/containers/upload.html:6
 msgid "Upload Objects"
@@ -2510,20 +2512,20 @@ msgstr "オブジェクトのアップロード"
 
 #: dashboards/project/images_and_snapshots/panel.py:26
 msgid "Images & Snapshots"
-msgstr "イメージ & スナップショット"
+msgstr "イメージとスナップショット"
 
 #: dashboards/project/images_and_snapshots/views.py:64
 msgid "Unable to retrieve images."
-msgstr "イメージ情報を取得できません。"
+msgstr "イメージ一覧を取得できません。"
 
 #: dashboards/project/images_and_snapshots/views.py:75
 msgid "Unable to retrieve snapshots."
-msgstr "スナップショット情報を取得できません。"
+msgstr "スナップショット一覧を取得できません。"
 
 #: dashboards/project/images_and_snapshots/views.py:84
 #: dashboards/project/volumes/forms.py:100
 msgid "Unable to retrieve volume snapshots."
-msgstr "ボリュームのスナップショット情報を取得できません。"
+msgstr "ボリューム・スナップショットの一覧を取得できません。"
 
 #: dashboards/project/images_and_snapshots/images/forms.py:45
 msgid "Image Location"
@@ -2587,7 +2589,7 @@ msgstr "パブリック"
 
 #: dashboards/project/images_and_snapshots/images/forms.py:99
 msgid "A image or external image location must be specified."
-msgstr "イメージまたは外部イメージの位置を指定する必要があります。"
+msgstr "イメージまたは外部のイメージ位置を指定する必要があります。"
 
 #: dashboards/project/images_and_snapshots/images/forms.py:102
 msgid "Can not specify both image and external image location."
@@ -2596,7 +2598,7 @@ msgstr "イメージと外部イメージを同時に指定できません。"
 #: dashboards/project/images_and_snapshots/images/forms.py:132
 #, python-format
 msgid "Your image %s has been queued for creation."
-msgstr "イメージ %s が作成のためにキューに入れられました。"
+msgstr "イメージ %s が作成用のキューに追加されました。"
 
 #: dashboards/project/images_and_snapshots/images/forms.py:136
 msgid "Unable to create new image."
@@ -2659,7 +2661,7 @@ msgstr "スナップショット名"
 #: dashboards/project/images_and_snapshots/snapshots/forms.py:50
 #, python-format
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
-msgstr "スナップショット \"%(name)s\" がインスタンス \"%(inst)s\" に対して作成されました"
+msgstr "インスタンス \"%(inst)s\" のスナップショット \"%(name)s\" が作成されました"
 
 #: dashboards/project/images_and_snapshots/snapshots/forms.py:56
 msgid "Unable to create snapshot."
@@ -2805,7 +2807,7 @@ msgstr "ボリュームのスナップショット"
 #: dashboards/project/loadbalancers/tables.py:99
 #: dashboards/project/volumes/tables.py:40
 msgid "Scheduled deletion of"
-msgstr "スケジュール削除"
+msgstr "削除予約しました"
 
 #: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:45
 #: dashboards/project/volumes/tables.py:61
@@ -2830,32 +2832,32 @@ msgstr "削除"
 
 #: dashboards/project/instances/tables.py:72
 msgid "Scheduled termination of"
-msgstr "スケジュール削除"
+msgstr "削除予約しました"
 
 #: dashboards/project/instances/tables.py:86
 msgid "Hard Reboot"
-msgstr "再起動"
+msgstr "ハードリブート"
 
 #: dashboards/project/instances/tables.py:87
 msgid "Hard Rebooted"
-msgstr "再起動しました"
+msgstr "リブートしました"
 
 #: dashboards/project/instances/tables.py:103
 msgid "Soft Reboot"
-msgstr "再起動"
+msgstr "ソフトリブート"
 
 #: dashboards/project/instances/tables.py:104
 msgid "Soft Rebooted"
-msgstr "再起動しました"
+msgstr "リブートしました"
 
 #: dashboards/project/instances/tables.py:112
 msgid "Pause"
-msgstr "一時停止します"
+msgstr "一時停止"
 
 #: dashboards/project/instances/tables.py:112
 #: dashboards/project/instances/tables.py:141
 msgid "Resume"
-msgstr "再開します"
+msgstr "再開"
 
 #: dashboards/project/instances/tables.py:113
 msgid "Paused"
@@ -2868,7 +2870,7 @@ msgstr "再開しました"
 
 #: dashboards/project/instances/tables.py:141
 msgid "Suspend"
-msgstr "休止します"
+msgstr "休止"
 
 #: dashboards/project/instances/tables.py:142
 msgid "Suspended"
@@ -2881,7 +2883,7 @@ msgstr "休止しました"
 #: dashboards/project/instances/workflows/create_instance.py:465
 #: dashboards/project/network_topology/templates/network_topology/index.html:26
 msgid "Launch Instance"
-msgstr "イメージの起動"
+msgstr "インスタンスの起動"
 
 #: dashboards/project/instances/tables.py:189
 msgid "(Quota exceeded)"
@@ -2896,7 +2898,7 @@ msgstr "インスタンスの編集"
 
 #: dashboards/project/instances/tables.py:222
 msgid "Edit Security Groups"
-msgstr "セキュリティグループのルールの編集"
+msgstr "セキュリティグループの編集"
 
 #: dashboards/project/instances/tables.py:245
 #: dashboards/project/instances/tabs.py:55
@@ -2941,7 +2943,7 @@ msgstr "%(name)s | %(RAM)s メモリー | %(VCPU)s 仮想 CPU | %(disk)s ディ�
 #: dashboards/project/instances/tables.py:399
 #: dashboards/project/instances/tables.py:406
 msgid "Not available"
-msgstr "利用できません"
+msgstr "取得できません"
 
 #: dashboards/project/instances/tables.py:446
 #: dashboards/project/instances/workflows/create_instance.py:179
@@ -2961,7 +2963,7 @@ msgstr "インスタンス \"%s\" のログを取得できません。"
 
 #: dashboards/project/instances/views.py:58
 msgid "Unable to retrieve instances."
-msgstr "インスタンスを取得できません。"
+msgstr "インスタンス一覧を取得できません。"
 
 #: dashboards/project/instances/views.py:121
 #, python-format
@@ -2971,7 +2973,7 @@ msgstr "インスタンス \"%s\" の VNC コンソールを取得できませ�
 #: dashboards/project/instances/views.py:133
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
-msgstr "インスタンス \"%s\" の VNC コンソールを取得できません。"
+msgstr "インスタンス \"%s\" の SPICE コンソールを取得できません。"
 
 #: dashboards/project/instances/views.py:154
 msgid "Unable to retrieve instance details."
@@ -2984,21 +2986,21 @@ msgstr "インスタンス \"%s\" の詳細を取り出せません。"
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:3
 msgid "Instance Console"
-msgstr "インスタンスの VNC コンソール"
+msgstr "インスタンスのコンソール"
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:5
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
-msgstr "VNC コンソールがキーボード入力に対応していなければ、以下のグレーのステータスバーをクリックしてください。"
+msgstr "コンソールがキーボード入力に対応していなければ、以下のグレーのステータスバーをクリックしてください。"
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:5
 msgid "Click here to show only console"
-msgstr "VNC のみを表示するにはここをクリックします"
+msgstr "コンソールのみを表示するにはここをクリックします"
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:19
 msgid "console is currently unavailable. Please try again later."
-msgstr "VNC コンソールが現在利用できません。後からもう一度お試しください。"
+msgstr "コンソールが現在利用できません。後からもう一度お試しください。"
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:20
 msgid "Reload"
@@ -3090,7 +3092,7 @@ msgstr "インスタンスを起動するために詳細を指定します。"
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
-msgstr "以下の図は、このプロジェクトにより使用されているリソースを、プロジェクトのクォータと関連付けて表示します。"
+msgstr "以下は、このプロジェクトにより使用されているリソースを、プロジェクトのクォータと関連付けて表示します。"
 
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:6
 msgid "Flavor Details"
@@ -3121,7 +3123,7 @@ msgstr "合計メモリー"
 msgid ""
 "Choose network from Available networks to Selected Networks by push button "
 "or drag and drop, you may change nic order by drag and drop as well. "
-msgstr ""
+msgstr "利用可能なネットワークから選択済みネットワークに、ボタンを押すかドラッグアンドドロップすることによりネットワークを選択します。同様にドラッグアンドドロップにより NIC の順番を変更できます。"
 
 #: dashboards/project/instances/templates/instances/_launch_volumes_help.html:3
 msgid ""
@@ -3131,7 +3133,7 @@ msgstr "インスタンスはさまざまな形式のストレージを接続し
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
 msgid "Selected Networks"
-msgstr "選択されたネットワーク"
+msgstr "選択済みネットワーク"
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:11
 msgid "Available networks"
@@ -3143,7 +3145,7 @@ msgstr "インスタンスの詳細"
 
 #: dashboards/project/instances/workflows/create_instance.py:56
 msgid "Project & User"
-msgstr "プロジェクト使用状況"
+msgstr "プロジェクトとユーザー"
 
 #: dashboards/project/instances/workflows/create_instance.py:69
 msgid "Don't boot from a volume."
@@ -3160,7 +3162,7 @@ msgstr "ボリュームのスナップショットから起動します (新し�
 #: dashboards/project/instances/workflows/create_instance.py:75
 #: dashboards/project/instances/workflows/create_instance.py:93
 msgid "Volume Options"
-msgstr "ボリュームの詳細"
+msgstr "ボリュームのオプション"
 
 #: dashboards/project/instances/workflows/create_instance.py:81
 #: dashboards/project/volumes/forms.py:170
@@ -3238,15 +3240,15 @@ msgstr "インスタンスソースのオプションを選択してください
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
-msgstr "複数のインスタンスを起動することは、イメージおよびインスタンスのスナップショットに対してのみサポートされます。"
+msgstr "複数インスタンスの起動は、イメージとインスタンスのスナップショットについてのみサポートされています。"
 
 #: dashboards/project/instances/workflows/create_instance.py:232
 msgid "Unable to retrieve public images."
-msgstr "公開イメージを取得できません。"
+msgstr "公開イメージの一覧を取得できません。"
 
 #: dashboards/project/instances/workflows/create_instance.py:248
 msgid "Unable to retrieve images for the current project."
-msgstr "現在のプロジェクト向けイメージを取得できません。"
+msgstr "このプロジェクト向けのイメージ一覧を取得できません。"
 
 #: dashboards/project/instances/workflows/create_instance.py:271
 msgid "Select Image"
@@ -3266,7 +3268,7 @@ msgstr "利用可能なスナップショットがありません。"
 
 #: dashboards/project/instances/workflows/create_instance.py:295
 msgid "Unable to retrieve instance flavors."
-msgstr "インスタンスのタイプを取得できません。"
+msgstr "インスタンスタイプの一覧を取得できません。"
 
 #: dashboards/project/instances/workflows/create_instance.py:308
 #: usage/base.py:115
@@ -3279,7 +3281,7 @@ msgstr "認証に使用するキーペアを選択してください。"
 
 #: dashboards/project/instances/workflows/create_instance.py:348
 msgid "Launch instance in these security groups."
-msgstr "これらのセキュリティグループにインスタンスを起動します。"
+msgstr "これらのセキュリティグループでインスタンスを起動します。"
 
 #: dashboards/project/instances/workflows/create_instance.py:353
 msgid ""
@@ -3289,7 +3291,7 @@ msgstr "キーペア、セキュリティグループ、および他のメカニ
 
 #: dashboards/project/instances/workflows/create_instance.py:363
 msgid "Unable to retrieve keypairs."
-msgstr "キーペアを取得できません。"
+msgstr "キーペアの一覧を取得できません。"
 
 #: dashboards/project/instances/workflows/create_instance.py:367
 msgid "Select a keypair"
@@ -3323,7 +3325,7 @@ msgstr "少なくとも一つのネットワークを指定する必要があり
 
 #: dashboards/project/instances/workflows/create_instance.py:425
 msgid "Launch instance withthese networks"
-msgstr "これらのネットワークとともにインスタンスを起動します"
+msgstr "これらのネットワークでインスタンスを起動します"
 
 #: dashboards/project/instances/workflows/create_instance.py:429
 msgid "Networking"
@@ -3335,17 +3337,17 @@ msgstr "インスタンスのネットワークを選択します。"
 
 #: dashboards/project/instances/workflows/create_instance.py:443
 msgid "Unable to retrieve networks."
-msgstr "ネットワークを取得できません。"
+msgstr "ネットワーク一覧を取得できません。"
 
 #: dashboards/project/instances/workflows/create_instance.py:467
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "%(count)s 個の \"%(name)s\" を起動しました。"
+msgstr "名前が \"%(name)s\" の %(count)s を起動しました。"
 
 #: dashboards/project/instances/workflows/create_instance.py:468
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "%(count)s 個の \"%(name)s\" を起動できません。"
+msgstr "名前が \"%(name)s\" の %(count)s が起動できません。"
 
 #: dashboards/project/instances/workflows/create_instance.py:481
 #, python-format
@@ -3358,7 +3360,7 @@ msgstr "インスタンス"
 
 #: dashboards/project/instances/workflows/update_instance.py:47
 msgid "Unable to retrieve security group list. Please try again later."
-msgstr "セキュリティグループを取得できません。"
+msgstr "セキュリティグループの一覧を取得できません。後からもう一度お試しください。"
 
 #: dashboards/project/instances/workflows/update_instance.py:81
 #, python-format
@@ -3368,33 +3370,33 @@ msgstr "インスタンス %s の現在のセキュリティグループ一覧�
 #: dashboards/project/instances/workflows/update_instance.py:103
 #, python-format
 msgid "Failed to modify %d instance security groups."
-msgstr ""
+msgstr "%d 個のセキュリティグループの更新に失敗しました。"
 
 #: dashboards/project/instances/workflows/update_instance.py:117
 msgid ""
 "From here you can add and remove security groups to this project from the "
 "list of available security groups."
-msgstr "利用可能なセキュリティグループの一覧から、このプロジェクトにセキュリティグループを追加および削除できます。"
+msgstr "利用可能なセキュリティグループの一覧から、このプロジェクトへのセキュリティグループを追加および削除できます。"
 
 #: dashboards/project/instances/workflows/update_instance.py:119
 msgid "All Security Groups"
-msgstr "セキュリティグループ"
+msgstr "すべてのセキュリティグループ"
 
 #: dashboards/project/instances/workflows/update_instance.py:120
 msgid "Instance Security Groups"
-msgstr "セキュリティグループ"
+msgstr "インスタンスのセキュリティグループ"
 
 #: dashboards/project/instances/workflows/update_instance.py:121
 msgid "No security groups found."
-msgstr "セキュリティグループ"
+msgstr "セキュリティグループがありません。"
 
 #: dashboards/project/instances/workflows/update_instance.py:122
 msgid "No security groups enabled."
-msgstr "セキュリティグループのルール"
+msgstr "有効になっているセキュリティグループがありません。"
 
 #: dashboards/project/instances/workflows/update_instance.py:150
 msgid "From here you can edit the instance details."
-msgstr "ここからプロジェクトを編集できます。"
+msgstr "ここからインスタンスの詳細を編集できます。"
 
 #: dashboards/project/instances/workflows/update_instance.py:163
 #, python-format
@@ -3413,7 +3415,7 @@ msgstr "負荷分散装置"
 #: dashboards/project/loadbalancers/tables.py:32
 #: dashboards/project/loadbalancers/workflows.py:96
 msgid "Add Pool"
-msgstr "プール"
+msgstr "プールの追加"
 
 #: dashboards/project/loadbalancers/tables.py:39
 #: dashboards/project/loadbalancers/workflows.py:193
@@ -3423,12 +3425,12 @@ msgstr "仮想 IP の追加"
 #: dashboards/project/loadbalancers/tables.py:55
 #: dashboards/project/loadbalancers/workflows.py:325
 msgid "Add Member"
-msgstr "新規ユーザーの追加"
+msgstr "メンバーの追加"
 
 #: dashboards/project/loadbalancers/tables.py:62
 #: dashboards/project/loadbalancers/workflows.py:429
 msgid "Add Monitor"
-msgstr "監視"
+msgstr "モニターの追加"
 
 #: dashboards/project/loadbalancers/tables.py:69
 #: dashboards/project/loadbalancers/tables.py:82
@@ -3479,11 +3481,11 @@ msgstr "仮想 IP"
 #: dashboards/project/loadbalancers/workflows.py:131
 #: dashboards/project/loadbalancers/workflows.py:257
 msgid "Protocol Port"
-msgstr "IP プロトコル"
+msgstr "ポート番号"
 
 #: dashboards/project/loadbalancers/tables.py:156
 msgid "Monitor Type"
-msgstr "監視"
+msgstr "モニタータイプ"
 
 #: dashboards/project/loadbalancers/tabs.py:44
 #: dashboards/project/loadbalancers/workflows.py:270
@@ -3545,7 +3547,7 @@ msgstr "メンバーを削除できません。"
 
 #: dashboards/project/loadbalancers/views.py:76
 msgid "Unable to locate vip to delete."
-msgstr "ボリュームを作成できません。"
+msgstr "削除する仮想 IP が見つかりません。"
 
 #: dashboards/project/loadbalancers/views.py:82
 msgid "Unable to delete vip."
@@ -3553,7 +3555,7 @@ msgstr "仮想 IP を削除できません。"
 
 #: dashboards/project/loadbalancers/views.py:112
 msgid "Unable to retrieve pool subnet."
-msgstr "オブジェクトを取得できません。"
+msgstr "プールのサブネットを取得できません。"
 
 #: dashboards/project/loadbalancers/workflows.py:40
 msgid "Load Balancing Method"
@@ -3561,28 +3563,28 @@ msgstr "負荷分散方式"
 
 #: dashboards/project/loadbalancers/workflows.py:49
 msgid "Select a Subnet"
-msgstr "プロジェクトの選択"
+msgstr "サブネットの選択"
 
 #: dashboards/project/loadbalancers/workflows.py:54
 msgid "Unable to retrieve networks list."
-msgstr "ユーザー一覧を取得できません。"
+msgstr "ネットワーク一覧を取得できません。"
 
 #: dashboards/project/loadbalancers/workflows.py:60
 #: dashboards/project/loadbalancers/workflows.py:65
 #: dashboards/project/loadbalancers/workflows.py:152
 msgid "Select a Protocol"
-msgstr "プロジェクトの選択"
+msgstr "プロトコルの選択"
 
 #: dashboards/project/loadbalancers/workflows.py:72
 msgid "PoolDetails"
-msgstr "詳細"
+msgstr "プールの詳細"
 
 #: dashboards/project/loadbalancers/workflows.py:74
 msgid ""
 "Create Pool for current tenant.\n"
 "\n"
 "Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by default."
-msgstr ""
+msgstr "現在のプロジェクトに対するプールを作成します。\n\nプールの名前および説明を入力します。このプールのすべてのメンバーが所属するサブネットを一つ選択します。このプールのプロトコルおよび負荷分散方式を選択します。管理状態がデフォルトで有効 (チェック済み) になっています。"
 
 #: dashboards/project/loadbalancers/workflows.py:98
 #, python-format
@@ -3592,36 +3594,36 @@ msgstr "プール \"%s\" を追加しました。"
 #: dashboards/project/loadbalancers/workflows.py:99
 #, python-format
 msgid "Unable to add Pool \"%s\"."
-msgstr "イメージ \"%s\" を更新できません。"
+msgstr "イメージ \"%s\" を追加できません。"
 
 #: dashboards/project/loadbalancers/workflows.py:124
 msgid "Vip Address from Floating IPs"
-msgstr "Floating IP の割り当て"
+msgstr "Floating IP から仮想 IP を割り当てる"
 
 #: dashboards/project/loadbalancers/workflows.py:134
 msgid "Session Persistence"
-msgstr ""
+msgstr "セッション永続性"
 
 #: dashboards/project/loadbalancers/workflows.py:137
 msgid "Cookie Name"
-msgstr "コンテナー名"
+msgstr "クッキー名"
 
 #: dashboards/project/loadbalancers/workflows.py:138
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr ""
+msgstr "セッション永続性が APP_COOKIE の場合には必須です。それ以外の場合は無視されます。"
 
 #: dashboards/project/loadbalancers/workflows.py:141
 msgid "Connection Limit"
-msgstr ""
+msgstr "最大接続数"
 
 #: dashboards/project/loadbalancers/workflows.py:148
 #, python-format
 msgid "Specify a free IP address from %s"
-msgstr ""
+msgstr "%s の未使用の IP アドレスを選択して下さい"
 
 #: dashboards/project/loadbalancers/workflows.py:157
 msgid "Set Session Persistence"
-msgstr ""
+msgstr "セッション永続性の設定"
 
 #: dashboards/project/loadbalancers/workflows.py:163
 msgid "Currently Not Supported"
@@ -3637,7 +3639,7 @@ msgid ""
 "the vip. Specify an IP address and port for the vip. Choose the protocol and"
 " session persistence method for the vip.Specify the max connections allowed."
 " Admin State is UP (checked) by default."
-msgstr ""
+msgstr "このプールの仮想 IP を作成します。仮想 IP の名前と説明を入力します。仮想 IP の IP アドレスとポートを指定します。仮想 IP のプロトコルおよびセッション永続化 (session persistence) 方式を選択します。許可される最大接続数を指定します。管理状態が標準で有効 (チェック済み) になっています。"
 
 #: dashboards/project/loadbalancers/workflows.py:195
 #, python-format
@@ -3647,20 +3649,20 @@ msgstr "仮想 IP \"%s\" を追加しました。"
 #: dashboards/project/loadbalancers/workflows.py:196
 #, python-format
 msgid "Unable to add Vip \"%s\"."
-msgstr "イメージ \"%s\" を更新できません。"
+msgstr "仮想 IP \"%s\" を更新できません。"
 
 #: dashboards/project/loadbalancers/workflows.py:209
 #, python-format
 msgid "Only one address can be specified.Unable to add Vip %s."
-msgstr "アドレスは一つしか指定出来ません。 VIP %s を追加できません。"
+msgstr "アドレスは一つしか指定できません。仮想 IP %s を追加できません。"
 
 #: dashboards/project/loadbalancers/workflows.py:220
 msgid "Unable to retrieve pool."
-msgstr "オブジェクトを取得できません。"
+msgstr "プールを取得できません。"
 
 #: dashboards/project/loadbalancers/workflows.py:227
 msgid "Cookie name must be specified with APP_COOKIE persistence."
-msgstr ""
+msgstr "セッション永続性方式が APP_COOKIE の場合、クッキー名を一緒に指定する必要があります。"
 
 #: dashboards/project/loadbalancers/workflows.py:251
 msgid "Member(s)"
@@ -3669,7 +3671,7 @@ msgstr "メンバー"
 #: dashboards/project/loadbalancers/workflows.py:255
 #: dashboards/project/loadbalancers/workflows.py:289
 msgid "Select members for this pool "
-msgstr "プロジェクトに対するユーザーの役割を選択します。"
+msgstr "このプールのメンバーを選択します。"
 
 #: dashboards/project/loadbalancers/workflows.py:256
 msgid "Weight"
@@ -3678,7 +3680,7 @@ msgstr "重み"
 #: dashboards/project/loadbalancers/workflows.py:264
 #: dashboards/project/loadbalancers/workflows.py:383
 msgid "Select a Pool"
-msgstr "プロジェクトの選択"
+msgstr "プールの選択"
 
 #: dashboards/project/loadbalancers/workflows.py:283
 msgid "Unable to retrieve instances list."
@@ -3690,14 +3692,14 @@ msgstr "指定できるサーバがありません。止めるには追加ボタ
 
 #: dashboards/project/loadbalancers/workflows.py:303
 msgid "MemberDetails"
-msgstr "詳細"
+msgstr "メンバーの詳細"
 
 #: dashboards/project/loadbalancers/workflows.py:305
 msgid ""
 "Add member to selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for this member Specify the port number the member(s) operate on; e.g., 80."
-msgstr ""
+msgstr "メンバーを選択済みプールに追加します。\n\nメンバーとしてプールに追加するインスタンスを一覧から選択してください (複数可)。このメンバーに対する重みを指定してください。メンバーが使用するポート番号を指定してください（例: 80）。"
 
 #: dashboards/project/loadbalancers/workflows.py:327
 #, python-format
@@ -3707,16 +3709,16 @@ msgstr "メンバー \"%s\" を追加しました。"
 #: dashboards/project/loadbalancers/workflows.py:328
 #, python-format
 msgid "Unable to add Member %s."
-msgstr "イメージ \"%s\" を更新できません。"
+msgstr "メンバー \"%s\" を更新できません。"
 
 #: dashboards/project/loadbalancers/workflows.py:338
 #, python-format
 msgid "No instances available.%s"
-msgstr ""
+msgstr "利用可能なインスタンスがありません。 %s"
 
 #: dashboards/project/loadbalancers/workflows.py:349
 msgid "Unable to retrieve ports list."
-msgstr "プロジェクト一覧を取得できません。"
+msgstr "ポート一覧を取得できません。"
 
 #: dashboards/project/loadbalancers/workflows.py:366
 msgid "Delay"
@@ -3728,7 +3730,7 @@ msgstr "タイムアウト"
 
 #: dashboards/project/loadbalancers/workflows.py:369
 msgid "Max Retries (1~10)"
-msgstr "最大試行回数 (1~10)"
+msgstr "最大試行回数 (1〜10)"
 
 #: dashboards/project/loadbalancers/workflows.py:371
 msgid "HTTP Method"
@@ -3740,26 +3742,26 @@ msgstr "URL"
 
 #: dashboards/project/loadbalancers/workflows.py:376
 msgid "Expected HTTP Status Codes"
-msgstr "期待される HTTP ステータスコード"
+msgstr "HTTP ステータスコードの期待値"
 
 #: dashboards/project/loadbalancers/workflows.py:393
 msgid "Select Type"
-msgstr "イメージの選択"
+msgstr "タイプを選択してください"
 
 #: dashboards/project/loadbalancers/workflows.py:400
 msgid "Select HTTP Method"
-msgstr "HTTP メソッドの選択"
+msgstr "HTTP メソッドを選択してください"
 
 #: dashboards/project/loadbalancers/workflows.py:405
 msgid "MonitorDetails"
-msgstr "監視"
+msgstr "モニターの詳細"
 
 #: dashboards/project/loadbalancers/workflows.py:407
 msgid ""
 "Create a monitor for a pool.\n"
 "\n"
 "Select target pool and type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
-msgstr "プールのモニターを作成します。\n\n対象のプールおよび監視方法を選択します。モニターが必要な遅延、タイムアウトおよび再試行回数を指定します。方式、URL パス、および正常時に期待される HTTP コードを指定します。"
+msgstr "プールのモニターを作成します。\n\n対象のプールおよび監視方法を選択します。モニターで必要な、遅延、タイムアウト、最大試行回数を指定します。メソッド、URL パス、および正常時の HTTP コードの期待値を指定します。"
 
 #: dashboards/project/loadbalancers/workflows.py:431
 #, python-format
@@ -3769,7 +3771,7 @@ msgstr "モニター \"%s\" を追加しました。"
 #: dashboards/project/loadbalancers/workflows.py:432
 #, python-format
 msgid "Unable to add Monitor \"%s\"."
-msgstr "イメージ \"%s\" を更新できません。"
+msgstr "モニター \"%s\" を更新できません。"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
@@ -3783,22 +3785,22 @@ msgstr "ID: "
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 msgid "Tenant ID: "
-msgstr "テナント ID: "
+msgstr "プロジェクト ID: "
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:30
 msgid "Pool ID: "
-msgstr "プール"
+msgstr "プール ID:"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:15
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:21
 msgid "Address: "
-msgstr "IP アドレス"
+msgstr "IP アドレス:"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:18
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:24
 msgid "Protocol Port: "
-msgstr "IP プロトコル"
+msgstr "ポート番号:"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:21
 msgid "Weight: "
@@ -3816,12 +3818,12 @@ msgstr "管理状態有効: "
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:45
 msgid "Status: "
-msgstr "ステータス"
+msgstr "ステータス:"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:34
 msgid "Type: "
-msgstr "種別"
+msgstr "種別:"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay: "
@@ -3869,7 +3871,7 @@ msgstr "サブネット ID: "
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:24
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:27
 msgid "Protocol: "
-msgstr "IP プロトコル"
+msgstr "プロトコル:"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "Load Balancing Method: "
@@ -3885,30 +3887,30 @@ msgstr "ヘルスモニター: "
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:33
 msgid "Session Persistence: "
-msgstr ""
+msgstr "セッション永続性: "
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:36
 msgid "Cookie Name: "
-msgstr "コンテナー名"
+msgstr "クッキー名:"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
 msgid "Connection Limit: "
-msgstr ""
+msgstr "最大接続数: "
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/addmember.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/addmember.html:6
 msgid "Add New Member"
-msgstr "新規ユーザーの追加"
+msgstr "メンバーの追加"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/addmonitor.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/addmonitor.html:6
 msgid "Add New Monitor"
-msgstr "新規ユーザーの追加"
+msgstr "モニターの追加"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/addpool.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/addpool.html:6
 msgid "Add New Pool"
-msgstr "新規ユーザーの追加"
+msgstr "プールの追加"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/addvip.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/addvip.html:6
@@ -3928,11 +3930,11 @@ msgstr "ネットワークトポロジー"
 
 #: dashboards/project/network_topology/templates/network_topology/index.html:23
 msgid "This pane needs javascript support."
-msgstr "JavaScript をサポートする必要があります。"
+msgstr "JavaScript が有効になっている必要があります。"
 
 #: dashboards/project/network_topology/templates/network_topology/index.html:33
 msgid "There are no networks, routers, or connected instances to display. "
-msgstr "表示するネットワーク、ルーター、または接続インスタンスがありません。"
+msgstr "ネットワーク、ルーター、インスタンスがありません。"
 
 #: dashboards/project/networks/tables.py:81
 msgid "Add Subnet"
@@ -3950,11 +3952,11 @@ msgstr "ネットワーク名。この項目はオプションです。"
 msgid ""
 "From here you can create a new network.\n"
 "In addition a subnet associated with the network can be created in the next panel."
-msgstr "新しいネットワークを作成できます。\n合わせて、このネットワークに割り当てられたサブネットを次のパネルにおいて作成できます。"
+msgstr "新しいネットワークを作成できます。\n合わせて、このネットワークに割り当てられたサブネットを次のパネルで作成できます。"
 
 #: dashboards/project/networks/workflows.py:61
 msgid "Subnet Name"
-msgstr "オブジェクト名"
+msgstr "サブネット名"
 
 #: dashboards/project/networks/workflows.py:62
 msgid "Subnet Name. This field is optional."
@@ -3982,23 +3984,23 @@ msgid ""
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use "
 "the default, leave blank. If you want to use no gateway, check 'Disable "
 "Gateway' below."
-msgstr "ゲートウェイの IP アドレス (例: 192.168.0.254)。初期値はネットワークアドレスの最初の IP です (例: 192.168.0.0/24 の場合 192.168.0.1)。初期値を使用したければ、空白のままにしておきます。ゲートウェイを使用する必要がなければ、以下の 'ゲートウェイの無効化' をチェックします。"
+msgstr "ゲートウェイの IP アドレス (例: 192.168.0.254)。初期値はネットワークアドレスの最初の IP です (例: 192.168.0.0/24 の場合 192.168.0.1)。初期値を使用したければ、空白のままにしておきます。ゲートウェイを使用する必要がなければ、下の「ゲートウェイなし」をチェックします。"
 
 #: dashboards/project/networks/workflows.py:87
 #: dashboards/project/networks/subnets/workflows.py:119
 msgid "Disable Gateway"
-msgstr "無効化"
+msgstr "ゲートウェイなし"
 
 #: dashboards/project/networks/workflows.py:92
 msgid ""
 "You can create a subnet associated with the new network, in which case "
 "\"Network Address\" must be specified. If you wish to create a network "
 "WITHOUT a subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr "新しいネットワークに関連付けるサブネットを作成できます。この場合、「ネットワークアドレス」を指定する必要があります。サブネットなしでネットワークを作成したければ、「サブネットの作成」チェックボックスをチェック解除します。"
+msgstr "新しいネットワークに関連付けるサブネットを作成できます。この場合、「ネットワークアドレス」を指定する必要があります。サブネットなしでネットワークを作成したければ、「サブネットの作成」のチェックを外してください。"
 
 #: dashboards/project/networks/workflows.py:103
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "\"ネットワークアドレス\" を指定してください、または \"サブネットの作成\" チェックボックスを解除してください。"
+msgstr "「ネットワークアドレス」を指定するか、「サブネットの作成」チェックを外してください。"
 
 #: dashboards/project/networks/workflows.py:109
 msgid "Network Address and IP version are inconsistent."
@@ -4015,22 +4017,22 @@ msgstr "ゲートウェイの IP アドレスと IP バージョンが一致し�
 
 #: dashboards/project/networks/workflows.py:121
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr "ゲートウェイの IP アドレスを指定してください、または \"ゲートウェイの無効化\" をチェックしてください。"
+msgstr "ゲートウェイの IP アドレスを指定するか、「ゲートウェイなし」をチェックしてください。"
 
 #: dashboards/project/networks/workflows.py:141
 msgid "Enable DHCP"
-msgstr "有効化"
+msgstr "DHCP 有効"
 
 #: dashboards/project/networks/workflows.py:145
 msgid "Allocation Pools"
-msgstr "Floating IP プール"
+msgstr "IP アドレス割り当てプール"
 
 #: dashboards/project/networks/workflows.py:146
 msgid ""
 "IP address allocation pools. Each entry is "
 "&lt;start_ip_address&gt;,&lt;end_ip_address&gt; (e.g., "
 "192.168.1.100,192.168.1.120) and one entry per line."
-msgstr "IP アドレスプール。&lt;start_ip_address&gt;,&lt;end_ip_address&gt; (例: 192.168.1.100,192.168.1.120) 形式の各項目を 1 行につき 1 項目記入します。"
+msgstr "IP アドレス割り当てプール。&lt;start_ip_address&gt;,&lt;end_ip_address&gt; (例: 192.168.1.100,192.168.1.120) 形式で、各項目を 1 行につき 1 項目記入します。"
 
 #: dashboards/project/networks/workflows.py:153
 msgid "DNS Name Servers"
@@ -4039,11 +4041,11 @@ msgstr "DNS サーバー"
 #: dashboards/project/networks/workflows.py:154
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
-msgstr "このサブネット向けの DNS サーバーの IP アドレス一覧。1 行につき 1 項目。"
+msgstr "このサブネット向けの DNS サーバーの IP アドレス一覧。 1 行につき 1 項目。"
 
 #: dashboards/project/networks/workflows.py:159
 msgid "Host Routes"
-msgstr "ホストのルート"
+msgstr "追加のルート設定"
 
 #: dashboards/project/networks/workflows.py:160
 msgid ""
@@ -4075,14 +4077,14 @@ msgstr "開始アドレスと終了アドレスを指定する必要がありま
 #: dashboards/project/networks/workflows.py:199
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
-msgstr "開始アドレスが終了アドレスより大きいです (値=%s)"
+msgstr "開始アドレスが終了アドレスより大きい (値=%s)"
 
 #: dashboards/project/networks/workflows.py:217
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
-msgstr "ホストルートの形式エラー: 宛先 CIDR およびネクストホップを指定する必要があります (値=%s)"
+msgstr "追加のルート設定の形式エラー: 宛先 CIDR およびネクストホップを指定する必要があります (値=%s)"
 
 #: dashboards/project/networks/workflows.py:242
 #, python-format
@@ -4126,16 +4128,16 @@ msgstr "ネットワーク \"%s\" の削除に失敗しました"
 
 #: dashboards/project/networks/ports/tables.py:39
 msgid "Attached"
-msgstr "接続しました"
+msgstr "接続中"
 
 #: dashboards/project/networks/ports/tables.py:41
 msgid "Detached"
-msgstr "切断しました"
+msgstr "未接続"
 
 #: dashboards/project/networks/ports/tables.py:60
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:35
 msgid "Attached Device"
-msgstr "接続先"
+msgstr "接続中のデバイス"
 
 #: dashboards/project/networks/ports/views.py:53
 msgid "Unable to retrieve port details"
@@ -4153,30 +4155,30 @@ msgstr "サブネットの詳細を取得できません。"
 msgid ""
 "You can create a subnet associated with the network. Advanced configuration "
 "are available at \"Subnet Detail\" tab."
-msgstr "ネットワークに割り当てられたサブネットを作成できます。高度な設定は \"サブネットの詳細\" タブにおいて利用可能です。"
+msgstr "ネットワークに割り当てられたサブネットを作成できます。「サブネットの詳細」タブで高度な設定ができます。"
 
 #: dashboards/project/networks/subnets/workflows.py:62
 #, python-format
 msgid "Created subnet \"%s\"."
-msgstr "ボリュームのスナップショット \"%s\" を作成しています"
+msgstr "サブネット \"%s\" を作成しました。"
 
 #: dashboards/project/networks/subnets/workflows.py:63
 #, python-format
 msgid "Unable to create subnet \"%s\"."
-msgstr ""
+msgstr "サブネット \"%s\" の作成に失敗しました。"
 
 #: dashboards/project/networks/subnets/workflows.py:112
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254). You need to specify an explicit "
 "address to set the gateway. If you want to use no gateway, check 'Disable "
 "Gateway' below."
-msgstr "ゲートウェイの IP アドレス (例: 192.168.0.254)。ゲートウェイを設定するには、具体的なアドレスを指定する必要があります。ゲートウェイを使用する必要がなければ、以下の 'ゲートウェイの無効化' をチェックしてください。"
+msgstr "ゲートウェイの IP アドレス (例: 192.168.0.254)。ゲートウェイを設定するには、具体的なアドレスを指定する必要があります。ゲートウェイを使用する必要がなければ、下の「ゲートウェイなし」をチェックしてください。"
 
 #: dashboards/project/networks/subnets/workflows.py:124
 msgid ""
 "You can update a subnet associated with the network. Advanced configuration "
 "are available at \"Subnet Detail\" tab."
-msgstr "ネットワークに割り当てられたサブネットを更新できます。高度な設定は \"サブネットの詳細\" タブにおいて利用可能です。"
+msgstr "ネットワークに割り当てられたサブネットを更新できます。高度な設定は「サブネットの詳細」タブにあります。"
 
 #: dashboards/project/networks/subnets/workflows.py:155
 msgid "Update"
@@ -4190,12 +4192,12 @@ msgstr "サブネット \"%s\" を更新しました。"
 #: dashboards/project/networks/subnets/workflows.py:157
 #, python-format
 msgid "Unable to update subnet \"%s\"."
-msgstr "イメージ \"%s\" を更新できません。"
+msgstr "サブネット \"%s\" を更新できません。"
 
 #: dashboards/project/networks/subnets/workflows.py:185
 #, python-format
 msgid "Subnet \"%s\" was successfully updated."
-msgstr "ユーザー \"%s\" を正常に作成しました。"
+msgstr "サブネット \"%s\" が正常に更新できました。"
 
 #: dashboards/project/networks/subnets/workflows.py:189
 #, python-format
@@ -4261,23 +4263,23 @@ msgstr "IP バージョン"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
 msgid "IP allocation pool"
-msgstr "IP 割り当てプール"
+msgstr "IP アドレス割り当てプール"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:23
 msgid "Start"
-msgstr "開始"
+msgstr "先頭"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
 msgid " - End"
-msgstr " - 終了"
+msgstr " - 末尾"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "DHCP Enable"
-msgstr "有効化"
+msgstr "DHCP 有効"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:31
 msgid "Additional routes"
-msgstr "Traditional Chinese"
+msgstr "追加のルート設定"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:34
 msgid "Destination"
@@ -4290,7 +4292,7 @@ msgstr " : ネクストホップ"
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:37
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:45
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:40
 msgid "DNS name server"
@@ -4309,7 +4311,7 @@ msgstr "ルーター"
 #: dashboards/project/routers/tables.py:49
 #, python-format
 msgid "Unable to delete router \"%s\""
-msgstr "イメージ \"%s\" を更新できません。"
+msgstr "ルーター \"%s\" を更新できません。"
 
 #: dashboards/project/routers/tables.py:78
 msgid "Clear"
@@ -4335,12 +4337,12 @@ msgstr "ルーター \"%(name)s\" のゲートウェイを削除できません:
 
 #: dashboards/project/routers/tabs.py:37
 msgid "Unable to retrieve router details."
-msgstr "ボリュームの詳細を取得できません。"
+msgstr "ルーターの詳細を取得できません。"
 
 #: dashboards/project/routers/views.py:77
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "インスタンス \"%s\" の詳細を取得できません。"
+msgstr "外部ネットワーク一覧を取得できません: \"%s\""
 
 #: dashboards/project/routers/views.py:89
 #, python-format
@@ -4350,31 +4352,31 @@ msgstr "外部ネットワーク \"%s\" が見つかりませんでした。"
 #: dashboards/project/routers/views.py:105
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
-msgstr "インスタンス \"%s\" の詳細を取り出せません。"
+msgstr "ルーター \"%s\" の詳細を取得できません。"
 
 #: dashboards/project/routers/views.py:117
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
-msgstr ""
+msgstr "外部ネットワーク \"%s\" の情報を取得できません。"
 
 #: dashboards/project/routers/ports/forms.py:35
 #: dashboards/project/routers/ports/forms.py:94
 msgid "Router ID"
-msgstr "ユーザー ID"
+msgstr "ルーター ID"
 
 #: dashboards/project/routers/ports/forms.py:51
 #: dashboards/project/routers/ports/forms.py:109
 #, python-format
 msgid "Failed to get network list %s"
-msgstr "インスタンス \"%s\" のログを取得できません。"
+msgstr "ネットワーク一覧を取得できません: \"%s\""
 
 #: dashboards/project/routers/ports/forms.py:67
 msgid "Select Subnet"
-msgstr "ボリュームの選択"
+msgstr "サブネットの選択"
 
 #: dashboards/project/routers/ports/forms.py:69
 msgid "No subnets available."
-msgstr "利用可能なスナップショットがありません。"
+msgstr "サブネットがありません。"
 
 #: dashboards/project/routers/ports/forms.py:77
 msgid "Interface added"
@@ -4383,15 +4385,15 @@ msgstr "インターフェースを追加しました"
 #: dashboards/project/routers/ports/forms.py:82
 #, python-format
 msgid "Failed to add_interface %s"
-msgstr "インターフェース %s の追加に失敗しました"
+msgstr "インターフェースの追加に失敗しました: %s"
 
 #: dashboards/project/routers/ports/forms.py:118
 msgid "Select network"
-msgstr "イメージの選択"
+msgstr "ネットワークの選択"
 
 #: dashboards/project/routers/ports/forms.py:120
 msgid "No networks available."
-msgstr "利用可能なキーペアがありません。"
+msgstr "ネットワークがありません。"
 
 #: dashboards/project/routers/ports/forms.py:128
 msgid "Gateway interface is added"
@@ -4400,7 +4402,7 @@ msgstr "ゲートウェイ・インターフェースを追加しました"
 #: dashboards/project/routers/ports/forms.py:133
 #, python-format
 msgid "Failed to set gateway %s"
-msgstr "ゲートウェイ %s の設定に失敗しました"
+msgstr "ゲートウェイの設定に失敗しました: %s"
 
 #: dashboards/project/routers/ports/tables.py:50
 msgid "Interface"
@@ -4409,15 +4411,15 @@ msgstr "インターフェース"
 #: dashboards/project/routers/ports/tables.py:65
 #, python-format
 msgid "Failed to delete interface %s"
-msgstr ""
+msgstr "インタフェースの削除に失敗しました: %s"
 
 #: dashboards/project/routers/ports/views.py:50
 msgid "Unable to retrieve router."
-msgstr "ユーザーを取得できません。"
+msgstr "ルーター情報を取得できません。"
 
 #: dashboards/project/routers/ports/views.py:82
 msgid "Unable to set gateway."
-msgstr "新しいイメージを作成できません。"
+msgstr "ゲートウェイを設定できません。"
 
 #: dashboards/project/volumes/forms.py:33
 msgid "Size (GB)"
@@ -4425,16 +4427,16 @@ msgstr "容量 (GB)"
 
 #: dashboards/project/volumes/forms.py:34
 msgid "Encryption"
-msgstr "説明"
+msgstr "暗号化"
 
 #: dashboards/project/volumes/forms.py:35
 msgid "Use snapshot as a source"
-msgstr "ソースとしてスナップショットの使用"
+msgstr "スナップショットをソースとして使用する"
 
 #: dashboards/project/volumes/forms.py:84
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "ボリューム容量はスナップショット容量 (%sGB) と同じか大きくなければいけません。"
+msgstr "ボリューム容量はスナップショット容量 (%sGB) 以上でなければいけません。"
 
 #: dashboards/project/volumes/forms.py:89
 msgid "Unable to load the specified snapshot."
@@ -4454,7 +4456,7 @@ msgstr "ボリューム容量はスナップショット容量 (%sGB) より小�
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
 " quota available."
-msgstr "利用可能なクォータは %(avail)iGB しかないため、%(req)iGB のボリュームは作成できません。"
+msgstr "利用可能なクォータは %(avail)iGB しかないため、 %(req)iGB のボリュームは作成できません。"
 
 #: dashboards/project/volumes/forms.py:134
 msgid "You are already using all of your available volumes."
@@ -4497,7 +4499,7 @@ msgstr "ボリュームのスナップショットを作成できません。"
 #: dashboards/project/volumes/tables.py:48
 #, python-format
 msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
-msgstr "ボリューム \"%s\" を削除できません。複数のスナップショットが依存しています。"
+msgstr "ボリューム \"%s\" を削除できません。複数のスナップショットがこのボリュームに依存しています。"
 
 #: dashboards/project/volumes/tables.py:68
 msgid "Edit Attachments"
@@ -4599,7 +4601,7 @@ msgstr "未接続"
 
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:52
 msgid "Metadata"
-msgstr "メタデータ項目"
+msgstr "メタデータ"
 
 #: dashboards/project/volumes/templates/volumes/create.html:6
 msgid "Create a Volume"
@@ -4622,7 +4624,7 @@ msgstr "設定を保存しました。"
 #: dashboards/settings/user/templates/user/settings.html:3
 #: dashboards/settings/user/templates/user/settings.html:6
 msgid "User Settings"
-msgstr "ユーザーの設定"
+msgstr "ユーザー設定"
 
 #: dashboards/settings/user/templates/user/_settings.html:18
 msgid "From here you can modify dashboard settings for your user."
@@ -4646,7 +4648,7 @@ msgstr "お探しのページが見つかりません"
 
 #: templates/404.html:10
 msgid "You may have mistyped the address or the page may have moved."
-msgstr "アドレスを入力ミスしたか、またはページが移動しました"
+msgstr "入力したアドレスが間違っている、またはそのページが移動してしまった。"
 
 #: templates/500.html:20
 msgid "Server error"
@@ -4654,13 +4656,13 @@ msgstr "内部サーバーエラー"
 
 #: templates/500.html:67
 msgid "Something went wrong!"
-msgstr "どこかおかしくなりました !"
+msgstr "どこかがおかしくなりました !"
 
 #: templates/500.html:68
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
-msgstr "予期しないエラーが発生しました。ページの再読み込みを試してください。もし解決しなければ、あなたの管理者に連絡してください。"
+msgstr "予期しないエラーが発生しました。ページの再読み込みを試してください。解決しなければ、管理者に連絡してください。"
 
 #: templates/500.html:74 templates/_header.html:6
 msgid "Help"
@@ -4668,7 +4670,7 @@ msgstr "ヘルプ"
 
 #: templates/_header.html:3
 msgid "Logged in as"
-msgstr "次の役割でログインしました"
+msgstr "次の役割でログイン中"
 
 #: templates/_header.html:8
 msgid "Sign Out"
@@ -4680,7 +4682,7 @@ msgstr "パスワードは 8 文字から 18 文字である必要がありま�
 
 #: usage/base.py:98
 msgid "Unable to retrieve usage information."
-msgstr "使用情報を取得できません。"
+msgstr "使用状況を取得できません。"
 
 #: usage/base.py:101
 msgid "You are viewing data for the future, which may or may not exist."

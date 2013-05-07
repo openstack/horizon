@@ -4,14 +4,16 @@
 # 
 # Translators:
 # Translators:
-#   <bluejay.ahn@gmail.com>, 2012.
+# Translators:
+# bluejay.kr <bluejay.ahn@gmail.com>, 2012
+# Sungjin Gang <potopro@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2013-03-12 08:28+0000\n"
-"Last-Translator: bluejay.kr <bluejay.ahn@gmail.com>\n"
+"PO-Revision-Date: 2013-05-03 12:23+0000\n"
+"Last-Translator: Sungjin Gang <potopro@gmail.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +23,11 @@ msgstr ""
 
 #: base.py:424
 msgid "Other"
-msgstr ""
+msgstr "다른"
 
 #: decorators.py:55
 msgid "Please log in to continue."
-msgstr ""
+msgstr "로그인을 해주세요."
 
 #: decorators.py:87
 #, python-format
@@ -51,7 +53,7 @@ msgstr ""
 
 #: tables/actions.py:349
 msgid "Filter"
-msgstr ""
+msgstr "필터"
 
 #: tables/actions.py:527
 #, python-format
@@ -65,25 +67,25 @@ msgstr ""
 #: tables/actions.py:589
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
-msgstr ""
+msgstr "%(action)s에 관한 권한이 없습니다.: %(objs)s"
 
 #: tables/actions.py:595
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr ""
+msgstr "%(action)s를 사용할 수 없습니다.: %(objs)s"
 
 #: tables/actions.py:601
 #, python-format
 msgid "%(action)s: %(objs)s"
-msgstr ""
+msgstr "%(action)s: %(objs)s"
 
 #: tables/actions.py:611
 msgid "Delete"
-msgstr ""
+msgstr "삭제"
 
 #: tables/actions.py:612
 msgid "Deleted"
-msgstr ""
+msgstr "삭제했음"
 
 #: tables/base.py:275
 #, python-format
@@ -92,16 +94,16 @@ msgstr ""
 
 #: tables/base.py:748
 msgid "No items to display."
-msgstr ""
+msgstr "표시할 항목이 없습니다."
 
 #: tables/base.py:852
 msgid "Actions"
-msgstr ""
+msgstr "작동"
 
 #: tables/base.py:1035
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr ""
+msgstr "일치하는 id \"%s\"를 반환"
 
 #: tables/base.py:1165
 msgid "Please select a row before taking that action."
@@ -145,19 +147,19 @@ msgstr ""
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
-msgstr ""
+msgstr "정보:"
 
 #: templates/horizon/_messages.html:13
 msgid "Warning: "
-msgstr ""
+msgstr "주의:"
 
 #: templates/horizon/_messages.html:19
 msgid "Success: "
-msgstr ""
+msgstr "완료:"
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
-msgstr ""
+msgstr "에러:"
 
 #: templates/horizon/common/_data_table.html:54
 msgid "Summary"
@@ -167,7 +169,7 @@ msgstr ""
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
+msgstr[0] "%(counter)s 항목 표시"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
@@ -235,11 +237,11 @@ msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:9
 msgid "Submit"
-msgstr ""
+msgstr "제출"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
-msgstr ""
+msgstr "작동중인 인스턴스"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Active RAM"
@@ -247,15 +249,15 @@ msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
-msgstr ""
+msgstr "한달간 VCPU-시간"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "This Month's GB-Hours"
-msgstr ""
+msgstr "한달간 GB-시간"
 
 #: templates/horizon/common/_workflow.html:33
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: templatetags/branding.py:35
 msgid "Horizon"
@@ -263,48 +265,48 @@ msgstr ""
 
 #: templatetags/horizon.py:109
 msgid "No Limit"
-msgstr ""
+msgstr "유한한"
 
 #: templatetags/horizon.py:111 templatetags/horizon.py:113
 msgid "Available"
-msgstr ""
+msgstr "사용가능한"
 
 #: templatetags/sizeformat.py:45
 #, python-format
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
-msgstr[0] ""
+msgstr[0] "%(size)d bytes"
 
 #: templatetags/sizeformat.py:49
 #, python-format
 msgid "%(size)d"
 msgid_plural "%(size)d"
-msgstr[0] ""
+msgstr[0] "%(size)d"
 
 #: templatetags/sizeformat.py:52
 #, python-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: templatetags/sizeformat.py:55
 #, python-format
 msgid "%s MB"
-msgstr ""
+msgstr "%s MB"
 
 #: templatetags/sizeformat.py:58
 #, python-format
 msgid "%s GB"
-msgstr ""
+msgstr "%s GB"
 
 #: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s TB"
 
 #: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s PB"
-msgstr ""
+msgstr "%s PB"
 
 #: test/settings.py:114
 msgid "Password must be between 8 and 18 characters."
@@ -346,15 +348,15 @@ msgstr ""
 
 #: test/tests/base.py:39
 msgid "My Dashboard"
-msgstr ""
+msgstr "내 대시보드"
 
 #: test/tests/base.py:45
 msgid "My Panel"
-msgstr ""
+msgstr "내 판넬"
 
 #: test/tests/base.py:51
 msgid "Admin Panel"
-msgstr ""
+msgstr "관리자 판넬"
 
 #: test/tests/messages.py:32
 msgid "Giant ants are attacking San Francisco!"
@@ -366,19 +368,19 @@ msgstr ""
 
 #: test/tests/tables.py:107
 msgid "Batch"
-msgstr ""
+msgstr "일괄 처리"
 
 #: test/tests/tables.py:108
 msgid "Batched"
-msgstr ""
+msgstr "일괄 처리된"
 
 #: test/tests/tables.py:109 test/tests/tables.py:120
 msgid "Item"
-msgstr ""
+msgstr "항목"
 
 #: test/tests/tables.py:110 test/tests/tables.py:121
 msgid "Items"
-msgstr ""
+msgstr "항목들"
 
 #: test/tests/tables.py:118
 msgid "Down"
@@ -434,7 +436,7 @@ msgstr "프로젝트"
 
 #: test/tests/workflows.py:44
 msgid "User"
-msgstr ""
+msgstr "사용자"
 
 #: test/tests/workflows.py:47
 msgid "Test Action One"
@@ -454,11 +456,11 @@ msgstr ""
 
 #: test/tests/workflows.py:77
 msgid "Admin"
-msgstr ""
+msgstr "관리자"
 
 #: test/tests/workflows.py:80
 msgid "Admin Action"
-msgstr ""
+msgstr "관리자 액션"
 
 #: utils/fields.py:46
 msgid "Incorrect format for IP address"
@@ -494,7 +496,7 @@ msgstr ""
 
 #: workflows/base.py:569
 msgid "Save"
-msgstr ""
+msgstr "저장"
 
 #: workflows/base.py:570
 #, python-format
