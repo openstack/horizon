@@ -911,7 +911,8 @@ class InstanceTests(test.TestCase):
                                [sec_group.name],
                                block_device_mapping,
                                nics=nics,
-                               instance_count=IsA(int))
+                               instance_count=IsA(int),
+                               admin_pass='password')
 
         self.mox.ReplayAll()
 
@@ -928,7 +929,9 @@ class InstanceTests(test.TestCase):
                      'volume_id': volume_choice,
                      'device_name': device_name,
                      'network': self.networks.first().id,
-                     'count': 1}
+                     'count': 1,
+                     'admin_pass': 'password',
+                     'confirm_admin_pass': 'password'}
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -1100,7 +1103,8 @@ class InstanceTests(test.TestCase):
                                [sec_group.name],
                                None,
                                nics=nics,
-                               instance_count=IsA(int)) \
+                               instance_count=IsA(int),
+                               admin_pass='password') \
                       .AndRaise(self.exceptions.keystone)
 
         self.mox.ReplayAll()
@@ -1116,7 +1120,9 @@ class InstanceTests(test.TestCase):
                      'groups': sec_group.name,
                      'volume_type': '',
                      'network': self.networks.first().id,
-                     'count': 1}
+                     'count': 1,
+                     'admin_pass': 'password',
+                     'confirm_admin_pass': 'password'}
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
