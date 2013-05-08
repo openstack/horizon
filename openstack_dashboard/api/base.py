@@ -180,18 +180,36 @@ def get_service_from_catalog(catalog, service_type):
     return None
 
 
+# TODO: Use API discovery to determine the version, for now read the settings
+IDENTITY_VERSION = getattr(settings, APIVersionManager.SETTINGS_KEY, {}).\
+    get('identity', 2.0)
+
+
+# Mapping of V2 Catalog Endpoint_type to V3 Catalog Interfaces
+ENDPOINT_TYPE_TO_INTERFACE = {
+    'publicURL': 'public',
+    'internalURL': 'internal',
+    'adminURL': 'admin',
+}
+
+
 def url_for(request, service_type, admin=False, endpoint_type=None):
     endpoint_type = endpoint_type or getattr(settings,
                                              'OPENSTACK_ENDPOINT_TYPE',
                                              'publicURL')
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)
+    if admin:
+        endpoint_type = 'adminURL'
     if service:
         try:
-            if admin:
-                return service['endpoints'][0]['adminURL']
-            else:
+            if IDENTITY_VERSION < 3:
                 return service['endpoints'][0][endpoint_type]
+            else:
+                interface = ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
+                for endpoint in service['endpoints']:
+                    if endpoint['interface'] == interface:
+                        return endpoint['url']
         except (IndexError, KeyError):
             raise exceptions.ServiceCatalogException(service_type)
     else:
