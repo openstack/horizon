@@ -117,7 +117,9 @@ class APIAccessTab(tabs.TableTab):
         services = []
         for i, service in enumerate(self.request.user.service_catalog):
             service['id'] = i
-            services.append(keystone.Service(service))
+            services.append(
+                keystone.Service(service, self.request.user.services_region))
+
         return services
 
 

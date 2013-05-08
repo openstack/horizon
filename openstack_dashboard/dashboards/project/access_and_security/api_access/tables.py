@@ -20,10 +20,6 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 
-def get_endpoint(service):
-    return service.endpoints[0]['publicURL']
-
-
 def pretty_service_names(name):
     name = name.replace('-', ' ')
     if name in ['ec2', 's3']:
@@ -53,7 +49,7 @@ class EndpointsTable(tables.DataTable):
     api_name = tables.Column('type',
                              verbose_name=_("Service"),
                              filters=(pretty_service_names,))
-    api_endpoint = tables.Column(get_endpoint,
+    api_endpoint = tables.Column('public_url',
                                  verbose_name=_("Service Endpoint"))
 
     class Meta:

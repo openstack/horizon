@@ -91,10 +91,28 @@ class ServiceAPITests(test.APITestCase):
         catalog = self.service_catalog
         identity_data = api.base.get_service_from_catalog(catalog, "identity")
         identity_data['id'] = 1
-        service = api.keystone.Service(identity_data)
+        region = identity_data["endpoints"][0]["region"]
+        service = api.keystone.Service(identity_data, region)
         self.assertEqual(unicode(service), u"identity (native backend)")
         self.assertEqual(service.region,
                          identity_data["endpoints"][0]["region"])
         self.assertEqual(service.url,
                          "http://int.keystone.example.com:5000/v2.0")
+        self.assertEqual(service.public_url,
+                         "http://public.keystone.example.com:5000/v2.0")
         self.assertEqual(service.host, "int.keystone.example.com")
+
+    def test_service_wrapper_service_in_region(self):
+        catalog = self.service_catalog
+        compute_data = api.base.get_service_from_catalog(catalog, "compute")
+        compute_data['id'] = 1
+        region = compute_data["endpoints"][1]["region"]
+        service = api.keystone.Service(compute_data, region)
+        self.assertEqual(unicode(service), u"compute")
+        self.assertEqual(service.region,
+                         compute_data["endpoints"][1]["region"])
+        self.assertEqual(service.url,
+                         "http://int.nova2.example.com:8774/v2")
+        self.assertEqual(service.public_url,
+                         "http://public.nova2.example.com:8774/v2")
+        self.assertEqual(service.host, "int.nova2.example.com")

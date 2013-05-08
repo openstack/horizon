@@ -97,7 +97,7 @@ class APIDictWrapper(object):
         dictionary, in addition to attribute accesses.
 
         Attribute access is the preferred method of access, to be
-        consistent with api resource objects from novclient.
+        consistent with api resource objects from novaclient.
     """
     def __init__(self, apidict):
         self._apidict = apidict
@@ -198,18 +198,21 @@ ENDPOINT_TYPE_TO_INTERFACE = {
 }
 
 
-def get_url_for_service(service, endpoint_type):
+def get_url_for_service(service, region, endpoint_type):
     identity_version = get_version_from_service(service)
     for endpoint in service['endpoints']:
-        try:
-            if identity_version < 3:
-                return endpoint[endpoint_type]
-            else:
-                interface = ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
-                if endpoint['interface'] == interface:
-                    return endpoint['url']
-        except (IndexError, KeyError):
-            pass
+        # ignore region for identity
+        if service['type'] == 'identity' or region == endpoint['region']:
+            try:
+                if identity_version < 3:
+                    return endpoint[endpoint_type]
+                else:
+                    interface = \
+                        ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
+                    if endpoint['interface'] == interface:
+                        return endpoint['url']
+            except (IndexError, KeyError):
+                return None
     return None
 
 
@@ -222,9 +225,13 @@ def url_for(request, service_type, endpoint_type=None):
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)
     if service:
-        url = get_url_for_service(service, endpoint_type)
+        url = get_url_for_service(service,
+                                  request.user.services_region,
+                                  endpoint_type)
         if not url and fallback_endpoint_type:
-            url = get_url_for_service(service, fallback_endpoint_type)
+            url = get_url_for_service(service,
+                                      request.user.services_region,
+                                      fallback_endpoint_type)
         if url:
             return url
     raise exceptions.ServiceCatalogException(service_type)
@@ -233,7 +240,14 @@ def url_for(request, service_type, endpoint_type=None):
 def is_service_enabled(request, service_type, service_name=None):
     service = get_service_from_catalog(request.user.service_catalog,
                                        service_type)
-    if service and service_name:
-        return service['name'] == service_name
-    else:
-        return service is not None
+    if service:
+        region = request.user.services_region
+        for endpoint in service['endpoints']:
+            # ignore region for identity
+            if service['type'] == 'identity' or \
+               endpoint['region'] == region:
+                if service_name:
+                    return service['name'] == service_name
+                else:
+                    return True
+    return False
