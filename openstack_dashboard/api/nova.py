@@ -362,7 +362,9 @@ def server_get(request, instance_id):
 
 
 def server_list(request, search_opts=None, all_tenants=False):
-    page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+    page_size = request.session.get('horizon_pagesize',
+                                    getattr(settings, 'API_RESULT_PAGE_SIZE',
+                                            20))
     paginate = False
     if search_opts is None:
         search_opts = {}
@@ -381,6 +383,9 @@ def server_list(request, search_opts=None, all_tenants=False):
     has_more_data = False
     if paginate and len(servers) > page_size:
         servers.pop(-1)
+        has_more_data = True
+    elif paginate and len(servers) == getattr(settings, 'API_RESULT_LIMIT',
+                                              1000):
         has_more_data = True
     return (servers, has_more_data)
 
