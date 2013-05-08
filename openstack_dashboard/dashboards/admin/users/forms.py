@@ -21,7 +21,6 @@
 import logging
 
 from django.forms import ValidationError
-from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
@@ -31,7 +30,6 @@ from horizon import messages
 from horizon.utils import validators
 
 from openstack_dashboard import api
-from django.contrib.auth import logout
 
 
 LOG = logging.getLogger(__name__)
@@ -40,13 +38,13 @@ LOG = logging.getLogger(__name__)
 class BaseUserForm(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(BaseUserForm, self).__init__(request, *args, **kwargs)
-        # Populate tenant choices
-        tenant_choices = [('', _("Select a project"))]
+        # Populate project choices
+        project_choices = [('', _("Select a project"))]
 
-        for tenant in api.keystone.tenant_list(request, admin=True):
-            if tenant.enabled:
-                tenant_choices.append((tenant.id, tenant.name))
-        self.fields['tenant_id'].choices = tenant_choices
+        for project in api.keystone.tenant_list(request):
+            if project.enabled:
+                project_choices.append((project.id, project.name))
+        self.fields['project'].choices = project_choices
 
     def clean(self):
         '''Check to make sure password fields match.'''
@@ -64,16 +62,16 @@ class CreateUserForm(BaseUserForm):
     name = forms.CharField(label=_("User Name"))
     email = forms.EmailField(label=_("Email"))
     password = forms.RegexField(
-            label=_("Password"),
-            widget=forms.PasswordInput(render_value=False),
-            regex=validators.password_validator(),
-            error_messages={'invalid': validators.password_validator_msg()})
+        label=_("Password"),
+        widget=forms.PasswordInput(render_value=False),
+        regex=validators.password_validator(),
+        error_messages={'invalid': validators.password_validator_msg()})
     confirm_password = forms.CharField(
-            label=_("Confirm Password"),
-            required=False,
-            widget=forms.PasswordInput(render_value=False))
-    tenant_id = forms.DynamicChoiceField(label=_("Primary Project"),
-                                         add_item_link=ADD_PROJECT_URL)
+        label=_("Confirm Password"),
+        required=False,
+        widget=forms.PasswordInput(render_value=False))
+    project = forms.DynamicChoiceField(label=_("Primary Project"),
+                                       add_item_link=ADD_PROJECT_URL)
     role_id = forms.ChoiceField(label=_("Role"))
 
     def __init__(self, *args, **kwargs):
@@ -92,7 +90,7 @@ class CreateUserForm(BaseUserForm):
                                                 data['name'],
                                                 data['email'],
                                                 data['password'],
-                                                data['tenant_id'],
+                                                data['project'],
                                                 True)
             messages.success(request,
                              _('User "%s" was successfully created.')
@@ -100,9 +98,9 @@ class CreateUserForm(BaseUserForm):
             if data['role_id']:
                 try:
                     api.keystone.add_tenant_user_role(request,
-                                             data['tenant_id'],
-                                             new_user.id,
-                                             data['role_id'])
+                                                      data['project'],
+                                                      new_user.id,
+                                                      data['role_id'])
                 except:
                     exceptions.handle(request,
                                       _('Unable to add user'
@@ -116,17 +114,17 @@ class UpdateUserForm(BaseUserForm):
     id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
     name = forms.CharField(label=_("User Name"))
     email = forms.EmailField(label=_("Email"))
-    password = forms.RegexField(label=_("Password"),
-            widget=forms.PasswordInput(render_value=False),
-            regex=validators.password_validator(),
-            required=False,
-            error_messages={'invalid':
-                    validators.password_validator_msg()})
+    password = forms.RegexField(
+        label=_("Password"),
+        widget=forms.PasswordInput(render_value=False),
+        regex=validators.password_validator(),
+        required=False,
+        error_messages={'invalid': validators.password_validator_msg()})
     confirm_password = forms.CharField(
-            label=_("Confirm Password"),
-            widget=forms.PasswordInput(render_value=False),
-            required=False)
-    tenant_id = forms.ChoiceField(label=_("Primary Project"))
+        label=_("Confirm Password"),
+        widget=forms.PasswordInput(render_value=False),
+        required=False)
+    project = forms.ChoiceField(label=_("Primary Project"))
 
     def __init__(self, request, *args, **kwargs):
         super(UpdateUserForm, self).__init__(request, *args, **kwargs)
@@ -139,62 +137,16 @@ class UpdateUserForm(BaseUserForm):
     # password and confirm_password strings.
     @sensitive_variables('data', 'password')
     def handle(self, request, data):
-        failed, succeeded = [], []
-        user_is_editable = api.keystone.keystone_can_edit_user()
         user = data.pop('id')
-        tenant = data.pop('tenant_id')
 
-        if user_is_editable:
-            password = data.pop('password')
-            data.pop('confirm_password', None)
+        # Throw away the password confirmation, we're done with it.
+        data.pop('confirm_password', None)
 
-        if user_is_editable:
-            # Update user details
-            msg_bits = (_('name'), _('email'))
-            try:
-                api.keystone.user_update(request, user, **data)
-                succeeded.extend(msg_bits)
-            except:
-                failed.extend(msg_bits)
-                exceptions.handle(request, ignore=True)
-
-        # Update default tenant
-        msg_bits = (_('primary project'),)
         try:
-            api.keystone.user_update_tenant(request, user, tenant)
-            succeeded.extend(msg_bits)
+            api.keystone.user_update(request, user, **data)
+            messages.success(request,
+                             _('User has been updated successfully.'))
         except:
-            failed.append(msg_bits)
             exceptions.handle(request, ignore=True)
-
-        # Check for existing roles
-        # Show a warning if no role exists for the tenant
-        user_roles = api.keystone.roles_for_user(request, user, tenant)
-        if not user_roles:
-            messages.warning(request,
-                             _('The user %s has no role defined for' +
-                             ' that project.')
-                             % data.get('name', None))
-
-        if user_is_editable:
-            # If present, update password
-            # FIXME(gabriel): password change should be its own form and view
-            if password:
-                msg_bits = (_('password'),)
-                try:
-                    api.keystone.user_update_password(request, user, password)
-                    succeeded.extend(msg_bits)
-                    if user == request.user.id:
-                        logout(request)
-                except:
-                    failed.extend(msg_bits)
-                    exceptions.handle(request, ignore=True)
-
-        if succeeded:
-            messages.success(request, _('User has been updated successfully.'))
-        if failed:
-            failed = map(force_unicode, failed)
-            messages.error(request,
-                           _('Unable to update %(attributes)s for the user.')
-                             % {"attributes": ", ".join(failed)})
+            messages.error(request, _('Unable to update the user.'))
         return True

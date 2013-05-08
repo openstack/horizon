@@ -33,6 +33,38 @@ __all__ = ('APIResourceWrapper', 'APIDictWrapper',
 LOG = logging.getLogger(__name__)
 
 
+class APIVersionManager(object):
+    """ Object to store and manage API versioning data and utility methods. """
+
+    SETTINGS_KEY = "OPENSTACK_API_VERSIONS"
+
+    def __init__(self, service_type, preferred_version=None):
+        self.service_type = service_type
+        self.preferred = preferred_version
+        self._active = None
+        self.supported = {}
+
+    @property
+    def active(self):
+        if self._active is None:
+            self.get_active_version()
+        return self._active
+
+    def load_supported_version(self, version, data):
+        self.supported[version] = data
+
+    def get_active_version(self):
+        if self._active is not None:
+            return self.supported[self._active]
+        key = getattr(settings, self.SETTINGS_KEY, {}).get(self.service_type)
+        if key is None:
+            # TODO: support API version discovery here; we'll leave the setting
+            # in as a way of overriding the latest available version.
+            key = self.preferred
+        self._active = key
+        return self.supported[self._active]
+
+
 class APIResourceWrapper(object):
     """ Simple wrapper for api objects
 

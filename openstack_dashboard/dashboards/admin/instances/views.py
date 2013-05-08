@@ -73,7 +73,7 @@ class AdminIndexView(tables.DataTableView):
 
             # Gather our tenants to correlate against IDs
             try:
-                tenants = api.keystone.tenant_list(self.request, admin=True)
+                tenants = api.keystone.tenant_list(self.request)
             except:
                 tenants = []
                 msg = _('Unable to retrieve instance tenant information.')

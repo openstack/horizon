@@ -25,9 +25,9 @@ from openstack_dashboard.dashboards.admin.users.forms import CreateUserForm
 
 class CreateUser(CreateUserForm):
     role_id = forms.ChoiceField(widget=forms.HiddenInput())
-    tenant_id = forms.CharField(widget=forms.HiddenInput())
+    project = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, request, *args, **kwargs):
         super(CreateUser, self).__init__(request, *args, **kwargs)
-        tenant_id = self.request.path.split("/")[-1]
-        self.fields['tenant_id'].initial = tenant_id
+        project = self.request.path.split("/")[-1]
+        self.fields['project'].initial = project

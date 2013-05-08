@@ -34,7 +34,7 @@ INDEX_URL = reverse('horizon:admin:projects:index')
 class TenantsViewTests(test.BaseAdminViewTests):
     def test_index(self):
         self.mox.StubOutWithMock(api.keystone, 'tenant_list')
-        api.keystone.tenant_list(IsA(http.HttpRequest), admin=True) \
+        api.keystone.tenant_list(IsA(http.HttpRequest)) \
                     .AndReturn(self.tenants.list())
         self.mox.ReplayAll()
 
@@ -45,7 +45,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
 class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     def _get_project_info(self, project):
-        project_info = {"tenant_name": project.name,
+        project_info = {"name": project.name,
                         "description": project.description,
                         "enabled": project.enabled}
         return project_info
@@ -146,9 +146,9 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                 ulist = workflow_data["role_" + role.id]
                 for user_id in ulist:
                     api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                                      tenant_id=self.tenant.id,
-                                                      user_id=user_id,
-                                                      role_id=role.id)
+                                                      project=self.tenant.id,
+                                                      user=user_id,
+                                                      role=role.id)
 
         nova_updated_quota = dict([(key, quota_data[key]) for key in
                                    quotas.NOVA_QUOTA_FIELDS])
@@ -276,9 +276,9 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                 ulist = workflow_data["role_" + role.id]
                 for user_id in ulist:
                     api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                                      tenant_id=self.tenant.id,
-                                                      user_id=user_id,
-                                                      role_id=role.id)
+                                                      project=self.tenant.id,
+                                                      user=user_id,
+                                                      role=role.id)
 
         nova_updated_quota = dict([(key, quota_data[key]) for key in
                                    quotas.NOVA_QUOTA_FIELDS])
@@ -338,9 +338,9 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                 ulist = workflow_data["role_" + role.id]
                 for user_id in ulist:
                     api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                                      tenant_id=self.tenant.id,
-                                                      user_id=user_id,
-                                                      role_id=role.id) \
+                                                      project=self.tenant.id,
+                                                      user=user_id,
+                                                      role=role.id) \
                        .AndRaise(self.exceptions.keystone)
                     break
             break
@@ -506,8 +506,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         quota.metadata_items = 444
         quota.volumes = 444
 
-        updated_project = {"tenant_name": project._info["name"],
-                           "tenant_id": project.id,
+        updated_project = {"name": project._info["name"],
                            "description": project._info["description"],
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
@@ -516,12 +515,14 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
 
         # handle
-        api.keystone.tenant_update(IsA(http.HttpRequest), **updated_project) \
+        api.keystone.tenant_update(IsA(http.HttpRequest),
+                                   project.id,
+                                   **updated_project) \
             .AndReturn(project)
 
         api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
         api.keystone.user_list(IsA(http.HttpRequest),
-                               tenant_id=self.tenant.id).AndReturn(users)
+                               project=self.tenant.id).AndReturn(users)
 
         # admin user - try to remove all roles on current project, warning
         api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
@@ -534,14 +535,14 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            .AndReturn((roles[0],))
         # remove role 1
         api.keystone.remove_tenant_user_role(IsA(http.HttpRequest),
-                                             tenant_id=self.tenant.id,
-                                             user_id='2',
-                                             role_id='1')
+                                             project=self.tenant.id,
+                                             user='2',
+                                             role='1')
         # add role 2
         api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                          tenant_id=self.tenant.id,
-                                          user_id='2',
-                                          role_id='2')
+                                          project=self.tenant.id,
+                                          user='2',
+                                          role='2')
 
         # member user 3 - has role 2
         api.keystone.roles_for_user(IsA(http.HttpRequest), '3',
@@ -549,14 +550,14 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            .AndReturn((roles[1],))
         # remove role 2
         api.keystone.remove_tenant_user_role(IsA(http.HttpRequest),
-                                             tenant_id=self.tenant.id,
-                                             user_id='3',
-                                             role_id='2')
+                                             project=self.tenant.id,
+                                             user='3',
+                                             role='2')
         # add role 1
         api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                          tenant_id=self.tenant.id,
-                                          user_id='3',
-                                          role_id='1')
+                                          project=self.tenant.id,
+                                          user='3',
+                                          role='1')
 
         nova_updated_quota = dict([(key, updated_quota[key]) for key in
                                    quotas.NOVA_QUOTA_FIELDS])
@@ -647,8 +648,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         quota.metadata_items = 444
         quota.volumes = 444
 
-        updated_project = {"tenant_name": project._info["name"],
-                           "tenant_id": project.id,
+        updated_project = {"name": project._info["name"],
                            "description": project._info["description"],
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
@@ -657,7 +657,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
 
         # handle
-        api.keystone.tenant_update(IsA(http.HttpRequest), **updated_project) \
+        api.keystone.tenant_update(IsA(http.HttpRequest),
+                                   project.id,
+                                   **updated_project) \
             .AndRaise(self.exceptions.keystone)
 
         self.mox.ReplayAll()
@@ -722,8 +724,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         quota[0].limit = 444
         quota[1].limit = -1
 
-        updated_project = {"tenant_name": project._info["name"],
-                           "tenant_id": project.id,
+        updated_project = {"name": project._info["name"],
                            "description": project._info["description"],
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
@@ -733,12 +734,14 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
 
         # handle
         # handle
-        api.keystone.tenant_update(IsA(http.HttpRequest), **updated_project) \
+        api.keystone.tenant_update(IsA(http.HttpRequest),
+                                   project.id,
+                                   **updated_project) \
             .AndReturn(project)
 
         api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
         api.keystone.user_list(IsA(http.HttpRequest),
-                               tenant_id=self.tenant.id).AndReturn(users)
+                               project=self.tenant.id).AndReturn(users)
 
         # admin user - try to remove all roles on current project, warning
         api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
@@ -756,9 +759,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            .AndReturn((roles[0],))
         # add role 2
         api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                          tenant_id=self.tenant.id,
-                                          user_id='3',
-                                          role_id='2')
+                                          project=self.tenant.id,
+                                          user='3',
+                                          role='2')
 
         nova_updated_quota = dict([(key, updated_quota[key]) for key in
                                    quotas.NOVA_QUOTA_FIELDS])
@@ -827,8 +830,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         quota.metadata_items = 444
         quota.volumes = 444
 
-        updated_project = {"tenant_name": project._info["name"],
-                           "tenant_id": project.id,
+        updated_project = {"name": project._info["name"],
                            "description": project._info["description"],
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
@@ -837,41 +839,40 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
 
         # handle
-        api.keystone.tenant_update(IsA(http.HttpRequest), **updated_project) \
+        api.keystone.tenant_update(IsA(http.HttpRequest),
+                                   project.id,
+                                   **updated_project) \
             .AndReturn(project)
 
         api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
         api.keystone.user_list(IsA(http.HttpRequest),
-                               tenant_id=self.tenant.id).AndReturn(users)
+                               project=self.tenant.id).AndReturn(users)
 
         # admin user - try to remove all roles on current project, warning
         api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
-                                    self.tenant.id) \
-                           .AndReturn(roles)
+                                    self.tenant.id).AndReturn(roles)
 
         # member user 1 - has role 1, will remove it
         api.keystone.roles_for_user(IsA(http.HttpRequest), '2',
-                                    self.tenant.id) \
-                           .AndReturn((roles[1],))
+                                    self.tenant.id).AndReturn((roles[1],))
 
         # member user 3 - has role 2
         api.keystone.roles_for_user(IsA(http.HttpRequest), '3',
-                                    self.tenant.id) \
-                           .AndReturn((roles[0],))
+                                    self.tenant.id).AndReturn((roles[0],))
         # add role 2
         api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                          tenant_id=self.tenant.id,
-                                          user_id='3',
-                                          role_id='2')\
-                                 .AndRaise(self.exceptions.nova)
+                                          project=self.tenant.id,
+                                          user='3',
+                                          role='2')\
+            .AndRaise(self.exceptions.keystone)
 
         self.mox.ReplayAll()
 
         # submit form data
         project_data = {"name": project._info["name"],
-                         "id": project.id,
-                         "description": project._info["description"],
-                         "enabled": project.enabled}
+                        "id": project.id,
+                        "description": project._info["description"],
+                        "enabled": project.enabled}
         workflow_data.update(project_data)
         workflow_data.update(updated_quota)
         url = reverse('horizon:admin:projects:update',

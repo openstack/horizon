@@ -42,7 +42,7 @@ class IndexView(tables.DataTableView):
     def _get_tenant_list(self):
         if not hasattr(self, "_tenants"):
             try:
-                tenants = api.keystone.tenant_list(self.request, admin=True)
+                tenants = api.keystone.tenant_list(self.request)
             except:
                 tenants = []
                 msg = _('Unable to retrieve instance tenant information.')

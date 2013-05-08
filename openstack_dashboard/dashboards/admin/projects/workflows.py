@@ -218,7 +218,7 @@ class CreateProject(workflows.Workflow):
         try:
             desc = data['description']
             self.object = api.keystone.tenant_create(request,
-                                                     tenant_name=data['name'],
+                                                     name=data['name'],
                                                      description=desc,
                                                      enabled=data['enabled'])
         except:
@@ -242,9 +242,9 @@ class CreateProject(workflows.Workflow):
                 users_added = 0
                 for user in role_list:
                     api.keystone.add_tenant_user_role(request,
-                                                      tenant_id=project_id,
-                                                      user_id=user,
-                                                      role_id=role.id)
+                                                      project=project_id,
+                                                      user=user,
+                                                      role=role.id)
                     users_added += 1
                 users_to_add -= users_added
         except:
@@ -300,12 +300,16 @@ class UpdateProject(workflows.Workflow):
         return message % self.context.get('name', 'unknown project')
 
     def handle(self, request, data):
+        # FIXME(gabriel): This should be refactored to use Python's built-in
+        # sets and do this all in a single "roles to add" and "roles to remove"
+        # pass instead of the multi-pass thing happening now.
+
         project_id = data['project_id']
         # update project info
         try:
             api.keystone.tenant_update(request,
-                                       tenant_id=project_id,
-                                       tenant_name=data['name'],
+                                       project_id,
+                                       name=data['name'],
                                        description=data['description'],
                                        enabled=data['enabled'])
         except:
@@ -315,63 +319,80 @@ class UpdateProject(workflows.Workflow):
         # update project members
         users_to_modify = 0
         try:
+            # Get our role options
             available_roles = api.keystone.role_list(request)
+
+            # Get the users currently associated with this project so we
+            # can diff against it.
             project_members = api.keystone.user_list(request,
-                                                     tenant_id=project_id)
+                                                     project=project_id)
             users_to_modify = len(project_members)
+
             for user in project_members:
-                current_roles = [role for role in
-                                 api.keystone.roles_for_user(self.request,
-                                                             user.id,
-                                                             project_id)]
-                effective_roles = []
+                # Check if there have been any changes in the roles of
+                # Existing project members.
+                current_roles = api.keystone.roles_for_user(self.request,
+                                                            user.id,
+                                                            project_id)
+                current_role_ids = [role.id for role in current_roles]
                 for role in available_roles:
-                    role_list = data["role_" + role.id]
-                    if user.id in role_list:
-                        effective_roles.append(role)
-                        if role not in current_roles:
+                    # Check if the user is in the list of users with this role.
+                    if user.id in data["role_" + role.id]:
+                        # Add it if necessary
+                        if role.id not in current_role_ids:
                             # user role has changed
                             api.keystone.add_tenant_user_role(
                                 request,
-                                tenant_id=project_id,
-                                user_id=user.id,
-                                role_id=role.id)
+                                project=project_id,
+                                user=user.id,
+                                role=role.id)
                         else:
-                            # user role is unchanged
-                            current_roles.pop(current_roles.index(role))
-                if user.id == request.user.id and \
-                        project_id == request.user.tenant_id and \
-                        any(x.name == 'admin' for x in current_roles):
-                    # Cannot remove "admin" role on current(admin) project
-                    msg = _('You cannot remove the "admin" role from the '
-                            'project you are currently logged into. Please '
-                            'switch to another project with admin permissions '
-                            'or remove the role manually via the CLI')
-                    messages.warning(request, msg)
+                            # User role is unchanged, so remove it from the
+                            # remaining roles list to avoid removing it later.
+                            index = current_role_ids.index(role.id)
+                            current_role_ids.pop(index)
+
+                # Prevent admins from doing stupid things to themselves.
+                is_current_user = user.id == request.user.id
+                is_current_project = project_id == request.user.tenant_id
+                admin_roles = [role for role in current_roles
+                               if role.name.lower() == 'admin']
+                if len(admin_roles):
+                    removing_admin = any([role.id in current_role_ids
+                                          for role in admin_roles])
                 else:
-                    # delete user's removed roles
-                    for to_delete in current_roles:
+                    removing_admin = False
+                if is_current_user and is_current_project and removing_admin:
+                    # Cannot remove "admin" role on current(admin) project
+                    msg = _('You cannot revoke your administrative privileges '
+                            'from the project you are currently logged into. '
+                            'Please switch to another project with '
+                            'administrative privileges or remove the '
+                            'administrative role manually via the CLI.')
+                    messages.warning(request, msg)
+
+                # Otherwise go through and revoke any removed roles.
+                else:
+                    for id_to_delete in current_role_ids:
                         api.keystone.remove_tenant_user_role(
                             request,
-                            tenant_id=project_id,
-                            user_id=user.id,
-                            role_id=to_delete.id)
+                            project=project_id,
+                            user=user.id,
+                            role=id_to_delete)
                 users_to_modify -= 1
 
-            # add new roles to project
+            # Grant new roles on the project.
             for role in available_roles:
-                # count how many users may be added for exception handling
-                role_list = data["role_" + role.id]
-                users_to_modify += len(role_list)
+                # Count how many users may be added for exception handling.
+                users_to_modify += len(data["role_" + role.id])
             for role in available_roles:
-                role_list = data["role_" + role.id]
                 users_added = 0
-                for user_id in role_list:
+                for user_id in data["role_" + role.id]:
                     if not filter(lambda x: user_id == x.id, project_members):
                         api.keystone.add_tenant_user_role(request,
-                                                          tenant_id=project_id,
-                                                          user_id=user_id,
-                                                          role_id=role.id)
+                                                          project=project_id,
+                                                          user=user_id,
+                                                          role=role.id)
                     users_added += 1
                 users_to_modify -= users_added
         except:
