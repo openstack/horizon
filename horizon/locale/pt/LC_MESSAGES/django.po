@@ -4,13 +4,15 @@
 # 
 # Translators:
 # Translators:
-# FIRST AUTHOR Jeffrey Wilcox, 2011.
+# Translators:
+# Translators:
+# FIRST AUTHOR Jeffrey Wilcox, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2013-03-12 08:28+0000\n"
+"PO-Revision-Date: 2013-04-29 08:33+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
 "MIME-Version: 1.0\n"

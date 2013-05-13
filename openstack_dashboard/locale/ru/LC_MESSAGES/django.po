@@ -4,17 +4,19 @@
 # 
 # Translators:
 # Translators:
-#   <ilyaalekseyev@acm.org>, 2012.
-# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2013.
-# Stanislav Hanzhin <hanzhin.stas@gmail.com>, 2012.
+# Translators:
+# Translators:
+# adiantum <ilyaalekseyev@acm.org>, 2012
+# adiantum <ilyaalekseyev@acm.org>, 2013
+# Stanislav Hanzhin <hanzhin.stas@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:09+0000\n"
-"PO-Revision-Date: 2013-03-13 09:00+0000\n"
-"Last-Translator: adiantum <ilyaalekseyev@acm.org>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
+"PO-Revision-Date: 2013-05-08 08:24+0000\n"
+"Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/openstack/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -160,11 +162,11 @@ msgstr ""
 
 #: dashboards/admin/flavors/forms.py:39
 msgid "Root Disk GB"
-msgstr ""
+msgstr "Основной диск GB"
 
 #: dashboards/admin/flavors/forms.py:40
 msgid "Ephemeral Disk GB"
-msgstr ""
+msgstr "Эфимерный диск GB"
 
 #: dashboards/admin/flavors/forms.py:41
 msgid "Swap Disk MB"
@@ -182,27 +184,27 @@ msgstr ""
 #: dashboards/admin/flavors/forms.py:70
 #, python-format
 msgid "Created flavor \"%s\"."
-msgstr ""
+msgstr "Создан тип сервера \"%s\"."
 
 #: dashboards/admin/flavors/forms.py:74
 msgid "Unable to create flavor."
-msgstr ""
+msgstr "Невозможно создать тип сервера."
 
 #: dashboards/admin/flavors/forms.py:106
 #, python-format
 msgid "Updated flavor \"%s\"."
-msgstr ""
+msgstr "Обновлен тип сервера \"%s\"."
 
 #: dashboards/admin/flavors/forms.py:110
 msgid "Unable to update flavor."
-msgstr ""
+msgstr "Невозможно обновить тип сервера."
 
 #: dashboards/admin/flavors/panel.py:29 dashboards/admin/flavors/tables.py:15
 #: dashboards/admin/flavors/tables.py:66
 #: dashboards/admin/flavors/templates/flavors/index.html:3
 #: dashboards/admin/flavors/templates/flavors/index.html:6
 msgid "Flavors"
-msgstr ""
+msgstr "Типы серверов"
 
 #: dashboards/admin/flavors/tables.py:14
 #: dashboards/admin/flavors/templates/flavors/extras/create.html:7
@@ -211,7 +213,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_detail_overview.html:22
 #: dashboards/project/instances/workflows/create_instance.py:180
 msgid "Flavor"
-msgstr ""
+msgstr "Тип сервера"
 
 #: dashboards/admin/flavors/tables.py:23
 #: dashboards/admin/flavors/templates/flavors/_create.html:8
@@ -219,14 +221,14 @@ msgstr ""
 #: dashboards/admin/flavors/templates/flavors/create.html:3
 #: dashboards/admin/flavors/templates/flavors/create.html:6
 msgid "Create Flavor"
-msgstr ""
+msgstr "Создать тип сервера"
 
 #: dashboards/admin/flavors/tables.py:30
 #: dashboards/admin/flavors/templates/flavors/_edit.html:8
 #: dashboards/admin/flavors/templates/flavors/edit.html:3
 #: dashboards/admin/flavors/templates/flavors/edit.html:6
 msgid "Edit Flavor"
-msgstr ""
+msgstr "Редактировать тип сервера"
 
 #: dashboards/admin/flavors/tables.py:37
 msgid "View Extra Specs"
@@ -235,29 +237,29 @@ msgstr ""
 #: dashboards/admin/flavors/tables.py:43 dashboards/admin/flavors/tables.py:47
 #, python-format
 msgid "%sMB"
-msgstr ""
+msgstr "%sMB"
 
 #: dashboards/admin/flavors/tables.py:51
 msgid "Flavor Name"
-msgstr ""
+msgstr "Название типа сервера"
 
 #: dashboards/admin/flavors/tables.py:54
 #: dashboards/project/instances/templates/instances/_detail_overview.html:24
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:14
 #: usage/tables.py:22
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #: dashboards/admin/flavors/tables.py:56
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:11
 msgid "Root Disk"
-msgstr ""
+msgstr "Основной диск"
 
 #: dashboards/admin/flavors/tables.py:58
 #: dashboards/project/instances/templates/instances/_detail_overview.html:31
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:12
 msgid "Ephemeral Disk"
-msgstr ""
+msgstr "Эфимерный диск"
 
 #: dashboards/admin/flavors/tables.py:60
 msgid "Swap Disk"
@@ -265,12 +267,12 @@ msgstr ""
 
 #: dashboards/admin/flavors/views.py:49
 msgid "Unable to retrieve flavor list."
-msgstr ""
+msgstr "Невозможно получить список типов серверов."
 
 #: dashboards/admin/flavors/views.py:76
 #: dashboards/admin/flavors/extras/views.py:45
 msgid "Unable to retrieve flavor data."
-msgstr ""
+msgstr "Невозможно получить данные типа сервера."
 
 #: dashboards/admin/flavors/extras/forms.py:34
 #: dashboards/admin/flavors/extras/forms.py:52
@@ -377,11 +379,11 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/_create_snapshot.html:17
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:14
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: dashboards/admin/flavors/templates/flavors/_create.html:18
 msgid "From here you can define the sizing of a new flavor."
-msgstr ""
+msgstr "Здесь вы можете определить объемы ресурсов нового типа сервера."
 
 #: dashboards/admin/flavors/templates/flavors/_create.html:24
 #: dashboards/admin/flavors/templates/flavors/_edit.html:25
@@ -426,11 +428,11 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/_create_snapshot.html:24
 #: dashboards/settings/user/templates/user/_settings.html:24
 msgid "Cancel"
-msgstr ""
+msgstr "Отменить"
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:18
 msgid "From here you can alter the sizing of the current flavor."
-msgstr ""
+msgstr "Здесь вы можете изменить объемы ресурсов текущего типа сервера."
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:19
 msgid ""
@@ -3581,7 +3583,7 @@ msgstr ""
 msgid ""
 "Create Pool for current tenant.\n"
 "\n"
-"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by defaul.t"
+"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by default."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:98

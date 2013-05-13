@@ -4,20 +4,22 @@
 # 
 # Translators:
 # Translators:
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2012-2013.
-#   <alb.molina@gmail.com>, 2012.
-# Ender Mujica <emujicad@gmail.com>, 2013.
-# Gabriel Hurley <gabriel@strikeawe.com>, 2012.
-#   <jonathan.abdiel@gmail.com>, 2012.
-# Pedro Navarro Pérez <pednape@gmail.com>, 2012.
+# Translators:
+# Translators:
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2012-2013
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2012
+# emujicad <emujicad@gmail.com>, 2013
+# Gabriel Hurley <gabriel@strikeawe.com>, 2012
+# zeus <jonathan.abdiel@gmail.com>, 2012
+# Pedro Navarro Pérez <pednape@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2013-03-12 08:28+0000\n"
-"Last-Translator: emujicad <emujicad@gmail.com>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
+"PO-Revision-Date: 2013-04-29 08:33+0000\n"
+"Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/openstack/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,7 +45,7 @@ msgstr "No autorizado. Por favor ingrese de nuevo."
 
 #: browsers/base.py:90
 msgid "Navigation Item"
-msgstr "Item de Navegación"
+msgstr "Ítem de Navegación"
 
 #: browsers/views.py:42
 #, python-format
@@ -134,19 +136,19 @@ msgstr "Ingresar"
 
 #: templates/auth/_login.html:14
 msgid "You don't have permissions to access:"
-msgstr ""
+msgstr "No tiene permisos para acceder:"
 
 #: templates/auth/_login.html:16
 msgid "Login as different user or go back to"
-msgstr ""
+msgstr "Ingresar como otro usuario o volver"
 
 #: templates/auth/_login.html:17
 msgid "home page"
-msgstr ""
+msgstr "Inicio"
 
 #: templates/auth/_login.html:27
 msgid "Sign In"
-msgstr "Ingresar"
+msgstr "Darse de alta"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
@@ -177,11 +179,11 @@ msgstr[1] "Mostrando %(counter)s items"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
-msgstr ""
+msgstr "Más"
 
 #: templates/horizon/common/_quota_summary.html:4
 msgid "Quota Summary"
-msgstr "Resumen"
+msgstr "Resumen de cuotas"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -201,37 +203,37 @@ msgstr "de"
 
 #: templates/horizon/common/_quota_summary.html:5
 msgid "Available Instances"
-msgstr "Todas las Instancias"
+msgstr "Instancias disponibles"
 
 #: templates/horizon/common/_quota_summary.html:8
 msgid "Available vCPUs"
-msgstr "Disponible"
+msgstr "vCPUs disponibles"
 
 #: templates/horizon/common/_quota_summary.html:11
 msgid "Available RAM"
-msgstr "Disponible"
+msgstr "RAM Disponible"
 
 #: templates/horizon/common/_quota_summary.html:15
 msgid "Available volumes"
-msgstr ""
+msgstr "Volúmenes disponibles"
 
 #: templates/horizon/common/_quota_summary.html:18
 msgid "Available volume storage"
-msgstr ""
+msgstr "Almacenamiento de volúmenes disponible"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Mostrando %(nav_items)s item"
-msgstr[1] "Mostrando %(nav_items)s items"
+msgstr[1] "Mostrando %(nav_items)s ítems"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] "Mostrando %(content_items)s item"
-msgstr[1] "Mostrando %(content_items)s items"
+msgstr[1] "Mostrando %(content_items)s ítems"
 
 #: templates/horizon/common/_sidebar.html:14
 msgid "Current Project"
@@ -239,7 +241,7 @@ msgstr "Proyecto Actual"
 
 #: templates/horizon/common/_usage_summary.html:5
 msgid "Select a month to query its usage"
-msgstr "Seleccionar un mes para solicitar su uso"
+msgstr "Seleccione un mes para el que solicitar uso"
 
 #: templates/horizon/common/_usage_summary.html:9
 msgid "Submit"
@@ -251,7 +253,7 @@ msgstr "Instancias Activas"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Active RAM"
-msgstr "Memoria Activa"
+msgstr "RAM Activa"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
@@ -372,7 +374,7 @@ msgstr "¡Hormigas gigantes están atacando Sevilla!"
 
 #: test/tests/messages.py:46
 msgid "We are now safe from ants! Go <a>here</a>!"
-msgstr ""
+msgstr "¡Estamos a salvo de las hormigas! ¡Vaya <a>aquí</a>!"
 
 #: test/tests/tables.py:107
 msgid "Batch"
@@ -384,11 +386,11 @@ msgstr "Por lotes"
 
 #: test/tests/tables.py:109 test/tests/tables.py:120
 msgid "Item"
-msgstr "Item"
+msgstr "Ítem"
 
 #: test/tests/tables.py:110 test/tests/tables.py:121
 msgid "Items"
-msgstr "Items"
+msgstr "Ítems"
 
 #: test/tests/tables.py:118
 msgid "Down"
@@ -412,7 +414,7 @@ msgstr "No hay tabla de acciones"
 
 #: test/tests/tables.py:684
 msgid "Single Table"
-msgstr ""
+msgstr "Tabla única"
 
 #: test/tests/tabs.py:36
 msgid "Tab One"
@@ -448,7 +450,7 @@ msgstr "Usuario"
 
 #: test/tests/workflows.py:47
 msgid "Test Action One"
-msgstr "Acción de prueba 1"
+msgstr "Acción de prueba Uno"
 
 #: test/tests/workflows.py:61
 msgid "Instance"
@@ -456,11 +458,11 @@ msgstr "Instancia"
 
 #: test/tests/workflows.py:64
 msgid "Test Action Two"
-msgstr "Acción de prueba 2"
+msgstr "Acción de prueba Dos"
 
 #: test/tests/workflows.py:72
 msgid "Test Action Three"
-msgstr "Acción de prueba 3"
+msgstr "Acción de prueba Tres"
 
 #: test/tests/workflows.py:77
 msgid "Admin"
@@ -468,7 +470,7 @@ msgstr "Admin"
 
 #: test/tests/workflows.py:80
 msgid "Admin Action"
-msgstr "Acciones de Administrador"
+msgstr "Acción de Administrador"
 
 #: utils/fields.py:46
 msgid "Incorrect format for IP address"
@@ -476,11 +478,11 @@ msgstr "Formato incorrecto de dirección IP"
 
 #: utils/fields.py:47
 msgid "Invalid version for IP address"
-msgstr "Versión inválida de dirección IP"
+msgstr "Versión no válida de dirección IP"
 
 #: utils/fields.py:48
 msgid "Invalid subnet mask"
-msgstr "Máscara de red inválida"
+msgstr "Máscara de red no válida"
 
 #: workflows/base.py:71
 msgid "Processing..."
@@ -488,19 +490,19 @@ msgstr "Procesando..."
 
 #: workflows/base.py:467
 msgid "All available"
-msgstr ""
+msgstr "Todas disponibles"
 
 #: workflows/base.py:468
 msgid "Members"
-msgstr ""
+msgstr "Miembros"
 
 #: workflows/base.py:469
 msgid "None available."
-msgstr ""
+msgstr "Ninguna disponible."
 
 #: workflows/base.py:470
 msgid "No members."
-msgstr ""
+msgstr "Sin miembros."
 
 #: workflows/base.py:569
 msgid "Save"

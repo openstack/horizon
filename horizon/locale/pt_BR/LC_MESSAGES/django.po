@@ -4,18 +4,21 @@
 # 
 # Translators:
 # Translators:
-# Leonardo Rodrigues de Mello <>, 2012.
-# Leonardo Rodrigues de Mello <leonardo@gridstack.com.br>, 2012.
-# Marcelo Dieder <marcelodieder@gmail.com>, 2012.
-#   <matt@nycresistor.com>, 2012.
-#   <welkson@gmail.com>, 2012.
+# Translators:
+# Translators:
+# Josemar Müller Lohn <j@lo.hn>, 2013
+# Leonardo Rodrigues de Mello <leonardo@gridstack.com.br>, 2012
+# Leonardo Rodrigues de Mello <leonardo@gridstack.com.br>, 2012
+# Marcelo Dieder <marcelodieder@gmail.com>, 2012
+# openfly <matt@nycresistor.com>, 2012
+# Welkson Renny de Medeiros <welkson@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2013-03-12 08:28+0000\n"
-"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
+"PO-Revision-Date: 2013-04-29 08:33+0000\n"
+"Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +50,7 @@ msgstr "Item de Navegação"
 #: browsers/views.py:42
 #, python-format
 msgid "Select a %s to browse."
-msgstr ""
+msgstr "Selecione um %s para navegar."
 
 #: conf/default.py:29
 msgid "Password is not accepted"
@@ -60,11 +63,11 @@ msgstr "Filtro"
 #: tables/actions.py:527
 #, python-format
 msgid "%(action)s %(data_type)s"
-msgstr ""
+msgstr "%(action)s %(data_type)s"
 
 #: tables/actions.py:561
 msgid "N/A"
-msgstr ""
+msgstr "N/D"
 
 #: tables/actions.py:589
 #, python-format
@@ -92,7 +95,7 @@ msgstr "Removido"
 #: tables/base.py:275
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr ""
+msgstr "O Atributo %(attr)s não existem em %(obj)s."
 
 #: tables/base.py:748
 msgid "No items to display."
@@ -105,7 +108,7 @@ msgstr "Ações"
 #: tables/base.py:1035
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr ""
+msgstr "Não foi encontrada correspondência para a id \"%s\"."
 
 #: tables/base.py:1165
 msgid "Please select a row before taking that action."
@@ -133,15 +136,15 @@ msgstr "Entrar"
 
 #: templates/auth/_login.html:14
 msgid "You don't have permissions to access:"
-msgstr ""
+msgstr "Você não tem permissão para acessar:"
 
 #: templates/auth/_login.html:16
 msgid "Login as different user or go back to"
-msgstr ""
+msgstr "Logue como um usuário diferente ou volte"
 
 #: templates/auth/_login.html:17
 msgid "home page"
-msgstr ""
+msgstr "página principal"
 
 #: templates/auth/_login.html:27
 msgid "Sign In"
@@ -176,11 +179,11 @@ msgstr[1] "Mostrando  %(counter)s items"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
-msgstr ""
+msgstr "Mais"
 
 #: templates/horizon/common/_quota_summary.html:4
 msgid "Quota Summary"
-msgstr ""
+msgstr "Resumo de Quota"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -188,7 +191,7 @@ msgstr ""
 #: templates/horizon/common/_quota_summary.html:15
 #: templates/horizon/common/_quota_summary.html:18
 msgid "Used"
-msgstr ""
+msgstr "Usado"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -196,41 +199,41 @@ msgstr ""
 #: templates/horizon/common/_quota_summary.html:15
 #: templates/horizon/common/_quota_summary.html:18
 msgid "of"
-msgstr ""
+msgstr "de"
 
 #: templates/horizon/common/_quota_summary.html:5
 msgid "Available Instances"
-msgstr ""
+msgstr "Instâncias disponíveis"
 
 #: templates/horizon/common/_quota_summary.html:8
 msgid "Available vCPUs"
-msgstr ""
+msgstr "vCPUs disponíveis"
 
 #: templates/horizon/common/_quota_summary.html:11
 msgid "Available RAM"
-msgstr ""
+msgstr "RAM disponível"
 
 #: templates/horizon/common/_quota_summary.html:15
 msgid "Available volumes"
-msgstr ""
+msgstr "Volumes disponíveis"
 
 #: templates/horizon/common/_quota_summary.html:18
 msgid "Available volume storage"
-msgstr ""
+msgstr "Volume de armazenamento disponível"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mostrando %(nav_items)s item"
+msgstr[1] "Mostrando %(nav_items)s items"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mostrando %(content_items)s item"
+msgstr[1] "Mostrando %(content_items)s items"
 
 #: templates/horizon/common/_sidebar.html:14
 msgid "Current Project"
@@ -250,7 +253,7 @@ msgstr "Instâncias ativas"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Active RAM"
-msgstr ""
+msgstr "RAM ativa"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
@@ -371,15 +374,15 @@ msgstr "Formigas gigantes estão atacando São Paulo!"
 
 #: test/tests/messages.py:46
 msgid "We are now safe from ants! Go <a>here</a>!"
-msgstr ""
+msgstr "Agora estamos salvos das formigas! Vá <a>aqui</a>!"
 
 #: test/tests/tables.py:107
 msgid "Batch"
-msgstr ""
+msgstr "Lote"
 
 #: test/tests/tables.py:108
 msgid "Batched"
-msgstr ""
+msgstr "Lote"
 
 #: test/tests/tables.py:109 test/tests/tables.py:120
 msgid "Item"
@@ -391,51 +394,51 @@ msgstr "Itens"
 
 #: test/tests/tables.py:118
 msgid "Down"
-msgstr ""
+msgstr "Para baixo"
 
 #: test/tests/tables.py:118
 msgid "Up"
-msgstr ""
+msgstr "Para cima"
 
 #: test/tests/tables.py:119
 msgid "Downed"
-msgstr ""
+msgstr "Baixado"
 
 #: test/tests/tables.py:119
 msgid "Upped"
-msgstr ""
+msgstr "Levantado"
 
 #: test/tests/tables.py:187
 msgid "No Actions Table"
-msgstr ""
+msgstr "Tabela Sem Ação"
 
 #: test/tests/tables.py:684
 msgid "Single Table"
-msgstr ""
+msgstr "Tabela simples"
 
 #: test/tests/tabs.py:36
 msgid "Tab One"
-msgstr ""
+msgstr "Aba Um"
 
 #: test/tests/tabs.py:42
 msgid "Delayed Tab"
-msgstr ""
+msgstr "Aba Atrasada"
 
 #: test/tests/tabs.py:49
 msgid "Disabled Tab"
-msgstr ""
+msgstr "Aba Desativada"
 
 #: test/tests/tabs.py:58
 msgid "Disallowed Tab"
-msgstr ""
+msgstr "Aba Proibida"
 
 #: test/tests/tabs.py:76
 msgid "Tab With My Table"
-msgstr ""
+msgstr "Aba Com Minha Tabela"
 
 #: test/tests/tabs.py:85
 msgid "Recoverable Error Tab"
-msgstr ""
+msgstr "Aba de Erros Recuperáveis"
 
 #: test/tests/workflows.py:43
 msgid "Project"
@@ -487,19 +490,19 @@ msgstr "Processando..."
 
 #: workflows/base.py:467
 msgid "All available"
-msgstr ""
+msgstr "Tudo disponível"
 
 #: workflows/base.py:468
 msgid "Members"
-msgstr ""
+msgstr "Membros"
 
 #: workflows/base.py:469
 msgid "None available."
-msgstr ""
+msgstr "Nenhum disponível."
 
 #: workflows/base.py:470
 msgid "No members."
-msgstr ""
+msgstr "Sem membros."
 
 #: workflows/base.py:569
 msgid "Save"

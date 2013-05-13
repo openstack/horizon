@@ -4,16 +4,18 @@
 # 
 # Translators:
 # Translators:
-#   <bluejay.ahn@gmail.com>, 2012.
-# Sung Jin Gang <potopro@gmail.com>, 2013.
+# Translators:
+# Translators:
+# bluejay.kr <bluejay.ahn@gmail.com>, 2012
+# Sungjin Gang <potopro@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:09+0000\n"
-"PO-Revision-Date: 2013-03-19 14:50+0000\n"
-"Last-Translator: Sung Jin Gang <potopro@gmail.com>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
+"PO-Revision-Date: 2013-05-08 17:08+0000\n"
+"Last-Translator: Sungjin Gang <potopro@gmail.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openstack/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -510,7 +512,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/_update.html:21
 #: dashboards/settings/user/templates/user/_settings.html:17
 msgid "Description:"
-msgstr ""
+msgstr "설명:"
 
 #: dashboards/admin/images/templates/images/_create.html:19
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:19
@@ -596,7 +598,7 @@ msgstr "호스트"
 #: dashboards/admin/projects/workflows.py:275
 #: dashboards/admin/users/tables.py:41 dashboards/admin/users/tables.py:113
 msgid "Enabled"
-msgstr ""
+msgstr "사용"
 
 #: dashboards/admin/info/tables.py:76 dashboards/admin/info/tabs.py:50
 msgid "Services"
@@ -770,12 +772,12 @@ msgstr "프로젝트 선택"
 #: dashboards/admin/networks/forms.py:64
 #, python-format
 msgid "Network %s was successfully created."
-msgstr ""
+msgstr "%s 네트워크 생성 성공."
 
 #: dashboards/admin/networks/forms.py:70
 #, python-format
 msgid "Failed to create network %s"
-msgstr ""
+msgstr "%s 네트워크 생성 실패"
 
 #: dashboards/admin/networks/forms.py:77
 #: dashboards/admin/networks/templates/networks/ports/_update.html:12
@@ -854,7 +856,7 @@ msgstr "네트워크 생성"
 #: dashboards/project/networks/tables.py:74
 #: dashboards/project/networks/templates/networks/_update.html:7
 msgid "Edit Network"
-msgstr ""
+msgstr "네트워크 수정"
 
 #: dashboards/admin/networks/tables.py:68
 #: dashboards/admin/networks/ports/forms.py:35
@@ -957,27 +959,27 @@ msgstr "%s 서브넷 삭제 "
 #: dashboards/admin/networks/templates/networks/ports/create.html:3
 #: dashboards/admin/networks/templates/networks/ports/create.html:6
 msgid "Create Port"
-msgstr ""
+msgstr "포트 생성"
 
 #: dashboards/admin/networks/ports/tables.py:62
 #: dashboards/admin/networks/templates/networks/ports/_update.html:7
 #: dashboards/project/networks/ports/tables.py:46
 #: dashboards/project/networks/templates/networks/ports/_update.html:7
 msgid "Edit Port"
-msgstr ""
+msgstr "포트 수정"
 
 #: dashboards/admin/networks/ports/tables.py:75
 #: dashboards/admin/routers/ports/tables.py:45
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/routers/ports/tables.py:77
 msgid "Fixed IPs"
-msgstr ""
+msgstr "고정 IP"
 
 #: dashboards/admin/networks/ports/tables.py:76
 #: dashboards/admin/routers/ports/tables.py:46
 #: dashboards/project/routers/ports/tables.py:78
 msgid "Device Attached"
-msgstr ""
+msgstr "장치 연결"
 
 #: dashboards/admin/networks/ports/tabs.py:32
 #: dashboards/admin/overview/panel.py:29
@@ -993,7 +995,7 @@ msgstr ""
 #: dashboards/project/routers/ports/tabs.py:29
 #: dashboards/project/volumes/tabs.py:27
 msgid "Overview"
-msgstr ""
+msgstr "개요"
 
 #: dashboards/admin/networks/ports/tabs.py:42
 #: dashboards/project/networks/ports/tabs.py:42
@@ -1013,14 +1015,14 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:6
 #: dashboards/project/routers/ports/forms.py:31
 msgid "Subnet"
-msgstr ""
+msgstr "Subnet"
 
 #: dashboards/admin/networks/subnets/tables.py:33
 #: dashboards/admin/networks/subnets/tables.py:81
 #: dashboards/project/networks/subnets/tables.py:45
 #: dashboards/project/networks/subnets/tables.py:104
 msgid "Subnets"
-msgstr ""
+msgstr "Subnets"
 
 #: dashboards/admin/networks/subnets/tables.py:49
 #: dashboards/admin/networks/templates/networks/subnets/create.html:3
@@ -1031,12 +1033,12 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/subnets/create.html:3
 #: dashboards/project/networks/templates/networks/subnets/create.html:6
 msgid "Create Subnet"
-msgstr ""
+msgstr "Subnet 생성"
 
 #: dashboards/admin/networks/subnets/tables.py:60
 #: dashboards/project/networks/subnets/tables.py:72
 msgid "Edit Subnet"
-msgstr ""
+msgstr "Subnet 수정"
 
 #: dashboards/admin/networks/subnets/tables.py:72
 #: dashboards/project/access_and_security/security_groups/forms.py:133
@@ -1044,20 +1046,20 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:155
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 msgid "CIDR"
-msgstr ""
+msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:73
 #: dashboards/project/networks/workflows.py:73
 #: dashboards/project/networks/subnets/tables.py:85
 #: dashboards/project/networks/subnets/workflows.py:106
 msgid "IP Version"
-msgstr ""
+msgstr "IP 버전"
 
 #: dashboards/admin/networks/subnets/tables.py:74
 #: dashboards/project/networks/subnets/tables.py:86
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
 msgid "Gateway IP"
-msgstr ""
+msgstr "Gateway IP"
 
 #: dashboards/admin/networks/subnets/workflows.py:48
 #, python-format
@@ -1079,14 +1081,14 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/_update.html:22
 #: dashboards/project/networks/templates/networks/ports/_update.html:27
 msgid "Save Changes"
-msgstr ""
+msgstr "변경사항을 저장"
 
 #: dashboards/admin/networks/templates/networks/update.html:3
 #: dashboards/admin/networks/templates/networks/update.html:6
 #: dashboards/project/networks/templates/networks/update.html:3
 #: dashboards/project/networks/templates/networks/update.html:6
 msgid "Update Network"
-msgstr ""
+msgstr "네트워크 업데이트"
 
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
 msgid ""
@@ -1104,13 +1106,13 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/update.html:3
 #: dashboards/project/networks/templates/networks/ports/update.html:6
 msgid "Update Port"
-msgstr ""
+msgstr "포트 업데이트"
 
 #: dashboards/admin/networks/templates/networks/subnets/index.html:3
 #: dashboards/admin/networks/templates/networks/subnets/index.html:6
 #: dashboards/project/networks/templates/networks/detail.html:3
 msgid "Network Detail"
-msgstr ""
+msgstr "네트워크 상세"
 
 #: dashboards/admin/networks/templates/networks/subnets/update.html:3
 #: dashboards/admin/networks/templates/networks/subnets/update.html:6
@@ -1118,15 +1120,15 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/subnets/update.html:3
 #: dashboards/project/networks/templates/networks/subnets/update.html:6
 msgid "Update Subnet"
-msgstr ""
+msgstr "Subnet 업데이트"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
-msgstr ""
+msgstr "사용 개요"
 
 #: dashboards/admin/overview/templates/overview/usage.html:12
 msgid "Monitoring"
-msgstr ""
+msgstr "감시"
 
 #: dashboards/admin/projects/panel.py:29
 #: dashboards/admin/projects/tables.py:72
@@ -1139,11 +1141,11 @@ msgstr "프로젝트"
 
 #: dashboards/admin/projects/tables.py:19
 msgid "Modify Users"
-msgstr ""
+msgstr "사용자 수정"
 
 #: dashboards/admin/projects/tables.py:32
 msgid "View Usage"
-msgstr ""
+msgstr "사용량 확인"
 
 #: dashboards/admin/projects/tables.py:39
 #: dashboards/admin/projects/workflows.py:201
@@ -1153,14 +1155,14 @@ msgstr ""
 #: dashboards/admin/projects/templates/projects/create.html:3
 #: dashboards/admin/projects/templates/projects/create.html:6
 msgid "Create Project"
-msgstr ""
+msgstr "프로젝트 생성"
 
 #: dashboards/admin/projects/tables.py:49
 #: dashboards/admin/projects/workflows.py:293
 #: dashboards/admin/projects/templates/projects/update.html:3
 #: dashboards/admin/projects/templates/projects/update.html:6
 msgid "Edit Project"
-msgstr ""
+msgstr "프로젝트 수정"
 
 #: dashboards/admin/projects/tables.py:99
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
@@ -1168,15 +1170,15 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:16
 msgid "Project ID"
-msgstr ""
+msgstr "프로젝트 ID"
 
 #: dashboards/admin/projects/tables.py:113
 msgid "Remove"
-msgstr ""
+msgstr "삭제"
 
 #: dashboards/admin/projects/tables.py:114
 msgid "Removed"
-msgstr ""
+msgstr "삭제함"
 
 #: dashboards/admin/projects/tables.py:115 dashboards/admin/users/tables.py:42
 #: dashboards/admin/users/tables.py:79
@@ -1190,7 +1192,7 @@ msgstr ""
 #: dashboards/admin/users/templates/users/index.html:3
 #: dashboards/admin/users/templates/users/index.html:6
 msgid "Users"
-msgstr ""
+msgstr "사용자"
 
 #: dashboards/admin/projects/tables.py:134
 msgid "Unable to retrieve role information."
@@ -1198,7 +1200,7 @@ msgstr ""
 
 #: dashboards/admin/projects/tables.py:139
 msgid "Roles"
-msgstr ""
+msgstr "Roles"
 
 #: dashboards/admin/projects/tables.py:143
 msgid "Users For Project"
@@ -1206,11 +1208,11 @@ msgstr ""
 
 #: dashboards/admin/projects/tables.py:151
 msgid "Add To Project"
-msgstr ""
+msgstr "프로젝트에 추가"
 
 #: dashboards/admin/projects/tables.py:163
 msgid "Add New Users"
-msgstr ""
+msgstr "새로운 사용자 추가"
 
 #: dashboards/admin/projects/views.py:70
 msgid "Unable to retrieve project information."
@@ -1238,7 +1240,7 @@ msgstr ""
 
 #: dashboards/admin/projects/workflows.py:43
 msgid "Metadata Items"
-msgstr ""
+msgstr "Metadata 항목"
 
 #: dashboards/admin/projects/workflows.py:47
 msgid "Injected Files"
@@ -1255,22 +1257,22 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/templates/volumes/index.html:6
 msgid "Volumes"
-msgstr ""
+msgstr "볼륨"
 
 #: dashboards/admin/projects/workflows.py:51
 msgid "Gigabytes"
-msgstr ""
+msgstr "기가바이트"
 
 #: dashboards/admin/projects/workflows.py:52
 msgid "RAM (MB)"
-msgstr ""
+msgstr "RAM (MB)"
 
 #: dashboards/admin/projects/workflows.py:53
 #: dashboards/project/access_and_security/tabs.py:72
 #: dashboards/project/access_and_security/floating_ips/tables.py:52
 #: dashboards/project/access_and_security/floating_ips/tables.py:131
 msgid "Floating IPs"
-msgstr ""
+msgstr "유동 IP"
 
 #: dashboards/admin/projects/workflows.py:55
 #: dashboards/project/access_and_security/tabs.py:40
@@ -1343,12 +1345,12 @@ msgstr ""
 #: dashboards/admin/projects/workflows.py:203
 #, python-format
 msgid "Created new project \"%s\"."
-msgstr ""
+msgstr "새로운 프로젝트 \"%s\" 생성."
 
 #: dashboards/admin/projects/workflows.py:204
 #, python-format
 msgid "Unable to create project \"%s\"."
-msgstr ""
+msgstr "프로젝트 \"%s\" 생성 실패."
 
 #: dashboards/admin/projects/workflows.py:248
 #, python-format
@@ -1408,7 +1410,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:326
 #: dashboards/project/loadbalancers/workflows.py:430
 msgid "Add"
-msgstr ""
+msgstr "추가"
 
 #: dashboards/admin/projects/templates/projects/_create_user.html:7
 #, python-format
@@ -1426,7 +1428,7 @@ msgstr ""
 #: dashboards/admin/users/templates/users/create.html:3
 #: dashboards/admin/users/templates/users/create.html:7
 msgid "Create User"
-msgstr ""
+msgstr "사용자 생성"
 
 #: dashboards/admin/projects/templates/projects/_quotas.html:7
 #: dashboards/admin/projects/templates/projects/_quotas.html:22
@@ -3580,7 +3582,7 @@ msgstr ""
 msgid ""
 "Create Pool for current tenant.\n"
 "\n"
-"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by defaul.t"
+"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by default."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:98
@@ -3963,7 +3965,7 @@ msgstr ""
 #: dashboards/project/networks/subnets/tables.py:84
 #: dashboards/project/networks/subnets/workflows.py:85
 msgid "Network Address"
-msgstr ""
+msgstr "네트워크 주소"
 
 #: dashboards/project/networks/workflows.py:68
 #: dashboards/project/networks/subnets/workflows.py:90
@@ -4256,7 +4258,7 @@ msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
 msgid "IP version"
-msgstr ""
+msgstr "IP 버전"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
 msgid "IP allocation pool"

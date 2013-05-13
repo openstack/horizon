@@ -4,17 +4,19 @@
 # 
 # Translators:
 # Translators:
-#   <ilyaalekseyev@acm.org>, 2012.
-# Stanislav Hanzhin <hanzhin.stas@gmail.com>, 2012.
-#   <woof@stopme.net>, 2012.
+# Translators:
+# Translators:
+# adiantum <ilyaalekseyev@acm.org>, 2012
+# Stanislav Hanzhin <hanzhin.stas@gmail.com>, 2012
+# lykoz <woof@stopme.net>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2013-03-12 08:28+0000\n"
-"Last-Translator: Stanislav Hanzhin <hanzhin.stas@gmail.com>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
+"PO-Revision-Date: 2013-04-29 08:33+0000\n"
+"Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/openstack/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
