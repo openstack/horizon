@@ -2,20 +2,29 @@
 
 <div class="quota-dynamic">
   <h3>{% trans "Quota Summary" %}</h3>
-    <strong>{% trans "Used" %}<span> {{ usage.quotas.instances.used|intcomma }} </span> {% trans "of" %} <span> {{ usage.quotas.instances.quota|intcomma }} </span>{% trans "Available Instances" %} </strong>
-    {% horizon_progress_bar usage.quotas.instances.used usage.quotas.instances.quota %}
+    <div class="d3_quota_bar">
+       <div class="d3_pie_chart" data-used="{% widthratio usage.quotas.instances.used usage.quotas.instances.quota 100 %}"></div>
+       <strong>{% trans "Available Instances" %} <br /> {% trans "Used" %}<span> {{ usage.quotas.instances.used|intcomma }} </span> {% trans "of" %} <span> {{ usage.quotas.instances.quota|intcomma }} </span></strong>
+    </div>
 
-    <strong>{% trans "Used" %} <span> {{ usage.quotas.cores.used|intcomma }} </span>{% trans "of" %}<span> {{ usage.quotas.cores.quota|intcomma }} </span>{% trans "Available vCPUs" %} </strong>
-    {% horizon_progress_bar usage.quotas.cores.used usage.quotas.cores.quota %}
+    <div class="d3_quota_bar">
+      <div class="d3_pie_chart" data-used="{% widthratio usage.quotas.cores.used usage.quotas.cores.quota 100 %}"></div>
+      <strong>{% trans "Available VCPUs" %} <br /> {% trans "Used" %} <span> {{ usage.quotas.cores.used|intcomma }} </span>{% trans "of" %}<span> {{ usage.quotas.cores.quota|intcomma }} </span></strong>
+    </div>
 
-    <strong>{% trans "Used" %} <span> {{ usage.quotas.ram.used|intcomma }} MB </span>{% trans "of" %}<span> {{ usage.quotas.ram.quota|intcomma }} MB </span>{% trans "Available RAM" %} </strong>
-    {% horizon_progress_bar usage.quotas.ram.used usage.quotas.ram.quota %}
+    <div class="d3_quota_bar">
+      <div class="d3_pie_chart" data-used="{% widthratio usage.quotas.ram.used usage.quotas.ram.quota 100 %}"></div>
+      <strong>{% trans "Available RAM" %} <br /> {% trans "Used" %} <span> {{ usage.quotas.ram.used|intcomma }} MB </span>{% trans "of" %}<span> {{ usage.quotas.ram.quota|intcomma }} MB </span></strong>
+    </div>
 
     {% if usage.quotas.volumes %}
-      <strong>{% trans "Used" %} <span> {{ usage.quotas.volumes.used|intcomma }} </span>{% trans "of" %}<span> {{ usage.quotas.volumes.quota|intcomma }} </span>{% trans "Available volumes" %} </strong>
-      {% horizon_progress_bar usage.quotas.volumes.used usage.quotas.volumes.quota %}
-
-      <strong>{% trans "Used" %} <span> {{ usage.quotas.gigabytes.used|intcomma }} GB </span>{% trans "of" %}<span> {{ usage.quotas.gigabytes.quota|intcomma }} GB </span>{% trans "Available volume storage" %} </strong>
-      {% horizon_progress_bar usage.quotas.gigabytes.used usage.quotas.gigabytes.quota %}
+      <div class="d3_quota_bar">
+        <div class="d3_pie_chart" data-used="{% widthratio usage.quotas.volumes.used usage.quotas.volumes.quota 100 %}"></div>
+        <strong>{% trans "Available Volumes" %} <br /> {% trans "Used" %} <span> {{ usage.quotas.volumes.used|intcomma }} </span>{% trans "of" %}<span> {{ usage.quotas.volumes.quota|intcomma }} </span></strong>
+      </div>
+      <div class="d3_quota_bar">
+        <div class="d3_pie_chart" data-used="{% widthratio usage.quotas.gigabytes.used usage.quotas.gigabytes.quota 100 %}"></div>
+        <strong>{% trans "Available Volume Storage" %} <br /> {% trans "Used" %} <span> {{ usage.quotas.gigabytes.used|intcomma }} GB </span>{% trans "of" %}<span> {{ usage.quotas.gigabytes.quota|intcomma }} GB </span></strong>
+      </div>
     {% endif %}
 </div>

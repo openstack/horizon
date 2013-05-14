@@ -1,6 +1,6 @@
 /*
-  Used for animating and displaying quota information on forms which use the
-  Bootstrap progress bars. Also used for displaying flavor details on modal-
+  Used for animating and displaying quota information on forms using
+  D3js progress bars. Also used for displaying flavor details on modal-
   dialogs.
 
   Usage:
@@ -8,7 +8,6 @@
     DOM structure like this in your Django template:
 
     <div id="your_progress_bar_id" class="quota_bar">
-      {% horizon_progress_bar total_number_used max_number_allowed %}
     </div>
 
     With this progress bar, you then need to add some data- HTML attributes
@@ -66,6 +65,11 @@ horizon.Quota = {
     this.user_value_form_inputs = $($.map(this.user_value_progress_bars, function(elm) {
       return ('#' + $(elm).attr('data-progress-indicator-for'));
     }));
+
+    // Draw the initial progress bars
+    this._initialCreation(this.user_value_progress_bars)
+    this._initialCreation(this.auto_value_progress_bars)
+    this._initialCreation(this.flavor_progress_bars)
 
     this._initialAnimations();
     this._attachInputHandlers();
@@ -126,23 +130,6 @@ horizon.Quota = {
     }
   },
 
-  // Updates a progress bar, taking care of exceeding quota display as well.
-  update: function(element, percentage_used, percentage_to_update) {
-    var update_width = percentage_to_update;
-
-    if(percentage_to_update + percentage_used > 100) {
-      update_width = 100 - percentage_used;
-
-      if(!element.hasClass('progress_bar_over')) {
-        element.addClass('progress_bar_over');
-      }
-    } else {
-      element.removeClass('progress_bar_over');
-    }
-
-    element.animate({width: parseInt(update_width, 10) + "%"}, 300);
-  },
-
   /*
     When a new flavor is selected, this takes care of updating the relevant
     progress bars associated with the flavor quota usage.
@@ -176,13 +163,80 @@ horizon.Quota = {
   updateUsageFor: function(progress_element, increment_by) {
     progress_element = $(progress_element);
 
-    var update_indicator = progress_element.find('.progress_bar_selected');
+    //var update_indicator = progress_element.find('.progress_bar_selected');
     var quota_limit = parseInt(progress_element.attr('data-quota-limit'), 10);
     var quota_used = parseInt(progress_element.attr('data-quota-used'), 10);
     var percentage_to_update = ((increment_by / quota_limit) * 100);
     var percentage_used = ((quota_used / quota_limit) * 100);
 
-    this.update(update_indicator, percentage_used, percentage_to_update);
+    this.update($(progress_element).attr('id'), percentage_to_update);
+  },
+
+  // Create a new d3 bar and populate it with the current amount used
+  drawUsed: function(element, used) {
+    var w= "100%";
+    var h= 20;
+    var lvl_curve= 4;
+    var bkgrnd= "#F2F2F2";
+    var frgrnd= "grey";
+
+    // Horizontal Bars
+    var bar = d3.select("#"+element).append("svg:svg")
+        .attr("class", "chart")
+        .attr("width", w)
+        .attr("height", h)
+        .style("background-color", "white")
+        .append("g")
+
+    // background - unused resources
+    bar.append("rect")
+      .attr("y", 0)
+      .attr("width", w)
+      .attr("height", h)
+      .attr("rx", lvl_curve)
+      .attr("ry", lvl_curve)
+      .style("fill", bkgrnd)
+      .style("stroke", "#CCCCCC")
+      .style("stroke-width", 1)
+
+    // new resources
+    bar.append("rect")
+      .attr("y",0)
+      .attr("class", "newbar")
+      .attr("width", 0)
+      .attr("height", h)
+      .attr("rx", lvl_curve)
+      .attr("ry", lvl_curve)
+      .style("fill", "lightgreen")
+
+    // used resources
+    var used_bar = bar.insert("rect")
+      .attr("class", "usedbar")
+      .attr("y", 0)
+      .attr("id", "test")
+      .attr("width", 0)
+      .attr("height", h)
+      .attr("rx", lvl_curve)
+      .attr("ry", lvl_curve)
+      .style("fill", frgrnd)
+      .attr("d", used)
+      .transition()
+        .duration(500)
+        .attr("width", used + "%")
+  },
+
+  // Update the progress Bar
+  update: function(element, value) {
+    var already_used = parseInt(d3.select("#"+element).select(".usedbar").attr("d"))
+    d3.select("#"+element).select(".newbar")
+      .transition()
+        .duration(500)
+        .attr("width", (value + already_used) + "%")
+        .style("fill", function() {
+          if (value > (100 - already_used)) { return "red" }
+          else {return "lightgreen" }
+        });
+
   },
 
   /*
@@ -241,6 +295,26 @@ horizon.Quota = {
       var update_amount = parseInt(auto_progress.attr('data-progress-indicator-step-by'), 10);
 
       scope.updateUsageFor(auto_progress, update_amount);
+    });
+  },
+
+  // Draw the initial d3 bars
+  _initialCreation: function(bars) {
+    // Draw the initial progress bars
+    var scope = this;
+    $(bars).each(function(index, element) {
+      var progress_element = $(element);
+
+      var quota_limit = parseInt(progress_element.attr('data-quota-limit'), 10);
+      var quota_used = parseInt(progress_element.attr('data-quota-used'), 10);
+
+      if (!isNaN(quota_limit) && !isNaN(quota_used)) {
+        var percentage_used = ((quota_used / quota_limit) * 100);
+      } else { // If NaN percentage_used is 0
+        var percentage_used = 0;
+      }
+
+      scope.drawUsed($(element).attr('id'), percentage_used);
     });
   }
 };
