@@ -2,7 +2,7 @@ import re
 import netaddr
 from django.core.exceptions import ValidationError
 from django.forms import forms, widgets
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import force_unicode
 from django.utils.html import escape, conditional_escape
 from django.utils.functional import Promise

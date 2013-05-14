@@ -18,7 +18,7 @@ import logging
 import re
 
 from django import http
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tables

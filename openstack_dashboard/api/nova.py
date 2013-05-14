@@ -25,7 +25,7 @@ from __future__ import absolute_import
 import logging
 
 from django.conf import settings
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from novaclient.v1_1 import client as nova_client
 from novaclient.v1_1 import security_group_rules as nova_rules

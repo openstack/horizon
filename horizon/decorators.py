@@ -24,7 +24,7 @@ General-purpose decorators for use with Horizon.
 import functools
 
 from django.utils.decorators import available_attrs
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 
 def _current_component(view_func, dashboard=None, panel=None):

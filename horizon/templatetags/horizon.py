@@ -17,8 +17,9 @@
 from __future__ import absolute_import
 
 from django import template
+from django.utils.encoding import force_unicode
 from django.utils.datastructures import SortedDict
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from horizon.base import Horizon
 from horizon import conf
@@ -90,9 +91,9 @@ def quota(val, units=None):
     if val == float("inf"):
         return _("No Limit")
     elif units is not None:
-        return "%s %s %s" % (val, units, _("Available"))
+        return "%s %s %s" % (val, units, force_unicode(_("Available")))
     else:
-        return "%s %s" % (val, _("Available"))
+        return "%s %s" % (val, force_unicode(_("Available")))
 
 
 class JSTemplateNode(template.Node):

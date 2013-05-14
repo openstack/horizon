@@ -79,6 +79,6 @@ class UserSettingsForm(forms.SelfHandlingForm):
 
         request.session['horizon_pagesize'] = data['pagesize']
 
-        messages.success(request, translation.ugettext("Settings saved."))
+        messages.success(request, translation.ugettext_lazy("Settings saved."))
 
         return response

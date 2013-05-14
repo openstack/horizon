@@ -42,25 +42,25 @@ def filesizeformat(bytes, filesize_number_format):
     try:
         bytes = float(bytes)
     except (TypeError, ValueError, UnicodeDecodeError):
-        return translation.ungettext("%(size)d byte",
+        return translation.ungettext_lazy("%(size)d byte",
                 "%(size)d bytes", 0) % {'size': 0}
 
     if bytes < 1024:
-        return translation.ungettext("%(size)d",
+        return translation.ungettext_lazy("%(size)d",
                 "%(size)d", bytes) % {'size': bytes}
     if bytes < 1024 * 1024:
-        return translation.ugettext("%s KB") % \
+        return translation.ugettext_lazy("%s KB") % \
                 filesize_number_format(bytes / 1024)
     if bytes < 1024 * 1024 * 1024:
-        return translation.ugettext("%s MB") % \
+        return translation.ugettext_lazy("%s MB") % \
                 filesize_number_format(bytes / (1024 * 1024))
     if bytes < 1024 * 1024 * 1024 * 1024:
-        return translation.ugettext("%s GB") % \
+        return translation.ugettext_lazy("%s GB") % \
                 filesize_number_format(bytes / (1024 * 1024 * 1024))
     if bytes < 1024 * 1024 * 1024 * 1024 * 1024:
-        return translation.ugettext("%s TB") % \
+        return translation.ugettext_lazy("%s TB") % \
                 filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024))
-    return translation.ugettext("%s PB") % \
+    return translation.ugettext_lazy("%s PB") % \
             filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024 * 1024))
 
 

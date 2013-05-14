@@ -25,7 +25,7 @@ from __future__ import absolute_import
 import logging
 
 from django.conf import settings
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from cinderclient.v1 import client as cinder_client
 

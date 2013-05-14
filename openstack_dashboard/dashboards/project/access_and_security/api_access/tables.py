@@ -14,7 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import title
 
 from horizon import tables

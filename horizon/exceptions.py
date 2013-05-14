@@ -25,7 +25,7 @@ import sys
 from django.contrib.auth import logout
 from django.http import HttpRequest
 from django.utils import termcolors
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.views.debug import SafeExceptionReporterFilter, CLEANSED_SUBSTITUTE
 
 from horizon import messages
