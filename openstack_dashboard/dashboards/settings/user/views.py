@@ -14,6 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from horizon import forms
 
 from .forms import UserSettingsForm
@@ -25,7 +26,10 @@ class UserSettingsView(forms.ModalFormView):
 
     def get_initial(self):
         return {'language': self.request.LANGUAGE_CODE,
-                'timezone': self.request.session.get('django_timezone', 'UTC')}
+                'timezone': self.request.session.get('django_timezone', 'UTC'),
+                'pagesize': self.request.session.get(
+                        'horizon_pagesize',
+                        getattr(settings, 'API_RESULT_PAGE_SIZE', 20))}
 
     def form_valid(self, form):
         return form.handle(self.request, form.cleaned_data)
