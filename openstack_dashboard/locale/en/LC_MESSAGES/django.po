@@ -1184,7 +1184,7 @@ msgstr ""
 #: dashboards/admin/users/tables.py:79
 #: dashboards/project/instances/workflows/create_instance.py:42
 msgid "User"
-msgstr "მომხმარებელი"
+msgstr ""
 
 #: dashboards/admin/projects/tables.py:116 dashboards/admin/users/panel.py:29
 #: dashboards/admin/users/tables.py:43 dashboards/admin/users/tables.py:80
