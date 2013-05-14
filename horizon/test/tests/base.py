@@ -27,6 +27,7 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 from horizon import base
+from horizon import conf
 from horizon.test import helpers as test
 from horizon.test.test_dashboards.cats.dashboard import Cats
 from horizon.test.test_dashboards.cats.kittens.panel import Kittens
@@ -55,6 +56,7 @@ class AdminPanel(horizon.Panel):
 
 
 class BaseHorizonTests(test.TestCase):
+
     def setUp(self):
         super(BaseHorizonTests, self).setUp()
         # Adjust our horizon config and register our custom dashboards/panels.
@@ -113,6 +115,7 @@ class BaseHorizonTests(test.TestCase):
 
 
 class HorizonTests(BaseHorizonTests):
+
     def test_registry(self):
         """ Verify registration and autodiscovery work correctly.
 
@@ -164,6 +167,7 @@ class HorizonTests(BaseHorizonTests):
                                  ['<Panel: kittens>',
                                   '<Panel: tigers>'])
         self.assertEqual(cats.get_absolute_url(), "/cats/")
+        self.assertEqual(cats.name, "Cats")
 
         # Test registering a module with a dashboard that defines panels
         # as a panel group.
@@ -292,3 +296,95 @@ class HorizonTests(BaseHorizonTests):
 
         # Restore settings
         settings.SECURE_PROXY_SSL_HEADER = None
+
+
+class CustomPanelTests(BaseHorizonTests):
+
+    """ Test customization of dashboards and panels
+    using 'customization_module' to HORIZON_CONFIG.
+    """
+
+    def setUp(self):
+        settings.HORIZON_CONFIG['customization_module'] = \
+            'horizon.test.customization.cust_test1'
+        # refresh config
+        conf.HORIZON_CONFIG._setup()
+        super(CustomPanelTests, self).setUp()
+
+    def tearDown(self):
+        # Restore dash
+        cats = horizon.get_dashboard("cats")
+        cats.name = _("Cats")
+        horizon.register(Dogs)
+        self._discovered_dashboards.append(Dogs)
+        Dogs.register(Puppies)
+        Cats.register(Tigers)
+        super(CustomPanelTests, self).tearDown()
+        settings.HORIZON_CONFIG.pop('customization_module')
+        # refresh config
+        conf.HORIZON_CONFIG._setup()
+
+    def test_customize_dashboard(self):
+        cats = horizon.get_dashboard("cats")
+        self.assertEqual(cats.name, "WildCats")
+        self.assertQuerysetEqual(cats.get_panels(),
+                                 ['<Panel: kittens>'])
+        with self.assertRaises(base.NotRegistered):
+            horizon.get_dashboard("dogs")
+
+
+class CustomPermissionsTests(BaseHorizonTests):
+
+    """ Test customization of permissions on panels
+    using 'customization_module' to HORIZON_CONFIG.
+    """
+
+    def setUp(self):
+        settings.HORIZON_CONFIG['customization_module'] = \
+            'horizon.test.customization.cust_test2'
+        # refresh config
+        conf.HORIZON_CONFIG._setup()
+        super(CustomPermissionsTests, self).setUp()
+
+    def tearDown(self):
+        # Restore permissions
+        dogs = horizon.get_dashboard("dogs")
+        puppies = dogs.get_panel("puppies")
+        puppies.permissions = tuple([])
+        super(CustomPermissionsTests, self).tearDown()
+        settings.HORIZON_CONFIG.pop('customization_module')
+        # refresh config
+        conf.HORIZON_CONFIG._setup()
+
+    def test_customized_permissions(self):
+        dogs = horizon.get_dashboard("dogs")
+        panel = dogs.get_panel('puppies')
+
+        # Non-admin user
+        self.assertQuerysetEqual(self.user.get_all_permissions(), [])
+
+        resp = self.client.get(panel.get_absolute_url())
+        self.assertEqual(resp.status_code, 302)
+
+        resp = self.client.get(panel.get_absolute_url(),
+                               follow=False,
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(resp.status_code, 401)
+
+        # Test customized permissions for logged-in user
+        resp = self.client.get(panel.get_absolute_url(), follow=True)
+        self.assertEqual(resp.status_code, 200)
+        self.assertTemplateUsed(resp, "auth/login.html")
+        self.assertContains(resp, "Login as different user", 1, 200)
+
+        # Set roles for admin user
+        self.set_permissions(permissions=['test'])
+
+        resp = self.client.get(panel.get_absolute_url())
+        self.assertEqual(resp.status_code, 200)
+
+        # Test modal form
+        resp = self.client.get(panel.get_absolute_url(),
+                               follow=False,
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(resp.status_code, 200)

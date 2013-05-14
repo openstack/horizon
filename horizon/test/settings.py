@@ -98,6 +98,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture',
              '--nologcapture',
              '--exclude-dir=horizon/conf/',
+             '--exclude-dir=horizon/test/customization',
              '--cover-package=horizon',
              '--cover-inclusive',
              '--all-modules']
