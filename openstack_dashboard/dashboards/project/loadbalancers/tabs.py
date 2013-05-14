@@ -103,7 +103,7 @@ class PoolDetailsTab(tabs.Tab):
 
 
 class VipDetailsTab(tabs.Tab):
-    name = _("Vip Details")
+    name = _("VIP Details")
     slug = "vipdetails"
     template_name = "project/loadbalancers/_vip_details.html"
 
@@ -114,7 +114,7 @@ class VipDetailsTab(tabs.Tab):
         except:
             vip = []
             exceptions.handle(self.tab_group.request,
-                              _('Unable to retrieve vip details.'))
+                              _('Unable to retrieve VIP details.'))
         return {'vip': vip}
 
 

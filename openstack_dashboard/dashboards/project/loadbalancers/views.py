@@ -59,7 +59,7 @@ class IndexView(tabs.TabView):
                     api.lbaas.pool_delete(request, obj_id)
                 except:
                     exceptions.handle(request,
-                                      _('Must delete Vip first.'))
+                                      _('Must delete VIP first.'))
         if m == 'member':
             for obj_id in obj_ids:
                 try:
@@ -73,13 +73,13 @@ class IndexView(tabs.TabView):
                     vip_id = api.lbaas.pool_get(request, obj_id).vip_id
                 except:
                     exceptions.handle(request,
-                                      _('Unable to locate vip to delete.'))
+                                      _('Unable to locate VIP to delete.'))
                 if vip_id is not None:
                     try:
                         api.lbaas.vip_delete(request, vip_id)
                     except:
                         exceptions.handle(request,
-                                          _('Unable to delete vip.'))
+                                          _('Unable to delete VIP.'))
         return self.get(request, *args, **kwargs)
 
 

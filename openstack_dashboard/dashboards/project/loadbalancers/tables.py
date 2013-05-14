@@ -31,13 +31,13 @@ class AddPoolLink(tables.LinkAction):
     name = "addpool"
     verbose_name = _("Add Pool")
     url = "horizon:project:loadbalancers:addpool"
-    classes = ("btn-addpool",)
+    classes = ("ajax-modal", "btn-addpool",)
 
 
 class AddVipLink(tables.LinkAction):
     name = "addvip"
-    verbose_name = _("Add Vip")
-    classes = ("btn-addvip",)
+    verbose_name = _("Add VIP")
+    classes = ("ajax-modal", "btn-addvip",)
 
     def get_link_url(self, pool):
         base_url = reverse("horizon:project:loadbalancers:addvip",
@@ -54,22 +54,22 @@ class AddMemberLink(tables.LinkAction):
     name = "addmember"
     verbose_name = _("Add Member")
     url = "horizon:project:loadbalancers:addmember"
-    classes = ("btn-addmember",)
+    classes = ("ajax-modal", "btn-addmember",)
 
 
 class AddMonitorLink(tables.LinkAction):
     name = "addmonitor"
     verbose_name = _("Add Monitor")
     url = "horizon:project:loadbalancers:addmonitor"
-    classes = ("btn-addmonitor",)
+    classes = ("ajax-modal", "btn-addmonitor",)
 
 
 class DeleteVipLink(tables.DeleteAction):
     name = "deletevip"
     action_present = _("Delete")
     action_past = _("Scheduled deletion of")
-    data_type_singular = _("Vip")
-    data_type_plural = _("Vips")
+    data_type_singular = _("VIP")
+    data_type_plural = _("VIPs")
 
     def allowed(self, request, datum=None):
         if datum and not datum.vip_id:
