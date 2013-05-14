@@ -175,7 +175,7 @@ horizon.addInitFunction(function() {
         else {
           if (!horizon.ajax.get_messages(jqXHR)) {
             // Generic error handler. Really generic.
-            horizon.alert("error", gettext("An error occurred. Please try again."));
+            horizon.alert("error", gettext("An error occurred. Please try again later."));
           }
         }
       },
