@@ -35,6 +35,7 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
                                  'volume_type_list',),
+                        api.glance: ('image_list_detailed',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume(self):
         volume = self.volumes.first()
@@ -52,13 +53,22 @@ class VolumeViewTests(test.TestCase):
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
                                     AndReturn(self.volume_snapshots.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
                              formData['name'],
                              formData['description'],
                              formData['type'],
                              metadata={},
-                             snapshot_id=None).AndReturn(volume)
+                             snapshot_id=None,
+                             image_id=None).AndReturn(volume)
 
         self.mox.ReplayAll()
 
@@ -70,6 +80,53 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
+                                 'volume_type_list',),
+                        api.glance: ('image_list_detailed',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_volume_dropdown(self):
+        volume = self.volumes.first()
+        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
+        formData = {'name': u'A Volume I Am Making',
+                    'description': u'This is a volume I am making for a test.',
+                    'method': u'CreateForm',
+                    'size': 50,
+                    'type': '',
+                    'volume_source_type': 'no_source_type',
+                    'snapshot_source': self.volume_snapshots.first().id,
+                    'image_source': self.images.first().id}
+
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+                                 AndReturn(self.volume_snapshots.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        cinder.volume_create(IsA(http.HttpRequest),
+                             formData['size'],
+                             formData['name'],
+                             formData['description'],
+                             '',
+                             metadata={},
+                             snapshot_id=None,
+                             image_id=None).\
+                             AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:create')
+        res = self.client.post(url, formData)
+
+        redirect_url = reverse('horizon:project:volumes:index')
+        self.assertRedirectsNoFollow(res, redirect_url)
+
+    @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_get',
                                  'volume_get',
                                  'volume_type_list',),
@@ -85,7 +142,6 @@ class VolumeViewTests(test.TestCase):
                     'type': '',
                     'snapshot_source': snapshot.id}
 
-        # first call- with url param
         cinder.volume_type_list(IsA(http.HttpRequest)).\
                                 AndReturn(self.volume_types.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
@@ -99,25 +155,9 @@ class VolumeViewTests(test.TestCase):
                              formData['description'],
                              '',
                              metadata={},
-                             snapshot_id=snapshot.id).\
+                             snapshot_id=snapshot.id,
+                             image_id=None).\
                              AndReturn(volume)
-        # second call- with dropdown
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
-                                 AndReturn(self.volume_snapshots.list())
-        cinder.volume_snapshot_get(IsA(http.HttpRequest),
-                                   str(snapshot.id)).AndReturn(snapshot)
-        cinder.volume_create(IsA(http.HttpRequest),
-                             formData['size'],
-                             formData['name'],
-                             formData['description'],
-                             '',
-                             metadata={},
-                             snapshot_id=snapshot.id).\
-                             AndReturn(volume)
-
         self.mox.ReplayAll()
 
         # get snapshot from url
@@ -129,6 +169,52 @@ class VolumeViewTests(test.TestCase):
         redirect_url = reverse('horizon:project:volumes:index')
         self.assertRedirectsNoFollow(res, redirect_url)
 
+    @test.create_stubs({cinder: ('volume_create',
+                                 'volume_snapshot_list',
+                                 'volume_snapshot_get',
+                                 'volume_get',
+                                 'volume_type_list',),
+                        api.glance: ('image_list_detailed',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_volume_from_snapshot_dropdown(self):
+        volume = self.volumes.first()
+        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
+        snapshot = self.volume_snapshots.first()
+        formData = {'name': u'A Volume I Am Making',
+                    'description': u'This is a volume I am making for a test.',
+                    'method': u'CreateForm',
+                    'size': 50,
+                    'type': '',
+                    'volume_source_type': 'snapshot_source',
+                    'snapshot_source': snapshot.id}
+
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+                                 AndReturn(self.volume_snapshots.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        cinder.volume_snapshot_get(IsA(http.HttpRequest),
+                                   str(snapshot.id)).AndReturn(snapshot)
+        cinder.volume_create(IsA(http.HttpRequest),
+                             formData['size'],
+                             formData['name'],
+                             formData['description'],
+                             '',
+                             metadata={},
+                             snapshot_id=snapshot.id,
+                             image_id=None).\
+                             AndReturn(volume)
+
+        self.mox.ReplayAll()
+
         # get snapshot from dropdown list
         url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
@@ -139,6 +225,7 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_snapshot_get',
                                  'volume_type_list',
                                  'volume_get',),
+                        api.glance: ('image_list_detailed',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume_from_snapshot_invalid_size(self):
         usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
@@ -168,7 +255,132 @@ class VolumeViewTests(test.TestCase):
                              "The volume size cannot be less than the "
                              "snapshot size (40GB)")
 
+    @test.create_stubs({cinder: ('volume_create',
+                                 'volume_type_list',),
+                        api.glance: ('image_get',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_volume_from_image(self):
+        volume = self.volumes.first()
+        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
+        image = self.images.first()
+        formData = {'name': u'A Volume I Am Making',
+                    'description': u'This is a volume I am making for a test.',
+                    'method': u'CreateForm',
+                    'size': 40,
+                    'type': '',
+                    'image_source': image.id}
+
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        api.glance.image_get(IsA(http.HttpRequest),
+                             str(image.id)).AndReturn(image)
+        cinder.volume_create(IsA(http.HttpRequest),
+                             formData['size'],
+                             formData['name'],
+                             formData['description'],
+                             '',
+                             metadata={},
+                             snapshot_id=None,
+                             image_id=image.id).\
+                             AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        # get image from url
+        url = reverse('horizon:project:volumes:create')
+        res = self.client.post("?".join([url,
+                                         "image_id=" + str(image.id)]),
+                               formData)
+
+        redirect_url = reverse('horizon:project:volumes:index')
+        self.assertRedirectsNoFollow(res, redirect_url)
+
+    @test.create_stubs({cinder: ('volume_create',
+                                 'volume_type_list',
+                                 'volume_snapshot_list',),
+                        api.glance: ('image_get',
+                                     'image_list_detailed'),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_volume_from_image_dropdown(self):
+        volume = self.volumes.first()
+        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
+        image = self.images.first()
+        formData = {'name': u'A Volume I Am Making',
+                    'description': u'This is a volume I am making for a test.',
+                    'method': u'CreateForm',
+                    'size': 30,
+                    'type': '',
+                    'volume_source_type': 'image_source',
+                    'snapshot_source': self.volume_snapshots.first().id,
+                    'image_source': image.id}
+
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+                                 AndReturn(self.volume_snapshots.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        api.glance.image_get(IsA(http.HttpRequest),
+                             str(image.id)).AndReturn(image)
+        cinder.volume_create(IsA(http.HttpRequest),
+                             formData['size'],
+                             formData['name'],
+                             formData['description'],
+                             '',
+                             metadata={},
+                             snapshot_id=None,
+                             image_id=image.id).\
+                             AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        # get image from dropdown list
+        url = reverse('horizon:project:volumes:create')
+        res = self.client.post(url, formData)
+
+        redirect_url = reverse('horizon:project:volumes:index')
+        self.assertRedirectsNoFollow(res, redirect_url)
+
+    @test.create_stubs({cinder: ('volume_type_list',),
+                        api.glance: ('image_get',
+                                     'image_list_detailed'),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_volume_from_image_invalid_size(self):
+        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
+        image = self.images.first()
+        formData = {'name': u'A Volume I Am Making',
+                    'description': u'This is a volume I am making for a test.',
+                    'method': u'CreateForm',
+                    'size': 1, 'image_source': image.id}
+
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        api.glance.image_get(IsA(http.HttpRequest),
+                             str(image.id)).AndReturn(image)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:create')
+        res = self.client.post("?".join([url,
+                                         "image_id=" + str(image.id)]),
+                               formData, follow=True)
+        self.assertEqual(res.redirect_chain, [])
+        self.assertFormError(res, 'form', None,
+                             "The volume size cannot be less than the "
+                             "image size (20.0 GB)")
+
     @test.create_stubs({cinder: ('volume_snapshot_list', 'volume_type_list',),
+                        api.glance: ('image_list_detailed',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume_gb_used_over_alloted_quota(self):
         usage = {'gigabytes': {'available': 100, 'used': 20}}
@@ -182,6 +394,14 @@ class VolumeViewTests(test.TestCase):
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
                                     AndReturn(self.volume_snapshots.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
 
         self.mox.ReplayAll()
@@ -194,6 +414,7 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
     @test.create_stubs({cinder: ('volume_snapshot_list', 'volume_type_list',),
+                        api.glance: ('image_list_detailed',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume_number_over_alloted_quota(self):
         usage = {'gigabytes': {'available': 100, 'used': 20},
@@ -208,6 +429,14 @@ class VolumeViewTests(test.TestCase):
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
                                     AndReturn(self.volume_snapshots.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
 
         self.mox.ReplayAll()
@@ -222,6 +451,7 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
                                  'volume_type_list',),
+                        api.glance: ('image_list_detailed',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume_encrypted(self):
         volume = self.volumes.first()
@@ -244,13 +474,22 @@ class VolumeViewTests(test.TestCase):
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
                                     AndReturn(self.volume_snapshots.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
                              formData['name'],
                              formData['description'],
                              formData['type'],
                              metadata={'encryption': formData['encryption']},
-                             snapshot_id=None).AndReturn(volume)
+                             snapshot_id=None,
+                             image_id=None).AndReturn(volume)
 
         self.mox.ReplayAll()
 
@@ -263,6 +502,7 @@ class VolumeViewTests(test.TestCase):
         settings.OPENSTACK_HYPERVISOR_FEATURES['can_encrypt_volumes'] = PREV
 
     @test.create_stubs({cinder: ('volume_snapshot_list', 'volume_type_list',),
+                        api.glance: ('image_list_detailed',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_volume_cannot_encrypt(self):
         volume = self.volumes.first()
@@ -289,6 +529,14 @@ class VolumeViewTests(test.TestCase):
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
                                     AndReturn(self.volume_snapshots.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
 
         self.mox.ReplayAll()
 

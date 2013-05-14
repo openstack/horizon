@@ -9,6 +9,16 @@ horizon.forms = {
       var $volSize = $form.find('input#id_size');
       $volSize.val($option.data("size"));
     });
+  },
+  handle_image_source: function() {
+    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_image_source", function(evt) {
+      var $option = $(this).find("option:selected");
+      var $form = $(this).closest('form');
+      var $volName = $form.find('input#id_name');
+      $volName.val($option.data("name"));
+      var $volSize = $form.find('input#id_size');
+      $volSize.val($option.data("size"));
+    });
   }
 };
 
@@ -67,6 +77,7 @@ horizon.addInitFunction(function () {
   horizon.modals.addModalInitFunction(horizon.forms.init_examples);
 
   horizon.forms.handle_snapshot_source();
+  horizon.forms.handle_image_source();
 
   // Bind event handlers to confirm dangerous actions.
   $("body").on("click", "form button.btn-danger", function (evt) {
@@ -108,6 +119,28 @@ horizon.addInitFunction(function () {
     $(modal).find('select.switchable').trigger('change');
   });
 
+  // Handle field toggles for the Create Volume source type field
+  function update_volume_source_displayed_fields (field) {
+    var $this = $(field),
+        base_type = $this.val();
+
+    $this.find("option").each(function () {
+      if (this.value != base_type) {
+        $("#id_" + this.value).closest(".control-group").hide();
+      } else {
+        $("#id_" + this.value).closest(".control-group").show();
+      }
+    });
+  }
+
+  $(document).on('change', '#id_volume_source_type', function (evt) {
+    update_volume_source_displayed_fields(this);
+  });
+
+  $('#id_volume_source_type').change();
+  horizon.modals.addModalInitFunction(function (modal) {
+    $(modal).find("#id_volume_source_type").change();
+  });
 
   /* Help tooltips */
 
