@@ -70,10 +70,14 @@ AVAILABLE_REGIONS = [
 OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
+OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
+OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'test_domain'
+
 OPENSTACK_KEYSTONE_BACKEND = {
     'name': 'native',
     'can_edit_user': True,
-    'can_edit_project': True
+    'can_edit_project': True,
+    'can_edit_domain': True
 }
 
 OPENSTACK_QUANTUM_NETWORK = {

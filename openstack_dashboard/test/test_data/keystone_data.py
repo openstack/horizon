@@ -18,6 +18,7 @@ from django.conf import settings
 from django.utils import datetime_safe
 
 from keystoneclient.v2_0 import users, tenants, tokens, roles, ec2
+from keystoneclient.v3 import domains
 
 from .utils import TestDataContainer
 
@@ -88,6 +89,7 @@ SERVICE_CATALOG = [
 def data(TEST):
     TEST.service_catalog = SERVICE_CATALOG
     TEST.tokens = TestDataContainer()
+    TEST.domains = TestDataContainer()
     TEST.users = TestDataContainer()
     TEST.tenants = TestDataContainer()
     TEST.roles = TestDataContainer()
@@ -102,6 +104,19 @@ def data(TEST):
     TEST.roles.add(admin_role, member_role)
     TEST.roles.admin = admin_role
     TEST.roles.member = member_role
+
+    domain_dict = {'id': "1",
+                   'name': 'test_domain',
+                   'description': "a test domain.",
+                   'enabled': True}
+    domain_dict_2 = {'id': "2",
+                     'name': 'disabled_domain',
+                     'description': "a disabled test domain.",
+                     'enabled': False}
+    domain = domains.Domain(domains.DomainManager, domain_dict)
+    disabled_domain = domains.Domain(domains.DomainManager, domain_dict_2)
+    TEST.domains.add(domain, disabled_domain)
+    TEST.domain = domain  # Your "current" domain
 
     user_dict = {'id': "1",
                  'name': 'test_user',
