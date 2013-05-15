@@ -39,6 +39,7 @@ from .tabs import InstanceDetailTabs, LogTab, ConsoleTab
 LOG = logging.getLogger(__name__)
 
 ACTIVE_STATES = ("ACTIVE",)
+SNAPSHOT_READY_STATES = ("ACTIVE", "SHUTOFF")
 
 POWER_STATES = {
     0: "NO STATE",
@@ -237,7 +238,8 @@ class CreateSnapshot(tables.LinkAction):
     classes = ("ajax-modal", "btn-camera")
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES and not is_deleting(instance)
+        return instance.status in SNAPSHOT_READY_STATES \
+            and not is_deleting(instance)
 
 
 class ConsoleLink(tables.LinkAction):
@@ -440,6 +442,7 @@ TASK_DISPLAY_CHOICES = (
 
 
 class InstancesFilterAction(tables.FilterAction):
+
     def filter(self, table, instances, filter_string):
         """ Naive case-insensitive search. """
         q = filter_string.lower()
