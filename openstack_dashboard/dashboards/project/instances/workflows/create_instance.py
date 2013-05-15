@@ -199,21 +199,30 @@ class SetInstanceDetailsAction(workflows.Action):
         source = cleaned_data['source_type']
         # There should always be at least one image_id choice, telling the user
         # that there are "No Images Available" so we check for 2 here...
-        if source == 'image_id' and not \
-                filter(lambda x: x[0] != '', self.fields['image_id'].choices):
-            raise forms.ValidationError(_("There are no image sources "
-                                          "available; you must first create "
-                                          "an image before attempting to "
-                                          "launch an instance."))
-        if not cleaned_data[source]:
-            raise forms.ValidationError(_("Please select an option for the "
-                                          "instance source."))
+        volume_type = self.data.get('volume_type', None)
+        if volume_type:  # Boot from volume
+            if cleaned_data[source]:
+                raise forms.ValidationError(_("You can't select an instance "
+                                              "source when booting from a "
+                                              "Volume. The Volume is your "
+                                              "source and should contain "
+                                              "the operating system."))
+        else:  # Boot from image / image_snapshot
+            if source == 'image_id' and not \
+                 filter(lambda x: x[0] != '', self.fields['image_id'].choices):
+                raise forms.ValidationError(_("There are no image sources "
+                                              "available; you must first "
+                                              "create an image before "
+                                              "attemtping to launch an "
+                                              "instance."))
+            elif not cleaned_data[source]:
+                raise forms.ValidationError(_("Please select an option for the"
+                                              " instance source."))
 
         # Prevent launching multiple instances with the same volume.
         # TODO(gabriel): is it safe to launch multiple instances with
         # a snapshot since it should be cloned to new volumes?
         count = cleaned_data.get('count', 1)
-        volume_type = self.data.get('volume_type', None)
         if volume_type and count > 1:
             msg = _('Launching multiple instances is only supported for '
                     'images and instance snapshots.')
