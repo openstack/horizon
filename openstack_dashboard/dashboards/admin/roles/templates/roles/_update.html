@@ -1,0 +1,25 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}update_role_form{% endblock %}
+{% block form_action %}{% url 'horizon:admin:roles:update' role.id %}{% endblock %}
+
+{% block modal-header %}{% trans "Update Role" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% trans "From here you can edit the role's details." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Update Role" %}" />
+  <a href="{% url 'horizon:admin:roles:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

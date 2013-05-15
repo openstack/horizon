@@ -77,7 +77,8 @@ OPENSTACK_KEYSTONE_BACKEND = {
     'name': 'native',
     'can_edit_user': True,
     'can_edit_project': True,
-    'can_edit_domain': True
+    'can_edit_domain': True,
+    'can_edit_role': True
 }
 
 OPENSTACK_QUANTUM_NETWORK = {

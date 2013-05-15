@@ -360,6 +360,26 @@ def user_update_tenant(request, user, project, admin=True):
         return manager.update(user, project=project)
 
 
+def role_create(request, name):
+    manager = keystoneclient(request, admin=True).roles
+    return manager.create(name)
+
+
+def role_get(request, role_id):
+    manager = keystoneclient(request, admin=True).roles
+    return manager.get(role_id)
+
+
+def role_update(request, role_id, name=None):
+    manager = keystoneclient(request, admin=True).roles
+    return manager.update(role_id, name)
+
+
+def role_delete(request, role_id):
+    manager = keystoneclient(request, admin=True).roles
+    return manager.delete(role_id)
+
+
 def role_list(request):
     """ Returns a global list of available roles. """
     return keystoneclient(request, admin=True).roles.list()
@@ -450,6 +470,11 @@ def keystone_can_edit_user():
 def keystone_can_edit_project():
     backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
     return backend_settings.get('can_edit_project', True)
+
+
+def keystone_can_edit_role():
+    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
+    return backend_settings.get('can_edit_role', True)
 
 
 def keystone_backend_name():
