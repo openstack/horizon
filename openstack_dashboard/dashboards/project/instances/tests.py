@@ -613,8 +613,7 @@ class InstanceTests(test.TestCase):
                                    'flavor_list',
                                    'server_delete'),
                         cinder: ('volume_snapshot_list',),
-                        api.glance: ('snapshot_list_detailed',
-                                     'image_list_detailed')})
+                        api.glance: ('image_list_detailed',)})
     def test_create_instance_snapshot(self):
         server = self.servers.first()
 
@@ -623,8 +622,6 @@ class InstanceTests(test.TestCase):
                                  server.id,
                                  "snapshot1").AndReturn(self.snapshots.first())
 
-        api.glance.snapshot_list_detailed(IsA(http.HttpRequest),
-                                          marker=None).AndReturn([[], False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn([[], False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])

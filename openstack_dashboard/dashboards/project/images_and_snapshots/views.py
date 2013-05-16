@@ -34,7 +34,6 @@ from horizon import tabs
 from openstack_dashboard import api
 from openstack_dashboard.api.base import is_service_enabled
 from .images.tables import ImagesTable
-from .snapshots.tables import SnapshotsTable
 from .volume_snapshots.tables import VolumeSnapshotsTable
 from .volume_snapshots.tabs import SnapshotDetailTabs
 
@@ -42,7 +41,7 @@ LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.MultiTableView):
-    table_classes = (ImagesTable, SnapshotsTable, VolumeSnapshotsTable)
+    table_classes = (ImagesTable, VolumeSnapshotsTable)
     template_name = 'project/images_and_snapshots/index.html'
 
     def has_more_data(self, table):
@@ -57,23 +56,11 @@ class IndexView(tables.MultiTableView):
              self._more_images) = api.glance.image_list_detailed(self.request,
                                                                  marker=marker)
             images = [im for im in all_images
-                      if im.container_format not in ['aki', 'ari'] and
-                      im.properties.get("image_type", '') != "snapshot"]
+                      if im.container_format not in ['aki', 'ari']]
         except:
             images = []
             exceptions.handle(self.request, _("Unable to retrieve images."))
         return images
-
-    def get_snapshots_data(self):
-        req = self.request
-        marker = req.GET.get(SnapshotsTable._meta.pagination_param, None)
-        try:
-            snaps, self._more_snapshots = api.glance.snapshot_list_detailed(
-                req, marker=marker)
-        except:
-            snaps = []
-            exceptions.handle(req, _("Unable to retrieve snapshots."))
-        return snaps
 
     def get_volume_snapshots_data(self):
         if is_service_enabled(self.request, 'volume'):

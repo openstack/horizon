@@ -44,29 +44,11 @@ class GlanceApiTests(test.APITestCase):
         self.assertItemsEqual(images, api_images)
         self.assertFalse(has_more)
 
-    def test_snapshot_list_detailed(self):
-        # The total image count is under page size, should return all images.
-        api_images = self.images.list()
-        filters = {'property-image_type': 'snapshot'}
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
-
-        glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        glanceclient.images.list(page_size=page_size + 1,
-                                 limit=limit,
-                                 filters=filters,).AndReturn(iter(api_images))
-        self.mox.ReplayAll()
-
-        images, has_more = api.glance.snapshot_list_detailed(self.request)
-        self.assertItemsEqual(images, api_images)
-        self.assertFalse(has_more)
-
     @override_settings(API_RESULT_PAGE_SIZE=2)
-    def test_snapshot_list_detailed_pagination(self):
+    def test_image_list_detailed_pagination(self):
         # The total snapshot count is over page size, should return
         # page_size images.
-        filters = {'property-image_type': 'snapshot'}
+        filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
@@ -78,11 +60,13 @@ class GlanceApiTests(test.APITestCase):
         # Pass back all images, ignoring filters
         glanceclient.images.list(limit=limit,
                                  page_size=page_size + 1,
-                                 filters=filters,) \
-                                .AndReturn(images_iter)
+                                 filters=filters,).AndReturn(images_iter)
         self.mox.ReplayAll()
 
-        images, has_more = api.glance.snapshot_list_detailed(self.request)
+        images, has_more = api.glance.image_list_detailed(self.request,
+                                                          marker=None,
+                                                          filters=filters,
+                                                          paginate=True)
         expected_images = api_images[:page_size]
         self.assertItemsEqual(images, expected_images)
         self.assertTrue(has_more)
@@ -92,9 +76,9 @@ class GlanceApiTests(test.APITestCase):
                          len(api_images) - len(expected_images) - 1)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
-    def test_snapshot_list_detailed_pagination_marker(self):
+    def test_image_list_detailed_pagination_marker(self):
         # Tests getting a second page with a marker.
-        filters = {'property-image_type': 'snapshot'}
+        filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
         marker = 'nonsense'
@@ -108,12 +92,13 @@ class GlanceApiTests(test.APITestCase):
         glanceclient.images.list(limit=limit,
                                  page_size=page_size + 1,
                                  filters=filters,
-                                 marker=marker) \
-                                .AndReturn(images_iter)
+                                 marker=marker).AndReturn(images_iter)
         self.mox.ReplayAll()
 
-        images, has_more = api.glance.snapshot_list_detailed(self.request,
-                                                             marker=marker)
+        images, has_more = api.glance.image_list_detailed(self.request,
+                                                          marker=marker,
+                                                          filters=filters,
+                                                          paginate=True)
         expected_images = api_images[:page_size]
         self.assertItemsEqual(images, expected_images)
         self.assertTrue(has_more)

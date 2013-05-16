@@ -102,9 +102,3 @@ def image_create(request, **kwargs):
                                 {'copy_from': copy_from})
 
     return image
-
-
-def snapshot_list_detailed(request, marker=None, extra_filters=None):
-    filters = {'property-image_type': 'snapshot'}
-    filters.update(extra_filters or {})
-    return image_list_detailed(request, marker, filters, paginate=True)
