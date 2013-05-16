@@ -23,10 +23,12 @@ import logging
 
 from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext_lazy as _
+from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions
 from horizon import forms
 from horizon import workflows
+from horizon.utils import validators
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
@@ -306,6 +308,16 @@ class SetAccessControlsAction(workflows.Action):
                                        help_text=_("Which keypair to use for "
                                                    "authentication."),
                                        add_item_link=KEYPAIR_IMPORT_URL)
+    admin_pass = forms.RegexField(
+            label=_("Admin Pass"),
+            required=False,
+            widget=forms.PasswordInput(render_value=False),
+            regex=validators.password_validator(),
+            error_messages={'invalid': validators.password_validator_msg()})
+    confirm_admin_pass = forms.CharField(
+            label=_("Confirm Admin Pass"),
+            required=False,
+            widget=forms.PasswordInput(render_value=False))
     groups = forms.MultipleChoiceField(label=_("Security Groups"),
                                        required=True,
                                        initial=["default"],
@@ -344,17 +356,29 @@ class SetAccessControlsAction(workflows.Action):
             security_group_list = []
         return security_group_list
 
+    def clean(self):
+        '''Check to make sure password fields match.'''
+        cleaned_data = super(SetAccessControlsAction, self).clean()
+        if 'admin_pass' in cleaned_data:
+            if cleaned_data['admin_pass'] != cleaned_data.get(
+                    'confirm_admin_pass', None):
+                raise forms.ValidationError(_('Passwords do not match.'))
+        return cleaned_data
+
 
 class SetAccessControls(workflows.Step):
     action_class = SetAccessControlsAction
     depends_on = ("project_id", "user_id")
-    contributes = ("keypair_id", "security_group_ids")
+    contributes = ("keypair_id", "security_group_ids",
+            "admin_pass", "confirm_admin_pass")
 
     def contribute(self, data, context):
         if data:
             post = self.workflow.request.POST
             context['security_group_ids'] = post.getlist("groups")
             context['keypair_id'] = data.get("keypair", "")
+            context['admin_pass'] = data.get("admin_pass", "")
+            context['confirm_admin_pass'] = data.get("confirm_admin_pass", "")
         return context
 
 
@@ -448,6 +472,7 @@ class LaunchInstance(workflows.Workflow):
         else:
             return message % {"count": _("instance"), "name": name}
 
+    @sensitive_variables('context')
     def handle(self, request, context):
         custom_script = context.get('customization_script', '')
 
@@ -480,7 +505,8 @@ class LaunchInstance(workflows.Workflow):
                                    context['security_group_ids'],
                                    dev_mapping,
                                    nics=nics,
-                                   instance_count=int(context['count']))
+                                   instance_count=int(context['count']),
+                                   admin_pass=context['admin_pass'])
             return True
         except:
             exceptions.handle(request)
