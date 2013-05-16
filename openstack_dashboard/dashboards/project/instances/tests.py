@@ -30,7 +30,6 @@ from mox import IsA, IgnoreArg
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.usage import quotas
 from .tables import LaunchLink
 from .tabs import InstanceDetailTabs
 from .workflows import LaunchInstance
@@ -798,14 +797,13 @@ class InstanceTests(test.TestCase):
     @test.create_stubs({api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
+                                   'tenant_absolute_limits',
                                    'availability_zone_list',),
                         cinder: ('volume_snapshot_list',
                                  'volume_list',),
-                        quotas: ('tenant_quota_usages',),
                         api.quantum: ('network_list',),
                         api.glance: ('image_list_detailed',)})
     def test_launch_instance_get(self):
-        quota_usages = self.quota_usages.first()
         image = self.images.first()
 
         cinder.volume_list(IsA(http.HttpRequest)) \
@@ -827,8 +825,8 @@ class InstanceTests(test.TestCase):
         api.quantum.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-                .AndReturn(quota_usages)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+                .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -861,7 +859,6 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
-                        quotas: ('tenant_quota_usages',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
@@ -941,8 +938,8 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
-                        quotas: ('tenant_quota_usages',),
                         api.nova: ('flavor_list',
+                                   'tenant_absolute_limits',
                                    'keypair_list',
                                    'security_group_list',
                                    'availability_zone_list',
@@ -963,7 +960,8 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn({})
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+           .AndReturn(self.limits['absolute'])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
@@ -1021,7 +1019,6 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
-                        quotas: ('tenant_quota_usages',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
@@ -1105,7 +1102,6 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
-                        quotas: ('tenant_quota_usages',),
                         api.nova: ('server_create',
                                    'flavor_list',
                                    'keypair_list',
@@ -1191,11 +1187,11 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
-                        quotas: ('tenant_quota_usages',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'availability_zone_list',
-                                   'security_group_list',),
+                                   'security_group_list',
+                                   'tenant_absolute_limits',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',)})
     def test_launch_instance_post_no_images_available(self):
@@ -1208,7 +1204,8 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn({})
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+           .AndReturn(self.limits['absolute'])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
@@ -1262,12 +1259,12 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
-                        quotas: ('tenant_quota_usages',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
+                                   'tenant_absolute_limits',
                                    'availability_zone_list',)})
     def test_launch_flavorlist_error(self):
         cinder.volume_list(IsA(http.HttpRequest)) \
@@ -1289,8 +1286,8 @@ class InstanceTests(test.TestCase):
         api.quantum.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-                .AndReturn(self.quota_usages.first())
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+           .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndRaise(self.exceptions.nova)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1390,10 +1387,10 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
-                        quotas: ('tenant_quota_usages',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
+                                   'tenant_absolute_limits',
                                    'availability_zone_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',)})
@@ -1438,8 +1435,8 @@ class InstanceTests(test.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-                .AndReturn(self.quota_usages.first())
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+           .AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
 
@@ -1514,15 +1511,14 @@ class InstanceTests(test.TestCase):
     @test.create_stubs({api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
-                                   'availability_zone_list',),
+                                   'availability_zone_list',
+                                   'tenant_absolute_limits',),
                         cinder: ('volume_snapshot_list',
                                  'volume_list',),
-                        quotas: ('tenant_quota_usages',),
                         api.quantum: ('network_list',),
                         api.glance: ('image_list_detailed',)})
     def test_select_default_keypair_if_only_one(self):
         keypair = self.keypairs.first()
-        quota_usages = self.quota_usages.first()
         image = self.images.first()
 
         cinder.volume_list(IsA(http.HttpRequest)) \
@@ -1544,8 +1540,8 @@ class InstanceTests(test.TestCase):
         api.quantum.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-                .AndReturn(quota_usages)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+           .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1627,19 +1623,18 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.nova: ('server_get',
-                                   'flavor_list',),
-                        quotas: ('tenant_quota_usages',)})
+                                   'flavor_list',
+                                   'tenant_absolute_limits')})
     def test_instance_resize_get(self):
         server = self.servers.first()
-
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
                 .AndReturn(server)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-                .AndReturn(self.quota_usages.first())
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+           .AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
 

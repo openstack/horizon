@@ -27,7 +27,6 @@ from horizon import workflows
 from horizon import forms
 
 from openstack_dashboard import api
-from openstack_dashboard.usage import quotas
 
 
 LOG = logging.getLogger(__name__)
@@ -72,7 +71,7 @@ class SetFlavorChoiceAction(workflows.Action):
     def get_help_text(self):
         extra = {}
         try:
-            extra['usages'] = quotas.tenant_quota_usages(self.request)
+            extra['usages'] = api.nova.tenant_absolute_limits(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])
             flavors = json.dumps([f._info for f in
                                   api.nova.flavor_list(self.request)])

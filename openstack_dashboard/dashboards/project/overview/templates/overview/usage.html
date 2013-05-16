@@ -7,7 +7,7 @@
 {% endblock page_header %}
 
 {% block main %}
-  {% include "horizon/common/_quota_summary.html" %}
+  {% include "horizon/common/_limit_summary.html" %}
   {% include "horizon/common/_usage_summary.html" %}
   {{ table.render }}
 {% endblock %}
