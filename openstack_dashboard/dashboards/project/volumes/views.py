@@ -47,6 +47,7 @@ class VolumeTableMixIn(object):
         except:
             exceptions.handle(self.request,
                               _('Unable to retrieve volume list.'))
+            return []
 
     def _get_instances(self):
         try:
@@ -55,6 +56,7 @@ class VolumeTableMixIn(object):
             exceptions.handle(self.request,
                               _("Unable to retrieve volume/instance "
                                 "attachment information"))
+            return []
 
     def _set_id_if_nameless(self, volumes, instances):
         for volume in volumes:
