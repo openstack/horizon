@@ -493,10 +493,11 @@ class BatchAction(Action):
         self.current_past_action = 0
         self.data_type_plural = getattr(self, 'data_type_plural',
                                         self.data_type_singular + 's')
+        # If setting a default name, don't initialise it too early
         self.verbose_name = getattr(self, "verbose_name",
-                                    self._conjugate())
+                                    self._conjugate)
         self.verbose_name_plural = getattr(self, "verbose_name_plural",
-                                           self._conjugate('plural'))
+                                           lambda: self._conjugate('plural'))
         # Keep record of successfully handled objects
         self.success_ids = []
         super(BatchAction, self).__init__()
