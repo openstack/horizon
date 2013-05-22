@@ -180,9 +180,14 @@ def get_service_from_catalog(catalog, service_type):
     return None
 
 
-# TODO: Use API discovery to determine the version, for now read the settings
-IDENTITY_VERSION = getattr(settings, APIVersionManager.SETTINGS_KEY, {}).\
-    get('identity', 2.0)
+def get_version_from_service(service):
+    if service:
+        endpoint = service['endpoints'][0]
+        if 'interface' in endpoint:
+            return 3
+        else:
+            return 2.0
+    return 2.0
 
 
 # Mapping of V2 Catalog Endpoint_type to V3 Catalog Interfaces
@@ -199,11 +204,12 @@ def url_for(request, service_type, admin=False, endpoint_type=None):
                                              'publicURL')
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)
+    identity_version = get_version_from_service(service)
     if admin:
         endpoint_type = 'adminURL'
     if service:
         try:
-            if IDENTITY_VERSION < 3:
+            if identity_version < 3:
                 return service['endpoints'][0][endpoint_type]
             else:
                 interface = ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
