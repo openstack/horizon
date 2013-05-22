@@ -11,6 +11,7 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard.api.lbaas import Pool, Vip, Member, PoolMonitor
 
 from .tabs import LoadBalancerTabs, MembersTab, PoolsTab, MonitorsTab
+from .forms import UpdatePool
 from .workflows import AddPool, AddMember, AddMonitor, AddVip
 from horizon.workflows.views import WorkflowView
 
@@ -35,6 +36,8 @@ class LoadBalancerTests(test.TestCase):
     VIP_DETAIL_PATH = 'horizon:%s:loadbalancers:vipdetails' % DASHBOARD
     MEMBER_DETAIL_PATH = 'horizon:%s:loadbalancers:memberdetails' % DASHBOARD
     MONITOR_DETAIL_PATH = 'horizon:%s:loadbalancers:monitordetails' % DASHBOARD
+
+    UPDATEPOOL_PATH = 'horizon:%s:loadbalancers:updatepool' % DASHBOARD
 
     def set_up_expect(self):
         # retrieve pools
@@ -532,3 +535,40 @@ class LoadBalancerTests(test.TestCase):
 
         expected_objs = ['<AddMemberStep: addmemberaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
+
+    @test.create_stubs({api.lbaas: ('pool_get', 'pool_update')})
+    def test_update_pool_post(self):
+        pool = self.pools.first()
+
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+
+        data = {'name': pool.name,
+                'description': pool.description,
+                'lb_method': pool.lb_method,
+                'admin_state_up': pool.admin_state_up}
+
+        api.lbaas.pool_update(IsA(http.HttpRequest), pool.id, pool=data)\
+            .AndReturn(pool)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+        form_data.update({'pool_id': pool.id})
+
+        res = self.client.post(
+            reverse(self.UPDATEPOOL_PATH, args=(pool.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.lbaas: ('pool_get',)})
+    def test_update_pool_get(self):
+        pool = self.pools.first()
+
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse(self.UPDATEPOOL_PATH, args=(pool.id,)))
+
+        self.assertTemplateUsed(res, 'project/loadbalancers/updatepool.html')

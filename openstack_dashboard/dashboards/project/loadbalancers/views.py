@@ -18,9 +18,11 @@ import logging
 import re
 
 from django import http
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon import forms
 from horizon import tables
 from horizon import tabs
 from horizon import workflows
@@ -28,6 +30,7 @@ from horizon import workflows
 from openstack_dashboard import api
 
 from .workflows import AddPool, AddMember, AddMonitor, AddVip
+from .forms import UpdatePool
 from .tabs import LoadBalancerTabs, PoolDetailsTabs, VipDetailsTabs
 from .tabs import MemberDetailsTabs, MonitorDetailsTabs
 from .tables import DeleteMonitorLink
@@ -146,3 +149,34 @@ class MemberDetailsView(tabs.TabView):
 class MonitorDetailsView(tabs.TabView):
     tab_group_class = (MonitorDetailsTabs)
     template_name = 'project/loadbalancers/details_tabs.html'
+
+
+class UpdatePoolView(forms.ModalFormView):
+    form_class = UpdatePool
+    template_name = "project/loadbalancers/updatepool.html"
+    context_object_name = 'pool'
+    success_url = reverse_lazy("horizon:project:loadbalancers:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdatePoolView, self).get_context_data(**kwargs)
+        context["pool_id"] = self.kwargs['pool_id']
+        return context
+
+    def _get_object(self, *args, **kwargs):
+        if not hasattr(self, "_object"):
+            pool_id = self.kwargs['pool_id']
+            try:
+                self._object = api.lbaas.pool_get(self.request, pool_id)
+            except:
+                redirect = self.success_url
+                msg = _('Unable to retrieve pool details.')
+                exceptions.handle(self.request, msg, redirect=redirect)
+        return self._object
+
+    def get_initial(self):
+        pool = self._get_object()
+        return {'name': pool['name'],
+                'pool_id': pool['id'],
+                'description': pool['description'],
+                'lb_method': pool['lb_method'],
+                'admin_state': pool['admin_state_up']}

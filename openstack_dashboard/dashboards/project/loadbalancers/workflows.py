@@ -499,4 +499,5 @@ class AddMonitor(workflows.Workflow):
                 request, **context).get('id')
             return True
         except:
-            return False
+            exceptions.handle(request, _("Unable to add monitor."))
+        return False
