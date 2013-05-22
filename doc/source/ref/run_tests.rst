@@ -35,13 +35,10 @@ script. All you need to do is::
 
     ./run_tests.sh
 
-Yep, that's it. However, for a quicker test run you can skip the Selenium
-tests by using the ``--skip-selenium`` flag::
+Yep, that's it. However, for a more thorough test run you can include the
+Selenium tests by using the ``--with-selenium`` flag::
 
-    ./run_tests.sh --skip-selenium
-
-This isn't recommended, but can be a timesaver when you only need to run
-the code tests and not the frontend tests during development.
+    ./run_tests.sh --with-selenium
 
 Running a subset of tests
 -------------------------
