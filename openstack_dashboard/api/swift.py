@@ -25,6 +25,8 @@ import swiftclient
 from django.conf import settings
 
 from horizon import exceptions
+from horizon import messages
+from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard.api.base import url_for, APIDictWrapper
 
@@ -135,6 +137,13 @@ def swift_create_container(request, name):
 
 
 def swift_delete_container(request, name):
+    # It cannot be deleted if it's not empty. The batch remove of objects
+    # be done in swiftclient instead of Horizon.
+    objects, more = swift_get_objects(request, name)
+    if objects:
+        messages.warning(request,
+            _("The container cannot be deleted since it's not empty."))
+        return False
     swift_api(request).delete_container(name)
     return True
 
