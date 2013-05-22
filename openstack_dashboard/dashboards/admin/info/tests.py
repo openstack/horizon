@@ -47,7 +47,8 @@ class ServicesViewTests(test.BaseAdminViewTests):
                                   '<Service: identity (native backend)>',
                                   '<Service: object-store>',
                                   '<Service: network>',
-                                  '<Service: ec2>'])
+                                  '<Service: ec2>',
+                                  '<Service: orchestration>'])
 
         quotas_tab = res.context['tab_group'].get_tab('quotas')
         self.assertQuerysetEqual(quotas_tab._tables['quotas'].data,
