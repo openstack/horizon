@@ -58,7 +58,6 @@ class IndexView(tables.DataTableView):
 
 class CreateView(workflows.WorkflowView):
     workflow_class = CreateNetwork
-    template_name = 'project/networks/create.html'
 
     def get_initial(self):
         pass

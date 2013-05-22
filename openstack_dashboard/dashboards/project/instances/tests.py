@@ -34,6 +34,7 @@ from openstack_dashboard.usage import quotas
 from .tables import LaunchLink
 from .tabs import InstanceDetailTabs
 from .workflows import LaunchInstance
+from horizon.workflows.views import WorkflowView
 
 
 INDEX_URL = reverse('horizon:project:instances:index')
@@ -660,7 +661,7 @@ class InstanceTests(test.TestCase):
         url = reverse('horizon:project:instances:update', args=[server.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'project/instances/update.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs(instance_update_get_stubs)
     def test_instance_update_get_server_get_exception(self):
@@ -844,8 +845,7 @@ class InstanceTests(test.TestCase):
         res = self.client.get("%s?%s" % (url, params))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res,
-                        'project/instances/launch.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
         self.assertEqual(res.context['workflow'].name, LaunchInstance.name)
         step = workflow.get_step("setinstancedetailsaction")
         self.assertEqual(step.action.initial['image_id'], image.id)
@@ -1005,8 +1005,7 @@ class InstanceTests(test.TestCase):
         self.assertFormErrors(res, 1, 'There are no image sources available; '
                                       'you must first create an image before '
                                       'attempting to launch an instance.')
-        self.assertTemplateUsed(res,
-                        'project/instances/launch.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),
@@ -1052,8 +1051,7 @@ class InstanceTests(test.TestCase):
         url = reverse('horizon:project:instances:launch')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res,
-                        'project/instances/launch.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.quantum: ('network_list',),

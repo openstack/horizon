@@ -128,7 +128,6 @@ class TenantUsageView(usage.UsageView):
 
 class CreateProjectView(workflows.WorkflowView):
     workflow_class = CreateProject
-    template_name = "admin/projects/create.html"
 
     def get_initial(self):
         initial = super(CreateProjectView, self).get_initial()
@@ -148,7 +147,6 @@ class CreateProjectView(workflows.WorkflowView):
 
 class UpdateProjectView(workflows.WorkflowView):
     workflow_class = UpdateProject
-    template_name = "admin/projects/update.html"
 
     def get_initial(self):
         initial = super(UpdateProjectView, self).get_initial()

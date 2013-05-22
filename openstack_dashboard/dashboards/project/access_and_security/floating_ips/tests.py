@@ -30,6 +30,7 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 from .utils import get_int_or_uuid
+from horizon.workflows.views import WorkflowView
 
 
 INDEX_URL = reverse('horizon:project:access_and_security:index')
@@ -48,8 +49,7 @@ class FloatingIpViewTests(test.TestCase):
 
         url = reverse('%s:associate' % NAMESPACE)
         res = self.client.get(url)
-        self.assertTemplateUsed(res,
-                    'project/access_and_security/floating_ips/associate.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
         workflow = res.context['workflow']
         choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
         # Verify that our "associated" floating IP isn't in the choices list.

@@ -24,6 +24,7 @@ import netaddr
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from .workflows import CreateNetwork
+from horizon.workflows.views import WorkflowView
 
 
 INDEX_URL = reverse('horizon:project:networks:index')
@@ -225,7 +226,7 @@ class NetworkTests(test.TestCase):
         res = self.client.get(url)
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, 'project/networks/create.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
         self.assertEqual(workflow.name, CreateNetwork.name)
         expected_objs = ['<CreateNetworkInfo: createnetworkinfoaction>',
                          '<CreateSubnetInfo: createsubnetinfoaction>',
@@ -602,7 +603,7 @@ class NetworkSubnetTests(test.TestCase):
                       args=[network.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'project/networks/subnets/create.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs({api.quantum: ('network_get',
                                       'subnet_create',)})
@@ -759,8 +760,7 @@ class NetworkSubnetTests(test.TestCase):
 
         expected_msg = 'Network Address and IP version are inconsistent.'
         self.assertFormErrors(res, 1, expected_msg)
-        self.assertTemplateUsed(res,
-                                'project/networks/subnets/create.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs({api.quantum: ('network_get',)})
     def test_subnet_create_post_gw_inconsistent(self):

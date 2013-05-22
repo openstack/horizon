@@ -27,6 +27,7 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 from .workflows import CreateProject, UpdateProject
+from horizon.workflows.views import WorkflowView
 
 INDEX_URL = reverse('horizon:admin:projects:index')
 
@@ -91,7 +92,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:projects:create')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'admin/projects/create.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
 
         workflow = res.context['workflow']
         self.assertEqual(res.context['workflow'].name, CreateProject.name)
@@ -194,7 +195,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:projects:create')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'admin/projects/create.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
         self.assertContains(res, "Unable to retrieve default quota values")
 
     @test.create_stubs({api.keystone: ('tenant_create',
@@ -443,7 +444,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                       args=[self.tenant.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'admin/projects/update.html')
+        self.assertTemplateUsed(res, WorkflowView.template_name)
 
         workflow = res.context['workflow']
         self.assertEqual(res.context['workflow'].name, UpdateProject.name)
