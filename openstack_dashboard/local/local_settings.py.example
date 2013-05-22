@@ -210,6 +210,10 @@ LOGGING = {
             'handlers': ['console'],
             'propagate': False,
         },
+        'cinderclient': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
         'keystoneclient': {
             'handlers': ['console'],
             'propagate': False,
