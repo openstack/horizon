@@ -14,6 +14,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.template.defaultfilters import register
 
+
+@register.filter
 def replace_underscores(string):
     return string.replace("_", " ")
