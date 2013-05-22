@@ -25,14 +25,21 @@ from mox import IsA
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
 
 INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
 
 
 class VolumeSnapshotsViewTests(test.TestCase):
+    @test.create_stubs({quotas: ('tenant_quota_usages',)})
     def test_create_snapshot_get(self):
         volume = self.volumes.first()
+        usage = {'gigabytes': {'available': 250},
+                 'snapshots': {'available': 6}}
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        self.mox.ReplayAll()
+
         url = reverse('horizon:project:volumes:create_snapshot',
                       args=[volume.id])
         res = self.client.get(url)

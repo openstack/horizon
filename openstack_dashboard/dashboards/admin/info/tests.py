@@ -31,7 +31,7 @@ class ServicesViewTests(test.BaseAdminViewTests):
         api.nova.default_quota_get(IsA(http.HttpRequest),
                                    self.tenant.id).AndReturn(self.quotas.nova)
         api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-                .AndReturn(self.quotas.nova)
+                .AndReturn(self.cinder_quotas.first())
 
         self.mox.ReplayAll()
 
@@ -59,6 +59,7 @@ class ServicesViewTests(test.BaseAdminViewTests):
                                  '<Quota: (floating_ips, 1)>',
                                  '<Quota: (fixed_ips, 10)>',
                                  '<Quota: (instances, 10)>',
+                                 '<Quota: (snapshots, 1)>',
                                  '<Quota: (volumes, 1)>',
                                  '<Quota: (cores, 10)>',
                                  '<Quota: (security_groups, 10)>',

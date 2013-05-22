@@ -113,6 +113,10 @@ class CreateSnapshotView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(CreateSnapshotView, self).get_context_data(**kwargs)
         context['volume_id'] = self.kwargs['volume_id']
+        try:
+            context['usages'] = quotas.tenant_quota_usages(self.request)
+        except:
+            exceptions.handle(self.request)
         return context
 
     def get_initial(self):

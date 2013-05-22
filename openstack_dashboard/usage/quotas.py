@@ -19,6 +19,7 @@ NOVA_QUOTA_FIELDS = ("metadata_items",
                      "security_group_rules",)
 
 CINDER_QUOTA_FIELDS = ("volumes",
+                       "snapshots",
                        "gigabytes",)
 
 QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS
@@ -136,8 +137,10 @@ def tenant_quota_usages(request):
 
     if 'volumes' not in disabled_quotas:
         volumes = cinder.volume_list(request)
+        snapshots = cinder.volume_snapshot_list(request)
         usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
         usages.tally('volumes', len(volumes))
+        usages.tally('snapshots', len(snapshots))
 
     # Sum our usage based on the flavors of the instances.
     for flavor in [flavors[instance.flavor['id']] for instance in instances]:
