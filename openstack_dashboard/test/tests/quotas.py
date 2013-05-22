@@ -56,6 +56,8 @@ class QuotaTests(test.APITestCase):
                         quotas: ('is_service_enabled',),
                         cinder: ('volume_list', 'tenant_quota_get',)})
     def test_tenant_quota_usages(self):
+        servers = [s for s in self.servers.list()
+                   if s.tenant_id == self.request.user.tenant_id]
         quotas.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -65,7 +67,7 @@ class QuotaTests(test.APITestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
         api.nova.server_list(IsA(http.HttpRequest)) \
-                .AndReturn([self.servers.list(), False])
+                .AndReturn([servers, False])
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -85,6 +87,8 @@ class QuotaTests(test.APITestCase):
                         api.network: ('tenant_floating_ip_list',),
                         quotas: ('is_service_enabled',)})
     def test_tenant_quota_usages_without_volume(self):
+        servers = [s for s in self.servers.list()
+                   if s.tenant_id == self.request.user.tenant_id]
         quotas.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(False)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -94,7 +98,7 @@ class QuotaTests(test.APITestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
         api.nova.server_list(IsA(http.HttpRequest)) \
-                .AndReturn([self.servers.list(), False])
+                .AndReturn([servers, False])
 
         self.mox.ReplayAll()
 
@@ -143,6 +147,8 @@ class QuotaTests(test.APITestCase):
     def test_tenant_quota_usages_unlimited_quota(self):
         inf_quota = self.quotas.first()
         inf_quota['ram'] = -1
+        servers = [s for s in self.servers.list()
+                   if s.tenant_id == self.request.user.tenant_id]
 
         quotas.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(True)
@@ -153,7 +159,7 @@ class QuotaTests(test.APITestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
         api.nova.server_list(IsA(http.HttpRequest)) \
-                .AndReturn([self.servers.list(), False])
+                .AndReturn([servers, False])
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \

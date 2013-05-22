@@ -14,6 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from .base import BaseUsage, TenantUsage, GlobalUsage, almost_now
+from .base import BaseUsage, ProjectUsage, GlobalUsage, almost_now
 from .views import UsageView
-from .tables import BaseUsageTable, TenantUsageTable, GlobalUsageTable
+from .tables import BaseUsageTable, ProjectUsageTable, GlobalUsageTable
