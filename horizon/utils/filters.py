@@ -14,9 +14,25 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import iso8601
+
 from django.template.defaultfilters import register
 
 
 @register.filter
 def replace_underscores(string):
     return string.replace("_", " ")
+
+
+@register.filter
+def parse_isotime(timestr):
+    """
+    This duplicates oslo timeutils parse_isotime but with a
+    @register.filter annotation.
+    """
+    try:
+        return iso8601.parse_date(timestr)
+    except iso8601.ParseError as e:
+        raise ValueError(e.message)
+    except TypeError as e:
+        raise ValueError(e.message)

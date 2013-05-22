@@ -5,6 +5,7 @@ pbr>=0.5,<0.6
 Django>=1.4,<1.6
 django_compressor
 django_openstack_auth>=1.0.8
+iso8601>=0.1.4
 netaddr
 python-cinderclient>=1.0.2,<2.0.0
 python-glanceclient<2
