@@ -20,6 +20,7 @@ def load_test_data(load_onto=None):
     from . import nova_data
     from . import quantum_data
     from . import swift_data
+    from . import heat_data
 
     # The order of these loaders matters, some depend on others.
     loaders = (exceptions.data,
@@ -27,7 +28,8 @@ def load_test_data(load_onto=None):
                glance_data.data,
                nova_data.data,
                quantum_data.data,
-               swift_data.data)
+               swift_data.data,
+               heat_data.data)
     if load_onto:
         for data_func in loaders:
             data_func(load_onto)
