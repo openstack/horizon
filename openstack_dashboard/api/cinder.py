@@ -39,6 +39,7 @@ LOG = logging.getLogger(__name__)
 
 # API static values
 VOLUME_STATE_AVAILABLE = "available"
+DEFAULT_QUOTA_NAME = 'default'
 
 
 def cinderclient(request):
@@ -132,6 +133,10 @@ def tenant_quota_update(request, tenant_id, **kwargs):
 
 def default_quota_get(request, tenant_id):
     return base.QuotaSet(cinderclient(request).quotas.defaults(tenant_id))
+
+
+def default_quota_update(request, **kwargs):
+    cinderclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
 
 
 def volume_type_list(request):

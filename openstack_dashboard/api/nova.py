@@ -47,6 +47,7 @@ LOG = logging.getLogger(__name__)
 # API static values
 INSTANCE_ACTIVE_STATE = 'ACTIVE'
 VOLUME_STATE_AVAILABLE = "available"
+DEFAULT_QUOTA_NAME = 'default'
 
 
 class VNCConsole(base.APIDictWrapper):
@@ -555,6 +556,10 @@ def tenant_quota_update(request, tenant_id, **kwargs):
 
 def default_quota_get(request, tenant_id):
     return base.QuotaSet(novaclient(request).quotas.defaults(tenant_id))
+
+
+def default_quota_update(request, **kwargs):
+    novaclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
 
 
 def usage_get(request, tenant_id, start, end):

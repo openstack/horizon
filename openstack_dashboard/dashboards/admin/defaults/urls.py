@@ -1,10 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
-# Copyright 2012 Nebula, Inc.
+# Copyright 2013 Kylin, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -18,16 +14,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-import horizon
-
-from openstack_dashboard.dashboards.admin import dashboard
-
-
-class Info(horizon.Panel):
-    name = _("System Info")
-    slug = 'info'
+from openstack_dashboard.dashboards.admin.defaults import views
 
 
-dashboard.Admin.register(Info)
+urlpatterns = patterns('openstack_dashboard.dashboards.admin.defaults.views',
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^update_defaults$',
+        views.UpdateDefaultQuotasView.as_view(), name='update_defaults'))
