@@ -169,6 +169,34 @@ def keystoneclient(request, admin=False):
     return conn
 
 
+def domain_create(request, name, description=None, enabled=None):
+    manager = keystoneclient(request, admin=True).domains
+    return manager.create(name,
+                          description=description,
+                          enabled=enabled)
+
+
+def domain_get(request, domain_id):
+    manager = keystoneclient(request, admin=True).domains
+    return manager.get(domain_id)
+
+
+def domain_delete(request, domain_id):
+    manager = keystoneclient(request, admin=True).domains
+    return manager.delete(domain_id)
+
+
+def domain_list(request):
+    manager = keystoneclient(request, admin=True).domains
+    return manager.list()
+
+
+def domain_update(request, domain_id, name=None, description=None,
+                  enabled=None):
+    manager = keystoneclient(request, admin=True).domains
+    return manager.update(domain_id, name, description, enabled)
+
+
 def tenant_create(request, name, description=None, enabled=None, domain=None):
     manager = VERSIONS.get_project_manager(request, admin=True)
     if VERSIONS.active < 3:
@@ -407,6 +435,11 @@ def create_ec2_credentials(request, user_id, tenant_id):
 
 def get_user_ec2_credentials(request, user_id, access_token):
     return keystoneclient(request).ec2.get(user_id, access_token)
+
+
+def keystone_can_edit_domain():
+    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
+    return backend_settings.get('can_edit_domain', True)
 
 
 def keystone_can_edit_user():

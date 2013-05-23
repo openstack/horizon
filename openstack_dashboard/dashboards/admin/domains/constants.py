@@ -1,6 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2012 Nebula, Inc.
+# Copyright 2013 Hewlett-Packard Development Company, L.P.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -14,25 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
-
-import horizon
-
-
-class SystemPanels(horizon.PanelGroup):
-    slug = "admin"
-    name = _("System Panel")
-    panels = ('overview', 'instances', 'volumes', 'flavors',
-              'images', 'domains', 'projects', 'users',
-              'networks', 'routers', 'info')
-
-
-class Admin(horizon.Dashboard):
-    name = _("Admin")
-    slug = "admin"
-    panels = (SystemPanels,)
-    default_panel = 'overview'
-    permissions = ('openstack.roles.admin',)
-
-
-horizon.register(Admin)
+DOMAIN_INFO_FIELDS = ("name",
+                      "description",
+                      "enabled")
+DOMAINS_INDEX_URL = 'horizon:admin:domains:index'
+DOMAINS_INDEX_VIEW_TEMPLATE = 'admin/domains/index.html'
+DOMAINS_CREATE_URL = 'horizon:admin:domains:create'
+DOMAINS_UPDATE_URL = 'horizon:admin:domains:update'
