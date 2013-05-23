@@ -23,6 +23,7 @@ from __future__ import absolute_import
 
 import logging
 
+from django.conf import settings
 from quantumclient.v2_0 import client as quantum_client
 from django.utils.datastructures import SortedDict
 
@@ -211,12 +212,14 @@ def get_ipver_str(ip_version):
 
 
 def quantumclient(request):
+    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     LOG.debug('quantumclient connection created using token "%s" and url "%s"'
               % (request.user.token.id, url_for(request, 'network')))
     LOG.debug('user_id=%(user)s, tenant_id=%(tenant)s' %
               {'user': request.user.id, 'tenant': request.user.tenant_id})
     c = quantum_client.Client(token=request.user.token.id,
-                              endpoint_url=url_for(request, 'network'))
+                              endpoint_url=url_for(request, 'network'),
+                              insecure=insecure)
     return c
 
 
