@@ -1743,3 +1743,165 @@ class InstanceTests(test.TestCase):
 
         res = self._instance_resize_post(server.id, flavor.id)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.glance: ('image_list_detailed',)})
+    def test_rebuild_instance_get(self):
+        server = self.servers.first()
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+            .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+            .AndReturn([[], False])
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:rebuild', args=[server.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'project/instances/rebuild.html')
+
+    def _instance_rebuild_post(self, server_id, image_id,
+                               password=None, confirm_password=None):
+        form_data = {'instance_id': server_id,
+                     'image': image_id}
+        if password is not None:
+            form_data.update(password=password)
+        if confirm_password is not None:
+            form_data.update(confirm_password=confirm_password)
+        url = reverse('horizon:project:instances:rebuild',
+                      args=[server_id])
+        return self.client.post(url, form_data)
+
+    instance_rebuild_post_stubs = {
+        api.nova: ('server_rebuild',),
+        api.glance: ('image_list_detailed',)}
+
+    @test.create_stubs(instance_rebuild_post_stubs)
+    def test_rebuild_instance_post_with_password(self):
+        server = self.servers.first()
+        image = self.images.first()
+        password = u'testpass'
+
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+            .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+            .AndReturn([[], False])
+        api.nova.server_rebuild(IsA(http.HttpRequest),
+                                server.id,
+                                image.id,
+                                password).AndReturn([])
+
+        self.mox.ReplayAll()
+
+        res = self._instance_rebuild_post(server.id, image.id,
+                                          password=password,
+                                          confirm_password=password)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs(instance_rebuild_post_stubs)
+    def test_rebuild_instance_post_with_password_equals_none(self):
+        server = self.servers.first()
+        image = self.images.first()
+
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+            .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+            .AndReturn([[], False])
+        api.nova.server_rebuild(IsA(http.HttpRequest),
+                                server.id,
+                                image.id,
+                                None).AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        res = self._instance_rebuild_post(server.id, image.id,
+                                          password=None,
+                                          confirm_password=None)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs(instance_rebuild_post_stubs)
+    def test_rebuild_instance_post_password_do_not_match(self):
+        server = self.servers.first()
+        image = self.images.first()
+        pass1 = u'somepass'
+        pass2 = u'notsomepass'
+
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+            .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+            .AndReturn([[], False])
+
+        self.mox.ReplayAll()
+        res = self._instance_rebuild_post(server.id, image.id,
+                                          password=pass1,
+                                          confirm_password=pass2)
+
+        self.assertContains(res, "Passwords do not match.")
+
+    @test.create_stubs(instance_rebuild_post_stubs)
+    def test_rebuild_instance_post_with_empty_string(self):
+        server = self.servers.first()
+        image = self.images.first()
+
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+            .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+            .AndReturn([[], False])
+        api.nova.server_rebuild(IsA(http.HttpRequest),
+                                server.id,
+                                image.id,
+                                None).AndReturn([])
+
+        self.mox.ReplayAll()
+
+        res = self._instance_rebuild_post(server.id, image.id,
+                                          password=u'',
+                                          confirm_password=u'')
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs(instance_rebuild_post_stubs)
+    def test_rebuild_instance_post_api_exception(self):
+        server = self.servers.first()
+        image = self.images.first()
+        password = u'testpass'
+
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+            .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+            .AndReturn([[], False])
+        api.nova.server_rebuild(IsA(http.HttpRequest),
+                                server.id,
+                                image.id,
+                                password).AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        res = self._instance_rebuild_post(server.id, image.id,
+                                          password=password,
+                                          confirm_password=password)
+        self.assertRedirectsNoFollow(res, INDEX_URL)

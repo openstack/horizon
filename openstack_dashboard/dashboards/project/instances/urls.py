@@ -25,6 +25,7 @@ from openstack_dashboard.dashboards.project.instances.views import DetailView
 from openstack_dashboard.dashboards.project.instances.views import IndexView
 from openstack_dashboard.dashboards.project.instances.views import \
     LaunchInstanceView
+from openstack_dashboard.dashboards.project.instances.views import RebuildView
 from openstack_dashboard.dashboards.project.instances.views import ResizeView
 from openstack_dashboard.dashboards.project.instances.views import UpdateView
 
@@ -38,6 +39,7 @@ urlpatterns = patterns(VIEW_MOD,
     url(r'^launch$', LaunchInstanceView.as_view(), name='launch'),
     url(r'^(?P<instance_id>[^/]+)/$', DetailView.as_view(), name='detail'),
     url(INSTANCES % 'update', UpdateView.as_view(), name='update'),
+    url(INSTANCES % 'rebuild', RebuildView.as_view(), name='rebuild'),
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
     url(INSTANCES % 'spice', 'spice', name='spice'),

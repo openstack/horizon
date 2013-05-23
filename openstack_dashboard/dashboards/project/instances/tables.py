@@ -332,6 +332,22 @@ class RevertResize(tables.Action):
         api.nova.server_revert_resize(request, instance)
 
 
+class RebuildInstance(tables.LinkAction):
+    name = "rebuild"
+    verbose_name = _("Rebuild Instance")
+    classes = ("btn-rebuild", "ajax-modal")
+    url = "horizon:project:instances:rebuild"
+
+    def allowed(self, request, instance):
+        return ((instance.status in ACTIVE_STATES
+                 or instance.status == 'SHUTOFF')
+                and not is_deleting(instance))
+
+    def get_link_url(self, datum):
+        instance_id = self.table.get_object_id(datum)
+        return urlresolvers.reverse(self.url, args=[instance_id])
+
+
 class AssociateIP(tables.LinkAction):
     name = "associate"
     verbose_name = _("Associate Floating IP")
@@ -572,4 +588,4 @@ class InstancesTable(tables.DataTable):
                        EditInstanceSecurityGroups, ConsoleLink, LogLink,
                        TogglePause, ToggleSuspend, ResizeLink,
                        SoftRebootInstance, RebootInstance, StopInstance,
-                       TerminateInstance)
+                       RebuildInstance, TerminateInstance)

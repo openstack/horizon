@@ -1,0 +1,28 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}rebuild_instance_form{% endblock %}
+{% block form_action %}{% url "horizon:project:instances:rebuild" instance_id %}{% endblock %}
+
+{% block modal_id %}rebuild_instance_modal{% endblock %}
+{% block modal-header %}{% trans "Rebuild Instance" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+<div class="right">
+  <h3>{% trans "Description" %}:</h3>
+  <p>{% trans "Select the image to rebuild your instance." %}</p>
+  <p>{% trans "You may optionally set a password on the rebuilt instance." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Rebuild Instance" %}" />
+  <a href="{% url "horizon:project:instances:index" %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
+
