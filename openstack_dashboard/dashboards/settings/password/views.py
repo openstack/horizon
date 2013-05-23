@@ -1,7 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2012 Openstack, LLC
-# Copyright 2012 Nebula, Inc.
+# Copyright 2013 Centrin Data Systems Ltd.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -15,17 +14,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
+from horizon import forms
 
-import horizon
-
-
-class Settings(horizon.Dashboard):
-    name = _("Settings")
-    slug = "settings"
-    panels = ('user', 'password', )
-    default_panel = 'user'
-    nav = False
+from .forms import PasswordForm
+from django.core.urlresolvers import reverse_lazy
 
 
-horizon.register(Settings)
+class PasswordView(forms.ModalFormView):
+    form_class = PasswordForm
+    template_name = 'settings/password/change.html'
+    success_url = reverse_lazy('logout')

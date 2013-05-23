@@ -1,7 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2012 Openstack, LLC
-# Copyright 2012 Nebula, Inc.
+# Copyright 2013 Centrin Data Systems Ltd.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -19,13 +18,12 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-
-class Settings(horizon.Dashboard):
-    name = _("Settings")
-    slug = "settings"
-    panels = ('user', 'password', )
-    default_panel = 'user'
-    nav = False
+from openstack_dashboard.dashboards.settings import dashboard
 
 
-horizon.register(Settings)
+class PasswordPanel(horizon.Panel):
+    name = _("Change Password")
+    slug = 'password'
+
+
+dashboard.Settings.register(PasswordPanel)
