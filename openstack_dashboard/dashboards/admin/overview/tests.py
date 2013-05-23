@@ -38,7 +38,6 @@ INDEX_URL = reverse('horizon:project:overview:index')
 
 
 class UsageViewTests(test.BaseAdminViewTests):
-
     @test.create_stubs({api.nova: ('usage_list',),
                         quotas: ('tenant_quota_usages',),
                         api.keystone: ('tenant_list',)})
@@ -76,26 +75,24 @@ class UsageViewTests(test.BaseAdminViewTests):
                         api.keystone: ('tenant_list',)})
     def test_usage_csv(self):
         now = timezone.now()
-        usage_obj = [api.nova.NovaUsage(u) for u in self.usages.list()]
+        usage_obj = api.nova.NovaUsage(self.usages.first())
         quota_data = self.quota_usages.first()
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
                     .AndReturn(self.tenants.list())
         api.nova.usage_list(IsA(http.HttpRequest),
                             datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                             Func(usage.almost_now)) \
-                            .AndReturn(usage_obj)
+                            .AndReturn([usage_obj, usage_obj])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
         self.mox.ReplayAll()
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"
         res = self.client.get(csv_url)
         self.assertTemplateUsed(res, 'admin/overview/usage.csv')
         self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
-        hdr = 'Project Name,VCPUs,Ram (MB),Disk (GB),Usage (Hours)'
-        self.assertContains(res, '%s\r\n' % (hdr))
-        for obj in usage_obj:
-            row = u'{0},{1},{2},{3},{4:.2f}\r\n'.format(obj.project_name,
-                                                        obj.vcpus,
-                                                        obj.memory_mb,
-                                                        obj.disk_gb_hours,
-                                                        obj.vcpu_hours)
-            self.assertContains(res, row)
+        hdr = 'Tenant,VCPUs,RamMB,DiskGB,Usage(Hours)'
+        row = '%s,%s,%s,%s,%.2f' % (usage_obj.tenant_id,
+                                  usage_obj.vcpus,
+                                  usage_obj.memory_mb,
+                                  usage_obj.disk_gb_hours,
+                                  usage_obj.vcpu_hours)
+        self.assertContains(res, '%s\n%s\n%s\n' % (hdr, row, row))

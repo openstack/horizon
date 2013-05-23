@@ -33,7 +33,6 @@ from openstack_dashboard.test import helpers as test
 
 
 class ServerWrapperTests(test.TestCase):
-
     def test_get_base_attribute(self):
         server = api.nova.Server(self.servers.first(), self.request)
         self.assertEqual(server.id, self.servers.first().id)
@@ -42,7 +41,7 @@ class ServerWrapperTests(test.TestCase):
         image = self.images.first()
         self.mox.StubOutWithMock(api.glance, 'image_get')
         api.glance.image_get(IsA(http.HttpRequest),
-                             image.id).AndReturn(image)
+                                  image.id).AndReturn(image)
         self.mox.ReplayAll()
 
         server = api.nova.Server(self.servers.first(), self.request)
@@ -50,7 +49,6 @@ class ServerWrapperTests(test.TestCase):
 
 
 class ComputeApiTests(test.APITestCase):
-
     def test_server_reboot(self):
         server = self.servers.first()
         HARDNESS = servers.REBOOT_HARD
@@ -101,7 +99,7 @@ class ComputeApiTests(test.APITestCase):
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
         novaclient.servers.get_spice_console(server.id,
-                                             console_type).AndReturn(console)
+                                           console_type).AndReturn(console)
         self.mox.ReplayAll()
 
         ret_val = api.nova.server_spice_console(self.request,
@@ -150,8 +148,7 @@ class ComputeApiTests(test.APITestCase):
         novaclient.servers.list(True,
                                 {'all_tenants': True,
                                  'marker': None,
-                                 'limit': page_size + 1}). \
-            AndReturn(servers[:page_size + 1])
+                                 'limit': page_size + 1}).AndReturn(servers)
         self.mox.ReplayAll()
 
         ret_val, has_more = api.nova.server_list(self.request,

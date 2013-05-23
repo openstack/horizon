@@ -116,13 +116,13 @@ class UsersView(tables.MultiTableView):
         return context
 
 
-class ProjectUsageView(usage.UsageView):
-    table_class = usage.ProjectUsageTable
-    usage_class = usage.ProjectUsage
+class TenantUsageView(usage.UsageView):
+    table_class = usage.TenantUsageTable
+    usage_class = usage.TenantUsage
     template_name = 'admin/projects/usage.html'
 
     def get_data(self):
-        super(ProjectUsageView, self).get_data()
+        super(TenantUsageView, self).get_data()
         return self.usage.get_instances()
 
 

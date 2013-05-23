@@ -18,38 +18,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import VERSION
 from django.conf import settings
-from django.template.defaultfilters import floatformat
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard import usage
-from openstack_dashboard.usage.base import BaseCsvResponse
-
-
-class GlobalUsageCsvRenderer(BaseCsvResponse):
-
-    columns = [_("Project Name"), _("VCPUs"), _("Ram (MB)"),
-               _("Disk (GB)"), _("Usage (Hours)")]
-
-    def get_row_data(self):
-
-        for u in self.context['usage'].usage_list:
-            yield (u.project_name or u.tenant_id,
-                   u.vcpus,
-                   u.memory_mb,
-                   u.local_gb,
-                   floatformat(u.vcpu_hours, 2))
 
 
 class GlobalOverview(usage.UsageView):
     table_class = usage.GlobalUsageTable
     usage_class = usage.GlobalUsage
     template_name = 'admin/overview/usage.html'
-    csv_response_class = GlobalUsageCsvRenderer
 
     def get_context_data(self, **kwargs):
         context = super(GlobalOverview, self).get_context_data(**kwargs)
@@ -58,17 +39,17 @@ class GlobalOverview(usage.UsageView):
 
     def get_data(self):
         data = super(GlobalOverview, self).get_data()
-        # Pre-fill project names
+        # Pre-fill tenant names
         try:
-            projects = api.keystone.tenant_list(self.request)
+            tenants = api.keystone.tenant_list(self.request)
         except:
-            projects = []
+            tenants = []
             exceptions.handle(self.request,
                               _('Unable to retrieve project list.'))
         for instance in data:
-            project = filter(lambda t: t.id == instance.tenant_id, projects)
-            if project:
-                instance.project_name = getattr(project[0], "name", None)
+            tenant = filter(lambda t: t.id == instance.tenant_id, tenants)
+            if tenant:
+                instance.tenant_name = getattr(tenant[0], "name", None)
             else:
-                instance.project_name = None
+                instance.tenant_name = None
         return data
