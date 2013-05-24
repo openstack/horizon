@@ -561,6 +561,16 @@ class LazyURLPattern(SimpleLazyObject):
             self._setup()
         return reversed(self._wrapped)
 
+    def __len__(self):
+        if self._wrapped is empty:
+            self._setup()
+        return len(self._wrapped)
+
+    def __getitem__(self, idx):
+        if self._wrapped is empty:
+            self._setup()
+        return self._wrapped[idx]
+
 
 class Site(Registry, HorizonComponent):
     """ The overarching class which encompasses all dashboards and panels. """
