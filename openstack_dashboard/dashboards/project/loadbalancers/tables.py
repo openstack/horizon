@@ -112,6 +112,39 @@ class UpdatePoolLink(tables.LinkAction):
         return base_url
 
 
+class UpdateVipLink(tables.LinkAction):
+    name = "updatevip"
+    verbose_name = _("Edit VIP")
+    classes = ("btn-updatevip",)
+
+    def get_link_url(self, pool):
+        base_url = reverse("horizon:project:loadbalancers:updatevip",
+                           kwargs={'vip_id': pool.vip_id})
+        return base_url
+
+
+class UpdateMemberLink(tables.LinkAction):
+    name = "updatemember"
+    verbose_name = _("Edit Member")
+    classes = ("btn-updatemember",)
+
+    def get_link_url(self, member):
+        base_url = reverse("horizon:project:loadbalancers:updatemember",
+                           kwargs={'member_id': member.id})
+        return base_url
+
+
+class UpdateMonitorLink(tables.LinkAction):
+    name = "updatemonitor"
+    verbose_name = _("Edit Monitor")
+    classes = ("btn-updatemonitor",)
+
+    def get_link_url(self, monitor):
+        base_url = reverse("horizon:project:loadbalancers:updatemonitor",
+                           kwargs={'monitor_id': monitor.id})
+        return base_url
+
+
 def get_vip_link(pool):
     return reverse("horizon:project:loadbalancers:vipdetails",
                    args=(http.urlquote(pool.vip_id),))
@@ -131,8 +164,8 @@ class PoolsTable(tables.DataTable):
         name = "poolstable"
         verbose_name = _("Pools")
         table_actions = (AddPoolLink, DeletePoolLink)
-        row_actions = (UpdatePoolLink, AddVipLink, DeleteVipLink,
-                       DeletePoolLink)
+        row_actions = (UpdatePoolLink, AddVipLink, UpdateVipLink,
+                       DeleteVipLink, DeletePoolLink)
 
 
 def get_pool_link(member):
@@ -159,7 +192,7 @@ class MembersTable(tables.DataTable):
         name = "memberstable"
         verbose_name = _("Members")
         table_actions = (AddMemberLink, DeleteMemberLink)
-        row_actions = (DeleteMemberLink,)
+        row_actions = (UpdateMemberLink, DeleteMemberLink)
 
 
 class MonitorsTable(tables.DataTable):
@@ -172,4 +205,4 @@ class MonitorsTable(tables.DataTable):
         name = "monitorstable"
         verbose_name = _("Monitors")
         table_actions = (AddMonitorLink, DeleteMonitorLink)
-        row_actions = (DeleteMonitorLink,)
+        row_actions = (UpdateMonitorLink, DeleteMonitorLink)

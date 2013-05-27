@@ -38,6 +38,9 @@ class LoadBalancerTests(test.TestCase):
     MONITOR_DETAIL_PATH = 'horizon:%s:loadbalancers:monitordetails' % DASHBOARD
 
     UPDATEPOOL_PATH = 'horizon:%s:loadbalancers:updatepool' % DASHBOARD
+    UPDATEVIP_PATH = 'horizon:%s:loadbalancers:updatevip' % DASHBOARD
+    UPDATEMEMBER_PATH = 'horizon:%s:loadbalancers:updatemember' % DASHBOARD
+    UPDATEMONITOR_PATH = 'horizon:%s:loadbalancers:updatemonitor' % DASHBOARD
 
     def set_up_expect(self):
         # retrieve pools
@@ -256,8 +259,8 @@ class LoadBalancerTests(test.TestCase):
             subnet_id=vip.subnet_id,
             protocol_port=vip.protocol_port,
             protocol=vip.protocol,
-            session_persistence=vip.session_persistence,
-            cookie_name=vip.cookie_name,
+            session_persistence=vip.session_persistence['type'],
+            cookie_name=vip.session_persistence['cookie_name'],
             connection_limit=vip.connection_limit,
             admin_state_up=vip.admin_state_up).AndReturn(Vip(vip))
 
@@ -273,8 +276,8 @@ class LoadBalancerTests(test.TestCase):
                      'subnet': vip.subnet,
                      'protocol_port': vip.protocol_port,
                      'protocol': vip.protocol,
-                     'session_persistence': vip.session_persistence,
-                     'cookie_name': vip.cookie_name,
+                     'session_persistence': vip.session_persistence['type'],
+                     'cookie_name': vip.session_persistence['cookie_name'],
                      'connection_limit': vip.connection_limit,
                      'admin_state_up': vip.admin_state_up}
 
@@ -305,8 +308,8 @@ class LoadBalancerTests(test.TestCase):
                      'subnet_id': vip.subnet_id,
                      'protocol_port': 65536,
                      'protocol': vip.protocol,
-                     'session_persistence': vip.session_persistence,
-                     'cookie_name': vip.cookie_name,
+                     'session_persistence': vip.session_persistence['type'],
+                     'cookie_name': vip.session_persistence['cookie_name'],
                      'connection_limit': -2,
                      'admin_state_up': vip.admin_state_up}
 
@@ -572,3 +575,129 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.UPDATEPOOL_PATH, args=(pool.id,)))
 
         self.assertTemplateUsed(res, 'project/loadbalancers/updatepool.html')
+
+    @test.create_stubs({api.lbaas: ('pools_get', 'vip_get',
+                                    'vip_update')})
+    def test_update_vip_post(self):
+        vip = self.vips.first()
+
+        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.vip_get(IsA(http.HttpRequest), vip.id).AndReturn(vip)
+
+        data = {'name': vip.name,
+                'description': vip.description,
+                'pool_id': vip.pool_id,
+                'session_persistence': {},
+                'connection_limit': vip.connection_limit,
+                'admin_state_up': vip.admin_state_up}
+
+        api.lbaas.vip_update(IsA(http.HttpRequest), vip.id, vip=data)\
+            .AndReturn(vip)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+        form_data.update({'vip_id': vip.id})
+
+        res = self.client.post(
+            reverse(self.UPDATEVIP_PATH, args=(vip.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.lbaas: ('vip_get', 'pools_get')})
+    def test_update_vip_get(self):
+        vip = self.vips.first()
+
+        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.vip_get(IsA(http.HttpRequest), vip.id).AndReturn(vip)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse(self.UPDATEVIP_PATH, args=(vip.id,)))
+
+        self.assertTemplateUsed(res, 'project/loadbalancers/updatevip.html')
+
+    @test.create_stubs({api.lbaas: ('pools_get', 'member_get',
+                                    'member_update')})
+    def test_update_member_post(self):
+        member = self.members.first()
+
+        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.member_get(IsA(http.HttpRequest), member.id)\
+            .AndReturn(member)
+
+        data = {'pool_id': member.pool_id,
+                'weight': member.weight,
+                'admin_state_up': member.admin_state_up}
+
+        api.lbaas.member_update(IsA(http.HttpRequest), member.id, member=data)\
+            .AndReturn(member)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+        form_data.update({'member_id': member.id})
+
+        res = self.client.post(
+            reverse(self.UPDATEMEMBER_PATH, args=(member.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.lbaas: ('member_get', 'pools_get')})
+    def test_update_member_get(self):
+        member = self.members.first()
+
+        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.member_get(IsA(http.HttpRequest), member.id)\
+            .AndReturn(member)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(self.UPDATEMEMBER_PATH, args=(member.id,)))
+
+        self.assertTemplateUsed(res, 'project/loadbalancers/updatemember.html')
+
+    @test.create_stubs({api.lbaas: ('pool_health_monitor_get',
+                                    'pool_health_monitor_update')})
+    def test_update_monitor_post(self):
+        monitor = self.monitors.first()
+
+        api.lbaas.pool_health_monitor_get(IsA(http.HttpRequest), monitor.id)\
+            .AndReturn(monitor)
+
+        data = {'delay': monitor.delay,
+                'timeout': monitor.timeout,
+                'max_retries': monitor.max_retries,
+                'admin_state_up': monitor.admin_state_up}
+
+        api.lbaas.pool_health_monitor_update(IsA(http.HttpRequest),
+            monitor.id, health_monitor=data).AndReturn(monitor)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+        form_data.update({'monitor_id': monitor.id})
+
+        res = self.client.post(
+            reverse(self.UPDATEMONITOR_PATH, args=(monitor.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.lbaas: ('pool_health_monitor_get',)})
+    def test_update_monitor_get(self):
+        monitor = self.monitors.first()
+
+        api.lbaas.pool_health_monitor_get(IsA(http.HttpRequest), monitor.id)\
+            .AndReturn(monitor)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(self.UPDATEMONITOR_PATH, args=(monitor.id,)))
+
+        self.assertTemplateUsed(
+            res, 'project/loadbalancers/updatemonitor.html')

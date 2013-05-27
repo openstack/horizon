@@ -273,8 +273,8 @@ def data(TEST):
                 'protocol_port': 80,
                 'protocol': pool_dict['protocol'],
                 'pool_id': pool_dict['id'],
-                'session_persistence': {},
-                'cookie_name': '',
+                'session_persistence': {'type': 'APP_COOKIE',
+                                        'cookie_name': 'jssessionid'},
                 'connection_limit': 10,
                 'admin_state_up': True}
     TEST.api_vips.add(vip_dict)
@@ -292,8 +292,8 @@ def data(TEST):
                 'protocol_port': 80,
                 'protocol': pool_dict['protocol'],
                 'pool_id': pool_dict['id'],
-                'session_persistence': 'APP_COOKIE',
-                'cookie_name': 'jssessionid',
+                'session_persistence': {'type': 'APP_COOKIE',
+                                        'cookie_name': 'jssessionid'},
                 'connection_limit': 10,
                 'admin_state_up': True}
     TEST.api_vips.add(vip_dict)
