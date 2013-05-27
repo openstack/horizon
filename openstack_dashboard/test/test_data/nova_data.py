@@ -387,41 +387,42 @@ def data(TEST):
     console = {u'console': {u'url': u'http://example.com:6080/spice_auto.html',
                             u'type': u'spice'}}
     TEST.servers.spice_console_data = console
-    # Floating IPs
-    fip_1 = floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
-                                    {'id': 1,
-                                     'fixed_ip': '10.0.0.4',
-                                     'instance_id': server_1.id,
-                                     'ip': '58.58.58.58',
-                                     'pool': 'pool1'})
-    fip_2 = floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
-                                    {'id': 2,
-                                     'fixed_ip': None,
-                                     'instance_id': None,
-                                     'ip': '58.58.58.58',
-                                     'pool': 'pool2'})
-    TEST.api_floating_ips.add(fip_1, fip_2)
 
-    TEST.floating_ips.add(NetFloatingIp(copy.deepcopy(fip_1)),
-                          NetFloatingIp(copy.deepcopy(fip_2)))
+    # Floating IPs
+    def generate_fip(conf):
+        return floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
+                                       conf)
+
+    fip_1 = {'id': 1,
+             'fixed_ip': '10.0.0.4',
+             'instance_id': server_1.id,
+             'ip': '58.58.58.58',
+             'pool': 'pool1'}
+    fip_2 = {'id': 2,
+             'fixed_ip': None,
+             'instance_id': None,
+             'ip': '58.58.58.58',
+             'pool': 'pool2'}
+    TEST.api_floating_ips.add(generate_fip(fip_1), generate_fip(fip_2))
+
+    TEST.floating_ips.add(NetFloatingIp(generate_fip(fip_1)),
+                          NetFloatingIp(generate_fip(fip_2)))
 
     # Floating IP with UUID id (for Floating IP with Quantum Proxy)
-    fip_3 = floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
-                                    {'id': str(uuid.uuid4()),
-                                     'fixed_ip': '10.0.0.4',
-                                     'instance_id': server_1.id,
-                                     'ip': '58.58.58.58',
-                                     'pool': 'pool1'})
-    fip_4 = floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
-                                    {'id': str(uuid.uuid4()),
-                                     'fixed_ip': None,
-                                     'instance_id': None,
-                                     'ip': '58.58.58.58',
-                                     'pool': 'pool2'})
-    TEST.api_floating_ips_uuid.add(fip_3, fip_4)
+    fip_3 = {'id': str(uuid.uuid4()),
+             'fixed_ip': '10.0.0.4',
+             'instance_id': server_1.id,
+             'ip': '58.58.58.58',
+             'pool': 'pool1'}
+    fip_4 = {'id': str(uuid.uuid4()),
+             'fixed_ip': None,
+             'instance_id': None,
+             'ip': '58.58.58.58',
+             'pool': 'pool2'}
+    TEST.api_floating_ips_uuid.add(generate_fip(fip_3), generate_fip(fip_4))
 
-    TEST.floating_ips_uuid.add(NetFloatingIp(copy.deepcopy(fip_3)),
-                               NetFloatingIp(copy.deepcopy(fip_4)))
+    TEST.floating_ips_uuid.add(NetFloatingIp(generate_fip(fip_3)),
+                               NetFloatingIp(generate_fip(fip_4)))
 
     # Usage
     usage_vals = {"tenant_id": TEST.tenant.id,
