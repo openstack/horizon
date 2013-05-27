@@ -870,6 +870,155 @@ class InstanceTests(test.TestCase):
         image = self.images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
+        sec_group = self.security_groups.first()
+        customization_script = 'user data'
+        nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
+        cinder.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        api.nova.server_create(IsA(http.HttpRequest),
+                               server.name,
+                               image.id,
+                               flavor.id,
+                               keypair.name,
+                               customization_script,
+                               [sec_group.name],
+                               None,
+                               nics=nics,
+                               instance_count=IsA(int),
+                               admin_pass=u'')
+
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'image_id',
+                     'image_id': image.id,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'customization_script': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'volume_type': '',
+                     'network': self.networks.first().id,
+                     'count': 1}
+        url = reverse('horizon:project:instances:launch')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.quantum: ('network_list',),
+                        quotas: ('tenant_quota_usages',),
+                        api.nova: ('flavor_list',
+                                   'keypair_list',
+                                   'security_group_list',
+                                   'server_create',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',)})
+    def test_launch_instance_post_boot_from_volume_with_image(self):
+        flavor = self.flavors.first()
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        volume = self.volumes.first()
+        sec_group = self.security_groups.first()
+        customization_script = 'user data'
+        device_name = u'vda'
+        volume_choice = "%s:vol" % volume.id
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn({})
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                .AndReturn([[], False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                .AndReturn([self.images.list(), False])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+        cinder.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'image_id',
+                     'image_id': image.id,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'customization_script': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'volume_type': 'volume_id',
+                     'volume_id': volume_choice,
+                     'device_name': device_name,
+                     'network': self.networks.first().id,
+                     'count': 1,
+                     'admin_pass': 'password',
+                     'confirm_admin_pass': 'password'}
+        url = reverse('horizon:project:instances:launch')
+        res = self.client.post(url, form_data)
+
+        self.assertFormErrors(res, 1, "select an instance "
+                                      "source when booting from a "
+                                      "Volume. The Volume is your "
+                                      "source and should contain "
+                                      "the operating system.")
+        self.assertTemplateUsed(res, WorkflowView.template_name)
+
+    @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.quantum: ('network_list',),
+                        quotas: ('tenant_quota_usages',),
+                        api.nova: ('flavor_list',
+                                   'keypair_list',
+                                   'security_group_list',
+                                   'server_create',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',)})
+    def test_launch_instance_post_boot_from_volume(self):
+        flavor = self.flavors.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
         volume = self.volumes.first()
         sec_group = self.security_groups.first()
         customization_script = 'user data'
@@ -904,7 +1053,7 @@ class InstanceTests(test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
-                               image.id,
+                               '',
                                flavor.id,
                                keypair.name,
                                customization_script,
@@ -912,13 +1061,12 @@ class InstanceTests(test.TestCase):
                                block_device_mapping,
                                nics=nics,
                                instance_count=IsA(int),
-                               admin_pass='password')
+                               admin_pass=u'')
 
         self.mox.ReplayAll()
 
         form_data = {'flavor': flavor.id,
                      'source_type': 'image_id',
-                     'image_id': image.id,
                      'keypair': keypair.name,
                      'name': server.name,
                      'customization_script': customization_script,
@@ -929,9 +1077,87 @@ class InstanceTests(test.TestCase):
                      'volume_id': volume_choice,
                      'device_name': device_name,
                      'network': self.networks.first().id,
-                     'count': 1,
-                     'admin_pass': 'password',
-                     'confirm_admin_pass': 'password'}
+                     'count': 1}
+        url = reverse('horizon:project:instances:launch')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.quantum: ('network_list',),
+                        quotas: ('tenant_quota_usages',),
+                        api.nova: ('server_create',
+                                   'flavor_list',
+                                   'keypair_list',
+                                   'security_group_list',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',)})
+    def test_launch_instance_post_no_images_available_boot_from_volume(self):
+        flavor = self.flavors.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        volume = self.volumes.first()
+        sec_group = self.security_groups.first()
+        customization_script = 'user data'
+        device_name = u'vda'
+        volume_choice = "%s:vol" % volume.id
+        block_device_mapping = {device_name: u"%s::0" % volume_choice}
+        nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.nova.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.quantum.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
+        cinder.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+
+        api.nova.server_create(IsA(http.HttpRequest),
+                               server.name,
+                               '',
+                               flavor.id,
+                               keypair.name,
+                               customization_script,
+                               [sec_group.name],
+                               block_device_mapping,
+                               nics=nics,
+                               instance_count=IsA(int),
+                               admin_pass=u'')
+
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'image_id',
+                     'image_id': '',
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'customization_script': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'network': self.networks.first().id,
+                     'volume_type': 'volume_id',
+                     'volume_id': volume_choice,
+                     'device_name': device_name,
+                     'count': 1}
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -950,11 +1176,8 @@ class InstanceTests(test.TestCase):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
-        volume = self.volumes.first()
         sec_group = self.security_groups.first()
         customization_script = 'user data'
-        device_name = u'vda'
-        volume_choice = "%s:vol" % volume.id
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -981,7 +1204,7 @@ class InstanceTests(test.TestCase):
         api.nova.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         cinder.volume_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.volumes.list())
+                .AndReturn([])
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
 
         self.mox.ReplayAll()
@@ -995,16 +1218,16 @@ class InstanceTests(test.TestCase):
                      'project_id': self.tenants.first().id,
                      'user_id': self.user.id,
                      'groups': sec_group.name,
-                     'volume_type': 'volume_id',
-                     'volume_id': volume_choice,
-                     'device_name': device_name,
+                     'volume_type': '',
                      'count': 1}
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
-        self.assertFormErrors(res, 1, 'There are no image sources available; '
-                                      'you must first create an image before '
-                                      'attempting to launch an instance.')
+        self.assertFormErrors(res, 1, "There are no image sources "
+                                      "available; you must first "
+                                      "create an image before "
+                                      "attemtping to launch an "
+                                      "instance.")
         self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
