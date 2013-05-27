@@ -40,6 +40,18 @@ Selenium tests by using the ``--with-selenium`` flag::
 
     ./run_tests.sh --with-selenium
 
+If you run horizon in a minimal installation VM, you will probably need
+the following (steps for Fedora 18 minimal installation):
+
+    #. Install these packages in the VM:
+       ``yum install xorg-x11-xauth xorg-x11-fonts-Type1.noarch``.
+    #. Install firefox in the VM:
+       ``yum install firefox``.
+    #. Connect to the VM by ``ssh -X``
+       (if you run ``set|grep DISP``, you should see that the DISPLAY is set).
+    #. Run
+       ``./run_tests.sh --with-selenium``.
+
 Running a subset of tests
 -------------------------
 
