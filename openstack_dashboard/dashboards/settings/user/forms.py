@@ -20,21 +20,22 @@ import pytz
 from django import shortcuts
 from django.conf import settings
 from django.utils import translation
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import forms
 from horizon import messages
 
 
 class UserSettingsForm(forms.SelfHandlingForm):
-    language = forms.ChoiceField()
-    timezone = forms.ChoiceField()
-    pagesize = forms.IntegerField(label=translation.ugettext("Items Per Page"),
+    language = forms.ChoiceField(label=_("Language"))
+    timezone = forms.ChoiceField(label=_("Timezone"))
+    pagesize = forms.IntegerField(label=_("Items Per Page"),
                                   min_value=1,
                                   max_value=getattr(settings,
                                                     'API_RESULT_LIMIT',
                                                     1000),
-                                  help_text=translation.ugettext(
-                                      "Number of items to show per page"))
+                                  help_text=_("Number of items to show per "
+                                              "page"))
 
     def __init__(self, *args, **kwargs):
         super(UserSettingsForm, self).__init__(*args, **kwargs)
@@ -79,6 +80,6 @@ class UserSettingsForm(forms.SelfHandlingForm):
 
         request.session['horizon_pagesize'] = data['pagesize']
 
-        messages.success(request, translation.ugettext_lazy("Settings saved."))
+        messages.success(request, _("Settings saved."))
 
         return response
