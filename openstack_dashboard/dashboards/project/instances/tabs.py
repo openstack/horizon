@@ -15,6 +15,7 @@
 #    under the License.
 
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 from horizon import exceptions
 from horizon import tabs
@@ -61,13 +62,34 @@ class ConsoleTab(tabs.Tab):
         instance = self.tab_group.kwargs['instance']
         # Currently prefer VNC over SPICE, since noVNC has had much more
         # testing than spice-html5
-        try:
-            console = api.nova.server_vnc_console(request, instance.id)
-            console_url = "%s&title=%s(%s)" % (
-                console.url,
-                getattr(instance, "name", ""),
-                instance.id)
-        except:
+        console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
+        if console_type == 'AUTO':
+            try:
+                console = api.nova.server_vnc_console(request, instance.id)
+                console_url = "%s&title=%s(%s)" % (
+                    console.url,
+                    getattr(instance, "name", ""),
+                    instance.id)
+            except:
+                try:
+                    console = api.nova.server_spice_console(request,
+                                                            instance.id)
+                    console_url = "%s&title=%s(%s)" % (
+                        console.url,
+                        getattr(instance, "name", ""),
+                        instance.id)
+                except:
+                    console_url = None
+        elif console_type == 'VNC':
+            try:
+                console = api.nova.server_vnc_console(request, instance.id)
+                console_url = "%s&title=%s(%s)" % (
+                    console.url,
+                    getattr(instance, "name", ""),
+                    instance.id)
+            except:
+                console_url = None
+        elif console_type == 'SPICE':
             try:
                 console = api.nova.server_spice_console(request, instance.id)
                 console_url = "%s&title=%s(%s)" % (
@@ -76,6 +98,9 @@ class ConsoleTab(tabs.Tab):
                     instance.id)
             except:
                 console_url = None
+        else:
+            console_url = None
+
         return {'console_url': console_url, 'instance_id': instance.id}
 
 
