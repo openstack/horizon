@@ -1,0 +1,41 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body %}
+<input type="hidden" id="hidden_redirect_back_to_home" name="redirect" value="{{redirect}}"/>
+{% endblock %}
+
+{% block modal-js %}
+<script type="text/javascript">
+<!--
+     /* ensure the value of the action buttons also gets submitted */
+    $(':button[name="action"]').click(function () {
+        value = $(this).attr("value");
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'action',
+            value: value,
+        }).appendTo('form');
+
+        var redirect = $('#hidden_redirect_back_to_home').val();
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'redirect',
+            value: redirect,
+        }).appendTo('form');
+
+        return true;
+    });
+
+    /* add the correct ajax class for table footer links */
+    $("tfoot a").addClass("ajax-modal");
+
+    /* as you navigate around the more pages, they stack on top of each other
+        make sure this stack gets cleaned up so there is only on*/
+    hidden_modals = $("#modal_wrapper .modal.hide:not(:last-child)");
+    hidden_modals.detach();
+
+//-->
+</script>
+{% endblock %}

@@ -360,6 +360,45 @@ def user_update_tenant(request, user, project, admin=True):
         return manager.update(user, project=project)
 
 
+def group_create(request, domain_id, name, description=None):
+    manager = keystoneclient(request, admin=True).groups
+    return manager.create(domain=domain_id,
+                          name=name,
+                          description=description)
+
+
+def group_get(request, group_id, admin=True):
+    manager = keystoneclient(request, admin=admin).groups
+    return manager.get(group_id)
+
+
+def group_delete(request, group_id):
+    manager = keystoneclient(request, admin=True).groups
+    return manager.delete(group_id)
+
+
+def group_list(request):
+    manager = keystoneclient(request, admin=True).groups
+    return manager.list()
+
+
+def group_update(request, group_id, name=None, description=None):
+    manager = keystoneclient(request, admin=True).groups
+    return manager.update(group=group_id,
+                          name=name,
+                          description=description)
+
+
+def add_group_user(request, group_id, user_id):
+    manager = keystoneclient(request, admin=True).users
+    return manager.add_to_group(group=group_id, user=user_id)
+
+
+def remove_group_user(request, group_id, user_id):
+    manager = keystoneclient(request, admin=True).users
+    return manager.remove_from_group(group=group_id, user=user_id)
+
+
 def role_create(request, name):
     manager = keystoneclient(request, admin=True).roles
     return manager.create(name)
@@ -470,6 +509,11 @@ def keystone_can_edit_user():
 def keystone_can_edit_project():
     backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
     return backend_settings.get('can_edit_project', True)
+
+
+def keystone_can_edit_group():
+    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
+    return backend_settings.get('can_edit_group', True)
 
 
 def keystone_can_edit_role():

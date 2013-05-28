@@ -1,0 +1,9 @@
+{% extends "horizon/common/_modal_form_add_members.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block modal-header %}{% trans "Add Group Assignment" %}{% endblock %}
+
+{% block modal-footer %}
+  <a href="{% url 'horizon:admin:groups:manage_members' group.id %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

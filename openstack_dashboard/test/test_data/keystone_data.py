@@ -18,7 +18,8 @@ from django.conf import settings
 from django.utils import datetime_safe
 
 from keystoneclient.v2_0 import users, tenants, tokens, roles, ec2
-from keystoneclient.v3 import domains
+from keystoneclient.v3 import domains, groups
+
 
 from .utils import TestDataContainer
 
@@ -99,6 +100,7 @@ def data(TEST):
     TEST.tokens = TestDataContainer()
     TEST.domains = TestDataContainer()
     TEST.users = TestDataContainer()
+    TEST.groups = TestDataContainer()
     TEST.tenants = TestDataContainer()
     TEST.roles = TestDataContainer()
     TEST.ec2 = TestDataContainer()
@@ -153,6 +155,18 @@ def data(TEST):
     TEST.users.add(user, user2, user3)
     TEST.user = user  # Your "current" user
     TEST.user.service_catalog = SERVICE_CATALOG
+
+    group_dict = {'id': "1",
+                 'name': 'group_one',
+                 'description': 'group one description',
+                 'domain_id': '1'}
+    group = groups.Group(groups.GroupManager(None), group_dict)
+    group_dict = {'id': "2",
+                 'name': 'group_two',
+                 'description': 'group two description',
+                 'domain_id': '1'}
+    group2 = groups.Group(groups.GroupManager(None), group_dict)
+    TEST.groups.add(group, group2)
 
     tenant_dict = {'id': "1",
                    'name': 'test_tenant',
