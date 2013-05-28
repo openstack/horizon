@@ -94,7 +94,10 @@ class DeleteRule(tables.DeleteAction):
 
 def get_source(rule):
     if 'cidr' in rule.ip_range:
-        return rule.ip_range['cidr'] + ' (CIDR)'
+        if rule.ip_range['cidr'] is None:
+            return '0.0.0.0/0 (CIDR)'
+        else:
+            return rule.ip_range['cidr'] + ' (CIDR)'
     elif 'name' in rule.group:
         return rule.group['name']
     else:
