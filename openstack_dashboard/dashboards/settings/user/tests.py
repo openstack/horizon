@@ -28,5 +28,6 @@ class UserSettingsTest(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         self.assertContains(res, "Australia/Melbourne (UTC +11:00)")
-        self.assertContains(res, "Canada/Newfoundland (UTC -03:30)")
         self.assertContains(res, "Europe/Moscow (UTC +04:00)")
+        self.assertContains(res, "Atlantic/Stanley (UTC -03:00)")
+        self.assertContains(res, "Pacific/Honolulu (UTC -10:00)")
