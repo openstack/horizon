@@ -32,8 +32,8 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 VENV = os.path.join(ROOT, '.venv')
 WITH_VENV = os.path.join(ROOT, 'tools', 'with_venv.sh')
-PIP_REQUIRES = os.path.join(ROOT, 'tools', 'pip-requires')
-TEST_REQUIRES = os.path.join(ROOT, 'tools', 'test-requires')
+PIP_REQUIRES = os.path.join(ROOT, 'requirements.txt')
+TEST_REQUIRES = os.path.join(ROOT, 'test-requirements.txt')
 
 
 def die(message, *args):
