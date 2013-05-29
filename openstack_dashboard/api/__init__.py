@@ -45,6 +45,7 @@ from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
 from openstack_dashboard.api import swift
 from openstack_dashboard.api import trove
+from openstack_dashboard.api import vpn
 
 assert base
 assert cinder
@@ -58,3 +59,4 @@ assert lbaas
 assert swift
 assert ceilometer
 assert trove
+assert vpn

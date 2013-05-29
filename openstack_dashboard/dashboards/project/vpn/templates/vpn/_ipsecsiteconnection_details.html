@@ -1,0 +1,66 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="info row-fluid detail">
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "ID:" %}</dt>
+    <dd>{{ ipsecsiteconnection.id }}</dd>
+
+    <dt>{% trans "Tenant ID:" %}</dt>
+    <dd>{{ ipsecsiteconnection.tenant_id }}</dd>
+
+    <dt>{% trans "Name:" %}</dt>
+    <dd>{{ ipsecsiteconnection.name }}</dd>
+
+    <dt>{% trans "Description:" %}</dt>
+    <dd>{{ ipsecsiteconnection.description }}</dd>
+
+    <dt>{% trans "Authorization mode:" %}</dt>
+    <dd>{{ ipsecsiteconnection.auth_mode }}</dd>
+
+    <dt>{% trans "Dead peer detection action:" %}</dt>
+    <dd>{{ ipsecsiteconnection.dpd.action }}</dd>
+
+    <dt>{% trans "Dead peer detection interval:" %}</dt>
+    <dd>{{ ipsecsiteconnection.dpd.interval }}</dd>
+
+    <dt>{% trans "Dead peer detection timeout:" %}</dt>
+    <dd>{{ ipsecsiteconnection.dpd.timeout }}</dd>
+
+    <dt>{% trans "IKEPolicy:" %}</dt>
+    <dd>{{ ipsecsiteconnection.ikepolicy_id }}</dd>
+
+    <dt>{% trans "Initiator state:" %}</dt>
+    <dd>{{ ipsecsiteconnection.initiator }}</dd>
+
+    <dt>{% trans "IPsecPolicy:" %}</dt>
+    <dd>{{ ipsecsiteconnection.ipsecpolicy_id }}</dd>
+
+    <dt>{% trans "MTU:" %}</dt>
+    <dd>{{ ipsecsiteconnection.mtu }}</dd>
+
+    <dt>{% trans "Remote peer IP Address:" %}</dt>
+    <dd>{{ ipsecsiteconnection.peer_address }}</dd>
+
+    <dt>{% trans "Remote peer subnet:" %}</dt>
+    <dd>{{ ipsecsiteconnection.peer_cidrs }}</dd>
+
+    <dt>{% trans "Remote branch router identity:" %}</dt>
+    <dd>{{ ipsecsiteconnection.peer_id }}</dd>
+
+    <dt>{% trans "Pre-Shared Key string:" %}</dt>
+    <dd>{{ ipsecsiteconnection.psk }}</dd>
+
+    <dt>{% trans "Route mode:" %}</dt>
+    <dd>{{ ipsecsiteconnection.route_mode }}</dd>
+
+    <dt>{% trans "VPNService:" %}</dt>
+    <dd>{{ ipsecsiteconnection.vpnservice_id }}</dd>
+
+    <dt>{% trans "Admin State Up:" %}</dt>
+    <dd>{{ ipsecsiteconnection.admin_state_up }}</dd>
+
+    <dt>{% trans "Status:" %}</dt>
+    <dd>{{ ipsecsiteconnection.status }}</dd>
+  </dl>
+</div>

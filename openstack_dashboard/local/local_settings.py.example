@@ -155,11 +155,12 @@ OPENSTACK_HYPERVISOR_FEATURES = {
 
 # The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
 # services provided by neutron. Options currenly available are load
-# balancer service, security groups, quotas.
+# balancer service, security groups, quotas, VPN service.
 OPENSTACK_NEUTRON_NETWORK = {
     'enable_lb': False,
     'enable_quotas': True,
     'enable_security_group': True,
+    'enable_vpn': False,
     # The profile_support option is used to detect if an external router can be
     # configured via the dashboard. When using specific plugins the
     # profile_support can be turned on if needed.
