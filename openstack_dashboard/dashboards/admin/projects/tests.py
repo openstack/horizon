@@ -58,9 +58,12 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         return project_info
 
     def _get_quota_info(self, quota):
+        cinder_quota = self.cinder_quotas.first()
         quota_data = {}
-        for field in quotas.QUOTA_FIELDS:
+        for field in quotas.NOVA_QUOTA_FIELDS:
             quota_data[field] = int(quota.get(field).limit)
+        for field in quotas.CINDER_QUOTA_FIELDS:
+            quota_data[field] = int(cinder_quota.get(field).limit)
         return quota_data
 
     def _get_workflow_data(self, project, quota):
@@ -403,9 +406,12 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
 class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
     def _get_quota_info(self, quota):
+        cinder_quota = self.cinder_quotas.first()
         quota_data = {}
-        for field in quotas.QUOTA_FIELDS:
+        for field in quotas.NOVA_QUOTA_FIELDS:
             quota_data[field] = int(quota.get(field).limit)
+        for field in quotas.CINDER_QUOTA_FIELDS:
+            quota_data[field] = int(cinder_quota.get(field).limit)
         return quota_data
 
     @test.create_stubs({api.keystone: ('get_default_role',

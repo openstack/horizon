@@ -1,5 +1,5 @@
 {% extends "horizon/common/_modal_form.html" %}
-{% load i18n horizon humanize %}
+{% load i18n %}
 {% load url from future %}
 
 {% block form_id %}{% endblock %}
@@ -16,38 +16,8 @@
   </div>
 
   <div class="right quota-dynamic">
-    <h3>{% trans "Description" %}:</h3>
-
-    <p>{% trans "Volumes are block devices that can be attached to instances." %}</p>
-
-    <h3>{% trans "Volume Quotas" %}</h3>
-
-    <div class="quota_title clearfix">
-      <strong>{% trans "Total Gigabytes" %} <span>({{ usages.gigabytes.used|intcomma }} {% trans "GB" %})</span></strong>
-      <p>{{ usages.gigabytes.available|quota:_("GB")|intcomma }}</p>
-    </div>
-
-    <div id="quota_size" data-progress-indicator-for="id_size" data-quota-limit="{{ usages.gigabytes.quota }}" data-quota-used="{{ usages.gigabytes.used }}" class="quota_bar">
-    </div>
-
-    <div class="quota_title clearfix">
-      <strong>{% trans "Number of Volumes" %} <span>({{ usages.volumes.used|intcomma }})</span></strong>
-      <p>{{ usages.volumes.available|quota|intcomma }}</p>
-    </div>
-
-    <div id="quota_volumes" data-progress-indicator-step-by="1" data-quota-limit="{{ usages.volumes.quota }}" data-quota-used="{{ usages.volumes.used }}" class="quota_bar">
-    </div>
+    {% include "project/volumes/_quota.html" with usages=usages %}
   </div>
-
-  <script type="text/javascript" charset="utf-8">
-    if(typeof horizon.Quota !== 'undefined') {
-      horizon.Quota.init();
-    } else {
-      addHorizonLoadEvent(function() {
-        horizon.Quota.init();
-      });
-    }
-  </script>
 {% endblock %}
 
 {% block modal-footer %}

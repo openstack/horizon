@@ -45,6 +45,8 @@ class QuotaTests(test.APITestCase):
                   'cores': {'available': 8, 'used': 2, 'quota': 10}}
         if with_volume:
             quotas.update({'volumes': {'available': 0, 'used': 3, 'quota': 1},
+                           'snapshots': {'available': 0, 'used': 3,
+                                         'quota': 1},
                            'gigabytes': {'available': 920, 'used': 80,
                                          'quota': 1000}})
         return quotas
@@ -54,7 +56,8 @@ class QuotaTests(test.APITestCase):
                                    'tenant_quota_get',),
                         api.network: ('tenant_floating_ip_list',),
                         quotas: ('is_service_enabled',),
-                        cinder: ('volume_list', 'tenant_quota_get',)})
+                        cinder: ('volume_list', 'volume_snapshot_list',
+                                 'tenant_quota_get',)})
     def test_tenant_quota_usages(self):
         quotas.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(True)
@@ -68,8 +71,10 @@ class QuotaTests(test.APITestCase):
                 .AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.snapshots.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
-            .AndReturn(self.quotas.first())
+            .AndReturn(self.cinder_quotas.first())
 
         self.mox.ReplayAll()
 
@@ -139,7 +144,8 @@ class QuotaTests(test.APITestCase):
                                    'tenant_quota_get',),
                         api.network: ('tenant_floating_ip_list',),
                         quotas: ('is_service_enabled',),
-                        cinder: ('volume_list', 'tenant_quota_get',)})
+                        cinder: ('volume_list', 'volume_snapshot_list',
+                                 'tenant_quota_get',)})
     def test_tenant_quota_usages_unlimited_quota(self):
         inf_quota = self.quotas.first()
         inf_quota['ram'] = -1
@@ -156,8 +162,10 @@ class QuotaTests(test.APITestCase):
                 .AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.snapshots.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
-            .AndReturn(inf_quota)
+            .AndReturn(self.cinder_quotas.first())
 
         self.mox.ReplayAll()
 
