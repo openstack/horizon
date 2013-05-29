@@ -90,7 +90,7 @@ For development, start with the getting started instructions above.
 Once you have a working virtualenv and all the necessary packages, read on.
 
 If dependencies are added to either ``horizon`` or ``openstack-dashboard``,
-they should be added to ``tools/pip-requires``.
+they should be added to ``requirements.txt``.
 
 The ``run_tests.sh`` script invokes tests and analyses on both of these
 components in its process, and it is what Jenkins uses to verify the

@@ -15,7 +15,7 @@ include tox.ini
 include bin/less/lessc
 include doc/Makefile
 include doc/source/_templates/.placeholder
-include tools/pip-requires
-include tools/test-requires
+include requirements.txt
+include test-requirements.txt
 
 exclude openstack_dashboard/local/local_settings.py
