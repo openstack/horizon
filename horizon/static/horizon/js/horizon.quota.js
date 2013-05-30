@@ -76,6 +76,132 @@ horizon.Quota = {
   },
 
   /*
+    Confirm that the specified attribute 'actual' meets
+    or exceeds the specified value 'minimum'.
+  */
+  belowMinimum: function(minimum, actual) {
+      return parseInt(minimum, 10) > parseInt(actual, 10);
+  },
+
+  /*
+    Determines if the selected image meets the requirements of
+    the selected flavor.
+  */
+  imageFitsFlavor: function(image, flavor) {
+    if (image == undefined) {
+        /*
+          If we don't actually have an image, we don't need to
+          limit our flavors, so we return true in this case.
+        */
+        return true;
+    } else {
+        overDisk = horizon.Quota.belowMinimum(image.min_disk, flavor.disk);
+        overRAM = horizon.Quota.belowMinimum(image.min_ram, flavor.ram);
+        return !(overDisk || overRAM);
+    }
+  },
+
+  /*
+    Note to the user that some flavors have been disabled.
+  */
+  noteDisabledFlavors: function(allDisabled) {
+    if ($('#some_flavors_disabled').length == 0) {
+      message = allDisabled ? horizon.Quota.allFlavorsDisabledMessage :
+          horizon.Quota.disabledFlavorMessage
+      $('#id_flavor').parent().append("<span id='some_flavors_disabled'>" +
+          message + '</span>');
+    }
+  },
+
+  /*
+    Re-enables all flavors that may have been disabled, and
+    clear the message displayed about them being disabled.
+  */
+  resetFlavors: function() {
+    if ($('#some_flavors_disabled')) {
+        $('#some_flavors_disabled').remove();
+        $('#id_flavor option').each(function() {
+            $(this).attr('disabled', false);
+        })
+    }
+  },
+
+  /*
+    A convenience method to find an image object by its id.
+  */
+  findImageById: function(id) {
+    _image = undefined;
+    $.each(horizon.Quota.images, function(i, image){
+        if(image.id == id) {
+            _image = image;
+        }
+    });
+    return _image;
+  },
+
+  /*
+    Return an image Object based on which image ID is selected
+  */
+  getSelectedImage: function() {
+    selected = $('#id_image_id option:selected').val();
+    return horizon.Quota.findImageById(selected);
+  },
+
+  /*
+    Disable any flavors for a given image that do not meet
+    its minimum RAM or disk requirements.
+  */
+  disableFlavorsForImage: function(image) {
+    image = horizon.Quota.getSelectedImage();
+    to_disable = []; // an array of flavor names to disable
+
+    horizon.Quota.resetFlavors(); // clear any previous messages
+
+    $.each(horizon.Quota.flavors, function(i, flavor) {
+        if (!horizon.Quota.imageFitsFlavor(image, flavor)) {
+            to_disable.push(flavor.name);
+        }
+    });
+
+    flavors = $('#id_flavor option');
+    // Now, disable anything from above:
+    $.each(to_disable, function(i, flavor_name) {
+        flavors.each(function(){
+            if ($(this).text() == flavor_name) {
+                $(this).attr('disabled', 'disabled');
+            }
+        });
+    });
+
+    // And then, finally, clean up:
+    if (to_disable.length > 0) {
+        selected = ($('#id_flavor option').filter(':selected'))[0];
+        if (to_disable.length < flavors.length && selected.disabled) {
+            // we need to find a new flavor to select
+            flavors.each(function(index, element) {
+                if (!element.disabled) {
+                    $('#id_flavor').val(element.value);
+                    $('#id_flavor').change(); // force elements to update
+                    return false; // break
+                }
+            });
+        }
+        horizon.Quota.noteDisabledFlavors(to_disable.length == flavors.length);
+    }
+  },
+
+  /*
+    Store an array of image objects
+  */
+  initWithImages: function(images, disabledMessage, allDisabledMessage) {
+    this.images = images;
+    this.disabledFlavorMessage = disabledMessage;
+    this.allFlavorsDisabledMessage = allDisabledMessage;
+    // Check if the image is pre-selected
+    horizon.Quota.disableFlavorsForImage();
+  },
+
+  /*
     Sets up the quota to be used with flavor form selectors, which requires
     some different handling of the forms. Also calls init() so that all of the
     other animations and handlers are taken care of as well when initializing
@@ -265,8 +391,13 @@ horizon.Quota = {
         scope.updateFlavorUsage();
       };
 
+      var imageChangeCallback = function(event) {
+        scope.disableFlavorsForImage();
+      };
+
       $('#id_flavor').on('change', eventCallback);
       $('#id_count').on('keyup', eventCallback);
+      $('#id_image_id').on('change', imageChangeCallback);
     }
 
     $(this.user_value_form_inputs).each(function(index, element) {
