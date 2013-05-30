@@ -695,3 +695,31 @@ class DeleteAction(BatchAction):
         classes = super(DeleteAction, self).get_default_classes()
         classes += ("btn-danger", "btn-delete")
         return classes
+
+
+class UpdateAction(object):
+    """A table action for cell updates by inline editing."""
+    name = "update"
+    action_present = _("Update")
+    action_past = _("Updated")
+    data_type_singular = "update"
+
+    def action(self, request, datum, obj_id, cell_name, new_cell_value):
+        self.update_cell(request, datum, obj_id, cell_name, new_cell_value)
+
+    def update_cell(self, request, datum, obj_id, cell_name, new_cell_value):
+        """Method for saving data of the cell.
+
+        This method must implements saving logic of the inline edited table
+        cell.
+        """
+        raise NotImplementedError(
+            "UpdateAction must define a update_cell method.")
+
+    def allowed(self, request, datum, cell):
+        """Determine whether updating is allowed for the current request.
+
+        This method is meant to be overridden with more specific checks.
+        Data of the row and of the cell are passed to the method.
+        """
+        return True

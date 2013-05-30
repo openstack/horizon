@@ -246,3 +246,138 @@ So it's enough to just import and use them, e.g. ::
 
     # code omitted
     filters=(parse_isotime, timesince)
+
+
+Inline editing
+==============
+
+Table cells can be easily upgraded with in-line editing. With use of
+django.form.Field, we are able to run validations of the field and correctly
+parse the data. The updating process is fully encapsulated into table
+functionality, communication with the server goes through AJAX in JSON format.
+The javacript wrapper for inline editing allows each table cell that has
+in-line editing available to:
+  #. Refresh itself with new data from the server.
+  #. Display in edit mod.
+  #. Send changed data to server.
+  #. Display validation errors.
+
+There are basically 3 things that need to be defined in the table in order
+to enable in-line editing.
+
+Fetching the row data
+---------------------
+
+Defining an ``get_data`` method in a class inherited from ``tables.Row``.
+This method takes care of fetching the row data. This class has to be then
+defined in the table Meta class as ``row_class = UpdateRow``.
+
+Example::
+
+    class UpdateRow(tables.Row):
+        # this method is also used for automatic update of the row
+        ajax = True
+
+        def get_data(self, request, project_id):
+            # getting all data of all row cells
+            project_info = api.keystone.tenant_get(request, project_id,
+                                                   admin=True)
+            return project_info
+
+Updating changed cell data
+--------------------------
+
+Define an ``update_cell`` method in the class inherited from
+``tables.UpdateAction``. This method takes care of saving the data of the
+table cell. There can be one class for every cell thanks to the
+``cell_name`` parameter. This class is then defined in tables column as
+``update_action=UpdateCell``, so each column can have its own updating
+method.
+
+Example::
+
+    class UpdateCell(tables.UpdateAction):
+        def allowed(self, request, project, cell):
+            # Determines whether given cell or row will be inline editable
+            # for signed in user.
+            return api.keystone.keystone_can_edit_project()
+
+        def update_cell(self, request, project_id, cell_name, new_cell_value):
+            # in-line update project info
+            try:
+                project_obj = datum
+                # updating changed value by new value
+                setattr(project_obj, cell_name, new_cell_value)
+
+                # sending new attributes back to API
+                api.keystone.tenant_update(
+                    request,
+                    project_id,
+                    name=project_obj.name,
+                    description=project_obj.description,
+                    enabled=project_obj.enabled)
+
+            except Conflict:
+                # Validation error for naming conflict, raised when user
+                # choose the existing name. We will raise a
+                # ValidationError, that will be sent back to the client
+                # browser and shown inside of the table cell.
+                message = _("This name is already taken.")
+                raise ValidationError(message)
+            except:
+                # Other exception of the API just goes through standard
+                # channel
+                exceptions.handle(request, ignore=True)
+                return False
+            return True
+
+Defining a form_field for each Column that we want to be in-line edited.
+------------------------------------------------------------------------
+
+Form field should be ``django.form.Field`` instance, so we can use django
+validations and parsing of the values sent by POST (in example validation
+``required=True`` and correct parsing of the checkbox value from the POST
+data).
+
+Form field can be also ``django.form.Widget`` class, if we need to just
+display the form widget in the table and we don't need Field functionality.
+
+Then connecting ``UpdateRow`` and ``UpdateCell`` classes to the table.
+
+Example::
+
+    class TenantsTable(tables.DataTable):
+        # Adding html text input for inline editing, with required validation.
+        # HTML form input will have a class attribute tenant-name-input, we
+        # can define here any HTML attribute we need.
+        name = tables.Column('name', verbose_name=_('Name'),
+                             form_field=forms.CharField(required=True),
+                             form_field_attributes={'class':'tenant-name-input'},
+                             update_action=UpdateCell)
+
+        # Adding html textarea without required validation.
+        description = tables.Column(lambda obj: getattr(obj, 'description', None),
+                                    verbose_name=_('Description'),
+                                    form_field=forms.CharField(
+                                        widget=forms.Textarea(),
+                                        required=False),
+                                    update_action=UpdateCell)
+
+        # Id will not be inline edited.
+        id = tables.Column('id', verbose_name=_('Project ID'))
+
+        # Adding html checkbox, that will be shown inside of the table cell with
+        # label
+        enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
+                                form_field=forms.BooleanField(
+                                    label=_('Enabled'),
+                                    required=False),
+                                update_action=UpdateCell)
+
+        class Meta:
+            name = "tenants"
+            verbose_name = _("Projects")
+            # Connection to UpdateRow, so table can fetch row data based on
+            # their primary key.
+            row_class = UpdateRow
+

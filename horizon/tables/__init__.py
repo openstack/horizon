@@ -21,6 +21,7 @@ from horizon.tables.actions import DeleteAction  # noqa
 from horizon.tables.actions import FilterAction  # noqa
 from horizon.tables.actions import FixedFilterAction  # noqa
 from horizon.tables.actions import LinkAction  # noqa
+from horizon.tables.actions import UpdateAction  # noqa
 from horizon.tables.base import Column  # noqa
 from horizon.tables.base import DataTable  # noqa
 from horizon.tables.base import Row  # noqa
@@ -33,6 +34,7 @@ assert Action
 assert BatchAction
 assert DeleteAction
 assert LinkAction
+assert UpdateAction
 assert FilterAction
 assert FixedFilterAction
 assert DataTable

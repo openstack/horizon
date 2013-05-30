@@ -1,0 +1,37 @@
+{% if cell.inline_edit_mod and cell.update_allowed %}
+   <td{{ cell.attr_string|safe }}>
+        <div class="table_cell_wrapper">
+            <div class="inline-edit-error"> </div>
+            <div class="inline-edit-form">
+                {{ cell.value }}
+                {% if cell.column.form_field.label %}
+                    <label class="inline-edit-label" for="{{ cell.id }}">{{ cell.column.form_field.label }}</label>
+                {% endif %}
+            </div>
+            <div class="inline-edit-actions">
+                <button class="inline-edit-submit btn btn-primary pull-right"
+                     name="action"
+                     value="" type="submit">
+                </button>
+                <button  class="inline-edit-cancel btn secondary cancel"></button>
+            </div>
+            <div class="inline-edit-status inline-edit-mod"></div>
+        </div>
+    </td>
+{% else %}
+    {% if cell.inline_edit_available and cell.update_allowed %}
+        <td{{ cell.attr_string|safe }}>
+            <div class="table_cell_wrapper">
+                <div class="table_cell_data_wrapper">
+                    {%if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{%if cell.wrap_list %}</ul>{% endif %}
+                </div>
+                <div class="table_cell_action">
+                    <button class="ajax-inline-edit btn-edit"></button>
+                </div>
+                <div class="inline-edit-status"></div>
+            </div>
+        </td>
+    {% else %}
+        <td{{ cell.attr_string|safe }}>{{ cell.value }}</td>
+    {% endif %}
+{% endif %}

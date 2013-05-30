@@ -16,11 +16,13 @@
 
 import collections
 import copy
+import json
 import logging
 from operator import attrgetter  # noqa
 import sys
 
 from django.conf import settings  # noqa
+from django.core import exceptions as core_exceptions
 from django.core import urlresolvers
 from django import forms
 from django.http import HttpResponse  # noqa
@@ -177,6 +179,28 @@ class Column(html.HTMLElement):
         Boolean value indicating whether the contents of this cell should be
         wrapped in a ``<ul></ul>`` tag. Useful in conjunction with Django's
         ``unordered_list`` template filter. Defaults to ``False``.
+
+    .. attribute:: form_field
+
+        A form field used for inline editing of the column. A django
+        forms.Field can be used or django form.Widget can be used.
+
+        Example: ``form_field=forms.CharField(required=True)``.
+        Defaults to ``None``.
+
+    .. attribute:: form_field_attributes
+
+        The additional html attributes that will be rendered to form_field.
+        Example: ``form_field_attributes={'class': 'bold_input_field'}``.
+        Defaults to ``None``.
+
+    .. attribute:: update_action
+
+        The class that inherits from tables.actions.UpdateAction, update_cell
+        method takes care of saving inline edited data. The tables.base.Row
+        get_data method needs to be connected to table for obtaining the data.
+        Example: ``update_action=UpdateCell``.
+        Defaults to ``None``.
     """
     summation_methods = {
         "sum": sum,
@@ -210,7 +234,10 @@ class Column(html.HTMLElement):
                  link=None, allowed_data_types=[], hidden=False, attrs=None,
                  status=False, status_choices=None, display_choices=None,
                  empty_value=None, filters=None, classes=None, summation=None,
-                 auto=None, truncate=None, link_classes=None, wrap_list=False):
+                 auto=None, truncate=None, link_classes=None, wrap_list=False,
+                 form_field=None, form_field_attributes=None,
+                 update_action=None):
+
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
@@ -242,6 +269,9 @@ class Column(html.HTMLElement):
         self.truncate = truncate
         self.link_classes = link_classes or []
         self.wrap_list = wrap_list
+        self.form_field = form_field
+        self.form_field_attributes = form_field_attributes or {}
+        self.update_action = update_action
 
         if status_choices:
             self.status_choices = status_choices
@@ -426,9 +456,17 @@ class Row(html.HTMLElement):
         String that is used for the query parameter key to request AJAX
         updates. Generally you won't need to change this value.
         Default: ``"row_update"``.
+
+    .. attribute:: ajax_cell_action_name
+
+        String that is used for the query parameter key to request AJAX
+        updates of cell. Generally you won't need to change this value.
+        It is also used for inline edit of the cell.
+        Default: ``"cell_update"``.
     """
     ajax = False
     ajax_action_name = "row_update"
+    ajax_cell_action_name = "cell_update"
 
     def __init__(self, table, datum=None):
         super(Row, self).__init__()
@@ -466,14 +504,40 @@ class Row(html.HTMLElement):
                 widget = forms.CheckboxInput(check_test=lambda value: False)
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
-                                     unicode(table.get_object_id(datum)))
+                                     unicode(table.get_object_id(datum)),
+                                     {'class': 'table-row-multi-select'})
+                table._data_cache[column][table.get_object_id(datum)] = data
+            elif column.auto == "form_field":
+                widget = column.form_field
+                if issubclass(widget.__class__, forms.Field):
+                    widget = widget.widget
+
+                widget_name = "%s__%s" % \
+                    (column.name,
+                     unicode(table.get_object_id(datum)))
+
+                # Create local copy of attributes, so it don't change column
+                # class form_field_attributes
+                form_field_attributes = {}
+                form_field_attributes.update(column.form_field_attributes)
+                # Adding id of the input so it pairs with label correctly
+                form_field_attributes['id'] = widget_name
+
+                data = widget.render(widget_name,
+                                     column.get_data(datum),
+                                     form_field_attributes)
                 table._data_cache[column][table.get_object_id(datum)] = data
             elif column.auto == "actions":
                 data = table.render_row_actions(datum)
                 table._data_cache[column][table.get_object_id(datum)] = data
             else:
                 data = column.get_data(datum)
+
             cell = Cell(datum, data, column, self)
+            if cell.inline_edit_available:
+                cell.attrs['data-cell-name'] = column.name
+                cell.attrs['data-update-url'] = cell.get_ajax_update_url()
+
             cells.append((column.name or column.auto, cell))
         self.cells = SortedDict(cells)
 
@@ -482,6 +546,8 @@ class Row(html.HTMLElement):
             self.attrs['data-update-interval'] = interval
             self.attrs['data-update-url'] = self.get_ajax_update_url()
             self.classes.append("ajax-update")
+
+        self.attrs['data-object-id'] = table.get_object_id(datum)
 
         # Add the row's status class and id to the attributes to be rendered.
         self.classes.append(self.status_class)
@@ -553,11 +619,21 @@ class Cell(html.HTMLElement):
         self.column = column
         self.row = row
         self.wrap_list = column.wrap_list
+        self.inline_edit_available = self.column.update_action is not None
+        # initialize the update action if available
+        if self.inline_edit_available:
+            self.update_action = self.column.update_action()
+        self.inline_edit_mod = False
 
     def __repr__(self):
         return '<%s: %s, %s>' % (self.__class__.__name__,
                                  self.column.name,
                                  self.row.id)
+
+    @property
+    def id(self):
+        return ("%s__%s" % (self.column.name,
+                unicode(self.row.table.get_object_id(self.datum))))
 
     @property
     def value(self):
@@ -631,7 +707,34 @@ class Cell(html.HTMLElement):
         classes = set(column_class_string.split(" "))
         if self.column.status:
             classes.add(self.get_status_class(self.status))
+
+        if self.inline_edit_available:
+            classes.add("inline_edit_available")
+
         return list(classes)
+
+    def get_ajax_update_url(self):
+        column = self.column
+        table_url = column.table.get_absolute_url()
+        params = urlencode({"table": column.table.name,
+                            "action": self.row.ajax_cell_action_name,
+                            "obj_id": column.table.get_object_id(self.datum),
+                            "cell_name": column.name})
+        return "%s?%s" % (table_url, params)
+
+    @property
+    def update_allowed(self):
+        """Determines whether update of given cell is allowed.
+
+        Calls allowed action of defined UpdateAction of the Column.
+        """
+        return self.update_action.allowed(self.column.table.request,
+                                          self.datum,
+                                          self)
+
+    def render(self):
+        return render_to_string("horizon/common/_data_table_cell.html",
+                                {"cell": self})
 
 
 class DataTableOptions(object):
@@ -1224,6 +1327,11 @@ class DataTable(object):
                         return HttpResponse(new_row.render())
                     else:
                         return HttpResponse(status=error.status_code)
+            elif new_row.ajax_cell_action_name == action_name:
+                # inline edit of the cell actions
+                return self.inline_edit_handle(request, table_name,
+                                               action_name, obj_id,
+                                               new_row)
 
             preemptive_actions = [action for action in
                                   self.base_actions.values() if action.preempt]
@@ -1234,6 +1342,90 @@ class DataTable(object):
                         if handled:
                             return handled
         return None
+
+    def inline_edit_handle(self, request, table_name, action_name, obj_id,
+                           new_row):
+        """Inline edit handler.
+
+        Showing form or handling update by POST of the cell.
+        """
+        try:
+            cell_name = request.GET['cell_name']
+            datum = new_row.get_data(request, obj_id)
+            # TODO(lsmola) extract load cell logic to Cell and load
+            # only 1 cell. This is kind of ugly.
+            if request.GET.get('inline_edit_mod') == "true":
+                new_row.table.columns[cell_name].auto = "form_field"
+                inline_edit_mod = True
+            else:
+                inline_edit_mod = False
+
+            # Load the cell and set the inline_edit_mod.
+            new_row.load_cells(datum)
+            cell = new_row.cells[cell_name]
+            cell.inline_edit_mod = inline_edit_mod
+
+            # If not allowed, neither edit mod or updating is allowed.
+            if not cell.update_allowed:
+                datum_display = (self.get_object_display(datum) or
+                                 _("N/A"))
+                LOG.info('Permission denied to %s: "%s"' %
+                         ("Update Action", datum_display))
+                return HttpResponse(status=401)
+            # If it is post request, we are updating the cell.
+            if request.method == "POST":
+                return self.inline_update_action(request,
+                                                 datum,
+                                                 cell,
+                                                 obj_id,
+                                                 cell_name)
+
+            error = False
+        except Exception:
+            datum = None
+            error = exceptions.handle(request, ignore=True)
+        if request.is_ajax():
+            if not error:
+                return HttpResponse(cell.render())
+            else:
+                return HttpResponse(status=error.status_code)
+
+    def inline_update_action(self, request, datum, cell, obj_id, cell_name):
+        """Handling update by POST of the cell.
+        """
+        new_cell_value = request.POST.get(
+            cell_name + '__' + obj_id, None)
+        if issubclass(cell.column.form_field.__class__,
+                      forms.Field):
+            try:
+                # using Django Form Field to parse the
+                # right value from POST and to validate it
+                new_cell_value = (
+                    cell.column.form_field.clean(
+                        new_cell_value))
+                cell.update_action.action(
+                    self.request, datum, obj_id, cell_name, new_cell_value)
+                response = {
+                    'status': 'updated',
+                    'message': ''
+                }
+                return HttpResponse(
+                    json.dumps(response),
+                    status=200,
+                    content_type="application/json")
+
+            except core_exceptions.ValidationError:
+                # if there is a validation error, I will
+                # return the message to the client
+                exc_type, exc_value, exc_traceback = (
+                    sys.exc_info())
+                response = {
+                    'status': 'validation_error',
+                    'message': ' '.join(exc_value.messages)}
+                return HttpResponse(
+                    json.dumps(response),
+                    status=400,
+                    content_type="application/json")
 
     def maybe_handle(self):
         """Determine whether the request should be handled by any action on
