@@ -161,10 +161,6 @@ class CreateForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            # FIXME(johnp): cinderclient currently returns a useless
-            # error message when the quota is exceeded when trying to create
-            # a volume, so we need to check for that scenario here before we
-            # send it off to try and create.
             usages = cinder.tenant_absolute_limits(self.request)
             volumes = cinder.volume_list(self.request)
             total_size = sum([getattr(volume, 'size', 0) for volume

@@ -20,6 +20,7 @@ import logging
 from django.core import urlresolvers
 from django import shortcuts
 from django.utils.http import urlencode
+from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -27,6 +28,7 @@ from horizon import messages
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.usage import quotas
 from openstack_dashboard.utils.filters import get_int_or_uuid
 
 
@@ -41,6 +43,19 @@ class AllocateIP(tables.LinkAction):
 
     def single(self, data_table, request, *args):
         return shortcuts.redirect('horizon:project:access_and_security:index')
+
+    def allowed(self, request, volume=None):
+        usages = quotas.tenant_quota_usages(request)
+        if usages['floating_ips']['available'] <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ['disabled']
+                self.verbose_name = string_concat(self.verbose_name, ' ',
+                                                  _("(Quota exceeded)"))
+        else:
+            self.verbose_name = _("Allocate IP To Project")
+            classes = [c for c in self.classes if c != "disabled"]
+            self.classes = classes
+        return True
 
 
 class ReleaseIPs(tables.BatchAction):

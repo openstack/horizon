@@ -21,13 +21,16 @@ from django.core.urlresolvers import reverse
 from django.template.defaultfilters import title
 from django.utils.html import strip_tags
 from django.utils import safestring
+from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
+
 
 from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+from openstack_dashboard.usage import quotas
 
 
 LOG = logging.getLogger(__name__)
@@ -62,6 +65,20 @@ class CreateVolume(tables.LinkAction):
     verbose_name = _("Create Volume")
     url = "horizon:project:volumes:create"
     classes = ("ajax-modal", "btn-create")
+
+    def allowed(self, request, volume=None):
+        usages = quotas.tenant_quota_usages(request)
+        if usages['gigabytes']['available'] <= 0 or\
+           usages['volumes']['available'] <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ['disabled']
+                self.verbose_name = string_concat(self.verbose_name, ' ',
+                                                  _("(Quota exceeded)"))
+        else:
+            self.verbose_name = _("Create Volume")
+            classes = [c for c in self.classes if c != "disabled"]
+            self.classes = classes
+        return True
 
 
 class EditAttachments(tables.LinkAction):

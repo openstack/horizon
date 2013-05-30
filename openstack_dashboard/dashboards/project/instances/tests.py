@@ -33,6 +33,7 @@ from horizon.workflows.views import WorkflowView
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.project.instances.tables import LaunchLink
 from openstack_dashboard.dashboards.project.instances.tabs \
@@ -876,7 +877,8 @@ class InstanceTests(test.TestCase):
                                    'server_create',),
                         api.network: ('security_group_list',),
                         cinder: ('volume_list',
-                                 'volume_snapshot_list',)})
+                                 'volume_snapshot_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post(self):
         flavor = self.flavors.first()
         image = self.images.first()
@@ -886,6 +888,7 @@ class InstanceTests(test.TestCase):
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
+        quota_usages = self.quota_usages.first()
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -925,6 +928,8 @@ class InstanceTests(test.TestCase):
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
                                admin_pass=u'')
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(quota_usages)
 
         self.mox.ReplayAll()
 
@@ -1035,7 +1040,8 @@ class InstanceTests(test.TestCase):
                                    'server_create',),
                         api.network: ('security_group_list',),
                         cinder: ('volume_list',
-                                 'volume_snapshot_list',)})
+                                 'volume_snapshot_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_boot_from_volume(self):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
@@ -1048,6 +1054,7 @@ class InstanceTests(test.TestCase):
         volume_choice = "%s:vol" % volume.id
         block_device_mapping = {device_name: u"%s::0" % volume_choice}
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
+        quota_usages = self.quota_usages.first()
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -1087,6 +1094,8 @@ class InstanceTests(test.TestCase):
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
                                admin_pass=u'')
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(quota_usages)
 
         self.mox.ReplayAll()
 
@@ -1118,7 +1127,8 @@ class InstanceTests(test.TestCase):
                                    'availability_zone_list',),
                         api.network: ('security_group_list',),
                         cinder: ('volume_list',
-                                 'volume_snapshot_list',)})
+                                 'volume_snapshot_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_no_images_available_boot_from_volume(self):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
@@ -1131,6 +1141,7 @@ class InstanceTests(test.TestCase):
         volume_choice = "%s:vol" % volume.id
         block_device_mapping = {device_name: u"%s::0" % volume_choice}
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
+        quota_usages = self.quota_usages.first()
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -1158,6 +1169,8 @@ class InstanceTests(test.TestCase):
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(quota_usages)
 
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
@@ -1324,7 +1337,8 @@ class InstanceTests(test.TestCase):
                                    'server_create',),
                         api.network: ('security_group_list',),
                         cinder: ('volume_list',
-                                 'volume_snapshot_list',)})
+                                 'volume_snapshot_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_launch_form_keystone_exception(self):
         flavor = self.flavors.first()
         image = self.images.first()
@@ -1334,6 +1348,7 @@ class InstanceTests(test.TestCase):
         avail_zone = self.availability_zones.first()
         customization_script = 'userData'
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
+        quota_usages = self.quota_usages.first()
 
         cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
@@ -1372,6 +1387,8 @@ class InstanceTests(test.TestCase):
                                instance_count=IsA(int),
                                admin_pass='password') \
                       .AndRaise(self.exceptions.keystone)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(quota_usages)
 
         self.mox.ReplayAll()
 

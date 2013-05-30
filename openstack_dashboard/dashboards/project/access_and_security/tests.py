@@ -29,6 +29,7 @@ from horizon.workflows.views import WorkflowView
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
 
 class AccessAndSecurityTests(test.TestCase):
@@ -39,10 +40,12 @@ class AccessAndSecurityTests(test.TestCase):
         keypairs = self.keypairs.list()
         sec_groups = self.security_groups.list()
         floating_ips = self.floating_ips.list()
+        quota_data = self.quota_usages.first()
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.network, 'security_group_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'server_list')
+        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
 
         api.nova.server_list(IsA(http.HttpRequest)) \
                     .AndReturn([self.servers.list(), False])
@@ -51,6 +54,8 @@ class AccessAndSecurityTests(test.TestCase):
             .AndReturn(floating_ips)
         api.network.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes()\
+            .AndReturn(quota_data)
 
         self.mox.ReplayAll()
 

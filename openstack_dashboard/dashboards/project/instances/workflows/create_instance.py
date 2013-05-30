@@ -24,6 +24,8 @@ import logging
 from django.conf import settings
 from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
+
 from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions
@@ -33,6 +35,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.project.images_and_snapshots.utils \
     import get_available_images
@@ -231,6 +234,21 @@ class SetInstanceDetailsAction(workflows.Action):
             msg = _('Launching multiple instances is only supported for '
                     'images and instance snapshots.')
             raise forms.ValidationError(msg)
+
+        # Prevent launching more instances than the quota allows
+        usages = quotas.tenant_quota_usages(self.request)
+        available_count = usages['instances']['available']
+        if available_count < count:
+            error_message = ungettext_lazy('The requested instance '
+                               'cannot be launched as you only have %(avail)i '
+                               'of your quota available.',
+                               'The requested %(req)i instances '
+                               'cannot be launched as you only have %(avail)i '
+                               'of your quota available.',
+                               count)
+            params = {'req': count,
+                      'avail': available_count}
+            raise forms.ValidationError(error_message % params)
 
         return cleaned_data
 

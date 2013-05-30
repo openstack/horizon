@@ -27,7 +27,9 @@ from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+from openstack_dashboard.dashboards.project.volumes.tables import CreateVolume
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
 
 class VolumeViewTests(test.TestCase):
@@ -608,12 +610,12 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_list',
                                  'volume_delete',),
-                        api.nova: ('server_list',)})
+                        api.nova: ('server_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_delete_volume(self):
         volume = self.volumes.first()
         formData = {'action':
                     'volumes__delete__%s' % volume.id}
-
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
                            AndReturn(self.volumes.list())
         cinder.volume_delete(IsA(http.HttpRequest), volume.id)
@@ -623,6 +625,8 @@ class VolumeViewTests(test.TestCase):
                            AndReturn(self.volumes.list())
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
                              AndReturn([self.servers.list(), False])
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes().\
+                                   AndReturn(self.quota_usages.first())
 
         self.mox.ReplayAll()
 
@@ -633,7 +637,8 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_list',
                                  'volume_delete',),
-                        api.nova: ('server_list',)})
+                        api.nova: ('server_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_delete_volume_error_existing_snapshot(self):
         volume = self.volumes.first()
         formData = {'action':
@@ -651,6 +656,8 @@ class VolumeViewTests(test.TestCase):
                            AndReturn(self.volumes.list())
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
                              AndReturn([self.servers.list(), False])
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes().\
+                                   AndReturn(self.quota_usages.first())
 
         self.mox.ReplayAll()
 
@@ -705,7 +712,8 @@ class VolumeViewTests(test.TestCase):
         settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = PREV
 
     @test.create_stubs({cinder: ('volume_get',),
-                        api.nova: ('server_get', 'server_list',)})
+                        api.nova: ('server_get', 'server_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_edit_attachments_attached_volume(self):
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
@@ -730,6 +738,40 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.context['form'].fields['instance']._choices[1][0],
                          server.id)
         self.assertEqual(res.status_code, 200)
+
+    @test.create_stubs({cinder: ('volume_list',),
+                        api.nova: ('server_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_button_disabled_when_quota_exceeded(self):
+        quota_usages = self.quota_usages.first()
+        quota_usages['volumes']['available'] = 0
+
+        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
+              .AndReturn(self.volumes.list())
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
+                .AndReturn([self.servers.list(), False])
+        quotas.tenant_quota_usages(IsA(http.HttpRequest))\
+              .MultipleTimes().AndReturn(quota_usages)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:project:volumes:index'))
+        self.assertTemplateUsed(res, 'project/volumes/index.html')
+
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, self.volumes.list())
+
+        create_link = CreateVolume()
+        url = create_link.get_link_url()
+        classes = list(create_link.get_default_classes())\
+                    + list(create_link.classes)
+        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+                                 "Quota exceeded")
+        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
+                          "id='volumes__action_create'>%s</a>" \
+                            % (url, link_name, " ".join(classes), link_name)
+        self.assertContains(res, expected_string, html=True,
+                            msg_prefix="The create button is not disabled")
 
     @test.create_stubs({cinder: ('volume_get',),
                         api.nova: ('server_get',)})
