@@ -4,15 +4,18 @@
 # 
 # Translators:
 # Translators:
-# Dimitar Dimitrov <dimitrov@linuxmail.org>, 2012.
-# Yasen Pramatarov <yasen@lindeas.com>, 2013.
+# Translators:
+# Translators:
+# Dimitar Dimitrov <dimitrov@linuxmail.org>, 2012
+# ttrifonov <t.trifonov@gmail.com>, 2013
+# Yasen Pramatarov <yasen@lindeas.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2013-03-12 08:28+0000\n"
-"Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
+"PO-Revision-Date: 2013-05-07 14:39+0000\n"
+"Last-Translator: ttrifonov <t.trifonov@gmail.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,12 +42,12 @@ msgstr "Нямате права. Опитайте да влезете отнов
 
 #: browsers/base.py:90
 msgid "Navigation Item"
-msgstr ""
+msgstr "Елемент от навигация"
 
 #: browsers/views.py:42
 #, python-format
 msgid "Select a %s to browse."
-msgstr ""
+msgstr "Изберете %s за разглеждане"
 
 #: conf/default.py:29
 msgid "Password is not accepted"
@@ -57,11 +60,11 @@ msgstr "Филтър"
 #: tables/actions.py:527
 #, python-format
 msgid "%(action)s %(data_type)s"
-msgstr ""
+msgstr "%(action)s %(data_type)s"
 
 #: tables/actions.py:561
 msgid "N/A"
-msgstr ""
+msgstr "н.д."
 
 #: tables/actions.py:589
 #, python-format
@@ -71,7 +74,7 @@ msgstr "Нямате права да %(action)s: %(objs)s"
 #: tables/actions.py:595
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr ""
+msgstr "%(objs)s не беше %(action)s "
 
 #: tables/actions.py:601
 #, python-format
@@ -89,11 +92,11 @@ msgstr "Изтрито"
 #: tables/base.py:275
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr ""
+msgstr "%(obj)s няма атрибут %(attr)s."
 
 #: tables/base.py:748
 msgid "No items to display."
-msgstr ""
+msgstr "Няма елементи за показване."
 
 #: tables/base.py:852
 msgid "Actions"
@@ -102,7 +105,7 @@ msgstr "Действия"
 #: tables/base.py:1035
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr ""
+msgstr "Не са намерени съвпадения за Id \"%s\"."
 
 #: tables/base.py:1165
 msgid "Please select a row before taking that action."
@@ -110,7 +113,7 @@ msgstr "Изберете ред, преди да предприемете тов
 
 #: templates/_header.html:3
 msgid "Logged in as"
-msgstr ""
+msgstr "Влезли сте като"
 
 #: templates/_header.html:5
 msgid "Help"
@@ -130,15 +133,15 @@ msgstr "Вход"
 
 #: templates/auth/_login.html:14
 msgid "You don't have permissions to access:"
-msgstr ""
+msgstr "Нямате права за достъп:"
 
 #: templates/auth/_login.html:16
 msgid "Login as different user or go back to"
-msgstr ""
+msgstr "Влезте като друг потребител или се върнете към"
 
 #: templates/auth/_login.html:17
 msgid "home page"
-msgstr ""
+msgstr "начална страница"
 
 #: templates/auth/_login.html:27
 msgid "Sign In"
@@ -168,16 +171,16 @@ msgstr "Обобщение"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Показване на %(counter)s елемент"
+msgstr[1] "Показване на %(counter)s елемента"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
-msgstr ""
+msgstr "Още"
 
 #: templates/horizon/common/_quota_summary.html:4
 msgid "Quota Summary"
-msgstr "Обобщение"
+msgstr "Обобщение на квотите"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -185,7 +188,7 @@ msgstr "Обобщение"
 #: templates/horizon/common/_quota_summary.html:15
 #: templates/horizon/common/_quota_summary.html:18
 msgid "Used"
-msgstr ""
+msgstr "Използвани"
 
 #: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
@@ -193,7 +196,7 @@ msgstr ""
 #: templates/horizon/common/_quota_summary.html:15
 #: templates/horizon/common/_quota_summary.html:18
 msgid "of"
-msgstr ""
+msgstr "от"
 
 #: templates/horizon/common/_quota_summary.html:5
 msgid "Available Instances"
@@ -201,33 +204,33 @@ msgstr "Всички инстанции"
 
 #: templates/horizon/common/_quota_summary.html:8
 msgid "Available vCPUs"
-msgstr "Налично"
+msgstr "Налични vCPU"
 
 #: templates/horizon/common/_quota_summary.html:11
 msgid "Available RAM"
-msgstr "Налично"
+msgstr "Налична RAM"
 
 #: templates/horizon/common/_quota_summary.html:15
 msgid "Available volumes"
-msgstr ""
+msgstr "Налични дискови масиви"
 
 #: templates/horizon/common/_quota_summary.html:18
 msgid "Available volume storage"
-msgstr ""
+msgstr "Налично дисково пространство"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Показан %(nav_items)s елемент"
+msgstr[1] "Показани %(nav_items)s елемента"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Показан %(content_items)s елемент"
+msgstr[1] "Показани %(content_items)s елемента"
 
 #: templates/horizon/common/_sidebar.html:14
 msgid "Current Project"
@@ -247,15 +250,15 @@ msgstr "Активни инстанции"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Active RAM"
-msgstr ""
+msgstr "Използвана RAM"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "This Month's VCPU-Hours"
-msgstr ""
+msgstr "VCPU-часове за текущ месец"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "This Month's GB-Hours"
-msgstr ""
+msgstr "GB-часове за текущ месец"
 
 #: templates/horizon/common/_workflow.html:33
 msgid "Cancel"
@@ -277,15 +280,15 @@ msgstr "Налично"
 #, python-format
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(size)d байт"
+msgstr[1] "%(size)d байта"
 
 #: templatetags/sizeformat.py:49
 #, python-format
 msgid "%(size)d"
 msgid_plural "%(size)d"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(size)d"
+msgstr[1] "%(size)d"
 
 #: templatetags/sizeformat.py:52
 #, python-format
@@ -380,35 +383,35 @@ msgstr ""
 
 #: test/tests/tables.py:109 test/tests/tables.py:120
 msgid "Item"
-msgstr ""
+msgstr "Елемент"
 
 #: test/tests/tables.py:110 test/tests/tables.py:121
 msgid "Items"
-msgstr ""
+msgstr "Елементи"
 
 #: test/tests/tables.py:118
 msgid "Down"
-msgstr ""
+msgstr "Свали"
 
 #: test/tests/tables.py:118
 msgid "Up"
-msgstr ""
+msgstr "Вдигни"
 
 #: test/tests/tables.py:119
 msgid "Downed"
-msgstr ""
+msgstr "Свален"
 
 #: test/tests/tables.py:119
 msgid "Upped"
-msgstr ""
+msgstr "Вдигнат"
 
 #: test/tests/tables.py:187
 msgid "No Actions Table"
-msgstr ""
+msgstr "Таблица без действия"
 
 #: test/tests/tables.py:684
 msgid "Single Table"
-msgstr ""
+msgstr "Единична таблица"
 
 #: test/tests/tabs.py:36
 msgid "Tab One"
@@ -444,7 +447,7 @@ msgstr "Потребител"
 
 #: test/tests/workflows.py:47
 msgid "Test Action One"
-msgstr "Пръбно действие първо"
+msgstr "Пробно действие първо"
 
 #: test/tests/workflows.py:61
 msgid "Instance"
@@ -484,19 +487,19 @@ msgstr "Обработване..."
 
 #: workflows/base.py:467
 msgid "All available"
-msgstr ""
+msgstr "Всички са налични"
 
 #: workflows/base.py:468
 msgid "Members"
-msgstr ""
+msgstr "Членове"
 
 #: workflows/base.py:469
 msgid "None available."
-msgstr ""
+msgstr "Няма налично."
 
 #: workflows/base.py:470
 msgid "No members."
-msgstr ""
+msgstr "Няма членове."
 
 #: workflows/base.py:569
 msgid "Save"

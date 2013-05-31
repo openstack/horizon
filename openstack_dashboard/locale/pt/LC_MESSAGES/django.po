@@ -4,12 +4,15 @@
 # 
 # Translators:
 # Translators:
+# Translators:
+# Translators:
+# Nuno Esteves <nuno.esteves@artelecom.pt>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
 "POT-Creation-Date: 2013-03-12 04:09+0000\n"
-"PO-Revision-Date: 2013-03-12 08:31+0000\n"
+"PO-Revision-Date: 2013-05-08 08:24+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
 "MIME-Version: 1.0\n"
@@ -817,7 +820,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 msgid "Networks"
-msgstr ""
+msgstr "Redes"
 
 #: dashboards/admin/networks/tables.py:34
 #: dashboards/project/networks/tables.py:43
@@ -3578,7 +3581,7 @@ msgstr ""
 msgid ""
 "Create Pool for current tenant.\n"
 "\n"
-"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by defaul.t"
+"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by default."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:98
