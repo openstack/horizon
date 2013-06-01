@@ -668,7 +668,7 @@ class NetworkSubnetTests(test.TestCase):
 
     @test.create_stubs({api.quantum: ('network_get',
                                       'subnet_create',)})
-    def test_subnet_create_post_with_additional_attributes(self):
+    def test_subnet_create_post_with_additional_attributes_no_gateway(self):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.quantum.network_get(IsA(http.HttpRequest),
@@ -987,29 +987,6 @@ class NetworkSubnetTests(test.TestCase):
         self.assertContains(res,
                             'host_routes: Invalid IP address '
                             '(value=%s)' % host_routes.split(',')[1])
-
-    @test.create_stubs({api.quantum: ('subnet_modify',
-                                      'subnet_get',)})
-    def test_subnet_update_post(self):
-        subnet = self.subnets.first()
-        api.quantum.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(subnet)
-        api.quantum.subnet_modify(IsA(http.HttpRequest), subnet.id,
-                                  name=subnet.name,
-                                  gateway_ip=subnet.gateway_ip,
-                                  enable_dhcp=subnet.enable_dhcp)\
-            .AndReturn(subnet)
-        self.mox.ReplayAll()
-
-        form_data = form_data_subnet(subnet,
-                                     allocation_pools=[])
-        url = reverse('horizon:project:networks:editsubnet',
-                      args=[subnet.network_id, subnet.id])
-        res = self.client.post(url, form_data)
-
-        redir_url = reverse('horizon:project:networks:detail',
-                            args=[subnet.network_id])
-        self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.quantum: ('subnet_modify',
                                       'subnet_get',)})

@@ -8,8 +8,6 @@ from django import http
 
 from horizon.workflows.views import WorkflowView
 
-from mox import IsA
-
 from openstack_dashboard import api
 from openstack_dashboard.api.lbaas import Member
 from openstack_dashboard.api.lbaas import Pool
