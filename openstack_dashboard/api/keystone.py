@@ -322,6 +322,8 @@ def user_update(request, user, **data):
 
     # v3 API is so much simpler...
     else:
+        if not data['password']:
+            data.pop('password')
         user = manager.update(user, **data)
 
     return VERSIONS.upgrade_v2_user(user)
