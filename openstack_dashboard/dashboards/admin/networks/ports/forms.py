@@ -57,6 +57,7 @@ class CreatePort(forms.SelfHandlingForm):
             network = api.quantum.network_get(request, data['network_id'])
             data['tenant_id'] = network.tenant_id
             data['admin_state_up'] = data['admin_state']
+            del data['network_name']
             del data['admin_state']
 
             port = api.quantum.port_create(request, **data)
