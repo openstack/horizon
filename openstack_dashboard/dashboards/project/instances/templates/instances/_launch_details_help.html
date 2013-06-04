@@ -18,22 +18,22 @@
 <div class="quota-dynamic">
   <h4>{% trans "Project Quotas" %}</h4>
   <div class="quota_title clearfix">
-    <strong>{% trans "Number of Instances" %} <span>({{ usages.instances.used|intcomma }})</span></strong>
-    <p>{{ usages.instances.available|quota|intcomma }}</p>
+    <strong>{% trans "Number of Instances" %}</strong>
+    {% blocktrans with used=usages.instances.used|intcomma quota=usages.instances.quota|intcomma %}<p>{{ used }} of {{ quota }} Used</p>{% endblocktrans %}
   </div>
   <div id="quota_instances" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.instances.quota }}" data-quota-used="{{ usages.instances.used }}">
   </div>
 
   <div class="quota_title clearfix">
-    <strong>{% trans "Number of VCPUs" %} <span>({{ usages.cores.used|intcomma }})</span></strong>
-    <p>{{ usages.cores.available|quota|intcomma }}</p>
+    <strong>{% trans "Number of VCPUs" %}</strong>
+    {% blocktrans with used=usages.cores.used|intcomma quota=usages.cores.quota|intcomma %}<p>{{ used }} of {{ quota }} Used</p>{% endblocktrans %}
   </div>
   <div id="quota_vcpus" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.cores.quota }}" data-quota-used="{{ usages.cores.used }}">
   </div>
 
   <div class="quota_title clearfix">
-    <strong>{% trans "Total RAM" %} <span>({{ usages.ram.used|intcomma }} {% trans "MB" %})</span></strong>
-    <p>{{ usages.ram.available|quota:_("MB")|intcomma }}</p>
+    <strong>{% trans "Total RAM" %}</strong>
+    {% blocktrans with used=usages.ram.used|intcomma quota=usages.ram.quota|intcomma %}<p>{{ used }} of {{ quota }} MB Used</p>{% endblocktrans %}
   </div>
   <div id="quota_ram" data-progress-indicator-flavor data-quota-limit="{{ usages.ram.quota }}" data-quota-used="{{ usages.ram.used }}" class="quota_bar">
   </div>
