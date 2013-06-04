@@ -221,7 +221,7 @@ class CreateForm(forms.SelfHandlingForm):
                                           snapshot_id=snapshot_id,
                                           image_id=image_id,
                                           metadata=metadata)
-            message = 'Creating volume "%s"' % data['name']
+            message = _('Creating volume "%s"') % data['name']
             messages.info(request, message)
             return volume
         except ValidationError, e:
