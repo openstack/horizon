@@ -18,7 +18,8 @@ from django.conf.urls.defaults import url, patterns
 
 from .views import IndexView
 from .views import AddPoolView, AddMemberView, AddMonitorView, AddVipView
-from .views import UpdatePoolView
+from .views import (UpdatePoolView, UpdateMemberView,
+                    UpdateVipView, UpdateMonitorView)
 from .views import PoolDetailsView, VipDetailsView
 from .views import MemberDetailsView, MonitorDetailsView
 
@@ -29,8 +30,14 @@ urlpatterns = patterns(
     url(r'^updatepool/(?P<pool_id>[^/]+)/$',
         UpdatePoolView.as_view(), name='updatepool'),
     url(r'^addvip/(?P<pool_id>[^/]+)/$', AddVipView.as_view(), name='addvip'),
+    url(r'^updatevip/(?P<vip_id>[^/]+)/$',
+        UpdateVipView.as_view(), name='updatevip'),
     url(r'^addmember$', AddMemberView.as_view(), name='addmember'),
+    url(r'^updatemember/(?P<member_id>[^/]+)/$',
+        UpdateMemberView.as_view(), name='updatemember'),
     url(r'^addmonitor$', AddMonitorView.as_view(), name='addmonitor'),
+    url(r'^updatemonitor/(?P<monitor_id>[^/]+)/$',
+        UpdateMonitorView.as_view(), name='updatemonitor'),
     url(r'^pool/(?P<pool_id>[^/]+)/$',
         PoolDetailsView.as_view(), name='pooldetails'),
     url(r'^vip/(?P<vip_id>[^/]+)/$',

@@ -68,3 +68,179 @@ class UpdatePool(forms.SelfHandlingForm):
             LOG.info(msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
+
+
+class UpdateVip(forms.SelfHandlingForm):
+    name = forms.CharField(max_length=80, label=_("Name"))
+    vip_id = forms.CharField(label=_("ID"),
+                                 widget=forms.TextInput(
+                                     attrs={'readonly': 'readonly'}))
+    description = forms.CharField(required=False,
+                                  max_length=80, label=_("Description"))
+    pool_id = forms.ChoiceField(label=_("Pool"))
+    session_persistence = forms.ChoiceField(
+        required=False, initial={}, label=_("Session Persistence"))
+
+    cookie_name = forms.CharField(
+        initial="", required=False,
+        max_length=80, label=_("Cookie Name"),
+        help_text=_("Required for APP_COOKIE persistence;"
+                    " Ignored otherwise."))
+
+    connection_limit = forms.IntegerField(
+        min_value=-1, label=_("Connection Limit"),
+        help_text=_("Maximum number of connections allowed "
+                    "for the VIP or '-1' if the limit is not set"))
+    admin_state_up = forms.BooleanField(label=_("Admin State"), required=False)
+
+    failure_url = 'horizon:project:loadbalancers:index'
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateVip, self).__init__(request, *args, **kwargs)
+
+        pool_id_choices = []
+        try:
+            pools = api.lbaas.pools_get(request)
+        except:
+            pools = []
+            exceptions.handle(request,
+                              _('Unable to retrieve pools list.'))
+        pools = sorted(pools,
+                       key=lambda pool: pool.name)
+        for p in pools:
+            if (p.vip_id is None) or (p.id == kwargs['initial']['pool_id']):
+                pool_id_choices.append((p.id, p.name))
+        self.fields['pool_id'].choices = pool_id_choices
+
+        session_persistence_choices = []
+        for mode in ('SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'):
+            session_persistence_choices.append((mode, mode))
+        self.fields[
+            'session_persistence'].choices = session_persistence_choices
+
+    def handle(self, request, context):
+        if context['session_persistence']:
+            stype = context['session_persistence']
+            if stype == 'APP_COOKIE':
+                cookie = context['cookie_name']
+                context['session_persistence'] = {'type': stype,
+                                                  'cookie_name': cookie}
+            else:
+                context['session_persistence'] = {'type': stype}
+        else:
+            context['session_persistence'] = {}
+
+        try:
+            data = {'vip': {'name': context['name'],
+                            'description': context['description'],
+                            'pool_id': context['pool_id'],
+                            'session_persistence':
+                                context['session_persistence'],
+                            'connection_limit': context['connection_limit'],
+                            'admin_state_up': context['admin_state_up'],
+                            }}
+            vip = api.lbaas.vip_update(request, context['vip_id'], **data)
+            msg = _('VIP %s was successfully updated.') % context['name']
+            LOG.debug(msg)
+            messages.success(request, msg)
+            return vip
+        except:
+            msg = _('Failed to update VIP %s') % context['name']
+            LOG.info(msg)
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)
+
+
+class UpdateMember(forms.SelfHandlingForm):
+    member_id = forms.CharField(label=_("ID"),
+                                 widget=forms.TextInput(
+                                     attrs={'readonly': 'readonly'}))
+    pool_id = forms.ChoiceField(label=_("Pool"))
+    weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"),
+                                help_text=_("Relative part of requests this "
+                                "pool member serves compared to others"))
+    admin_state_up = forms.BooleanField(label=_("Admin State"), required=False)
+
+    failure_url = 'horizon:project:loadbalancers:index'
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateMember, self).__init__(request, *args, **kwargs)
+
+        pool_id_choices = []
+        try:
+            pools = api.lbaas.pools_get(request)
+        except:
+            pools = []
+            exceptions.handle(request,
+                              _('Unable to retrieve pools list.'))
+        pools = sorted(pools,
+                       key=lambda pool: pool.name)
+        for p in pools:
+            pool_id_choices.append((p.id, p.name))
+        self.fields['pool_id'].choices = pool_id_choices
+
+    def handle(self, request, context):
+        try:
+            data = {'member': {'pool_id': context['pool_id'],
+                               'weight': context['weight'],
+                               'admin_state_up': context['admin_state_up']}}
+            member = api.lbaas.member_update(request,
+                                             context['member_id'], **data)
+            msg = _('Member %s was successfully updated.')\
+                % context['member_id']
+            LOG.debug(msg)
+            messages.success(request, msg)
+            return member
+        except:
+            msg = _('Failed to update member %s') % context['member_id']
+            LOG.info(msg)
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)
+
+
+class UpdateMonitor(forms.SelfHandlingForm):
+    monitor_id = forms.CharField(label=_("ID"),
+                                 widget=forms.TextInput(
+                                     attrs={'readonly': 'readonly'}))
+    delay = forms.IntegerField(
+        min_value=1,
+        label=_("Delay"),
+        help_text=_("The minimum time in seconds between regular checks "
+                    "of a member"))
+    timeout = forms.IntegerField(
+        min_value=1,
+        label=_("Timeout"),
+        help_text=_("The maximum time in seconds for a monitor to wait "
+                    "for a reply"))
+    max_retries = forms.IntegerField(
+        max_value=10, min_value=1,
+        label=_("Max Retries (1~10)"),
+        help_text=_("Number of permissible failures before changing "
+                    "the status of member to inactive"))
+    admin_state_up = forms.BooleanField(label=_("Admin State"), required=False)
+
+    failure_url = 'horizon:project:loadbalancers:index'
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateMonitor, self).__init__(request, *args, **kwargs)
+
+    def handle(self, request, context):
+        try:
+            data = {'health_monitor': {
+                    'delay': context['delay'],
+                    'timeout': context['timeout'],
+                    'max_retries': context['max_retries'],
+                    'admin_state_up': context['admin_state_up']}}
+            monitor = api.lbaas.pool_health_monitor_update(request,
+                                             context['monitor_id'], **data)
+            msg = _('Health monitor %s was successfully updated.')\
+                % context['monitor_id']
+            LOG.debug(msg)
+            messages.success(request, msg)
+            return monitor
+        except:
+            msg = _('Failed to update health monitor %s')\
+                % context['monitor_id']
+            LOG.info(msg)
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)

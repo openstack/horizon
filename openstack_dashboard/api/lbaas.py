@@ -147,7 +147,6 @@ def vip_get(request, vip_id):
     return Vip(vip)
 
 
-# not linked to UI yet
 def vip_update(request, vip_id, **kwargs):
     vip = quantumclient(request).update_vip(vip_id, kwargs).get('vip')
     return Vip(vip)
@@ -249,6 +248,11 @@ def pool_health_monitor_get(request, monitor_id):
     return PoolMonitor(monitor)
 
 
+def pool_health_monitor_update(request, monitor_id, **kwargs):
+    monitor = quantumclient(request).update_health_monitor(monitor_id, kwargs)
+    return PoolMonitor(monitor)
+
+
 def pool_health_monitor_delete(request, mon_id):
     quantumclient(request).delete_health_monitor(mon_id)
 
@@ -283,7 +287,6 @@ def member_get(request, member_id):
     return Member(member)
 
 
-# not linked to UI yet
 def member_update(request, member_id, **kwargs):
     member = quantumclient(request).update_member(member_id, kwargs)
     return Member(member)

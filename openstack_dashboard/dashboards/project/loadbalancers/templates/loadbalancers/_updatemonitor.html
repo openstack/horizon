@@ -1,0 +1,25 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}update_monitor_form{% endblock %}
+{% block form_action %}{% url 'horizon:project:loadbalancers:updatemonitor' monitor_id %}{% endblock %}
+
+{% block modal-header %}{% trans "Edit Monitor" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "You may update health monitor attributes here: edit delay, timeout, max retries  or admin state." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Save Changes" %}" />
+  <a href="{% url 'horizon:project:loadbalancers:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

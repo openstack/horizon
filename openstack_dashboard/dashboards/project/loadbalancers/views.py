@@ -30,7 +30,7 @@ from horizon import workflows
 from openstack_dashboard import api
 
 from .workflows import AddPool, AddMember, AddMonitor, AddVip
-from .forms import UpdatePool
+from .forms import UpdatePool, UpdateVip, UpdateMember, UpdateMonitor
 from .tabs import LoadBalancerTabs, PoolDetailsTabs, VipDetailsTabs
 from .tabs import MemberDetailsTabs, MonitorDetailsTabs
 from .tables import DeleteMonitorLink
@@ -179,4 +179,106 @@ class UpdatePoolView(forms.ModalFormView):
                 'pool_id': pool['id'],
                 'description': pool['description'],
                 'lb_method': pool['lb_method'],
-                'admin_state': pool['admin_state_up']}
+                'admin_state_up': pool['admin_state_up']}
+
+
+class UpdateVipView(forms.ModalFormView):
+    form_class = UpdateVip
+    template_name = "project/loadbalancers/updatevip.html"
+    context_object_name = 'vip'
+    success_url = reverse_lazy("horizon:project:loadbalancers:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateVipView, self).get_context_data(**kwargs)
+        context["vip_id"] = self.kwargs['vip_id']
+        return context
+
+    def _get_object(self, *args, **kwargs):
+        if not hasattr(self, "_object"):
+            vip_id = self.kwargs['vip_id']
+            try:
+                self._object = api.lbaas.vip_get(self.request, vip_id)
+            except:
+                redirect = self.success_url
+                msg = _('Unable to retrieve vip details.')
+                exceptions.handle(self.request, msg, redirect=redirect)
+        return self._object
+
+    def get_initial(self):
+        vip = self._get_object()
+        stype = vip['session_persistence']
+        if stype['type'] == 'APP_COOKIE':
+            cookie = stype['cookie_name']
+        else:
+            cookie = ''
+
+        return {'name': vip['name'],
+                'vip_id': vip['id'],
+                'description': vip['description'],
+                'pool_id': vip['pool_id'],
+                'session_persistence': vip['session_persistence']['type'],
+                'cookie_name': cookie,
+                'connection_limit': vip['connection_limit'],
+                'admin_state_up': vip['admin_state_up']}
+
+
+class UpdateMemberView(forms.ModalFormView):
+    form_class = UpdateMember
+    template_name = "project/loadbalancers/updatemember.html"
+    context_object_name = 'member'
+    success_url = reverse_lazy("horizon:project:loadbalancers:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateMemberView, self).get_context_data(**kwargs)
+        context["member_id"] = self.kwargs['member_id']
+        return context
+
+    def _get_object(self, *args, **kwargs):
+        if not hasattr(self, "_object"):
+            member_id = self.kwargs['member_id']
+            try:
+                self._object = api.lbaas.member_get(self.request, member_id)
+            except:
+                redirect = self.success_url
+                msg = _('Unable to retrieve member details.')
+                exceptions.handle(self.request, msg, redirect=redirect)
+        return self._object
+
+    def get_initial(self):
+        member = self._get_object()
+        return {'member_id': member['id'],
+                'pool_id': member['pool_id'],
+                'weight': member['weight'],
+                'admin_state_up': member['admin_state_up']}
+
+
+class UpdateMonitorView(forms.ModalFormView):
+    form_class = UpdateMonitor
+    template_name = "project/loadbalancers/updatemonitor.html"
+    context_object_name = 'monitor'
+    success_url = reverse_lazy("horizon:project:loadbalancers:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateMonitorView, self).get_context_data(**kwargs)
+        context["monitor_id"] = self.kwargs['monitor_id']
+        return context
+
+    def _get_object(self, *args, **kwargs):
+        if not hasattr(self, "_object"):
+            monitor_id = self.kwargs['monitor_id']
+            try:
+                self._object = api.lbaas.pool_health_monitor_get(
+                                    self.request, monitor_id)
+            except:
+                redirect = self.success_url
+                msg = _('Unable to retrieve health monitor details.')
+                exceptions.handle(self.request, msg, redirect=redirect)
+        return self._object
+
+    def get_initial(self):
+        monitor = self._get_object()
+        return {'monitor_id': monitor['id'],
+                'delay': monitor['delay'],
+                'timeout': monitor['timeout'],
+                'max_retries': monitor['max_retries'],
+                'admin_state_up': monitor['admin_state_up']}
