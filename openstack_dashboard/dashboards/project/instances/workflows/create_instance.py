@@ -179,6 +179,8 @@ class SetInstanceDetailsAction(workflows.Action):
     image_id = forms.ChoiceField(label=_("Image"), required=False)
     instance_snapshot_id = forms.ChoiceField(label=_("Instance Snapshot"),
                                              required=False)
+    availability_zone = forms.ChoiceField(label=_("Availability Zone"),
+                                          required=False)
     name = forms.CharField(max_length=80, label=_("Instance Name"))
     flavor = forms.ChoiceField(label=_("Flavor"),
                                help_text=_("Size of image to launch."))
@@ -271,6 +273,23 @@ class SetInstanceDetailsAction(workflows.Action):
                               _('Unable to retrieve instance flavors.'))
         return sorted(flavor_list)
 
+    def populate_availability_zone_choices(self, request, context):
+        try:
+            zones = api.nova.availability_zone_list(request)
+        except:
+            zones = []
+            exceptions.handle(request,
+                              _('Unable to retrieve availability zones.'))
+
+        zone_list = [(zone.zoneName, zone.zoneName)
+                      for zone in zones if zone.zoneState['available']]
+        zone_list.sort()
+        if zone_list:
+            zone_list.insert(0, ("", _("Any Availability Zone")))
+        else:
+            zone_list.insert(0, ("", _("No availability zones found.")))
+        return zone_list
+
     def get_help_text(self):
         extra = {}
         try:
@@ -287,7 +306,8 @@ class SetInstanceDetailsAction(workflows.Action):
 
 class SetInstanceDetails(workflows.Step):
     action_class = SetInstanceDetailsAction
-    contributes = ("source_type", "source_id", "name", "count", "flavor")
+    contributes = ("source_type", "source_id", "availability_zone",
+                   "name", "count", "flavor")
 
     def prepare_action_context(self, request, context):
         if 'source_type' in context and 'source_id' in context:
@@ -504,6 +524,8 @@ class LaunchInstance(workflows.Workflow):
         else:
             nics = None
 
+        avail_zone = context.get('availability_zone', None)
+
         try:
             api.nova.server_create(request,
                                    context['name'],
@@ -514,6 +536,7 @@ class LaunchInstance(workflows.Workflow):
                                    context['security_group_ids'],
                                    dev_mapping,
                                    nics=nics,
+                                   availability_zone=avail_zone,
                                    instance_count=int(context['count']),
                                    admin_pass=context['admin_pass'])
             return True

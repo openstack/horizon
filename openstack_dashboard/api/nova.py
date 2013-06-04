@@ -344,12 +344,12 @@ def keypair_list(request):
 
 def server_create(request, name, image, flavor, key_name, user_data,
                   security_groups, block_device_mapping, nics=None,
-                  instance_count=1, admin_pass=None):
+                  availability_zone=None, instance_count=1, admin_pass=None):
     return Server(novaclient(request).servers.create(
             name, image, flavor, userdata=user_data,
             security_groups=security_groups,
             key_name=key_name, block_device_mapping=block_device_mapping,
-            nics=nics,
+            nics=nics, availability_zone=availability_zone,
             min_count=instance_count, admin_pass=admin_pass), request)
 
 
@@ -571,3 +571,7 @@ def tenant_absolute_limits(request, reserved=False):
         else:
             limits_dict[limit.name] = limit.value
     return limits_dict
+
+
+def availability_zone_list(request, detailed=False):
+    return novaclient(request).availability_zones.list(detailed=detailed)
