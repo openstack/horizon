@@ -21,6 +21,7 @@
 from django.conf.urls.defaults import patterns, url
 
 from .views import IndexView, UpdateView, DetailView, LaunchInstanceView
+from .views import ResizeView
 
 
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
@@ -35,4 +36,5 @@ urlpatterns = patterns(VIEW_MOD,
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
     url(INSTANCES % 'spice', 'spice', name='spice'),
+    url(INSTANCES % 'resize', ResizeView.as_view(), name='resize'),
 )
