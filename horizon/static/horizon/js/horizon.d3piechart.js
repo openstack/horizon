@@ -16,7 +16,10 @@ horizon.d3_pie_chart = {
   h: 100,
   r: 45,
   bkgrnd: "#F2F2F2",
-  frgrnd: "#4790B2",
+  frgrnd: "#006CCF",
+  full: "#D0342B",
+  nearlyfull: "orange",
+
   init: function() {
     var self = this;
 
@@ -56,7 +59,15 @@ horizon.d3_pie_chart = {
         .append("path")
           .attr("class","arc")
           .attr("d", arc)
-          .style("fill", self.frgrnd)
+          .style("fill", function(d){
+            if (self.data[0].percentage >= 100) {
+              return self.full;
+            } else if (self.data[0].percentage >= 80) {
+              return self.nearlyfull;
+            } else {
+              return self.frgrnd;
+            }
+          })
           .style("stroke", "#CCCCCC")
           .style("stroke-width", 1)
           .each(function(d) {return self.current = d;})
