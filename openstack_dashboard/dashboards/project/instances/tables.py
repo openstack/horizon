@@ -272,6 +272,26 @@ class LogLink(tables.LinkAction):
         return "?".join([base_url, tab_query_string])
 
 
+class ResizeLink(tables.LinkAction):
+    name = "resize"
+    verbose_name = _("Resize Instance")
+    url = "horizon:project:instances:resize"
+    classes = ("ajax-modal", "btn-resize")
+
+    def get_link_url(self, project):
+        return self._get_link_url(project, 'flavor_choice')
+
+    def _get_link_url(self, project, step_slug):
+        base_url = urlresolvers.reverse(self.url, args=[project.id])
+        param = urlencode({"step": step_slug})
+        return "?".join([base_url, param])
+
+    def allowed(self, request, instance):
+        return ((instance.status in ACTIVE_STATES
+                 or instance.status == 'SHUTOFF')
+                and not is_deleting(instance))
+
+
 class ConfirmResize(tables.Action):
     name = "confirm"
     verbose_name = _("Confirm Resize/Migrate")
@@ -498,5 +518,5 @@ class InstancesTable(tables.DataTable):
                        SimpleAssociateIP, AssociateIP,
                        SimpleDisassociateIP, EditInstance,
                        EditInstanceSecurityGroups, ConsoleLink, LogLink,
-                       TogglePause, ToggleSuspend, SoftRebootInstance,
-                       RebootInstance, TerminateInstance)
+                       TogglePause, ToggleSuspend, ResizeLink,
+                       SoftRebootInstance, RebootInstance, TerminateInstance)

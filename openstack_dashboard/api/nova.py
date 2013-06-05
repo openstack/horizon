@@ -463,6 +463,10 @@ def server_migrate(request, instance_id):
     novaclient(request).servers.migrate(instance_id)
 
 
+def server_resize(request, instance_id, flavor, **kwargs):
+    novaclient(request).servers.resize(instance_id, flavor, **kwargs)
+
+
 def server_confirm_resize(request, instance_id):
     novaclient(request).servers.confirm_resize(instance_id)
 

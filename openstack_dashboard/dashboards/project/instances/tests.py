@@ -1625,3 +1625,105 @@ class InstanceTests(test.TestCase):
         res = self.client.post(INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.nova: ('server_get',
+                                   'flavor_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_instance_resize_get(self):
+        server = self.servers.first()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndReturn(server)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(self.quota_usages.first())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:resize', args=[server.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, WorkflowView.template_name)
+
+    @test.create_stubs({api.nova: ('server_get',
+                                   'flavor_list',)})
+    def test_instance_resize_get_server_get_exception(self):
+        server = self.servers.first()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                 .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:resize',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.nova: ('server_get',
+                                   'flavor_list',)})
+    def test_instance_resize_get_flavor_list_exception(self):
+        server = self.servers.first()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndReturn(server)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:resize',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def _instance_resize_post(self, server_id, flavor_id):
+        formData = {'flavor': flavor_id,
+                    'default_role': 'member'}
+        url = reverse('horizon:project:instances:resize',
+                      args=[server_id])
+        return self.client.post(url, formData)
+
+    instance_resize_post_stubs = {
+        api.nova: ('server_get', 'server_resize',
+                   'flavor_list', 'flavor_get')}
+
+    @test.create_stubs(instance_resize_post_stubs)
+    def test_instance_resize_post(self):
+        server = self.servers.first()
+        flavor = self.flavors.first()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndReturn(server)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.server_resize(IsA(http.HttpRequest), server.id, flavor.id) \
+                .AndReturn([])
+
+        self.mox.ReplayAll()
+
+        res = self._instance_resize_post(server.id, flavor.id)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs(instance_resize_post_stubs)
+    def test_instance_resize_post_api_exception(self):
+        server = self.servers.first()
+        flavor = self.flavors.first()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndReturn(server)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.server_resize(IsA(http.HttpRequest), server.id, flavor.id) \
+                .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        res = self._instance_resize_post(server.id, flavor.id)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
