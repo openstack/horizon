@@ -51,29 +51,72 @@ class JSONView(View):
     def get(self, request, *args, **kwargs):
         data = {}
         # Get nova data
-        novaclient = api.nova.novaclient(request)
-        servers = novaclient.servers.list()
+        try:
+            servers, more = api.nova.server_list(request)
+        except:
+            servers = []
         data['servers'] = [{'name': server.name,
                             'status': server.status,
                             'id': server.id} for server in servers]
         self.add_resource_url('horizon:project:instances:detail',
                               data['servers'])
+
         # Get quantum data
-        quantumclient = api.quantum.quantumclient(request)
-        networks = quantumclient.list_networks()
-        subnets = quantumclient.list_subnets()
-        ports = quantumclient.list_ports()
-        routers = quantumclient.list_routers()
-        data['networks'] = sorted(networks.get('networks', []),
+        try:
+            quantum_public_networks = api.quantum.network_list(request,
+                                    **{'router:external': True})
+            quantum_networks = api.quantum.network_list_for_tenant(request,
+                                    request.user.tenant_id)
+            quantum_subnets = api.quantum.subnet_list(request,
+                                    tenant_id=request.user.tenant_id)
+            quantum_ports = api.quantum.port_list(request,
+                                    tenant_id=request.user.tenant_id)
+            quantum_routers = api.quantum.router_list(request,
+                                    tenant_id=request.user.tenant_id)
+        except:
+            quantum_public_networks = []
+            quantum_networks = []
+            quantum_subnets = []
+            quantum_ports = []
+            quantum_routers = []
+
+        networks = [{'name': network.name,
+                     'id': network.id,
+                     'router:external': network['router:external']}
+                                    for network in quantum_networks]
+        self.add_resource_url('horizon:project:networks:detail',
+                              networks)
+        # Add public networks to the networks list
+        for publicnet in quantum_public_networks:
+            found = False
+            for network in networks:
+                if publicnet.id == network['id']:
+                    found = True
+            if not found:
+                networks.append({'name': publicnet.name,
+                            'id': publicnet.id,
+                            'router:external': publicnet['router:external']})
+        data['networks'] = sorted(networks,
                                   key=lambda x: x.get('router:external'),
                                   reverse=True)
-        self.add_resource_url('horizon:project:networks:detail',
-                              data['networks'])
-        data['subnets'] = subnets.get('subnets', [])
-        data['ports'] = ports.get('ports', [])
+
+        data['subnets'] = [{'id': subnet.id,
+                            'cidr': subnet.cidr,
+                            'network_id': subnet.network_id}
+                                        for subnet in quantum_subnets]
+
+        data['ports'] = [{'id': port.id,
+                        'network_id': port.network_id,
+                        'device_id': port.device_id,
+                        'fixed_ips': port.fixed_ips} for port in quantum_ports]
         self.add_resource_url('horizon:project:networks:ports:detail',
                               data['ports'])
-        data['routers'] = routers.get('routers', [])
+
+        data['routers'] = [{'id': router.id,
+                        'name': router.name,
+                        'external_gateway_info': router.external_gateway_info}
+                                            for router in quantum_routers]
+
         # user can't see port on external network. so we are
         # adding fake port based on router information
         for router in data['routers']:
