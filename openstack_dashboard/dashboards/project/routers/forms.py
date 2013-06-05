@@ -30,7 +30,7 @@ class CreateForm(forms.SelfHandlingForm):
         try:
             router = api.quantum.router_create(request,
                                                name=data['name'])
-            message = 'Router created "%s"' % data['name']
+            message = _('Router %s was successfully created.') % data['name']
             messages.success(request, message)
             return router
         except:
