@@ -29,7 +29,7 @@ of the ``OPENSTACK_HOST`` settings in your ``local_settings.py`` file.
 Logging
 =======
 
-Logging is an important concern for prouction deployments, and the intricacies
+Logging is an important concern for production deployments, and the intricacies
 of good logging configuration go far beyond what can be covered here. However
 there are a few points worth noting about the logging included with Horizon,
 how to customize it, and where other components may take over:
@@ -126,7 +126,7 @@ memcached has inherent problems which are beyond the scope of this
 documentation.
 
 Memcached is an extremely fast and efficient cache backend for cases where it
-fits the depooyment need. But it's not appropriate for all scenarios.
+fits the deployment need. But it's not appropriate for all scenarios.
 
 Requirements:
 
