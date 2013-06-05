@@ -3,9 +3,7 @@
 {% block title %}{% trans "Project Usage Overview" %}{% endblock %}
 
 {% block page_header %}
-  <div class='page-header'>
-    <h2>{% trans "Project Usage" %}</h2>
-  </div>
+    {% include "horizon/common/_domain_page_header.html" with title=_("Project Usage") %}
 {% endblock %}
 
 {% block main %}

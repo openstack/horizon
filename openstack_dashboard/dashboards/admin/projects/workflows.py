@@ -138,8 +138,10 @@ class UpdateProjectMembersAction(workflows.Action):
 
         # Get list of available users
         all_users = []
+        domain_context = request.session.get('domain_context', None)
         try:
-            all_users = api.keystone.user_list(request)
+            all_users = api.keystone.user_list(request,
+                                               domain=domain_context)
         except:
             exceptions.handle(request, err_msg)
         users_list = [(user.id, user.name) for user in all_users]
@@ -217,12 +219,14 @@ class CreateProject(workflows.Workflow):
 
     def handle(self, request, data):
         # create the project
+        domain_context = self.request.session.get('domain_context', None)
         try:
             desc = data['description']
             self.object = api.keystone.tenant_create(request,
                                                      name=data['name'],
                                                      description=desc,
-                                                     enabled=data['enabled'])
+                                                     enabled=data['enabled'],
+                                                     domain=domain_context)
         except:
             exceptions.handle(request, ignore=True)
             return False

@@ -26,6 +26,7 @@ from horizon import tables
 from openstack_dashboard import api
 
 from .constants import DOMAINS_CREATE_URL
+from .constants import DOMAINS_INDEX_URL
 from .constants import DOMAINS_UPDATE_URL
 
 
@@ -85,6 +86,51 @@ class DomainFilterAction(tables.FilterAction):
         return filter(comp, domains)
 
 
+class SetDomainContext(tables.Action):
+    name = "set_domain_context"
+    verbose_name = _("Set Domain Context")
+    url = DOMAINS_INDEX_URL
+    preempt = True
+
+    def allowed(self, request, datum):
+        ctx = request.session.get("domain_context", None)
+        if ctx and datum.id == ctx:
+            return False
+        return True
+
+    def single(self, table, request, obj_id):
+        if ('domain_context' not in request.session or
+                request.session['domain_context'] != obj_id):
+            try:
+                domain = api.keystone.domain_get(request, obj_id)
+                request.session['domain_context'] = obj_id
+                request.session['domain_context_name'] = domain.name
+                messages.success(request,
+                                _('Domain Context updated to Domain %s.') %
+                                domain.name)
+            except:
+                messages.error(request,
+                               _('Unable to set Domain Context.'))
+
+
+class UnsetDomainContext(tables.Action):
+    name = "clear_domain_context"
+    verbose_name = _("Clear Domain Context")
+    url = DOMAINS_INDEX_URL
+    preempt = True
+    requires_input = False
+
+    def allowed(self, request, datum):
+        ctx = request.session.get("domain_context", None)
+        return ctx is not None
+
+    def single(self, table, request, obj_id):
+        if 'domain_context' in request.session:
+            request.session.pop("domain_context")
+            request.session.pop("domain_context_name")
+            messages.success(request, _('Domain Context cleared.'))
+
+
 class DomainsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
@@ -95,6 +141,6 @@ class DomainsTable(tables.DataTable):
     class Meta:
         name = "domains"
         verbose_name = _("Domains")
-        row_actions = (EditDomainLink, DeleteDomainsAction)
+        row_actions = (SetDomainContext, EditDomainLink, DeleteDomainsAction)
         table_actions = (DomainFilterAction, CreateDomainLink,
-                         DeleteDomainsAction)
+                         DeleteDomainsAction, UnsetDomainContext)

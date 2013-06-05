@@ -44,8 +44,17 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         groups = []
+        domain_context = self.request.session.get('domain_context', None)
         try:
+            # TODO(dklyle): once keystoneclient supports filtering by
+            # domain change this to use that cleaner method
             groups = api.keystone.group_list(self.request)
+            if domain_context:
+                domain_groups = []
+                for group in groups:
+                    if group.domain_id == domain_context:
+                        domain_groups.append(group)
+                groups = domain_groups
         except:
             exceptions.handle(self.request,
                               _('Unable to retrieve group list.'))

@@ -43,8 +43,10 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         users = []
+        domain_context = self.request.session.get('domain_context', None)
         try:
-            users = api.keystone.user_list(self.request)
+            users = api.keystone.user_list(self.request,
+                                           domain=domain_context)
         except:
             exceptions.handle(self.request,
                               _('Unable to retrieve user list.'))

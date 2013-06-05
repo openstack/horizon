@@ -80,11 +80,13 @@ class IndexView(tables.DataTableView):
         tenants = []
         marker = self.request.GET.get(
                         TenantsTable._meta.pagination_param, None)
+        domain_context = self.request.session.get('domain_context', None)
         try:
             tenants, self._more = api.keystone.tenant_list(
-                                            self.request,
-                                            paginate=True,
-                                            marker=marker)
+                                               self.request,
+                                               domain=domain_context,
+                                               paginate=True,
+                                               marker=marker)
         except:
             self._more = False
             exceptions.handle(self.request,
@@ -99,11 +101,13 @@ class UsersView(tables.MultiTableView):
     def _get_shared_data(self, *args, **kwargs):
         tenant_id = self.kwargs["tenant_id"]
         if not hasattr(self, "_shared_data"):
+            domain_context = self.request.session.get('domain_context', None)
             try:
                 tenant = api.keystone.tenant_get(self.request,
                                                  tenant_id,
                                                  admin=True)
-                all_users = api.keystone.user_list(self.request)
+                all_users = api.keystone.user_list(self.request,
+                                                   domain=domain_context)
                 tenant_users = api.keystone.user_list(self.request, tenant_id)
                 self._shared_data = {'tenant': tenant,
                                      'all_users': all_users,
