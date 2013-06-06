@@ -41,7 +41,8 @@ class BaseUserForm(forms.SelfHandlingForm):
         # Populate project choices
         project_choices = [('', _("Select a project"))]
 
-        for project in api.keystone.tenant_list(request):
+        projects, has_more = api.keystone.tenant_list(request)
+        for project in projects:
             if project.enabled:
                 project_choices.append((project.id, project.name))
         self.fields['project'].choices = project_choices

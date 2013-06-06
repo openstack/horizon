@@ -32,11 +32,11 @@ from horizon.workflows.views import WorkflowView
 INDEX_URL = reverse('horizon:admin:projects:index')
 
 
+@test.create_stubs({api.keystone: ('tenant_list',)})
 class TenantsViewTests(test.BaseAdminViewTests):
     def test_index(self):
-        self.mox.StubOutWithMock(api.keystone, 'tenant_list')
-        api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                    .AndReturn(self.tenants.list())
+        api.keystone.tenant_list(IsA(http.HttpRequest), paginate=True) \
+                    .AndReturn([self.tenants.list(), False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)

@@ -68,14 +68,22 @@ class IndexView(tables.DataTableView):
     table_class = TenantsTable
     template_name = 'admin/projects/index.html'
 
+    def has_more_data(self, table):
+        return self._more
+
     def get_data(self):
         tenants = []
+        marker = self.request.GET.get(
+                        TenantsTable._meta.pagination_param, None)
         try:
-            tenants = api.keystone.tenant_list(self.request)
+            tenants, self._more = api.keystone.tenant_list(
+                                            self.request,
+                                            paginate=True,
+                                            marker=marker)
         except:
+            self._more = False
             exceptions.handle(self.request,
                               _("Unable to retrieve project list."))
-        tenants.sort(key=lambda x: x.id, reverse=True)
         return tenants
 
 

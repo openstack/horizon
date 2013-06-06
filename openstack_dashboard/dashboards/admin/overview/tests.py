@@ -46,7 +46,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         usage_obj = api.nova.NovaUsage(self.usages.first())
         quota_data = self.quota_usages.first()
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                    .AndReturn(self.tenants.list())
+                    .AndReturn([self.tenants.list(), False])
         api.nova.usage_list(IsA(http.HttpRequest),
                             datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                             Func(usage.almost_now)) \
@@ -78,7 +78,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         usage_obj = api.nova.NovaUsage(self.usages.first())
         quota_data = self.quota_usages.first()
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                    .AndReturn(self.tenants.list())
+                    .AndReturn([self.tenants.list(), False])
         api.nova.usage_list(IsA(http.HttpRequest),
                             datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                             Func(usage.almost_now)) \
