@@ -35,6 +35,8 @@ from openstack_dashboard.dashboards.project.access_and_security \
         .floating_ips.workflows import IPAssociationWorkflow
 from .tabs import InstanceDetailTabs, LogTab, ConsoleTab
 
+from novaclient.v1_1.servers import REBOOT_SOFT, REBOOT_HARD
+
 
 LOG = logging.getLogger(__name__)
 
@@ -96,7 +98,7 @@ class RebootInstance(tables.BatchAction):
                 and not is_deleting(instance))
 
     def action(self, request, obj_id):
-        api.nova.server_reboot(request, obj_id, api.nova.REBOOT_HARD)
+        api.nova.server_reboot(request, obj_id, REBOOT_HARD)
 
 
 class SoftRebootInstance(RebootInstance):
@@ -105,7 +107,7 @@ class SoftRebootInstance(RebootInstance):
     action_past = _("Soft Rebooted")
 
     def action(self, request, obj_id):
-        api.nova.server_reboot(request, obj_id, api.nova.REBOOT_SOFT)
+        api.nova.server_reboot(request, obj_id, REBOOT_SOFT)
 
 
 class TogglePause(tables.BatchAction):

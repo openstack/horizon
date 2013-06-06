@@ -31,11 +31,26 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.instances.tables import \
         AdminInstancesTable
 from openstack_dashboard.dashboards.project.instances.views import \
-        console, DetailView, vnc, spice, UpdateView
+        console as p_console, vnc as p_vnc, spice as p_spice, UpdateView
 from openstack_dashboard.dashboards.project.instances.workflows.\
         update_instance import AdminUpdateInstance
 
 LOG = logging.getLogger(__name__)
+
+
+# re-use console from project.instances.views to make reflection work
+def console(args, **kvargs):
+    return p_console(args, **kvargs)
+
+
+# re-use vnc from project.instances.views to make reflection work
+def vnc(args, **kvargs):
+    return p_vnc(args, **kvargs)
+
+
+# re-use spice from project.instances.views to make reflection work
+def spice(args, **kvargs):
+    return p_spice(args, **kvargs)
 
 
 class AdminUpdateView(UpdateView):

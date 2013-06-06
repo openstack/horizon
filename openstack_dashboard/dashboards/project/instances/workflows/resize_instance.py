@@ -19,7 +19,6 @@ import logging
 import json
 
 from django.utils.translation import ugettext_lazy as _
-from django.utils.datastructures import SortedDict
 from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions

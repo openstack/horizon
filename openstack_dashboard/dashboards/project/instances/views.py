@@ -30,7 +30,6 @@ from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import forms
 from horizon import tabs
 from horizon import tables
 from horizon import workflows

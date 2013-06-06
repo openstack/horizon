@@ -20,7 +20,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 from openstack_dashboard.dashboards.project.networks.ports.tables import\
-        get_fixed_ips, get_attached
+        get_fixed_ips
 from openstack_dashboard.dashboards.project.routers.ports.tables import\
         get_device_owner
 

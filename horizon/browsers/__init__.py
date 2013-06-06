@@ -16,3 +16,6 @@
 
 from .base import ResourceBrowser
 from .views import ResourceBrowserView
+
+assert ResourceBrowser
+assert ResourceBrowserView

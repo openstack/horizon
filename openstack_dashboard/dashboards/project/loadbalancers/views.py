@@ -17,13 +17,11 @@
 import logging
 import re
 
-from django import http
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon import tables
 from horizon import tabs
 from horizon import workflows
 
@@ -33,7 +31,6 @@ from .workflows import AddPool, AddMember, AddMonitor, AddVip
 from .forms import UpdatePool, UpdateVip, UpdateMember, UpdateMonitor
 from .tabs import LoadBalancerTabs, PoolDetailsTabs, VipDetailsTabs
 from .tabs import MemberDetailsTabs, MonitorDetailsTabs
-from .tables import DeleteMonitorLink
 
 
 LOG = logging.getLogger(__name__)

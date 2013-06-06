@@ -27,8 +27,6 @@ from django.conf import settings
 from quantumclient.v2_0 import client as quantum_client
 from django.utils.datastructures import SortedDict
 
-from horizon.conf import HORIZON_CONFIG
-
 from openstack_dashboard.api.base import APIDictWrapper, url_for
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova

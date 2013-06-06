@@ -16,3 +16,9 @@
 
 from .base import TabGroup, Tab, TableTab
 from .views import TabView, TabbedTableView
+
+assert TabGroup
+assert Tab
+assert TableTab
+assert TabView
+assert TabbedTableView

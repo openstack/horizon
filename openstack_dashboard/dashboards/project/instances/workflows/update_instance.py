@@ -20,16 +20,12 @@
 
 
 from django.utils.translation import ugettext_lazy as _
-from django.core.urlresolvers import reverse
 
 from horizon import exceptions
 from horizon import workflows
 from horizon import forms
-from horizon import messages
 
 from openstack_dashboard import api
-from openstack_dashboard.api import cinder, nova
-from openstack_dashboard.api.base import is_service_enabled
 
 
 INDEX_URL = "horizon:projects:instances:index"

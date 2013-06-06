@@ -20,3 +20,17 @@ from .actions import (Action, BatchAction, DeleteAction,
 from .base import DataTable, Column, Row
 from .views import DataTableView, MultiTableView, MultiTableMixin, \
                     MixedDataTableView
+
+assert Action
+assert BatchAction
+assert DeleteAction
+assert LinkAction
+assert FilterAction
+assert FixedFilterAction
+assert DataTable
+assert Column
+assert Row
+assert DataTableView
+assert MultiTableView
+assert MultiTableMixin
+assert MixedDataTableView

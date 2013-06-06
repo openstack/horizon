@@ -17,3 +17,12 @@
 from .base import BaseUsage, TenantUsage, GlobalUsage, almost_now
 from .views import UsageView
 from .tables import BaseUsageTable, TenantUsageTable, GlobalUsageTable
+
+assert BaseUsage
+assert TenantUsage
+assert GlobalUsage
+assert almost_now
+assert UsageView
+assert BaseUsageTable
+assert TenantUsageTable
+assert GlobalUsageTable

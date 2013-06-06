@@ -21,7 +21,6 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
-from openstack_dashboard import api
 
 
 LOG = logging.getLogger(__name__)

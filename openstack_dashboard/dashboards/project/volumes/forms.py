@@ -23,7 +23,6 @@ from horizon.utils.memoized import memoized
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import glance
-from openstack_dashboard.usage import quotas
 from ..images_and_snapshots.utils import get_available_images
 from ..instances.tables import ACTIVE_STATES
 

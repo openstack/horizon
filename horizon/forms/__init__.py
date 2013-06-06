@@ -22,3 +22,12 @@ from django.forms import widgets
 from .base import SelfHandlingMixin, SelfHandlingForm, DateForm
 from .views import ModalFormView, ModalFormMixin
 from .fields import DynamicTypedChoiceField, DynamicChoiceField
+
+assert widgets
+assert SelfHandlingMixin
+assert SelfHandlingForm
+assert DateForm
+assert ModalFormView
+assert ModalFormMixin
+assert DynamicTypedChoiceField
+assert DynamicChoiceField

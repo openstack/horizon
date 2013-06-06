@@ -23,12 +23,11 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 
-from mox import IsA, IgnoreArg
+from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.usage import quotas
 
 
 class VolumeViewTests(test.TestCase):

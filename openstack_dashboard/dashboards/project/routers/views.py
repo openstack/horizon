@@ -20,7 +20,6 @@ Views for managing Quantum Routers.
 
 import logging
 
-from django import shortcuts
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.datastructures import SortedDict
@@ -28,12 +27,10 @@ from django.utils.datastructures import SortedDict
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
-from horizon import tabs
 from openstack_dashboard import api
 from .ports.tables import PortsTable
 from .forms import CreateForm
 from .tables import RoutersTable
-from .tabs import RouterDetailTabs
 
 
 LOG = logging.getLogger(__name__)
