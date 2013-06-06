@@ -151,6 +151,33 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
+    def test_detail_add_rule_cidr_with_template(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.first()
+
+        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        api.nova.security_group_rule_create(IsA(http.HttpRequest),
+                                            sec_group.id,
+                                            rule.ip_protocol,
+                                            int(rule.from_port),
+                                            int(rule.to_port),
+                                            rule.ip_range['cidr'],
+                                            None).AndReturn(rule)
+        api.nova.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'ip_protocol': 'http',
+                    'port_or_range': 'port',
+                    'cidr': rule.ip_range['cidr'],
+                    'source': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
     def test_detail_add_rule_self_as_source_group(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
@@ -175,6 +202,35 @@ class SecurityGroupsViewTests(test.TestCase):
                     'port_or_range': 'port',
                     'port': rule.from_port,
                     'ip_protocol': rule.ip_protocol,
+                    'cidr': '0.0.0.0/0',
+                    'security_group': sec_group.id,
+                    'source': 'sg'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+    def test_detail_add_rule_self_as_source_group_with_template(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.get(id=3)
+
+        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
+        self.mox.StubOutWithMock(api.nova, 'security_group_list')
+        api.nova.security_group_rule_create(
+            IsA(http.HttpRequest),
+            sec_group.id,
+            rule.ip_protocol,
+            int(rule.from_port),
+            int(rule.to_port),
+            None,
+            u'%s' % sec_group.id).AndReturn(rule)
+        api.nova.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'ip_protocol': 'http',
+                    'port_or_range': 'port',
                     'cidr': '0.0.0.0/0',
                     'security_group': sec_group.id,
                     'source': 'sg'}

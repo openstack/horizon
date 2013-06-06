@@ -99,6 +99,21 @@ LOGGING['loggers']['openstack_dashboard'] = {
     'propagate': False,
 }
 
+SECURITY_GROUP_RULES = {
+    'all_tcp': {
+        'name': 'ALL TCP',
+        'ip_protocol': 'tcp',
+        'from_port': '1',
+        'to_port': '65535',
+    },
+    'http': {
+        'name': 'HTTP',
+        'ip_protocol': 'tcp',
+        'from_port': '80',
+        'to_port': '80',
+    },
+}
+
 NOSE_ARGS = ['--nocapture',
              '--nologcapture',
              '--cover-package=openstack_dashboard',
