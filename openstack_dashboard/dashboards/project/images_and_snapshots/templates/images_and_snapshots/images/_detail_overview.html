@@ -8,6 +8,10 @@
   <dl>
     <dt>{% trans "Name" %}</dt>
     <dd>{{ image.name|default:_("None") }}</dd>
+    {% if image.properties.description %}
+      <dt>{% trans "Description" %}</dt>
+      <dd>{{ image.properties.description }}</dd>
+    {% endif %}
     <dt>{% trans "ID" %}</dt>
     <dd>{{ image.id|default:_("None") }}</dd>
     <dt>{% trans "Status" %}</dt>

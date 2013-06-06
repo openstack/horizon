@@ -41,6 +41,9 @@ LOG = logging.getLogger(__name__)
 
 class CreateImageForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length="255", label=_("Name"), required=True)
+    description = forms.CharField(widget=forms.widgets.Textarea(),
+                                  label=_("Description"),
+                                  required=False)
     copy_from = forms.CharField(max_length="255",
                                 label=_("Image Location"),
                                 help_text=_("An external (HTTP) URL to load "
@@ -121,8 +124,11 @@ class CreateImageForm(forms.SelfHandlingForm):
                 'container_format': container_format,
                 'min_disk': (data['minimum_disk'] or 0),
                 'min_ram': (data['minimum_ram'] or 0),
-                'name': data['name']}
+                'name': data['name'],
+                'properties': {}}
 
+        if data['description']:
+            meta['properties']['description'] = data['description']
         if settings.HORIZON_IMAGES_ALLOW_UPLOAD and data['image_file']:
             meta['data'] = self.files['image_file']
         else:
@@ -141,6 +147,9 @@ class CreateImageForm(forms.SelfHandlingForm):
 class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length="255", label=_("Name"))
+    description = forms.CharField(widget=forms.widgets.Textarea(),
+                                  label=_("Description"),
+                                  required=False)
     kernel = forms.CharField(max_length="36", label=_("Kernel ID"),
                              required=False,
                              widget=forms.TextInput(
@@ -177,6 +186,8 @@ class UpdateImageForm(forms.SelfHandlingForm):
                 'container_format': container_format,
                 'name': data['name'],
                 'properties': {}}
+        if data['description']:
+            meta['properties']['description'] = data['description']
         if data['kernel']:
             meta['properties']['kernel_id'] = data['kernel']
         if data['ramdisk']:
