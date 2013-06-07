@@ -122,6 +122,11 @@ class UpdateVipLink(tables.LinkAction):
                            kwargs={'vip_id': pool.vip_id})
         return base_url
 
+    def allowed(self, request, datum=None):
+        if datum and not datum.vip_id:
+            return False
+        return True
+
 
 class UpdateMemberLink(tables.LinkAction):
     name = "updatemember"
