@@ -29,7 +29,6 @@ from mox import IsA, Func
 from openstack_dashboard import api
 from openstack_dashboard import usage
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.usage import quotas
 
 
 INDEX_URL = reverse('horizon:project:overview:index')
@@ -39,14 +38,14 @@ class UsageViewTests(test.TestCase):
     def test_usage(self):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
-        quota_data = self.quota_usages.first()
         self.mox.StubOutWithMock(api.nova, 'usage_get')
-        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
                            datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                            Func(usage.almost_now)) \
                            .AndReturn(usage_obj)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+                           .AndReturn(self.limits['absolute'])
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))
@@ -57,14 +56,14 @@ class UsageViewTests(test.TestCase):
     def test_unauthorized(self):
         exc = self.exceptions.nova_unauthorized
         now = timezone.now()
-        quota_data = self.quota_usages.first()
         self.mox.StubOutWithMock(api.nova, 'usage_get')
-        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
                            datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                            Func(usage.almost_now)) \
                            .AndRaise(exc)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+                           .AndReturn(self.limits['absolute'])
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:overview:index')
@@ -76,16 +75,16 @@ class UsageViewTests(test.TestCase):
     def test_usage_csv(self):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
-        quota_data = self.quota_usages.first()
         self.mox.StubOutWithMock(api.nova, 'usage_get')
-        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
                            self.tenant.id,
                            timestamp,
                            Func(usage.almost_now)) \
                            .AndReturn(usage_obj)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+                           .AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:project:overview:index') +
@@ -95,16 +94,16 @@ class UsageViewTests(test.TestCase):
 
     def test_usage_exception_usage(self):
         now = timezone.now()
-        quota_data = self.quota_usages.first()
         self.mox.StubOutWithMock(api.nova, 'usage_get')
-        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
                            self.tenant.id,
                            timestamp,
                            Func(usage.almost_now)) \
                            .AndRaise(self.exceptions.nova)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+                           .AndReturn(self.limits['absolute'])
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))
@@ -115,15 +114,15 @@ class UsageViewTests(test.TestCase):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
         self.mox.StubOutWithMock(api.nova, 'usage_get')
-        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
                            self.tenant.id,
                            timestamp,
                            Func(usage.almost_now)) \
                            .AndReturn(usage_obj)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest))\
-            .AndRaise(self.exceptions.nova)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+                           .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))
@@ -133,16 +132,16 @@ class UsageViewTests(test.TestCase):
     def test_usage_default_tenant(self):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
-        quota_data = self.quota_usages.first()
         self.mox.StubOutWithMock(api.nova, 'usage_get')
-        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         timestamp = datetime.datetime(now.year, now.month, 1, 0, 0, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
                            self.tenant.id,
                            timestamp,
                            Func(usage.almost_now)) \
                            .AndReturn(usage_obj)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(quota_data)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+                           .AndReturn(self.limits['absolute'])
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))

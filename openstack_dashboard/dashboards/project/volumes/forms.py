@@ -164,7 +164,15 @@ class CreateForm(forms.SelfHandlingForm):
             # error message when the quota is exceeded when trying to create
             # a volume, so we need to check for that scenario here before we
             # send it off to try and create.
-            usages = quotas.tenant_quota_usages(request)
+            usages = cinder.tenant_absolute_limits(self.request)
+            volumes = cinder.volume_list(self.request)
+            total_size = sum([getattr(volume, 'size', 0) for volume
+                              in volumes])
+            usages['gigabytesUsed'] = total_size
+            usages['volumesUsed'] = len(volumes)
+            availableGB = usages['maxTotalVolumeGigabytes'] -\
+                usages['gigabytesUsed']
+            availableVol = usages['maxTotalVolumes'] - usages['volumesUsed']
 
             snapshot_id = None
             image_id = None
@@ -196,14 +204,14 @@ class CreateForm(forms.SelfHandlingForm):
                 if type(data['size']) is str:
                     data['size'] = int(data['size'])
 
-            if usages['gigabytes']['available'] < data['size']:
+            if availableGB < data['size']:
                 error_message = _('A volume of %(req)iGB cannot be created as '
                                   'you only have %(avail)iGB of your quota '
                                   'available.')
                 params = {'req': data['size'],
-                          'avail': usages['gigabytes']['available']}
+                          'avail': availableGB}
                 raise ValidationError(error_message % params)
-            elif usages['volumes']['available'] <= 0:
+            elif availableVol <= 0:
                 error_message = _('You are already using all of your available'
                                   ' volumes.')
                 raise ValidationError(error_message)

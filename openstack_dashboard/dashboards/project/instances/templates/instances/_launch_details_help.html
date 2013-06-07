@@ -16,26 +16,26 @@
 </table>
 
 <div class="quota-dynamic">
-  <h4>{% trans "Project Quotas" %}</h4>
+  <h4>{% trans "Project Limits" %}</h4>
   <div class="quota_title clearfix">
     <strong>{% trans "Number of Instances" %}</strong>
-    {% blocktrans with used=usages.instances.used|intcomma quota=usages.instances.quota|intcomma %}<p>{{ used }} of {{ quota }} Used</p>{% endblocktrans %}
+    {% blocktrans with used=usages.totalInstancesUsed|intcomma quota=usages.maxTotalInstances|intcomma %}<p>{{ used }} of {{ quota }} Used</p>{% endblocktrans %}
   </div>
-  <div id="quota_instances" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.instances.quota }}" data-quota-used="{{ usages.instances.used }}">
+  <div id="quota_instances" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.maxTotalInstances }}" data-quota-used="{{ usages.totalInstancesUsed }}">
   </div>
 
   <div class="quota_title clearfix">
     <strong>{% trans "Number of VCPUs" %}</strong>
-    {% blocktrans with used=usages.cores.used|intcomma quota=usages.cores.quota|intcomma %}<p>{{ used }} of {{ quota }} Used</p>{% endblocktrans %}
+    {% blocktrans with used=usages.totalCoresUsed|intcomma quota=usages.maxTotalCores|intcomma %}<p>{{ used }} of {{ quota }} Used</p>{% endblocktrans %}
   </div>
-  <div id="quota_vcpus" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.cores.quota }}" data-quota-used="{{ usages.cores.used }}">
+  <div id="quota_vcpus" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.maxTotalCores }}" data-quota-used="{{ usages.totalCoresUsed }}">
   </div>
 
   <div class="quota_title clearfix">
     <strong>{% trans "Total RAM" %}</strong>
-    {% blocktrans with used=usages.ram.used|intcomma quota=usages.ram.quota|intcomma %}<p>{{ used }} of {{ quota }} MB Used</p>{% endblocktrans %}
+    {% blocktrans with used=usages.totalRAMUsed|intcomma quota=usages.maxTotalRAMSize|intcomma %}<p>{{ used }} of {{ quota }} MB Used</p>{% endblocktrans %}
   </div>
-  <div id="quota_ram" data-progress-indicator-flavor data-quota-limit="{{ usages.ram.quota }}" data-quota-used="{{ usages.ram.used }}" class="quota_bar">
+  <div id="quota_ram" data-progress-indicator-flavor data-quota-limit="{{ usages.maxTotalRAMSize }}" data-quota-used="{{ usages.totalRAMUsed }}" class="quota_bar">
   </div>
 </div>
 

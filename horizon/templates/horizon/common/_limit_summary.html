@@ -1,0 +1,39 @@
+{% load i18n horizon humanize sizeformat %}
+
+<div class="quota-dynamic">
+  <h3>{% trans "Limit Summary" %}</h3>
+    <div class="d3_quota_bar">
+    <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalInstancesUsed usage.limits.maxTotalInstances 100 %}"></div>
+     <strong>{% trans "Available Instances" %} <br />
+         {% blocktrans with used=usage.limits.totalInstancesUsed|intcomma available=usage.limits.maxTotalInstances|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+     </strong>
+    </div>
+
+    <div class="d3_quota_bar">
+    <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalCoresUsed usage.limits.maxTotalCores 100 %}"></div>
+    <strong>{% trans "Available VCPUs" %} <br />
+     {% blocktrans with used=usage.limits.totalCoresUsed|intcomma available=usage.limits.maxTotalCores|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+    </strong>
+    </div>
+
+    <div class="d3_quota_bar">
+    <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalRAMUsed usage.limits.maxTotalRAMSize 100 %}"></div>
+    <strong>{% trans "Available RAM" %} <br />
+      {% blocktrans with used=usage.limits.totalRAMUsed|intcomma available=usage.limits.maxTotalRAMSize|intcomma %}Used <span> {{ used }} MB </span> of <span> {{ available }} MB </span>{% endblocktrans %}
+    </strong>
+    </div>
+
+    <div class="d3_quota_bar">
+    <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalFloatingIpsUsed usage.limits.maxTotalFloatingIps 100 %}"></div>
+    <strong>{% trans "Available Floating IPs" %} <br />
+      {% blocktrans with used=usage.limits.totalFloatingIpsUsed|intcomma available=usage.limits.maxTotalFloatingIps|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+    </strong>
+    </div>
+
+    <div class="d3_quota_bar">
+    <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalSecurityGroupsUsed usage.limits.maxSecurityGroups 100 %}"></div>
+    <strong>{% trans "Available Security Groups" %} <br />
+      {% blocktrans with used=usage.limits.totalSecurityGroupsUsed|intcomma available=usage.limits.maxSecurityGroups|intcomma%}Used <span> {{ used }} </span> of <span> {{ available  }} </span>{% endblocktrans %}
+    </strong>
+    </div>
+</div>

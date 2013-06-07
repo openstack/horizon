@@ -1,0 +1,34 @@
+{% load i18n horizon humanize %}
+
+<h3>{% trans "Description" %}:</h3>
+
+<p>{% trans "Volumes are block devices that can be attached to instances." %}</p>
+
+<h3>{% trans "Volume Limits" %}</h3>
+
+<div class="quota_title clearfix">
+  <strong>{% trans "Total Gigabytes" %} <span>({{ usages.gigabytesUsed|intcomma }} {% trans "GB" %})</span></strong>
+  <p>{{ usages.maxTotalVolumeGigabytes|quota:_("GB")|intcomma }}</p>
+</div>
+
+<div id="quota_size" data-progress-indicator-for="id_size" data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}" data-quota-used="{{ usages.gigabytesUsed }}" class="quota_bar">
+</div>
+
+<div class="quota_title clearfix">
+  <strong>{% trans "Number of Volumes" %} <span>({{ usages.volumesUsed|intcomma }})</span></strong>
+  <p>{{ usages.maxTotalVolumes|quota|intcomma }}</p>
+</div>
+
+<div id="quota_volumes" data-progress-indicator-step-by="1" data-quota-limit="{{ usages.maxTotalVolumes}}" data-quota-used="{{ usages.volumesUsed }}" class="quota_bar">
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+  if(typeof horizon.Quota !== 'undefined') {
+    horizon.Quota.init();
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.Quota.init();
+    });
+  }
+</script>

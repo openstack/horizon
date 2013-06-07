@@ -32,6 +32,7 @@ class BaseUsage(object):
         self.request = request
         self.summary = {}
         self.usage_list = []
+        self.limits = {}
         self.quotas = {}
 
     @property
@@ -81,6 +82,13 @@ class BaseUsage(object):
                 self.form = forms.DateForm(initial={'month': self.today.month,
                                                     'year': self.today.year})
         return self.form
+
+    def get_limits(self):
+        try:
+            self.limits = api.nova.tenant_absolute_limits(self.request)
+        except:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve limit information."))
 
     def get_usage_list(self, start, end):
         raise NotImplementedError("You must define a get_usage method.")

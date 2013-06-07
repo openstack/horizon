@@ -32,7 +32,6 @@ from horizon.utils import validators
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
-from openstack_dashboard.usage import quotas
 from ...images_and_snapshots.utils import get_available_images
 
 
@@ -293,7 +292,7 @@ class SetInstanceDetailsAction(workflows.Action):
     def get_help_text(self):
         extra = {}
         try:
-            extra['usages'] = quotas.tenant_quota_usages(self.request)
+            extra['usages'] = api.nova.tenant_absolute_limits(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])
             flavors = json.dumps([f._info for f in
                                        api.nova.flavor_list(self.request)])
