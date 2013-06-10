@@ -41,7 +41,10 @@ class BaseUserForm(forms.SelfHandlingForm):
         # Populate project choices
         project_choices = [('', _("Select a project"))]
 
-        projects, has_more = api.keystone.tenant_list(request)
+        # If the user is already set (update action), list only projects which
+        # the user has access to.
+        user_id = kwargs['initial'].get('id', None)
+        projects, has_more = api.keystone.tenant_list(request, user=user_id)
         for project in projects:
             if project.enabled:
                 project_choices.append((project.id, project.name))
