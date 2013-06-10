@@ -71,7 +71,7 @@ class AddPoolAction(workflows.Action):
         self.fields['lb_method'].choices = lb_method_choices
 
     class Meta:
-        name = _("PoolDetails")
+        name = _("Add New Pool")
         permissions = ('openstack.services.network',)
         help_text = _("Create Pool for current tenant.\n\n"
                       "Assign a name and description for the pool. "
@@ -176,7 +176,7 @@ class AddVipAction(workflows.Action):
         return cleaned_data
 
     class Meta:
-        name = _("AddVip")
+        name = _("Specify VIP")
         permissions = ('openstack.services.network',)
         help_text = _("Create a VIP for this pool. "
                       "Assign a name and description for the VIP. "
@@ -312,7 +312,7 @@ class AddMemberAction(workflows.Action):
             key=lambda member: member[1])
 
     class Meta:
-        name = _("MemberDetails")
+        name = _("Add New Member")
         permissions = ('openstack.services.network',)
         help_text = _("Add member to selected pool.\n\n"
                       "Choose one or more listed instances to be "
@@ -462,7 +462,7 @@ class AddMonitorAction(workflows.Action):
         return cleaned_data
 
     class Meta:
-        name = _("MonitorDetails")
+        name = _("Add New Monitor")
         permissions = ('openstack.services.network',)
         help_text = _("Create a monitor for a pool.\n\n"
                       "Select target pool and type of monitoring. "
