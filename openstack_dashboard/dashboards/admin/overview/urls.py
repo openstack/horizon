@@ -19,7 +19,8 @@
 #    under the License.
 
 
-from django.conf.urls.defaults import url, patterns
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
 from .views import GlobalOverview
 

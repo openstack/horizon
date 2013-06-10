@@ -12,7 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from heatclient.v1.stacks import Stack, StackManager
+from heatclient.v1.stacks import Stack
+from heatclient.v1.stacks import StackManager
 
 from .utils import TestDataContainer
 

@@ -20,16 +20,21 @@
 
 import tempfile
 
-from django import http
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.urlresolvers import reverse
+from django import http
 
 from mox import IsA
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.containers import forms
+from openstack_dashboard.dashboards.project.containers.tables import \
+    ContainersTable
+from openstack_dashboard.dashboards.project.containers.tables import \
+    ObjectsTable
+from openstack_dashboard.dashboards.project.containers.tables import \
+    wrap_delimiter
 from openstack_dashboard.test import helpers as test
-from .tables import ContainersTable, ObjectsTable, wrap_delimiter
-from . import forms
 
 
 CONTAINER_INDEX_URL = reverse('horizon:project:containers:index')

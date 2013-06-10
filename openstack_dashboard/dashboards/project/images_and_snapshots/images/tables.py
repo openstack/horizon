@@ -14,8 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
 from collections import defaultdict
+import logging
 
 from django.conf import settings
 from django.core.urlresolvers import reverse

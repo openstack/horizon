@@ -18,9 +18,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
-from .views import CreateView, UploadView, CopyView, ContainerView
+from openstack_dashboard.dashboards.project.containers.views import \
+    ContainerView
+from openstack_dashboard.dashboards.project.containers.views import CopyView
+from openstack_dashboard.dashboards.project.containers.views import CreateView
+from openstack_dashboard.dashboards.project.containers.views import UploadView
 
 
 VIEW_MOD = 'openstack_dashboard.dashboards.project.containers.views'

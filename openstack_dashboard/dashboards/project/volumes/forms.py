@@ -13,18 +13,18 @@ from django.forms import ValidationError
 from django.template.defaultfilters import filesizeformat
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import forms
 from horizon import exceptions
+from horizon import forms
 from horizon import messages
 from horizon.utils.fields import SelectWidget
 from horizon.utils.functions import bytes_to_gigabytes
 from horizon.utils.memoized import memoized
 
+from ..images_and_snapshots.utils import get_available_images
+from ..instances.tables import ACTIVE_STATES
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import glance
-from ..images_and_snapshots.utils import get_available_images
-from ..instances.tables import ACTIVE_STATES
 
 
 class CreateForm(forms.SelfHandlingForm):

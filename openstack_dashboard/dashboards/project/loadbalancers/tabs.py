@@ -14,6 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -21,7 +22,9 @@ from horizon import tabs
 
 from openstack_dashboard import api
 
-from .tables import PoolsTable, MembersTable, MonitorsTable
+from .tables import MembersTable
+from .tables import MonitorsTable
+from .tables import PoolsTable
 
 
 class PoolsTab(tabs.TableTab):

@@ -14,8 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.http import HttpRequest
 from django.core.urlresolvers import reverse
+from django.http import HttpRequest
 
 from mox import IsA
 

@@ -14,9 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-import re
-
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -25,13 +22,37 @@ from horizon import forms
 from horizon import tabs
 from horizon import workflows
 
+import logging
+
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.loadbalancers.forms import \
+    UpdateMember
+from openstack_dashboard.dashboards.project.loadbalancers.forms import \
+    UpdateMonitor
+from openstack_dashboard.dashboards.project.loadbalancers.forms import \
+    UpdatePool
+from openstack_dashboard.dashboards.project.loadbalancers.forms import \
+    UpdateVip
+from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
+    LoadBalancerTabs
+from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
+    MemberDetailsTabs
+from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
+    MonitorDetailsTabs
+from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
+    PoolDetailsTabs
+from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
+    VipDetailsTabs
+from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
+    AddMember
+from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
+    AddMonitor
+from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
+    AddPool
+from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
+    AddVip
 
-from .workflows import AddPool, AddMember, AddMonitor, AddVip
-from .forms import UpdatePool, UpdateVip, UpdateMember, UpdateMonitor
-from .tabs import LoadBalancerTabs, PoolDetailsTabs, VipDetailsTabs
-from .tabs import MemberDetailsTabs, MonitorDetailsTabs
-
+import re
 
 LOG = logging.getLogger(__name__)
 

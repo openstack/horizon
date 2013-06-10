@@ -18,7 +18,10 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import browsers
 
-from .tables import ContainersTable, ObjectsTable
+from openstack_dashboard.dashboards.project.containers.tables import \
+    ContainersTable
+from openstack_dashboard.dashboards.project.containers.tables import \
+    ObjectsTable
 
 
 class ContainerBrowser(browsers.ResourceBrowser):

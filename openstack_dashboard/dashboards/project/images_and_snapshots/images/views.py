@@ -24,7 +24,8 @@ Views for managing images.
 
 import logging
 
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -32,8 +33,9 @@ from horizon import forms
 from horizon import tabs
 
 from openstack_dashboard import api
-from .forms import UpdateImageForm
+
 from .forms import CreateImageForm
+from .forms import UpdateImageForm
 from .tabs import ImageDetailTabs
 
 

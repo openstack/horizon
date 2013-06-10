@@ -17,14 +17,15 @@
 import logging
 
 from django.core.urlresolvers import reverse
-from django.utils import safestring
 from django.utils.http import urlencode
+from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+
 from ...volumes import tables as volume_tables
 
 

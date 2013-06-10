@@ -19,9 +19,11 @@
 #    under the License.
 
 
-from django.conf.urls.defaults import url, patterns
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
-from .views import ProjectOverview, WarningView
+from .views import ProjectOverview
+from .views import WarningView
 
 
 urlpatterns = patterns('openstack_dashboard.dashboards.project.overview.views',

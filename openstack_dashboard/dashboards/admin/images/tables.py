@@ -19,8 +19,13 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 from openstack_dashboard.dashboards.project.images_and_snapshots \
-        .images.tables import (ImagesTable, CreateImage, EditImage,
-                DeleteImage)
+        .images.tables import CreateImage
+from openstack_dashboard.dashboards.project.images_and_snapshots \
+        .images.tables import DeleteImage
+from openstack_dashboard.dashboards.project.images_and_snapshots \
+        .images.tables import EditImage
+from openstack_dashboard.dashboards.project.images_and_snapshots \
+        .images.tables import ImagesTable
 
 
 class AdminCreateImage(CreateImage):

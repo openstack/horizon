@@ -29,10 +29,10 @@ from openstack_dashboard.api import keystone
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
 
-from .keypairs.tables import KeypairsTable
-from .floating_ips.tables import FloatingIPsTable
-from .security_groups.tables import SecurityGroupsTable
 from .api_access.tables import EndpointsTable
+from .floating_ips.tables import FloatingIPsTable
+from .keypairs.tables import KeypairsTable
+from .security_groups.tables import SecurityGroupsTable
 
 
 class SecurityGroupsTab(tabs.TableTab):

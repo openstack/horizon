@@ -23,12 +23,13 @@ import logging
 import swiftclient
 
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import messages
-from django.utils.translation import ugettext_lazy as _
 
-from openstack_dashboard.api.base import url_for, APIDictWrapper
+from openstack_dashboard.api.base import APIDictWrapper
+from openstack_dashboard.api.base import url_for
 
 
 LOG = logging.getLogger(__name__)

@@ -24,7 +24,9 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports.tables import \
-        get_fixed_ips, get_attached
+        get_attached
+from openstack_dashboard.dashboards.project.networks.ports.tables import \
+        get_fixed_ips
 
 
 LOG = logging.getLogger(__name__)

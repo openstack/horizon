@@ -1,15 +1,26 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
 from mox import IsA
+
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django import http
-from django.core.urlresolvers import reverse, reverse_lazy
+
+from horizon.workflows.views import WorkflowView
+
+from mox import IsA
 
 from openstack_dashboard import api
+from openstack_dashboard.api.lbaas import Member
+from openstack_dashboard.api.lbaas import Pool
+from openstack_dashboard.api.lbaas import PoolMonitor
+from openstack_dashboard.api.lbaas import Vip
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.api.lbaas import Pool, Vip, Member, PoolMonitor
 
-from .workflows import AddPool, AddMember, AddMonitor, AddVip
-from horizon.workflows.views import WorkflowView
+from .workflows import AddMember
+from .workflows import AddMonitor
+from .workflows import AddPool
+from .workflows import AddVip
 
 
 class LoadBalancerTests(test.TestCase):

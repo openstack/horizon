@@ -16,10 +16,11 @@
 
 import logging
 
-from django.core.urlresolvers import reverse, NoReverseMatch
+from django.core.urlresolvers import NoReverseMatch
+from django.core.urlresolvers import reverse
 from django.template.defaultfilters import title
-from django.utils import safestring
 from django.utils.html import strip_tags
+from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions

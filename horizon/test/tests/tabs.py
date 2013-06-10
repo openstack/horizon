@@ -23,7 +23,8 @@ from horizon import exceptions
 from horizon import tabs as horizon_tabs
 from horizon.test import helpers as test
 
-from .tables import MyTable, TEST_DATA
+from horizon.test.tests.tables import MyTable
+from horizon.test.tests.tables import TEST_DATA
 
 
 class BaseTestTab(horizon_tabs.Tab):

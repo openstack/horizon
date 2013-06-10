@@ -14,10 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from contextlib import closing
 import logging
 import tempfile
 import zipfile
-from contextlib import closing
 
 from django import http
 from django import shortcuts

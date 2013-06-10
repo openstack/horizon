@@ -21,29 +21,30 @@
 from functools import wraps
 import os
 
-from django import http
 from django.conf import settings
-from django.contrib.messages.storage import default_storage
 from django.contrib.auth.middleware import AuthenticationMiddleware
+from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
+from django import http
 from django.test.client import RequestFactory
 from django.utils import unittest
 
+from cinderclient import client as cinder_client
 import glanceclient
+from heatclient import client as heat_client
 from keystoneclient.v2_0 import client as keystone_client
 from novaclient.v1_1 import client as nova_client
 from quantumclient.v2_0 import client as quantum_client
 from swiftclient import client as swift_client
-from cinderclient import client as cinder_client
-from heatclient import client as heat_client
 
 import httplib2
 import mox
 
-from openstack_auth import utils, user
+from openstack_auth import user
+from openstack_auth import utils
 
-from horizon.test import helpers as horizon_helpers
 from horizon import middleware
+from horizon.test import helpers as horizon_helpers
 
 from openstack_dashboard import api
 from openstack_dashboard import context_processors

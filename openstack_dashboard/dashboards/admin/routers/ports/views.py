@@ -17,6 +17,7 @@
 import logging
 
 from horizon import tabs
+
 from .tabs import PortDetailTabs
 
 

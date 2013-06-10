@@ -35,13 +35,13 @@ Keystone/Nova/Glance/Swift et. al.
 """
 from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
-from openstack_dashboard.api import heat
 from openstack_dashboard.api import glance
+from openstack_dashboard.api import heat
 from openstack_dashboard.api import keystone
+from openstack_dashboard.api import lbaas
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
 from openstack_dashboard.api import quantum
-from openstack_dashboard.api import lbaas
 from openstack_dashboard.api import swift
 
 assert base

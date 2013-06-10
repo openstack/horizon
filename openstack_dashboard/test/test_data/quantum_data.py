@@ -14,10 +14,17 @@
 
 import copy
 
-from openstack_dashboard.api.quantum import (Network, Subnet, Port,
-                                             Router, FloatingIp)
-from openstack_dashboard.api.lbaas import (Pool, Vip, Member,
-                                           PoolMonitor)
+from openstack_dashboard.api.lbaas import Member
+from openstack_dashboard.api.lbaas import Pool
+from openstack_dashboard.api.lbaas import PoolMonitor
+from openstack_dashboard.api.lbaas import Vip
+
+from openstack_dashboard.api.quantum import FloatingIp
+from openstack_dashboard.api.quantum import Network
+from openstack_dashboard.api.quantum import Port
+from openstack_dashboard.api.quantum import Router
+from openstack_dashboard.api.quantum import Subnet
+
 from .utils import TestDataContainer
 
 

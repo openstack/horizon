@@ -12,12 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from cinderclient import exceptions as cinder_exceptions
 import glanceclient.exc as glance_exceptions
 from keystoneclient import exceptions as keystone_exceptions
 from novaclient import exceptions as nova_exceptions
 from quantumclient.common import exceptions as quantum_exceptions
 from swiftclient import client as swift_exceptions
-from cinderclient import exceptions as cinder_exceptions
 
 from .utils import TestDataContainer
 

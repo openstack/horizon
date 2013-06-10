@@ -1,6 +1,7 @@
 from django.core import urlresolvers
+from django.template.defaultfilters import floatformat
+from django.template.defaultfilters import timesince
 from django.utils.translation import ugettext_lazy as _
-from django.template.defaultfilters import timesince, floatformat
 
 from horizon import tables
 from horizon.templatetags.sizeformat import mbformat

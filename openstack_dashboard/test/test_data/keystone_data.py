@@ -17,8 +17,13 @@ from datetime import timedelta
 from django.conf import settings
 from django.utils import datetime_safe
 
-from keystoneclient.v2_0 import users, tenants, tokens, roles, ec2
-from keystoneclient.v3 import domains, groups
+from keystoneclient.v2_0 import ec2
+from keystoneclient.v2_0 import roles
+from keystoneclient.v2_0 import tenants
+from keystoneclient.v2_0 import tokens
+from keystoneclient.v2_0 import users
+from keystoneclient.v3 import domains
+from keystoneclient.v3 import groups
 
 
 from .utils import TestDataContainer

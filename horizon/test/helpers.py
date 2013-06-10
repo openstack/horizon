@@ -21,14 +21,14 @@
 import os
 import socket
 
-from django import http
-from django import test as django_test
+from django.contrib.auth.middleware import AuthenticationMiddleware
 from django.contrib.auth.models import Permission
+from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.messages.storage import default_storage
-from django.contrib.auth.middleware import AuthenticationMiddleware
-from django.contrib.auth.models import User
 from django.core.handlers import wsgi
+from django import http
+from django import test as django_test
 from django.test.client import RequestFactory
 from django.utils import unittest
 

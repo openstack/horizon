@@ -16,8 +16,8 @@
 
 import sys
 
-from django.template import TemplateSyntaxError
 from django.template.loader import render_to_string
+from django.template import TemplateSyntaxError
 from django.utils.datastructures import SortedDict
 
 from horizon import exceptions

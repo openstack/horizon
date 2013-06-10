@@ -32,6 +32,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.usage import quotas
+
 from .forms import FloatingIpAllocate
 from .workflows import IPAssociationWorkflow
 

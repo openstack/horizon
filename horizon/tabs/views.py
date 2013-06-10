@@ -3,7 +3,7 @@ from django.views import generic
 
 from horizon import exceptions
 from horizon import tables
-from .base import TableTab
+from horizon.tabs.base import TableTab
 
 
 class TabView(generic.TemplateView):

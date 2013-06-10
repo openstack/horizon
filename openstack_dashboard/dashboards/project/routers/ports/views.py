@@ -18,12 +18,15 @@ import logging
 
 from django.core.urlresolvers import reverse
 
-from horizon import tabs
-from horizon import forms
 from horizon import exceptions
+from horizon import forms
+from horizon import tabs
+
 from openstack_dashboard import api
+
+from .forms import AddInterface
+from .forms import SetGatewayForm
 from .tabs import PortDetailTabs
-from .forms import (AddInterface, SetGatewayForm)
 
 
 LOG = logging.getLogger(__name__)

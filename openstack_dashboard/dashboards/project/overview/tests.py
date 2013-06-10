@@ -20,15 +20,16 @@
 
 import datetime
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 from django.utils import timezone
 
-from mox import IsA, Func
+from mox import Func
+from mox import IsA
 
 from openstack_dashboard import api
-from openstack_dashboard import usage
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard import usage
 
 
 INDEX_URL = reverse('horizon:project:overview:index')

@@ -21,10 +21,9 @@
 """
 Views for managing Swift containers.
 """
-import os
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import browsers
@@ -33,9 +32,17 @@ from horizon import forms
 
 from openstack_dashboard import api
 from openstack_dashboard.api.swift import FOLDER_DELIMITER
-from .browsers import ContainerBrowser
-from .forms import CreateContainer, UploadObject, CopyObject
-from .tables import wrap_delimiter
+from openstack_dashboard.dashboards.project.containers.browsers \
+    import ContainerBrowser
+from openstack_dashboard.dashboards.project.containers.forms import CopyObject
+from openstack_dashboard.dashboards.project.containers.forms \
+    import CreateContainer
+from openstack_dashboard.dashboards.project.containers.forms \
+    import UploadObject
+from openstack_dashboard.dashboards.project.containers.tables \
+    import wrap_delimiter
+
+import os
 
 
 class ContainerView(browsers.ResourceBrowserView):

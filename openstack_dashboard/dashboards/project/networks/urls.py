@@ -14,14 +14,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url, include
+from django.conf.urls.defaults import include
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
-from .views import IndexView, CreateView, DetailView, UpdateView
+from .ports import urls as port_urls
+from .ports.views import UpdateView as EditPortView
+from .subnets import urls as subnet_urls
 from .subnets.views import CreateView as AddSubnetView
 from .subnets.views import UpdateView as EditSubnetView
-from .subnets import urls as subnet_urls
-from .ports.views import UpdateView as EditPortView
-from .ports import urls as port_urls
+from .views import CreateView
+from .views import DetailView
+from .views import IndexView
+from .views import UpdateView
 
 
 NETWORKS = r'^(?P<network_id>[^/]+)/%s$'

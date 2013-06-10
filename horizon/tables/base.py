@@ -20,26 +20,27 @@ import logging
 from operator import attrgetter
 import sys
 
+from django.conf import settings
+from django.core import urlresolvers
 from django import forms
 from django.http import HttpResponse
 from django import template
-from django.conf import settings
-from django.core import urlresolvers
 from django.template.defaultfilters import truncatechars
 from django.template.loader import render_to_string
-from django.utils import http
 from django.utils.datastructures import SortedDict
 from django.utils.html import escape
+from django.utils import http
 from django.utils.http import urlencode
-from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 from django.utils import termcolors
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import conf
 from horizon import exceptions
 from horizon import messages
+from horizon.tables.actions import FilterAction
+from horizon.tables.actions import LinkAction
 from horizon.utils import html
-from .actions import FilterAction, LinkAction
 
 
 LOG = logging.getLogger(__name__)

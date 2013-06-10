@@ -16,8 +16,8 @@
 
 import uuid
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 from django.utils.datastructures import SortedDict
 
 from mox import IsA

@@ -29,8 +29,10 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project \
         .images_and_snapshots.images import views
+
+from .forms import AdminCreateImageForm
+from .forms import AdminUpdateImageForm
 from .tables import AdminImagesTable
-from .forms import AdminCreateImageForm, AdminUpdateImageForm
 
 
 LOG = logging.getLogger(__name__)

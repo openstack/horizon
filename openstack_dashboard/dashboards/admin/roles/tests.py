@@ -14,10 +14,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 
-from mox import IgnoreArg, IsA
+from mox import IgnoreArg
+from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

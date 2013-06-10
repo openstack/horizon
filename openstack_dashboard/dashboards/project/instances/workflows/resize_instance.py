@@ -15,15 +15,15 @@
 #    under the License.
 
 
-import logging
 import json
+import logging
 
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions
-from horizon import workflows
 from horizon import forms
+from horizon import workflows
 
 from openstack_dashboard import api
 

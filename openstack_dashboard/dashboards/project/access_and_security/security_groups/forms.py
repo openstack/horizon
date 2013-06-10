@@ -18,19 +18,20 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core import validators
+from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.core import validators
 from django.forms import ValidationError
 from django.utils.translation import ugettext_lazy as _
-from django.conf import settings
 
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-from horizon.utils.validators import validate_port_range
 from horizon.utils import fields
+from horizon.utils.validators import validate_port_range
 
 from openstack_dashboard import api
+
 from ..floating_ips.utils import get_int_or_uuid
 
 

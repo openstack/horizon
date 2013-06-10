@@ -17,9 +17,9 @@
 from django import template
 from django.utils.translation import ugettext_lazy as _
 
+from horizon.browsers.breadcrumb import Breadcrumb
 from horizon.tables import DataTable
 from horizon.utils import html
-from .breadcrumb import Breadcrumb
 
 
 class ResourceBrowser(html.HTMLElement):

@@ -15,21 +15,23 @@
 #    under the License.
 
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 
-from mox import IgnoreArg, IsA
+from mox import IgnoreArg
+from mox import IsA
 
 from horizon.workflows.views import WorkflowView
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from .constants import DOMAINS_INDEX_VIEW_TEMPLATE, \
-    DOMAINS_INDEX_URL as index_url, \
-    DOMAINS_CREATE_URL as create_url, \
-    DOMAINS_UPDATE_URL as update_url
-from .workflows import CreateDomain, UpdateDomain
+from .constants import DOMAINS_CREATE_URL as create_url
+from .constants import DOMAINS_INDEX_URL as index_url
+from .constants import DOMAINS_INDEX_VIEW_TEMPLATE
+from .constants import DOMAINS_UPDATE_URL as update_url
+from .workflows import CreateDomain
+from .workflows import UpdateDomain
 
 
 DOMAINS_INDEX_URL = reverse(index_url)

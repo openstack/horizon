@@ -26,10 +26,11 @@ from django.contrib.auth import logout
 from django.http import HttpRequest
 from django.utils import termcolors
 from django.utils.translation import ugettext_lazy as _
-from django.views.debug import SafeExceptionReporterFilter, CLEANSED_SUBSTITUTE
+from django.views.debug import CLEANSED_SUBSTITUTE
+from django.views.debug import SafeExceptionReporterFilter
 
-from horizon import messages
 from horizon.conf import HORIZON_CONFIG
+from horizon import messages
 
 LOG = logging.getLogger(__name__)
 PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]

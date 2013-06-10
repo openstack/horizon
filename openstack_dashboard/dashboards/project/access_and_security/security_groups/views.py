@@ -23,7 +23,8 @@ Views for managing instances.
 """
 import logging
 
-from django.core.urlresolvers import reverse_lazy, reverse
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -31,8 +32,10 @@ from horizon import forms
 from horizon import tables
 
 from openstack_dashboard import api
+
 from ..floating_ips.utils import get_int_or_uuid
-from .forms import CreateGroup, AddRule
+from .forms import AddRule
+from .forms import CreateGroup
 from .tables import RulesTable
 
 

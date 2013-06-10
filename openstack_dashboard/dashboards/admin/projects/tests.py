@@ -16,18 +16,21 @@
 
 import logging
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 
 from mox import IsA
 
 from horizon import exceptions
+from horizon.workflows.views import WorkflowView
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
-from .workflows import CreateProject, UpdateProject
-from horizon.workflows.views import WorkflowView
+
+from .workflows import CreateProject
+from .workflows import UpdateProject
+
 
 INDEX_URL = reverse('horizon:admin:projects:index')
 

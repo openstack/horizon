@@ -22,7 +22,8 @@ from django.conf.urls.defaults import *
 
 from .images import urls as image_urls
 from .snapshots import urls as snapshot_urls
-from .views import IndexView, DetailView
+from .views import DetailView
+from .views import IndexView
 
 
 urlpatterns = patterns('',

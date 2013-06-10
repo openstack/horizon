@@ -29,7 +29,9 @@ import logging
 import os
 
 from django.conf import settings
-from django.conf.urls.defaults import patterns, url, include
+from django.conf.urls.defaults import include
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse
 from django.utils.datastructures import SortedDict
@@ -38,9 +40,11 @@ from django.utils.importlib import import_module
 from django.utils.module_loading import module_has_submodule
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import loaders
 from horizon import conf
-from horizon.decorators import require_auth, require_perms, _current_component
+from horizon.decorators import _current_component
+from horizon.decorators import require_auth
+from horizon.decorators import require_perms
+from horizon import loaders
 
 
 LOG = logging.getLogger(__name__)

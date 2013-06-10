@@ -27,11 +27,12 @@ from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions
 from horizon import forms
-from horizon import workflows
 from horizon.utils import validators
+from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+
 from ...images_and_snapshots.utils import get_available_images
 
 

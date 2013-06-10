@@ -24,14 +24,14 @@ Middleware provided and used by Horizon.
 import json
 import logging
 
-from django import http
-from django import shortcuts
 from django.conf import settings
-from django.contrib import messages as django_messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.views import redirect_to_login
-from django.utils import timezone
+from django.contrib import messages as django_messages
+from django import http
+from django import shortcuts
 from django.utils.encoding import iri_to_uri
+from django.utils import timezone
 
 from horizon import exceptions
 

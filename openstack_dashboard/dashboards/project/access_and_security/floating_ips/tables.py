@@ -17,8 +17,8 @@
 
 import logging
 
-from django import shortcuts
 from django.core import urlresolvers
+from django import shortcuts
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 

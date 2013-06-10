@@ -35,8 +35,10 @@ from novaclient.v1_1.servers import REBOOT_HARD
 from horizon.conf import HORIZON_CONFIG
 from horizon.utils.memoized import memoized
 
-from openstack_dashboard.api.base import (APIResourceWrapper, QuotaSet,
-                                          APIDictWrapper, url_for)
+from openstack_dashboard.api.base import APIDictWrapper
+from openstack_dashboard.api.base import APIResourceWrapper
+from openstack_dashboard.api.base import QuotaSet
+from openstack_dashboard.api.base import url_for
 from openstack_dashboard.api import network
 
 

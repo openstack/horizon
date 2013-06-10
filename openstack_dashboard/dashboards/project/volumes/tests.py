@@ -18,10 +18,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import widgets
+from django import http
 
 from mox import IsA
 

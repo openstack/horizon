@@ -19,7 +19,8 @@ import logging
 from openstack_dashboard.dashboards.project.networks.subnets \
     import views as project_views
 
-from .workflows import CreateSubnet, UpdateSubnet
+from .workflows import CreateSubnet
+from .workflows import UpdateSubnet
 
 
 LOG = logging.getLogger(__name__)

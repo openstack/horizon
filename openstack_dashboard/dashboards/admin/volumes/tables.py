@@ -2,8 +2,12 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 from openstack_dashboard.api import cinder
-from openstack_dashboard.dashboards.project.volumes.tables import (UpdateRow,
-        VolumesTable as _VolumesTable, DeleteVolume)
+from openstack_dashboard.dashboards.project.volumes.tables import \
+        DeleteVolume
+from openstack_dashboard.dashboards.project.volumes.tables import \
+        UpdateRow
+from openstack_dashboard.dashboards.project.volumes.tables import \
+        VolumesTable as _VolumesTable
 
 
 class CreateVolumeType(tables.LinkAction):

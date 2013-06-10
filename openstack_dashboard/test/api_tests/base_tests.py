@@ -22,8 +22,8 @@ from __future__ import absolute_import
 
 from horizon import exceptions
 
-from openstack_dashboard.test import helpers as test
 from openstack_dashboard.api import base as api_base
+from openstack_dashboard.test import helpers as test
 
 
 class APIResource(api_base.APIResourceWrapper):

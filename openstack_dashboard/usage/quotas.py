@@ -4,8 +4,11 @@ import itertools
 from horizon import exceptions
 from horizon.utils.memoized import memoized
 
-from openstack_dashboard.api import nova, cinder, network
-from openstack_dashboard.api.base import is_service_enabled, QuotaSet
+from openstack_dashboard.api.base import is_service_enabled
+from openstack_dashboard.api.base import QuotaSet
+from openstack_dashboard.api import cinder
+from openstack_dashboard.api import network
+from openstack_dashboard.api import nova
 
 NOVA_QUOTA_FIELDS = ("metadata_items",
                      "cores",

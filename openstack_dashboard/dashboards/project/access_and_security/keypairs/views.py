@@ -23,17 +23,21 @@ Views for managing keypairs.
 """
 import logging
 
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django import http
-from django.core.urlresolvers import reverse, reverse_lazy
 from django.template.defaultfilters import slugify
-from django.views.generic import View, TemplateView
 from django.utils.translation import ugettext_lazy as _
+from django.views.generic import TemplateView
+from django.views.generic import View
 
-from horizon import forms
 from horizon import exceptions
+from horizon import forms
 
 from openstack_dashboard import api
-from .forms import CreateKeypair, ImportKeypair
+
+from .forms import CreateKeypair
+from .forms import ImportKeypair
 
 
 LOG = logging.getLogger(__name__)

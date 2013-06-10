@@ -19,9 +19,13 @@ from django.forms import *
 from django.forms import widgets
 
 # Convenience imports for public API components.
-from .base import SelfHandlingMixin, SelfHandlingForm, DateForm
-from .views import ModalFormView, ModalFormMixin
-from .fields import DynamicTypedChoiceField, DynamicChoiceField
+from horizon.forms.base import DateForm
+from horizon.forms.base import SelfHandlingForm
+from horizon.forms.base import SelfHandlingMixin
+from horizon.forms.fields import DynamicChoiceField
+from horizon.forms.fields import DynamicTypedChoiceField
+from horizon.forms.views import ModalFormMixin
+from horizon.forms.views import ModalFormView
 
 assert widgets
 assert SelfHandlingMixin

@@ -14,19 +14,20 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from collections import defaultdict
 import logging
 import new
-from collections import defaultdict
 
-from django import shortcuts
 from django.conf import settings
 from django.core import urlresolvers
+from django import shortcuts
 from django.utils.functional import Promise
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import messages
-from horizon.utils import html, functions
+from horizon.utils import functions
+from horizon.utils import html
 
 
 LOG = logging.getLogger(__name__)

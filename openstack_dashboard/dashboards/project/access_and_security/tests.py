@@ -20,14 +20,15 @@
 
 from copy import deepcopy
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 
 from mox import IsA
 
+from horizon.workflows.views import WorkflowView
+
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
-from horizon.workflows.views import WorkflowView
 
 
 class AccessAndSecurityTests(test.TestCase):

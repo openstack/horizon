@@ -28,7 +28,9 @@ from horizon import forms
 from horizon import tables
 
 from openstack_dashboard import api
-from .forms import CreateFlavor, EditFlavor
+
+from .forms import CreateFlavor
+from .forms import EditFlavor
 from .tables import FlavorsTable
 
 

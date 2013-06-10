@@ -17,8 +17,8 @@
 import logging
 
 from django.core.urlresolvers import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
 from django.utils.datastructures import SortedDict
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
@@ -26,10 +26,12 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks import views as user_views
-from .tables import NetworksTable
-from .subnets.tables import SubnetsTable
+
+from .forms import CreateNetwork
+from .forms import UpdateNetwork
 from .ports.tables import PortsTable
-from .forms import CreateNetwork, UpdateNetwork
+from .subnets.tables import SubnetsTable
+from .tables import NetworksTable
 
 
 LOG = logging.getLogger(__name__)

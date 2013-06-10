@@ -14,14 +14,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django import http
 from django.test.utils import override_settings
+
 from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+
 from .tables import AdminImagesTable
 
 

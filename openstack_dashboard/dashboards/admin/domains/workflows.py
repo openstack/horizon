@@ -19,8 +19,8 @@ import logging
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import workflows
 from horizon import forms
+from horizon import workflows
 
 from openstack_dashboard import api
 

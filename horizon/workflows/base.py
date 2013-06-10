@@ -18,15 +18,16 @@ import copy
 import inspect
 import logging
 
-from django import forms
-from django import template
 from django.core import urlresolvers
+from django import forms
+from django.forms.forms import NON_FIELD_ERRORS
+from django import template
+from django.template.defaultfilters import linebreaks
+from django.template.defaultfilters import safe
 from django.template.defaultfilters import slugify
 from django.utils.encoding import force_unicode
 from django.utils.importlib import import_module
 from django.utils.translation import ugettext_lazy as _
-from django.template.defaultfilters import linebreaks, safe
-from django.forms.forms import NON_FIELD_ERRORS
 
 from horizon import base
 from horizon import exceptions

@@ -17,8 +17,8 @@
 from datetime import datetime
 import pytz
 
-from django import shortcuts
 from django.conf import settings
+from django import shortcuts
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 

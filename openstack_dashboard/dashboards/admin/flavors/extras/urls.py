@@ -18,9 +18,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
-from .views import IndexView, EditView, CreateView
+from .views import CreateView
+from .views import EditView
+from .views import IndexView
 
 urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),

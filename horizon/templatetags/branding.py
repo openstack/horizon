@@ -22,8 +22,8 @@
 Template tags for customizing Horizon.
 """
 
-from django import template
 from django.conf import settings
+from django import template
 from django.utils.translation import ugettext_lazy as _
 
 

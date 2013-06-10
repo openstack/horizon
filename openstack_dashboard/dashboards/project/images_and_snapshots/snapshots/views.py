@@ -24,13 +24,15 @@ Views for managing instance snapshots.
 
 import logging
 
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
 
 from openstack_dashboard import api
+
 from .forms import CreateSnapshot
 
 

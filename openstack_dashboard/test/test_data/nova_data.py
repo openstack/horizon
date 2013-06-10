@@ -15,17 +15,25 @@
 import json
 import uuid
 
-from novaclient.v1_1 import (flavors, keypairs, servers, volumes,
-                             volume_types, quotas,
-                             floating_ips, usage, certs,
-                             volume_snapshots as vol_snaps,
-                             security_group_rules as rules,
-                             security_groups as sec_groups,
-                             availability_zones)
+from novaclient.v1_1 import availability_zones
+from novaclient.v1_1 import certs
+from novaclient.v1_1 import flavors
+from novaclient.v1_1 import floating_ips
+from novaclient.v1_1 import keypairs
+from novaclient.v1_1 import quotas
+from novaclient.v1_1 import security_group_rules as rules
+from novaclient.v1_1 import security_groups as sec_groups
+from novaclient.v1_1 import servers
+from novaclient.v1_1 import usage
+from novaclient.v1_1 import volume_snapshots as vol_snaps
+from novaclient.v1_1 import volume_types
+from novaclient.v1_1 import volumes
 
-from openstack_dashboard.api.base import Quota, QuotaSet as QuotaSetWrapper
+from openstack_dashboard.api.base import Quota
+from openstack_dashboard.api.base import QuotaSet as QuotaSetWrapper
 from openstack_dashboard.api.nova import FloatingIp as NetFloatingIp
 from openstack_dashboard.usage.quotas import QuotaUsage
+
 from .utils import TestDataContainer
 
 

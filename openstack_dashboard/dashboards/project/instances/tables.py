@@ -14,14 +14,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
 
+from django.core import urlresolvers
 from django import shortcuts
 from django import template
-from django.core import urlresolvers
 from django.template.defaultfilters import title
 from django.utils.http import urlencode
-from django.utils.translation import string_concat, ugettext_lazy as _
+from django.utils.translation import string_concat
+from django.utils.translation import ugettext_lazy as _
 
 from horizon.conf import HORIZON_CONFIG
 from horizon import exceptions
@@ -30,12 +30,18 @@ from horizon import tables
 from horizon.templatetags import sizeformat
 from horizon.utils.filters import replace_underscores
 
+import logging
+
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security \
         .floating_ips.workflows import IPAssociationWorkflow
-from .tabs import InstanceDetailTabs, LogTab, ConsoleTab
+from openstack_dashboard.dashboards.project.instances.tabs import ConsoleTab
+from openstack_dashboard.dashboards.project.instances.tabs import \
+    InstanceDetailTabs
+from openstack_dashboard.dashboards.project.instances.tabs import LogTab
 
-from novaclient.v1_1.servers import REBOOT_SOFT, REBOOT_HARD
+from novaclient.v1_1.servers import REBOOT_HARD
+from novaclient.v1_1.servers import REBOOT_SOFT
 
 
 LOG = logging.getLogger(__name__)

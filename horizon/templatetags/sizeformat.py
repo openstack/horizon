@@ -23,8 +23,8 @@ Template tags for displaying sizes
 """
 
 from django import template
-from django.utils import translation
 from django.utils import formats
+from django.utils import translation
 
 
 register = template.Library()

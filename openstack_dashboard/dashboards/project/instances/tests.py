@@ -20,22 +20,26 @@
 
 import uuid
 
-from django import http
 from django.core.urlresolvers import reverse
-from django.utils.http import urlencode
+from django import http
 from django.utils.datastructures import SortedDict
+from django.utils.http import urlencode
 
-from mox import IsA, IgnoreArg
+from mox import IgnoreArg
+from mox import IsA
+
+from horizon.workflows.views import WorkflowView
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
+
 from .tables import LaunchLink
 from .tabs import InstanceDetailTabs
 from .workflows import LaunchInstance
-from horizon.workflows.views import WorkflowView
 
-from novaclient.v1_1.servers import REBOOT_HARD, REBOOT_SOFT
+from novaclient.v1_1.servers import REBOOT_HARD
+from novaclient.v1_1.servers import REBOOT_SOFT
 
 INDEX_URL = reverse('horizon:project:instances:index')
 

@@ -16,12 +16,14 @@
 
 from django.utils.translation import ugettext_lazy as _
 from django.forms import ValidationError
+from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
+from horizon import exceptions
 from horizon import forms
 from horizon import messages
-from horizon import exceptions
 from horizon.utils import validators
+
 from openstack_dashboard import api
 
 

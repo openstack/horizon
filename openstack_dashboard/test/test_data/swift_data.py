@@ -13,6 +13,7 @@
 #    under the License.
 
 from openstack_dashboard.api import swift
+
 from .utils import TestDataContainer
 
 

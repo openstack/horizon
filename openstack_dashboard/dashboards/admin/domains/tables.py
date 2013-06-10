@@ -25,8 +25,8 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from .constants import DOMAINS_CREATE_URL, \
-    DOMAINS_UPDATE_URL
+from .constants import DOMAINS_CREATE_URL
+from .constants import DOMAINS_UPDATE_URL
 
 
 LOG = logging.getLogger(__name__)

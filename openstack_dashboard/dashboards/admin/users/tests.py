@@ -20,10 +20,11 @@
 
 from socket import timeout as socket_timeout
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 
-from mox import IgnoreArg, IsA
+from mox import IgnoreArg
+from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

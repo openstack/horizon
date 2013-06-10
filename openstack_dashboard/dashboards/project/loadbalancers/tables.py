@@ -14,13 +14,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
 
-from django.utils import http
 from django.core.urlresolvers import reverse
+from django.utils import http
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
+
+import logging
 
 
 LOG = logging.getLogger(__name__)

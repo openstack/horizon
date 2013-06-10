@@ -24,8 +24,10 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from .constants import GROUPS_CREATE_URL, GROUPS_UPDATE_URL, \
-    GROUPS_MANAGE_URL, GROUPS_ADD_MEMBER_URL
+from .constants import GROUPS_ADD_MEMBER_URL
+from .constants import GROUPS_CREATE_URL
+from .constants import GROUPS_MANAGE_URL
+from .constants import GROUPS_UPDATE_URL
 
 
 LOG = logging.getLogger(__name__)

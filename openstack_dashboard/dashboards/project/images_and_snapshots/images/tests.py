@@ -20,11 +20,11 @@
 
 import tempfile
 
-from django import http
 from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.urlresolvers import reverse
 from django.forms.widgets import HiddenInput
+from django import http
 from django.test.utils import override_settings
 
 from mox import IsA

@@ -24,13 +24,14 @@ from __future__ import absolute_import
 import logging
 
 from django.conf import settings
-from quantumclient.v2_0 import client as quantum_client
 from django.utils.datastructures import SortedDict
 
-from openstack_dashboard.api.base import APIDictWrapper, url_for
+from openstack_dashboard.api.base import APIDictWrapper
+from openstack_dashboard.api.base import url_for
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
 
+from quantumclient.v2_0 import client as quantum_client
 
 LOG = logging.getLogger(__name__)
 

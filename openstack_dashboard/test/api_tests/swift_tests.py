@@ -22,8 +22,9 @@ from __future__ import absolute_import
 
 from mox import IsA
 
-from openstack_dashboard import api
 from horizon import exceptions
+
+from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 

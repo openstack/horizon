@@ -22,10 +22,13 @@ from horizon import tables
 from horizon import workflows
 
 from openstack_dashboard import api
-from .constants import DOMAIN_INFO_FIELDS, DOMAINS_INDEX_URL, \
-    DOMAINS_INDEX_VIEW_TEMPLATE
+
+from .constants import DOMAIN_INFO_FIELDS
+from .constants import DOMAINS_INDEX_URL
+from .constants import DOMAINS_INDEX_VIEW_TEMPLATE
 from .tables import DomainsTable
-from .workflows import CreateDomain, UpdateDomain
+from .workflows import CreateDomain
+from .workflows import UpdateDomain
 
 
 class IndexView(tables.DataTableView):

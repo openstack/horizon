@@ -20,7 +20,8 @@
 
 import logging
 
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -28,12 +29,16 @@ from horizon import tables
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.admin.users.views import CreateView
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas
-from openstack_dashboard.dashboards.admin.users.views import CreateView
+
 from .forms import CreateUser
-from .tables import TenantsTable, TenantUsersTable, AddUsersTable
-from .workflows import CreateProject, UpdateProject
+from .tables import AddUsersTable
+from .tables import TenantsTable
+from .tables import TenantUsersTable
+from .workflows import CreateProject
+from .workflows import UpdateProject
 
 LOG = logging.getLogger(__name__)
 

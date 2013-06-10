@@ -18,9 +18,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
-from .views import AssociateView, AllocateView
+from .views import AllocateView
+from .views import AssociateView
 
 
 urlpatterns = patterns('',

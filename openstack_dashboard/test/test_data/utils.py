@@ -14,14 +14,14 @@
 
 
 def load_test_data(load_onto=None):
+    from . import cinder_data
     from . import exceptions
     from . import glance_data
+    from . import heat_data
     from . import keystone_data
     from . import nova_data
-    from . import cinder_data
     from . import quantum_data
     from . import swift_data
-    from . import heat_data
 
     # The order of these loaders matters, some depend on others.
     loaders = (exceptions.data,

@@ -14,10 +14,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
-from .views import (IndexView, CreateView, DetailView)
-from .ports.views import (AddInterfaceView, SetGatewayView)
+from .ports.views import AddInterfaceView
+from .ports.views import SetGatewayView
+from .views import CreateView
+from .views import DetailView
+from .views import IndexView
 
 
 urlpatterns = patterns('horizon.dashboards.project.routers.views',

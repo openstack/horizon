@@ -14,10 +14,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
-from .views import (IndexView, CreateView, EditAttachmentsView, DetailView,
-                    CreateSnapshotView)
+from .views import CreateSnapshotView
+from .views import CreateView
+from .views import DetailView
+from .views import EditAttachmentsView
+from .views import IndexView
 
 
 urlpatterns = patterns('openstack_dashboard.dashboards.project.volumes.views',

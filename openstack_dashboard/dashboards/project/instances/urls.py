@@ -18,10 +18,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
-from .views import IndexView, UpdateView, DetailView, LaunchInstanceView
-from .views import ResizeView
+from openstack_dashboard.dashboards.project.instances.views import DetailView
+from openstack_dashboard.dashboards.project.instances.views import IndexView
+from openstack_dashboard.dashboards.project.instances.views import \
+    LaunchInstanceView
+from openstack_dashboard.dashboards.project.instances.views import ResizeView
+from openstack_dashboard.dashboards.project.instances.views import UpdateView
 
 
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'

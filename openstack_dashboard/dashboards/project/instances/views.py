@@ -23,21 +23,29 @@ Views for managing instances.
 """
 import logging
 
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django import http
 from django import shortcuts
-from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import tabs
 from horizon import tables
+from horizon import tabs
 from horizon import workflows
 
 from openstack_dashboard import api
-from .tabs import InstanceDetailTabs
-from .tables import InstancesTable
-from .workflows import LaunchInstance, UpdateInstance, ResizeInstance
+from openstack_dashboard.dashboards.project.instances.tables import \
+    InstancesTable
+from openstack_dashboard.dashboards.project.instances.tabs import \
+    InstanceDetailTabs
+from openstack_dashboard.dashboards.project.instances.workflows import \
+    LaunchInstance
+from openstack_dashboard.dashboards.project.instances.workflows import \
+    ResizeInstance
+from openstack_dashboard.dashboards.project.instances.workflows import \
+    UpdateInstance
 
 
 LOG = logging.getLogger(__name__)

@@ -18,16 +18,22 @@
 Admin views for managing volumes.
 """
 
+from django.core.urlresolvers import reverse
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
-from django.core.urlresolvers import reverse
+
 from openstack_dashboard.dashboards.project.volumes.views import \
-        VolumeTableMixIn, DetailView as _DetailView
+        DetailView as _DetailView
+from openstack_dashboard.dashboards.project.volumes.views import \
+        VolumeTableMixIn
+
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 
-from .tables import VolumesTable, VolumeTypesTable
 from .forms import CreateVolumeType
+from .tables import VolumesTable
+from .tables import VolumeTypesTable
+
 from horizon import exceptions
 from horizon import forms
 from horizon import tables

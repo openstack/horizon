@@ -1,7 +1,7 @@
 import logging
 
 from horizon import tables
-from .base import BaseUsage
+from openstack_dashboard.usage.base import BaseUsage
 
 
 LOG = logging.getLogger(__name__)

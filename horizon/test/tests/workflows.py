@@ -19,8 +19,8 @@ from django import http
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import workflows
 from horizon.test import helpers as test
+from horizon import workflows
 
 
 PROJECT_ID = "a23lkjre389fwenj"

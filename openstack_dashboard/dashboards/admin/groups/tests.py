@@ -14,21 +14,22 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 
-from mox import IgnoreArg, IsA
+from mox import IgnoreArg
+from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from .constants import GROUPS_INDEX_VIEW_TEMPLATE, \
-    GROUPS_MANAGE_VIEW_TEMPLATE, \
-    GROUPS_INDEX_URL as index_url, \
-    GROUPS_CREATE_URL as create_url, \
-    GROUPS_UPDATE_URL as update_url, \
-    GROUPS_MANAGE_URL as manage_url, \
-    GROUPS_ADD_MEMBER_URL as add_member_url
+from .constants import GROUPS_ADD_MEMBER_URL as add_member_url
+from .constants import GROUPS_CREATE_URL as create_url
+from .constants import GROUPS_INDEX_URL as index_url
+from .constants import GROUPS_INDEX_VIEW_TEMPLATE
+from .constants import GROUPS_MANAGE_URL as manage_url
+from .constants import GROUPS_MANAGE_VIEW_TEMPLATE
+from .constants import GROUPS_UPDATE_URL as update_url
 
 
 GROUPS_INDEX_URL = reverse(index_url)

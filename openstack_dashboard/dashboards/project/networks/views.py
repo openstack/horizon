@@ -28,10 +28,11 @@ from horizon import tables
 from horizon import workflows
 
 from openstack_dashboard import api
-from .tables import NetworksTable
-from .subnets.tables import SubnetsTable
-from .ports.tables import PortsTable
+
 from .forms import UpdateNetwork
+from .ports.tables import PortsTable
+from .subnets.tables import SubnetsTable
+from .tables import NetworksTable
 from .workflows import CreateNetwork
 
 

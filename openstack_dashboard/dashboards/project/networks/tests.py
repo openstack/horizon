@@ -14,16 +14,18 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
 from django.core.urlresolvers import reverse
+from django import http
 from django.utils.html import escape
+
+from horizon.workflows.views import WorkflowView
 
 from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+
 from .workflows import CreateNetwork
-from horizon.workflows.views import WorkflowView
 
 
 INDEX_URL = reverse('horizon:project:networks:index')

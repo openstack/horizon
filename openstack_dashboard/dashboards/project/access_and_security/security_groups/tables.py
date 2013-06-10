@@ -16,13 +16,14 @@
 
 import logging
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from django.conf import settings
 
 from horizon import tables
 
 from openstack_dashboard import api
+
 from ..floating_ips.utils import get_int_or_uuid
 
 

@@ -14,8 +14,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from .base import TabGroup, Tab, TableTab
-from .views import TabView, TabbedTableView
+from horizon.tabs.base import Tab
+from horizon.tabs.base import TabGroup
+from horizon.tabs.base import TableTab
+from horizon.tabs.views import TabbedTableView
+from horizon.tabs.views import TabView
 
 assert TabGroup
 assert Tab

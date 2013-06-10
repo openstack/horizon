@@ -15,8 +15,8 @@
 #    under the License.
 import logging
 
-from django import template
 from django.core.urlresolvers import reverse
+from django import template
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 

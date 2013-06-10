@@ -29,10 +29,11 @@ from django.utils.translation import ugettext_lazy as _
 
 from cinderclient.v1 import client as cinder_client
 
+from horizon import exceptions
+
+from openstack_dashboard.api.base import QuotaSet
 from openstack_dashboard.api.base import url_for
 from openstack_dashboard.api import nova
-from openstack_dashboard.api.base import QuotaSet
-from horizon import exceptions
 
 LOG = logging.getLogger(__name__)
 

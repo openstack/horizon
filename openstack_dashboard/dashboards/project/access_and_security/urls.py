@@ -18,7 +18,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import url, patterns, include
+from django.conf.urls.defaults import include
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
 from .api_access import urls as api_access_urls
 from .floating_ips import urls as fip_urls

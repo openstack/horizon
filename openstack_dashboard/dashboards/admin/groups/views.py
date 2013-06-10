@@ -14,7 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -22,13 +23,19 @@ from horizon import forms
 from horizon import tables
 
 from openstack_dashboard import api
-from .constants import GROUPS_INDEX_URL, GROUPS_INDEX_VIEW_TEMPLATE, \
-    GROUPS_CREATE_VIEW_TEMPLATE, GROUPS_UPDATE_VIEW_TEMPLATE, \
-    GROUPS_MANAGE_VIEW_TEMPLATE, GROUPS_ADD_MEMBER_VIEW_TEMPLATE, \
-    GROUPS_ADD_MEMBER_AJAX_VIEW_TEMPLATE
-from .forms import CreateGroupForm, UpdateGroupForm
-from .tables import GroupsTable, GroupMembersTable, \
-    GroupNonMembersTable
+
+from .constants import GROUPS_ADD_MEMBER_AJAX_VIEW_TEMPLATE
+from .constants import GROUPS_ADD_MEMBER_VIEW_TEMPLATE
+from .constants import GROUPS_CREATE_VIEW_TEMPLATE
+from .constants import GROUPS_INDEX_URL
+from .constants import GROUPS_INDEX_VIEW_TEMPLATE
+from .constants import GROUPS_MANAGE_VIEW_TEMPLATE
+from .constants import GROUPS_UPDATE_VIEW_TEMPLATE
+from .forms import CreateGroupForm
+from .forms import UpdateGroupForm
+from .tables import GroupMembersTable
+from .tables import GroupNonMembersTable
+from .tables import GroupsTable
 
 
 class IndexView(tables.DataTableView):

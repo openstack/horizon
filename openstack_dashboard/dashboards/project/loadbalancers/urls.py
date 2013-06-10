@@ -14,14 +14,35 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import url, patterns
+from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import url
 
-from .views import IndexView
-from .views import AddPoolView, AddMemberView, AddMonitorView, AddVipView
-from .views import (UpdatePoolView, UpdateMemberView,
-                    UpdateVipView, UpdateMonitorView)
-from .views import PoolDetailsView, VipDetailsView
-from .views import MemberDetailsView, MonitorDetailsView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    AddMemberView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    AddMonitorView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    AddPoolView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    AddVipView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    IndexView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    MemberDetailsView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    MonitorDetailsView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    PoolDetailsView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    UpdateMemberView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    UpdateMonitorView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    UpdatePoolView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    UpdateVipView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    VipDetailsView
 
 urlpatterns = patterns(
     'openstack_dashboard.dashboards.project.loadbalancers.views',

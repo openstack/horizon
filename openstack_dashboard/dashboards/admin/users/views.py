@@ -20,7 +20,8 @@
 
 import operator
 
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_post_parameters
@@ -30,7 +31,9 @@ from horizon import forms
 from horizon import tables
 
 from openstack_dashboard import api
-from .forms import CreateUserForm, UpdateUserForm
+
+from .forms import CreateUserForm
+from .forms import UpdateUserForm
 from .tables import UsersTable
 
 

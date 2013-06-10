@@ -24,13 +24,44 @@ from horizon import tables
 from horizon.utils.filters import replace_underscores
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.instances.tables import (
-        TerminateInstance, EditInstance, ConsoleLink, LogLink, CreateSnapshot,
-        TogglePause, ToggleSuspend, RebootInstance, SoftRebootInstance,
-        ConfirmResize, RevertResize, get_size, UpdateRow, get_ips,
-        get_power_state, is_deleting, ACTIVE_STATES, STATUS_DISPLAY_CHOICES,
-        TASK_DISPLAY_CHOICES)
-
+from openstack_dashboard.dashboards.project.instances.tables import \
+        ACTIVE_STATES
+from openstack_dashboard.dashboards.project.instances.tables import \
+        ConfirmResize
+from openstack_dashboard.dashboards.project.instances.tables import \
+        ConsoleLink
+from openstack_dashboard.dashboards.project.instances.tables import \
+        CreateSnapshot
+from openstack_dashboard.dashboards.project.instances.tables import \
+        EditInstance
+from openstack_dashboard.dashboards.project.instances.tables import \
+        get_ips
+from openstack_dashboard.dashboards.project.instances.tables import \
+        get_power_state
+from openstack_dashboard.dashboards.project.instances.tables import \
+        get_size
+from openstack_dashboard.dashboards.project.instances.tables import \
+        is_deleting
+from openstack_dashboard.dashboards.project.instances.tables import \
+        LogLink
+from openstack_dashboard.dashboards.project.instances.tables import \
+        RebootInstance
+from openstack_dashboard.dashboards.project.instances.tables import \
+        RevertResize
+from openstack_dashboard.dashboards.project.instances.tables import \
+        SoftRebootInstance
+from openstack_dashboard.dashboards.project.instances.tables import \
+        STATUS_DISPLAY_CHOICES
+from openstack_dashboard.dashboards.project.instances.tables import \
+        TASK_DISPLAY_CHOICES
+from openstack_dashboard.dashboards.project.instances.tables import \
+        TerminateInstance
+from openstack_dashboard.dashboards.project.instances.tables import \
+        TogglePause
+from openstack_dashboard.dashboards.project.instances.tables import \
+        ToggleSuspend
+from openstack_dashboard.dashboards.project.instances.tables import \
+        UpdateRow
 LOG = logging.getLogger(__name__)
 
 

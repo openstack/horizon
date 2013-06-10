@@ -31,7 +31,13 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.instances.tables import \
         AdminInstancesTable
 from openstack_dashboard.dashboards.project.instances.views import \
-        console as p_console, vnc as p_vnc, spice as p_spice, UpdateView
+        console as p_console
+from openstack_dashboard.dashboards.project.instances.views import \
+        spice as p_spice
+from openstack_dashboard.dashboards.project.instances.views import \
+        UpdateView
+from openstack_dashboard.dashboards.project.instances.views import \
+        vnc as p_vnc
 from openstack_dashboard.dashboards.project.instances.workflows.\
         update_instance import AdminUpdateInstance
 

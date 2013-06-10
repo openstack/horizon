@@ -20,7 +20,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tabs
 
-from openstack_dashboard.api import cinder, nova
+from openstack_dashboard.api import cinder
+from openstack_dashboard.api import nova
 
 
 class OverviewTab(tabs.Tab):
