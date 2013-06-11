@@ -35,7 +35,7 @@
 
   <div class="quota_title clearfix">
     <strong>{% trans "Total RAM" %} <span>({{ usages.ram.used|intcomma }} {% trans "MB" %})</span></strong>
-    <p>{{ usages.ram.available|quota:"MB"|intcomma }}</p>
+    <p>{{ usages.ram.available|quota:_("MB")|intcomma }}</p>
   </div>
   <div id="quota_ram" data-progress-indicator-flavor data-quota-limit="{{ usages.ram.quota }}" data-quota-used="{{ usages.ram.used }}" class="quota_bar">
     {% horizon_progress_bar usages.ram.used usages.ram.quota %}
