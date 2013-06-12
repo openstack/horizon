@@ -40,9 +40,20 @@ class LaunchImage(tables.LinkAction):
 
     def get_link_url(self, datum):
         base_url = reverse(self.url)
-        params = urlencode({"source_type": "image_id",
+
+        if get_image_type(datum) == "image":
+            source_type = "image_id"
+        else:
+            source_type = "instance_snapshot_id"
+
+        params = urlencode({"source_type": source_type,
                             "source_id": self.table.get_object_id(datum)})
         return "?".join([base_url, params])
+
+    def allowed(self, request, image=None):
+        if image:
+            return image.status in ("active",)
+        return False
 
 
 class DeleteImage(tables.DeleteAction):
@@ -148,7 +159,7 @@ def get_image_categories(im, user_tenant_id):
 
 
 def get_image_type(image):
-    return getattr(image, "properties", {}).get("image_type", _("Image"))
+    return getattr(image, "properties", {}).get("image_type", "image")
 
 
 def get_format(image):
@@ -212,9 +223,6 @@ class ImagesTable(tables.DataTable):
         row_class = UpdateRow
         status_columns = ["status"]
         verbose_name = _("Images")
-        # Hide the image_type column. Done this way so subclasses still get
-        # all the columns by default.
-        columns = ["name", "status", "public", "protected", "disk_format"]
         table_actions = (OwnerFilter, CreateImage, DeleteImage,)
         row_actions = (LaunchImage, CreateVolumeFromImage,
                        EditImage, DeleteImage,)

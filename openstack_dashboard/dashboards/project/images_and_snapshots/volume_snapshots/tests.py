@@ -68,8 +68,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',
-                                     'snapshot_list_detailed'),
+    @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.cinder: ('volume_snapshot_list',
                                      'volume_snapshot_delete')})
     def test_delete_volume_snapshot(self):
@@ -78,15 +77,11 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn(([], False))
-        api.glance.snapshot_list_detailed(IsA(http.HttpRequest),
-                                          marker=None).AndReturn(([], False))
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
             AndReturn(vol_snapshots)
         api.cinder.volume_snapshot_delete(IsA(http.HttpRequest), snapshot.id)
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn(([], False))
-        api.glance.snapshot_list_detailed(IsA(http.HttpRequest),
-                                          marker=None).AndReturn(([], False))
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
             AndReturn([])
         self.mox.ReplayAll()

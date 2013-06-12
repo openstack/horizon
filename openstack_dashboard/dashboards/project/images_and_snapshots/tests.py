@@ -32,8 +32,7 @@ INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
 
 
 class ImagesAndSnapshotsTests(test.TestCase):
-    @test.create_stubs({api.glance: ('image_list_detailed',
-                                     'snapshot_list_detailed'),
+    @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.cinder: ('volume_snapshot_list', 'volume_get')})
     def test_index(self):
         images = self.images.list()
@@ -54,8 +53,6 @@ class ImagesAndSnapshotsTests(test.TestCase):
                                 .AndReturn(volumes)
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn([images, False])
-        api.glance.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
-                                .AndReturn([snapshots, False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -77,8 +74,7 @@ class ImagesAndSnapshotsTests(test.TestCase):
         row_actions = images_table.get_row_actions(images[2])
         self.assertTrue(len(row_actions), 3)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',
-                                     'snapshot_list_detailed'),
+    @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.cinder: ('volume_snapshot_list', 'volume_get')})
     def test_index_no_images(self):
         volumes = self.volumes.list()
@@ -97,15 +93,12 @@ class ImagesAndSnapshotsTests(test.TestCase):
                                 .AndReturn(volumes)
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn([(), False])
-        api.glance.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
-                                .AndReturn([self.snapshots.list(), False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/images_and_snapshots/index.html')
 
-    @test.create_stubs({api.glance: ('image_list_detailed',
-                                     'snapshot_list_detailed'),
+    @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.cinder: ('volume_snapshot_list', 'volume_get')})
     def test_index_error(self):
         volumes = self.volumes.list()
@@ -125,18 +118,14 @@ class ImagesAndSnapshotsTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None) \
                                 .AndRaise(self.exceptions.glance)
-        api.glance.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
-                                .AndReturn([self.snapshots.list(), False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/images_and_snapshots/index.html')
 
-    @test.create_stubs({api.glance: ('image_list_detailed',
-                                     'snapshot_list_detailed'),
+    @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.cinder: ('volume_snapshot_list', 'volume_get')})
-    def test_queued_snapshot_actions(self):
-        images = self.images.list()
+    def test_snapshot_actions(self):
         snapshots = self.snapshots.list()
         volumes = self.volumes.list()
 
@@ -152,35 +141,35 @@ class ImagesAndSnapshotsTests(test.TestCase):
 
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
             .AndReturn(volumes)
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=None).AndReturn([images, False])
-        api.glance.snapshot_list_detailed(IsA(http.HttpRequest), marker=None) \
+        api.glance.image_list_detailed(IsA(http.HttpRequest), marker=None) \
             .AndReturn([snapshots, False])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/images_and_snapshots/index.html')
-        self.assertIn('snapshots_table', res.context)
-        snaps = res.context['snapshots_table']
+        self.assertIn('images_table', res.context)
+        snaps = res.context['images_table']
         self.assertEqual(len(snaps.get_rows()), 3)
 
         row_actions = snaps.get_row_actions(snaps.data[0])
 
         # first instance - status active, owned
-        self.assertEqual(len(row_actions), 3)
+        self.assertEqual(len(row_actions), 4)
         self.assertEqual(row_actions[0].verbose_name, u"Launch")
-        self.assertEqual(row_actions[1].verbose_name, u"Edit")
-        self.assertEqual(row_actions[2].verbose_name, u"Delete Snapshot")
+        self.assertEqual(row_actions[1].verbose_name, u"Create Volume")
+        self.assertEqual(row_actions[2].verbose_name, u"Edit")
+        self.assertEqual(row_actions[3].verbose_name, u"Delete Image")
 
         row_actions = snaps.get_row_actions(snaps.data[1])
 
         # second instance - status active, not owned
-        self.assertEqual(len(row_actions), 1)
+        self.assertEqual(len(row_actions), 2)
         self.assertEqual(row_actions[0].verbose_name, u"Launch")
+        self.assertEqual(row_actions[1].verbose_name, u"Create Volume")
 
         row_actions = snaps.get_row_actions(snaps.data[2])
         # third instance - status queued, only delete is available
         self.assertEqual(len(row_actions), 1)
         self.assertEqual(unicode(row_actions[0].verbose_name),
-                         u"Delete Snapshot")
-        self.assertEqual(str(row_actions[0]), "<DeleteSnapshot: delete>")
+                         u"Delete Image")
+        self.assertEqual(str(row_actions[0]), "<DeleteImage: delete>")
