@@ -198,28 +198,36 @@ ENDPOINT_TYPE_TO_INTERFACE = {
 }
 
 
-def url_for(request, service_type, admin=False, endpoint_type=None):
+def get_url_for_service(service, endpoint_type):
+    identity_version = get_version_from_service(service)
+    for endpoint in service['endpoints']:
+        try:
+            if identity_version < 3:
+                return endpoint[endpoint_type]
+            else:
+                interface = ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
+                if endpoint['interface'] == interface:
+                    return endpoint['url']
+        except (IndexError, KeyError):
+            pass
+    return None
+
+
+def url_for(request, service_type, endpoint_type=None):
     endpoint_type = endpoint_type or getattr(settings,
                                              'OPENSTACK_ENDPOINT_TYPE',
                                              'publicURL')
+    fallback_endpoint_type = getattr(settings, 'SECONDARY_ENDPOINT_TYPE', None)
+
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)
-    identity_version = get_version_from_service(service)
-    if admin:
-        endpoint_type = 'adminURL'
     if service:
-        try:
-            if identity_version < 3:
-                return service['endpoints'][0][endpoint_type]
-            else:
-                interface = ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
-                for endpoint in service['endpoints']:
-                    if endpoint['interface'] == interface:
-                        return endpoint['url']
-        except (IndexError, KeyError):
-            raise exceptions.ServiceCatalogException(service_type)
-    else:
-        raise exceptions.ServiceCatalogException(service_type)
+        url = get_url_for_service(service, endpoint_type)
+        if not url and fallback_endpoint_type:
+            url = get_url_for_service(service, fallback_endpoint_type)
+        if url:
+            return url
+    raise exceptions.ServiceCatalogException(service_type)
 
 
 def is_service_enabled(request, service_type, service_name=None):
