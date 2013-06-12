@@ -413,6 +413,35 @@ class UpdateRow(tables.Row):
         return instance
 
 
+class StartInstance(tables.BatchAction):
+    name = "start"
+    action_present = _("Start")
+    action_past = _("Started")
+    data_type_singular = _("Instance")
+    data_type_plural = _("Instances")
+
+    def allowed(self, request, instance):
+        return instance.status in ("SHUTDOWN", "SHUTOFF", "CRASHED")
+
+    def action(self, request, obj_id):
+        api.nova.server_start(request, obj_id)
+
+
+class StopInstance(tables.BatchAction):
+    name = "stop"
+    action_present = _("Shut Off")
+    action_past = _("Shut Off")
+    data_type_singular = _("Instance")
+    data_type_plural = _("Instances")
+    classes = ('btn-danger',)
+
+    def allowed(self, request, instance):
+        return get_power_state(instance) in ("RUNNING", "PAUSED", "SUSPENDED")
+
+    def action(self, request, obj_id):
+        api.nova.server_stop(request, obj_id)
+
+
 def get_ips(instance):
     template_name = 'project/instances/_instance_ips.html'
     context = {"instance": instance}
@@ -514,9 +543,10 @@ class InstancesTable(tables.DataTable):
         status_columns = ["status", "task"]
         row_class = UpdateRow
         table_actions = (LaunchLink, TerminateInstance, InstancesFilterAction)
-        row_actions = (ConfirmResize, RevertResize, CreateSnapshot,
-                       SimpleAssociateIP, AssociateIP,
+        row_actions = (StartInstance, ConfirmResize, RevertResize,
+                       CreateSnapshot, SimpleAssociateIP, AssociateIP,
                        SimpleDisassociateIP, EditInstance,
                        EditInstanceSecurityGroups, ConsoleLink, LogLink,
                        TogglePause, ToggleSuspend, ResizeLink,
-                       SoftRebootInstance, RebootInstance, TerminateInstance)
+                       SoftRebootInstance, RebootInstance, StopInstance,
+                       TerminateInstance)
