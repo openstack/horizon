@@ -55,7 +55,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         user = self.users.get(id="1")
         role = self.roles.first()
 
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_create(IgnoreArg(),
                                  user.name,
@@ -88,7 +88,7 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_create_with_password_mismatch(self):
         user = self.users.get(id="1")
 
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()) \
@@ -114,7 +114,7 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_create_validation_for_password_too_short(self):
         user = self.users.get(id="1")
 
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()) \
@@ -143,7 +143,7 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_create_validation_for_password_too_long(self):
         user = self.users.get(id="1")
 
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()) \
@@ -178,7 +178,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(user)
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=user.id) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
@@ -212,7 +212,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         api.keystone.user_get(IsA(http.HttpRequest),
                      '1',
                      admin=True).AndReturn(user)
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=user.id) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.keystone_can_edit_user().AndReturn(False)
         api.keystone.keystone_can_edit_user().AndReturn(False)
@@ -235,7 +235,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(user)
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=user.id) \
             .AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
@@ -260,7 +260,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(user)
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=user.id) \
             .AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
@@ -361,7 +361,7 @@ class SeleniumTests(test.SeleniumAdminTestCase):
                                        'role_list',
                                        'user_list')})
     def test_modal_create_user_with_passwords_not_matching(self):
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
@@ -393,7 +393,7 @@ class SeleniumTests(test.SeleniumAdminTestCase):
     def test_update_user_with_passwords_not_matching(self):
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(self.user)
-        api.keystone.tenant_list(IgnoreArg()) \
+        api.keystone.tenant_list(IgnoreArg(), user=self.user.id) \
             .AndReturn([self.tenants.list(), False])
         self.mox.ReplayAll()
 
