@@ -475,6 +475,14 @@ def server_revert_resize(request, instance_id):
     novaclient(request).servers.revert_resize(instance_id)
 
 
+def server_start(request, instance_id):
+    novaclient(request).servers.start(instance_id)
+
+
+def server_stop(request, instance_id):
+    novaclient(request).servers.stop(instance_id)
+
+
 def tenant_quota_get(request, tenant_id):
     return QuotaSet(novaclient(request).quotas.get(tenant_id))
 
