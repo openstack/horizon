@@ -174,11 +174,14 @@ horizon.Quota = {
 
   // Create a new d3 bar and populate it with the current amount used
   drawUsed: function(element, used) {
-    var w= "100%";
-    var h= 20;
-    var lvl_curve= 4;
-    var bkgrnd= "#F2F2F2";
-    var frgrnd= "grey";
+    var w = "100%";
+    var h = 20;
+    var lvl_curve = 4;
+    var bkgrnd = "#F2F2F2";
+    var frgrnd = "#006CCF";
+    var full = "#D0342B";
+    var addition = "#00D300";
+    var nearlyfull = "orange";
 
     // Horizontal Bars
     var bar = d3.select("#"+element).append("svg:svg")
@@ -207,7 +210,7 @@ horizon.Quota = {
       .attr("height", h)
       .attr("rx", lvl_curve)
       .attr("ry", lvl_curve)
-      .style("fill", "lightgreen")
+      .style("fill", function () { return addition; })
 
     // used resources
     var used_bar = bar.insert("rect")
@@ -218,23 +221,33 @@ horizon.Quota = {
       .attr("height", h)
       .attr("rx", lvl_curve)
       .attr("ry", lvl_curve)
-      .style("fill", frgrnd)
+      .style("fill", function () { return frgrnd })
       .attr("d", used)
       .transition()
         .duration(500)
         .attr("width", used + "%")
+        .style("fill", function () {
+          if (used >= 100) { return full; }
+          else if (used >= 80) { return nearlyfull; }
+          else { return frgrnd; }
+        })
   },
 
   // Update the progress Bar
   update: function(element, value) {
+    var full = "#D0342B";
+    var addition = "#00D300";
     var already_used = parseInt(d3.select("#"+element).select(".usedbar").attr("d"))
     d3.select("#"+element).select(".newbar")
       .transition()
         .duration(500)
-        .attr("width", (value + already_used) + "%")
+        .attr("width", function () {
+          if ((value + already_used) >= 100) { return "100%"; }
+          else { return (value + already_used)+ "%"; }
+        })
         .style("fill", function() {
-          if (value > (100 - already_used)) { return "red" }
-          else {return "lightgreen" }
+          if (value > (100 - already_used)) { return full }
+          else {return addition }
         });
 
   },
