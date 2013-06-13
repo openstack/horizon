@@ -1,7 +1,5 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-import json
-
 from mox import IsA
 from django import http
 from django.core.urlresolvers import reverse, reverse_lazy
@@ -10,8 +8,6 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.api.lbaas import Pool, Vip, Member, PoolMonitor
 
-from .tabs import LoadBalancerTabs, MembersTab, PoolsTab, MonitorsTab
-from .forms import UpdatePool
 from .workflows import AddPool, AddMember, AddMonitor, AddVip
 from horizon.workflows.views import WorkflowView
 

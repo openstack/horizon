@@ -47,3 +47,8 @@ if Horizon:
     get_default_dashboard = Horizon.get_default_dashboard
     get_dashboards = Horizon.get_dashboards
     urls = Horizon._lazy_urls
+
+# silence flake8 about unused imports here:
+assert Dashboard
+assert Panel
+assert PanelGroup

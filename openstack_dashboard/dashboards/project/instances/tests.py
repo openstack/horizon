@@ -35,6 +35,7 @@ from .tabs import InstanceDetailTabs
 from .workflows import LaunchInstance
 from horizon.workflows.views import WorkflowView
 
+from novaclient.v1_1.servers import REBOOT_HARD, REBOOT_SOFT
 
 INDEX_URL = reverse('horizon:project:instances:index')
 
@@ -275,7 +276,7 @@ class InstanceTests(test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([self.servers.list(), False])
         api.nova.server_reboot(IsA(http.HttpRequest), server.id,
-                               api.nova.REBOOT_HARD)
+                               REBOOT_HARD)
 
         self.mox.ReplayAll()
 
@@ -296,7 +297,7 @@ class InstanceTests(test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([self.servers.list(), False])
         api.nova.server_reboot(IsA(http.HttpRequest), server.id,
-                               api.nova.REBOOT_HARD) \
+                               REBOOT_HARD) \
             .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -318,7 +319,7 @@ class InstanceTests(test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([self.servers.list(), False])
         api.nova.server_reboot(IsA(http.HttpRequest), server.id,
-                               api.nova.REBOOT_SOFT)
+                               REBOOT_SOFT)
 
         self.mox.ReplayAll()
 

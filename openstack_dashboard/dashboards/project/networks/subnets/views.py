@@ -19,7 +19,7 @@ Views for managing Quantum Subnets.
 """
 import logging
 
-from django.core.urlresolvers import reverse_lazy, reverse
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions

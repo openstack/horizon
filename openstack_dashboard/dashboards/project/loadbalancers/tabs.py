@@ -14,13 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import re
-
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tabs
-from horizon import tables
 
 from openstack_dashboard import api
 

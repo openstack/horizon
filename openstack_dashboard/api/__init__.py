@@ -43,3 +43,14 @@ from openstack_dashboard.api import nova
 from openstack_dashboard.api import quantum
 from openstack_dashboard.api import lbaas
 from openstack_dashboard.api import swift
+
+assert base
+assert cinder
+assert heat
+assert glance
+assert keystone
+assert network
+assert nova
+assert quantum
+assert lbaas
+assert swift

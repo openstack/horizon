@@ -22,7 +22,6 @@ from horizon import tabs
 from openstack_dashboard.api import keystone
 from openstack_dashboard.usage import quotas
 from .tables import QuotasTable, ServicesTable
-from openstack_dashboard.api.base import is_service_enabled
 
 
 class DefaultQuotasTab(tabs.TableTab):

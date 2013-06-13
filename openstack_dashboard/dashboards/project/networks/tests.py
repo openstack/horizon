@@ -19,7 +19,6 @@ from django.core.urlresolvers import reverse
 from django.utils.html import escape
 
 from mox import IsA
-import netaddr
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

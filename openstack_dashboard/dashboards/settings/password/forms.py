@@ -15,7 +15,6 @@
 #    under the License.
 
 from django.utils.translation import ugettext_lazy as _
-from django.core.urlresolvers import reverse
 from django.forms import ValidationError
 from django.views.decorators.debug import sensitive_variables
 

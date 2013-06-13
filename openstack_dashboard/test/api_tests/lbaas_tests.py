@@ -14,12 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from mox import IsA
-from django import http
-
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.api.lbaas import Vip, Pool, Member, PoolMonitor
 
 from quantumclient.v2_0.client import Client as quantumclient
 

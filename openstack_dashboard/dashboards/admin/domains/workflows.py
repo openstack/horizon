@@ -21,7 +21,6 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import workflows
 from horizon import forms
-from horizon import messages
 
 from openstack_dashboard import api
 
