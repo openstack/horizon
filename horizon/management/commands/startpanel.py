@@ -65,7 +65,7 @@ class Command(TemplateCommand):
             if not os.path.exists(target):
                 try:
                     os.mkdir(target)
-                except OSError, exc:
+                except OSError as exc:
                     raise CommandError("Unable to create panel directory: %s"
                                        % exc)
 

@@ -142,7 +142,7 @@ class CopyObject(forms.SelfHandlingForm):
                              _('Copied "%(orig)s" to "%(dest)s" as "%(new)s".')
                              % vals)
             return True
-        except exceptions.HorizonException, exc:
+        except exceptions.HorizonException as exc:
             messages.error(request, exc)
             raise exceptions.Http302(reverse(index,
                                      args=[wrap_delimiter(orig_container)]))

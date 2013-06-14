@@ -280,7 +280,7 @@ class PanelGroup(object):
         for name in self.panels:
             try:
                 panel_instances.append(self.dashboard.get_panel(name))
-            except NotRegistered, e:
+            except NotRegistered as e:
                 LOG.debug(e)
         return iter(panel_instances)
 

@@ -231,7 +231,7 @@ class CreateForm(forms.SelfHandlingForm):
             message = _('Creating volume "%s"') % data['name']
             messages.info(request, message)
             return volume
-        except ValidationError, e:
+        except ValidationError as e:
             self.api_error(e.messages[0])
             return False
         except:
