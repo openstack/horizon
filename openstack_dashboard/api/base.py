@@ -89,6 +89,12 @@ class APIResourceWrapper(object):
             LOG.debug(exceptions.error_color(msg))
             raise AttributeError(attr)
 
+    def __repr__(self):
+        return "<%s: %s>" % (self.__class__.__name__,
+                               dict((attr,
+                                     getattr(self, attr))
+                                    for attr in self._attrs))
+
 
 class APIDictWrapper(object):
     """ Simple wrapper for api dictionaries
@@ -124,6 +130,9 @@ class APIDictWrapper(object):
             return self.__getattr__(item)
         except AttributeError:
             return default
+
+    def __repr__(self):
+        return "<%s: %s>" % (self.__class__.__name__, self._apidict)
 
 
 class Quota(object):

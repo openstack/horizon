@@ -17,120 +17,35 @@
 """Abstraction layer for networking functionalities.
 
 Currently Nova and Neutron have duplicated features. This API layer is
-introduced to astract the differences between them for seamless consumption by
+introduced to abstract the differences between them for seamless consumption by
 different dashboard implementations.
 """
 
-import abc
+from django.conf import settings
+
+from openstack_dashboard.api import base
+from openstack_dashboard.api import neutron
+from openstack_dashboard.api import nova
 
 
 class NetworkClient(object):
     def __init__(self, request):
-        from openstack_dashboard import api
-        if api.base.is_service_enabled(request, 'network'):
-            self.floating_ips = api.neutron.FloatingIpManager(request)
+        neutron_enabled = base.is_service_enabled(request, 'network')
+
+        if neutron_enabled:
+            self.floating_ips = neutron.FloatingIpManager(request)
         else:
-            self.floating_ips = api.nova.FloatingIpManager(request)
+            self.floating_ips = nova.FloatingIpManager(request)
 
-
-class FloatingIpManager(object):
-    """Abstract class to implement Floating IP methods
-
-    The FloatingIP object returned from methods in this class
-    must contains the following attributes:
-
-    * id: ID of Floating IP
-    * ip: Floating IP address
-    * pool: ID of Floating IP pool from which the address is allocated
-    * fixed_ip: Fixed IP address of a VIF associated with the address
-    * port_id: ID of a VIF associated with the address
-                (instance_id when Nova floating IP is used)
-    * instance_id: Instance ID of an associated with the Floating IP
-    """
-
-    __metaclass__ = abc.ABCMeta
-
-    @abc.abstractmethod
-    def list_pools(self):
-        """Fetches a list of all floating IP pools.
-
-        A list of FloatingIpPool objects is returned.
-        FloatingIpPool object is an APIResourceWrapper/APIDictWrapper
-        where 'id' and 'name' attributes are defined.
-        """
-        pass
-
-    @abc.abstractmethod
-    def list(self):
-        """Fetches a list all floating IPs.
-
-        A returned value is a list of FloatingIp object.
-        """
-        pass
-
-    @abc.abstractmethod
-    def get(self, floating_ip_id):
-        """Fetches the floating IP.
-
-        It returns a FloatingIp object corresponding to floating_ip_id.
-        """
-        pass
-
-    @abc.abstractmethod
-    def allocate(self, pool=None):
-        """Allocates a floating IP to the tenant.
-
-        You must provide a pool name or id for which you would like to
-        allocate an floating IP.
-        """
-        pass
-
-    @abc.abstractmethod
-    def release(self, floating_ip_id):
-        """Releases a floating IP specified."""
-        pass
-
-    @abc.abstractmethod
-    def associate(self, floating_ip_id, port_id):
-        """Associates the floating IP to the port.
-
-        port_id is a fixed IP of a instance (Nova) or
-        a port_id attached to a VNIC of a instance.
-        """
-        pass
-
-    @abc.abstractmethod
-    def disassociate(self, floating_ip_id, port_id):
-        """Disassociates the floating IP from the port.
-
-        port_id is a fixed IP of a instance (Nova) or
-        a port_id attached to a VNIC of a instance.
-        """
-        pass
-
-    @abc.abstractmethod
-    def list_targets(self):
-        """Returns a list of association targets of instance VIFs.
-
-        Each association target is represented as FloatingIpTarget object.
-        FloatingIpTarget is a APIResourceWrapper/APIDictWrapper and
-        'id' and 'name' attributes must be defined in each object.
-        FloatingIpTarget.id can be passed as port_id in associate().
-        FloatingIpTarget.name is displayed in Floating Ip Association Form.
-        """
-        pass
-
-    @abc.abstractmethod
-    def get_target_id_by_instance(self, instance_id):
-        """Returns a target ID of floating IP association based on
-        a backend implementation.
-        """
-        pass
-
-    @abc.abstractmethod
-    def is_simple_associate_supported(self):
-        """Returns True if the default floating IP pool is enabled."""
-        pass
+        # Not all qunantum plugins support security group,
+        # so we have enable_security_group configuration parameter.
+        neutron_sg_enabled = getattr(settings,
+                                     'OPENSTACK_NEUTRON_NETWORK',
+                                     {}).get('enable_security_group', True)
+        if neutron_enabled and neutron_sg_enabled:
+            self.secgroups = neutron.SecurityGroupManager(request)
+        else:
+            self.secgroups = nova.SecurityGroupManager(request)
 
 
 def floating_ip_pools_list(request):
@@ -170,3 +85,45 @@ def floating_ip_target_list(request):
 def floating_ip_target_get_by_instance(request, instance_id):
     return NetworkClient(request).floating_ips.get_target_id_by_instance(
         instance_id)
+
+
+def security_group_list(request):
+    return NetworkClient(request).secgroups.list()
+
+
+def security_group_get(request, sg_id):
+    return NetworkClient(request).secgroups.get(sg_id)
+
+
+def security_group_create(request, name, desc):
+    return NetworkClient(request).secgroups.create(name, desc)
+
+
+def security_group_delete(request, sg_id):
+    return NetworkClient(request).secgroups.delete(sg_id)
+
+
+def security_group_rule_create(request, parent_group_id,
+                               direction, ethertype,
+                               ip_protocol, from_port, to_port,
+                               cidr, group_id):
+    return NetworkClient(request).secgroups.rule_create(
+        parent_group_id, direction, ethertype, ip_protocol,
+        from_port, to_port, cidr, group_id)
+
+
+def security_group_rule_delete(request, sgr_id):
+    return NetworkClient(request).secgroups.rule_delete(sgr_id)
+
+
+def server_security_groups(request, instance_id):
+    return NetworkClient(request).secgroups.list_by_instance(instance_id)
+
+
+def server_update_security_groups(request, instance_id, new_sgs):
+    return NetworkClient(request).secgroups.update_instance_security_group(
+        instance_id, new_sgs)
+
+
+def security_group_backend(request):
+    return NetworkClient(request).secgroups.backend

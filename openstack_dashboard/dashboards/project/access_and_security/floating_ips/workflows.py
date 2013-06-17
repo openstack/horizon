@@ -23,8 +23,7 @@ from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
-
-from .utils import get_int_or_uuid
+from openstack_dashboard.utils.filters import get_int_or_uuid
 
 
 ALLOCATE_URL = "horizon:project:access_and_security:floating_ips:allocate"

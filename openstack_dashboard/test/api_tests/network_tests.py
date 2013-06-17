@@ -14,6 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import copy
+import itertools
+import uuid
+
 from django import http
 from mox import IsA
 
@@ -23,13 +27,15 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
-class NetworkApiNovaFloatingIpTests(test.APITestCase):
+class NetworkApiNovaTestBase(test.APITestCase):
     def setUp(self):
-        super(NetworkApiNovaFloatingIpTests, self).setUp()
+        super(NetworkApiNovaTestBase, self).setUp()
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .AndReturn(False)
 
+
+class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
     def test_floating_ip_pools_list(self):
         pool_names = ['pool1', 'pool2']
         pools = [FloatingIPPool(None, {'name': pool}) for pool in pool_names]
@@ -142,14 +148,174 @@ class NetworkApiNovaFloatingIpTests(test.APITestCase):
         self.assertEqual(instance_id, ret)
 
 
-class NetworkApiNeutronFloatingIpTests(test.APITestCase):
+class NetworkApiNeutronTestBase(test.APITestCase):
     def setUp(self):
-        super(NetworkApiNeutronFloatingIpTests, self).setUp()
+        super(NetworkApiNeutronTestBase, self).setUp()
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .AndReturn(True)
         self.qclient = self.stub_neutronclient()
 
+
+class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
+
+    def setUp(self):
+        super(NetworkApiNeutronSecurityGroupTests, self).setUp()
+        self.sg_dict = dict([(sg['id'], sg['name']) for sg
+                             in self.api_q_secgroups.list()])
+
+    def _cmp_sg_rule(self, exprule, retrule):
+        self.assertEqual(exprule['id'], retrule.id)
+        self.assertEqual(exprule['security_group_id'],
+                         retrule.parent_group_id)
+        self.assertEqual(exprule['direction'], retrule.direction)
+        self.assertEqual(exprule['ethertype'], retrule.ethertype)
+        self.assertEqual(exprule['port_range_min'], retrule.from_port)
+        self.assertEqual(exprule['port_range_max'], retrule.to_port)
+        if (exprule['remote_ip_prefix'] is None and
+                exprule['remote_group_id'] is None):
+            expcidr = ('::/0' if exprule['ethertype'] == 'IPv6'
+                       else '0.0.0.0/0')
+        else:
+            expcidr = exprule['remote_ip_prefix']
+        self.assertEqual(expcidr, retrule.ip_range.get('cidr'))
+        self.assertEqual(self.sg_dict.get(exprule['remote_group_id']),
+                         retrule.group.get('name'))
+
+    def _cmp_sg(self, exp_sg, ret_sg):
+        self.assertEqual(exp_sg['id'], ret_sg.id)
+        self.assertEqual(exp_sg['name'], ret_sg.name)
+        exp_rules = exp_sg['security_group_rules']
+        self.assertEqual(len(exp_rules), len(ret_sg.rules))
+        for (exprule, retrule) in itertools.izip(exp_rules, ret_sg.rules):
+            self._cmp_sg_rule(exprule, retrule)
+
+    def test_security_group_list(self):
+        sgs = self.api_q_secgroups.list()
+        tenant_id = self.request.user.tenant_id
+        # use deepcopy to ensure self.api_q_secgroups is not modified.
+        self.qclient.list_security_groups(tenant_id=tenant_id) \
+            .AndReturn({'security_groups': copy.deepcopy(sgs)})
+        self.mox.ReplayAll()
+
+        rets = api.network.security_group_list(self.request)
+        self.assertEqual(len(sgs), len(rets))
+        for (exp, ret) in itertools.izip(sgs, rets):
+            self._cmp_sg(exp, ret)
+
+    def test_security_group_get(self):
+        secgroup = self.api_q_secgroups.first()
+        sg_ids = set([secgroup['id']] +
+                     [rule['remote_group_id'] for rule
+                      in secgroup['security_group_rules']
+                      if rule['remote_group_id']])
+        related_sgs = [sg for sg in self.api_q_secgroups.list()
+                       if sg['id'] in sg_ids]
+        # use deepcopy to ensure self.api_q_secgroups is not modified.
+        self.qclient.show_security_group(secgroup['id']) \
+            .AndReturn({'security_group': copy.deepcopy(secgroup)})
+        self.qclient.list_security_groups(id=sg_ids, fields=['id', 'name']) \
+            .AndReturn({'security_groups': related_sgs})
+        self.mox.ReplayAll()
+        ret = api.network.security_group_get(self.request, secgroup['id'])
+        self._cmp_sg(secgroup, ret)
+
+    def test_security_group_create(self):
+        secgroup = self.api_q_secgroups.list()[1]
+        body = {'security_group':
+                    {'name': secgroup['name'],
+                     'description': secgroup['description']}}
+        self.qclient.create_security_group(body) \
+            .AndReturn({'security_group': copy.deepcopy(secgroup)})
+        self.mox.ReplayAll()
+        ret = api.network.security_group_create(self.request, secgroup['name'],
+                                                secgroup['description'])
+        self._cmp_sg(secgroup, ret)
+
+    def test_security_group_delete(self):
+        secgroup = self.api_q_secgroups.first()
+        self.qclient.delete_security_group(secgroup['id'])
+        self.mox.ReplayAll()
+        api.network.security_group_delete(self.request, secgroup['id'])
+
+    def test_security_group_rule_create(self):
+        sg_rule = [r for r in self.api_q_secgroup_rules.list()
+                   if r['protocol'] == 'tcp' and r['remote_ip_prefix']][0]
+        sg_id = sg_rule['security_group_id']
+        secgroup = [sg for sg in self.api_q_secgroups.list()
+                    if sg['id'] == sg_id][0]
+
+        post_rule = copy.deepcopy(sg_rule)
+        del post_rule['id']
+        del post_rule['tenant_id']
+        post_body = {'security_group_rule': post_rule}
+        self.qclient.create_security_group_rule(post_body) \
+            .AndReturn({'security_group_rule': copy.deepcopy(sg_rule)})
+        self.qclient.list_security_groups(id=set([sg_id]),
+                                          fields=['id', 'name']) \
+            .AndReturn({'security_groups': [copy.deepcopy(secgroup)]})
+        self.mox.ReplayAll()
+
+        ret = api.network.security_group_rule_create(
+            self.request, sg_rule['security_group_id'],
+            sg_rule['direction'], sg_rule['ethertype'], sg_rule['protocol'],
+            sg_rule['port_range_min'], sg_rule['port_range_max'],
+            sg_rule['remote_ip_prefix'], sg_rule['remote_group_id'])
+        self._cmp_sg_rule(sg_rule, ret)
+
+    def test_security_group_rule_delete(self):
+        sg_rule = self.api_q_secgroup_rules.first()
+        self.qclient.delete_security_group_rule(sg_rule['id'])
+        self.mox.ReplayAll()
+        api.network.security_group_rule_delete(self.request, sg_rule['id'])
+
+    def _get_instance(self, cur_sg_ids):
+        instance_port = [p for p in self.api_ports.list()
+                         if p['device_owner'].startswith('compute:')][0]
+        instance_id = instance_port['device_id']
+        # Emulate an intance with two ports
+        instance_ports = []
+        for _i in range(2):
+            p = copy.deepcopy(instance_port)
+            p['id'] = str(uuid.uuid4())
+            p['security_groups'] = cur_sg_ids
+            instance_ports.append(p)
+        return (instance_id, instance_ports)
+
+    def test_server_security_groups(self):
+        cur_sg_ids = [sg['id'] for sg in self.api_q_secgroups.list()[:2]]
+        instance_id, instance_ports = self._get_instance(cur_sg_ids)
+
+        self.qclient.list_ports(device_id=instance_id) \
+            .AndReturn({'ports': instance_ports})
+        secgroups = copy.deepcopy(self.api_q_secgroups.list())
+        self.qclient.list_security_groups(id=set(cur_sg_ids)) \
+            .AndReturn({'security_groups': secgroups})
+        self.mox.ReplayAll()
+
+        ret = api.network.server_security_groups(self.request, instance_id)
+
+    def test_server_update_security_groups(self):
+        cur_sg_ids = [self.api_q_secgroups.first()['id']]
+        new_sg_ids = [sg['id'] for sg in self.api_q_secgroups.list()[:2]]
+        instance_id, instance_ports = self._get_instance(cur_sg_ids)
+
+        self.qclient.list_ports(device_id=instance_id) \
+            .AndReturn({'ports': instance_ports})
+        for p in instance_ports:
+            body = {'port': {'security_groups': new_sg_ids}}
+            self.qclient.update_port(p['id'], body=body).AndReturn({'port': p})
+        self.mox.ReplayAll()
+        ret = api.network.server_update_security_groups(
+            self.request, instance_id, new_sg_ids)
+
+    def test_security_group_backend(self):
+        self.mox.ReplayAll()
+        self.assertEqual(api.network.security_group_backend(self.request),
+                         'neutron')
+
+
+class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
     def test_floating_ip_pools_list(self):
         search_opts = {'router:external': True}
         ext_nets = [n for n in self.api_networks.list()

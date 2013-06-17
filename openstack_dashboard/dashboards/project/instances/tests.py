@@ -419,8 +419,8 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ("server_get",
                                    "instance_volumes_list",
-                                   "flavor_get",
-                                   "server_security_groups")})
+                                   "flavor_get"),
+                        api.network: ("server_security_groups",)})
     def test_instance_details_volumes(self):
         server = self.servers.first()
         volumes = [self.volumes.list()[1]]
@@ -430,7 +430,7 @@ class InstanceTests(test.TestCase):
                                        server.id).AndReturn(volumes)
         api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
                 .AndReturn(self.flavors.first())
-        api.nova.server_security_groups(IsA(http.HttpRequest), server.id) \
+        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
                 .AndReturn(self.security_groups.first())
 
         self.mox.ReplayAll()
@@ -443,8 +443,8 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ("server_get",
                                    "instance_volumes_list",
-                                   "flavor_get",
-                                   "server_security_groups")})
+                                   "flavor_get"),
+                        api.network: ("server_security_groups",)})
     def test_instance_details_volume_sorting(self):
         server = self.servers.first()
         volumes = self.volumes.list()[1:3]
@@ -454,7 +454,7 @@ class InstanceTests(test.TestCase):
                                        server.id).AndReturn(volumes)
         api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
                 .AndReturn(self.flavors.first())
-        api.nova.server_security_groups(IsA(http.HttpRequest), server.id) \
+        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
                 .AndReturn(self.security_groups.first())
 
         self.mox.ReplayAll()
@@ -471,8 +471,8 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ("server_get",
                                    "instance_volumes_list",
-                                   "flavor_get",
-                                   "server_security_groups",)})
+                                   "flavor_get"),
+                        api.network: ("server_security_groups",)})
     def test_instance_details_metadata(self):
         server = self.servers.first()
 
@@ -481,7 +481,7 @@ class InstanceTests(test.TestCase):
                                        server.id).AndReturn([])
         api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
                 .AndReturn(self.flavors.first())
-        api.nova.server_security_groups(IsA(http.HttpRequest), server.id) \
+        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
                 .AndReturn(self.security_groups.list())
 
         self.mox.ReplayAll()
@@ -643,19 +643,19 @@ class InstanceTests(test.TestCase):
         self.assertRedirects(res, redir_url)
 
     instance_update_get_stubs = {
-        api.nova: ('server_get',
-                   'security_group_list',
-                   'server_security_groups',)}
+        api.nova: ('server_get',),
+        api.network: ('security_group_list',
+                      'server_security_groups',)}
 
     @test.create_stubs(instance_update_get_stubs)
     def test_instance_update_get(self):
         server = self.servers.first()
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn([])
-        api.nova.server_security_groups(IsA(http.HttpRequest),
-                                        server.id).AndReturn([])
+        api.network.server_security_groups(IsA(http.HttpRequest),
+                                           server.id).AndReturn([])
 
         self.mox.ReplayAll()
 
@@ -688,64 +688,33 @@ class InstanceTests(test.TestCase):
         return self.client.post(url, formData)
 
     instance_update_post_stubs = {
-        api.nova: ('server_get', 'server_update',
-                   'security_group_list',
-                   'server_security_groups',
-                   'server_add_security_group',
-                   'server_remove_security_group')}
+        api.nova: ('server_get', 'server_update'),
+        api.network: ('security_group_list',
+                      'server_security_groups',
+                      'server_update_security_groups')}
 
     @test.create_stubs(instance_update_post_stubs)
     def test_instance_update_post(self):
         server = self.servers.first()
         secgroups = self.security_groups.list()[:3]
-        new_name = 'manuel'
-
-        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(secgroups)
-        api.nova.server_security_groups(IsA(http.HttpRequest),
-                                        server.id).AndReturn([])
-
-        api.nova.server_update(IsA(http.HttpRequest),
-                               server.id,
-                               new_name).AndReturn(server)
-        api.nova.server_security_groups(IsA(http.HttpRequest),
-                                        server.id).AndReturn([])
-
-        self.mox.ReplayAll()
-
-        res = self._instance_update_post(server.id, new_name, [])
-        self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
-
-    @test.create_stubs(instance_update_post_stubs)
-    def test_instance_update_secgroup_post(self):
-        server = self.servers.first()
-        secgroups = self.security_groups.list()[:3]
 
         server_groups = [secgroups[0], secgroups[1]]
-        wanted_groups = [secgroups[1].name, secgroups[2].name]
-        expect_add = secgroups[2].name
-        expect_rm = secgroups[0].name
+        wanted_groups = [secgroups[1].id, secgroups[2].id]
+        expect_add = secgroups[2].id
+        expect_rm = secgroups[0].id
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(secgroups)
-        api.nova.server_security_groups(IsA(http.HttpRequest),
-                                        server.id).AndReturn(server_groups)
+        api.network.server_security_groups(IsA(http.HttpRequest),
+                                           server.id).AndReturn(server_groups)
 
         api.nova.server_update(IsA(http.HttpRequest),
                                server.id,
                                server.name).AndReturn(server)
-        api.nova.server_security_groups(IsA(http.HttpRequest),
-                                        server.id).AndReturn(server_groups)
-
-        api.nova.server_add_security_group(IsA(http.HttpRequest),
-                                           server.id,
-                                           expect_add).AndReturn(server)
-        api.nova.server_remove_security_group(IsA(http.HttpRequest),
-                                              server.id,
-                                              expect_rm).AndReturn(server)
+        api.network.server_update_security_groups(IsA(http.HttpRequest),
+                                                  server.id,
+                                                  wanted_groups)
 
         self.mox.ReplayAll()
 
@@ -758,16 +727,15 @@ class InstanceTests(test.TestCase):
         server = self.servers.first()
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn([])
-        api.nova.server_security_groups(IsA(http.HttpRequest),
-                                        server.id).AndReturn([])
+        api.network.server_security_groups(IsA(http.HttpRequest),
+                                           server.id).AndReturn([])
 
         api.nova.server_update(IsA(http.HttpRequest), server.id, server.name) \
                           .AndRaise(self.exceptions.nova)
-        api.nova.server_security_groups(IsA(http.HttpRequest),
-                                        server.id) \
-                                        .AndRaise(self.exceptions.nova)
+        api.network.server_update_security_groups(
+            IsA(http.HttpRequest), server.id, [])
 
         self.mox.ReplayAll()
 
@@ -779,17 +747,17 @@ class InstanceTests(test.TestCase):
         server = self.servers.first()
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn([])
-        api.nova.server_security_groups(IsA(http.HttpRequest),
-                                        server.id).AndReturn([])
+        api.network.server_security_groups(IsA(http.HttpRequest),
+                                           server.id).AndReturn([])
 
         api.nova.server_update(IsA(http.HttpRequest),
                                server.id,
                                server.name).AndReturn(server)
-        api.nova.server_security_groups(IsA(http.HttpRequest),
-                                        server.id) \
-                                        .AndRaise(self.exceptions.nova)
+        api.network.server_update_security_groups(
+            IsA(http.HttpRequest),
+            server.id, []).AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
@@ -798,9 +766,9 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
                                    'tenant_absolute_limits',
                                    'availability_zone_list',),
+                        api.network: ('security_group_list',),
                         cinder: ('volume_snapshot_list',
                                  'volume_list',),
                         api.neutron: ('network_list',),
@@ -835,7 +803,7 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.availability_zones.list())
@@ -863,9 +831,9 @@ class InstanceTests(test.TestCase):
                         api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
                                    'availability_zone_list',
                                    'server_create',),
+                        api.network: ('security_group_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',)})
     def test_launch_instance_post(self):
@@ -882,7 +850,7 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.availability_zones.list())
@@ -943,9 +911,9 @@ class InstanceTests(test.TestCase):
                         api.nova: ('flavor_list',
                                    'tenant_absolute_limits',
                                    'keypair_list',
-                                   'security_group_list',
                                    'availability_zone_list',
                                    'server_create',),
+                        api.network: ('security_group_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',)})
     def test_launch_instance_post_boot_from_volume_with_image(self):
@@ -983,7 +951,7 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.availability_zones.list())
@@ -1023,9 +991,9 @@ class InstanceTests(test.TestCase):
                         api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
                                    'availability_zone_list',
                                    'server_create',),
+                        api.network: ('security_group_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',)})
     def test_launch_instance_post_boot_from_volume(self):
@@ -1045,7 +1013,7 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.availability_zones.list())
@@ -1107,8 +1075,8 @@ class InstanceTests(test.TestCase):
                         api.nova: ('server_create',
                                    'flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
                                    'availability_zone_list',),
+                        api.network: ('security_group_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',)})
     def test_launch_instance_post_no_images_available_boot_from_volume(self):
@@ -1128,7 +1096,7 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.availability_zones.list())
@@ -1192,8 +1160,8 @@ class InstanceTests(test.TestCase):
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'availability_zone_list',
-                                   'security_group_list',
                                    'tenant_absolute_limits',),
+                        api.network: ('security_group_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',)})
     def test_launch_instance_post_no_images_available(self):
@@ -1227,7 +1195,7 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.availability_zones.list())
@@ -1263,9 +1231,9 @@ class InstanceTests(test.TestCase):
                         api.neutron: ('network_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
+                        api.network: ('security_group_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
                                    'tenant_absolute_limits',
                                    'availability_zone_list',)})
     def test_launch_flavorlist_error(self):
@@ -1296,7 +1264,7 @@ class InstanceTests(test.TestCase):
                 .AndRaise(self.exceptions.nova)
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.availability_zones.list())
@@ -1312,9 +1280,9 @@ class InstanceTests(test.TestCase):
                         api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
                                    'availability_zone_list',
                                    'server_create',),
+                        api.network: ('security_group_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',)})
     def test_launch_form_keystone_exception(self):
@@ -1331,7 +1299,7 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.volumes.list())
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.nova.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.availability_zones.list())
@@ -1391,9 +1359,9 @@ class InstanceTests(test.TestCase):
                         api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
                                    'tenant_absolute_limits',
                                    'availability_zone_list',),
+                        api.network: ('security_group_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',)})
     def test_launch_form_instance_count_error(self):
@@ -1412,7 +1380,7 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.availability_zones.list())
@@ -1512,9 +1480,9 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('flavor_list',
                                    'keypair_list',
-                                   'security_group_list',
                                    'availability_zone_list',
                                    'tenant_absolute_limits',),
+                        api.network: ('security_group_list',),
                         cinder: ('volume_snapshot_list',
                                  'volume_list',),
                         api.neutron: ('network_list',),
@@ -1550,7 +1518,7 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn([keypair])
-        api.nova.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
                                 .AndReturn(self.availability_zones.list())

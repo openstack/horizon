@@ -196,7 +196,7 @@ class DetailView(tabs.TabView):
                 instance.volumes.sort(key=lambda vol: vol.device)
                 instance.full_flavor = api.nova.flavor_get(
                     self.request, instance.flavor["id"])
-                instance.security_groups = api.nova.server_security_groups(
+                instance.security_groups = api.network.server_security_groups(
                                            self.request, instance_id)
             except:
                 redirect = reverse('horizon:project:instances:index')

@@ -26,6 +26,7 @@ from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.utils.filters import get_int_or_uuid
 
 
 INDEX_URL = "horizon:projects:instances:index"
@@ -50,57 +51,30 @@ class UpdateInstanceSecurityGroupsAction(workflows.Action):
         # Get list of available security groups
         all_groups = []
         try:
-            all_groups = api.nova.security_group_list(request)
+            all_groups = api.network.security_group_list(request)
         except:
             exceptions.handle(request, err_msg)
-        groups_list = [(group.name, group.name) for group in all_groups]
+        groups_list = [(group.id, group.name) for group in all_groups]
 
         instance_groups = []
         try:
-            instance_groups = api.nova.server_security_groups(request,
-                                                              instance_id)
+            instance_groups = api.network.server_security_groups(request,
+                                                                 instance_id)
         except Exception:
             exceptions.handle(request, err_msg)
         self.fields['role_member'].choices = groups_list
-        self.fields['role_member'].initial = [group.name
+        self.fields['role_member'].initial = [group.id
                                               for group in instance_groups]
 
     def handle(self, request, data):
         instance_id = data['instance_id']
-
-        # update instance security groups
-        wanted_groups = set(data['wanted_groups'])
+        wanted_groups = map(get_int_or_uuid, data['wanted_groups'])
         try:
-            current_groups = api.nova.server_security_groups(request,
-                                                             instance_id)
-        except:
-            exceptions.handle(request, _("Couldn't get current security group "
-                                         "list for instance %s."
-                                         % instance_id))
+            api.network.server_update_security_groups(request, instance_id,
+                                                      wanted_groups)
+        except Exception as e:
+            exceptions.handle(request, e.message)
             return False
-
-        current_group_names = set(map(lambda g: g.name, current_groups))
-        groups_to_add = wanted_groups - current_group_names
-        groups_to_remove = current_group_names - wanted_groups
-
-        num_groups_to_modify = len(groups_to_add | groups_to_remove)
-        try:
-            for group in groups_to_add:
-                api.nova.server_add_security_group(request,
-                                                   instance_id,
-                                                   group)
-                num_groups_to_modify -= 1
-            for group in groups_to_remove:
-                api.nova.server_remove_security_group(request,
-                                                      instance_id,
-                                                      group)
-                num_groups_to_modify -= 1
-        except Exception:
-            exceptions.handle(request, _('Failed to modify %d instance '
-                                         'security groups.'
-                                         % num_groups_to_modify))
-            return False
-
         return True
 
     class Meta:

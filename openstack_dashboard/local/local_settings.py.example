@@ -158,7 +158,8 @@ OPENSTACK_HYPERVISOR_FEATURES = {
 # services provided by neutron.  Currently only the load balancer service
 # is available.
 OPENSTACK_NEUTRON_NETWORK = {
-    'enable_lb': False
+    'enable_security_group': True,
+    'enable_lb': False,
 }
 
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
