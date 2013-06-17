@@ -1,14 +1,14 @@
 # Horizon Core Requirements
 Django>=1.4,<1.5
 django_compressor
-django_openstack_auth
+django_openstack_auth!=1.1.0
 python-cinderclient
 python-glanceclient<2
 python-keystoneclient
 python-novaclient
 python-quantumclient>=2.0
 python-swiftclient>1.1,<2
-pytz
+pytz>=2010h
 
 # Horizon Utility Requirements
 lockfile # for SECURE_KEY generation
