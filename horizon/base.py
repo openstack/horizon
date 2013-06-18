@@ -415,10 +415,11 @@ class Dashboard(Registry, HorizonComponent):
         panel_groups = []
 
         # Gather our known panels
-        for panel_group in self._panel_groups.values():
-            for panel in panel_group:
-                registered.pop(panel.__class__)
-            panel_groups.append((panel_group.slug, panel_group))
+        if self._panel_groups is not None:
+            for panel_group in self._panel_groups.values():
+                for panel in panel_group:
+                    registered.pop(panel.__class__)
+                panel_groups.append((panel_group.slug, panel_group))
 
         # Deal with leftovers (such as add-on registrations)
         if len(registered):
