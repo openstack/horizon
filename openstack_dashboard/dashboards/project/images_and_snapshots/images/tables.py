@@ -95,13 +95,13 @@ class OwnerFilter(tables.FixedFilterAction):
         def make_dict(text, tenant, icon):
             return dict(text=text, value=tenant, icon=icon)
 
-        buttons = [make_dict('Project', 'project', 'icon-home')]
+        buttons = [make_dict(_('Project'), 'project', 'icon-home')]
         for button_dict in filter_tenants():
             new_dict = button_dict.copy()
             new_dict['value'] = new_dict['tenant']
             buttons.append(new_dict)
-        buttons.append(make_dict('Shared with Me', 'shared', 'icon-share'))
-        buttons.append(make_dict('Public', 'public', 'icon-fire'))
+        buttons.append(make_dict(_('Shared with Me'), 'shared', 'icon-share'))
+        buttons.append(make_dict(_('Public'), 'public', 'icon-fire'))
         return buttons
 
     def categorize(self, table, images):

@@ -22,7 +22,7 @@ from openstack_dashboard.dashboards.project import dashboard
 
 
 class Routers(horizon.Panel):
-    name = "Routers"
+    name = _("Routers")
     slug = 'routers'
     permissions = ('openstack.services.network',)
 
