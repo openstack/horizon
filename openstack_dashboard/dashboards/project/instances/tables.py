@@ -444,7 +444,9 @@ class StopInstance(tables.BatchAction):
     classes = ('btn-danger',)
 
     def allowed(self, request, instance):
-        return get_power_state(instance) in ("RUNNING", "PAUSED", "SUSPENDED")
+        return ((get_power_state(instance)
+                in ("RUNNING", "PAUSED", "SUSPENDED"))
+                and not is_deleting(instance))
 
     def action(self, request, obj_id):
         api.nova.server_stop(request, obj_id)
