@@ -137,7 +137,7 @@ function run_pylint {
 
 function run_pep8 {
   echo "Running flake8 ..."
-  ${command_wrapper} flake8 $included_dirs
+  DJANGO_SETTINGS_MODULE=openstack_dashboard.test.settings ${command_wrapper} flake8 $included_dirs
 }
 
 function run_sphinx {
