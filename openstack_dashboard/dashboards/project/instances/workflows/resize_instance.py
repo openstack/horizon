@@ -46,7 +46,7 @@ class SetFlavorChoiceAction(workflows.Action):
         name = _("Flavor Choice")
         slug = 'flavor_choice'
         help_text_template = ("project/instances/"
-                              "_resize_instance_help.html")
+                              "_flavors_and_quotas.html")
 
     def clean(self):
         cleaned_data = super(SetFlavorChoiceAction, self).clean()
