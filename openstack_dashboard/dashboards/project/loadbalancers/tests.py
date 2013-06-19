@@ -19,8 +19,10 @@ from openstack_dashboard.test import helpers as test
 
 from .workflows import AddMember
 from .workflows import AddMonitor
+from .workflows import AddPMAssociation
 from .workflows import AddPool
 from .workflows import AddVip
+from .workflows import DeletePMAssociation
 
 
 class LoadBalancerTests(test.TestCase):
@@ -48,6 +50,9 @@ class LoadBalancerTests(test.TestCase):
     UPDATEVIP_PATH = 'horizon:%s:loadbalancers:updatevip' % DASHBOARD
     UPDATEMEMBER_PATH = 'horizon:%s:loadbalancers:updatemember' % DASHBOARD
     UPDATEMONITOR_PATH = 'horizon:%s:loadbalancers:updatemonitor' % DASHBOARD
+
+    ADDASSOC_PATH = 'horizon:%s:loadbalancers:addassociation' % DASHBOARD
+    DELETEASSOC_PATH = 'horizon:%s:loadbalancers:deleteassociation' % DASHBOARD
 
     def set_up_expect(self):
         # retrieve pools
@@ -346,17 +351,13 @@ class LoadBalancerTests(test.TestCase):
         expected_objs = ['<AddVipStep: addvipaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
 
-    @test.create_stubs({api.lbaas: ('pools_get',
-                                    'pool_health_monitor_create')})
+    @test.create_stubs({api.lbaas: ('pool_health_monitor_create', )})
     def test_add_monitor_post(self):
         monitor = self.monitors.first()
-
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
 
         api.lbaas.pool_health_monitor_create(
             IsA(http.HttpRequest),
             type=monitor.type,
-            pool_id=monitor.pool_id,
             delay=monitor.delay,
             timeout=monitor.timeout,
             max_retries=monitor.max_retries,
@@ -369,7 +370,6 @@ class LoadBalancerTests(test.TestCase):
         self.mox.ReplayAll()
 
         form_data = {'type': monitor.type,
-                     'pool_id': monitor.pool_id,
                      'delay': monitor.delay,
                      'timeout': monitor.timeout,
                      'max_retries': monitor.max_retries,
@@ -383,16 +383,10 @@ class LoadBalancerTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
-    @test.create_stubs({api.lbaas: ('pools_get',)})
     def test_add_monitor_post_with_error(self):
         monitor = self.monitors.first()
 
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
-
-        self.mox.ReplayAll()
-
         form_data = {'type': monitor.type,
-                     'pool_id': monitor.pool_id,
                      'delay': 0,
                      'timeout': 0,
                      'max_retries': 11,
@@ -405,16 +399,10 @@ class LoadBalancerTests(test.TestCase):
 
         self.assertFormErrors(res, 3)
 
-    @test.create_stubs({api.lbaas: ('pools_get',)})
     def test_add_monitor_post_with_httpmethod_error(self):
         monitor = self.monitors.first()
 
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
-
-        self.mox.ReplayAll()
-
         form_data = {'type': 'http',
-                     'pool_id': monitor.pool_id,
                      'delay': monitor.delay,
                      'timeout': monitor.timeout,
                      'max_retries': monitor.max_retries,
@@ -427,12 +415,7 @@ class LoadBalancerTests(test.TestCase):
 
         self.assertFormErrors(res, 3)
 
-    @test.create_stubs({api.lbaas: ('pools_get',)})
     def test_add_monitor_get(self):
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
-
-        self.mox.ReplayAll()
-
         res = self.client.get(reverse(self.ADDMONITOR_PATH))
 
         workflow = res.context['workflow']
@@ -708,3 +691,101 @@ class LoadBalancerTests(test.TestCase):
 
         self.assertTemplateUsed(
             res, 'project/loadbalancers/updatemonitor.html')
+
+    @test.create_stubs({api.lbaas: ('pool_get', 'pool_health_monitors_get',
+                                    'pool_monitor_association_create')})
+    def test_add_pool_monitor_association_post(self):
+        pool = self.pools.first()
+        monitors = self.monitors.list()
+        monitor = self.monitors.list()[1]
+
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+        api.lbaas.pool_health_monitors_get(
+            IsA(http.HttpRequest)).AndReturn(monitors)
+
+        api.lbaas.pool_monitor_association_create(
+            IsA(http.HttpRequest),
+            monitor_id=monitor.id,
+            pool_id=pool.id,
+            pool_monitors=pool.health_monitors,
+            pool_name=pool.name).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        form_data = {'monitor_id': monitor.id,
+                     'pool_id': pool.id,
+                     'pool_monitors': pool.health_monitors,
+                     'pool_name': pool.name}
+
+        res = self.client.post(
+            reverse(self.ADDASSOC_PATH, args=(pool.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.lbaas: ('pool_get', 'pool_health_monitors_get')})
+    def test_add_pool_monitor_association_get(self):
+        pool = self.pools.first()
+        monitors = self.monitors.list()
+
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+        api.lbaas.pool_health_monitors_get(
+            IsA(http.HttpRequest)).AndReturn(monitors)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse(self.ADDASSOC_PATH, args=(pool.id,)))
+
+        workflow = res.context['workflow']
+        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertEqual(workflow.name, AddPMAssociation.name)
+
+        expected_objs = ['<AddPMAssociationStep: addpmassociationaction>', ]
+        self.assertQuerysetEqual(workflow.steps, expected_objs)
+
+    @test.create_stubs({api.lbaas: ('pool_get',
+                                    'pool_monitor_association_delete')})
+    def test_delete_pool_monitor_association_post(self):
+        pool = self.pools.first()
+        monitor = self.monitors.first()
+
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+
+        api.lbaas.pool_monitor_association_delete(
+            IsA(http.HttpRequest),
+            monitor_id=monitor.id,
+            pool_id=pool.id,
+            pool_monitors=pool.health_monitors,
+            pool_name=pool.name).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        form_data = {'monitor_id': monitor.id,
+                     'pool_id': pool.id,
+                     'pool_monitors': pool.health_monitors,
+                     'pool_name': pool.name}
+
+        res = self.client.post(
+            reverse(self.DELETEASSOC_PATH, args=(pool.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.lbaas: ('pool_get',)})
+    def test_delete_pool_monitor_association_get(self):
+        pool = self.pools.first()
+
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(self.DELETEASSOC_PATH, args=(pool.id,)))
+
+        workflow = res.context['workflow']
+        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertEqual(workflow.name, DeletePMAssociation.name)
+
+        expected_objs = [
+                    '<DeletePMAssociationStep: deletepmassociationaction>', ]
+        self.assertQuerysetEqual(workflow.steps, expected_objs)

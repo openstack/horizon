@@ -48,9 +48,13 @@ from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
 from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
     AddMonitor
 from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
+    AddPMAssociation
+from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
     AddPool
 from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
     AddVip
+from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
+    DeletePMAssociation
 
 import re
 
@@ -300,3 +304,35 @@ class UpdateMonitorView(forms.ModalFormView):
                 'timeout': monitor['timeout'],
                 'max_retries': monitor['max_retries'],
                 'admin_state_up': monitor['admin_state_up']}
+
+
+class AddPMAssociationView(workflows.WorkflowView):
+    workflow_class = AddPMAssociation
+
+    def get_initial(self):
+        initial = super(AddPMAssociationView, self).get_initial()
+        initial['pool_id'] = self.kwargs['pool_id']
+        try:
+            pool = api.lbaas.pool_get(self.request, initial['pool_id'])
+            initial['pool_name'] = pool.name
+            initial['pool_monitors'] = pool.health_monitors
+        except:
+            msg = _('Unable to retrieve pool.')
+            exceptions.handle(self.request, msg)
+        return initial
+
+
+class DeletePMAssociationView(workflows.WorkflowView):
+    workflow_class = DeletePMAssociation
+
+    def get_initial(self):
+        initial = super(DeletePMAssociationView, self).get_initial()
+        initial['pool_id'] = self.kwargs['pool_id']
+        try:
+            pool = api.lbaas.pool_get(self.request, initial['pool_id'])
+            initial['pool_name'] = pool.name
+            initial['pool_monitors'] = pool.health_monitors
+        except:
+            msg = _('Unable to retrieve pool.')
+            exceptions.handle(self.request, msg)
+        return initial

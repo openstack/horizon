@@ -45,7 +45,8 @@ class Pool(QuantumAPIDictWrapper):
         pFormatted = {'id': self.id,
                       'name': self.name,
                       'description': self.description,
-                      'protocol': self.protocol}
+                      'protocol': self.protocol,
+                      'health_monitors': self.health_monitors}
         try:
             pFormatted['subnet_id'] = self.subnet_id
             pFormatted['subnet_name'] = subnet_get(
@@ -204,7 +205,7 @@ def pool_stats(request, pool_id, **kwargs):
 
 
 def pool_health_monitor_create(request, **kwargs):
-    """Create a health monitor and associate with pool
+    """Create a health monitor
 
     :param request: request context
     :param type: type of monitor
@@ -229,9 +230,7 @@ def pool_health_monitor_create(request, **kwargs):
         body['health_monitor']['expected_codes'] = kwargs['expected_codes']
     mon = quantumclient(request).create_health_monitor(body).get(
         'health_monitor')
-    body = {'health_monitor': {'id': mon['id']}}
-    quantumclient(request).associate_health_monitor(
-        kwargs['pool_id'], body)
+
     return PoolMonitor(mon)
 
 
@@ -294,3 +293,29 @@ def member_update(request, member_id, **kwargs):
 
 def member_delete(request, mem_id):
     quantumclient(request).delete_member(mem_id)
+
+
+def pool_monitor_association_create(request, **kwargs):
+    """Associate a health monitor with pool
+
+    :param request: request context
+    :param monitor_id: id of monitor
+    :param pool_id: id of pool
+    """
+
+    body = {'health_monitor': {'id': kwargs['monitor_id'], }}
+
+    quantumclient(request).associate_health_monitor(
+        kwargs['pool_id'], body)
+
+
+def pool_monitor_association_delete(request, **kwargs):
+    """Disassociate a health monitor from pool
+
+    :param request: request context
+    :param monitor_id: id of monitor
+    :param pool_id: id of pool
+    """
+
+    quantumclient(request).disassociate_health_monitor(
+        kwargs['pool_id'], kwargs['monitor_id'])

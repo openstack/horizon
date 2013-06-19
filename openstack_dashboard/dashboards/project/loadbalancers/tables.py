@@ -19,7 +19,10 @@ from django.core.urlresolvers import reverse
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tables
+
+from openstack_dashboard import api
 
 import logging
 
@@ -155,6 +158,36 @@ def get_vip_link(pool):
                    args=(http.urlquote(pool.vip_id),))
 
 
+class AddPMAssociationLink(tables.LinkAction):
+    name = "addassociation"
+    verbose_name = _("Add Health Monitor")
+    url = "horizon:project:loadbalancers:addassociation"
+    classes = ("btn-add",)
+
+    def allowed(self, request, datum=None):
+        try:
+            monitors = api.lbaas.pool_health_monitors_get(request)
+            for m in monitors:
+                if m.id not in datum['health_monitors']:
+                    return True
+        except:
+            exceptions.handle(request,
+                              _('Failed to retrieve health monitors.'))
+        return False
+
+
+class DeletePMAssociationLink(tables.LinkAction):
+    name = "deleteassociation"
+    verbose_name = _("Delete Health Monitor")
+    url = "horizon:project:loadbalancers:deleteassociation"
+    classes = ("btn-delete", "btn-danger")
+
+    def allowed(self, request, datum=None):
+        if datum and not datum['health_monitors']:
+            return False
+        return True
+
+
 class PoolsTable(tables.DataTable):
     name = tables.Column("name",
                        verbose_name=_("Name"),
@@ -170,7 +203,8 @@ class PoolsTable(tables.DataTable):
         verbose_name = _("Pools")
         table_actions = (AddPoolLink, DeletePoolLink)
         row_actions = (UpdatePoolLink, AddVipLink, UpdateVipLink,
-                       DeleteVipLink, DeletePoolLink)
+                       DeleteVipLink, AddPMAssociationLink,
+                       DeletePMAssociationLink, DeletePoolLink)
 
 
 def get_pool_link(member):
