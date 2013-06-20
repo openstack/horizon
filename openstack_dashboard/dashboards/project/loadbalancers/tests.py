@@ -82,7 +82,8 @@ class LoadBalancerTests(test.TestCase):
 
         # retrieves monitors
         api.lbaas.pool_health_monitors_get(
-            IsA(http.HttpRequest)).AndReturn(self.monitors.list())
+            IsA(http.HttpRequest)).MultipleTimes() \
+                .AndReturn(self.monitors.list())
 
     def set_up_expect_with_exception(self):
         api.lbaas.pools_get(
