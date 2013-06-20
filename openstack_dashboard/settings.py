@@ -150,6 +150,7 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
+SESSION_TIMEOUT = 1800
 
 gettext_noop = lambda s: s
 LANGUAGES = (
