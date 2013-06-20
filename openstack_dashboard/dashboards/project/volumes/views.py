@@ -54,9 +54,10 @@ class VolumeTableMixIn(object):
                               _('Unable to retrieve volume list.'))
             return []
 
-    def _get_instances(self):
+    def _get_instances(self, search_opts=None):
         try:
-            instances, has_more = api.nova.server_list(self.request)
+            instances, has_more = api.nova.server_list(self.request,
+                                                       search_opts=search_opts)
             return instances
         except:
             exceptions.handle(self.request,
