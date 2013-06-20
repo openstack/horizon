@@ -37,3 +37,14 @@
 <div class="hide">
   {% include "horizon/common/_form_fields.html" %}
 </div>
+
+
+<script>
+  if (typeof $ !== 'undefined') {
+    horizon.projects.workflow_init($(".workflow"));
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.projects.workflow_init($(".workflow"));
+    });
+  }
+</script>

@@ -33,3 +33,14 @@
     </tr>
   </tbody>
 </table>
+
+
+<script>
+  if (typeof $ !== 'undefined') {
+    horizon.instances.workflow_init($(".workflow"));
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.instances.workflow_init($(".workflow"));
+    });
+  }
+</script>
