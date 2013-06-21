@@ -54,7 +54,7 @@ class IndexView(tables.MultiTableView, VolumeTableMixIn):
             tenants, has_more = keystone.tenant_list(self.request)
         except:
             tenants = []
-            msg = _('Unable to retrieve volume tenant information.')
+            msg = _('Unable to retrieve volume project information.')
             exceptions.handle(self.request, msg)
 
         tenant_dict = SortedDict([(t.id, t) for t in tenants])

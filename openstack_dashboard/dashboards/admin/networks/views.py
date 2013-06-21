@@ -47,7 +47,7 @@ class IndexView(tables.DataTableView):
                 tenants, has_more = api.keystone.tenant_list(self.request)
             except:
                 tenants = []
-                msg = _('Unable to retrieve instance tenant information.')
+                msg = _('Unable to retrieve instance project information.')
                 exceptions.handle(self.request, msg)
 
             tenant_dict = SortedDict([(t.id, t) for t in tenants])

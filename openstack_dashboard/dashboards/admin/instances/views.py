@@ -97,7 +97,7 @@ class AdminIndexView(tables.DataTableView):
                 tenants, has_more = api.keystone.tenant_list(self.request)
             except:
                 tenants = []
-                msg = _('Unable to retrieve instance tenant information.')
+                msg = _('Unable to retrieve instance project information.')
                 exceptions.handle(self.request, msg)
 
             full_flavors = SortedDict([(f.id, f) for f in flavors])
