@@ -630,11 +630,11 @@ class VolumeViewTests(test.TestCase):
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
                            AndReturn(self.volumes.list())
         cinder.volume_delete(IsA(http.HttpRequest), volume.id)
-        api.nova.server_list(IsA(http.HttpRequest)).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
                              AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
                            AndReturn(self.volumes.list())
-        api.nova.server_list(IsA(http.HttpRequest)).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
                              AndReturn([self.servers.list(), False])
 
         self.mox.ReplayAll()
@@ -658,11 +658,11 @@ class VolumeViewTests(test.TestCase):
                            AndReturn(self.volumes.list())
         cinder.volume_delete(IsA(http.HttpRequest), volume.id).\
                              AndRaise(exc)
-        api.nova.server_list(IsA(http.HttpRequest)).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
                              AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
                            AndReturn(self.volumes.list())
-        api.nova.server_list(IsA(http.HttpRequest)).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
                              AndReturn([self.servers.list(), False])
 
         self.mox.ReplayAll()

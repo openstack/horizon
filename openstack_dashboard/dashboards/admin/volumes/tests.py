@@ -31,9 +31,10 @@ class VolumeTests(test.BaseAdminViewTests):
                         keystone: ('tenant_list',)})
     def test_index(self):
         cinder.volume_list(IsA(http.HttpRequest), search_opts={
-                           'all_tenants': 1}).AndReturn(self.volumes.list())
-        api.nova.server_list(IsA(http.HttpRequest)).\
-                             AndReturn([self.servers.list(), False])
+                           'all_tenants': True}).AndReturn(self.volumes.list())
+        api.nova.server_list(IsA(http.HttpRequest), search_opts={
+                             'all_tenants': True}) \
+                       .AndReturn([self.servers.list(), False])
         cinder.volume_type_list(IsA(http.HttpRequest)).\
                                AndReturn(self.volume_types.list())
         keystone.tenant_list(IsA(http.HttpRequest)) \
@@ -73,9 +74,10 @@ class VolumeTests(test.BaseAdminViewTests):
         formData = {'action': 'volume_types__delete__%s' % volume_type.id}
 
         cinder.volume_list(IsA(http.HttpRequest), search_opts={
-                           'all_tenants': 1}).AndReturn(self.volumes.list())
-        api.nova.server_list(IsA(http.HttpRequest)).\
-                             AndReturn([self.servers.list(), False])
+                           'all_tenants': True}).AndReturn(self.volumes.list())
+        api.nova.server_list(IsA(http.HttpRequest), search_opts={
+                             'all_tenants': True}) \
+                         .AndReturn([self.servers.list(), False])
         cinder.volume_type_list(IsA(http.HttpRequest)).\
                                 AndReturn(self.volume_types.list())
         cinder.volume_type_delete(IsA(http.HttpRequest),

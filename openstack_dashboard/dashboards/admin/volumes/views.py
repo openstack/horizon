@@ -44,8 +44,8 @@ class IndexView(tables.MultiTableView, VolumeTableMixIn):
     template_name = "admin/volumes/index.html"
 
     def get_volumes_data(self):
-        volumes = self._get_volumes(search_opts={'all_tenants': 1})
-        instances = self._get_instances()
+        volumes = self._get_volumes(search_opts={'all_tenants': True})
+        instances = self._get_instances(search_opts={'all_tenants': True})
         self._set_id_if_nameless(volumes, instances)
         self._set_attachments_string(volumes, instances)
 
