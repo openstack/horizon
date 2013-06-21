@@ -36,12 +36,12 @@ class EditUserLink(tables.LinkAction):
 
 
 class ToggleEnabled(tables.BatchAction):
-    name = "enable"
+    name = "toggle"
     action_present = (_("Enable"), _("Disable"))
     action_past = (_("Enabled"), _("Disabled"))
     data_type_singular = _("User")
     data_type_plural = _("Users")
-    classes = ("btn-enable",)
+    classes = ("btn-toggle",)
 
     def allowed(self, request, user=None):
         if not api.keystone.keystone_can_edit_user():
