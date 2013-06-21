@@ -38,6 +38,7 @@ INDEX_URL = reverse('horizon:project:overview:index')
 
 
 class UsageViewTests(test.BaseAdminViewTests):
+
     @test.create_stubs({api.nova: ('usage_list', 'tenant_absolute_limits', ),
                         api.keystone: ('tenant_list',)})
     def test_usage(self):
@@ -48,9 +49,9 @@ class UsageViewTests(test.BaseAdminViewTests):
         api.nova.usage_list(IsA(http.HttpRequest),
                             datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                             Func(usage.almost_now)) \
-                            .AndReturn([usage_obj])
+            .AndReturn([usage_obj])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
-                           .AndReturn(self.limits['absolute'])
+            .AndReturn(self.limits['absolute'])
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:overview:index'))
         self.assertTemplateUsed(res, 'admin/overview/usage.html')
@@ -73,24 +74,26 @@ class UsageViewTests(test.BaseAdminViewTests):
                         api.keystone: ('tenant_list',)})
     def test_usage_csv(self):
         now = timezone.now()
-        usage_obj = api.nova.NovaUsage(self.usages.first())
+        usage_obj = [api.nova.NovaUsage(u) for u in self.usages.list()]
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
                     .AndReturn([self.tenants.list(), False])
         api.nova.usage_list(IsA(http.HttpRequest),
                             datetime.datetime(now.year, now.month, 1, 0, 0, 0),
                             Func(usage.almost_now)) \
-                            .AndReturn([usage_obj, usage_obj])
+            .AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
-                           .AndReturn(self.limits['absolute'])
+            .AndReturn(self.limits['absolute'])
         self.mox.ReplayAll()
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"
         res = self.client.get(csv_url)
         self.assertTemplateUsed(res, 'admin/overview/usage.csv')
         self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
-        hdr = 'Tenant,VCPUs,RamMB,DiskGB,Usage(Hours)'
-        row = '%s,%s,%s,%s,%.2f' % (usage_obj.tenant_id,
-                                  usage_obj.vcpus,
-                                  usage_obj.memory_mb,
-                                  usage_obj.disk_gb_hours,
-                                  usage_obj.vcpu_hours)
-        self.assertContains(res, '%s\n%s\n%s\n' % (hdr, row, row))
+        hdr = 'Project Name,VCPUs,Ram (MB),Disk (GB),Usage (Hours)'
+        self.assertContains(res, '%s\r\n' % (hdr))
+        for obj in usage_obj:
+            row = u'{0},{1},{2},{3},{4:.2f}\r\n'.format(obj.project_name,
+                                                        obj.vcpus,
+                                                        obj.memory_mb,
+                                                        obj.disk_gb_hours,
+                                                        obj.vcpu_hours)
+        self.assertContains(res, row)

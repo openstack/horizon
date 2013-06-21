@@ -17,17 +17,17 @@
 from openstack_dashboard.usage.base import almost_now
 from openstack_dashboard.usage.base import BaseUsage
 from openstack_dashboard.usage.base import GlobalUsage
-from openstack_dashboard.usage.base import TenantUsage
+from openstack_dashboard.usage.base import ProjectUsage
 from openstack_dashboard.usage.tables import BaseUsageTable
 from openstack_dashboard.usage.tables import GlobalUsageTable
-from openstack_dashboard.usage.tables import TenantUsageTable
+from openstack_dashboard.usage.tables import ProjectUsageTable
 from openstack_dashboard.usage.views import UsageView
 
 assert BaseUsage
-assert TenantUsage
+assert ProjectUsage
 assert GlobalUsage
 assert almost_now
 assert UsageView
 assert BaseUsageTable
-assert TenantUsageTable
+assert ProjectUsageTable
 assert GlobalUsageTable

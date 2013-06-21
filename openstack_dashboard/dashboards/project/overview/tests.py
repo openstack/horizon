@@ -51,7 +51,7 @@ class UsageViewTests(test.TestCase):
 
         res = self.client.get(reverse('horizon:project:overview:index'))
         self.assertTemplateUsed(res, 'project/overview/usage.html')
-        self.assertTrue(isinstance(res.context['usage'], usage.TenantUsage))
+        self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))
         self.assertContains(res, 'form-horizontal')
 
     def test_unauthorized(self):
@@ -91,7 +91,7 @@ class UsageViewTests(test.TestCase):
         res = self.client.get(reverse('horizon:project:overview:index') +
                               "?format=csv")
         self.assertTemplateUsed(res, 'project/overview/usage.csv')
-        self.assertTrue(isinstance(res.context['usage'], usage.TenantUsage))
+        self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))
 
     def test_usage_exception_usage(self):
         now = timezone.now()
@@ -147,4 +147,4 @@ class UsageViewTests(test.TestCase):
 
         res = self.client.get(reverse('horizon:project:overview:index'))
         self.assertTemplateUsed(res, 'project/overview/usage.html')
-        self.assertTrue(isinstance(res.context['usage'], usage.TenantUsage))
+        self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))

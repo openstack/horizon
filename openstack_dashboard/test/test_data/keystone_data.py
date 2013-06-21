@@ -181,9 +181,15 @@ def data(TEST):
                      'name': 'disabled_tenant',
                      'description': "a disabled test tenant.",
                      'enabled': False}
+    tenant_dict_3 = {'id': "3",
+                     'name': u'\u4e91\u89c4\u5219',
+                     'description': "an unicode-named tenant.",
+                     'enabled': True}
     tenant = tenants.Tenant(tenants.TenantManager, tenant_dict)
     disabled_tenant = tenants.Tenant(tenants.TenantManager, tenant_dict_2)
-    TEST.tenants.add(tenant, disabled_tenant)
+    tenant_unicode = tenants.Tenant(tenants.TenantManager, tenant_dict_3)
+
+    TEST.tenants.add(tenant, disabled_tenant, tenant_unicode)
     TEST.tenant = tenant  # Your "current" tenant
 
     tomorrow = datetime_safe.datetime.now() + timedelta(days=1)
