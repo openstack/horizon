@@ -1029,10 +1029,20 @@ class DataTable(object):
         the ``lookup`` parameter specified. An error will be raised if
         the match is not a single data object.
 
+        We will convert the object id and ``lookup`` to unicode before
+        comparison.
+
         Uses :meth:`~horizon.tables.DataTable.get_object_id` internally.
         """
-        matches = [datum for datum in self.data if
-                   self.get_object_id(datum) == lookup]
+        if not isinstance(lookup, unicode):
+            lookup = unicode(str(lookup), 'utf-8')
+        matches = []
+        for datum in self.data:
+            obj_id = self.get_object_id(datum)
+            if not isinstance(obj_id, unicode):
+                obj_id = unicode(str(obj_id), 'utf-8')
+            if obj_id == lookup:
+                matches.append(datum)
         if len(matches) > 1:
             raise ValueError("Multiple matches were returned for that id: %s."
                            % matches)
