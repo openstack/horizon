@@ -140,3 +140,25 @@ class ApiHelperTests(test.TestCase):
                          'Select a new nonexistent service catalog key')
         with self.assertRaises(exceptions.ServiceCatalogException):
             url = api_base.url_for(self.request, 'notAnApi')
+
+        self.request.user.services_region = "RegionTwo"
+        url = api_base.url_for(self.request, 'compute')
+        self.assertEqual(url, 'http://public.nova2.example.com:8774/v2')
+
+        self.request.user.services_region = "RegionTwo"
+        url = api_base.url_for(self.request, 'compute',
+                               endpoint_type='adminURL')
+        self.assertEqual(url, 'http://admin.nova2.example.com:8774/v2')
+
+        self.request.user.services_region = "RegionTwo"
+        with self.assertRaises(exceptions.ServiceCatalogException):
+            url = api_base.url_for(self.request, 'image')
+
+        self.request.user.services_region = "bogus_value"
+        url = api_base.url_for(self.request, 'identity',
+                               endpoint_type='adminURL')
+        self.assertEqual(url, 'http://admin.keystone.example.com:35357/v2.0')
+
+        self.request.user.services_region = "bogus_value"
+        with self.assertRaises(exceptions.ServiceCatalogException):
+            url = api_base.url_for(self.request, 'image')

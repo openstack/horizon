@@ -77,12 +77,17 @@ class Service(base.APIDictWrapper):
     """ Wrapper for a dict based on the service data from keystone. """
     _attrs = ['id', 'type', 'name']
 
-    def __init__(self, service, *args, **kwargs):
+    def __init__(self, service, region, *args, **kwargs):
         super(Service, self).__init__(service, *args, **kwargs)
-        self.url = service['endpoints'][0]['internalURL']
-        self.host = urlparse.urlparse(self.url).hostname
-        self.region = service['endpoints'][0]['region']
+        self.public_url = base.get_url_for_service(service, region,
+                                                   'publicURL')
+        self.url = base.get_url_for_service(service, region, 'internalURL')
+        if self.url:
+            self.host = urlparse.urlparse(self.url).hostname
+        else:
+            self.host = None
         self.disabled = None
+        self.region = region
 
     def __unicode__(self):
         if(self.type == "identity"):

@@ -63,7 +63,10 @@ def get_enabled(service, reverse=False):
     options = ["Enabled", "Disabled"]
     if reverse:
         options.reverse()
-    return options[0] if not service.disabled else options[1]
+    # if not configured in this region, neither option makes sense
+    if service.host:
+        return options[0] if not service.disabled else options[1]
+    return None
 
 
 class ServicesTable(tables.DataTable):
