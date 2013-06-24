@@ -34,13 +34,13 @@ class AddPoolLink(tables.LinkAction):
     name = "addpool"
     verbose_name = _("Add Pool")
     url = "horizon:project:loadbalancers:addpool"
-    classes = ("ajax-modal", "btn-addpool",)
+    classes = ("ajax-modal", "btn-create",)
 
 
 class AddVipLink(tables.LinkAction):
     name = "addvip"
     verbose_name = _("Add VIP")
-    classes = ("ajax-modal", "btn-addvip",)
+    classes = ("ajax-modal", "btn-create",)
 
     def get_link_url(self, pool):
         base_url = reverse("horizon:project:loadbalancers:addvip",
@@ -57,14 +57,14 @@ class AddMemberLink(tables.LinkAction):
     name = "addmember"
     verbose_name = _("Add Member")
     url = "horizon:project:loadbalancers:addmember"
-    classes = ("ajax-modal", "btn-addmember",)
+    classes = ("ajax-modal", "btn-create",)
 
 
 class AddMonitorLink(tables.LinkAction):
     name = "addmonitor"
     verbose_name = _("Add Monitor")
     url = "horizon:project:loadbalancers:addmonitor"
-    classes = ("ajax-modal", "btn-addmonitor",)
+    classes = ("ajax-modal", "btn-create",)
 
 
 class DeleteVipLink(tables.DeleteAction):
@@ -107,7 +107,7 @@ class DeleteMemberLink(tables.DeleteAction):
 class UpdatePoolLink(tables.LinkAction):
     name = "updatepool"
     verbose_name = _("Edit Pool")
-    classes = ("btn-updatepool",)
+    classes = ("btn-update",)
 
     def get_link_url(self, pool):
         base_url = reverse("horizon:project:loadbalancers:updatepool",
@@ -118,7 +118,6 @@ class UpdatePoolLink(tables.LinkAction):
 class UpdateVipLink(tables.LinkAction):
     name = "updatevip"
     verbose_name = _("Edit VIP")
-    classes = ("btn-updatevip",)
 
     def get_link_url(self, pool):
         base_url = reverse("horizon:project:loadbalancers:updatevip",
@@ -134,7 +133,6 @@ class UpdateVipLink(tables.LinkAction):
 class UpdateMemberLink(tables.LinkAction):
     name = "updatemember"
     verbose_name = _("Edit Member")
-    classes = ("btn-updatemember",)
 
     def get_link_url(self, member):
         base_url = reverse("horizon:project:loadbalancers:updatemember",
@@ -145,7 +143,6 @@ class UpdateMemberLink(tables.LinkAction):
 class UpdateMonitorLink(tables.LinkAction):
     name = "updatemonitor"
     verbose_name = _("Edit Monitor")
-    classes = ("btn-updatemonitor",)
 
     def get_link_url(self, monitor):
         base_url = reverse("horizon:project:loadbalancers:updatemonitor",
@@ -162,7 +159,6 @@ class AddPMAssociationLink(tables.LinkAction):
     name = "addassociation"
     verbose_name = _("Add Health Monitor")
     url = "horizon:project:loadbalancers:addassociation"
-    classes = ("btn-add",)
 
     def allowed(self, request, datum=None):
         try:
