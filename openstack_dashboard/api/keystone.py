@@ -104,7 +104,7 @@ def _get_endpoint_url(request, endpoint_type, catalog=None):
         auth_url = getattr(settings, 'OPENSTACK_KEYSTONE_URL')
         url = request.session.get('region_endpoint', auth_url)
 
-    # TODO: When the Service Catalog no longer contains API versions
+    # TODO(gabriel): When the Service Catalog no longer contains API versions
     # in the endpoints this can be removed.
     bits = urlparse.urlparse(url)
     root = "://".join((bits.scheme, bits.netloc))
