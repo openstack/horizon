@@ -58,8 +58,9 @@ class APIVersionManager(object):
             return self.supported[self._active]
         key = getattr(settings, self.SETTINGS_KEY, {}).get(self.service_type)
         if key is None:
-            # TODO: support API version discovery here; we'll leave the setting
-            # in as a way of overriding the latest available version.
+            # TODO(gabriel): support API version discovery here; we'll leave
+            # the setting in as a way of overriding the latest available
+            # version.
             key = self.preferred
         self._active = key
         return self.supported[self._active]

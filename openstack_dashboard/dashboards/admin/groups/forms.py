@@ -38,7 +38,8 @@ class CreateGroupForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.info('Creating group with name "%s"' % data['name'])
-            # TODO: Set the domain_id with the value from the Domain scope.
+            # TODO(lin-hua-cheng): Set the domain_id with the value from the
+            # Domain scope.
             new_group = api.keystone.group_create(
                 request,
                 domain_id=None,
