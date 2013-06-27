@@ -7,11 +7,11 @@ import datetime
 import logging
 from StringIO import StringIO
 
-from django import template as django_template
-from django import VERSION
 from django.http import HttpResponse
+from django import template as django_template
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
+from django import VERSION
 
 from horizon import exceptions
 from horizon import forms
