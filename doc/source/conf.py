@@ -145,13 +145,12 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.todo',
               'sphinx.ext.coverage',
               'sphinx.ext.pngmath',
-              'sphinx.ext.viewcode']
+              'sphinx.ext.viewcode',
+              'oslo.sphinx',
+              ]
 
 # Add any paths that contain templates here, relative to this directory.
-if os.getenv('HUDSON_PUBLISH_DOCS'):
-    templates_path = ['_ga', '_templates']
-else:
-    templates_path = ['_templates']
+templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -218,8 +217,8 @@ nitpicky = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme_path = ['.']
-html_theme = '_theme'
+# html_theme_path = ['.']
+# html_theme = '_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
