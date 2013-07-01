@@ -184,6 +184,16 @@ API_RESULT_PAGE_SIZE = 20
 # of your entire OpenStack installation, and hopefully be in UTC.
 TIME_ZONE = "UTC"
 
+# When launching an instance, the menu of available flavors is
+# sorted by RAM usage, ascending.  Provide a callback method here
+# (and/or a flag for reverse sort) for the sorted() method if you'd
+# like a different behaviour.  For more info, see
+# http://docs.python.org/2/library/functions.html#sorted
+# CREATE_INSTANCE_FLAVOR_SORT = {
+#     'key': my_awesome_callback_method,
+#     'reverse': False,
+# }
+
 LOGGING = {
     'version': 1,
     # When set to True this will disable all logging except

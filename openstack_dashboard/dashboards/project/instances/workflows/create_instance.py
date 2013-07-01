@@ -21,6 +21,7 @@
 import json
 import logging
 
+from django.conf import settings
 from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
@@ -264,15 +265,23 @@ class SetInstanceDetailsAction(workflows.Action):
         return choices
 
     def populate_flavor_choices(self, request, context):
+        """By default, returns the available flavors, sorted by RAM
+        usage (ascending).
+        Override these behaviours with a CREATE_INSTANCE_FLAVOR_SORT dict
+        in local_settings.py."""
         try:
             flavors = api.nova.flavor_list(request)
+            flavor_sort = getattr(settings, 'CREATE_INSTANCE_FLAVOR_SORT', {})
+            rev = flavor_sort.get('reverse', False)
+            key = flavor_sort.get('key', lambda flavor: flavor.ram)
+
             flavor_list = [(flavor.id, "%s" % flavor.name)
-                           for flavor in flavors]
+                           for flavor in sorted(flavors, key=key, reverse=rev)]
         except:
             flavor_list = []
             exceptions.handle(request,
                               _('Unable to retrieve instance flavors.'))
-        return sorted(flavor_list)
+        return flavor_list
 
     def populate_availability_zone_choices(self, request, context):
         try:
