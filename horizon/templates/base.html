@@ -4,10 +4,11 @@
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
     <title>{% block title %}{% endblock %} - {% site_branding %}</title>
-    {% include "horizon/_conf.html" %}
+    {% comment %} Load CSS sheets before Javascript  {% endcomment %}
     {% block css %}
       {% include "_stylesheets.html" %}
     {% endblock %}
+    {% include "horizon/_conf.html" %}
     {% include "horizon/client_side/_script_loader.html" %}
   </head>
   <body id="{% block body_id %}{% endblock %}">
