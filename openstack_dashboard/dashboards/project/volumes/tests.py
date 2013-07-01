@@ -678,7 +678,8 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
     def test_edit_attachments(self):
         volume = self.volumes.first()
-        servers = self.servers.list()
+        servers = [s for s in self.servers.list()
+                   if s.tenant_id == self.request.user.tenant_id]
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn([servers, False])
@@ -701,7 +702,8 @@ class VolumeViewTests(test.TestCase):
         settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = False
 
         volume = self.volumes.first()
-        servers = self.servers.list()
+        servers = [s for s in self.servers.list()
+                   if s.tenant_id == self.request.user.tenant_id]
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn([servers, False])
@@ -718,13 +720,15 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_get',),
                         api.nova: ('server_get', 'server_list',)})
     def test_edit_attachments_attached_volume(self):
-        server = self.servers.first()
+        servers = [s for s in self.servers.list()
+                   if s.tenant_id == self.request.user.tenant_id]
+        server = servers[0]
         volume = self.volumes.list()[0]
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
                           .AndReturn(volume)
         api.nova.server_list(IsA(http.HttpRequest)) \
-                             .AndReturn([self.servers.list(), False])
+                             .AndReturn([servers, False])
 
         self.mox.ReplayAll()
 

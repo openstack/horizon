@@ -24,7 +24,7 @@ from django.conf.urls.defaults import url
 from .views import CreateProjectView
 from .views import CreateUserView
 from .views import IndexView
-from .views import TenantUsageView
+from .views import ProjectUsageView
 from .views import UpdateProjectView
 
 
@@ -34,7 +34,7 @@ urlpatterns = patterns('',
     url(r'^(?P<tenant_id>[^/]+)/update/$',
         UpdateProjectView.as_view(), name='update'),
     url(r'^(?P<tenant_id>[^/]+)/usage/$',
-        TenantUsageView.as_view(), name='usage'),
+        ProjectUsageView.as_view(), name='usage'),
     url(r'^(?P<tenant_id>[^/]+)/create_user/$',
         CreateUserView.as_view(), name='create_user'),
 )
