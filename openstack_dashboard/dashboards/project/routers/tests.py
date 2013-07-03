@@ -29,19 +29,19 @@ class RouterTests(test.TestCase):
     def _mock_external_network_list(self):
         search_opts = {'router:external': True}
         ext_nets = [n for n in self.networks.list() if n['router:external']]
-        api.quantum.network_list(
+        api.neutron.network_list(
             IsA(http.HttpRequest),
             **search_opts).AndReturn(ext_nets)
 
     def _mock_external_network_get(self, router):
         ext_net_id = router.external_gateway_info['network_id']
         ext_net = self.networks.list()[2]
-        api.quantum.network_get(IsA(http.HttpRequest), ext_net_id,
+        api.neutron.network_get(IsA(http.HttpRequest), ext_net_id,
                                 expand_subnet=False).AndReturn(ext_net)
 
-    @test.create_stubs({api.quantum: ('router_list', 'network_list')})
+    @test.create_stubs({api.neutron: ('router_list', 'network_list')})
     def test_index(self):
-        api.quantum.router_list(
+        api.neutron.router_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id,
             search_opts=None).AndReturn(self.routers.list())
@@ -54,12 +54,12 @@ class RouterTests(test.TestCase):
         routers = res.context['table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-    @test.create_stubs({api.quantum: ('router_list', 'network_list')})
+    @test.create_stubs({api.neutron: ('router_list', 'network_list')})
     def test_index_router_list_exception(self):
-        api.quantum.router_list(
+        api.neutron.router_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id,
-            search_opts=None).AndRaise(self.exceptions.quantum)
+            search_opts=None).AndRaise(self.exceptions.neutron)
         self._mock_external_network_list()
         self.mox.ReplayAll()
 
@@ -69,13 +69,13 @@ class RouterTests(test.TestCase):
         self.assertEqual(len(res.context['table'].data), 0)
         self.assertMessageCount(res, error=1)
 
-    @test.create_stubs({api.quantum: ('router_get', 'port_list',
+    @test.create_stubs({api.neutron: ('router_get', 'port_list',
                                       'network_get')})
     def test_router_detail(self):
         router = self.routers.first()
-        api.quantum.router_get(IsA(http.HttpRequest), router.id)\
+        api.neutron.router_get(IsA(http.HttpRequest), router.id)\
             .AndReturn(self.routers.first())
-        api.quantum.port_list(IsA(http.HttpRequest),
+        api.neutron.port_list(IsA(http.HttpRequest),
                               device_id=router.id)\
             .AndReturn([self.ports.first()])
         self._mock_external_network_get(router)
@@ -89,12 +89,12 @@ class RouterTests(test.TestCase):
         ports = res.context['interfaces_table'].data
         self.assertItemsEqual(ports, [self.ports.first()])
 
-    @test.create_stubs({api.quantum: ('router_get', 'port_list')})
+    @test.create_stubs({api.neutron: ('router_get', 'port_list')})
     def test_router_detail_exception(self):
         router = self.routers.first()
-        api.quantum.router_get(IsA(http.HttpRequest), router.id)\
-            .AndRaise(self.exceptions.quantum)
-        api.quantum.port_list(IsA(http.HttpRequest),
+        api.neutron.router_get(IsA(http.HttpRequest), router.id)\
+            .AndRaise(self.exceptions.neutron)
+        api.neutron.port_list(IsA(http.HttpRequest),
                               device_id=router.id)\
             .AndReturn([self.ports.first()])
         self.mox.ReplayAll()
@@ -110,10 +110,10 @@ class RouterActionTests(test.TestCase):
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
-    @test.create_stubs({api.quantum: ('router_create',)})
+    @test.create_stubs({api.neutron: ('router_create',)})
     def test_router_create_post(self):
         router = self.routers.first()
-        api.quantum.router_create(IsA(http.HttpRequest), name=router.name)\
+        api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
             .AndReturn(router)
         self.mox.ReplayAll()
 
@@ -124,11 +124,11 @@ class RouterActionTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
-    @test.create_stubs({api.quantum: ('router_create',)})
+    @test.create_stubs({api.neutron: ('router_create',)})
     def test_router_create_post_exception(self):
         router = self.routers.first()
-        api.quantum.router_create(IsA(http.HttpRequest), name=router.name)\
-            .AndRaise(self.exceptions.quantum)
+        api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
+            .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
         form_data = {'name': router.name}
@@ -139,11 +139,11 @@ class RouterActionTests(test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     def _mock_network_list(self, tenant_id):
-        api.quantum.network_list(
+        api.neutron.network_list(
             IsA(http.HttpRequest),
             shared=False,
             tenant_id=tenant_id).AndReturn(self.networks.list())
-        api.quantum.network_list(
+        api.neutron.network_list(
             IsA(http.HttpRequest),
             shared=True).AndReturn([])
 
@@ -152,20 +152,20 @@ class RouterActionTests(test.TestCase):
         subnet = self.subnets.first()
         port = self.ports.first()
 
-        add_interface = api.quantum.router_add_interface(
+        add_interface = api.neutron.router_add_interface(
             IsA(http.HttpRequest), router.id, subnet_id=subnet.id)
         if raise_error:
-            add_interface.AndRaise(self.exceptions.quantum)
+            add_interface.AndRaise(self.exceptions.neutron)
         else:
             add_interface.AndReturn({'subnet_id': subnet.id,
                                      'port_id': port.id})
-            api.quantum.port_get(IsA(http.HttpRequest), port.id)\
+            api.neutron.port_get(IsA(http.HttpRequest), port.id)\
                 .AndReturn(port)
         self._check_router_addinterface(router, subnet)
 
     def _check_router_addinterface(self, router, subnet, ip_address=''):
         # mock APIs used to show router detail
-        api.quantum.router_get(IsA(http.HttpRequest), router.id)\
+        api.neutron.router_get(IsA(http.HttpRequest), router.id)\
             .AndReturn(router)
         self._mock_network_list(router['tenant_id'])
         self.mox.ReplayAll()
@@ -182,14 +182,14 @@ class RouterActionTests(test.TestCase):
         detail_url = reverse(self.DETAIL_PATH, args=[router.id])
         self.assertRedirectsNoFollow(res, detail_url)
 
-    @test.create_stubs({api.quantum: ('router_get',
+    @test.create_stubs({api.neutron: ('router_get',
                                       'router_add_interface',
                                       'port_get',
                                       'network_list')})
     def test_router_addinterface(self):
         self._test_router_addinterface()
 
-    @test.create_stubs({api.quantum: ('router_get',
+    @test.create_stubs({api.neutron: ('router_get',
                                       'router_add_interface',
                                       'network_list')})
     def test_router_addinterface_exception(self):
@@ -206,74 +206,74 @@ class RouterActionTests(test.TestCase):
 
     def _setup_mock_addinterface_ip_addr(self, router, subnet, port,
                                          ip_addr, errors=[]):
-        subnet_get = api.quantum.subnet_get(IsA(http.HttpRequest), subnet.id)
+        subnet_get = api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)
         if 'subnet_get' in errors:
-            subnet_get.AndRaise(self.exceptions.quantum)
+            subnet_get.AndRaise(self.exceptions.neutron)
             return
         subnet_get.AndReturn(subnet)
 
         params = {'network_id': subnet.network_id,
                   'fixed_ips': [{'subnet_id': subnet.id,
                                  'ip_address': ip_addr}]}
-        port_create = api.quantum.port_create(IsA(http.HttpRequest), **params)
+        port_create = api.neutron.port_create(IsA(http.HttpRequest), **params)
         if 'port_create' in errors:
-            port_create.AndRaise(self.exceptions.quantum)
+            port_create.AndRaise(self.exceptions.neutron)
             return
         port_create.AndReturn(port)
 
-        add_inf = api.quantum.router_add_interface(
+        add_inf = api.neutron.router_add_interface(
             IsA(http.HttpRequest), router.id, port_id=port.id)
         if 'add_interface' not in errors:
             return
 
-        add_inf.AndRaise(self.exceptions.quantum)
-        port_delete = api.quantum.port_delete(IsA(http.HttpRequest), port.id)
+        add_inf.AndRaise(self.exceptions.neutron)
+        port_delete = api.neutron.port_delete(IsA(http.HttpRequest), port.id)
         if 'port_delete' in errors:
-            port_delete.AndRaise(self.exceptions.quantum)
+            port_delete.AndRaise(self.exceptions.neutron)
 
-    @test.create_stubs({api.quantum: ('router_add_interface', 'subnet_get',
+    @test.create_stubs({api.neutron: ('router_add_interface', 'subnet_get',
                                       'port_create',
                                       'router_get', 'network_list')})
     def test_router_addinterface_ip_addr(self):
         self._test_router_addinterface_ip_addr()
 
-    @test.create_stubs({api.quantum: ('subnet_get',
+    @test.create_stubs({api.neutron: ('subnet_get',
                                       'router_get', 'network_list')})
     def test_router_addinterface_ip_addr_exception_subnet_get(self):
         self._test_router_addinterface_ip_addr(errors=['subnet_get'])
 
-    @test.create_stubs({api.quantum: ('subnet_get', 'port_create',
+    @test.create_stubs({api.neutron: ('subnet_get', 'port_create',
                                       'router_get', 'network_list')})
     def test_router_addinterface_ip_addr_exception_port_create(self):
         self._test_router_addinterface_ip_addr(errors=['port_create'])
 
-    @test.create_stubs({api.quantum: ('router_add_interface', 'subnet_get',
+    @test.create_stubs({api.neutron: ('router_add_interface', 'subnet_get',
                                       'port_create', 'port_delete',
                                       'router_get', 'network_list')})
     def test_router_addinterface_ip_addr_exception_add_interface(self):
         self._test_router_addinterface_ip_addr(errors=['add_interface'])
 
-    @test.create_stubs({api.quantum: ('router_add_interface', 'subnet_get',
+    @test.create_stubs({api.neutron: ('router_add_interface', 'subnet_get',
                                       'port_create', 'port_delete',
                                       'router_get', 'network_list')})
     def test_router_addinterface_ip_addr_exception_port_delete(self):
         self._test_router_addinterface_ip_addr(errors=['add_interface',
                                                        'port_delete'])
 
-    @test.create_stubs({api.quantum: ('router_get',
+    @test.create_stubs({api.neutron: ('router_get',
                                       'router_add_gateway',
                                       'network_list')})
     def test_router_add_gateway(self):
         router = self.routers.first()
         network = self.networks.first()
-        api.quantum.router_add_gateway(
+        api.neutron.router_add_gateway(
             IsA(http.HttpRequest),
             router.id,
             network.id).AndReturn(None)
-        api.quantum.router_get(
+        api.neutron.router_get(
             IsA(http.HttpRequest), router.id).AndReturn(router)
         search_opts = {'router:external': True}
-        api.quantum.network_list(
+        api.neutron.network_list(
             IsA(http.HttpRequest), **search_opts).AndReturn([network])
         self.mox.ReplayAll()
 
@@ -288,20 +288,20 @@ class RouterActionTests(test.TestCase):
         detail_url = self.INDEX_URL
         self.assertRedirectsNoFollow(res, detail_url)
 
-    @test.create_stubs({api.quantum: ('router_get',
+    @test.create_stubs({api.neutron: ('router_get',
                                       'router_add_gateway',
                                       'network_list')})
     def test_router_add_gateway_exception(self):
         router = self.routers.first()
         network = self.networks.first()
-        api.quantum.router_add_gateway(
+        api.neutron.router_add_gateway(
             IsA(http.HttpRequest),
             router.id,
-            network.id).AndRaise(self.exceptions.quantum)
-        api.quantum.router_get(
+            network.id).AndRaise(self.exceptions.neutron)
+        api.neutron.router_get(
             IsA(http.HttpRequest), router.id).AndReturn(router)
         search_opts = {'router:external': True}
-        api.quantum.network_list(
+        api.neutron.network_list(
             IsA(http.HttpRequest), **search_opts).AndReturn([network])
         self.mox.ReplayAll()
 

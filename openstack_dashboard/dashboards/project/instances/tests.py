@@ -803,7 +803,7 @@ class InstanceTests(test.TestCase):
                                    'availability_zone_list',),
                         cinder: ('volume_snapshot_list',
                                  'volume_list',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         api.glance: ('image_list_detailed',)})
     def test_launch_instance_get(self):
         image = self.images.first()
@@ -820,11 +820,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                 .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
@@ -860,7 +860,7 @@ class InstanceTests(test.TestCase):
                              '<PostCreationStep: customizeaction>'])
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
@@ -894,11 +894,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         cinder.volume_list(IsA(http.HttpRequest)) \
@@ -939,7 +939,7 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'tenant_absolute_limits',
                                    'keypair_list',
@@ -972,11 +972,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                 .AndReturn([self.images.list(), False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1020,7 +1020,7 @@ class InstanceTests(test.TestCase):
         self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
@@ -1057,11 +1057,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         cinder.volume_list(IsA(http.HttpRequest)) \
@@ -1103,7 +1103,7 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         api.nova: ('server_create',
                                    'flavor_list',
                                    'keypair_list',
@@ -1140,11 +1140,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         cinder.volume_list(IsA(http.HttpRequest)) \
@@ -1188,7 +1188,7 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'availability_zone_list',
@@ -1216,11 +1216,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                 .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1260,7 +1260,7 @@ class InstanceTests(test.TestCase):
         self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         api.nova: ('flavor_list',
@@ -1281,11 +1281,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
@@ -1309,7 +1309,7 @@ class InstanceTests(test.TestCase):
         self.assertTemplateUsed(res, WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
@@ -1343,11 +1343,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         cinder.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
@@ -1388,7 +1388,7 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'security_group_list',
@@ -1424,11 +1424,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                   .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         cinder.volume_list(IsA(http.HttpRequest)) \
@@ -1517,7 +1517,7 @@ class InstanceTests(test.TestCase):
                                    'tenant_absolute_limits',),
                         cinder: ('volume_snapshot_list',
                                  'volume_list',),
-                        api.quantum: ('network_list',),
+                        api.neutron: ('network_list',),
                         api.glance: ('image_list_detailed',)})
     def test_select_default_keypair_if_only_one(self):
         keypair = self.keypairs.first()
@@ -1535,11 +1535,11 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                 .AndReturn([[], False])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.quantum.network_list(IsA(http.HttpRequest),
+        api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \

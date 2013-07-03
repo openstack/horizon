@@ -46,7 +46,7 @@ class CreateView(forms.ModalFormView):
         if not hasattr(self, "_object"):
             try:
                 network_id = self.kwargs["network_id"]
-                self._object = api.quantum.network_get(self.request,
+                self._object = api.neutron.network_get(self.request,
                                                        network_id)
             except:
                 redirect = reverse(self.failure_url,

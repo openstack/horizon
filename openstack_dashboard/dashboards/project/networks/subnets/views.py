@@ -15,7 +15,7 @@
 #    under the License.
 
 """
-Views for managing Quantum Subnets.
+Views for managing Neutron Subnets.
 """
 import logging
 
@@ -43,7 +43,7 @@ class CreateView(workflows.WorkflowView):
         if not hasattr(self, "_object"):
             try:
                 network_id = self.kwargs["network_id"]
-                self._object = api.quantum.network_get(self.request,
+                self._object = api.neutron.network_get(self.request,
                                                        network_id)
                 self._object.set_id_as_name_if_empty()
             except:
@@ -65,7 +65,7 @@ class UpdateView(workflows.WorkflowView):
         if not hasattr(self, "_object"):
             subnet_id = self.kwargs['subnet_id']
             try:
-                self._object = api.quantum.subnet_get(self.request, subnet_id)
+                self._object = api.neutron.subnet_get(self.request, subnet_id)
             except:
                 redirect = reverse("horizon:project:networks:index")
                 msg = _('Unable to retrieve subnet details')

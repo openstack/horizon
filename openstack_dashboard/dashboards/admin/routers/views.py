@@ -15,7 +15,7 @@
 #    under the License.
 
 """
-Views for managing Quantum Routers.
+Views for managing Neutron Routers.
 """
 
 import logging
@@ -41,7 +41,7 @@ class IndexView(r_views.IndexView, n_views.IndexView):
 
     def _get_routers(self, search_opts=None):
         try:
-            routers = api.quantum.router_list(self.request,
+            routers = api.neutron.router_list(self.request,
                                               search_opts=search_opts)
         except:
             routers = []

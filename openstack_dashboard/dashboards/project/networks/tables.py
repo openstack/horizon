@@ -46,14 +46,14 @@ class DeleteNetwork(CheckNetworkEditable, tables.DeleteAction):
     def delete(self, request, network_id):
         try:
             # Retrieve existing subnets belonging to the network.
-            subnets = api.quantum.subnet_list(request, network_id=network_id)
+            subnets = api.neutron.subnet_list(request, network_id=network_id)
             LOG.debug('Network %s has subnets: %s' %
                       (network_id, [s.id for s in subnets]))
             for s in subnets:
-                api.quantum.subnet_delete(request, s.id)
+                api.neutron.subnet_delete(request, s.id)
                 LOG.debug('Deleted subnet %s' % s.id)
 
-            api.quantum.network_delete(request, network_id)
+            api.neutron.network_delete(request, network_id)
             LOG.debug('Deleted network %s successfully' % network_id)
         except:
             msg = _('Failed to delete network %s') % network_id

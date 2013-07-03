@@ -29,11 +29,11 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
-    @test.create_stubs({api.quantum: ('router_list', 'network_list'),
+    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
                         api.keystone: ('tenant_list',)})
     def test_index(self):
         tenants = self.tenants.list()
-        api.quantum.router_list(
+        api.neutron.router_list(
             IsA(http.HttpRequest),
             search_opts=None).AndReturn(self.routers.list())
         api.keystone.tenant_list(IsA(http.HttpRequest))\
@@ -48,12 +48,12 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         routers = res.context['table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-    @test.create_stubs({api.quantum: ('router_list',),
+    @test.create_stubs({api.neutron: ('router_list',),
                         api.keystone: ('tenant_list',)})
     def test_index_router_list_exception(self):
-        api.quantum.router_list(
+        api.neutron.router_list(
             IsA(http.HttpRequest),
-            search_opts=None).AndRaise(self.exceptions.quantum)
+            search_opts=None).AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
         res = self.client.get(self.INDEX_URL)

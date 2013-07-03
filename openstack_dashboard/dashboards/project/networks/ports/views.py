@@ -46,7 +46,7 @@ class UpdateView(forms.ModalFormView):
         if not hasattr(self, "_object"):
             port_id = self.kwargs['port_id']
             try:
-                self._object = api.quantum.port_get(self.request, port_id)
+                self._object = api.neutron.port_get(self.request, port_id)
             except:
                 redirect = reverse("horizon:project:networks:detail",
                                    args=(self.kwargs['network_id'],))

@@ -16,7 +16,7 @@
 
 """Abstraction layer for networking functionalities.
 
-Currently Nova and Quantum have duplicated features. This API layer is
+Currently Nova and Neutron have duplicated features. This API layer is
 introduced to astract the differences between them for seamless consumption by
 different dashboard implementations.
 """
@@ -28,7 +28,7 @@ class NetworkClient(object):
     def __init__(self, request):
         from openstack_dashboard import api
         if api.base.is_service_enabled(request, 'network'):
-            self.floating_ips = api.quantum.FloatingIpManager(request)
+            self.floating_ips = api.neutron.FloatingIpManager(request)
         else:
             self.floating_ips = api.nova.FloatingIpManager(request)
 

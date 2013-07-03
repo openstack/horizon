@@ -42,7 +42,7 @@ class CreateSubnet(project_workflows.CreateSubnet):
         try:
             # We must specify tenant_id of the network which a subnet is
             # created for if admin user does not belong to the tenant.
-            network = api.quantum.network_get(request,
+            network = api.neutron.network_get(request,
                                               self.context['network_id'])
         except:
             msg = (_('Failed to retrieve network %s for a subnet') %

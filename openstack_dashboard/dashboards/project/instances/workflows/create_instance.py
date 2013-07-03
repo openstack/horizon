@@ -451,7 +451,7 @@ class SetNetworkAction(workflows.Action):
     def populate_network_choices(self, request, context):
         try:
             tenant_id = self.request.user.tenant_id
-            networks = api.quantum.network_list_for_tenant(request, tenant_id)
+            networks = api.neutron.network_list_for_tenant(request, tenant_id)
             for n in networks:
                 n.set_id_as_name_if_empty()
             network_list = [(network.id, network.name) for network in networks]

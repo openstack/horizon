@@ -259,7 +259,7 @@ class CreateNetwork(workflows.Workflow):
         try:
             params = {'name': data['net_name'],
                       'admin_state_up': data['admin_state']}
-            network = api.quantum.network_create(request, **params)
+            network = api.neutron.network_create(request, **params)
             network.set_id_as_name_if_empty()
             self.context['net_id'] = network.id
             msg = _('Network "%s" was successfully created.') % network.name
@@ -320,7 +320,7 @@ class CreateNetwork(workflows.Workflow):
 
             self._setup_subnet_parameters(params, data)
 
-            subnet = api.quantum.subnet_create(request, **params)
+            subnet = api.neutron.subnet_create(request, **params)
             self.context['subnet_id'] = subnet.id
             msg = _('Subnet "%s" was successfully created.') % data['cidr']
             LOG.debug(msg)
@@ -341,7 +341,7 @@ class CreateNetwork(workflows.Workflow):
     def _delete_network(self, request, network):
         """Delete the created network when subnet creation failed"""
         try:
-            api.quantum.network_delete(request, network.id)
+            api.neutron.network_delete(request, network.id)
             msg = _('Delete the created network "%s" '
                     'due to subnet creation failure.') % network.name
             LOG.debug(msg)

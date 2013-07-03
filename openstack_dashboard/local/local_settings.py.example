@@ -154,10 +154,10 @@ OPENSTACK_HYPERVISOR_FEATURES = {
     'can_encrypt_volumes': False
 }
 
-# The OPENSTACK_QUANTUM_NETWORK settings can be used to enable optional
-# services provided by quantum.  Currently only the load balancer service
+# The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
+# services provided by neutron.  Currently only the load balancer service
 # is available.
-OPENSTACK_QUANTUM_NETWORK = {
+OPENSTACK_NEUTRON_NETWORK = {
     'enable_lb': False
 }
 

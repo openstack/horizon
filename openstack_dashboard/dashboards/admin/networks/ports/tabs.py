@@ -36,7 +36,7 @@ class OverviewTab(tabs.Tab):
     def get_context_data(self, request):
         port_id = self.tab_group.kwargs['port_id']
         try:
-            port = api.quantum.port_get(self.request, port_id)
+            port = api.neutron.port_get(self.request, port_id)
         except:
             redirect = reverse('horizon:admin:networks:index')
             msg = _('Unable to retrieve port details.')

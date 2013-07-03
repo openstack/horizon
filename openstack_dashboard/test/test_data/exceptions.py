@@ -15,8 +15,8 @@
 from cinderclient import exceptions as cinder_exceptions
 import glanceclient.exc as glance_exceptions
 from keystoneclient import exceptions as keystone_exceptions
+from neutronclient.common import exceptions as neutron_exceptions
 from novaclient import exceptions as nova_exceptions
-from quantumclient.common import exceptions as quantum_exceptions
 from swiftclient import client as swift_exceptions
 
 from .utils import TestDataContainer
@@ -60,8 +60,8 @@ def data(TEST):
     glance_exception = glance_exceptions.ClientException
     TEST.exceptions.glance = create_stubbed_exception(glance_exception)
 
-    quantum_exception = quantum_exceptions.QuantumClientException
-    TEST.exceptions.quantum = create_stubbed_exception(quantum_exception)
+    neutron_exception = neutron_exceptions.NeutronClientException
+    TEST.exceptions.neutron = create_stubbed_exception(neutron_exception)
 
     swift_exception = swift_exceptions.ClientException
     TEST.exceptions.swift = create_stubbed_exception(swift_exception)

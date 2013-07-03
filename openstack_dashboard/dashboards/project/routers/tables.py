@@ -23,8 +23,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
+from neutronclient.common import exceptions as q_ext
 from openstack_dashboard import api
-from quantumclient.common import exceptions as q_ext
 
 LOG = logging.getLogger(__name__)
 
@@ -38,8 +38,8 @@ class DeleteRouter(tables.DeleteAction):
         obj = self.table.get_object_by_id(obj_id)
         name = self.table.get_object_display(obj)
         try:
-            api.quantum.router_delete(request, obj_id)
-        except q_ext.QuantumClientException as e:
+            api.neutron.router_delete(request, obj_id)
+        except q_ext.NeutronClientException as e:
             msg = _('Unable to delete router "%s"') % e.message
             LOG.info(msg)
             messages.error(request, msg)
@@ -86,7 +86,7 @@ class ClearGateway(tables.BatchAction):
         obj = self.table.get_object_by_id(obj_id)
         name = self.table.get_object_display(obj)
         try:
-            api.quantum.router_remove_gateway(request, obj_id)
+            api.neutron.router_remove_gateway(request, obj_id)
         except Exception as e:
             msg = (_('Unable to clear gateway for router '
                      '"%(name)s": "%(msg)s"')
@@ -108,7 +108,7 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, router_id):
-        router = api.quantum.router_get(request, router_id)
+        router = api.neutron.router_get(request, router_id)
         return router
 
 

@@ -164,7 +164,7 @@ LOGGING = {
             'handlers': ['test'],
             'propagate': False,
         },
-        'quantumclient': {
+        'neutronclient': {
             'handlers': ['test'],
             'propagate': False,
         },

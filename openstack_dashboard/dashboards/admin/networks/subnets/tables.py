@@ -34,7 +34,7 @@ class DeleteSubnet(tables.DeleteAction):
 
     def delete(self, request, obj_id):
         try:
-            api.quantum.subnet_delete(request, obj_id)
+            api.neutron.subnet_delete(request, obj_id)
         except:
             msg = _('Failed to delete subnet %s') % obj_id
             LOG.info(msg)

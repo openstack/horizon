@@ -128,7 +128,7 @@ class AddVipView(workflows.WorkflowView):
         initial['pool_id'] = self.kwargs['pool_id']
         try:
             pool = api.lbaas.pool_get(self.request, initial['pool_id'])
-            initial['subnet'] = api.quantum.subnet_get(
+            initial['subnet'] = api.neutron.subnet_get(
                 self.request, pool.subnet_id).cidr
         except:
             initial['subnet'] = ''

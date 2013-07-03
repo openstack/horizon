@@ -36,7 +36,7 @@ class OverviewTab(tabs.Tab):
     def get_context_data(self, request):
         subnet_id = self.tab_group.kwargs['subnet_id']
         try:
-            subnet = api.quantum.subnet_get(self.request, subnet_id)
+            subnet = api.neutron.subnet_get(self.request, subnet_id)
         except:
             redirect = reverse('horizon:project:networks:index')
             msg = _('Unable to retrieve subnet details.')

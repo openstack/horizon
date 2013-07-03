@@ -15,7 +15,7 @@
 #    under the License.
 
 """
-Views for managing Quantum Routers.
+Views for managing Neutron Routers.
 """
 
 import logging
@@ -44,7 +44,7 @@ class IndexView(tables.DataTableView):
     def _get_routers(self, search_opts=None):
         try:
             tenant_id = self.request.user.tenant_id
-            routers = api.quantum.router_list(self.request,
+            routers = api.neutron.router_list(self.request,
                                               tenant_id=tenant_id,
                                               search_opts=search_opts)
         except:
@@ -66,7 +66,7 @@ class IndexView(tables.DataTableView):
     def _list_external_networks(self):
         try:
             search_opts = {'router:external': True}
-            ext_nets = api.quantum.network_list(self.request,
+            ext_nets = api.neutron.network_list(self.request,
                                                 **search_opts)
             for ext_net in ext_nets:
                 ext_net.set_id_as_name_if_empty()
@@ -97,7 +97,7 @@ class DetailView(tables.MultiTableView):
         if not hasattr(self, "_router"):
             try:
                 router_id = self.kwargs['router_id']
-                router = api.quantum.router_get(self.request, router_id)
+                router = api.neutron.router_get(self.request, router_id)
                 router.set_id_as_name_if_empty(length=0)
             except:
                 msg = _('Unable to retrieve details for router "%s".') \
@@ -107,7 +107,7 @@ class DetailView(tables.MultiTableView):
             if router.external_gateway_info:
                 ext_net_id = router.external_gateway_info['network_id']
                 try:
-                    ext_net = api.quantum.network_get(self.request, ext_net_id,
+                    ext_net = api.neutron.network_get(self.request, ext_net_id,
                                                       expand_subnet=False)
                     ext_net.set_id_as_name_if_empty(length=0)
                     router.external_gateway_info['network'] = ext_net.name
@@ -128,7 +128,7 @@ class DetailView(tables.MultiTableView):
     def get_interfaces_data(self):
         try:
             device_id = self.kwargs['router_id']
-            ports = api.quantum.port_list(self.request,
+            ports = api.neutron.port_list(self.request,
                                           device_id=device_id)
         except:
             ports = []
