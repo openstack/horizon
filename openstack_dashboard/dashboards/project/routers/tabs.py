@@ -20,25 +20,40 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import tabs
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
+    import tabs as rr_tabs
+from openstack_dashboard.dashboards.project.routers.ports import tables as ptbl
 
 
-class OverviewTab(tabs.Tab):
-    name = _("Overview")
-    slug = "overview"
-    template_name = ("project/routers/_detail_overview.html")
-    redirect_url = 'horizon:project:routers:index'
+class InterfacesTab(tabs.TableTab):
+    table_classes = (ptbl.PortsTable,)
+    name = _("Interfaces")
+    slug = "interfaces"
+    template_name = "horizon/common/_detail_table.html"
 
-    def get_context_data(self, request):
-        router_id = self.tab_group.kwargs['router_id']
-        try:
-            router = api.neutron.router_get(request, router_id)
-        except Exception:
-            exceptions.handle(self.request,
-                              _('Unable to retrieve router details.'),
-                              redirect=reverse(self.redirect_url))
-        return {'router': router}
+    def get_interfaces_data(self):
+        ports = self.tab_group.ports
+        for p in ports:
+            p.set_id_as_name_if_empty()
+        return ports
 
 
 class RouterDetailTabs(tabs.TabGroup):
     slug = "router_details"
-    tabs = (OverviewTab,)
+    tabs = (InterfacesTab, rr_tabs.RulesGridTab, rr_tabs.RouterRulesTab)
+    sticky = True
+
+    def __init__(self, request, **kwargs):
+        rid = kwargs['router_id']
+        self.router = {}
+        if 'router' in kwargs:
+            self.router = kwargs['router']
+        else:
+            self.router = api.neutron.router_get(request, rid)
+        try:
+            self.ports = api.neutron.port_list(request, device_id=rid)
+        except Exception:
+            self.ports = []
+            msg = _('Unable to retrieve router details.')
+            exceptions.handle(request, msg)
+        super(RouterDetailTabs, self).__init__(request, **kwargs)

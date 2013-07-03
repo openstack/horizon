@@ -137,5 +137,15 @@ class TabbedTableView(tables.MultiTableMixin, TabView):
         return self.handle_tabbed_response(context["tab_group"], context)
 
     def post(self, request, *args, **kwargs):
+        # Direct POST to it's appropriate tab
+        targetslug = request.POST['action'].split('__')[0]
+        tabs = self.get_tabs(self.request, **self.kwargs).get_tabs()
+        matches = [tab for tab in tabs if tab.slug == targetslug]
+        if matches:
+            # Call POST on first match only. There shouldn't be a case where
+            # multiple tabs have the same slug and processing the request twice
+            # could lead to unpredictable behavior.
+            matches[0].post(request, *args, **kwargs)
+
         # GET and POST handling are the same
         return self.get(request, *args, **kwargs)

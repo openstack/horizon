@@ -13,11 +13,15 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import copy
+
 from django.core.urlresolvers import reverse  # noqa
 from django import http
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
+    import rulemanager
 from openstack_dashboard.test import helpers as test
 
 
@@ -89,14 +93,11 @@ class RouterTests(test.TestCase):
         ports = res.context['interfaces_table'].data
         self.assertItemsEqual(ports, [self.ports.first()])
 
-    @test.create_stubs({api.neutron: ('router_get', 'port_list')})
+    @test.create_stubs({api.neutron: ('router_get',)})
     def test_router_detail_exception(self):
         router = self.routers.first()
         api.neutron.router_get(IsA(http.HttpRequest), router.id)\
             .AndRaise(self.exceptions.neutron)
-        api.neutron.port_list(IsA(http.HttpRequest),
-                              device_id=router.id)\
-            .AndReturn([self.ports.first()])
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:%s'
@@ -315,3 +316,181 @@ class RouterActionTests(test.TestCase):
         self.assertNoFormErrors(res)
         detail_url = self.INDEX_URL
         self.assertRedirectsNoFollow(res, detail_url)
+
+
+class RouterRuleTests(test.TestCase):
+    DASHBOARD = 'project'
+    INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
+    DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
+
+    def _mock_external_network_get(self, router):
+        ext_net_id = router.external_gateway_info['network_id']
+        ext_net = self.networks.list()[2]
+        api.neutron.network_get(IsA(http.HttpRequest), ext_net_id,
+                                expand_subnet=False).AndReturn(ext_net)
+
+    def _mock_network_list(self, tenant_id):
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            shared=False,
+            tenant_id=tenant_id).AndReturn(self.networks.list())
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            shared=True).AndReturn([])
+
+    @test.create_stubs({api.neutron: ('router_get', 'port_list',
+                                      'network_get')})
+    def test_extension_hides_without_rules(self):
+        router = self.routers.first()
+        api.neutron.router_get(IsA(http.HttpRequest), router.id)\
+            .AndReturn(self.routers.first())
+        api.neutron.port_list(IsA(http.HttpRequest),
+                              device_id=router.id)\
+            .AndReturn([self.ports.first()])
+        self._mock_external_network_get(router)
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:%s'
+                                      ':routers:detail' % self.DASHBOARD,
+                                      args=[router.id]))
+
+        self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
+        self.assertTemplateNotUsed(res,
+            '%s/routers/extensions/routerrules/grid.html' % self.DASHBOARD)
+
+    @test.create_stubs({api.neutron: ('router_get', 'port_list',
+                                      'network_get', 'network_list')})
+    def test_routerrule_detail(self):
+        router = self.routers_with_rules.first()
+        api.neutron.router_get(IsA(http.HttpRequest), router.id)\
+            .AndReturn(self.routers_with_rules.first())
+        api.neutron.port_list(IsA(http.HttpRequest),
+                              device_id=router.id)\
+            .AndReturn([self.ports.first()])
+        self._mock_external_network_get(router)
+        if self.DASHBOARD == 'project':
+            api.neutron.network_list(
+                IsA(http.HttpRequest),
+                shared=False,
+                tenant_id=router['tenant_id']).AndReturn(self.networks.list())
+            api.neutron.network_list(
+                IsA(http.HttpRequest),
+                shared=True).AndReturn([])
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:%s'
+                                      ':routers:detail' % self.DASHBOARD,
+                                      args=[router.id]))
+
+        self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
+        if self.DASHBOARD == 'project':
+            self.assertTemplateUsed(res,
+                '%s/routers/extensions/routerrules/grid.html' % self.DASHBOARD)
+        rules = res.context['routerrules_table'].data
+        self.assertItemsEqual(rules, router['router_rules'])
+
+    def _test_router_addrouterrule(self, raise_error=False):
+        pre_router = self.routers_with_rules.first()
+        post_router = copy.deepcopy(pre_router)
+        rule = {'source': '1.2.3.4/32', 'destination': '4.3.2.1/32', 'id': 99,
+                'action': 'permit', 'nexthops': ['1.1.1.1', '2.2.2.2']}
+        post_router['router_rules'].insert(0, rule)
+        api.neutron.router_get(IsA(http.HttpRequest),
+                               pre_router.id).AndReturn(pre_router)
+        params = {}
+        params['router_rules'] = rulemanager.format_for_api(
+            post_router['router_rules'])
+        router_update = api.neutron.router_update(IsA(http.HttpRequest),
+                                                  pre_router.id, **params)
+        if raise_error:
+            router_update.AndRaise(self.exceptions.neutron)
+        else:
+            router_update.AndReturn({'router': post_router})
+        self.mox.ReplayAll()
+
+        form_data = {'router_id': pre_router.id,
+                     'source': rule['source'],
+                     'destination': rule['destination'],
+                     'action': rule['action'],
+                     'nexthops': ','.join(rule['nexthops'])}
+
+        url = reverse('horizon:%s:routers:addrouterrule' % self.DASHBOARD,
+                      args=[pre_router.id])
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        detail_url = reverse(self.DETAIL_PATH, args=[pre_router.id])
+        self.assertRedirectsNoFollow(res, detail_url)
+
+    @test.create_stubs({api.neutron: ('router_get',
+                                      'router_update')})
+    def test_router_addrouterrule(self):
+        self._test_router_addrouterrule()
+
+    @test.create_stubs({api.neutron: ('router_get',
+                                      'router_update')})
+    def test_router_addrouterrule_exception(self):
+        self._test_router_addrouterrule(raise_error=True)
+
+    @test.create_stubs({api.neutron: ('router_get', 'router_update',
+                                      'port_list', 'network_get')})
+    def test_router_removerouterrule(self):
+        pre_router = self.routers_with_rules.first()
+        post_router = copy.deepcopy(pre_router)
+        rule = post_router['router_rules'].pop()
+        api.neutron.router_get(IsA(http.HttpRequest),
+                               pre_router.id).AndReturn(pre_router)
+        params = {}
+        params['router_rules'] = rulemanager.format_for_api(
+            post_router['router_rules'])
+        api.neutron.router_get(IsA(http.HttpRequest),
+                               pre_router.id).AndReturn(pre_router)
+        router_update = api.neutron.router_update(IsA(http.HttpRequest),
+                                                  pre_router.id, **params)
+        router_update.AndReturn({'router': post_router})
+        api.neutron.router_get(IsA(http.HttpRequest),
+                               pre_router.id).AndReturn(pre_router)
+        api.neutron.port_list(IsA(http.HttpRequest),
+                              device_id=pre_router.id)\
+            .AndReturn([self.ports.first()])
+        self._mock_external_network_get(pre_router)
+        self.mox.ReplayAll()
+        form_rule_id = rule['source'] + rule['destination']
+        form_data = {'router_id': pre_router.id,
+                     'action': 'routerrules__delete__%s' % form_rule_id}
+        url = reverse(self.DETAIL_PATH, args=[pre_router.id])
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.neutron: ('router_get', 'router_update',
+                                      'network_list', 'port_list',
+                                      'network_get')})
+    def test_router_resetrouterrules(self):
+        pre_router = self.routers_with_rules.first()
+        post_router = copy.deepcopy(pre_router)
+        default_rules = [{'source': 'any', 'destination': 'any',
+                          'action': 'permit', 'nexthops': [], 'id': '2'}]
+        del post_router['router_rules'][:]
+        post_router['router_rules'].extend(default_rules)
+        api.neutron.router_get(IsA(http.HttpRequest),
+                               pre_router.id).AndReturn(post_router)
+        params = {}
+        params['router_rules'] = rulemanager.format_for_api(
+            post_router['router_rules'])
+        router_update = api.neutron.router_update(IsA(http.HttpRequest),
+                                                  pre_router.id, **params)
+        router_update.AndReturn({'router': post_router})
+        api.neutron.router_get(IsA(http.HttpRequest),
+                               pre_router.id).AndReturn(post_router)
+        api.neutron.port_list(IsA(http.HttpRequest),
+                              device_id=pre_router.id)\
+            .AndReturn([self.ports.first()])
+        self._mock_external_network_get(pre_router)
+        self._mock_network_list(pre_router['tenant_id'])
+        api.neutron.router_get(IsA(http.HttpRequest),
+                               pre_router.id).AndReturn(post_router)
+        self.mox.ReplayAll()
+        form_data = {'router_id': pre_router.id,
+                     'action': 'routerrules__resetrules'}
+        url = reverse(self.DETAIL_PATH, args=[pre_router.id])
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)

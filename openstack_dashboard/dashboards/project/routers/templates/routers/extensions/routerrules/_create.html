@@ -1,0 +1,29 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}add_routerrule_form{% endblock %}
+{% block form_action %}{% url 'horizon:project:routers:addrouterrule' router.id %}
+{% endblock %}
+
+{% block modal-header %}{% trans "Add Router Rule" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+        {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p>
+    {% trans "Routing rules to apply to router. Rules are matched by most specific source first and then by most specific destination." %}<br/>
+    {% trans "The next hop addresses can be used to override the router used by the client." %}
+    </p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Add rule" %}" />
+  <a href="{% url 'horizon:project:routers:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

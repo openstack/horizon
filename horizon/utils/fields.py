@@ -89,6 +89,25 @@ class IPField(forms.Field):
         return str(getattr(self, "ip", ""))
 
 
+class MultiIPField(IPField):
+    """
+    Extends IPField to allow comma-separated lists of addresses
+    """
+    def validate(self, value):
+        self.addresses = []
+        if value:
+            addresses = value.split(',')
+            for ip in addresses:
+                super(MultiIPField, self).validate(ip)
+                self.addresses.append(ip)
+        else:
+            super(MultiIPField, self).validate(value)
+
+    def clean(self, value):
+        super(MultiIPField, self).clean(value)
+        return str(','.join(getattr(self, "addresses", [])))
+
+
 class SelectWidget(widgets.Select):
     """
     Customizable select widget, that allows to render

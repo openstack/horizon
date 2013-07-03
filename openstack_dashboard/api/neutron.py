@@ -665,6 +665,14 @@ def router_create(request, **kwargs):
     return Router(router)
 
 
+def router_update(request, r_id, **kwargs):
+    LOG.debug("router_update(): router_id=%s, kwargs=%s" % (r_id, kwargs))
+    body = {'router': {}}
+    body['router'].update(kwargs)
+    router = neutronclient(request).update_router(r_id, body=body)
+    return Router(router['router'])
+
+
 def router_get(request, router_id, **params):
     router = neutronclient(request).show_router(router_id,
                                                 **params).get('router')

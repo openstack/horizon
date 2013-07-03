@@ -381,6 +381,17 @@ class Tab(html.HTMLElement):
         """
         return True
 
+    def post(self, request, *args, **kwargs):
+        """
+        Handles POST data sent to a tab.
+
+        Tab instances can override this method to have tab-specific POST logic
+        without polluting the TabView code.
+
+        The default behavior is to ignore POST data.
+        """
+        pass
+
 
 class TableTab(Tab):
     """

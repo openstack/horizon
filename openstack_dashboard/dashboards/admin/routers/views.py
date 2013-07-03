@@ -24,15 +24,13 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.networks import views as n_views
+from openstack_dashboard.dashboards.admin.routers import tables as rtbl
+from openstack_dashboard.dashboards.admin.routers import tabs as rtabs
 from openstack_dashboard.dashboards.project.routers import views as r_views
-
-from openstack_dashboard.dashboards.admin.routers.ports \
-    import tables as ports_tables
-from openstack_dashboard.dashboards.admin.routers import tables
 
 
 class IndexView(r_views.IndexView, n_views.IndexView):
-    table_class = tables.RoutersTable
+    table_class = rtbl.RoutersTable
     template_name = 'admin/routers/index.html'
 
     def _get_routers(self, search_opts=None):
@@ -62,6 +60,6 @@ class IndexView(r_views.IndexView, n_views.IndexView):
 
 
 class DetailView(r_views.DetailView):
-    table_classes = (ports_tables.PortsTable, )
+    tab_group_class = rtabs.RouterDetailTabs
     template_name = 'admin/routers/detail.html'
     failure_url = reverse_lazy('horizon:admin:routers:index')

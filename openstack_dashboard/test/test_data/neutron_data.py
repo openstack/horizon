@@ -31,6 +31,7 @@ def data(TEST):
     TEST.subnets = utils.TestDataContainer()
     TEST.ports = utils.TestDataContainer()
     TEST.routers = utils.TestDataContainer()
+    TEST.routers_with_rules = utils.TestDataContainer()
     TEST.q_floating_ips = utils.TestDataContainer()
     TEST.q_secgroups = utils.TestDataContainer()
     TEST.q_secgroup_rules = utils.TestDataContainer()
@@ -291,6 +292,23 @@ def data(TEST):
                    'tenant_id': '1'}
     TEST.api_routers.add(router_dict)
     TEST.routers.add(neutron.Router(router_dict))
+    router_dict = {'id': '71fb25e9-cd9f-4a44-a780-85ec3bd8bdd7',
+                   'name': 'rulerouter',
+                   'external_gateway_info':
+                       {'network_id': ext_net['id']},
+                   'tenant_id': '1',
+                   'router_rules': [{'id': '101',
+                                     'action': 'deny',
+                                     'source': 'any',
+                                     'destination': 'any',
+                                     'nexthops': []},
+                                    {'id': '102',
+                                     'action': 'permit',
+                                     'source': 'any',
+                                     'destination': '8.8.8.8/32',
+                                     'nexthops': ['1.0.0.2', '1.0.0.1']}]}
+    TEST.api_routers.add(router_dict)
+    TEST.routers_with_rules.add(neutron.Router(router_dict))
 
     #------------------------------------------------------------
     # floating IP

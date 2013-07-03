@@ -14,15 +14,23 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon import tabs
+from openstack_dashboard.dashboards.admin.\
+    routers.extensions.routerrules import tables as rrtbl
+from openstack_dashboard.dashboards.admin.routers.ports import tables as ptbl
+from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
+    import tabs as rr_tabs
 from openstack_dashboard.dashboards.project.routers import tabs as r_tabs
 
 
-class OverviewTab(r_tabs.OverviewTab):
-    template_name = ("admin/routers/_detail_overview.html")
-    redirect_url = 'horizon:admin:routers:index'
+class RouterRulesTab(rr_tabs.RouterRulesTab):
+    table_classes = (rrtbl.RouterRulesTable,)
 
 
-class RouterDetailTabs(tabs.TabGroup):
+class InterfacesTab(r_tabs.InterfacesTab):
+    table_classes = (ptbl.PortsTable,)
+
+
+class RouterDetailTabs(r_tabs.RouterDetailTabs):
     slug = "router_details"
-    tabs = (OverviewTab,)
+    tabs = (InterfacesTab, rr_tabs.RouterRulesTab)
+    sticky = True

@@ -1,0 +1,146 @@
+{% load i18n %}
+
+{% block main %}
+
+<div id="routerrules_clickgrid">
+<table class="table table-bordered datatable table-hover table-condensed">
+<thead>
+
+   <tr class='table_caption'>
+     <th class='table_header' colspan='{{ rulesmatrix|length|add:1 }}'>
+       <h3 class='table_title'>{% trans "Router Rule Grid" %}</h3>
+       <div class="table_actions clearfix">
+         <form action="./" method="POST"
+          style='display: inline; background-color: transparent; float: none; margin-left: 0;'>
+          {% csrf_token %}
+          <input type="hidden" name="router_id" value="{{ router.id }}"/>
+          <button class="btn btn-small btn-danger btn-delete"
+                  type="submit" href="#" name="action" value="routerrules__resetrules">{% trans "Reset to Default" %}</button>
+          </form>
+       </div>
+     </th>
+   </tr>
+   <tr>
+   <th>{% trans "Destination" %}&rarr;<br/>&darr;{% trans "Source" %}</th>
+   {% with src=rulesmatrix|first %}
+       {% for dest in src.targets %}
+         <th>
+            {{ dest.networkname }}<br/>
+            {% if dest.subnetname|length > 0 %}
+             {% trans "Subnet" %}: {{ dest.subnetname }}</br>
+            {% endif %}
+            {{ dest.cidr }}
+         </th>
+       {% endfor %}
+   {% endwith %}
+   </tr>
+</thead>
+<tbody>
+{% for row in rulesmatrix %}
+<tr>
+<td>
+<b>{{ row.source.networkname }}
+{% if row.source.subnetname|length > 0 %}
+    <br/>{% trans "Subnet" %}: {{ row.source.subnetname }}
+{% endif %}
+<br/>
+{{ row.source.cidr }}
+</b>
+</td>
+      {% for dest in row.targets %}
+           <td id="td_{{ dest.subnetid|add:row.source.subnetid }}"
+               data-mirrortd="td_{{ row.source.subnetid|add:dest.subnetid }}"
+               onMouseOver="highLightMirror(this);"
+               onMouseOut="unHighLightMirror(this);"
+           {% if dest.reachable == 'none' %}
+               style="background-color:#FFB2B2;"
+           {% elif dest.reachable == 'partial' %}
+               style="background-color:#FFFF66;"
+           {% else %}
+               style="background-color:#CCFFCC;"
+           {% endif %}
+           >
+           <form action="./addrouterrule" method="POST"
+          style='display: inline; background-color: transparent; float: none; margin-left: 0;'>
+           {% csrf_token %}
+           <input type="hidden" name="router_id" value="{{ router.id }}">
+           <input type="hidden" name="source" value="{{ dest.inverse_rule.source }}">
+           <input type="hidden" name="destination" value="{{ dest.inverse_rule.destination }}">
+           <input type="hidden" name="action" value="{{ dest.inverse_rule.action }}">
+
+           {% if dest.rule_to_delete %}
+               <center><input type="hidden" name="rule_to_delete" value="{{ dest.rule_to_delete.id }}"/></center>
+           {% endif %}
+           {% if dest.reachable == 'none' %}
+              <center>
+              <i class="icon-ban-circle"></i>
+              <button type="submit" class="btn btn-mini" href="#"><i class="icon-random"></i></button></center>
+           {% elif dest.reachable == 'full' %}
+           <center>
+              <i class="icon-ok"></i>
+              {% if not dest.cidr == row.source.cidr %}
+                   <button type="submit" class="btn btn-mini" href="#"><i class="icon-random"></i></button>
+              {% else %}
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {% endif %}
+           </center>
+           {% else %}
+                <center><a type="button" class="btn btn-mini" href="#modal_{{ dest.subnetid|add:row.source.subnetid }}" data-toggle="modal"><i class="icon-exclamation-sign"></i> Conflict</a></center>
+               <div class="modal hide" id="modal_{{ dest.subnetid|add:row.source.subnetid }}">
+                 <div class="modal-header">
+                   <a class="close" data-dismiss="modal">&times;</a>
+                   <h3>{% trans "Rule Conflict" %}</h3>
+                 </div>
+                 <div class="modal-body">
+                   <p>{% blocktrans %}A more specific rule affects a portion of this traffic so a rule cannot be automatically generated to control the behavior of the entire source/destination combination.{% endblocktrans %}</p>
+                   <hr>
+                   <h4>Conflicting Rule:</h4>
+                   <b>{% trans "Source" %}:</b> {{ dest.conflicting_rule.source }}<br>
+                   <b>{% trans "Destination" %}:</b> {{ dest.conflicting_rule.destination }}<br>
+                   <b>{% trans "Action" %}:</b> {{ dest.conflicting_rule.action }}<br>
+                 </div>
+                 <div class="modal-footer">
+                   <a href="#" class="btn" data-dismiss="modal">{% trans "Close" %}</a>
+                 </div>
+               </div>
+           {% endif %}
+           </form>
+           </td>
+      {% endfor %}
+   {% endfor %}
+</tr>
+</tbody>
+  <tfoot>
+      <tr>
+        <td colspan="{{ rulesmatrix|length|add:1}}">
+          <span class="table_count"></span>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <h3>Description:</h3>
+  <p>{% blocktrans %}The color and icon of an intersection indicates whether or not traffic is permitted from the source (row) to the destination (column).
+     Clicking the <i class="icon-random"></i> button in the intersection will install a rule to switch the traffic behavior.<br/>
+
+     <b>Note:</b> Rules only affect one direction of traffic. The opposite direction is outlined when hovering over an intersection.
+ {% endblocktrans %} </p>
+</div>
+<script type="text/javascript">
+function highLightMirror(td){
+    var mirror = document.getElementById(td.getAttribute("data-mirrortd"));
+    if (mirror.id == td.id){
+        return;
+    }
+    mirror.style.borderWidth="medium";
+    td.style.borderWidth="medium";
+}
+function unHighLightMirror(td){
+    var mirror = document.getElementById(td.getAttribute("data-mirrortd"));
+    if (mirror.id == td.id){
+        return;
+    }
+    mirror.style.borderWidth="thin";
+    td.style.borderWidth="thin";
+}
+</script>
+{% endblock %}

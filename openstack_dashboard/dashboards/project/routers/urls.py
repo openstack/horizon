@@ -17,6 +17,8 @@
 from django.conf.urls.defaults import patterns  # noqa
 from django.conf.urls.defaults import url  # noqa
 
+from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
+    import views as rr_views
 from openstack_dashboard.dashboards.project.routers.ports \
     import views as port_views
 from openstack_dashboard.dashboards.project.routers import views
@@ -31,6 +33,9 @@ urlpatterns = patterns('horizon.dashboards.project.routers.views',
     url(r'^(?P<router_id>[^/]+)/addinterface',
         port_views.AddInterfaceView.as_view(),
         name='addinterface'),
+    url(r'^(?P<router_id>[^/]+)/addrouterrule',
+        rr_views.AddRouterRuleView.as_view(),
+        name='addrouterrule'),
     url(r'^(?P<router_id>[^/]+)/setgateway',
         port_views.SetGatewayView.as_view(),
         name='setgateway'),

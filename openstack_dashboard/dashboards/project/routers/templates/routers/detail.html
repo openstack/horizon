@@ -8,8 +8,9 @@
 
 {% block main %}
 {% include "project/routers/_detail_overview.html" %}
-<hr>
-<div id="interfaces">
-   {{ interfaces_table.render }}
+<div class="row-fluid">
+  <div class="span12">
+  {{ tab_group.render }}
+  </div>
 </div>
 {% endblock %}
