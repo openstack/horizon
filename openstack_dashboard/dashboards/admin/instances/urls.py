@@ -21,10 +21,10 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from openstack_dashboard.dashboards.project.instances.views import \
-        DetailView
 from .views import AdminIndexView
 from .views import AdminUpdateView
+from openstack_dashboard.dashboards.project.instances.views import \
+        DetailView
 
 
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'

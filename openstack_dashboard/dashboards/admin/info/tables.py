@@ -1,7 +1,7 @@
 import logging
 
-from django.utils.translation import ugettext_lazy as _
 from django import template
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 

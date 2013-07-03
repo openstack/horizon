@@ -22,11 +22,11 @@ from openstack_dashboard.dashboards.project.loadbalancers.views import \
 from openstack_dashboard.dashboards.project.loadbalancers.views import \
     AddMonitorView
 from openstack_dashboard.dashboards.project.loadbalancers.views import \
+    AddPMAssociationView
+from openstack_dashboard.dashboards.project.loadbalancers.views import \
     AddPoolView
 from openstack_dashboard.dashboards.project.loadbalancers.views import \
     AddVipView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    AddPMAssociationView
 from openstack_dashboard.dashboards.project.loadbalancers.views import \
     DeletePMAssociationView
 from openstack_dashboard.dashboards.project.loadbalancers.views import \

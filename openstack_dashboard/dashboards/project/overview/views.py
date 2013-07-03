@@ -18,8 +18,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.template.defaultfilters import floatformat
+
 from django.template.defaultfilters import capfirst
+from django.template.defaultfilters import floatformat
 from django.utils.translation import ugettext as _
 from django.views.generic import TemplateView
 
