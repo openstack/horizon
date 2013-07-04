@@ -128,6 +128,8 @@ class AdminInstancesTable(tables.DataTable):
     name = tables.Column("name",
                          link=("horizon:admin:instances:detail"),
                          verbose_name=_("Name"))
+    image_name = tables.Column("image_name",
+                               verbose_name=_("Image Name"))
     ip = tables.Column(get_ips,
                        verbose_name=_("IP Address"),
                        attrs={'data-type': "ip"})
