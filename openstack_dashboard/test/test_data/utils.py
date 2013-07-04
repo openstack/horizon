@@ -14,14 +14,14 @@
 
 
 def load_test_data(load_onto=None):
-    from . import cinder_data
-    from . import exceptions
-    from . import glance_data
-    from . import heat_data
-    from . import keystone_data
-    from . import neutron_data
-    from . import nova_data
-    from . import swift_data
+    from openstack_dashboard.test.test_data import cinder_data
+    from openstack_dashboard.test.test_data import exceptions
+    from openstack_dashboard.test.test_data import glance_data
+    from openstack_dashboard.test.test_data import heat_data
+    from openstack_dashboard.test.test_data import keystone_data
+    from openstack_dashboard.test.test_data import neutron_data
+    from openstack_dashboard.test.test_data import nova_data
+    from openstack_dashboard.test.test_data import swift_data
 
     # The order of these loaders matters, some depend on others.
     loaders = (exceptions.data,

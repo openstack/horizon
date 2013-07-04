@@ -21,7 +21,8 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateView
+from openstack_dashboard.dashboards.project.images_and_snapshots.\
+    snapshots.views import CreateView
 
 
 urlpatterns = patterns('',

@@ -17,11 +17,13 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .ports.views import AddInterfaceView
-from .ports.views import SetGatewayView
-from .views import CreateView
-from .views import DetailView
-from .views import IndexView
+from openstack_dashboard.dashboards.project.routers.ports.views \
+    import AddInterfaceView
+from openstack_dashboard.dashboards.project.routers.ports.views \
+    import SetGatewayView
+from openstack_dashboard.dashboards.project.routers.views import CreateView
+from openstack_dashboard.dashboards.project.routers.views import DetailView
+from openstack_dashboard.dashboards.project.routers.views import IndexView
 
 
 urlpatterns = patterns('horizon.dashboards.project.routers.views',

@@ -21,9 +21,12 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateView
-from .views import DetailView
-from .views import UpdateView
+from openstack_dashboard.dashboards.project.images_and_snapshots.images.views \
+    import CreateView
+from openstack_dashboard.dashboards.project.images_and_snapshots.images.views \
+    import DetailView
+from openstack_dashboard.dashboards.project.images_and_snapshots.images.views \
+    import UpdateView
 
 
 VIEWS_MOD = ('openstack_dashboard.dashboards.project'

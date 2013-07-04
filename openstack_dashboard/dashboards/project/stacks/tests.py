@@ -22,8 +22,8 @@ from mox import IsA
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from . import forms
-from . import mappings
+from openstack_dashboard.dashboards.project.stacks import forms
+from openstack_dashboard.dashboards.project.stacks import mappings
 
 
 INDEX_URL = reverse('horizon:project:stacks:index')

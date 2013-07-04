@@ -22,7 +22,7 @@ import logging
 
 from horizon import tabs
 
-from .tabs import SystemInfoTabs
+from openstack_dashboard.dashboards.admin.info.tabs import SystemInfoTabs
 
 
 LOG = logging.getLogger(__name__)

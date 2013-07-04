@@ -27,11 +27,13 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks import views as user_views
 
-from .forms import CreateNetwork
-from .forms import UpdateNetwork
-from .ports.tables import PortsTable
-from .subnets.tables import SubnetsTable
-from .tables import NetworksTable
+from openstack_dashboard.dashboards.admin.networks.forms import CreateNetwork
+from openstack_dashboard.dashboards.admin.networks.forms import UpdateNetwork
+from openstack_dashboard.dashboards.admin.networks.ports.tables \
+    import PortsTable
+from openstack_dashboard.dashboards.admin.networks.subnets.tables \
+    import SubnetsTable
+from openstack_dashboard.dashboards.admin.networks.tables import NetworksTable
 
 
 LOG = logging.getLogger(__name__)

@@ -21,11 +21,14 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateProjectView
-from .views import CreateUserView
-from .views import IndexView
-from .views import ProjectUsageView
-from .views import UpdateProjectView
+from openstack_dashboard.dashboards.admin.projects.views \
+    import CreateProjectView
+from openstack_dashboard.dashboards.admin.projects.views import CreateUserView
+from openstack_dashboard.dashboards.admin.projects.views import IndexView
+from openstack_dashboard.dashboards.admin.projects.views \
+    import ProjectUsageView
+from openstack_dashboard.dashboards.admin.projects.views \
+    import UpdateProjectView
 
 
 urlpatterns = patterns('',

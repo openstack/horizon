@@ -17,7 +17,7 @@
 from django.conf import settings
 from horizon import forms
 
-from .forms import UserSettingsForm
+from openstack_dashboard.dashboards.settings.user.forms import UserSettingsForm
 
 
 class UserSettingsView(forms.ModalFormView):

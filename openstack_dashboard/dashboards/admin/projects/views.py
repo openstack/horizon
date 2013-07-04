@@ -33,12 +33,15 @@ from openstack_dashboard.dashboards.admin.users.views import CreateView
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas
 
-from .forms import CreateUser
-from .tables import AddUsersTable
-from .tables import TenantsTable
-from .tables import TenantUsersTable
-from .workflows import CreateProject
-from .workflows import UpdateProject
+from openstack_dashboard.dashboards.admin.projects.forms import CreateUser
+from openstack_dashboard.dashboards.admin.projects.tables import AddUsersTable
+from openstack_dashboard.dashboards.admin.projects.tables import TenantsTable
+from openstack_dashboard.dashboards.admin.projects.tables \
+    import TenantUsersTable
+from openstack_dashboard.dashboards.admin.projects.workflows \
+    import CreateProject
+from openstack_dashboard.dashboards.admin.projects.workflows \
+    import UpdateProject
 
 LOG = logging.getLogger(__name__)
 

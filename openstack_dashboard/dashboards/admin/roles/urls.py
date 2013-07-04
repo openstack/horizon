@@ -17,9 +17,9 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateView
-from .views import IndexView
-from .views import UpdateView
+from openstack_dashboard.dashboards.admin.roles.views import CreateView
+from openstack_dashboard.dashboards.admin.roles.views import IndexView
+from openstack_dashboard.dashboards.admin.roles.views import UpdateView
 
 urlpatterns = patterns('openstack_dashboard.dashboards.admin.roles.views',
     url(r'^$', IndexView.as_view(), name='index'),

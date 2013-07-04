@@ -17,11 +17,13 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateSnapshotView
-from .views import CreateView
-from .views import DetailView
-from .views import EditAttachmentsView
-from .views import IndexView
+from openstack_dashboard.dashboards.project.volumes.views \
+    import CreateSnapshotView
+from openstack_dashboard.dashboards.project.volumes.views import CreateView
+from openstack_dashboard.dashboards.project.volumes.views import DetailView
+from openstack_dashboard.dashboards.project.volumes.views \
+    import EditAttachmentsView
+from openstack_dashboard.dashboards.project.volumes.views import IndexView
 
 
 urlpatterns = patterns('openstack_dashboard.dashboards.project.volumes.views',

@@ -33,7 +33,8 @@ from horizon import forms
 
 from openstack_dashboard import api
 
-from .forms import CreateSnapshot
+from openstack_dashboard.dashboards.project.images_and_snapshots.\
+    snapshots.forms import CreateSnapshot
 
 
 LOG = logging.getLogger(__name__)

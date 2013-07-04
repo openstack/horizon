@@ -24,7 +24,8 @@ from horizon import workflows
 
 from openstack_dashboard import api
 
-from .constants import DOMAINS_INDEX_URL
+from openstack_dashboard.dashboards.admin.domains.constants \
+    import DOMAINS_INDEX_URL
 
 LOG = logging.getLogger(__name__)
 

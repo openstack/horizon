@@ -28,8 +28,9 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.networks import views as n_views
 from openstack_dashboard.dashboards.project.routers import views as r_views
 
-from .ports.tables import PortsTable
-from .tables import RoutersTable
+from openstack_dashboard.dashboards.admin.routers.ports.tables \
+    import PortsTable
+from openstack_dashboard.dashboards.admin.routers.tables import RoutersTable
 
 
 LOG = logging.getLogger(__name__)

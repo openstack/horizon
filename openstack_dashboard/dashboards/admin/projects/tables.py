@@ -9,7 +9,7 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from ..users.tables import UsersTable
+from openstack_dashboard.dashboards.admin.users.tables import UsersTable
 
 
 LOG = logging.getLogger(__name__)

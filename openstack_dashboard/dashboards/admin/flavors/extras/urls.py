@@ -21,9 +21,10 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateView
-from .views import EditView
-from .views import IndexView
+from openstack_dashboard.dashboards.admin.flavors.extras.views \
+    import CreateView
+from openstack_dashboard.dashboards.admin.flavors.extras.views import EditView
+from openstack_dashboard.dashboards.admin.flavors.extras.views import IndexView
 
 urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),

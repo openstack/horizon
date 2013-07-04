@@ -30,9 +30,10 @@ from openstack_dashboard.dashboards.project.volumes.views import \
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 
-from .forms import CreateVolumeType
-from .tables import VolumesTable
-from .tables import VolumeTypesTable
+from openstack_dashboard.dashboards.admin.volumes.forms import CreateVolumeType
+from openstack_dashboard.dashboards.admin.volumes.tables import VolumesTable
+from openstack_dashboard.dashboards.admin.volumes.tables \
+    import VolumeTypesTable
 
 from horizon import exceptions
 from horizon import forms

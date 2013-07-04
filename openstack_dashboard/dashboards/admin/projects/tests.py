@@ -28,8 +28,10 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
-from .workflows import CreateProject
-from .workflows import UpdateProject
+from openstack_dashboard.dashboards.admin.projects.workflows \
+    import CreateProject
+from openstack_dashboard.dashboards.admin.projects.workflows \
+    import UpdateProject
 
 INDEX_URL = reverse('horizon:admin:projects:index')
 

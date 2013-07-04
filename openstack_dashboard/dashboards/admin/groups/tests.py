@@ -23,13 +23,20 @@ from mox import IsA
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from .constants import GROUPS_ADD_MEMBER_URL as add_member_url
-from .constants import GROUPS_CREATE_URL as create_url
-from .constants import GROUPS_INDEX_URL as index_url
-from .constants import GROUPS_INDEX_VIEW_TEMPLATE
-from .constants import GROUPS_MANAGE_URL as manage_url
-from .constants import GROUPS_MANAGE_VIEW_TEMPLATE
-from .constants import GROUPS_UPDATE_URL as update_url
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_ADD_MEMBER_URL as add_member_url
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_CREATE_URL as create_url
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_INDEX_URL as index_url
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_INDEX_VIEW_TEMPLATE
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_MANAGE_URL as manage_url
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_MANAGE_VIEW_TEMPLATE
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_UPDATE_URL as update_url
 
 
 GROUPS_INDEX_URL = reverse(index_url)

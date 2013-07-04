@@ -28,9 +28,12 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from .forms import CreateExtraSpec
-from .forms import EditExtraSpec
-from .tables import ExtraSpecsTable
+from openstack_dashboard.dashboards.admin.flavors.extras.forms \
+    import CreateExtraSpec
+from openstack_dashboard.dashboards.admin.flavors.extras.forms \
+    import EditExtraSpec
+from openstack_dashboard.dashboards.admin.flavors.extras.tables \
+    import ExtraSpecsTable
 
 
 LOG = logging.getLogger(__name__)

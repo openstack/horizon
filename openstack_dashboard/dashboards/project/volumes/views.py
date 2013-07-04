@@ -22,9 +22,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 
-from .forms import AttachForm
-from .forms import CreateForm
-from .forms import CreateSnapshotForm
+from openstack_dashboard.dashboards.project.volumes.forms import AttachForm
+from openstack_dashboard.dashboards.project.volumes.forms import CreateForm
+from openstack_dashboard.dashboards.project.volumes.forms \
+    import CreateSnapshotForm
 
 from horizon import exceptions
 from horizon import forms
@@ -37,9 +38,11 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
 
-from .tables import AttachmentsTable
-from .tables import VolumesTable
-from .tabs import VolumeDetailTabs
+from openstack_dashboard.dashboards.project.volumes.tables \
+    import AttachmentsTable
+from openstack_dashboard.dashboards.project.volumes.tables import VolumesTable
+from openstack_dashboard.dashboards.project.volumes.tabs \
+    import VolumeDetailTabs
 
 
 LOG = logging.getLogger(__name__)

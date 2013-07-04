@@ -17,7 +17,7 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import UserSettingsView
+from openstack_dashboard.dashboards.settings.user.views import UserSettingsView
 
 
 urlpatterns = patterns('',

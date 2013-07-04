@@ -34,9 +34,11 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
-from .tables import LaunchLink
-from .tabs import InstanceDetailTabs
-from .workflows import LaunchInstance
+from openstack_dashboard.dashboards.project.instances.tables import LaunchLink
+from openstack_dashboard.dashboards.project.instances.tabs \
+    import InstanceDetailTabs
+from openstack_dashboard.dashboards.project.instances.workflows \
+    import LaunchInstance
 
 from novaclient.v1_1.servers import REBOOT_HARD
 from novaclient.v1_1.servers import REBOOT_SOFT

@@ -25,7 +25,8 @@ from mox import IsA
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from .workflows import CreateNetwork
+from openstack_dashboard.dashboards.project.networks.workflows \
+    import CreateNetwork
 
 
 INDEX_URL = reverse('horizon:project:networks:index')

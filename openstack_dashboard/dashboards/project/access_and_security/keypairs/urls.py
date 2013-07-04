@@ -21,10 +21,14 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateView
-from .views import DownloadView
-from .views import GenerateView
-from .views import ImportView
+from openstack_dashboard.dashboards.project.access_and_security.\
+    keypairs.views import CreateView
+from openstack_dashboard.dashboards.project.access_and_security.\
+    keypairs.views import DownloadView
+from openstack_dashboard.dashboards.project.access_and_security.\
+    keypairs.views import GenerateView
+from openstack_dashboard.dashboards.project.access_and_security.\
+    keypairs.views import ImportView
 
 
 urlpatterns = patterns('',

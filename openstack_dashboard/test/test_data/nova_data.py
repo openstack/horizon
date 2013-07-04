@@ -35,7 +35,7 @@ from openstack_dashboard.api.base import QuotaSet as QuotaSetWrapper
 from openstack_dashboard.api.nova import FloatingIp as NetFloatingIp
 from openstack_dashboard.usage.quotas import QuotaUsage
 
-from .utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer
 
 
 SERVER_DATA = """

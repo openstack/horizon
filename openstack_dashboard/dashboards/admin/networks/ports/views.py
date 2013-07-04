@@ -26,8 +26,10 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports \
     import views as project_views
 
-from .forms import CreatePort
-from .forms import UpdatePort
+from openstack_dashboard.dashboards.admin.networks.ports.forms \
+    import CreatePort
+from openstack_dashboard.dashboards.admin.networks.ports.forms \
+    import UpdatePort
 
 LOG = logging.getLogger(__name__)
 

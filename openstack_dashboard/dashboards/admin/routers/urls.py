@@ -17,8 +17,8 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import DetailView
-from .views import IndexView
+from openstack_dashboard.dashboards.admin.routers.views import DetailView
+from openstack_dashboard.dashboards.admin.routers.views import IndexView
 
 
 urlpatterns = patterns('horizon.dashboards.admin.routers.views',

@@ -29,9 +29,9 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from .forms import CreateFlavor
-from .forms import EditFlavor
-from .tables import FlavorsTable
+from openstack_dashboard.dashboards.admin.flavors.forms import CreateFlavor
+from openstack_dashboard.dashboards.admin.flavors.forms import EditFlavor
+from openstack_dashboard.dashboards.admin.flavors.tables import FlavorsTable
 
 
 LOG = logging.getLogger(__name__)

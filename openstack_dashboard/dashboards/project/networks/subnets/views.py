@@ -28,9 +28,12 @@ from horizon import workflows
 
 from openstack_dashboard import api
 
-from .tabs import SubnetDetailTabs
-from .workflows import CreateSubnet
-from .workflows import UpdateSubnet
+from openstack_dashboard.dashboards.project.networks.subnets.tabs \
+    import SubnetDetailTabs
+from openstack_dashboard.dashboards.project.networks.subnets.workflows \
+    import CreateSubnet
+from openstack_dashboard.dashboards.project.networks.subnets.workflows \
+    import UpdateSubnet
 
 
 LOG = logging.getLogger(__name__)

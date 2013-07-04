@@ -33,7 +33,8 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 
-from ...images_and_snapshots.utils import get_available_images
+from openstack_dashboard.dashboards.project.images_and_snapshots.utils \
+    import get_available_images
 
 
 LOG = logging.getLogger(__name__)

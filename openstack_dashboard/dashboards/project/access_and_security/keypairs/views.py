@@ -36,8 +36,10 @@ from horizon import forms
 
 from openstack_dashboard import api
 
-from .forms import CreateKeypair
-from .forms import ImportKeypair
+from openstack_dashboard.dashboards.project.access_and_security.\
+    keypairs.forms import CreateKeypair
+from openstack_dashboard.dashboards.project.access_and_security.\
+    keypairs.forms import ImportKeypair
 
 
 LOG = logging.getLogger(__name__)

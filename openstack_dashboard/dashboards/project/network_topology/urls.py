@@ -22,8 +22,10 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import JSONView
-from .views import NetworkTopology
+from openstack_dashboard.dashboards.project.network_topology.views \
+    import JSONView
+from openstack_dashboard.dashboards.project.network_topology.views \
+    import NetworkTopology
 
 
 urlpatterns = patterns(

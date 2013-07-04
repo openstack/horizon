@@ -18,18 +18,24 @@ from django.conf.urls.defaults import include
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateView
-from .views import DetailView
-from .views import IndexView
-from .views import UpdateView
+from openstack_dashboard.dashboards.admin.networks.views import CreateView
+from openstack_dashboard.dashboards.admin.networks.views import DetailView
+from openstack_dashboard.dashboards.admin.networks.views import IndexView
+from openstack_dashboard.dashboards.admin.networks.views import UpdateView
 
-from .subnets import urls as subnet_urls
-from .subnets.views import CreateView as AddSubnetView
-from .subnets.views import UpdateView as EditSubnetView
+from openstack_dashboard.dashboards.admin.networks.subnets \
+    import urls as subnet_urls
+from openstack_dashboard.dashboards.admin.networks.subnets.views \
+    import CreateView as AddSubnetView
+from openstack_dashboard.dashboards.admin.networks.subnets.views \
+    import UpdateView as EditSubnetView
 
-from .ports import urls as port_urls
-from .ports.views import CreateView as AddPortView
-from .ports.views import UpdateView as EditPortView
+from openstack_dashboard.dashboards.admin.networks.ports \
+    import urls as port_urls
+from openstack_dashboard.dashboards.admin.networks.ports.views \
+    import CreateView as AddPortView
+from openstack_dashboard.dashboards.admin.networks.ports.views \
+    import UpdateView as EditPortView
 
 
 NETWORKS = r'^(?P<network_id>[^/]+)/%s$'

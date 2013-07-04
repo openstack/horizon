@@ -14,8 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from .base import ResourceBrowser
-from .views import ResourceBrowserView
+from horizon.browsers.base import ResourceBrowser
+from horizon.browsers.views import ResourceBrowserView
 
 assert ResourceBrowser
 assert ResourceBrowserView

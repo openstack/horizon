@@ -29,8 +29,10 @@ from mox import IsA
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from .tables import RulesTable
-from .tables import SecurityGroupsTable
+from openstack_dashboard.dashboards.project.access_and_security.\
+    security_groups.tables import RulesTable
+from openstack_dashboard.dashboards.project.access_and_security.\
+    security_groups.tables import SecurityGroupsTable
 
 
 INDEX_URL = reverse('horizon:project:access_and_security:index')

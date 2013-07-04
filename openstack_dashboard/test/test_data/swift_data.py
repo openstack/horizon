@@ -14,7 +14,7 @@
 
 from openstack_dashboard.api import swift
 
-from .utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer
 
 
 def data(TEST):

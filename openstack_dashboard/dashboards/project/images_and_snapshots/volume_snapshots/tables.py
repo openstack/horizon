@@ -26,7 +26,8 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 
-from ...volumes import tables as volume_tables
+from openstack_dashboard.dashboards.project.volumes \
+    import tables as volume_tables
 
 
 LOG = logging.getLogger(__name__)

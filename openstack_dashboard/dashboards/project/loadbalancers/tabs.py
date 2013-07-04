@@ -22,9 +22,12 @@ from horizon import tabs
 
 from openstack_dashboard import api
 
-from .tables import MembersTable
-from .tables import MonitorsTable
-from .tables import PoolsTable
+from openstack_dashboard.dashboards.project.loadbalancers.tables \
+    import MembersTable
+from openstack_dashboard.dashboards.project.loadbalancers.tables \
+    import MonitorsTable
+from openstack_dashboard.dashboards.project.loadbalancers.tables \
+    import PoolsTable
 
 
 class PoolsTab(tabs.TableTab):

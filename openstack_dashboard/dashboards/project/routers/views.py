@@ -29,9 +29,10 @@ from horizon import forms
 from horizon import tables
 from openstack_dashboard import api
 
-from .forms import CreateForm
-from .ports.tables import PortsTable
-from .tables import RoutersTable
+from openstack_dashboard.dashboards.project.routers.forms import CreateForm
+from openstack_dashboard.dashboards.project.routers.ports.tables \
+    import PortsTable
+from openstack_dashboard.dashboards.project.routers.tables import RoutersTable
 
 
 LOG = logging.getLogger(__name__)

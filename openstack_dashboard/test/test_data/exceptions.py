@@ -19,7 +19,7 @@ from neutronclient.common import exceptions as neutron_exceptions
 from novaclient import exceptions as nova_exceptions
 from swiftclient import client as swift_exceptions
 
-from .utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer
 
 
 def create_stubbed_exception(cls, status_code=500):

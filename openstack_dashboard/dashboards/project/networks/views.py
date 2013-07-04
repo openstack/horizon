@@ -29,11 +29,15 @@ from horizon import workflows
 
 from openstack_dashboard import api
 
-from .forms import UpdateNetwork
-from .ports.tables import PortsTable
-from .subnets.tables import SubnetsTable
-from .tables import NetworksTable
-from .workflows import CreateNetwork
+from openstack_dashboard.dashboards.project.networks.forms import UpdateNetwork
+from openstack_dashboard.dashboards.project.networks.ports.tables \
+    import PortsTable
+from openstack_dashboard.dashboards.project.networks.subnets.tables \
+    import SubnetsTable
+from openstack_dashboard.dashboards.project.networks.tables \
+    import NetworksTable
+from openstack_dashboard.dashboards.project.networks.workflows \
+    import CreateNetwork
 
 
 LOG = logging.getLogger(__name__)

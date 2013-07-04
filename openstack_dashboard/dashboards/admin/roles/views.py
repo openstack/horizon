@@ -24,9 +24,9 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from .forms import CreateRoleForm
-from .forms import UpdateRoleForm
-from .tables import RolesTable
+from openstack_dashboard.dashboards.admin.roles.forms import CreateRoleForm
+from openstack_dashboard.dashboards.admin.roles.forms import UpdateRoleForm
+from openstack_dashboard.dashboards.admin.roles.tables import RolesTable
 
 
 class IndexView(tables.DataTableView):

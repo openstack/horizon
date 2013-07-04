@@ -17,7 +17,8 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import AdminIndexView
+from openstack_dashboard.dashboards.admin.hypervisors.views \
+    import AdminIndexView
 
 
 urlpatterns = patterns(

@@ -26,11 +26,12 @@ from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import api
 
-from .forms import StackCreateForm
-from .forms import TemplateForm
-from .tables import StacksTable
-from .tabs import ResourceDetailTabs
-from .tabs import StackDetailTabs
+from openstack_dashboard.dashboards.project.stacks.forms import StackCreateForm
+from openstack_dashboard.dashboards.project.stacks.forms import TemplateForm
+from openstack_dashboard.dashboards.project.stacks.tables import StacksTable
+from openstack_dashboard.dashboards.project.stacks.tabs \
+    import ResourceDetailTabs
+from openstack_dashboard.dashboards.project.stacks.tabs import StackDetailTabs
 
 
 LOG = logging.getLogger(__name__)

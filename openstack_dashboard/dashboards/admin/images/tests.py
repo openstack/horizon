@@ -24,7 +24,7 @@ from mox import IsA
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from .tables import AdminImagesTable
+from openstack_dashboard.dashboards.admin.images.tables import AdminImagesTable
 
 
 class ImageCreateViewTest(test.BaseAdminViewTests):

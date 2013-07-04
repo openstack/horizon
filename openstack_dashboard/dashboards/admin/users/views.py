@@ -32,9 +32,9 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from .forms import CreateUserForm
-from .forms import UpdateUserForm
-from .tables import UsersTable
+from openstack_dashboard.dashboards.admin.users.forms import CreateUserForm
+from openstack_dashboard.dashboards.admin.users.forms import UpdateUserForm
+from openstack_dashboard.dashboards.admin.users.tables import UsersTable
 
 
 class IndexView(tables.DataTableView):

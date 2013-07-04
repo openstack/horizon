@@ -15,7 +15,7 @@
 from heatclient.v1.stacks import Stack
 from heatclient.v1.stacks import StackManager
 
-from .utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer
 
 
 # A slightly hacked up copy of a sample cloudformation template for testing.

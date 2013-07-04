@@ -22,7 +22,7 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import GlobalOverview
+from openstack_dashboard.dashboards.admin.overview.views import GlobalOverview
 
 
 urlpatterns = patterns('',

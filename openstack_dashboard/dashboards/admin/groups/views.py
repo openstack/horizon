@@ -24,18 +24,27 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from .constants import GROUPS_ADD_MEMBER_AJAX_VIEW_TEMPLATE
-from .constants import GROUPS_ADD_MEMBER_VIEW_TEMPLATE
-from .constants import GROUPS_CREATE_VIEW_TEMPLATE
-from .constants import GROUPS_INDEX_URL
-from .constants import GROUPS_INDEX_VIEW_TEMPLATE
-from .constants import GROUPS_MANAGE_VIEW_TEMPLATE
-from .constants import GROUPS_UPDATE_VIEW_TEMPLATE
-from .forms import CreateGroupForm
-from .forms import UpdateGroupForm
-from .tables import GroupMembersTable
-from .tables import GroupNonMembersTable
-from .tables import GroupsTable
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_ADD_MEMBER_AJAX_VIEW_TEMPLATE
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_ADD_MEMBER_VIEW_TEMPLATE
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_CREATE_VIEW_TEMPLATE
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_INDEX_URL
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_INDEX_VIEW_TEMPLATE
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_MANAGE_VIEW_TEMPLATE
+from openstack_dashboard.dashboards.admin.groups.constants \
+    import GROUPS_UPDATE_VIEW_TEMPLATE
+from openstack_dashboard.dashboards.admin.groups.forms import CreateGroupForm
+from openstack_dashboard.dashboards.admin.groups.forms import UpdateGroupForm
+from openstack_dashboard.dashboards.admin.groups.tables \
+    import GroupMembersTable
+from openstack_dashboard.dashboards.admin.groups.tables \
+    import GroupNonMembersTable
+from openstack_dashboard.dashboards.admin.groups.tables import GroupsTable
 
 
 class IndexView(tables.DataTableView):

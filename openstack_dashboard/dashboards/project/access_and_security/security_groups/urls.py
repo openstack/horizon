@@ -21,9 +21,12 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import AddRuleView
-from .views import CreateView
-from .views import DetailView
+from openstack_dashboard.dashboards.project.access_and_security.\
+    security_groups.views import AddRuleView
+from openstack_dashboard.dashboards.project.access_and_security.\
+    security_groups.views import CreateView
+from openstack_dashboard.dashboards.project.access_and_security.\
+    security_groups.views import DetailView
 
 
 urlpatterns = patterns('',

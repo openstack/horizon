@@ -20,11 +20,13 @@ from horizon.utils.fields import SelectWidget
 from horizon.utils.functions import bytes_to_gigabytes
 from horizon.utils.memoized import memoized
 
-from ..images_and_snapshots.utils import get_available_images
-from ..instances.tables import ACTIVE_STATES
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import glance
+from openstack_dashboard.dashboards.project.images_and_snapshots.utils \
+    import get_available_images
+from openstack_dashboard.dashboards.project.instances.tables \
+    import ACTIVE_STATES
 
 
 class CreateForm(forms.SelfHandlingForm):

@@ -18,7 +18,8 @@ import logging
 
 from horizon import tabs
 
-from .tabs import PortDetailTabs
+from openstack_dashboard.dashboards.admin.routers.ports.tabs \
+    import PortDetailTabs
 
 
 LOG = logging.getLogger(__name__)

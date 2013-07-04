@@ -21,8 +21,10 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import AllocateView
-from .views import AssociateView
+from openstack_dashboard.dashboards.project.access_and_security.\
+    floating_ips.views import AllocateView
+from openstack_dashboard.dashboards.project.access_and_security.\
+    floating_ips.views import AssociateView
 
 
 urlpatterns = patterns('',

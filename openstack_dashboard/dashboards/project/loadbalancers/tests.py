@@ -15,12 +15,18 @@ from openstack_dashboard.api.lbaas import PoolMonitor
 from openstack_dashboard.api.lbaas import Vip
 from openstack_dashboard.test import helpers as test
 
-from .workflows import AddMember
-from .workflows import AddMonitor
-from .workflows import AddPMAssociation
-from .workflows import AddPool
-from .workflows import AddVip
-from .workflows import DeletePMAssociation
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddMember
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddMonitor
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddPMAssociation
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddPool
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddVip
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import DeletePMAssociation
 
 
 class LoadBalancerTests(test.TestCase):

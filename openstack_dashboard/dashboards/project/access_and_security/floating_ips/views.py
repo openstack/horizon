@@ -33,8 +33,10 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.usage import quotas
 
-from .forms import FloatingIpAllocate
-from .workflows import IPAssociationWorkflow
+from openstack_dashboard.dashboards.project.access_and_security.\
+    floating_ips.forms import FloatingIpAllocate
+from openstack_dashboard.dashboards.project.access_and_security.\
+    floating_ips.workflows import IPAssociationWorkflow
 
 
 class AssociateView(workflows.WorkflowView):

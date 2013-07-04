@@ -34,9 +34,12 @@ from horizon import tabs
 from openstack_dashboard import api
 from openstack_dashboard.api.base import is_service_enabled
 
-from .images.tables import ImagesTable
-from .volume_snapshots.tables import VolumeSnapshotsTable
-from .volume_snapshots.tabs import SnapshotDetailTabs
+from openstack_dashboard.dashboards.project.images_and_snapshots.\
+    images.tables import ImagesTable
+from openstack_dashboard.dashboards.project.images_and_snapshots.\
+    volume_snapshots.tables import VolumeSnapshotsTable
+from openstack_dashboard.dashboards.project.images_and_snapshots.\
+    volume_snapshots.tabs import SnapshotDetailTabs
 
 LOG = logging.getLogger(__name__)
 

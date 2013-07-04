@@ -34,9 +34,12 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.utils.filters import get_int_or_uuid
 
-from .forms import AddRule
-from .forms import CreateGroup
-from .tables import RulesTable
+from openstack_dashboard.dashboards.project.access_and_security.\
+    security_groups.forms import AddRule
+from openstack_dashboard.dashboards.project.access_and_security.\
+    security_groups.forms import CreateGroup
+from openstack_dashboard.dashboards.project.access_and_security.\
+    security_groups.tables import RulesTable
 
 
 LOG = logging.getLogger(__name__)

@@ -34,9 +34,12 @@ from horizon import tabs
 
 from openstack_dashboard import api
 
-from .forms import CreateImageForm
-from .forms import UpdateImageForm
-from .tabs import ImageDetailTabs
+from openstack_dashboard.dashboards.project.images_and_snapshots.images.forms \
+    import CreateImageForm
+from openstack_dashboard.dashboards.project.images_and_snapshots.images.forms \
+    import UpdateImageForm
+from openstack_dashboard.dashboards.project.images_and_snapshots.images.tabs \
+    import ImageDetailTabs
 
 
 LOG = logging.getLogger(__name__)

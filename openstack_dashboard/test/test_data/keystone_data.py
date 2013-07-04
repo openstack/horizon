@@ -26,7 +26,7 @@ from keystoneclient.v3 import domains
 from keystoneclient.v3 import groups
 
 
-from .utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer
 
 
 # Dummy service catalog with all service.

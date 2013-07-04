@@ -17,11 +17,11 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateView
-from .views import IndexView
-from .views import ManageMembersView
-from .views import NonMembersView
-from .views import UpdateView
+from openstack_dashboard.dashboards.admin.groups.views import CreateView
+from openstack_dashboard.dashboards.admin.groups.views import IndexView
+from openstack_dashboard.dashboards.admin.groups.views import ManageMembersView
+from openstack_dashboard.dashboards.admin.groups.views import NonMembersView
+from openstack_dashboard.dashboards.admin.groups.views import UpdateView
 
 
 urlpatterns = patterns('',

@@ -20,8 +20,8 @@ from horizon import messages
 from horizon import tabs
 from openstack_dashboard import api
 
-from .tables import EventsTable
-from .tables import ResourcesTable
+from openstack_dashboard.dashboards.project.stacks.tables import EventsTable
+from openstack_dashboard.dashboards.project.stacks.tables import ResourcesTable
 
 
 LOG = logging.getLogger(__name__)

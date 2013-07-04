@@ -28,7 +28,7 @@ from openstack_dashboard.api.neutron import SecurityGroup
 from openstack_dashboard.api.neutron import SecurityGroupRule
 from openstack_dashboard.api.neutron import Subnet
 
-from .utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer
 
 
 def data(TEST):

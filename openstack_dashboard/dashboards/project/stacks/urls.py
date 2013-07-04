@@ -15,11 +15,12 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateStackView
-from .views import DetailView
-from .views import IndexView
-from .views import ResourceView
-from .views import SelectTemplateView
+from openstack_dashboard.dashboards.project.stacks.views import CreateStackView
+from openstack_dashboard.dashboards.project.stacks.views import DetailView
+from openstack_dashboard.dashboards.project.stacks.views import IndexView
+from openstack_dashboard.dashboards.project.stacks.views import ResourceView
+from openstack_dashboard.dashboards.project.stacks.views \
+    import SelectTemplateView
 
 urlpatterns = patterns(
     '',

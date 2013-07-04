@@ -24,9 +24,12 @@ from horizon import tabs
 
 from openstack_dashboard import api
 
-from .forms import AddInterface
-from .forms import SetGatewayForm
-from .tabs import PortDetailTabs
+from openstack_dashboard.dashboards.project.routers.ports.forms \
+    import AddInterface
+from openstack_dashboard.dashboards.project.routers.ports.forms \
+    import SetGatewayForm
+from openstack_dashboard.dashboards.project.routers.ports.tabs \
+    import PortDetailTabs
 
 
 LOG = logging.getLogger(__name__)

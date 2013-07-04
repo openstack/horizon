@@ -17,9 +17,9 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateDomainView
-from .views import IndexView
-from .views import UpdateDomainView
+from openstack_dashboard.dashboards.admin.domains.views import CreateDomainView
+from openstack_dashboard.dashboards.admin.domains.views import IndexView
+from openstack_dashboard.dashboards.admin.domains.views import UpdateDomainView
 
 
 urlpatterns = patterns('',

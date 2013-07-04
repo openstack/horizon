@@ -21,10 +21,10 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
-from .views import CreateView
-from .views import DetailView
-from .views import IndexView
-from .views import UpdateView
+from openstack_dashboard.dashboards.admin.images.views import CreateView
+from openstack_dashboard.dashboards.admin.images.views import DetailView
+from openstack_dashboard.dashboards.admin.images.views import IndexView
+from openstack_dashboard.dashboards.admin.images.views import UpdateView
 
 
 urlpatterns = patterns('openstack_dashboard.dashboards.admin.images.views',
