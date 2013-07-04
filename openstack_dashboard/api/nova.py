@@ -575,6 +575,10 @@ def instance_volumes_list(request, instance_id):
     return volumes
 
 
+def hypervisor_list(request):
+    return novaclient(request).hypervisors.list()
+
+
 def tenant_absolute_limits(request, reserved=False):
     limits = novaclient(request).limits.get(reserved=reserved).absolute
     limits_dict = {}

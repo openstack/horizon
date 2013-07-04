@@ -19,6 +19,7 @@ from novaclient.v1_1 import availability_zones
 from novaclient.v1_1 import certs
 from novaclient.v1_1 import flavors
 from novaclient.v1_1 import floating_ips
+from novaclient.v1_1 import hypervisors
 from novaclient.v1_1 import keypairs
 from novaclient.v1_1 import quotas
 from novaclient.v1_1 import security_group_rules as rules
@@ -162,6 +163,7 @@ def data(TEST):
     TEST.volume_snapshots = TestDataContainer()
     TEST.volume_types = TestDataContainer()
     TEST.availability_zones = TestDataContainer()
+    TEST.hypervisors = TestDataContainer()
 
     # Data return by novaclient.
     # It is used if API layer does data conversion.
@@ -483,3 +485,30 @@ def data(TEST):
             {'zoneName': 'nova', 'zoneState': {'available': True}}
         )
     )
+
+    # hypervisors
+    hypervisor_1 = hypervisors.Hypervisor(hypervisors.HypervisorManager(None),
+        {
+            "service": {"host": "devstack001", "id": 3},
+            "vcpus_used": 1,
+            "hypervisor_type": "QEMU",
+            "local_gb_used": 20,
+            "hypervisor_hostname": "devstack001",
+            "memory_mb_used": 1500,
+            "memory_mb": 2000,
+            "current_workload": 0,
+            "vcpus": 1,
+            "cpu_info": '{"vendor": "Intel", "model": "core2duo",'
+                        '"arch": "x86_64", "features": ["lahf_lm"'
+                        ', "rdtscp"], "topology": {"cores": 1, "t'
+                        'hreads": 1, "sockets": 1}}',
+            "running_vms": 1,
+            "free_disk_gb": 9,
+            "hypervisor_version": 1002000,
+            "disk_available_least": 6,
+            "local_gb": 29,
+            "free_ram_mb": 500,
+            "id": 1
+        }
+    )
+    TEST.hypervisors.add(hypervisor_1)
