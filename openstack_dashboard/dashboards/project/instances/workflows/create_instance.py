@@ -441,7 +441,7 @@ class SetNetworkAction(workflows.Action):
                                                 "At least one network must"
                                                 " be specified.")},
                                         help_text=_("Launch instance with"
-                                                    "these networks"))
+                                                    " these networks"))
 
     class Meta:
         name = _("Networking")

@@ -4,8 +4,6 @@ horizon.projects = {
   current_membership: [],
   users: [],
   roles: [],
-  networks_selected: [],
-  networks_available: [],
   has_roles: true,
   default_role_id: "",
 
@@ -31,15 +29,6 @@ horizon.projects = {
    **/
   get_user_element: function(user_id) {
       return $('li[data-user-id$=' + user_id + ']').parent();
-  },
-
-  /*
-
-   * Gets the html select element associated with a given
-   * network id for network_id.
-   **/
-  get_network_element: function(network_id) {
-      return $('li > label[for^="id_network_' + network_id + '"]');
   },
 
   /*
@@ -101,28 +90,6 @@ horizon.projects = {
     });
   },
 
-  /*
-   * Initializes an associative array of lists of the current
-   * networks.
-   **/
-  init_network_list: function() {
-    horizon.projects.networks_selected = [];
-    horizon.projects.networks_available = [];
-    $(this.get_network_element("")).each(function(){
-      var $this = $(this);
-      var $input = $this.children("input");
-      var network_property = {
-        name:$this.text().replace(/^\s+/,""),
-        id:$input.attr("id"),
-        value:$input.attr("value")
-      };
-      if($input.is(':checked')) {
-        horizon.projects.networks_selected.push(network_property);
-      } else {
-        horizon.projects.networks_available.push(network_property);
-      }
-    });
-  },
   /*
    * Returns the ids of roles the user is a member of.
    **/
@@ -245,16 +212,6 @@ horizon.projects = {
     return $(user_el);
   },
 
- /*
-   * Generates the HTML structure for a network that will be displayed
-   * as a list item in the project network list.
-   **/
-  generate_network_element: function(name, id, value) {
-    var $li = $('<li>');
-    $li.attr('name', value).html(name + '<em class="network_id">(' + value + ')</em><a href="#" class="btn btn-primary"></a>');
-    return $li;
-  },
-
   /*
   * Generates the HTML structure for the project membership UI.
   **/
@@ -273,76 +230,6 @@ horizon.projects = {
     }
     horizon.projects.detect_no_results();
   },
-
-  /*
-  * Generates the HTML structure for the project Network List.
-  **/
-  generate_networklist_html: function() {
-    var self = this;
-    var updateForm = function() {
-      var lists = $("#networkListId div.input li").attr('data-index',100);
-      var active_networks = $("#selected_network > li").map(function(){
-        return $(this).attr("name");
-      });
-      $("#networkListId div.input input:checkbox").removeAttr('checked');
-      active_networks.each(function(index, value){
-        $("#networkListId div.input input:checkbox[value=" + value + "]")
-        .attr('checked','checked')
-        .parents("li").attr('data-index',index);
-      });
-      $("#networkListId div.input ul").html(
-        lists.sort(function(a,b){
-          if( $(a).data("index") < $(b).data("index")) return -1;
-          if( $(a).data("index") > $(b).data("index")) return 1;
-          return 0;
-        })
-      );
-    };
-    $("#networkListSortContainer").show();
-    $("#networkListIdContainer").hide();
-    self.init_network_list();
-    // Make sure we don't duplicate the networks in the list
-    $("#available_network").empty();
-    $.each(self.networks_available, function(index, value){
-      $("#available_network").append(self.generate_network_element(value.name, value.id, value.value));
-    });
-    // Make sure we don't duplicate the networks in the list
-    $("#selected_network").empty();
-    $.each(self.networks_selected, function(index, value){
-      $("#selected_network").append(self.generate_network_element(value.name, value.id, value.value));
-    });
-    // $(".networklist > li").click(function(){
-    //   $(this).toggleClass("ui-selected");
-    // });
-    $(".networklist > li > a.btn").click(function(e){
-      var $this = $(this);
-      e.preventDefault();
-      e.stopPropagation();
-      if($this.parents("ul#available_network").length > 0) {
-        $this.parent().appendTo($("#selected_network"));
-      } else if ($this.parents("ul#selected_network").length > 0) {
-        $this.parent().appendTo($("#available_network"));
-      }
-      updateForm();
-    });
-    if ($("#networkListId > div.control-group.error").length > 0) {
-      var errortext = $("#networkListId > div.control-group.error").find("span.help-inline").text();
-      $("#selected_network_h4").before($('<div class="dynamic-error">').html(errortext));
-    }
-    $(".networklist").sortable({
-        connectWith: "ul.networklist",
-        placeholder: "ui-state-highlight",
-        distance: 5,
-        start:function(e,info){
-          $("#selected_network").addClass("dragging");
-        },
-        stop:function(e,info){
-          $("#selected_network").removeClass("dragging");
-          updateForm();
-        }
-    }).disableSelection();
-  },
-
 
   /*
   * Triggers on click of link to add/remove member from the project.
@@ -534,8 +421,6 @@ horizon.projects = {
    * Calls set-up functions upon loading the workflow.
    **/
   workflow_init: function(modal) {
-    horizon.projects.generate_networklist_html();
-
     // fix the dropdown menu overflow issues
     $(".tab-content, .workflow").addClass("dropdown_fix");
 
@@ -587,8 +472,3 @@ horizon.projects = {
     });
   }
 };
-
-
-horizon.addInitFunction(function() {
-  horizon.modals.addModalInitFunction(horizon.projects.workflow_init);
-});
