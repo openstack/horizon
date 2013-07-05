@@ -16,6 +16,7 @@ import copy
 import uuid
 
 from openstack_dashboard.api import base
+from openstack_dashboard.api import fwaas
 from openstack_dashboard.api import lbaas
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import vpn
@@ -46,6 +47,9 @@ def data(TEST):
     TEST.ikepolicies = utils.TestDataContainer()
     TEST.ipsecpolicies = utils.TestDataContainer()
     TEST.ipsecsiteconnections = utils.TestDataContainer()
+    TEST.firewalls = utils.TestDataContainer()
+    TEST.fw_policies = utils.TestDataContainer()
+    TEST.fw_rules = utils.TestDataContainer()
 
     # data return by neutronclient
     TEST.api_agents = utils.TestDataContainer()
@@ -69,6 +73,9 @@ def data(TEST):
     TEST.api_ikepolicies = utils.TestDataContainer()
     TEST.api_ipsecpolicies = utils.TestDataContainer()
     TEST.api_ipsecsiteconnections = utils.TestDataContainer()
+    TEST.api_firewalls = utils.TestDataContainer()
+    TEST.api_fw_policies = utils.TestDataContainer()
+    TEST.api_fw_rules = utils.TestDataContainer()
 
     #------------------------------------------------------------
     # 1st network
@@ -703,3 +710,83 @@ def data(TEST):
     TEST.api_ipsecsiteconnections.add(ipsecsiteconnection_dict)
     TEST.ipsecsiteconnections.add(
         vpn.IPSecSiteConnection(ipsecsiteconnection_dict))
+
+    # FWaaS
+
+    # 1st rule
+    rule1_dict = {'id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
+                  'tenant_id': '1',
+                  'name': 'rule1',
+                  'description': 'rule1 description',
+                  'protocol': 'tcp',
+                  'action': 'allow',
+                  'source_ip_address': '1.2.3.0/24',
+                  'source_port': '80',
+                  'destination_ip_address': '4.5.6.7/32',
+                  'destination_port': '1:65535',
+                  'firewall_policy_id': 'abcdef-c3eb-4fee-9763-12de3338041e',
+                  'position': 1,
+                  'shared': True,
+                  'enabled': True}
+    TEST.api_fw_rules.add(rule1_dict)
+    TEST.fw_rules.add(fwaas.Rule(rule1_dict))
+
+    # 2nd rule
+    rule2_dict = {'id': 'g0881d38-c3eb-4fee-9763-12de3338041d',
+                  'tenant_id': '1',
+                  'name': 'rule2',
+                  'description': 'rule2 description',
+                  'protocol': 'udp',
+                  'action': 'deny',
+                  'source_ip_address': '1.2.3.0/24',
+                  'source_port': '80',
+                  'destination_ip_address': '4.5.6.7/32',
+                  'destination_port': '1:65535',
+                  'firewall_policy_id': 'abcdef-c3eb-4fee-9763-12de3338041e',
+                  'position': 2,
+                  'shared': True,
+                  'enabled': True}
+    TEST.api_fw_rules.add(rule2_dict)
+    TEST.fw_rules.add(fwaas.Rule(rule2_dict))
+
+    # 3rd rule
+    rule3_dict = {'id': 'h0881d38-c3eb-4fee-9763-12de3338041d',
+                  'tenant_id': '1',
+                  'name': 'rule3',
+                  'description': 'rule3 description',
+                  'protocol': 'icmp',
+                  'action': 'allow',
+                  'source_ip_address': '1.2.3.0/24',
+                  'source_port': '80',
+                  'destination_ip_address': '4.5.6.7/32',
+                  'destination_port': '1:65535',
+                  'firewall_policy_id': None,
+                  'position': None,
+                  'shared': True,
+                  'enabled': True}
+    TEST.api_fw_rules.add(rule3_dict)
+    TEST.fw_rules.add(fwaas.Rule(rule3_dict))
+
+    # 1st policy
+    policy_dict = {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
+                   'tenant_id': '1',
+                   'name': 'policy1',
+                   'description': 'policy description',
+                   'firewall_rules': [rule1_dict['id'], rule2_dict['id']],
+                   'audited': True,
+                   'shared': True}
+    TEST.api_fw_policies.add(policy_dict)
+    TEST.fw_policies.add(fwaas.Policy(policy_dict))
+
+    # 1st firewall
+    firewall_dict = {'id': '8913dde8-4915-4b90-8d3e-b95eeedb0d49',
+                     'tenant_id': '1',
+                     'firewall_policy_id':
+                         'abcdef-c3eb-4fee-9763-12de3338041e',
+                     'name': 'firewall1',
+                     'description': 'firewall description',
+                     'status': 'PENDING_CREATE',
+                     'shared': True,
+                     'admin_state_up': True}
+    TEST.api_firewalls.add(firewall_dict)
+    TEST.firewalls.add(fwaas.Firewall(firewall_dict))

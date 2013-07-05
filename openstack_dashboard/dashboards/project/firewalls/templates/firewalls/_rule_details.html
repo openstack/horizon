@@ -1,0 +1,52 @@
+{% load i18n sizeformat parse_date %}
+{% load url from future %}
+
+<div class="info row-fluid detail">
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ rule.name|default:_("None") }}</dd>
+
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ rule.description|default:_("None") }}</dd>
+
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ rule.id }}</dd>
+
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ rule.tenant_id }}</dd>
+
+    <dt>{% trans "Action" %}</dt>
+    <dd>{{ rule.action }}</dd>
+
+    <dt>{% trans "Protocol" %}</dt>
+    <dd>{{ rule.protocol }}</dd>
+
+    <dt>{% trans "Source IP Address" %}</dt>
+    <dd>{{ rule.source_ip_address }}</dd>
+
+    <dt>{% trans "Source Port" %}</dt>
+    <dd>{{ rule.source_port }}</dd>
+
+    <dt>{% trans "Destination IP Address" %}</dt>
+    <dd>{{ rule.destination_ip_address }}</dd>
+
+    <dt>{% trans "Destination Port: "%}</dt>
+    <dd>{{ rule.destination_port }}</dd>
+
+    <dt>{% trans "Used in Policy" %}</dt>
+    <dd>
+      {% url 'horizon:project:firewalls:policydetails' rule.firewall_policy_id as policy_url%}
+      <a href="{{ policy_url }}">{{ rule.firewall_policy_id }}</a>
+    </dd>
+
+    <dt>{% trans "Position in Policy" %}</dt>
+    <dd>{{ rule.position }}</dd>
+
+    <dt>{% trans "Shared" %}</dt>
+    <dd>{{ rule.shared }}</dd>
+
+    <dt>{% trans "Enabled" %}</dt>
+    <dd>{{ rule.enabled }}</dd>
+  </dl>
+</div>

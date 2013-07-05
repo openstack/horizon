@@ -97,6 +97,7 @@ OPENSTACK_KEYSTONE_BACKEND = {
 
 OPENSTACK_NEUTRON_NETWORK = {
     'enable_lb': True,
+    'enable_firewall': True,
     'enable_quotas': False,  # Enabled in specific tests only
     'enable_vpn': True
 }

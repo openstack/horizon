@@ -36,3 +36,16 @@ def password_validator():
 
 def password_validator_msg():
     return conf.HORIZON_CONFIG["password_validator"]["help_text"]
+
+
+def validate_port_or_colon_separated_port_range(port_range):
+    """accepts a port number or a single-colon separated range"""
+    if port_range.count(':') > 1:
+        raise ValidationError("One colon allowed in port range")
+    ports = port_range.split(':')
+    for port in ports:
+        try:
+            if int(port) not in range(-1, 65536):
+                raise ValidationError("Not a valid port number")
+        except ValueError:
+            raise ValidationError("Port number must be integer")

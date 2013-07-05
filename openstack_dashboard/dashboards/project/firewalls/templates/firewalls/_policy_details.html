@@ -1,0 +1,27 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="info row-fluid detail">
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ policy.name|default:_("None") }}</dd>
+
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ policy.description|default:_("None") }}</dd>
+
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ policy.id }}</dd>
+
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ policy.tenant_id }}</dd>
+
+    <dt>{% trans "Rules" %}</dt>
+    <dd>{{ policy.firewall_rules }}</dd>
+
+    <dt>{% trans "Shared" %}</dt>
+    <dd>{{ policy.shared }}</dd>
+
+    <dt>{% trans "Audited" %}</dt>
+    <dd>{{ policy.audited }}</dd>
+  </dl>
+</div>
