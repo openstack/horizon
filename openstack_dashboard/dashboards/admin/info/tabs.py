@@ -20,8 +20,10 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard.api import keystone
+from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
 
+from openstack_dashboard.dashboards.admin.info.tables import NovaServicesTable
 from openstack_dashboard.dashboards.admin.info.tables import QuotasTable
 from openstack_dashboard.dashboards.admin.info.tables import ServicesTable
 
@@ -59,7 +61,25 @@ class ServicesTab(tabs.TableTab):
         return services
 
 
+class NovaServicesTab(tabs.TableTab):
+    table_classes = (NovaServicesTable,)
+    name = _("Compute Services")
+    slug = "nova_services"
+    template_name = ("horizon/common/_detail_table.html")
+
+    def get_nova_services_data(self):
+        try:
+            services = nova.service_list(self.tab_group.request)
+        except Exception:
+            services = []
+            msg = _('Unable to get nova services list.')
+            exceptions.check_message(["Connection", "refused"], msg)
+            raise
+
+        return services
+
+
 class SystemInfoTabs(tabs.TabGroup):
     slug = "system_info"
-    tabs = (ServicesTab, DefaultQuotasTab,)
+    tabs = (ServicesTab, NovaServicesTab, DefaultQuotasTab,)
     sticky = True

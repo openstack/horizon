@@ -25,6 +25,7 @@ INDEX_URL = reverse('horizon:admin:info:index')
 
 
 class ServicesViewTests(test.BaseAdminViewTests):
+    @test.create_stubs({api.nova: ('service_list',)})
     def test_index(self):
         self.mox.StubOutWithMock(api.nova, 'default_quota_get')
         self.mox.StubOutWithMock(api.cinder, 'default_quota_get')
@@ -32,6 +33,8 @@ class ServicesViewTests(test.BaseAdminViewTests):
                                    self.tenant.id).AndReturn(self.quotas.nova)
         api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id) \
                 .AndReturn(self.cinder_quotas.first())
+        services = self.services.list()
+        api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
 
         self.mox.ReplayAll()
 

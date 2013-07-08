@@ -616,3 +616,7 @@ def tenant_absolute_limits(request, reserved=False):
 
 def availability_zone_list(request, detailed=False):
     return novaclient(request).availability_zones.list(detailed=detailed)
+
+
+def service_list(request):
+    return novaclient(request).services.list()

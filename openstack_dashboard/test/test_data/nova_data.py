@@ -25,6 +25,7 @@ from novaclient.v1_1 import quotas
 from novaclient.v1_1 import security_group_rules as rules
 from novaclient.v1_1 import security_groups as sec_groups
 from novaclient.v1_1 import servers
+from novaclient.v1_1 import services
 from novaclient.v1_1 import usage
 from novaclient.v1_1 import volume_snapshots as vol_snaps
 from novaclient.v1_1 import volume_types
@@ -164,6 +165,7 @@ def data(TEST):
     TEST.volume_types = TestDataContainer()
     TEST.availability_zones = TestDataContainer()
     TEST.hypervisors = TestDataContainer()
+    TEST.services = TestDataContainer()
 
     # Data return by novaclient.
     # It is used if API layer does data conversion.
@@ -512,3 +514,30 @@ def data(TEST):
         }
     )
     TEST.hypervisors.add(hypervisor_1)
+
+    # Services
+    service_1 = services.Service(services.ServiceManager(None),
+        {
+            "status": "enabled",
+            "binary": "nova-conductor",
+            "zone": "internal",
+            "state": "up",
+            "updated_at": "2013-07-08T05:21:00.000000",
+            "host": "devstack001",
+            "disabled_reason": None
+        }
+    )
+
+    service_2 = services.Service(services.ServiceManager(None),
+        {
+            "status": "enabled",
+            "binary": "nova-compute",
+            "zone": "nova",
+            "state": "up",
+            "updated_at": "2013-07-08T05:20:51.000000",
+            "host": "devstack001",
+            "disabled_reason": None
+        }
+    )
+    TEST.services.add(service_1)
+    TEST.services.add(service_2)
