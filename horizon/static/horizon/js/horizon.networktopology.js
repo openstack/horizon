@@ -145,14 +145,14 @@ horizon.network_topology = {
     return self.model.networks.length;
   },
   select_cidr:function(network_id){
-    var cidr = "";
+    var cidr = [];
     $.each(this.model.subnets, function(index, subnet){
         if(subnet.network_id != network_id){
             return;
         }
-        cidr += subnet.cidr;
+        cidr.push(subnet.cidr);
     });
-    return cidr;
+    return cidr.join(', ');
   },
   draw_devices: function(type){
     var self = this;
@@ -191,6 +191,9 @@ horizon.network_topology = {
         {height: Math.max(self.device_min_height, port_position) + "px"});
       self.device_last_position += device_html.height() + self.device_margin;
       $("#" + parent_network).append(device_html);
+      $('div.port span.ip').each(function(i, ip){
+          $(ip).css('top', '-'+$(ip).height()+'px');
+      });
     });
     return self.model[type + 's'].length;
   },
@@ -234,7 +237,7 @@ horizon.network_topology = {
     var port_html = $('<div class="port"><div class="dot"></div></div>');
     var ip_label = "";
     $.each(port.fixed_ips, function(){
-      ip_label += this.ip_address + " ";
+      ip_label += this.ip_address + "<br />";
     })
     var ip_html = $('<span class="ip" />').html(ip_label);
     port_html
