@@ -121,7 +121,8 @@ class StackTests(test.TestCase):
                               timeout_mins=60,
                               disable_rollback=True,
                               template=template.data,
-                              parameters=IsA(dict))
+                              parameters=IsA(dict),
+                              password='password')
 
         self.mox.ReplayAll()
 
@@ -138,6 +139,7 @@ class StackTests(test.TestCase):
         url = reverse('horizon:project:stacks:launch')
         form_data = {'template_source': 'raw',
                      'template_data': template.data,
+                     'password': 'password',
                      'parameters': template.validate,
                      'stack_name': stack.stack_name,
                      "timeout_mins": 60,

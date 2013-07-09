@@ -29,7 +29,7 @@ def format_parameters(params):
     return parameters
 
 
-def heatclient(request):
+def heatclient(request, password=None):
     api_version = "1"
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     endpoint = url_for(request, 'orchestration')
@@ -38,7 +38,8 @@ def heatclient(request):
     kwargs = {
         'token': request.user.token.id,
         'insecure': insecure,
-        'username': request.user.username
+        'username': request.user.username,
+        'password': password
         #'timeout': args.timeout,
         #'ca_file': args.ca_file,
         #'cert_file': args.cert_file,
@@ -61,8 +62,8 @@ def stack_get(request, stack_id):
     return heatclient(request).stacks.get(stack_id)
 
 
-def stack_create(request, **kwargs):
-    return heatclient(request).stacks.create(**kwargs)
+def stack_create(request, password=None, **kwargs):
+    return heatclient(request, password).stacks.create(**kwargs)
 
 
 def events_list(request, stack_name):
