@@ -113,7 +113,7 @@ class VolumeOptionsAction(workflows.Action):
             visible_label = _("Volume")
         return (("%s:%s" % (volume.id, vol_type)),
                 (_("%(name)s - %(size)s GB (%(label)s)") %
-                 {'name': volume.display_name,
+                 {'name': volume.display_name or volume.id,
                   'size': volume.size,
                   'label': visible_label}))
 
