@@ -14,6 +14,7 @@
 
 import json
 import logging
+import re
 import urlparse
 
 from django.core.urlresolvers import reverse
@@ -81,3 +82,64 @@ def stack_output(output):
         if parts.netloc and parts.scheme in ('http', 'https'):
             return u'<a href="%s" target="_blank">%s</a>' % (output, output)
     return unicode(output)
+
+
+resource_images = {
+    'LB_FAILED': '/static/dashboard/img/lb-red.svg',
+    'LB_DELETE': '/static/dashboard/img/lb-red.svg',
+    'LB_IN_PROGRESS': '/static/dashboard/img/lb-gray.gif',
+    'LB_COMPLETE': '/static/dashboard/img/lb-green.svg',
+    'DB_FAILED': '/static/dashboard/img/db-red.svg',
+    'DB_DELETE': '/static/dashboard/img/db-red.svg',
+    'DB_IN_PROGRESS': '/static/dashboard/img/db-gray.gif',
+    'DB_COMPLETE': '/static/dashboard/img/db-green.svg',
+    'STACK_FAILED': '/static/dashboard/img/stack-red.svg',
+    'STACK_DELETE': '/static/dashboard/img/stack-red.svg',
+    'STACK_IN_PROGRESS': '/static/dashboard/img/stack-gray.gif',
+    'STACK_COMPLETE': '/static/dashboard/img/stack-green.svg',
+    'SERVER_FAILED': '/static/dashboard/img/server-red.svg',
+    'SERVER_DELETE': '/static/dashboard/img/server-red.svg',
+    'SERVER_IN_PROGRESS': '/static/dashboard/img/server-gray.gif',
+    'SERVER_COMPLETE': '/static/dashboard/img/server-green.svg',
+    'UNKNOWN_FAILED': '/static/dashboard/img/unknown-red.svg',
+    'UNKNOWN_DELETE': '/static/dashboard/img/unknown-red.svg',
+    'UNKNOWN_IN_PROGRESS': '/static/dashboard/img/unknown-gray.gif',
+    'UNKNOWN_COMPLETE': '/static/dashboard/img/unknown-green.svg',
+}
+
+
+def get_resource_type(type):
+    if re.search('LoadBalancer', type):
+        return 'LB'
+    elif re.search('DBInstance', type):
+        return 'DB'
+    elif re.search('Instance', type):
+        return 'SERVER'
+    elif re.search('stack', type):
+        return 'STACK'
+    else:
+        return 'UNKNOWN'
+
+
+def get_resource_status(status):
+    if re.search('IN_PROGRESS', status):
+        return 'IN_PROGRESS'
+    elif re.search('FAILED', status):
+        return 'FAILED'
+    elif re.search('DELETE', status):
+        return 'DELETE'
+    else:
+        return 'COMPLETE'
+
+
+def get_resource_image(status, type):
+    '''
+    Sets the image url and in_progress action sw based on status.
+    '''
+    resource_type = get_resource_type(type)
+    resource_status = get_resource_status(status)
+    resource_state = resource_type + "_" + resource_status
+
+    for key in resource_images:
+        if key == resource_state:
+            return resource_images.get(key)

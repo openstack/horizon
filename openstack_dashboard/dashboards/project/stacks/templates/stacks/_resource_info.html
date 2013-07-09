@@ -1,0 +1,10 @@
+<h3>{{ resource.logical_resource_id }}</h3>
+
+{% if resource.resource_status == 'CREATE_FAILED' %}
+<p class="error">{{ resource.resource_status_desc }}</p>
+<p class="error">{{ resource.resource_status_reason }}</p>
+{% else %}
+<p>{{ resource.resource_status_desc }}</p>
+{% endif %}
+
+<p>{{ resource.resource_type }}</p>

@@ -20,11 +20,26 @@ from horizon import messages
 from horizon import tabs
 from openstack_dashboard import api
 
+from openstack_dashboard.dashboards.project.stacks.api import d3_data
 from openstack_dashboard.dashboards.project.stacks.tables import EventsTable
 from openstack_dashboard.dashboards.project.stacks.tables import ResourcesTable
 
 
 LOG = logging.getLogger(__name__)
+
+
+class StackTopologyTab(tabs.Tab):
+    name = _("Topology")
+    slug = "topology"
+    template_name = "project/stacks/_detail_topology.html"
+    preload = False
+
+    def get_context_data(self, request):
+        context = {}
+        stack = self.tab_group.kwargs['stack']
+        context['stack_id'] = stack.id
+        context['d3_data'] = d3_data(request, stack_id=stack.id)
+        return context
 
 
 class StackOverviewTab(tabs.Tab):
@@ -90,7 +105,8 @@ class StackResourcesTab(tabs.Tab):
 
 class StackDetailTabs(tabs.TabGroup):
     slug = "stack_details"
-    tabs = (StackOverviewTab, StackResourcesTab, StackEventsTab)
+    tabs = (StackTopologyTab, StackOverviewTab, StackResourcesTab,
+            StackEventsTab)
     sticky = True
 
 

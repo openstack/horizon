@@ -15,6 +15,7 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
+from openstack_dashboard.dashboards.project.stacks.api import get_d3_data
 from openstack_dashboard.dashboards.project.stacks.views import CreateStackView
 from openstack_dashboard.dashboards.project.stacks.views import DetailView
 from openstack_dashboard.dashboards.project.stacks.views import IndexView
@@ -32,4 +33,7 @@ urlpatterns = patterns(
     url(r'^stack/(?P<stack_id>[^/]+)/$', DetailView.as_view(), name='detail'),
     url(r'^stack/(?P<stack_id>[^/]+)/(?P<resource_name>[^/]+)/$',
         ResourceView.as_view(), name='resource'),
+
+    #AJAX urls
+    url(r'^get_d3_data/(?P<stack_id>[^/]+)/$', get_d3_data, name='d3_data')
 )

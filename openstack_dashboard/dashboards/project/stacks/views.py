@@ -102,6 +102,8 @@ class DetailView(tabs.TabView):
             try:
                 stack = api.heat.stack_get(request, stack_id)
                 self._stack = stack
+                request.session['stack_id'] = stack.id
+                request.session['stack_name'] = stack.stack_name
             except:
                 msg = _("Unable to retrieve stack.")
                 redirect = reverse('horizon:project:stacks:index')
