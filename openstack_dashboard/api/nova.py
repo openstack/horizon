@@ -635,6 +635,10 @@ def hypervisor_stats(request):
     return novaclient(request).hypervisors.statistics()
 
 
+def hypervisor_search(request, query, servers=True):
+    return novaclient(request).hypervisors.search(query, servers)
+
+
 def tenant_absolute_limits(request, reserved=False):
     limits = novaclient(request).limits.get(reserved=reserved).absolute
     limits_dict = {}

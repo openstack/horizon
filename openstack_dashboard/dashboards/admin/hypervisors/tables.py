@@ -41,8 +41,9 @@ def get_local_used(hypervisor):
 
 
 class AdminHypervisorsTable(tables.DataTable):
-    hypervisor_hostname = tables.Column("hypervisor_hostname",
-                                        verbose_name=_("Hostname"))
+    hostname = tables.Column("hypervisor_hostname",
+                             link=("horizon:admin:hypervisors:detail"),
+                             verbose_name=_("Hostname"))
 
     hypervisor_type = tables.Column("hypervisor_type",
                                     verbose_name=_("Type"))
@@ -72,6 +73,24 @@ class AdminHypervisorsTable(tables.DataTable):
     running_vms = tables.Column("running_vms",
                                 verbose_name=_("Instances"))
 
+    def get_object_id(self, hypervisor):
+        return hypervisor.hypervisor_hostname
+
     class Meta:
         name = "hypervisors"
         verbose_name = _("Hypervisors")
+
+
+class AdminHypervisorInstancesTable(tables.DataTable):
+    name = tables.Column("name",
+                         verbose_name=_("Instance Name"))
+
+    instance_id = tables.Column("uuid",
+                                verbose_name=_("Instance ID"))
+
+    def get_object_id(self, server):
+        return server['uuid']
+
+    class Meta:
+        name = "hypervisor_instances"
+        verbose_name = _("Hypervisor Instances")
