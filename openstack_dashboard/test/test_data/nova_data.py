@@ -15,6 +15,7 @@
 import json
 import uuid
 
+from novaclient.v1_1 import aggregates
 from novaclient.v1_1 import availability_zones
 from novaclient.v1_1 import certs
 from novaclient.v1_1 import flavors
@@ -166,6 +167,7 @@ def data(TEST):
     TEST.availability_zones = TestDataContainer()
     TEST.hypervisors = TestDataContainer()
     TEST.services = TestDataContainer()
+    TEST.aggregates = TestDataContainer()
 
     # Data return by novaclient.
     # It is used if API layer does data conversion.
@@ -541,3 +543,41 @@ def data(TEST):
     )
     TEST.services.add(service_1)
     TEST.services.add(service_2)
+
+    # Aggregates
+    aggregate_1 = aggregates.Aggregate(aggregates.AggregateManager(None),
+        {
+            "name": "foo",
+            "availability_zone": None,
+            "deleted": 0,
+            "created_at": "2013-07-04T13:34:38.000000",
+            "updated_at": None,
+            "hosts": ["foo", "bar"],
+            "deleted_at": None,
+            "id": 1,
+            "metadata": {
+                "foo": "testing",
+                "bar": "testing"
+            }
+        }
+    )
+
+    aggregate_2 = aggregates.Aggregate(aggregates.AggregateManager(None),
+        {
+            "name": "bar",
+            "availability_zone": "testing",
+            "deleted": 0,
+            "created_at": "2013-07-04T13:34:38.000000",
+            "updated_at": None,
+            "hosts": ["foo", "bar"],
+            "deleted_at": None,
+            "id": 2,
+            "metadata": {
+                "foo": "testing",
+                "bar": "testing"
+            }
+        }
+    )
+
+    TEST.aggregates.add(aggregate_1)
+    TEST.aggregates.add(aggregate_2)

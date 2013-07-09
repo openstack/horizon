@@ -620,3 +620,11 @@ def availability_zone_list(request, detailed=False):
 
 def service_list(request):
     return novaclient(request).services.list()
+
+
+def aggregate_list(request):
+    result = []
+    for aggregate in novaclient(request).aggregates.list():
+        result.append(novaclient(request).aggregates.get(aggregate.id))
+
+    return result
