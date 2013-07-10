@@ -37,6 +37,7 @@
 <script src='{{ STATIC_URL }}horizon/js/horizon.projects.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.networktopology.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.d3piechart.js' type='text/javascript' charset='utf-8'></script>
+{% block custom_js_files %}{% endblock %}
 {% endcompress %}
 
 {% comment %} Client-side Templates (These should *not* be inside the "compress" tag.) {% endcomment %}
