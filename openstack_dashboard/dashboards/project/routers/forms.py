@@ -4,7 +4,7 @@
 # All rights reserved.
 
 """
-Views for managing Quantum Routers.
+Views for managing Neutron Routers.
 """
 import logging
 
@@ -28,7 +28,7 @@ class CreateForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            router = api.quantum.router_create(request,
+            router = api.neutron.router_create(request,
                                                name=data['name'])
             message = _('Router %s was successfully created.') % data['name']
             messages.success(request, message)

@@ -84,7 +84,7 @@ OPENSTACK_KEYSTONE_BACKEND = {
     'can_edit_role': True
 }
 
-OPENSTACK_QUANTUM_NETWORK = {
+OPENSTACK_NEUTRON_NETWORK = {
     'enable_lb': True
 }
 

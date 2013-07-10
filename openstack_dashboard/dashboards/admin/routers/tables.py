@@ -33,9 +33,9 @@ class DeleteRouter(r_tables.DeleteRouter):
     def delete(self, request, obj_id):
         search_opts = {'device_owner': 'network:router_interface',
                        'device_id': obj_id}
-        ports = api.quantum.port_list(request, **search_opts)
+        ports = api.neutron.port_list(request, **search_opts)
         for port in ports:
-            api.quantum.router_remove_interface(request, obj_id,
+            api.neutron.router_remove_interface(request, obj_id,
                                                 port_id=port.id)
         super(DeleteRouter, self).delete(request, obj_id)
 
@@ -47,7 +47,7 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, router_id):
-        router = api.quantum.router_get(request, router_id)
+        router = api.neutron.router_get(request, router_id)
         return router
 
 

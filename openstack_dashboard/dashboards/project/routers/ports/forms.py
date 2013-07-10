@@ -52,7 +52,7 @@ class AddInterface(forms.SelfHandlingForm):
         tenant_id = self.request.user.tenant_id
         networks = []
         try:
-            networks = api.quantum.network_list_for_tenant(request, tenant_id)
+            networks = api.neutron.network_list_for_tenant(request, tenant_id)
         except Exception as e:
             msg = _('Failed to get network list %s') % e.message
             LOG.info(msg)
@@ -90,12 +90,12 @@ class AddInterface(forms.SelfHandlingForm):
     def _add_interface_by_subnet(self, request, data):
         router_id = data['router_id']
         try:
-            router_inf = api.quantum.router_add_interface(
+            router_inf = api.neutron.router_add_interface(
                 request, router_id, subnet_id=data['subnet_id'])
         except Exception as e:
             self._handle_error(request, router_id, e)
         try:
-            port = api.quantum.port_get(request, router_inf['port_id'])
+            port = api.neutron.port_get(request, router_inf['port_id'])
         except:
             # Ignore an error when port_get() since it is just
             # to get an IP address for the interface.
@@ -106,7 +106,7 @@ class AddInterface(forms.SelfHandlingForm):
         router_id = data['router_id']
         subnet_id = data['subnet_id']
         try:
-            subnet = api.quantum.subnet_get(request, subnet_id)
+            subnet = api.neutron.subnet_get(request, subnet_id)
         except:
             msg = _('Unable to get subnet "%s"') % subnet_id
             self._handle_error(request, router_id, msg)
@@ -115,11 +115,11 @@ class AddInterface(forms.SelfHandlingForm):
             body = {'network_id': subnet.network_id,
                     'fixed_ips': [{'subnet_id': subnet.id,
                                    'ip_address': ip_address}]}
-            port = api.quantum.port_create(request, **body)
+            port = api.neutron.port_create(request, **body)
         except Exception as e:
             self._handle_error(request, router_id, e)
         try:
-            api.quantum.router_add_interface(request, router_id,
+            api.neutron.router_add_interface(request, router_id,
                                              port_id=port.id)
         except Exception as e:
             self._delete_port(request, port)
@@ -134,7 +134,7 @@ class AddInterface(forms.SelfHandlingForm):
 
     def _delete_port(self, request, port):
         try:
-            api.quantum.port_delete(request, port.id)
+            api.neutron.port_delete(request, port.id)
         except:
             msg = _('Failed to delete port %s') % port.id
             LOG.info(msg)
@@ -159,7 +159,7 @@ class SetGatewayForm(forms.SelfHandlingForm):
     def populate_network_id_choices(self, request):
         search_opts = {'router:external': True}
         try:
-            networks = api.quantum.network_list(request, **search_opts)
+            networks = api.neutron.network_list(request, **search_opts)
         except Exception as e:
             msg = _('Failed to get network list %s') % e.message
             LOG.info(msg)
@@ -177,7 +177,7 @@ class SetGatewayForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.quantum.router_add_gateway(request,
+            api.neutron.router_add_gateway(request,
                                            data['router_id'],
                                            data['network_id'])
             msg = _('Gateway interface is added')

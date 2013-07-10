@@ -172,7 +172,7 @@ class FloatingIpViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
 
-class FloatingIpQuantumViewTests(FloatingIpViewTests):
+class FloatingIpNeutronViewTests(FloatingIpViewTests):
     def setUp(self):
         super(FloatingIpViewTests, self).setUp()
         self._floating_ips_orig = self.floating_ips

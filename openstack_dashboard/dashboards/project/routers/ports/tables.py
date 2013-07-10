@@ -56,11 +56,11 @@ class RemoveInterface(tables.DeleteAction):
     def delete(self, request, obj_id):
         try:
             router_id = self.table.kwargs['router_id']
-            port = api.quantum.port_get(request, obj_id)
+            port = api.neutron.port_get(request, obj_id)
             if port['device_owner'] == 'network:router_gateway':
-                api.quantum.router_remove_gateway(request, router_id)
+                api.neutron.router_remove_gateway(request, router_id)
             else:
-                api.quantum.router_remove_interface(request,
+                api.neutron.router_remove_interface(request,
                                                     router_id,
                                                     port_id=obj_id)
         except:

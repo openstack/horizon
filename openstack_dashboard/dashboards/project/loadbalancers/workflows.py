@@ -48,7 +48,7 @@ class AddPoolAction(workflows.Action):
 
         subnet_id_choices = [('', _("Select a Subnet"))]
         try:
-            networks = api.quantum.network_list_for_tenant(request, tenant_id)
+            networks = api.neutron.network_list_for_tenant(request, tenant_id)
         except:
             exceptions.handle(request,
                               _('Unable to retrieve networks list.'))
@@ -344,7 +344,7 @@ class AddMember(workflows.Workflow):
         for m in context['members']:
             params = {'device_id': m}
             try:
-                plist = api.quantum.port_list(request, **params)
+                plist = api.neutron.port_list(request, **params)
             except:
                 return False
             if plist:

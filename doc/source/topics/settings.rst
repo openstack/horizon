@@ -20,7 +20,7 @@ and a few notes on the Django-related settings.
 .. note::
 
     Prior to the Essex release of Horizon there were settings which controlled
-    whether features such as Object Storage/Swift or Networking/Quantum would be
+    whether features such as Object Storage/Swift or Networking/Neutron would be
     enabled in the OpenStack Dashboard. This code has beenlong-since removed and
     those pre-Essex settings have no impact now.
 
@@ -217,13 +217,13 @@ In the Havana release, there will be a feature for encrypted volumes
 which will be controlled by the ``can_encrypt_volumes``. Setting it to ``True``
 in the Grizzly release will have no effect.
 
-``OPENSTACK_QUANTUM_NETWORK``
+``OPENSTACK_NEUTRON_NETWORK``
 -----------------------------
 
 Default: ``{'enable_lb': False}``
 
 A dictionary of settings which can be used to enable optional services provided
-by quantum.  Currently only the load balancer service is available.
+by neutron.  Currently only the load balancer service is available.
 
 ``OPENSTACK_ENDPOINT_TYPE``
 ---------------------------

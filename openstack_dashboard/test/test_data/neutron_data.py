@@ -19,17 +19,17 @@ from openstack_dashboard.api.lbaas import Pool
 from openstack_dashboard.api.lbaas import PoolMonitor
 from openstack_dashboard.api.lbaas import Vip
 
-from openstack_dashboard.api.quantum import FloatingIp
-from openstack_dashboard.api.quantum import Network
-from openstack_dashboard.api.quantum import Port
-from openstack_dashboard.api.quantum import Router
-from openstack_dashboard.api.quantum import Subnet
+from openstack_dashboard.api.neutron import FloatingIp
+from openstack_dashboard.api.neutron import Network
+from openstack_dashboard.api.neutron import Port
+from openstack_dashboard.api.neutron import Router
+from openstack_dashboard.api.neutron import Subnet
 
 from .utils import TestDataContainer
 
 
 def data(TEST):
-    # data returned by openstack_dashboard.api.quantum wrapper
+    # data returned by openstack_dashboard.api.neutron wrapper
     TEST.networks = TestDataContainer()
     TEST.subnets = TestDataContainer()
     TEST.ports = TestDataContainer()
@@ -40,7 +40,7 @@ def data(TEST):
     TEST.members = TestDataContainer()
     TEST.monitors = TestDataContainer()
 
-    # data return by quantumclient
+    # data return by neutronclient
     TEST.api_networks = TestDataContainer()
     TEST.api_subnets = TestDataContainer()
     TEST.api_ports = TestDataContainer()

@@ -97,7 +97,7 @@ class AccessAndSecurityTests(test.TestCase):
         self.assertContains(res, '<option value="2">server_2 (2)</option>')
 
 
-class AccessAndSecurityQuantumProxyTests(AccessAndSecurityTests):
+class AccessAndSecurityNeutronProxyTests(AccessAndSecurityTests):
     def setUp(self):
-        super(AccessAndSecurityQuantumProxyTests, self).setUp()
+        super(AccessAndSecurityNeutronProxyTests, self).setUp()
         self.floating_ips = self.floating_ips_uuid

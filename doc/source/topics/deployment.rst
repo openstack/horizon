@@ -13,7 +13,7 @@ may encounter when deploying Horizon in a production environment.
     has successfully authenticated determines the dashboards and panels
     that will be available within the OpenStack Dashboard. If you are not
     seeing a particular service you expected (e.g. Object Storage/Swift or
-    Networking/Quantum) make sure your Service Catalog is configured correctly.
+    Networking/Neutron) make sure your Service Catalog is configured correctly.
 
     Prior to the Essex release of Horizon these features were controlled by
     individual settings in the ``local_settings.py`` file. This code has been

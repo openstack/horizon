@@ -142,13 +142,13 @@ class NetworkApiNovaFloatingIpTests(test.APITestCase):
         self.assertEqual(instance_id, ret)
 
 
-class NetworkApiQuantumFloatingIpTests(test.APITestCase):
+class NetworkApiNeutronFloatingIpTests(test.APITestCase):
     def setUp(self):
-        super(NetworkApiQuantumFloatingIpTests, self).setUp()
+        super(NetworkApiNeutronFloatingIpTests, self).setUp()
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .AndReturn(True)
-        self.qclient = self.stub_quantumclient()
+        self.qclient = self.stub_neutronclient()
 
     def test_floating_ip_pools_list(self):
         search_opts = {'router:external': True}

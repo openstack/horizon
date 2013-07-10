@@ -427,7 +427,7 @@ def data(TEST):
     TEST.floating_ips.add(NetFloatingIp(generate_fip(fip_1)),
                           NetFloatingIp(generate_fip(fip_2)))
 
-    # Floating IP with UUID id (for Floating IP with Quantum Proxy)
+    # Floating IP with UUID id (for Floating IP with Neutron Proxy)
     fip_3 = {'id': str(uuid.uuid4()),
              'fixed_ip': '10.0.0.4',
              'instance_id': server_1.id,

@@ -430,9 +430,9 @@ class SecurityGroupsViewTests(test.TestCase):
                          INDEX_URL)
 
 
-class SecurityGroupsQuantumTests(SecurityGroupsViewTests):
+class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
     def setUp(self):
-        super(SecurityGroupsQuantumTests, self).setUp()
+        super(SecurityGroupsNeutronTests, self).setUp()
 
         self._sec_groups_orig = self.security_groups
         self.security_groups = self.security_groups_uuid
@@ -451,4 +451,4 @@ class SecurityGroupsQuantumTests(SecurityGroupsViewTests):
     def tearDown(self):
         self.security_groups = self._sec_groups_orig
         self.security_group_rules = self._sec_group_rules_orig
-        super(SecurityGroupsQuantumTests, self).tearDown()
+        super(SecurityGroupsNeutronTests, self).tearDown()

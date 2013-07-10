@@ -36,7 +36,7 @@ class DeleteNetwork(tables.DeleteAction):
 
     def delete(self, request, obj_id):
         try:
-            api.quantum.network_delete(request, obj_id)
+            api.neutron.network_delete(request, obj_id)
         except:
             msg = _('Failed to delete network %s') % obj_id
             LOG.info(msg)

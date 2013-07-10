@@ -61,33 +61,33 @@ class JSONView(View):
         self.add_resource_url('horizon:project:instances:detail',
                               data['servers'])
 
-        # Get quantum data
+        # Get neutron data
         try:
-            quantum_public_networks = api.quantum.network_list(request,
+            neutron_public_networks = api.neutron.network_list(request,
                                     **{'router:external': True})
-            quantum_networks = api.quantum.network_list_for_tenant(request,
+            neutron_networks = api.neutron.network_list_for_tenant(request,
                                     request.user.tenant_id)
-            quantum_subnets = api.quantum.subnet_list(request,
+            neutron_subnets = api.neutron.subnet_list(request,
                                     tenant_id=request.user.tenant_id)
-            quantum_ports = api.quantum.port_list(request,
+            neutron_ports = api.neutron.port_list(request,
                                     tenant_id=request.user.tenant_id)
-            quantum_routers = api.quantum.router_list(request,
+            neutron_routers = api.neutron.router_list(request,
                                     tenant_id=request.user.tenant_id)
         except:
-            quantum_public_networks = []
-            quantum_networks = []
-            quantum_subnets = []
-            quantum_ports = []
-            quantum_routers = []
+            neutron_public_networks = []
+            neutron_networks = []
+            neutron_subnets = []
+            neutron_ports = []
+            neutron_routers = []
 
         networks = [{'name': network.name,
                      'id': network.id,
                      'router:external': network['router:external']}
-                                    for network in quantum_networks]
+                                    for network in neutron_networks]
         self.add_resource_url('horizon:project:networks:detail',
                               networks)
         # Add public networks to the networks list
-        for publicnet in quantum_public_networks:
+        for publicnet in neutron_public_networks:
             found = False
             for network in networks:
                 if publicnet.id == network['id']:
@@ -103,19 +103,19 @@ class JSONView(View):
         data['subnets'] = [{'id': subnet.id,
                             'cidr': subnet.cidr,
                             'network_id': subnet.network_id}
-                                        for subnet in quantum_subnets]
+                                        for subnet in neutron_subnets]
 
         data['ports'] = [{'id': port.id,
                         'network_id': port.network_id,
                         'device_id': port.device_id,
-                        'fixed_ips': port.fixed_ips} for port in quantum_ports]
+                        'fixed_ips': port.fixed_ips} for port in neutron_ports]
         self.add_resource_url('horizon:project:networks:ports:detail',
                               data['ports'])
 
         data['routers'] = [{'id': router.id,
                         'name': router.name,
                         'external_gateway_info': router.external_gateway_info}
-                                            for router in quantum_routers]
+                                            for router in neutron_routers]
 
         # user can't see port on external network. so we are
         # adding fake port based on router information

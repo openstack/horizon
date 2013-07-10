@@ -22,8 +22,8 @@ from cinderclient import exceptions as cinderclient
 from glanceclient.common import exceptions as glanceclient
 from heatclient import exc as heatclient
 from keystoneclient import exceptions as keystoneclient
+from neutronclient.common import exceptions as neutronclient
 from novaclient import exceptions as novaclient
-from quantumclient.common import exceptions as quantumclient
 from swiftclient import client as swiftclient
 
 
@@ -34,8 +34,8 @@ UNAUTHORIZED = (keystoneclient.Unauthorized,
                 novaclient.Unauthorized,
                 novaclient.Forbidden,
                 glanceclient.Unauthorized,
-                quantumclient.Unauthorized,
-                quantumclient.Forbidden,
+                neutronclient.Unauthorized,
+                neutronclient.Forbidden,
                 heatclient.HTTPUnauthorized,
                 heatclient.HTTPForbidden)
 
@@ -43,8 +43,8 @@ NOT_FOUND = (keystoneclient.NotFound,
              cinderclient.NotFound,
              novaclient.NotFound,
              glanceclient.NotFound,
-             quantumclient.NetworkNotFoundClient,
-             quantumclient.PortNotFoundClient,
+             neutronclient.NetworkNotFoundClient,
+             neutronclient.PortNotFoundClient,
              heatclient.HTTPNotFound)
 
 # NOTE(gabriel): This is very broad, and may need to be dialed in.
@@ -54,13 +54,13 @@ RECOVERABLE = (keystoneclient.ClientException,
                cinderclient.ClientException,
                novaclient.ClientException,
                glanceclient.ClientException,
-               # NOTE(amotoki): Quantum exceptions other than the first one
+               # NOTE(amotoki): Neutron exceptions other than the first one
                # are recoverable in many cases (e.g., NetworkInUse is not
                # raised once VMs which use the network are terminated).
-               quantumclient.QuantumClientException,
-               quantumclient.NetworkInUseClient,
-               quantumclient.PortInUseClient,
-               quantumclient.AlreadyAttachedClient,
-               quantumclient.StateInvalidClient,
+               neutronclient.NeutronClientException,
+               neutronclient.NetworkInUseClient,
+               neutronclient.PortInUseClient,
+               neutronclient.AlreadyAttachedClient,
+               neutronclient.StateInvalidClient,
                swiftclient.ClientException,
                heatclient.HTTPException)

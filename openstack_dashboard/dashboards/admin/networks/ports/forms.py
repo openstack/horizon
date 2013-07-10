@@ -54,13 +54,13 @@ class CreatePort(forms.SelfHandlingForm):
         try:
             # We must specify tenant_id of the network which a subnet is
             # created for if admin user does not belong to the tenant.
-            network = api.quantum.network_get(request, data['network_id'])
+            network = api.neutron.network_get(request, data['network_id'])
             data['tenant_id'] = network.tenant_id
             data['admin_state_up'] = data['admin_state']
             del data['network_name']
             del data['admin_state']
 
-            port = api.quantum.port_create(request, **data)
+            port = api.neutron.port_create(request, **data)
             msg = _('Port %s was successfully created.') % port['id']
             LOG.debug(msg)
             messages.success(request, msg)
@@ -87,7 +87,7 @@ class UpdatePort(project_forms.UpdatePort):
     def handle(self, request, data):
         try:
             LOG.debug('params = %s' % data)
-            port = api.quantum.port_modify(request, data['port_id'],
+            port = api.neutron.port_modify(request, data['port_id'],
                                            name=data['name'],
                                            admin_state_up=data['admin_state'],
                                            device_id=data['device_id'],

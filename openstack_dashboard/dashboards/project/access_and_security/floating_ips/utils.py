@@ -22,7 +22,7 @@ def get_int_or_uuid(value):
 
     This method is mainly used to convert floating IP id to the
     appropriate type. For floating IP id, integer is used in Nova's
-    original implementation, but UUID is used in Quantum based one.
+    original implementation, but UUID is used in Neutron based one.
     """
     try:
         uuid.UUID(value)
