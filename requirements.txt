@@ -16,7 +16,7 @@ python-novaclient>=2.12.0,<3
 python-neutronclient>=2.2.3,<3.0.0
 python-swiftclient>=1.2,<2
 python-ceilometerclient>=1.0.1
-pytz
+pytz>=2010h
 # Horizon Utility Requirements
 # for SECURE_KEY generation
 lockfile>=0.8
