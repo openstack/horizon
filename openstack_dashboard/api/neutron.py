@@ -25,10 +25,11 @@ import logging
 
 from django.conf import settings
 from django.utils.datastructures import SortedDict
+from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard.api.base import APIDictWrapper
 from openstack_dashboard.api.base import url_for
-from openstack_dashboard.api import network
+from openstack_dashboard.api import network_base
 from openstack_dashboard.api import nova
 
 from neutronclient.v2_0 import client as neutron_client
@@ -93,6 +94,174 @@ class Router(NeutronAPIDictWrapper):
         super(Router, self).__init__(apiresource)
 
 
+class SecurityGroup(NeutronAPIDictWrapper):
+    # Required attributes: id, name, description, tenant_id, rules
+
+    def __init__(self, sg, sg_dict=None):
+        if sg_dict is None:
+            sg_dict = {sg['id']: sg['name']}
+        sg['rules'] = [SecurityGroupRule(rule, sg_dict)
+                       for rule in sg['security_group_rules']]
+        super(SecurityGroup, self).__init__(sg)
+
+
+class SecurityGroupRule(NeutronAPIDictWrapper):
+    # Required attributes:
+    #   id, parent_group_id
+    #   ip_protocol, from_port, to_port, ip_range, group
+    #   ethertype, direction (Neutron specific)
+
+    def _get_secgroup_name(self, sg_id, sg_dict):
+        if sg_id:
+            if sg_dict is None:
+                sg_dict = {}
+            # If sg name not found in sg_dict,
+            # first two parts of UUID is used as sg name.
+            return sg_dict.get(sg_id, sg_id[:13])
+        else:
+            return u''
+
+    def __init__(self, sgr, sg_dict=None):
+        # In Neutron, if both remote_ip_prefix and remote_group_id are None,
+        # it means all remote IP range is allowed, i.e., 0.0.0.0/0 or ::/0.
+        if not sgr['remote_ip_prefix'] and not sgr['remote_group_id']:
+            if sgr['ethertype'] == 'IPv6':
+                sgr['remote_ip_prefix'] = '::/0'
+            else:
+                sgr['remote_ip_prefix'] = '0.0.0.0/0'
+
+        rule = {
+            'id': sgr['id'],
+            'parent_group_id': sgr['security_group_id'],
+            'direction': sgr['direction'],
+            'ethertype': sgr['ethertype'],
+            'ip_protocol': sgr['protocol'],
+            'from_port': sgr['port_range_min'],
+            'to_port': sgr['port_range_max'],
+        }
+        cidr = sgr['remote_ip_prefix']
+        rule['ip_range'] = {'cidr': cidr} if cidr else {}
+        group = self._get_secgroup_name(sgr['remote_group_id'], sg_dict)
+        rule['group'] = {'name': group} if group else {}
+        super(SecurityGroupRule, self).__init__(rule)
+
+    def __unicode__(self):
+        if 'name' in self.group:
+            remote = self.group['name']
+        elif 'cidr' in self.ip_range:
+            remote = self.ip_range['cidr']
+        else:
+            remote = 'ANY'
+        direction = 'to' if self.direction == 'egress' else 'from'
+        if self.from_port:
+            if self.from_port == self.to_port:
+                proto_port = ("%s/%s" %
+                              (self.from_port, self.ip_protocol.lower()))
+            else:
+                proto_port = ("%s-%s/%s" %
+                              (self.from_port, self.to_port,
+                               self.ip_protocol.lower()))
+        elif self.ip_protocol:
+            try:
+                ip_proto = int(self.ip_protocol)
+                proto_port = "ip_proto=%d" % ip_proto
+            except:
+                # well-defined IP protocol name like TCP, UDP, ICMP.
+                proto_port = self.ip_protocol
+        else:
+            proto_port = ''
+
+        return (_('ALLOW %(ethertype)s %(proto_port)s '
+                  '%(direction)s %(remote)s') %
+                {'ethertype': self.ethertype,
+                 'proto_port': proto_port,
+                 'remote': remote,
+                 'direction': direction})
+
+
+class SecurityGroupManager(network_base.SecurityGroupManager):
+    backend = 'neutron'
+
+    def __init__(self, request):
+        self.request = request
+        self.client = neutronclient(request)
+
+    def _list(self, **filters):
+        secgroups = self.client.list_security_groups(**filters)
+        return [SecurityGroup(sg) for sg in secgroups.get('security_groups')]
+
+    def list(self):
+        tenant_id = self.request.user.tenant_id
+        return self._list(tenant_id=tenant_id)
+
+    def _sg_name_dict(self, sg_id, rules):
+        """Create a mapping dict from secgroup id to its name."""
+        related_ids = set([sg_id])
+        related_ids |= set(filter(None, [r['remote_group_id'] for r in rules]))
+        related_sgs = self.client.list_security_groups(id=related_ids,
+                                                       fields=['id', 'name'])
+        related_sgs = related_sgs.get('security_groups')
+        return dict((sg['id'], sg['name']) for sg in related_sgs)
+
+    def get(self, sg_id):
+        secgroup = self.client.show_security_group(sg_id).get('security_group')
+        sg_dict = self._sg_name_dict(sg_id, secgroup['security_group_rules'])
+        return SecurityGroup(secgroup, sg_dict)
+
+    def create(self, name, desc):
+        body = {'security_group': {'name': name,
+                                   'description': desc}}
+        secgroup = self.client.create_security_group(body)
+        return SecurityGroup(secgroup.get('security_group'))
+
+    def delete(self, sg_id):
+        self.client.delete_security_group(sg_id)
+
+    def rule_create(self, parent_group_id,
+                    direction=None, ethertype=None,
+                    ip_protocol=None, from_port=None, to_port=None,
+                    cidr=None, group_id=None):
+        if not cidr:
+            cidr = None
+        if from_port < 0:
+            from_port = None
+        if to_port < 0:
+            to_port = None
+        if isinstance(ip_protocol, int) and ip_protocol < 0:
+            ip_protocol = None
+
+        body = {'security_group_rule':
+                    {'security_group_id': parent_group_id,
+                     'direction': direction,
+                     'ethertype': ethertype,
+                     'protocol': ip_protocol,
+                     'port_range_min': from_port,
+                     'port_range_max': to_port,
+                     'remote_ip_prefix': cidr,
+                     'remote_group_id': group_id}}
+        rule = self.client.create_security_group_rule(body)
+        rule = rule.get('security_group_rule')
+        sg_dict = self._sg_name_dict(parent_group_id, [rule])
+        return SecurityGroupRule(rule, sg_dict)
+
+    def rule_delete(self, sgr_id):
+        self.client.delete_security_group_rule(sgr_id)
+
+    def list_by_instance(self, instance_id):
+        """Gets security groups of an instance."""
+        ports = port_list(self.request, device_id=instance_id)
+        sg_ids = []
+        for p in ports:
+            sg_ids += p.security_groups
+        return self._list(id=set(sg_ids))
+
+    def update_instance_security_group(self, instance_id, new_sgs):
+        ports = port_list(self.request, device_id=instance_id)
+        for p in ports:
+            params = {'security_groups': new_sgs}
+            port_modify(self.request, p.id, **params)
+
+
 class FloatingIp(APIDictWrapper):
     _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id', 'pool']
 
@@ -111,7 +280,7 @@ class FloatingIpTarget(APIDictWrapper):
     pass
 
 
-class FloatingIpManager(network.FloatingIpManager):
+class FloatingIpManager(network_base.FloatingIpManager):
     def __init__(self, request):
         self.request = request
         self.client = neutronclient(request)

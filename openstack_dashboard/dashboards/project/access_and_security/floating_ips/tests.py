@@ -19,8 +19,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import uuid
-
 from django.core.urlresolvers import reverse
 from django import http
 
@@ -28,8 +26,6 @@ from mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
-
-from .utils import get_int_or_uuid
 
 from horizon.workflows.views import WorkflowView
 
@@ -181,24 +177,3 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
     def tearDown(self):
         self.floating_ips = self._floating_ips_orig
         super(FloatingIpViewTests, self).tearDown()
-
-
-class FloatingIpUtilsTests(test.TestCase):
-    def test_accept_valid_integer(self):
-        val = 100
-        ret = get_int_or_uuid(val)
-        self.assertEqual(val, ret)
-
-    def test_accept_valid_integer_string(self):
-        val = '100'
-        ret = get_int_or_uuid(val)
-        self.assertEqual(int(val), ret)
-
-    def test_accept_valid_uuid(self):
-        val = str(uuid.uuid4())
-        ret = get_int_or_uuid(val)
-        self.assertEqual(val, ret)
-
-    def test_reject_random_string(self):
-        val = '55WbJTpJDf'
-        self.assertRaises(ValueError, get_int_or_uuid, val)

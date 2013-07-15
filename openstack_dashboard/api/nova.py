@@ -39,7 +39,7 @@ from openstack_dashboard.api.base import APIDictWrapper
 from openstack_dashboard.api.base import APIResourceWrapper
 from openstack_dashboard.api.base import QuotaSet
 from openstack_dashboard.api.base import url_for
-from openstack_dashboard.api import network
+from openstack_dashboard.api import network_base
 
 
 LOG = logging.getLogger(__name__)
@@ -152,13 +152,10 @@ class SecurityGroup(APIResourceWrapper):
         """Wraps transmitted rule info in the novaclient rule class."""
         if "_rules" not in self.__dict__:
             manager = nova_rules.SecurityGroupRuleManager(None)
-            self._rules = [nova_rules.SecurityGroupRule(manager, rule)
-                           for rule in self._apiresource.rules]
+            rule_objs = [nova_rules.SecurityGroupRule(manager, rule)
+                         for rule in self._apiresource.rules]
+            self._rules = [SecurityGroupRule(rule) for rule in rule_objs]
         return self.__dict__['_rules']
-
-    @rules.setter
-    def rules(self, value):
-        self._rules = value
 
 
 class SecurityGroupRule(APIResourceWrapper):
@@ -176,6 +173,97 @@ class SecurityGroupRule(APIResourceWrapper):
                     'to': self.to_port,
                     'cidr': self.ip_range['cidr']}
             return _('ALLOW %(from)s:%(to)s from %(cidr)s') % vals
+
+    # The following attributes are defined to keep compatibility with Neutron
+    @property
+    def ethertype(self):
+        return None
+
+    @property
+    def direction(self):
+        return 'ingress'
+
+
+class SecurityGroupManager(network_base.SecurityGroupManager):
+    backend = 'nova'
+
+    def __init__(self, request):
+        self.request = request
+        self.client = novaclient(request)
+
+    def list(self):
+        return [SecurityGroup(g) for g
+                in self.client.security_groups.list()]
+
+    def get(self, sg_id):
+        return SecurityGroup(self.client.security_groups.get(sg_id))
+
+    def create(self, name, desc):
+        return SecurityGroup(self.client.security_groups.create(name, desc))
+
+    def delete(self, security_group_id):
+        self.client.security_groups.delete(security_group_id)
+
+    def rule_create(self, parent_group_id,
+                    direction=None, ethertype=None,
+                    ip_protocol=None, from_port=None, to_port=None,
+                    cidr=None, group_id=None):
+        # Nova Security Group API does not use direction and ethertype fields.
+        sg = self.client.security_group_rules.create(parent_group_id,
+                                                     ip_protocol,
+                                                     from_port,
+                                                     to_port,
+                                                     cidr,
+                                                     group_id)
+        return SecurityGroupRule(sg)
+
+    def rule_delete(self, security_group_rule_id):
+        self.client.security_group_rules.delete(security_group_rule_id)
+
+    def list_by_instance(self, instance_id):
+        """Gets security groups of an instance."""
+        # TODO(gabriel): This needs to be moved up to novaclient, and should
+        # be removed once novaclient supports this call.
+        security_groups = []
+        nclient = self.client
+        resp, body = nclient.client.get('/servers/%s/os-security-groups'
+                                        % instance_id)
+        if body:
+            # Wrap data in SG objects as novaclient would.
+            sg_objs = [NovaSecurityGroup(nclient.security_groups, sg,
+                                         loaded=True)
+                       for sg in body.get('security_groups', [])]
+            # Then wrap novaclient's object with our own. Yes, sadly wrapping
+            # with two layers of objects is necessary.
+            security_groups = [SecurityGroup(sg) for sg in sg_objs]
+        return security_groups
+
+    def update_instance_security_group(self, instance_id, new_sgs):
+
+        wanted_groups = set(new_sgs)
+        try:
+            current_groups = self.list_by_instance(instance_id)
+        except Exception:
+            raise Exception(_("Couldn't get current security group "
+                              "list for instance %s.")
+                            % instance_id)
+
+        current_group_names = set(map(lambda g: g.id, current_groups))
+        groups_to_add = wanted_groups - current_group_names
+        groups_to_remove = current_group_names - wanted_groups
+
+        num_groups_to_modify = len(groups_to_add | groups_to_remove)
+        try:
+            for group in groups_to_add:
+                self.client.servers.add_security_group(instance_id, group)
+                num_groups_to_modify -= 1
+            for group in groups_to_remove:
+                self.client.servers.remove_security_group(instance_id, group)
+                num_groups_to_modify -= 1
+        except Exception:
+            raise Exception(_('Failed to modify %d instance security groups.')
+                            % num_groups_to_modify)
+        return True
 
 
 class FlavorExtraSpec(object):
@@ -208,7 +296,7 @@ class FloatingIpTarget(APIDictWrapper):
         super(FloatingIpTarget, self).__init__(server_dict)
 
 
-class FloatingIpManager(network.FloatingIpManager):
+class FloatingIpManager(network_base.FloatingIpManager):
     def __init__(self, request):
         self.request = request
         self.client = novaclient(request)
@@ -398,39 +486,6 @@ def server_console_output(request, instance_id, tail_length=None):
                                                           length=tail_length)
 
 
-def server_security_groups(request, instance_id):
-    """Gets security groups of an instance."""
-    # TODO(gabriel): This needs to be moved up to novaclient, and should
-    # be removed once novaclient supports this call.
-    security_groups = []
-    nclient = novaclient(request)
-    resp, body = nclient.client.get('/servers/%s/os-security-groups'
-                                    % instance_id)
-    if body:
-        # Wrap data in SG objects as novaclient would.
-        sg_objs = [NovaSecurityGroup(nclient.security_groups, sg, loaded=True)
-                   for sg in body.get('security_groups', [])]
-        # Then wrap novaclient's object with our own. Yes, sadly wrapping
-        # with two layers of objects is necessary.
-        security_groups = [SecurityGroup(sg) for sg in sg_objs]
-        # Package up the rules, as well.
-        for sg in security_groups:
-            rule_objects = [SecurityGroupRule(rule) for rule in sg.rules]
-            sg.rules = rule_objects
-    return security_groups
-
-
-def server_add_security_group(request, instance_id, security_group_name):
-    return novaclient(request).servers.add_security_group(instance_id,
-                                                          security_group_name)
-
-
-def server_remove_security_group(request, instance_id, security_group_name):
-    return novaclient(request).servers.remove_security_group(
-                instance_id,
-                security_group_name)
-
-
 def server_pause(request, instance_id):
     novaclient(request).servers.pause(instance_id)
 
@@ -504,40 +559,6 @@ def usage_get(request, tenant_id, start, end):
 def usage_list(request, start, end):
     return [NovaUsage(u) for u in
             novaclient(request).usage.list(start, end, True)]
-
-
-def security_group_list(request):
-    return [SecurityGroup(g) for g
-            in novaclient(request).security_groups.list()]
-
-
-def security_group_get(request, sg_id):
-    return SecurityGroup(novaclient(request).security_groups.get(sg_id))
-
-
-def security_group_create(request, name, desc):
-    return SecurityGroup(novaclient(request).security_groups.create(name,
-                                                                    desc))
-
-
-def security_group_delete(request, security_group_id):
-    novaclient(request).security_groups.delete(security_group_id)
-
-
-def security_group_rule_create(request, parent_group_id, ip_protocol=None,
-                               from_port=None, to_port=None, cidr=None,
-                               group_id=None):
-    sg = novaclient(request).security_group_rules.create(parent_group_id,
-                                                         ip_protocol,
-                                                         from_port,
-                                                         to_port,
-                                                         cidr,
-                                                         group_id)
-    return SecurityGroupRule(sg)
-
-
-def security_group_rule_delete(request, security_group_rule_id):
-    novaclient(request).security_group_rules.delete(security_group_rule_id)
 
 
 def virtual_interfaces_list(request, instance_id):

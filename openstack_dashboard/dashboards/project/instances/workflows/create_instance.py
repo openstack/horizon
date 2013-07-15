@@ -377,7 +377,7 @@ class SetAccessControlsAction(workflows.Action):
 
     def populate_groups_choices(self, request, context):
         try:
-            groups = api.nova.security_group_list(request)
+            groups = api.network.security_group_list(request)
             security_group_list = [(sg.name, sg.name) for sg in groups]
         except:
             exceptions.handle(request,

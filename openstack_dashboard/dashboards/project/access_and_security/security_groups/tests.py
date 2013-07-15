@@ -18,6 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import cgi
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
@@ -41,6 +43,8 @@ def strip_absolute_base(uri):
 
 
 class SecurityGroupsViewTests(test.TestCase):
+    secgroup_backend = 'nova'
+
     def setUp(self):
         super(SecurityGroupsViewTests, self).setUp()
         sec_group = self.security_groups.first()
@@ -56,10 +60,10 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertTemplateUsed(res,
                     'project/access_and_security/security_groups/create.html')
 
+    @test.create_stubs({api.network: ('security_group_create',)})
     def test_create_security_groups_post(self):
         sec_group = self.security_groups.first()
-        self.mox.StubOutWithMock(api.nova, 'security_group_create')
-        api.nova.security_group_create(IsA(http.HttpRequest),
+        api.network.security_group_create(IsA(http.HttpRequest),
                                        sec_group.name,
                                        sec_group.description) \
             .AndReturn(sec_group)
@@ -71,10 +75,10 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(SG_CREATE_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api.network: ('security_group_create',)})
     def test_create_security_groups_post_exception(self):
         sec_group = self.security_groups.first()
-        self.mox.StubOutWithMock(api.nova, 'security_group_create')
-        api.nova.security_group_create(IsA(http.HttpRequest),
+        api.network.security_group_create(IsA(http.HttpRequest),
                                        sec_group.name,
                                        sec_group.description) \
             .AndRaise(self.exceptions.nova)
@@ -87,9 +91,9 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api.network: ('security_group_create',)})
     def test_create_security_groups_post_wrong_name(self):
         sec_group = self.security_groups.first()
-        self.mox.StubOutWithMock(api.nova, 'security_group_create')
         fail_name = sec_group.name + ' invalid'
         self.mox.ReplayAll()
 
@@ -101,22 +105,22 @@ class SecurityGroupsViewTests(test.TestCase):
                     'project/access_and_security/security_groups/create.html')
         self.assertContains(res, "ASCII")
 
+    @test.create_stubs({api.network: ('security_group_get',)})
     def test_detail_get(self):
         sec_group = self.security_groups.first()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_get')
-        api.nova.security_group_get(IsA(http.HttpRequest),
-                                    sec_group.id).AndReturn(sec_group)
+        api.network.security_group_get(IsA(http.HttpRequest),
+                                       sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
         res = self.client.get(self.detail_url)
         self.assertTemplateUsed(res,
                 'project/access_and_security/security_groups/detail.html')
 
+    @test.create_stubs({api.network: ('security_group_get',)})
     def test_detail_get_exception(self):
         sec_group = self.security_groups.first()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_get')
-        api.nova.security_group_get(IsA(http.HttpRequest),
+        api.network.security_group_get(IsA(http.HttpRequest),
                                     sec_group.id) \
                 .AndRaise(self.exceptions.nova)
 
@@ -125,21 +129,25 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.get(self.detail_url)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
     def test_detail_add_rule_cidr(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
-        self.mox.StubOutWithMock(api.nova, 'security_group_list')
-        api.nova.security_group_rule_create(IsA(http.HttpRequest),
-                                            sec_group.id,
-                                            rule.ip_protocol,
-                                            int(rule.from_port),
-                                            int(rule.to_port),
-                                            rule.ip_range['cidr'],
-                                            None).AndReturn(rule)
-        api.nova.security_group_list(
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(IsA(http.HttpRequest),
+                                               sec_group.id,
+                                               'ingress', 'IPv4',
+                                               rule.ip_protocol,
+                                               int(rule.from_port),
+                                               int(rule.to_port),
+                                               rule.ip_range['cidr'],
+                                               None).AndReturn(rule)
+        api.network.security_group_list(
                         IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -147,55 +155,68 @@ class SecurityGroupsViewTests(test.TestCase):
                     'id': sec_group.id,
                     'port_or_range': 'port',
                     'port': rule.from_port,
-                    'ip_protocol': rule.ip_protocol,
+                    'rule_menu': rule.ip_protocol,
                     'cidr': rule.ip_range['cidr'],
-                    'source': 'cidr'}
+                    'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
     def test_detail_add_rule_cidr_with_template(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
-        self.mox.StubOutWithMock(api.nova, 'security_group_list')
-        api.nova.security_group_rule_create(IsA(http.HttpRequest),
-                                            sec_group.id,
-                                            rule.ip_protocol,
-                                            int(rule.from_port),
-                                            int(rule.to_port),
-                                            rule.ip_range['cidr'],
-                                            None).AndReturn(rule)
-        api.nova.security_group_list(
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(IsA(http.HttpRequest),
+                                               sec_group.id,
+                                               'ingress', 'IPv4',
+                                               rule.ip_protocol,
+                                               int(rule.from_port),
+                                               int(rule.to_port),
+                                               rule.ip_range['cidr'],
+                                               None).AndReturn(rule)
+        api.network.security_group_list(
                         IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
-                    'ip_protocol': 'http',
+                    'rule_menu': 'http',
                     'port_or_range': 'port',
                     'cidr': rule.ip_range['cidr'],
-                    'source': 'cidr'}
+                    'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
+    def _get_source_group_rule(self):
+        return self.security_group_rules.get(id=3)
+
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
     def test_detail_add_rule_self_as_source_group(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.get(id=3)
+        rule = self._get_source_group_rule()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
-        self.mox.StubOutWithMock(api.nova, 'security_group_list')
-        api.nova.security_group_rule_create(
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(
             IsA(http.HttpRequest),
             sec_group.id,
+            'ingress',
+            # ethertype is empty for source_group of Nova Security Group
+            '',
             rule.ip_protocol,
             int(rule.from_port),
             int(rule.to_port),
             None,
             u'%s' % sec_group.id).AndReturn(rule)
-        api.nova.security_group_list(
+        api.network.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -203,50 +224,84 @@ class SecurityGroupsViewTests(test.TestCase):
                     'id': sec_group.id,
                     'port_or_range': 'port',
                     'port': rule.from_port,
-                    'ip_protocol': rule.ip_protocol,
+                    'rule_menu': rule.ip_protocol,
                     'cidr': '0.0.0.0/0',
                     'security_group': sec_group.id,
-                    'source': 'sg'}
+                    'remote': 'sg'}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
     def test_detail_add_rule_self_as_source_group_with_template(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.get(id=3)
+        rule = self._get_source_group_rule()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
-        self.mox.StubOutWithMock(api.nova, 'security_group_list')
-        api.nova.security_group_rule_create(
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(
             IsA(http.HttpRequest),
             sec_group.id,
+            'ingress',
+            # ethertype is empty for source_group of Nova Security Group
+            '',
             rule.ip_protocol,
             int(rule.from_port),
             int(rule.to_port),
             None,
             u'%s' % sec_group.id).AndReturn(rule)
-        api.nova.security_group_list(
+        api.network.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
-                    'ip_protocol': 'http',
+                    'rule_menu': 'http',
                     'port_or_range': 'port',
                     'cidr': '0.0.0.0/0',
                     'security_group': sec_group.id,
-                    'source': 'sg'}
+                    'remote': 'sg'}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
+    @test.create_stubs({api.network: ('security_group_list',
+                                      'security_group_backend')})
+    def test_detail_invalid_port(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.first()
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'port_or_range': 'port',
+                    'port': None,
+                    'rule_menu': rule.ip_protocol,
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, "The specified port is invalid")
+
+    @test.create_stubs({api.network: ('security_group_list',
+                                      'security_group_backend')})
     def test_detail_invalid_port_range(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_list')
-        api.nova.security_group_list(
-            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        for i in range(3):
+            api.network.security_group_backend(
+                IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+            api.network.security_group_list(
+                IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -254,35 +309,53 @@ class SecurityGroupsViewTests(test.TestCase):
                     'port_or_range': 'range',
                     'from_port': rule.from_port,
                     'to_port': int(rule.from_port) - 1,
-                    'ip_protocol': rule.ip_protocol,
+                    'rule_menu': rule.ip_protocol,
                     'cidr': rule.ip_range['cidr'],
-                    'source': 'cidr'}
+                    'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
         self.assertContains(res, "greater than or equal to")
 
-    @test.create_stubs({api.nova: ('security_group_get',
-                                   'security_group_list')})
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'port_or_range': 'range',
+                    'from_port': None,
+                    'to_port': rule.to_port,
+                    'rule_menu': rule.ip_protocol,
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, cgi.escape('"from" port number is invalid',
+                                            quote=True))
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'port_or_range': 'range',
+                    'from_port': rule.from_port,
+                    'to_port': None,
+                    'rule_menu': rule.ip_protocol,
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, cgi.escape('"to" port number is invalid',
+                                            quote=True))
+
+    @test.create_stubs({api.network: ('security_group_get',
+                                      'security_group_list',
+                                      'security_group_backend')})
     def test_detail_invalid_icmp_rule(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         icmp_rule = self.security_group_rules.list()[1]
 
-        # 1st Test
-        api.nova.security_group_list(
-            IsA(http.HttpRequest)).AndReturn(sec_group_list)
-
-        # 2nd Test
-        api.nova.security_group_list(
-            IsA(http.HttpRequest)).AndReturn(sec_group_list)
-
-        # 3rd Test
-        api.nova.security_group_list(
-            IsA(http.HttpRequest)).AndReturn(sec_group_list)
-
-        # 4th Test
-        api.nova.security_group_list(
-            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        # Call POST 4 times
+        for i in range(4):
+            api.network.security_group_backend(
+                IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+            api.network.security_group_list(
+                IsA(http.HttpRequest)).AndReturn(sec_group_list)
 
         self.mox.ReplayAll()
 
@@ -291,9 +364,9 @@ class SecurityGroupsViewTests(test.TestCase):
                     'port_or_range': 'port',
                     'icmp_type': 256,
                     'icmp_code': icmp_rule.to_port,
-                    'ip_protocol': icmp_rule.ip_protocol,
+                    'rule_menu': icmp_rule.ip_protocol,
                     'cidr': icmp_rule.ip_range['cidr'],
-                    'source': 'cidr'}
+                    'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
         self.assertContains(res, "The ICMP type not in range (-1, 255)")
@@ -303,9 +376,9 @@ class SecurityGroupsViewTests(test.TestCase):
                     'port_or_range': 'port',
                     'icmp_type': icmp_rule.from_port,
                     'icmp_code': 256,
-                    'ip_protocol': icmp_rule.ip_protocol,
+                    'rule_menu': icmp_rule.ip_protocol,
                     'cidr': icmp_rule.ip_range['cidr'],
-                    'source': 'cidr'}
+                    'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
         self.assertContains(res, "The ICMP code not in range (-1, 255)")
@@ -315,9 +388,9 @@ class SecurityGroupsViewTests(test.TestCase):
                     'port_or_range': 'port',
                     'icmp_type': icmp_rule.from_port,
                     'icmp_code': None,
-                    'ip_protocol': icmp_rule.ip_protocol,
+                    'rule_menu': icmp_rule.ip_protocol,
                     'cidr': icmp_rule.ip_range['cidr'],
-                    'source_group': 'cidr'}
+                    'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
         self.assertContains(res, "The ICMP code is invalid")
@@ -327,29 +400,32 @@ class SecurityGroupsViewTests(test.TestCase):
                     'port_or_range': 'port',
                     'icmp_type': None,
                     'icmp_code': icmp_rule.to_port,
-                    'ip_protocol': icmp_rule.ip_protocol,
+                    'rule_menu': icmp_rule.ip_protocol,
                     'cidr': icmp_rule.ip_range['cidr'],
-                    'source': 'cidr'}
+                    'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
         self.assertContains(res, "The ICMP type is invalid")
 
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
     def test_detail_add_rule_exception(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_rule_create')
-        self.mox.StubOutWithMock(api.nova, 'security_group_list')
-        api.nova.security_group_rule_create(
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(
             IsA(http.HttpRequest),
-            sec_group.id,
+            sec_group.id, 'ingress', 'IPv4',
             rule.ip_protocol,
             int(rule.from_port),
             int(rule.to_port),
             rule.ip_range['cidr'],
             None).AndRaise(self.exceptions.nova)
-        api.nova.security_group_list(
+        api.network.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -357,18 +433,18 @@ class SecurityGroupsViewTests(test.TestCase):
                     'id': sec_group.id,
                     'port_or_range': 'port',
                     'port': rule.from_port,
-                    'ip_protocol': rule.ip_protocol,
+                    'rule_menu': rule.ip_protocol,
                     'cidr': rule.ip_range['cidr'],
-                    'source': 'cidr'}
+                    'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
+    @test.create_stubs({api.network: ('security_group_rule_delete',)})
     def test_detail_delete_rule(self):
         sec_group = self.security_groups.first()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_rule_delete')
-        api.nova.security_group_rule_delete(IsA(http.HttpRequest), rule.id)
+        api.network.security_group_rule_delete(IsA(http.HttpRequest), rule.id)
         self.mox.ReplayAll()
 
         form_data = {"action": "rules__delete__%s" % rule.id}
@@ -379,12 +455,12 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertEqual(strip_absolute_base(handled['location']),
                          self.detail_url)
 
+    @test.create_stubs({api.network: ('security_group_rule_delete',)})
     def test_detail_delete_rule_exception(self):
         sec_group = self.security_groups.first()
         rule = self.security_group_rules.first()
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_rule_delete')
-        api.nova.security_group_rule_delete(
+        api.network.security_group_rule_delete(
             IsA(http.HttpRequest),
             rule.id).AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
@@ -397,11 +473,11 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertEqual(strip_absolute_base(handled['location']),
                          self.detail_url)
 
+    @test.create_stubs({api.network: ('security_group_delete',)})
     def test_delete_group(self):
         sec_group = self.security_groups.get(name="other_group")
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_delete')
-        api.nova.security_group_delete(IsA(http.HttpRequest), sec_group.id)
+        api.network.security_group_delete(IsA(http.HttpRequest), sec_group.id)
         self.mox.ReplayAll()
 
         form_data = {"action": "security_groups__delete__%s" % sec_group.id}
@@ -411,11 +487,11 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertEqual(strip_absolute_base(handled['location']),
                          INDEX_URL)
 
+    @test.create_stubs({api.network: ('security_group_delete',)})
     def test_delete_group_exception(self):
         sec_group = self.security_groups.get(name="other_group")
 
-        self.mox.StubOutWithMock(api.nova, 'security_group_delete')
-        api.nova.security_group_delete(
+        api.network.security_group_delete(
             IsA(http.HttpRequest),
             sec_group.id).AndRaise(self.exceptions.nova)
 
@@ -430,9 +506,11 @@ class SecurityGroupsViewTests(test.TestCase):
                          INDEX_URL)
 
 
-class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
+class SecurityGroupsNovaNeutronDriverTests(SecurityGroupsViewTests):
+    secgroup_backend = 'nova'
+
     def setUp(self):
-        super(SecurityGroupsNeutronTests, self).setUp()
+        super(SecurityGroupsNovaNeutronDriverTests, self).setUp()
 
         self._sec_groups_orig = self.security_groups
         self.security_groups = self.security_groups_uuid
@@ -451,4 +529,134 @@ class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
     def tearDown(self):
         self.security_groups = self._sec_groups_orig
         self.security_group_rules = self._sec_group_rules_orig
+        super(SecurityGroupsNovaNeutronDriverTests, self).tearDown()
+
+
+class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
+    secgroup_backend = 'neutron'
+
+    def setUp(self):
+        super(SecurityGroupsNeutronTests, self).setUp()
+
+        self._sec_groups_orig = self.security_groups
+        self.security_groups = self.q_secgroups
+
+        self._sec_group_rules_orig = self.security_group_rules
+        self.security_group_rules = self.q_secgroup_rules
+
+        sec_group = self.security_groups.first()
+        self.detail_url = reverse('horizon:project:access_and_security:'
+                                  'security_groups:detail',
+                                  args=[sec_group.id])
+        self.edit_url = reverse('horizon:project:access_and_security:'
+                                'security_groups:add_rule',
+                                args=[sec_group.id])
+
+    def tearDown(self):
+        self.security_groups = self._sec_groups_orig
+        self.security_group_rules = self._sec_group_rules_orig
         super(SecurityGroupsNeutronTests, self).tearDown()
+
+    def _get_source_group_rule(self):
+        for rule in self.security_group_rules.list():
+            if rule.group:
+                return rule
+        raise Exception("No matches found.")
+
+    # Additional tests for Neutron Security Group original features
+
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
+    def test_detail_add_rule_custom_protocol(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.first()
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(IsA(http.HttpRequest),
+                                               sec_group.id, 'ingress', 'IPv6',
+                                               37, None, None, 'fe80::/48',
+                                               None).AndReturn(rule)
+        api.network.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'rule_menu': 'custom',
+                    'direction': 'ingress',
+                    'port_or_range': 'port',
+                    'ip_protocol': 37,
+                    'cidr': 'fe80::/48',
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
+    def test_detail_add_rule_egress(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.first()
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(IsA(http.HttpRequest),
+                                               sec_group.id, 'egress', 'IPv4',
+                                               'udp', 80, 80, '10.1.1.0/24',
+                                               None).AndReturn(rule)
+        api.network.security_group_list(
+                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'direction': 'egress',
+                    'rule_menu': 'udp',
+                    'port_or_range': 'port',
+                    'port': 80,
+                    'cidr': '10.1.1.0/24',
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
+    def test_detail_add_rule_source_group_with_direction_ethertype(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self._get_source_group_rule()
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(
+            IsA(http.HttpRequest),
+            sec_group.id,
+            'egress',
+            # ethertype is empty for source_group of Nova Security Group
+            'IPv6',
+            rule.ip_protocol,
+            int(rule.from_port),
+            int(rule.to_port),
+            None,
+            u'%s' % sec_group.id).AndReturn(rule)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'direction': 'egress',
+                    'port_or_range': 'port',
+                    'port': rule.from_port,
+                    'rule_menu': rule.ip_protocol,
+                    'cidr': '0.0.0.0/0',
+                    'security_group': sec_group.id,
+                    'remote': 'sg',
+                    'ethertype': 'IPv6'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)

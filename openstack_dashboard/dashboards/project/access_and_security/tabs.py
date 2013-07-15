@@ -43,7 +43,7 @@ class SecurityGroupsTab(tabs.TableTab):
 
     def get_security_groups_data(self):
         try:
-            security_groups = nova.security_group_list(self.request)
+            security_groups = network.security_group_list(self.request)
         except:
             security_groups = []
             exceptions.handle(self.request,

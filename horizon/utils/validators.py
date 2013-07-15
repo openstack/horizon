@@ -24,6 +24,12 @@ def validate_port_range(port):
         raise ValidationError("Not a valid port number")
 
 
+def validate_ip_protocol(ip_proto):
+    if ip_proto not in range(-1, 256):
+        raise ValidationError("%s is not a valid ip protocol number" %
+                              type(ip_proto))
+
+
 def password_validator():
     return conf.HORIZON_CONFIG["password_validator"]["regex"]
 

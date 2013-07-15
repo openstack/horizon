@@ -23,8 +23,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 from openstack_dashboard import api
-
-from ..floating_ips.utils import get_int_or_uuid
+from openstack_dashboard.utils.filters import get_int_or_uuid
 
 
 LOG = logging.getLogger(__name__)
@@ -40,7 +39,7 @@ class DeleteGroup(tables.DeleteAction):
         return security_group.name != 'default'
 
     def delete(self, request, obj_id):
-        api.nova.security_group_delete(request, obj_id)
+        api.network.security_group_delete(request, obj_id)
 
 
 class CreateGroup(tables.LinkAction):
@@ -86,7 +85,7 @@ class DeleteRule(tables.DeleteAction):
     data_type_plural = _("Rules")
 
     def delete(self, request, obj_id):
-        api.nova.security_group_rule_delete(request, obj_id)
+        api.network.security_group_rule_delete(request, obj_id)
 
     def get_success_url(self, request):
         sg_id = self.table.kwargs['security_group_id']
@@ -94,16 +93,34 @@ class DeleteRule(tables.DeleteAction):
                        "security_groups:detail", args=[sg_id])
 
 
-def get_source(rule):
+def get_remote(rule):
     if 'cidr' in rule.ip_range:
         if rule.ip_range['cidr'] is None:
-            return '0.0.0.0/0 (CIDR)'
+            range = '::/0' if rule.ethertype == 'IPv6' else '0.0.0.0/0'
         else:
-            return rule.ip_range['cidr'] + ' (CIDR)'
+            range = rule.ip_range['cidr']
+        return range + ' (CIDR)'
     elif 'name' in rule.group:
         return rule.group['name']
     else:
         return None
+
+
+def get_port_range(rule):
+    ip_proto = rule.ip_protocol
+    if rule.from_port == rule.to_port:
+        return check_rule_template(rule.from_port, ip_proto)
+    else:
+        return (u"%(from)s - %(to)s" %
+                {'from': check_rule_template(rule.from_port, ip_proto),
+                 'to': check_rule_template(rule.to_port, ip_proto)})
+
+
+def filter_direction(direction):
+    if direction is None or direction.lower() == 'ingress':
+        return _('Ingress')
+    else:
+        return _('Egress')
 
 
 def filter_protocol(protocol):
@@ -112,12 +129,13 @@ def filter_protocol(protocol):
     return unicode.upper(protocol)
 
 
-def check_rule_template(port):
+def check_rule_template(port, ip_proto):
     rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', {})
     if not rules_dict:
         return port
     templ_rule = filter(lambda rule: str(port) == rule['from_port']
-                        and str(port) == rule['to_port'],
+                        and str(port) == rule['to_port']
+                        and ip_proto == rule['ip_protocol'],
                         [rule for rule in rules_dict.values()])
     if templ_rule:
         return u"%(from_port)s (%(name)s)" % templ_rule[0]
@@ -125,14 +143,17 @@ def check_rule_template(port):
 
 
 class RulesTable(tables.DataTable):
+    direction = tables.Column("direction",
+                              verbose_name=_("Direction"),
+                              filters=(filter_direction,))
+    ethertype = tables.Column("ethertype",
+                              verbose_name=_("Ether Type"))
     protocol = tables.Column("ip_protocol",
                              verbose_name=_("IP Protocol"),
                              filters=(filter_protocol,))
-    from_port = tables.Column("from_port", verbose_name=_("From Port"),
-                              filters=(check_rule_template,))
-    to_port = tables.Column("to_port", verbose_name=_("To Port"),
-                              filters=(check_rule_template,))
-    source = tables.Column(get_source, verbose_name=_("Source"))
+    port_range = tables.Column(get_port_range,
+                               verbose_name=_("Port Range"))
+    remote = tables.Column(get_remote, verbose_name=_("Remote"))
 
     def sanitize_id(self, obj_id):
         return get_int_or_uuid(obj_id)

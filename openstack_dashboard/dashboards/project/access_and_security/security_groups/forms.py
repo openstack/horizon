@@ -18,6 +18,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
+import netaddr
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core import validators
@@ -28,11 +32,14 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon.utils import fields
+from horizon.utils.validators import validate_ip_protocol
 from horizon.utils.validators import validate_port_range
 
 from openstack_dashboard import api
+from openstack_dashboard.utils.filters import get_int_or_uuid
 
-from ..floating_ips.utils import get_int_or_uuid
+
+LOG = logging.getLogger(__name__)
 
 
 class CreateGroup(forms.SelfHandlingForm):
@@ -46,9 +53,9 @@ class CreateGroup(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            sg = api.nova.security_group_create(request,
-                                                data['name'],
-                                                data['description'])
+            sg = api.network.security_group_create(request,
+                                                   data['name'],
+                                                   data['description'])
             messages.success(request,
                              _('Successfully created security group: %s')
                                % data['name'])
@@ -62,20 +69,49 @@ class CreateGroup(forms.SelfHandlingForm):
 
 class AddRule(forms.SelfHandlingForm):
     id = forms.CharField(widget=forms.HiddenInput())
-    ip_protocol = forms.ChoiceField(label=_('Rule'),
-                                    widget=forms.Select(attrs={
-                                            'class': 'switchable',
-                                            'data-slug': 'protocol'}))
+    rule_menu = forms.ChoiceField(label=_('Rule'),
+                                  widget=forms.Select(attrs={
+                                          'class': 'switchable',
+                                          'data-slug': 'rule_menu'}))
 
-    port_or_range = forms.ChoiceField(label=_('Open'),
-                                      choices=[('port', _('Port')),
-                                               ('range', _('Port Range'))],
-                                      widget=forms.Select(attrs={
-                                            'class': 'switchable switched',
-                                            'data-slug': 'range',
-                                            'data-switch-on': 'protocol',
-                                            'data-protocol-tcp': _('Open'),
-                                            'data-protocol-udp': _('Open')}))
+    # "direction" field is enabled only when custom mode.
+    # It is because most common rules in local_settings.py is meaningful
+    # when its direction is 'ingress'.
+    direction = forms.ChoiceField(
+        label=_('Direction'),
+        required=False,
+        widget=forms.Select(attrs={
+            'class': 'switched',
+            'data-switch-on': 'rule_menu',
+            'data-rule_menu-tcp': _('Direction'),
+            'data-rule_menu-udp': _('Direction'),
+            'data-rule_menu-icmp': _('Direction'),
+            'data-rule_menu-custom': _('Direction'),
+            'data-rule_menu-all_tcp': _('Direction'),
+            'data-rule_menu-all_udp': _('Direction'),
+            'data-rule_menu-all_icmp': _('Direction'),
+        }))
+
+    ip_protocol = forms.IntegerField(
+        label=_('IP Protocol'), required=False,
+        help_text=_("Enter an integer value between 0 and 255 "
+                    "(or -1 which means wildcard)."),
+        validators=[validate_ip_protocol],
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'rule_menu',
+            'data-rule_menu-custom': _('IP Protocol')}))
+
+    port_or_range = forms.ChoiceField(
+        label=_('Open Port'),
+        choices=[('port', _('Port')),
+                 ('range', _('Port Range'))],
+        widget=forms.Select(attrs={
+              'class': 'switchable switched',
+              'data-slug': 'range',
+              'data-switch-on': 'rule_menu',
+              'data-rule_menu-tcp': _('Open Port'),
+              'data-rule_menu-udp': _('Open Port')}))
 
     port = forms.IntegerField(label=_("Port"),
                               required=False,
@@ -113,8 +149,8 @@ class AddRule(forms.SelfHandlingForm):
                                                "in the range (-1: 255)"),
                                    widget=forms.TextInput(attrs={
                                         'class': 'switched',
-                                        'data-switch-on': 'protocol',
-                                        'data-protocol-icmp': _('Type')}),
+                                        'data-switch-on': 'rule_menu',
+                                        'data-rule_menu-icmp': _('Type')}),
                                    validators=[validate_port_range])
 
     icmp_code = forms.IntegerField(label=_("Code"),
@@ -123,11 +159,11 @@ class AddRule(forms.SelfHandlingForm):
                                                "in the range (-1: 255)"),
                                    widget=forms.TextInput(attrs={
                                           'class': 'switched',
-                                          'data-switch-on': 'protocol',
-                                          'data-protocol-icmp': _('Code')}),
+                                          'data-switch-on': 'rule_menu',
+                                          'data-rule_menu-icmp': _('Code')}),
                                    validators=[validate_port_range])
 
-    source = forms.ChoiceField(label=_('Source'),
+    remote = forms.ChoiceField(label=_('Remote'),
                                choices=[('cidr', _('CIDR')),
                                         ('sg', _('Security Group'))],
                                help_text=_('To specify an allowed IP '
@@ -138,7 +174,7 @@ class AddRule(forms.SelfHandlingForm):
                                            'Group".'),
                                widget=forms.Select(attrs={
                                       'class': 'switchable',
-                                      'data-slug': 'source'}))
+                                      'data-slug': 'remote'}))
 
     cidr = fields.IPField(label=_("CIDR"),
                           required=False,
@@ -149,44 +185,71 @@ class AddRule(forms.SelfHandlingForm):
                           mask=True,
                           widget=forms.TextInput(
                                 attrs={'class': 'switched',
-                                       'data-switch-on': 'source',
-                                       'data-source-cidr': _('CIDR')}))
+                                       'data-switch-on': 'remote',
+                                       'data-remote-cidr': _('CIDR')}))
 
     security_group = forms.ChoiceField(label=_('Security Group'),
                                        required=False,
                                        widget=forms.Select(attrs={
                                           'class': 'switched',
-                                          'data-switch-on': 'source',
-                                          'data-source-sg': _('Security '
+                                          'data-switch-on': 'remote',
+                                          'data-remote-sg': _('Security '
                                                               'Group')}))
+    # When cidr is used ethertype is determined from IP version of cidr.
+    # When source group, ethertype needs to be specified explicitly.
+    ethertype = forms.ChoiceField(label=_('Ether Type'),
+                                  required=False,
+                                  choices=[('IPv4', _('IPv4')),
+                                           ('IPv6', _('IPv6'))],
+                                  widget=forms.Select(attrs={
+                                      'class': 'switched',
+                                      'data-slug': 'ethertype',
+                                      'data-switch-on': 'remote',
+                                      'data-remote-sg': _('Ether Type')}))
 
     def __init__(self, *args, **kwargs):
         sg_list = kwargs.pop('sg_list', [])
         super(AddRule, self).__init__(*args, **kwargs)
         # Determine if there are security groups available for the
-        # source group option; add the choices and enable the option if so.
+        # remote group option; add the choices and enable the option if so.
         if sg_list:
             security_groups_choices = sg_list
         else:
             security_groups_choices = [("", _("No security groups available"))]
         self.fields['security_group'].choices = security_groups_choices
 
-        rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', {})
+        backend = api.network.security_group_backend(self.request)
+
+        rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', [])
         common_rules = [(k, _(rules_dict[k]['name']))
-                         for k in rules_dict]
+                        for k in rules_dict
+                        if rules_dict[k].get('backend', backend) == backend]
         common_rules.sort()
         custom_rules = [('tcp', _('Custom TCP Rule')),
                         ('udp', _('Custom UDP Rule')),
                         ('icmp', _('Custom ICMP Rule'))]
-        self.fields['ip_protocol'].choices = custom_rules + common_rules
+        if backend == 'neutron':
+            custom_rules.append(('custom', _('Other Protocol')))
+        self.fields['rule_menu'].choices = custom_rules + common_rules
         self.rules = rules_dict
+
+        if backend == 'neutron':
+            self.fields['direction'].choices = [('ingress', _('Ingress')),
+                                                ('egress', _('Egress'))]
+        else:
+            # direction and ethertype are not supported in Nova secgroup.
+            self.fields['direction'].widget = forms.HiddenInput()
+            self.fields['ethertype'].widget = forms.HiddenInput()
+            # ip_protocol field is to specify arbitrary protocol number
+            # and it is available only for neutron security group.
+            self.fields['ip_protocol'].widget = forms.HiddenInput()
 
     def clean(self):
         cleaned_data = super(AddRule, self).clean()
 
-        ip_proto = cleaned_data.get('ip_protocol')
+        rule_menu = cleaned_data.get('rule_menu')
         port_or_range = cleaned_data.get("port_or_range")
-        source = cleaned_data.get("source")
+        remote = cleaned_data.get("remote")
 
         icmp_type = cleaned_data.get("icmp_type", None)
         icmp_code = cleaned_data.get("icmp_code", None)
@@ -195,7 +258,8 @@ class AddRule(forms.SelfHandlingForm):
         to_port = cleaned_data.get("to_port", None)
         port = cleaned_data.get("port", None)
 
-        if ip_proto == 'icmp':
+        if rule_menu == 'icmp':
+            cleaned_data['ip_protocol'] = rule_menu
             if icmp_type is None:
                 msg = _('The ICMP type is invalid.')
                 raise ValidationError(msg)
@@ -210,7 +274,8 @@ class AddRule(forms.SelfHandlingForm):
                 raise ValidationError(msg)
             cleaned_data['from_port'] = icmp_type
             cleaned_data['to_port'] = icmp_code
-        elif ip_proto == 'tcp' or ip_proto == 'udp':
+        elif rule_menu == 'tcp' or rule_menu == 'udp':
+            cleaned_data['ip_protocol'] = rule_menu
             if port_or_range == "port":
                 cleaned_data["from_port"] = port
                 cleaned_data["to_port"] = port
@@ -228,23 +293,51 @@ class AddRule(forms.SelfHandlingForm):
                     msg = _('The "to" port number must be greater than '
                             'or equal to the "from" port number.')
                     raise ValidationError(msg)
+        elif rule_menu == 'custom':
+            pass
         else:
-            cleaned_data['ip_protocol'] = self.rules[ip_proto]['ip_protocol']
-            cleaned_data['from_port'] = int(self.rules[ip_proto]['from_port'])
-            cleaned_data['to_port'] = int(self.rules[ip_proto]['to_port'])
+            cleaned_data['ip_protocol'] = self.rules[rule_menu]['ip_protocol']
+            cleaned_data['from_port'] = int(self.rules[rule_menu]['from_port'])
+            cleaned_data['to_port'] = int(self.rules[rule_menu]['to_port'])
+            cleaned_data['direction'] = self.rules[rule_menu].get('direction')
 
-        if source == "cidr":
+        # NOTE(amotoki): There are two cases where cleaned_data['direction']
+        # is empty: (1) Nova Security Group is used. Since "direction" is
+        # HiddenInput, direction field exists but its value is ''.
+        # (2) Template is used. In this case, the default value is None.
+        # To make sure 'direction' field has 'ingress' or 'egress',
+        # fill this field here if it is not specified.
+        if not cleaned_data['direction']:
+            cleaned_data['direction'] = 'ingress'
+
+        if remote == "cidr":
             cleaned_data['security_group'] = None
         else:
             cleaned_data['cidr'] = None
+
+        # If cleaned_data does not contain cidr, cidr is already marked
+        # as invalid, so skip the further validation for cidr.
+        # In addition cleaned_data['cidr'] is None means source_group is used.
+        if 'cidr' in cleaned_data and cleaned_data['cidr'] is not None:
+            cidr = cleaned_data['cidr']
+            if not cidr:
+                msg = _('CIDR must be specified.')
+                self._errors['cidr'] = self.error_class([msg])
+            else:
+                # If cidr is specified, ethertype is determined from IP address
+                # version. It is used only when Neutron is enabled.
+                ip_ver = netaddr.IPNetwork(cidr).version
+                cleaned_data['ethertype'] = 'IPv6' if ip_ver == 6 else 'IPv4'
 
         return cleaned_data
 
     def handle(self, request, data):
         try:
-            rule = api.nova.security_group_rule_create(
+            rule = api.network.security_group_rule_create(
                         request,
                         get_int_or_uuid(data['id']),
+                        data['direction'],
+                        data['ethertype'],
                         data['ip_protocol'],
                         data['from_port'],
                         data['to_port'],
