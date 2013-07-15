@@ -17,6 +17,7 @@ import logging
 import re
 
 from django.utils.translation import ugettext_lazy as _
+from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions
 from horizon import forms
@@ -187,6 +188,14 @@ class StackCreateForm(forms.SelfHandlingForm):
         self._build_parameter_fields(parameters)
 
     def _build_parameter_fields(self, template_validate):
+
+        self.fields['password'] = forms.CharField(
+            label=_('Password for user "%s"') % self.request.user.username,
+            help_text=_('This is required for operations to be performed '
+                        'throughout the lifecycle of the stack'),
+            required=True,
+            widget=forms.PasswordInput())
+
         self.help_text = template_validate['Description']
 
         params = template_validate.get('Parameters', {})
@@ -224,6 +233,7 @@ class StackCreateForm(forms.SelfHandlingForm):
 
             self.fields[field_key] = field
 
+    @sensitive_variables('password')
     def handle(self, request, data):
         prefix_length = len(self.param_prefix)
         params_list = [(k[prefix_length:], v) for (k, v) in data.iteritems()
@@ -232,7 +242,8 @@ class StackCreateForm(forms.SelfHandlingForm):
             'stack_name': data.get('stack_name'),
             'timeout_mins': data.get('timeout_mins'),
             'disable_rollback': not(data.get('enable_rollback')),
-            'parameters': dict(params_list)
+            'parameters': dict(params_list),
+            'password': data.get('password')
         }
 
         if data.get('template_data'):
@@ -244,5 +255,6 @@ class StackCreateForm(forms.SelfHandlingForm):
             api.heat.stack_create(self.request, **fields)
             messages.success(request, _("Stack creation started."))
             return True
-        except:
-            exceptions.handle(request, _('Stack creation failed.'))
+        except Exception as e:
+            msg = exception_to_validation_msg(e)
+            exceptions.handle(request, msg or _('Stack creation failed.'))
