@@ -37,8 +37,14 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         domains = []
+        domain_context = self.request.session.get('domain_context', None)
         try:
-            domains = api.keystone.domain_list(self.request)
+            if domain_context:
+                domain = api.keystone.domain_get(self.request,
+                                                 domain_context)
+                domains.append(domain)
+            else:
+                domains = api.keystone.domain_list(self.request)
         except:
             exceptions.handle(self.request,
                               _('Unable to retrieve domain list.'))

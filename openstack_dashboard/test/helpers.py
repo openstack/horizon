@@ -27,6 +27,7 @@ from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django import http
 from django.test.client import RequestFactory
+from django.utils.importlib import import_module
 from django.utils import unittest
 
 from cinderclient import client as cinder_client
@@ -223,6 +224,17 @@ class BaseAdminViewTests(TestCase):
         if "roles" not in kwargs:
             kwargs['roles'] = [self.roles.admin._info]
         super(BaseAdminViewTests, self).setActiveUser(*args, **kwargs)
+
+    def setSessionValues(self, **kwargs):
+        settings.SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+        engine = import_module(settings.SESSION_ENGINE)
+        store = engine.SessionStore()
+        for key in kwargs:
+            store[key] = kwargs[key]
+            self.request.session[key] = kwargs[key]
+        store.save()
+        self.session = store
+        self.client.cookies[settings.SESSION_COOKIE_NAME] = store.session_key
 
 
 class APITestCase(TestCase):

@@ -147,7 +147,8 @@ def data(TEST):
                  'password': 'password',
                  'token': 'test_token',
                  'project_id': '1',
-                 'enabled': True}
+                 'enabled': True,
+                 'domain_id': "1"}
     user = users.User(users.UserManager(None), user_dict)
     user_dict = {'id': "2",
                  'name': 'user_two',
@@ -155,7 +156,8 @@ def data(TEST):
                  'password': 'password',
                  'token': 'test_token',
                  'project_id': '1',
-                 'enabled': True}
+                 'enabled': True,
+                 'domain_id': "1"}
     user2 = users.User(users.UserManager(None), user_dict)
     user_dict = {'id': "3",
                  'name': 'user_three',
@@ -163,9 +165,19 @@ def data(TEST):
                  'password': 'password',
                  'token': 'test_token',
                  'project_id': '1',
-                 'enabled': True}
+                 'enabled': True,
+                 'domain_id': "1"}
     user3 = users.User(users.UserManager(None), user_dict)
-    TEST.users.add(user, user2, user3)
+    user_dict = {'id': "4",
+                 'name': 'user_four',
+                 'email': 'four@example.com',
+                 'password': 'password',
+                 'token': 'test_token',
+                 'project_id': '2',
+                 'enabled': True,
+                 'domain_id': "2"}
+    user4 = users.User(users.UserManager(None), user_dict)
+    TEST.users.add(user, user2, user3, user4)
     TEST.user = user  # Your "current" user
     TEST.user.service_catalog = SERVICE_CATALOG
 
@@ -179,20 +191,28 @@ def data(TEST):
                  'description': 'group two description',
                  'domain_id': '1'}
     group2 = groups.Group(groups.GroupManager(None), group_dict)
-    TEST.groups.add(group, group2)
+    group_dict = {'id': "3",
+                 'name': 'group_three',
+                 'description': 'group three description',
+                 'domain_id': '2'}
+    group3 = groups.Group(groups.GroupManager(None), group_dict)
+    TEST.groups.add(group, group2, group3)
 
     tenant_dict = {'id': "1",
                    'name': 'test_tenant',
                    'description': "a test tenant.",
-                   'enabled': True}
+                   'enabled': True,
+                   'domain_id': '1'}
     tenant_dict_2 = {'id': "2",
                      'name': 'disabled_tenant',
                      'description': "a disabled test tenant.",
-                     'enabled': False}
+                     'enabled': False,
+                     'domain_id': '2'}
     tenant_dict_3 = {'id': "3",
                      'name': u'\u4e91\u89c4\u5219',
                      'description': "an unicode-named tenant.",
-                     'enabled': True}
+                     'enabled': True,
+                     'domain_id': '2'}
     tenant = tenants.Tenant(tenants.TenantManager, tenant_dict)
     disabled_tenant = tenants.Tenant(tenants.TenantManager, tenant_dict_2)
     tenant_unicode = tenants.Tenant(tenants.TenantManager, tenant_dict_3)

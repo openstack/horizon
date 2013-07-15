@@ -100,6 +100,32 @@ class DomainsViewTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, DOMAINS_INDEX_URL)
         self.assertMessageCount(error=2)
 
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'domain_list', )})
+    def test_set_clear_domain_context(self):
+        domain = self.domains.get(id="1")
+
+        api.keystone.domain_get(IgnoreArg(), domain.id).AndReturn(domain)
+        api.keystone.domain_get(IgnoreArg(), domain.id).AndReturn(domain)
+
+        api.keystone.domain_list(IgnoreArg()).AndReturn(self.domains.list())
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'domains__set_domain_context__%s' % domain.id}
+        res = self.client.post(DOMAINS_INDEX_URL, formData)
+
+        self.assertTemplateUsed(res, DOMAINS_INDEX_VIEW_TEMPLATE)
+        self.assertItemsEqual(res.context['table'].data, [domain, ])
+        self.assertContains(res, "<em>test_domain:</em>")
+
+        formData = {'action': 'domains__clear_domain_context__%s' % domain.id}
+        res = self.client.post(DOMAINS_INDEX_URL, formData)
+
+        self.assertTemplateUsed(res, DOMAINS_INDEX_VIEW_TEMPLATE)
+        self.assertItemsEqual(res.context['table'].data, self.domains.list())
+        self.assertNotContains(res, "<em>test_domain:</em>")
+
 
 class CreateDomainWorkflowTests(test.BaseAdminViewTests):
     def _get_domain_info(self, domain):

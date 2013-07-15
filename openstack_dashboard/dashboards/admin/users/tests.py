@@ -36,16 +36,40 @@ USER_UPDATE_URL = reverse('horizon:admin:users:update', args=[1])
 
 
 class UsersViewTests(test.BaseAdminViewTests):
+    def _get_domain_id(self):
+        return self.request.session.get('domain_context', None)
+
+    def _get_users(self, domain_id):
+        if not domain_id:
+            users = self.users.list()
+        else:
+            users = [user for user in self.users.list()
+                     if user.domain_id == domain_id]
+        return users
+
     @test.create_stubs({api.keystone: ('user_list',)})
     def test_index(self):
-        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+        domain_id = self._get_domain_id()
+        users = self._get_users(domain_id)
+        api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+                .AndReturn(users)
 
         self.mox.ReplayAll()
 
         res = self.client.get(USERS_INDEX_URL)
 
         self.assertTemplateUsed(res, 'admin/users/index.html')
-        self.assertItemsEqual(res.context['table'].data, self.users.list())
+        self.assertItemsEqual(res.context['table'].data, users)
+
+        if domain_id:
+            for user in res.context['table'].data:
+                self.assertItemsEqual(user.domain_id, domain_id)
+
+    def test_index_with_domain(self):
+        domain = self.domains.get(id="1")
+        self.setSessionValues(domain_context=domain.id,
+                              domain_context_name=domain.name)
+        self.test_index()
 
     @test.create_stubs({api.keystone: ('user_create',
                                        'tenant_list',
@@ -54,16 +78,19 @@ class UsersViewTests(test.BaseAdminViewTests):
                                        'role_list')})
     def test_create(self):
         user = self.users.get(id="1")
+        domain_id = self._get_domain_id()
+
         role = self.roles.first()
 
         api.keystone.tenant_list(IgnoreArg(), user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_create(IgnoreArg(),
-                                 user.name,
-                                 user.email,
-                                 user.password,
-                                 self.tenant.id,
-                                 True).AndReturn(user)
+                                 name=user.name,
+                                 email=user.email,
+                                 password=user.password,
+                                 project=self.tenant.id,
+                                 enabled=True,
+                                 domain=domain_id).AndReturn(user)
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()).AndReturn(role)
         api.keystone.add_tenant_user_role(IgnoreArg(), self.tenant.id,
@@ -82,6 +109,12 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
+
+    def test_create_with_domain(self):
+        domain = self.domains.get(id="1")
+        self.setSessionValues(domain_context=domain.id,
+                              domain_context_name=domain.name)
+        self.test_create()
 
     @test.create_stubs({api.keystone: ('tenant_list',
                                        'role_list',
@@ -283,8 +316,11 @@ class UsersViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_enable_user(self):
         user = self.users.get(id="2")
+        domain_id = self._get_domain_id()
+        users = self._get_users(domain_id)
         user.enabled = False
-        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+
+        api.keystone.user_list(IgnoreArg(), domain=domain_id).AndReturn(users)
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
                                          True).AndReturn(user)
@@ -299,9 +335,13 @@ class UsersViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_disable_user(self):
         user = self.users.get(id="2")
+        domain_id = self._get_domain_id()
+        users = self._get_users(domain_id)
+
         self.assertTrue(user.enabled)
 
-        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+            .AndReturn(users)
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
                                          False).AndReturn(user)
@@ -316,8 +356,12 @@ class UsersViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_enable_disable_user_exception(self):
         user = self.users.get(id="2")
+        domain_id = self._get_domain_id()
+        users = self._get_users(domain_id)
         user.enabled = False
-        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+
+        api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+            .AndReturn(users)
         api.keystone.user_update_enabled(IgnoreArg(), user.id, True) \
                     .AndRaise(self.exceptions.keystone)
         self.mox.ReplayAll()
@@ -329,8 +373,11 @@ class UsersViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('user_list',)})
     def test_disabling_current_user(self):
+        domain_id = self._get_domain_id()
+        users = self._get_users(domain_id)
         for i in range(0, 2):
-            api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+            api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+                .AndReturn(users)
 
         self.mox.ReplayAll()
 
@@ -343,8 +390,11 @@ class UsersViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('user_list',)})
     def test_delete_user_with_improper_permissions(self):
+        domain_id = self._get_domain_id()
+        users = self._get_users(domain_id)
         for i in range(0, 2):
-            api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+            api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+                .AndReturn(users)
 
         self.mox.ReplayAll()
 
@@ -365,7 +415,8 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         api.keystone.tenant_list(IgnoreArg(), user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.user_list(IgnoreArg()).AndReturn(self.users.list())
+        api.keystone.user_list(IgnoreArg(), domain=None) \
+            .AndReturn(self.users.list())
         api.keystone.get_default_role(IgnoreArg()) \
                     .AndReturn(self.roles.first())
         self.mox.ReplayAll()
