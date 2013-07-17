@@ -5,6 +5,7 @@ django_compressor>=1.3
 django_openstack_auth>=1.1.1
 eventlet>=0.13.0
 kombu>=2.4.8
+lesscpy>=0.9j
 iso8601>=0.1.4
 netaddr
 python-cinderclient>=1.0.4

@@ -20,21 +20,6 @@ For issue tracking:
 
  * https://bugs.launchpad.net/horizon
 
-Dependencies
-============
-
-To get started you will need to install Node.js (http://nodejs.org/) on your
-machine. Node.js is used with Horizon in order to use LESS
-(http://lesscss.org/) for our CSS needs. Horizon is currently using Node.js
-v0.6.12.
-
-For Ubuntu use apt to install Node.js::
-
-    $ sudo apt-get install nodejs
-
-For other versions of Linux, please see here:: http://nodejs.org/#download for
-how to install Node.js on your system.
-
 
 Getting Started
 ===============

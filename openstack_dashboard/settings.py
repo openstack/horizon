@@ -112,9 +112,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-less_binary = os.path.join(BIN_DIR, 'less', 'lessc')
 COMPRESS_PRECOMPILERS = (
-    ('text/less', (less_binary + ' {infile} {outfile}')),
+    ('text/less', ('lesscpy {infile}')),
 )
 
 COMPRESS_CSS_FILTERS = (
