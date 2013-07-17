@@ -127,6 +127,9 @@ class TogglePause(tables.BatchAction):
     classes = ("btn-pause",)
 
     def allowed(self, request, instance=None):
+        if not api.nova.extension_supported('AdminActions',
+                                            request):
+            return False
         self.paused = False
         if not instance:
             return self.paused
@@ -156,6 +159,9 @@ class ToggleSuspend(tables.BatchAction):
     classes = ("btn-suspend",)
 
     def allowed(self, request, instance=None):
+        if not api.nova.extension_supported('AdminActions',
+                                            request):
+            return False
         self.suspended = False
         if not instance:
             self.suspended
