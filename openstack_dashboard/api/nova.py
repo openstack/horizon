@@ -85,6 +85,8 @@ class Server(APIResourceWrapper):
     def image_name(self):
         import glanceclient.exc as glance_exceptions
         from openstack_dashboard.api import glance
+        if not self.image:
+            return "(not found)"
         try:
             image = glance.image_get(self.request, self.image['id'])
             return image.name
