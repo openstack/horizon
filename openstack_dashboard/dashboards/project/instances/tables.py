@@ -18,6 +18,7 @@
 from django.core import urlresolvers
 from django import shortcuts
 from django import template
+from django.template.defaultfilters import timesince
 from django.template.defaultfilters import title
 from django.utils.http import urlencode
 from django.utils.translation import string_concat
@@ -28,6 +29,7 @@ from horizon import exceptions
 from horizon import messages
 from horizon import tables
 from horizon.templatetags import sizeformat
+from horizon.utils.filters import parse_isotime
 from horizon.utils.filters import replace_underscores
 
 import logging
@@ -548,6 +550,9 @@ class InstancesTable(tables.DataTable):
     state = tables.Column(get_power_state,
                           filters=(title, replace_underscores),
                           verbose_name=_("Power State"))
+    created = tables.Column("created",
+                            verbose_name=_("Uptime"),
+                            filters=(parse_isotime, timesince))
 
     class Meta:
         name = "instances"

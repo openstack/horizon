@@ -75,7 +75,7 @@ class Server(APIResourceWrapper):
              'image_name', 'VirtualInterfaces', 'flavor', 'key_name',
              'tenant_id', 'user_id', 'OS-EXT-STS:power_state',
              'OS-EXT-STS:task_state', 'OS-EXT-SRV-ATTR:instance_name',
-             'OS-EXT-SRV-ATTR:host']
+             'OS-EXT-SRV-ATTR:host', 'created']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
