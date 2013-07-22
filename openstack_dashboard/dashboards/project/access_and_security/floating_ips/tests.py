@@ -128,9 +128,8 @@ class FloatingIpViewTests(test.TestCase):
         self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
-        api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True).AndReturn([self.servers.list(),
-                                                          False])
+        api.nova.server_list(IsA(http.HttpRequest)) \
+                            .AndReturn([self.servers.list(), False])
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                                     .AndReturn(self.floating_ips.list())
         api.network.floating_ip_disassociate(IsA(http.HttpRequest),
@@ -151,9 +150,8 @@ class FloatingIpViewTests(test.TestCase):
         self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
         self.mox.StubOutWithMock(api.nova, 'server_list')
 
-        api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True).AndReturn([self.servers.list(),
-                                                          False])
+        api.nova.server_list(IsA(http.HttpRequest)) \
+                        .AndReturn([self.servers.list(), False])
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
 
