@@ -327,7 +327,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        formData = {'action': 'users__enable__%s' % user.id}
+        formData = {'action': 'users__toggle__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
@@ -348,7 +348,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        formData = {'action': 'users__enable__%s' % user.id}
+        formData = {'action': 'users__toggle__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
@@ -366,7 +366,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                     .AndRaise(self.exceptions.keystone)
         self.mox.ReplayAll()
 
-        formData = {'action': 'users__enable__%s' % user.id}
+        formData = {'action': 'users__toggle__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
@@ -381,7 +381,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        formData = {'action': 'users__enable__%s' % self.request.user.id}
+        formData = {'action': 'users__toggle__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
 
         self.assertEqual(list(res.context['messages'])[0].message,
