@@ -1,8 +1,6 @@
 import json
 import logging
 
-from django.http import HttpResponse
-
 from openstack_dashboard.api.heat import resources_list
 from openstack_dashboard.api.heat import stack_get
 
@@ -77,8 +75,3 @@ def d3_data(request, stack_id=''):
             }
             d3_data['nodes'].append(resource_node)
     return json.dumps(d3_data)
-
-
-def get_d3_data(request, stack_id=''):
-    return HttpResponse(d3_data(request, stack_id=stack_id),
-                        content_type="application/json")

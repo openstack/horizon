@@ -22,10 +22,13 @@ from horizon import tabs
 
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
+from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
 from openstack_dashboard import api
 
+from openstack_dashboard.dashboards.project.stacks.api import d3_data
 from openstack_dashboard.dashboards.project.stacks.forms import StackCreateForm
 from openstack_dashboard.dashboards.project.stacks.forms import TemplateForm
 from openstack_dashboard.dashboards.project.stacks.tables import StacksTable
@@ -158,3 +161,9 @@ class ResourceView(tabs.TabView):
         metadata = self.get_metadata(request, **kwargs)
         return self.tab_group_class(
             request, resource=resource, metadata=metadata, **kwargs)
+
+
+class JSONView(generic.View):
+    def get(self, request, stack_id=''):
+        return HttpResponse(d3_data(request, stack_id=stack_id),
+                            content_type="application/json")
