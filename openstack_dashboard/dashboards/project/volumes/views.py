@@ -108,8 +108,6 @@ class CreateView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
         try:
-            tenant_id = self.kwargs.get('tenant_id',
-                                        self.request.user.tenant_id)
             context['usages'] = cinder.tenant_absolute_limits(self.request)
             volumes = cinder.volume_list(self.request)
             total_size = sum([getattr(volume, 'size', 0) for volume

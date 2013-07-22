@@ -193,7 +193,6 @@ def data(TEST):
                    'network_id': network_dict['id'],
                    'tenant_id': network_dict['tenant_id']}
     ext_net = network_dict
-    ext_subnet = subnet_dict
 
     TEST.api_networks.add(network_dict)
     TEST.api_subnets.add(subnet_dict)

@@ -293,7 +293,7 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
             .AndReturn({'security_groups': secgroups})
         self.mox.ReplayAll()
 
-        ret = api.network.server_security_groups(self.request, instance_id)
+        api.network.server_security_groups(self.request, instance_id)
 
     def test_server_update_security_groups(self):
         cur_sg_ids = [self.api_q_secgroups.first()['id']]
@@ -306,7 +306,7 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
             body = {'port': {'security_groups': new_sg_ids}}
             self.qclient.update_port(p['id'], body=body).AndReturn({'port': p})
         self.mox.ReplayAll()
-        ret = api.network.server_update_security_groups(
+        api.network.server_update_security_groups(
             self.request, instance_id, new_sg_ids)
 
     def test_security_group_backend(self):

@@ -60,8 +60,6 @@ class LoadBalancerTests(test.TestCase):
 
     def set_up_expect(self):
         # retrieve pools
-        subnet = self.subnets.first()
-
         vip1 = self.vips.first()
 
         vip2 = self.vips.list()[1]

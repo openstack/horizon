@@ -164,7 +164,6 @@ class FlavorsTests(test.BaseAdminViewTests):
                                    'flavor_get'), })
     def test_edit_flavor_set_invalid_name(self):
         flavor_a = self.flavors.list()[0]
-        flavor_b = self.flavors.list()[1]
         eph = getattr(flavor_a, 'OS-FLV-EXT-DATA:ephemeral')
         invalid_flavor_name = "m1.tiny()"
 

@@ -1064,6 +1064,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             # step action cannot be instantiated
             logging.disable(logging.ERROR)
             with self.assertRaises(exceptions.NotFound):
-                res = self.client.get(url)
+                self.client.get(url)
         finally:
             logging.disable(logging.NOTSET)

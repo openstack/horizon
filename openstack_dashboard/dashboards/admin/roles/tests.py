@@ -47,8 +47,6 @@ class RolesViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('role_list',
                                        'keystone_can_edit_role', )})
     def test_index_with_keystone_can_edit_role_false(self):
-        role = self.roles.first()
-
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.keystone_can_edit_role() \
             .MultipleTimes().AndReturn(False)

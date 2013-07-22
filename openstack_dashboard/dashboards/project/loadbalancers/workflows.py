@@ -107,7 +107,7 @@ class AddPool(workflows.Workflow):
 
     def handle(self, request, context):
         try:
-            pool = api.lbaas.pool_create(request, **context)
+            api.lbaas.pool_create(request, **context)
             return True
         except:
             return False
