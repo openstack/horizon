@@ -702,8 +702,6 @@ class InstanceTests(test.TestCase):
 
         server_groups = [secgroups[0], secgroups[1]]
         wanted_groups = [secgroups[1].id, secgroups[2].id]
-        expect_add = secgroups[2].id
-        expect_rm = secgroups[0].id
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         api.network.security_group_list(IsA(http.HttpRequest)) \
@@ -925,7 +923,6 @@ class InstanceTests(test.TestCase):
         server = self.servers.first()
         volume = self.volumes.first()
         sec_group = self.security_groups.first()
-        avail_zone = self.availability_zones.first()
         customization_script = 'user data'
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
@@ -1491,7 +1488,6 @@ class InstanceTests(test.TestCase):
                         api.glance: ('image_list_detailed',)})
     def test_select_default_keypair_if_only_one(self):
         keypair = self.keypairs.first()
-        image = self.images.first()
 
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())

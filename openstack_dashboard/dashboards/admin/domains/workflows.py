@@ -72,10 +72,10 @@ class CreateDomain(workflows.Workflow):
         try:
             LOG.info('Creating domain with name "%s"' % data['name'])
             desc = data['description']
-            new_domain = api.keystone.domain_create(request,
-                                                    name=data['name'],
-                                                    description=desc,
-                                                    enabled=data['enabled'])
+            api.keystone.domain_create(request,
+                                       name=data['name'],
+                                       description=desc,
+                                       enabled=data['enabled'])
         except:
             exceptions.handle(request, ignore=True)
             return False

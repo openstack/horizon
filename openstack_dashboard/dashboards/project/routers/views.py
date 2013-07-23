@@ -112,7 +112,7 @@ class DetailView(tables.MultiTableView):
                                                       expand_subnet=False)
                     ext_net.set_id_as_name_if_empty(length=0)
                     router.external_gateway_info['network'] = ext_net.name
-                except Exception as e:
+                except Exception:
                     msg = _('Unable to retrieve an external network "%s".') \
                         % (ext_net_id)
                     exceptions.handle(self.request, msg)

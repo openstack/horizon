@@ -53,7 +53,7 @@ class PasswordForm(forms.SelfHandlingForm):
 
         if user_is_editable:
             try:
-                passwd = api.keystone.user_update_own_password(request,
+                api.keystone.user_update_own_password(request,
                                                     data['current_password'],
                                                     data['new_password'])
                 messages.success(request, _('Password changed.'))

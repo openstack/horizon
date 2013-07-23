@@ -218,8 +218,8 @@ class CreateSubnetDetailAction(workflows.Action):
                         'Destination CIDR and nexthop must be specified '
                         '(value=%s)') % r
                 raise forms.ValidationError(msg)
-            dest = self._convert_ip_network(route[0], "host_routes")
-            nexthop = self._convert_ip_address(route[1], "host_routes")
+            self._convert_ip_network(route[0], "host_routes")
+            self._convert_ip_address(route[1], "host_routes")
 
     def clean(self):
         cleaned_data = super(CreateSubnetDetailAction, self).clean()

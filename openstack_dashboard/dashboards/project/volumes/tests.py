@@ -569,23 +569,10 @@ class VolumeViewTests(test.TestCase):
                                  'tenant_absolute_limits', 'volume_list',),
                         api.glance: ('image_list_detailed',)})
     def test_create_volume_cannot_encrypt(self):
-        volume = self.volumes.first()
-        volume_type = self.volume_types.first()
-        usage = {'gigabytes': {'available': 250}, 'volumes': {'available': 6}}
-        formData = {'name': u'An Encrypted Volume',
-                    'description': u'This volume has metadata for encryption.',
-                    'method': u'CreateForm',
-                    'type': volume_type.name,
-                    'size': 50,
-                    'snapshot_source': '',
-                    'encryption': u'LUKS'}
-
         # check that widget is hidden if can_encrypt_volumes = false
         PREV = settings.OPENSTACK_HYPERVISOR_FEATURES['can_encrypt_volumes']
         settings.OPENSTACK_HYPERVISOR_FEATURES['can_encrypt_volumes'] = False
 
-        volume = self.volumes.first()
-        volume_type = self.volume_types.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
                  'gigabytesUsed': 20,
                  'maxTotalVolumes': 6}

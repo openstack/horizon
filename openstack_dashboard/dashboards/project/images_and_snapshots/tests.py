@@ -36,7 +36,6 @@ class ImagesAndSnapshotsTests(test.TestCase):
                         api.cinder: ('volume_snapshot_list', 'volume_get')})
     def test_index(self):
         images = self.images.list()
-        snapshots = self.snapshots.list()
         volumes = self.volumes.list()
 
         for volume in volumes:
