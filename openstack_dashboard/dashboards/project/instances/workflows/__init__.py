@@ -1,3 +1,7 @@
-from create_instance import *
-from update_instance import *
-from resize_instance import *
+from create_instance import LaunchInstance
+from resize_instance import ResizeInstance
+from update_instance import UpdateInstance
+
+assert LaunchInstance
+assert UpdateInstance
+assert ResizeInstance
