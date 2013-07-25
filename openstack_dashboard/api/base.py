@@ -91,9 +91,9 @@ class APIResourceWrapper(object):
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__,
-                               dict((attr,
-                                     getattr(self, attr))
-                                    for attr in self._attrs))
+                             dict((attr, getattr(self, attr))
+                                  for attr in self._attrs
+                                  if hasattr(self, attr)))
 
 
 class APIDictWrapper(object):
