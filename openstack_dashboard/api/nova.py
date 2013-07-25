@@ -366,9 +366,10 @@ def server_spice_console(request, instance_id, console_type='spice-html5'):
             instance_id, console_type)['console'])
 
 
-def flavor_create(request, name, memory, vcpu, disk, ephemeral=0, swap=0,
-                  metadata=None):
+def flavor_create(request, name, memory, vcpu, disk, flavorid='auto',
+                  ephemeral=0, swap=0, metadata=None):
     flavor = novaclient(request).flavors.create(name, memory, vcpu, disk,
+                                                flavorid=flavorid,
                                                 ephemeral=ephemeral,
                                                 swap=swap)
     if (metadata):

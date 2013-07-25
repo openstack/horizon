@@ -20,8 +20,10 @@ class FlavorsTests(test.BaseAdminViewTests):
                                flavor.ram,
                                flavor.vcpus,
                                flavor.disk,
+                               flavorid=flavor.id,
                                swap=flavor.swap,
                                ephemeral=eph).AndReturn(flavor)
+        api.nova.flavor_list(IsA(http.HttpRequest))
         api.nova.flavor_list(IsA(http.HttpRequest))
         self.mox.ReplayAll()
 
@@ -31,6 +33,7 @@ class FlavorsTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(resp, "admin/flavors/create.html")
 
         data = {'name': flavor.name,
+                'flavor_id': flavor.id,
                 'vcpus': flavor.vcpus,
                 'memory_mb': flavor.ram,
                 'disk_gb': flavor.disk,
@@ -172,8 +175,6 @@ class FlavorsTests(test.BaseAdminViewTests):
                             flavor_a.id).AndReturn(flavor_a)
 
         # POST
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
         api.nova.flavor_get(IsA(http.HttpRequest),
                             flavor_a.id).AndReturn(flavor_a)
         self.mox.ReplayAll()
