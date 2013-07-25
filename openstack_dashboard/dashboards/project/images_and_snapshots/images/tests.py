@@ -50,6 +50,7 @@ class CreateImageFormTests(test.TestCase):
         """
         post = {
             'name': u'Ubuntu 11.10',
+            'source_type': u'file',
             'description': u'Login with admin/admin',
             'disk_format': u'qcow2',
             'minimum_disk': 15,
@@ -82,6 +83,7 @@ class ImageViewTests(test.TestCase):
         data = {
             'name': u'Ubuntu 11.10',
             'description': u'Login with admin/admin',
+            'source_type': u'url',
             'copy_from': u'http://cloud-images.ubuntu.com/releases/'
                         u'oneiric/release/ubuntu-11.10-server-cloudimg'
                         u'-amd64-disk1.img',
@@ -121,6 +123,7 @@ class ImageViewTests(test.TestCase):
         data = {
             'name': u'Test Image',
             'description': u'Login with admin/admin',
+            'source_type': u'file',
             'image_file': temp_file,
             'disk_format': u'qcow2',
             'minimum_disk': 15,
