@@ -154,3 +154,47 @@ class StackTests(test.TestCase):
                      'method': forms.StackCreateForm.__name__}
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+
+class TemplateFormTests(test.TestCase):
+
+    def test_exception_to_validation(self):
+        json_error = """{
+    "code": 400,
+    "error": {
+        "message": "The Key (none) could not be found.",
+        "traceback": "<Traceback>",
+        "type": "StackValidationFailed"
+    },
+    "explanation": "The server could not comply with the request",
+    "title": "Bad Request"
+}"""
+
+        msg = forms.exception_to_validation_msg(json_error)
+        self.assertEqual(msg, "The Key (none) could not be found.")
+
+    def test_exception_to_validation_legacy(self):
+        json_error = """400 Bad Request
+
+The server could not comply with the request since it is either \
+malformed or otherwise incorrect.
+
+ Remote error: StackValidationFailed The Key (none) could not be found. \
+[u'<Traceback>']."""
+
+        msg = forms.exception_to_validation_msg(json_error)
+        self.assertEqual(msg, "The Key (none) could not be found.")
+
+    def test_exception_to_validation_malformed(self):
+        json_error = """{
+    "code": 400,
+    "error": {
+        "traceback": "<Traceback>",
+        "type": "StackValidationFailed"
+    },
+    "explanation": "The server could not comply with the request",
+    "title": "Bad Request"
+}"""
+
+        msg = forms.exception_to_validation_msg(json_error)
+        self.assertEqual(msg, None)
