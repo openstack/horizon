@@ -21,7 +21,6 @@
 import logging
 
 from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -29,15 +28,10 @@ from horizon import tables
 from horizon import workflows
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.admin.users.views import CreateView
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.admin.projects.forms import CreateUser
-from openstack_dashboard.dashboards.admin.projects.tables import AddUsersTable
 from openstack_dashboard.dashboards.admin.projects.tables import TenantsTable
-from openstack_dashboard.dashboards.admin.projects.tables \
-    import TenantUsersTable
 from openstack_dashboard.dashboards.admin.projects.workflows \
     import CreateProject
 from openstack_dashboard.dashboards.admin.projects.workflows \
@@ -97,45 +91,6 @@ class IndexView(tables.DataTableView):
         return tenants
 
 
-class UsersView(tables.MultiTableView):
-    table_classes = (TenantUsersTable, AddUsersTable)
-    template_name = 'admin/projects/users.html'
-
-    def _get_shared_data(self, *args, **kwargs):
-        tenant_id = self.kwargs["tenant_id"]
-        if not hasattr(self, "_shared_data"):
-            domain_context = self.request.session.get('domain_context', None)
-            try:
-                tenant = api.keystone.tenant_get(self.request,
-                                                 tenant_id,
-                                                 admin=True)
-                all_users = api.keystone.user_list(self.request,
-                                                   domain=domain_context)
-                tenant_users = api.keystone.user_list(self.request, tenant_id)
-                self._shared_data = {'tenant': tenant,
-                                     'all_users': all_users,
-                                     'tenant_users': tenant_users}
-            except:
-                exceptions.handle(self.request,
-                                  _("Unable to retrieve users."),
-                                  redirect=reverse(INDEX_URL))
-        return self._shared_data
-
-    def get_tenant_users_data(self):
-        return self._get_shared_data()["tenant_users"]
-
-    def get_add_users_data(self):
-        tenant_users = self._get_shared_data()["tenant_users"]
-        all_users = self._get_shared_data()["all_users"]
-        tenant_user_ids = [user.id for user in tenant_users]
-        return filter(lambda u: u.id not in tenant_user_ids, all_users)
-
-    def get_context_data(self, **kwargs):
-        context = super(UsersView, self).get_context_data(**kwargs)
-        context['tenant'] = self._get_shared_data()["tenant"]
-        return context
-
-
 class ProjectUsageView(usage.UsageView):
     table_class = usage.ProjectUsageTable
     usage_class = usage.ProjectUsage
@@ -191,23 +146,3 @@ class UpdateProjectView(workflows.WorkflowView):
                               _('Unable to retrieve project details.'),
                               redirect=reverse(INDEX_URL))
         return initial
-
-
-class CreateUserView(CreateView):
-    form_class = CreateUser
-    template_name = "admin/projects/create_user.html"
-    success_url = reverse_lazy('horizon:admin:projects:index')
-
-    def get_initial(self):
-        default_role = api.keystone.get_default_role(self.request)
-        return {'role_id': getattr(default_role, "id", None),
-                'project': self.kwargs['tenant_id']}
-
-    def get_context_data(self, **kwargs):
-        context = super(CreateUserView, self).get_context_data(**kwargs)
-        context['tenant_id'] = self.kwargs['tenant_id']
-        context['tenant_name'] = api.keystone.tenant_get(
-            self.request,
-            self.kwargs['tenant_id'],
-            admin=True).name
-        return context

@@ -39,6 +39,7 @@ from openstack_dashboard.usage.quotas import QUOTA_FIELDS
 
 INDEX_URL = "horizon:admin:projects:index"
 ADD_USER_URL = "horizon:admin:projects:create_user"
+PROJECT_USER_MEMBER_SLUG = "update_members"
 
 
 class UpdateProjectQuotaAction(workflows.Action):
@@ -108,9 +109,7 @@ class CreateProjectInfo(workflows.Step):
                    "enabled")
 
 
-class UpdateProjectMembersAction(workflows.Action):
-    default_role = forms.CharField(required=False)
-
+class UpdateProjectMembersAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
         super(UpdateProjectMembersAction, self).__init__(request,
                                                          *args,
@@ -134,7 +133,9 @@ class UpdateProjectMembersAction(workflows.Action):
             exceptions.handle(self.request,
                               err_msg,
                               redirect=reverse(INDEX_URL))
-        self.fields['default_role'].initial = default_role.id
+        default_role_name = self.get_default_role_field_name()
+        self.fields[default_role_name] = forms.CharField(required=False)
+        self.fields[default_role_name].initial = default_role.id
 
         # Get list of available users
         all_users = []
@@ -155,7 +156,7 @@ class UpdateProjectMembersAction(workflows.Action):
                               err_msg,
                               redirect=reverse(INDEX_URL))
         for role in role_list:
-            field_name = "role_" + role.id
+            field_name = self.get_member_field_name(role.id)
             label = _(role.name)
             self.fields[field_name] = forms.MultipleChoiceField(required=False,
                                                                 label=label)
@@ -174,11 +175,12 @@ class UpdateProjectMembersAction(workflows.Action):
                                       err_msg,
                                       redirect=reverse(INDEX_URL))
                 for role in roles:
-                    self.fields["role_" + role.id].initial.append(user.id)
+                    field_name = self.get_member_field_name(role.id)
+                    self.fields[field_name].initial.append(user.id)
 
     class Meta:
         name = _("Project Members")
-        slug = "update_members"
+        slug = PROJECT_USER_MEMBER_SLUG
 
 
 class UpdateProjectMembers(workflows.UpdateMembersStep):
@@ -198,7 +200,7 @@ class UpdateProjectMembers(workflows.UpdateMembersStep):
 
             post = self.workflow.request.POST
             for role in roles:
-                field = "role_" + role.id
+                field = self.get_member_field_name(role.id)
                 context[field] = post.getlist(field)
         return context
 
@@ -213,6 +215,14 @@ class CreateProject(workflows.Workflow):
     default_steps = (CreateProjectInfo,
                      UpdateProjectMembers,
                      UpdateProjectQuota)
+
+    def __init__(self, request=None, context_seed=None, entry_point=None,
+                 *args, **kwargs):
+        super(CreateProject, self).__init__(request=request,
+                                            context_seed=context_seed,
+                                            entry_point=entry_point,
+                                            *args,
+                                            **kwargs)
 
     def format_status_message(self, message):
         return message % self.context.get('name', 'unknown project')
@@ -237,14 +247,16 @@ class CreateProject(workflows.Workflow):
         users_to_add = 0
         try:
             available_roles = api.keystone.role_list(request)
-
+            member_step = self.get_step(PROJECT_USER_MEMBER_SLUG)
             # count how many users are to be added
             for role in available_roles:
-                role_list = data["role_" + role.id]
+                field_name = member_step.get_member_field_name(role.id)
+                role_list = data[field_name]
                 users_to_add += len(role_list)
             # add new users to project
             for role in available_roles:
-                role_list = data["role_" + role.id]
+                field_name = member_step.get_member_field_name(role.id)
+                role_list = data[field_name]
                 users_added = 0
                 for user in role_list:
                     api.keystone.add_tenant_user_role(request,
@@ -255,8 +267,8 @@ class CreateProject(workflows.Workflow):
                 users_to_add -= users_added
         except:
             exceptions.handle(request, _('Failed to add %s project members '
-                                         'and set project quotas.'
-                                         % users_to_add))
+                                          'and set project quotas.')
+                                       % users_to_add)
 
         # Update the project quota.
         nova_data = dict([(key, data[key]) for key in NOVA_QUOTA_FIELDS])
@@ -302,6 +314,14 @@ class UpdateProject(workflows.Workflow):
                      UpdateProjectMembers,
                      UpdateProjectQuota)
 
+    def __init__(self, request=None, context_seed=None, entry_point=None,
+                 *args, **kwargs):
+        super(UpdateProject, self).__init__(request=request,
+                                            context_seed=context_seed,
+                                            entry_point=entry_point,
+                                            *args,
+                                            **kwargs)
+
     def format_status_message(self, message):
         return message % self.context.get('name', 'unknown project')
 
@@ -322,12 +342,14 @@ class UpdateProject(workflows.Workflow):
             exceptions.handle(request, ignore=True)
             return False
 
+        # Get our role options
+        available_roles = api.keystone.role_list(request)
+
         # update project members
         users_to_modify = 0
+        # Project-user member step
+        member_step = self.get_step(PROJECT_USER_MEMBER_SLUG)
         try:
-            # Get our role options
-            available_roles = api.keystone.role_list(request)
-
             # Get the users currently associated with this project so we
             # can diff against it.
             project_members = api.keystone.user_list(request,
@@ -341,9 +363,11 @@ class UpdateProject(workflows.Workflow):
                                                             user.id,
                                                             project_id)
                 current_role_ids = [role.id for role in current_roles]
+
                 for role in available_roles:
+                    field_name = member_step.get_member_field_name(role.id)
                     # Check if the user is in the list of users with this role.
-                    if user.id in data["role_" + role.id]:
+                    if user.id in data[field_name]:
                         # Add it if necessary
                         if role.id not in current_role_ids:
                             # user role has changed
@@ -389,11 +413,13 @@ class UpdateProject(workflows.Workflow):
 
             # Grant new roles on the project.
             for role in available_roles:
+                field_name = member_step.get_member_field_name(role.id)
                 # Count how many users may be added for exception handling.
-                users_to_modify += len(data["role_" + role.id])
+                users_to_modify += len(data[field_name])
             for role in available_roles:
                 users_added = 0
-                for user_id in data["role_" + role.id]:
+                field_name = member_step.get_member_field_name(role.id)
+                for user_id in data[field_name]:
                     if not filter(lambda x: user_id == x.id, project_members):
                         api.keystone.add_tenant_user_role(request,
                                                           project=project_id,
@@ -403,8 +429,8 @@ class UpdateProject(workflows.Workflow):
                 users_to_modify -= users_added
         except:
             exceptions.handle(request, _('Failed to modify %s project members '
-                                         'and update project quotas.'
-                                         % users_to_modify))
+                                         'and update project quotas.')
+                                       % users_to_modify)
             return True
 
         # update the project quota

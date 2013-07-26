@@ -144,7 +144,7 @@ class Action(forms.Form):
         return force_unicode(self.name)
 
     def __repr__(self):
-        return "<%s: %s>" % (self.__class__.__name__, self.slug)
+        return "<%s: %s>" % (self.__class__.__name_get_step_, self.slug)
 
     def _populate_choices(self, request, context):
         for field_name, bound_field in self.fields.items():
@@ -179,6 +179,20 @@ class Action(forms.Form):
         Returns ``None`` by default, effectively making it a no-op.
         """
         return None
+
+
+class MembershipAction(Action):
+    """
+    An action that allows a user to add/remove members from a group.
+
+    Extend the Action class with additional helper method for membership
+    management.
+    """
+    def get_default_role_field_name(self):
+        return "default_" + self.slug + "_role"
+
+    def get_member_field_name(self, role_id):
+        return self.slug + "_role_" + role_id
 
 
 class Step(object):
@@ -469,6 +483,12 @@ class UpdateMembersStep(Step):
     members_list_title = _("Members")
     no_available_text = _("None available.")
     no_members_text = _("No members.")
+
+    def get_member_field_name(self, role_id):
+        if issubclass(self.action_class, MembershipAction):
+            return self.action.get_member_field_name(role_id)
+        else:
+            return self.slug + "_role_" + role_id
 
 
 class Workflow(html.HTMLElement):

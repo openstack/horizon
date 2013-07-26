@@ -23,7 +23,6 @@ from django.conf.urls.defaults import url
 
 from openstack_dashboard.dashboards.admin.projects.views \
     import CreateProjectView
-from openstack_dashboard.dashboards.admin.projects.views import CreateUserView
 from openstack_dashboard.dashboards.admin.projects.views import IndexView
 from openstack_dashboard.dashboards.admin.projects.views \
     import ProjectUsageView
@@ -38,6 +37,4 @@ urlpatterns = patterns('',
         UpdateProjectView.as_view(), name='update'),
     url(r'^(?P<tenant_id>[^/]+)/usage/$',
         ProjectUsageView.as_view(), name='usage'),
-    url(r'^(?P<tenant_id>[^/]+)/create_user/$',
-        CreateUserView.as_view(), name='create_user'),
 )

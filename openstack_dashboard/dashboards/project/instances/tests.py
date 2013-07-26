@@ -39,11 +39,14 @@ from openstack_dashboard.dashboards.project.instances.tabs \
     import InstanceDetailTabs
 from openstack_dashboard.dashboards.project.instances.workflows \
     import LaunchInstance
+from openstack_dashboard.dashboards.project.instances.workflows \
+    import update_instance
 
 from novaclient.v1_1.servers import REBOOT_HARD
 from novaclient.v1_1.servers import REBOOT_SOFT
 
 INDEX_URL = reverse('horizon:project:instances:index')
+SEC_GROUP_ROLE_PREFIX = update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
 
 
 class InstanceTests(test.TestCase):
@@ -723,9 +726,11 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def _instance_update_post(self, server_id, server_name, secgroups):
+        default_role_field_name = 'default_' + \
+            update_instance.INSTANCE_SEC_GROUP_SLUG + '_role'
         formData = {'name': server_name,
-                    'default_role': 'member',
-                    'role_member': secgroups}
+                    default_role_field_name: 'member',
+                    SEC_GROUP_ROLE_PREFIX + 'member': secgroups}
         url = reverse('horizon:project:instances:update',
                       args=[server_id])
         return self.client.post(url, formData)
