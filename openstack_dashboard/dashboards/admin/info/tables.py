@@ -149,3 +149,50 @@ class AggregatesTable(tables.DataTable):
     class Meta:
         name = "aggregates"
         verbose_name = _("Host Aggregates")
+
+
+class NetworkAgentsFilterAction(tables.FilterAction):
+    def filter(self, table, agents, filter_string):
+        q = filter_string.lower()
+
+        def comp(agent):
+            if q in agent.agent_type.lower():
+                return True
+            return False
+
+        return filter(comp, agents)
+
+
+def get_network_agent_status(agent):
+    if agent.admin_state_up:
+        return 'enabled'
+
+    return 'disabled'
+
+
+def get_network_agent_state(agent):
+    if agent.alive:
+        return 'up'
+
+    return 'down'
+
+
+class NetworkAgentsTable(tables.DataTable):
+    agent_type = tables.Column('agent_type', verbose_name=_('Type'))
+    binary = tables.Column("binary", verbose_name=_('Name'))
+    host = tables.Column('host', verbose_name=_('Host'))
+    status = tables.Column(get_network_agent_status, verbose_name=_('Status'))
+    state = tables.Column(get_network_agent_state, verbose_name=_('State'))
+    heartbeat_timestamp = tables.Column('heartbeat_timestamp',
+                                        verbose_name=_('Updated At'),
+                                        filters=(utils_filters.parse_isotime,
+                                                 filters.timesince))
+
+    def get_object_id(self, obj):
+        return "%s-%s" % (obj.binary, obj.host)
+
+    class Meta:
+        name = "network_agents"
+        verbose_name = _("Network Agents")
+        table_actions = (NetworkAgentsFilterAction,)
+        multi_select = False

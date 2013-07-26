@@ -24,6 +24,7 @@ from openstack_dashboard.test.test_data import utils
 
 def data(TEST):
     # data returned by openstack_dashboard.api.neutron wrapper
+    TEST.agents = utils.TestDataContainer()
     TEST.networks = utils.TestDataContainer()
     TEST.subnets = utils.TestDataContainer()
     TEST.ports = utils.TestDataContainer()
@@ -38,6 +39,7 @@ def data(TEST):
     TEST.neutron_quotas = utils.TestDataContainer()
 
     # data return by neutronclient
+    TEST.api_agents = utils.TestDataContainer()
     TEST.api_networks = utils.TestDataContainer()
     TEST.api_subnets = utils.TestDataContainer()
     TEST.api_ports = utils.TestDataContainer()
@@ -473,3 +475,42 @@ def data(TEST):
     extensions = {}
     extensions['extensions'] = [extension_1, extension_2]
     TEST.api_extensions.add(extensions)
+
+    #------------------------------------------------------------
+    # 1st agent
+    agent_dict = {"binary": "neutron-openvswitch-agent",
+                  "description": None,
+                  "admin_state_up": True,
+                  "heartbeat_timestamp": "2013-07-26 06:51:47",
+                  "alive": True,
+                  "id": "c876ff05-f440-443e-808c-1d34cda3e88a",
+                  "topic": "N/A",
+                  "host": "devstack001",
+                  "agent_type": "Open vSwitch agent",
+                  "started_at": "2013-07-26 05:23:28",
+                  "created_at": "2013-07-26 05:23:28",
+                  "configurations": {"devices": 2}}
+    TEST.api_agents.add(agent_dict)
+    TEST.agents.add(neutron.Agent(agent_dict))
+
+    # 2nd agent
+    agent_dict = {"binary": "neutron-dhcp-agent",
+                  "description": None,
+                  "admin_state_up": True,
+                  "heartbeat_timestamp": "2013-07-26 06:51:48",
+                  "alive": True,
+                  "id": "f0d12e3d-1973-41a2-b977-b95693f9a8aa",
+                  "topic": "dhcp_agent",
+                  "host": "devstack001",
+                  "agent_type": "DHCP agent",
+                  "started_at": "2013-07-26 05:23:30",
+                  "created_at": "2013-07-26 05:23:30",
+                  "configurations": {
+                      "subnets": 1,
+                      "use_namespaces": True,
+                      "dhcp_lease_duration": 120,
+                      "dhcp_driver": "neutron.agent.linux.dhcp.Dnsmasq",
+                      "networks": 1,
+                      "ports": 1}}
+    TEST.api_agents.add(agent_dict)
+    TEST.agents.add(neutron.Agent(agent_dict))

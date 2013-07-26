@@ -54,6 +54,15 @@ class NeutronAPIDictWrapper(base.APIDictWrapper):
         return self._apidict.items()
 
 
+class Agent(NeutronAPIDictWrapper):
+    """Wrapper for neutron agents"""
+
+    def __init__(self, apiresource):
+        apiresource['admin_state'] = \
+            'UP' if apiresource['admin_state_up'] else 'DOWN'
+        super(Agent, self).__init__(apiresource)
+
+
 class Network(NeutronAPIDictWrapper):
     """Wrapper for neutron Networks"""
 
@@ -625,6 +634,11 @@ def list_extensions(request):
         return extensions_list['extensions']
     else:
         return {}
+
+
+def agent_list(request):
+    agents = neutronclient(request).list_agents()
+    return [Agent(a) for a in agents['agents']]
 
 
 def is_extension_supported(request, extension_alias):
