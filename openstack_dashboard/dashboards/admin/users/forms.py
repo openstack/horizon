@@ -115,7 +115,7 @@ class CreateUserForm(BaseUserForm):
                                                       data['role_id'])
                 except:
                     exceptions.handle(request,
-                                      _('Unable to add user'
+                                      _('Unable to add user '
                                         'to primary project.'))
             return new_user
         except:
