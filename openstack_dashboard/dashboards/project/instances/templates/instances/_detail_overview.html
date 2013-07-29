@@ -13,6 +13,10 @@
     <dd>{{ instance.id }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ instance.status|title }}</dd>
+    <dt>{% trans "Created" %}</dt>
+    <dd>{{ instance.created|parse_isotime }}</dd>
+    <dt>{% trans "Uptime" %}</dt>
+    <dd>{{ instance.created|parse_isotime|timesince }}</dd>
   </dl>
 </div>
 

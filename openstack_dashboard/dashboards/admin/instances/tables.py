@@ -17,10 +17,12 @@
 
 import logging
 
+from django.template.defaultfilters import timesince
 from django.template.defaultfilters import title
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
+from horizon.utils.filters import parse_isotime
 from horizon.utils.filters import replace_underscores
 
 from openstack_dashboard import api
@@ -152,6 +154,9 @@ class AdminInstancesTable(tables.DataTable):
     state = tables.Column(get_power_state,
                           filters=(title, replace_underscores),
                           verbose_name=_("Power State"))
+    created = tables.Column("created",
+                            verbose_name=_("Uptime"),
+                            filters=(parse_isotime, timesince))
 
     class Meta:
         name = "instances"
