@@ -179,7 +179,7 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'Member'
 DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
 
 try:
-    from local.local_settings import *
+    from local.local_settings import *  # noqa
 except ImportError:
     logging.warning("No local_settings file found.")
 

@@ -2,7 +2,7 @@ import os
 
 from django.utils.translation import ugettext_lazy as _
 
-from horizon.test.settings import *
+from horizon.test.settings import *  # noqa
 from horizon.utils.secret_key import generate_or_read_from_file
 
 from openstack_dashboard.exceptions import NOT_FOUND

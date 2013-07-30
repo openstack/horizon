@@ -15,7 +15,7 @@
 #    under the License.
 
 # FIXME(gabriel): Legacy imports for API compatibility.
-from django.forms import *
+from django.forms import *  # noqa
 from django.forms import widgets
 
 # Convenience imports for public API components.
