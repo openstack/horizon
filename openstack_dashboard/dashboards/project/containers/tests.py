@@ -50,7 +50,7 @@ class SwiftTests(test.TestCase):
         resp_containers = res.context['table'].data
         self.assertEqual(len(resp_containers), len(containers))
 
-    @test.create_stubs({api.swift: ('swift_delete_container',)})
+    @test.create_stubs({api.swift: ('swift_delete_container', )})
     def test_delete_container(self):
         container = self.containers.get(name=u"container_two\u6346")
         api.swift.swift_delete_container(IsA(http.HttpRequest), container.name)
@@ -63,13 +63,12 @@ class SwiftTests(test.TestCase):
         handled = table.maybe_handle()
         self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
 
-    @test.create_stubs({api.swift: ('swift_delete_container',)})
+    @test.create_stubs({api.swift: ('swift_get_objects', )})
     def test_delete_container_nonempty(self):
         container = self.containers.first()
-        exc = self.exceptions.swift
-        exc.silence_logging = True
-        api.swift.swift_delete_container(IsA(http.HttpRequest),
-                                         container.name).AndRaise(exc)
+        objects = self.objects.list()
+        api.swift.swift_get_objects(IsA(http.HttpRequest),
+                                    container.name).AndReturn([objects, False])
         self.mox.ReplayAll()
 
         action_string = u"containers__delete__%s" % container.name
@@ -78,6 +77,9 @@ class SwiftTests(test.TestCase):
         table = ContainersTable(req, self.containers.list())
         handled = table.maybe_handle()
         self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
+        self.assertEqual(unicode(list(req._messages)[0].message),
+                         u"The container cannot be deleted "
+                         u"since it's not empty.")
 
     def test_create_container_get(self):
         res = self.client.get(reverse('horizon:project:containers:create'))
