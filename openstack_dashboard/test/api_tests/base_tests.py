@@ -73,6 +73,13 @@ class APIResourceWrapperTests(test.TestCase):
         with self.assertRaises(AttributeError):
             resource.baz
 
+    def test_repr(self):
+        resource = APIResource.get_instance()
+        resource_str = resource.__repr__()
+        self.assertIn('foo', resource_str)
+        self.assertIn('bar', resource_str)
+        self.assertNotIn('baz', resource_str)
+
 
 class APIDictWrapperTests(test.TestCase):
     # APIDict allows for both attribute access and dictionary style [element]
