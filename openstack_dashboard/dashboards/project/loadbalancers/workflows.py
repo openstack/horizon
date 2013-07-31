@@ -72,7 +72,7 @@ class AddPoolAction(workflows.Action):
     class Meta:
         name = _("Add New Pool")
         permissions = ('openstack.services.network',)
-        help_text = _("Create Pool for current tenant.\n\n"
+        help_text = _("Create Pool for current project.\n\n"
                       "Assign a name and description for the pool. "
                       "Choose one subnet where all members of this "
                       "pool must be on. "
