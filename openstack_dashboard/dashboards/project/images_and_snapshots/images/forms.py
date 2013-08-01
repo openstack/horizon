@@ -44,13 +44,30 @@ class CreateImageForm(forms.SelfHandlingForm):
     description = forms.CharField(widget=forms.widgets.Textarea(),
                                   label=_("Description"),
                                   required=False)
+
+    source_type = forms.ChoiceField(
+        label=_('Image Source'),
+        choices=[('url', _('Image Location')),
+                 ('file', _('Image File'))],
+        widget=forms.Select(attrs={
+              'class': 'switchable',
+              'data-slug': 'source'}))
+
     copy_from = forms.CharField(max_length="255",
                                 label=_("Image Location"),
                                 help_text=_("An external (HTTP) URL to load "
                                             "the image from."),
+                                widget=forms.TextInput(attrs={
+                                      'class': 'switched',
+                                      'data-switch-on': 'source',
+                                      'data-source-url': _('Image Location')}),
                                 required=False)
     image_file = forms.FileField(label=_("Image File"),
                                  help_text=("A local image to upload."),
+                                 widget=forms.FileInput(attrs={
+                                      'class': 'switched',
+                                      'data-switch-on': 'source',
+                                      'data-source-file': _('Image File')}),
                                  required=False)
     disk_format = forms.ChoiceField(label=_('Format'),
                                     required=True,
