@@ -27,12 +27,15 @@ from openstack_dashboard.test import helpers as test
 
 
 class InstanceViewTest(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('flavor_list', 'server_list',),
+    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
+                                   'extension_supported',),
                         api.keystone: ('tenant_list',)})
     def test_index(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
         tenants = self.tenants.list()
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
                                  AndReturn([tenants, False])
         search_opts = {'marker': None, 'paginate': True}
@@ -48,7 +51,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertItemsEqual(instances, servers)
 
     @test.create_stubs({api.nova: ('flavor_list', 'flavor_get',
-                                    'server_list',),
+                                    'server_list', 'extension_supported',),
                         api.keystone: ('tenant_list',)})
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
@@ -60,6 +63,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)). \
                             AndRaise(self.exceptions.nova)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
@@ -76,7 +81,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertItemsEqual(instances, servers)
 
     @test.create_stubs({api.nova: ('flavor_list', 'flavor_get',
-                                    'server_list',),
+                                    'server_list', 'extension_supported', ),
                         api.keystone: ('tenant_list',)})
     def test_index_flavor_get_exception(self):
         servers = self.servers.list()
@@ -91,6 +96,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)). \
                             AndReturn(flavors)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
@@ -119,7 +126,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/instances/index.html')
         self.assertEqual(len(res.context['instances_table'].data), 0)
 
-    @test.create_stubs({api.nova: ('server_get', 'flavor_get',),
+    @test.create_stubs({api.nova: ('server_get', 'flavor_get',
+                                   'extension_supported', ),
                         api.keystone: ('tenant_get',)})
     def test_ajax_loading_instances(self):
         server = self.servers.first()
@@ -127,6 +135,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         tenant = self.tenants.list()[0]
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_get(IsA(http.HttpRequest),
                             server.flavor['id']).AndReturn(flavor)
         api.keystone.tenant_get(IsA(http.HttpRequest),
@@ -150,7 +160,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertContains(res, "Active", 1, 200)
         self.assertContains(res, "Running", 1, 200)
 
-    @test.create_stubs({api.nova: ('flavor_list', 'server_list',),
+    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
+                                   'extension_supported', ),
                         api.keystone: ('tenant_list',)})
     def test_index_options_before_migrate(self):
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
@@ -159,6 +170,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([self.servers.list(), False])
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)).\
                              AndReturn(self.flavors.list())
         self.mox.ReplayAll()
@@ -168,7 +181,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertNotContains(res, "instances__confirm")
         self.assertNotContains(res, "instances__revert")
 
-    @test.create_stubs({api.nova: ('flavor_list', 'server_list',),
+    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
+                                   'extension_supported', ),
                         api.keystone: ('tenant_list',)})
     def test_index_options_after_migrate(self):
         servers = self.servers.list()
@@ -179,6 +193,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
                     .AndReturn([self.tenants.list(), False])
         search_opts = {'marker': None, 'paginate': True}
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([self.servers.list(), False])

@@ -49,8 +49,12 @@ INDEX_URL = reverse('horizon:project:instances:index')
 class InstanceTests(test.TestCase):
     @test.create_stubs({api.nova: ('flavor_list',
                                    'server_list',
-                                   'tenant_absolute_limits')})
+                                   'tenant_absolute_limits',
+                                   'extension_supported',)})
     def test_index(self):
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -61,8 +65,7 @@ class InstanceTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(
-            reverse('horizon:project:instances:index'))
+        res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res,
             'project/instances/index.html')
@@ -71,7 +74,7 @@ class InstanceTests(test.TestCase):
         self.assertItemsEqual(instances, self.servers.list())
 
     @test.create_stubs({api.nova: ('server_list',
-                                   'tenant_absolute_limits')})
+                                   'tenant_absolute_limits',)})
     def test_index_server_list_exception(self):
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
@@ -81,7 +84,7 @@ class InstanceTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:instances:index'))
+        res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, 'project/instances/index.html')
         self.assertEqual(len(res.context['instances_table'].data), 0)
@@ -90,12 +93,16 @@ class InstanceTests(test.TestCase):
     @test.create_stubs({api.nova: ('flavor_list',
                                    'server_list',
                                    'flavor_get',
-                                   'tenant_absolute_limits')})
+                                   'tenant_absolute_limits',
+                                   'extension_supported',)})
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
         full_flavors = SortedDict([(f.id, f) for f in flavors])
         search_opts = {'marker': None, 'paginate': True}
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -108,7 +115,7 @@ class InstanceTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:instances:index'))
+        res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, 'project/instances/index.html')
         instances = res.context['instances_table'].data
@@ -118,10 +125,14 @@ class InstanceTests(test.TestCase):
     @test.create_stubs({api.nova: ('flavor_list',
                                    'server_list',
                                    'flavor_get',
-                                   'tenant_absolute_limits')})
+                                   'tenant_absolute_limits',
+                                   'extension_supported',)})
     def test_index_flavor_get_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         # UUIDs generated using indexes are unlikely to match
         # any of existing flavor ids and are guaranteed to be deterministic.
         for i, server in enumerate(servers):
@@ -139,7 +150,7 @@ class InstanceTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:instances:index'))
+        res = self.client.get(INDEX_URL)
 
         instances = res.context['instances_table'].data
 
@@ -188,10 +199,14 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_pause',
                                    'server_list',
-                                   'flavor_list',)})
+                                   'flavor_list',
+                                   'extension_supported',)})
     def test_pause_instance(self):
         server = self.servers.first()
 
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -208,10 +223,14 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_pause',
                                    'server_list',
-                                   'flavor_list',)})
+                                   'flavor_list',
+                                   'extension_supported',)})
     def test_pause_instance_exception(self):
         server = self.servers.first()
 
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -229,11 +248,14 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_unpause',
                                    'server_list',
-                                   'flavor_list',)})
+                                   'flavor_list',
+                                   'extension_supported',)})
     def test_unpause_instance(self):
         server = self.servers.first()
         server.status = "PAUSED"
-
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -250,11 +272,15 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_unpause',
                                    'server_list',
-                                   'flavor_list',)})
+                                   'flavor_list',
+                                   'extension_supported',)})
     def test_unpause_instance_exception(self):
         server = self.servers.first()
         server.status = "PAUSED"
 
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -275,7 +301,6 @@ class InstanceTests(test.TestCase):
                                    'flavor_list',)})
     def test_reboot_instance(self):
         server = self.servers.first()
-
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -336,10 +361,14 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_suspend',
                                    'server_list',
-                                   'flavor_list',)})
+                                   'flavor_list',
+                                   'extension_supported',)})
     def test_suspend_instance(self):
         server = self.servers.first()
 
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -356,10 +385,14 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_suspend',
                                    'server_list',
-                                   'flavor_list',)})
+                                   'flavor_list',
+                                   'extension_supported',)})
     def test_suspend_instance_exception(self):
         server = self.servers.first()
 
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -377,11 +410,15 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_resume',
                                    'server_list',
-                                   'flavor_list',)})
+                                   'flavor_list',
+                                   'extension_supported',)})
     def test_resume_instance(self):
         server = self.servers.first()
         server.status = "SUSPENDED"
 
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -398,11 +435,15 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_resume',
                                    'server_list',
-                                   'flavor_list',)})
+                                   'flavor_list',
+                                   'extension_supported',)})
     def test_resume_instance_exception(self):
         server = self.servers.first()
         server.status = "SUSPENDED"
 
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -1429,11 +1470,15 @@ class InstanceTests(test.TestCase):
         self.assertContains(res, "greater than or equal to 1")
 
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
-                                   'tenant_absolute_limits',)})
+                                   'tenant_absolute_limits',
+                                   'extension_supported',)})
     def test_launch_button_disabled_when_quota_exceeded(self):
         limits = self.limits['absolute']
         limits['totalInstancesUsed'] = limits['maxTotalInstances']
 
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
@@ -1458,11 +1503,14 @@ class InstanceTests(test.TestCase):
                             msg_prefix="The launch button is not disabled")
 
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
-                                   'tenant_absolute_limits')})
+                                   'tenant_absolute_limits',
+                                   'extension_supported',)})
     def test_index_options_after_migrate(self):
         server = self.servers.first()
         server.status = "VERIFY_RESIZE"
-
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}

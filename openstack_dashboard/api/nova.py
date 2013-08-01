@@ -28,6 +28,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from novaclient.v1_1 import client as nova_client
+from novaclient.v1_1.contrib.list_extensions import ListExtManager
 from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.security_groups import SecurityGroup as NovaSecurityGroup
 from novaclient.v1_1.servers import REBOOT_HARD
@@ -629,3 +630,22 @@ def aggregate_list(request):
         result.append(novaclient(request).aggregates.get(aggregate.id))
 
     return result
+
+
+@memoized
+def list_extensions(request):
+    return ListExtManager(novaclient(request)).show_all()
+
+
+@memoized
+def extension_supported(extension_name, request):
+    """
+    this method will determine if nova supports a given extension name.
+    example values for the extension_name include AdminActions, ConsoleOutput,
+    etc.
+    """
+    extensions = list_extensions(request)
+    for extension in extensions:
+        if extension.name == extension_name:
+            return True
+    return False
