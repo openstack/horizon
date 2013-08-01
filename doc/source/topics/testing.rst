@@ -11,7 +11,7 @@ foot.
 
 If you already know everything about testing but are fed up with trying to
 debug why a specific test failed, you can skip the intro and jump
-stright to :ref:`debugging_unit_tests`.
+straight to :ref:`debugging_unit_tests`.
 
 An overview of testing
 ======================
@@ -22,7 +22,7 @@ Unit tests
 ----------
 
 These are isolated, stand-alone tests with no external dependencies. They are
-written from the a perspective of "knowing the code", and test the assumptions
+written from the perspective of "knowing the code", and test the assumptions
 of the codebase and the developer.
 
 Pros:
@@ -120,7 +120,7 @@ If you do the first suggestion above *first* it makes the second one far less
 painful. Write once, use everywhere.
 
 To make your life even easier, if your codebase doesn't have a built-in
-ORM-like function to manage your test data you can consider buidling (or
+ORM-like function to manage your test data you can consider building (or
 borrowing) one yourself. Being able to do simple retrieval queries on your
 test data is incredibly valuable.
 
@@ -268,7 +268,7 @@ Expected Method Never Called
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This one is the opposite of the unexpected method call. This one means you
-tol mox to expect a call and it didn't happen. This is almost always the
+told mox to expect a call and it didn't happen. This is almost always the
 result of an error in the conditions of the test. Using the
 :meth:`~horizon.test.helpers.TestCase.assertNoFormErrors` and
 :meth:`~horizon.test.helpers.TestCase.assertMessageCount` will make it readily
