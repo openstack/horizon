@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -12,16 +12,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
-"POT-Creation-Date: 2013-03-12 04:08+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-01 08:53-0500\n"
 "PO-Revision-Date: 2013-04-29 08:33+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/openstack/language/ru/)\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/openstack/"
+"language/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: base.py:424
 msgid "Other"
@@ -36,7 +38,12 @@ msgstr "Чтобы продолжить, необходимо выполнить
 msgid "You are not authorized to access %s"
 msgstr "Доступ к %s не авторизован"
 
-#: exceptions.py:283
+#: exceptions.py:281
+#, python-format
+msgid "Unauthorized: %s"
+msgstr ""
+
+#: exceptions.py:284
 msgid "Unauthorized. Please try logging in again."
 msgstr "Нет авторизации. Попробуйте выполнить вход повторно."
 
@@ -54,6 +61,7 @@ msgid "Password is not accepted"
 msgstr "Пароль не принят"
 
 #: tables/actions.py:349
+#: templates/horizon/common/_data_table_table_actions.html:12
 msgid "Filter"
 msgstr "Фильтр"
 
@@ -263,7 +271,7 @@ msgstr "VCPU-Часов в этом месяце"
 msgid "This Month's GB-Hours"
 msgstr "ГБ-Часов в этом месяце"
 
-#: templates/horizon/common/_workflow.html:33
+#: templates/horizon/common/_workflow.html:36
 msgid "Cancel"
 msgstr "Отмена"
 

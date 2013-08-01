@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -10,74 +10,75 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
-"POT-Creation-Date: 2013-03-12 04:09+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-01 08:54-0500\n"
 "PO-Revision-Date: 2013-05-08 08:24+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
+"Language-Team: English (http://www.transifex.com/projects/p/openstack/"
+"language/en/)\n"
+"Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: settings.py:152
+#: settings.py:156
 msgid "Bulgarian (Bulgaria)"
 msgstr "Bulgaria"
 
-#: settings.py:153
+#: settings.py:157
 msgid "Czech"
 msgstr "Tsekki"
 
-#: settings.py:154
+#: settings.py:158
 msgid "English"
 msgstr "Englanti"
 
-#: settings.py:155
+#: settings.py:159
 msgid "Spanish"
 msgstr "Espania"
 
-#: settings.py:156
+#: settings.py:160
 msgid "French"
 msgstr "Ranska"
 
-#: settings.py:157
+#: settings.py:161
 msgid "Italiano"
 msgstr "Italia"
 
-#: settings.py:158
+#: settings.py:162
 msgid "Japanese"
 msgstr "Japani"
 
-#: settings.py:159
+#: settings.py:163
 msgid "Korean (Korea)"
 msgstr "Korea"
 
-#: settings.py:160
+#: settings.py:164
 msgid "Dutch (Netherlands)"
 msgstr "Alankomaat"
 
-#: settings.py:161
+#: settings.py:165
 msgid "Polish"
 msgstr "Puola"
 
-#: settings.py:162
+#: settings.py:166
 msgid "Portuguese"
 msgstr "Portugali"
 
-#: settings.py:163
+#: settings.py:167
 msgid "Portuguese (Brazil)"
 msgstr "Portugali (Brazilia)"
 
-#: settings.py:164
+#: settings.py:168
 msgid "Simplified Chinese"
 msgstr "Pelkistetty Kiina"
 
-#: settings.py:165
+#: settings.py:169
 msgid "Traditional Chinese"
 msgstr "Kiina"
 
-#: api/cinder.py:86
+#: api/cinder.py:87
 msgid "Unknown instance"
 msgstr "Tuntematon instanssi"
 
@@ -96,6 +97,10 @@ msgstr "SALLI %(from)s:%(to)s kohteesta %(group)s"
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "SALLI %(from)s:%(to)s kohteesta %(cidr)s"
 
+#: api/swift.py:145
+msgid "The container cannot be deleted since it's not empty."
+msgstr ""
+
 #: dashboards/admin/dashboard.py:24
 msgid "System Panel"
 msgstr "Hallintapaneeli"
@@ -111,14 +116,14 @@ msgstr "Admin"
 #: dashboards/admin/networks/ports/tables.py:73
 #: dashboards/admin/networks/subnets/tables.py:70
 #: dashboards/admin/projects/tables.py:96
-#: dashboards/admin/projects/workflows.py:83
-#: dashboards/admin/routers/tables.py:63
-#: dashboards/admin/routers/ports/tables.py:43
+#: dashboards/admin/projects/workflows.py:87
+#: dashboards/admin/routers/tables.py:57
+#: dashboards/admin/routers/ports/tables.py:33
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/forms.py:31 dashboards/admin/volumes/tables.py:26
 #: dashboards/admin/volumes/tables.py:44
-#: dashboards/project/access_and_security/security_groups/forms.py:36
-#: dashboards/project/access_and_security/security_groups/tables.py:58
+#: dashboards/project/access_and_security/security_groups/forms.py:37
+#: dashboards/project/access_and_security/security_groups/tables.py:59
 #: dashboards/project/images_and_snapshots/images/forms.py:43
 #: dashboards/project/images_and_snapshots/images/forms.py:141
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:9
@@ -138,7 +143,7 @@ msgstr "Admin"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
 #: dashboards/project/routers/tables.py:123
-#: dashboards/project/routers/ports/tables.py:75
+#: dashboards/project/routers/ports/tables.py:77
 #: dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: dashboards/project/volumes/tables.py:152
 #: dashboards/project/volumes/tables.py:172
@@ -146,54 +151,62 @@ msgstr "Admin"
 msgid "Name"
 msgstr "Nimi"
 
-#: dashboards/admin/flavors/forms.py:37 dashboards/admin/flavors/tables.py:52
-#: dashboards/admin/projects/workflows.py:44
+#: dashboards/admin/flavors/forms.py:39
+#, fuzzy
+msgid ""
+"Name may only contain letters, numbers, underscores, periods and hyphens."
+msgstr ""
+"Avainparin nimi voi sisältää vain kirjaimia, numeroita, alaviivoja ja "
+"väliviivoja. Ei åöä. "
+
+#: dashboards/admin/flavors/forms.py:42 dashboards/admin/flavors/tables.py:52
+#: dashboards/admin/projects/workflows.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:26
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:10
 #: usage/tables.py:19
 msgid "VCPUs"
 msgstr "VCPU:t"
 
-#: dashboards/admin/flavors/forms.py:38
+#: dashboards/admin/flavors/forms.py:43
 msgid "RAM MB"
 msgstr "RAM MB"
 
-#: dashboards/admin/flavors/forms.py:39
+#: dashboards/admin/flavors/forms.py:44
 msgid "Root Disk GB"
 msgstr "Root Disk GB"
 
-#: dashboards/admin/flavors/forms.py:40
+#: dashboards/admin/flavors/forms.py:45
 msgid "Ephemeral Disk GB"
 msgstr "Verkkolevy GB"
 
-#: dashboards/admin/flavors/forms.py:41
+#: dashboards/admin/flavors/forms.py:46
 msgid "Swap Disk MB"
 msgstr "Swap-levy MB"
 
-#: dashboards/admin/flavors/forms.py:49
+#: dashboards/admin/flavors/forms.py:54 dashboards/admin/flavors/forms.py:96
 msgid "Unable to get flavor list"
 msgstr "Ei voida hakea pohjamuottilistausta."
 
-#: dashboards/admin/flavors/forms.py:56
+#: dashboards/admin/flavors/forms.py:61 dashboards/admin/flavors/forms.py:104
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "Nimi \"%s\" on jo käytössä"
 
-#: dashboards/admin/flavors/forms.py:70
+#: dashboards/admin/flavors/forms.py:75
 #, python-format
 msgid "Created flavor \"%s\"."
 msgstr "Luotiin pohjamuotti \"%s\"."
 
-#: dashboards/admin/flavors/forms.py:74
+#: dashboards/admin/flavors/forms.py:79
 msgid "Unable to create flavor."
 msgstr "Ei voida luoda pohjamuottia."
 
-#: dashboards/admin/flavors/forms.py:106
+#: dashboards/admin/flavors/forms.py:132
 #, python-format
 msgid "Updated flavor \"%s\"."
 msgstr "Päivitettiin pohjamuotti \"%s\"."
 
-#: dashboards/admin/flavors/forms.py:110
+#: dashboards/admin/flavors/forms.py:136
 msgid "Unable to update flavor."
 msgstr "Ei voida päivittää pohjamuottia."
 
@@ -209,7 +222,7 @@ msgstr "Pohjamuotit"
 #: dashboards/admin/flavors/templates/flavors/extras/edit.html:7
 #: dashboards/admin/flavors/templates/flavors/extras/index.html:7
 #: dashboards/project/instances/templates/instances/_detail_overview.html:22
-#: dashboards/project/instances/workflows/create_instance.py:180
+#: dashboards/project/instances/workflows/create_instance.py:181
 msgid "Flavor"
 msgstr "Pohjamuotti"
 
@@ -343,19 +356,17 @@ msgstr "Ei voida hakea pohjamuotin lisäoptioiden dataa."
 #: dashboards/admin/networks/templates/networks/_create.html:17
 #: dashboards/admin/networks/templates/networks/ports/_create.html:17
 #: dashboards/admin/projects/tables.py:98
-#: dashboards/admin/projects/workflows.py:86
+#: dashboards/admin/projects/workflows.py:89
 #: dashboards/admin/projects/templates/projects/_add_user.html:17
 #: dashboards/admin/projects/templates/projects/_create.html:17
 #: dashboards/admin/projects/templates/projects/_create_user.html:17
 #: dashboards/admin/projects/templates/projects/_quotas.html:16
 #: dashboards/admin/projects/templates/projects/_update.html:17
-#: dashboards/admin/routers/templates/routers/ports/_create.html:17
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:17
 #: dashboards/admin/users/templates/users/_create.html:16
 #: dashboards/admin/users/templates/users/_update.html:16
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:17
-#: dashboards/project/access_and_security/security_groups/forms.py:42
-#: dashboards/project/access_and_security/security_groups/tables.py:59
+#: dashboards/project/access_and_security/security_groups/forms.py:43
+#: dashboards/project/access_and_security/security_groups/tables.py:60
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:16
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:16
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:17
@@ -398,9 +409,6 @@ msgstr "Täältä voit määrittää uuden pohjamuotin koot."
 #: dashboards/admin/projects/templates/projects/_create_user.html:24
 #: dashboards/admin/projects/templates/projects/_quotas.html:23
 #: dashboards/admin/projects/templates/projects/_update.html:24
-#: dashboards/admin/routers/templates/routers/_create.html:20
-#: dashboards/admin/routers/templates/routers/ports/_create.html:24
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/admin/users/templates/users/_create.html:33
 #: dashboards/admin/users/templates/users/_update.html:33
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:28
@@ -434,13 +442,13 @@ msgstr "Täältä voit muuttaa pohjamuotin kokoja. "
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:19
 msgid ""
-"Note: this will not affect the resources allocated to any existing instances"
-" using this flavor."
+"Note: this will not affect the resources allocated to any existing instances "
+"using this flavor."
 msgstr "HUOM: tämä ei vaikuta jo ajossa olevien instanssien resursseihin."
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:24
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:24
-#: dashboards/admin/projects/workflows.py:294
+#: dashboards/admin/projects/workflows.py:291
 #: dashboards/project/instances/workflows/update_instance.py:162
 #: dashboards/settings/user/templates/user/_settings.html:23
 msgid "Save"
@@ -524,7 +532,11 @@ msgid ""
 "Currently only images available via an HTTP URL are supported. The image "
 "location must be accessible to the Image Service. Compressed image binaries "
 "are supported (.zip and .tar.gz.)"
-msgstr "Tällä hetkellä vain ne levykuvat ovat tuettu, jotka ovat saatavilla verkon kautta HTTP-URL:in kautta. Levykuvan täytyy löytyä kohteesta johonka Levykuvapalvelulla on pääsy. Pakatut kohteet kuten .zip ja .tar.gz ovat tuettu."
+msgstr ""
+"Tällä hetkellä vain ne levykuvat ovat tuettu, jotka ovat saatavilla verkon "
+"kautta HTTP-URL:in kautta. Levykuvan täytyy löytyä kohteesta johonka "
+"Levykuvapalvelulla on pääsy. Pakatut kohteet kuten .zip ja .tar.gz ovat "
+"tuettu."
 
 #: dashboards/admin/images/templates/images/_create.html:25
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:25
@@ -534,9 +546,12 @@ msgstr "Huomio:"
 #: dashboards/admin/images/templates/images/_create.html:26
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:26
 msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary."
-" URLs that redirect or serve error pages will result in unusable images."
-msgstr "Levykuvan kohdekentän täytyy sisältää toimiva URL-osoite levykuvan tiedostoon. URL-osoitteet jotka ohjaavat, tai tarjoavat virhesivun, johtaa toimimattomiin levykuviin. "
+"The Image Location field MUST be a valid and direct URL to the image binary. "
+"URLs that redirect or serve error pages will result in unusable images."
+msgstr ""
+"Levykuvan kohdekentän täytyy sisältää toimiva URL-osoite levykuvan "
+"tiedostoon. URL-osoitteet jotka ohjaavat, tai tarjoavat virhesivun, johtaa "
+"toimimattomiin levykuviin. "
 
 #: dashboards/admin/images/templates/images/_create.html:32
 #: dashboards/project/images_and_snapshots/images/tables.py:64
@@ -593,13 +608,13 @@ msgid "Host"
 msgstr "Isäntä"
 
 #: dashboards/admin/info/tables.py:71 dashboards/admin/projects/tables.py:100
-#: dashboards/admin/projects/workflows.py:88
-#: dashboards/admin/projects/workflows.py:275
+#: dashboards/admin/projects/workflows.py:91
+#: dashboards/admin/projects/workflows.py:272
 #: dashboards/admin/users/tables.py:41 dashboards/admin/users/tables.py:113
 msgid "Enabled"
 msgstr "Päällä"
 
-#: dashboards/admin/info/tables.py:76 dashboards/admin/info/tabs.py:50
+#: dashboards/admin/info/tables.py:76 dashboards/admin/info/tabs.py:47
 msgid "Services"
 msgstr "Palvelut"
 
@@ -607,7 +622,7 @@ msgstr "Palvelut"
 msgid "Default Quotas"
 msgstr "Oletus kiintiöt"
 
-#: dashboards/admin/info/tabs.py:44
+#: dashboards/admin/info/tabs.py:41
 msgid "Unable to get quota info."
 msgstr "Ei voida hakea kiintiön tietoja"
 
@@ -615,13 +630,13 @@ msgstr "Ei voida hakea kiintiön tietoja"
 #: dashboards/admin/instances/tables.py:46
 #: dashboards/admin/instances/tables.py:115
 #: dashboards/admin/instances/templates/instances/index.html:3
-#: dashboards/admin/projects/workflows.py:45
+#: dashboards/admin/projects/workflows.py:48
 #: dashboards/project/instances/panel.py:25
 #: dashboards/project/instances/tables.py:74
 #: dashboards/project/instances/tables.py:89
 #: dashboards/project/instances/tables.py:115
 #: dashboards/project/instances/tables.py:144
-#: dashboards/project/instances/tables.py:470
+#: dashboards/project/instances/tables.py:480
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 msgid "Instances"
@@ -649,9 +664,10 @@ msgstr "Instanssi"
 #: dashboards/admin/instances/tables.py:80
 #: dashboards/admin/networks/forms.py:36
 #: dashboards/admin/networks/tables.py:67
-#: dashboards/admin/projects/tables.py:71 dashboards/admin/routers/forms.py:37
-#: dashboards/admin/routers/tables.py:61 dashboards/admin/volumes/tables.py:29
-#: dashboards/project/dashboard.py:43
+#: dashboards/admin/projects/tables.py:71
+#: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:29
+#: dashboards/project/dashboard.py:48
+#: dashboards/project/images_and_snapshots/images/tables.py:98
 #: dashboards/project/instances/workflows/create_instance.py:41
 msgid "Project"
 msgstr "Projekti"
@@ -660,7 +676,7 @@ msgstr "Projekti"
 #: dashboards/project/access_and_security/floating_ips/tables.py:114
 #: dashboards/project/access_and_security/floating_ips/workflows.py:34
 #: dashboards/project/access_and_security/floating_ips/workflows.py:41
-#: dashboards/project/instances/tables.py:447
+#: dashboards/project/instances/tables.py:457
 #: dashboards/project/loadbalancers/tables.py:138
 msgid "IP Address"
 msgstr "IP-osoite"
@@ -669,7 +685,7 @@ msgstr "IP-osoite"
 #: dashboards/project/containers/tables.py:231
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:30
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:37
-#: dashboards/project/instances/tables.py:449
+#: dashboards/project/instances/tables.py:459
 #: dashboards/project/volumes/tables.py:158
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:26
 msgid "Size"
@@ -678,20 +694,20 @@ msgstr "Koko"
 #: dashboards/admin/instances/tables.py:99
 #: dashboards/admin/networks/tables.py:74
 #: dashboards/admin/networks/ports/tables.py:77
-#: dashboards/admin/routers/tables.py:67
-#: dashboards/admin/routers/ports/tables.py:47
+#: dashboards/admin/routers/tables.py:61
+#: dashboards/admin/routers/ports/tables.py:36
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/images_and_snapshots/images/tables.py:177
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:13
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:18
-#: dashboards/project/instances/tables.py:454
+#: dashboards/project/instances/tables.py:464
 #: dashboards/project/instances/templates/instances/_detail_overview.html:13
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/ports/tables.py:61
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:31
 #: dashboards/project/routers/tables.py:127
-#: dashboards/project/routers/ports/tables.py:79
+#: dashboards/project/routers/ports/tables.py:80
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/volumes/tables.py:162
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:17
@@ -699,12 +715,12 @@ msgid "Status"
 msgstr "Tila"
 
 #: dashboards/admin/instances/tables.py:104
-#: dashboards/project/instances/tables.py:459
+#: dashboards/project/instances/tables.py:469
 msgid "Task"
 msgstr "Tehtävä"
 
 #: dashboards/admin/instances/tables.py:111
-#: dashboards/project/instances/tables.py:466
+#: dashboards/project/instances/tables.py:476
 msgid "Power State"
 msgstr "Virran Tila"
 
@@ -732,11 +748,11 @@ msgstr "Kaikki instanssit"
 #: dashboards/admin/networks/tables.py:76
 #: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:79
-#: dashboards/admin/routers/ports/tables.py:51
+#: dashboards/admin/routers/ports/tables.py:40
 #: dashboards/project/loadbalancers/workflows.py:41
 #: dashboards/project/loadbalancers/workflows.py:143
 #: dashboards/project/loadbalancers/workflows.py:258
-#: dashboards/project/loadbalancers/workflows.py:377
+#: dashboards/project/loadbalancers/workflows.py:372
 #: dashboards/project/networks/forms.py:42
 #: dashboards/project/networks/tables.py:102
 #: dashboards/project/networks/workflows.py:42
@@ -744,7 +760,7 @@ msgstr "Kaikki instanssit"
 #: dashboards/project/networks/ports/tables.py:63
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
-#: dashboards/project/routers/ports/tables.py:83
+#: dashboards/project/routers/ports/tables.py:84
 msgid "Admin State"
 msgstr "Admin tila"
 
@@ -756,15 +772,14 @@ msgid "Shared"
 msgstr "Jaettu"
 
 #: dashboards/admin/networks/forms.py:41 dashboards/admin/networks/forms.py:82
-#: dashboards/admin/routers/tables.py:70
+#: dashboards/admin/routers/tables.py:64
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/tables.py:130
 #: dashboards/project/routers/ports/forms.py:90
 msgid "External Network"
 msgstr "Ulkoinen Verkko"
 
-#: dashboards/admin/networks/forms.py:50 dashboards/admin/routers/forms.py:42
-#: dashboards/admin/users/forms.py:42
+#: dashboards/admin/networks/forms.py:50 dashboards/admin/users/forms.py:42
 msgid "Select a project"
 msgstr "Valitse projekti"
 
@@ -813,7 +828,7 @@ msgstr "Verkkoa %s ei onnistuttu päivittämään"
 #: dashboards/admin/networks/tables.py:80
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
-#: dashboards/project/instances/workflows/create_instance.py:418
+#: dashboards/project/instances/workflows/create_instance.py:419
 #: dashboards/project/networks/panel.py:25
 #: dashboards/project/networks/tables.py:44
 #: dashboards/project/networks/tables.py:106
@@ -824,6 +839,7 @@ msgstr "Verkko"
 
 #: dashboards/admin/networks/tables.py:34
 #: dashboards/project/networks/tables.py:43
+#: dashboards/project/networks/workflows.py:46
 #: dashboards/project/networks/templates/networks/subnets/index.html:3
 #: dashboards/project/networks/templates/networks/subnets/index.html:6
 msgid "Network"
@@ -932,9 +948,9 @@ msgid "Failed to update port %s"
 msgstr "Portin %s päivittämisessä epäonnistuttiin"
 
 #: dashboards/admin/networks/ports/tables.py:34
-#: dashboards/project/access_and_security/security_groups/forms.py:73
-#: dashboards/project/access_and_security/security_groups/forms.py:82
-#: dashboards/project/access_and_security/security_groups/forms.py:89
+#: dashboards/project/access_and_security/security_groups/forms.py:74
+#: dashboards/project/access_and_security/security_groups/forms.py:83
+#: dashboards/project/access_and_security/security_groups/forms.py:90
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:6
 msgid "Port"
 msgstr "Portti"
@@ -968,15 +984,14 @@ msgid "Edit Port"
 msgstr "Päivitä Portti"
 
 #: dashboards/admin/networks/ports/tables.py:75
-#: dashboards/admin/routers/ports/tables.py:45
+#: dashboards/admin/projects/workflows.py:57
+#: dashboards/admin/routers/ports/tables.py:35
 #: dashboards/project/networks/ports/tables.py:59
-#: dashboards/project/routers/ports/tables.py:77
+#: dashboards/project/routers/ports/tables.py:79
 msgid "Fixed IPs"
 msgstr "Kiinteät IP:t"
 
 #: dashboards/admin/networks/ports/tables.py:76
-#: dashboards/admin/routers/ports/tables.py:46
-#: dashboards/project/routers/ports/tables.py:78
 msgid "Device Attached"
 msgstr "Liitetyt Laitteet"
 
@@ -1010,6 +1025,7 @@ msgstr "Ei voida hakea verkkoa."
 #: dashboards/admin/networks/subnets/tables.py:32
 #: dashboards/project/loadbalancers/tables.py:114
 #: dashboards/project/loadbalancers/workflows.py:38
+#: dashboards/project/networks/workflows.py:91
 #: dashboards/project/networks/subnets/tables.py:44
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:6
 #: dashboards/project/routers/ports/forms.py:31
@@ -1040,9 +1056,9 @@ msgid "Edit Subnet"
 msgstr "Muokkaa Aliverkkoa"
 
 #: dashboards/admin/networks/subnets/tables.py:72
-#: dashboards/project/access_and_security/security_groups/forms.py:133
-#: dashboards/project/access_and_security/security_groups/forms.py:145
-#: dashboards/project/access_and_security/security_groups/forms.py:155
+#: dashboards/project/access_and_security/security_groups/forms.py:134
+#: dashboards/project/access_and_security/security_groups/forms.py:146
+#: dashboards/project/access_and_security/security_groups/forms.py:156
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 msgid "CIDR"
 msgstr "CIDR"
@@ -1093,7 +1109,9 @@ msgstr "Päivitä verkko. "
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
 "attached, the device specified will be attached to the port created."
-msgstr "Voit luoda verkkoon portin. Jos määrität liitettävän laitteen ID:n, laite yhdistetään luotuun porttiin."
+msgstr ""
+"Voit luoda verkkoon portin. Jos määrität liitettävän laitteen ID:n, laite "
+"yhdistetään luotuun porttiin."
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
 #: dashboards/project/networks/templates/networks/ports/_update.html:22
@@ -1121,6 +1139,10 @@ msgstr "Verkon tiedot"
 msgid "Update Subnet"
 msgstr "Päivitä aliverkko"
 
+#: dashboards/admin/overview/views.py:48 dashboards/admin/projects/views.py:77
+msgid "Unable to retrieve project list."
+msgstr "Ei voida hakea projektilistausta."
+
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
 msgstr "Käytön yleiskatsaus"
@@ -1147,8 +1169,8 @@ msgid "View Usage"
 msgstr "Tarkkaile käyttöastetta"
 
 #: dashboards/admin/projects/tables.py:39
-#: dashboards/admin/projects/workflows.py:201
-#: dashboards/admin/projects/workflows.py:202
+#: dashboards/admin/projects/workflows.py:204
+#: dashboards/admin/projects/workflows.py:205
 #: dashboards/admin/projects/templates/projects/_create.html:8
 #: dashboards/admin/projects/templates/projects/_create.html:23
 #: dashboards/admin/projects/templates/projects/create.html:3
@@ -1157,7 +1179,7 @@ msgid "Create Project"
 msgstr "Luo projekti"
 
 #: dashboards/admin/projects/tables.py:49
-#: dashboards/admin/projects/workflows.py:293
+#: dashboards/admin/projects/workflows.py:290
 #: dashboards/admin/projects/templates/projects/update.html:3
 #: dashboards/admin/projects/templates/projects/update.html:6
 msgid "Edit Project"
@@ -1213,39 +1235,35 @@ msgstr "Liitä projektiin"
 msgid "Add New Users"
 msgstr "Lisää uusia käyttäjiä"
 
-#: dashboards/admin/projects/views.py:70
+#: dashboards/admin/projects/views.py:57
 msgid "Unable to retrieve project information."
 msgstr "Ei voida hakea projektin tietoja."
 
-#: dashboards/admin/projects/views.py:90
-msgid "Unable to retrieve project list."
-msgstr "Ei voida hakea projektilistausta."
-
-#: dashboards/admin/projects/views.py:113
+#: dashboards/admin/projects/views.py:100
 msgid "Unable to retrieve users."
 msgstr "Ei voida hakea käyttäjiä."
 
-#: dashboards/admin/projects/views.py:156
+#: dashboards/admin/projects/views.py:143
 msgid "Unable to retrieve default quota values."
 msgstr "Ei voida hakea oletus kiintiöarvoja."
 
-#: dashboards/admin/projects/views.py:185
+#: dashboards/admin/projects/views.py:173
 msgid "Unable to retrieve project details."
 msgstr "Ei voida hakea projektin tietoja."
 
-#: dashboards/admin/projects/workflows.py:41
+#: dashboards/admin/projects/workflows.py:44
 msgid "Injected File Content Bytes"
 msgstr "Injektoidun tiedoston tavumäärä"
 
-#: dashboards/admin/projects/workflows.py:43
+#: dashboards/admin/projects/workflows.py:46
 msgid "Metadata Items"
 msgstr "Metadata kohta"
 
-#: dashboards/admin/projects/workflows.py:47
+#: dashboards/admin/projects/workflows.py:50
 msgid "Injected Files"
 msgstr "Liitetyt tiedostot"
 
-#: dashboards/admin/projects/workflows.py:50
+#: dashboards/admin/projects/workflows.py:53
 #: dashboards/admin/volumes/panel.py:9 dashboards/admin/volumes/tables.py:33
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
@@ -1258,139 +1276,146 @@ msgstr "Liitetyt tiedostot"
 msgid "Volumes"
 msgstr "Verkkolevyt"
 
-#: dashboards/admin/projects/workflows.py:51
+#: dashboards/admin/projects/workflows.py:54
 msgid "Gigabytes"
 msgstr "Gigabitit"
 
-#: dashboards/admin/projects/workflows.py:52
+#: dashboards/admin/projects/workflows.py:55
 msgid "RAM (MB)"
 msgstr "RAM (MB)"
 
-#: dashboards/admin/projects/workflows.py:53
+#: dashboards/admin/projects/workflows.py:56
 #: dashboards/project/access_and_security/tabs.py:72
 #: dashboards/project/access_and_security/floating_ips/tables.py:52
 #: dashboards/project/access_and_security/floating_ips/tables.py:131
 msgid "Floating IPs"
 msgstr "Vapaat IP:t"
 
-#: dashboards/admin/projects/workflows.py:55
+#: dashboards/admin/projects/workflows.py:59
 #: dashboards/project/access_and_security/tabs.py:40
-#: dashboards/project/access_and_security/security_groups/tables.py:32
-#: dashboards/project/access_and_security/security_groups/tables.py:66
+#: dashboards/project/access_and_security/security_groups/tables.py:33
+#: dashboards/project/access_and_security/security_groups/tables.py:67
 #: dashboards/project/instances/templates/instances/_detail_overview.html:53
-#: dashboards/project/instances/workflows/create_instance.py:344
+#: dashboards/project/instances/workflows/create_instance.py:345
 #: dashboards/project/instances/workflows/update_instance.py:111
 msgid "Security Groups"
 msgstr "Turvaryhmät"
 
-#: dashboards/admin/projects/workflows.py:57
-#: dashboards/project/access_and_security/security_groups/tables.py:119
+#: dashboards/admin/projects/workflows.py:61
+#: dashboards/project/access_and_security/security_groups/tables.py:129
 msgid "Security Group Rules"
 msgstr "Turvaryhmän säännöt"
 
-#: dashboards/admin/projects/workflows.py:60
+#: dashboards/admin/projects/workflows.py:74
 msgid "Quota"
 msgstr "Kiintiö"
 
-#: dashboards/admin/projects/workflows.py:62
+#: dashboards/admin/projects/workflows.py:76
 msgid "From here you can set quotas (max limits) for the project."
 msgstr "Täältä voit asettaa kiintiöt (maksimi rajat) projektille."
 
-#: dashboards/admin/projects/workflows.py:93
-#: dashboards/admin/projects/workflows.py:278
+#: dashboards/admin/projects/workflows.py:96
+#: dashboards/admin/projects/workflows.py:275
 msgid "Project Info"
 msgstr "Projektin tiedot"
 
-#: dashboards/admin/projects/workflows.py:94
+#: dashboards/admin/projects/workflows.py:97
 #: dashboards/admin/projects/templates/projects/_create.html:18
 msgid "From here you can create a new project to organize users."
 msgstr "Täältä voit luoda uuden projektin."
 
-#: dashboards/admin/projects/workflows.py:113
+#: dashboards/admin/projects/workflows.py:116
 msgid "Unable to retrieve user list. Please try again later."
 msgstr "Ei voida hakea käyttäjälistaa. Yritä uudelleen myöhemmin."
 
-#: dashboards/admin/projects/workflows.py:125
+#: dashboards/admin/projects/workflows.py:128
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Ei löydetty roolia \"%s\" Keystone:sta"
 
-#: dashboards/admin/projects/workflows.py:173
-#: dashboards/admin/projects/workflows.py:180
+#: dashboards/admin/projects/workflows.py:176
+#: dashboards/admin/projects/workflows.py:183
 #: dashboards/admin/projects/templates/projects/_update_members.html:16
 msgid "Project Members"
 msgstr "Projektin Jäsenet."
 
-#: dashboards/admin/projects/workflows.py:179
+#: dashboards/admin/projects/workflows.py:182
 #: dashboards/admin/projects/templates/projects/_update_members.html:10
 msgid "All Users"
 msgstr "Kaikki käyttäjät"
 
-#: dashboards/admin/projects/workflows.py:181
+#: dashboards/admin/projects/workflows.py:184
 #: dashboards/admin/projects/templates/projects/_update_members.html:25
 #: dashboards/admin/projects/templates/projects/_update_members.html:32
 msgid "No users found."
 msgstr "Ei löydetty käyttäjiä. "
 
-#: dashboards/admin/projects/workflows.py:182
+#: dashboards/admin/projects/workflows.py:185
 msgid "No users."
 msgstr "Ei käyttäjiä."
 
-#: dashboards/admin/projects/workflows.py:190
+#: dashboards/admin/projects/workflows.py:193
 #: dashboards/admin/users/views.py:47
 msgid "Unable to retrieve user list."
 msgstr "Ei voida hakea käyttäjälistaa."
 
-#: dashboards/admin/projects/workflows.py:203
+#: dashboards/admin/projects/workflows.py:206
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Luotiin uusi projekti \"%s\"."
 
-#: dashboards/admin/projects/workflows.py:204
+#: dashboards/admin/projects/workflows.py:207
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "Ei voida luoda projektia \"%s\"."
 
-#: dashboards/admin/projects/workflows.py:248
+#: dashboards/admin/projects/workflows.py:251
 #, python-format
 msgid "Failed to add %s project members and set project quotas."
-msgstr "Epäonnistuttiin lisäämään %s projektiin käyttäjiä ja asettamaan projektin kiintiö."
+msgstr ""
+"Epäonnistuttiin lisäämään %s projektiin käyttäjiä ja asettamaan projektin "
+"kiintiö."
 
-#: dashboards/admin/projects/workflows.py:270
+#: dashboards/admin/projects/workflows.py:267
 msgid "Unable to set project quotas."
 msgstr "Ei voida asettaa projektin kiintiötä."
 
-#: dashboards/admin/projects/workflows.py:280
+#: dashboards/admin/projects/workflows.py:277
 msgid "From here you can edit the project details."
 msgstr "Täältä voit muokata projektin asetuksia."
 
-#: dashboards/admin/projects/workflows.py:295
+#: dashboards/admin/projects/workflows.py:292
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "Muokattiin projektia \"%s\"."
 
-#: dashboards/admin/projects/workflows.py:296
+#: dashboards/admin/projects/workflows.py:293
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Ei voida muokata projektia \"%s\"."
 
-#: dashboards/admin/projects/workflows.py:349
+#: dashboards/admin/projects/workflows.py:346
 msgid ""
 "You cannot remove the \"admin\" role from the project you are currently "
 "logged into. Please switch to another project with admin permissions or "
 "remove the role manually via the CLI"
-msgstr "Et voi poistaa \"admin\"-roolia projektista jossa olet juuri kirjautuneena sisään. Kirjaudu toiseen projektiin admin tunnuksin ja poista rooli käsin komentokehoitteen kautta. "
+msgstr ""
+"Et voi poistaa \"admin\"-roolia projektista jossa olet juuri kirjautuneena "
+"sisään. Kirjaudu toiseen projektiin admin tunnuksin ja poista rooli käsin "
+"komentokehoitteen kautta. "
 
-#: dashboards/admin/projects/workflows.py:381
+#: dashboards/admin/projects/workflows.py:378
 #, python-format
 msgid "Failed to modify %s project members and update project quotas."
 msgstr "Epäonnistuttiin %s projektin käyttäjien ja kiintiön muokkaamisessa. "
 
-#: dashboards/admin/projects/workflows.py:414
+#: dashboards/admin/projects/workflows.py:398
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
-msgstr "Muokattiin projektin tietoja ja käyttäjiä, mutta epäonnistuttiin muokkaamaan projektin kiintiötä."
+msgstr ""
+"Muokattiin projektin tietoja ja käyttäjiä, mutta epäonnistuttiin muokkaamaan "
+"projektin kiintiötä."
 
 #: dashboards/admin/projects/templates/projects/_add_user.html:8
 #: dashboards/admin/projects/templates/projects/add_user.html:3
@@ -1404,10 +1429,10 @@ msgstr "Valitse käyttäjärooli projektiin."
 
 #: dashboards/admin/projects/templates/projects/_add_user.html:23
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:26
-#: dashboards/project/loadbalancers/workflows.py:97
+#: dashboards/project/loadbalancers/workflows.py:98
 #: dashboards/project/loadbalancers/workflows.py:194
 #: dashboards/project/loadbalancers/workflows.py:326
-#: dashboards/project/loadbalancers/workflows.py:430
+#: dashboards/project/loadbalancers/workflows.py:425
 msgid "Add"
 msgstr "Lisää"
 
@@ -1481,32 +1506,10 @@ msgstr "Projektin Käyttäjät"
 msgid "Users for Project"
 msgstr "Projektin käyttäjät"
 
-#: dashboards/admin/routers/forms.py:35 dashboards/project/routers/forms.py:23
-#: dashboards/project/routers/ports/forms.py:32
-#: dashboards/project/routers/ports/forms.py:91
-msgid "Router Name"
-msgstr "Reitittimen Nimi"
-
-#: dashboards/admin/routers/forms.py:48
-msgid "Failed to get tenants."
-msgstr "Asukkaiden hakemisessa epäonnistuttiin"
-
-#: dashboards/admin/routers/forms.py:67 dashboards/project/routers/forms.py:37
-#, python-format
-msgid "Failed to create router \"%s\"."
-msgstr "Epäonnistuttiin reitittimen \"%s\" luomisessa."
-
-#: dashboards/admin/routers/tables.py:39
-#: dashboards/admin/routers/templates/routers/create.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:28
-#: dashboards/project/routers/tables.py:59
-#: dashboards/project/routers/templates/routers/create.html:3
-msgid "Create Router"
-msgstr "Luo Reititin."
-
-#: dashboards/admin/routers/tables.py:77
+#: dashboards/admin/routers/panel.py:25 dashboards/admin/routers/tables.py:71
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
+#: dashboards/project/routers/panel.py:25
 #: dashboards/project/routers/tables.py:34
 #: dashboards/project/routers/tables.py:137
 #: dashboards/project/routers/templates/routers/index.html:3
@@ -1514,33 +1517,26 @@ msgstr "Luo Reititin."
 msgid "Routers"
 msgstr "Reitittimet"
 
-#: dashboards/admin/routers/views.py:51 dashboards/project/routers/views.py:55
+#: dashboards/admin/routers/views.py:49 dashboards/project/routers/views.py:55
 msgid "Unable to retrieve router list."
 msgstr "Ei voida hakea listausta reitittimistä."
 
-#: dashboards/admin/routers/ports/tables.py:49
-#: dashboards/project/access_and_security/security_groups/forms.py:112
-#: dashboards/project/access_and_security/security_groups/forms.py:119
+#: dashboards/admin/routers/ports/tables.py:38
+#: dashboards/project/access_and_security/security_groups/forms.py:113
+#: dashboards/project/access_and_security/security_groups/forms.py:120
 #: dashboards/project/images_and_snapshots/images/tables.py:173
-#: dashboards/project/loadbalancers/workflows.py:365
-#: dashboards/project/routers/ports/tables.py:81
+#: dashboards/project/loadbalancers/workflows.py:360
+#: dashboards/project/routers/ports/tables.py:82
 #: dashboards/project/volumes/forms.py:31
 #: dashboards/project/volumes/tables.py:175
 msgid "Type"
 msgstr "Tyyppi"
 
-#: dashboards/admin/routers/ports/tables.py:58
-#: dashboards/project/routers/ports/tables.py:51
-#: dashboards/project/routers/ports/tables.py:90
+#: dashboards/admin/routers/ports/tables.py:47
+#: dashboards/project/routers/ports/tables.py:53
+#: dashboards/project/routers/ports/tables.py:91
 msgid "Interfaces"
 msgstr "Portit"
-
-#: dashboards/admin/routers/templates/routers/_create.html:8
-#: dashboards/admin/routers/templates/routers/_create.html:19
-#: dashboards/project/routers/templates/routers/_create.html:8
-#: dashboards/project/routers/templates/routers/_create.html:19
-msgid "Create router"
-msgstr "Luo reititin"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:3
 #: dashboards/project/routers/templates/routers/_detail_overview.html:3
@@ -1557,60 +1553,15 @@ msgstr "Ulkoisen Oletusyhdyskäytävän Tiedot"
 msgid "Connected External Network"
 msgstr "Yhdistä Ulkoiseen Verkkoon"
 
-#: dashboards/admin/routers/templates/routers/create.html:6
-#: dashboards/project/routers/templates/routers/create.html:6
-msgid "Create a Router"
-msgstr "Luo Reititin"
-
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/project/routers/templates/routers/detail.html:3
+#: dashboards/project/routers/templates/routers/detail.html:6
 msgid "Router Details"
 msgstr "Reitittimen Tiedot"
 
 #: dashboards/admin/routers/templates/routers/detail.html:6
-#: dashboards/project/routers/templates/routers/detail.html:6
 msgid "Router Detail"
 msgstr "Reitittimen Tiedot"
-
-#: dashboards/admin/routers/templates/routers/ports/_create.html:8
-#: dashboards/admin/routers/templates/routers/ports/create.html:3
-#: dashboards/admin/routers/templates/routers/ports/create.html:6
-#: dashboards/project/routers/ports/tables.py:40
-#: dashboards/project/routers/templates/routers/ports/_create.html:8
-#: dashboards/project/routers/templates/routers/ports/create.html:3
-#: dashboards/project/routers/templates/routers/ports/create.html:6
-msgid "Add Interface"
-msgstr "lisää Portti"
-
-#: dashboards/admin/routers/templates/routers/ports/_create.html:18
-#: dashboards/project/routers/templates/routers/ports/_create.html:18
-msgid "You can connect a specified subnet to the router."
-msgstr "Voit liittää määritetyn aliverkon reitittimeen."
-
-#: dashboards/admin/routers/templates/routers/ports/_create.html:23
-#: dashboards/project/routers/templates/routers/ports/_create.html:23
-msgid "Add interface"
-msgstr "Lisää Portti"
-
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:8
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:23
-#: dashboards/admin/routers/templates/routers/ports/setgateway.html:3
-#: dashboards/admin/routers/templates/routers/ports/setgateway.html:6
-#: dashboards/project/routers/tables.py:66
-#: dashboards/project/routers/templates/routers/ports/_setgateway.html:8
-#: dashboards/project/routers/templates/routers/ports/_setgateway.html:23
-#: dashboards/project/routers/templates/routers/ports/setgateway.html:3
-#: dashboards/project/routers/templates/routers/ports/setgateway.html:6
-msgid "Set Gateway"
-msgstr "Aseta Oletusyhdyskäytävä"
-
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:18
-#: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
-msgid ""
-"You can connect a specified external network to the router. The external "
-"network is regarded as a default route of the router and the router acts as "
-"a gateway for external connectivity."
-msgstr "Voit liittää määritetyn ulkoisen verkon reitittimeen. Ulkoinen verkko nähdään oletusreittinä reitittimelle ja reititin toimii yhdyskäytävänä virtuaalialiverkoille."
 
 #: dashboards/admin/users/forms.py:54
 msgid "Passwords do not match."
@@ -1765,10 +1716,16 @@ msgstr "Ei voida hakea verkkolevyjen tyyppejä"
 msgid ""
 "\n"
 "    The volume type defines the characteristics of a volume.\n"
-"    It usually maps to a set of capabilities of the storage back-end driver to be used for this volume.\n"
+"    It usually maps to a set of capabilities of the storage back-end driver "
+"to be used for this volume.\n"
 "    Examples: \"Performance\", \"SSD\", \"Backup\", etc.\n"
 "    "
-msgstr "\nPohjamuotin tyyppi määrittää pohjamuotin attribuutit.\nTämä yleensä määrittää kuinka taustalla oleva verkkolevy toimii, ja millaisia \"kykyjä\" verkkolevyllä on. \nEsim: Suorituskyky, SSD, varmuuskopiot, ym.  "
+msgstr ""
+"\n"
+"Pohjamuotin tyyppi määrittää pohjamuotin attribuutit.\n"
+"Tämä yleensä määrittää kuinka taustalla oleva verkkolevy toimii, ja "
+"millaisia \"kykyjä\" verkkolevyllä on. \n"
+"Esim: Suorituskyky, SSD, varmuuskopiot, ym.  "
 
 #: dashboards/admin/volumes/templates/volumes/create_volume_type.html:6
 msgid "Create a Volume Type"
@@ -1788,17 +1745,22 @@ msgstr "Verkkolevyn tiedot"
 msgid "Manage Compute"
 msgstr "Hallinnoi Virtuaalikonetta"
 
-#: dashboards/project/dashboard.py:38
+#: dashboards/project/dashboard.py:34
+#, fuzzy
+msgid "Manage Network"
+msgstr "Luo verkko"
+
+#: dashboards/project/dashboard.py:43
 msgid "Object Store"
 msgstr "Object Store"
 
 #: dashboards/project/access_and_security/panel.py:26
-#: dashboards/project/instances/workflows/create_instance.py:352
+#: dashboards/project/instances/workflows/create_instance.py:353
 msgid "Access & Security"
 msgstr "Pääsy & Turvaus"
 
 #: dashboards/project/access_and_security/tabs.py:50
-#: dashboards/project/access_and_security/security_groups/views.py:85
+#: dashboards/project/access_and_security/security_groups/views.py:86
 msgid "Unable to retrieve security groups."
 msgstr "Ei voida hakea turvaryhmiä."
 
@@ -1862,7 +1824,7 @@ msgstr "Virhe ladatessa RC-tiedostoa: %s"
 #: dashboards/project/loadbalancers/tables.py:84
 #: dashboards/project/loadbalancers/tables.py:143
 #: dashboards/project/loadbalancers/workflows.py:249
-#: dashboards/project/loadbalancers/workflows.py:364
+#: dashboards/project/loadbalancers/workflows.py:359
 msgid "Pool"
 msgstr "varanto"
 
@@ -1901,7 +1863,7 @@ msgid "Associate Floating IP"
 msgstr "Assosioi vapaa IP"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:78
-#: dashboards/project/instances/tables.py:344
+#: dashboards/project/instances/tables.py:349
 msgid "Disassociate Floating IP"
 msgstr "Irroita vapaa IP"
 
@@ -1911,7 +1873,7 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Onnistuneesti irroitettiin vapaa IP: %s"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:97
-#: dashboards/project/instances/tables.py:370
+#: dashboards/project/instances/tables.py:380
 msgid "Unable to disassociate floating IP."
 msgstr "Ei voida irroittaa vapaata IP:tä."
 
@@ -1924,8 +1886,7 @@ msgid "No floating IP pools available."
 msgstr "Ei vapaita IP-osoitevarantoja saatavilla."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:42
-msgid ""
-"Select the IP address you wish to associate with the selected instance."
+msgid "Select the IP address you wish to associate with the selected instance."
 msgstr "Valitse IP-osoite jonka haluat asettaa instanssille."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:48
@@ -1989,7 +1950,9 @@ msgstr "Avainparin nimi"
 #: dashboards/project/access_and_security/keypairs/forms.py:40
 msgid ""
 "Keypair names may only contain letters, numbers, underscores and hyphens."
-msgstr "Avainparin nimi voi sisältää vain kirjaimia, numeroita, alaviivoja ja väliviivoja. Ei åöä. "
+msgstr ""
+"Avainparin nimi voi sisältää vain kirjaimia, numeroita, alaviivoja ja "
+"väliviivoja. Ei åöä. "
 
 #: dashboards/project/access_and_security/keypairs/forms.py:51
 msgid "Public Key"
@@ -2005,8 +1968,8 @@ msgid "Unable to import keypair."
 msgstr "Epäonnistuttiin avainparin tuomisessa."
 
 #: dashboards/project/access_and_security/keypairs/tables.py:30
-#: dashboards/project/instances/tables.py:451
-#: dashboards/project/instances/workflows/create_instance.py:339
+#: dashboards/project/instances/tables.py:461
+#: dashboards/project/instances/workflows/create_instance.py:340
 msgid "Keypair"
 msgstr "Avainpari"
 
@@ -2035,156 +1998,158 @@ msgstr "Sormenjälki"
 msgid "Unable to create keypair: %(exc)s"
 msgstr "Ei voida luoda avainparia: %(exc)s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:38
+#: dashboards/project/access_and_security/security_groups/forms.py:39
 msgid "This field is required."
 msgstr "Tämä kenttä vaaditaan."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:39
+#: dashboards/project/access_and_security/security_groups/forms.py:40
 msgid "The string may only contain ASCII characters and numbers."
 msgstr "Rimpsu voi sisältää vain ASCII-merkkejä ja -numeroita."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:50
+#: dashboards/project/access_and_security/security_groups/forms.py:51
 #, python-format
 msgid "Successfully created security group: %s"
 msgstr "Luotiin onnistuneesti turvaryhmä: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:56
+#: dashboards/project/access_and_security/security_groups/forms.py:57
 msgid "Unable to create security group."
 msgstr "Ei voida luoda turvaryhmää."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:62
-#: dashboards/project/access_and_security/security_groups/tables.py:105
+#: dashboards/project/access_and_security/security_groups/forms.py:63
+#: dashboards/project/access_and_security/security_groups/tables.py:115
 msgid "IP Protocol"
 msgstr "IP-protokolla"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:63
+#: dashboards/project/access_and_security/security_groups/forms.py:64
 msgid "TCP"
 msgstr "TCP"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:64
+#: dashboards/project/access_and_security/security_groups/forms.py:65
 msgid "UDP"
 msgstr "UDP"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:65
+#: dashboards/project/access_and_security/security_groups/forms.py:66
 msgid "ICMP"
 msgstr "ICMP"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:66
+#: dashboards/project/access_and_security/security_groups/forms.py:67
 msgid "The protocol which this rule should be applied to."
 msgstr "Protokolla johonka tämä sääntö asetetaan."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:72
-#: dashboards/project/access_and_security/security_groups/forms.py:79
+#: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/forms.py:80
+#: dashboards/project/access_and_security/security_groups/forms.py:81
 msgid "Open"
 msgstr "Avoin"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:74
+#: dashboards/project/access_and_security/security_groups/forms.py:75
 msgid "Port Range"
 msgstr "Portiväli"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:84
-#: dashboards/project/access_and_security/security_groups/forms.py:94
-#: dashboards/project/access_and_security/security_groups/forms.py:104
+#: dashboards/project/access_and_security/security_groups/forms.py:85
+#: dashboards/project/access_and_security/security_groups/forms.py:95
+#: dashboards/project/access_and_security/security_groups/forms.py:105
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Anna arvo väliltä 1 - 65535"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:92
-#: dashboards/project/access_and_security/security_groups/forms.py:99
-#: dashboards/project/access_and_security/security_groups/tables.py:107
+#: dashboards/project/access_and_security/security_groups/forms.py:93
+#: dashboards/project/access_and_security/security_groups/forms.py:100
+#: dashboards/project/access_and_security/security_groups/tables.py:117
 msgid "From Port"
 msgstr "Portista"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:102
-#: dashboards/project/access_and_security/security_groups/forms.py:109
-#: dashboards/project/access_and_security/security_groups/tables.py:108
+#: dashboards/project/access_and_security/security_groups/forms.py:103
+#: dashboards/project/access_and_security/security_groups/forms.py:110
+#: dashboards/project/access_and_security/security_groups/tables.py:118
 msgid "To Port"
 msgstr "Porttiin"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:114
+#: dashboards/project/access_and_security/security_groups/forms.py:115
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Lisää arvo ICMP-tyypille (-1: 255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:122
-#: dashboards/project/access_and_security/security_groups/forms.py:129
+#: dashboards/project/access_and_security/security_groups/forms.py:123
+#: dashboards/project/access_and_security/security_groups/forms.py:130
 msgid "Code"
 msgstr "Koodi"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:124
+#: dashboards/project/access_and_security/security_groups/forms.py:125
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Lisää arvo ICMP-tyypille (-1: 255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:132
-#: dashboards/project/access_and_security/security_groups/tables.py:109
+#: dashboards/project/access_and_security/security_groups/forms.py:133
+#: dashboards/project/access_and_security/security_groups/tables.py:119
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid "Source"
 msgstr "Lähde"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:134
-#: dashboards/project/access_and_security/security_groups/forms.py:157
-#: dashboards/project/access_and_security/security_groups/forms.py:162
-#: dashboards/project/access_and_security/security_groups/tables.py:31
+#: dashboards/project/access_and_security/security_groups/forms.py:135
+#: dashboards/project/access_and_security/security_groups/forms.py:158
+#: dashboards/project/access_and_security/security_groups/forms.py:163
+#: dashboards/project/access_and_security/security_groups/tables.py:32
 msgid "Security Group"
 msgstr "Turvaryhmä"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:135
+#: dashboards/project/access_and_security/security_groups/forms.py:136
 msgid ""
 "To specify an allowed IP range, select \"CIDR\". To allow access from all "
 "members of another security group select \"Security Group\"."
-msgstr "Määrittääksesi sallitun IP-avaruuden, valitse \"CIDR\". Salliaksesi pääsyn kaikilta toisen turvaryhmän jäseniltä, valitse \"Turvaryhmä\"."
+msgstr ""
+"Määrittääksesi sallitun IP-avaruuden, valitse \"CIDR\". Salliaksesi pääsyn "
+"kaikilta toisen turvaryhmän jäseniltä, valitse \"Turvaryhmä\"."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:148
+#: dashboards/project/access_and_security/security_groups/forms.py:149
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Luokaton reitti (esim, 192.168.0.0/24)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:173
+#: dashboards/project/access_and_security/security_groups/forms.py:174
 msgid "No security groups available"
 msgstr "Ei turvaryhmiä saatavilla."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:192
+#: dashboards/project/access_and_security/security_groups/forms.py:193
 msgid "The ICMP type is invalid."
 msgstr "ICMP-tyyppi on väärin."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:195
+#: dashboards/project/access_and_security/security_groups/forms.py:196
 msgid "The ICMP code is invalid."
 msgstr "ICMP-koodi on väärin."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:198
+#: dashboards/project/access_and_security/security_groups/forms.py:199
 msgid "The ICMP type not in range (-1, 255)"
 msgstr "ICMP-tyyppi ei ole väliltä -1 - 255."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:201
+#: dashboards/project/access_and_security/security_groups/forms.py:202
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "ICMP-koodi ei ole väliltä -1, 255."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:210
+#: dashboards/project/access_and_security/security_groups/forms.py:211
 msgid "The specified port is invalid."
 msgstr "Määritetty portti on väärin. "
 
-#: dashboards/project/access_and_security/security_groups/forms.py:214
+#: dashboards/project/access_and_security/security_groups/forms.py:215
 msgid "The \"from\" port number is invalid."
 msgstr "Lähdeportti on väärin."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:217
+#: dashboards/project/access_and_security/security_groups/forms.py:218
 msgid "The \"to\" port number is invalid."
 msgstr "Kohdeportti on väärin."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:220
+#: dashboards/project/access_and_security/security_groups/forms.py:221
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr "Kohdeportin arvo pitää olla sama tai suurempi kuin lähdeportin."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:242
+#: dashboards/project/access_and_security/security_groups/forms.py:243
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "Onnistuneesti lisättiin sääntö: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:248
+#: dashboards/project/access_and_security/security_groups/forms.py:249
 msgid "Unable to add rule to security group."
 msgstr "Ei voida asettaa sääntöä turvaryhmään."
 
-#: dashboards/project/access_and_security/security_groups/tables.py:45
+#: dashboards/project/access_and_security/security_groups/tables.py:46
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:7
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:23
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:3
@@ -2192,30 +2157,34 @@ msgstr "Ei voida asettaa sääntöä turvaryhmään."
 msgid "Create Security Group"
 msgstr "Luo Turvaryhmä"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:52
+#: dashboards/project/access_and_security/security_groups/tables.py:53
 msgid "Edit Rules"
 msgstr "Muokkaa sääntöjä"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:73
+#: dashboards/project/access_and_security/security_groups/tables.py:74
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:7
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
 msgid "Add Rule"
 msgstr "Lisää Sääntö"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:82
+#: dashboards/project/access_and_security/security_groups/tables.py:83
 msgid "Rule"
 msgstr "Sääntö"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:83
+#: dashboards/project/access_and_security/security_groups/tables.py:84
 msgid "Rules"
 msgstr "Säännöt"
 
-#: dashboards/project/access_and_security/security_groups/views.py:55
+#: dashboards/project/access_and_security/security_groups/tables.py:109
+msgid "Any"
+msgstr ""
+
+#: dashboards/project/access_and_security/security_groups/views.py:56
 msgid "Unable to retrieve security group."
 msgstr "Ei voida hakea turvaryhmää."
 
-#: dashboards/project/access_and_security/security_groups/views.py:91
+#: dashboards/project/access_and_security/security_groups/views.py:92
 #, python-format
 msgid "%s (current)"
 msgstr "%s (nykyinen)"
@@ -2247,14 +2216,19 @@ msgstr "Aseta IP"
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:17
 msgid ""
 "Keypairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the"
-" private key (a .pem file)."
-msgstr "Avainparit ovat ssh-tunnuksia jotka lisätään käynnistettävään levykuvaan. Kun uusi avainpari luodaan, rekisteröi julkinen avain ja lataa yksityinen avain (.pem tiedosto)."
+"launched. Creating a new key pair registers the public key and downloads the "
+"private key (a .pem file)."
+msgstr ""
+"Avainparit ovat ssh-tunnuksia jotka lisätään käynnistettävään levykuvaan. "
+"Kun uusi avainpari luodaan, rekisteröi julkinen avain ja lataa yksityinen "
+"avain (.pem tiedosto)."
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:18
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:18
 msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "Suojaa ja käytä avainta kuten muitakin hallussasi olevia ssh-privaattiavaimia."
+msgstr ""
+"Suojaa ja käytä avainta kuten muitakin hallussasi olevia ssh-"
+"privaattiavaimia."
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:6
@@ -2266,7 +2240,9 @@ msgstr "Lataa Avainpari"
 msgid ""
 "The keypair &quot;%(keypair_name)s&quot; should download automatically. If "
 "not use the link below."
-msgstr "Avainpari &quot;%(keypair_name)s&quot; pitäisi lähteä latautumaan automaattisesti, jos ei, käytä alla olevaa linkkiä."
+msgstr ""
+"Avainpari &quot;%(keypair_name)s&quot; pitäisi lähteä latautumaan "
+"automaattisesti, jos ei, käytä alla olevaa linkkiä."
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:15
 #, python-format
@@ -2277,7 +2253,10 @@ msgstr "Lataa avainpari &quot;%(keypair_name)s&quot;"
 msgid ""
 "Rules define which traffic is allowed to instances assigned to the security "
 "group. A security group rule consists of three main parts:"
-msgstr "Säännöt määrittävät mikä liikenne on sallittua instanssille, joka on liitetty turvaryhmään. Turvaryhmään liitettävä sääntö koostuu kolmesta pääkomponentista:"
+msgstr ""
+"Säännöt määrittävät mikä liikenne on sallittua instanssille, joka on "
+"liitetty turvaryhmään. Turvaryhmään liitettävä sääntö koostuu kolmesta "
+"pääkomponentista:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:19
 #: dashboards/project/loadbalancers/tables.py:115
@@ -2290,7 +2269,9 @@ msgstr "Protokolla"
 msgid ""
 "You must specify the desired IP protocol to which this rule will apply; the "
 "options are TCP, UDP, or ICMP."
-msgstr "Sinun täytyy määrittää haluttu IP-protokolla johonka sääntö määritetään. Mahdolliset optiot ovat TCP, UDP tai ICMP."
+msgstr ""
+"Sinun täytyy määrittää haluttu IP-protokolla johonka sääntö määritetään. "
+"Mahdolliset optiot ovat TCP, UDP tai ICMP."
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid "Open Port/Port Range"
@@ -2298,11 +2279,15 @@ msgstr "Avaa Portti/Portteja"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid ""
-"For TCP and UDP rules you may choose to open either a single port or a range"
-" of ports. Selecting the \"Port Range\" option will provide you with space "
-"to provide both the starting and ending ports for the range. For ICMP rules "
-"you instead specify an ICMP type and code in the spaces provided."
-msgstr "Jokaiselle TCP- ja UPD-säännölle voit joko avata yhden tai useamman portin. Valitessasi \"Porttiväli\"-option, tämä avaa sinulle mahdollisuuden valita porttivälin alkuportin ja loppuportin porttivälille. ICMP-säännöille voit määrittää ICMP-tyypin ja koodin. "
+"For TCP and UDP rules you may choose to open either a single port or a range "
+"of ports. Selecting the \"Port Range\" option will provide you with space to "
+"provide both the starting and ending ports for the range. For ICMP rules you "
+"instead specify an ICMP type and code in the spaces provided."
+msgstr ""
+"Jokaiselle TCP- ja UPD-säännölle voit joko avata yhden tai useamman portin. "
+"Valitessasi \"Porttiväli\"-option, tämä avaa sinulle mahdollisuuden valita "
+"porttivälin alkuportin ja loppuportin porttivälille. ICMP-säännöille voit "
+"määrittää ICMP-tyypin ja koodin. "
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid ""
@@ -2311,7 +2296,11 @@ msgid ""
 "group (Security Group). Selecting a security group as the source will allow "
 "any other instance in that security group access to any other instance via "
 "this rule."
-msgstr "Sinin täytyy määrittää liikenteen lähde joka sallitaan tällä säännöllä. Voit valita joko IP-osoiteavaruuden tai turvaryhmän. Valitessasi turvaryhmän lähteeksi, toiset instanssit kyseisessä ryhmässä voivat olla yhteydessä instanssiin. "
+msgstr ""
+"Sinin täytyy määrittää liikenteen lähde joka sallitaan tällä säännöllä. Voit "
+"valita joko IP-osoiteavaruuden tai turvaryhmän. Valitessasi turvaryhmän "
+"lähteeksi, toiset instanssit kyseisessä ryhmässä voivat olla yhteydessä "
+"instanssiin. "
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:18
 msgid "From here you can create a new security group"
@@ -2360,7 +2349,9 @@ msgstr "Objektin Nimi"
 #: dashboards/project/containers/forms.py:80
 msgid ""
 "Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "Kauttaviivat ovat sallittuja ja niitä käsitellään pseudokansioina Object Store:ssa."
+msgstr ""
+"Kauttaviivat ovat sallittuja ja niitä käsitellään pseudokansioina Object "
+"Store:ssa."
 
 #: dashboards/project/containers/forms.py:83
 msgid "File"
@@ -2462,21 +2453,30 @@ msgstr "Kopioi Objekti."
 
 #: dashboards/project/containers/templates/containers/_copy.html:17
 msgid ""
-"Make a new copy of an existing object to store in this or another container."
-" You may also specify a path at which the new copy should live inside of the"
-" selected container."
-msgstr "Luo uusi kopia objektista jonka voit tallettaa toiseen konttiin. Voit halutessasi myös tarkentaa polun jonnekka kopio asetetaan. "
+"Make a new copy of an existing object to store in this or another container. "
+"You may also specify a path at which the new copy should live inside of the "
+"selected container."
+msgstr ""
+"Luo uusi kopia objektista jonka voit tallettaa toiseen konttiin. Voit "
+"halutessasi myös tarkentaa polun jonnekka kopio asetetaan. "
 
 #: dashboards/project/containers/templates/containers/_create.html:17
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a"
-" container and these other file system concepts is that containers cannot be"
-" nested. You can, however, create an unlimited number of containers within "
+"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
+"container and these other file system concepts is that containers cannot be "
+"nested. You can, however, create an unlimited number of containers within "
 "your account. Data must be stored in a container so you must have at least "
 "one container defined in your account prior to uploading data."
-msgstr "Kontti on tallennuskohde tiedostoillesi ja mahdollistaa datan organisoimisen. Voit kuvitella kontin olevan kuin kansio Windows&reg;-ymäristössä, tai hakemisto UNIX&reg;:ssa. Suurin ero kuitenkin kontin ja kansion välillä on, että kontin sisälle ei voida luoda uusia kontteja, mutta voit luoda rajattoman määrän kontteja tunnuksellesi. Tieto täytyy säilyttää kontin sisällä, joten sinulla on oltava vähintään yksi kontti määritettynä ennen tietojen lataamista ympäristöön.  "
+msgstr ""
+"Kontti on tallennuskohde tiedostoillesi ja mahdollistaa datan "
+"organisoimisen. Voit kuvitella kontin olevan kuin kansio Windows&reg;-"
+"ymäristössä, tai hakemisto UNIX&reg;:ssa. Suurin ero kuitenkin kontin ja "
+"kansion välillä on, että kontin sisälle ei voida luoda uusia kontteja, mutta "
+"voit luoda rajattoman määrän kontteja tunnuksellesi. Tieto täytyy säilyttää "
+"kontin sisällä, joten sinulla on oltava vähintään yksi kontti määritettynä "
+"ennen tietojen lataamista ympäristöön.  "
 
 #: dashboards/project/containers/templates/containers/_upload.html:8
 msgid "Upload Object To Container"
@@ -2489,7 +2489,12 @@ msgid ""
 "Object Storage, the data is stored as-is (no compression or encryption) and "
 "consists of a location (container), the object's name, and any metadata "
 "consisting of key/value pairs."
-msgstr "Objekti on perus varaston entiteetti joka edustaa tiedostoa jonka asetat OpenStack:in Object Storage ympäristöön. Kun siirrä tietoa OpenStack Object Storage:en, tieto tallenetaan sellaisenaan (ei pakkausta eikä salausta), sisältää tiedon kohteesta (kontti), objektin nimen ja metadatan sisältäen avain/arvo parit."
+msgstr ""
+"Objekti on perus varaston entiteetti joka edustaa tiedostoa jonka asetat "
+"OpenStack:in Object Storage ympäristöön. Kun siirrä tietoa OpenStack Object "
+"Storage:en, tieto tallenetaan sellaisenaan (ei pakkausta eikä salausta), "
+"sisältää tiedon kohteesta (kontti), objektin nimen ja metadatan sisältäen "
+"avain/arvo parit."
 
 #: dashboards/project/containers/templates/containers/_upload.html:19
 msgid "Pseudo-folder"
@@ -2500,9 +2505,14 @@ msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
 "exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for "
-"pseudo-folders in the Object Store."
-msgstr "Kontin sisällä voit ryhmitellä tiedostojasi pseudo-kansioihin, jotka käyttäytyvät samalla tavalla kuin kansiot työpöytäkäyttöjärjestelmässä, sillä erolla että ne ovat virtuaalisia ryhmiä, jotka ovat määritelty yhteisellä objektin nimen alkuosalla. Kauttaviiva (/) merkkiä käytetään pseudokansioiden jakajana Object Storessa.  "
+"the object's name. A slash (/) character is used as the delimiter for pseudo-"
+"folders in the Object Store."
+msgstr ""
+"Kontin sisällä voit ryhmitellä tiedostojasi pseudo-kansioihin, jotka "
+"käyttäytyvät samalla tavalla kuin kansiot työpöytäkäyttöjärjestelmässä, "
+"sillä erolla että ne ovat virtuaalisia ryhmiä, jotka ovat määritelty "
+"yhteisellä objektin nimen alkuosalla. Kauttaviiva (/) merkkiä käytetään "
+"pseudokansioiden jakajana Object Storessa.  "
 
 #: dashboards/project/containers/templates/containers/upload.html:6
 msgid "Upload Objects"
@@ -2570,9 +2580,11 @@ msgstr "Levyn Vähimmäiskoko (GB)"
 #: dashboards/project/images_and_snapshots/images/forms.py:75
 #: dashboards/project/images_and_snapshots/images/forms.py:82
 msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value"
-" defaults to 0 (no minimum)."
-msgstr "Vaadittu tila virtuaalikovalevyltä jotta levykuva voidaan käynnistää. Jos arvoa ei ole määritelty, oletuksena on 0, tarkoittaen vaadittua minimikokoa. "
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"Vaadittu tila virtuaalikovalevyltä jotta levykuva voidaan käynnistää. Jos "
+"arvoa ei ole määritelty, oletuksena on 0, tarkoittaen vaadittua minimikokoa. "
 
 #: dashboards/project/images_and_snapshots/images/forms.py:81
 msgid "Minimum Ram (MB)"
@@ -2580,6 +2592,7 @@ msgstr "Vähimmäis RAM (MB)"
 
 #: dashboards/project/images_and_snapshots/images/forms.py:88
 #: dashboards/project/images_and_snapshots/images/forms.py:160
+#: dashboards/project/images_and_snapshots/images/tables.py:104
 #: dashboards/project/images_and_snapshots/images/tables.py:181
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:15
 msgid "Public"
@@ -2628,16 +2641,21 @@ msgstr "Levykuva päivitettiin onnistuneesti."
 
 #: dashboards/project/images_and_snapshots/images/tables.py:37
 #: dashboards/project/images_and_snapshots/snapshots/tables.py:33
-#: dashboards/project/instances/workflows/create_instance.py:466
+#: dashboards/project/instances/workflows/create_instance.py:467
 msgid "Launch"
 msgstr "Laukaise"
 
 #: dashboards/project/images_and_snapshots/images/tables.py:49
 #: dashboards/project/images_and_snapshots/images/tables.py:131
-#: dashboards/project/instances/workflows/create_instance.py:171
-#: dashboards/project/instances/workflows/create_instance.py:176
+#: dashboards/project/instances/workflows/create_instance.py:172
+#: dashboards/project/instances/workflows/create_instance.py:177
 msgid "Image"
 msgstr "Levykuva"
+
+#: dashboards/project/images_and_snapshots/images/tables.py:103
+#, fuzzy
+msgid "Shared with Me"
+msgstr "Jaettu"
 
 #: dashboards/project/images_and_snapshots/images/tabs.py:38
 msgid "Unable to retrieve image details."
@@ -2667,7 +2685,7 @@ msgstr "Varmuusvedoksen luonti epäonnistui."
 
 #: dashboards/project/images_and_snapshots/snapshots/tables.py:48
 #: dashboards/project/instances/workflows/create_instance.py:110
-#: dashboards/project/instances/workflows/create_instance.py:172
+#: dashboards/project/instances/workflows/create_instance.py:173
 msgid "Snapshot"
 msgstr "Varmuusvedos"
 
@@ -2772,6 +2790,8 @@ msgstr "Verkkolevy"
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:11
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:12
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:13
+#: dashboards/project/volumes/templates/volumes/_create.html:25
+#: dashboards/project/volumes/templates/volumes/_create.html:26
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:27
 msgid "GB"
 msgstr "GB"
@@ -2878,7 +2898,7 @@ msgstr "Jäädytetty"
 #: dashboards/project/instances/tables.py:191
 #: dashboards/project/instances/templates/instances/launch.html:3
 #: dashboards/project/instances/templates/instances/launch.html:6
-#: dashboards/project/instances/workflows/create_instance.py:465
+#: dashboards/project/instances/workflows/create_instance.py:466
 #: dashboards/project/network_topology/templates/network_topology/index.html:26
 msgid "Launch Instance"
 msgstr "Laukaise Instanssi"
@@ -2915,36 +2935,36 @@ msgstr "Vahvista Koon muutos / Siirto"
 msgid "Revert Resize/Migrate"
 msgstr "Palauta Koon muutos / Siirto"
 
-#: dashboards/project/instances/tables.py:334
+#: dashboards/project/instances/tables.py:339
 #, python-format
 msgid "Successfully associated floating IP: %s"
 msgstr "Onnistuneesti liitettiin vapaa IP: %s"
 
-#: dashboards/project/instances/tables.py:338
+#: dashboards/project/instances/tables.py:343
 msgid "Unable to associate floating IP."
 msgstr "Ei voida liittää vapaata IP:tä."
 
-#: dashboards/project/instances/tables.py:364
+#: dashboards/project/instances/tables.py:374
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr "Onnistuneesti irroitettiin vapaa IP. %s"
 
-#: dashboards/project/instances/tables.py:367
+#: dashboards/project/instances/tables.py:377
 msgid "No floating IPs to disassociate."
 msgstr "Ei vapaita IP:tä poistettavaksi. "
 
-#: dashboards/project/instances/tables.py:392
+#: dashboards/project/instances/tables.py:402
 #, python-format
 msgid "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 msgstr "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 
-#: dashboards/project/instances/tables.py:399
-#: dashboards/project/instances/tables.py:406
+#: dashboards/project/instances/tables.py:409
+#: dashboards/project/instances/tables.py:416
 msgid "Not available"
 msgstr "Ei saatavilla"
 
-#: dashboards/project/instances/tables.py:446
-#: dashboards/project/instances/workflows/create_instance.py:179
+#: dashboards/project/instances/tables.py:456
+#: dashboards/project/instances/workflows/create_instance.py:180
 #: usage/tables.py:57
 msgid "Instance Name"
 msgstr "Instanssin nimi"
@@ -2990,7 +3010,9 @@ msgstr "Instanssin Konsoli"
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
-msgstr "Jos konsoli ei vastaa näppäimistön komentoihin: klikkaa alla olevaa harmaata tilannetolppaa. "
+msgstr ""
+"Jos konsoli ei vastaa näppäimistön komentoihin: klikkaa alla olevaa harmaata "
+"tilannetolppaa. "
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:5
 msgid "Click here to show only console"
@@ -3074,13 +3096,16 @@ msgstr "Verkkolevyjä ei liitettynä."
 msgid ""
 "You can customize your instance after it's launched using the options "
 "available here."
-msgstr "Voit kustomoida instanssia laukaisun jälkeen täällä olevilla optioilla. "
+msgstr ""
+"Voit kustomoida instanssia laukaisun jälkeen täällä olevilla optioilla. "
 
 #: dashboards/project/instances/templates/instances/_launch_customize_help.html:3
 msgid ""
 "The \"Customization Script\" field is analogous to \"User Data\" in other "
 "systems."
-msgstr "\"Kustomointi Skripti\" kenttä tarkoittaa \"User Data / Käyttäjä Dataa\" toisissa järjestelmissä. "
+msgstr ""
+"\"Kustomointi Skripti\" kenttä tarkoittaa \"User Data / Käyttäjä Dataa\" "
+"toisissa järjestelmissä. "
 
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:3
 msgid "Specify the details for launching an instance."
@@ -3090,7 +3115,9 @@ msgstr "Määritä instanssin laukaisun yksityiskohdat."
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
-msgstr "Alapuolella oleva kuvaaja näyttää projektin käytetyt resurssit suhteessa projektin kiintiöön."
+msgstr ""
+"Alapuolella oleva kuvaaja näyttää projektin käytetyt resurssit suhteessa "
+"projektin kiintiöön."
 
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:6
 msgid "Flavor Details"
@@ -3102,6 +3129,7 @@ msgstr "Levytila yhteensä."
 
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:14
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:37
+#: dashboards/project/instances/templates/instances/_launch_details_help.html:38
 msgid "MB"
 msgstr "MB"
 
@@ -3127,7 +3155,9 @@ msgstr "Valitse verkko saatavilla olevista verkoista."
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
-msgstr "Instanssiin voidaan liittää laukaistaessa eri kokoisia verkkolevyjä. Voit valita tämän täältä. "
+msgstr ""
+"Instanssiin voidaan liittää laukaistaessa eri kokoisia verkkolevyjä. Voit "
+"valita tämän täältä. "
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
 msgid "Selected Networks"
@@ -3169,7 +3199,8 @@ msgstr "Laitteen Nimi"
 
 #: dashboards/project/instances/workflows/create_instance.py:84
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
-msgstr "Verkkolevyn liittämiskohta (esim, 'vda' kiinnittyy kohteeseen '/dev/vda/')"
+msgstr ""
+"Verkkolevyn liittämiskohta (esim, 'vda' kiinnittyy kohteeseen '/dev/vda/')"
 
 #: dashboards/project/instances/workflows/create_instance.py:86
 msgid "Delete on Terminate"
@@ -3184,175 +3215,188 @@ msgstr "Tuhoa verkkolevy kun instanssi tuhotaan."
 msgid "Please choose a volume, or select %s."
 msgstr "Valitse verkkolevy tai valitse %s."
 
-#: dashboards/project/instances/workflows/create_instance.py:120
+#: dashboards/project/instances/workflows/create_instance.py:115
+#, python-format
+msgid "%(name)s - %(size)s GB (%(label)s)"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:121
 msgid "Select Volume"
 msgstr "Valitse Verkkolevy"
 
-#: dashboards/project/instances/workflows/create_instance.py:128
+#: dashboards/project/instances/workflows/create_instance.py:129
 msgid "Unable to retrieve list of volumes."
 msgstr "Ei voida hakea listausta verkkolevyistä. "
 
-#: dashboards/project/instances/workflows/create_instance.py:132
+#: dashboards/project/instances/workflows/create_instance.py:133
 msgid "Select Volume Snapshot"
 msgstr "Valitse Verkkolevyn varmuusvedos"
 
-#: dashboards/project/instances/workflows/create_instance.py:141
+#: dashboards/project/instances/workflows/create_instance.py:142
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "Ei voida hakea listausta verkkolevyn varmuusvedoksista. "
 
-#: dashboards/project/instances/workflows/create_instance.py:174
+#: dashboards/project/instances/workflows/create_instance.py:175
 msgid "Instance Source"
 msgstr "Instanssin Lähde."
 
-#: dashboards/project/instances/workflows/create_instance.py:177
+#: dashboards/project/instances/workflows/create_instance.py:178
 msgid "Instance Snapshot"
 msgstr "Instanssin Varmuusvedos"
 
-#: dashboards/project/instances/workflows/create_instance.py:181
+#: dashboards/project/instances/workflows/create_instance.py:182
 msgid "Size of image to launch."
 msgstr "Laukaistavan levykuvan koko. "
 
-#: dashboards/project/instances/workflows/create_instance.py:182
+#: dashboards/project/instances/workflows/create_instance.py:183
 msgid "Instance Count"
 msgstr "Instanssien määrä"
 
-#: dashboards/project/instances/workflows/create_instance.py:185
+#: dashboards/project/instances/workflows/create_instance.py:186
 msgid "Number of instances to launch."
 msgstr "Kuinka monta instanssia laukaistaan."
 
-#: dashboards/project/instances/workflows/create_instance.py:188
+#: dashboards/project/instances/workflows/create_instance.py:189
 msgid "Details"
 msgstr "Tarkat Tiedot"
 
-#: dashboards/project/instances/workflows/create_instance.py:201
+#: dashboards/project/instances/workflows/create_instance.py:202
 msgid ""
 "There are no image sources available; you must first create an image before "
 "attempting to launch an instance."
-msgstr "Levykuvia ei ole saatavilla. Sinun täytyy luoda ensin levykuva, ennen kuin yrität laukaista instanssia."
+msgstr ""
+"Levykuvia ei ole saatavilla. Sinun täytyy luoda ensin levykuva, ennen kuin "
+"yrität laukaista instanssia."
 
-#: dashboards/project/instances/workflows/create_instance.py:206
+#: dashboards/project/instances/workflows/create_instance.py:207
 msgid "Please select an option for the instance source."
 msgstr "Valitse optiot instanssin lähteeksi. "
 
-#: dashboards/project/instances/workflows/create_instance.py:215
+#: dashboards/project/instances/workflows/create_instance.py:216
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
-msgstr "Usean instanssin laukaisu on tuettu vain laukaistessa levykuvia tai instanssien varmuusvedoksia. "
+msgstr ""
+"Usean instanssin laukaisu on tuettu vain laukaistessa levykuvia tai "
+"instanssien varmuusvedoksia. "
 
-#: dashboards/project/instances/workflows/create_instance.py:232
+#: dashboards/project/instances/workflows/create_instance.py:233
 msgid "Unable to retrieve public images."
 msgstr "Ei voida hakea julkisia levykuvia."
 
-#: dashboards/project/instances/workflows/create_instance.py:248
+#: dashboards/project/instances/workflows/create_instance.py:249
 msgid "Unable to retrieve images for the current project."
 msgstr "Ei voida hakea levykuvia nykyiselle projektille. "
 
-#: dashboards/project/instances/workflows/create_instance.py:271
+#: dashboards/project/instances/workflows/create_instance.py:272
 msgid "Select Image"
 msgstr "Valitse Levykuva"
 
-#: dashboards/project/instances/workflows/create_instance.py:273
+#: dashboards/project/instances/workflows/create_instance.py:274
 msgid "No images available."
 msgstr "Ei levykuvia saatavilla. "
 
-#: dashboards/project/instances/workflows/create_instance.py:282
+#: dashboards/project/instances/workflows/create_instance.py:283
 msgid "Select Instance Snapshot"
 msgstr "Valitse Instanssin Varmuusvedos"
 
-#: dashboards/project/instances/workflows/create_instance.py:284
+#: dashboards/project/instances/workflows/create_instance.py:285
 msgid "No snapshots available."
 msgstr "Ei varmuusvedoksia saatavilla. "
 
-#: dashboards/project/instances/workflows/create_instance.py:295
+#: dashboards/project/instances/workflows/create_instance.py:296
 msgid "Unable to retrieve instance flavors."
 msgstr "Ei voida noutaa instanssin pohjamuottia."
 
-#: dashboards/project/instances/workflows/create_instance.py:308
+#: dashboards/project/instances/workflows/create_instance.py:309
 #: usage/base.py:115
 msgid "Unable to retrieve quota information."
 msgstr "Ei voida hakea kiintiön tietoja."
 
-#: dashboards/project/instances/workflows/create_instance.py:341
+#: dashboards/project/instances/workflows/create_instance.py:342
 msgid "Which keypair to use for authentication."
 msgstr "Mitä avainparia käytetään varmentamiseen."
 
-#: dashboards/project/instances/workflows/create_instance.py:348
+#: dashboards/project/instances/workflows/create_instance.py:349
 msgid "Launch instance in these security groups."
 msgstr "Laukaise instanssi tässä turvaryhmässä."
 
-#: dashboards/project/instances/workflows/create_instance.py:353
+#: dashboards/project/instances/workflows/create_instance.py:354
 msgid ""
 "Control access to your instance via keypairs, security groups, and other "
 "mechanisms."
-msgstr "Hallitse pääsyä instanssille avainpareilla, turvaryhmillä, ja toisilla mekanismeilla. "
+msgstr ""
+"Hallitse pääsyä instanssille avainpareilla, turvaryhmillä, ja toisilla "
+"mekanismeilla. "
 
-#: dashboards/project/instances/workflows/create_instance.py:363
+#: dashboards/project/instances/workflows/create_instance.py:364
 msgid "Unable to retrieve keypairs."
 msgstr "Ei voida hakea avainpareja. "
 
-#: dashboards/project/instances/workflows/create_instance.py:367
+#: dashboards/project/instances/workflows/create_instance.py:368
 msgid "Select a keypair"
 msgstr "Valitse avainpari."
 
-#: dashboards/project/instances/workflows/create_instance.py:369
+#: dashboards/project/instances/workflows/create_instance.py:370
 msgid "No keypairs available."
 msgstr "Ei avainpareja saatavilla."
 
-#: dashboards/project/instances/workflows/create_instance.py:378
+#: dashboards/project/instances/workflows/create_instance.py:379
 msgid "Unable to retrieve list of security groups"
 msgstr "Ei voida hakea listausta turvaryhmistä. "
 
-#: dashboards/project/instances/workflows/create_instance.py:398
+#: dashboards/project/instances/workflows/create_instance.py:399
 msgid "Customization Script"
 msgstr "Kustomointi Skripti"
 
-#: dashboards/project/instances/workflows/create_instance.py:400
+#: dashboards/project/instances/workflows/create_instance.py:401
 msgid ""
-"A script or set of commands to be executed after the instance has been built"
-" (max 16kb)."
-msgstr "Skripti tai komentoja jotka ajetaan kun instanssi on rakennettu (maksimi 16kb)."
+"A script or set of commands to be executed after the instance has been built "
+"(max 16kb)."
+msgstr ""
+"Skripti tai komentoja jotka ajetaan kun instanssi on rakennettu (maksimi "
+"16kb)."
 
-#: dashboards/project/instances/workflows/create_instance.py:407
+#: dashboards/project/instances/workflows/create_instance.py:408
 msgid "Post-Creation"
 msgstr "Jälkiluonti"
 
-#: dashboards/project/instances/workflows/create_instance.py:423
+#: dashboards/project/instances/workflows/create_instance.py:424
 msgid "At least one network must be specified."
 msgstr "Ainakin yksi verkko pitää olla määritettynä."
 
-#: dashboards/project/instances/workflows/create_instance.py:425
+#: dashboards/project/instances/workflows/create_instance.py:426
 msgid "Launch instance withthese networks"
 msgstr "Laukaise instanssi näissä verkoissa."
 
-#: dashboards/project/instances/workflows/create_instance.py:429
+#: dashboards/project/instances/workflows/create_instance.py:430
 msgid "Networking"
 msgstr "Luodaan Verkkoasetuksia"
 
-#: dashboards/project/instances/workflows/create_instance.py:431
+#: dashboards/project/instances/workflows/create_instance.py:432
 msgid "Select networks for your instance."
 msgstr "Valitse verkko instanssille."
 
-#: dashboards/project/instances/workflows/create_instance.py:443
+#: dashboards/project/instances/workflows/create_instance.py:444
 msgid "Unable to retrieve networks."
 msgstr "Ei voida hakea verkkoja. "
 
-#: dashboards/project/instances/workflows/create_instance.py:467
+#: dashboards/project/instances/workflows/create_instance.py:468
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Laukaistiin %(count)s nimellä \"%(name)s\""
 
-#: dashboards/project/instances/workflows/create_instance.py:468
+#: dashboards/project/instances/workflows/create_instance.py:469
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Ei voida laukaista %(count)s nimellä \"%(name)s\""
 
-#: dashboards/project/instances/workflows/create_instance.py:481
+#: dashboards/project/instances/workflows/create_instance.py:482
 #, python-format
 msgid "%s instances"
 msgstr "%s instanssit"
 
-#: dashboards/project/instances/workflows/create_instance.py:484
+#: dashboards/project/instances/workflows/create_instance.py:485
 msgid "instance"
 msgstr "instanssi"
 
@@ -3374,7 +3418,9 @@ msgstr "Epäonnistuttiin instanssin %d turvaryhmien muokkaamisessa."
 msgid ""
 "From here you can add and remove security groups to this project from the "
 "list of available security groups."
-msgstr "Täältä voit lisätä ja poistaa turvaryhmiä tähän projektiin listalla olevista turvaryhmistä. "
+msgstr ""
+"Täältä voit lisätä ja poistaa turvaryhmiä tähän projektiin listalla olevista "
+"turvaryhmistä. "
 
 #: dashboards/project/instances/workflows/update_instance.py:119
 msgid "All Security Groups"
@@ -3411,7 +3457,7 @@ msgid "Load Balancers"
 msgstr "Kuormantasaajat"
 
 #: dashboards/project/loadbalancers/tables.py:32
-#: dashboards/project/loadbalancers/workflows.py:96
+#: dashboards/project/loadbalancers/workflows.py:97
 msgid "Add Pool"
 msgstr "lisää Varanto"
 
@@ -3426,7 +3472,7 @@ msgid "Add Member"
 msgstr "Lisää Jäsen"
 
 #: dashboards/project/loadbalancers/tables.py:62
-#: dashboards/project/loadbalancers/workflows.py:429
+#: dashboards/project/loadbalancers/workflows.py:424
 msgid "Add Monitor"
 msgstr "Lisää Monitori"
 
@@ -3487,7 +3533,7 @@ msgstr "Monitorin Tyyppi"
 
 #: dashboards/project/loadbalancers/tabs.py:44
 #: dashboards/project/loadbalancers/workflows.py:270
-#: dashboards/project/loadbalancers/workflows.py:388
+#: dashboards/project/loadbalancers/workflows.py:385
 msgid "Unable to retrieve pools list."
 msgstr "Ei voida hakea listausta varannoista. "
 
@@ -3567,29 +3613,37 @@ msgstr "Valitse Aliverkko"
 msgid "Unable to retrieve networks list."
 msgstr "Ei voida hakea listausta verkoista. "
 
-#: dashboards/project/loadbalancers/workflows.py:60
-#: dashboards/project/loadbalancers/workflows.py:65
+#: dashboards/project/loadbalancers/workflows.py:61
+#: dashboards/project/loadbalancers/workflows.py:66
 #: dashboards/project/loadbalancers/workflows.py:152
 msgid "Select a Protocol"
 msgstr "Valitse Protokolla"
 
-#: dashboards/project/loadbalancers/workflows.py:72
+#: dashboards/project/loadbalancers/workflows.py:73
 msgid "PoolDetails"
 msgstr "VarannonTiedot"
 
-#: dashboards/project/loadbalancers/workflows.py:74
+#: dashboards/project/loadbalancers/workflows.py:75
+#, fuzzy
 msgid ""
 "Create Pool for current tenant.\n"
 "\n"
-"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by default."
-msgstr "Luo varanto nykyiselle asukkaalle\n\nAseta nimi ja kuvaus varantoon. Valitse aliverkko missä kaikkien jäsenten on oltava. Valitse protokolla ja kuormantasausmetodi tälle varannolle. Admin Tila on päällä (ruksattuna) oletuksena."
+"Assign a name and description for the pool. Choose one subnet where all "
+"members of this pool must be on. Select the protocol and load balancing "
+"method for this pool. Admin State is UP (checked) by defaul.t"
+msgstr ""
+"Luo varanto nykyiselle asukkaalle\n"
+"\n"
+"Aseta nimi ja kuvaus varantoon. Valitse aliverkko missä kaikkien jäsenten on "
+"oltava. Valitse protokolla ja kuormantasausmetodi tälle varannolle. Admin "
+"Tila on päällä (ruksattuna) oletuksena."
 
-#: dashboards/project/loadbalancers/workflows.py:98
+#: dashboards/project/loadbalancers/workflows.py:99
 #, python-format
 msgid "Added Pool \"%s\"."
 msgstr "Lisättiin Varanto \"%s\"."
 
-#: dashboards/project/loadbalancers/workflows.py:99
+#: dashboards/project/loadbalancers/workflows.py:100
 #, python-format
 msgid "Unable to add Pool \"%s\"."
 msgstr "Ei voida lisätä varantoa \"%s\"."
@@ -3634,10 +3688,14 @@ msgstr "lisää VIP"
 #: dashboards/project/loadbalancers/workflows.py:169
 msgid ""
 "Create a vip (virtual IP) for this pool. Assign a name and description for "
-"the vip. Specify an IP address and port for the vip. Choose the protocol and"
-" session persistence method for the vip.Specify the max connections allowed."
-" Admin State is UP (checked) by default."
-msgstr "Luo VIP (virtuaalinen IP) tähän varantoon. Lisää nimi ja kuvaus VIP:lle. Määritä IP-osoite ja portti VIP:lle. Määritä protokollan ja istunnon persistence metodi VIP:lle Määritä maksimi sallittu määrä yhteyksiä. Admin Tila on päällä (ruksattu) oletuksena."
+"the vip. Specify an IP address and port for the vip. Choose the protocol and "
+"session persistence method for the vip.Specify the max connections allowed. "
+"Admin State is UP (checked) by default."
+msgstr ""
+"Luo VIP (virtuaalinen IP) tähän varantoon. Lisää nimi ja kuvaus VIP:lle. "
+"Määritä IP-osoite ja portti VIP:lle. Määritä protokollan ja istunnon "
+"persistence metodi VIP:lle Määritä maksimi sallittu määrä yhteyksiä. Admin "
+"Tila on päällä (ruksattu) oletuksena."
 
 #: dashboards/project/loadbalancers/workflows.py:195
 #, python-format
@@ -3676,7 +3734,7 @@ msgid "Weight"
 msgstr "Paino"
 
 #: dashboards/project/loadbalancers/workflows.py:264
-#: dashboards/project/loadbalancers/workflows.py:383
+#: dashboards/project/loadbalancers/workflows.py:378
 msgid "Select a Pool"
 msgstr "Valitse varanto"
 
@@ -3696,8 +3754,15 @@ msgstr "Jäsentiedot"
 msgid ""
 "Add member to selected pool.\n"
 "\n"
-"Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for this member Specify the port number the member(s) operate on; e.g., 80."
-msgstr "Lisää jäsen valittuun varantoon.\n\nValitse yksi tai useampi listatuista instansseista jotka lisätään varantoon jäseninä. Aseta numeerinen painoarvo tälle jäsenelle, määritä porttinumero tälle jäsenelle jossa hän toimii, esim 80."
+"Choose one or more listed instances to be added to the pool as member(s). "
+"Assign a numeric weight for this member Specify the port number the member"
+"(s) operate on; e.g., 80."
+msgstr ""
+"Lisää jäsen valittuun varantoon.\n"
+"\n"
+"Valitse yksi tai useampi listatuista instansseista jotka lisätään varantoon "
+"jäseninä. Aseta numeerinen painoarvo tälle jäsenelle, määritä porttinumero "
+"tälle jäsenelle jossa hän toimii, esim 80."
 
 #: dashboards/project/loadbalancers/workflows.py:327
 #, python-format
@@ -3709,66 +3774,83 @@ msgstr "Lisättiin Jäsen \"%s\"."
 msgid "Unable to add Member %s."
 msgstr "Ei voida lisätä Jäsentä %s."
 
-#: dashboards/project/loadbalancers/workflows.py:338
+#: dashboards/project/loadbalancers/workflows.py:334
 #, python-format
 msgid "No instances available.%s"
 msgstr "Ei instansseja saatavilla. %s."
 
-#: dashboards/project/loadbalancers/workflows.py:349
+#: dashboards/project/loadbalancers/workflows.py:345
 msgid "Unable to retrieve ports list."
 msgstr "Ei voida hakea porttilistausta."
 
-#: dashboards/project/loadbalancers/workflows.py:366
+#: dashboards/project/loadbalancers/workflows.py:353
+#, fuzzy
+msgid "Unable to add member."
+msgstr "Ei voida lisätä Jäsentä %s."
+
+#: dashboards/project/loadbalancers/workflows.py:361
 msgid "Delay"
 msgstr "Viivtyä"
 
-#: dashboards/project/loadbalancers/workflows.py:367
+#: dashboards/project/loadbalancers/workflows.py:362
 msgid "Timeout"
 msgstr "Aikakatkaisu"
 
-#: dashboards/project/loadbalancers/workflows.py:369
+#: dashboards/project/loadbalancers/workflows.py:364
 msgid "Max Retries (1~10)"
 msgstr "Maksimi yritykset (1~10)"
 
-#: dashboards/project/loadbalancers/workflows.py:371
+#: dashboards/project/loadbalancers/workflows.py:366
 msgid "HTTP Method"
 msgstr "HTTP-metodi"
 
-#: dashboards/project/loadbalancers/workflows.py:373
+#: dashboards/project/loadbalancers/workflows.py:368
 msgid "URL"
 msgstr "URL"
 
-#: dashboards/project/loadbalancers/workflows.py:376
+#: dashboards/project/loadbalancers/workflows.py:371
 msgid "Expected HTTP Status Codes"
 msgstr "Odotetut HTTP-Status koodit"
 
-#: dashboards/project/loadbalancers/workflows.py:393
+#: dashboards/project/loadbalancers/workflows.py:388
 msgid "Select Type"
 msgstr "Valitse Tyyppi"
 
-#: dashboards/project/loadbalancers/workflows.py:400
+#: dashboards/project/loadbalancers/workflows.py:395
 msgid "Select HTTP Method"
 msgstr "Valitse HTTP-metodi"
 
-#: dashboards/project/loadbalancers/workflows.py:405
+#: dashboards/project/loadbalancers/workflows.py:400
 msgid "MonitorDetails"
 msgstr "Monitorin Tiedot"
 
-#: dashboards/project/loadbalancers/workflows.py:407
+#: dashboards/project/loadbalancers/workflows.py:402
 msgid ""
 "Create a monitor for a pool.\n"
 "\n"
-"Select target pool and type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
-msgstr "Luo monitori varannolle.\n\nValitse kohdevaranto ja monitorin tyyppi. Määrittele viive, aikakatkaisu, raja uudelleenyrityksille jotka monitori vaatii. Määrittele metodi, URL-osoite ja HTTP-koodit joita odotetaan. "
+"Select target pool and type of monitoring. Specify delay, timeout, and retry "
+"limits required by the monitor. Specify method, URL path, and expected HTTP "
+"codes upon success."
+msgstr ""
+"Luo monitori varannolle.\n"
+"\n"
+"Valitse kohdevaranto ja monitorin tyyppi. Määrittele viive, aikakatkaisu, "
+"raja uudelleenyrityksille jotka monitori vaatii. Määrittele metodi, URL-"
+"osoite ja HTTP-koodit joita odotetaan. "
 
-#: dashboards/project/loadbalancers/workflows.py:431
+#: dashboards/project/loadbalancers/workflows.py:426
 #, python-format
 msgid "Added Monitor \"%s\"."
 msgstr "Lisättiin Monitori \"%s\"."
 
-#: dashboards/project/loadbalancers/workflows.py:432
+#: dashboards/project/loadbalancers/workflows.py:427
 #, python-format
 msgid "Unable to add Monitor \"%s\"."
+msgstr "Ei voida lisätä monitoria \"%s\"."
+
+#: dashboards/project/loadbalancers/workflows.py:437
+#, fuzzy
+msgid "Unable to add monitor."
 msgstr "Ei voida lisätä monitoria \"%s\"."
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:6
@@ -3930,9 +4012,18 @@ msgstr "Verkkotopologia"
 msgid "This pane needs javascript support."
 msgstr "Tämä paneeli tarvitsee tuen javaskriptiltä. "
 
+#: dashboards/project/network_topology/templates/network_topology/index.html:28
+#: dashboards/project/routers/tables.py:59
+#: dashboards/project/routers/templates/routers/create.html:3
+#: dashboards/project/routers/templates/routers/create.html:6
+msgid "Create Router"
+msgstr "Luo Reititin."
+
 #: dashboards/project/network_topology/templates/network_topology/index.html:33
 msgid "There are no networks, routers, or connected instances to display. "
-msgstr "Ei ole näytettäviä verkkoja, reitittimiä, tai yhdistettyjä instansseja joita näytetään."
+msgstr ""
+"Ei ole näytettäviä verkkoja, reitittimiä, tai yhdistettyjä instansseja joita "
+"näytetään."
 
 #: dashboards/project/networks/tables.py:81
 msgid "Add Subnet"
@@ -3949,8 +4040,11 @@ msgstr "Verkon Nimi. Tämä kenttä on valinnainen."
 #: dashboards/project/networks/workflows.py:47
 msgid ""
 "From here you can create a new network.\n"
-"In addition a subnet associated with the network can be created in the next panel."
-msgstr "Täältä voit luoda uuden verkon.\nLiitettävä aliverkko voidaan assosoida tähän verkkoon seuraavassa paneelissa."
+"In addition a subnet associated with the network can be created in the next "
+"panel."
+msgstr ""
+"Täältä voit luoda uuden verkon.\n"
+"Liitettävä aliverkko voidaan assosoida tähän verkkoon seuraavassa paneelissa."
 
 #: dashboards/project/networks/workflows.py:61
 msgid "Subnet Name"
@@ -3969,7 +4063,8 @@ msgstr "Verkon osoite"
 #: dashboards/project/networks/workflows.py:68
 #: dashboards/project/networks/subnets/workflows.py:90
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
-msgstr "Verkon osoite on luokattoman verkon formaatissa (esim. 192.168.0.0/24)."
+msgstr ""
+"Verkon osoite on luokattoman verkon formaatissa (esim. 192.168.0.0/24)."
 
 #: dashboards/project/networks/workflows.py:75
 #: dashboards/project/networks/subnets/workflows.py:109
@@ -3978,11 +4073,15 @@ msgstr "Oletusyhdyskäytävän IP-osoite (valinnainen)"
 
 #: dashboards/project/networks/workflows.py:78
 msgid ""
-"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
-" of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use "
-"the default, leave blank. If you want to use no gateway, check 'Disable "
-"Gateway' below."
-msgstr "Oletusyhdyskäytävän osoite (esim. 192.168.0.254). Oletusarvo on ensimmäinen IP-osoite verkosta (esim. 192.168.0.1 verkosta 192.168.0.0/24). Jos käytät oletusarvoa, jätä kenttä tyhjäksi. Jos et halua oletusyhdyskäytävää, ruksaa alhaalta \"Poista käytöstä oletusyhdyskäytävä\"  "
+"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
+"of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use the "
+"default, leave blank. If you want to use no gateway, check 'Disable Gateway' "
+"below."
+msgstr ""
+"Oletusyhdyskäytävän osoite (esim. 192.168.0.254). Oletusarvo on ensimmäinen "
+"IP-osoite verkosta (esim. 192.168.0.1 verkosta 192.168.0.0/24). Jos käytät "
+"oletusarvoa, jätä kenttä tyhjäksi. Jos et halua oletusyhdyskäytävää, ruksaa "
+"alhaalta \"Poista käytöstä oletusyhdyskäytävä\"  "
 
 #: dashboards/project/networks/workflows.py:87
 #: dashboards/project/networks/subnets/workflows.py:119
@@ -3994,7 +4093,10 @@ msgid ""
 "You can create a subnet associated with the new network, in which case "
 "\"Network Address\" must be specified. If you wish to create a network "
 "WITHOUT a subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr "Voit luoda aliverkon joka on assosioitu uuteen verkkoon, jossa tapauksessa \"Verkon Osoite\" pitää määrittää. Jos haluat luoda verkon ILMAN aliverkkoa, poista valinta \"Luo Aliverkko\" valintaruudusta."
+msgstr ""
+"Voit luoda aliverkon joka on assosioitu uuteen verkkoon, jossa tapauksessa "
+"\"Verkon Osoite\" pitää määrittää. Jos haluat luoda verkon ILMAN aliverkkoa, "
+"poista valinta \"Luo Aliverkko\" valintaruudusta."
 
 #: dashboards/project/networks/workflows.py:103
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
@@ -4015,7 +4117,9 @@ msgstr "Oletusyhdyskäytävän IP ja IP-versio eivät täsmää."
 
 #: dashboards/project/networks/workflows.py:121
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr "Määritä oletusyhdyskäytävän IP-osoite, tai ruksaa \"Poista käytöstä Oletusyhdyskäytävä\". "
+msgstr ""
+"Määritä oletusyhdyskäytävän IP-osoite, tai ruksaa \"Poista käytöstä "
+"Oletusyhdyskäytävä\". "
 
 #: dashboards/project/networks/workflows.py:141
 msgid "Enable DHCP"
@@ -4027,10 +4131,13 @@ msgstr "Allokointi Varannot"
 
 #: dashboards/project/networks/workflows.py:146
 msgid ""
-"IP address allocation pools. Each entry is "
-"&lt;start_ip_address&gt;,&lt;end_ip_address&gt; (e.g., "
-"192.168.1.100,192.168.1.120) and one entry per line."
-msgstr "IP-osoitteiden allokointivaranto. Jokainen kohde on &lt;ensimmäinen_ip_osoite&gt;,&lt;viimeinen_ip_osoite&gt; (e.g., 192.168.1.100,192.168.1.120) ja vain yksi kohde per rivi.  "
+"IP address allocation pools. Each entry is &lt;start_ip_address&gt;,&lt;"
+"end_ip_address&gt; (e.g., 192.168.1.100,192.168.1.120) and one entry per "
+"line."
+msgstr ""
+"IP-osoitteiden allokointivaranto. Jokainen kohde on &lt;"
+"ensimmäinen_ip_osoite&gt;,&lt;viimeinen_ip_osoite&gt; (e.g., "
+"192.168.1.100,192.168.1.120) ja vain yksi kohde per rivi.  "
 
 #: dashboards/project/networks/workflows.py:153
 msgid "DNS Name Servers"
@@ -4047,10 +4154,19 @@ msgstr "Reitit"
 
 #: dashboards/project/networks/workflows.py:160
 msgid ""
-"Additional routes announced to the hosts. Each entry is "
-"&lt;destination_cidr&gt;,&lt;nexthop&gt; (e.g., "
-"192.168.200.0/24,10.56.1.254)and one entry per line."
-msgstr "Määritellyt lisäreitit. Jokainen kohde on Each entry is &lt;luokaton_verkko&gt;,&lt;nexthop&gt; (e.g., 192.168.200.0/24,10.56.1.254) ja vain yksi kohde per rivi."
+"Additional routes announced to the hosts. Each entry is &lt;"
+"destination_cidr&gt;,&lt;nexthop&gt; (e.g., 192.168.200.0/24,10.56.1.254)and "
+"one entry per line."
+msgstr ""
+"Määritellyt lisäreitit. Jokainen kohde on Each entry is &lt;"
+"luokaton_verkko&gt;,&lt;nexthop&gt; (e.g., 192.168.200.0/24,10.56.1.254) ja "
+"vain yksi kohde per rivi."
+
+#: dashboards/project/networks/workflows.py:167
+#: dashboards/project/networks/templates/networks/subnets/detail.html:3
+#: dashboards/project/networks/templates/networks/subnets/detail.html:6
+msgid "Subnet Detail"
+msgstr "Aliverkon Tiedot"
 
 #: dashboards/project/networks/workflows.py:168
 #: dashboards/project/networks/subnets/workflows.py:145
@@ -4082,7 +4198,9 @@ msgstr "Alkuosoite on suurempi kuin loppuosoite (value=%s)"
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
-msgstr "Väärä formaatti reitissä. Kohdeverkko ja nexthop pitää olla määritettyinä (value=%s)"
+msgstr ""
+"Väärä formaatti reitissä. Kohdeverkko ja nexthop pitää olla määritettyinä "
+"(value=%s)"
 
 #: dashboards/project/networks/workflows.py:242
 #, python-format
@@ -4111,7 +4229,8 @@ msgstr "Aliverkko \"%s\" luotiin onnistuneesti."
 
 #: dashboards/project/networks/workflows.py:329
 #, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
+msgid ""
+"Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "Ei voitu luoda aliverkkoa \"%(sub)s\" verkolle \"%(net)s\": %(reason)s"
 
 #: dashboards/project/networks/workflows.py:345
@@ -4153,7 +4272,9 @@ msgstr "Ei voida hakea aliverkon tietoja"
 msgid ""
 "You can create a subnet associated with the network. Advanced configuration "
 "are available at \"Subnet Detail\" tab."
-msgstr "Voit luoda aliverkon liitettynä verkkoon. Lisäoptiot löytyvät \"Aliverkon Tiedot\" välilehdeltä. "
+msgstr ""
+"Voit luoda aliverkon liitettynä verkkoon. Lisäoptiot löytyvät \"Aliverkon "
+"Tiedot\" välilehdeltä. "
 
 #: dashboards/project/networks/subnets/workflows.py:62
 #, python-format
@@ -4170,13 +4291,19 @@ msgid ""
 "IP address of Gateway (e.g. 192.168.0.254). You need to specify an explicit "
 "address to set the gateway. If you want to use no gateway, check 'Disable "
 "Gateway' below."
-msgstr "Oletusyhdyskäytävän osoite (esim. 192.168.0.254). Oletusarvo on ensimmäinen IP-osoite verkosta (esim. 192.168.0.1 verkosta 192.168.0.0/24). Jos käytät oletusarvoa, jätä kenttä tyhjäksi. Jos et halua oletusyhdyskäytävää, ruksaa alhaalta \"Poista käytöstä oletusyhdyskäytävä\"  "
+msgstr ""
+"Oletusyhdyskäytävän osoite (esim. 192.168.0.254). Oletusarvo on ensimmäinen "
+"IP-osoite verkosta (esim. 192.168.0.1 verkosta 192.168.0.0/24). Jos käytät "
+"oletusarvoa, jätä kenttä tyhjäksi. Jos et halua oletusyhdyskäytävää, ruksaa "
+"alhaalta \"Poista käytöstä oletusyhdyskäytävä\"  "
 
 #: dashboards/project/networks/subnets/workflows.py:124
 msgid ""
 "You can update a subnet associated with the network. Advanced configuration "
 "are available at \"Subnet Detail\" tab."
-msgstr "Voit päivittää aliverkkoa joka on liitettynä verkkoon. Lisäoptiot löytyvät \"Aliverkon Tiedot\" välilehdeltä. "
+msgstr ""
+"Voit päivittää aliverkkoa joka on liitettynä verkkoon. Lisäoptiot löytyvät "
+"\"Aliverkon Tiedot\" välilehdeltä. "
 
 #: dashboards/project/networks/subnets/workflows.py:155
 msgid "Update"
@@ -4296,10 +4423,16 @@ msgstr "Tyhjä"
 msgid "DNS name server"
 msgstr "Nimipalvelin"
 
-#: dashboards/project/networks/templates/networks/subnets/detail.html:3
-#: dashboards/project/networks/templates/networks/subnets/detail.html:6
-msgid "Subnet Detail"
-msgstr "Aliverkon Tiedot"
+#: dashboards/project/routers/forms.py:23
+#: dashboards/project/routers/ports/forms.py:32
+#: dashboards/project/routers/ports/forms.py:91
+msgid "Router Name"
+msgstr "Reitittimen Nimi"
+
+#: dashboards/project/routers/forms.py:37
+#, python-format
+msgid "Failed to create router \"%s\"."
+msgstr "Epäonnistuttiin reitittimen \"%s\" luomisessa."
 
 #: dashboards/project/routers/tables.py:33
 msgid "Router"
@@ -4311,6 +4444,14 @@ msgstr "Reititin"
 msgid "Unable to delete router \"%s\""
 msgstr "Ei voida poistaa reititintä \"%s\""
 
+#: dashboards/project/routers/tables.py:66
+#: dashboards/project/routers/templates/routers/ports/_setgateway.html:8
+#: dashboards/project/routers/templates/routers/ports/_setgateway.html:23
+#: dashboards/project/routers/templates/routers/ports/setgateway.html:3
+#: dashboards/project/routers/templates/routers/ports/setgateway.html:6
+msgid "Set Gateway"
+msgstr "Aseta Oletusyhdyskäytävä"
+
 #: dashboards/project/routers/tables.py:78
 msgid "Clear"
 msgstr "Tyhjä"
@@ -4320,7 +4461,6 @@ msgid "Cleared"
 msgstr "Tyhjennetty"
 
 #: dashboards/project/routers/tables.py:80
-#: dashboards/project/routers/ports/tables.py:33
 msgid "Gateway"
 msgstr "Oletusyhdyskäytävä"
 
@@ -4331,7 +4471,8 @@ msgstr "Oletusyhdyskäytävät"
 #: dashboards/project/routers/tables.py:91
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "Ei voida poistaa oletusyhdyskäytävää reitittimeltä \"%(name)s\": \"%(msg)s\""
+msgstr ""
+"Ei voida poistaa oletusyhdyskäytävää reitittimeltä \"%(name)s\": \"%(msg)s\""
 
 #: dashboards/project/routers/tabs.py:37
 msgid "Unable to retrieve router details."
@@ -4402,11 +4543,28 @@ msgstr "Oletusyhdyskäytävän portti lisättiin."
 msgid "Failed to set gateway %s"
 msgstr "Epäonnistuttiin oletusyhdyskäytävän asettamisessa %s"
 
-#: dashboards/project/routers/ports/tables.py:50
+#: dashboards/project/routers/ports/tables.py:33
+#, fuzzy
+msgid "External Gateway"
+msgstr "Ulkoisen Oletusyhdyskäytävän Tiedot"
+
+#: dashboards/project/routers/ports/tables.py:35
+#, fuzzy
+msgid "Internal Interface"
+msgstr "Portti"
+
+#: dashboards/project/routers/ports/tables.py:42
+#: dashboards/project/routers/templates/routers/ports/_create.html:8
+#: dashboards/project/routers/templates/routers/ports/create.html:3
+#: dashboards/project/routers/templates/routers/ports/create.html:6
+msgid "Add Interface"
+msgstr "lisää Portti"
+
+#: dashboards/project/routers/ports/tables.py:52
 msgid "Interface"
 msgstr "Portti"
 
-#: dashboards/project/routers/ports/tables.py:65
+#: dashboards/project/routers/ports/tables.py:67
 #, python-format
 msgid "Failed to delete interface %s"
 msgstr "Portin %s poistamisessa epäonnistuttiin"
@@ -4418,6 +4576,29 @@ msgstr "Ei voida hakea reititintä. "
 #: dashboards/project/routers/ports/views.py:82
 msgid "Unable to set gateway."
 msgstr "Ei voida asettaa oletusyhdyskäytävää."
+
+#: dashboards/project/routers/templates/routers/_create.html:8
+#: dashboards/project/routers/templates/routers/_create.html:19
+msgid "Create router"
+msgstr "Luo reititin"
+
+#: dashboards/project/routers/templates/routers/ports/_create.html:18
+msgid "You can connect a specified subnet to the router."
+msgstr "Voit liittää määritetyn aliverkon reitittimeen."
+
+#: dashboards/project/routers/templates/routers/ports/_create.html:23
+msgid "Add interface"
+msgstr "Lisää Portti"
+
+#: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
+msgid ""
+"You can connect a specified external network to the router. The external "
+"network is regarded as a default route of the router and the router acts as "
+"a gateway for external connectivity."
+msgstr ""
+"Voit liittää määritetyn ulkoisen verkon reitittimeen. Ulkoinen verkko "
+"nähdään oletusreittinä reitittimelle ja reititin toimii yhdyskäytävänä "
+"virtuaalialiverkoille."
 
 #: dashboards/project/volumes/forms.py:33
 msgid "Size (GB)"
@@ -4434,7 +4615,8 @@ msgstr "Käytä varmuusvedosta lähteenä"
 #: dashboards/project/volumes/forms.py:84
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "Verkkolevyn koko täytyy sama tai suurempi kuin varmuusvedoksen koko (%sGB)"
+msgstr ""
+"Verkkolevyn koko täytyy sama tai suurempi kuin varmuusvedoksen koko (%sGB)"
 
 #: dashboards/project/volumes/forms.py:89
 msgid "Unable to load the specified snapshot."
@@ -4452,9 +4634,11 @@ msgstr "Verkkolevyn koko ei voi olla pienempi kuin varmuusvedoksen koko (%sGB)"
 #: dashboards/project/volumes/forms.py:127
 #, python-format
 msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
-" quota available."
-msgstr "Verkkolevyä %(req)iGB ei voida luoda, koska sinulla on vain %(avail)iGB tilaa kiintiössä jälellä."
+"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
+"quota available."
+msgstr ""
+"Verkkolevyä %(req)iGB ei voida luoda, koska sinulla on vain %(avail)iGB "
+"tilaa kiintiössä jälellä."
 
 #: dashboards/project/volumes/forms.py:134
 msgid "You are already using all of your available volumes."
@@ -4497,7 +4681,9 @@ msgstr "Ei voida luoda verkkolevyn varmuusvedosta."
 #: dashboards/project/volumes/tables.py:48
 #, python-format
 msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
-msgstr "Ei voida poistaa verkkolevyä \"%s. Yksi tai useampi varmuusvedos on riippuvainen siitä. "
+msgstr ""
+"Ei voida poistaa verkkolevyä \"%s. Yksi tai useampi varmuusvedos on "
+"riippuvainen siitä. "
 
 #: dashboards/project/volumes/tables.py:68
 msgid "Edit Attachments"
@@ -4509,7 +4695,7 @@ msgid "%sGB"
 msgstr "%sGB"
 
 #: dashboards/project/volumes/tables.py:110
-#: dashboards/project/volumes/views.py:152
+#: dashboards/project/volumes/views.py:154
 msgid "Unable to retrieve attachment information."
 msgstr "Ei voida hakea liitoksien tietoja."
 
@@ -4539,12 +4725,12 @@ msgstr "Ei voida hakea verkkolevyn tietoja."
 msgid "Unable to retrieve volume list."
 msgstr "Ei voida hakea verkkolevylistausta."
 
-#: dashboards/project/volumes/views.py:56
+#: dashboards/project/volumes/views.py:57
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Ei voida hakea verkkolevy/insanssi liittämistietoja"
 
-#: dashboards/project/volumes/views.py:133
-#: dashboards/project/volumes/views.py:143
+#: dashboards/project/volumes/views.py:135
+#: dashboards/project/volumes/views.py:145
 msgid "Unable to retrieve volume information."
 msgstr "Ei voida hakea verkkolevyn tietoja."
 
@@ -4660,7 +4846,9 @@ msgstr "Jotain meni mönkään."
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
-msgstr "Tuntematon virhe. Yritä päivittää sivu. Jos tämä ei auta, ota yhteyttä paikalliseen ylläpitäjään."
+msgstr ""
+"Tuntematon virhe. Yritä päivittää sivu. Jos tämä ei auta, ota yhteyttä "
+"paikalliseen ylläpitäjään."
 
 #: templates/500.html:74 templates/_header.html:6
 msgid "Help"
