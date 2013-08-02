@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -11,74 +11,75 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
-"POT-Creation-Date: 2013-03-12 04:09+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-01 08:54-0500\n"
 "PO-Revision-Date: 2013-05-08 08:24+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
+"Language-Team: English (http://www.transifex.com/projects/p/openstack/"
+"language/en/)\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: settings.py:152
+#: settings.py:156
 msgid "Bulgarian (Bulgaria)"
 msgstr "Bolgár (Bulgária)"
 
-#: settings.py:153
+#: settings.py:157
 msgid "Czech"
 msgstr "Cseh"
 
-#: settings.py:154
+#: settings.py:158
 msgid "English"
 msgstr "Angol"
 
-#: settings.py:155
+#: settings.py:159
 msgid "Spanish"
 msgstr "Spanyol"
 
-#: settings.py:156
+#: settings.py:160
 msgid "French"
 msgstr "Francia"
 
-#: settings.py:157
+#: settings.py:161
 msgid "Italiano"
 msgstr "Olasz"
 
-#: settings.py:158
+#: settings.py:162
 msgid "Japanese"
 msgstr "Japán"
 
-#: settings.py:159
+#: settings.py:163
 msgid "Korean (Korea)"
 msgstr "Koreai (Korea)"
 
-#: settings.py:160
+#: settings.py:164
 msgid "Dutch (Netherlands)"
 msgstr "Holland (Hollandia)"
 
-#: settings.py:161
+#: settings.py:165
 msgid "Polish"
 msgstr "Lengyel"
 
-#: settings.py:162
+#: settings.py:166
 msgid "Portuguese"
 msgstr "Portugál"
 
-#: settings.py:163
+#: settings.py:167
 msgid "Portuguese (Brazil)"
 msgstr "Portugál (Brazília)"
 
-#: settings.py:164
+#: settings.py:168
 msgid "Simplified Chinese"
 msgstr "Kínai (egyszerűsített)"
 
-#: settings.py:165
+#: settings.py:169
 msgid "Traditional Chinese"
 msgstr "Kínai (hagyományos)"
 
-#: api/cinder.py:86
+#: api/cinder.py:87
 msgid "Unknown instance"
 msgstr "Ismeretlen példány"
 
@@ -97,6 +98,10 @@ msgstr "ENGEDÉLYEZÉS: %(from)s:%(to)s innen: %(group)s"
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "ENGEDÉLYEZÉS: %(from)s:%(to)s innen: %(cidr)s"
 
+#: api/swift.py:145
+msgid "The container cannot be deleted since it's not empty."
+msgstr ""
+
 #: dashboards/admin/dashboard.py:24
 msgid "System Panel"
 msgstr "Rendszer panel"
@@ -112,14 +117,14 @@ msgstr "Admin"
 #: dashboards/admin/networks/ports/tables.py:73
 #: dashboards/admin/networks/subnets/tables.py:70
 #: dashboards/admin/projects/tables.py:96
-#: dashboards/admin/projects/workflows.py:83
-#: dashboards/admin/routers/tables.py:63
-#: dashboards/admin/routers/ports/tables.py:43
+#: dashboards/admin/projects/workflows.py:87
+#: dashboards/admin/routers/tables.py:57
+#: dashboards/admin/routers/ports/tables.py:33
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/forms.py:31 dashboards/admin/volumes/tables.py:26
 #: dashboards/admin/volumes/tables.py:44
-#: dashboards/project/access_and_security/security_groups/forms.py:36
-#: dashboards/project/access_and_security/security_groups/tables.py:58
+#: dashboards/project/access_and_security/security_groups/forms.py:37
+#: dashboards/project/access_and_security/security_groups/tables.py:59
 #: dashboards/project/images_and_snapshots/images/forms.py:43
 #: dashboards/project/images_and_snapshots/images/forms.py:141
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:9
@@ -139,7 +144,7 @@ msgstr "Admin"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
 #: dashboards/project/routers/tables.py:123
-#: dashboards/project/routers/ports/tables.py:75
+#: dashboards/project/routers/ports/tables.py:77
 #: dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: dashboards/project/volumes/tables.py:152
 #: dashboards/project/volumes/tables.py:172
@@ -147,54 +152,62 @@ msgstr "Admin"
 msgid "Name"
 msgstr "Név"
 
-#: dashboards/admin/flavors/forms.py:37 dashboards/admin/flavors/tables.py:52
-#: dashboards/admin/projects/workflows.py:44
+#: dashboards/admin/flavors/forms.py:39
+#, fuzzy
+msgid ""
+"Name may only contain letters, numbers, underscores, periods and hyphens."
+msgstr ""
+"A kulcspárnevek csak betűket, számokat, aláhúzásokat és kötőjeleket "
+"tartalmazhatnak."
+
+#: dashboards/admin/flavors/forms.py:42 dashboards/admin/flavors/tables.py:52
+#: dashboards/admin/projects/workflows.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:26
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:10
 #: usage/tables.py:19
 msgid "VCPUs"
 msgstr "VCPU-k"
 
-#: dashboards/admin/flavors/forms.py:38
+#: dashboards/admin/flavors/forms.py:43
 msgid "RAM MB"
 msgstr "RAM MB"
 
-#: dashboards/admin/flavors/forms.py:39
+#: dashboards/admin/flavors/forms.py:44
 msgid "Root Disk GB"
 msgstr "Gyökér lemez GB"
 
-#: dashboards/admin/flavors/forms.py:40
+#: dashboards/admin/flavors/forms.py:45
 msgid "Ephemeral Disk GB"
 msgstr "Ideiglenes lemez GB"
 
-#: dashboards/admin/flavors/forms.py:41
+#: dashboards/admin/flavors/forms.py:46
 msgid "Swap Disk MB"
 msgstr ""
 
-#: dashboards/admin/flavors/forms.py:49
+#: dashboards/admin/flavors/forms.py:54 dashboards/admin/flavors/forms.py:96
 msgid "Unable to get flavor list"
 msgstr ""
 
-#: dashboards/admin/flavors/forms.py:56
+#: dashboards/admin/flavors/forms.py:61 dashboards/admin/flavors/forms.py:104
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr ""
 
-#: dashboards/admin/flavors/forms.py:70
+#: dashboards/admin/flavors/forms.py:75
 #, python-format
 msgid "Created flavor \"%s\"."
 msgstr "„%s” változat létrehozva."
 
-#: dashboards/admin/flavors/forms.py:74
+#: dashboards/admin/flavors/forms.py:79
 msgid "Unable to create flavor."
 msgstr "Nem lehet létrehozni a változatot."
 
-#: dashboards/admin/flavors/forms.py:106
+#: dashboards/admin/flavors/forms.py:132
 #, python-format
 msgid "Updated flavor \"%s\"."
 msgstr "„%s” változat frissítve."
 
-#: dashboards/admin/flavors/forms.py:110
+#: dashboards/admin/flavors/forms.py:136
 msgid "Unable to update flavor."
 msgstr "Nem lehet frissíteni a változatot."
 
@@ -210,7 +223,7 @@ msgstr "Változatok"
 #: dashboards/admin/flavors/templates/flavors/extras/edit.html:7
 #: dashboards/admin/flavors/templates/flavors/extras/index.html:7
 #: dashboards/project/instances/templates/instances/_detail_overview.html:22
-#: dashboards/project/instances/workflows/create_instance.py:180
+#: dashboards/project/instances/workflows/create_instance.py:181
 msgid "Flavor"
 msgstr "Változat"
 
@@ -344,19 +357,17 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/_create.html:17
 #: dashboards/admin/networks/templates/networks/ports/_create.html:17
 #: dashboards/admin/projects/tables.py:98
-#: dashboards/admin/projects/workflows.py:86
+#: dashboards/admin/projects/workflows.py:89
 #: dashboards/admin/projects/templates/projects/_add_user.html:17
 #: dashboards/admin/projects/templates/projects/_create.html:17
 #: dashboards/admin/projects/templates/projects/_create_user.html:17
 #: dashboards/admin/projects/templates/projects/_quotas.html:16
 #: dashboards/admin/projects/templates/projects/_update.html:17
-#: dashboards/admin/routers/templates/routers/ports/_create.html:17
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:17
 #: dashboards/admin/users/templates/users/_create.html:16
 #: dashboards/admin/users/templates/users/_update.html:16
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:17
-#: dashboards/project/access_and_security/security_groups/forms.py:42
-#: dashboards/project/access_and_security/security_groups/tables.py:59
+#: dashboards/project/access_and_security/security_groups/forms.py:43
+#: dashboards/project/access_and_security/security_groups/tables.py:60
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:16
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:16
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:17
@@ -399,9 +410,6 @@ msgstr "Innen tudja meghatározni az új változat méretét."
 #: dashboards/admin/projects/templates/projects/_create_user.html:24
 #: dashboards/admin/projects/templates/projects/_quotas.html:23
 #: dashboards/admin/projects/templates/projects/_update.html:24
-#: dashboards/admin/routers/templates/routers/_create.html:20
-#: dashboards/admin/routers/templates/routers/ports/_create.html:24
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/admin/users/templates/users/_create.html:33
 #: dashboards/admin/users/templates/users/_update.html:33
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:28
@@ -435,13 +443,15 @@ msgstr "Innen tudja módosítani a jelenlegi változat méretét."
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:19
 msgid ""
-"Note: this will not affect the resources allocated to any existing instances"
-" using this flavor."
-msgstr "Megjegyzés: ez nem befolyásolja a változatot használó meglévő példányokhoz lefoglalt erőforrásokat."
+"Note: this will not affect the resources allocated to any existing instances "
+"using this flavor."
+msgstr ""
+"Megjegyzés: ez nem befolyásolja a változatot használó meglévő példányokhoz "
+"lefoglalt erőforrásokat."
 
 #: dashboards/admin/flavors/templates/flavors/_edit.html:24
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:24
-#: dashboards/admin/projects/workflows.py:294
+#: dashboards/admin/projects/workflows.py:291
 #: dashboards/project/instances/workflows/update_instance.py:162
 #: dashboards/settings/user/templates/user/_settings.html:23
 msgid "Save"
@@ -525,7 +535,10 @@ msgid ""
 "Currently only images available via an HTTP URL are supported. The image "
 "location must be accessible to the Image Service. Compressed image binaries "
 "are supported (.zip and .tar.gz.)"
-msgstr "Jelenleg csak HTTP URL-en elérhető lemezképek támogatottak. A lemezkép helyének elérhetőnek kell lennie a lemezkép szolgáltatás által. A tömörített lemezkép-binárisok támogatottak (.zip és .tar.gz.)"
+msgstr ""
+"Jelenleg csak HTTP URL-en elérhető lemezképek támogatottak. A lemezkép "
+"helyének elérhetőnek kell lennie a lemezkép szolgáltatás által. A tömörített "
+"lemezkép-binárisok támogatottak (.zip és .tar.gz.)"
 
 #: dashboards/admin/images/templates/images/_create.html:25
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:25
@@ -535,9 +548,12 @@ msgstr "Ne feledje: "
 #: dashboards/admin/images/templates/images/_create.html:26
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:26
 msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary."
-" URLs that redirect or serve error pages will result in unusable images."
-msgstr "A Lemezkép helye mezőnek a lemezkép binárisra mutató érvényes és közvetlen URL-címnek kell lennie. Az átirányító vagy hibaoldalakat kiszolgáló URL-ek használhatatlan lemezképeket eredményeznek."
+"The Image Location field MUST be a valid and direct URL to the image binary. "
+"URLs that redirect or serve error pages will result in unusable images."
+msgstr ""
+"A Lemezkép helye mezőnek a lemezkép binárisra mutató érvényes és közvetlen "
+"URL-címnek kell lennie. Az átirányító vagy hibaoldalakat kiszolgáló URL-ek "
+"használhatatlan lemezképeket eredményeznek."
 
 #: dashboards/admin/images/templates/images/_create.html:32
 #: dashboards/project/images_and_snapshots/images/tables.py:64
@@ -594,13 +610,13 @@ msgid "Host"
 msgstr "Gép"
 
 #: dashboards/admin/info/tables.py:71 dashboards/admin/projects/tables.py:100
-#: dashboards/admin/projects/workflows.py:88
-#: dashboards/admin/projects/workflows.py:275
+#: dashboards/admin/projects/workflows.py:91
+#: dashboards/admin/projects/workflows.py:272
 #: dashboards/admin/users/tables.py:41 dashboards/admin/users/tables.py:113
 msgid "Enabled"
 msgstr "Engedélyezve"
 
-#: dashboards/admin/info/tables.py:76 dashboards/admin/info/tabs.py:50
+#: dashboards/admin/info/tables.py:76 dashboards/admin/info/tabs.py:47
 msgid "Services"
 msgstr "Szolgáltatások"
 
@@ -608,7 +624,7 @@ msgstr "Szolgáltatások"
 msgid "Default Quotas"
 msgstr "Alapértelmezett kvóták"
 
-#: dashboards/admin/info/tabs.py:44
+#: dashboards/admin/info/tabs.py:41
 msgid "Unable to get quota info."
 msgstr "Nem lehet lekérni a kvótainformációt."
 
@@ -616,13 +632,13 @@ msgstr "Nem lehet lekérni a kvótainformációt."
 #: dashboards/admin/instances/tables.py:46
 #: dashboards/admin/instances/tables.py:115
 #: dashboards/admin/instances/templates/instances/index.html:3
-#: dashboards/admin/projects/workflows.py:45
+#: dashboards/admin/projects/workflows.py:48
 #: dashboards/project/instances/panel.py:25
 #: dashboards/project/instances/tables.py:74
 #: dashboards/project/instances/tables.py:89
 #: dashboards/project/instances/tables.py:115
 #: dashboards/project/instances/tables.py:144
-#: dashboards/project/instances/tables.py:470
+#: dashboards/project/instances/tables.py:480
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 msgid "Instances"
@@ -650,9 +666,10 @@ msgstr "Példány"
 #: dashboards/admin/instances/tables.py:80
 #: dashboards/admin/networks/forms.py:36
 #: dashboards/admin/networks/tables.py:67
-#: dashboards/admin/projects/tables.py:71 dashboards/admin/routers/forms.py:37
-#: dashboards/admin/routers/tables.py:61 dashboards/admin/volumes/tables.py:29
-#: dashboards/project/dashboard.py:43
+#: dashboards/admin/projects/tables.py:71
+#: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:29
+#: dashboards/project/dashboard.py:48
+#: dashboards/project/images_and_snapshots/images/tables.py:98
 #: dashboards/project/instances/workflows/create_instance.py:41
 msgid "Project"
 msgstr "Projekt"
@@ -661,7 +678,7 @@ msgstr "Projekt"
 #: dashboards/project/access_and_security/floating_ips/tables.py:114
 #: dashboards/project/access_and_security/floating_ips/workflows.py:34
 #: dashboards/project/access_and_security/floating_ips/workflows.py:41
-#: dashboards/project/instances/tables.py:447
+#: dashboards/project/instances/tables.py:457
 #: dashboards/project/loadbalancers/tables.py:138
 msgid "IP Address"
 msgstr "IP-cím"
@@ -670,7 +687,7 @@ msgstr "IP-cím"
 #: dashboards/project/containers/tables.py:231
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:30
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:37
-#: dashboards/project/instances/tables.py:449
+#: dashboards/project/instances/tables.py:459
 #: dashboards/project/volumes/tables.py:158
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:26
 msgid "Size"
@@ -679,20 +696,20 @@ msgstr "Méret"
 #: dashboards/admin/instances/tables.py:99
 #: dashboards/admin/networks/tables.py:74
 #: dashboards/admin/networks/ports/tables.py:77
-#: dashboards/admin/routers/tables.py:67
-#: dashboards/admin/routers/ports/tables.py:47
+#: dashboards/admin/routers/tables.py:61
+#: dashboards/admin/routers/ports/tables.py:36
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/images_and_snapshots/images/tables.py:177
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:13
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:18
-#: dashboards/project/instances/tables.py:454
+#: dashboards/project/instances/tables.py:464
 #: dashboards/project/instances/templates/instances/_detail_overview.html:13
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/ports/tables.py:61
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:31
 #: dashboards/project/routers/tables.py:127
-#: dashboards/project/routers/ports/tables.py:79
+#: dashboards/project/routers/ports/tables.py:80
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/volumes/tables.py:162
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:17
@@ -700,12 +717,12 @@ msgid "Status"
 msgstr "Állapot"
 
 #: dashboards/admin/instances/tables.py:104
-#: dashboards/project/instances/tables.py:459
+#: dashboards/project/instances/tables.py:469
 msgid "Task"
 msgstr "Feladat"
 
 #: dashboards/admin/instances/tables.py:111
-#: dashboards/project/instances/tables.py:466
+#: dashboards/project/instances/tables.py:476
 msgid "Power State"
 msgstr "Bekapcsolási állapot"
 
@@ -733,11 +750,11 @@ msgstr "Minden példány"
 #: dashboards/admin/networks/tables.py:76
 #: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:79
-#: dashboards/admin/routers/ports/tables.py:51
+#: dashboards/admin/routers/ports/tables.py:40
 #: dashboards/project/loadbalancers/workflows.py:41
 #: dashboards/project/loadbalancers/workflows.py:143
 #: dashboards/project/loadbalancers/workflows.py:258
-#: dashboards/project/loadbalancers/workflows.py:377
+#: dashboards/project/loadbalancers/workflows.py:372
 #: dashboards/project/networks/forms.py:42
 #: dashboards/project/networks/tables.py:102
 #: dashboards/project/networks/workflows.py:42
@@ -745,7 +762,7 @@ msgstr "Minden példány"
 #: dashboards/project/networks/ports/tables.py:63
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
-#: dashboards/project/routers/ports/tables.py:83
+#: dashboards/project/routers/ports/tables.py:84
 msgid "Admin State"
 msgstr "Admin állapot"
 
@@ -757,15 +774,14 @@ msgid "Shared"
 msgstr "Megosztott"
 
 #: dashboards/admin/networks/forms.py:41 dashboards/admin/networks/forms.py:82
-#: dashboards/admin/routers/tables.py:70
+#: dashboards/admin/routers/tables.py:64
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/tables.py:130
 #: dashboards/project/routers/ports/forms.py:90
 msgid "External Network"
 msgstr ""
 
-#: dashboards/admin/networks/forms.py:50 dashboards/admin/routers/forms.py:42
-#: dashboards/admin/users/forms.py:42
+#: dashboards/admin/networks/forms.py:50 dashboards/admin/users/forms.py:42
 msgid "Select a project"
 msgstr "Projekt kiválasztása"
 
@@ -814,7 +830,7 @@ msgstr "A hálózat (%s) frissítése nem sikerült."
 #: dashboards/admin/networks/tables.py:80
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
-#: dashboards/project/instances/workflows/create_instance.py:418
+#: dashboards/project/instances/workflows/create_instance.py:419
 #: dashboards/project/networks/panel.py:25
 #: dashboards/project/networks/tables.py:44
 #: dashboards/project/networks/tables.py:106
@@ -825,6 +841,7 @@ msgstr "Hálózatok"
 
 #: dashboards/admin/networks/tables.py:34
 #: dashboards/project/networks/tables.py:43
+#: dashboards/project/networks/workflows.py:46
 #: dashboards/project/networks/templates/networks/subnets/index.html:3
 #: dashboards/project/networks/templates/networks/subnets/index.html:6
 msgid "Network"
@@ -933,9 +950,9 @@ msgid "Failed to update port %s"
 msgstr "Nem sikerült a port (%s) frissítése."
 
 #: dashboards/admin/networks/ports/tables.py:34
-#: dashboards/project/access_and_security/security_groups/forms.py:73
-#: dashboards/project/access_and_security/security_groups/forms.py:82
-#: dashboards/project/access_and_security/security_groups/forms.py:89
+#: dashboards/project/access_and_security/security_groups/forms.py:74
+#: dashboards/project/access_and_security/security_groups/forms.py:83
+#: dashboards/project/access_and_security/security_groups/forms.py:90
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:6
 msgid "Port"
 msgstr "Port"
@@ -969,15 +986,14 @@ msgid "Edit Port"
 msgstr "Port szerkesztése"
 
 #: dashboards/admin/networks/ports/tables.py:75
-#: dashboards/admin/routers/ports/tables.py:45
+#: dashboards/admin/projects/workflows.py:57
+#: dashboards/admin/routers/ports/tables.py:35
 #: dashboards/project/networks/ports/tables.py:59
-#: dashboards/project/routers/ports/tables.py:77
+#: dashboards/project/routers/ports/tables.py:79
 msgid "Fixed IPs"
 msgstr "Fix IP-k"
 
 #: dashboards/admin/networks/ports/tables.py:76
-#: dashboards/admin/routers/ports/tables.py:46
-#: dashboards/project/routers/ports/tables.py:78
 msgid "Device Attached"
 msgstr "Csatlakoztatott eszköz"
 
@@ -1011,6 +1027,7 @@ msgstr "Nem lehet lekérni a hálózatot."
 #: dashboards/admin/networks/subnets/tables.py:32
 #: dashboards/project/loadbalancers/tables.py:114
 #: dashboards/project/loadbalancers/workflows.py:38
+#: dashboards/project/networks/workflows.py:91
 #: dashboards/project/networks/subnets/tables.py:44
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:6
 #: dashboards/project/routers/ports/forms.py:31
@@ -1041,9 +1058,9 @@ msgid "Edit Subnet"
 msgstr "Alhálózat szerkesztése"
 
 #: dashboards/admin/networks/subnets/tables.py:72
-#: dashboards/project/access_and_security/security_groups/forms.py:133
-#: dashboards/project/access_and_security/security_groups/forms.py:145
-#: dashboards/project/access_and_security/security_groups/forms.py:155
+#: dashboards/project/access_and_security/security_groups/forms.py:134
+#: dashboards/project/access_and_security/security_groups/forms.py:146
+#: dashboards/project/access_and_security/security_groups/forms.py:156
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 msgid "CIDR"
 msgstr "CIDR"
@@ -1094,7 +1111,9 @@ msgstr "Hálózat frissítése"
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
 "attached, the device specified will be attached to the port created."
-msgstr "Létrehozhat egy portot a hálózatnak. Ha megadja egy csatolandó eszköz azonosítóját, akkor a megadott eszköz csatolásra kerül a létrehozott porthoz."
+msgstr ""
+"Létrehozhat egy portot a hálózatnak. Ha megadja egy csatolandó eszköz "
+"azonosítóját, akkor a megadott eszköz csatolásra kerül a létrehozott porthoz."
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
 #: dashboards/project/networks/templates/networks/ports/_update.html:22
@@ -1122,6 +1141,10 @@ msgstr "Hálózat részletei"
 msgid "Update Subnet"
 msgstr "Alhálózat frissítése"
 
+#: dashboards/admin/overview/views.py:48 dashboards/admin/projects/views.py:77
+msgid "Unable to retrieve project list."
+msgstr "Nem lehet lekérni a projekt listát."
+
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
 msgstr "Használat áttekintése"
@@ -1148,8 +1171,8 @@ msgid "View Usage"
 msgstr "Használat megtekintése"
 
 #: dashboards/admin/projects/tables.py:39
-#: dashboards/admin/projects/workflows.py:201
-#: dashboards/admin/projects/workflows.py:202
+#: dashboards/admin/projects/workflows.py:204
+#: dashboards/admin/projects/workflows.py:205
 #: dashboards/admin/projects/templates/projects/_create.html:8
 #: dashboards/admin/projects/templates/projects/_create.html:23
 #: dashboards/admin/projects/templates/projects/create.html:3
@@ -1158,7 +1181,7 @@ msgid "Create Project"
 msgstr "Projekt létrehozása"
 
 #: dashboards/admin/projects/tables.py:49
-#: dashboards/admin/projects/workflows.py:293
+#: dashboards/admin/projects/workflows.py:290
 #: dashboards/admin/projects/templates/projects/update.html:3
 #: dashboards/admin/projects/templates/projects/update.html:6
 msgid "Edit Project"
@@ -1214,39 +1237,35 @@ msgstr "Hozzáadás a projekthez"
 msgid "Add New Users"
 msgstr "Új felhasználók hozzáadása"
 
-#: dashboards/admin/projects/views.py:70
+#: dashboards/admin/projects/views.py:57
 msgid "Unable to retrieve project information."
 msgstr "Nem lehet lekérni a projekt információkat."
 
-#: dashboards/admin/projects/views.py:90
-msgid "Unable to retrieve project list."
-msgstr "Nem lehet lekérni a projekt listát."
-
-#: dashboards/admin/projects/views.py:113
+#: dashboards/admin/projects/views.py:100
 msgid "Unable to retrieve users."
 msgstr "Nem lehet lekérni a felhasználókat."
 
-#: dashboards/admin/projects/views.py:156
+#: dashboards/admin/projects/views.py:143
 msgid "Unable to retrieve default quota values."
 msgstr "Nem kérhetők le az alapértelmezett kvótaértékek."
 
-#: dashboards/admin/projects/views.py:185
+#: dashboards/admin/projects/views.py:173
 msgid "Unable to retrieve project details."
 msgstr "Nem kérhetők le a projekt részletei."
 
-#: dashboards/admin/projects/workflows.py:41
+#: dashboards/admin/projects/workflows.py:44
 msgid "Injected File Content Bytes"
 msgstr "Beszúrt fájl tartalom bájtok"
 
-#: dashboards/admin/projects/workflows.py:43
+#: dashboards/admin/projects/workflows.py:46
 msgid "Metadata Items"
 msgstr "Metaadat elemek"
 
-#: dashboards/admin/projects/workflows.py:47
+#: dashboards/admin/projects/workflows.py:50
 msgid "Injected Files"
 msgstr "Beszúrt fájlok"
 
-#: dashboards/admin/projects/workflows.py:50
+#: dashboards/admin/projects/workflows.py:53
 #: dashboards/admin/volumes/panel.py:9 dashboards/admin/volumes/tables.py:33
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
@@ -1259,139 +1278,143 @@ msgstr "Beszúrt fájlok"
 msgid "Volumes"
 msgstr "Kötetek"
 
-#: dashboards/admin/projects/workflows.py:51
+#: dashboards/admin/projects/workflows.py:54
 msgid "Gigabytes"
 msgstr "Gigabájt"
 
-#: dashboards/admin/projects/workflows.py:52
+#: dashboards/admin/projects/workflows.py:55
 msgid "RAM (MB)"
 msgstr "RAM (MB)"
 
-#: dashboards/admin/projects/workflows.py:53
+#: dashboards/admin/projects/workflows.py:56
 #: dashboards/project/access_and_security/tabs.py:72
 #: dashboards/project/access_and_security/floating_ips/tables.py:52
 #: dashboards/project/access_and_security/floating_ips/tables.py:131
 msgid "Floating IPs"
 msgstr "Lebegő IP-k"
 
-#: dashboards/admin/projects/workflows.py:55
+#: dashboards/admin/projects/workflows.py:59
 #: dashboards/project/access_and_security/tabs.py:40
-#: dashboards/project/access_and_security/security_groups/tables.py:32
-#: dashboards/project/access_and_security/security_groups/tables.py:66
+#: dashboards/project/access_and_security/security_groups/tables.py:33
+#: dashboards/project/access_and_security/security_groups/tables.py:67
 #: dashboards/project/instances/templates/instances/_detail_overview.html:53
-#: dashboards/project/instances/workflows/create_instance.py:344
+#: dashboards/project/instances/workflows/create_instance.py:345
 #: dashboards/project/instances/workflows/update_instance.py:111
 msgid "Security Groups"
 msgstr "Biztonsági csoportok"
 
-#: dashboards/admin/projects/workflows.py:57
-#: dashboards/project/access_and_security/security_groups/tables.py:119
+#: dashboards/admin/projects/workflows.py:61
+#: dashboards/project/access_and_security/security_groups/tables.py:129
 msgid "Security Group Rules"
 msgstr "Biztonsági csoport szabályok"
 
-#: dashboards/admin/projects/workflows.py:60
+#: dashboards/admin/projects/workflows.py:74
 msgid "Quota"
 msgstr "Kvóta"
 
-#: dashboards/admin/projects/workflows.py:62
+#: dashboards/admin/projects/workflows.py:76
 msgid "From here you can set quotas (max limits) for the project."
 msgstr "Innen tudja beállítani a projekt kvótáit (maximum korlátjait)."
 
-#: dashboards/admin/projects/workflows.py:93
-#: dashboards/admin/projects/workflows.py:278
+#: dashboards/admin/projects/workflows.py:96
+#: dashboards/admin/projects/workflows.py:275
 msgid "Project Info"
 msgstr "Projektinformáció"
 
-#: dashboards/admin/projects/workflows.py:94
+#: dashboards/admin/projects/workflows.py:97
 #: dashboards/admin/projects/templates/projects/_create.html:18
 msgid "From here you can create a new project to organize users."
 msgstr "Innen tud létrehozni új projektet a felhasználók szervezéséhez."
 
-#: dashboards/admin/projects/workflows.py:113
+#: dashboards/admin/projects/workflows.py:116
 msgid "Unable to retrieve user list. Please try again later."
 msgstr "Nem lehet lekérni a felhasználó listát. Kérjük próbálja meg később."
 
-#: dashboards/admin/projects/workflows.py:125
+#: dashboards/admin/projects/workflows.py:128
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:173
-#: dashboards/admin/projects/workflows.py:180
+#: dashboards/admin/projects/workflows.py:176
+#: dashboards/admin/projects/workflows.py:183
 #: dashboards/admin/projects/templates/projects/_update_members.html:16
 msgid "Project Members"
 msgstr "A projekt tagjai"
 
-#: dashboards/admin/projects/workflows.py:179
+#: dashboards/admin/projects/workflows.py:182
 #: dashboards/admin/projects/templates/projects/_update_members.html:10
 msgid "All Users"
 msgstr "Minden felhasználó"
 
-#: dashboards/admin/projects/workflows.py:181
+#: dashboards/admin/projects/workflows.py:184
 #: dashboards/admin/projects/templates/projects/_update_members.html:25
 #: dashboards/admin/projects/templates/projects/_update_members.html:32
 msgid "No users found."
 msgstr "Nem található felhasználó."
 
-#: dashboards/admin/projects/workflows.py:182
+#: dashboards/admin/projects/workflows.py:185
 msgid "No users."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:190
+#: dashboards/admin/projects/workflows.py:193
 #: dashboards/admin/users/views.py:47
 msgid "Unable to retrieve user list."
 msgstr "Nem lehet lekérni a felhasználó listát."
 
-#: dashboards/admin/projects/workflows.py:203
+#: dashboards/admin/projects/workflows.py:206
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Új projekt létrehozva: „%s”."
 
-#: dashboards/admin/projects/workflows.py:204
+#: dashboards/admin/projects/workflows.py:207
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "Nem lehet létrehozni a projektet: „%s”."
 
-#: dashboards/admin/projects/workflows.py:248
+#: dashboards/admin/projects/workflows.py:251
 #, python-format
 msgid "Failed to add %s project members and set project quotas."
-msgstr "Nem sikerült hozzáadni %s projekt tagjait és beállítani a projekt kvótáit."
+msgstr ""
+"Nem sikerült hozzáadni %s projekt tagjait és beállítani a projekt kvótáit."
 
-#: dashboards/admin/projects/workflows.py:270
+#: dashboards/admin/projects/workflows.py:267
 msgid "Unable to set project quotas."
 msgstr "Nem lehet beállítani a projekt kvótákat."
 
-#: dashboards/admin/projects/workflows.py:280
+#: dashboards/admin/projects/workflows.py:277
 msgid "From here you can edit the project details."
 msgstr "Innen tudja szerkeszteni a projekt részleteit."
 
-#: dashboards/admin/projects/workflows.py:295
+#: dashboards/admin/projects/workflows.py:292
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "„%s” projekt módosítva."
 
-#: dashboards/admin/projects/workflows.py:296
+#: dashboards/admin/projects/workflows.py:293
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Nem lehet módosítani a(z) „%s” projektet."
 
-#: dashboards/admin/projects/workflows.py:349
+#: dashboards/admin/projects/workflows.py:346
 msgid ""
 "You cannot remove the \"admin\" role from the project you are currently "
 "logged into. Please switch to another project with admin permissions or "
 "remove the role manually via the CLI"
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:381
+#: dashboards/admin/projects/workflows.py:378
 #, python-format
 msgid "Failed to modify %s project members and update project quotas."
-msgstr "Nem sikerült módosítani %s projekt tagjait és frissíteni a projektkvótákat."
+msgstr ""
+"Nem sikerült módosítani %s projekt tagjait és frissíteni a projektkvótákat."
 
-#: dashboards/admin/projects/workflows.py:414
+#: dashboards/admin/projects/workflows.py:398
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
-msgstr "A projektinformációk és -tagok módosítva, de a projektkvóták nem módosíthatók."
+msgstr ""
+"A projektinformációk és -tagok módosítva, de a projektkvóták nem "
+"módosíthatók."
 
 #: dashboards/admin/projects/templates/projects/_add_user.html:8
 #: dashboards/admin/projects/templates/projects/add_user.html:3
@@ -1405,10 +1428,10 @@ msgstr "A felhasználói szerep kiválasztása a projekthez."
 
 #: dashboards/admin/projects/templates/projects/_add_user.html:23
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:26
-#: dashboards/project/loadbalancers/workflows.py:97
+#: dashboards/project/loadbalancers/workflows.py:98
 #: dashboards/project/loadbalancers/workflows.py:194
 #: dashboards/project/loadbalancers/workflows.py:326
-#: dashboards/project/loadbalancers/workflows.py:430
+#: dashboards/project/loadbalancers/workflows.py:425
 msgid "Add"
 msgstr "Hozzáadás"
 
@@ -1419,7 +1442,8 @@ msgstr "Felhasználó létrehozása a projekthez: „%(tenant_name)s”."
 
 #: dashboards/admin/projects/templates/projects/_create_user.html:18
 msgid "From here you can create a new user to add to this project."
-msgstr "Innen létre tud hozni új felhasználót, akit hozzáadhat ehhez a projekthez."
+msgstr ""
+"Innen létre tud hozni új felhasználót, akit hozzáadhat ehhez a projekthez."
 
 #: dashboards/admin/projects/templates/projects/_create_user.html:23
 #: dashboards/admin/users/tables.py:20
@@ -1439,7 +1463,9 @@ msgstr "Kvóta frissítése"
 #, python-format
 msgid ""
 "From here you can edit quotas (max limits) for the project %(tenant.name)s."
-msgstr "Innen tudja szerkeszteni a projekt %(tenant.name)s kvótáit (maximális korlátjait)."
+msgstr ""
+"Innen tudja szerkeszteni a projekt %(tenant.name)s kvótáit (maximális "
+"korlátjait)."
 
 #: dashboards/admin/projects/templates/projects/_update.html:8
 #: dashboards/admin/projects/templates/projects/_update.html:23
@@ -1455,7 +1481,9 @@ msgstr "Innen tudja szerkeszteni a projektet."
 msgid ""
 "From here you can add and remove members to this project from the list of "
 "all available users."
-msgstr "Itt tagokat vehet fel a projektbe az összes elérhető felhasználó listájából, vagy eltávolíthatja azokat."
+msgstr ""
+"Itt tagokat vehet fel a projektbe az összes elérhető felhasználó listájából, "
+"vagy eltávolíthatja azokat."
 
 #: dashboards/admin/projects/templates/projects/create_user.html:3
 #: dashboards/admin/projects/templates/projects/create_user.html:6
@@ -1482,32 +1510,10 @@ msgstr ""
 msgid "Users for Project"
 msgstr "A projekt felhasználói"
 
-#: dashboards/admin/routers/forms.py:35 dashboards/project/routers/forms.py:23
-#: dashboards/project/routers/ports/forms.py:32
-#: dashboards/project/routers/ports/forms.py:91
-msgid "Router Name"
-msgstr ""
-
-#: dashboards/admin/routers/forms.py:48
-msgid "Failed to get tenants."
-msgstr ""
-
-#: dashboards/admin/routers/forms.py:67 dashboards/project/routers/forms.py:37
-#, python-format
-msgid "Failed to create router \"%s\"."
-msgstr ""
-
-#: dashboards/admin/routers/tables.py:39
-#: dashboards/admin/routers/templates/routers/create.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:28
-#: dashboards/project/routers/tables.py:59
-#: dashboards/project/routers/templates/routers/create.html:3
-msgid "Create Router"
-msgstr ""
-
-#: dashboards/admin/routers/tables.py:77
+#: dashboards/admin/routers/panel.py:25 dashboards/admin/routers/tables.py:71
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
+#: dashboards/project/routers/panel.py:25
 #: dashboards/project/routers/tables.py:34
 #: dashboards/project/routers/tables.py:137
 #: dashboards/project/routers/templates/routers/index.html:3
@@ -1515,32 +1521,25 @@ msgstr ""
 msgid "Routers"
 msgstr ""
 
-#: dashboards/admin/routers/views.py:51 dashboards/project/routers/views.py:55
+#: dashboards/admin/routers/views.py:49 dashboards/project/routers/views.py:55
 msgid "Unable to retrieve router list."
 msgstr ""
 
-#: dashboards/admin/routers/ports/tables.py:49
-#: dashboards/project/access_and_security/security_groups/forms.py:112
-#: dashboards/project/access_and_security/security_groups/forms.py:119
+#: dashboards/admin/routers/ports/tables.py:38
+#: dashboards/project/access_and_security/security_groups/forms.py:113
+#: dashboards/project/access_and_security/security_groups/forms.py:120
 #: dashboards/project/images_and_snapshots/images/tables.py:173
-#: dashboards/project/loadbalancers/workflows.py:365
-#: dashboards/project/routers/ports/tables.py:81
+#: dashboards/project/loadbalancers/workflows.py:360
+#: dashboards/project/routers/ports/tables.py:82
 #: dashboards/project/volumes/forms.py:31
 #: dashboards/project/volumes/tables.py:175
 msgid "Type"
 msgstr "Típus"
 
-#: dashboards/admin/routers/ports/tables.py:58
-#: dashboards/project/routers/ports/tables.py:51
-#: dashboards/project/routers/ports/tables.py:90
+#: dashboards/admin/routers/ports/tables.py:47
+#: dashboards/project/routers/ports/tables.py:53
+#: dashboards/project/routers/ports/tables.py:91
 msgid "Interfaces"
-msgstr ""
-
-#: dashboards/admin/routers/templates/routers/_create.html:8
-#: dashboards/admin/routers/templates/routers/_create.html:19
-#: dashboards/project/routers/templates/routers/_create.html:8
-#: dashboards/project/routers/templates/routers/_create.html:19
-msgid "Create router"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:3
@@ -1558,59 +1557,14 @@ msgstr ""
 msgid "Connected External Network"
 msgstr ""
 
-#: dashboards/admin/routers/templates/routers/create.html:6
-#: dashboards/project/routers/templates/routers/create.html:6
-msgid "Create a Router"
-msgstr ""
-
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/project/routers/templates/routers/detail.html:3
+#: dashboards/project/routers/templates/routers/detail.html:6
 msgid "Router Details"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/detail.html:6
-#: dashboards/project/routers/templates/routers/detail.html:6
 msgid "Router Detail"
-msgstr ""
-
-#: dashboards/admin/routers/templates/routers/ports/_create.html:8
-#: dashboards/admin/routers/templates/routers/ports/create.html:3
-#: dashboards/admin/routers/templates/routers/ports/create.html:6
-#: dashboards/project/routers/ports/tables.py:40
-#: dashboards/project/routers/templates/routers/ports/_create.html:8
-#: dashboards/project/routers/templates/routers/ports/create.html:3
-#: dashboards/project/routers/templates/routers/ports/create.html:6
-msgid "Add Interface"
-msgstr ""
-
-#: dashboards/admin/routers/templates/routers/ports/_create.html:18
-#: dashboards/project/routers/templates/routers/ports/_create.html:18
-msgid "You can connect a specified subnet to the router."
-msgstr ""
-
-#: dashboards/admin/routers/templates/routers/ports/_create.html:23
-#: dashboards/project/routers/templates/routers/ports/_create.html:23
-msgid "Add interface"
-msgstr ""
-
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:8
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:23
-#: dashboards/admin/routers/templates/routers/ports/setgateway.html:3
-#: dashboards/admin/routers/templates/routers/ports/setgateway.html:6
-#: dashboards/project/routers/tables.py:66
-#: dashboards/project/routers/templates/routers/ports/_setgateway.html:8
-#: dashboards/project/routers/templates/routers/ports/_setgateway.html:23
-#: dashboards/project/routers/templates/routers/ports/setgateway.html:3
-#: dashboards/project/routers/templates/routers/ports/setgateway.html:6
-msgid "Set Gateway"
-msgstr ""
-
-#: dashboards/admin/routers/templates/routers/ports/_setgateway.html:18
-#: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
-msgid ""
-"You can connect a specified external network to the router. The external "
-"network is regarded as a default route of the router and the router acts as "
-"a gateway for external connectivity."
 msgstr ""
 
 #: dashboards/admin/users/forms.py:54
@@ -1700,7 +1654,8 @@ msgstr "Letiltva"
 
 #: dashboards/admin/users/tables.py:67
 msgid "You cannot disable the user you are currently logged in as."
-msgstr "Nem tilthatja le azt a felhasználót, amellyel jelenleg be van jelentkezve."
+msgstr ""
+"Nem tilthatja le azt a felhasználót, amellyel jelenleg be van jelentkezve."
 
 #: dashboards/admin/users/tables.py:112
 msgid "User ID"
@@ -1728,7 +1683,9 @@ msgstr "Felhasználó frissítése"
 #: dashboards/admin/users/templates/users/_update.html:17
 msgid ""
 "From here you can edit the user's details, including their default project."
-msgstr "Itt szerkesztheti a felhasználók adatait, beleértve az alapértelmezett projektjeiket."
+msgstr ""
+"Itt szerkesztheti a felhasználók adatait, beleértve az alapértelmezett "
+"projektjeiket."
 
 #: dashboards/admin/volumes/forms.py:38
 #, python-format
@@ -1766,7 +1723,8 @@ msgstr ""
 msgid ""
 "\n"
 "    The volume type defines the characteristics of a volume.\n"
-"    It usually maps to a set of capabilities of the storage back-end driver to be used for this volume.\n"
+"    It usually maps to a set of capabilities of the storage back-end driver "
+"to be used for this volume.\n"
 "    Examples: \"Performance\", \"SSD\", \"Backup\", etc.\n"
 "    "
 msgstr ""
@@ -1789,17 +1747,22 @@ msgstr "Kötet részletei"
 msgid "Manage Compute"
 msgstr "Compute kezelése"
 
-#: dashboards/project/dashboard.py:38
+#: dashboards/project/dashboard.py:34
+#, fuzzy
+msgid "Manage Network"
+msgstr "Hálózat létrehozása"
+
+#: dashboards/project/dashboard.py:43
 msgid "Object Store"
 msgstr "Objektumtár"
 
 #: dashboards/project/access_and_security/panel.py:26
-#: dashboards/project/instances/workflows/create_instance.py:352
+#: dashboards/project/instances/workflows/create_instance.py:353
 msgid "Access & Security"
 msgstr "Hozzáférés és biztonság"
 
 #: dashboards/project/access_and_security/tabs.py:50
-#: dashboards/project/access_and_security/security_groups/views.py:85
+#: dashboards/project/access_and_security/security_groups/views.py:86
 msgid "Unable to retrieve security groups."
 msgstr "Nem kérhetők le a biztonsági csoportok."
 
@@ -1863,7 +1826,7 @@ msgstr "Hiba az RC fájl letöltésekor: %s"
 #: dashboards/project/loadbalancers/tables.py:84
 #: dashboards/project/loadbalancers/tables.py:143
 #: dashboards/project/loadbalancers/workflows.py:249
-#: dashboards/project/loadbalancers/workflows.py:364
+#: dashboards/project/loadbalancers/workflows.py:359
 msgid "Pool"
 msgstr "Tároló"
 
@@ -1902,7 +1865,7 @@ msgid "Associate Floating IP"
 msgstr "Lebegő IP társítása"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:78
-#: dashboards/project/instances/tables.py:344
+#: dashboards/project/instances/tables.py:349
 msgid "Disassociate Floating IP"
 msgstr "Lebegő IP társításának megszüntetése"
 
@@ -1912,7 +1875,7 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Lebegő IP társítása sikeresen megszüntetve: %s"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:97
-#: dashboards/project/instances/tables.py:370
+#: dashboards/project/instances/tables.py:380
 msgid "Unable to disassociate floating IP."
 msgstr "Lebegő IP társítása nem szüntethető meg."
 
@@ -1925,8 +1888,7 @@ msgid "No floating IP pools available."
 msgstr "A lebegő IP-k tárai nem érhetők el."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:42
-msgid ""
-"Select the IP address you wish to associate with the selected instance."
+msgid "Select the IP address you wish to associate with the selected instance."
 msgstr "Válassza ki a kijelölt példányhoz társítani kívánt IP-címet."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:48
@@ -1990,7 +1952,9 @@ msgstr "Kulcspár neve"
 #: dashboards/project/access_and_security/keypairs/forms.py:40
 msgid ""
 "Keypair names may only contain letters, numbers, underscores and hyphens."
-msgstr "A kulcspárnevek csak betűket, számokat, aláhúzásokat és kötőjeleket tartalmazhatnak."
+msgstr ""
+"A kulcspárnevek csak betűket, számokat, aláhúzásokat és kötőjeleket "
+"tartalmazhatnak."
 
 #: dashboards/project/access_and_security/keypairs/forms.py:51
 msgid "Public Key"
@@ -2006,8 +1970,8 @@ msgid "Unable to import keypair."
 msgstr "A kulcspár nem importálható."
 
 #: dashboards/project/access_and_security/keypairs/tables.py:30
-#: dashboards/project/instances/tables.py:451
-#: dashboards/project/instances/workflows/create_instance.py:339
+#: dashboards/project/instances/tables.py:461
+#: dashboards/project/instances/workflows/create_instance.py:340
 msgid "Keypair"
 msgstr "Kulcspár"
 
@@ -2036,156 +2000,156 @@ msgstr "Ujjlenyomat"
 msgid "Unable to create keypair: %(exc)s"
 msgstr "Nem hozható létre kulcspár: %(exc)s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:38
+#: dashboards/project/access_and_security/security_groups/forms.py:39
 msgid "This field is required."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:39
+#: dashboards/project/access_and_security/security_groups/forms.py:40
 msgid "The string may only contain ASCII characters and numbers."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:50
+#: dashboards/project/access_and_security/security_groups/forms.py:51
 #, python-format
 msgid "Successfully created security group: %s"
 msgstr "A biztonsági csoport sikeresen létrehozva: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:56
+#: dashboards/project/access_and_security/security_groups/forms.py:57
 msgid "Unable to create security group."
 msgstr "Nem hozható létre biztonsági csoport."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:62
-#: dashboards/project/access_and_security/security_groups/tables.py:105
+#: dashboards/project/access_and_security/security_groups/forms.py:63
+#: dashboards/project/access_and_security/security_groups/tables.py:115
 msgid "IP Protocol"
 msgstr "IP protokoll"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:63
+#: dashboards/project/access_and_security/security_groups/forms.py:64
 msgid "TCP"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:64
+#: dashboards/project/access_and_security/security_groups/forms.py:65
 msgid "UDP"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:65
+#: dashboards/project/access_and_security/security_groups/forms.py:66
 msgid "ICMP"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:66
+#: dashboards/project/access_and_security/security_groups/forms.py:67
 msgid "The protocol which this rule should be applied to."
 msgstr "Szabály alkalmazása ezen protokollra."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:72
-#: dashboards/project/access_and_security/security_groups/forms.py:79
+#: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/forms.py:80
+#: dashboards/project/access_and_security/security_groups/forms.py:81
 msgid "Open"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:74
+#: dashboards/project/access_and_security/security_groups/forms.py:75
 msgid "Port Range"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:84
-#: dashboards/project/access_and_security/security_groups/forms.py:94
-#: dashboards/project/access_and_security/security_groups/forms.py:104
+#: dashboards/project/access_and_security/security_groups/forms.py:85
+#: dashboards/project/access_and_security/security_groups/forms.py:95
+#: dashboards/project/access_and_security/security_groups/forms.py:105
 msgid "Enter an integer value between 1 and 65535."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:92
-#: dashboards/project/access_and_security/security_groups/forms.py:99
-#: dashboards/project/access_and_security/security_groups/tables.py:107
+#: dashboards/project/access_and_security/security_groups/forms.py:93
+#: dashboards/project/access_and_security/security_groups/forms.py:100
+#: dashboards/project/access_and_security/security_groups/tables.py:117
 msgid "From Port"
 msgstr "Küldő port"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:102
-#: dashboards/project/access_and_security/security_groups/forms.py:109
-#: dashboards/project/access_and_security/security_groups/tables.py:108
+#: dashboards/project/access_and_security/security_groups/forms.py:103
+#: dashboards/project/access_and_security/security_groups/forms.py:110
+#: dashboards/project/access_and_security/security_groups/tables.py:118
 msgid "To Port"
 msgstr "Cél port"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:114
+#: dashboards/project/access_and_security/security_groups/forms.py:115
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:122
-#: dashboards/project/access_and_security/security_groups/forms.py:129
+#: dashboards/project/access_and_security/security_groups/forms.py:123
+#: dashboards/project/access_and_security/security_groups/forms.py:130
 msgid "Code"
 msgstr "Kód"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:124
+#: dashboards/project/access_and_security/security_groups/forms.py:125
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:132
-#: dashboards/project/access_and_security/security_groups/tables.py:109
+#: dashboards/project/access_and_security/security_groups/forms.py:133
+#: dashboards/project/access_and_security/security_groups/tables.py:119
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid "Source"
 msgstr "Forrás"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:134
-#: dashboards/project/access_and_security/security_groups/forms.py:157
-#: dashboards/project/access_and_security/security_groups/forms.py:162
-#: dashboards/project/access_and_security/security_groups/tables.py:31
+#: dashboards/project/access_and_security/security_groups/forms.py:135
+#: dashboards/project/access_and_security/security_groups/forms.py:158
+#: dashboards/project/access_and_security/security_groups/forms.py:163
+#: dashboards/project/access_and_security/security_groups/tables.py:32
 msgid "Security Group"
 msgstr "Biztonsági csoport"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:135
+#: dashboards/project/access_and_security/security_groups/forms.py:136
 msgid ""
 "To specify an allowed IP range, select \"CIDR\". To allow access from all "
 "members of another security group select \"Security Group\"."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:148
+#: dashboards/project/access_and_security/security_groups/forms.py:149
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Osztály nélküli tartományközi útválasztás (például 192.168.0.0/24)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:173
+#: dashboards/project/access_and_security/security_groups/forms.py:174
 msgid "No security groups available"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:192
+#: dashboards/project/access_and_security/security_groups/forms.py:193
 msgid "The ICMP type is invalid."
 msgstr "Az ICMP típus érvénytelen."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:195
+#: dashboards/project/access_and_security/security_groups/forms.py:196
 msgid "The ICMP code is invalid."
 msgstr "Az ICMP kód érvénytelen."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:198
+#: dashboards/project/access_and_security/security_groups/forms.py:199
 msgid "The ICMP type not in range (-1, 255)"
 msgstr "Az ICMP típus nincs a (-1, 255) tartományban"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:201
+#: dashboards/project/access_and_security/security_groups/forms.py:202
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "Az ICMP kód nincs a (-1, 255) tartományban"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:210
+#: dashboards/project/access_and_security/security_groups/forms.py:211
 msgid "The specified port is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:214
+#: dashboards/project/access_and_security/security_groups/forms.py:215
 msgid "The \"from\" port number is invalid."
 msgstr "A „forrás” portszám érvénytelen."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:217
+#: dashboards/project/access_and_security/security_groups/forms.py:218
 msgid "The \"to\" port number is invalid."
 msgstr "A „cél” portszám érvénytelen."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:220
+#: dashboards/project/access_and_security/security_groups/forms.py:221
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr "A „cél” portszám nem lehet kisebb a „forrás” portszámnál."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:242
+#: dashboards/project/access_and_security/security_groups/forms.py:243
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "Szabály sikeresen hozzáadva: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:248
+#: dashboards/project/access_and_security/security_groups/forms.py:249
 msgid "Unable to add rule to security group."
 msgstr "Nem vehető fel szabály a biztonsági csoporthoz."
 
-#: dashboards/project/access_and_security/security_groups/tables.py:45
+#: dashboards/project/access_and_security/security_groups/tables.py:46
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:7
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:23
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:3
@@ -2193,30 +2157,34 @@ msgstr "Nem vehető fel szabály a biztonsági csoporthoz."
 msgid "Create Security Group"
 msgstr "Biztonsági csoport létrehozása"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:52
+#: dashboards/project/access_and_security/security_groups/tables.py:53
 msgid "Edit Rules"
 msgstr "Szabályok szerkesztése"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:73
+#: dashboards/project/access_and_security/security_groups/tables.py:74
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:7
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
 msgid "Add Rule"
 msgstr "Szabály hozzáadása"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:82
+#: dashboards/project/access_and_security/security_groups/tables.py:83
 msgid "Rule"
 msgstr "Szabály"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:83
+#: dashboards/project/access_and_security/security_groups/tables.py:84
 msgid "Rules"
 msgstr "Szabályok"
 
-#: dashboards/project/access_and_security/security_groups/views.py:55
+#: dashboards/project/access_and_security/security_groups/tables.py:109
+msgid "Any"
+msgstr ""
+
+#: dashboards/project/access_and_security/security_groups/views.py:56
 msgid "Unable to retrieve security group."
 msgstr "Nem lehet lekérni a biztonsági csoportot."
 
-#: dashboards/project/access_and_security/security_groups/views.py:91
+#: dashboards/project/access_and_security/security_groups/views.py:92
 #, python-format
 msgid "%s (current)"
 msgstr "%s (jelenlegi)"
@@ -2248,14 +2216,18 @@ msgstr "IP lefoglalása"
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:17
 msgid ""
 "Keypairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the"
-" private key (a .pem file)."
-msgstr "A kulcspárok SSH hitelesítési adatok, amelyek beszúrásra kerülnek a lemezképekbe azok indításakor. Az új kulcspár létrehozása regisztrálja a nyilvános kulcsot, és letölti a magánkulcsot (egy .pem fájlt)."
+"launched. Creating a new key pair registers the public key and downloads the "
+"private key (a .pem file)."
+msgstr ""
+"A kulcspárok SSH hitelesítési adatok, amelyek beszúrásra kerülnek a "
+"lemezképekbe azok indításakor. Az új kulcspár létrehozása regisztrálja a "
+"nyilvános kulcsot, és letölti a magánkulcsot (egy .pem fájlt)."
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:18
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:18
 msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "A kulcsot úgy védje és használja, mintha egy normál SSH magánkulcs lenne."
+msgstr ""
+"A kulcsot úgy védje és használja, mintha egy normál SSH magánkulcs lenne."
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:6
@@ -2267,7 +2239,9 @@ msgstr "Kulcspár letöltése"
 msgid ""
 "The keypair &quot;%(keypair_name)s&quot; should download automatically. If "
 "not use the link below."
-msgstr "A kulcspár (&quot;%(keypair_name)s&quot;) letöltése automatikusan indul. Ha mégsem, használja a lenti hivatkozást."
+msgstr ""
+"A kulcspár (&quot;%(keypair_name)s&quot;) letöltése automatikusan indul. Ha "
+"mégsem, használja a lenti hivatkozást."
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:15
 #, python-format
@@ -2299,10 +2273,10 @@ msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid ""
-"For TCP and UDP rules you may choose to open either a single port or a range"
-" of ports. Selecting the \"Port Range\" option will provide you with space "
-"to provide both the starting and ending ports for the range. For ICMP rules "
-"you instead specify an ICMP type and code in the spaces provided."
+"For TCP and UDP rules you may choose to open either a single port or a range "
+"of ports. Selecting the \"Port Range\" option will provide you with space to "
+"provide both the starting and ending ports for the range. For ICMP rules you "
+"instead specify an ICMP type and code in the spaces provided."
 msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
@@ -2463,21 +2437,31 @@ msgstr "Objektum másolása"
 
 #: dashboards/project/containers/templates/containers/_copy.html:17
 msgid ""
-"Make a new copy of an existing object to store in this or another container."
-" You may also specify a path at which the new copy should live inside of the"
-" selected container."
-msgstr "Új másolat létrehozása meglévő objektumról az itt vagy másik konténerben való tároláshoz. Megadhatja azt az útvonalat is, ahol az új másolatnak élnie kell a kiválasztott konténerben."
+"Make a new copy of an existing object to store in this or another container. "
+"You may also specify a path at which the new copy should live inside of the "
+"selected container."
+msgstr ""
+"Új másolat létrehozása meglévő objektumról az itt vagy másik konténerben "
+"való tároláshoz. Megadhatja azt az útvonalat is, ahol az új másolatnak élnie "
+"kell a kiválasztott konténerben."
 
 #: dashboards/project/containers/templates/containers/_create.html:17
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a"
-" container and these other file system concepts is that containers cannot be"
-" nested. You can, however, create an unlimited number of containers within "
+"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
+"container and these other file system concepts is that containers cannot be "
+"nested. You can, however, create an unlimited number of containers within "
 "your account. Data must be stored in a container so you must have at least "
 "one container defined in your account prior to uploading data."
-msgstr "A konténer az adatait tároló egység, amely lehetővé teszi adatai rendszerezését. A konténert úgy képzelheti el, mint egy mappát Windows alatt vagy könyvtárat Unix alatt. Az alapvető különbség a konténer és más fájlrendszerbeli fogalmak között az, hogy a konténerek nem ágyazhatók egymásba. Azonban végtelen számú konténert hozhat létre a fiókjában. Az adatokat konténerekben kell tárolni, így legalább egy konténert definiálni kell a fiókjában az adatok feltöltése előtt."
+msgstr ""
+"A konténer az adatait tároló egység, amely lehetővé teszi adatai "
+"rendszerezését. A konténert úgy képzelheti el, mint egy mappát Windows alatt "
+"vagy könyvtárat Unix alatt. Az alapvető különbség a konténer és más "
+"fájlrendszerbeli fogalmak között az, hogy a konténerek nem ágyazhatók "
+"egymásba. Azonban végtelen számú konténert hozhat létre a fiókjában. Az "
+"adatokat konténerekben kell tárolni, így legalább egy konténert definiálni "
+"kell a fiókjában az adatok feltöltése előtt."
 
 #: dashboards/project/containers/templates/containers/_upload.html:8
 msgid "Upload Object To Container"
@@ -2501,8 +2485,8 @@ msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
 "exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for "
-"pseudo-folders in the Object Store."
+"the object's name. A slash (/) character is used as the delimiter for pseudo-"
+"folders in the Object Store."
 msgstr ""
 
 #: dashboards/project/containers/templates/containers/upload.html:6
@@ -2571,9 +2555,11 @@ msgstr "Minimum lemez (GB)"
 #: dashboards/project/images_and_snapshots/images/forms.py:75
 #: dashboards/project/images_and_snapshots/images/forms.py:82
 msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value"
-" defaults to 0 (no minimum)."
-msgstr "A kép indításához szükséges minimális lemezméret. Ha nincs megadva, az alapértelmezett értéke 0 (nincs minimum)."
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"A kép indításához szükséges minimális lemezméret. Ha nincs megadva, az "
+"alapértelmezett értéke 0 (nincs minimum)."
 
 #: dashboards/project/images_and_snapshots/images/forms.py:81
 msgid "Minimum Ram (MB)"
@@ -2581,6 +2567,7 @@ msgstr "Minimum RAM (MB)"
 
 #: dashboards/project/images_and_snapshots/images/forms.py:88
 #: dashboards/project/images_and_snapshots/images/forms.py:160
+#: dashboards/project/images_and_snapshots/images/tables.py:104
 #: dashboards/project/images_and_snapshots/images/tables.py:181
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:15
 msgid "Public"
@@ -2629,16 +2616,21 @@ msgstr "A kép sikeresen feltöltve."
 
 #: dashboards/project/images_and_snapshots/images/tables.py:37
 #: dashboards/project/images_and_snapshots/snapshots/tables.py:33
-#: dashboards/project/instances/workflows/create_instance.py:466
+#: dashboards/project/instances/workflows/create_instance.py:467
 msgid "Launch"
 msgstr "Indítás"
 
 #: dashboards/project/images_and_snapshots/images/tables.py:49
 #: dashboards/project/images_and_snapshots/images/tables.py:131
-#: dashboards/project/instances/workflows/create_instance.py:171
-#: dashboards/project/instances/workflows/create_instance.py:176
+#: dashboards/project/instances/workflows/create_instance.py:172
+#: dashboards/project/instances/workflows/create_instance.py:177
 msgid "Image"
 msgstr "Kép"
+
+#: dashboards/project/images_and_snapshots/images/tables.py:103
+#, fuzzy
+msgid "Shared with Me"
+msgstr "Megosztott"
 
 #: dashboards/project/images_and_snapshots/images/tabs.py:38
 msgid "Unable to retrieve image details."
@@ -2668,7 +2660,7 @@ msgstr "Nem lehet pillanatképet létrehozni."
 
 #: dashboards/project/images_and_snapshots/snapshots/tables.py:48
 #: dashboards/project/instances/workflows/create_instance.py:110
-#: dashboards/project/instances/workflows/create_instance.py:172
+#: dashboards/project/instances/workflows/create_instance.py:173
 msgid "Snapshot"
 msgstr "Pillanatkép"
 
@@ -2773,6 +2765,8 @@ msgstr "Kötet"
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:11
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:12
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:13
+#: dashboards/project/volumes/templates/volumes/_create.html:25
+#: dashboards/project/volumes/templates/volumes/_create.html:26
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:27
 msgid "GB"
 msgstr "GB"
@@ -2879,7 +2873,7 @@ msgstr "Felfüggesztve"
 #: dashboards/project/instances/tables.py:191
 #: dashboards/project/instances/templates/instances/launch.html:3
 #: dashboards/project/instances/templates/instances/launch.html:6
-#: dashboards/project/instances/workflows/create_instance.py:465
+#: dashboards/project/instances/workflows/create_instance.py:466
 #: dashboards/project/network_topology/templates/network_topology/index.html:26
 msgid "Launch Instance"
 msgstr "Példány indítása"
@@ -2916,36 +2910,36 @@ msgstr ""
 msgid "Revert Resize/Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:334
+#: dashboards/project/instances/tables.py:339
 #, python-format
 msgid "Successfully associated floating IP: %s"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:338
+#: dashboards/project/instances/tables.py:343
 msgid "Unable to associate floating IP."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:364
+#: dashboards/project/instances/tables.py:374
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:367
+#: dashboards/project/instances/tables.py:377
 msgid "No floating IPs to disassociate."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:392
+#: dashboards/project/instances/tables.py:402
 #, python-format
 msgid "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 msgstr "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s lemez"
 
-#: dashboards/project/instances/tables.py:399
-#: dashboards/project/instances/tables.py:406
+#: dashboards/project/instances/tables.py:409
+#: dashboards/project/instances/tables.py:416
 msgid "Not available"
 msgstr "Nem érhető el"
 
-#: dashboards/project/instances/tables.py:446
-#: dashboards/project/instances/workflows/create_instance.py:179
+#: dashboards/project/instances/tables.py:456
+#: dashboards/project/instances/workflows/create_instance.py:180
 #: usage/tables.py:57
 msgid "Instance Name"
 msgstr "Példány neve"
@@ -3075,13 +3069,17 @@ msgstr "Nincsenek csatolt kötetek."
 msgid ""
 "You can customize your instance after it's launched using the options "
 "available here."
-msgstr "A példányt személyre szabhatja az elindítása után az itt elérhető beállításokkal."
+msgstr ""
+"A példányt személyre szabhatja az elindítása után az itt elérhető "
+"beállításokkal."
 
 #: dashboards/project/instances/templates/instances/_launch_customize_help.html:3
 msgid ""
 "The \"Customization Script\" field is analogous to \"User Data\" in other "
 "systems."
-msgstr "A „Testre szabó szkript” mező megfelel a más rendszereken használt „Felhasználói adatoknak”."
+msgstr ""
+"A „Testre szabó szkript” mező megfelel a más rendszereken használt "
+"„Felhasználói adatoknak”."
 
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:3
 msgid "Specify the details for launching an instance."
@@ -3091,7 +3089,9 @@ msgstr "Adja meg a részleteket egy példány indításához."
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
-msgstr "Az alábbi diagram megjeleníti a projekt által használt erőforrásokat a projekt kvótáihoz viszonyítva."
+msgstr ""
+"Az alábbi diagram megjeleníti a projekt által használt erőforrásokat a "
+"projekt kvótáihoz viszonyítva."
 
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:6
 msgid "Flavor Details"
@@ -3103,6 +3103,7 @@ msgstr "Lemez összesen"
 
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:14
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:37
+#: dashboards/project/instances/templates/instances/_launch_details_help.html:38
 msgid "MB"
 msgstr "MB"
 
@@ -3128,7 +3129,9 @@ msgstr ""
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
-msgstr "Egy példány különféle típusú csatolt tárolókkal indítható el. Itt választhat ezekből."
+msgstr ""
+"Egy példány különféle típusú csatolt tárolókkal indítható el. Itt választhat "
+"ezekből."
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
 msgid "Selected Networks"
@@ -3185,175 +3188,188 @@ msgstr "Kötet törlése a példány bezárásakor"
 msgid "Please choose a volume, or select %s."
 msgstr "Kérjük válasszon egy kötetet vagy ezt: %s."
 
-#: dashboards/project/instances/workflows/create_instance.py:120
+#: dashboards/project/instances/workflows/create_instance.py:115
+#, python-format
+msgid "%(name)s - %(size)s GB (%(label)s)"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:121
 msgid "Select Volume"
 msgstr "Kötet kiválasztása"
 
-#: dashboards/project/instances/workflows/create_instance.py:128
+#: dashboards/project/instances/workflows/create_instance.py:129
 msgid "Unable to retrieve list of volumes."
 msgstr "Nem lehet lekérni a kötetek listáját."
 
-#: dashboards/project/instances/workflows/create_instance.py:132
+#: dashboards/project/instances/workflows/create_instance.py:133
 msgid "Select Volume Snapshot"
 msgstr "Kötet pillanatkép kiválasztása"
 
-#: dashboards/project/instances/workflows/create_instance.py:141
+#: dashboards/project/instances/workflows/create_instance.py:142
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "Nem lehet lekérni a kötet pillanatképek listáját."
 
-#: dashboards/project/instances/workflows/create_instance.py:174
+#: dashboards/project/instances/workflows/create_instance.py:175
 msgid "Instance Source"
 msgstr "Példány forrása"
 
-#: dashboards/project/instances/workflows/create_instance.py:177
+#: dashboards/project/instances/workflows/create_instance.py:178
 msgid "Instance Snapshot"
 msgstr "Példány pillanatképe"
 
-#: dashboards/project/instances/workflows/create_instance.py:181
+#: dashboards/project/instances/workflows/create_instance.py:182
 msgid "Size of image to launch."
 msgstr "Az indítandó kép mérete."
 
-#: dashboards/project/instances/workflows/create_instance.py:182
+#: dashboards/project/instances/workflows/create_instance.py:183
 msgid "Instance Count"
 msgstr "Példányok száma"
 
-#: dashboards/project/instances/workflows/create_instance.py:185
+#: dashboards/project/instances/workflows/create_instance.py:186
 msgid "Number of instances to launch."
 msgstr "Az indítandó példányok száma"
 
-#: dashboards/project/instances/workflows/create_instance.py:188
+#: dashboards/project/instances/workflows/create_instance.py:189
 msgid "Details"
 msgstr "Részletek"
 
-#: dashboards/project/instances/workflows/create_instance.py:201
+#: dashboards/project/instances/workflows/create_instance.py:202
 msgid ""
 "There are no image sources available; you must first create an image before "
 "attempting to launch an instance."
-msgstr "Nincsenek elérhető kép források; először létre kell hoznia egy képet, mielőtt megpróbál indítani egy példányt."
+msgstr ""
+"Nincsenek elérhető kép források; először létre kell hoznia egy képet, "
+"mielőtt megpróbál indítani egy példányt."
 
-#: dashboards/project/instances/workflows/create_instance.py:206
+#: dashboards/project/instances/workflows/create_instance.py:207
 msgid "Please select an option for the instance source."
 msgstr "Válasszon beállítást a példányforráshoz."
 
-#: dashboards/project/instances/workflows/create_instance.py:215
+#: dashboards/project/instances/workflows/create_instance.py:216
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
-msgstr "Több példány indítása csak lemezképek és példánypillanatképek esetén támogatott."
+msgstr ""
+"Több példány indítása csak lemezképek és példánypillanatképek esetén "
+"támogatott."
 
-#: dashboards/project/instances/workflows/create_instance.py:232
+#: dashboards/project/instances/workflows/create_instance.py:233
 msgid "Unable to retrieve public images."
 msgstr "Nem lehet lekérni a nyilvános képeket."
 
-#: dashboards/project/instances/workflows/create_instance.py:248
+#: dashboards/project/instances/workflows/create_instance.py:249
 msgid "Unable to retrieve images for the current project."
 msgstr "Nem lehet lekérni képeket a jelenlegi projekthez."
 
-#: dashboards/project/instances/workflows/create_instance.py:271
+#: dashboards/project/instances/workflows/create_instance.py:272
 msgid "Select Image"
 msgstr "Kép kiválasztása"
 
-#: dashboards/project/instances/workflows/create_instance.py:273
+#: dashboards/project/instances/workflows/create_instance.py:274
 msgid "No images available."
 msgstr "Nincsenek elérhető képek."
 
-#: dashboards/project/instances/workflows/create_instance.py:282
+#: dashboards/project/instances/workflows/create_instance.py:283
 msgid "Select Instance Snapshot"
 msgstr "Példány pillanatkép kiválasztása"
 
-#: dashboards/project/instances/workflows/create_instance.py:284
+#: dashboards/project/instances/workflows/create_instance.py:285
 msgid "No snapshots available."
 msgstr "Nincsenek elérhető pillanatképek."
 
-#: dashboards/project/instances/workflows/create_instance.py:295
+#: dashboards/project/instances/workflows/create_instance.py:296
 msgid "Unable to retrieve instance flavors."
 msgstr "Nem lehet lekérni a példány változatokat."
 
-#: dashboards/project/instances/workflows/create_instance.py:308
+#: dashboards/project/instances/workflows/create_instance.py:309
 #: usage/base.py:115
 msgid "Unable to retrieve quota information."
 msgstr "Nem lehet lekérni a kvóta információkat."
 
-#: dashboards/project/instances/workflows/create_instance.py:341
+#: dashboards/project/instances/workflows/create_instance.py:342
 msgid "Which keypair to use for authentication."
 msgstr "Melyik kulcspárt használja a hitelesítéshez."
 
-#: dashboards/project/instances/workflows/create_instance.py:348
+#: dashboards/project/instances/workflows/create_instance.py:349
 msgid "Launch instance in these security groups."
 msgstr "Példány indítása ezekben a biztonsági csoportokban."
 
-#: dashboards/project/instances/workflows/create_instance.py:353
+#: dashboards/project/instances/workflows/create_instance.py:354
 msgid ""
 "Control access to your instance via keypairs, security groups, and other "
 "mechanisms."
-msgstr "Hozzáférés vezérlése a példányhoz kulcspárok, biztonsági csoportok és egyéb mechanizmusok használatával."
+msgstr ""
+"Hozzáférés vezérlése a példányhoz kulcspárok, biztonsági csoportok és egyéb "
+"mechanizmusok használatával."
 
-#: dashboards/project/instances/workflows/create_instance.py:363
+#: dashboards/project/instances/workflows/create_instance.py:364
 msgid "Unable to retrieve keypairs."
 msgstr "Nem lehet lekérni a kulcspárokat."
 
-#: dashboards/project/instances/workflows/create_instance.py:367
+#: dashboards/project/instances/workflows/create_instance.py:368
 msgid "Select a keypair"
 msgstr "Kulcspár kiválasztása"
 
-#: dashboards/project/instances/workflows/create_instance.py:369
+#: dashboards/project/instances/workflows/create_instance.py:370
 msgid "No keypairs available."
 msgstr "Nem érhetők el kulcspárok."
 
-#: dashboards/project/instances/workflows/create_instance.py:378
+#: dashboards/project/instances/workflows/create_instance.py:379
 msgid "Unable to retrieve list of security groups"
 msgstr "Nem lehet lekérni a biztonsági csoportok listáját"
 
-#: dashboards/project/instances/workflows/create_instance.py:398
+#: dashboards/project/instances/workflows/create_instance.py:399
 msgid "Customization Script"
 msgstr "Testre szabó szkript"
 
-#: dashboards/project/instances/workflows/create_instance.py:400
+#: dashboards/project/instances/workflows/create_instance.py:401
 msgid ""
-"A script or set of commands to be executed after the instance has been built"
-" (max 16kb)."
-msgstr "A példány létrejötte után futtatandó szkript vagy parancsok halmaza (maximum 16 KB)."
+"A script or set of commands to be executed after the instance has been built "
+"(max 16kb)."
+msgstr ""
+"A példány létrejötte után futtatandó szkript vagy parancsok halmaza (maximum "
+"16 KB)."
 
-#: dashboards/project/instances/workflows/create_instance.py:407
+#: dashboards/project/instances/workflows/create_instance.py:408
 msgid "Post-Creation"
 msgstr "Létrehozás után"
 
-#: dashboards/project/instances/workflows/create_instance.py:423
+#: dashboards/project/instances/workflows/create_instance.py:424
 msgid "At least one network must be specified."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:425
+#: dashboards/project/instances/workflows/create_instance.py:426
 msgid "Launch instance withthese networks"
 msgstr "Példány indítása ezekkel a hálózatokkal"
 
-#: dashboards/project/instances/workflows/create_instance.py:429
+#: dashboards/project/instances/workflows/create_instance.py:430
 msgid "Networking"
 msgstr "Hálózatkezelés"
 
-#: dashboards/project/instances/workflows/create_instance.py:431
+#: dashboards/project/instances/workflows/create_instance.py:432
 msgid "Select networks for your instance."
 msgstr "Hálózatok kiválasztása a példányához."
 
-#: dashboards/project/instances/workflows/create_instance.py:443
+#: dashboards/project/instances/workflows/create_instance.py:444
 msgid "Unable to retrieve networks."
 msgstr "Nem lehet lekérni a hálózatokat."
 
-#: dashboards/project/instances/workflows/create_instance.py:467
+#: dashboards/project/instances/workflows/create_instance.py:468
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "%(count)s „%(name)s” nevű elindítva."
 
-#: dashboards/project/instances/workflows/create_instance.py:468
+#: dashboards/project/instances/workflows/create_instance.py:469
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Nem indítható el %(count)s „%(name)s”."
 
-#: dashboards/project/instances/workflows/create_instance.py:481
+#: dashboards/project/instances/workflows/create_instance.py:482
 #, python-format
 msgid "%s instances"
 msgstr "%s példányok"
 
-#: dashboards/project/instances/workflows/create_instance.py:484
+#: dashboards/project/instances/workflows/create_instance.py:485
 msgid "instance"
 msgstr "példány"
 
@@ -3412,7 +3428,7 @@ msgid "Load Balancers"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tables.py:32
-#: dashboards/project/loadbalancers/workflows.py:96
+#: dashboards/project/loadbalancers/workflows.py:97
 msgid "Add Pool"
 msgstr ""
 
@@ -3427,7 +3443,7 @@ msgid "Add Member"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tables.py:62
-#: dashboards/project/loadbalancers/workflows.py:429
+#: dashboards/project/loadbalancers/workflows.py:424
 msgid "Add Monitor"
 msgstr ""
 
@@ -3488,7 +3504,7 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:44
 #: dashboards/project/loadbalancers/workflows.py:270
-#: dashboards/project/loadbalancers/workflows.py:388
+#: dashboards/project/loadbalancers/workflows.py:385
 msgid "Unable to retrieve pools list."
 msgstr ""
 
@@ -3568,29 +3584,31 @@ msgstr ""
 msgid "Unable to retrieve networks list."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:60
-#: dashboards/project/loadbalancers/workflows.py:65
+#: dashboards/project/loadbalancers/workflows.py:61
+#: dashboards/project/loadbalancers/workflows.py:66
 #: dashboards/project/loadbalancers/workflows.py:152
 msgid "Select a Protocol"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:72
+#: dashboards/project/loadbalancers/workflows.py:73
 msgid "PoolDetails"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:74
+#: dashboards/project/loadbalancers/workflows.py:75
 msgid ""
 "Create Pool for current tenant.\n"
 "\n"
-"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by default."
+"Assign a name and description for the pool. Choose one subnet where all "
+"members of this pool must be on. Select the protocol and load balancing "
+"method for this pool. Admin State is UP (checked) by defaul.t"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:98
+#: dashboards/project/loadbalancers/workflows.py:99
 #, python-format
 msgid "Added Pool \"%s\"."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:99
+#: dashboards/project/loadbalancers/workflows.py:100
 #, python-format
 msgid "Unable to add Pool \"%s\"."
 msgstr ""
@@ -3635,9 +3653,9 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:169
 msgid ""
 "Create a vip (virtual IP) for this pool. Assign a name and description for "
-"the vip. Specify an IP address and port for the vip. Choose the protocol and"
-" session persistence method for the vip.Specify the max connections allowed."
-" Admin State is UP (checked) by default."
+"the vip. Specify an IP address and port for the vip. Choose the protocol and "
+"session persistence method for the vip.Specify the max connections allowed. "
+"Admin State is UP (checked) by default."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:195
@@ -3677,7 +3695,7 @@ msgid "Weight"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:264
-#: dashboards/project/loadbalancers/workflows.py:383
+#: dashboards/project/loadbalancers/workflows.py:378
 msgid "Select a Pool"
 msgstr ""
 
@@ -3697,7 +3715,9 @@ msgstr ""
 msgid ""
 "Add member to selected pool.\n"
 "\n"
-"Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for this member Specify the port number the member(s) operate on; e.g., 80."
+"Choose one or more listed instances to be added to the pool as member(s). "
+"Assign a numeric weight for this member Specify the port number the member"
+"(s) operate on; e.g., 80."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:327
@@ -3710,67 +3730,79 @@ msgstr ""
 msgid "Unable to add Member %s."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:338
+#: dashboards/project/loadbalancers/workflows.py:334
 #, python-format
 msgid "No instances available.%s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:349
+#: dashboards/project/loadbalancers/workflows.py:345
 msgid "Unable to retrieve ports list."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:366
+#: dashboards/project/loadbalancers/workflows.py:353
+#, fuzzy
+msgid "Unable to add member."
+msgstr "Nem lehet feltölteni az objektumot."
+
+#: dashboards/project/loadbalancers/workflows.py:361
 msgid "Delay"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:367
+#: dashboards/project/loadbalancers/workflows.py:362
 msgid "Timeout"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:369
+#: dashboards/project/loadbalancers/workflows.py:364
 msgid "Max Retries (1~10)"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:371
+#: dashboards/project/loadbalancers/workflows.py:366
 msgid "HTTP Method"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:373
+#: dashboards/project/loadbalancers/workflows.py:368
 msgid "URL"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:376
+#: dashboards/project/loadbalancers/workflows.py:371
 msgid "Expected HTTP Status Codes"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:393
+#: dashboards/project/loadbalancers/workflows.py:388
 msgid "Select Type"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:400
+#: dashboards/project/loadbalancers/workflows.py:395
 msgid "Select HTTP Method"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:405
+#: dashboards/project/loadbalancers/workflows.py:400
 msgid "MonitorDetails"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:407
+#: dashboards/project/loadbalancers/workflows.py:402
 msgid ""
 "Create a monitor for a pool.\n"
 "\n"
-"Select target pool and type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
+"Select target pool and type of monitoring. Specify delay, timeout, and retry "
+"limits required by the monitor. Specify method, URL path, and expected HTTP "
+"codes upon success."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:431
+#: dashboards/project/loadbalancers/workflows.py:426
 #, python-format
 msgid "Added Monitor \"%s\"."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:432
+#: dashboards/project/loadbalancers/workflows.py:427
 #, python-format
 msgid "Unable to add Monitor \"%s\"."
 msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:437
+#, fuzzy
+msgid "Unable to add monitor."
+msgstr "Nem lehet feltölteni az objektumot."
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
@@ -3931,6 +3963,13 @@ msgstr ""
 msgid "This pane needs javascript support."
 msgstr ""
 
+#: dashboards/project/network_topology/templates/network_topology/index.html:28
+#: dashboards/project/routers/tables.py:59
+#: dashboards/project/routers/templates/routers/create.html:3
+#: dashboards/project/routers/templates/routers/create.html:6
+msgid "Create Router"
+msgstr ""
+
 #: dashboards/project/network_topology/templates/network_topology/index.html:33
 msgid "There are no networks, routers, or connected instances to display. "
 msgstr ""
@@ -3950,8 +3989,11 @@ msgstr ""
 #: dashboards/project/networks/workflows.py:47
 msgid ""
 "From here you can create a new network.\n"
-"In addition a subnet associated with the network can be created in the next panel."
-msgstr "Itt létrehozhat egy új hálózatot.\nEzen kívül a következő panelen létrehozható a hálózathoz társított alhálózat."
+"In addition a subnet associated with the network can be created in the next "
+"panel."
+msgstr ""
+"Itt létrehozhat egy új hálózatot.\n"
+"Ezen kívül a következő panelen létrehozható a hálózathoz társított alhálózat."
 
 #: dashboards/project/networks/workflows.py:61
 msgid "Subnet Name"
@@ -3979,10 +4021,10 @@ msgstr "Átjáró IP (elhagyható)"
 
 #: dashboards/project/networks/workflows.py:78
 msgid ""
-"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
-" of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use "
-"the default, leave blank. If you want to use no gateway, check 'Disable "
-"Gateway' below."
+"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
+"of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use the "
+"default, leave blank. If you want to use no gateway, check 'Disable Gateway' "
+"below."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:87
@@ -3995,11 +4037,16 @@ msgid ""
 "You can create a subnet associated with the new network, in which case "
 "\"Network Address\" must be specified. If you wish to create a network "
 "WITHOUT a subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr "Létrehozhat az új hálózathoz társítva egy alhálózatot, ebben az esetben meg kell adni a „Hálózati címet”. Ha a hálózatot alhálózat NÉLKÜL szeretné létrehozni, akkor törölje az „Alhálózat létrehozása” négyzetet."
+msgstr ""
+"Létrehozhat az új hálózathoz társítva egy alhálózatot, ebben az esetben meg "
+"kell adni a „Hálózati címet”. Ha a hálózatot alhálózat NÉLKÜL szeretné "
+"létrehozni, akkor törölje az „Alhálózat létrehozása” négyzetet."
 
 #: dashboards/project/networks/workflows.py:103
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "Adja meg a „Hálózati címet”, vagy törölje az „Alhálózat létrehozása” négyzetet."
+msgstr ""
+"Adja meg a „Hálózati címet”, vagy törölje az „Alhálózat létrehozása” "
+"négyzetet."
 
 #: dashboards/project/networks/workflows.py:109
 msgid "Network Address and IP version are inconsistent."
@@ -4028,9 +4075,9 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:146
 msgid ""
-"IP address allocation pools. Each entry is "
-"&lt;start_ip_address&gt;,&lt;end_ip_address&gt; (e.g., "
-"192.168.1.100,192.168.1.120) and one entry per line."
+"IP address allocation pools. Each entry is &lt;start_ip_address&gt;,&lt;"
+"end_ip_address&gt; (e.g., 192.168.1.100,192.168.1.120) and one entry per "
+"line."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:153
@@ -4048,10 +4095,16 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:160
 msgid ""
-"Additional routes announced to the hosts. Each entry is "
-"&lt;destination_cidr&gt;,&lt;nexthop&gt; (e.g., "
-"192.168.200.0/24,10.56.1.254)and one entry per line."
+"Additional routes announced to the hosts. Each entry is &lt;"
+"destination_cidr&gt;,&lt;nexthop&gt; (e.g., 192.168.200.0/24,10.56.1.254)and "
+"one entry per line."
 msgstr ""
+
+#: dashboards/project/networks/workflows.py:167
+#: dashboards/project/networks/templates/networks/subnets/detail.html:3
+#: dashboards/project/networks/templates/networks/subnets/detail.html:6
+msgid "Subnet Detail"
+msgstr "Alhálózat részletei"
 
 #: dashboards/project/networks/workflows.py:168
 #: dashboards/project/networks/subnets/workflows.py:145
@@ -4112,7 +4165,8 @@ msgstr "Az alhálózat („%s”) sikeresen létrejött."
 
 #: dashboards/project/networks/workflows.py:329
 #, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
+msgid ""
+"Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:345
@@ -4297,10 +4351,16 @@ msgstr ""
 msgid "DNS name server"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/detail.html:3
-#: dashboards/project/networks/templates/networks/subnets/detail.html:6
-msgid "Subnet Detail"
-msgstr "Alhálózat részletei"
+#: dashboards/project/routers/forms.py:23
+#: dashboards/project/routers/ports/forms.py:32
+#: dashboards/project/routers/ports/forms.py:91
+msgid "Router Name"
+msgstr ""
+
+#: dashboards/project/routers/forms.py:37
+#, python-format
+msgid "Failed to create router \"%s\"."
+msgstr ""
 
 #: dashboards/project/routers/tables.py:33
 msgid "Router"
@@ -4312,6 +4372,14 @@ msgstr ""
 msgid "Unable to delete router \"%s\""
 msgstr ""
 
+#: dashboards/project/routers/tables.py:66
+#: dashboards/project/routers/templates/routers/ports/_setgateway.html:8
+#: dashboards/project/routers/templates/routers/ports/_setgateway.html:23
+#: dashboards/project/routers/templates/routers/ports/setgateway.html:3
+#: dashboards/project/routers/templates/routers/ports/setgateway.html:6
+msgid "Set Gateway"
+msgstr ""
+
 #: dashboards/project/routers/tables.py:78
 msgid "Clear"
 msgstr ""
@@ -4321,7 +4389,6 @@ msgid "Cleared"
 msgstr ""
 
 #: dashboards/project/routers/tables.py:80
-#: dashboards/project/routers/ports/tables.py:33
 msgid "Gateway"
 msgstr ""
 
@@ -4403,11 +4470,26 @@ msgstr ""
 msgid "Failed to set gateway %s"
 msgstr ""
 
-#: dashboards/project/routers/ports/tables.py:50
+#: dashboards/project/routers/ports/tables.py:33
+msgid "External Gateway"
+msgstr ""
+
+#: dashboards/project/routers/ports/tables.py:35
+msgid "Internal Interface"
+msgstr ""
+
+#: dashboards/project/routers/ports/tables.py:42
+#: dashboards/project/routers/templates/routers/ports/_create.html:8
+#: dashboards/project/routers/templates/routers/ports/create.html:3
+#: dashboards/project/routers/templates/routers/ports/create.html:6
+msgid "Add Interface"
+msgstr ""
+
+#: dashboards/project/routers/ports/tables.py:52
 msgid "Interface"
 msgstr ""
 
-#: dashboards/project/routers/ports/tables.py:65
+#: dashboards/project/routers/ports/tables.py:67
 #, python-format
 msgid "Failed to delete interface %s"
 msgstr ""
@@ -4418,6 +4500,26 @@ msgstr ""
 
 #: dashboards/project/routers/ports/views.py:82
 msgid "Unable to set gateway."
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/_create.html:8
+#: dashboards/project/routers/templates/routers/_create.html:19
+msgid "Create router"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/ports/_create.html:18
+msgid "You can connect a specified subnet to the router."
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/ports/_create.html:23
+msgid "Add interface"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
+msgid ""
+"You can connect a specified external network to the router. The external "
+"network is regarded as a default route of the router and the router acts as "
+"a gateway for external connectivity."
 msgstr ""
 
 #: dashboards/project/volumes/forms.py:33
@@ -4453,9 +4555,11 @@ msgstr "A kötet mérete nem lehet kisebb a pillanatkép méreténél (%s GB)"
 #: dashboards/project/volumes/forms.py:127
 #, python-format
 msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
-" quota available."
-msgstr "Nem hozható létre %(req)i GB méretű kötet, mivel csak %(avail)i GB érhető el a kvótából."
+"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
+"quota available."
+msgstr ""
+"Nem hozható létre %(req)i GB méretű kötet, mivel csak %(avail)i GB érhető el "
+"a kvótából."
 
 #: dashboards/project/volumes/forms.py:134
 msgid "You are already using all of your available volumes."
@@ -4510,7 +4614,7 @@ msgid "%sGB"
 msgstr "%s GB"
 
 #: dashboards/project/volumes/tables.py:110
-#: dashboards/project/volumes/views.py:152
+#: dashboards/project/volumes/views.py:154
 msgid "Unable to retrieve attachment information."
 msgstr "A csatolási információk nem kérhetők le."
 
@@ -4540,12 +4644,12 @@ msgstr "A kötet részletei nem kérhetők le."
 msgid "Unable to retrieve volume list."
 msgstr "A kötetlista nem kérhető le."
 
-#: dashboards/project/volumes/views.py:56
+#: dashboards/project/volumes/views.py:57
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "A kötet- vagy példánycsatolási információk nem kérhetők le."
 
-#: dashboards/project/volumes/views.py:133
-#: dashboards/project/volumes/views.py:143
+#: dashboards/project/volumes/views.py:135
+#: dashboards/project/volumes/views.py:145
 msgid "Unable to retrieve volume information."
 msgstr "A kötetinformációk nem kérhetők le."
 

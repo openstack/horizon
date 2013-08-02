@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openstack-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-12 04:08+0000\n"
+"POT-Creation-Date: 2013-08-01 08:53-0500\n"
 "PO-Revision-Date: 2011-09-24 14:41+0100\n"
 "Last-Translator: Tomasz 'Zen' Napierala <tomasz@napierala.org>\n"
 "Language-Team: Polish OpenStack translations team <tomasz+openstack-"
@@ -34,7 +34,12 @@ msgstr "Nie można usunąć klucza: %s"
 msgid "You are not authorized to access %s"
 msgstr ""
 
-#: exceptions.py:283
+#: exceptions.py:281
+#, python-format
+msgid "Unauthorized: %s"
+msgstr ""
+
+#: exceptions.py:284
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
@@ -52,6 +57,7 @@ msgid "Password is not accepted"
 msgstr ""
 
 #: tables/actions.py:349
+#: templates/horizon/common/_data_table_table_actions.html:12
 msgid "Filter"
 msgstr ""
 
@@ -267,7 +273,7 @@ msgstr ""
 msgid "This Month's GB-Hours"
 msgstr ""
 
-#: templates/horizon/common/_workflow.html:33
+#: templates/horizon/common/_workflow.html:36
 msgid "Cancel"
 msgstr ""
 

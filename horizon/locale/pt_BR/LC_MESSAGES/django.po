@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -15,15 +15,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
-"POT-Creation-Date: 2013-03-12 04:08+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-01 08:53-0500\n"
 "PO-Revision-Date: 2013-04-29 08:33+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
+"Language-Team: English (http://www.transifex.com/projects/p/openstack/"
+"language/en/)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: base.py:424
@@ -39,7 +40,12 @@ msgstr "Por favor faça login para continuar."
 msgid "You are not authorized to access %s"
 msgstr "Você está autorizado a acessar %s"
 
-#: exceptions.py:283
+#: exceptions.py:281
+#, python-format
+msgid "Unauthorized: %s"
+msgstr ""
+
+#: exceptions.py:284
 msgid "Unauthorized. Please try logging in again."
 msgstr "Não autorizado. Por favor, tente efetuar login novamente."
 
@@ -57,6 +63,7 @@ msgid "Password is not accepted"
 msgstr "senha não foi aceita"
 
 #: tables/actions.py:349
+#: templates/horizon/common/_data_table_table_actions.html:12
 msgid "Filter"
 msgstr "Filtro"
 
@@ -263,7 +270,7 @@ msgstr "VCPU-Horas este mês"
 msgid "This Month's GB-Hours"
 msgstr "GB-Horas este mês"
 
-#: templates/horizon/common/_workflow.html:33
+#: templates/horizon/common/_workflow.html:36
 msgid "Cancel"
 msgstr "Cancelar"
 

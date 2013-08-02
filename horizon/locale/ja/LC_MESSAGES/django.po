@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
-"POT-Creation-Date: 2013-03-12 04:08+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-01 08:53-0500\n"
 "PO-Revision-Date: 2013-05-07 10:24+0000\n"
 "Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
@@ -29,6 +29,24 @@ msgstr ""
 msgid "Other"
 msgstr "その他"
 
+#: decorators.py:55
+msgid "Please log in to continue."
+msgstr "続行するには、ログインしてください。"
+
+#: decorators.py:87
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "%s へのアクセスが許可されていません。"
+
+#: exceptions.py:281
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "権限がありません: %s"
+
+#: exceptions.py:284
+msgid "Unauthorized. Please try logging in again."
+msgstr "権限がありません。もう一度ログインしてください。"
+
 #: browsers/base.py:90
 msgid "Navigation Item"
 msgstr "ナビゲーション項目"
@@ -42,20 +60,8 @@ msgstr "表示する %s を選択してください。"
 msgid "Password is not accepted"
 msgstr "パスワードを受け付けられません"
 
-#: decorators.py:55
-msgid "Please log in to continue."
-msgstr "続行するには、ログインしてください。"
-
-#: decorators.py:87
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "%s へのアクセスが許可されていません。"
-
-#: exceptions.py:283
-msgid "Unauthorized. Please try logging in again."
-msgstr "認証されていません。もう一度ログインしてください。"
-
 #: tables/actions.py:349
+#: templates/horizon/common/_data_table_table_actions.html:12
 msgid "Filter"
 msgstr "フィルター"
 
@@ -125,6 +131,10 @@ msgstr "ヘルプ"
 msgid "Sign Out"
 msgstr "ログアウト"
 
+#: templates/splash.html:7 templates/auth/login.html:4
+msgid "Login"
+msgstr "ログイン"
+
 #: templates/auth/_login.html:4
 msgid "Log In"
 msgstr "ログイン"
@@ -143,10 +153,6 @@ msgstr "ホームページ"
 
 #: templates/auth/_login.html:27
 msgid "Sign In"
-msgstr "ログイン"
-
-#: templates/auth/login.html:4 templates/splash.html:7
-msgid "Login"
 msgstr "ログイン"
 
 #: templates/horizon/_messages.html:7
@@ -184,10 +190,6 @@ msgid "Quota Summary"
 msgstr "クォータ概要"
 
 #: templates/horizon/common/_quota_summary.html:5
-msgid "Available Instances"
-msgstr "利用可能なインスタンス"
-
-#: templates/horizon/common/_quota_summary.html:5
 #: templates/horizon/common/_quota_summary.html:8
 #: templates/horizon/common/_quota_summary.html:11
 #: templates/horizon/common/_quota_summary.html:15
@@ -202,6 +204,10 @@ msgstr "使用済み"
 #: templates/horizon/common/_quota_summary.html:18
 msgid "of"
 msgstr "/"
+
+#: templates/horizon/common/_quota_summary.html:5
+msgid "Available Instances"
+msgstr "利用可能なインスタンス"
 
 #: templates/horizon/common/_quota_summary.html:8
 msgid "Available vCPUs"
@@ -259,7 +265,7 @@ msgstr "今月の仮想 CPU 時間"
 msgid "This Month's GB-Hours"
 msgstr "今月の GB 時間"
 
-#: templates/horizon/common/_workflow.html:33
+#: templates/horizon/common/_workflow.html:36
 msgid "Cancel"
 msgstr "取り消し"
 

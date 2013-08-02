@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -10,15 +10,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
-"POT-Creation-Date: 2013-03-12 04:08+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-01 08:53-0500\n"
 "PO-Revision-Date: 2013-04-29 08:33+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openstack/language/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/"
+"openstack/language/zh_TW/)\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: base.py:424
@@ -34,7 +35,12 @@ msgstr "請登入以繼續。"
 msgid "You are not authorized to access %s"
 msgstr "您的權限不足 無法查看%s"
 
-#: exceptions.py:283
+#: exceptions.py:281
+#, python-format
+msgid "Unauthorized: %s"
+msgstr ""
+
+#: exceptions.py:284
 msgid "Unauthorized. Please try logging in again."
 msgstr "權限不足。 請重新登入。"
 
@@ -52,6 +58,7 @@ msgid "Password is not accepted"
 msgstr "密碼不被接受"
 
 #: tables/actions.py:349
+#: templates/horizon/common/_data_table_table_actions.html:12
 msgid "Filter"
 msgstr "搜尋"
 
@@ -255,7 +262,7 @@ msgstr "本月的虛擬處理器-時數"
 msgid "This Month's GB-Hours"
 msgstr "本月的GB-時數"
 
-#: templates/horizon/common/_workflow.html:33
+#: templates/horizon/common/_workflow.html:36
 msgid "Cancel"
 msgstr "取消"
 
