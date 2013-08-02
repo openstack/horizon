@@ -17,14 +17,15 @@ from datetime import timedelta
 from django.conf import settings
 from django.utils import datetime_safe
 
+from keystoneclient.access import AccessInfo
 from keystoneclient.v2_0 import ec2
 from keystoneclient.v2_0 import roles
 from keystoneclient.v2_0 import tenants
-from keystoneclient.v2_0 import tokens
 from keystoneclient.v2_0 import users
 from keystoneclient.v3 import domains
 from keystoneclient.v3 import groups
 
+from openstack_auth.user import Token
 
 from openstack_dashboard.test.test_data.utils import TestDataContainer
 
@@ -223,22 +224,41 @@ def data(TEST):
     tomorrow = datetime_safe.datetime.now() + timedelta(days=1)
     expiration = datetime_safe.datetime.isoformat(tomorrow)
 
-    scoped_token = tokens.Token(tokens.TokenManager,
-                                dict(token={"id": "test_token_id",
-                                            "expires": expiration,
-                                            "tenant": tenant_dict,
-                                            "tenants": [tenant_dict]},
-                                     user={"id": "test_user_id",
-                                           "name": "test_user",
-                                           "roles": [member_role_dict]},
-                                     serviceCatalog=TEST.service_catalog))
-    unscoped_token = tokens.Token(tokens.TokenManager,
-                                  dict(token={"id": "test_token_id",
-                                              "expires": expiration},
-                                       user={"id": "test_user_id",
-                                             "name": "test_user",
-                                             "roles": [member_role_dict]},
-                                       serviceCatalog=TEST.service_catalog))
+    scoped_token_dict = {
+        'access': {
+            'token': {
+                'id': "test_token_id",
+                'expires': expiration,
+                'tenant': tenant_dict,
+                'tenants': [tenant_dict]},
+            'user': {
+                'id': "test_user_id",
+                'name': "test_user",
+                'roles': [member_role_dict]},
+            'serviceCatalog': TEST.service_catalog
+        }
+    }
+
+    scoped_access_info = AccessInfo.factory(resp=None,
+                                            body=scoped_token_dict)
+
+    unscoped_token_dict = {
+        'access': {
+            'token': {
+                'id': "test_token_id",
+                'expires': expiration},
+            'user': {
+                     'id': "test_user_id",
+                     'name': "test_user",
+                     'roles': [member_role_dict]},
+            'serviceCatalog': TEST.service_catalog
+        }
+    }
+    unscoped_access_info = AccessInfo.factory(resp=None,
+                                              body=unscoped_token_dict)
+
+    scoped_token = Token(scoped_access_info)
+    unscoped_token = Token(unscoped_access_info)
     TEST.tokens.add(scoped_token, unscoped_token)
     TEST.token = scoped_token  # your "current" token.
     TEST.tokens.scoped_token = scoped_token
