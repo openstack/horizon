@@ -14,10 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.settings.password.views import PasswordView
+from openstack_dashboard.dashboards.settings.password.views import PasswordView  # noqa
 
 
 urlpatterns = patterns('',

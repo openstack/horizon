@@ -18,16 +18,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.instances.views import DetailView
-from openstack_dashboard.dashboards.project.instances.views import IndexView
-from openstack_dashboard.dashboards.project.instances.views import \
-    LaunchInstanceView
-from openstack_dashboard.dashboards.project.instances.views import RebuildView
-from openstack_dashboard.dashboards.project.instances.views import ResizeView
-from openstack_dashboard.dashboards.project.instances.views import UpdateView
+from openstack_dashboard.dashboards.project.instances import views
 
 
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
@@ -35,13 +29,14 @@ VIEW_MOD = 'openstack_dashboard.dashboards.project.instances.views'
 
 
 urlpatterns = patterns(VIEW_MOD,
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^launch$', LaunchInstanceView.as_view(), name='launch'),
-    url(r'^(?P<instance_id>[^/]+)/$', DetailView.as_view(), name='detail'),
-    url(INSTANCES % 'update', UpdateView.as_view(), name='update'),
-    url(INSTANCES % 'rebuild', RebuildView.as_view(), name='rebuild'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^launch$', views.LaunchInstanceView.as_view(), name='launch'),
+    url(r'^(?P<instance_id>[^/]+)/$',
+        views.DetailView.as_view(), name='detail'),
+    url(INSTANCES % 'update', views.UpdateView.as_view(), name='update'),
+    url(INSTANCES % 'rebuild', views.RebuildView.as_view(), name='rebuild'),
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
     url(INSTANCES % 'spice', 'spice', name='spice'),
-    url(INSTANCES % 'resize', ResizeView.as_view(), name='resize'),
+    url(INSTANCES % 'resize', views.ResizeView.as_view(), name='resize'),
 )

@@ -16,23 +16,23 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
-from django.template.defaultfilters import filesizeformat
+from django.core.urlresolvers import reverse  # noqa
+from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils import http
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.api.swift import FOLDER_DELIMITER
+from openstack_dashboard.api import swift
 
 
 LOG = logging.getLogger(__name__)
 
 
 def wrap_delimiter(name):
-    if name and not name.endswith(FOLDER_DELIMITER):
-        return name + FOLDER_DELIMITER
+    if name and not name.endswith(swift.FOLDER_DELIMITER):
+        return name + swift.FOLDER_DELIMITER
     return name
 
 
@@ -225,7 +225,7 @@ class ObjectFilterAction(tables.FilterAction):
 
 
 def sanitize_name(name):
-    return name.split(FOLDER_DELIMITER)[-1]
+    return name.split(swift.FOLDER_DELIMITER)[-1]
 
 
 def get_size(obj):

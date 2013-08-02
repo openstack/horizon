@@ -14,16 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.admin.routers.views import DetailView
-from openstack_dashboard.dashboards.admin.routers.views import IndexView
+from openstack_dashboard.dashboards.admin.routers import views
 
 
 urlpatterns = patterns('horizon.dashboards.admin.routers.views',
-    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<router_id>[^/]+)/$',
-        DetailView.as_view(),
+        views.DetailView.as_view(),
         name='detail'),
 )

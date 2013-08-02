@@ -14,8 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -23,19 +23,19 @@ from horizon import tabs
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.networks.ports.forms \
-    import UpdatePort
-from openstack_dashboard.dashboards.project.networks.ports.tabs \
-    import PortDetailTabs
+from openstack_dashboard.dashboards.project.networks.ports \
+    import forms as project_forms
+from openstack_dashboard.dashboards.project.networks.ports \
+    import tabs as project_tabs
 
 
 class DetailView(tabs.TabView):
-    tab_group_class = PortDetailTabs
+    tab_group_class = project_tabs.PortDetailTabs
     template_name = 'project/networks/ports/detail.html'
 
 
 class UpdateView(forms.ModalFormView):
-    form_class = UpdatePort
+    form_class = project_forms.UpdatePort
     template_name = 'project/networks/ports/update.html'
     context_object_name = 'port'
     success_url = 'horizon:project:networks:detail'

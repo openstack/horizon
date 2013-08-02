@@ -17,7 +17,7 @@
 
 import os
 
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError  # noqa
 
 from horizon.test import helpers as test
 from horizon.utils import fields

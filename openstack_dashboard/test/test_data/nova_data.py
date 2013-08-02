@@ -32,12 +32,11 @@ from novaclient.v1_1 import volume_snapshots as vol_snaps
 from novaclient.v1_1 import volume_types
 from novaclient.v1_1 import volumes
 
-from openstack_dashboard.api.base import Quota
-from openstack_dashboard.api.base import QuotaSet as QuotaSetWrapper
-from openstack_dashboard.api.nova import FloatingIp as NetFloatingIp
-from openstack_dashboard.usage.quotas import QuotaUsage
+from openstack_dashboard.api import base
+from openstack_dashboard.api import nova
+from openstack_dashboard.usage import quotas as usage_quotas
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
 
 
 SERVER_DATA = """
@@ -337,8 +336,8 @@ def data(TEST):
                       security_groups='10',
                       security_group_rules='20')
     quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
-    TEST.quotas.nova = QuotaSetWrapper(quota)
-    TEST.quotas.add(QuotaSetWrapper(quota))
+    TEST.quotas.nova = base.QuotaSet(quota)
+    TEST.quotas.add(base.QuotaSet(quota))
 
     # Quota Usages
     quota_usage_data = {'gigabytes': {'used': 0,
@@ -353,9 +352,9 @@ def data(TEST):
                                          'quota': 10},
                         'volumes': {'used': 0,
                                     'quota': 10}}
-    quota_usage = QuotaUsage()
+    quota_usage = usage_quotas.QuotaUsage()
     for k, v in quota_usage_data.items():
-        quota_usage.add_quota(Quota(k, v['quota']))
+        quota_usage.add_quota(base.Quota(k, v['quota']))
         quota_usage.tally(k, v['used'])
 
     TEST.quota_usages.add(quota_usage)
@@ -432,8 +431,8 @@ def data(TEST):
              'pool': 'pool2'}
     TEST.api_floating_ips.add(generate_fip(fip_1), generate_fip(fip_2))
 
-    TEST.floating_ips.add(NetFloatingIp(generate_fip(fip_1)),
-                          NetFloatingIp(generate_fip(fip_2)))
+    TEST.floating_ips.add(nova.FloatingIp(generate_fip(fip_1)),
+                          nova.FloatingIp(generate_fip(fip_2)))
 
     # Floating IP with UUID id (for Floating IP with Neutron Proxy)
     fip_3 = {'id': str(uuid.uuid4()),
@@ -448,8 +447,8 @@ def data(TEST):
              'pool': 'pool2'}
     TEST.api_floating_ips_uuid.add(generate_fip(fip_3), generate_fip(fip_4))
 
-    TEST.floating_ips_uuid.add(NetFloatingIp(generate_fip(fip_3)),
-                               NetFloatingIp(generate_fip(fip_4)))
+    TEST.floating_ips_uuid.add(nova.FloatingIp(generate_fip(fip_3)),
+                               nova.FloatingIp(generate_fip(fip_4)))
 
     # Usage
     usage_vals = {"tenant_id": TEST.tenant.id,

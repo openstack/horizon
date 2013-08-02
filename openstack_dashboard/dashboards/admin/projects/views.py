@@ -20,8 +20,8 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tables
@@ -31,11 +31,10 @@ from openstack_dashboard import api
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.admin.projects.tables import TenantsTable
-from openstack_dashboard.dashboards.admin.projects.workflows \
-    import CreateProject
-from openstack_dashboard.dashboards.admin.projects.workflows \
-    import UpdateProject
+from openstack_dashboard.dashboards.admin.projects \
+    import tables as project_tables
+from openstack_dashboard.dashboards.admin.projects \
+    import workflows as project_workflows
 
 LOG = logging.getLogger(__name__)
 
@@ -67,7 +66,7 @@ class TenantContextMixin(object):
 
 
 class IndexView(tables.DataTableView):
-    table_class = TenantsTable
+    table_class = project_tables.TenantsTable
     template_name = 'admin/projects/index.html'
 
     def has_more_data(self, table):
@@ -76,7 +75,7 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         tenants = []
         marker = self.request.GET.get(
-                        TenantsTable._meta.pagination_param, None)
+                    project_tables.TenantsTable._meta.pagination_param, None)
         domain_context = self.request.session.get('domain_context', None)
         try:
             tenants, self._more = api.keystone.tenant_list(
@@ -102,7 +101,7 @@ class ProjectUsageView(usage.UsageView):
 
 
 class CreateProjectView(workflows.WorkflowView):
-    workflow_class = CreateProject
+    workflow_class = project_workflows.CreateProject
 
     def get_initial(self):
         initial = super(CreateProjectView, self).get_initial()
@@ -121,7 +120,7 @@ class CreateProjectView(workflows.WorkflowView):
 
 
 class UpdateProjectView(workflows.WorkflowView):
-    workflow_class = UpdateProject
+    workflow_class = project_workflows.UpdateProject
 
     def get_initial(self):
         initial = super(UpdateProjectView, self).get_initial()

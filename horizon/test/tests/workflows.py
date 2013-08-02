@@ -16,7 +16,7 @@
 
 from django import forms
 from django import http
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon.test import helpers as test

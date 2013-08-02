@@ -22,11 +22,11 @@
 URL patterns for testing Horizon views.
 """
 
-from django.conf.urls.defaults import include
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.views.generic import TemplateView
+from django.conf.urls.defaults import include  # noqa
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # noqa
+from django.views.generic import TemplateView  # noqa
 
 import horizon
 

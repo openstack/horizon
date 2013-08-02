@@ -17,29 +17,29 @@
 import collections
 import copy
 import logging
-from operator import attrgetter
+from operator import attrgetter  # noqa
 import sys
 
-from django.conf import settings
+from django.conf import settings  # noqa
 from django.core import urlresolvers
 from django import forms
-from django.http import HttpResponse
+from django.http import HttpResponse  # noqa
 from django import template
-from django.template.defaultfilters import truncatechars
-from django.template.loader import render_to_string
-from django.utils.datastructures import SortedDict
-from django.utils.html import escape
+from django.template.defaultfilters import truncatechars  # noqa
+from django.template.loader import render_to_string  # noqa
+from django.utils.datastructures import SortedDict  # noqa
+from django.utils.html import escape  # noqa
 from django.utils import http
-from django.utils.http import urlencode
-from django.utils.safestring import mark_safe
+from django.utils.http import urlencode  # noqa
+from django.utils.safestring import mark_safe  # noqa
 from django.utils import termcolors
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import conf
 from horizon import exceptions
 from horizon import messages
-from horizon.tables.actions import FilterAction
-from horizon.tables.actions import LinkAction
+from horizon.tables.actions import FilterAction  # noqa
+from horizon.tables.actions import LinkAction  # noqa
 from horizon.utils import html
 
 

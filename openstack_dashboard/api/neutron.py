@@ -23,12 +23,11 @@ from __future__ import absolute_import
 
 import logging
 
-from django.conf import settings
-from django.utils.datastructures import SortedDict
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.utils.datastructures import SortedDict  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
-from openstack_dashboard.api.base import APIDictWrapper
-from openstack_dashboard.api.base import url_for
+from openstack_dashboard.api import base
 from openstack_dashboard.api import network_base
 from openstack_dashboard.api import nova
 
@@ -39,7 +38,7 @@ LOG = logging.getLogger(__name__)
 IP_VERSION_DICT = {4: 'IPv4', 6: 'IPv6'}
 
 
-class NeutronAPIDictWrapper(APIDictWrapper):
+class NeutronAPIDictWrapper(base.APIDictWrapper):
 
     def set_id_as_name_if_empty(self, length=8):
         try:
@@ -262,7 +261,7 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
             port_modify(self.request, p.id, **params)
 
 
-class FloatingIp(APIDictWrapper):
+class FloatingIp(base.APIDictWrapper):
     _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id', 'pool']
 
     def __init__(self, fip):
@@ -272,11 +271,11 @@ class FloatingIp(APIDictWrapper):
         super(FloatingIp, self).__init__(fip)
 
 
-class FloatingIpPool(APIDictWrapper):
+class FloatingIpPool(base.APIDictWrapper):
     pass
 
 
-class FloatingIpTarget(APIDictWrapper):
+class FloatingIpTarget(base.APIDictWrapper):
     pass
 
 
@@ -382,11 +381,11 @@ def get_ipver_str(ip_version):
 def neutronclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     LOG.debug('neutronclient connection created using token "%s" and url "%s"'
-              % (request.user.token.id, url_for(request, 'network')))
+              % (request.user.token.id, base.url_for(request, 'network')))
     LOG.debug('user_id=%(user)s, tenant_id=%(tenant)s' %
               {'user': request.user.id, 'tenant': request.user.tenant_id})
     c = neutron_client.Client(token=request.user.token.id,
-                              endpoint_url=url_for(request, 'network'),
+                              endpoint_url=base.url_for(request, 'network'),
                               insecure=insecure)
     return c
 

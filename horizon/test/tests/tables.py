@@ -14,12 +14,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django import http
 from django import shortcuts
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from horizon import tables
 from horizon.tables import views as table_views

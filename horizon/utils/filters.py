@@ -16,7 +16,7 @@
 
 import iso8601
 
-from django.template.defaultfilters import register
+from django.template.defaultfilters import register  # noqa
 
 
 @register.filter

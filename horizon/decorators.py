@@ -23,8 +23,8 @@ General-purpose decorators for use with Horizon.
 """
 import functools
 
-from django.utils.decorators import available_attrs
-from django.utils.translation import ugettext_lazy as _
+from django.utils.decorators import available_attrs  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 
 def _current_component(view_func, dashboard=None, panel=None):
@@ -46,7 +46,7 @@ def require_auth(view_func):
     :exc:`~horizon.exceptions.NotAuthenticated` exception if the user is not
     signed-in.
     """
-    from horizon.exceptions import NotAuthenticated
+    from horizon.exceptions import NotAuthenticated  # noqa
 
     @functools.wraps(view_func, assigned=available_attrs(view_func))
     def dec(request, *args, **kwargs):
@@ -74,7 +74,7 @@ def require_perms(view_func, required):
     Raises a :exc:`~horizon.exceptions.NotAuthorized` exception if the
     requirements are not met.
     """
-    from horizon.exceptions import NotAuthorized
+    from horizon.exceptions import NotAuthorized  # noqa
     # We only need to check each permission once for a view, so we'll use a set
     current_perms = getattr(view_func, '_required_perms', set([]))
     view_func._required_perms = current_perms | set(required)

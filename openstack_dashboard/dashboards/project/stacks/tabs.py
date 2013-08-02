@@ -14,15 +14,16 @@
 
 import logging
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import messages
 from horizon import tabs
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.stacks.api import d3_data
-from openstack_dashboard.dashboards.project.stacks.tables import EventsTable
-from openstack_dashboard.dashboards.project.stacks.tables import ResourcesTable
+from openstack_dashboard.dashboards.project.stacks \
+    import api as project_api
+from openstack_dashboard.dashboards.project.stacks \
+    import tables as project_tables
 
 
 LOG = logging.getLogger(__name__)
@@ -38,7 +39,7 @@ class StackTopologyTab(tabs.Tab):
         context = {}
         stack = self.tab_group.kwargs['stack']
         context['stack_id'] = stack.id
-        context['d3_data'] = d3_data(request, stack_id=stack.id)
+        context['d3_data'] = project_api.d3_data(request, stack_id=stack.id)
         return context
 
 
@@ -79,7 +80,7 @@ class StackEventsTab(tabs.Tab):
             messages.error(request, _(
                 'Unable to get events for stack "%s".') % stack.stack_name)
         return {"stack": stack,
-                "table": EventsTable(request, data=events), }
+                "table": project_tables.EventsTable(request, data=events), }
 
 
 class StackResourcesTab(tabs.Tab):
@@ -99,7 +100,7 @@ class StackResourcesTab(tabs.Tab):
             messages.error(request, _(
                 'Unable to get resources for stack "%s".') % stack.stack_name)
         return {"stack": stack,
-                "table": ResourcesTable(
+                "table": project_tables.ResourcesTable(
                     request, data=resources, stack=stack), }
 
 

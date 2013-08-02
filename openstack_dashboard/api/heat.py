@@ -14,9 +14,9 @@
 
 import logging
 
-from django.conf import settings
+from django.conf import settings  # noqa
 from heatclient import client as heat_client
-from openstack_dashboard.api.base import url_for
+from openstack_dashboard.api import base
 
 LOG = logging.getLogger(__name__)
 
@@ -32,7 +32,7 @@ def format_parameters(params):
 def heatclient(request, password=None):
     api_version = "1"
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    endpoint = url_for(request, 'orchestration')
+    endpoint = base.url_for(request, 'orchestration')
     LOG.debug('heatclient connection created using token "%s" and url "%s"' %
               (request.user.token.id, endpoint))
     kwargs = {

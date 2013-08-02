@@ -1,15 +1,10 @@
 import json
 import logging
 
-from openstack_dashboard.api.heat import resources_list
-from openstack_dashboard.api.heat import stack_get
+from openstack_dashboard.api import heat
 
-from openstack_dashboard.dashboards.project.stacks.mappings \
-    import get_resource_image
-from openstack_dashboard.dashboards.project.stacks.mappings \
-    import get_resource_status
-from openstack_dashboard.dashboards.project.stacks.sro import resource_info
-from openstack_dashboard.dashboards.project.stacks.sro import stack_info
+from openstack_dashboard.dashboards.project.stacks import mappings
+from openstack_dashboard.dashboards.project.stacks import sro
 
 
 LOG = logging.getLogger(__name__)
@@ -21,7 +16,7 @@ class Stack(object):
 
 def d3_data(request, stack_id=''):
     try:
-        stack = stack_get(request, stack_id)
+        stack = heat.stack_get(request, stack_id)
     except Exception:
         stack = Stack()
         stack.id = stack_id
@@ -30,13 +25,13 @@ def d3_data(request, stack_id=''):
         stack.stack_status_reason = 'DELETE_COMPLETE'
 
     try:
-        resources = resources_list(request, stack.stack_name)
+        resources = heat.resources_list(request, stack.stack_name)
     except Exception:
         resources = []
 
     d3_data = {"nodes": [], "stack": {}}
     if stack:
-        stack_image = get_resource_image(stack.stack_status, 'stack')
+        stack_image = mappings.get_resource_image(stack.stack_status, 'stack')
         stack_node = {
             'stack_id': stack.id,
             'name': stack.stack_name,
@@ -47,17 +42,20 @@ def d3_data(request, stack_id=''):
             'image_y': -30,
             'text_x': 40,
             'text_y': ".35em",
-            'in_progress': True if (get_resource_status(stack.stack_status) ==
+            'in_progress': True if (mappings.get_resource_status(
+                                    stack.stack_status) ==
                                    'IN_PROGRESS') else False,
-            'info_box': stack_info(stack, stack_image)
+            'info_box': sro.stack_info(stack, stack_image)
         }
         d3_data['stack'] = stack_node
 
     if resources:
         for resource in resources:
-            resource_image = get_resource_image(resource.resource_status,
+            resource_image = mappings.get_resource_image(
+                                            resource.resource_status,
                                             resource.resource_type)
-            resource_status = get_resource_status(resource.resource_status)
+            resource_status = mappings.get_resource_status(
+                                            resource.resource_status)
             if resource_status in ('IN_PROGRESS', 'INIT'):
                 in_progress = True
             else:
@@ -73,7 +71,7 @@ def d3_data(request, stack_id=''):
                 'text_x': 35,
                 'text_y': ".35em",
                 'in_progress': in_progress,
-                'info_box': resource_info(resource)
+                'info_box': sro.resource_info(resource)
             }
             d3_data['nodes'].append(resource_node)
     return json.dumps(d3_data)

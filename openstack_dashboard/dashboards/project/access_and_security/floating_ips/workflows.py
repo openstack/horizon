@@ -15,15 +15,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
-from openstack_dashboard.utils.filters import get_int_or_uuid
+from openstack_dashboard.utils import filters
 
 
 ALLOCATE_URL = "horizon:project:access_and_security:floating_ips:allocate"
@@ -31,7 +31,7 @@ ALLOCATE_URL = "horizon:project:access_and_security:floating_ips:allocate"
 
 class AssociateIPAction(workflows.Action):
     ip_id = forms.DynamicTypedChoiceField(label=_("IP Address"),
-                                          coerce=get_int_or_uuid,
+                                          coerce=filters.get_int_or_uuid,
                                           empty_value=None,
                                           add_item_link=ALLOCATE_URL)
     instance_id = forms.ChoiceField(label=_("Instance"))

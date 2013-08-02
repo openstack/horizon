@@ -19,18 +19,15 @@ import logging
 from openstack_dashboard.dashboards.project.networks.subnets \
     import views as project_views
 
-from openstack_dashboard.dashboards.admin.networks.subnets.workflows \
-    import CreateSubnet
-from openstack_dashboard.dashboards.admin.networks.subnets.workflows \
-    import UpdateSubnet
+from openstack_dashboard.dashboards.admin.networks.subnets import workflows
 
 
 LOG = logging.getLogger(__name__)
 
 
 class CreateView(project_views.CreateView):
-    workflow_class = CreateSubnet
+    workflow_class = workflows.CreateSubnet
 
 
 class UpdateView(project_views.UpdateView):
-    workflow_class = UpdateSubnet
+    workflow_class = workflows.UpdateSubnet

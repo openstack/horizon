@@ -16,13 +16,13 @@
 
 import logging
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
-from openstack_dashboard.dashboards.project.networks.ports.tables import\
-        get_fixed_ips
-from openstack_dashboard.dashboards.project.routers.ports.tables import\
-        get_device_owner
+from openstack_dashboard.dashboards.project.networks.ports \
+    import tables as networks_tables
+from openstack_dashboard.dashboards.project.routers.ports \
+    import tables as routers_tables
 
 
 LOG = logging.getLogger(__name__)
@@ -32,9 +32,10 @@ class PortsTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:admin:networks:ports:detail")
-    fixed_ips = tables.Column(get_fixed_ips, verbose_name=_("Fixed IPs"))
+    fixed_ips = tables.Column(networks_tables.get_fixed_ips,
+                              verbose_name=_("Fixed IPs"))
     status = tables.Column("status", verbose_name=_("Status"))
-    device_owner = tables.Column(get_device_owner,
+    device_owner = tables.Column(routers_tables.get_device_owner,
                                  verbose_name=_("Type"))
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"))

@@ -14,8 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tables
@@ -23,22 +23,16 @@ from horizon import workflows
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAIN_INFO_FIELDS
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_INDEX_URL
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_INDEX_VIEW_TEMPLATE
-from openstack_dashboard.dashboards.admin.domains.tables import DomainsTable
-from openstack_dashboard.dashboards.admin.domains.workflows \
-    import CreateDomain
-from openstack_dashboard.dashboards.admin.domains.workflows \
-    import UpdateDomain
+from openstack_dashboard.dashboards.admin.domains import constants
+from openstack_dashboard.dashboards.admin.domains \
+    import tables as project_tables
+from openstack_dashboard.dashboards.admin.domains \
+    import workflows as project_workflows
 
 
 class IndexView(tables.DataTableView):
-    table_class = DomainsTable
-    template_name = DOMAINS_INDEX_VIEW_TEMPLATE
+    table_class = project_tables.DomainsTable
+    template_name = constants.DOMAINS_INDEX_VIEW_TEMPLATE
 
     def get_data(self):
         domains = []
@@ -57,11 +51,11 @@ class IndexView(tables.DataTableView):
 
 
 class CreateDomainView(workflows.WorkflowView):
-    workflow_class = CreateDomain
+    workflow_class = project_workflows.CreateDomain
 
 
 class UpdateDomainView(workflows.WorkflowView):
-    workflow_class = UpdateDomain
+    workflow_class = project_workflows.UpdateDomain
 
     def get_initial(self):
         initial = super(UpdateDomainView, self).get_initial()
@@ -73,10 +67,10 @@ class UpdateDomainView(workflows.WorkflowView):
             # get initial domain info
             domain_info = api.keystone.domain_get(self.request,
                                                   domain_id)
-            for field in DOMAIN_INFO_FIELDS:
+            for field in constants.DOMAIN_INFO_FIELDS:
                 initial[field] = getattr(domain_info, field, None)
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve domain details.'),
-                              redirect=reverse(DOMAINS_INDEX_URL))
+                              redirect=reverse(constants.DOMAINS_INDEX_URL))
         return initial

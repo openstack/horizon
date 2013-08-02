@@ -19,7 +19,7 @@
 #    under the License.
 
 from django import forms
-from django.forms.forms import NON_FIELD_ERRORS
+from django.forms.forms import NON_FIELD_ERRORS  # noqa
 
 
 class SelfHandlingMixin(object):

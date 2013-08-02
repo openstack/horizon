@@ -18,14 +18,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from copy import deepcopy
+from copy import deepcopy  # noqa
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django import http
 
-from mox import IsA
+from mox import IsA  # noqa
 
-from horizon.workflows.views import WorkflowView
+from horizon.workflows import views
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -92,7 +92,7 @@ class AccessAndSecurityTests(test.TestCase):
 
         res = self.client.get(reverse("horizon:project:access_and_security:"
                                       "floating_ips:associate"))
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
         self.assertContains(res,
                             '<option value="1">server_1 (1)</option>')

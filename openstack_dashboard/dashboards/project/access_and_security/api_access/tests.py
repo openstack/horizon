@@ -14,10 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
-from django.http import HttpRequest
+from django.core.urlresolvers import reverse  # noqa
+from django.http import HttpRequest  # noqa
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

@@ -1,11 +1,11 @@
-from collections import defaultdict
+from collections import defaultdict  # noqa
 import itertools
 
 from horizon import exceptions
-from horizon.utils.memoized import memoized
+from horizon.utils.memoized import memoized  # noqa
 
-from openstack_dashboard.api.base import is_service_enabled
-from openstack_dashboard.api.base import QuotaSet
+from openstack_dashboard.api.base import is_service_enabled  # noqa
+from openstack_dashboard.api.base import QuotaSet  # noqa
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova

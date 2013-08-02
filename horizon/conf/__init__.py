@@ -1,13 +1,13 @@
 import copy
 
-from django.utils.functional import empty
-from django.utils.functional import LazyObject
+from django.utils.functional import empty  # noqa
+from django.utils.functional import LazyObject  # noqa
 
 
 class LazySettings(LazyObject):
     def _setup(self, name=None):
-        from django.conf import settings
-        from horizon.conf.default import HORIZON_CONFIG as DEFAULT_CONFIG
+        from django.conf import settings  # noqa
+        from horizon.conf.default import HORIZON_CONFIG as DEFAULT_CONFIG  # noqa
         HORIZON_CONFIG = copy.copy(DEFAULT_CONFIG)
         HORIZON_CONFIG.update(settings.HORIZON_CONFIG)
 

@@ -21,12 +21,12 @@
 import json
 import logging
 
-from django.conf import settings
-from django.utils.text import normalize_newlines
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.conf import settings  # noqa
+from django.utils.text import normalize_newlines  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ungettext_lazy  # noqa
 
-from django.views.decorators.debug import sensitive_variables
+from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -37,8 +37,7 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.project.images_and_snapshots.utils \
-    import get_available_images
+from openstack_dashboard.dashboards.project.images_and_snapshots import utils
 
 
 LOG = logging.getLogger(__name__)
@@ -258,7 +257,7 @@ class SetInstanceDetailsAction(workflows.Action):
 
     def populate_image_id_choices(self, request, context):
         self._init_images_cache()
-        images = get_available_images(request, context.get('project_id'),
+        images = utils.get_available_images(request, context.get('project_id'),
                                       self._images_cache)
         choices = [(image.id, image.name)
                    for image in images
@@ -271,7 +270,7 @@ class SetInstanceDetailsAction(workflows.Action):
 
     def populate_instance_snapshot_id_choices(self, request, context):
         self._init_images_cache()
-        images = get_available_images(request, context.get('project_id'),
+        images = utils.get_available_images(request, context.get('project_id'),
                                       self._images_cache)
         choices = [(image.id, image.name)
                    for image in images

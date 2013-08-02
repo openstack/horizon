@@ -15,10 +15,10 @@
 #    under the License.
 
 from django import template
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
-from horizon.browsers.breadcrumb import Breadcrumb
-from horizon.tables import DataTable
+from horizon.browsers.breadcrumb import Breadcrumb  # noqa
+from horizon.tables import DataTable  # noqa
 from horizon.utils import html
 
 

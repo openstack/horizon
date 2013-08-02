@@ -22,14 +22,13 @@ import logging
 
 import swiftclient
 
-from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import messages
 
-from openstack_dashboard.api.base import APIDictWrapper
-from openstack_dashboard.api.base import url_for
+from openstack_dashboard.api import base
 from openstack_dashboard.openstack.common import timeutils
 
 
@@ -37,11 +36,11 @@ LOG = logging.getLogger(__name__)
 FOLDER_DELIMITER = "/"
 
 
-class Container(APIDictWrapper):
+class Container(base.APIDictWrapper):
     pass
 
 
-class StorageObject(APIDictWrapper):
+class StorageObject(base.APIDictWrapper):
     def __init__(self, apidict, container_name, orig_name=None, data=None):
         super(StorageObject, self).__init__(apidict)
         self.container_name = container_name
@@ -53,7 +52,7 @@ class StorageObject(APIDictWrapper):
         return self.name
 
 
-class PseudoFolder(APIDictWrapper):
+class PseudoFolder(base.APIDictWrapper):
     def __init__(self, apidict, container_name):
         super(PseudoFolder, self).__init__(apidict)
         self.container_name = container_name
@@ -92,7 +91,7 @@ def _objectify(items, container_name):
 
 
 def swift_api(request):
-    endpoint = url_for(request, 'object-store')
+    endpoint = base.url_for(request, 'object-store')
     LOG.debug('Swift connection created using token "%s" and url "%s"'
               % (request.user.token.id, endpoint))
     return swiftclient.client.Connection(None,

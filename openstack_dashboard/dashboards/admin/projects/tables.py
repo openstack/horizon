@@ -1,13 +1,13 @@
 import logging
 
-from django.core.urlresolvers import reverse
-from django.utils.http import urlencode
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.http import urlencode  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.api.keystone import VERSIONS as IDENTITY_VERSIONS
+from openstack_dashboard.api import keystone
 
 
 LOG = logging.getLogger(__name__)
@@ -33,7 +33,7 @@ class ViewGroupsLink(tables.LinkAction):
     classes = ("ajax-modal", "btn-edit")
 
     def allowed(self, request, project):
-        return IDENTITY_VERSIONS.active >= 3
+        return keystone.VERSIONS.active >= 3
 
     def get_link_url(self, project):
         step = 'update_group_members'

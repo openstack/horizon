@@ -14,16 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.networks.ports.views import \
-        DetailView
+from openstack_dashboard.dashboards.project.networks.ports import views
 
 PORTS = r'^(?P<port_id>[^/]+)/%s$'
 VIEW_MOD = 'openstack_dashboard.dashboards.admin.networks.ports.views'
 
 
 urlpatterns = patterns(VIEW_MOD,
-    url(PORTS % 'detail', DetailView.as_view(), name='detail')
+    url(PORTS % 'detail', views.DetailView.as_view(), name='detail')
 )

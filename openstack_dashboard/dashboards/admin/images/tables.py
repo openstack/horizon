@@ -14,25 +14,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 
-from openstack_dashboard.dashboards.project.images_and_snapshots \
-        .images.tables import CreateImage
-from openstack_dashboard.dashboards.project.images_and_snapshots \
-        .images.tables import DeleteImage
-from openstack_dashboard.dashboards.project.images_and_snapshots \
-        .images.tables import EditImage
-from openstack_dashboard.dashboards.project.images_and_snapshots \
-        .images.tables import ImagesTable
+from openstack_dashboard.dashboards.project.images_and_snapshots.images \
+    import tables as project_tables
 
 
-class AdminCreateImage(CreateImage):
+class AdminCreateImage(project_tables.CreateImage):
     url = "horizon:admin:images:create"
 
 
-class AdminDeleteImage(DeleteImage):
+class AdminDeleteImage(project_tables.DeleteImage):
     def allowed(self, request, image=None):
         if image and image.protected:
             return False
@@ -40,14 +34,14 @@ class AdminDeleteImage(DeleteImage):
             return True
 
 
-class AdminEditImage(EditImage):
+class AdminEditImage(project_tables.EditImage):
     url = "horizon:admin:images:update"
 
     def allowed(self, request, image=None):
         return True
 
 
-class AdminImagesTable(ImagesTable):
+class AdminImagesTable(project_tables.ImagesTable):
     name = tables.Column("name",
                          link="horizon:admin:images:detail",
                          verbose_name=_("Image Name"))

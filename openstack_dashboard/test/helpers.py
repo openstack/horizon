@@ -18,16 +18,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from functools import wraps
+from functools import wraps  # noqa
 import os
 
-from django.conf import settings
-from django.contrib.auth.middleware import AuthenticationMiddleware
-from django.contrib.messages.storage import default_storage
+from django.conf import settings  # noqa
+from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
+from django.contrib.messages.storage import default_storage  # noqa
 from django.core.handlers import wsgi
 from django import http
-from django.test.client import RequestFactory
-from django.utils.importlib import import_module
+from django.test.client import RequestFactory  # noqa
+from django.utils.importlib import import_module  # noqa
 from django.utils import unittest
 
 from cinderclient import client as cinder_client
@@ -49,7 +49,7 @@ from horizon.test import helpers as horizon_helpers
 
 from openstack_dashboard import api
 from openstack_dashboard import context_processors
-from openstack_dashboard.test.test_data.utils import load_test_data
+from openstack_dashboard.test.test_data.utils import load_test_data  # noqa
 
 
 # Makes output of failing mox tests much easier to read.

@@ -19,9 +19,9 @@ import itertools
 import uuid
 
 from django import http
-from mox import IsA
+from mox import IsA  # noqa
 
-from novaclient.v1_1.floating_ip_pools import FloatingIPPool
+from novaclient.v1_1.floating_ip_pools import FloatingIPPool  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

@@ -18,18 +18,18 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
-from django.template.defaultfilters import floatformat
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.template.defaultfilters import floatformat  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard import usage
-from openstack_dashboard.usage.base import BaseCsvResponse
+from openstack_dashboard.usage import base
 
 
-class GlobalUsageCsvRenderer(BaseCsvResponse):
+class GlobalUsageCsvRenderer(base.BaseCsvResponse):
 
     columns = [_("Project Name"), _("VCPUs"), _("Ram (MB)"),
                _("Disk (GB)"), _("Usage (Hours)")]

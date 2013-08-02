@@ -16,10 +16,10 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
-from django.utils.http import urlencode
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.http import urlencode  # noqa
 from django.utils import safestring
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 

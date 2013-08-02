@@ -14,13 +14,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from datetime import datetime
+from datetime import datetime  # noqa
 import pytz
 
-from django.conf import settings
+from django.conf import settings  # noqa
 from django import shortcuts
 from django.utils import translation
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import forms
 from horizon import messages

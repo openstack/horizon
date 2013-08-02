@@ -16,9 +16,9 @@
 
 import sys
 
-from django.template.loader import render_to_string
-from django.template import TemplateSyntaxError
-from django.utils.datastructures import SortedDict
+from django.template.loader import render_to_string  # noqa
+from django.template import TemplateSyntaxError  # noqa
+from django.utils.datastructures import SortedDict  # noqa
 
 from horizon import exceptions
 from horizon.utils import html

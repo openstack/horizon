@@ -18,9 +18,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import include
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import include  # noqa
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
 from openstack_dashboard.dashboards.project.access_and_security.\
     api_access import urls as api_access_urls
@@ -30,12 +30,11 @@ from openstack_dashboard.dashboards.project.access_and_security.\
     keypairs import urls as keypair_urls
 from openstack_dashboard.dashboards.project.access_and_security.\
     security_groups import urls as sec_group_urls
-from openstack_dashboard.dashboards.project.access_and_security.views \
-    import IndexView
+from openstack_dashboard.dashboards.project.access_and_security import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'api_access/', include(api_access_urls, namespace='api_access')),
     url(r'keypairs/', include(keypair_urls, namespace='keypairs')),
     url(r'floating_ips/', include(fip_urls, namespace='floating_ips')),

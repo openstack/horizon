@@ -17,14 +17,14 @@
 import copy
 
 from django import http
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tabs as horizon_tabs
 from horizon.test import helpers as test
 
-from horizon.test.tests.tables import MyTable
-from horizon.test.tests.tables import TEST_DATA
+from horizon.test.tests.tables import MyTable  # noqa
+from horizon.test.tests.tables import TEST_DATA  # noqa
 
 
 class BaseTestTab(horizon_tabs.Tab):

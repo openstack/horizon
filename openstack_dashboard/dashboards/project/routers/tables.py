@@ -16,9 +16,9 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
-from django.template.defaultfilters import title
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse  # noqa
+from django.template.defaultfilters import title  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import messages

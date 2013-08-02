@@ -14,8 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse_lazy  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -25,36 +25,12 @@ from horizon import workflows
 import logging
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.loadbalancers.forms import \
-    UpdateMember
-from openstack_dashboard.dashboards.project.loadbalancers.forms import \
-    UpdateMonitor
-from openstack_dashboard.dashboards.project.loadbalancers.forms import \
-    UpdatePool
-from openstack_dashboard.dashboards.project.loadbalancers.forms import \
-    UpdateVip
-from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
-    LoadBalancerTabs
-from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
-    MemberDetailsTabs
-from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
-    MonitorDetailsTabs
-from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
-    PoolDetailsTabs
-from openstack_dashboard.dashboards.project.loadbalancers.tabs import \
-    VipDetailsTabs
-from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
-    AddMember
-from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
-    AddMonitor
-from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
-    AddPMAssociation
-from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
-    AddPool
-from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
-    AddVip
-from openstack_dashboard.dashboards.project.loadbalancers.workflows import \
-    DeletePMAssociation
+from openstack_dashboard.dashboards.project.loadbalancers \
+    import forms as project_forms
+from openstack_dashboard.dashboards.project.loadbalancers \
+    import tabs as project_tabs
+from openstack_dashboard.dashboards.project.loadbalancers \
+    import workflows as project_workflows
 
 import re
 
@@ -62,7 +38,7 @@ LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabView):
-    tab_group_class = (LoadBalancerTabs)
+    tab_group_class = (project_tabs.LoadBalancerTabs)
     template_name = 'project/loadbalancers/details_tabs.html'
 
     def post(self, request, *args, **kwargs):
@@ -109,7 +85,7 @@ class IndexView(tabs.TabView):
 
 
 class AddPoolView(workflows.WorkflowView):
-    workflow_class = AddPool
+    workflow_class = project_workflows.AddPool
 
     def get_initial(self):
         initial = super(AddPoolView, self).get_initial()
@@ -117,7 +93,7 @@ class AddPoolView(workflows.WorkflowView):
 
 
 class AddVipView(workflows.WorkflowView):
-    workflow_class = AddVip
+    workflow_class = project_workflows.AddVip
 
     def get_context_data(self, **kwargs):
         context = super(AddVipView, self).get_context_data(**kwargs)
@@ -138,7 +114,7 @@ class AddVipView(workflows.WorkflowView):
 
 
 class AddMemberView(workflows.WorkflowView):
-    workflow_class = AddMember
+    workflow_class = project_workflows.AddMember
 
     def get_initial(self):
         initial = super(AddMemberView, self).get_initial()
@@ -146,7 +122,7 @@ class AddMemberView(workflows.WorkflowView):
 
 
 class AddMonitorView(workflows.WorkflowView):
-    workflow_class = AddMonitor
+    workflow_class = project_workflows.AddMonitor
 
     def get_initial(self):
         initial = super(AddMonitorView, self).get_initial()
@@ -154,27 +130,27 @@ class AddMonitorView(workflows.WorkflowView):
 
 
 class PoolDetailsView(tabs.TabView):
-    tab_group_class = (PoolDetailsTabs)
+    tab_group_class = (project_tabs.PoolDetailsTabs)
     template_name = 'project/loadbalancers/details_tabs.html'
 
 
 class VipDetailsView(tabs.TabView):
-    tab_group_class = (VipDetailsTabs)
+    tab_group_class = (project_tabs.VipDetailsTabs)
     template_name = 'project/loadbalancers/details_tabs.html'
 
 
 class MemberDetailsView(tabs.TabView):
-    tab_group_class = (MemberDetailsTabs)
+    tab_group_class = (project_tabs.MemberDetailsTabs)
     template_name = 'project/loadbalancers/details_tabs.html'
 
 
 class MonitorDetailsView(tabs.TabView):
-    tab_group_class = (MonitorDetailsTabs)
+    tab_group_class = (project_tabs.MonitorDetailsTabs)
     template_name = 'project/loadbalancers/details_tabs.html'
 
 
 class UpdatePoolView(forms.ModalFormView):
-    form_class = UpdatePool
+    form_class = project_forms.UpdatePool
     template_name = "project/loadbalancers/updatepool.html"
     context_object_name = 'pool'
     success_url = reverse_lazy("horizon:project:loadbalancers:index")
@@ -205,7 +181,7 @@ class UpdatePoolView(forms.ModalFormView):
 
 
 class UpdateVipView(forms.ModalFormView):
-    form_class = UpdateVip
+    form_class = project_forms.UpdateVip
     template_name = "project/loadbalancers/updatevip.html"
     context_object_name = 'vip'
     success_url = reverse_lazy("horizon:project:loadbalancers:index")
@@ -245,7 +221,7 @@ class UpdateVipView(forms.ModalFormView):
 
 
 class UpdateMemberView(forms.ModalFormView):
-    form_class = UpdateMember
+    form_class = project_forms.UpdateMember
     template_name = "project/loadbalancers/updatemember.html"
     context_object_name = 'member'
     success_url = reverse_lazy("horizon:project:loadbalancers:index")
@@ -275,7 +251,7 @@ class UpdateMemberView(forms.ModalFormView):
 
 
 class UpdateMonitorView(forms.ModalFormView):
-    form_class = UpdateMonitor
+    form_class = project_forms.UpdateMonitor
     template_name = "project/loadbalancers/updatemonitor.html"
     context_object_name = 'monitor'
     success_url = reverse_lazy("horizon:project:loadbalancers:index")
@@ -307,7 +283,7 @@ class UpdateMonitorView(forms.ModalFormView):
 
 
 class AddPMAssociationView(workflows.WorkflowView):
-    workflow_class = AddPMAssociation
+    workflow_class = project_workflows.AddPMAssociation
 
     def get_initial(self):
         initial = super(AddPMAssociationView, self).get_initial()
@@ -323,7 +299,7 @@ class AddPMAssociationView(workflows.WorkflowView):
 
 
 class DeletePMAssociationView(workflows.WorkflowView):
-    workflow_class = DeletePMAssociation
+    workflow_class = project_workflows.DeletePMAssociation
 
     def get_initial(self):
         initial = super(DeletePMAssociationView, self).get_initial()

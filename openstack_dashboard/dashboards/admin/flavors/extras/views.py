@@ -20,7 +20,7 @@
 
 import logging
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -28,12 +28,10 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.admin.flavors.extras.forms \
-    import CreateExtraSpec
-from openstack_dashboard.dashboards.admin.flavors.extras.forms \
-    import EditExtraSpec
-from openstack_dashboard.dashboards.admin.flavors.extras.tables \
-    import ExtraSpecsTable
+from openstack_dashboard.dashboards.admin.flavors.extras \
+    import forms as project_forms
+from openstack_dashboard.dashboards.admin.flavors.extras \
+    import tables as project_tables
 
 
 LOG = logging.getLogger(__name__)
@@ -52,7 +50,7 @@ class ExtraSpecMixin(object):
 
 
 class IndexView(ExtraSpecMixin, forms.ModalFormMixin, tables.DataTableView):
-    table_class = ExtraSpecsTable
+    table_class = project_tables.ExtraSpecsTable
     template_name = 'admin/flavors/extras/index.html'
 
     def get_data(self):
@@ -68,7 +66,7 @@ class IndexView(ExtraSpecMixin, forms.ModalFormMixin, tables.DataTableView):
 
 
 class CreateView(ExtraSpecMixin, forms.ModalFormView):
-    form_class = CreateExtraSpec
+    form_class = project_forms.CreateExtraSpec
     template_name = 'admin/flavors/extras/create.html'
 
     def get_initial(self):
@@ -79,7 +77,7 @@ class CreateView(ExtraSpecMixin, forms.ModalFormView):
 
 
 class EditView(ExtraSpecMixin, forms.ModalFormView):
-    form_class = EditExtraSpec
+    form_class = project_forms.EditExtraSpec
     template_name = 'admin/flavors/extras/edit.html'
 
     def get_initial(self):

@@ -1,32 +1,18 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-from mox import IsA
+from mox import IsA  # noqa
 
-from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse_lazy  # noqa
 from django import http
 
-from horizon.workflows.views import WorkflowView
+from horizon.workflows import views
 
 from openstack_dashboard import api
-from openstack_dashboard.api.lbaas import Member
-from openstack_dashboard.api.lbaas import Pool
-from openstack_dashboard.api.lbaas import PoolMonitor
-from openstack_dashboard.api.lbaas import Vip
+from openstack_dashboard.api import lbaas
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.project.loadbalancers.workflows \
-    import AddMember
-from openstack_dashboard.dashboards.project.loadbalancers.workflows \
-    import AddMonitor
-from openstack_dashboard.dashboards.project.loadbalancers.workflows \
-    import AddPMAssociation
-from openstack_dashboard.dashboards.project.loadbalancers.workflows \
-    import AddPool
-from openstack_dashboard.dashboards.project.loadbalancers.workflows \
-    import AddVip
-from openstack_dashboard.dashboards.project.loadbalancers.workflows \
-    import DeletePMAssociation
+from openstack_dashboard.dashboards.project.loadbalancers import workflows
 
 
 class LoadBalancerTests(test.TestCase):
@@ -212,7 +198,7 @@ class LoadBalancerTests(test.TestCase):
             subnet_id=pool.subnet_id,
             protocol=pool.protocol,
             lb_method=pool.lb_method,
-            admin_state_up=pool.admin_state_up).AndReturn(Pool(pool))
+            admin_state_up=pool.admin_state_up).AndReturn(lbaas.Pool(pool))
 
         self.mox.ReplayAll()
 
@@ -242,8 +228,8 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.ADDPOOL_PATH))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, WorkflowView.template_name)
-        self.assertEqual(workflow.name, AddPool.name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertEqual(workflow.name, workflows.AddPool.name)
 
         expected_objs = ['<AddPoolStep: addpoolaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
@@ -277,7 +263,7 @@ class LoadBalancerTests(test.TestCase):
             session_persistence=vip.session_persistence['type'],
             cookie_name=vip.session_persistence['cookie_name'],
             connection_limit=vip.connection_limit,
-            admin_state_up=vip.admin_state_up).AndReturn(Vip(vip))
+            admin_state_up=vip.admin_state_up).AndReturn(lbaas.Vip(vip))
 
         self.mox.ReplayAll()
 
@@ -348,8 +334,8 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.ADDVIP_PATH, args=(pool.id,)))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, WorkflowView.template_name)
-        self.assertEqual(workflow.name, AddVip.name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertEqual(workflow.name, workflows.AddVip.name)
 
         expected_objs = ['<AddVipStep: addvipaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
@@ -368,7 +354,7 @@ class LoadBalancerTests(test.TestCase):
             url_path=monitor.url_path,
             expected_codes=monitor.expected_codes,
             admin_state_up=monitor.admin_state_up).AndReturn(
-                PoolMonitor(monitor))
+                lbaas.PoolMonitor(monitor))
 
         self.mox.ReplayAll()
 
@@ -422,8 +408,8 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.ADDMONITOR_PATH))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, WorkflowView.template_name)
-        self.assertEqual(workflow.name, AddMonitor.name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertEqual(workflow.name, workflows.AddMonitor.name)
 
         expected_objs = ['<AddMonitorStep: addmonitoraction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
@@ -459,7 +445,8 @@ class LoadBalancerTests(test.TestCase):
             protocol_port=member.protocol_port,
             weight=member.weight,
             members=[server1.id],
-            admin_state_up=member.admin_state_up).AndReturn(Member(member))
+            admin_state_up=member.admin_state_up).AndReturn(
+                lbaas.Member(member))
 
         self.mox.ReplayAll()
 
@@ -526,8 +513,8 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.ADDMEMBER_PATH))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, WorkflowView.template_name)
-        self.assertEqual(workflow.name, AddMember.name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertEqual(workflow.name, workflows.AddMember.name)
 
         expected_objs = ['<AddMemberStep: addmemberaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
@@ -740,8 +727,8 @@ class LoadBalancerTests(test.TestCase):
         res = self.client.get(reverse(self.ADDASSOC_PATH, args=(pool.id,)))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, WorkflowView.template_name)
-        self.assertEqual(workflow.name, AddPMAssociation.name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertEqual(workflow.name, workflows.AddPMAssociation.name)
 
         expected_objs = ['<AddPMAssociationStep: addpmassociationaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
@@ -786,8 +773,8 @@ class LoadBalancerTests(test.TestCase):
             reverse(self.DELETEASSOC_PATH, args=(pool.id,)))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, WorkflowView.template_name)
-        self.assertEqual(workflow.name, DeletePMAssociation.name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertEqual(workflow.name, workflows.DeletePMAssociation.name)
 
         expected_objs = [
                     '<DeletePMAssociationStep: deletepmassociationaction>', ]

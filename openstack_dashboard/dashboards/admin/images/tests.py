@@ -14,17 +14,17 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.conf import settings  # noqa
+from django.core.urlresolvers import reverse  # noqa
 from django import http
-from django.test.utils import override_settings
+from django.test.utils import override_settings  # noqa
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.admin.images.tables import AdminImagesTable
+from openstack_dashboard.dashboards.admin.images import tables
 
 
 class ImageCreateViewTest(test.BaseAdminViewTests):
@@ -90,16 +90,16 @@ class ImagesViewTest(test.BaseAdminViewTests):
                          settings.API_RESULT_PAGE_SIZE)
 
         url = "?".join([reverse('horizon:admin:images:index'),
-                        "=".join([AdminImagesTable._meta.pagination_param,
-                                  images[2].id])])
+                    "=".join([tables.AdminImagesTable._meta.pagination_param,
+                              images[2].id])])
         res = self.client.get(url)
         # get second page (items 2-4)
         self.assertEqual(len(res.context['images_table'].data),
                          settings.API_RESULT_PAGE_SIZE)
 
         url = "?".join([reverse('horizon:admin:images:index'),
-                        "=".join([AdminImagesTable._meta.pagination_param,
-                                  images[4].id])])
+                    "=".join([tables.AdminImagesTable._meta.pagination_param,
+                              images[4].id])])
         res = self.client.get(url)
         # get third page (item 5)
         self.assertEqual(len(res.context['images_table'].data),

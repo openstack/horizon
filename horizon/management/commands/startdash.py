@@ -1,10 +1,10 @@
 import glob
-from optparse import make_option
+from optparse import make_option  # noqa
 import os
 
-from django.core.management.base import CommandError
-from django.core.management.templates import TemplateCommand
-from django.utils.importlib import import_module
+from django.core.management.base import CommandError  # noqa
+from django.core.management.templates import TemplateCommand  # noqa
+from django.utils.importlib import import_module  # noqa
 
 import horizon
 

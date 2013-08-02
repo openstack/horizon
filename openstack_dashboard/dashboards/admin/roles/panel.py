@@ -14,11 +14,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 import horizon
 
-from openstack_dashboard.api.keystone import VERSIONS as IDENTITY_VERSIONS
+from openstack_dashboard.api.keystone import VERSIONS as IDENTITY_VERSIONS  # noqa
 from openstack_dashboard.dashboards.admin import dashboard
 
 

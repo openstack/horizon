@@ -1,7 +1,7 @@
-from django.template.defaultfilters import title
-from django.template.loader import render_to_string
+from django.template.defaultfilters import title  # noqa
+from django.template.loader import render_to_string  # noqa
 
-from horizon.utils.filters import replace_underscores
+from horizon.utils.filters import replace_underscores  # noqa
 
 
 def stack_info(stack, stack_image):

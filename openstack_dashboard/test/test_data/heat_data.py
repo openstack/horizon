@@ -12,10 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from heatclient.v1.stacks import Stack
-from heatclient.v1.stacks import StackManager
+from heatclient.v1.stacks import Stack  # noqa
+from heatclient.v1.stacks import StackManager  # noqa
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
 
 
 # A slightly hacked up copy of a sample cloudformation template for testing.

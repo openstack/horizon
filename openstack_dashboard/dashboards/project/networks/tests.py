@@ -14,19 +14,18 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django import http
-from django.utils.html import escape
+from django.utils.html import escape  # noqa
 
-from horizon.workflows.views import WorkflowView
+from horizon.workflows import views
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.project.networks.workflows \
-    import CreateNetwork
+from openstack_dashboard.dashboards.project.networks import workflows
 
 
 INDEX_URL = reverse('horizon:project:networks:index')
@@ -228,8 +227,8 @@ class NetworkTests(test.TestCase):
         res = self.client.get(url)
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, WorkflowView.template_name)
-        self.assertEqual(workflow.name, CreateNetwork.name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertEqual(workflow.name, workflows.CreateNetwork.name)
         expected_objs = ['<CreateNetworkInfo: createnetworkinfoaction>',
                          '<CreateSubnetInfo: createsubnetinfoaction>',
                          '<CreateSubnetDetail: createsubnetdetailaction>']
@@ -605,7 +604,7 @@ class NetworkSubnetTests(test.TestCase):
                       args=[network.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_create',)})
@@ -762,7 +761,7 @@ class NetworkSubnetTests(test.TestCase):
 
         expected_msg = 'Network Address and IP version are inconsistent.'
         self.assertFormErrors(res, 1, expected_msg)
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.neutron: ('network_get',)})
     def test_subnet_create_post_gw_inconsistent(self):

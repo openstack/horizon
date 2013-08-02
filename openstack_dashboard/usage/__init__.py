@@ -14,13 +14,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from openstack_dashboard.usage.base import BaseUsage
-from openstack_dashboard.usage.base import GlobalUsage
-from openstack_dashboard.usage.base import ProjectUsage
-from openstack_dashboard.usage.tables import BaseUsageTable
-from openstack_dashboard.usage.tables import GlobalUsageTable
-from openstack_dashboard.usage.tables import ProjectUsageTable
-from openstack_dashboard.usage.views import UsageView
+from openstack_dashboard.usage.base import BaseUsage  # noqa
+from openstack_dashboard.usage.base import GlobalUsage  # noqa
+from openstack_dashboard.usage.base import ProjectUsage  # noqa
+from openstack_dashboard.usage.tables import BaseUsageTable  # noqa
+from openstack_dashboard.usage.tables import GlobalUsageTable  # noqa
+from openstack_dashboard.usage.tables import ProjectUsageTable  # noqa
+from openstack_dashboard.usage.views import UsageView  # noqa
 
 assert BaseUsage
 assert ProjectUsage

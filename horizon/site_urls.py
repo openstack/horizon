@@ -18,11 +18,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
-from django.conf.urls.defaults import include
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
-from django.views.generic import TemplateView
+from django.conf import settings  # noqa
+from django.conf.urls.defaults import include  # noqa
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
+from django.views.generic import TemplateView  # noqa
 
 
 urlpatterns = patterns('horizon.views',

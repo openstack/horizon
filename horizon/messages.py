@@ -21,8 +21,8 @@ messaging needs (e.g. AJAX communication, etc.).
 
 from django.contrib import messages as _messages
 from django.contrib.messages import constants
-from django.utils.encoding import force_unicode
-from django.utils.safestring import SafeData
+from django.utils.encoding import force_unicode  # noqa
+from django.utils.safestring import SafeData  # noqa
 
 
 def add_message(request, level, message, extra_tags='', fail_silently=False):

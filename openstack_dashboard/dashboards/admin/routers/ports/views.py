@@ -18,13 +18,13 @@ import logging
 
 from horizon import tabs
 
-from openstack_dashboard.dashboards.admin.routers.ports.tabs \
-    import PortDetailTabs
+from openstack_dashboard.dashboards.admin.routers.ports \
+    import tabs as project_tabs
 
 
 LOG = logging.getLogger(__name__)
 
 
 class DetailView(tabs.TabView):
-    tab_group_class = PortDetailTabs
+    tab_group_class = project_tabs.PortDetailTabs
     template_name = 'admin/networks/ports/detail.html'

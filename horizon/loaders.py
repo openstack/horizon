@@ -4,10 +4,10 @@ Wrapper for loading templates from "templates" directories in panel modules.
 
 import os
 
-from django.conf import settings
-from django.template.base import TemplateDoesNotExist
-from django.template.loader import BaseLoader
-from django.utils._os import safe_join
+from django.conf import settings  # noqa
+from django.template.base import TemplateDoesNotExist  # noqa
+from django.template.loader import BaseLoader  # noqa
+from django.utils._os import safe_join  # noqa
 
 # Set up a cache of the panel directories to search.
 panel_template_dirs = {}

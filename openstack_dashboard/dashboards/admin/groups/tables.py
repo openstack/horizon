@@ -16,22 +16,15 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django.template import defaultfilters
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_ADD_MEMBER_URL
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_CREATE_URL
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_MANAGE_URL
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_UPDATE_URL
+from openstack_dashboard.dashboards.admin.groups import constants
 
 
 LOG = logging.getLogger(__name__)
@@ -45,7 +38,7 @@ STATUS_CHOICES = (
 class CreateGroupLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Group")
-    url = GROUPS_CREATE_URL
+    url = constants.GROUPS_CREATE_URL
     classes = ("ajax-modal", "btn-create")
 
     def allowed(self, request, group):
@@ -55,7 +48,7 @@ class CreateGroupLink(tables.LinkAction):
 class EditGroupLink(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Group")
-    url = GROUPS_UPDATE_URL
+    url = constants.GROUPS_UPDATE_URL
     classes = ("ajax-modal", "btn-edit")
 
     def allowed(self, request, group):
@@ -78,7 +71,7 @@ class DeleteGroupsAction(tables.DeleteAction):
 class ManageUsersLink(tables.LinkAction):
     name = "users"
     verbose_name = _("Modify Users")
-    url = GROUPS_MANAGE_URL
+    url = constants.GROUPS_MANAGE_URL
     classes = ("btn-edit")
 
     def allowed(self, request, datum):
@@ -148,7 +141,7 @@ class AddMembersLink(tables.LinkAction):
     name = "add_user_link"
     verbose_name = _("Add...")
     classes = ("ajax-modal", "btn-create")
-    url = GROUPS_ADD_MEMBER_URL
+    url = constants.GROUPS_ADD_MEMBER_URL
 
     def allowed(self, request, user=None):
         return api.keystone.keystone_can_edit_group()
@@ -183,7 +176,7 @@ class AddMembers(tables.BatchAction):
     data_type_plural = _("Users")
     classes = ("btn-create", )
     requires_input = True
-    success_url = GROUPS_MANAGE_URL
+    success_url = constants.GROUPS_MANAGE_URL
 
     def allowed(self, request, user=None):
         return api.keystone.keystone_can_edit_group()

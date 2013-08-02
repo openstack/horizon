@@ -28,22 +28,22 @@ import inspect
 import logging
 import os
 
-from django.conf import settings
-from django.conf.urls.defaults import include
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
-from django.core.exceptions import ImproperlyConfigured
-from django.core.urlresolvers import reverse
-from django.utils.datastructures import SortedDict
-from django.utils.functional import SimpleLazyObject
-from django.utils.importlib import import_module
-from django.utils.module_loading import module_has_submodule
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.conf.urls.defaults import include  # noqa
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
+from django.core.exceptions import ImproperlyConfigured  # noqa
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.datastructures import SortedDict  # noqa
+from django.utils.functional import SimpleLazyObject  # noqa
+from django.utils.importlib import import_module  # noqa
+from django.utils.module_loading import module_has_submodule  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import conf
-from horizon.decorators import _current_component
-from horizon.decorators import require_auth
-from horizon.decorators import require_perms
+from horizon.decorators import _current_component  # noqa
+from horizon.decorators import require_auth  # noqa
+from horizon.decorators import require_perms  # noqa
 from horizon import loaders
 
 
@@ -549,7 +549,7 @@ class Workflow(object):
 
 
 try:
-    from django.utils.functional import empty
+    from django.utils.functional import empty  # noqa
 except ImportError:
     #Django 1.3 fallback
     empty = None

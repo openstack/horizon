@@ -16,8 +16,8 @@
 
 from horizon import forms
 
-from django.core.urlresolvers import reverse_lazy
-from openstack_dashboard.dashboards.settings.password.forms import PasswordForm
+from django.core.urlresolvers import reverse_lazy  # noqa
+from openstack_dashboard.dashboards.settings.password.forms import PasswordForm  # noqa
 
 
 class PasswordView(forms.ModalFormView):

@@ -14,15 +14,15 @@
 
 import logging
 
-from django.http import Http404
-from django.template.defaultfilters import timesince
-from django.template.defaultfilters import title
-from django.utils.translation import ugettext_lazy as _
+from django.http import Http404  # noqa
+from django.template.defaultfilters import timesince  # noqa
+from django.template.defaultfilters import title  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import messages
 from horizon import tables
-from horizon.utils.filters import parse_isotime
-from horizon.utils.filters import replace_underscores
+from horizon.utils.filters import parse_isotime  # noqa
+from horizon.utils.filters import replace_underscores  # noqa
 
 from heatclient import exc
 

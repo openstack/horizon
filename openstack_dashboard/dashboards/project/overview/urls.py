@@ -19,15 +19,13 @@
 #    under the License.
 
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.overview.views \
-    import ProjectOverview
-from openstack_dashboard.dashboards.project.overview.views import WarningView
+from openstack_dashboard.dashboards.project.overview import views
 
 
 urlpatterns = patterns('openstack_dashboard.dashboards.project.overview.views',
-    url(r'^$', ProjectOverview.as_view(), name='index'),
-    url(r'^warning$', WarningView.as_view(), name='warning'),
+    url(r'^$', views.ProjectOverview.as_view(), name='index'),
+    url(r'^warning$', views.WarningView.as_view(), name='warning'),
 )

@@ -16,17 +16,15 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.networks.ports.tables import \
-        get_attached
-from openstack_dashboard.dashboards.project.networks.ports.tables import \
-        get_fixed_ips
+from openstack_dashboard.dashboards.project.networks.ports import \
+    tables as project_tables
 
 
 LOG = logging.getLogger(__name__)
@@ -74,8 +72,10 @@ class PortsTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:admin:networks:ports:detail")
-    fixed_ips = tables.Column(get_fixed_ips, verbose_name=_("Fixed IPs"))
-    device_id = tables.Column(get_attached, verbose_name=_("Device Attached"))
+    fixed_ips = tables.Column(
+        project_tables.get_fixed_ips, verbose_name=_("Fixed IPs"))
+    device_id = tables.Column(
+        project_tables.get_attached, verbose_name=_("Device Attached"))
     status = tables.Column("status", verbose_name=_("Status"))
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"))

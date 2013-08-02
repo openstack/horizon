@@ -14,17 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.admin.domains.views import CreateDomainView
-from openstack_dashboard.dashboards.admin.domains.views import IndexView
-from openstack_dashboard.dashboards.admin.domains.views import UpdateDomainView
+from openstack_dashboard.dashboards.admin.domains import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^create$', CreateDomainView.as_view(), name='create'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^create$', views.CreateDomainView.as_view(), name='create'),
     url(r'^(?P<domain_id>[^/]+)/update/$',
-        UpdateDomainView.as_view(), name='update')
+        views.UpdateDomainView.as_view(), name='update')
 )

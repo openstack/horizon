@@ -18,30 +18,28 @@
 Admin views for managing volumes.
 """
 
-from django.core.urlresolvers import reverse
-from django.utils.datastructures import SortedDict
-from django.utils.translation import ugettext_lazy as _
-
-from openstack_dashboard.dashboards.project.volumes.views import \
-        DetailView as _DetailView
-from openstack_dashboard.dashboards.project.volumes.views import \
-        VolumeTableMixIn
-
-from openstack_dashboard.api import cinder
-from openstack_dashboard.api import keystone
-
-from openstack_dashboard.dashboards.admin.volumes.forms import CreateVolumeType
-from openstack_dashboard.dashboards.admin.volumes.tables import VolumesTable
-from openstack_dashboard.dashboards.admin.volumes.tables \
-    import VolumeTypesTable
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.datastructures import SortedDict  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
 
+from openstack_dashboard.api import cinder
+from openstack_dashboard.api import keystone
 
-class IndexView(tables.MultiTableView, VolumeTableMixIn):
-    table_classes = (VolumesTable, VolumeTypesTable)
+from openstack_dashboard.dashboards.admin.volumes \
+    import forms as project_forms
+from openstack_dashboard.dashboards.admin.volumes \
+    import tables as project_tables
+
+from openstack_dashboard.dashboards.project.volumes import views
+
+
+class IndexView(tables.MultiTableView, views.VolumeTableMixIn):
+    table_classes = (project_tables.VolumesTable,
+                     project_tables.VolumeTypesTable)
     template_name = "admin/volumes/index.html"
 
     def get_volumes_data(self):
@@ -76,12 +74,12 @@ class IndexView(tables.MultiTableView, VolumeTableMixIn):
         return volume_types
 
 
-class DetailView(_DetailView):
+class DetailView(views.DetailView):
     template_name = "admin/volumes/detail.html"
 
 
 class CreateVolumeTypeView(forms.ModalFormView):
-    form_class = CreateVolumeType
+    form_class = project_forms.CreateVolumeType
     template_name = 'admin/volumes/create_volume_type.html'
     success_url = 'horizon:admin:volumes:index'
 

@@ -19,17 +19,14 @@
 #    under the License.
 
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.network_topology.views \
-    import JSONView
-from openstack_dashboard.dashboards.project.network_topology.views \
-    import NetworkTopology
+from openstack_dashboard.dashboards.project.network_topology import views
 
 
 urlpatterns = patterns(
     'openstack_dashboard.dashboards.project.network_topology.views',
-    url(r'^$', NetworkTopology.as_view(), name='index'),
-    url(r'^json$', JSONView.as_view(), name='json'),
+    url(r'^$', views.NetworkTopology.as_view(), name='index'),
+    url(r'^json$', views.JSONView.as_view(), name='json'),
 )

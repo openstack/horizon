@@ -22,21 +22,21 @@ import logging
 
 import netaddr
 
-from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.conf import settings  # noqa
+from django.core.urlresolvers import reverse  # noqa
 from django.core import validators
-from django.forms import ValidationError
-from django.utils.translation import ugettext_lazy as _
+from django.forms import ValidationError  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon.utils import fields
-from horizon.utils.validators import validate_ip_protocol
-from horizon.utils.validators import validate_port_range
+from horizon.utils.validators import validate_ip_protocol  # noqa
+from horizon.utils.validators import validate_port_range  # noqa
 
 from openstack_dashboard import api
-from openstack_dashboard.utils.filters import get_int_or_uuid
+from openstack_dashboard.utils import filters
 
 
 LOG = logging.getLogger(__name__)
@@ -335,7 +335,7 @@ class AddRule(forms.SelfHandlingForm):
         try:
             rule = api.network.security_group_rule_create(
                         request,
-                        get_int_or_uuid(data['id']),
+                        filters.get_int_or_uuid(data['id']),
                         data['direction'],
                         data['ethertype'],
                         data['ip_protocol'],

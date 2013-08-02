@@ -22,12 +22,12 @@ import logging
 
 from horizon import tabs
 
-from openstack_dashboard.dashboards.admin.info.tabs import SystemInfoTabs
+from openstack_dashboard.dashboards.admin.info import tabs as project_tabs
 
 
 LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabbedTableView):
-    tab_group_class = SystemInfoTabs
+    tab_group_class = project_tabs.SystemInfoTabs
     template_name = 'admin/info/index.html'

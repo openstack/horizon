@@ -1,6 +1,6 @@
 import copy
 
-from django.forms.util import flatatt
+from django.forms.util import flatatt  # noqa
 
 
 class HTMLElement(object):

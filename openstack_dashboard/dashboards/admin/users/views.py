@@ -20,11 +20,11 @@
 
 import operator
 
-from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
-from django.utils.decorators import method_decorator
-from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_post_parameters
+from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse_lazy  # noqa
+from django.utils.decorators import method_decorator  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
+from django.views.decorators.debug import sensitive_post_parameters  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -32,13 +32,14 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.admin.users.forms import CreateUserForm
-from openstack_dashboard.dashboards.admin.users.forms import UpdateUserForm
-from openstack_dashboard.dashboards.admin.users.tables import UsersTable
+from openstack_dashboard.dashboards.admin.users \
+    import forms as project_forms
+from openstack_dashboard.dashboards.admin.users \
+    import tables as project_tables
 
 
 class IndexView(tables.DataTableView):
-    table_class = UsersTable
+    table_class = project_tables.UsersTable
     template_name = 'admin/users/index.html'
 
     def get_data(self):
@@ -54,7 +55,7 @@ class IndexView(tables.DataTableView):
 
 
 class UpdateView(forms.ModalFormView):
-    form_class = UpdateUserForm
+    form_class = project_forms.UpdateUserForm
     template_name = 'admin/users/update.html'
     success_url = reverse_lazy('horizon:admin:users:index')
 
@@ -90,7 +91,7 @@ class UpdateView(forms.ModalFormView):
 
 
 class CreateView(forms.ModalFormView):
-    form_class = CreateUserForm
+    form_class = project_forms.CreateUserForm
     template_name = 'admin/users/create.html'
     success_url = reverse_lazy('horizon:admin:users:index')
 

@@ -20,32 +20,29 @@
 
 import uuid
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django import http
-from django.utils.datastructures import SortedDict
-from django.utils.http import urlencode
+from django.utils.datastructures import SortedDict  # noqa
+from django.utils.http import urlencode  # noqa
 
-from mox import IgnoreArg
-from mox import IsA
+from mox import IgnoreArg  # noqa
+from mox import IsA  # noqa
 
-from horizon.workflows.views import WorkflowView
+from horizon.workflows import views
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.project.instances.tables import LaunchLink
-from openstack_dashboard.dashboards.project.instances.tabs \
-    import InstanceDetailTabs
-from openstack_dashboard.dashboards.project.instances.workflows \
-    import LaunchInstance
-from openstack_dashboard.dashboards.project.instances.workflows \
-    import update_instance
+from openstack_dashboard.dashboards.project.instances import tables
+from openstack_dashboard.dashboards.project.instances import tabs
+from openstack_dashboard.dashboards.project.instances import workflows
 
 
 INDEX_URL = reverse('horizon:project:instances:index')
-SEC_GROUP_ROLE_PREFIX = update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
+SEC_GROUP_ROLE_PREFIX = \
+    workflows.update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
 
 
 class InstanceTests(test.TestCase):
@@ -533,7 +530,7 @@ class InstanceTests(test.TestCase):
 
         url = reverse('horizon:project:instances:detail',
                       args=[server.id])
-        tg = InstanceDetailTabs(self.request, instance=server)
+        tg = tabs.InstanceDetailTabs(self.request, instance=server)
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("overview").get_id())
         res = self.client.get(url + qs)
 
@@ -559,7 +556,7 @@ class InstanceTests(test.TestCase):
 
         url = reverse('horizon:project:instances:console',
                       args=[server.id])
-        tg = InstanceDetailTabs(self.request, instance=server)
+        tg = tabs.InstanceDetailTabs(self.request, instance=server)
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("log").get_id())
         res = self.client.get(url + qs)
 
@@ -579,7 +576,7 @@ class InstanceTests(test.TestCase):
 
         url = reverse('horizon:project:instances:console',
                       args=[server.id])
-        tg = InstanceDetailTabs(self.request, instance=server)
+        tg = tabs.InstanceDetailTabs(self.request, instance=server)
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("log").get_id())
         res = self.client.get(url + qs)
 
@@ -707,7 +704,7 @@ class InstanceTests(test.TestCase):
         url = reverse('horizon:project:instances:update', args=[server.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs(instance_update_get_stubs)
     def test_instance_update_get_server_get_exception(self):
@@ -726,7 +723,7 @@ class InstanceTests(test.TestCase):
 
     def _instance_update_post(self, server_id, server_name, secgroups):
         default_role_field_name = 'default_' + \
-            update_instance.INSTANCE_SEC_GROUP_SLUG + '_role'
+            workflows.update_instance.INSTANCE_SEC_GROUP_SLUG + '_role'
         formData = {'name': server_name,
                     default_role_field_name: 'member',
                     SEC_GROUP_ROLE_PREFIX + 'member': secgroups}
@@ -861,8 +858,9 @@ class InstanceTests(test.TestCase):
         res = self.client.get("%s?%s" % (url, params))
 
         workflow = res.context['workflow']
-        self.assertTemplateUsed(res, WorkflowView.template_name)
-        self.assertEqual(res.context['workflow'].name, LaunchInstance.name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertEqual(res.context['workflow'].name,
+                         workflows.LaunchInstance.name)
         step = workflow.get_step("setinstancedetailsaction")
         self.assertEqual(step.action.initial['image_id'], image.id)
         self.assertQuerysetEqual(workflow.steps,
@@ -1033,7 +1031,7 @@ class InstanceTests(test.TestCase):
                                       "Volume. The Volume is your "
                                       "source and should contain "
                                       "the operating system.")
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',),
@@ -1281,7 +1279,7 @@ class InstanceTests(test.TestCase):
                                       "create an image before "
                                       "attemtping to launch an "
                                       "instance.")
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',),
@@ -1330,7 +1328,7 @@ class InstanceTests(test.TestCase):
         url = reverse('horizon:project:instances:launch')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',),
@@ -1509,7 +1507,7 @@ class InstanceTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        launch = LaunchLink()
+        launch = tables.LaunchLink()
         url = launch.get_link_url()
         classes = list(launch.get_default_classes()) + list(launch.classes)
         link_name = "%s (%s)" % (unicode(launch.verbose_name),
@@ -1677,7 +1675,7 @@ class InstanceTests(test.TestCase):
         url = reverse('horizon:project:instances:resize', args=[server.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.nova: ('server_get',
                                    'flavor_list',)})

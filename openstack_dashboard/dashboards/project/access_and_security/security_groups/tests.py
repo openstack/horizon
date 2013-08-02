@@ -20,19 +20,20 @@
 
 import cgi
 
-from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.conf import settings  # noqa
+from django.core.urlresolvers import reverse  # noqa
 from django import http
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 from openstack_dashboard.dashboards.project.access_and_security.\
-    security_groups.tables import RulesTable
-from openstack_dashboard.dashboards.project.access_and_security.\
-    security_groups.tables import SecurityGroupsTable
+    security_groups import tables
+#     import RulesTable
+#from openstack_dashboard.dashboards.project.access_and_security.\
+#    security_groups.tables import SecurityGroupsTable
 
 
 INDEX_URL = reverse('horizon:project:access_and_security:index')
@@ -452,7 +453,7 @@ class SecurityGroupsViewTests(test.TestCase):
         form_data = {"action": "rules__delete__%s" % rule.id}
         req = self.factory.post(self.edit_url, form_data)
         kwargs = {'security_group_id': sec_group.id}
-        table = RulesTable(req, sec_group.rules, **kwargs)
+        table = tables.RulesTable(req, sec_group.rules, **kwargs)
         handled = table.maybe_handle()
         self.assertEqual(strip_absolute_base(handled['location']),
                          self.detail_url)
@@ -470,7 +471,8 @@ class SecurityGroupsViewTests(test.TestCase):
         form_data = {"action": "rules__delete__%s" % rule.id}
         req = self.factory.post(self.edit_url, form_data)
         kwargs = {'security_group_id': sec_group.id}
-        table = RulesTable(req, self.security_group_rules.list(), **kwargs)
+        table = tables.RulesTable(
+            req, self.security_group_rules.list(), **kwargs)
         handled = table.maybe_handle()
         self.assertEqual(strip_absolute_base(handled['location']),
                          self.detail_url)
@@ -484,7 +486,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
         form_data = {"action": "security_groups__delete__%s" % sec_group.id}
         req = self.factory.post(INDEX_URL, form_data)
-        table = SecurityGroupsTable(req, self.security_groups.list())
+        table = tables.SecurityGroupsTable(req, self.security_groups.list())
         handled = table.maybe_handle()
         self.assertEqual(strip_absolute_base(handled['location']),
                          INDEX_URL)
@@ -501,7 +503,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
         form_data = {"action": "security_groups__delete__%s" % sec_group.id}
         req = self.factory.post(INDEX_URL, form_data)
-        table = SecurityGroupsTable(req, self.security_groups.list())
+        table = tables.SecurityGroupsTable(req, self.security_groups.list())
         handled = table.maybe_handle()
 
         self.assertEqual(strip_absolute_base(handled['location']),

@@ -14,23 +14,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.admin.groups.views import CreateView
-from openstack_dashboard.dashboards.admin.groups.views import IndexView
-from openstack_dashboard.dashboards.admin.groups.views import ManageMembersView
-from openstack_dashboard.dashboards.admin.groups.views import NonMembersView
-from openstack_dashboard.dashboards.admin.groups.views import UpdateView
+from openstack_dashboard.dashboards.admin.groups import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^create$', CreateView.as_view(), name='create'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^create$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<group_id>[^/]+)/update/$',
-        UpdateView.as_view(), name='update'),
+        views.UpdateView.as_view(), name='update'),
     url(r'^(?P<group_id>[^/]+)/manage_members/$',
-        ManageMembersView.as_view(), name='manage_members'),
+        views.ManageMembersView.as_view(), name='manage_members'),
     url(r'^(?P<group_id>[^/]+)/add_members/$',
-        NonMembersView.as_view(), name='add_members'),
+        views.NonMembersView.as_view(), name='add_members'),
 )

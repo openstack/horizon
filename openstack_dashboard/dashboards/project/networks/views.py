@@ -19,8 +19,8 @@ Views for managing Neutron Networks.
 """
 import logging
 
-from django.core.urlresolvers import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse_lazy  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -29,22 +29,23 @@ from horizon import workflows
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.networks.forms import UpdateNetwork
-from openstack_dashboard.dashboards.project.networks.ports.tables \
-    import PortsTable
-from openstack_dashboard.dashboards.project.networks.subnets.tables \
-    import SubnetsTable
-from openstack_dashboard.dashboards.project.networks.tables \
-    import NetworksTable
-from openstack_dashboard.dashboards.project.networks.workflows \
-    import CreateNetwork
+from openstack_dashboard.dashboards.project.networks \
+    import forms as project_forms
+from openstack_dashboard.dashboards.project.networks.ports \
+    import tables as port_tables
+from openstack_dashboard.dashboards.project.networks.subnets \
+    import tables as subnet_tables
+from openstack_dashboard.dashboards.project.networks \
+    import tables as project_tables
+from openstack_dashboard.dashboards.project.networks \
+    import workflows as project_workflows
 
 
 LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
-    table_class = NetworksTable
+    table_class = project_tables.NetworksTable
     template_name = 'project/networks/index.html'
 
     def get_data(self):
@@ -62,14 +63,14 @@ class IndexView(tables.DataTableView):
 
 
 class CreateView(workflows.WorkflowView):
-    workflow_class = CreateNetwork
+    workflow_class = project_workflows.CreateNetwork
 
     def get_initial(self):
         pass
 
 
 class UpdateView(forms.ModalFormView):
-    form_class = UpdateNetwork
+    form_class = project_forms.UpdateNetwork
     template_name = 'project/networks/update.html'
     context_object_name = 'network'
     success_url = reverse_lazy("horizon:project:networks:index")
@@ -100,7 +101,7 @@ class UpdateView(forms.ModalFormView):
 
 
 class DetailView(tables.MultiTableView):
-    table_classes = (SubnetsTable, PortsTable)
+    table_classes = (subnet_tables.SubnetsTable, port_tables.PortsTable)
     template_name = 'project/networks/detail.html'
     failure_url = reverse_lazy('horizon:project:networks:index')
 

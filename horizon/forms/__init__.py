@@ -19,13 +19,13 @@ from django.forms import *  # noqa
 from django.forms import widgets
 
 # Convenience imports for public API components.
-from horizon.forms.base import DateForm
-from horizon.forms.base import SelfHandlingForm
-from horizon.forms.base import SelfHandlingMixin
-from horizon.forms.fields import DynamicChoiceField
-from horizon.forms.fields import DynamicTypedChoiceField
-from horizon.forms.views import ModalFormMixin
-from horizon.forms.views import ModalFormView
+from horizon.forms.base import DateForm  # noqa
+from horizon.forms.base import SelfHandlingForm  # noqa
+from horizon.forms.base import SelfHandlingMixin  # noqa
+from horizon.forms.fields import DynamicChoiceField  # noqa
+from horizon.forms.fields import DynamicTypedChoiceField  # noqa
+from horizon.forms.views import ModalFormMixin  # noqa
+from horizon.forms.views import ModalFormView  # noqa
 
 assert widgets
 assert SelfHandlingMixin

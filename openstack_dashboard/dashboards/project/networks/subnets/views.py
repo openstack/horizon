@@ -19,8 +19,8 @@ Views for managing Neutron Subnets.
 """
 import logging
 
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tabs
@@ -28,19 +28,17 @@ from horizon import workflows
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.networks.subnets.tabs \
-    import SubnetDetailTabs
-from openstack_dashboard.dashboards.project.networks.subnets.workflows \
-    import CreateSubnet
-from openstack_dashboard.dashboards.project.networks.subnets.workflows \
-    import UpdateSubnet
+from openstack_dashboard.dashboards.project.networks.subnets \
+    import tabs as project_tabs
+from openstack_dashboard.dashboards.project.networks.subnets \
+    import workflows as project_workflows
 
 
 LOG = logging.getLogger(__name__)
 
 
 class CreateView(workflows.WorkflowView):
-    workflow_class = CreateSubnet
+    workflow_class = project_workflows.CreateSubnet
 
     def get_object(self):
         if not hasattr(self, "_object"):
@@ -62,7 +60,7 @@ class CreateView(workflows.WorkflowView):
 
 
 class UpdateView(workflows.WorkflowView):
-    workflow_class = UpdateSubnet
+    workflow_class = project_workflows.UpdateSubnet
 
     def _get_object(self, *args, **kwargs):
         if not hasattr(self, "_object"):
@@ -102,5 +100,5 @@ class UpdateView(workflows.WorkflowView):
 
 
 class DetailView(tabs.TabView):
-    tab_group_class = SubnetDetailTabs
+    tab_group_class = project_tabs.SubnetDetailTabs
     template_name = 'project/networks/subnets/detail.html'

@@ -14,36 +14,23 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django import http
 
-from mox import IgnoreArg
-from mox import IsA
+from mox import IgnoreArg  # noqa
+from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_ADD_MEMBER_URL as add_member_url
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_CREATE_URL as create_url
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_INDEX_URL as index_url
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_INDEX_VIEW_TEMPLATE
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_MANAGE_URL as manage_url
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_MANAGE_VIEW_TEMPLATE
-from openstack_dashboard.dashboards.admin.groups.constants \
-    import GROUPS_UPDATE_URL as update_url
+from openstack_dashboard.dashboards.admin.groups import constants
 
 
-GROUPS_INDEX_URL = reverse(index_url)
-GROUP_CREATE_URL = reverse(create_url)
-GROUP_UPDATE_URL = reverse(update_url, args=[1])
-GROUP_MANAGE_URL = reverse(manage_url, args=[1])
-GROUP_ADD_MEMBER_URL = reverse(add_member_url, args=[1])
+GROUPS_INDEX_URL = reverse(constants.GROUPS_INDEX_URL)
+GROUP_CREATE_URL = reverse(constants.GROUPS_CREATE_URL)
+GROUP_UPDATE_URL = reverse(constants.GROUPS_UPDATE_URL, args=[1])
+GROUP_MANAGE_URL = reverse(constants.GROUPS_MANAGE_URL, args=[1])
+GROUP_ADD_MEMBER_URL = reverse(constants.GROUPS_ADD_MEMBER_URL, args=[1])
 
 
 class GroupsViewTests(test.BaseAdminViewTests):
@@ -70,7 +57,7 @@ class GroupsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(GROUPS_INDEX_URL)
 
-        self.assertTemplateUsed(res, GROUPS_INDEX_VIEW_TEMPLATE)
+        self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, groups)
         if domain_id:
             for group in res.context['table'].data:
@@ -101,7 +88,7 @@ class GroupsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(GROUPS_INDEX_URL)
 
-        self.assertTemplateUsed(res, GROUPS_INDEX_VIEW_TEMPLATE)
+        self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, groups)
 
         self.assertNotContains(res, 'Create Group')
@@ -189,7 +176,7 @@ class GroupsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(GROUP_MANAGE_URL)
 
-        self.assertTemplateUsed(res, GROUPS_MANAGE_VIEW_TEMPLATE)
+        self.assertTemplateUsed(res, constants.GROUPS_MANAGE_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, group_members)
 
     @test.create_stubs({api.keystone: ('user_list',

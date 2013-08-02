@@ -16,22 +16,17 @@
 
 import logging
 
-from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
-from keystoneclient.exceptions import ClientException
+from keystoneclient.exceptions import ClientException  # noqa
 
 from horizon import messages
 from horizon import tables
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_CREATE_URL
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_INDEX_URL
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_UPDATE_URL
+from openstack_dashboard.dashboards.admin.domains import constants
 
 
 LOG = logging.getLogger(__name__)
@@ -40,7 +35,7 @@ LOG = logging.getLogger(__name__)
 class CreateDomainLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Domain")
-    url = DOMAINS_CREATE_URL
+    url = constants.DOMAINS_CREATE_URL
     classes = ("ajax-modal", "btn-create")
 
     def allowed(self, request, domain):
@@ -50,7 +45,7 @@ class CreateDomainLink(tables.LinkAction):
 class EditDomainLink(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
-    url = DOMAINS_UPDATE_URL
+    url = constants.DOMAINS_UPDATE_URL
     classes = ("ajax-modal", "btn-edit")
 
     def allowed(self, request, domain):
@@ -99,7 +94,7 @@ class DomainFilterAction(tables.FilterAction):
 class SetDomainContext(tables.Action):
     name = "set_domain_context"
     verbose_name = _("Set Domain Context")
-    url = DOMAINS_INDEX_URL
+    url = constants.DOMAINS_INDEX_URL
     preempt = True
 
     def allowed(self, request, datum):
@@ -132,7 +127,7 @@ class SetDomainContext(tables.Action):
 class UnsetDomainContext(tables.Action):
     name = "clear_domain_context"
     verbose_name = _("Clear Domain Context")
-    url = DOMAINS_INDEX_URL
+    url = constants.DOMAINS_INDEX_URL
     preempt = True
     requires_input = False
 

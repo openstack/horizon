@@ -14,28 +14,22 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.volumes.views \
-    import CreateSnapshotView
-from openstack_dashboard.dashboards.project.volumes.views import CreateView
-from openstack_dashboard.dashboards.project.volumes.views import DetailView
-from openstack_dashboard.dashboards.project.volumes.views \
-    import EditAttachmentsView
-from openstack_dashboard.dashboards.project.volumes.views import IndexView
+from openstack_dashboard.dashboards.project.volumes import views
 
 
 urlpatterns = patterns('openstack_dashboard.dashboards.project.volumes.views',
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^create/$', CreateView.as_view(), name='create'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<volume_id>[^/]+)/attach/$',
-        EditAttachmentsView.as_view(),
+        views.EditAttachmentsView.as_view(),
         name='attach'),
     url(r'^(?P<volume_id>[^/]+)/create_snapshot/$',
-        CreateSnapshotView.as_view(),
+        views.CreateSnapshotView.as_view(),
         name='create_snapshot'),
     url(r'^(?P<volume_id>[^/]+)/$',
-        DetailView.as_view(),
+        views.DetailView.as_view(),
         name='detail'),
 )

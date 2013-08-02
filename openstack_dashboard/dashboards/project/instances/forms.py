@@ -15,20 +15,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
-from django.template.defaultfilters import filesizeformat
-from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_variables
+from django.core.urlresolvers import reverse  # noqa
+from django.template.defaultfilters import filesizeformat  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
+from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-from horizon.utils.fields import SelectWidget
+from horizon.utils.fields import SelectWidget  # noqa
 from horizon.utils import validators
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.images_and_snapshots.utils \
-    import get_available_images
+from openstack_dashboard.dashboards.project.images_and_snapshots import utils
 
 
 def _image_choice_title(img):
@@ -56,7 +55,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         instance_id = kwargs.get('initial', {}).get('instance_id')
         self.fields['instance_id'].initial = instance_id
 
-        images = get_available_images(request, request.user.tenant_id)
+        images = utils.get_available_images(request, request.user.tenant_id)
         choices = [(image.id, image.name) for image in images]
         if choices:
             choices.insert(0, ("", _("Select Image")))

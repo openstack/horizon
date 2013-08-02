@@ -22,13 +22,13 @@
 import logging
 import urlparse
 
-from django.conf import settings
-from django.contrib.auth import logout
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.contrib.auth import logout  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
-from keystoneclient.exceptions import ClientException
+from keystoneclient.exceptions import ClientException  # noqa
 
-from openstack_auth.backend import KEYSTONE_CLIENT_ATTR
+from openstack_auth.backend import KEYSTONE_CLIENT_ATTR  # noqa
 
 from horizon import exceptions
 from horizon import messages

@@ -19,14 +19,14 @@
 #    under the License.
 
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
-from openstack_dashboard.utils.filters import get_int_or_uuid
+from openstack_dashboard.utils import filters
 
 INDEX_URL = "horizon:projects:instances:index"
 ADD_USER_URL = "horizon:projects:instances:create_user"
@@ -69,7 +69,7 @@ class UpdateInstanceSecurityGroupsAction(workflows.MembershipAction):
 
     def handle(self, request, data):
         instance_id = data['instance_id']
-        wanted_groups = map(get_int_or_uuid, data['wanted_groups'])
+        wanted_groups = map(filters.get_int_or_uuid, data['wanted_groups'])
         try:
             api.network.server_update_security_groups(request, instance_id,
                                                       wanted_groups)

@@ -22,7 +22,7 @@ from django import shortcuts
 from django.views import generic
 
 from horizon import exceptions
-from horizon.forms.views import ADD_TO_FIELD_HEADER
+from horizon.forms.views import ADD_TO_FIELD_HEADER  # noqa
 from horizon import messages
 
 

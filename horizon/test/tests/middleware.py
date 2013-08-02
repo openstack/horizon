@@ -15,7 +15,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
+from django.conf import settings  # noqa
 
 from horizon import exceptions
 from horizon import middleware

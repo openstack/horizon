@@ -15,7 +15,7 @@
 from openstack_dashboard.api import swift
 from openstack_dashboard.openstack.common import timeutils
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
 
 
 def data(TEST):

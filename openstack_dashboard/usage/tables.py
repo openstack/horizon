@@ -1,10 +1,10 @@
 from django.core import urlresolvers
-from django.template.defaultfilters import floatformat
-from django.template.defaultfilters import timesince
-from django.utils.translation import ugettext_lazy as _
+from django.template.defaultfilters import floatformat  # noqa
+from django.template.defaultfilters import timesince  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
-from horizon.templatetags.sizeformat import mbformat
+from horizon.templatetags.sizeformat import mbformat  # noqa
 
 
 class CSVSummary(tables.LinkAction):

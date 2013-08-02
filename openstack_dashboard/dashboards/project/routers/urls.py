@@ -14,27 +14,24 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.routers.ports.views \
-    import AddInterfaceView
-from openstack_dashboard.dashboards.project.routers.ports.views \
-    import SetGatewayView
-from openstack_dashboard.dashboards.project.routers.views import CreateView
-from openstack_dashboard.dashboards.project.routers.views import DetailView
-from openstack_dashboard.dashboards.project.routers.views import IndexView
+from openstack_dashboard.dashboards.project.routers.ports \
+    import views as port_views
+from openstack_dashboard.dashboards.project.routers import views
 
 
 urlpatterns = patterns('horizon.dashboards.project.routers.views',
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^create/$', CreateView.as_view(), name='create'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<router_id>[^/]+)/$',
-        DetailView.as_view(),
+        views.DetailView.as_view(),
         name='detail'),
-    url(r'^(?P<router_id>[^/]+)/addinterface', AddInterfaceView.as_view(),
+    url(r'^(?P<router_id>[^/]+)/addinterface',
+        port_views.AddInterfaceView.as_view(),
         name='addinterface'),
     url(r'^(?P<router_id>[^/]+)/setgateway',
-        SetGatewayView.as_view(),
+        port_views.SetGatewayView.as_view(),
         name='setgateway'),
 )

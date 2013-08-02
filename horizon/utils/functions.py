@@ -1,7 +1,7 @@
 import math
 
-from django.utils.encoding import force_unicode
-from django.utils.functional import lazy
+from django.utils.encoding import force_unicode  # noqa
+from django.utils.functional import lazy  # noqa
 
 
 def _lazy_join(separator, strings):

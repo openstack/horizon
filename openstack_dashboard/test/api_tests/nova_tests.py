@@ -21,11 +21,11 @@
 
 from __future__ import absolute_import
 
-from django.conf import settings
+from django.conf import settings  # noqa
 from django import http
-from django.test.utils import override_settings
+from django.test.utils import override_settings  # noqa
 
-from mox import IsA
+from mox import IsA  # noqa
 from novaclient.v1_1 import servers
 
 from openstack_dashboard import api

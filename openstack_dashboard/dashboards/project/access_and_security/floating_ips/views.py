@@ -23,8 +23,8 @@
 Views for managing floating IPs.
 """
 
-from django.core.urlresolvers import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse_lazy  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -34,17 +34,17 @@ from openstack_dashboard import api
 from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips.forms import FloatingIpAllocate
+    floating_ips import forms as project_forms
 from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips.workflows import IPAssociationWorkflow
+    floating_ips import workflows as project_workflows
 
 
 class AssociateView(workflows.WorkflowView):
-    workflow_class = IPAssociationWorkflow
+    workflow_class = project_workflows.IPAssociationWorkflow
 
 
 class AllocateView(forms.ModalFormView):
-    form_class = FloatingIpAllocate
+    form_class = project_forms.FloatingIpAllocate
     template_name = 'project/access_and_security/floating_ips/allocate.html'
     success_url = reverse_lazy('horizon:project:access_and_security:index')
 

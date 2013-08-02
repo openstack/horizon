@@ -12,12 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from datetime import timedelta
+from datetime import timedelta  # noqa
 
-from django.conf import settings
+from django.conf import settings  # noqa
 from django.utils import datetime_safe
 
-from keystoneclient.access import AccessInfo
+from keystoneclient.access import AccessInfo  # noqa
 from keystoneclient.v2_0 import ec2
 from keystoneclient.v2_0 import roles
 from keystoneclient.v2_0 import tenants
@@ -25,9 +25,9 @@ from keystoneclient.v2_0 import users
 from keystoneclient.v3 import domains
 from keystoneclient.v3 import groups
 
-from openstack_auth.user import Token
+from openstack_auth.user import Token  # noqa
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
 
 
 # Dummy service catalog with all service.

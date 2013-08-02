@@ -15,32 +15,24 @@
 #    under the License.
 
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django import http
 
-from mox import IgnoreArg
-from mox import IsA
+from mox import IgnoreArg  # noqa
+from mox import IsA  # noqa
 
-from horizon.workflows.views import WorkflowView
+from horizon.workflows import views
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_CREATE_URL as create_url
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_INDEX_URL as index_url
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_INDEX_VIEW_TEMPLATE
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_UPDATE_URL as update_url
-from openstack_dashboard.dashboards.admin.domains.workflows import CreateDomain
-from openstack_dashboard.dashboards.admin.domains.workflows import UpdateDomain
+from openstack_dashboard.dashboards.admin.domains import constants
+from openstack_dashboard.dashboards.admin.domains import workflows
 
 
-DOMAINS_INDEX_URL = reverse(index_url)
-DOMAIN_CREATE_URL = reverse(create_url)
-DOMAIN_UPDATE_URL = reverse(update_url, args=[1])
+DOMAINS_INDEX_URL = reverse(constants.DOMAINS_INDEX_URL)
+DOMAIN_CREATE_URL = reverse(constants.DOMAINS_CREATE_URL)
+DOMAIN_UPDATE_URL = reverse(constants.DOMAINS_UPDATE_URL, args=[1])
 
 
 class DomainsViewTests(test.BaseAdminViewTests):
@@ -52,7 +44,7 @@ class DomainsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(DOMAINS_INDEX_URL)
 
-        self.assertTemplateUsed(res, DOMAINS_INDEX_VIEW_TEMPLATE)
+        self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, self.domains.list())
         self.assertContains(res, 'Create Domain')
         self.assertContains(res, 'Edit')
@@ -69,7 +61,7 @@ class DomainsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(DOMAINS_INDEX_URL)
 
-        self.assertTemplateUsed(res, DOMAINS_INDEX_VIEW_TEMPLATE)
+        self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, self.domains.list())
         self.assertNotContains(res, 'Create Domain')
         self.assertNotContains(res, 'Edit')
@@ -119,14 +111,14 @@ class DomainsViewTests(test.BaseAdminViewTests):
         formData = {'action': 'domains__set_domain_context__%s' % domain.id}
         res = self.client.post(DOMAINS_INDEX_URL, formData)
 
-        self.assertTemplateUsed(res, DOMAINS_INDEX_VIEW_TEMPLATE)
+        self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, [domain, ])
         self.assertContains(res, "<em>test_domain:</em>")
 
         formData = {'action': 'domains__clear_domain_context__%s' % domain.id}
         res = self.client.post(DOMAINS_INDEX_URL, formData)
 
-        self.assertTemplateUsed(res, DOMAINS_INDEX_VIEW_TEMPLATE)
+        self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, self.domains.list())
         self.assertNotContains(res, "<em>test_domain:</em>")
 
@@ -146,10 +138,11 @@ class CreateDomainWorkflowTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:domains:create')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
         workflow = res.context['workflow']
-        self.assertEqual(res.context['workflow'].name, CreateDomain.name)
+        self.assertEqual(res.context['workflow'].name,
+                         workflows.CreateDomain.name)
 
         self.assertQuerysetEqual(workflow.steps,
                                  ['<CreateDomainInfo: create_domain>', ])
@@ -195,10 +188,11 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
 
         res = self.client.get(DOMAIN_UPDATE_URL)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
         workflow = res.context['workflow']
-        self.assertEqual(res.context['workflow'].name, UpdateDomain.name)
+        self.assertEqual(res.context['workflow'].name,
+                         workflows.UpdateDomain.name)
 
         self.assertQuerysetEqual(workflow.steps,
                                  ['<UpdateDomainInfo: update_domain>', ])

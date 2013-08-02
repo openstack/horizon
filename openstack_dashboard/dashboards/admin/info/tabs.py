@@ -14,7 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tabs
@@ -24,15 +24,11 @@ from openstack_dashboard.api import keystone
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.admin.info.tables import AggregatesTable
-from openstack_dashboard.dashboards.admin.info.tables import NovaServicesTable
-from openstack_dashboard.dashboards.admin.info.tables import QuotasTable
-from openstack_dashboard.dashboards.admin.info.tables import ServicesTable
-from openstack_dashboard.dashboards.admin.info.tables import ZonesTable
+from openstack_dashboard.dashboards.admin.info import tables
 
 
 class DefaultQuotasTab(tabs.TableTab):
-    table_classes = (QuotasTable,)
+    table_classes = (tables.QuotasTable,)
     name = _("Default Quotas")
     slug = "quotas"
     template_name = ("horizon/common/_detail_table.html")
@@ -55,7 +51,7 @@ class DefaultQuotasTab(tabs.TableTab):
 
 
 class ServicesTab(tabs.TableTab):
-    table_classes = (ServicesTable,)
+    table_classes = (tables.ServicesTable,)
     name = _("Services")
     slug = "services"
     template_name = ("horizon/common/_detail_table.html")
@@ -71,7 +67,7 @@ class ServicesTab(tabs.TableTab):
 
 
 class ZonesTab(tabs.TableTab):
-    table_classes = (ZonesTable,)
+    table_classes = (tables.ZonesTable,)
     name = _("Availability Zones")
     slug = "zones"
     template_name = ("horizon/common/_detail_table.html")
@@ -88,7 +84,7 @@ class ZonesTab(tabs.TableTab):
 
 
 class HostAggregatesTab(tabs.TableTab):
-    table_classes = (AggregatesTable,)
+    table_classes = (tables.AggregatesTable,)
     name = _("Host Aggregates")
     slug = "aggregates"
     template_name = ("horizon/common/_detail_table.html")
@@ -104,7 +100,7 @@ class HostAggregatesTab(tabs.TableTab):
 
 
 class NovaServicesTab(tabs.TableTab):
-    table_classes = (NovaServicesTable,)
+    table_classes = (tables.NovaServicesTable,)
     name = _("Compute Services")
     slug = "nova_services"
     template_name = ("horizon/common/_detail_table.html")

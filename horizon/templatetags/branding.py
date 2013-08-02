@@ -22,9 +22,9 @@
 Template tags for customizing Horizon.
 """
 
-from django.conf import settings
+from django.conf import settings  # noqa
 from django import template
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 
 register = template.Library()

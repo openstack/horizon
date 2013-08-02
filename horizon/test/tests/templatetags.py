@@ -20,10 +20,10 @@
 
 import re
 
-from django.conf import settings
-from django.template import Context
-from django.template import Template
-from django.utils.text import normalize_newlines
+from django.conf import settings  # noqa
+from django.template import Context  # noqa
+from django.template import Template  # noqa
+from django.utils.text import normalize_newlines  # noqa
 
 from horizon.test import helpers as test
 

@@ -16,7 +16,7 @@
 
 import logging
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -24,8 +24,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.admin.domains.constants \
-    import DOMAINS_INDEX_URL
+from openstack_dashboard.dashboards.admin.domains import constants
 
 LOG = logging.getLogger(__name__)
 
@@ -61,7 +60,7 @@ class CreateDomain(workflows.Workflow):
     finalize_button_name = _("Create Domain")
     success_message = _('Created new domain "%s".')
     failure_message = _('Unable to create domain "%s".')
-    success_url = DOMAINS_INDEX_URL
+    success_url = constants.DOMAINS_INDEX_URL
     default_steps = (CreateDomainInfo, )
 
     def format_status_message(self, message):
@@ -105,7 +104,7 @@ class UpdateDomain(workflows.Workflow):
     finalize_button_name = _("Save")
     success_message = _('Modified domain "%s".')
     failure_message = _('Unable to modify domain "%s".')
-    success_url = DOMAINS_INDEX_URL
+    success_url = constants.DOMAINS_INDEX_URL
     default_steps = (UpdateDomainInfo, )
 
     def format_status_message(self, message):

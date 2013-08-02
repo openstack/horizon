@@ -18,8 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
-from django.test.utils import override_settings
+from django.conf import settings  # noqa
+from django.test.utils import override_settings  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

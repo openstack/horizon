@@ -15,20 +15,11 @@
 import copy
 import uuid
 
-from openstack_dashboard.api.lbaas import Member
-from openstack_dashboard.api.lbaas import Pool
-from openstack_dashboard.api.lbaas import PoolMonitor
-from openstack_dashboard.api.lbaas import Vip
+from openstack_dashboard.api import lbaas
 
-from openstack_dashboard.api.neutron import FloatingIp
-from openstack_dashboard.api.neutron import Network
-from openstack_dashboard.api.neutron import Port
-from openstack_dashboard.api.neutron import Router
-from openstack_dashboard.api.neutron import SecurityGroup
-from openstack_dashboard.api.neutron import SecurityGroupRule
-from openstack_dashboard.api.neutron import Subnet
+from openstack_dashboard.api import neutron
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
 
 
 def data(TEST):
@@ -85,9 +76,9 @@ def data(TEST):
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
-    subnet = Subnet(subnet_dict)
+    subnet = neutron.Subnet(subnet_dict)
     network['subnets'] = [subnet]
-    TEST.networks.add(Network(network))
+    TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
 
     # ports on 1st network
@@ -103,7 +94,7 @@ def data(TEST):
                  'status': 'ACTIVE',
                  'tenant_id': network_dict['tenant_id']}
     TEST.api_ports.add(port_dict)
-    TEST.ports.add(Port(port_dict))
+    TEST.ports.add(neutron.Port(port_dict))
 
     port_dict = {'admin_state_up': True,
                  'device_id': '1',
@@ -117,7 +108,7 @@ def data(TEST):
                  'status': 'ACTIVE',
                  'tenant_id': network_dict['tenant_id']}
     TEST.api_ports.add(port_dict)
-    TEST.ports.add(Port(port_dict))
+    TEST.ports.add(neutron.Port(port_dict))
     assoc_port = port_dict
 
     #------------------------------------------------------------
@@ -150,9 +141,9 @@ def data(TEST):
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
-    subnet = Subnet(subnet_dict)
+    subnet = neutron.Subnet(subnet_dict)
     network['subnets'] = [subnet]
-    TEST.networks.add(Network(network))
+    TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
 
     port_dict = {'admin_state_up': True,
@@ -168,7 +159,7 @@ def data(TEST):
                  'tenant_id': network_dict['tenant_id']}
 
     TEST.api_ports.add(port_dict)
-    TEST.ports.add(Port(port_dict))
+    TEST.ports.add(neutron.Port(port_dict))
 
     #------------------------------------------------------------
     # external network
@@ -198,9 +189,9 @@ def data(TEST):
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
-    subnet = Subnet(subnet_dict)
+    subnet = neutron.Subnet(subnet_dict)
     network['subnets'] = [subnet]
-    TEST.networks.add(Network(network))
+    TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
 
     #------------------------------------------------------------
@@ -217,7 +208,7 @@ def data(TEST):
                  'status': 'ACTIVE',
                  'tenant_id': '1'}
     TEST.api_ports.add(port_dict)
-    TEST.ports.add(Port(port_dict))
+    TEST.ports.add(neutron.Port(port_dict))
 
     router_dict = {'id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
                    'name': 'router1',
@@ -225,14 +216,14 @@ def data(TEST):
                        {'network_id': ext_net['id']},
                    'tenant_id': '1'}
     TEST.api_routers.add(router_dict)
-    TEST.routers.add(Router(router_dict))
+    TEST.routers.add(neutron.Router(router_dict))
     router_dict = {'id': '10e3dc42-1ce1-4d48-87cf-7fc333055d6c',
                    'name': 'router2',
                    'external_gateway_info':
                        {'network_id': ext_net['id']},
                    'tenant_id': '1'}
     TEST.api_routers.add(router_dict)
-    TEST.routers.add(Router(router_dict))
+    TEST.routers.add(neutron.Router(router_dict))
 
     #------------------------------------------------------------
     # floating IP
@@ -245,7 +236,7 @@ def data(TEST):
                 'port_id': None,
                 'router_id': None}
     TEST.api_q_floating_ips.add(fip_dict)
-    TEST.q_floating_ips.add(FloatingIp(fip_dict))
+    TEST.q_floating_ips.add(neutron.FloatingIp(fip_dict))
 
     # associated (with compute port on 1st network)
     fip_dict = {'tenant_id': '1',
@@ -256,7 +247,7 @@ def data(TEST):
                 'port_id': assoc_port['id'],
                 'router_id': router_dict['id']}
     TEST.api_q_floating_ips.add(fip_dict)
-    TEST.q_floating_ips.add(FloatingIp(fip_dict))
+    TEST.q_floating_ips.add(neutron.FloatingIp(fip_dict))
 
     #------------------------------------------------------------
     # security group
@@ -335,10 +326,11 @@ def data(TEST):
         for rule in sg['security_group_rules']:
             TEST.api_q_secgroup_rules.add(copy.copy(rule))
         # OpenStack Dashboard internaly API
-        TEST.q_secgroups.add(SecurityGroup(copy.deepcopy(sg), sg_name_dict))
+        TEST.q_secgroups.add(
+            neutron.SecurityGroup(copy.deepcopy(sg), sg_name_dict))
         for rule in sg['security_group_rules']:
             TEST.q_secgroup_rules.add(
-                SecurityGroupRule(copy.copy(rule), sg_name_dict))
+                neutron.SecurityGroupRule(copy.copy(rule), sg_name_dict))
 
     #------------------------------------------------------------
     # LBaaS
@@ -355,7 +347,7 @@ def data(TEST):
                  'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff96'],
                  'admin_state_up': True}
     TEST.api_pools.add(pool_dict)
-    TEST.pools.add(Pool(pool_dict))
+    TEST.pools.add(lbaas.Pool(pool_dict))
 
     # 1st vip
     vip_dict = {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
@@ -374,7 +366,7 @@ def data(TEST):
                 'connection_limit': 10,
                 'admin_state_up': True}
     TEST.api_vips.add(vip_dict)
-    TEST.vips.add(Vip(vip_dict))
+    TEST.vips.add(lbaas.Vip(vip_dict))
 
     # 2nd vip
     vip_dict = {'id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
@@ -393,7 +385,7 @@ def data(TEST):
                 'connection_limit': 10,
                 'admin_state_up': True}
     TEST.api_vips.add(vip_dict)
-    TEST.vips.add(Vip(vip_dict))
+    TEST.vips.add(lbaas.Vip(vip_dict))
 
     # 1st member
     member_dict = {'id': '78a46e5e-eb1a-418a-88c7-0e3f5968b08',
@@ -404,7 +396,7 @@ def data(TEST):
                    'weight': 10,
                    'admin_state_up': True}
     TEST.api_members.add(member_dict)
-    TEST.members.add(Member(member_dict))
+    TEST.members.add(lbaas.Member(member_dict))
 
     # 2nd member
     member_dict = {'id': '41ac1f8d-6d9c-49a4-a1bf-41955e651f91',
@@ -415,7 +407,7 @@ def data(TEST):
                   'weight': 10,
                   'admin_state_up': True}
     TEST.api_members.add(member_dict)
-    TEST.members.add(Member(member_dict))
+    TEST.members.add(lbaas.Member(member_dict))
 
     # 2nd pool
     pool_dict = {'id': '8913dde8-4915-4b90-8d3e-b95eeedb0d50',
@@ -429,7 +421,7 @@ def data(TEST):
                  'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff97'],
                  'admin_state_up': True}
     TEST.api_pools.add(pool_dict)
-    TEST.pools.add(Pool(pool_dict))
+    TEST.pools.add(lbaas.Pool(pool_dict))
 
     # 1st monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff96',
@@ -442,7 +434,7 @@ def data(TEST):
                     'expected_codes': '200',
                     'admin_state_up': True}
     TEST.api_monitors.add(monitor_dict)
-    TEST.monitors.add(PoolMonitor(monitor_dict))
+    TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))
 
     # 2nd monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff97',
@@ -455,4 +447,4 @@ def data(TEST):
                     'expected_codes': '200',
                     'admin_state_up': True}
     TEST.api_monitors.add(monitor_dict)
-    TEST.monitors.add(PoolMonitor(monitor_dict))
+    TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))

@@ -13,11 +13,10 @@
 #    under the License.
 
 from cinderclient.v1 import quotas
-from openstack_dashboard.api.base import Quota
-from openstack_dashboard.api.base import QuotaSet as QuotaSetWrapper
-from openstack_dashboard.usage.quotas import QuotaUsage
+from openstack_dashboard.api import base
+from openstack_dashboard.usage import quotas as usage_quotas
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
 
 
 def data(TEST):
@@ -30,7 +29,7 @@ def data(TEST):
                       gigabytes='1000')
     quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
     #TEST.quotas.cinder = QuotaSetWrapper(quota)
-    TEST.cinder_quotas.add(QuotaSetWrapper(quota))
+    TEST.cinder_quotas.add(base.QuotaSet(quota))
 
     # Quota Usages
     quota_usage_data = {'gigabytes': {'used': 0,
@@ -39,9 +38,9 @@ def data(TEST):
                                       'quota': 10},
                         'snapshots': {'used': 0,
                                       'quota': 10}}
-    quota_usage = QuotaUsage()
+    quota_usage = usage_quotas.QuotaUsage()
     for k, v in quota_usage_data.items():
-        quota_usage.add_quota(Quota(k, v['quota']))
+        quota_usage.add_quota(base.Quota(k, v['quota']))
         quota_usage.tally(k, v['used'])
 
     TEST.cinder_quota_usages.add(quota_usage)

@@ -20,27 +20,24 @@ import logging
 from django.core import urlresolvers
 from django import shortcuts
 from django import template
-from django.template.defaultfilters import timesince
-from django.template.defaultfilters import title
-from django.utils.http import urlencode
-from django.utils.translation import string_concat
-from django.utils.translation import ugettext_lazy as _
+from django.template.defaultfilters import timesince  # noqa
+from django.template.defaultfilters import title  # noqa
+from django.utils.http import urlencode  # noqa
+from django.utils.translation import string_concat  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
-from horizon.conf import HORIZON_CONFIG
+from horizon.conf import HORIZON_CONFIG  # noqa
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
 from horizon.templatetags import sizeformat
-from horizon.utils.filters import parse_isotime
-from horizon.utils.filters import replace_underscores
+from horizon.utils.filters import parse_isotime  # noqa
+from horizon.utils.filters import replace_underscores  # noqa
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.access_and_security \
-        .floating_ips.workflows import IPAssociationWorkflow
-from openstack_dashboard.dashboards.project.instances.tabs import ConsoleTab
-from openstack_dashboard.dashboards.project.instances.tabs import \
-    InstanceDetailTabs
-from openstack_dashboard.dashboards.project.instances.tabs import LogTab
+from openstack_dashboard.dashboards.project.access_and_security.floating_ips \
+    import workflows
+from openstack_dashboard.dashboards.project.instances import tabs
 
 
 LOG = logging.getLogger(__name__)
@@ -269,7 +266,8 @@ class ConsoleLink(tables.LinkAction):
 
     def get_link_url(self, datum):
         base_url = super(ConsoleLink, self).get_link_url(datum)
-        tab_query_string = ConsoleTab(InstanceDetailTabs).get_query_string()
+        tab_query_string = tabs.ConsoleTab(
+            tabs.InstanceDetailTabs).get_query_string()
         return "?".join([base_url, tab_query_string])
 
 
@@ -284,7 +282,8 @@ class LogLink(tables.LinkAction):
 
     def get_link_url(self, datum):
         base_url = super(LogLink, self).get_link_url(datum)
-        tab_query_string = LogTab(InstanceDetailTabs).get_query_string()
+        tab_query_string = tabs.LogTab(
+            tabs.InstanceDetailTabs).get_query_string()
         return "?".join([base_url, tab_query_string])
 
 
@@ -364,7 +363,7 @@ class AssociateIP(tables.LinkAction):
         base_url = urlresolvers.reverse(self.url)
         next = urlresolvers.reverse("horizon:project:instances:index")
         params = {"instance_id": self.table.get_object_id(datum),
-                  IPAssociationWorkflow.redirect_param_name: next}
+                  workflows.IPAssociationWorkflow.redirect_param_name: next}
         params = urlencode(params)
         return "?".join([base_url, params])
 

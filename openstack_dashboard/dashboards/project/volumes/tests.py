@@ -18,16 +18,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.conf import settings  # noqa
+from django.core.urlresolvers import reverse  # noqa
 from django.forms import widgets
 from django import http
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
-from openstack_dashboard.dashboards.project.volumes.tables import CreateVolume
+from openstack_dashboard.dashboards.project.volumes import tables
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
@@ -761,7 +761,7 @@ class VolumeViewTests(test.TestCase):
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, self.volumes.list())
 
-        create_link = CreateVolume()
+        create_link = tables.CreateVolume()
         url = create_link.get_link_url()
         classes = list(create_link.get_default_classes())\
                     + list(create_link.classes)

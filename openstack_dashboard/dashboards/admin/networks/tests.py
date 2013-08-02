@@ -14,16 +14,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django import http
 
-from horizon.workflows.views import WorkflowView
+from horizon.workflows import views
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.tests \
-    import form_data_subnet
+    import form_data_subnet  # noqa
 from openstack_dashboard.test import helpers as test
 
 
@@ -383,7 +383,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
                       args=[network.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_create',)})

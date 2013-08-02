@@ -20,17 +20,16 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django.core import validators
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.containers.tables import \
-    wrap_delimiter
+from openstack_dashboard.dashboards.project.containers import tables
 
 
 LOG = logging.getLogger(__name__)
@@ -145,9 +144,10 @@ class CopyObject(forms.SelfHandlingForm):
         except exceptions.HorizonException as exc:
             messages.error(request, exc)
             raise exceptions.Http302(reverse(index,
-                                     args=[wrap_delimiter(orig_container)]))
+                args=[tables.wrap_delimiter(orig_container)]))
         except Exception:
-            redirect = reverse(index, args=[wrap_delimiter(orig_container)])
+            redirect = reverse(index,
+                               args=[tables.wrap_delimiter(orig_container)])
             exceptions.handle(request,
                               _("Unable to copy object."),
                               redirect=redirect)

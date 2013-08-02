@@ -12,27 +12,22 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.stacks.views import CreateStackView
-from openstack_dashboard.dashboards.project.stacks.views import DetailView
-from openstack_dashboard.dashboards.project.stacks.views import IndexView
-from openstack_dashboard.dashboards.project.stacks.views import JSONView
-from openstack_dashboard.dashboards.project.stacks.views import ResourceView
-from openstack_dashboard.dashboards.project.stacks.views \
-    import SelectTemplateView
+from openstack_dashboard.dashboards.project.stacks import views
 
 urlpatterns = patterns(
     '',
-    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^select_template$',
-        SelectTemplateView.as_view(),
+        views.SelectTemplateView.as_view(),
         name='select_template'),
-    url(r'^launch$', CreateStackView.as_view(), name='launch'),
-    url(r'^stack/(?P<stack_id>[^/]+)/$', DetailView.as_view(), name='detail'),
+    url(r'^launch$', views.CreateStackView.as_view(), name='launch'),
+    url(r'^stack/(?P<stack_id>[^/]+)/$',
+        views.DetailView.as_view(), name='detail'),
     url(r'^stack/(?P<stack_id>[^/]+)/(?P<resource_name>[^/]+)/$',
-        ResourceView.as_view(), name='resource'),
+        views.ResourceView.as_view(), name='resource'),
     url(r'^get_d3_data/(?P<stack_id>[^/]+)/$',
-        JSONView.as_view(), name='d3_data'),
+        views.JSONView.as_view(), name='d3_data'),
 )

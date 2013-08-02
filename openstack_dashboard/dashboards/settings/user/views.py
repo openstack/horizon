@@ -14,10 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
+from django.conf import settings  # noqa
 from horizon import forms
 
-from openstack_dashboard.dashboards.settings.user.forms import UserSettingsForm
+from openstack_dashboard.dashboards.settings.user.forms import UserSettingsForm  # noqa
 
 
 class UserSettingsView(forms.ModalFormView):

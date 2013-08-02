@@ -23,12 +23,12 @@ Views for managing instances.
 """
 import logging
 
-from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse_lazy  # noqa
 from django import http
 from django import shortcuts
-from django.utils.datastructures import SortedDict
-from django.utils.translation import ugettext_lazy as _
+from django.utils.datastructures import SortedDict  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -37,25 +37,21 @@ from horizon import tabs
 from horizon import workflows
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.instances.forms import \
-    RebuildInstanceForm
-from openstack_dashboard.dashboards.project.instances.tables import \
-    InstancesTable
-from openstack_dashboard.dashboards.project.instances.tabs import \
-    InstanceDetailTabs
-from openstack_dashboard.dashboards.project.instances.workflows import \
-    LaunchInstance
-from openstack_dashboard.dashboards.project.instances.workflows import \
-    ResizeInstance
-from openstack_dashboard.dashboards.project.instances.workflows import \
-    UpdateInstance
+from openstack_dashboard.dashboards.project.instances \
+    import forms as project_forms
+from openstack_dashboard.dashboards.project.instances \
+    import tables as project_tables
+from openstack_dashboard.dashboards.project.instances \
+    import tabs as project_tabs
+from openstack_dashboard.dashboards.project.instances \
+    import workflows as project_workflows
 
 
 LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
-    table_class = InstancesTable
+    table_class = project_tables.InstancesTable
     template_name = 'project/instances/index.html'
 
     def has_more_data(self, table):
@@ -63,7 +59,7 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         marker = self.request.GET.get(
-                        InstancesTable._meta.pagination_param, None)
+            project_tables.InstancesTable._meta.pagination_param, None)
         # Gather our instances
         try:
             instances, self._more = api.nova.server_list(
@@ -103,7 +99,7 @@ class IndexView(tables.DataTableView):
 
 
 class LaunchInstanceView(workflows.WorkflowView):
-    workflow_class = LaunchInstance
+    workflow_class = project_workflows.LaunchInstance
 
     def get_initial(self):
         initial = super(LaunchInstanceView, self).get_initial()
@@ -153,7 +149,7 @@ def spice(request, instance_id):
 
 
 class UpdateView(workflows.WorkflowView):
-    workflow_class = UpdateInstance
+    workflow_class = project_workflows.UpdateInstance
     success_url = reverse_lazy("horizon:project:instances:index")
 
     def get_context_data(self, **kwargs):
@@ -180,7 +176,7 @@ class UpdateView(workflows.WorkflowView):
 
 
 class RebuildView(forms.ModalFormView):
-    form_class = RebuildInstanceForm
+    form_class = project_forms.RebuildInstanceForm
     template_name = 'project/instances/rebuild.html'
     success_url = reverse_lazy('horizon:project:instances:index')
 
@@ -194,7 +190,7 @@ class RebuildView(forms.ModalFormView):
 
 
 class DetailView(tabs.TabView):
-    tab_group_class = InstanceDetailTabs
+    tab_group_class = project_tabs.InstanceDetailTabs
     template_name = 'project/instances/detail.html'
 
     def get_context_data(self, **kwargs):
@@ -230,7 +226,7 @@ class DetailView(tabs.TabView):
 
 
 class ResizeView(workflows.WorkflowView):
-    workflow_class = ResizeInstance
+    workflow_class = project_workflows.ResizeInstance
     success_url = reverse_lazy("horizon:project:instances:index")
 
     def get_context_data(self, **kwargs):

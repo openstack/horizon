@@ -7,26 +7,24 @@
 Views for managing volumes.
 """
 
-from django.conf import settings
-from django.core.urlresolvers import reverse
-from django.forms import ValidationError
-from django.template.defaultfilters import filesizeformat
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.core.urlresolvers import reverse  # noqa
+from django.forms import ValidationError  # noqa
+from django.template.defaultfilters import filesizeformat  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-from horizon.utils.fields import SelectWidget
-from horizon.utils.functions import bytes_to_gigabytes
-from horizon.utils.memoized import memoized
+from horizon.utils.fields import SelectWidget  # noqa
+from horizon.utils.functions import bytes_to_gigabytes  # noqa
+from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import glance
-from openstack_dashboard.dashboards.project.images_and_snapshots.utils \
-    import get_available_images
-from openstack_dashboard.dashboards.project.instances.tables \
-    import ACTIVE_STATES
+from openstack_dashboard.dashboards.project.images_and_snapshots import utils
+from openstack_dashboard.dashboards.project.instances import tables
 
 
 class CreateForm(forms.SelfHandlingForm):
@@ -138,7 +136,7 @@ class CreateForm(forms.SelfHandlingForm):
                 exceptions.handle(request, _("Unable to retrieve "
                         "volume snapshots."))
 
-            images = get_available_images(request,
+            images = utils.get_available_images(request,
                                           request.user.tenant_id)
             if images:
                 source_type_choices.append(("image_source", _("Image")))
@@ -278,7 +276,7 @@ class AttachForm(forms.SelfHandlingForm):
         instance_list = kwargs.get('initial', {}).get('instances', [])
         instances = []
         for instance in instance_list:
-            if instance.status in ACTIVE_STATES and \
+            if instance.status in tables.ACTIVE_STATES and \
                         not any(instance.id == att["server_id"]
                                 for att in volume.attachments):
                 instances.append((instance.id, '%s (%s)' % (instance.name,

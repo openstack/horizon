@@ -20,24 +20,24 @@ Views for managing Neutron Routers.
 
 import logging
 
-from django.core.urlresolvers import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse_lazy  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.networks import views as n_views
 from openstack_dashboard.dashboards.project.routers import views as r_views
 
-from openstack_dashboard.dashboards.admin.routers.ports.tables \
-    import PortsTable
-from openstack_dashboard.dashboards.admin.routers.tables import RoutersTable
+from openstack_dashboard.dashboards.admin.routers.ports \
+    import tables as ports_tables
+from openstack_dashboard.dashboards.admin.routers import tables
 
 
 LOG = logging.getLogger(__name__)
 
 
 class IndexView(r_views.IndexView, n_views.IndexView):
-    table_class = RoutersTable
+    table_class = tables.RoutersTable
     template_name = 'admin/routers/index.html'
 
     def _get_routers(self, search_opts=None):
@@ -67,6 +67,6 @@ class IndexView(r_views.IndexView, n_views.IndexView):
 
 
 class DetailView(r_views.DetailView):
-    table_classes = (PortsTable, )
+    table_classes = (ports_tables.PortsTable, )
     template_name = 'admin/routers/detail.html'
     failure_url = reverse_lazy('horizon:admin:routers:index')

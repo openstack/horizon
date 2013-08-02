@@ -19,9 +19,9 @@
 #    under the License.
 
 
-from django.conf import settings
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -29,18 +29,15 @@ from horizon import messages
 from horizon import workflows
 
 from openstack_dashboard import api
-from openstack_dashboard.api.base import is_service_enabled
+from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
-from openstack_dashboard.api.keystone import VERSIONS as IDENTITY_VERSIONS
+from openstack_dashboard.api import keystone
 from openstack_dashboard.api import nova
-from openstack_dashboard.usage.quotas import CINDER_QUOTA_FIELDS
-from openstack_dashboard.usage.quotas import get_disabled_quotas
-from openstack_dashboard.usage.quotas import NOVA_QUOTA_FIELDS
-from openstack_dashboard.usage.quotas import QUOTA_FIELDS
+from openstack_dashboard.usage import quotas
 
 INDEX_URL = "horizon:admin:projects:index"
 ADD_USER_URL = "horizon:admin:projects:create_user"
-PROJECT_GROUP_ENABLED = IDENTITY_VERSIONS.active >= 3
+PROJECT_GROUP_ENABLED = keystone.VERSIONS.active >= 3
 PROJECT_USER_MEMBER_SLUG = "update_members"
 PROJECT_GROUP_MEMBER_SLUG = "update_group_members"
 
@@ -70,7 +67,7 @@ class UpdateProjectQuotaAction(workflows.Action):
         super(UpdateProjectQuotaAction, self).__init__(request,
                                                        *args,
                                                        **kwargs)
-        disabled_quotas = get_disabled_quotas(request)
+        disabled_quotas = quotas.get_disabled_quotas(request)
         for field in disabled_quotas:
             if field in self.fields:
                 self.fields[field].required = False
@@ -86,7 +83,7 @@ class UpdateProjectQuotaAction(workflows.Action):
 class UpdateProjectQuota(workflows.Step):
     action_class = UpdateProjectQuotaAction
     depends_on = ("project_id",)
-    contributes = QUOTA_FIELDS
+    contributes = quotas.QUOTA_FIELDS
 
 
 class CreateProjectInfoAction(workflows.Action):
@@ -410,13 +407,14 @@ class CreateProject(workflows.Workflow):
                                              % groups_to_add))
 
         # Update the project quota.
-        nova_data = dict([(key, data[key]) for key in NOVA_QUOTA_FIELDS])
+        nova_data = dict(
+            [(key, data[key]) for key in quotas.NOVA_QUOTA_FIELDS])
         try:
             nova.tenant_quota_update(request, project_id, **nova_data)
 
-            if is_service_enabled(request, 'volume'):
+            if base.is_service_enabled(request, 'volume'):
                 cinder_data = dict([(key, data[key]) for key in
-                                    CINDER_QUOTA_FIELDS])
+                                    quotas.CINDER_QUOTA_FIELDS])
                 cinder.tenant_quota_update(request,
                                            project_id,
                                            **cinder_data)
@@ -656,15 +654,16 @@ class UpdateProject(workflows.Workflow):
                 return True
 
         # update the project quota
-        nova_data = dict([(key, data[key]) for key in NOVA_QUOTA_FIELDS])
+        nova_data = dict(
+            [(key, data[key]) for key in quotas.NOVA_QUOTA_FIELDS])
         try:
             nova.tenant_quota_update(request,
                                      project_id,
                                      **nova_data)
 
-            if is_service_enabled(request, 'volume'):
+            if base.is_service_enabled(request, 'volume'):
                 cinder_data = dict([(key, data[key]) for key in
-                                    CINDER_QUOTA_FIELDS])
+                                    quotas.CINDER_QUOTA_FIELDS])
                 cinder.tenant_quota_update(request,
                                            project_id,
                                            **cinder_data)

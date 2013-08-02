@@ -12,10 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from glanceclient.v1.images import Image
-from glanceclient.v1.images import ImageManager
+from glanceclient.v1.images import Image  # noqa
+from glanceclient.v1.images import ImageManager  # noqa
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
 
 
 def data(TEST):

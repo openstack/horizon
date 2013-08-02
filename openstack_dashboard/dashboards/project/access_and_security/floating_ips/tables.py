@@ -19,9 +19,9 @@ import logging
 
 from django.core import urlresolvers
 from django import shortcuts
-from django.utils.http import urlencode
-from django.utils.translation import string_concat
-from django.utils.translation import ugettext_lazy as _
+from django.utils.http import urlencode  # noqa
+from django.utils.translation import string_concat  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import messages
@@ -29,7 +29,7 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.usage import quotas
-from openstack_dashboard.utils.filters import get_int_or_uuid
+from openstack_dashboard.utils import filters
 
 
 LOG = logging.getLogger(__name__)
@@ -99,7 +99,7 @@ class DisassociateIP(tables.Action):
 
     def single(self, table, request, obj_id):
         try:
-            fip = table.get_object_by_id(get_int_or_uuid(obj_id))
+            fip = table.get_object_by_id(filters.get_int_or_uuid(obj_id))
             api.network.floating_ip_disassociate(request, fip.id,
                                                  fip.port_id)
             LOG.info('Disassociating Floating IP "%s".' % obj_id)
@@ -137,7 +137,7 @@ class FloatingIPsTable(tables.DataTable):
                          empty_value="-")
 
     def sanitize_id(self, obj_id):
-        return get_int_or_uuid(obj_id)
+        return filters.get_int_or_uuid(obj_id)
 
     def get_object_display(self, datum):
         return datum.ip

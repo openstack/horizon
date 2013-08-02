@@ -16,9 +16,9 @@
 
 from __future__ import absolute_import
 
-from openstack_dashboard.api.neutron import NeutronAPIDictWrapper
-from openstack_dashboard.api.neutron import neutronclient
-from openstack_dashboard.api.neutron import subnet_get
+from openstack_dashboard.api.neutron import NeutronAPIDictWrapper  # noqa
+from openstack_dashboard.api.neutron import neutronclient  # noqa
+from openstack_dashboard.api.neutron import subnet_get  # noqa
 
 
 class Vip(NeutronAPIDictWrapper):

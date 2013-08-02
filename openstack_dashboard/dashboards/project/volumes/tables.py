@@ -16,13 +16,13 @@
 
 import logging
 
-from django.core.urlresolvers import NoReverseMatch
-from django.core.urlresolvers import reverse
-from django.template.defaultfilters import title
-from django.utils.html import strip_tags
+from django.core.urlresolvers import NoReverseMatch  # noqa
+from django.core.urlresolvers import reverse  # noqa
+from django.template.defaultfilters import title  # noqa
+from django.utils.html import strip_tags  # noqa
 from django.utils import safestring
-from django.utils.translation import string_concat
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import string_concat  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 
 from horizon import exceptions

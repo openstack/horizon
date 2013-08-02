@@ -25,10 +25,10 @@ Views for Instances and Volumes.
 
 from horizon import tabs
 
-from openstack_dashboard.dashboards.project.access_and_security.tabs \
-    import AccessAndSecurityTabs
+from openstack_dashboard.dashboards.project.access_and_security \
+    import tabs as project_tabs
 
 
 class IndexView(tabs.TabbedTableView):
-    tab_group_class = AccessAndSecurityTabs
+    tab_group_class = project_tabs.AccessAndSecurityTabs
     template_name = 'project/access_and_security/index.html'

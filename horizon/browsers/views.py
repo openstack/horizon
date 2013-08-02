@@ -14,9 +14,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
-from horizon.tables import MultiTableView
+from horizon.tables import MultiTableView  # noqa
 
 
 class ResourceBrowserView(MultiTableView):

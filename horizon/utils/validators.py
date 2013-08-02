@@ -14,7 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError  # noqa
 
 from horizon import conf
 

@@ -20,7 +20,7 @@
 
 from __future__ import absolute_import
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from horizon import exceptions
 

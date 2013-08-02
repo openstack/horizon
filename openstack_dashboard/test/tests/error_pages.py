@@ -17,7 +17,7 @@
 
 from os import path
 
-from django.conf import settings
+from django.conf import settings  # noqa
 
 from openstack_dashboard.test import helpers as test
 

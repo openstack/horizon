@@ -24,23 +24,20 @@ from __future__ import absolute_import
 
 import logging
 
-from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from novaclient.v1_1 import client as nova_client
-from novaclient.v1_1.contrib.list_extensions import ListExtManager
+from novaclient.v1_1.contrib.list_extensions import ListExtManager  # noqa
 from novaclient.v1_1 import security_group_rules as nova_rules
-from novaclient.v1_1.security_groups import SecurityGroup as NovaSecurityGroup
-from novaclient.v1_1.servers import REBOOT_HARD
-from novaclient.v1_1.servers import REBOOT_SOFT
+from novaclient.v1_1.security_groups import SecurityGroup as NovaSecurityGroup  # noqa
+from novaclient.v1_1.servers import REBOOT_HARD  # noqa
+from novaclient.v1_1.servers import REBOOT_SOFT  # noqa
 
-from horizon.conf import HORIZON_CONFIG
-from horizon.utils.memoized import memoized
+from horizon.conf import HORIZON_CONFIG  # noqa
+from horizon.utils.memoized import memoized  # noqa
 
-from openstack_dashboard.api.base import APIDictWrapper
-from openstack_dashboard.api.base import APIResourceWrapper
-from openstack_dashboard.api.base import QuotaSet
-from openstack_dashboard.api.base import url_for
+from openstack_dashboard.api import base
 from openstack_dashboard.api import network_base
 
 
@@ -52,21 +49,21 @@ INSTANCE_ACTIVE_STATE = 'ACTIVE'
 VOLUME_STATE_AVAILABLE = "available"
 
 
-class VNCConsole(APIDictWrapper):
+class VNCConsole(base.APIDictWrapper):
     """Wrapper for the "console" dictionary returned by the
     novaclient.servers.get_vnc_console method.
     """
     _attrs = ['url', 'type']
 
 
-class SPICEConsole(APIDictWrapper):
+class SPICEConsole(base.APIDictWrapper):
     """Wrapper for the "console" dictionary returned by the
     novaclient.servers.get_spice_console method.
     """
     _attrs = ['url', 'type']
 
 
-class Server(APIResourceWrapper):
+class Server(base.APIResourceWrapper):
     """Simple wrapper around novaclient.server.Server
 
        Preserves the request info so image name can later be retrieved
@@ -100,7 +97,7 @@ class Server(APIResourceWrapper):
         return getattr(self, 'OS-EXT-SRV-ATTR:instance_name', "")
 
 
-class NovaUsage(APIResourceWrapper):
+class NovaUsage(base.APIResourceWrapper):
     """Simple wrapper around contrib/simple_usage.py."""
     _attrs = ['start', 'server_usages', 'stop', 'tenant_id',
              'total_local_gb_usage', 'total_memory_mb_usage',
@@ -142,7 +139,7 @@ class NovaUsage(APIResourceWrapper):
         return getattr(self, "total_local_gb_usage", 0)
 
 
-class SecurityGroup(APIResourceWrapper):
+class SecurityGroup(base.APIResourceWrapper):
     """Wrapper around novaclient.security_groups.SecurityGroup which wraps its
     rules in SecurityGroupRule objects and allows access to them.
     """
@@ -159,7 +156,7 @@ class SecurityGroup(APIResourceWrapper):
         return self.__dict__['_rules']
 
 
-class SecurityGroupRule(APIResourceWrapper):
+class SecurityGroupRule(base.APIResourceWrapper):
     """ Wrapper for individual rules in a SecurityGroup. """
     _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range', 'group']
 
@@ -275,7 +272,7 @@ class FlavorExtraSpec(object):
         self.value = val
 
 
-class FloatingIp(APIResourceWrapper):
+class FloatingIp(base.APIResourceWrapper):
     _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id', 'pool']
 
     def __init__(self, fip):
@@ -283,14 +280,14 @@ class FloatingIp(APIResourceWrapper):
         super(FloatingIp, self).__init__(fip)
 
 
-class FloatingIpPool(APIDictWrapper):
+class FloatingIpPool(base.APIDictWrapper):
     def __init__(self, pool):
         pool_dict = {'id': pool.name,
                      'name': pool.name}
         super(FloatingIpPool, self).__init__(pool_dict)
 
 
-class FloatingIpTarget(APIDictWrapper):
+class FloatingIpTarget(base.APIDictWrapper):
     def __init__(self, server):
         server_dict = {'name': '%s (%s)' % (server.name, server.id),
                        'id': server.id}
@@ -343,15 +340,15 @@ class FloatingIpManager(network_base.FloatingIpManager):
 def novaclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     LOG.debug('novaclient connection created using token "%s" and url "%s"' %
-              (request.user.token.id, url_for(request, 'compute')))
+              (request.user.token.id, base.url_for(request, 'compute')))
     c = nova_client.Client(request.user.username,
                            request.user.token.id,
                            project_id=request.user.tenant_id,
-                           auth_url=url_for(request, 'compute'),
+                           auth_url=base.url_for(request, 'compute'),
                            insecure=insecure,
                            http_log_debug=settings.DEBUG)
     c.client.auth_token = request.user.token.id
-    c.client.management_url = url_for(request, 'compute')
+    c.client.management_url = base.url_for(request, 'compute')
     return c
 
 
@@ -545,7 +542,7 @@ def server_stop(request, instance_id):
 
 
 def tenant_quota_get(request, tenant_id):
-    return QuotaSet(novaclient(request).quotas.get(tenant_id))
+    return base.QuotaSet(novaclient(request).quotas.get(tenant_id))
 
 
 def tenant_quota_update(request, tenant_id, **kwargs):
@@ -553,7 +550,7 @@ def tenant_quota_update(request, tenant_id, **kwargs):
 
 
 def default_quota_get(request, tenant_id):
-    return QuotaSet(novaclient(request).quotas.defaults(tenant_id))
+    return base.QuotaSet(novaclient(request).quotas.defaults(tenant_id))
 
 
 def usage_get(request, tenant_id, start, end):
@@ -589,7 +586,7 @@ def instance_volume_detach(request, instance_id, att_id):
 
 
 def instance_volumes_list(request, instance_id):
-    from openstack_dashboard.api.cinder import cinderclient
+    from openstack_dashboard.api.cinder import cinderclient  # noqa
 
     volumes = novaclient(request).volumes.get_server_volumes(instance_id)
 

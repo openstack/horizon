@@ -16,14 +16,14 @@
 
 import logging
 
-from django.conf import settings
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings  # noqa
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.utils.filters import get_int_or_uuid
+from openstack_dashboard.utils import filters
 
 
 LOG = logging.getLogger(__name__)
@@ -61,7 +61,7 @@ class SecurityGroupsTable(tables.DataTable):
     description = tables.Column("description", verbose_name=_("Description"))
 
     def sanitize_id(self, obj_id):
-        return get_int_or_uuid(obj_id)
+        return filters.get_int_or_uuid(obj_id)
 
     class Meta:
         name = "security_groups"
@@ -156,7 +156,7 @@ class RulesTable(tables.DataTable):
     remote = tables.Column(get_remote, verbose_name=_("Remote"))
 
     def sanitize_id(self, obj_id):
-        return get_int_or_uuid(obj_id)
+        return filters.get_int_or_uuid(obj_id)
 
     def get_object_display(self, rule):
         return unicode(rule)

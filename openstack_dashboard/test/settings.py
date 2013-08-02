@@ -1,13 +1,11 @@
 import os
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon.test.settings import *  # noqa
-from horizon.utils.secret_key import generate_or_read_from_file
+from horizon.utils.secret_key import generate_or_read_from_file  # noqa
 
-from openstack_dashboard.exceptions import NOT_FOUND
-from openstack_dashboard.exceptions import RECOVERABLE
-from openstack_dashboard.exceptions import UNAUTHORIZED
+from openstack_dashboard import exceptions
 
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -54,9 +52,9 @@ HORIZON_CONFIG = {
     },
     'user_home': None,
     'help_url': "http://docs.openstack.org",
-    'exceptions': {'recoverable': RECOVERABLE,
-                   'not_found': NOT_FOUND,
-                   'unauthorized': UNAUTHORIZED},
+    'exceptions': {'recoverable': exceptions.RECOVERABLE,
+                   'not_found': exceptions.NOT_FOUND,
+                   'unauthorized': exceptions.UNAUTHORIZED},
 }
 
 # Set to True to allow users to upload images to glance via Horizon server.

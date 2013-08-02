@@ -14,64 +14,37 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    AddMemberView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    AddMonitorView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    AddPMAssociationView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    AddPoolView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    AddVipView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    DeletePMAssociationView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    IndexView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    MemberDetailsView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    MonitorDetailsView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    PoolDetailsView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    UpdateMemberView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    UpdateMonitorView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    UpdatePoolView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    UpdateVipView
-from openstack_dashboard.dashboards.project.loadbalancers.views import \
-    VipDetailsView
+from openstack_dashboard.dashboards.project.loadbalancers import views
+
 
 urlpatterns = patterns(
     'openstack_dashboard.dashboards.project.loadbalancers.views',
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^addpool$', AddPoolView.as_view(), name='addpool'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^addpool$', views.AddPoolView.as_view(), name='addpool'),
     url(r'^updatepool/(?P<pool_id>[^/]+)/$',
-        UpdatePoolView.as_view(), name='updatepool'),
-    url(r'^addvip/(?P<pool_id>[^/]+)/$', AddVipView.as_view(), name='addvip'),
+        views.UpdatePoolView.as_view(), name='updatepool'),
+    url(r'^addvip/(?P<pool_id>[^/]+)/$',
+        views.AddVipView.as_view(), name='addvip'),
     url(r'^updatevip/(?P<vip_id>[^/]+)/$',
-        UpdateVipView.as_view(), name='updatevip'),
-    url(r'^addmember$', AddMemberView.as_view(), name='addmember'),
+        views.UpdateVipView.as_view(), name='updatevip'),
+    url(r'^addmember$', views.AddMemberView.as_view(), name='addmember'),
     url(r'^updatemember/(?P<member_id>[^/]+)/$',
-        UpdateMemberView.as_view(), name='updatemember'),
-    url(r'^addmonitor$', AddMonitorView.as_view(), name='addmonitor'),
+        views.UpdateMemberView.as_view(), name='updatemember'),
+    url(r'^addmonitor$', views.AddMonitorView.as_view(), name='addmonitor'),
     url(r'^updatemonitor/(?P<monitor_id>[^/]+)/$',
-        UpdateMonitorView.as_view(), name='updatemonitor'),
+        views.UpdateMonitorView.as_view(), name='updatemonitor'),
     url(r'^association/add/(?P<pool_id>[^/]+)/$',
-        AddPMAssociationView.as_view(), name='addassociation'),
+        views.AddPMAssociationView.as_view(), name='addassociation'),
     url(r'^association/delete/(?P<pool_id>[^/]+)/$',
-        DeletePMAssociationView.as_view(), name='deleteassociation'),
+        views.DeletePMAssociationView.as_view(), name='deleteassociation'),
     url(r'^pool/(?P<pool_id>[^/]+)/$',
-        PoolDetailsView.as_view(), name='pooldetails'),
+        views.PoolDetailsView.as_view(), name='pooldetails'),
     url(r'^vip/(?P<vip_id>[^/]+)/$',
-        VipDetailsView.as_view(), name='vipdetails'),
+        views.VipDetailsView.as_view(), name='vipdetails'),
     url(r'^member/(?P<member_id>[^/]+)/$',
-        MemberDetailsView.as_view(), name='memberdetails'),
+        views.MemberDetailsView.as_view(), name='memberdetails'),
     url(r'^monitor/(?P<monitor_id>[^/]+)/$',
-        MonitorDetailsView.as_view(), name='monitordetails'))
+        views.MonitorDetailsView.as_view(), name='monitordetails'))

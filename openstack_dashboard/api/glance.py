@@ -25,18 +25,18 @@ import logging
 import thread
 import urlparse
 
-from django.conf import settings
+from django.conf import settings  # noqa
 
 import glanceclient as glance_client
 
-from openstack_dashboard.api.base import url_for
+from openstack_dashboard.api import base
 
 
 LOG = logging.getLogger(__name__)
 
 
 def glanceclient(request):
-    o = urlparse.urlparse(url_for(request, 'image'))
+    o = urlparse.urlparse(base.url_for(request, 'image'))
     url = "://".join((o.scheme, o.netloc))
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     LOG.debug('glanceclient connection created using token "%s" and url "%s"'

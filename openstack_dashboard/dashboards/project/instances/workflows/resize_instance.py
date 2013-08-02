@@ -18,8 +18,8 @@
 import json
 import logging
 
-from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_variables
+from django.utils.translation import ugettext_lazy as _  # noqa
+from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
 from horizon import forms

@@ -19,15 +19,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django import http
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from horizon.workflows.views import WorkflowView
+from horizon.workflows import views
 
 
 INDEX_URL = reverse('horizon:project:access_and_security:index')
@@ -46,7 +46,7 @@ class FloatingIpViewTests(test.TestCase):
 
         url = reverse('%s:associate' % NAMESPACE)
         res = self.client.get(url)
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
         workflow = res.context['workflow']
         choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
         # Verify that our "associated" floating IP isn't in the choices list.

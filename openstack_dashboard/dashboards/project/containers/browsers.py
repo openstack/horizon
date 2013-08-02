@@ -14,21 +14,18 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import browsers
 
-from openstack_dashboard.dashboards.project.containers.tables import \
-    ContainersTable
-from openstack_dashboard.dashboards.project.containers.tables import \
-    ObjectsTable
+from openstack_dashboard.dashboards.project.containers import tables
 
 
 class ContainerBrowser(browsers.ResourceBrowser):
     name = "swift"
     verbose_name = _("Swift")
-    navigation_table_class = ContainersTable
-    content_table_class = ObjectsTable
+    navigation_table_class = tables.ContainersTable
+    content_table_class = tables.ObjectsTable
     navigable_item_name = _("Container")
     navigation_kwarg_name = "container_name"
     content_kwarg_name = "subfolder_path"

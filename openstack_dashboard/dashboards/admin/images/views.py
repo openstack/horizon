@@ -20,8 +20,8 @@
 
 import logging
 
-from django.core.urlresolvers import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse_lazy  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tables
@@ -30,19 +30,16 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project \
         .images_and_snapshots.images import views
 
-from openstack_dashboard.dashboards.admin.images.forms \
-    import AdminCreateImageForm
-from openstack_dashboard.dashboards.admin.images.forms \
-    import AdminUpdateImageForm
-from openstack_dashboard.dashboards.admin.images.tables \
-    import AdminImagesTable
+from openstack_dashboard.dashboards.admin.images import forms
+from openstack_dashboard.dashboards.admin.images \
+    import tables as project_tables
 
 
 LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
-    table_class = AdminImagesTable
+    table_class = project_tables.AdminImagesTable
     template_name = 'admin/images/index.html'
 
     def has_more_data(self, table):
@@ -50,8 +47,8 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         images = []
-        marker = self.request.GET.get(AdminImagesTable._meta.pagination_param,
-                                      None)
+        marker = self.request.GET.get(
+            project_tables.AdminImagesTable._meta.pagination_param, None)
         try:
             images, self._more = api.glance.image_list_detailed(self.request,
                                                                 marker=marker,
@@ -65,13 +62,13 @@ class IndexView(tables.DataTableView):
 
 class CreateView(views.CreateView):
     template_name = 'admin/images/create.html'
-    form_class = AdminCreateImageForm
+    form_class = forms.AdminCreateImageForm
     success_url = reverse_lazy('horizon:admin:images:index')
 
 
 class UpdateView(views.UpdateView):
     template_name = 'admin/images/update.html'
-    form_class = AdminUpdateImageForm
+    form_class = forms.AdminUpdateImageForm
     success_url = reverse_lazy('horizon:admin:images:index')
 
 

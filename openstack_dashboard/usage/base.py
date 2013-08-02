@@ -1,17 +1,17 @@
 from __future__ import division
 
-from csv import DictWriter
-from csv import writer
+from csv import DictWriter  # noqa
+from csv import writer  # noqa
 
 import datetime
 import logging
-from StringIO import StringIO
+from StringIO import StringIO  # noqa
 
-from django.http import HttpResponse
+from django.http import HttpResponse  # noqa
 from django import template as django_template
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
-from django import VERSION
+from django.utils.translation import ugettext_lazy as _  # noqa
+from django import VERSION  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -271,7 +271,7 @@ class BaseCsvResponse(CsvDataMixin, HttpResponse):
 
 if VERSION >= (1, 5, 0):
 
-    from django.http import StreamingHttpResponse
+    from django.http import StreamingHttpResponse  # noqa
 
     class BaseCsvStreamingResponse(CsvDataMixin, StreamingHttpResponse):
 

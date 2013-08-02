@@ -14,39 +14,34 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import include
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import include  # noqa
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
 from openstack_dashboard.dashboards.project.networks.ports \
     import urls as port_urls
-from openstack_dashboard.dashboards.project.networks.ports.views \
-    import UpdateView as EditPortView
+from openstack_dashboard.dashboards.project.networks.ports \
+    import views as port_views
 from openstack_dashboard.dashboards.project.networks.subnets \
     import urls as subnet_urls
-from openstack_dashboard.dashboards.project.networks.subnets.views \
-    import CreateView as AddSubnetView
-from openstack_dashboard.dashboards.project.networks.subnets.views \
-    import UpdateView as EditSubnetView
-from openstack_dashboard.dashboards.project.networks.views import CreateView
-from openstack_dashboard.dashboards.project.networks.views import DetailView
-from openstack_dashboard.dashboards.project.networks.views import IndexView
-from openstack_dashboard.dashboards.project.networks.views import UpdateView
+from openstack_dashboard.dashboards.project.networks.subnets \
+    import views as subnet_views
+from openstack_dashboard.dashboards.project.networks import views
 
 
 NETWORKS = r'^(?P<network_id>[^/]+)/%s$'
 
 
 urlpatterns = patterns('',
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^create$', CreateView.as_view(), name='create'),
-    url(NETWORKS % 'detail', DetailView.as_view(), name='detail'),
-    url(NETWORKS % 'update', UpdateView.as_view(), name='update'),
-    url(NETWORKS % 'subnets/create', AddSubnetView.as_view(),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^create$', views.CreateView.as_view(), name='create'),
+    url(NETWORKS % 'detail', views.DetailView.as_view(), name='detail'),
+    url(NETWORKS % 'update', views.UpdateView.as_view(), name='update'),
+    url(NETWORKS % 'subnets/create', subnet_views.CreateView.as_view(),
         name='addsubnet'),
     url(r'^(?P<network_id>[^/]+)/subnets/(?P<subnet_id>[^/]+)/update$',
-        EditSubnetView.as_view(), name='editsubnet'),
+        subnet_views.UpdateView.as_view(), name='editsubnet'),
     url(r'^(?P<network_id>[^/]+)/ports/(?P<port_id>[^/]+)/update$',
-        EditPortView.as_view(), name='editport'),
+        port_views.UpdateView.as_view(), name='editport'),
     url(r'^subnets/', include(subnet_urls, namespace='subnets')),
     url(r'^ports/', include(port_urls, namespace='ports')))

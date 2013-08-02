@@ -22,14 +22,14 @@ import logging
 import os
 import sys
 
-from django.contrib.auth import logout
-from django.core.management import color_style
-from django.http import HttpRequest
-from django.utils.translation import ugettext_lazy as _
-from django.views.debug import CLEANSED_SUBSTITUTE
-from django.views.debug import SafeExceptionReporterFilter
+from django.contrib.auth import logout  # noqa
+from django.core.management import color_style  # noqa
+from django.http import HttpRequest  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
+from django.views.debug import CLEANSED_SUBSTITUTE  # noqa
+from django.views.debug import SafeExceptionReporterFilter  # noqa
 
-from horizon.conf import HORIZON_CONFIG
+from horizon.conf import HORIZON_CONFIG  # noqa
 from horizon import messages
 
 LOG = logging.getLogger(__name__)

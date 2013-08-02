@@ -23,30 +23,28 @@ Views for managing keypairs.
 """
 import logging
 
-from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse_lazy  # noqa
 from django import http
-from django.template.defaultfilters import slugify
-from django.utils.translation import ugettext_lazy as _
-from django.views.generic import TemplateView
-from django.views.generic import View
+from django.template.defaultfilters import slugify  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
+from django.views.generic import TemplateView  # noqa
+from django.views.generic import View  # noqa
 
 from horizon import exceptions
 from horizon import forms
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.access_and_security.\
-    keypairs.forms import CreateKeypair
-from openstack_dashboard.dashboards.project.access_and_security.\
-    keypairs.forms import ImportKeypair
+from openstack_dashboard.dashboards.project.access_and_security.keypairs \
+    import forms as project_forms
 
 
 LOG = logging.getLogger(__name__)
 
 
 class CreateView(forms.ModalFormView):
-    form_class = CreateKeypair
+    form_class = project_forms.CreateKeypair
     template_name = 'project/access_and_security/keypairs/create.html'
     success_url = 'horizon:project:access_and_security:keypairs:download'
 
@@ -56,7 +54,7 @@ class CreateView(forms.ModalFormView):
 
 
 class ImportView(forms.ModalFormView):
-    form_class = ImportKeypair
+    form_class = project_forms.ImportKeypair
     template_name = 'project/access_and_security/keypairs/import.html'
     success_url = reverse_lazy('horizon:project:access_and_security:index')
 

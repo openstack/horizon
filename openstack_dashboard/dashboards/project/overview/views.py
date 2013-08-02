@@ -19,16 +19,16 @@
 #    under the License.
 
 
-from django.template.defaultfilters import capfirst
-from django.template.defaultfilters import floatformat
-from django.utils.translation import ugettext as _
-from django.views.generic import TemplateView
+from django.template.defaultfilters import capfirst  # noqa
+from django.template.defaultfilters import floatformat  # noqa
+from django.utils.translation import ugettext as _  # noqa
+from django.views.generic import TemplateView  # noqa
 
 from openstack_dashboard import usage
-from openstack_dashboard.usage.base import BaseCsvResponse
+from openstack_dashboard.usage import base
 
 
-class ProjectUsageCsvRenderer(BaseCsvResponse):
+class ProjectUsageCsvRenderer(base.BaseCsvResponse):
 
     columns = [_("Instance Name"), _("VCPUs"), _("Ram (MB)"),
                _("Disk (GB)"), _("Usage (Hours)"),

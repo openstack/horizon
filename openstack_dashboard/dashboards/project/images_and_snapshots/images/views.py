@@ -24,9 +24,9 @@ Views for managing images.
 
 import logging
 
-from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse_lazy  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -34,26 +34,24 @@ from horizon import tabs
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.images_and_snapshots.images.forms \
-    import CreateImageForm
-from openstack_dashboard.dashboards.project.images_and_snapshots.images.forms \
-    import UpdateImageForm
-from openstack_dashboard.dashboards.project.images_and_snapshots.images.tabs \
-    import ImageDetailTabs
+from openstack_dashboard.dashboards.project.images_and_snapshots.images \
+    import forms as project_forms
+from openstack_dashboard.dashboards.project.images_and_snapshots.images \
+    import tabs as project_tabs
 
 
 LOG = logging.getLogger(__name__)
 
 
 class CreateView(forms.ModalFormView):
-    form_class = CreateImageForm
+    form_class = project_forms.CreateImageForm
     template_name = 'project/images_and_snapshots/images/create.html'
     context_object_name = 'image'
     success_url = reverse_lazy("horizon:project:images_and_snapshots:index")
 
 
 class UpdateView(forms.ModalFormView):
-    form_class = UpdateImageForm
+    form_class = project_forms.UpdateImageForm
     template_name = 'project/images_and_snapshots/images/update.html'
     success_url = reverse_lazy("horizon:project:images_and_snapshots:index")
 
@@ -87,5 +85,5 @@ class UpdateView(forms.ModalFormView):
 
 
 class DetailView(tabs.TabView):
-    tab_group_class = ImageDetailTabs
+    tab_group_class = project_tabs.ImageDetailTabs
     template_name = 'project/images_and_snapshots/images/detail.html'

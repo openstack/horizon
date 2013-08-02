@@ -14,17 +14,17 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import defaultdict
+from collections import defaultdict  # noqa
 import logging
 
-from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.conf import settings  # noqa
+from django.core.urlresolvers import reverse  # noqa
 from django.template import defaultfilters as filters
-from django.utils.http import urlencode
-from django.utils.translation import ugettext_lazy as _
+from django.utils.http import urlencode  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
-from horizon.utils.memoized import memoized
+from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard import api
 

@@ -14,15 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import defaultdict
+from collections import defaultdict  # noqa
 import logging
 import new
 
-from django.conf import settings
+from django.conf import settings  # noqa
 from django.core import urlresolvers
 from django import shortcuts
-from django.utils.functional import Promise
-from django.utils.translation import ugettext_lazy as _
+from django.utils.functional import Promise  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import messages

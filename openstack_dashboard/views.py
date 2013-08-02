@@ -19,7 +19,7 @@ from django.views.decorators import vary
 
 import horizon
 
-from openstack_auth.views import Login
+from openstack_auth.views import Login  # noqa
 
 
 def get_user_home(user):

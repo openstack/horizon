@@ -2,10 +2,10 @@ import logging
 
 from django import template
 from django.template import defaultfilters as filters
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
-from horizon.utils.filters import parse_isotime
+from horizon.utils.filters import parse_isotime  # noqa
 
 
 LOG = logging.getLogger(__name__)

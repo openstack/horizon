@@ -25,14 +25,14 @@ import datetime
 import json
 import logging
 
-from django.conf import settings
-from django.contrib.auth import REDIRECT_FIELD_NAME
-from django.contrib.auth.views import redirect_to_login
+from django.conf import settings  # noqa
+from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
+from django.contrib.auth.views import redirect_to_login  # noqa
 from django.contrib import messages as django_messages
 from django import http
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect  # noqa
 from django import shortcuts
-from django.utils.encoding import iri_to_uri
+from django.utils.encoding import iri_to_uri  # noqa
 from django.utils import timezone
 
 from horizon import exceptions

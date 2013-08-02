@@ -20,20 +20,15 @@
 
 import tempfile
 
-from django.core.files.uploadedfile import InMemoryUploadedFile
-from django.core.urlresolvers import reverse
+from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
+from django.core.urlresolvers import reverse  # noqa
 from django import http
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.containers import forms
-from openstack_dashboard.dashboards.project.containers.tables import \
-    ContainersTable
-from openstack_dashboard.dashboards.project.containers.tables import \
-    ObjectsTable
-from openstack_dashboard.dashboards.project.containers.tables import \
-    wrap_delimiter
+from openstack_dashboard.dashboards.project.containers import tables
 from openstack_dashboard.test import helpers as test
 
 
@@ -64,7 +59,7 @@ class SwiftTests(test.TestCase):
         action_string = u"containers__delete__%s" % container.name
         form_data = {"action": action_string}
         req = self.factory.post(CONTAINER_INDEX_URL, form_data)
-        table = ContainersTable(req, self.containers.list())
+        table = tables.ContainersTable(req, self.containers.list())
         handled = table.maybe_handle()
         self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
 
@@ -79,7 +74,7 @@ class SwiftTests(test.TestCase):
         action_string = u"containers__delete__%s" % container.name
         form_data = {"action": action_string}
         req = self.factory.post(CONTAINER_INDEX_URL, form_data)
-        table = ContainersTable(req, self.containers.list())
+        table = tables.ContainersTable(req, self.containers.list())
         handled = table.maybe_handle()
         self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
         self.assertEqual(unicode(list(req._messages)[0].message),
@@ -101,7 +96,7 @@ class SwiftTests(test.TestCase):
         res = self.client.post(reverse('horizon:project:containers:create'),
                                formData)
         url = reverse('horizon:project:containers:index',
-                      args=[wrap_delimiter(self.containers.first().name)])
+            args=[tables.wrap_delimiter(self.containers.first().name)])
         self.assertRedirectsNoFollow(res, url)
 
     @test.create_stubs({api.swift: ('swift_get_containers',
@@ -118,9 +113,7 @@ class SwiftTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:containers:index',
-                                      args=[wrap_delimiter(self.containers
-                                                               .first()
-                                                               .name)]))
+            args=[tables.wrap_delimiter(self.containers.first().name)]))
         self.assertTemplateUsed(res, 'project/containers/index.html')
         # UTF8 encoding here to ensure there aren't problems with Nose output.
         expected = [obj.name.encode('utf8') for obj in self.objects.list()]
@@ -161,7 +154,7 @@ class SwiftTests(test.TestCase):
         res = self.client.post(upload_url, formData)
 
         index_url = reverse('horizon:project:containers:index',
-                            args=[wrap_delimiter(container.name)])
+                            args=[tables.wrap_delimiter(container.name)])
         self.assertRedirectsNoFollow(res, index_url)
 
     @test.create_stubs({api.swift: ('swift_delete_object',)})
@@ -169,7 +162,7 @@ class SwiftTests(test.TestCase):
         container = self.containers.first()
         obj = self.objects.first()
         index_url = reverse('horizon:project:containers:index',
-                            args=[wrap_delimiter(container.name)])
+                            args=[tables.wrap_delimiter(container.name)])
         api.swift.swift_delete_object(IsA(http.HttpRequest),
                                       container.name,
                                       obj.name)
@@ -179,7 +172,7 @@ class SwiftTests(test.TestCase):
         form_data = {"action": action_string}
         req = self.factory.post(index_url, form_data)
         kwargs = {"container_name": container.name}
-        table = ObjectsTable(req, self.objects.list(), **kwargs)
+        table = tables.ObjectsTable(req, self.objects.list(), **kwargs)
         handled = table.maybe_handle()
         self.assertEqual(handled['location'], index_url)
 
@@ -235,7 +228,7 @@ class SwiftTests(test.TestCase):
                            args=[container_1.name, obj.name])
         res = self.client.post(copy_url, formData)
         index_url = reverse('horizon:project:containers:index',
-                            args=[wrap_delimiter(container_2.name)])
+                            args=[tables.wrap_delimiter(container_2.name)])
         self.assertRedirectsNoFollow(res, index_url)
 
     @test.create_stubs({api.swift: ('swift_get_container', )})

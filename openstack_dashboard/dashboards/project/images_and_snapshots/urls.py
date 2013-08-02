@@ -18,25 +18,22 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import include
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import include  # noqa
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
 from openstack_dashboard.dashboards.project.images_and_snapshots.images \
     import urls as image_urls
 from openstack_dashboard.dashboards.project.images_and_snapshots.snapshots \
     import urls as snapshot_urls
-from openstack_dashboard.dashboards.project.images_and_snapshots.views \
-    import DetailView
-from openstack_dashboard.dashboards.project.images_and_snapshots.views \
-    import IndexView
+from openstack_dashboard.dashboards.project.images_and_snapshots import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'', include(image_urls, namespace='images')),
     url(r'', include(snapshot_urls, namespace='snapshots')),
     url(r'^snapshots/(?P<snapshot_id>[^/]+)/$',
-        DetailView.as_view(),
+        views.DetailView.as_view(),
         name='detail'),
 )

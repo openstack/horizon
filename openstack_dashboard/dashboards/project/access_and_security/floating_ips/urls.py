@@ -18,16 +18,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
 from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips.views import AllocateView
-from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips.views import AssociateView
+    floating_ips import views
 
 
 urlpatterns = patterns('',
-    url(r'^associate/$', AssociateView.as_view(), name='associate'),
-    url(r'^allocate/$', AllocateView.as_view(), name='allocate')
+    url(r'^associate/$', views.AssociateView.as_view(), name='associate'),
+    url(r'^allocate/$', views.AllocateView.as_view(), name='allocate')
 )

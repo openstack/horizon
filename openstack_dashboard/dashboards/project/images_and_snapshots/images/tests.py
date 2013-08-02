@@ -20,21 +20,21 @@
 
 import tempfile
 
-from django.conf import settings
-from django.core.files.uploadedfile import InMemoryUploadedFile
-from django.core.urlresolvers import reverse
-from django.forms.widgets import HiddenInput
+from django.conf import settings  # noqa
+from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
+from django.core.urlresolvers import reverse  # noqa
+from django.forms.widgets import HiddenInput  # noqa
 from django import http
-from django.test.utils import override_settings
+from django.test.utils import override_settings  # noqa
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from horizon import tables as horizon_tables
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.project.images_and_snapshots.images.forms \
-    import CreateImageForm
+from openstack_dashboard.dashboards.project.images_and_snapshots.images \
+    import forms
 from openstack_dashboard.dashboards.project.images_and_snapshots.images \
     import tables
 
@@ -57,7 +57,7 @@ class CreateImageFormTests(test.TestCase):
             'minimum_ram': 512,
             'is_public': 1}
         files = {}
-        form = CreateImageForm(post, files)
+        form = forms.CreateImageForm(post, files)
         self.assertEqual(form.is_valid(), False)
 
     @override_settings(HORIZON_IMAGES_ALLOW_UPLOAD=False)
@@ -66,7 +66,7 @@ class CreateImageFormTests(test.TestCase):
         If HORIZON_IMAGES_ALLOW_UPLOAD is false, the image_file field widget
         will be a HiddenInput widget instead of a FileInput widget.
         """
-        form = CreateImageForm({})
+        form = forms.CreateImageForm({})
         self.assertEqual(
             isinstance(form.fields['image_file'].widget, HiddenInput), True)
 

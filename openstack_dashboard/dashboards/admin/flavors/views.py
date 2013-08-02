@@ -20,8 +20,8 @@
 
 import logging
 
-from django.core.urlresolvers import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse_lazy  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -29,16 +29,17 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.admin.flavors.forms import CreateFlavor
-from openstack_dashboard.dashboards.admin.flavors.forms import EditFlavor
-from openstack_dashboard.dashboards.admin.flavors.tables import FlavorsTable
+from openstack_dashboard.dashboards.admin.flavors \
+    import forms as project_forms
+from openstack_dashboard.dashboards.admin.flavors \
+    import tables as project_tables
 
 
 LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
-    table_class = FlavorsTable
+    table_class = project_tables.FlavorsTable
     template_name = 'admin/flavors/index.html'
 
     def get_data(self):
@@ -55,13 +56,13 @@ class IndexView(tables.DataTableView):
 
 
 class CreateView(forms.ModalFormView):
-    form_class = CreateFlavor
+    form_class = project_forms.CreateFlavor
     template_name = 'admin/flavors/create.html'
     success_url = reverse_lazy('horizon:admin:flavors:index')
 
 
 class EditView(forms.ModalFormView):
-    form_class = EditFlavor
+    form_class = project_forms.EditFlavor
     template_name = 'admin/flavors/edit.html'
     success_url = reverse_lazy('horizon:admin:flavors:index')
 

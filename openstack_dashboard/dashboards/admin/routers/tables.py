@@ -16,8 +16,8 @@
 
 import logging
 
-from django.template.defaultfilters import title
-from django.utils.translation import ugettext_lazy as _
+from django.template.defaultfilters import title  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 from openstack_dashboard import api

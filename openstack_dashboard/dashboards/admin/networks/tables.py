@@ -16,15 +16,16 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django.template import defaultfilters as filters
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.networks.tables import get_subnets
+from openstack_dashboard.dashboards.project.networks \
+    import tables as project_tables
 
 
 LOG = logging.getLogger(__name__)
@@ -67,7 +68,7 @@ class NetworksTable(tables.DataTable):
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
     name = tables.Column("name", verbose_name=_("Network Name"),
                          link='horizon:admin:networks:detail')
-    subnets = tables.Column(get_subnets,
+    subnets = tables.Column(project_tables.get_subnets,
                             verbose_name=_("Subnets Associated"),)
     shared = tables.Column("shared", verbose_name=_("Shared"),
                            filters=(filters.yesno, filters.capfirst))

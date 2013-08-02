@@ -15,23 +15,18 @@
 #    under the License.
 
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.loadbalancers.tables \
-    import MembersTable
-from openstack_dashboard.dashboards.project.loadbalancers.tables \
-    import MonitorsTable
-from openstack_dashboard.dashboards.project.loadbalancers.tables \
-    import PoolsTable
+from openstack_dashboard.dashboards.project.loadbalancers import tables
 
 
 class PoolsTab(tabs.TableTab):
-    table_classes = (PoolsTable,)
+    table_classes = (tables.PoolsTable,)
     name = _("Pools")
     slug = "pools"
     template_name = "horizon/common/_detail_table.html"
@@ -49,7 +44,7 @@ class PoolsTab(tabs.TableTab):
 
 
 class MembersTab(tabs.TableTab):
-    table_classes = (MembersTable,)
+    table_classes = (tables.MembersTable,)
     name = _("Members")
     slug = "members"
     template_name = "horizon/common/_detail_table.html"
@@ -67,7 +62,7 @@ class MembersTab(tabs.TableTab):
 
 
 class MonitorsTab(tabs.TableTab):
-    table_classes = (MonitorsTable,)
+    table_classes = (tables.MonitorsTable,)
     name = _("Monitors")
     slug = "monitors"
     template_name = "horizon/common/_detail_table.html"

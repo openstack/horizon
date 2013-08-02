@@ -18,25 +18,25 @@
 import uuid
 
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.utils.filters import get_int_or_uuid
+from openstack_dashboard.utils import filters
 
 
 class UtilsFilterTests(test.TestCase):
     def test_accept_valid_integer(self):
         val = 100
-        ret = get_int_or_uuid(val)
+        ret = filters.get_int_or_uuid(val)
         self.assertEqual(val, ret)
 
     def test_accept_valid_integer_string(self):
         val = '100'
-        ret = get_int_or_uuid(val)
+        ret = filters.get_int_or_uuid(val)
         self.assertEqual(int(val), ret)
 
     def test_accept_valid_uuid(self):
         val = str(uuid.uuid4())
-        ret = get_int_or_uuid(val)
+        ret = filters.get_int_or_uuid(val)
         self.assertEqual(val, ret)
 
     def test_reject_random_string(self):
         val = '55WbJTpJDf'
-        self.assertRaises(ValueError, get_int_or_uuid, val)
+        self.assertRaises(ValueError, filters.get_int_or_uuid, val)

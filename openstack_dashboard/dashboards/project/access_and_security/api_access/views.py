@@ -14,15 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from contextlib import closing
+from contextlib import closing  # noqa
 import logging
 import tempfile
 import zipfile
 
 from django import http
 from django import shortcuts
-from django.template.loader import render_to_string
-from django.utils.translation import ugettext_lazy as _
+from django.template.loader import render_to_string  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import messages

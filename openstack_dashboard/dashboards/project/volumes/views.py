@@ -18,14 +18,9 @@
 Views for managing volumes.
 """
 
-from django.core.urlresolvers import reverse_lazy
-from django.utils.datastructures import SortedDict
-from django.utils.translation import ugettext_lazy as _
-
-from openstack_dashboard.dashboards.project.volumes.forms import AttachForm
-from openstack_dashboard.dashboards.project.volumes.forms import CreateForm
-from openstack_dashboard.dashboards.project.volumes.forms \
-    import CreateSnapshotForm
+from django.core.urlresolvers import reverse_lazy  # noqa
+from django.utils.datastructures import SortedDict  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -38,11 +33,13 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.project.volumes.tables \
-    import AttachmentsTable
-from openstack_dashboard.dashboards.project.volumes.tables import VolumesTable
-from openstack_dashboard.dashboards.project.volumes.tabs \
-    import VolumeDetailTabs
+from openstack_dashboard.dashboards.project.volumes \
+    import forms as project_forms
+
+from openstack_dashboard.dashboards.project.volumes \
+    import tables as project_tables
+from openstack_dashboard.dashboards.project.volumes \
+    import tabs as project_tabs
 
 
 LOG = logging.getLogger(__name__)
@@ -84,7 +81,7 @@ class VolumeTableMixIn(object):
 
 
 class IndexView(tables.DataTableView, VolumeTableMixIn):
-    table_class = VolumesTable
+    table_class = project_tables.VolumesTable
     template_name = 'project/volumes/index.html'
 
     def get_data(self):
@@ -96,12 +93,12 @@ class IndexView(tables.DataTableView, VolumeTableMixIn):
 
 
 class DetailView(tabs.TabView):
-    tab_group_class = VolumeDetailTabs
+    tab_group_class = project_tabs.VolumeDetailTabs
     template_name = 'project/volumes/detail.html'
 
 
 class CreateView(forms.ModalFormView):
-    form_class = CreateForm
+    form_class = project_forms.CreateForm
     template_name = 'project/volumes/create.html'
     success_url = reverse_lazy("horizon:project:volumes:index")
 
@@ -121,7 +118,7 @@ class CreateView(forms.ModalFormView):
 
 
 class CreateSnapshotView(forms.ModalFormView):
-    form_class = CreateSnapshotForm
+    form_class = project_forms.CreateSnapshotForm
     template_name = 'project/volumes/create_snapshot.html'
     success_url = reverse_lazy("horizon:project:images_and_snapshots:index")
 
@@ -139,8 +136,8 @@ class CreateSnapshotView(forms.ModalFormView):
 
 
 class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
-    table_class = AttachmentsTable
-    form_class = AttachForm
+    table_class = project_tables.AttachmentsTable
+    form_class = project_forms.AttachForm
     template_name = 'project/volumes/attach.html'
     success_url = reverse_lazy("horizon:project:volumes:index")
 

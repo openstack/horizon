@@ -16,19 +16,19 @@
 
 import logging
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tables
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.admin.hypervisors.tables import \
-        AdminHypervisorsTable
+from openstack_dashboard.dashboards.admin.hypervisors \
+    import tables as project_tables
 
 LOG = logging.getLogger(__name__)
 
 
 class AdminIndexView(tables.DataTableView):
-    table_class = AdminHypervisorsTable
+    table_class = project_tables.AdminHypervisorsTable
     template_name = 'admin/hypervisors/index.html'
 
     def get_data(self):

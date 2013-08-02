@@ -18,10 +18,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import Sequence
+from collections import Sequence  # noqa
 import logging
 
-from django.conf import settings
+from django.conf import settings  # noqa
 
 from horizon import exceptions
 

@@ -18,18 +18,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.containers.views import \
-    ContainerDetailView
-from openstack_dashboard.dashboards.project.containers.views import \
-    ContainerView
-from openstack_dashboard.dashboards.project.containers.views import CopyView
-from openstack_dashboard.dashboards.project.containers.views import CreateView
-from openstack_dashboard.dashboards.project.containers.views import \
-    ObjectDetailView
-from openstack_dashboard.dashboards.project.containers.views import UploadView
+from openstack_dashboard.dashboards.project.containers import views
 
 
 VIEW_MOD = 'openstack_dashboard.dashboards.project.containers.views'
@@ -37,29 +29,29 @@ VIEW_MOD = 'openstack_dashboard.dashboards.project.containers.views'
 # Swift containers and objects.
 urlpatterns = patterns(VIEW_MOD,
     url(r'^((?P<container_name>.+?)/)?(?P<subfolder_path>(.+/)+)?$',
-        ContainerView.as_view(), name='index'),
+        views.ContainerView.as_view(), name='index'),
 
     url(r'^(?P<container_name>(.+/)+)?create$',
-        CreateView.as_view(),
+        views.CreateView.as_view(),
         name='create'),
 
     url(r'^(?P<container_name>.+?)/(?P<subfolder_path>(.+/)+)'
             '?container_detail$',
-        ContainerDetailView.as_view(),
+        views.ContainerDetailView.as_view(),
         name='container_detail'),
 
     url(r'^(?P<container_name>[^/]+)/(?P<object_path>.+)/object_detail$',
-        ObjectDetailView.as_view(),
+        views.ObjectDetailView.as_view(),
         name='object_detail'),
 
     url(r'^(?P<container_name>.+?)/(?P<subfolder_path>(.+/)+)?upload$',
-        UploadView.as_view(),
+        views.UploadView.as_view(),
         name='object_upload'),
 
     url(r'^(?P<container_name>[^/]+)/'
          r'(?P<subfolder_path>(.+/)+)?'
          r'(?P<object_name>.+)/copy$',
-        CopyView.as_view(),
+        views.CopyView.as_view(),
         name='object_copy'),
 
     url(r'^(?P<container_name>[^/]+)/(?P<object_path>.+)/download$',

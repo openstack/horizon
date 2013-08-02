@@ -14,11 +14,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import defaultdict
+from collections import defaultdict  # noqa
 
 from django.views import generic
 
-from horizon.templatetags.horizon import has_permissions
+from horizon.templatetags.horizon import has_permissions  # noqa
 
 
 class MultiTableMixin(object):

@@ -18,24 +18,18 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.access_and_security.\
-    keypairs.views import CreateView
-from openstack_dashboard.dashboards.project.access_and_security.\
-    keypairs.views import DownloadView
-from openstack_dashboard.dashboards.project.access_and_security.\
-    keypairs.views import GenerateView
-from openstack_dashboard.dashboards.project.access_and_security.\
-    keypairs.views import ImportView
+from openstack_dashboard.dashboards.project.access_and_security.keypairs \
+    import views
 
 
 urlpatterns = patterns('',
-    url(r'^create/$', CreateView.as_view(), name='create'),
-    url(r'^import/$', ImportView.as_view(), name='import'),
-    url(r'^(?P<keypair_name>[^/]+)/download/$', DownloadView.as_view(),
+    url(r'^create/$', views.CreateView.as_view(), name='create'),
+    url(r'^import/$', views.ImportView.as_view(), name='import'),
+    url(r'^(?P<keypair_name>[^/]+)/download/$', views.DownloadView.as_view(),
             name='download'),
-    url(r'^(?P<keypair_name>[^/]+)/generate/$', GenerateView.as_view(),
+    url(r'^(?P<keypair_name>[^/]+)/generate/$', views.GenerateView.as_view(),
             name='generate'),
 )

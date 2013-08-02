@@ -16,31 +16,24 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse  # noqa
 from django import http
 
-from mox import IsA
+from mox import IsA  # noqa
 
 from horizon import exceptions
-from horizon.workflows.views import WorkflowView
+from horizon.workflows import views
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.admin.projects.workflows \
-    import CreateProject
-from openstack_dashboard.dashboards.admin.projects.workflows \
-    import PROJECT_GROUP_MEMBER_SLUG
-from openstack_dashboard.dashboards.admin.projects.workflows \
-    import PROJECT_USER_MEMBER_SLUG
-from openstack_dashboard.dashboards.admin.projects.workflows \
-    import UpdateProject
+from openstack_dashboard.dashboards.admin.projects import workflows
 
 
 INDEX_URL = reverse('horizon:admin:projects:index')
-USER_ROLE_PREFIX = PROJECT_GROUP_MEMBER_SLUG + "_role_"
-GROUP_ROLE_PREFIX = PROJECT_USER_MEMBER_SLUG + "_role_"
+USER_ROLE_PREFIX = workflows.PROJECT_GROUP_MEMBER_SLUG + "_role_"
+GROUP_ROLE_PREFIX = workflows.PROJECT_USER_MEMBER_SLUG + "_role_"
 
 
 @test.create_stubs({api.keystone: ('tenant_list',)})
@@ -153,10 +146,11 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:projects:create')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
         workflow = res.context['workflow']
-        self.assertEqual(res.context['workflow'].name, CreateProject.name)
+        self.assertEqual(res.context['workflow'].name,
+                         workflows.CreateProject.name)
 
         step = workflow.get_step("createprojectinfoaction")
         self.assertEqual(step.action.initial['ram'], quota.get('ram').limit)
@@ -286,7 +280,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:projects:create')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
         self.assertContains(res, "Unable to retrieve default quota values")
 
     def test_add_project_quota_defaults_error_domain(self):
@@ -629,10 +623,11 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                       args=[self.tenant.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, WorkflowView.template_name)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
         workflow = res.context['workflow']
-        self.assertEqual(res.context['workflow'].name, UpdateProject.name)
+        self.assertEqual(res.context['workflow'].name,
+                         workflows.UpdateProject.name)
 
         step = workflow.get_step("update_info")
         self.assertEqual(step.action.initial['ram'], quota.get('ram').limit)

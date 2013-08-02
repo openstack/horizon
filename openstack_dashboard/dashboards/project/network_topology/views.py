@@ -20,10 +20,10 @@
 
 import json
 
-from django.core.urlresolvers import reverse
-from django.http import HttpResponse
-from django.views.generic import TemplateView
-from django.views.generic import View
+from django.core.urlresolvers import reverse  # noqa
+from django.http import HttpResponse  # noqa
+from django.views.generic import TemplateView  # noqa
+from django.views.generic import View  # noqa
 
 from openstack_dashboard import api
 
