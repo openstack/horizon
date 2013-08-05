@@ -512,12 +512,7 @@ def server_reboot(request, instance_id, hardness=REBOOT_HARD):
 
 
 def server_update(request, instance_id, name):
-    response = novaclient(request).servers.update(instance_id, name=name)
-    # TODO(gabriel): servers.update method doesn't return anything. :-(
-    if response is None:
-        return True
-    else:
-        return response
+    return novaclient(request).servers.update(instance_id, name=name)
 
 
 def server_migrate(request, instance_id):
