@@ -63,7 +63,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                                       'data-source-url': _('Image Location')}),
                                 required=False)
     image_file = forms.FileField(label=_("Image File"),
-                                 help_text=("A local image to upload."),
+                                 help_text=_("A local image to upload."),
                                  widget=forms.FileInput(attrs={
                                       'class': 'switched',
                                       'data-switch-on': 'source',
