@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}horizon/lib/qunit/qunit.css" type="text/css" media="screen">
     <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/qunit/qunit.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/jshint-2.3.0.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/qhint.js"></script>
     {% include "horizon/_conf.html" %}
 
     {% comment %}Load test modules here.{% endcomment %}
@@ -13,6 +15,7 @@
     <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/modals.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/templates.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/tables.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jshint.js"></script>
     {% comment %}End test modules.{% endcomment %}
 
     {% include "horizon/_scripts.html" %}

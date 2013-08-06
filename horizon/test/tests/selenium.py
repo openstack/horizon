@@ -20,7 +20,7 @@ from horizon.test import helpers as test
 class BrowserTests(test.SeleniumTestCase):
     def test_qunit(self):
         self.selenium.get("%s%s" % (self.live_server_url, "/qunit/"))
-        wait = self.ui.WebDriverWait(self.selenium, 10)
+        wait = self.ui.WebDriverWait(self.selenium, 20)
 
         def qunit_done(driver):
             text = driver.find_element_by_id("qunit-testresult").text
@@ -28,4 +28,9 @@ class BrowserTests(test.SeleniumTestCase):
 
         wait.until(qunit_done)
         failed = self.selenium.find_element_by_class_name("failed")
-        self.assertEqual(int(failed.text), 0)
+        if int(failed.text) > 0:
+            filename = self.selenium.find_element_by_css_selector(
+                "#qunit-tests > li.fail span.test-name").text
+            message = self.selenium.find_element_by_css_selector(
+                "#qunit-tests > li.fail span.test-message").text
+            self.fail('%s: %s' % (filename, message))
