@@ -88,22 +88,27 @@ resource_images = {
     'LB_FAILED': '/static/dashboard/img/lb-red.svg',
     'LB_DELETE': '/static/dashboard/img/lb-red.svg',
     'LB_IN_PROGRESS': '/static/dashboard/img/lb-gray.gif',
+    'LB_INIT': '/static/dashboard/img/lb-gray.svg',
     'LB_COMPLETE': '/static/dashboard/img/lb-green.svg',
     'DB_FAILED': '/static/dashboard/img/db-red.svg',
     'DB_DELETE': '/static/dashboard/img/db-red.svg',
     'DB_IN_PROGRESS': '/static/dashboard/img/db-gray.gif',
+    'DB_INIT': '/static/dashboard/img/db-gray.svg',
     'DB_COMPLETE': '/static/dashboard/img/db-green.svg',
     'STACK_FAILED': '/static/dashboard/img/stack-red.svg',
     'STACK_DELETE': '/static/dashboard/img/stack-red.svg',
     'STACK_IN_PROGRESS': '/static/dashboard/img/stack-gray.gif',
+    'STACK_INIT': '/static/dashboard/img/stack-gray.svg',
     'STACK_COMPLETE': '/static/dashboard/img/stack-green.svg',
     'SERVER_FAILED': '/static/dashboard/img/server-red.svg',
     'SERVER_DELETE': '/static/dashboard/img/server-red.svg',
     'SERVER_IN_PROGRESS': '/static/dashboard/img/server-gray.gif',
+    'SERVER_INIT': '/static/dashboard/img/server-gray.svg',
     'SERVER_COMPLETE': '/static/dashboard/img/server-green.svg',
     'UNKNOWN_FAILED': '/static/dashboard/img/unknown-red.svg',
     'UNKNOWN_DELETE': '/static/dashboard/img/unknown-red.svg',
     'UNKNOWN_IN_PROGRESS': '/static/dashboard/img/unknown-gray.gif',
+    'UNKNOWN_INIT': '/static/dashboard/img/unknown-gray.svg',
     'UNKNOWN_COMPLETE': '/static/dashboard/img/unknown-green.svg',
 }
 
@@ -111,9 +116,9 @@ resource_images = {
 def get_resource_type(type):
     if re.search('LoadBalancer', type):
         return 'LB'
-    elif re.search('DBInstance', type):
+    elif re.search('DBInstance', type) or re.search('Database', type):
         return 'DB'
-    elif re.search('Instance', type):
+    elif re.search('Instance', type) or re.search('Server', type):
         return 'SERVER'
     elif re.search('stack', type):
         return 'STACK'
@@ -128,6 +133,8 @@ def get_resource_status(status):
         return 'FAILED'
     elif re.search('DELETE', status):
         return 'DELETE'
+    elif re.search('INIT', status):
+        return 'INIT'
     else:
         return 'COMPLETE'
 

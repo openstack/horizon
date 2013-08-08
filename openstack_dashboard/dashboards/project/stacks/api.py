@@ -57,9 +57,11 @@ def d3_data(request, stack_id=''):
         for resource in resources:
             resource_image = get_resource_image(resource.resource_status,
                                             resource.resource_type)
-            in_progress = True if (
-                get_resource_status(resource.resource_status)
-                == 'IN_PROGRESS') else False
+            resource_status = get_resource_status(resource.resource_status)
+            if resource_status in ('IN_PROGRESS', 'INIT'):
+                in_progress = True
+            else:
+                in_progress = False
             resource_node = {
                 'name': resource.logical_resource_id,
                 'status': resource.resource_status,
