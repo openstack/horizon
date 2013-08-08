@@ -172,7 +172,8 @@ class CreateSubnetDetailAction(workflows.Action):
             return netaddr.IPAddress(ip)
         except (netaddr.AddrFormatError, ValueError):
             msg = _('%(field_name)s: Invalid IP address '
-                    '(value=%(ip)s)') % locals()
+                    '(value=%(ip)s)' % dict(
+                        field_name=field_name, ip=ip))
             raise forms.ValidationError(msg)
 
     def _convert_ip_network(self, network, field_name):
@@ -180,7 +181,8 @@ class CreateSubnetDetailAction(workflows.Action):
             return netaddr.IPNetwork(network)
         except (netaddr.AddrFormatError, ValueError):
             msg = _('%(field_name)s: Invalid IP address '
-                    '(value=%(network)s)') % locals()
+                    '(value=%(network)s)' % dict(
+                        field_name=field_name, network=network))
             raise forms.ValidationError(msg)
 
     def _check_allocation_pools(self, allocation_pools):

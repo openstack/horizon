@@ -14,15 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from distutils.command import install
+# THIS FILE IS MANAGED BY THE GLOBAL REQUIREMENTS REPO - DO NOT EDIT
 import setuptools
 
-# Tell distutils not to put the data_files in platform-specific installation
-# locations. See here for an explanation:
-# https://groups.google.com/forum/#!topic/comp.lang.python/Nex7L-026uw
-for scheme in install.INSTALL_SCHEMES.values():
-    scheme['data'] = scheme['purelib']
-
 setuptools.setup(
-    setup_requires=['d2to1>=0.2.10,<0.3', 'pbr>=0.5,<0.6'],
-    d2to1=True)
+    setup_requires=['pbr>=0.5.21,<1.0'],
+    pbr=True)
