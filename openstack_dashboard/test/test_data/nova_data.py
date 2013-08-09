@@ -517,6 +517,23 @@ def data(TEST):
     )
     TEST.hypervisors.add(hypervisor_1)
 
+    TEST.hypervisors.stats = {
+        "hypervisor_statistics": {
+            "count": 5,
+            "vcpus_used": 3,
+            "local_gb_used": 15,
+            "memory_mb": 483310,
+            "current_workload": 0,
+            "vcpus": 160,
+            "running_vms": 3,
+            "free_disk_gb": 12548,
+            "disk_available_least": 12556,
+            "local_gb": 12563,
+            "free_ram_mb": 428014,
+            "memory_mb_used": 55296
+        }
+    }
+
     # Services
     service_1 = services.Service(services.ServiceManager(None),
         {

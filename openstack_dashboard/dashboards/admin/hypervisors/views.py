@@ -35,8 +35,18 @@ class AdminIndexView(tables.DataTableView):
         hypervisors = []
         try:
             hypervisors = api.nova.hypervisor_list(self.request)
-        except:
+        except Exception:
             exceptions.handle(self.request,
-                _('Unable to retrieve hypervisor list.'))
+                _('Unable to retrieve hypervisor information.'))
 
         return hypervisors
+
+    def get_context_data(self, **kwargs):
+        context = super(AdminIndexView, self).get_context_data(**kwargs)
+        try:
+            context["stats"] = api.nova.hypervisor_stats(self.request)
+        except Exception:
+            exceptions.handle(self.request,
+                _('Unable to retrieve hypervisor statistics.'))
+
+        return context
