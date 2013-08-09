@@ -110,6 +110,7 @@ class Column(html.HTMLElement):
                     ('true', True)
                     ('up', True),
                     ('active', True),
+                    ('yes', True),
                     ('on', True),
                     ('none', None),
                     ('unknown', None),
@@ -118,6 +119,7 @@ class Column(html.HTMLElement):
                     ('down', False),
                     ('false', False),
                     ('inactive', False),
+                    ('no', False),
                     ('off', False),
                 )
 
@@ -168,6 +170,12 @@ class Column(html.HTMLElement):
         is displayed as a link.
         Example: ``classes=('link-foo', 'link-bar')``.
         Defaults to ``None``.
+
+    .. attribute:: wrap_list
+
+        Boolean value indicating whether the contents of this cell should be
+        wrapped in a ``<ul></ul>`` tag. Useful in conjunction with Django's
+        ``unordered_list`` template filter. Defaults to ``False``.
     """
     summation_methods = {
         "sum": sum,
@@ -183,6 +191,7 @@ class Column(html.HTMLElement):
         ('enabled', True),
         ('true', True),
         ('up', True),
+        ('yes', True),
         ('active', True),
         ('on', True),
         ('none', None),
@@ -192,6 +201,7 @@ class Column(html.HTMLElement):
         ('down', False),
         ('false', False),
         ('inactive', False),
+        ('no', False),
         ('off', False),
     )
 
@@ -199,7 +209,7 @@ class Column(html.HTMLElement):
                  link=None, allowed_data_types=[], hidden=False, attrs=None,
                  status=False, status_choices=None, display_choices=None,
                  empty_value=None, filters=None, classes=None, summation=None,
-                 auto=None, truncate=None, link_classes=None):
+                 auto=None, truncate=None, link_classes=None, wrap_list=False):
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
@@ -228,6 +238,7 @@ class Column(html.HTMLElement):
         self.filters = filters or []
         self.truncate = truncate
         self.link_classes = link_classes or []
+        self.wrap_list = wrap_list
 
         if status_choices:
             self.status_choices = status_choices
@@ -542,6 +553,7 @@ class Cell(html.HTMLElement):
         self.data = data
         self.column = column
         self.row = row
+        self.wrap_list = column.wrap_list
 
     def __repr__(self):
         return '<%s: %s, %s>' % (self.__class__.__name__,

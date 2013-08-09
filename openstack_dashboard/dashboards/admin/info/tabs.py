@@ -24,9 +24,11 @@ from openstack_dashboard.api import keystone
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
 
+from openstack_dashboard.dashboards.admin.info.tables import AggregatesTable
 from openstack_dashboard.dashboards.admin.info.tables import NovaServicesTable
 from openstack_dashboard.dashboards.admin.info.tables import QuotasTable
 from openstack_dashboard.dashboards.admin.info.tables import ServicesTable
+from openstack_dashboard.dashboards.admin.info.tables import ZonesTable
 
 
 class DefaultQuotasTab(tabs.TableTab):
@@ -68,6 +70,39 @@ class ServicesTab(tabs.TableTab):
         return services
 
 
+class ZonesTab(tabs.TableTab):
+    table_classes = (ZonesTable,)
+    name = _("Availability Zones")
+    slug = "zones"
+    template_name = ("horizon/common/_detail_table.html")
+
+    def get_zones_data(self):
+        request = self.tab_group.request
+        zones = []
+        try:
+            zones = nova.availability_zone_list(request, detailed=True)
+        except Exception:
+            msg = _('Unable to retrieve availability zone data.')
+            exceptions.handle(request, msg)
+        return zones
+
+
+class HostAggregatesTab(tabs.TableTab):
+    table_classes = (AggregatesTable,)
+    name = _("Host Aggregates")
+    slug = "aggregates"
+    template_name = ("horizon/common/_detail_table.html")
+
+    def get_aggregates_data(self):
+        aggregates = []
+        try:
+            aggregates = nova.aggregate_list(self.tab_group.request)
+        except Exception:
+            exceptions.handle(self.request,
+                _('Unable to retrieve host aggregates list.'))
+        return aggregates
+
+
 class NovaServicesTab(tabs.TableTab):
     table_classes = (NovaServicesTable,)
     name = _("Compute Services")
@@ -88,5 +123,6 @@ class NovaServicesTab(tabs.TableTab):
 
 class SystemInfoTabs(tabs.TabGroup):
     slug = "system_info"
-    tabs = (ServicesTab, NovaServicesTab, DefaultQuotasTab,)
+    tabs = (ServicesTab, NovaServicesTab, ZonesTab, HostAggregatesTab,
+            DefaultQuotasTab)
     sticky = True

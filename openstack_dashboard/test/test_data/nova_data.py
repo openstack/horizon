@@ -490,7 +490,18 @@ def data(TEST):
     TEST.availability_zones.add(
         availability_zones.AvailabilityZone(
             availability_zones.AvailabilityZoneManager(None),
-            {'zoneName': 'nova', 'zoneState': {'available': True}}
+            {
+                'zoneName': 'nova',
+                'zoneState': {'available': True},
+                'hosts': {
+                    "host001": {
+                        "nova-network": {
+                            "active": True,
+                            "available": True
+                        }
+                    }
+                }
+            }
         )
     )
 

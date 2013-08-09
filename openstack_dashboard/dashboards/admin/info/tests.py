@@ -24,17 +24,24 @@ from openstack_dashboard.test import helpers as test
 INDEX_URL = reverse('horizon:admin:info:index')
 
 
-class ServicesViewTests(test.BaseAdminViewTests):
+class SystemInfoViewTests(test.BaseAdminViewTests):
 
-    @test.create_stubs({api.nova: ('default_quota_get', 'service_list',),
+    @test.create_stubs({api.nova: ('default_quota_get',
+                                   'service_list',
+                                   'availability_zone_list',
+                                   'aggregate_list'),
                         api.cinder: ('default_quota_get',)})
     def test_index(self):
         api.nova.default_quota_get(IsA(http.HttpRequest),
                                    self.tenant.id).AndReturn(self.quotas.nova)
         api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-                .AndReturn(self.cinder_quotas.first())
+            .AndReturn(self.cinder_quotas.first())
         services = self.services.list()
         api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
+        api.nova.availability_zone_list(IsA(http.HttpRequest), detailed=True) \
+            .AndReturn(self.availability_zones.list())
+        api.nova.aggregate_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.aggregates.list())
 
         self.mox.ReplayAll()
 
@@ -68,8 +75,19 @@ class ServicesViewTests(test.BaseAdminViewTests):
                                  '<Quota: (security_group_rules, 20)>'],
                                  ordered=False)
 
+        zones_tab = res.context['tab_group'].get_tab('zones')
+        self.assertQuerysetEqual(zones_tab._tables['zones'].data,
+                                 ['<AvailabilityZone: nova>'])
+
+        aggregates_tab = res.context['tab_group'].get_tab('aggregates')
+        self.assertQuerysetEqual(aggregates_tab._tables['aggregates'].data,
+                                 ['<Aggregate: 1>', '<Aggregate: 2>'])
+
     @test.create_stubs({api.base: ('is_service_enabled',),
-                        api.nova: ('default_quota_get', 'service_list',),
+                        api.nova: ('default_quota_get',
+                                   'service_list',
+                                   'availability_zone_list',
+                                   'aggregate_list'),
                         api.cinder: ('default_quota_get',)})
     def test_index_with_neutron_disabled(self):
         # Neutron does not have an API for getting default system
@@ -80,10 +98,15 @@ class ServicesViewTests(test.BaseAdminViewTests):
 
         api.nova.default_quota_get(IsA(http.HttpRequest),
                                    self.tenant.id).AndReturn(self.quotas.nova)
+
         api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-                .AndReturn(self.cinder_quotas.first())
+            .AndReturn(self.cinder_quotas.first())
         services = self.services.list()
         api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
+        api.nova.availability_zone_list(IsA(http.HttpRequest), detailed=True) \
+            .AndReturn(self.availability_zones.list())
+        api.nova.aggregate_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.aggregates.list())
 
         self.mox.ReplayAll()
 
@@ -118,3 +141,11 @@ class ServicesViewTests(test.BaseAdminViewTests):
                                  '<Quota: (security_groups, 10)>',
                                  '<Quota: (security_group_rules, 20)>'],
                                  ordered=False)
+
+        zones_tab = res.context['tab_group'].get_tab('zones')
+        self.assertQuerysetEqual(zones_tab._tables['zones'].data,
+                                 ['<AvailabilityZone: nova>'])
+
+        aggregates_tab = res.context['tab_group'].get_tab('aggregates')
+        self.assertQuerysetEqual(aggregates_tab._tables['aggregates'].data,
+                                 ['<Aggregate: 1>', '<Aggregate: 2>'])

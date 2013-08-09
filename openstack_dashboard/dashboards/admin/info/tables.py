@@ -1,7 +1,7 @@
 import logging
 
 from django import template
-from django.template.defaultfilters import timesince
+from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -89,6 +89,41 @@ class ServicesTable(tables.DataTable):
         status_columns = ["enabled"]
 
 
+def get_available(zone):
+    return zone.zoneState['available']
+
+
+def get_hosts(zone):
+    hosts = zone.hosts
+    host_details = []
+    for name, services in hosts.items():
+        up = all([s['active'] and s['available'] for k, s in services.items()])
+        up = _("Services Up") if up else _("Services Down")
+        host_details.append("%(host)s (%(up)s)" % {'host': name, 'up': up})
+    return host_details
+
+
+class ZonesTable(tables.DataTable):
+    name = tables.Column('zoneName', verbose_name=_('Name'))
+    hosts = tables.Column(get_hosts,
+                          verbose_name=_('Hosts'),
+                          wrap_list=True,
+                          filters=(filters.unordered_list,))
+    available = tables.Column(get_available,
+                              verbose_name=_('Available'),
+                              status=True,
+                              filters=(filters.yesno, filters.capfirst))
+
+    def get_object_id(self, zone):
+        return zone.zoneName
+
+    class Meta:
+        name = "zones"
+        verbose_name = _("Availability Zones")
+        multi_select = False
+        status_columns = ["available"]
+
+
 class NovaServiceFilterAction(tables.FilterAction):
     def filter(self, table, services, filter_string):
         q = filter_string.lower()
@@ -109,7 +144,7 @@ class NovaServicesTable(tables.DataTable):
     state = tables.Column('state', verbose_name=_('State'))
     updated_at = tables.Column('updated_at',
                                verbose_name=_('Updated At'),
-                               filters=(parse_isotime, timesince))
+                               filters=(parse_isotime, filters.timesince))
 
     def get_object_id(self, obj):
         return "%s-%s-%s" % (obj.binary, obj.host, obj.zone)
@@ -119,3 +154,31 @@ class NovaServicesTable(tables.DataTable):
         verbose_name = _("Compute Services")
         table_actions = (NovaServiceFilterAction,)
         multi_select = False
+
+
+def get_hosts(aggregate):
+    return [host for host in aggregate.hosts]
+
+
+def get_metadata(aggregate):
+    return [' = '.join([key, val]) for key, val
+            in aggregate.metadata.iteritems()]
+
+
+class AggregatesTable(tables.DataTable):
+    name = tables.Column("name",
+                         verbose_name=_("Name"))
+    availability_zone = tables.Column("availability_zone",
+                                      verbose_name=_("Availability Zone"))
+    hosts = tables.Column(get_hosts,
+                          verbose_name=_("Hosts"),
+                          wrap_list=True,
+                          filters=(filters.unordered_list,))
+    metadata = tables.Column(get_metadata,
+                             verbose_name=_("Metadata"),
+                             wrap_list=True,
+                             filters=(filters.unordered_list,))
+
+    class Meta:
+        name = "aggregates"
+        verbose_name = _("Host Aggregates")
