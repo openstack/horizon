@@ -68,7 +68,9 @@ class StacksUpdateRow(tables.Row):
 class StacksTable(tables.DataTable):
     STATUS_CHOICES = (
         ("Create Complete", True),
+        ("Update Complete", True),
         ("Create Failed", False),
+        ("Update Failed", False),
     )
     name = tables.Column("stack_name",
                          verbose_name=_("Stack Name"),
