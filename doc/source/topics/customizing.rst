@@ -76,6 +76,19 @@ Or just remove it entirely::
 
     projects_dashboard.unregister(instances_panel.__class__)
 
+You can also override existing methods with your own versions::
+
+    # Disable Floating IPs
+    from openstack_dashboard.dashboards.project.access_and_security import tabs
+    from openstack_dashboard.dashboards.project.instances import tables
+
+    NO = lambda *x: False
+
+    tabs.FloatingIPsTab.allowed = NO
+    tables.AssociateIP.allowed = NO
+    tables.SimpleAssociateIP.allowed = NO
+    tables.SimpleDisassociateIP.allowed = NO
+
 .. NOTE::
 
     ``my_project.overrides`` needs to be importable by the python process running
