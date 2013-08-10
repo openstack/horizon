@@ -55,12 +55,12 @@ def generate_or_read_from_file(key_file='.secret_key', key_length=64):
     with lock:
         if not os.path.exists(key_file):
             key = generate_key(key_length)
-            old_umask = os.umask(0177)  # Use '0600' file permissions
+            old_umask = os.umask(0o177)  # Use '0600' file permissions
             with open(key_file, 'w') as f:
                 f.write(key)
             os.umask(old_umask)
         else:
-            if oct(os.stat(key_file).st_mode & 0777) != '0600':
+            if oct(os.stat(key_file).st_mode & 0o777) != '0600':
                 raise FilePermissionError("Insecure key file permissions!")
             with open(key_file, 'r') as f:
                 key = f.readline()
