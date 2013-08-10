@@ -558,8 +558,8 @@ class DeletePMAssociationAction(workflows.Action):
                                                 request, *args, **kwargs)
 
     def populate_monitor_id_choices(self, request, context):
-        self.fields['monitor_id'].label = _("Select a health monitor of %s" %
-                                               context['pool_name'])
+        self.fields['monitor_id'].label = (_("Select a health monitor of %s") %
+                                           context['pool_name'])
 
         monitor_id_choices = [('', _("Select a Monitor"))]
         try:
