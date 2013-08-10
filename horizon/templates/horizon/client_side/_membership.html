@@ -1,13 +1,13 @@
 {% extends "horizon/client_side/template.html" %}
 {% load horizon %}
 
-{% block id %}project_user_template{% endblock %}
+{% block id %}membership_template{% endblock %}
 
 {% block template %}
 {% jstemplate %}
 <ul class="nav nav-pills btn-group">
-  <li class="member" data-user-id="[[user_id]]">
-    <span class="user_name">[[user_name]]</span>
+  <li class="member" data-[[step_slug]]-id="[[data_id]]">
+    <span class="display_name">[[display_name]]</span>
   </li>
   <li class="active"><a class="btn btn-primary" href="#add_remove">[[text]]</a></li>
   <li class="dropdown role_options">

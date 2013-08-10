@@ -4,12 +4,9 @@ from django.core.urlresolvers import reverse
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
-
-from openstack_dashboard.dashboards.admin.users.tables import UsersTable
 
 
 LOG = logging.getLogger(__name__)
@@ -108,61 +105,3 @@ class TenantsTable(tables.DataTable):
         table_actions = (TenantFilterAction, CreateProject,
                          DeleteTenantsAction)
         pagination_param = "tenant_marker"
-
-
-class RemoveUserAction(tables.BatchAction):
-    name = "remove_user"
-    action_present = _("Remove")
-    action_past = _("Removed")
-    data_type_singular = _("User")
-    data_type_plural = _("Users")
-    classes = ('btn-danger',)
-
-    def action(self, request, user_id):
-        tenant_id = self.table.kwargs['tenant_id']
-        api.keystone.remove_tenant_user(request, tenant_id, user_id)
-
-
-class ProjectUserRolesColumn(tables.Column):
-    def get_raw_data(self, user):
-        request = self.table.request
-        try:
-            roles = api.keystone.roles_for_user(request,
-                                                user.id,
-                                                self.table.kwargs["tenant_id"])
-        except:
-            roles = []
-            exceptions.handle(request,
-                              _("Unable to retrieve role information."))
-        return ", ".join([role.name for role in roles])
-
-
-class TenantUsersTable(UsersTable):
-    roles = ProjectUserRolesColumn("roles", verbose_name=_("Roles"))
-
-    class Meta:
-        name = "tenant_users"
-        verbose_name = _("Users For Project")
-        table_actions = (RemoveUserAction,)
-        row_actions = (RemoveUserAction,)
-        columns = ("name", "email", "id", "roles", "enabled")
-
-
-class AddUserAction(tables.LinkAction):
-    name = "add_user"
-    verbose_name = _("Add To Project")
-    url = "horizon:admin:projects:add_user"
-    classes = ('ajax-modal',)
-
-    def get_link_url(self, user):
-        tenant_id = self.table.kwargs['tenant_id']
-        return reverse(self.url, args=(tenant_id, user.id))
-
-
-class AddUsersTable(UsersTable):
-    class Meta:
-        name = "add_users"
-        verbose_name = _("Add New Users")
-        table_actions = ()
-        row_actions = (AddUserAction,)
-        columns = ("name", "email", "id", "enabled")

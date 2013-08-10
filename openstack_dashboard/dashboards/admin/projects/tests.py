@@ -31,9 +31,13 @@ from openstack_dashboard.usage import quotas
 from openstack_dashboard.dashboards.admin.projects.workflows \
     import CreateProject
 from openstack_dashboard.dashboards.admin.projects.workflows \
+    import PROJECT_USER_MEMBER_SLUG
+from openstack_dashboard.dashboards.admin.projects.workflows \
     import UpdateProject
 
+
 INDEX_URL = reverse('horizon:admin:projects:index')
+USER_ROLE_PREFIX = PROJECT_USER_MEMBER_SLUG + "_role_"
 
 
 @test.create_stubs({api.keystone: ('tenant_list',)})
@@ -176,10 +180,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
-        # contribute
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         # handle
         project_details = self._get_project_info(project)
@@ -188,12 +190,10 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
                     .AndReturn(project)
 
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
         workflow_data = {}
         for role in roles:
-            if "role_" + role.id in workflow_data:
-                ulist = workflow_data["role_" + role.id]
+            if USER_ROLE_PREFIX + role.id in workflow_data:
+                ulist = workflow_data[USER_ROLE_PREFIX + role.id]
                 for user_id in ulist:
                     api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
                                                       project=self.tenant.id,
@@ -245,7 +245,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         self.mox.ReplayAll()
 
@@ -281,10 +282,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
-        # contribute
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         # handle
         project_details = self._get_project_info(project)
@@ -330,10 +329,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
-        # contribute
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         # handle
         project_details = self._get_project_info(project)
@@ -342,12 +339,10 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
             .AndReturn(project)
 
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
         workflow_data = {}
         for role in roles:
-            if "role_" + role.id in workflow_data:
-                ulist = workflow_data["role_" + role.id]
+            if USER_ROLE_PREFIX + role.id in workflow_data:
+                ulist = workflow_data[USER_ROLE_PREFIX + role.id]
                 for user_id in ulist:
                     api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
                                                       project=self.tenant.id,
@@ -400,10 +395,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
-        # contribute
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         # handle
         project_details = self._get_project_info(project)
@@ -412,12 +405,10 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
             .AndReturn(project)
 
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
         workflow_data = {}
         for role in roles:
-            if "role_" + role.id in workflow_data:
-                ulist = workflow_data["role_" + role.id]
+            if USER_ROLE_PREFIX + role.id in workflow_data:
+                ulist = workflow_data[USER_ROLE_PREFIX + role.id]
                 for user_id in ulist:
                     api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
                                                       project=self.tenant.id,
@@ -474,10 +465,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
-        # contribute
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         self.mox.ReplayAll()
 
@@ -546,7 +535,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         for user in users:
             api.keystone.roles_for_user(IsA(http.HttpRequest),
@@ -614,7 +604,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         workflow_data = {}
         for user in users:
@@ -622,8 +613,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                         user.id,
                                         self.tenant.id).AndReturn(roles)
 
-        workflow_data["role_1"] = ['3']  # admin role
-        workflow_data["role_2"] = ['2']  # member role
+        workflow_data[USER_ROLE_PREFIX + "1"] = ['3']  # admin role
+        workflow_data[USER_ROLE_PREFIX + "2"] = ['2']  # member role
 
         # update some fields
         project._info["name"] = "updated name"
@@ -636,16 +627,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
 
-        # contribute
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
         # handle
         api.keystone.tenant_update(IsA(http.HttpRequest),
                                    project.id,
                                    **updated_project) \
             .AndReturn(project)
 
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
         api.keystone.user_list(IsA(http.HttpRequest),
                                project=self.tenant.id).AndReturn(proj_users)
 
@@ -763,7 +750,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         workflow_data = {}
         for user in users:
@@ -772,7 +760,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                         self.tenant.id).AndReturn(roles)
             role_ids = [role.id for role in roles]
             if role_ids:
-                workflow_data.setdefault("role_" + role_ids[0], []) \
+                workflow_data.setdefault(USER_ROLE_PREFIX + role_ids[0], []) \
                              .append(user.id)
 
         # update some fields
@@ -785,9 +773,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            "description": project._info["description"],
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
-
-        # contribute
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
 
         # handle
         api.keystone.tenant_update(IsA(http.HttpRequest),
@@ -848,7 +833,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         workflow_data = {}
 
@@ -857,8 +843,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                         user.id,
                                         self.tenant.id).AndReturn(roles)
 
-        workflow_data["role_1"] = ['1', '3']  # admin role
-        workflow_data["role_2"] = ['1', '2', '3']  # member role
+        workflow_data[USER_ROLE_PREFIX + "1"] = ['1', '3']  # admin role
+        workflow_data[USER_ROLE_PREFIX + "2"] = ['1', '2', '3']  # member role
 
         # update some fields
         project._info["name"] = "updated name"
@@ -871,17 +857,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
 
-        # contribute
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
-        # handle
         # handle
         api.keystone.tenant_update(IsA(http.HttpRequest),
                                    project.id,
                                    **updated_project) \
             .AndReturn(project)
 
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
         api.keystone.user_list(IsA(http.HttpRequest),
                                project=self.tenant.id).AndReturn(proj_users)
 
@@ -962,18 +943,20 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
-            .AndReturn(default_role)
+            .MultipleTimes().AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(users)
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
 
         workflow_data = {}
         for user in users:
             api.keystone.roles_for_user(IsA(http.HttpRequest),
                                         user.id,
                                         self.tenant.id).AndReturn(roles)
-        workflow_data["role_1"] = ['1', '3']  # admin role
-        workflow_data["role_2"] = ['1', '2', '3']  # member role
+
+        workflow_data[USER_ROLE_PREFIX + "1"] = ['1', '3']  # admin role
+        workflow_data[USER_ROLE_PREFIX + "2"] = ['1', '2', '3']  # member role
 
         # update some fields
         project._info["name"] = "updated name"
@@ -986,16 +969,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                            "enabled": project.enabled}
         updated_quota = self._get_quota_info(quota)
 
-        # contribute
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
-
         # handle
         api.keystone.tenant_update(IsA(http.HttpRequest),
                                    project.id,
                                    **updated_project) \
             .AndReturn(project)
 
-        api.keystone.role_list(IsA(http.HttpRequest)).AndReturn(roles)
         api.keystone.user_list(IsA(http.HttpRequest),
                                project=self.tenant.id).AndReturn(proj_users)
 
@@ -1047,7 +1026,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         quota = self.quotas.first()
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
-            .AndReturn(None)  # Default role doesn't exist
+            .MultipleTimes().AndReturn(None)  # Default role doesn't exist
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
                                 admin=True) \
             .AndReturn(project)
