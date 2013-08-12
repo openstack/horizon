@@ -232,6 +232,23 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
                                                 secgroup['description'])
         self._cmp_sg(secgroup, ret)
 
+    def test_security_group_update(self):
+        secgroup = self.api_q_secgroups.list()[1]
+        secgroup = copy.deepcopy(secgroup)
+        secgroup['name'] = 'newname'
+        secgroup['description'] = 'new description'
+        body = {'security_group':
+                    {'name': secgroup['name'],
+                     'description': secgroup['description']}}
+        self.qclient.update_security_group(secgroup['id'], body) \
+            .AndReturn({'security_group': secgroup})
+        self.mox.ReplayAll()
+        ret = api.network.security_group_update(self.request,
+                                                secgroup['id'],
+                                                secgroup['name'],
+                                                secgroup['description'])
+        self._cmp_sg(secgroup, ret)
+
     def test_security_group_delete(self):
         secgroup = self.api_q_secgroups.first()
         self.qclient.delete_security_group(secgroup['id'])

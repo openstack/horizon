@@ -68,6 +68,35 @@ class DetailView(tables.DataTableView):
         return context
 
 
+class UpdateView(forms.ModalFormView):
+    form_class = project_forms.UpdateGroup
+    template_name = 'project/access_and_security/security_groups/update.html'
+    success_url = reverse_lazy('horizon:project:access_and_security:index')
+
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            sg_id = filters.get_int_or_uuid(self.kwargs['security_group_id'])
+            try:
+                self._object = api.network.security_group_get(self.request,
+                                                              sg_id)
+            except Exception:
+                msg = _('Unable to retrieve security group.')
+                url = reverse('horizon:project:access_and_security:index')
+                exceptions.handle(self.request, msg, redirect=url)
+        return self._object
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateView, self).get_context_data(**kwargs)
+        context["security_group"] = self.get_object()
+        return context
+
+    def get_initial(self):
+        security_group = self.get_object()
+        return {'id': self.kwargs['security_group_id'],
+                'name': security_group.name,
+                'description': security_group.description}
+
+
 class AddRuleView(forms.ModalFormView):
     form_class = project_forms.AddRule
     template_name = 'project/access_and_security/security_groups/add_rule.html'

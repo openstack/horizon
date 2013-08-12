@@ -103,6 +103,10 @@ def security_group_delete(request, sg_id):
     return NetworkClient(request).secgroups.delete(sg_id)
 
 
+def security_group_update(request, sg_id, name, desc):
+    return NetworkClient(request).secgroups.update(sg_id, name, desc)
+
+
 def security_group_rule_create(request, parent_group_id,
                                direction, ethertype,
                                ip_protocol, from_port, to_port,
