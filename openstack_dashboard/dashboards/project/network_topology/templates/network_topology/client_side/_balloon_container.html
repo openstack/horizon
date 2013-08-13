@@ -1,0 +1,29 @@
+{% extends "horizon/client_side/template.html" %}
+{% load horizon %}
+
+{% block id %}balloon_container{% endblock %}
+
+{% block template %}
+{% jstemplate %}
+<div class="topologyBalloon" id="[[balloon_id]]">
+  <a href="#close" class="closeTopologyBalloon">&times;</a>
+  <div class="contentBody">
+    [[> table1]]
+    [[> table2]]
+  </div>
+  <div class="footer">
+    <div class="footerInner">
+      <div class="cell link">
+        <a href="[[url]]">» view [[type]] details</a>
+        [[#console_id]]
+        <a href="/project/instances/[[console_id]]/vnc" class="vnc_window">» open console</a>
+        [[/console_id]]
+      </div>
+      <div class="cell delete">
+        <button class="delete-device btn btn-danger btn-mini [[type]]" data-type="[[type]]"  data-device-id="[[id]]">[[type_capital]]</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endjstemplate %}
+{% endblock %}

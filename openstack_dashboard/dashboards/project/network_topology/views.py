@@ -21,14 +21,73 @@
 import json
 
 from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse_lazy  # noqa
 from django.http import HttpResponse  # noqa
 from django.views.generic import TemplateView  # noqa
 from django.views.generic import View  # noqa
 
 from openstack_dashboard import api
 
+from openstack_dashboard.dashboards.project.network_topology.instances.tables\
+    import InstancesTable  # noqa
+from openstack_dashboard.dashboards.project.network_topology.ports.tables\
+    import PortsTable  # noqa
+from openstack_dashboard.dashboards.project.network_topology.routers.tables\
+    import RoutersTable  # noqa
 
-class NetworkTopology(TemplateView):
+from openstack_dashboard.dashboards.project.instances import\
+    views as i_views
+from openstack_dashboard.dashboards.project.instances.workflows import\
+    create_instance as i_workflows
+from openstack_dashboard.dashboards.project.networks import\
+    views as n_views
+from openstack_dashboard.dashboards.project.networks import\
+    workflows as n_workflows
+from openstack_dashboard.dashboards.project.routers import\
+    views as r_views
+
+
+class NTCreateRouterView (r_views.CreateView):
+    template_name = 'project/network_topology/create_router.html'
+    success_url = reverse_lazy("horizon:project:network_topology:index")
+
+
+class NTCreateNetwork (n_workflows.CreateNetwork):
+    def get_success_url(self):
+        return reverse("horizon:project:network_topology:index")
+
+    def get_failure_url(self):
+        return reverse("horizon:project:network_topology:index")
+
+
+class NTCreateNetworkView (n_views.CreateView):
+    workflow_class = NTCreateNetwork
+
+
+class NTLaunchInstance (i_workflows.LaunchInstance):
+    success_url = "horizon:project:network_topology:index"
+
+
+class NTLaunchInstanceView (i_views.LaunchInstanceView):
+    workflow_class = NTLaunchInstance
+
+
+class InstanceView (i_views.IndexView):
+    table_class = InstancesTable
+    template_name = 'project/network_topology/iframe.html'
+
+
+class RouterView (r_views.IndexView):
+    table_class = RoutersTable
+    template_name = 'project/network_topology/iframe.html'
+
+
+class RouterDetailView (r_views.DetailView):
+    table_classes = (PortsTable, )
+    template_name = 'project/network_topology/iframe.html'
+
+
+class NetworkTopologyView (TemplateView):
     template_name = 'project/network_topology/index.html'
 
 
@@ -57,33 +116,39 @@ class JSONView(View):
             servers = []
         data['servers'] = [{'name': server.name,
                             'status': server.status,
+                            'task': getattr(server, 'OS-EXT-STS:task_state'),
                             'id': server.id} for server in servers]
         self.add_resource_url('horizon:project:instances:detail',
                               data['servers'])
 
         # Get neutron data
+        # if we didn't specify tenant_id, all networks shown as admin user.
+        # so it is need to specify the networks. However there is no need to
+        # specify tenant_id for subnet. The subnet which belongs to the public
+        # network is needed to draw subnet information on public network.
         try:
-            neutron_public_networks = api.neutron.network_list(request,
-                                    **{'router:external': True})
-            neutron_networks = api.neutron.network_list_for_tenant(request,
-                                    request.user.tenant_id)
-            neutron_subnets = api.neutron.subnet_list(request,
-                                    tenant_id=request.user.tenant_id)
-            neutron_ports = api.neutron.port_list(request,
-                                    tenant_id=request.user.tenant_id)
-            neutron_routers = api.neutron.router_list(request,
-                                    tenant_id=request.user.tenant_id)
+            neutron_public_networks = api.neutron.network_list(
+                request,
+                **{'router:external': True})
+            neutron_networks = api.neutron.network_list_for_tenant(
+                request,
+                request.user.tenant_id)
+            neutron_ports = api.neutron.port_list(request)
+            neutron_routers = api.neutron.router_list(
+                request,
+                tenant_id=request.user.tenant_id)
         except Exception:
             neutron_public_networks = []
             neutron_networks = []
-            neutron_subnets = []
             neutron_ports = []
             neutron_routers = []
 
         networks = [{'name': network.name,
-                     'id': network.id,
-                     'router:external': network['router:external']}
-                                    for network in neutron_networks]
+                    'id': network.id,
+                    'subnets': [{'cidr': subnet.cidr}
+                                for subnet in network.subnets],
+                    'router:external': network['router:external']}
+                    for network in neutron_networks]
         self.add_resource_url('horizon:project:networks:detail',
                               networks)
         # Add public networks to the networks list
@@ -93,29 +158,37 @@ class JSONView(View):
                 if publicnet.id == network['id']:
                     found = True
             if not found:
-                networks.append({'name': publicnet.name,
-                            'id': publicnet.id,
-                            'router:external': publicnet['router:external']})
+                try:
+                    subnets = [{'cidr': subnet.cidr}
+                               for subnet in publicnet.subnets]
+                except Exception:
+                    subnets = []
+                networks.append({
+                    'name': publicnet.name,
+                    'id': publicnet.id,
+                    'subnets': subnets,
+                    'router:external': publicnet['router:external']})
         data['networks'] = sorted(networks,
                                   key=lambda x: x.get('router:external'),
                                   reverse=True)
 
-        data['subnets'] = [{'id': subnet.id,
-                            'cidr': subnet.cidr,
-                            'network_id': subnet.network_id}
-                                        for subnet in neutron_subnets]
-
         data['ports'] = [{'id': port.id,
-                        'network_id': port.network_id,
-                        'device_id': port.device_id,
-                        'fixed_ips': port.fixed_ips} for port in neutron_ports]
+                          'network_id': port.network_id,
+                          'device_id': port.device_id,
+                          'fixed_ips': port.fixed_ips,
+                          'device_owner': port.device_owner,
+                          'status': port.status
+                          }
+                         for port in neutron_ports]
         self.add_resource_url('horizon:project:networks:ports:detail',
                               data['ports'])
 
-        data['routers'] = [{'id': router.id,
-                        'name': router.name,
-                        'external_gateway_info': router.external_gateway_info}
-                                            for router in neutron_routers]
+        data['routers'] = [{
+            'id': router.id,
+            'name': router.name,
+            'status': router.status,
+            'external_gateway_info': router.external_gateway_info}
+            for router in neutron_routers]
 
         # user can't see port on external network. so we are
         # adding fake port based on router information
