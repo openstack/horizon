@@ -63,7 +63,7 @@ class AssociateIPAction(workflows.Action):
     def populate_ip_id_choices(self, request, context):
         try:
             ips = api.network.tenant_floating_ip_list(self.request)
-        except:
+        except Exception:
             redirect = reverse('horizon:project:access_and_security:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve floating IP addresses.'),
@@ -79,7 +79,7 @@ class AssociateIPAction(workflows.Action):
     def populate_instance_id_choices(self, request, context):
         try:
             targets = api.network.floating_ip_target_list(self.request)
-        except:
+        except Exception:
             redirect = reverse('horizon:project:access_and_security:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'),
@@ -137,7 +137,7 @@ class IPAssociationWorkflow(workflows.Workflow):
             api.network.floating_ip_associate(request,
                                               data['ip_id'],
                                               data['instance_id'])
-        except:
+        except Exception:
             exceptions.handle(request)
             return False
         return True

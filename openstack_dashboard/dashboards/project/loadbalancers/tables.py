@@ -166,7 +166,7 @@ class AddPMAssociationLink(tables.LinkAction):
             for m in monitors:
                 if m.id not in datum['health_monitors']:
                     return True
-        except:
+        except Exception:
             exceptions.handle(request,
                               _('Failed to retrieve health monitors.'))
         return False

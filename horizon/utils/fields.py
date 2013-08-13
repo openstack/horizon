@@ -68,7 +68,7 @@ class IPField(forms.Field):
                 self.ip = netaddr.IPNetwork(value)
             else:
                 self.ip = netaddr.IPAddress(value)
-        except:
+        except Exception:
             raise ValidationError(self.invalid_format_message)
 
         if not any([self.version & IPv4 > 0 and self.ip.version == 4,

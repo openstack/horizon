@@ -105,7 +105,7 @@ class BaseUsage(object):
     def get_limits(self):
         try:
             self.limits = api.nova.tenant_absolute_limits(self.request)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve limit information."))
 
@@ -120,7 +120,7 @@ class BaseUsage(object):
             end = timezone.make_naive(end, timezone.utc)
             try:
                 self.usage_list = self.get_usage_list(start, end)
-            except:
+            except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve usage information.'))
         elif end < start:
@@ -141,7 +141,7 @@ class BaseUsage(object):
     def get_quotas(self):
         try:
             self.quotas = quotas.tenant_quota_usages(self.request)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
 

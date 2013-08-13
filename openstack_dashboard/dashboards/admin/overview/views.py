@@ -60,7 +60,7 @@ class GlobalOverview(usage.UsageView):
         # Pre-fill project names
         try:
             projects, has_more = api.keystone.tenant_list(self.request)
-        except:
+        except Exception:
             projects = []
             exceptions.handle(self.request,
                               _('Unable to retrieve project list.'))

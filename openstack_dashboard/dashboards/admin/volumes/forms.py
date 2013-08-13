@@ -38,7 +38,7 @@ class CreateVolumeType(forms.SelfHandlingForm):
             messages.success(request, _('Successfully created volume type: %s')
                                       % data['name'])
             return volume_type
-        except:
+        except Exception:
             exceptions.handle(request,
                               _('Unable to create volume type.'))
             return False

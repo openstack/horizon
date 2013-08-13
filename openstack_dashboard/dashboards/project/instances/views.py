@@ -67,7 +67,7 @@ class IndexView(tables.DataTableView):
                                         self.request,
                                         search_opts={'marker': marker,
                                                      'paginate': True})
-        except:
+        except Exception:
             self._more = False
             instances = []
             exceptions.handle(self.request,
@@ -76,7 +76,7 @@ class IndexView(tables.DataTableView):
         if instances:
             try:
                 flavors = api.nova.flavor_list(self.request)
-            except:
+            except Exception:
                 flavors = []
                 exceptions.handle(self.request, ignore=True)
 
@@ -93,7 +93,7 @@ class IndexView(tables.DataTableView):
                         # get it via nova api.
                         instance.full_flavor = api.nova.flavor_get(
                             self.request, flavor_id)
-                except:
+                except Exception:
                     msg = _('Unable to retrieve instance size information.')
                     exceptions.handle(self.request, msg)
         return instances
@@ -116,7 +116,7 @@ def console(request, instance_id):
         data = api.nova.server_console_output(request,
                                               instance_id,
                                               tail_length=tail)
-    except:
+    except Exception:
         data = _('Unable to get log for instance "%s".') % instance_id
         exceptions.handle(request, ignore=True)
     response = http.HttpResponse(mimetype='text/plain')
@@ -131,7 +131,7 @@ def vnc(request, instance_id):
         instance = api.nova.server_get(request, instance_id)
         return shortcuts.redirect(console.url +
                 ("&title=%s(%s)" % (instance.name, instance_id)))
-    except:
+    except Exception:
         redirect = reverse("horizon:project:instances:index")
         msg = _('Unable to get VNC console for instance "%s".') % instance_id
         exceptions.handle(request, msg, redirect=redirect)
@@ -143,7 +143,7 @@ def spice(request, instance_id):
         instance = api.nova.server_get(request, instance_id)
         return shortcuts.redirect(console.url +
                 ("&title=%s(%s)" % (instance.name, instance_id)))
-    except:
+    except Exception:
         redirect = reverse("horizon:project:instances:index")
         msg = _('Unable to get SPICE console for instance "%s".') % instance_id
         exceptions.handle(request, msg, redirect=redirect)
@@ -163,7 +163,7 @@ class UpdateView(workflows.WorkflowView):
             instance_id = self.kwargs['instance_id']
             try:
                 self._object = api.nova.server_get(self.request, instance_id)
-            except:
+            except Exception:
                 redirect = reverse("horizon:project:instances:index")
                 msg = _('Unable to retrieve instance details.')
                 exceptions.handle(self.request, msg, redirect=redirect)
@@ -198,7 +198,7 @@ class DetailView(tabs.TabView):
                     self.request, instance.flavor["id"])
                 instance.security_groups = api.network.server_security_groups(
                                            self.request, instance_id)
-            except:
+            except Exception:
                 redirect = reverse('horizon:project:instances:index')
                 exceptions.handle(self.request,
                                   _('Unable to retrieve details for '
@@ -233,7 +233,7 @@ class ResizeView(workflows.WorkflowView):
                 else:
                     flavor = api.nova.flavor_get(self.request, flavor_id)
                     self._object.flavor_name = flavor.name
-            except:
+            except Exception:
                 redirect = reverse("horizon:project:instances:index")
                 msg = _('Unable to retrieve instance details.')
                 exceptions.handle(self.request, msg, redirect=redirect)
@@ -245,7 +245,7 @@ class ResizeView(workflows.WorkflowView):
                 flavors = api.nova.flavor_list(self.request)
                 self._flavors = SortedDict([(str(flavor.id), flavor)
                                         for flavor in flavors])
-            except:
+            except Exception:
                 redirect = reverse("horizon:project:instances:index")
                 exceptions.handle(self.request,
                     _('Unable to retrieve flavors.'), redirect=redirect)

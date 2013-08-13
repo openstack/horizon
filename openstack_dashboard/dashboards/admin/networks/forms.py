@@ -66,7 +66,7 @@ class CreateNetwork(forms.SelfHandlingForm):
             LOG.debug(msg)
             messages.success(request, msg)
             return network
-        except:
+        except Exception:
             redirect = reverse('horizon:admin:networks:index')
             msg = _('Failed to create network %s') % data['name']
             exceptions.handle(request, msg, redirect=redirect)
@@ -95,7 +95,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
             LOG.debug(msg)
             messages.success(request, msg)
             return network
-        except:
+        except Exception:
             msg = _('Failed to update network %s') % data['name']
             LOG.info(msg)
             redirect = reverse(self.failure_url)

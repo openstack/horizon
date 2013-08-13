@@ -35,7 +35,7 @@ class AdminIndexView(tables.DataTableView):
         aggregates = []
         try:
             aggregates = api.nova.aggregate_list(self.request)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                  _('Unable to retrieve aggregate list.'))
 

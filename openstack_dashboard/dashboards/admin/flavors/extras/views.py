@@ -45,7 +45,7 @@ class ExtraSpecMixin(object):
         try:
             context['flavor'] = api.nova.flavor_get(self.request,
                                                     self.kwargs['id'])
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve flavor data."))
         return context
@@ -60,7 +60,7 @@ class IndexView(ExtraSpecMixin, forms.ModalFormMixin, tables.DataTableView):
             flavor_id = self.kwargs['id']
             extras_list = api.nova.flavor_get_extras(self.request, flavor_id)
             extras_list.sort(key=lambda es: (es.key,))
-        except:
+        except Exception:
             extras_list = []
             exceptions.handle(self.request,
                               _('Unable to retrieve extra spec list.'))
@@ -89,7 +89,7 @@ class EditView(ExtraSpecMixin, forms.ModalFormView):
             extra_specs = api.nova.flavor_get_extras(self.request,
                                                      flavor_id,
                                                      raw=True)
-        except:
+        except Exception:
             extra_specs = {}
             exceptions.handle(self.request,
                               _("Unable to retrieve flavor extra spec data."))

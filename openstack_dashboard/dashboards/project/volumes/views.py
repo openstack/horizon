@@ -52,7 +52,7 @@ class VolumeTableMixIn(object):
     def _get_volumes(self, search_opts=None):
         try:
             return cinder.volume_list(self.request, search_opts=search_opts)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve volume list.'))
             return []
@@ -62,7 +62,7 @@ class VolumeTableMixIn(object):
             instances, has_more = api.nova.server_list(self.request,
                                                        search_opts=search_opts)
             return instances
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve volume/instance "
                                 "attachment information"))
@@ -115,7 +115,7 @@ class CreateView(forms.ModalFormView):
             context['usages']['gigabytesUsed'] = total_size
             context['usages']['volumesUsed'] = len(volumes)
 
-        except:
+        except Exception:
             exceptions.handle(self.request)
         return context
 
@@ -130,7 +130,7 @@ class CreateSnapshotView(forms.ModalFormView):
         context['volume_id'] = self.kwargs['volume_id']
         try:
             context['usages'] = quotas.tenant_quota_usages(self.request)
-        except:
+        except Exception:
             exceptions.handle(self.request)
         return context
 
@@ -149,7 +149,7 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
             volume_id = self.kwargs['volume_id']
             try:
                 self._object = cinder.volume_get(self.request, volume_id)
-            except:
+            except Exception:
                 self._object = None
                 exceptions.handle(self.request,
                                   _('Unable to retrieve volume information.'))
@@ -159,7 +159,7 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
         try:
             volumes = self.get_object()
             attachments = [att for att in volumes.attachments if att]
-        except:
+        except Exception:
             attachments = []
             exceptions.handle(self.request,
                               _('Unable to retrieve volume information.'))
@@ -168,7 +168,7 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
     def get_initial(self):
         try:
             instances, has_more = api.nova.server_list(self.request)
-        except:
+        except Exception:
             instances = []
             exceptions.handle(self.request,
                               _("Unable to retrieve attachment information."))

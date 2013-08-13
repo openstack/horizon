@@ -36,7 +36,7 @@ class OverviewTab(tabs.Tab):
             volume = cinder.volume_get(request, volume_id)
             for att in volume.attachments:
                 att['instance'] = nova.server_get(request, att['server_id'])
-        except:
+        except Exception:
             redirect = reverse('horizon:project:volumes:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve volume details.'),

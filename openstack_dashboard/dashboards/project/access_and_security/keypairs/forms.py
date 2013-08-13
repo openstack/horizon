@@ -60,7 +60,7 @@ class ImportKeypair(forms.SelfHandlingForm):
             messages.success(request, _('Successfully imported public key: %s')
                                        % data['name'])
             return keypair
-        except:
+        except Exception:
             exceptions.handle(request, ignore=True)
             self.api_error(_('Unable to import keypair.'))
             return False

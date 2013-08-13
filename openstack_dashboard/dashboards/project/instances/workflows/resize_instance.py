@@ -75,7 +75,7 @@ class SetFlavorChoiceAction(workflows.Action):
             flavors = json.dumps([f._info for f in
                                   api.nova.flavor_list(self.request)])
             extra['flavors'] = flavors
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
         return super(SetFlavorChoiceAction, self).get_help_text(extra)
@@ -106,6 +106,6 @@ class ResizeInstance(workflows.Workflow):
         try:
             api.nova.server_resize(request, instance_id, flavor)
             return True
-        except:
+        except Exception:
             exceptions.handle(request)
             return False

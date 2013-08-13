@@ -373,7 +373,7 @@ class Step(object):
                                                       workflow_context)
                 self._action = self.action_class(self.workflow.request,
                                                  context)
-            except:
+            except Exception:
                 LOG.exception("Problem instantiating action class.")
                 raise
         return self._action
@@ -795,7 +795,7 @@ class Workflow(html.HTMLElement):
                     partial = True
                 else:
                     self.context = step.contribute(data or {}, self.context)
-            except:
+            except Exception:
                 partial = True
                 exceptions.handle(self.request)
         if not self.handle(self.request, self.context):

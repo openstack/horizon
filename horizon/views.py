@@ -48,6 +48,6 @@ class APIView(generic.TemplateView):
         context = self.get_context_data(**kwargs)
         try:
             context = self.get_data(request, context, *args, **kwargs)
-        except:
+        except Exception:
             exceptions.handle(request)
         return self.render_to_response(context)

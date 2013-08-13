@@ -54,7 +54,7 @@ class TenantContextMixin(object):
                 self._object = api.keystone.tenant_get(self.request,
                                                        tenant_id,
                                                        admin=True)
-            except:
+            except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve project information.'),
                                   redirect=reverse(INDEX_URL))
@@ -84,7 +84,7 @@ class IndexView(tables.DataTableView):
                                                domain=domain_context,
                                                paginate=True,
                                                marker=marker)
-        except:
+        except Exception:
             self._more = False
             exceptions.handle(self.request,
                               _("Unable to retrieve project list."))
@@ -113,7 +113,7 @@ class CreateProjectView(workflows.WorkflowView):
             for field in quotas.QUOTA_FIELDS:
                 initial[field] = quota_defaults.get(field).limit
 
-        except:
+        except Exception:
             error_msg = _('Unable to retrieve default quota values.')
             self.add_error_to_step(error_msg, 'update_quotas')
 
@@ -141,7 +141,7 @@ class UpdateProjectView(workflows.WorkflowView):
                                                       tenant_id=project_id)
             for field in quotas.QUOTA_FIELDS:
                 initial[field] = quota_data.get(field).limit
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve project details.'),
                               redirect=reverse(INDEX_URL))

@@ -111,7 +111,7 @@ class SetDomainContext(tables.Action):
                 messages.success(request,
                                 _('Domain Context updated to Domain %s.') %
                                 domain.name)
-            except:
+            except Exception:
                 messages.error(request,
                                _('Unable to set Domain Context.'))
 

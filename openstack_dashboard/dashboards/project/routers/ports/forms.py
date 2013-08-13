@@ -96,7 +96,7 @@ class AddInterface(forms.SelfHandlingForm):
             self._handle_error(request, router_id, e)
         try:
             port = api.neutron.port_get(request, router_inf['port_id'])
-        except:
+        except Exception:
             # Ignore an error when port_get() since it is just
             # to get an IP address for the interface.
             port = None
@@ -107,7 +107,7 @@ class AddInterface(forms.SelfHandlingForm):
         subnet_id = data['subnet_id']
         try:
             subnet = api.neutron.subnet_get(request, subnet_id)
-        except:
+        except Exception:
             msg = _('Unable to get subnet "%s"') % subnet_id
             self._handle_error(request, router_id, msg)
         try:
@@ -135,7 +135,7 @@ class AddInterface(forms.SelfHandlingForm):
     def _delete_port(self, request, port):
         try:
             api.neutron.port_delete(request, port.id)
-        except:
+        except Exception:
             msg = _('Failed to delete port %s') % port.id
             LOG.info(msg)
             exceptions.handle(request, msg)

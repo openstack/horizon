@@ -39,7 +39,7 @@ class DeletePort(tables.DeleteAction):
     def delete(self, request, obj_id):
         try:
             api.neutron.port_delete(request, obj_id)
-        except:
+        except Exception:
             msg = _('Failed to delete subnet %s') % obj_id
             LOG.info(msg)
             network_id = self.table.kwargs['network_id']

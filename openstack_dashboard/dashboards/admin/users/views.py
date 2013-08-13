@@ -47,7 +47,7 @@ class IndexView(tables.DataTableView):
         try:
             users = api.keystone.user_list(self.request,
                                            domain=domain_context)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve user list.'))
         return users
@@ -69,7 +69,7 @@ class UpdateView(forms.ModalFormView):
                 self._object = api.keystone.user_get(self.request,
                                                      self.kwargs['user_id'],
                                                      admin=True)
-            except:
+            except Exception:
                 redirect = reverse("horizon:admin:users:index")
                 exceptions.handle(self.request,
                                   _('Unable to update user.'),
@@ -103,7 +103,7 @@ class CreateView(forms.ModalFormView):
         kwargs = super(CreateView, self).get_form_kwargs()
         try:
             roles = api.keystone.role_list(self.request)
-        except:
+        except Exception:
             redirect = reverse("horizon:admin:users:index")
             exceptions.handle(self.request,
                               _("Unable to retrieve user roles."),

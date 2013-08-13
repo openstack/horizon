@@ -440,7 +440,7 @@ class Dashboard(Registry, HorizonComponent):
         """
         try:
             return self._registered(self.default_panel).get_absolute_url()
-        except:
+        except Exception:
             # Logging here since this will often be called in a template
             # where the exception would be hidden.
             LOG.exception("Error reversing absolute URL for %s." % self)
@@ -512,7 +512,7 @@ class Dashboard(Registry, HorizonComponent):
             try:
                 before_import_registry = copy.copy(self._registry)
                 import_module('.%s.panel' % panel, package)
-            except:
+            except Exception:
                 self._registry = before_import_registry
                 if module_has_submodule(mod, panel):
                     raise
@@ -750,7 +750,7 @@ class Site(Registry, HorizonComponent):
             try:
                 before_import_registry = copy.copy(self._registry)
                 import_module('%s.%s' % (package, mod_name))
-            except:
+            except Exception:
                 self._registry = before_import_registry
                 if module_has_submodule(mod, mod_name):
                     raise
@@ -780,7 +780,7 @@ class Site(Registry, HorizonComponent):
                 try:
                     before_import_registry = copy.copy(self._registry)
                     import_module('%s.%s' % (app, mod_name))
-                except:
+                except Exception:
                     self._registry = before_import_registry
                     if module_has_submodule(mod, mod_name):
                         raise

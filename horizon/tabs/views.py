@@ -40,7 +40,7 @@ class TabView(generic.TemplateView):
             context["tab_group"] = tab_group
             # Make sure our data is pre-loaded to capture errors.
             context["tab_group"].load_tab_data()
-        except:
+        except Exception:
             exceptions.handle(self.request)
         return context
 

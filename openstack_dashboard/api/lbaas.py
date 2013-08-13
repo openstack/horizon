@@ -51,7 +51,7 @@ class Pool(NeutronAPIDictWrapper):
             pFormatted['subnet_id'] = self.subnet_id
             pFormatted['subnet_name'] = subnet_get(
                 request, self.subnet_id).cidr
-        except:
+        except Exception:
             pFormatted['subnet_id'] = self.subnet_id
             pFormatted['subnet_name'] = self.subnet_id
 
@@ -60,7 +60,7 @@ class Pool(NeutronAPIDictWrapper):
                 pFormatted['vip_id'] = self.vip_id
                 pFormatted['vip_name'] = vip_get(
                     request, self.vip_id).name
-            except:
+            except Exception:
                 pFormatted['vip_id'] = self.vip_id
                 pFormatted['vip_name'] = self.vip_id
         else:
@@ -91,7 +91,7 @@ class Member(NeutronAPIDictWrapper):
             mFormatted['pool_id'] = self.pool_id
             mFormatted['pool_name'] = pool_get(
                 request, self.pool_id).name
-        except:
+        except Exception:
             mFormatted['pool_id'] = self.pool_id
             mFormatted['pool_name'] = self.pool_id
 

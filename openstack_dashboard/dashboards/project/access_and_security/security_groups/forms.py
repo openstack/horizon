@@ -60,7 +60,7 @@ class CreateGroup(forms.SelfHandlingForm):
                              _('Successfully created security group: %s')
                                % data['name'])
             return sg
-        except:
+        except Exception:
             redirect = reverse("horizon:project:access_and_security:index")
             exceptions.handle(request,
                               _('Unable to create security group.'),
@@ -346,7 +346,7 @@ class AddRule(forms.SelfHandlingForm):
             messages.success(request,
                              _('Successfully added rule: %s') % unicode(rule))
             return rule
-        except:
+        except Exception:
             redirect = reverse("horizon:project:access_and_security:"
                                "security_groups:detail", args=[data['id']])
             exceptions.handle(request,

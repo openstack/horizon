@@ -115,12 +115,12 @@ class CreateUserForm(BaseUserForm):
                                                       data['project'],
                                                       new_user.id,
                                                       data['role_id'])
-                except:
+                except Exception:
                     exceptions.handle(request,
                                       _('Unable to add user '
                                         'to primary project.'))
             return new_user
-        except:
+        except Exception:
             exceptions.handle(request, _('Unable to create user.'))
 
 
@@ -162,7 +162,7 @@ class UpdateUserForm(BaseUserForm):
             api.keystone.user_update(request, user, **data)
             messages.success(request,
                              _('User has been updated successfully.'))
-        except:
+        except Exception:
             exceptions.handle(request, ignore=True)
             messages.error(request, _('Unable to update the user.'))
         return True

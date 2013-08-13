@@ -351,7 +351,7 @@ class CreateNetwork(workflows.Workflow):
             messages.info(request, msg)
             raise exceptions.Http302(redirect)
             #return exceptions.RecoverableError
-        except:
+        except Exception:
             msg = _('Failed to delete network "%s"') % network.name
             LOG.info(msg)
             redirect = self.get_failure_url()

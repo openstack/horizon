@@ -61,7 +61,7 @@ class IndexView(tables.MultiTableView):
                                                                  marker=marker)
             images = [im for im in all_images
                       if im.container_format not in ['aki', 'ari']]
-        except:
+        except Exception:
             images = []
             exceptions.handle(self.request, _("Unable to retrieve images."))
         return images
@@ -70,7 +70,7 @@ class IndexView(tables.MultiTableView):
         if is_service_enabled(self.request, 'volume'):
             try:
                 snapshots = api.cinder.volume_snapshot_list(self.request)
-            except:
+            except Exception:
                 snapshots = []
                 exceptions.handle(self.request, _("Unable to retrieve "
                                                   "volume snapshots."))

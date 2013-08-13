@@ -62,7 +62,7 @@ class UpdateView(forms.ModalFormView):
             try:
                 self._object = api.glance.image_get(self.request,
                                                     self.kwargs['image_id'])
-            except:
+            except Exception:
                 msg = _('Unable to retrieve image.')
                 url = reverse('horizon:project:images_and_snapshots:index')
                 exceptions.handle(self.request, msg, redirect=url)

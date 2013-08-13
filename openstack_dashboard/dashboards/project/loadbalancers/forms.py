@@ -63,7 +63,7 @@ class UpdatePool(forms.SelfHandlingForm):
             LOG.debug(msg)
             messages.success(request, msg)
             return pool
-        except:
+        except Exception:
             msg = _('Failed to update pool %s') % context['name']
             LOG.info(msg)
             redirect = reverse(self.failure_url)
@@ -101,7 +101,7 @@ class UpdateVip(forms.SelfHandlingForm):
         pool_id_choices = []
         try:
             pools = api.lbaas.pools_get(request)
-        except:
+        except Exception:
             pools = []
             exceptions.handle(request,
                               _('Unable to retrieve pools list.'))
@@ -144,7 +144,7 @@ class UpdateVip(forms.SelfHandlingForm):
             LOG.debug(msg)
             messages.success(request, msg)
             return vip
-        except:
+        except Exception:
             msg = _('Failed to update VIP %s') % context['name']
             LOG.info(msg)
             redirect = reverse(self.failure_url)
@@ -169,7 +169,7 @@ class UpdateMember(forms.SelfHandlingForm):
         pool_id_choices = []
         try:
             pools = api.lbaas.pools_get(request)
-        except:
+        except Exception:
             pools = []
             exceptions.handle(request,
                               _('Unable to retrieve pools list.'))
@@ -191,7 +191,7 @@ class UpdateMember(forms.SelfHandlingForm):
             LOG.debug(msg)
             messages.success(request, msg)
             return member
-        except:
+        except Exception:
             msg = _('Failed to update member %s') % context['member_id']
             LOG.info(msg)
             redirect = reverse(self.failure_url)
@@ -238,7 +238,7 @@ class UpdateMonitor(forms.SelfHandlingForm):
             LOG.debug(msg)
             messages.success(request, msg)
             return monitor
-        except:
+        except Exception:
             msg = _('Failed to update health monitor %s')\
                 % context['monitor_id']
             LOG.info(msg)

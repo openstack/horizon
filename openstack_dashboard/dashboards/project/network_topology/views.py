@@ -53,7 +53,7 @@ class JSONView(View):
         # Get nova data
         try:
             servers, more = api.nova.server_list(request)
-        except:
+        except Exception:
             servers = []
         data['servers'] = [{'name': server.name,
                             'status': server.status,
@@ -73,7 +73,7 @@ class JSONView(View):
                                     tenant_id=request.user.tenant_id)
             neutron_routers = api.neutron.router_list(request,
                                     tenant_id=request.user.tenant_id)
-        except:
+        except Exception:
             neutron_public_networks = []
             neutron_networks = []
             neutron_subnets = []

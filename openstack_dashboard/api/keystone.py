@@ -303,14 +303,14 @@ def user_update(request, user, **data):
         # Update user details
         try:
             user = manager.update(user, **data)
-        except:
+        except Exception:
             error = exceptions.handle(request, ignore=True)
 
         # Update default tenant
         try:
             user_update_tenant(request, user, project)
             user.tenantId = project
-        except:
+        except Exception:
             error = exceptions.handle(request, ignore=True)
 
         # Check for existing roles
@@ -329,7 +329,7 @@ def user_update(request, user, **data):
                 user_update_password(request, user, password)
                 if user == request.user.id:
                     logout(request)
-            except:
+            except Exception:
                 error = exceptions.handle(request, ignore=True)
 
         if error is not None:
@@ -491,7 +491,7 @@ def get_default_role(request):
     if default and DEFAULT_ROLE is None:
         try:
             roles = keystoneclient(request, admin=True).roles.list()
-        except:
+        except Exception:
             roles = []
             exceptions.handle(request)
         for role in roles:

@@ -37,7 +37,7 @@ class OverviewTab(tabs.Tab):
         port_id = self.tab_group.kwargs['port_id']
         try:
             port = api.neutron.port_get(self.request, port_id)
-        except:
+        except Exception:
             redirect = reverse('horizon:project:networks:index')
             msg = _('Unable to retrieve port details.')
             exceptions.handle(request, msg, redirect=redirect)

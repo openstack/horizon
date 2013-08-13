@@ -27,7 +27,7 @@ def get_available_images(request, project_id=None, images_cache=None):
                 request, filters=public)
             [public_images.append(image) for image in images]
             images_cache['public_images'] = public_images
-        except:
+        except Exception:
             exceptions.handle(request,
                               _("Unable to retrieve public images."))
 
@@ -41,7 +41,7 @@ def get_available_images(request, project_id=None, images_cache=None):
         try:
             owned_images, _more = glance.image_list_detailed(
                 request, filters=owner)
-        except:
+        except Exception:
             exceptions.handle(request,
                               _("Unable to retrieve images for "
                                 "the current project."))

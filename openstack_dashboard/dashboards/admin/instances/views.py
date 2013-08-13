@@ -80,7 +80,7 @@ class AdminIndexView(tables.DataTableView):
                                         search_opts={'marker': marker,
                                                      'paginate': True},
                                         all_tenants=True)
-        except:
+        except Exception:
             self._more = False
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'))
@@ -88,14 +88,14 @@ class AdminIndexView(tables.DataTableView):
             # Gather our flavors to correlate against IDs
             try:
                 flavors = api.nova.flavor_list(self.request)
-            except:
+            except Exception:
                 # If fails to retrieve flavor list, creates an empty list.
                 flavors = []
 
             # Gather our tenants to correlate against IDs
             try:
                 tenants, has_more = api.keystone.tenant_list(self.request)
-            except:
+            except Exception:
                 tenants = []
                 msg = _('Unable to retrieve instance project information.')
                 exceptions.handle(self.request, msg)
@@ -113,7 +113,7 @@ class AdminIndexView(tables.DataTableView):
                         # gets it via nova api.
                         inst.full_flavor = api.nova.flavor_get(
                                             self.request, flavor_id)
-                except:
+                except Exception:
                     msg = _('Unable to retrieve instance size information.')
                     exceptions.handle(self.request, msg)
                 tenant = tenant_dict.get(inst.tenant_id, None)

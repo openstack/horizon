@@ -44,7 +44,7 @@ class ParseDateNode(template.Node):
                     if not timezone.is_aware(parsed):
                         parsed = timezone.make_aware(parsed, timezone.utc)
                     return parsed
-                except:
+                except Exception:
                     pass
         return None
 

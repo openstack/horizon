@@ -129,7 +129,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
                 msg = _('Could not find default role "%s" in Keystone') % \
                         default
                 raise exceptions.NotFound(msg)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               err_msg,
                               redirect=reverse(INDEX_URL))
@@ -143,7 +143,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
         try:
             all_users = api.keystone.user_list(request,
                                                domain=domain_context)
-        except:
+        except Exception:
             exceptions.handle(request, err_msg)
         users_list = [(user.id, user.name) for user in all_users]
 
@@ -151,7 +151,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
         role_list = []
         try:
             role_list = api.keystone.role_list(request)
-        except:
+        except Exception:
             exceptions.handle(request,
                               err_msg,
                               redirect=reverse(INDEX_URL))
@@ -170,7 +170,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
                     roles = api.keystone.roles_for_user(self.request,
                                                         user.id,
                                                         project_id)
-                except:
+                except Exception:
                     exceptions.handle(request,
                                       err_msg,
                                       redirect=reverse(INDEX_URL))
@@ -194,7 +194,7 @@ class UpdateProjectMembers(workflows.UpdateMembersStep):
         if data:
             try:
                 roles = api.keystone.role_list(self.workflow.request)
-            except:
+            except Exception:
                 exceptions.handle(self.workflow.request,
                                   _('Unable to retrieve user list.'))
 
@@ -237,7 +237,7 @@ class CreateProject(workflows.Workflow):
                                                      description=desc,
                                                      enabled=data['enabled'],
                                                      domain=domain_context)
-        except:
+        except Exception:
             exceptions.handle(request, ignore=True)
             return False
 
@@ -265,7 +265,7 @@ class CreateProject(workflows.Workflow):
                                                       role=role.id)
                     users_added += 1
                 users_to_add -= users_added
-        except:
+        except Exception:
             exceptions.handle(request, _('Failed to add %s project members '
                                           'and set project quotas.')
                                        % users_to_add)
@@ -281,7 +281,7 @@ class CreateProject(workflows.Workflow):
                 cinder.tenant_quota_update(request,
                                            project_id,
                                            **cinder_data)
-        except:
+        except Exception:
             exceptions.handle(request, _('Unable to set project quotas.'))
         return True
 
@@ -338,7 +338,7 @@ class UpdateProject(workflows.Workflow):
                                        name=data['name'],
                                        description=data['description'],
                                        enabled=data['enabled'])
-        except:
+        except Exception:
             exceptions.handle(request, ignore=True)
             return False
 
@@ -427,7 +427,7 @@ class UpdateProject(workflows.Workflow):
                                                           role=role.id)
                     users_added += 1
                 users_to_modify -= users_added
-        except:
+        except Exception:
             exceptions.handle(request, _('Failed to modify %s project members '
                                          'and update project quotas.')
                                        % users_to_modify)
@@ -447,7 +447,7 @@ class UpdateProject(workflows.Workflow):
                                            project_id,
                                            **cinder_data)
             return True
-        except:
+        except Exception:
             exceptions.handle(request, _('Modified project information and '
                                          'members, but unable to modify '
                                          'project quotas.'))

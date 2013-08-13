@@ -54,7 +54,7 @@ class DetailView(tables.DataTableView):
             sg_id = get_int_or_uuid(self.kwargs['security_group_id'])
             try:
                 self._sg = api.network.security_group_get(self.request, sg_id)
-            except:
+            except Exception:
                 redirect = reverse('horizon:project:access_and_security:index')
                 exceptions.handle(self.request,
                                   _('Unable to retrieve security group.'),
@@ -92,7 +92,7 @@ class AddRuleView(forms.ModalFormView):
 
         try:
             groups = api.network.security_group_list(self.request)
-        except:
+        except Exception:
             groups = []
             exceptions.handle(self.request,
                               _("Unable to retrieve security groups."))

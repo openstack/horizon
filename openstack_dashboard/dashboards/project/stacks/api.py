@@ -22,7 +22,7 @@ class Stack(object):
 def d3_data(request, stack_id=''):
     try:
         stack = stack_get(request, stack_id)
-    except:
+    except Exception:
         stack = Stack()
         stack.id = stack_id
         stack.stack_name = request.session.get('stack_name', '')
@@ -31,7 +31,7 @@ def d3_data(request, stack_id=''):
 
     try:
         resources = resources_list(request, stack.stack_name)
-    except:
+    except Exception:
         resources = []
 
     d3_data = {"nodes": [], "stack": {}}

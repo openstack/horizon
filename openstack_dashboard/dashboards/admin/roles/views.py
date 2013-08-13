@@ -37,7 +37,7 @@ class IndexView(tables.DataTableView):
         roles = []
         try:
             roles = api.keystone.role_list(self.request)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve roles list.'))
         return roles
@@ -53,7 +53,7 @@ class UpdateView(forms.ModalFormView):
             try:
                 self._object = api.keystone.role_get(self.request,
                                                      self.kwargs['role_id'])
-            except:
+            except Exception:
                 redirect = reverse("horizon:admin:roles:index")
                 exceptions.handle(self.request,
                                   _('Unable to update role.'),

@@ -49,7 +49,7 @@ class CreateView(workflows.WorkflowView):
                 self._object = api.neutron.network_get(self.request,
                                                        network_id)
                 self._object.set_id_as_name_if_empty()
-            except:
+            except Exception:
                 redirect = reverse('horizon:project:networks:index')
                 msg = _("Unable to retrieve network.")
                 exceptions.handle(self.request, msg, redirect=redirect)
@@ -69,7 +69,7 @@ class UpdateView(workflows.WorkflowView):
             subnet_id = self.kwargs['subnet_id']
             try:
                 self._object = api.neutron.subnet_get(self.request, subnet_id)
-            except:
+            except Exception:
                 redirect = reverse("horizon:project:networks:index")
                 msg = _('Unable to retrieve subnet details')
                 exceptions.handle(self.request, msg, redirect=redirect)

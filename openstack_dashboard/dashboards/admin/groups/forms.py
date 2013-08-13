@@ -47,7 +47,7 @@ class CreateGroupForm(forms.SelfHandlingForm):
             messages.success(request,
                              _('Group "%s" was successfully created.')
                              % data['name'])
-        except:
+        except Exception:
             exceptions.handle(request, _('Unable to create group.'))
             return False
         return True
@@ -71,7 +71,7 @@ class UpdateGroupForm(forms.SelfHandlingForm):
                                       description=data['description'])
             messages.success(request,
                              _('Group has been updated successfully.'))
-        except:
+        except Exception:
             exceptions.handle(request, _('Unable to update the group.'))
             return False
         return True

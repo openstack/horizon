@@ -51,7 +51,7 @@ class UpdateInstanceSecurityGroupsAction(workflows.MembershipAction):
         all_groups = []
         try:
             all_groups = api.network.security_group_list(request)
-        except:
+        except Exception:
             exceptions.handle(request, err_msg)
         groups_list = [(group.id, group.name) for group in all_groups]
 
@@ -111,7 +111,7 @@ class UpdateInstanceInfoAction(workflows.Action):
             api.nova.server_update(request,
                                    data['instance_id'],
                                    data['name'])
-        except:
+        except Exception:
             exceptions.handle(request, ignore=True)
             return False
         return True

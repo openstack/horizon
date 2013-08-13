@@ -48,7 +48,7 @@ class IndexView(tables.DataTableView):
             routers = api.neutron.router_list(self.request,
                                               tenant_id=tenant_id,
                                               search_opts=search_opts)
-        except:
+        except Exception:
             routers = []
             exceptions.handle(self.request,
                               _('Unable to retrieve router list.'))
@@ -100,7 +100,7 @@ class DetailView(tables.MultiTableView):
                 router_id = self.kwargs['router_id']
                 router = api.neutron.router_get(self.request, router_id)
                 router.set_id_as_name_if_empty(length=0)
-            except:
+            except Exception:
                 msg = _('Unable to retrieve details for router "%s".') \
                         % (router_id)
                 exceptions.handle(self.request, msg, redirect=self.failure_url)
@@ -131,7 +131,7 @@ class DetailView(tables.MultiTableView):
             device_id = self.kwargs['router_id']
             ports = api.neutron.port_list(self.request,
                                           device_id=device_id)
-        except:
+        except Exception:
             ports = []
             msg = _('Port list can not be retrieved.')
             exceptions.handle(self.request, msg)

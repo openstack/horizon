@@ -74,7 +74,7 @@ class StackEventsTab(tabs.Tab):
             stack_identifier = '%s/%s' % (stack.stack_name, stack.id)
             events = api.heat.events_list(self.request, stack_identifier)
             LOG.debug('got events %s' % events)
-        except:
+        except Exception:
             events = []
             messages.error(request, _(
                 'Unable to get events for stack "%s".') % stack.stack_name)
@@ -94,7 +94,7 @@ class StackResourcesTab(tabs.Tab):
             stack_identifier = '%s/%s' % (stack.stack_name, stack.id)
             resources = api.heat.resources_list(self.request, stack_identifier)
             LOG.debug('got resources %s' % resources)
-        except:
+        except Exception:
             resources = []
             messages.error(request, _(
                 'Unable to get resources for stack "%s".') % stack.stack_name)

@@ -52,7 +52,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
             LOG.debug(msg)
             messages.success(request, msg)
             return network
-        except:
+        except Exception:
             msg = _('Failed to update network %s') % data['name']
             LOG.info(msg)
             redirect = reverse(self.failure_url)
