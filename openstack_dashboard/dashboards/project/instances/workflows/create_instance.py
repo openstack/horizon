@@ -22,14 +22,16 @@ import json
 import logging
 
 from django.conf import settings  # noqa
+from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.text import normalize_newlines  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 from django.utils.translation import ungettext_lazy  # noqa
-
 from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
 from horizon import forms
+from horizon.utils import fields
+from horizon.utils import functions
 from horizon.utils import validators
 from horizon import workflows
 
@@ -70,25 +72,64 @@ class SelectProjectUser(workflows.Step):
     contributes = ("project_id", "user_id")
 
 
-class VolumeOptionsAction(workflows.Action):
-    VOLUME_CHOICES = (
-        ('', _("Don't boot from a volume.")),
+class SetInstanceDetailsAction(workflows.Action):
+    SOURCE_TYPE_CHOICES = (
+        ('', _("--- Select source ---")),
+        ("image_id", _("Boot from image.")),
+        ("instance_snapshot_id", _("Boot from snapshot.")),
         ("volume_id", _("Boot from volume.")),
+        ("volume_image_id", _("Boot from image "
+                                  "(creates a new volume).")),
         ("volume_snapshot_id", _("Boot from volume snapshot "
                                  "(creates a new volume).")),
     )
-    # Boot from volume options
-    volume_type = forms.ChoiceField(label=_("Volume Options"),
-                                    choices=VOLUME_CHOICES,
-                                    required=False)
+
+    availability_zone = forms.ChoiceField(label=_("Availability Zone"),
+                                          required=False)
+
+    name = forms.CharField(max_length=80, label=_("Instance Name"))
+
+    flavor = forms.ChoiceField(label=_("Flavor"),
+                               help_text=_("Size of image to launch."))
+
+    count = forms.IntegerField(label=_("Instance Count"),
+                               min_value=1,
+                               initial=1,
+                               help_text=_("Number of instances to launch."))
+
+    source_type = forms.ChoiceField(label=_("Instance Boot Source"),
+                                    required=True,
+                                    choices=SOURCE_TYPE_CHOICES,
+                                    help_text=_("Choose Your Boot Source "
+                                                "Type."))
+
+    instance_snapshot_id = forms.ChoiceField(label=_("Instance Snapshot"),
+                                             required=False)
+
     volume_id = forms.ChoiceField(label=_("Volume"), required=False)
+
     volume_snapshot_id = forms.ChoiceField(label=_("Volume Snapshot"),
-                                           required=False)
+                                               required=False)
+
+    image_id = forms.ChoiceField(
+        label=_("Image Name"),
+        required=False,
+        widget=fields.SelectWidget(
+            data_attrs=('volume_size',),
+            transform=lambda x: ("%s (%s)" % (x.name,
+                                              filesizeformat(x.bytes)))))
+
+    volume_size = forms.CharField(label=_("Device size (GB)"),
+                                  required=False,
+                                  help_text=_("Volume size in gigabytes "
+                                              "(integer value)."))
+
     device_name = forms.CharField(label=_("Device Name"),
                                   required=False,
                                   initial="vda",
                                   help_text=_("Volume mount point (e.g. 'vda' "
                                               "mounts at '/dev/vda')."))
+
     delete_on_terminate = forms.BooleanField(label=_("Delete on Terminate"),
                                              initial=False,
                                              required=False,
@@ -96,190 +137,100 @@ class VolumeOptionsAction(workflows.Action):
                                                          "instance terminate"))
 
     class Meta:
-        name = _("Volume Options")
-        permissions = ('openstack.services.volume',)
-        help_text_template = ("project/instances/"
-                              "_launch_volumes_help.html")
-
-    def clean(self):
-        cleaned_data = super(VolumeOptionsAction, self).clean()
-        volume_opt = cleaned_data.get('volume_type', None)
-
-        if volume_opt and not cleaned_data[volume_opt]:
-            raise forms.ValidationError(_('Please choose a volume, or select '
-                                          '%s.') % self.VOLUME_CHOICES[0][1])
-        return cleaned_data
-
-    def _get_volume_display_name(self, volume):
-        if hasattr(volume, "volume_id"):
-            vol_type = "snap"
-            visible_label = _("Snapshot")
-        else:
-            vol_type = "vol"
-            visible_label = _("Volume")
-        return (("%s:%s" % (volume.id, vol_type)),
-                (_("%(name)s - %(size)s GB (%(label)s)") %
-                 {'name': volume.display_name or volume.id,
-                  'size': volume.size,
-                  'label': visible_label}))
-
-    def populate_volume_id_choices(self, request, context):
-        volume_options = [("", _("Select Volume"))]
-        try:
-            volumes = [v for v in cinder.volume_list(self.request)
-                       if v.status == api.cinder.VOLUME_STATE_AVAILABLE]
-            volume_options.extend([self._get_volume_display_name(vol)
-                                   for vol in volumes])
-        except Exception:
-            exceptions.handle(self.request,
-                              _('Unable to retrieve list of volumes.'))
-        return volume_options
-
-    def populate_volume_snapshot_id_choices(self, request, context):
-        volume_options = [("", _("Select Volume Snapshot"))]
-        try:
-            snapshots = cinder.volume_snapshot_list(self.request)
-            snapshots = [s for s in snapshots
-                         if s.status == api.cinder.VOLUME_STATE_AVAILABLE]
-            volume_options.extend([self._get_volume_display_name(snap)
-                                   for snap in snapshots])
-        except Exception:
-            exceptions.handle(self.request,
-                              _('Unable to retrieve list of volume '
-                                'snapshots.'))
-
-        return volume_options
-
-
-class VolumeOptions(workflows.Step):
-    action_class = VolumeOptionsAction
-    depends_on = ("project_id", "user_id")
-    contributes = ("volume_type",
-                   "volume_id",
-                   "device_name",  # Can be None for an image.
-                   "delete_on_terminate")
-
-    def contribute(self, data, context):
-        context = super(VolumeOptions, self).contribute(data, context)
-        # Translate form input to context for volume values.
-        if "volume_type" in data and data["volume_type"]:
-            context['volume_id'] = data.get(data['volume_type'], None)
-
-        if not context.get("volume_type", ""):
-            context['volume_type'] = self.action.VOLUME_CHOICES[0][0]
-            context['volume_id'] = None
-            context['device_name'] = None
-            context['delete_on_terminate'] = None
-        return context
-
-
-class SetInstanceDetailsAction(workflows.Action):
-    SOURCE_TYPE_CHOICES = (
-        ("image_id", _("Image")),
-        ("instance_snapshot_id", _("Snapshot")),
-    )
-    source_type = forms.ChoiceField(label=_("Instance Source"),
-                                    choices=SOURCE_TYPE_CHOICES)
-    image_id = forms.ChoiceField(label=_("Image"), required=False)
-    instance_snapshot_id = forms.ChoiceField(label=_("Instance Snapshot"),
-                                             required=False)
-    availability_zone = forms.ChoiceField(label=_("Availability Zone"),
-                                          required=False)
-    name = forms.CharField(max_length=80, label=_("Instance Name"))
-    flavor = forms.ChoiceField(label=_("Flavor"),
-                               help_text=_("Size of image to launch."))
-    count = forms.IntegerField(label=_("Instance Count"),
-                               min_value=1,
-                               initial=1,
-                               help_text=_("Number of instances to launch."))
-
-    class Meta:
         name = _("Details")
         help_text_template = ("project/instances/"
                               "_launch_details_help.html")
 
+    def __init__(self, request, context, *args, **kwargs):
+        super(SetInstanceDetailsAction, self).__init__(request,
+                                                       context,
+                                                       *args,
+                                                       **kwargs)
+        choices = [("", _("Select Image"))]
+        try:
+            images = utils.get_available_images(request,
+                                                context.get('project_id'))
+            for image in images:
+                image.bytes = image.size
+                image.volume_size = functions.bytes_to_gigabytes(image.bytes)
+                choices.append((image.id, image))
+            self.fields['image_id'].choices = choices
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve list of images .'))
+
     def clean(self):
         cleaned_data = super(SetInstanceDetailsAction, self).clean()
 
-        # Validate our instance source.
-        source = cleaned_data['source_type']
-        # There should always be at least one image_id choice, telling the user
-        # that there are "No Images Available" so we check for 2 here...
-        volume_type = self.data.get('volume_type', None)
-        if volume_type:  # Boot from volume
-            if cleaned_data[source]:
-                raise forms.ValidationError(_("You can't select an instance "
-                                              "source when booting from a "
-                                              "Volume. The Volume is your "
-                                              "source and should contain "
-                                              "the operating system."))
-        else:  # Boot from image / image_snapshot
-            if source == 'image_id' and not \
-                 filter(lambda x: x[0] != '', self.fields['image_id'].choices):
-                raise forms.ValidationError(_("There are no image sources "
-                                              "available; you must first "
-                                              "create an image before "
-                                              "attemtping to launch an "
-                                              "instance."))
-            elif not cleaned_data[source]:
-                raise forms.ValidationError(_("Please select an option for the"
-                                              " instance source."))
-
-        # Prevent launching multiple instances with the same volume.
-        # TODO(gabriel): is it safe to launch multiple instances with
-        # a snapshot since it should be cloned to new volumes?
         count = cleaned_data.get('count', 1)
-        if volume_type and count > 1:
-            msg = _('Launching multiple instances is only supported for '
-                    'images and instance snapshots.')
-            raise forms.ValidationError(msg)
-
         # Prevent launching more instances than the quota allows
         usages = quotas.tenant_quota_usages(self.request)
         available_count = usages['instances']['available']
         if available_count < count:
             error_message = ungettext_lazy('The requested instance '
-                               'cannot be launched as you only have %(avail)i '
-                               'of your quota available.',
-                               'The requested %(req)i instances '
-                               'cannot be launched as you only have %(avail)i '
-                               'of your quota available.',
-                               count)
+                                           'cannot be launched as you only '
+                                           'have %(avail)i of your quota '
+                                           'available. ',
+                                           'The requested %(req)i instances '
+                                           'cannot be launched as you only '
+                                           'have %(avail)i of your quota '
+                                           'available.',
+                                           count)
             params = {'req': count,
                       'avail': available_count}
             raise forms.ValidationError(error_message % params)
 
+        # Validate our instance source.
+        source_type = self.data.get('source_type', None)
+
+        if source_type == 'image_id':
+            if not cleaned_data.get('image_id'):
+                raise forms.ValidationError(_("There are no image sources "
+                                              "available; you must first "
+                                              "create an image before "
+                                              "attemtping to launch an "
+                                              "instance."))
+
+        elif source_type == 'instance_snapshot_id':
+            if not cleaned_data['instance_snapshot_id']:
+                raise forms.ValidationError(_("There are no snapshot sources "
+                                              "available; you must first "
+                                              "create an snapshot before "
+                                              "attemtping to launch an "
+                                              "instance."))
+
+        elif source_type == 'volume_id':
+            if not cleaned_data.get('volume_id'):
+                raise forms.ValidationError(_("You can't select an instance "
+                                              "source when booting from a "
+                                              "Volume. The Volume is your "
+                                              "source and should contain "
+                                              "the operating system."))
+            # Prevent launching multiple instances with the same volume.
+            # TODO(gabriel): is it safe to launch multiple instances with
+            # a snapshot since it should be cloned to new volumes?
+            if count > 1:
+                msg = _('Launching multiple instances is only supported for '
+                        'images and instance snapshots.')
+                raise forms.ValidationError(msg)
+
+        elif source_type == 'volume_image_id':
+            if not cleaned_data['image_id']:
+                self._errors[_('volume_image_id')] = [
+                    u"You must select an image."]
+            if not self.data.get('volume_size', None):
+                self._errors['volume_size'] = [_(u"You must set volume size")]
+            if not cleaned_data.get('device_name'):
+                self._errors['device_name'] = [_(u"You must set device name")]
+
+        elif source_type == 'volume_snapshot_id':
+            if not cleaned_data.get('volume_snapshot_id'):
+                self._errors['volume_snapshot_id'] = [
+                    _(u"You must select a snapshot.")]
+            if not cleaned_data.get('device_name'):
+                self._errors['device_name'] = [_(u"You must set device name")]
+
         return cleaned_data
-
-    def _init_images_cache(self):
-        if not hasattr(self, '_images_cache'):
-            self._images_cache = {}
-
-    def populate_image_id_choices(self, request, context):
-        self._init_images_cache()
-        images = utils.get_available_images(request, context.get('project_id'),
-                                      self._images_cache)
-        choices = [(image.id, image.name)
-                   for image in images
-                   if image.properties.get("image_type", '') != "snapshot"]
-        if choices:
-            choices.insert(0, ("", _("Select Image")))
-        else:
-            choices.insert(0, ("", _("No images available.")))
-        return choices
-
-    def populate_instance_snapshot_id_choices(self, request, context):
-        self._init_images_cache()
-        images = utils.get_available_images(request, context.get('project_id'),
-                                      self._images_cache)
-        choices = [(image.id, image.name)
-                   for image in images
-                   if image.properties.get("image_type", '') == "snapshot"]
-        if choices:
-            choices.insert(0, ("", _("Select Instance Snapshot")))
-        else:
-            choices.insert(0, ("", _("No snapshots available.")))
-        return choices
 
     def populate_flavor_choices(self, request, context):
         """By default, returns the available flavors, sorted by RAM
@@ -323,18 +274,78 @@ class SetInstanceDetailsAction(workflows.Action):
             extra['usages'] = api.nova.tenant_absolute_limits(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])
             flavors = json.dumps([f._info for f in
-                                       api.nova.flavor_list(self.request)])
+                                  api.nova.flavor_list(self.request)])
             extra['flavors'] = flavors
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
         return super(SetInstanceDetailsAction, self).get_help_text(extra)
 
+    def _init_images_cache(self):
+        if not hasattr(self, '_images_cache'):
+            self._images_cache = {}
+
+    def _get_volume_display_name(self, volume):
+        if hasattr(volume, "volume_id"):
+            vol_type = "snap"
+            visible_label = _("Snapshot")
+        else:
+            vol_type = "vol"
+            visible_label = _("Volume")
+        return (("%s:%s" % (volume.id, vol_type)),
+                (_("%(name)s - %(size)s GB (%(label)s)") %
+                 {'name': volume.display_name or volume.id,
+                  'size': volume.size,
+                  'label': visible_label}))
+
+    def populate_instance_snapshot_id_choices(self, request, context):
+        self._init_images_cache()
+        images = utils.get_available_images(request,
+                                            context.get('project_id'),
+                                            self._images_cache)
+        choices = [(image.id, image.name)
+                   for image in images
+                   if image.properties.get("image_type", '') == "snapshot"]
+        if choices:
+            choices.insert(0, ("", _("Select Instance Snapshot")))
+        else:
+            choices.insert(0, ("", _("No snapshots available.")))
+        return choices
+
+    def populate_volume_id_choices(self, request, context):
+        volume_options = [("", _("Select Volume"))]
+        try:
+            volumes = [v for v in cinder.volume_list(self.request)
+                       if v.status == api.cinder.VOLUME_STATE_AVAILABLE]
+            volume_options.extend([self._get_volume_display_name(vol)
+                                   for vol in volumes])
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve list of volumes.'))
+        return volume_options
+
+    def populate_volume_snapshot_id_choices(self, request, context):
+        volume_options = [("", _("Select Volume Snapshot"))]
+        try:
+            snapshots = cinder.volume_snapshot_list(self.request)
+            snapshots = [s for s in snapshots
+                         if s.status == api.cinder.VOLUME_STATE_AVAILABLE]
+            volume_options.extend([self._get_volume_display_name(snap)
+                                   for snap in snapshots])
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve list of volume '
+                                'snapshots.'))
+        return volume_options
+
 
 class SetInstanceDetails(workflows.Step):
     action_class = SetInstanceDetailsAction
-    contributes = ("source_type", "source_id", "availability_zone",
-                   "name", "count", "flavor")
+    depends_on = ("project_id", "user_id")
+    contributes = ("source_type", "source_id",
+                   "availability_zone", "name", "count", "flavor",
+                   "device_name",  # Can be None for an image.
+                   "delete_on_terminate")
 
     def prepare_action_context(self, request, context):
         if 'source_type' in context and 'source_id' in context:
@@ -350,7 +361,13 @@ class SetInstanceDetails(workflows.Step):
 
         # Translate form input to context for source values.
         if "source_type" in data:
-            context["source_id"] = data.get(data['source_type'], None)
+            if data["source_type"] in ["image_id", "volume_image_id"]:
+                context["source_id"] = data.get("image_id", None)
+            else:
+                context["source_id"] = data.get(data["source_type"], None)
+
+        if "volume_size" in data:
+            context["volume_size"] = data["volume_size"]
 
         return context
 
@@ -516,7 +533,6 @@ class LaunchInstance(workflows.Workflow):
                      SetInstanceDetails,
                      SetAccessControls,
                      SetNetwork,
-                     VolumeOptions,
                      PostCreationStep)
 
     def format_status_message(self, message):
@@ -532,17 +548,31 @@ class LaunchInstance(workflows.Workflow):
     def handle(self, request, context):
         custom_script = context.get('customization_script', '')
 
+        dev_mapping_1 = None
+        dev_mapping_2 = None
+
+        image_id = ''
+
         # Determine volume mapping options
-        if context.get('volume_type', None):
-            if(context['delete_on_terminate']):
-                del_on_terminate = 1
-            else:
-                del_on_terminate = 0
-            mapping_opts = ("%s::%s"
-                            % (context['volume_id'], del_on_terminate))
-            dev_mapping = {context['device_name']: mapping_opts}
-        else:
-            dev_mapping = None
+        source_type = context.get('source_type', None)
+        if source_type in ['image_id', 'instance_snapshot_id']:
+            image_id = context['source_id']
+        elif source_type in ['volume_id', 'volume_snapshot_id']:
+            dev_mapping_1 = {context['device_name']: '%s::%s' %
+                                                     (context['source_id'],
+                           int(bool(context['delete_on_terminate'])))}
+        elif source_type == 'volume_image_id':
+            dev_mapping_2 = [
+                {'device_name': str(context['device_name']),
+                 'source_type': 'image',
+                 'destination_type': 'volume',
+                 'delete_on_termination':
+                     int(bool(context['delete_on_terminate'])),
+                 'uuid': context['source_id'],
+                 'boot_index': '0',
+                 'volume_size': context['volume_size']
+                 }
+            ]
 
         netids = context.get('network_id', None)
         if netids:
@@ -556,12 +586,13 @@ class LaunchInstance(workflows.Workflow):
         try:
             api.nova.server_create(request,
                                    context['name'],
-                                   context['source_id'],
+                                   image_id,
                                    context['flavor'],
                                    context['keypair_id'],
                                    normalize_newlines(custom_script),
                                    context['security_group_ids'],
-                                   dev_mapping,
+                                   block_device_mapping=dev_mapping_1,
+                                   block_device_mapping_v2=dev_mapping_2,
                                    nics=nics,
                                    availability_zone=avail_zone,
                                    instance_count=int(context['count']),
