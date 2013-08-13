@@ -83,7 +83,7 @@ class SetFlavorChoiceAction(workflows.Action):
 
 class SetFlavorChoice(workflows.Step):
     action_class = SetFlavorChoiceAction
-    depends_on = ("instance_id",)
+    depends_on = ("instance_id", "name")
     contributes = ("old_flavor_id", "old_flavor_name", "flavors", "flavor")
 
 
@@ -91,7 +91,7 @@ class ResizeInstance(workflows.Workflow):
     slug = "resize_instance"
     name = _("Resize Instance")
     finalize_button_name = _("Resize")
-    success_message = _('Resized instance "%s".')
+    success_message = _('Preparing instance "%s" for resize.')
     failure_message = _('Unable to resize instance "%s".')
     success_url = "horizon:project:instances:index"
     default_steps = (SetFlavorChoice,)

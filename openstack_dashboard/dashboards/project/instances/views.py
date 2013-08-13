@@ -256,6 +256,7 @@ class ResizeView(workflows.WorkflowView):
         _object = self.get_object()
         if _object:
             initial.update({'instance_id': self.kwargs['instance_id'],
+                'name': getattr(_object, 'name', None),
                 'old_flavor_id': _object.flavor['id'],
                 'old_flavor_name': getattr(_object, 'flavor_name', ''),
                 'flavors': self.get_flavors()})
