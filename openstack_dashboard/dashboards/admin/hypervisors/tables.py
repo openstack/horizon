@@ -17,25 +17,27 @@
 import logging
 
 from django.utils.translation import ugettext_lazy as _
+
 from horizon import tables
+from horizon.templatetags import sizeformat
 
 LOG = logging.getLogger(__name__)
 
 
 def get_memory(hypervisor):
-    return _("%s MB") % hypervisor.memory_mb
+    return sizeformat.mbformat(hypervisor.memory_mb)
 
 
 def get_memory_used(hypervisor):
-    return _("%s MB") % hypervisor.memory_mb_used
+    return sizeformat.mbformat(hypervisor.memory_mb_used)
 
 
 def get_local(hypervisor):
-    return _("%s GB") % hypervisor.local_gb
+    return sizeformat.diskgbformat(hypervisor.local_gb)
 
 
 def get_local_used(hypervisor):
-    return _("%s GB") % hypervisor.local_gb_used
+    return sizeformat.diskgbformat(hypervisor.local_gb_used)
 
 
 class AdminHypervisorsTable(tables.DataTable):
