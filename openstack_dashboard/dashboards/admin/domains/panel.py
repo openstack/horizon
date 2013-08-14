@@ -14,7 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
@@ -28,10 +27,5 @@ class Domains(horizon.Panel):
     slug = 'domains'
 
 
-MULTIDOMAIN_SUPPORT = getattr(settings,
-                              'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
-                              False)
-
-
-if MULTIDOMAIN_SUPPORT and IDENTITY_VERSIONS.active >= 3:
+if IDENTITY_VERSIONS.active >= 3:
     dashboard.Admin.register(Domains)
