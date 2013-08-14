@@ -32,7 +32,7 @@ class OverviewTab(tabs.Tab):
         image_id = self.tab_group.kwargs['image_id']
         try:
             image = api.glance.image_get(self.request, image_id)
-        except:
+        except Exception:
             redirect = reverse('horizon:project:images_and_snapshots:index')
             exceptions.handle(request,
                               _('Unable to retrieve image details.'),

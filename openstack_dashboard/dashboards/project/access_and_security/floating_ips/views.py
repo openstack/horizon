@@ -55,14 +55,14 @@ class AllocateView(forms.ModalFormView):
         context = super(AllocateView, self).get_context_data(**kwargs)
         try:
             context['usages'] = quotas.tenant_quota_usages(self.request)
-        except:
+        except Exception:
             exceptions.handle(self.request)
         return context
 
     def get_initial(self):
         try:
             pools = api.network.floating_ip_pools_list(self.request)
-        except:
+        except Exception:
             pools = []
             exceptions.handle(self.request,
                               _("Unable to retrieve floating IP pools."))

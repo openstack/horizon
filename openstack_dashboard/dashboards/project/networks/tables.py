@@ -55,7 +55,7 @@ class DeleteNetwork(CheckNetworkEditable, tables.DeleteAction):
 
             api.neutron.network_delete(request, network_id)
             LOG.debug('Deleted network %s successfully' % network_id)
-        except:
+        except Exception:
             msg = _('Failed to delete network %s') % network_id
             LOG.info(msg)
             redirect = reverse("horizon:project:networks:index")

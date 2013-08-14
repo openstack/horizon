@@ -128,7 +128,7 @@ class VolumeOptionsAction(workflows.Action):
                        if v.status == api.cinder.VOLUME_STATE_AVAILABLE]
             volume_options.extend([self._get_volume_display_name(vol)
                                    for vol in volumes])
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volumes.'))
         return volume_options
@@ -141,7 +141,7 @@ class VolumeOptionsAction(workflows.Action):
                          if s.status == api.cinder.VOLUME_STATE_AVAILABLE]
             volume_options.extend([self._get_volume_display_name(snap)
                                    for snap in snapshots])
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volume '
                                 'snapshots.'))
@@ -277,7 +277,7 @@ class SetInstanceDetailsAction(workflows.Action):
 
             flavor_list = [(flavor.id, "%s" % flavor.name)
                            for flavor in sorted(flavors, key=key, reverse=rev)]
-        except:
+        except Exception:
             flavor_list = []
             exceptions.handle(request,
                               _('Unable to retrieve instance flavors.'))
@@ -286,7 +286,7 @@ class SetInstanceDetailsAction(workflows.Action):
     def populate_availability_zone_choices(self, request, context):
         try:
             zones = api.nova.availability_zone_list(request)
-        except:
+        except Exception:
             zones = []
             exceptions.handle(request,
                               _('Unable to retrieve availability zones.'))
@@ -308,7 +308,7 @@ class SetInstanceDetailsAction(workflows.Action):
             flavors = json.dumps([f._info for f in
                                        api.nova.flavor_list(self.request)])
             extra['flavors'] = flavors
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
         return super(SetInstanceDetailsAction, self).get_help_text(extra)
@@ -373,7 +373,7 @@ class SetAccessControlsAction(workflows.Action):
         try:
             keypairs = api.nova.keypair_list(request)
             keypair_list = [(kp.name, kp.name) for kp in keypairs]
-        except:
+        except Exception:
             keypair_list = []
             exceptions.handle(request,
                               _('Unable to retrieve keypairs.'))
@@ -389,7 +389,7 @@ class SetAccessControlsAction(workflows.Action):
         try:
             groups = api.network.security_group_list(request)
             security_group_list = [(sg.name, sg.name) for sg in groups]
-        except:
+        except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve list of security groups'))
             security_group_list = []
@@ -465,7 +465,7 @@ class SetNetworkAction(workflows.Action):
             for n in networks:
                 n.set_id_as_name_if_empty()
             network_list = [(network.id, network.name) for network in networks]
-        except:
+        except Exception:
             network_list = []
             exceptions.handle(request,
                               _('Unable to retrieve networks.'))
@@ -550,6 +550,6 @@ class LaunchInstance(workflows.Workflow):
                                    instance_count=int(context['count']),
                                    admin_pass=context['admin_pass'])
             return True
-        except:
+        except Exception:
             exceptions.handle(request)
             return False

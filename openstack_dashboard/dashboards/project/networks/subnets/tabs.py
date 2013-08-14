@@ -37,7 +37,7 @@ class OverviewTab(tabs.Tab):
         subnet_id = self.tab_group.kwargs['subnet_id']
         try:
             subnet = api.neutron.subnet_get(self.request, subnet_id)
-        except:
+        except Exception:
             redirect = reverse('horizon:project:networks:index')
             msg = _('Unable to retrieve subnet details.')
             exceptions.handle(request, msg, redirect=redirect)

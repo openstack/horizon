@@ -41,7 +41,7 @@ class PoolsTab(tabs.TableTab):
             pools = api.lbaas.pools_get(self.tab_group.request)
             poolsFormatted = [p.readable(self.tab_group.request) for
                               p in pools]
-        except:
+        except Exception:
             poolsFormatted = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve pools list.'))
@@ -59,7 +59,7 @@ class MembersTab(tabs.TableTab):
             members = api.lbaas.members_get(self.tab_group.request)
             membersFormatted = [m.readable(self.tab_group.request) for
                                 m in members]
-        except:
+        except Exception:
             membersFormatted = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve member list.'))
@@ -76,7 +76,7 @@ class MonitorsTab(tabs.TableTab):
         try:
             monitors = api.lbaas.pool_health_monitors_get(
                 self.tab_group.request)
-        except:
+        except Exception:
             monitors = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve monitor list.'))
@@ -98,7 +98,7 @@ class PoolDetailsTab(tabs.Tab):
         pid = self.tab_group.kwargs['pool_id']
         try:
             pool = api.lbaas.pool_get(request, pid)
-        except:
+        except Exception:
             pool = []
             exceptions.handle(request,
                               _('Unable to retrieve pool details.'))
@@ -114,7 +114,7 @@ class VipDetailsTab(tabs.Tab):
         vid = self.tab_group.kwargs['vip_id']
         try:
             vip = api.lbaas.vip_get(request, vid)
-        except:
+        except Exception:
             vip = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve VIP details.'))
@@ -130,7 +130,7 @@ class MemberDetailsTab(tabs.Tab):
         mid = self.tab_group.kwargs['member_id']
         try:
             member = api.lbaas.member_get(request, mid)
-        except:
+        except Exception:
             member = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve member details.'))
@@ -146,7 +146,7 @@ class MonitorDetailsTab(tabs.Tab):
         mid = self.tab_group.kwargs['monitor_id']
         try:
             monitor = api.lbaas.pool_health_monitor_get(request, mid)
-        except:
+        except Exception:
             monitor = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve monitor details.'))

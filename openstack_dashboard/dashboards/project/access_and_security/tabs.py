@@ -48,7 +48,7 @@ class SecurityGroupsTab(tabs.TableTab):
     def get_security_groups_data(self):
         try:
             security_groups = network.security_group_list(self.request)
-        except:
+        except Exception:
             security_groups = []
             exceptions.handle(self.request,
                               _('Unable to retrieve security groups.'))
@@ -64,7 +64,7 @@ class KeypairsTab(tabs.TableTab):
     def get_keypairs_data(self):
         try:
             keypairs = nova.keypair_list(self.request)
-        except:
+        except Exception:
             keypairs = []
             exceptions.handle(self.request,
                               _('Unable to retrieve keypair list.'))
@@ -80,14 +80,14 @@ class FloatingIPsTab(tabs.TableTab):
     def get_floating_ips_data(self):
         try:
             floating_ips = network.tenant_floating_ip_list(self.request)
-        except:
+        except Exception:
             floating_ips = []
             exceptions.handle(self.request,
                               _('Unable to retrieve floating IP addresses.'))
 
         try:
             floating_ip_pools = network.floating_ip_pools_list(self.request)
-        except:
+        except Exception:
             floating_ip_pools = []
             messages.warning(self.request,
                              _('Unable to retrieve floating IP pools.'))
@@ -96,7 +96,7 @@ class FloatingIPsTab(tabs.TableTab):
         instances = []
         try:
             instances, has_more = nova.server_list(self.request)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                         _('Unable to retrieve instance list.'))
 

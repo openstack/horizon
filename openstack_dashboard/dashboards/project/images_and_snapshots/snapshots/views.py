@@ -50,7 +50,7 @@ class CreateView(forms.ModalFormView):
             try:
                 self._object = api.nova.server_get(self.request,
                                                    self.kwargs["instance_id"])
-            except:
+            except Exception:
                 redirect = reverse('horizon:project:instances:index')
                 exceptions.handle(self.request,
                                   _("Unable to retrieve instance."),

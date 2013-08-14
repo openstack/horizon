@@ -50,7 +50,7 @@ class IndexView(tables.DataTableView):
                 domains.append(domain)
             else:
                 domains = api.keystone.domain_list(self.request)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve domain list.'))
         return domains
@@ -75,7 +75,7 @@ class UpdateDomainView(workflows.WorkflowView):
                                                   domain_id)
             for field in DOMAIN_INFO_FIELDS:
                 initial[field] = getattr(domain_info, field, None)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve domain details.'),
                               redirect=reverse(DOMAINS_INDEX_URL))

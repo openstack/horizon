@@ -56,7 +56,7 @@ class ContainerView(browsers.ResourceBrowserView):
         try:
             containers, self._more = api.swift.swift_get_containers(
                 self.request, marker=marker)
-        except:
+        except Exception:
             msg = _('Unable to retrieve container list.')
             exceptions.handle(self.request, msg)
         return containers
@@ -84,7 +84,7 @@ class ContainerView(browsers.ResourceBrowserView):
                         container_name,
                         marker=marker,
                         prefix=prefix)
-                except:
+                except Exception:
                     self._more = None
                     objects = []
                     msg = _('Unable to retrieve object list.')
@@ -169,7 +169,7 @@ class UploadView(forms.ModalFormView):
 def object_download(request, container_name, object_path):
     try:
         obj = api.swift.swift_get_object(request, container_name, object_path)
-    except:
+    except Exception:
         redirect = reverse("horizon:project:containers:index")
         exceptions.handle(request,
                           _("Unable to retrieve object."),
@@ -204,7 +204,7 @@ class CopyView(forms.ModalFormView):
         kwargs = super(CopyView, self).get_form_kwargs()
         try:
             containers = api.swift.swift_get_containers(self.request)
-        except:
+        except Exception:
             redirect = reverse("horizon:project:containers:index")
             exceptions.handle(self.request,
                               _('Unable to list containers.'),

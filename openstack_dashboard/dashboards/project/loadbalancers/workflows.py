@@ -49,7 +49,7 @@ class AddPoolAction(workflows.Action):
         subnet_id_choices = [('', _("Select a Subnet"))]
         try:
             networks = api.neutron.network_list_for_tenant(request, tenant_id)
-        except:
+        except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve networks list.'))
             networks = []
@@ -109,7 +109,7 @@ class AddPool(workflows.Workflow):
         try:
             api.lbaas.pool_create(request, **context)
             return True
-        except:
+        except Exception:
             return False
 
 
@@ -225,7 +225,7 @@ class AddVip(workflows.Workflow):
         try:
             pool = api.lbaas.pool_get(request, context['pool_id'])
             context['subnet_id'] = pool['subnet_id']
-        except:
+        except Exception:
             context['subnet_id'] = None
             self.failure_message = _('Unable to retrieve the specified pool. '
                                      'Unable to add VIP "%s".')
@@ -245,7 +245,7 @@ class AddVip(workflows.Workflow):
         try:
             api.lbaas.vip_create(request, **context)
             return True
-        except:
+        except Exception:
             return False
 
 
@@ -275,7 +275,7 @@ class AddMemberAction(workflows.Action):
         pool_id_choices = [('', _("Select a Pool"))]
         try:
             pools = api.lbaas.pools_get(request)
-        except:
+        except Exception:
             pools = []
             exceptions.handle(request,
                               _('Unable to retrieve pools list.'))
@@ -288,7 +288,7 @@ class AddMemberAction(workflows.Action):
         members_choices = []
         try:
             servers, has_more = api.nova.server_list(request)
-        except:
+        except Exception:
             servers = []
             exceptions.handle(request,
                               _('Unable to retrieve instances list.'))
@@ -345,14 +345,14 @@ class AddMember(workflows.Workflow):
             params = {'device_id': m}
             try:
                 plist = api.neutron.port_list(request, **params)
-            except:
+            except Exception:
                 return False
             if plist:
                 context['address'] = plist[0].fixed_ips[0]['ip_address']
             try:
                 context['member_id'] = api.lbaas.member_create(
                     request, **context).id
-            except:
+            except Exception:
                 return False
         return True
 
@@ -486,7 +486,7 @@ class AddMonitor(workflows.Workflow):
             context['monitor_id'] = api.lbaas.pool_health_monitor_create(
                 request, **context).get('id')
             return True
-        except:
+        except Exception:
             exceptions.handle(request, _("Unable to add monitor."))
         return False
 
@@ -507,7 +507,7 @@ class AddPMAssociationAction(workflows.Action):
             for m in monitors:
                 if m.id not in context['pool_monitors']:
                     monitor_id_choices.append((m.id, m.id))
-        except:
+        except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve monitors list.'))
         self.fields['monitor_id'].choices = monitor_id_choices
@@ -545,7 +545,7 @@ class AddPMAssociation(workflows.Workflow):
             context['monitor_id'] = api.lbaas.pool_monitor_association_create(
                 request, **context)
             return True
-        except:
+        except Exception:
             exceptions.handle(request, _("Unable to add association."))
         return False
 
@@ -565,7 +565,7 @@ class DeletePMAssociationAction(workflows.Action):
         try:
             for m_id in context['pool_monitors']:
                 monitor_id_choices.append((m_id, m_id))
-        except:
+        except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve monitors list.'))
         self.fields['monitor_id'].choices = monitor_id_choices
@@ -604,6 +604,6 @@ class DeletePMAssociation(workflows.Workflow):
             context['monitor_id'] = api.lbaas.pool_monitor_association_delete(
                 request, **context)
             return True
-        except:
+        except Exception:
             exceptions.handle(request, _("Unable to delete association."))
         return False

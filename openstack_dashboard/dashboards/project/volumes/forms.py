@@ -95,14 +95,14 @@ class CreateForm(forms.SelfHandlingForm):
                     orig_volume = cinder.volume_get(request,
                                                     snapshot.volume_id)
                     self.fields['type'].initial = orig_volume.volume_type
-                except:
+                except Exception:
                     pass
                 self.fields['size'].help_text = _('Volume size must be equal '
                                 'to or greater than the snapshot size (%sGB)'
                                 % snapshot.size)
                 del self.fields['image_source']
                 del self.fields['volume_source_type']
-            except:
+            except Exception:
                 exceptions.handle(request,
                                   _('Unable to load the specified snapshot.'))
         elif ('image_id' in request.GET):
@@ -118,7 +118,7 @@ class CreateForm(forms.SelfHandlingForm):
                                 % filesizeformat(image.size))
                 del self.fields['snapshot_source']
                 del self.fields['volume_source_type']
-            except:
+            except Exception:
                 msg = _('Unable to load the specified image. %s')
                 exceptions.handle(request, msg % request.GET['image_id'])
         else:
@@ -134,7 +134,7 @@ class CreateForm(forms.SelfHandlingForm):
                     self.fields['snapshot_source'].choices = choices
                 else:
                     del self.fields['snapshot_source']
-            except:
+            except Exception:
                 exceptions.handle(request, _("Unable to retrieve "
                         "volume snapshots."))
 
@@ -236,7 +236,7 @@ class CreateForm(forms.SelfHandlingForm):
         except ValidationError as e:
             self.api_error(e.messages[0])
             return False
-        except:
+        except Exception:
             exceptions.handle(request, ignore=True)
             self.api_error(_("Unable to create volume."))
             return False
@@ -316,7 +316,7 @@ class AttachForm(forms.SelfHandlingForm):
                                                     "dev": attach.device}
             messages.info(request, message)
             return True
-        except:
+        except Exception:
             redirect = reverse("horizon:project:volumes:index")
             exceptions.handle(request,
                               _('Unable to attach volume.'),
@@ -346,7 +346,7 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
             message = _('Creating volume snapshot "%s"') % data['name']
             messages.info(request, message)
             return snapshot
-        except:
+        except Exception:
             redirect = reverse("horizon:project:images_and_snapshots:index")
             exceptions.handle(request,
                               _('Unable to create volume snapshot.'),

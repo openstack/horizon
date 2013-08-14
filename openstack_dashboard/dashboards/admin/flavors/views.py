@@ -46,7 +46,7 @@ class IndexView(tables.DataTableView):
         flavors = []
         try:
             flavors = api.nova.flavor_list(request)
-        except:
+        except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve flavor list.'))
         # Sort flavors by size
@@ -73,7 +73,7 @@ class EditView(forms.ModalFormView):
     def get_initial(self):
         try:
             flavor = api.nova.flavor_get(self.request, self.kwargs['id'])
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve flavor data."))
         return {'flavor_id': flavor.id,

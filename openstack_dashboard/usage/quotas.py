@@ -131,7 +131,7 @@ def tenant_quota_usages(request):
         if missing not in flavors:
             try:
                 flavors[missing] = nova.flavor_get(request, missing)
-            except:
+            except Exception:
                 flavors[missing] = {}
                 exceptions.handle(request, ignore=True)
 

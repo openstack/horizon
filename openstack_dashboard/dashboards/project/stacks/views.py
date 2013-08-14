@@ -48,7 +48,7 @@ class IndexView(tables.DataTableView):
         request = self.request
         try:
             stacks = api.heat.stacks_list(self.request)
-        except:
+        except Exception:
             exceptions.handle(request, _('Unable to retrieve stack list.'))
             stacks = []
         return stacks
@@ -107,7 +107,7 @@ class DetailView(tabs.TabView):
                 self._stack = stack
                 request.session['stack_id'] = stack.id
                 request.session['stack_name'] = stack.stack_name
-            except:
+            except Exception:
                 msg = _("Unable to retrieve stack.")
                 redirect = reverse('horizon:project:stacks:index')
                 exceptions.handle(request, msg, redirect=redirect)
@@ -136,7 +136,7 @@ class ResourceView(tabs.TabView):
                     kwargs['stack_id'],
                     kwargs['resource_name'])
                 self._resource = resource
-            except:
+            except Exception:
                 msg = _("Unable to retrieve resource.")
                 redirect = reverse('horizon:project:stacks:index')
                 exceptions.handle(request, msg, redirect=redirect)
@@ -150,7 +150,7 @@ class ResourceView(tabs.TabView):
                     kwargs['stack_id'],
                     kwargs['resource_name'])
                 self._metadata = json.dumps(metadata, indent=2)
-            except:
+            except Exception:
                 msg = _("Unable to retrieve metadata.")
                 redirect = reverse('horizon:project:stacks:index')
                 exceptions.handle(request, msg, redirect=redirect)

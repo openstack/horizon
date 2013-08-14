@@ -89,7 +89,7 @@ class ModalFormView(ModalFormMixin, generic.FormView):
     def form_valid(self, form):
         try:
             handled = form.handle(self.request, form.cleaned_data)
-        except:
+        except Exception:
             handled = None
             exceptions.handle(self.request)
 

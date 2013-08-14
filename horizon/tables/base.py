@@ -565,7 +565,7 @@ class Cell(html.HTMLElement):
                     data = self.column.empty_value(self.datum)
                 else:
                     data = self.column.empty_value
-        except:
+        except Exception:
             data = None
             exc_info = sys.exc_info()
             raise template.TemplateSyntaxError, exc_info[1], exc_info[2]
@@ -1210,7 +1210,7 @@ class DataTable(object):
                     datum = new_row.get_data(request, obj_id)
                     new_row.load_cells(datum)
                     error = False
-                except:
+                except Exception:
                     datum = None
                     error = exceptions.handle(request, ignore=True)
                 if request.is_ajax():
@@ -1344,7 +1344,7 @@ class DataTable(object):
                     self.selected = True
                     row.classes.append('current_selected')
                 rows.append(row)
-        except:
+        except Exception:
             # Exceptions can be swallowed at the template level here,
             # re-raising as a TemplateSyntaxError makes them visible.
             LOG.exception("Error while rendering table rows.")

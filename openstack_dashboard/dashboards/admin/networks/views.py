@@ -47,7 +47,7 @@ class IndexView(tables.DataTableView):
         if not hasattr(self, "_tenants"):
             try:
                 tenants, has_more = api.keystone.tenant_list(self.request)
-            except:
+            except Exception:
                 tenants = []
                 msg = _('Unable to retrieve instance project information.')
                 exceptions.handle(self.request, msg)
@@ -59,7 +59,7 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         try:
             networks = api.neutron.network_list(self.request)
-        except:
+        except Exception:
             networks = []
             msg = _('Network list can not be retrieved.')
             exceptions.handle(self.request, msg)
@@ -90,7 +90,7 @@ class DetailView(tables.MultiTableView):
             network_id = self.kwargs['network_id']
             subnets = api.neutron.subnet_list(self.request,
                                               network_id=network_id)
-        except:
+        except Exception:
             subnets = []
             msg = _('Subnet list can not be retrieved.')
             exceptions.handle(self.request, msg)
@@ -102,7 +102,7 @@ class DetailView(tables.MultiTableView):
         try:
             network_id = self.kwargs['network_id']
             ports = api.neutron.port_list(self.request, network_id=network_id)
-        except:
+        except Exception:
             ports = []
             msg = _('Port list can not be retrieved.')
             exceptions.handle(self.request, msg)
@@ -116,7 +116,7 @@ class DetailView(tables.MultiTableView):
                 network_id = self.kwargs['network_id']
                 network = api.neutron.network_get(self.request, network_id)
                 network.set_id_as_name_if_empty(length=0)
-            except:
+            except Exception:
                 redirect = self.failure_url
                 exceptions.handle(self.request,
                                   _('Unable to retrieve details for '

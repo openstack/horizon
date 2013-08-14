@@ -51,7 +51,7 @@ class AddInterfaceView(forms.ModalFormView):
                 router_id = self.kwargs["router_id"]
                 self._object = api.neutron.router_get(self.request,
                                                       router_id)
-            except:
+            except Exception:
                 redirect = reverse(self.failure_url, args=[router_id])
                 msg = _("Unable to retrieve router.")
                 exceptions.handle(self.request, msg, redirect=redirect)
@@ -83,7 +83,7 @@ class SetGatewayView(forms.ModalFormView):
                 router_id = self.kwargs["router_id"]
                 self._object = api.neutron.router_get(self.request,
                                                       router_id)
-            except:
+            except Exception:
                 redirect = reverse(self.failure_url)
                 msg = _("Unable to set gateway.")
                 exceptions.handle(self.request, msg, redirect=redirect)

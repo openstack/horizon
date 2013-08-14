@@ -53,7 +53,7 @@ class UserSettingsForm(forms.SelfHandlingForm):
             try:
                 utc_offset = pytz.timezone(tz).localize(d).strftime('%z')
                 utc_offset = " (UTC %s:%s)" % (utc_offset[:3], utc_offset[3:])
-            except:
+            except Exception:
                 utc_offset = ""
 
             if tz != "UTC":

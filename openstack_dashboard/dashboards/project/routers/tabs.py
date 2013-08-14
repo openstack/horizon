@@ -32,7 +32,7 @@ class OverviewTab(tabs.Tab):
         router_id = self.tab_group.kwargs['router_id']
         try:
             router = api.neutron.router_get(request, router_id)
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve router details.'),
                               redirect=reverse(self.redirect_url))

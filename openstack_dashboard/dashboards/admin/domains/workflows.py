@@ -76,7 +76,7 @@ class CreateDomain(workflows.Workflow):
                                        name=data['name'],
                                        description=desc,
                                        enabled=data['enabled'])
-        except:
+        except Exception:
             exceptions.handle(request, ignore=True)
             return False
 
@@ -121,7 +121,7 @@ class UpdateDomain(workflows.Workflow):
                                        name=data['name'],
                                        description=data['description'],
                                        enabled=data['enabled'])
-        except:
+        except Exception:
             exceptions.handle(request, ignore=True)
             return False
         return True

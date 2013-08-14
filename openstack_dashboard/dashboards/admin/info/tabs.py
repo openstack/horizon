@@ -39,7 +39,7 @@ class DefaultQuotasTab(tabs.TableTab):
         try:
             quota_set = quotas.get_default_quota_data(request)
             data = quota_set.items
-        except:
+        except Exception:
             data = []
             exceptions.handle(self.request, _('Unable to get quota info.'))
         return data

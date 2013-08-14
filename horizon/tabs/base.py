@@ -117,7 +117,7 @@ class TabGroup(html.HTMLElement):
             if tab.load and not tab.data_loaded:
                 try:
                     tab._data = tab.get_context_data(self.request)
-                except:
+                except Exception:
                     tab._data = False
                     exceptions.handle(self.request)
 
@@ -303,7 +303,7 @@ class Tab(html.HTMLElement):
             context = self.data
         except exceptions.Http302:
             raise
-        except:
+        except Exception:
             exc_type, exc_value, exc_traceback = sys.exc_info()
             raise TemplateSyntaxError, exc_value, exc_traceback
         return render_to_string(self.get_template_name(self.request), context)

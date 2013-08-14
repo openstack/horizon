@@ -91,7 +91,7 @@ class DisassociateIP(tables.Action):
             messages.success(request,
                              _('Successfully disassociated Floating IP: %s')
                              % fip.ip)
-        except:
+        except Exception:
             exceptions.handle(request,
                               _('Unable to disassociate floating IP.'))
         return shortcuts.redirect('horizon:project:access_and_security:index')

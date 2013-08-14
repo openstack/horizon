@@ -59,7 +59,7 @@ class CreateFlavor(forms.SelfHandlingForm):
         name = self.cleaned_data.get('name')
         try:
             flavors = api.nova.flavor_list(self.request)
-        except:
+        except Exception:
             flavors = []
             msg = _('Unable to get flavor list')
             exceptions.check_message(["Connection", "refused"], msg)
@@ -77,7 +77,7 @@ class CreateFlavor(forms.SelfHandlingForm):
         flavor_id = self.data.get('flavor_id')
         try:
             flavors = api.nova.flavor_list(self.request)
-        except:
+        except Exception:
             flavors = []
             msg = _('Unable to get flavor list')
             exceptions.check_message(["Connection", "refused"], msg)
@@ -104,7 +104,7 @@ class CreateFlavor(forms.SelfHandlingForm):
             msg = _('Created flavor "%s".') % data['name']
             messages.success(request, msg)
             return flavor
-        except:
+        except Exception:
             exceptions.handle(request, _("Unable to create flavor."))
 
 
@@ -140,5 +140,5 @@ class EditFlavor(CreateFlavor):
             msg = _('Updated flavor "%s".') % data['name']
             messages.success(request, msg)
             return flavor
-        except:
+        except Exception:
             exceptions.handle(request, _("Unable to update flavor."))

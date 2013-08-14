@@ -208,7 +208,7 @@ class LaunchLink(tables.LinkAction):
                 self.verbose_name = _("Launch Instance")
                 classes = [c for c in self.classes if c != "disabled"]
                 self.classes = classes
-        except:
+        except Exception:
             LOG.exception("Failed to retrieve quota information")
             # If we can't get the quota information, leave it to the
             # API to check when launching
@@ -376,7 +376,7 @@ class SimpleAssociateIP(tables.Action):
             messages.success(request,
                              _("Successfully associated floating IP: %s")
                              % fip.ip)
-        except:
+        except Exception:
             exceptions.handle(request,
                               _("Unable to associate floating IP."))
         return shortcuts.redirect("horizon:project:instances:index")
@@ -413,7 +413,7 @@ class SimpleDisassociateIP(tables.Action):
                                    "floating IP: %s") % fip.ip)
             else:
                 messages.info(request, _("No floating IPs to disassociate."))
-        except:
+        except Exception:
             exceptions.handle(request,
                               _("Unable to disassociate floating IP."))
         return shortcuts.redirect("horizon:project:instances:index")

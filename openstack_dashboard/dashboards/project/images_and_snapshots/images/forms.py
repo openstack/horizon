@@ -157,7 +157,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                 _('Your image %s has been queued for creation.') %
                     data['name'])
             return image
-        except:
+        except Exception:
             exceptions.handle(request, _('Unable to create new image.'))
 
 
@@ -219,5 +219,5 @@ class UpdateImageForm(forms.SelfHandlingForm):
             image = api.glance.image_update(request, image_id, **meta)
             messages.success(request, _('Image was successfully updated.'))
             return image
-        except:
+        except Exception:
             exceptions.handle(request, error_updating % image_id)

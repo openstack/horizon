@@ -68,7 +68,7 @@ class CreateContainer(forms.SelfHandlingForm):
                                                  subfolder_name)
                 messages.success(request, _("Folder created successfully."))
             return True
-        except:
+        except Exception:
             exceptions.handle(request, _('Unable to create container.'))
 
 
@@ -97,7 +97,7 @@ class UploadObject(forms.SelfHandlingForm):
                                                 object_file)
             messages.success(request, _("Object was successfully uploaded."))
             return obj
-        except:
+        except Exception:
             exceptions.handle(request, _("Unable to upload object."))
 
 
@@ -146,7 +146,7 @@ class CopyObject(forms.SelfHandlingForm):
             messages.error(request, exc)
             raise exceptions.Http302(reverse(index,
                                      args=[wrap_delimiter(orig_container)]))
-        except:
+        except Exception:
             redirect = reverse(index, args=[wrap_delimiter(orig_container)])
             exceptions.handle(request,
                               _("Unable to copy object."),

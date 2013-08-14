@@ -33,7 +33,7 @@ class CreateForm(forms.SelfHandlingForm):
             message = _('Router %s was successfully created.') % data['name']
             messages.success(request, message)
             return router
-        except:
+        except Exception:
             msg = _('Failed to create router "%s".') % data['name']
             LOG.info(msg)
             redirect = reverse(self.failure_url)

@@ -49,7 +49,7 @@ class UpdateView(forms.ModalFormView):
             port_id = self.kwargs['port_id']
             try:
                 self._object = api.neutron.port_get(self.request, port_id)
-            except:
+            except Exception:
                 redirect = reverse("horizon:project:networks:detail",
                                    args=(self.kwargs['network_id'],))
                 msg = _('Unable to retrieve port details')

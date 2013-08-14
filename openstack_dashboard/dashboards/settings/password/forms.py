@@ -57,7 +57,7 @@ class PasswordForm(forms.SelfHandlingForm):
                                                     data['current_password'],
                                                     data['new_password'])
                 messages.success(request, _('Password changed.'))
-            except:
+            except Exception:
                 exceptions.handle(request,
                                   _('Unable to change password.'))
                 return False

@@ -35,7 +35,7 @@ class OverviewTab(tabs.Tab):
             snapshot = cinder.volume_snapshot_get(request, snapshot_id)
             volume = cinder.volume_get(request, snapshot.volume_id)
             volume.display_name = None
-        except:
+        except Exception:
             redirect = reverse('horizon:project:images_and_snapshots:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve snapshot details.'),

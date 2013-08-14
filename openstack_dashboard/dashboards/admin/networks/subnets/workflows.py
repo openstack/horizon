@@ -44,7 +44,7 @@ class CreateSubnet(project_workflows.CreateSubnet):
             # created for if admin user does not belong to the tenant.
             network = api.neutron.network_get(request,
                                               self.context['network_id'])
-        except:
+        except Exception:
             msg = (_('Failed to retrieve network %s for a subnet') %
                    data['network_id'])
             LOG.info(msg)

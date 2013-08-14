@@ -50,7 +50,7 @@ class CreateView(forms.ModalFormView):
                 network_id = self.kwargs["network_id"]
                 self._object = api.neutron.network_get(self.request,
                                                        network_id)
-            except:
+            except Exception:
                 redirect = reverse(self.failure_url,
                                    args=(self.kwargs['network_id'],))
                 msg = _("Unable to retrieve network.")

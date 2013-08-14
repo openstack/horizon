@@ -64,7 +64,7 @@ class IndexView(tables.DataTableView):
                     if group.domain_id == domain_context:
                         domain_groups.append(group)
                 groups = domain_groups
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve group list.'))
         return groups
@@ -86,7 +86,7 @@ class UpdateView(forms.ModalFormView):
             try:
                 self._object = api.keystone.group_get(self.request,
                                                       self.kwargs['group_id'])
-            except:
+            except Exception:
                 redirect = reverse(GROUPS_INDEX_URL)
                 exceptions.handle(self.request,
                                   _('Unable to update group.'),
@@ -144,7 +144,7 @@ class ManageMembersView(GroupManageMixin, tables.DataTableView):
         group_members = []
         try:
             group_members = self._get_group_members()
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve group users.'))
         return group_members
@@ -165,7 +165,7 @@ class NonMembersView(GroupManageMixin, forms.ModalFormMixin,
         group_non_members = []
         try:
             group_non_members = self._get_group_non_members()
-        except:
+        except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve users.'))
         return group_non_members

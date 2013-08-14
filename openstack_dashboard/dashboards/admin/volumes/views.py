@@ -53,7 +53,7 @@ class IndexView(tables.MultiTableView, VolumeTableMixIn):
         # Gather our tenants to correlate against IDs
         try:
             tenants, has_more = keystone.tenant_list(self.request)
-        except:
+        except Exception:
             tenants = []
             msg = _('Unable to retrieve volume project information.')
             exceptions.handle(self.request, msg)
@@ -69,7 +69,7 @@ class IndexView(tables.MultiTableView, VolumeTableMixIn):
     def get_volume_types_data(self):
         try:
             volume_types = cinder.volume_type_list(self.request)
-        except:
+        except Exception:
             volume_types = []
             exceptions.handle(self.request,
                               _("Unable to retrieve volume types"))

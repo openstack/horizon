@@ -52,7 +52,7 @@ def download_ec2_bundle(request):
             keys = api.keystone.create_ec2_credentials(request,
                                                        request.user.id,
                                                        tenant_id)
-    except:
+    except Exception:
         exceptions.handle(request,
                           _('Unable to fetch EC2 credentials.'),
                           redirect=request.build_absolute_uri())
@@ -88,7 +88,7 @@ def download_ec2_bundle(request):
             archive.writestr('cert.pem', credentials.data)
             archive.writestr('cacert.pem', cacert.data)
             archive.writestr('ec2rc.sh', render_to_string(template, context))
-    except:
+    except Exception:
         exceptions.handle(request,
                           _('Error writing zipfile: %(exc)s'),
                           redirect=request.build_absolute_uri())

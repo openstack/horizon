@@ -165,7 +165,7 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
             try:
                 ip_proto = int(self.ip_protocol)
                 proto_port = "ip_proto=%d" % ip_proto
-            except:
+            except Exception:
                 # well-defined IP protocol name like TCP, UDP, ICMP.
                 proto_port = self.ip_protocol
         else:

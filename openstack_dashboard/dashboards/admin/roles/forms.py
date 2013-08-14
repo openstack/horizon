@@ -31,7 +31,7 @@ class CreateRoleForm(forms.SelfHandlingForm):
             new_user = api.keystone.role_create(request, data["name"])
             messages.success(request, _("Role created successfully."))
             return new_user
-        except:
+        except Exception:
             exceptions.handle(request, _('Unable to create role.'))
 
 
@@ -44,5 +44,5 @@ class UpdateRoleForm(forms.SelfHandlingForm):
             api.keystone.role_update(request, data['id'], data["name"])
             messages.success(request, _("Role updated successfully."))
             return True
-        except:
+        except Exception:
             exceptions.handle(request, _('Unable to update role.'))

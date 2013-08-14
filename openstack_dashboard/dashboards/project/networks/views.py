@@ -52,7 +52,7 @@ class IndexView(tables.DataTableView):
             tenant_id = self.request.user.tenant_id
             networks = api.neutron.network_list_for_tenant(self.request,
                                                            tenant_id)
-        except:
+        except Exception:
             networks = []
             msg = _('Network list can not be retrieved.')
             exceptions.handle(self.request, msg)
@@ -85,7 +85,7 @@ class UpdateView(forms.ModalFormView):
             try:
                 self._object = api.neutron.network_get(self.request,
                                                        network_id)
-            except:
+            except Exception:
                 redirect = self.success_url
                 msg = _('Unable to retrieve network details.')
                 exceptions.handle(self.request, msg, redirect=redirect)
@@ -109,7 +109,7 @@ class DetailView(tables.MultiTableView):
             network = self._get_data()
             subnets = api.neutron.subnet_list(self.request,
                                               network_id=network.id)
-        except:
+        except Exception:
             subnets = []
             msg = _('Subnet list can not be retrieved.')
             exceptions.handle(self.request, msg)
@@ -121,7 +121,7 @@ class DetailView(tables.MultiTableView):
         try:
             network_id = self.kwargs['network_id']
             ports = api.neutron.port_list(self.request, network_id=network_id)
-        except:
+        except Exception:
             ports = []
             msg = _('Port list can not be retrieved.')
             exceptions.handle(self.request, msg)
@@ -135,7 +135,7 @@ class DetailView(tables.MultiTableView):
                 network_id = self.kwargs['network_id']
                 network = api.neutron.network_get(self.request, network_id)
                 network.set_id_as_name_if_empty(length=0)
-            except:
+            except Exception:
                 msg = _('Unable to retrieve details for network "%s".') \
                       % (network_id)
                 exceptions.handle(self.request, msg, redirect=self.failure_url)

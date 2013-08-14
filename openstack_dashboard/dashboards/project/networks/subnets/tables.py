@@ -48,7 +48,7 @@ class DeleteSubnet(CheckNetworkEditable, tables.DeleteAction):
     def delete(self, request, obj_id):
         try:
             api.neutron.subnet_delete(request, obj_id)
-        except:
+        except Exception:
             msg = _('Failed to delete subnet %s') % obj_id
             LOG.info(msg)
             network_id = self.table.kwargs['network_id']
@@ -93,7 +93,7 @@ class SubnetsTable(tables.DataTable):
                 network_id = self.kwargs['network_id']
                 network = api.neutron.network_get(self.request, network_id)
                 network.set_id_as_name_if_empty(length=0)
-            except:
+            except Exception:
                 msg = _('Unable to retrieve details for network "%s".') \
                       % (network_id)
                 exceptions.handle(self.request, msg, redirect=self.failure_url)

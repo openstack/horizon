@@ -45,7 +45,7 @@ class DeleteVolume(tables.DeleteAction):
         name = self.table.get_object_display(obj)
         try:
             cinder.volume_delete(request, obj_id)
-        except:
+        except Exception:
             msg = _('Unable to delete volume "%s". One or more snapshots '
                     'depend on it.')
             exceptions.check_message(["snapshots", "dependent"], msg % name)
@@ -106,7 +106,7 @@ def get_attachment_name(request, attachment):
         try:
             server = api.nova.server_get(request, server_id)
             name = server.name
-        except:
+        except Exception:
             name = None
             exceptions.handle(request, _("Unable to retrieve "
                                          "attachment information."))
