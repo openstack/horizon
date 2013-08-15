@@ -46,25 +46,24 @@ class HorizonMiddleware(object):
 
     def process_request(self, request):
         """ Adds data necessary for Horizon to function to the request. """
-        if hasattr(request, "user") and request.user.is_authenticated():
-            # Activate timezone handling
-            tz = request.session.get('django_timezone')
-            if tz:
-                timezone.activate(tz)
+        # Activate timezone handling
+        tz = request.session.get('django_timezone')
+        if tz:
+            timezone.activate(tz)
 
-            # Check for session timeout
-            timeout = 1800
-            try:
-                timeout = settings.SESSION_TIMEOUT
-            except AttributeError:
-                pass
+        # Check for session timeout
+        timeout = 1800
+        try:
+            timeout = settings.SESSION_TIMEOUT
+        except AttributeError:
+            pass
 
-            last_activity = request.session.get('last_activity', None)
-            timestamp = datetime.datetime.now()
-            if last_activity and (timestamp - last_activity).seconds > timeout:
-                request.session.pop('last_activity')
-                return HttpResponseRedirect(settings.LOGOUT_URL)
-            request.session['last_activity'] = timestamp
+        last_activity = request.session.get('last_activity', None)
+        timestamp = datetime.datetime.now()
+        if last_activity and (timestamp - last_activity).seconds > timeout:
+            request.session.pop('last_activity')
+            return HttpResponseRedirect(settings.LOGOUT_URL)
+        request.session['last_activity'] = timestamp
 
         request.horizon = {'dashboard': None,
                            'panel': None,
