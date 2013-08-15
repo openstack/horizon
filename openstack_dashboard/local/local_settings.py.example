@@ -208,6 +208,13 @@ TIME_ZONE = "UTC"
 #    'compute': 'nova_policy.json'
 #}
 
+# Trove user and database extension support. By default support for
+# creating users and databases on database instances is turned on.
+# To disable these extensions set the permission here to something
+# unusable such as ["!"].
+# TROVE_ADD_USER_PERMS = []
+# TROVE_ADD_DATABASE_PERMS = []
+
 LOGGING = {
     'version': 1,
     # When set to True this will disable all logging except

@@ -19,6 +19,7 @@ from keystoneclient import exceptions as keystone_exceptions
 from neutronclient.common import exceptions as neutron_exceptions
 from novaclient import exceptions as nova_exceptions
 from swiftclient import client as swift_exceptions
+from troveclient import exceptions as trove_exceptions
 
 from openstack_dashboard.test.test_data import utils
 
@@ -72,3 +73,9 @@ def data(TEST):
 
     cinder_exception = cinder_exceptions.BadRequest
     TEST.exceptions.cinder = create_stubbed_exception(cinder_exception)
+
+    trove_exception = trove_exceptions.ClientException
+    TEST.exceptions.trove = create_stubbed_exception(trove_exception)
+
+    trove_auth = trove_exceptions.Unauthorized
+    TEST.exceptions.trove_unauthorized = create_stubbed_exception(trove_auth)

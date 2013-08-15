@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n sizeformat %}
+{% block title %}{% trans "Database Detail" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title="Database Detail: "|add:instance.name %}
+{% endblock page_header %}
+
+{% block main %}
+<div class="row-fluid">
+  <div class="span12">
+  {{ tab_group.render }}
+  </div>
+</div>
+{% endblock %}

@@ -53,7 +53,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
                                   '<Service: network>',
                                   '<Service: ec2>',
                                   '<Service: metering>',
-                                  '<Service: orchestration>'])
+                                  '<Service: orchestration>',
+                                  '<Service: database>'])
 
         zones_tab = res.context['tab_group'].get_tab('zones')
         self.assertQuerysetEqual(zones_tab._tables['zones'].data,

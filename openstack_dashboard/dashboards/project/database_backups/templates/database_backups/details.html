@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load i18n sizeformat %}
+{% block title %}{% trans "Backup Detail" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title="Backup Detail: "|add:backup.name %}
+{% endblock page_header %}
+
+{% block main %}
+<div class="row-fluid">
+  <div class="span12">
+    <h3>{% trans "Backup Overview" %}</h3>
+
+    <div class="status row-fluid detail">
+      <h4>{% trans "Info" %}</h4>
+      <hr class="header_rule">
+      <dl>
+        <dt>{% trans "Name" %}</dt>
+        <dd>{{ backup.name }}</dd>
+        <dt>{% trans "Description" %}</dt>
+        <dd>{{ backup.description|linebreaksbr }}</dd>
+        <dt>{% trans "ID" %}</dt>
+        <dd>{{ backup.id }}</dd>
+        <dt>{% trans "Status" %}</dt>
+        <dd>{{ backup.status|title }}</dd>
+        <dt>{% trans "Backup File Location" %}</dt>
+        <dd>{{ backup.locationRef }}</dd>
+        <dt>{% trans "Initial Volume Size" %}</dt>
+        <dd>{{ backup.size }} {% trans "GB" %}</dd>
+        <dt>{% trans "Created On" %}</dt>
+        <dd>{{ backup.updated_at|date:"N jS, Y P" }}</dd>
+        <dt>{% trans "Backup Duration" %}</dt>
+        <dd>{{ backup.duration }}</dd>
+      </dl>
+    </div>
+
+    {% if instance %}
+    <div class="addresses row-fluid detail">
+      <h4>{% trans "Database Info" %}</h4>
+      <hr class="header_rule">
+      <dl>
+        <dt>{% trans "Name" %}</dt>
+        <dd>{{ instance.name }}</dd>
+        <dt>{% trans "ID" %}</dt>
+        <dd>{{ instance.id }}</dd>
+        <dt>{% trans "Status" %}</dt>
+        <dd>{{ instance.status|title }}</dd>
+      </dl>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
