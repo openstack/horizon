@@ -10,6 +10,11 @@ correctly and consistently, table- and row-level actions all have a consistent
 API and appearance, and generally you don't have to reinvent the wheel or
 copy-and-paste every time you need a new table!
 
+  .. seealso::
+
+    For usage information, tips & tricks and more examples check out the :doc:`DataTables Topic
+    Guide </topics/tables>`.
+
 DataTable
 =========
 
