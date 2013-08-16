@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Rebuild Instance" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Rebuild Instance") %}
+{% endblock %}
+
+{% block main %}
+  {% include "project/instances/_rebuild.html" %}
+{% endblock %}

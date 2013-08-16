@@ -31,11 +31,14 @@ from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon import forms
 from horizon import tables
 from horizon import tabs
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.instances.forms import \
+    RebuildInstanceForm
 from openstack_dashboard.dashboards.project.instances.tables import \
     InstancesTable
 from openstack_dashboard.dashboards.project.instances.tabs import \
@@ -174,6 +177,20 @@ class UpdateView(workflows.WorkflowView):
         initial.update({'instance_id': self.kwargs['instance_id'],
                 'name': getattr(self.get_object(), 'name', '')})
         return initial
+
+
+class RebuildView(forms.ModalFormView):
+    form_class = RebuildInstanceForm
+    template_name = 'project/instances/rebuild.html'
+    success_url = reverse_lazy('horizon:project:instances:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(RebuildView, self).get_context_data(**kwargs)
+        context['instance_id'] = self.kwargs['instance_id']
+        return context
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs['instance_id']}
 
 
 class DetailView(tabs.TabView):

@@ -511,6 +511,11 @@ def server_reboot(request, instance_id, hardness=REBOOT_HARD):
     server.reboot(hardness)
 
 
+def server_rebuild(request, instance_id, image_id, password=None):
+    return novaclient(request).servers.rebuild(instance_id, image_id,
+                                               password)
+
+
 def server_update(request, instance_id, name):
     return novaclient(request).servers.update(instance_id, name=name)
 
