@@ -119,3 +119,9 @@ NOSE_ARGS = ['--nocapture',
              '--cover-package=openstack_dashboard',
              '--cover-inclusive',
              '--all-modules']
+
+POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
+POLICY_FILES = {
+    'identity': 'keystone_policy.json',
+    'compute': 'nova_policy.json'
+}

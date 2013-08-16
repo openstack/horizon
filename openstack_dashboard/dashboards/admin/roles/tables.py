@@ -31,6 +31,7 @@ class CreateRoleLink(tables.LinkAction):
     verbose_name = _("Create Role")
     url = "horizon:admin:roles:create"
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("identity", "identity:create_role"),)
 
     def allowed(self, request, role):
         return api.keystone.keystone_can_edit_role()
@@ -41,6 +42,7 @@ class EditRoleLink(tables.LinkAction):
     verbose_name = _("Edit")
     url = "horizon:admin:roles:update"
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (("identity", "identity:update_role"),)
 
     def allowed(self, request, role):
         return api.keystone.keystone_can_edit_role()
@@ -49,6 +51,7 @@ class EditRoleLink(tables.LinkAction):
 class DeleteRolesAction(tables.DeleteAction):
     data_type_singular = _("Role")
     data_type_plural = _("Roles")
+    policy_rules = (("identity", "identity:delete_role"),)
 
     def allowed(self, request, role):
         return api.keystone.keystone_can_edit_role()

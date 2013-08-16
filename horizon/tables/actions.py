@@ -43,6 +43,7 @@ class BaseAction(html.HTMLElement):
     handles_multiple = False
     requires_input = False
     preempt = False
+    policy_rules = None
 
     def __init__(self, datum=None):
         super(BaseAction, self).__init__()
@@ -63,6 +64,14 @@ class BaseAction(html.HTMLElement):
                     return False
         return True
 
+    def get_policy_target(self, request, datum):
+        """ Provide the target for a policy request.
+
+        This method is meant to be overridden to return target details when
+        one of the policy checks requires them.  E.g., {"user_id": datum.id}
+        """
+        return {}
+
     def allowed(self, request, datum):
         """ Determine whether this action is allowed for the current request.
 
@@ -71,6 +80,12 @@ class BaseAction(html.HTMLElement):
         return True
 
     def _allowed(self, request, datum):
+        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+
+        if policy_check and self.policy_rules:
+            target = self.get_policy_target(request, datum)
+            return (policy_check(self.policy_rules, request, target) and
+                    self.allowed(request, datum))
         return self.allowed(request, datum)
 
     def update(self, request, datum):
@@ -155,6 +170,22 @@ class Action(BaseAction):
 
         Default to be an empty list (``[]``). When set to empty, the action
         will accept any kind of data.
+
+    .. attribute:: policy_rules
+
+        list of scope and rule tuples to do policy checks on, the
+        composition of which is (scope, rule)
+
+            scope: service type managing the policy for action
+            rule: string representing the action to be checked
+
+            for a policy that requires a single rule check:
+                policy_rules should look like
+                    "(("compute", "compute:create_instance"),)"
+            for a policy that requires multiple rule checks:
+                rules should look like
+                    "(("identity", "identity:list_users"),
+                      ("identity", "identity:list_roles"))"
 
     At least one of the following methods must be defined:
 
