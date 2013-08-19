@@ -32,6 +32,7 @@ from novaclient.v1_1.contrib.list_extensions import ListExtManager
 from novaclient.v1_1 import security_group_rules as nova_rules
 from novaclient.v1_1.security_groups import SecurityGroup as NovaSecurityGroup
 from novaclient.v1_1.servers import REBOOT_HARD
+from novaclient.v1_1.servers import REBOOT_SOFT
 
 from horizon.conf import HORIZON_CONFIG
 from horizon.utils.memoized import memoized
@@ -97,9 +98,6 @@ class Server(APIResourceWrapper):
     @property
     def internal_name(self):
         return getattr(self, 'OS-EXT-SRV-ATTR:instance_name', "")
-
-    def reboot(self, hardness=REBOOT_HARD):
-        novaclient(self.request).servers.reboot(self.id, hardness)
 
 
 class NovaUsage(APIResourceWrapper):
@@ -506,9 +504,11 @@ def server_resume(request, instance_id):
     novaclient(request).servers.resume(instance_id)
 
 
-def server_reboot(request, instance_id, hardness=REBOOT_HARD):
-    server = server_get(request, instance_id)
-    server.reboot(hardness)
+def server_reboot(request, instance_id, soft_reboot=False):
+    hardness = REBOOT_HARD
+    if soft_reboot:
+        hardness = REBOOT_SOFT
+    novaclient(request).servers.reboot(instance_id, hardness)
 
 
 def server_rebuild(request, instance_id, image_id, password=None):

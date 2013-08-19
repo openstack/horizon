@@ -15,6 +15,8 @@
 #    under the License.
 
 
+import logging
+
 from django.core import urlresolvers
 from django import shortcuts
 from django import template
@@ -32,8 +34,6 @@ from horizon.templatetags import sizeformat
 from horizon.utils.filters import parse_isotime
 from horizon.utils.filters import replace_underscores
 
-import logging
-
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security \
         .floating_ips.workflows import IPAssociationWorkflow
@@ -41,9 +41,6 @@ from openstack_dashboard.dashboards.project.instances.tabs import ConsoleTab
 from openstack_dashboard.dashboards.project.instances.tabs import \
     InstanceDetailTabs
 from openstack_dashboard.dashboards.project.instances.tabs import LogTab
-
-from novaclient.v1_1.servers import REBOOT_HARD
-from novaclient.v1_1.servers import REBOOT_SOFT
 
 
 LOG = logging.getLogger(__name__)
@@ -101,12 +98,15 @@ class RebootInstance(tables.BatchAction):
     classes = ('btn-danger', 'btn-reboot')
 
     def allowed(self, request, instance=None):
-        return ((instance.status in ACTIVE_STATES
-                 or instance.status == 'SHUTOFF')
-                and not is_deleting(instance))
+        if instance is not None:
+            return ((instance.status in ACTIVE_STATES
+                     or instance.status == 'SHUTOFF')
+                    and not is_deleting(instance))
+        else:
+            return True
 
     def action(self, request, obj_id):
-        api.nova.server_reboot(request, obj_id, REBOOT_HARD)
+        api.nova.server_reboot(request, obj_id, soft_reboot=False)
 
 
 class SoftRebootInstance(RebootInstance):
@@ -115,7 +115,7 @@ class SoftRebootInstance(RebootInstance):
     action_past = _("Soft Rebooted")
 
     def action(self, request, obj_id):
-        api.nova.server_reboot(request, obj_id, REBOOT_SOFT)
+        api.nova.server_reboot(request, obj_id, soft_reboot=True)
 
 
 class TogglePause(tables.BatchAction):
