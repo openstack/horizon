@@ -36,6 +36,13 @@ def wrap_delimiter(name):
     return name
 
 
+class ViewContainer(tables.LinkAction):
+    name = "view"
+    verbose_name = _("View Details")
+    url = "horizon:project:containers:container_detail"
+    classes = ("ajax-modal", "btn-view")
+
+
 class DeleteContainer(tables.DeleteAction):
     data_type_singular = _("Container")
     data_type_plural = _("Containers")
@@ -127,9 +134,21 @@ class ContainersTable(tables.DataTable):
         name = "containers"
         verbose_name = _("Containers")
         table_actions = (CreateContainer,)
-        row_actions = (DeleteContainer,)
+        row_actions = (ViewContainer, DeleteContainer,)
         browser_table = "navigation"
         footer = False
+
+
+class ViewObject(tables.LinkAction):
+    name = "view"
+    verbose_name = _("View Details")
+    url = "horizon:project:containers:object_detail"
+    classes = ("ajax-modal", "btn-view")
+
+    def get_link_url(self, obj):
+        container_name = self.table.kwargs['container_name']
+        return reverse(self.url, args=(http.urlquote(container_name),
+                                       http.urlquote(obj.name)))
 
 
 class DeleteObject(tables.DeleteAction):
@@ -235,7 +254,7 @@ class ObjectsTable(tables.DataTable):
         verbose_name = _("Objects")
         table_actions = (ObjectFilterAction, UploadObject,
                          DeleteMultipleObjects)
-        row_actions = (DownloadObject, CopyObject, DeleteObject)
+        row_actions = (DownloadObject, CopyObject, ViewObject, DeleteObject)
         data_types = ("subfolders", "objects")
         browser_table = "content"
         footer = False

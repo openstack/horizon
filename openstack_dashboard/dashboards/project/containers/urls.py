@@ -22,9 +22,13 @@ from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 
 from openstack_dashboard.dashboards.project.containers.views import \
+    ContainerDetailView
+from openstack_dashboard.dashboards.project.containers.views import \
     ContainerView
 from openstack_dashboard.dashboards.project.containers.views import CopyView
 from openstack_dashboard.dashboards.project.containers.views import CreateView
+from openstack_dashboard.dashboards.project.containers.views import \
+    ObjectDetailView
 from openstack_dashboard.dashboards.project.containers.views import UploadView
 
 
@@ -39,6 +43,15 @@ urlpatterns = patterns(VIEW_MOD,
         CreateView.as_view(),
         name='create'),
 
+    url(r'^(?P<container_name>.+?)/(?P<subfolder_path>(.+/)+)'
+            '?container_detail$',
+        ContainerDetailView.as_view(),
+        name='container_detail'),
+
+    url(r'^(?P<container_name>[^/]+)/(?P<object_path>.+)/object_detail$',
+        ObjectDetailView.as_view(),
+        name='object_detail'),
+
     url(r'^(?P<container_name>.+?)/(?P<subfolder_path>(.+/)+)?upload$',
         UploadView.as_view(),
         name='object_upload'),
@@ -51,5 +64,5 @@ urlpatterns = patterns(VIEW_MOD,
 
     url(r'^(?P<container_name>[^/]+)/(?P<object_path>.+)/download$',
         'object_download',
-        name='object_download')
+        name='object_download'),
 )
