@@ -29,7 +29,7 @@ horizon.datatables = {
                 var $footer, row_count, footer_text, colspan, template, params, $empty_row;
 
                 // existing count minus one for the row we're removing
-                horizon.datatables.update_footer_count($table, -1);
+                row_count = horizon.datatables.update_footer_count($table, -1);
 
                 if(row_count === 0) {
                   colspan = $table.find('th[colspan]').attr('colspan');
@@ -214,6 +214,7 @@ horizon.datatables.update_footer_count = function (el, modifier) {
   footer_text_template = ngettext("Displaying %s item", "Displaying %s items", row_count);
   footer_text = interpolate(footer_text_template, [row_count]);
   $footer.text(footer_text);
+  return row_count;
 };
 
 horizon.datatables.add_no_results_row = function (table) {
