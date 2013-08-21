@@ -515,7 +515,11 @@ def get_user_ec2_credentials(request, user_id, access_token):
 
 def keystone_can_edit_domain():
     backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    return backend_settings.get('can_edit_domain', True)
+    can_edit_domain = backend_settings.get('can_edit_domain', True)
+    multi_domain_support = getattr(settings,
+                                   'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
+                                   False)
+    return can_edit_domain and multi_domain_support
 
 
 def keystone_can_edit_user():

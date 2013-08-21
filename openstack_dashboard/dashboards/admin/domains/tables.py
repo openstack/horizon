@@ -16,6 +16,7 @@
 
 import logging
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from keystoneclient.exceptions import ClientException
@@ -77,6 +78,12 @@ class DeleteDomainsAction(tables.DeleteAction):
 
 
 class DomainFilterAction(tables.FilterAction):
+    def allowed(self, request, datum):
+        multidomain_support = getattr(settings,
+                                      'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
+                                      False)
+        return multidomain_support
+
     def filter(self, table, domains, filter_string):
         """ Naive case-insensitive search """
         q = filter_string.lower()
@@ -96,6 +103,12 @@ class SetDomainContext(tables.Action):
     preempt = True
 
     def allowed(self, request, datum):
+        multidomain_support = getattr(settings,
+                                      'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
+                                      False)
+        if not multidomain_support:
+            return False
+
         ctx = request.session.get("domain_context", None)
         if ctx and datum.id == ctx:
             return False
