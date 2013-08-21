@@ -21,3 +21,4 @@ DOMAINS_INDEX_URL = 'horizon:admin:domains:index'
 DOMAINS_INDEX_VIEW_TEMPLATE = 'admin/domains/index.html'
 DOMAINS_CREATE_URL = 'horizon:admin:domains:create'
 DOMAINS_UPDATE_URL = 'horizon:admin:domains:update'
+DOMAIN_GROUP_MEMBER_SLUG = "update_group_members"
