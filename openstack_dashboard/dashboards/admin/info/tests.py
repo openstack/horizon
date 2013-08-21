@@ -93,6 +93,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         # Neutron does not have an API for getting default system
         # quotas. When not using Neutron, the floating ips quotas
         # should be in the list.
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+                .AndReturn(True)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
                 .AndReturn(False)
 

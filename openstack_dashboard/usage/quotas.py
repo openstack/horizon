@@ -4,8 +4,7 @@ import itertools
 from horizon import exceptions
 from horizon.utils.memoized import memoized  # noqa
 
-from openstack_dashboard.api.base import is_service_enabled  # noqa
-from openstack_dashboard.api.base import QuotaSet  # noqa
+from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
@@ -78,7 +77,7 @@ def _get_quota_data(request, method_name, disabled_quotas=None,
     if not tenant_id:
         tenant_id = request.user.tenant_id
     quotasets.append(getattr(nova, method_name)(request, tenant_id))
-    qs = QuotaSet()
+    qs = base.QuotaSet()
     if disabled_quotas is None:
         disabled_quotas = get_disabled_quotas(request)
     if 'volumes' not in disabled_quotas:
@@ -105,7 +104,7 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
 
 def get_disabled_quotas(request):
     disabled_quotas = []
-    if not is_service_enabled(request, 'volume'):
+    if not base.is_service_enabled(request, 'volume'):
         disabled_quotas.extend(CINDER_QUOTA_FIELDS)
     return disabled_quotas
 
