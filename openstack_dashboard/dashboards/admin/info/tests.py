@@ -25,10 +25,59 @@ INDEX_URL = reverse('horizon:admin:info:index')
 
 
 class ServicesViewTests(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('service_list',)})
+
+    @test.create_stubs({api.nova: ('default_quota_get', 'service_list',),
+                        api.cinder: ('default_quota_get',)})
     def test_index(self):
-        self.mox.StubOutWithMock(api.nova, 'default_quota_get')
-        self.mox.StubOutWithMock(api.cinder, 'default_quota_get')
+        api.nova.default_quota_get(IsA(http.HttpRequest),
+                                   self.tenant.id).AndReturn(self.quotas.nova)
+        api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id) \
+                .AndReturn(self.cinder_quotas.first())
+        services = self.services.list()
+        api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, 'admin/info/index.html')
+
+        services_tab = res.context['tab_group'].get_tab('services')
+        self.assertQuerysetEqual(services_tab._tables['services'].data,
+                                 ['<Service: compute>',
+                                  '<Service: volume>',
+                                  '<Service: image>',
+                                  '<Service: identity (native backend)>',
+                                  '<Service: object-store>',
+                                  '<Service: network>',
+                                  '<Service: ec2>',
+                                  '<Service: orchestration>'])
+
+        quotas_tab = res.context['tab_group'].get_tab('quotas')
+        self.assertQuerysetEqual(quotas_tab._tables['quotas'].data,
+                                 ['<Quota: (injected_file_content_bytes, 1)>',
+                                 '<Quota: (metadata_items, 1)>',
+                                 '<Quota: (injected_files, 1)>',
+                                 '<Quota: (gigabytes, 1000)>',
+                                 '<Quota: (ram, 10000)>',
+                                 '<Quota: (instances, 10)>',
+                                 '<Quota: (snapshots, 1)>',
+                                 '<Quota: (volumes, 1)>',
+                                 '<Quota: (cores, 10)>',
+                                 '<Quota: (security_groups, 10)>',
+                                 '<Quota: (security_group_rules, 20)>'],
+                                 ordered=False)
+
+    @test.create_stubs({api.base: ('is_service_enabled',),
+                        api.nova: ('default_quota_get', 'service_list',),
+                        api.cinder: ('default_quota_get',)})
+    def test_index_with_neutron_disabled(self):
+        # Neutron does not have an API for getting default system
+        # quotas. When not using Neutron, the floating ips quotas
+        # should be in the list.
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+                .AndReturn(False)
+
         api.nova.default_quota_get(IsA(http.HttpRequest),
                                    self.tenant.id).AndReturn(self.quotas.nova)
         api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id) \
