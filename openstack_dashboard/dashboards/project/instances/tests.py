@@ -42,8 +42,6 @@ from openstack_dashboard.dashboards.project.instances.workflows \
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
 
-from novaclient.v1_1.servers import REBOOT_HARD
-from novaclient.v1_1.servers import REBOOT_SOFT
 
 INDEX_URL = reverse('horizon:project:instances:index')
 SEC_GROUP_ROLE_PREFIX = update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
@@ -310,7 +308,7 @@ class InstanceTests(test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([self.servers.list(), False])
         api.nova.server_reboot(IsA(http.HttpRequest), server.id,
-                               REBOOT_HARD)
+                               soft_reboot=False)
 
         self.mox.ReplayAll()
 
@@ -331,7 +329,7 @@ class InstanceTests(test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([self.servers.list(), False])
         api.nova.server_reboot(IsA(http.HttpRequest), server.id,
-                               REBOOT_HARD) \
+                               soft_reboot=False) \
             .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -353,7 +351,7 @@ class InstanceTests(test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([self.servers.list(), False])
         api.nova.server_reboot(IsA(http.HttpRequest), server.id,
-                               REBOOT_SOFT)
+                               soft_reboot=True)
 
         self.mox.ReplayAll()
 
