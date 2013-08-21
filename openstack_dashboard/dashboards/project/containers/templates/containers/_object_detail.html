@@ -1,0 +1,26 @@
+{% extends "horizon/common/_modal.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block modal-header %}{% trans "Object Details" %}{% endblock %}
+
+{% block modal-body %}
+<div class="info row-fluid detail">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ object.name }}</dd>
+    <dt>{% trans "Hash" %}</dt>
+    <dd>{{ object.etag }}</dd>
+    <dt>{% trans "Content Type" %}</dt>
+    <dd>{{ object.content_type }}</dd>
+    <dt>{% trans "Last Modified" %}</dt>
+    <dd>{{ object.timestamp|parse_isotime }}</dd>
+    <dt>{% trans "Size" %}</dt>
+    <dd>{{ object.bytes|filesizeformat }}</dd>
+  </dl>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <a href="{% url 'horizon:project:containers:index' %}" class="btn secondary cancel close">{% trans "Close" %}</a>
+{% endblock %}

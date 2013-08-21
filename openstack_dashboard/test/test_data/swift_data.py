@@ -13,6 +13,7 @@
 #    under the License.
 
 from openstack_dashboard.api import swift
+from openstack_dashboard.openstack.common import timeutils
 
 from openstack_dashboard.test.test_data.utils import TestDataContainer
 
@@ -21,13 +22,22 @@ def data(TEST):
     TEST.containers = TestDataContainer()
     TEST.objects = TestDataContainer()
 
-    container_1 = swift.Container(dict(name=u"container_one\u6346"))
-    container_2 = swift.Container(dict(name=u"container_two\u6346"))
+    container_dict_1 = {"name": u"container_one\u6346",
+                        "container_object_count": 2,
+                        "container_bytes_used": 256,
+                        "timestamp": timeutils.isotime()}
+    container_1 = swift.Container(container_dict_1)
+    container_dict_2 = {"name": u"container_two\u6346",
+                        "container_object_count": 4,
+                        "container_bytes_used": 1024,
+                        "timestamp": timeutils.isotime()}
+    container_2 = swift.Container(container_dict_2)
     TEST.containers.add(container_1, container_2)
 
     object_dict = {"name": u"test_object\u6346",
                    "content_type": u"text/plain",
                    "bytes": 128,
+                   "timestamp": timeutils.isotime(),
                    "last_modified": None,
                    "hash": u"object_hash"}
     obj_dicts = [object_dict]

@@ -30,6 +30,7 @@ from horizon import messages
 
 from openstack_dashboard.api.base import APIDictWrapper
 from openstack_dashboard.api.base import url_for
+from openstack_dashboard.openstack.common import timeutils
 
 
 LOG = logging.getLogger(__name__)
@@ -128,6 +129,23 @@ def swift_get_containers(request, marker=None):
         return (container_objs[0:-1], True)
     else:
         return (container_objs, False)
+
+
+def swift_get_container(request, container_name):
+    headers, data = swift_api(request).get_object(container_name, "")
+    timestamp = None
+    try:
+        ts_float = float(headers.get('x-timestamp'))
+        timestamp = timeutils.iso8601_from_timestamp(ts_float)
+    except Exception:
+        pass
+    container_info = {
+        'name': container_name,
+        'container_object_count': headers.get('x-container-object-count'),
+        'container_bytes_used': headers.get('x-container-bytes-used'),
+        'timestamp': timestamp,
+    }
+    return Container(container_info)
 
 
 def swift_create_container(request, name):
@@ -234,7 +252,19 @@ def swift_delete_object(request, container_name, object_name):
 def swift_get_object(request, container_name, object_name):
     headers, data = swift_api(request).get_object(container_name, object_name)
     orig_name = headers.get("x-object-meta-orig-filename")
-    obj_info = {'name': object_name, 'bytes': len(data)}
+    timestamp = None
+    try:
+        ts_float = float(headers.get('x-timestamp'))
+        timestamp = timeutils.iso8601_from_timestamp(ts_float)
+    except Exception:
+        pass
+    obj_info = {
+        'name': object_name,
+        'bytes': len(data),
+        'content_type': headers.get('content-type'),
+        'etag': headers.get('etag'),
+        'timestamp': timestamp,
+    }
     return StorageObject(obj_info,
                          container_name,
                          orig_name=orig_name,

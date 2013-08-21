@@ -237,3 +237,39 @@ class SwiftTests(test.TestCase):
         index_url = reverse('horizon:project:containers:index',
                             args=[wrap_delimiter(container_2.name)])
         self.assertRedirectsNoFollow(res, index_url)
+
+    @test.create_stubs({api.swift: ('swift_get_container', )})
+    def test_view_container(self):
+        container = self.containers.first()
+
+        api.swift.swift_get_container(IsA(http.HttpRequest),
+                                      container.name) \
+            .AndReturn(container)
+        self.mox.ReplayAll()
+
+        view_url = reverse('horizon:project:containers:container_detail',
+                           args=[container.name])
+        res = self.client.get(view_url)
+
+        self.assertTemplateUsed(res,
+                                'project/containers/container_detail.html')
+        self.assertContains(res, container.name, 1, 200)
+
+    @test.create_stubs({api.swift: ('swift_get_object', )})
+    def test_view_object(self):
+        container = self.containers.first()
+        obj = self.objects.first()
+
+        api.swift.swift_get_object(IsA(http.HttpRequest),
+                                   container.name,
+                                   obj.name) \
+            .AndReturn(obj)
+        self.mox.ReplayAll()
+
+        view_url = reverse('horizon:project:containers:object_detail',
+                           args=[container.name, obj.name])
+        res = self.client.get(view_url)
+
+        self.assertTemplateUsed(res,
+                                'project/containers/object_detail.html')
+        self.assertContains(res, obj.name, 1, 200)

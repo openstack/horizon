@@ -25,6 +25,7 @@ Views for managing Swift containers.
 from django.core.urlresolvers import reverse
 from django import http
 from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
 from horizon import browsers
 from horizon import exceptions
@@ -225,4 +226,49 @@ class CopyView(forms.ModalFormView):
         context = super(CopyView, self).get_context_data(**kwargs)
         context['container_name'] = self.kwargs["container_name"]
         context['object_name'] = self.kwargs["object_name"]
+        return context
+
+
+class ContainerDetailView(forms.ModalFormMixin, generic.TemplateView):
+    template_name = 'project/containers/container_detail.html'
+
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            try:
+                self._object = api.swift.swift_get_container(
+                    self.request,
+                    self.kwargs["container_name"])
+            except Exception:
+                redirect = reverse("horizon:project:containers:index")
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve details.'),
+                                  redirect=redirect)
+        return self._object
+
+    def get_context_data(self, **kwargs):
+        context = super(ContainerDetailView, self).get_context_data(**kwargs)
+        context['container'] = self.get_object()
+        return context
+
+
+class ObjectDetailView(forms.ModalFormMixin, generic.TemplateView):
+    template_name = 'project/containers/object_detail.html'
+
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            try:
+                self._object = api.swift.swift_get_object(
+                    self.request,
+                    self.kwargs["container_name"],
+                    self.kwargs["object_path"])
+            except Exception:
+                redirect = reverse("horizon:project:containers:index")
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve details.'),
+                                  redirect=redirect)
+        return self._object
+
+    def get_context_data(self, **kwargs):
+        context = super(ObjectDetailView, self).get_context_data(**kwargs)
+        context['object'] = self.get_object()
         return context
