@@ -120,9 +120,7 @@ class BaseUsage(object):
 
         # Quotas are an optional extension in Neutron. If it isn't
         # enabled, assume the floating IP limit is infinite.
-        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-        if not network_config.get('enable_quotas', False) or \
-                not api.neutron.is_extension_supported(self.request, 'quotas'):
+        if not api.neutron.is_quotas_extension_supported(self.request):
             self.limits['maxTotalFloatingIps'] = float("inf")
             return
 

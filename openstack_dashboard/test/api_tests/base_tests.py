@@ -169,3 +169,47 @@ class ApiHelperTests(test.TestCase):
         self.request.user.services_region = "bogus_value"
         with self.assertRaises(exceptions.ServiceCatalogException):
             url = api_base.url_for(self.request, 'image')
+
+
+class QuotaSetTests(test.TestCase):
+
+    def test_quotaset_add_with_plus(self):
+        quota_dict = {'foo': 1, 'bar': 10}
+        other_quota_dict = {'my_test': 12}
+        quota_set = api_base.QuotaSet(quota_dict)
+        other_quota_set = api_base.QuotaSet(other_quota_dict)
+
+        quota_set += other_quota_set
+        self.assertEqual(len(quota_set), 3)
+
+        quota_dict.update(other_quota_dict)
+        for q in quota_set:
+            self.assertEqual(q.limit, quota_dict[q.name])
+
+    def test_quotaset_add_doesnt_override_existing_quota(self):
+        quota_dict = {'foo': 1, 'bar': 10}
+        quota_set = api_base.QuotaSet(quota_dict)
+        other_quota_set = api_base.QuotaSet({'foo': 12})
+
+        quota_set += other_quota_set
+        self.assertEqual(len(quota_set), 2)
+
+        for q in quota_set:
+            self.assertEqual(q.limit, quota_dict[q.name])
+
+    def test_quotaset_add_method(self):
+        quota_dict = {'foo': 1, 'bar': 10}
+        other_quota_dict = {'my_test': 12}
+        quota_set = api_base.QuotaSet(quota_dict)
+        other_quota_set = api_base.QuotaSet(other_quota_dict)
+
+        quota_set.add(other_quota_set)
+        self.assertEqual(len(quota_set), 3)
+
+        quota_dict.update(other_quota_dict)
+        for q in quota_set:
+            self.assertEqual(q.limit, quota_dict[q.name])
+
+    def test_quotaset_add_with_wrong_type(self):
+        quota_set = api_base.QuotaSet({'foo': 1, 'bar': 10})
+        self.assertRaises(ValueError, quota_set.add, {'test': 7})
