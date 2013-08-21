@@ -394,9 +394,27 @@ def group_delete(request, group_id):
     return manager.delete(group_id)
 
 
-def group_list(request):
+def group_list(request, domain=None, project=None, user=None):
     manager = keystoneclient(request, admin=True).groups
-    return manager.list()
+    groups = manager.list(user=user)
+    # TODO(dklyle): once keystoneclient supports filtering by
+    # domain change this to use that cleaner implementation
+    if domain:
+        domain_groups = []
+        for group in groups:
+            if group.domain_id == domain:
+                domain_groups.append(group)
+        groups = domain_groups
+
+    if project:
+        project_groups = []
+        for group in groups:
+            roles = roles_for_group(request, group=group.id, project=project)
+            if roles and len(roles) > 0:
+                project_groups.append(group)
+        groups = project_groups
+
+    return groups
 
 
 def group_update(request, group_id, name=None, description=None):
@@ -478,6 +496,36 @@ def remove_tenant_user(request, project=None, user=None, domain=None):
     for role in roles:
         remove_tenant_user_role(request, user=user, role=role.id,
                                 project=project, domain=domain)
+
+
+def roles_for_group(request, group, domain=None, project=None):
+    manager = keystoneclient(request, admin=True).roles
+    return manager.list(group=group, domain=domain, project=project)
+
+
+def add_group_role(request, role, group, domain=None, project=None):
+    """ Adds a role for a group on a domain or project ."""
+    manager = keystoneclient(request, admin=True).roles
+    return manager.grant(role=role, group=group, domain=domain,
+                         project=project)
+
+
+def remove_group_role(request, role, group, domain=None, project=None):
+    """ Removes a given single role for a group from a domain or project. """
+    manager = keystoneclient(request, admin=True).roles
+    return manager.revoke(role=role, group=group, project=project,
+                          domain=domain)
+
+
+def remove_group_roles(request, group, domain=None, project=None):
+    """ Removes all roles from a group on a domain or project,
+        removing them from it.
+    """
+    client = keystoneclient(request, admin=True)
+    roles = client.roles.list(group=group, domain=domain, project=project)
+    for role in roles:
+        remove_group_role(request, role=role.id, group=group,
+                          domain=domain, project=project)
 
 
 def get_default_role(request):

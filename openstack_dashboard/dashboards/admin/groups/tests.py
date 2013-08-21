@@ -63,7 +63,8 @@ class GroupsViewTests(test.BaseAdminViewTests):
         domain_id = self._get_domain_id()
         groups = self._get_groups(domain_id)
 
-        api.keystone.group_list(IgnoreArg()).AndReturn(groups)
+        api.keystone.group_list(IgnoreArg(), domain=domain_id) \
+            .AndReturn(groups)
 
         self.mox.ReplayAll()
 
@@ -91,7 +92,8 @@ class GroupsViewTests(test.BaseAdminViewTests):
         domain_id = self._get_domain_id()
         groups = self._get_groups(domain_id)
 
-        api.keystone.group_list(IgnoreArg()).AndReturn(groups)
+        api.keystone.group_list(IgnoreArg(), domain=domain_id) \
+            .AndReturn(groups)
         api.keystone.keystone_can_edit_group() \
             .MultipleTimes().AndReturn(False)
 
@@ -158,9 +160,11 @@ class GroupsViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('group_list',
                                        'group_delete')})
     def test_delete_group(self):
+        domain_id = self._get_domain_id()
         group = self.groups.get(id="2")
 
-        api.keystone.group_list(IgnoreArg()).AndReturn(self.groups.list())
+        api.keystone.group_list(IgnoreArg(), domain=domain_id) \
+            .AndReturn(self.groups.list())
         api.keystone.group_delete(IgnoreArg(), group.id)
 
         self.mox.ReplayAll()

@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.api.keystone import VERSIONS as IDENTITY_VERSIONS
 
 
 LOG = logging.getLogger(__name__)
@@ -20,6 +21,22 @@ class ViewMembersLink(tables.LinkAction):
 
     def get_link_url(self, project):
         step = 'update_members'
+        base_url = reverse(self.url, args=[project.id])
+        param = urlencode({"step": step})
+        return "?".join([base_url, param])
+
+
+class ViewGroupsLink(tables.LinkAction):
+    name = "groups"
+    verbose_name = _("Modify Groups")
+    url = "horizon:admin:projects:update"
+    classes = ("ajax-modal", "btn-edit")
+
+    def allowed(self, request, project):
+        return IDENTITY_VERSIONS.active >= 3
+
+    def get_link_url(self, project):
+        step = 'update_group_members'
         base_url = reverse(self.url, args=[project.id])
         param = urlencode({"step": step})
         return "?".join([base_url, param])
@@ -100,8 +117,8 @@ class TenantsTable(tables.DataTable):
     class Meta:
         name = "tenants"
         verbose_name = _("Projects")
-        row_actions = (ViewMembersLink, UpdateProject, UsageLink,
-                       ModifyQuotas, DeleteTenantsAction)
+        row_actions = (ViewMembersLink, ViewGroupsLink, UpdateProject,
+                       UsageLink, ModifyQuotas, DeleteTenantsAction)
         table_actions = (TenantFilterAction, CreateProject,
                          DeleteTenantsAction)
         pagination_param = "tenant_marker"
