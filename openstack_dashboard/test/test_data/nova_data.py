@@ -348,7 +348,11 @@ def data(TEST):
                         'ram': {'used': 0,
                                 'quota': 10000},
                         'cores': {'used': 0,
-                                  'quota': 20}}
+                                  'quota': 20},
+                        'floating_ips': {'used': 0,
+                                         'quota': 10},
+                        'volumes': {'used': 0,
+                                    'quota': 10}}
     quota_usage = QuotaUsage()
     for k, v in quota_usage_data.items():
         quota_usage.add_quota(Quota(k, v['quota']))

@@ -196,6 +196,13 @@ $.tablesorter.addParser({
     type: 'numeric'
 });
 
+horizon.datatables.disable_buttons = function() {
+  $("table .table_actions").on("click", ".btn.disabled", function(event){
+    event.preventDefault();
+    event.stopPropagation();
+  });
+};
+
 horizon.datatables.update_footer_count = function (el, modifier) {
   var $el = $(el),
       $browser, $footer, row_count, footer_text_template, footer_text;
@@ -348,6 +355,7 @@ horizon.datatables.set_table_fixed_filter = function (parent) {
 
 horizon.addInitFunction(function() {
   horizon.datatables.validate_button();
+  horizon.datatables.disable_buttons();
   $('table.datatable').each(function (idx, el) {
     horizon.datatables.update_footer_count($(el), 0);
   });

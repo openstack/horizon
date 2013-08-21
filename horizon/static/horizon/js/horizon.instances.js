@@ -33,17 +33,6 @@ horizon.instances = {
     });
   },
 
-  disable_launch_button: function() {
-    var launch_button = "#instances__action_launch";
-
-    $(launch_button).click(function(e) {
-      if ($(launch_button).hasClass("disabled")) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    });
-  },
-
   /*
    * Gets the html select element associated with a given
    * network id for network_id.
@@ -166,9 +155,6 @@ horizon.addInitFunction(function () {
     horizon.instances.getConsoleLog(true);
     evt.preventDefault();
   });
-
-  // Disable the launch button if required
-  horizon.instances.disable_launch_button();
 
   /* Launch instance workflow */
 

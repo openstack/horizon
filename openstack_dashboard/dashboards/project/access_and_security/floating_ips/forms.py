@@ -26,6 +26,7 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard.usage import quotas
 
 
 class FloatingIpAllocate(forms.SelfHandlingForm):
@@ -38,6 +39,14 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            # Prevent allocating more IP than the quota allows
+            usages = quotas.tenant_quota_usages(request)
+            if usages['floating_ips']['available'] <= 0:
+                error_message = _('You are already using all of your available'
+                                  ' floating IPs.')
+                self.api_error(error_message)
+                return False
+
             fip = api.network.tenant_floating_ip_allocate(request,
                                                        pool=data['pool'])
             messages.success(request,
