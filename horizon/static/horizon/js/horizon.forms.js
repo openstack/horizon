@@ -185,6 +185,13 @@ horizon.addInitFunction(function () {
   $(document).on('mousedown keydown', '.form-field select', function (evt) {
     $(this).tooltip('hide');
   });
+  // Hide the tooltip after escape button pressed
+  $(document).on('keydown.esc_btn', function (evt) {
+    if (evt.keyCode == 27) {
+      $('.tooltip').hide();
+    }
+  });
+
   // Hide the help text for js-capable browsers
   $('span.help-block').hide();
 });
