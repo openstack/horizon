@@ -28,6 +28,7 @@ from horizon import tables
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.api import keystone
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas
 
@@ -38,7 +39,9 @@ from openstack_dashboard.dashboards.admin.projects \
 
 LOG = logging.getLogger(__name__)
 
-PROJECT_INFO_FIELDS = ("name",
+PROJECT_INFO_FIELDS = ("domain_id",
+                       "domain_name",
+                       "name",
                        "description",
                        "enabled")
 
@@ -106,6 +109,11 @@ class CreateProjectView(workflows.WorkflowView):
     def get_initial(self):
         initial = super(CreateProjectView, self).get_initial()
 
+        # Set the domain of the project
+        domain = api.keystone.get_default_domain(self.request)
+        initial["domain_id"] = domain.id
+        initial["domain_name"] = domain.name
+
         # get initial quota defaults
         try:
             quota_defaults = quotas.get_default_quota_data(self.request)
@@ -150,6 +158,17 @@ class UpdateProjectView(workflows.WorkflowView):
                                                    admin=True)
             for field in PROJECT_INFO_FIELDS:
                 initial[field] = getattr(project_info, field, None)
+
+            # Retrieve the domain name where the project belong
+            if keystone.VERSIONS.active >= 3:
+                try:
+                    domain = api.keystone.domain_get(self.request,
+                                                     initial["domain_id"])
+                    initial["domain_name"] = domain.name
+                except Exception:
+                    exceptions.handle(self.request,
+                              _('Unable to retrieve project domain.'),
+                              redirect=reverse(INDEX_URL))
 
             # get initial project quota
             quota_data = quotas.get_tenant_quota_data(self.request,

@@ -94,6 +94,13 @@ class UpdateProjectQuota(workflows.Step):
 
 
 class CreateProjectInfoAction(workflows.Action):
+    # Hide the domain_id and domain_name by default
+    domain_id = forms.CharField(label=_("Domain ID"),
+                                required=False,
+                                widget=forms.HiddenInput())
+    domain_name = forms.CharField(label=_("Domain Name"),
+                                  required=False,
+                                  widget=forms.HiddenInput())
     name = forms.CharField(label=_("Name"))
     description = forms.CharField(widget=forms.widgets.Textarea(),
                                   label=_("Description"),
@@ -101,6 +108,16 @@ class CreateProjectInfoAction(workflows.Action):
     enabled = forms.BooleanField(label=_("Enabled"),
                                  required=False,
                                  initial=True)
+
+    def __init__(self, request, *args, **kwargs):
+        super(CreateProjectInfoAction, self).__init__(request,
+                                                      *args,
+                                                      **kwargs)
+        # For keystone V3, display the two fields in read-only
+        if keystone.VERSIONS.active >= 3:
+            readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
+            self.fields["domain_id"].widget = readonlyInput
+            self.fields["domain_name"].widget = readonlyInput
 
     class Meta:
         name = _("Project Info")
@@ -110,7 +127,9 @@ class CreateProjectInfoAction(workflows.Action):
 
 class CreateProjectInfo(workflows.Step):
     action_class = CreateProjectInfoAction
-    contributes = ("project_id",
+    contributes = ("domain_id",
+                   "domain_name",
+                   "project_id",
                    "name",
                    "description",
                    "enabled")
@@ -122,9 +141,11 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
                                                          *args,
                                                          **kwargs)
         err_msg = _('Unable to retrieve user list. Please try again later.')
+        # Use the domain_id from the project
+        domain_id = self.initial.get("domain_id", None)
         project_id = ''
-        if 'project_id' in args[0]:
-            project_id = args[0]['project_id']
+        if 'project_id' in self.initial:
+            project_id = self.initial['project_id']
 
         # Get the default role
         try:
@@ -146,10 +167,9 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
 
         # Get list of available users
         all_users = []
-        domain_context = request.session.get('domain_context', None)
         try:
             all_users = api.keystone.user_list(request,
-                                               domain=domain_context)
+                                               domain=domain_id)
         except Exception:
             exceptions.handle(request, err_msg)
         users_list = [(user.id, user.name) for user in all_users]
@@ -218,9 +238,11 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
                                                         *args,
                                                         **kwargs)
         err_msg = _('Unable to retrieve group list. Please try again later.')
+        # Use the domain_id from the project
+        domain_id = self.initial.get("domain_id", None)
         project_id = ''
-        if 'project_id' in args[0]:
-            project_id = args[0]['project_id']
+        if 'project_id' in self.initial:
+            project_id = self.initial['project_id']
 
         # Get the default role
         try:
@@ -242,10 +264,9 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
 
         # Get list of available groups
         all_groups = []
-        domain_context = request.session.get('domain_context', None)
         try:
             all_groups = api.keystone.group_list(request,
-                                                 domain=domain_context)
+                                                 domain=domain_id)
         except Exception:
             exceptions.handle(request, err_msg)
         groups_list = [(group.id, group.name) for group in all_groups]
@@ -337,14 +358,14 @@ class CreateProject(workflows.Workflow):
 
     def handle(self, request, data):
         # create the project
-        domain_context = self.request.session.get('domain_context', None)
+        domain_id = data['domain_id']
         try:
             desc = data['description']
             self.object = api.keystone.tenant_create(request,
                                                      name=data['name'],
                                                      description=desc,
                                                      enabled=data['enabled'],
-                                                     domain=domain_context)
+                                                     domain=domain_id)
         except Exception:
             exceptions.handle(request, ignore=True)
             return False
@@ -450,7 +471,9 @@ class UpdateProjectInfoAction(CreateProjectInfoAction):
 class UpdateProjectInfo(workflows.Step):
     action_class = UpdateProjectInfoAction
     depends_on = ("project_id",)
-    contributes = ("name",
+    contributes = ("domain_id",
+                   "domain_name",
+                   "name",
                    "description",
                    "enabled")
 
@@ -488,15 +511,18 @@ class UpdateProject(workflows.Workflow):
         # sets and do this all in a single "roles to add" and "roles to remove"
         # pass instead of the multi-pass thing happening now.
 
-        domain_context = request.session.get('domain_context', None)
         project_id = data['project_id']
+        domain_id = ''
         # update project info
         try:
-            api.keystone.tenant_update(request,
-                                       project_id,
-                                       name=data['name'],
-                                       description=data['description'],
-                                       enabled=data['enabled'])
+            project = api.keystone.tenant_update(
+                                            request,
+                                            project_id,
+                                            name=data['name'],
+                                            description=data['description'],
+                                            enabled=data['enabled'])
+            # Use the domain_id from the project if available
+            domain_id = getattr(project, "domain_id", None)
         except Exception:
             exceptions.handle(request, ignore=True)
             return False
@@ -605,7 +631,7 @@ class UpdateProject(workflows.Workflow):
                 # Get the groups currently associated with this project so we
                 # can diff against it.
                 project_groups = api.keystone.group_list(request,
-                                                         domain=domain_context,
+                                                         domain=domain_id,
                                                          project=project_id)
                 groups_to_modify = len(project_groups)
                 for group in project_groups:

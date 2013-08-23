@@ -220,17 +220,20 @@ def data(TEST):
                    'name': 'test_tenant',
                    'description': "a test tenant.",
                    'enabled': True,
-                   'domain_id': '1'}
+                   'domain_id': '1',
+                   'domain_name': 'test_domain'}
     tenant_dict_2 = {'id': "2",
                      'name': 'disabled_tenant',
                      'description': "a disabled test tenant.",
                      'enabled': False,
-                     'domain_id': '2'}
+                     'domain_id': '2',
+                     'domain_name': 'disabled_domain'}
     tenant_dict_3 = {'id': "3",
                      'name': u'\u4e91\u89c4\u5219',
                      'description': "an unicode-named tenant.",
                      'enabled': True,
-                     'domain_id': '2'}
+                     'domain_id': '2',
+                     'domain_name': 'disabled_domain'}
     tenant = tenants.Tenant(tenants.TenantManager, tenant_dict)
     disabled_tenant = tenants.Tenant(tenants.TenantManager, tenant_dict_2)
     tenant_unicode = tenants.Tenant(tenants.TenantManager, tenant_dict_3)

@@ -213,6 +213,28 @@ def tenant_create(request, name, description=None, enabled=None, domain=None):
                               enabled=enabled)
 
 
+def get_default_domain(request):
+    """
+    Gets the default domain object to use when creating Identity object.
+    Returns the domain context if is set, otherwise return the domain
+    of the logon user.
+    """
+    domain_id = request.session.get("domain_context", None)
+    domain_name = request.session.get("domain_context_name", None)
+    # if running in Keystone V3 or later
+    if VERSIONS.active >= 3 and not domain_id:
+        # if no domain context set, default to users' domain
+        domain_id = request.user.user_domain_id
+        try:
+            domain = domain_get(request, domain_id)
+            domain_name = domain.name
+        except Exception:
+            LOG.warning("Unable to retrieve Domain: %s" % domain_id)
+    domain = base.APIDictWrapper({"id": domain_id,
+                                  "name": domain_name})
+    return domain
+
+
 # TODO(gabriel): Is there ever a valid case for admin to be false here?
 # A quick search through the codebase reveals that it's always called with
 # admin=true so I suspect we could eliminate it entirely as with the other

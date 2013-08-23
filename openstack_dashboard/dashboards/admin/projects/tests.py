@@ -70,15 +70,18 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
 class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     def _get_project_info(self, project):
-        domain_id = self.request.session.get('domain_context', None)
+        domain = self._get_default_domain()
         project_info = {"name": project.name,
                         "description": project.description,
                         "enabled": project.enabled,
-                        "domain": domain_id}
+                        "domain": domain.id}
         return project_info
 
     def _get_workflow_fields(self, project):
-        project_info = {"name": project.name,
+        domain = self._get_default_domain()
+        project_info = {"domain_id": domain.id,
+                        "domain_name": domain.name,
+                        "name": project.name,
                         "description": project.description,
                         "enabled": project.enabled}
         return project_info
@@ -101,8 +104,13 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         project_info.update(quota_data)
         return project_info
 
-    def _get_domain_id(self):
-        return self.request.session.get('domain_context', None)
+    def _get_default_domain(self):
+        default_domain = self.domain
+        domain = {"id": self.request.session.get('domain_context',
+                                                 default_domain.id),
+                  "name": self.request.session.get('domain_context_name',
+                                                   default_domain.name)}
+        return api.base.APIDictWrapper(domain)
 
     def _get_all_users(self, domain_id):
         if not domain_id:
@@ -120,7 +128,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                       if group.domain_id == domain_id]
         return groups
 
-    @test.create_stubs({api.keystone: ('get_default_role',
+    @test.create_stubs({api.keystone: ('get_default_domain',
+                                       'get_default_role',
                                        'user_list',
                                        'group_list',
                                        'role_list'),
@@ -128,14 +137,17 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     def test_add_project_get(self):
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        default_domain = self._get_default_domain()
+        domain_id = default_domain.id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
 
+        # init
+        api.keystone.get_default_domain(IsA(http.HttpRequest)) \
+            .AndReturn(default_domain)
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
-        # init
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(default_role)
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
@@ -233,7 +245,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        default_domain = self._get_default_domain()
+        domain_id = default_domain.id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
@@ -320,16 +333,20 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('user_list',
                                        'role_list',
                                        'group_list',
+                                       'get_default_domain',
                                        'get_default_role'),
                         quotas: ('get_default_quota_data',)})
     def test_add_project_quota_defaults_error(self):
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        default_domain = self._get_default_domain()
+        domain_id = default_domain.id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
 
         # init
+        api.keystone.get_default_domain(IsA(http.HttpRequest)) \
+            .AndReturn(default_domain)
         quotas.get_default_quota_data(IsA(http.HttpRequest)) \
             .AndRaise(self.exceptions.nova)
 
@@ -360,18 +377,22 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'user_list',
                                        'role_list',
                                        'group_list',
+                                       'get_default_domain',
                                        'get_default_role'),
                         quotas: ('get_default_quota_data',)})
     def test_add_project_tenant_create_error(self):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        default_domain = self._get_default_domain()
+        domain_id = default_domain.id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
 
         # init
+        api.keystone.get_default_domain(IsA(http.HttpRequest)) \
+            .AndReturn(default_domain)
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -409,6 +430,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'user_list',
                                        'role_list',
                                        'group_list',
+                                       'get_default_domain',
                                        'get_default_role',
                                        'add_tenant_user_role'),
                         quotas: ('get_default_quota_data',),
@@ -417,12 +439,15 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        default_domain = self._get_default_domain()
+        domain_id = default_domain.id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
 
         # init
+        api.keystone.get_default_domain(IsA(http.HttpRequest)) \
+            .AndReturn(default_domain)
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -486,6 +511,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'user_list',
                                        'role_list',
                                        'group_list',
+                                       'get_default_domain',
                                        'get_default_role',
                                        'add_tenant_user_role'),
                         quotas: ('get_default_quota_data',),
@@ -495,12 +521,15 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        default_domain = self._get_default_domain()
+        domain_id = default_domain.id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
 
         # init
+        api.keystone.get_default_domain(IsA(http.HttpRequest)) \
+            .AndReturn(default_domain)
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -563,18 +592,22 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('user_list',
                                        'role_list',
                                        'group_list',
+                                       'get_default_domain',
                                        'get_default_role'),
                         quotas: ('get_default_quota_data',)})
     def test_add_project_missing_field_error(self):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        default_domain = self._get_default_domain()
+        domain_id = default_domain.id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
 
         # init
+        api.keystone.get_default_domain(IsA(http.HttpRequest)) \
+            .AndReturn(default_domain)
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -616,9 +649,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             quota_data[field] = int(neutron_quota.get(field).limit)
         return quota_data
 
-    def _get_domain_id(self):
-        return self.request.session.get('domain_context', None)
-
     def _get_all_users(self, domain_id):
         if not domain_id:
             users = self.users.list()
@@ -646,6 +676,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('get_default_role',
                                        'roles_for_user',
                                        'tenant_get',
+                                       'domain_get',
                                        'user_list',
                                        'roles_for_group',
                                        'group_list',
@@ -655,7 +686,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        domain_id = project.domain_id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
@@ -663,6 +694,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest),
                                 self.tenant.id, admin=True) \
             .AndReturn(project)
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(self.domain)
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -712,13 +745,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                              '<UpdateProjectGroups: update_group_members>',
                              '<UpdateProjectQuota: update_quotas>'])
 
-    def test_update_project_get_domain(self):
-        domain = self.domains.get(id="1")
-        self.setSessionValues(domain_context=domain.id,
-                              domain_context_name=domain.name)
-        self.test_update_project_get()
-
     @test.create_stubs({api.keystone: ('tenant_get',
+                                       'domain_get',
                                        'tenant_update',
                                        'get_default_role',
                                        'roles_for_user',
@@ -737,7 +765,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        domain_id = project.domain_id
         users = self._get_all_users(domain_id)
         proj_users = self._get_proj_users(project.id)
         groups = self._get_all_groups(domain_id)
@@ -748,6 +776,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest),
                                 self.tenant.id, admin=True) \
             .AndReturn(project)
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(self.domain)
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -779,6 +809,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         workflow_data[GROUP_ROLE_PREFIX + "2"] = ['2']  # member role
 
         # update some fields
+        project._info["domain_id"] = domain_id
         project._info["name"] = "updated name"
         project._info["description"] = "updated description"
         quota.metadata_items = 444
@@ -895,7 +926,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         # submit form data
-        project_data = {"name": project._info["name"],
+        project_data = {"domain_id": project._info["domain_id"],
+                        "name": project._info["name"],
                         "id": project.id,
                         "description": project._info["description"],
                         "enabled": project.enabled}
@@ -908,12 +940,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=0, warning=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
-
-    def test_update_project_save_domain(self):
-        domain = self.domains.get(id="1")
-        self.setSessionValues(domain_context=domain.id,
-                              domain_context_name=domain.name)
-        self.test_update_project_save()
 
     @test.create_stubs({api.neutron: ('is_extension_supported',
                                       'tenant_quota_get',
@@ -950,6 +976,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.keystone: ('tenant_get',
+                                       'domain_get',
                                        'tenant_update',
                                        'get_default_role',
                                        'roles_for_user',
@@ -967,7 +994,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        domain_id = project.domain_id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
@@ -976,6 +1003,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
                                 admin=True) \
             .AndReturn(project)
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(self.domain)
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -1010,6 +1039,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                              .append(group.id)
 
         # update some fields
+        project._info["domain_id"] = domain_id
         project._info["name"] = "updated name"
         project._info["description"] = "updated description"
         quota.metadata_items = 444
@@ -1029,7 +1059,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         # submit form data
-        project_data = {"name": project._info["name"],
+        project_data = {"domain_id": project._info["domain_id"],
+                        "name": project._info["name"],
                         "id": project.id,
                         "description": project._info["description"],
                         "enabled": project.enabled}
@@ -1042,13 +1073,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    def test_update_project_tenant_update_error_domain(self):
-        domain = self.domains.get(id="1")
-        self.setSessionValues(domain_context=domain.id,
-                              domain_context_name=domain.name)
-        self.test_update_project_tenant_update_error()
-
     @test.create_stubs({api.keystone: ('tenant_get',
+                                       'domain_get',
                                        'tenant_update',
                                        'get_default_role',
                                        'roles_for_user',
@@ -1066,7 +1092,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        domain_id = project.domain_id
         users = self._get_all_users(domain_id)
         proj_users = self._get_proj_users(project.id)
         groups = self._get_all_groups(domain_id)
@@ -1077,6 +1103,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
                                 admin=True) \
             .AndReturn(project)
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(self.domain)
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -1110,6 +1138,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         workflow_data[GROUP_ROLE_PREFIX + "2"] = ['1', '2', '3']  # member role
 
         # update some fields
+        project._info["domain_id"] = domain_id
         project._info["name"] = "updated name"
         project._info["description"] = "updated description"
         quota[0].limit = 444
@@ -1188,10 +1217,11 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         # submit form data
-        project_data = {"name": project._info["name"],
-                         "id": project.id,
-                         "description": project._info["description"],
-                         "enabled": project.enabled}
+        project_data = {"domain_id": project._info["domain_id"],
+                        "name": project._info["name"],
+                        "id": project.id,
+                        "description": project._info["description"],
+                        "enabled": project.enabled}
         workflow_data.update(project_data)
         workflow_data.update(updated_quota)
         url = reverse('horizon:admin:projects:update',
@@ -1202,13 +1232,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertMessageCount(error=1, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    def test_update_project_quota_update_error_domain(self):
-        domain = self.domains.get(id="1")
-        self.setSessionValues(domain_context=domain.id,
-                              domain_context_name=domain.name)
-        self.test_update_project_quota_update_error()
-
     @test.create_stubs({api.keystone: ('tenant_get',
+                                       'domain_get',
                                        'tenant_update',
                                        'get_default_role',
                                        'roles_for_user',
@@ -1225,7 +1250,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
-        domain_id = self._get_domain_id()
+        domain_id = project.domain_id
         users = self._get_all_users(domain_id)
         proj_users = self._get_proj_users(project.id)
         groups = self._get_all_groups(domain_id)
@@ -1235,6 +1260,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
                                 admin=True) \
             .AndReturn(project)
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(self.domain)
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -1265,6 +1292,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         workflow_data[GROUP_ROLE_PREFIX + "1"] = ['1', '3']  # admin role
         workflow_data[GROUP_ROLE_PREFIX + "2"] = ['1', '2', '3']  # member role
         # update some fields
+        project._info["domain_id"] = domain_id
         project._info["name"] = "updated name"
         project._info["description"] = "updated description"
         quota.metadata_items = 444
@@ -1305,7 +1333,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         # submit form data
-        project_data = {"name": project._info["name"],
+        project_data = {"domain_id": project._info["domain_id"],
+                        "name": project._info["name"],
                         "id": project.id,
                         "description": project._info["description"],
                         "enabled": project.enabled}
@@ -1319,16 +1348,13 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertMessageCount(error=1, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    def test_update_project_member_update_error_domain(self):
-        domain = self.domains.get(id="1")
-        self.setSessionValues(domain_context=domain.id,
-                              domain_context_name=domain.name)
-        self.test_update_project_member_update_error()
-
-    @test.create_stubs({api.keystone: ('get_default_role', 'tenant_get'),
+    @test.create_stubs({api.keystone: ('get_default_role',
+                                       'tenant_get',
+                                       'domain_get'),
                         quotas: ('get_tenant_quota_data',)})
     def test_update_project_when_default_role_does_not_exist(self):
         project = self.tenants.first()
+        domain_id = project.domain_id
         quota = self.quotas.first()
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -1336,6 +1362,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
                                 admin=True) \
             .AndReturn(project)
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(self.domain)
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
