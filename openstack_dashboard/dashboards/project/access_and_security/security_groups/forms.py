@@ -32,8 +32,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon.utils import fields
-from horizon.utils.validators import validate_ip_protocol  # noqa
-from horizon.utils.validators import validate_port_range  # noqa
+from horizon.utils import validators as utils_validators
 
 from openstack_dashboard import api
 from openstack_dashboard.utils import filters
@@ -96,7 +95,7 @@ class AddRule(forms.SelfHandlingForm):
         label=_('IP Protocol'), required=False,
         help_text=_("Enter an integer value between 0 and 255 "
                     "(or -1 which means wildcard)."),
-        validators=[validate_ip_protocol],
+        validators=[utils_validators.validate_ip_protocol],
         widget=forms.TextInput(attrs={
             'class': 'switched',
             'data-switch-on': 'rule_menu',
@@ -121,7 +120,8 @@ class AddRule(forms.SelfHandlingForm):
                                    'class': 'switched',
                                    'data-switch-on': 'range',
                                    'data-range-port': _('Port')}),
-                              validators=[validate_port_range])
+                              validators=[
+                                  utils_validators.validate_port_range])
 
     from_port = forms.IntegerField(label=_("From Port"),
                                    required=False,
@@ -131,7 +131,8 @@ class AddRule(forms.SelfHandlingForm):
                                         'class': 'switched',
                                         'data-switch-on': 'range',
                                         'data-range-range': _('From Port')}),
-                                   validators=[validate_port_range])
+                                   validators=[
+                                       utils_validators.validate_port_range])
 
     to_port = forms.IntegerField(label=_("To Port"),
                                  required=False,
@@ -141,7 +142,8 @@ class AddRule(forms.SelfHandlingForm):
                                         'class': 'switched',
                                         'data-switch-on': 'range',
                                         'data-range-range': _('To Port')}),
-                                 validators=[validate_port_range])
+                                 validators=[
+                                     utils_validators.validate_port_range])
 
     icmp_type = forms.IntegerField(label=_("Type"),
                                    required=False,
@@ -151,7 +153,8 @@ class AddRule(forms.SelfHandlingForm):
                                         'class': 'switched',
                                         'data-switch-on': 'rule_menu',
                                         'data-rule_menu-icmp': _('Type')}),
-                                   validators=[validate_port_range])
+                                   validators=[
+                                       utils_validators.validate_port_range])
 
     icmp_code = forms.IntegerField(label=_("Code"),
                                    required=False,
@@ -161,7 +164,8 @@ class AddRule(forms.SelfHandlingForm):
                                           'class': 'switched',
                                           'data-switch-on': 'rule_menu',
                                           'data-rule_menu-icmp': _('Code')}),
-                                   validators=[validate_port_range])
+                                   validators=[
+                                       utils_validators.validate_port_range])
 
     remote = forms.ChoiceField(label=_('Remote'),
                                choices=[('cidr', _('CIDR')),

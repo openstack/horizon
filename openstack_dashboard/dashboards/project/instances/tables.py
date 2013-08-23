@@ -26,13 +26,12 @@ from django.utils.http import urlencode  # noqa
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
-from horizon.conf import HORIZON_CONFIG  # noqa
+from horizon import conf
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
 from horizon.templatetags import sizeformat
-from horizon.utils.filters import parse_isotime  # noqa
-from horizon.utils.filters import replace_underscores  # noqa
+from horizon.utils import filters
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security.floating_ips \
@@ -403,7 +402,7 @@ class SimpleDisassociateIP(tables.Action):
     classes = ("btn-danger", "btn-disassociate",)
 
     def allowed(self, request, instance):
-        if not HORIZON_CONFIG["simple_ip_management"]:
+        if not conf.HORIZON_CONFIG["simple_ip_management"]:
             return False
         return not is_deleting(instance)
 
@@ -557,23 +556,23 @@ class InstancesTable(tables.DataTable):
                          attrs={'data-type': 'size'})
     keypair = tables.Column(get_keyname, verbose_name=_("Keypair"))
     status = tables.Column("status",
-                           filters=(title, replace_underscores),
+                           filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
                            status_choices=STATUS_CHOICES,
                            display_choices=STATUS_DISPLAY_CHOICES)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
-                         filters=(title, replace_underscores),
+                         filters=(title, filters.replace_underscores),
                          status=True,
                          status_choices=TASK_STATUS_CHOICES,
                          display_choices=TASK_DISPLAY_CHOICES)
     state = tables.Column(get_power_state,
-                          filters=(title, replace_underscores),
+                          filters=(title, filters.replace_underscores),
                           verbose_name=_("Power State"))
     created = tables.Column("created",
                             verbose_name=_("Uptime"),
-                            filters=(parse_isotime, timesince))
+                            filters=(filters.parse_isotime, timesince))
 
     class Meta:
         name = "instances"

@@ -19,7 +19,7 @@ from django.views.decorators import vary
 
 import horizon
 
-from openstack_auth.views import Login  # noqa
+from openstack_auth import views
 
 
 def get_user_home(user):
@@ -32,7 +32,7 @@ def get_user_home(user):
 def splash(request):
     if request.user.is_authenticated():
         return shortcuts.redirect(get_user_home(request.user))
-    form = Login(request)
+    form = views.Login(request)
     request.session.clear()
     request.session.set_test_cookie()
     return shortcuts.render(request, 'splash.html', {'form': form})

@@ -17,11 +17,11 @@
 from django.conf import settings  # noqa
 from horizon import forms
 
-from openstack_dashboard.dashboards.settings.user.forms import UserSettingsForm  # noqa
+from openstack_dashboard.dashboards.settings.user import forms as user_forms
 
 
 class UserSettingsView(forms.ModalFormView):
-    form_class = UserSettingsForm
+    form_class = user_forms.UserSettingsForm
     template_name = 'settings/user/settings.html'
 
     def get_initial(self):

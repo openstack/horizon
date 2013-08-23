@@ -49,7 +49,7 @@ from horizon.test import helpers as horizon_helpers
 
 from openstack_dashboard import api
 from openstack_dashboard import context_processors
-from openstack_dashboard.test.test_data.utils import load_test_data  # noqa
+from openstack_dashboard.test.test_data import utils as test_utils
 
 
 # Makes output of failing mox tests much easier to read.
@@ -115,7 +115,7 @@ class TestCase(horizon_helpers.TestCase):
       * Several handy additional assertion methods.
     """
     def setUp(self):
-        load_test_data(self)
+        test_utils.load_test_data(self)
         self.mox = mox.Mox()
         self.factory = RequestFactoryWithMessages()
         self.context = {'authorized_tenants': self.tenants.list()}
@@ -344,7 +344,7 @@ class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
     def setUp(self):
         super(SeleniumTestCase, self).setUp()
 
-        load_test_data(self)
+        test_utils.load_test_data(self)
         self.mox = mox.Mox()
 
         self._real_get_user = utils.get_user

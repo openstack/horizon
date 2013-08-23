@@ -17,10 +17,12 @@
 from horizon import forms
 
 from django.core.urlresolvers import reverse_lazy  # noqa
-from openstack_dashboard.dashboards.settings.password.forms import PasswordForm  # noqa
+
+from openstack_dashboard.dashboards.settings.password \
+    import forms as pass_forms
 
 
 class PasswordView(forms.ModalFormView):
-    form_class = PasswordForm
+    form_class = pass_forms.PasswordForm
     template_name = 'settings/password/change.html'
     success_url = reverse_lazy('logout')

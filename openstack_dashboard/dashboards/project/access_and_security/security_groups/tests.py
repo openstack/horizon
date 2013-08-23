@@ -31,9 +31,6 @@ from openstack_dashboard.test import helpers as test
 
 from openstack_dashboard.dashboards.project.access_and_security.\
     security_groups import tables
-#     import RulesTable
-#from openstack_dashboard.dashboards.project.access_and_security.\
-#    security_groups.tables import SecurityGroupsTable
 
 
 INDEX_URL = reverse('horizon:project:access_and_security:index')
