@@ -172,7 +172,7 @@ necessary.
 To that end, Horizon includes several custom assertions to make these tasks
 easier. :meth:`~horizon.test.helpers.TestCase.assertNoFormErrors`,
 :meth:`~horizon.test.helpers.TestCase.assertMessageCount`, and
-:meth:`~horizon.test.helpers.TestCase.asertNoMessages` all exist for exactly
+:meth:`~horizon.test.helpers.TestCase.assertNoMessages` all exist for exactly
 these purposes. Moreover, they provide useful output when things go wrong so
 you're not left scratching your head wondering why your view test didn't
 redirect as expected when you posted a form.
@@ -191,7 +191,7 @@ Tips and tricks
    tell you what the error was.
 
 #. Use :meth:`~horizon.test.helpers.TestCase.assertMessageCount` and
-   :meth:`~horizon.test.helpers.TestCase.asertNoMessages` when a piece of code
+   :meth:`~horizon.test.helpers.TestCase.assertNoMessages` when a piece of code
    is failing inexplicably. Since the core error handlers attach user-facing
    error messages (and since the core logging is silenced during test runs)
    these methods give you the dual benefit of verifying the output you expect
