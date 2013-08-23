@@ -97,7 +97,7 @@ def download_ec2_bundle(request):
     response = http.HttpResponse(mimetype='application/zip')
     response.write(temp_zip.read())
     response['Content-Disposition'] = ('attachment; '
-                                       'filename=%s-x509.zip'
+                                       'filename="%s-x509.zip"'
                                        % tenant_name)
     response['Content-Length'] = temp_zip.tell()
     return response
@@ -124,7 +124,7 @@ def download_rc_file(request):
                                     context,
                                     content_type="text/plain")
         response['Content-Disposition'] = ('attachment; '
-                                           'filename=%s-openrc.sh'
+                                           'filename="%s-openrc.sh"'
                                            % tenant_name)
         response['Content-Length'] = str(len(response.content))
         return response
