@@ -36,7 +36,7 @@ from openstack_dashboard.api import base
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas as usage_quotas
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
+from openstack_dashboard.test.test_data import utils
 
 
 SERVER_DATA = """
@@ -147,31 +147,31 @@ USAGE_DATA = """
 
 
 def data(TEST):
-    TEST.servers = TestDataContainer()
-    TEST.flavors = TestDataContainer()
-    TEST.keypairs = TestDataContainer()
-    TEST.security_groups = TestDataContainer()
-    TEST.security_groups_uuid = TestDataContainer()
-    TEST.security_group_rules = TestDataContainer()
-    TEST.security_group_rules_uuid = TestDataContainer()
-    TEST.volumes = TestDataContainer()
-    TEST.quotas = TestDataContainer()
-    TEST.quota_usages = TestDataContainer()
-    TEST.floating_ips = TestDataContainer()
-    TEST.floating_ips_uuid = TestDataContainer()
-    TEST.usages = TestDataContainer()
-    TEST.certs = TestDataContainer()
-    TEST.volume_snapshots = TestDataContainer()
-    TEST.volume_types = TestDataContainer()
-    TEST.availability_zones = TestDataContainer()
-    TEST.hypervisors = TestDataContainer()
-    TEST.services = TestDataContainer()
-    TEST.aggregates = TestDataContainer()
+    TEST.servers = utils.TestDataContainer()
+    TEST.flavors = utils.TestDataContainer()
+    TEST.keypairs = utils.TestDataContainer()
+    TEST.security_groups = utils.TestDataContainer()
+    TEST.security_groups_uuid = utils.TestDataContainer()
+    TEST.security_group_rules = utils.TestDataContainer()
+    TEST.security_group_rules_uuid = utils.TestDataContainer()
+    TEST.volumes = utils.TestDataContainer()
+    TEST.quotas = utils.TestDataContainer()
+    TEST.quota_usages = utils.TestDataContainer()
+    TEST.floating_ips = utils.TestDataContainer()
+    TEST.floating_ips_uuid = utils.TestDataContainer()
+    TEST.usages = utils.TestDataContainer()
+    TEST.certs = utils.TestDataContainer()
+    TEST.volume_snapshots = utils.TestDataContainer()
+    TEST.volume_types = utils.TestDataContainer()
+    TEST.availability_zones = utils.TestDataContainer()
+    TEST.hypervisors = utils.TestDataContainer()
+    TEST.services = utils.TestDataContainer()
+    TEST.aggregates = utils.TestDataContainer()
 
     # Data return by novaclient.
     # It is used if API layer does data conversion.
-    TEST.api_floating_ips = TestDataContainer()
-    TEST.api_floating_ips_uuid = TestDataContainer()
+    TEST.api_floating_ips = utils.TestDataContainer()
+    TEST.api_floating_ips_uuid = utils.TestDataContainer()
 
     # Volumes
     volume = volumes.Volume(volumes.VolumeManager(None),

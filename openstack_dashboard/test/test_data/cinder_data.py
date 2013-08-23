@@ -16,12 +16,12 @@ from cinderclient.v1 import quotas
 from openstack_dashboard.api import base
 from openstack_dashboard.usage import quotas as usage_quotas
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
+from openstack_dashboard.test.test_data import utils
 
 
 def data(TEST):
-    TEST.cinder_quotas = TestDataContainer()
-    TEST.cinder_quota_usages = TestDataContainer()
+    TEST.cinder_quotas = utils.TestDataContainer()
+    TEST.cinder_quota_usages = utils.TestDataContainer()
 
     # Quota Sets
     quota_data = dict(volumes='1',

@@ -17,7 +17,7 @@ from datetime import timedelta  # noqa
 from django.conf import settings  # noqa
 from django.utils import datetime_safe
 
-from keystoneclient.access import AccessInfo  # noqa
+from keystoneclient import access
 from keystoneclient.v2_0 import ec2
 from keystoneclient.v2_0 import roles
 from keystoneclient.v2_0 import tenants
@@ -25,9 +25,9 @@ from keystoneclient.v2_0 import users
 from keystoneclient.v3 import domains
 from keystoneclient.v3 import groups
 
-from openstack_auth.user import Token  # noqa
+from openstack_auth import user as auth_user
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
+from openstack_dashboard.test.test_data import utils
 
 
 # Dummy service catalog with all service.
@@ -111,13 +111,13 @@ SERVICE_CATALOG = [
 
 def data(TEST):
     TEST.service_catalog = SERVICE_CATALOG
-    TEST.tokens = TestDataContainer()
-    TEST.domains = TestDataContainer()
-    TEST.users = TestDataContainer()
-    TEST.groups = TestDataContainer()
-    TEST.tenants = TestDataContainer()
-    TEST.roles = TestDataContainer()
-    TEST.ec2 = TestDataContainer()
+    TEST.tokens = utils.TestDataContainer()
+    TEST.domains = utils.TestDataContainer()
+    TEST.users = utils.TestDataContainer()
+    TEST.groups = utils.TestDataContainer()
+    TEST.tenants = utils.TestDataContainer()
+    TEST.roles = utils.TestDataContainer()
+    TEST.ec2 = utils.TestDataContainer()
 
     admin_role_dict = {'id': '1',
                        'name': 'admin'}
@@ -248,8 +248,8 @@ def data(TEST):
         }
     }
 
-    scoped_access_info = AccessInfo.factory(resp=None,
-                                            body=scoped_token_dict)
+    scoped_access_info = access.AccessInfo.factory(resp=None,
+                                                   body=scoped_token_dict)
 
     unscoped_token_dict = {
         'access': {
@@ -263,11 +263,11 @@ def data(TEST):
             'serviceCatalog': TEST.service_catalog
         }
     }
-    unscoped_access_info = AccessInfo.factory(resp=None,
-                                              body=unscoped_token_dict)
+    unscoped_access_info = access.AccessInfo.factory(resp=None,
+                                                     body=unscoped_token_dict)
 
-    scoped_token = Token(scoped_access_info)
-    unscoped_token = Token(unscoped_access_info)
+    scoped_token = auth_user.Token(scoped_access_info)
+    unscoped_token = auth_user.Token(unscoped_access_info)
     TEST.tokens.add(scoped_token, unscoped_token)
     TEST.token = scoped_token  # your "current" token.
     TEST.tokens.scoped_token = scoped_token

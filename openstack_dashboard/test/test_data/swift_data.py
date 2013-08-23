@@ -15,12 +15,12 @@
 from openstack_dashboard.api import swift
 from openstack_dashboard.openstack.common import timeutils
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
+from openstack_dashboard.test.test_data import utils
 
 
 def data(TEST):
-    TEST.containers = TestDataContainer()
-    TEST.objects = TestDataContainer()
+    TEST.containers = utils.TestDataContainer()
+    TEST.objects = utils.TestDataContainer()
 
     container_dict_1 = {"name": u"container_one\u6346",
                         "container_object_count": 2,
