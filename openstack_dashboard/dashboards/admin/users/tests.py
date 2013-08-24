@@ -36,8 +36,12 @@ USER_UPDATE_URL = reverse('horizon:admin:users:update', args=[1])
 
 
 class UsersViewTests(test.BaseAdminViewTests):
-    def _get_domain_id(self):
-        return self.request.session.get('domain_context', None)
+    def _get_default_domain(self):
+        domain = {"id": self.request.session.get('domain_context',
+                                                 None),
+                  "name": self.request.session.get('domain_context_name',
+                                                   None)}
+        return api.base.APIDictWrapper(domain)
 
     def _get_users(self, domain_id):
         if not domain_id:
@@ -49,7 +53,8 @@ class UsersViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('user_list',)})
     def test_index(self):
-        domain_id = self._get_domain_id()
+        domain = self._get_default_domain()
+        domain_id = domain.id
         users = self._get_users(domain_id)
         api.keystone.user_list(IgnoreArg(), domain=domain_id) \
                 .AndReturn(users)
@@ -72,17 +77,21 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.test_index()
 
     @test.create_stubs({api.keystone: ('user_create',
+                                       'get_default_domain',
                                        'tenant_list',
                                        'add_tenant_user_role',
                                        'get_default_role',
                                        'role_list')})
     def test_create(self):
         user = self.users.get(id="1")
-        domain_id = self._get_domain_id()
+        domain = self._get_default_domain()
+        domain_id = domain.id
 
         role = self.roles.first()
 
-        api.keystone.tenant_list(IgnoreArg(), user=None) \
+        api.keystone.get_default_domain(IgnoreArg()) \
+            .MultipleTimes().AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_create(IgnoreArg(),
                                  name=user.name,
@@ -99,6 +108,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateUserForm',
+                    'domain_id': domain_id,
                     'name': user.name,
                     'email': user.email,
                     'password': user.password,
@@ -116,13 +126,18 @@ class UsersViewTests(test.BaseAdminViewTests):
                               domain_context_name=domain.name)
         self.test_create()
 
-    @test.create_stubs({api.keystone: ('tenant_list',
+    @test.create_stubs({api.keystone: ('get_default_domain',
+                                       'tenant_list',
                                        'role_list',
                                        'get_default_role')})
     def test_create_with_password_mismatch(self):
         user = self.users.get(id="1")
+        domain = self._get_default_domain()
+        domain_id = domain.id
 
-        api.keystone.tenant_list(IgnoreArg(), user=None) \
+        api.keystone.get_default_domain(IgnoreArg()) \
+            .MultipleTimes().AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()) \
@@ -131,6 +146,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateUserForm',
+                    'domain_id': domain_id,
                     'name': user.name,
                     'email': user.email,
                     'password': user.password,
@@ -142,13 +158,18 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
 
-    @test.create_stubs({api.keystone: ('tenant_list',
+    @test.create_stubs({api.keystone: ('get_default_domain',
+                                       'tenant_list',
                                        'role_list',
                                        'get_default_role')})
     def test_create_validation_for_password_too_short(self):
         user = self.users.get(id="1")
+        domain = self._get_default_domain()
+        domain_id = domain.id
 
-        api.keystone.tenant_list(IgnoreArg(), user=None) \
+        api.keystone.get_default_domain(IgnoreArg()) \
+            .MultipleTimes().AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()) \
@@ -158,6 +179,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         # check password min-len verification
         formData = {'method': 'CreateUserForm',
+                    'domain_id': domain_id,
                     'name': user.name,
                     'email': user.email,
                     'password': 'four',
@@ -171,13 +193,18 @@ class UsersViewTests(test.BaseAdminViewTests):
             res, "form", 'password',
             ['Password must be between 8 and 18 characters.'])
 
-    @test.create_stubs({api.keystone: ('tenant_list',
+    @test.create_stubs({api.keystone: ('get_default_domain',
+                                       'tenant_list',
                                        'role_list',
                                        'get_default_role')})
     def test_create_validation_for_password_too_long(self):
         user = self.users.get(id="1")
+        domain = self._get_default_domain()
+        domain_id = domain.id
 
-        api.keystone.tenant_list(IgnoreArg(), user=None) \
+        api.keystone.get_default_domain(IgnoreArg()) \
+            .MultipleTimes().AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()) \
@@ -187,6 +214,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         # check password min-len verification
         formData = {'method': 'CreateUserForm',
+                    'domain_id': domain_id,
                     'name': user.name,
                     'email': user.email,
                     'password': 'MoreThanEighteenChars',
@@ -201,6 +229,7 @@ class UsersViewTests(test.BaseAdminViewTests):
             ['Password must be between 8 and 18 characters.'])
 
     @test.create_stubs({api.keystone: ('user_get',
+                                       'domain_get',
                                        'tenant_list',
                                        'user_update_tenant',
                                        'user_update_password',
@@ -208,11 +237,15 @@ class UsersViewTests(test.BaseAdminViewTests):
                                        'roles_for_user', )})
     def test_update(self):
         user = self.users.get(id="1")
+        domain_id = user.domain_id
+        domain = self.domains.get(id=domain_id)
         test_password = 'normalpwd'
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(user)
-        api.keystone.tenant_list(IgnoreArg(), user=user.id) \
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=user.id) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
@@ -236,17 +269,22 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
 
     @test.create_stubs({api.keystone: ('user_get',
+                                       'domain_get',
                                        'tenant_list',
                                        'user_update_tenant',
                                        'keystone_can_edit_user',
                                        'roles_for_user', )})
     def test_update_with_keystone_can_edit_user_false(self):
         user = self.users.get(id="1")
+        domain_id = user.domain_id
+        domain = self.domains.get(id=domain_id)
 
         api.keystone.user_get(IsA(http.HttpRequest),
                      '1',
                      admin=True).AndReturn(user)
-        api.keystone.tenant_list(IgnoreArg(), user=user.id) \
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=user.id) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.keystone_can_edit_user().AndReturn(False)
         api.keystone.keystone_can_edit_user().AndReturn(False)
@@ -263,13 +301,19 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=1)
 
-    @test.create_stubs({api.keystone: ('user_get', 'tenant_list')})
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_list')})
     def test_update_validation_for_password_too_short(self):
         user = self.users.get(id="1")
+        domain_id = user.domain_id
+        domain = self.domains.get(id=domain_id)
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(user)
-        api.keystone.tenant_list(IgnoreArg(), user=user.id) \
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=user.id) \
             .AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
@@ -288,13 +332,19 @@ class UsersViewTests(test.BaseAdminViewTests):
                 res, "form", 'password',
                 ['Password must be between 8 and 18 characters.'])
 
-    @test.create_stubs({api.keystone: ('user_get', 'tenant_list')})
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_list')})
     def test_update_validation_for_password_too_long(self):
         user = self.users.get(id="1")
+        domain_id = user.domain_id
+        domain = self.domains.get(id=domain_id)
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(user)
-        api.keystone.tenant_list(IgnoreArg(), user=user.id) \
+        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
+            .AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=user.id) \
             .AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
@@ -315,8 +365,9 @@ class UsersViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_enable_user(self):
+        domain = self._get_default_domain()
+        domain_id = domain.id
         user = self.users.get(id="2")
-        domain_id = self._get_domain_id()
         users = self._get_users(domain_id)
         user.enabled = False
 
@@ -334,8 +385,9 @@ class UsersViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_disable_user(self):
+        domain = self._get_default_domain()
+        domain_id = domain.id
         user = self.users.get(id="2")
-        domain_id = self._get_domain_id()
         users = self._get_users(domain_id)
 
         self.assertTrue(user.enabled)
@@ -355,8 +407,9 @@ class UsersViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_enable_disable_user_exception(self):
+        domain = self._get_default_domain()
+        domain_id = domain.id
         user = self.users.get(id="2")
-        domain_id = self._get_domain_id()
         users = self._get_users(domain_id)
         user.enabled = False
 
@@ -373,7 +426,8 @@ class UsersViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('user_list',)})
     def test_disabling_current_user(self):
-        domain_id = self._get_domain_id()
+        domain = self._get_default_domain()
+        domain_id = domain.id
         users = self._get_users(domain_id)
         for i in range(0, 2):
             api.keystone.user_list(IgnoreArg(), domain=domain_id) \
@@ -390,7 +444,8 @@ class UsersViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('user_list',)})
     def test_delete_user_with_improper_permissions(self):
-        domain_id = self._get_domain_id()
+        domain = self._get_default_domain()
+        domain_id = domain.id
         users = self._get_users(domain_id)
         for i in range(0, 2):
             api.keystone.user_list(IgnoreArg(), domain=domain_id) \
@@ -407,12 +462,21 @@ class UsersViewTests(test.BaseAdminViewTests):
 
 
 class SeleniumTests(test.SeleniumAdminTestCase):
-    @test.create_stubs({api.keystone: ('tenant_list',
+    def _get_default_domain(self):
+        domain = {"id": None, "name": None}
+        return api.base.APIDictWrapper(domain)
+
+    @test.create_stubs({api.keystone: ('get_default_domain',
+                                       'tenant_list',
                                        'get_default_role',
                                        'role_list',
                                        'user_list')})
     def test_modal_create_user_with_passwords_not_matching(self):
-        api.keystone.tenant_list(IgnoreArg(), user=None) \
+        domain = self._get_default_domain()
+
+        api.keystone.get_default_domain(IgnoreArg()) \
+            .AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(), domain=None, user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.user_list(IgnoreArg(), domain=None) \
@@ -441,11 +505,17 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         self.assertTrue("Passwords do not match" in body.text,
                         "Error message not found in body")
 
-    @test.create_stubs({api.keystone: ('tenant_list', 'user_get')})
+    @test.create_stubs({api.keystone: ('tenant_list',
+                                       'user_get',
+                                       'domain_get')})
     def test_update_user_with_passwords_not_matching(self):
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(self.user)
-        api.keystone.tenant_list(IgnoreArg(), user=self.user.id) \
+        api.keystone.domain_get(IsA(http.HttpRequest), '1') \
+            .AndReturn(self.domain)
+        api.keystone.tenant_list(IgnoreArg(),
+                                 domain=self.user.domain_id,
+                                 user=self.user.id) \
             .AndReturn([self.tenants.list(), False])
         self.mox.ReplayAll()
 
