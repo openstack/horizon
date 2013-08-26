@@ -19,35 +19,35 @@ from openstack_dashboard.api import lbaas
 
 from openstack_dashboard.api import neutron
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
+from openstack_dashboard.test.test_data import utils
 
 
 def data(TEST):
     # data returned by openstack_dashboard.api.neutron wrapper
-    TEST.networks = TestDataContainer()
-    TEST.subnets = TestDataContainer()
-    TEST.ports = TestDataContainer()
-    TEST.routers = TestDataContainer()
-    TEST.q_floating_ips = TestDataContainer()
-    TEST.q_secgroups = TestDataContainer()
-    TEST.q_secgroup_rules = TestDataContainer()
-    TEST.pools = TestDataContainer()
-    TEST.vips = TestDataContainer()
-    TEST.members = TestDataContainer()
-    TEST.monitors = TestDataContainer()
+    TEST.networks = utils.TestDataContainer()
+    TEST.subnets = utils.TestDataContainer()
+    TEST.ports = utils.TestDataContainer()
+    TEST.routers = utils.TestDataContainer()
+    TEST.q_floating_ips = utils.TestDataContainer()
+    TEST.q_secgroups = utils.TestDataContainer()
+    TEST.q_secgroup_rules = utils.TestDataContainer()
+    TEST.pools = utils.TestDataContainer()
+    TEST.vips = utils.TestDataContainer()
+    TEST.members = utils.TestDataContainer()
+    TEST.monitors = utils.TestDataContainer()
 
     # data return by neutronclient
-    TEST.api_networks = TestDataContainer()
-    TEST.api_subnets = TestDataContainer()
-    TEST.api_ports = TestDataContainer()
-    TEST.api_routers = TestDataContainer()
-    TEST.api_q_floating_ips = TestDataContainer()
-    TEST.api_q_secgroups = TestDataContainer()
-    TEST.api_q_secgroup_rules = TestDataContainer()
-    TEST.api_pools = TestDataContainer()
-    TEST.api_vips = TestDataContainer()
-    TEST.api_members = TestDataContainer()
-    TEST.api_monitors = TestDataContainer()
+    TEST.api_networks = utils.TestDataContainer()
+    TEST.api_subnets = utils.TestDataContainer()
+    TEST.api_ports = utils.TestDataContainer()
+    TEST.api_routers = utils.TestDataContainer()
+    TEST.api_q_floating_ips = utils.TestDataContainer()
+    TEST.api_q_secgroups = utils.TestDataContainer()
+    TEST.api_q_secgroup_rules = utils.TestDataContainer()
+    TEST.api_pools = utils.TestDataContainer()
+    TEST.api_vips = utils.TestDataContainer()
+    TEST.api_members = utils.TestDataContainer()
+    TEST.api_monitors = utils.TestDataContainer()
 
     #------------------------------------------------------------
     # 1st network

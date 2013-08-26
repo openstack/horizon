@@ -12,10 +12,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from heatclient.v1.stacks import Stack  # noqa
-from heatclient.v1.stacks import StackManager  # noqa
+from heatclient.v1 import stacks
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
+from openstack_dashboard.test.test_data import utils
 
 
 # A slightly hacked up copy of a sample cloudformation template for testing.
@@ -314,8 +313,8 @@ class Template(object):
 
 
 def data(TEST):
-    TEST.stacks = TestDataContainer()
-    TEST.stack_templates = TestDataContainer()
+    TEST.stacks = utils.TestDataContainer()
+    TEST.stack_templates = utils.TestDataContainer()
 
     # Stacks
     stack1 = {
@@ -334,7 +333,7 @@ def data(TEST):
         "stack_status": "CREATE_COMPLETE",
         "id": "05b4f39f-ea96-4d91-910c-e758c078a089"
     }
-    stack = Stack(StackManager(None), stack1)
+    stack = stacks.Stack(stacks.StackManager(None), stack1)
     TEST.stacks.add(stack)
 
     TEST.stack_templates.add(Template(TEMPLATE, VALIDATE))
