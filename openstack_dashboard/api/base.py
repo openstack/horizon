@@ -158,7 +158,12 @@ class QuotaSet(Sequence):
     def __init__(self, apiresource=None):
         self.items = []
         if apiresource:
-            for k, v in apiresource._info.items():
+            if hasattr(apiresource, '_info'):
+                items = apiresource._info.items()
+            else:
+                items = apiresource.items()
+
+            for k, v in items:
                 if k == 'id':
                     continue
                 self[k] = v

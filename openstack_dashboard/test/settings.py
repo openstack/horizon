@@ -83,7 +83,8 @@ OPENSTACK_KEYSTONE_BACKEND = {
 }
 
 OPENSTACK_NEUTRON_NETWORK = {
-    'enable_lb': True
+    'enable_lb': True,
+    'enable_quotas': False  # Enabled in specific tests only
 }
 
 OPENSTACK_HYPERVISOR_FEATURES = {

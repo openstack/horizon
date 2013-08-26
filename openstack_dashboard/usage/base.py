@@ -7,6 +7,7 @@ import datetime
 import logging
 from StringIO import StringIO  # noqa
 
+from django.conf import settings  # noqa
 from django.http import HttpResponse  # noqa
 from django import template as django_template
 from django.utils import timezone
@@ -102,6 +103,43 @@ class BaseUsage(object):
                                                     'end': init[1]})
         return self.form
 
+    def get_neutron_limits(self):
+        if not api.base.is_service_enabled(self.request, 'network'):
+            return
+
+        # Retrieve number of floating IPs currently allocated
+        try:
+            floating_ips_current = len(
+                api.network.tenant_floating_ip_list(self.request))
+        except Exception:
+            floating_ips_current = 0
+            msg = _('Unable to retrieve floating IP addresses.')
+            exceptions.handle(self.request, msg)
+
+        self.limits['totalFloatingIpsUsed'] = floating_ips_current
+
+        # Quotas are an optional extension in Neutron. If it isn't
+        # enabled, assume the floating IP limit is infinite.
+        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+        if not network_config.get('enable_quotas', False) or \
+                not api.neutron.is_extension_supported(self.request, 'quotas'):
+            self.limits['maxTotalFloatingIps'] = float("inf")
+            return
+
+        try:
+            neutron_quotas = api.neutron.tenant_quota_get(self.request,
+                                                          self.project_id)
+            floating_ips_max = getattr(neutron_quotas.get('floatingip'),
+                                       'limit', float("inf"))
+            if floating_ips_max == -1:
+                floating_ips_max = float("inf")
+        except Exception:
+            floating_ips_max = float("inf")
+            msg = _('Unable to retrieve network quota information.')
+            exceptions.handle(self.request, msg)
+
+        self.limits['maxTotalFloatingIps'] = floating_ips_max
+
     def get_limits(self):
         try:
             self.limits = api.nova.tenant_absolute_limits(self.request)
@@ -109,8 +147,10 @@ class BaseUsage(object):
             exceptions.handle(self.request,
                               _("Unable to retrieve limit information."))
 
+        self.get_neutron_limits()
+
     def get_usage_list(self, start, end):
-        raise NotImplementedError("You must define a get_usage method.")
+        raise NotImplementedError("You must define a get_usage_list method.")
 
     def summarize(self, start, end):
         if start <= end and start <= self.today:
