@@ -39,7 +39,8 @@ INDEX_URL = reverse('horizon:project:overview:index')
 class UsageViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('usage_list', 'tenant_absolute_limits', ),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        api.network: ('tenant_floating_ip_list',)})
     def test_usage(self):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
@@ -55,7 +56,10 @@ class UsageViewTests(test.BaseAdminViewTests):
                                               .AndReturn([usage_obj])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
+
         res = self.client.get(reverse('horizon:admin:overview:index'))
         self.assertTemplateUsed(res, 'admin/overview/usage.html')
         self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
@@ -74,7 +78,8 @@ class UsageViewTests(test.BaseAdminViewTests):
                              usage_obj.total_local_gb_usage))
 
     @test.create_stubs({api.nova: ('usage_list', 'tenant_absolute_limits', ),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        api.network: ('tenant_floating_ip_list',)})
     def test_usage_csv(self):
         now = timezone.now()
         usage_obj = [api.nova.NovaUsage(u) for u in self.usages.list()]
@@ -90,7 +95,10 @@ class UsageViewTests(test.BaseAdminViewTests):
                                               .AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
+
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"
         res = self.client.get(csv_url)
         self.assertTemplateUsed(res, 'admin/overview/usage.csv')

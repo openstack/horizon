@@ -270,3 +270,14 @@ class NeutronApiTests(test.APITestCase):
 
         api.neutron.router_remove_interface(
             self.request, router_id, port_id=fake_port)
+
+    def test_is_extension_supported(self):
+        neutronclient = self.stub_neutronclient()
+        neutronclient.list_extensions().MultipleTimes() \
+            .AndReturn(self.api_extensions.first())
+        self.mox.ReplayAll()
+
+        self.assertTrue(
+            api.neutron.is_extension_supported(self.request, 'quotas'))
+        self.assertFalse(
+            api.neutron.is_extension_supported(self.request, 'doesntexist'))

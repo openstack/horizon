@@ -602,3 +602,25 @@ def router_add_gateway(request, router_id, network_id):
 
 def router_remove_gateway(request, router_id):
     neutronclient(request).remove_gateway_router(router_id)
+
+
+def tenant_quota_get(request, tenant_id):
+    return base.QuotaSet(neutronclient(request).show_quota(tenant_id)['quota'])
+
+
+def list_extensions(request):
+    extensions_list = neutronclient(request).list_extensions()
+    if 'extensions' in extensions_list:
+        return extensions_list['extensions']
+    else:
+        return {}
+
+
+def is_extension_supported(request, extension_alias):
+    extensions = list_extensions(request)
+
+    for extension in extensions:
+        if extension['alias'] == extension_alias:
+            return True
+    else:
+        return False

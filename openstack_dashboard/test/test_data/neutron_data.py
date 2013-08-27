@@ -15,8 +15,8 @@
 import copy
 import uuid
 
+from openstack_dashboard.api import base
 from openstack_dashboard.api import lbaas
-
 from openstack_dashboard.api import neutron
 
 from openstack_dashboard.test.test_data import utils
@@ -35,6 +35,7 @@ def data(TEST):
     TEST.vips = utils.TestDataContainer()
     TEST.members = utils.TestDataContainer()
     TEST.monitors = utils.TestDataContainer()
+    TEST.neutron_quotas = utils.TestDataContainer()
 
     # data return by neutronclient
     TEST.api_networks = utils.TestDataContainer()
@@ -48,6 +49,7 @@ def data(TEST):
     TEST.api_vips = utils.TestDataContainer()
     TEST.api_members = utils.TestDataContainer()
     TEST.api_monitors = utils.TestDataContainer()
+    TEST.api_extensions = utils.TestDataContainer()
 
     #------------------------------------------------------------
     # 1st network
@@ -448,3 +450,26 @@ def data(TEST):
                     'admin_state_up': True}
     TEST.api_monitors.add(monitor_dict)
     TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))
+
+    #------------------------------------------------------------
+    # Quotas
+    quota_data = dict(floatingip='50',
+                      network='10',
+                      port='50',
+                      router='10',
+                      security_groups='10',
+                      security_group_rules='100',
+                      subnet='10')
+    TEST.neutron_quotas.add(base.QuotaSet(quota_data))
+
+    #------------------------------------------------------------
+    # Extensions
+    extension_1 = {"name": "security-group",
+                   "alias": "security-group",
+                   "description": "The security groups extension."}
+    extension_2 = {"name": "Quota management support",
+                   "alias": "quotas",
+                   "description": "Expose functions for quotas management"}
+    extensions = {}
+    extensions['extensions'] = [extension_1, extension_2]
+    TEST.api_extensions.add(extensions)

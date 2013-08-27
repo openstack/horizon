@@ -22,6 +22,7 @@ import datetime
 
 from django.core.urlresolvers import reverse  # noqa
 from django import http
+from django.test.utils import override_settings  # noqa
 from django.utils import timezone
 
 from mox import IsA  # noqa
@@ -40,6 +41,7 @@ class UsageViewTests(test.TestCase):
         usage_obj = api.nova.NovaUsage(self.usages.first())
         self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
                            datetime.datetime(now.year,
                                              now.month,
@@ -48,20 +50,52 @@ class UsageViewTests(test.TestCase):
                                              now.month,
                                              now.day, 23, 59, 59, 0)) \
                            .AndReturn(usage_obj)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
                            .AndReturn(self.limits['absolute'])
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))
+        usages = res.context['usage']
         self.assertTemplateUsed(res, 'project/overview/usage.html')
-        self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))
+        self.assertTrue(isinstance(usages, usage.ProjectUsage))
         self.assertContains(res, 'form-horizontal')
+        self.assertEqual(usages.limits['maxTotalFloatingIps'], float("inf"))
+
+    def test_usage_nova_network(self):
+        now = timezone.now()
+        usage_obj = api.nova.NovaUsage(self.usages.first())
+        self.mox.StubOutWithMock(api.nova, 'usage_get')
+        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
+        self.mox.StubOutWithMock(api.base, 'is_service_enabled')
+        api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
+                           datetime.datetime(now.year,
+                                             now.month,
+                                             now.day, 0, 0, 0, 0),
+                           datetime.datetime(now.year,
+                                             now.month,
+                                             now.day, 23, 59, 59, 0)) \
+                           .AndReturn(usage_obj)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+                           .AndReturn(self.limits['absolute'])
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+                           .AndReturn(False)
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:project:overview:index'))
+        usages = res.context['usage']
+        self.assertTemplateUsed(res, 'project/overview/usage.html')
+        self.assertTrue(isinstance(usages, usage.ProjectUsage))
+        self.assertContains(res, 'form-horizontal')
+        self.assertEqual(usages.limits['maxTotalFloatingIps'], 10)
 
     def test_unauthorized(self):
         exc = self.exceptions.nova_unauthorized
         now = timezone.now()
         self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
                            datetime.datetime(now.year,
                                              now.month,
@@ -72,6 +106,8 @@ class UsageViewTests(test.TestCase):
                            .AndRaise(exc)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
                            .AndReturn(self.limits['absolute'])
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:overview:index')
@@ -85,6 +121,7 @@ class UsageViewTests(test.TestCase):
         usage_obj = api.nova.NovaUsage(self.usages.first())
         self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
@@ -92,7 +129,8 @@ class UsageViewTests(test.TestCase):
                            start, end).AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
-
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:project:overview:index') +
                               "?format=csv")
@@ -103,6 +141,7 @@ class UsageViewTests(test.TestCase):
         now = timezone.now()
         self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
@@ -110,7 +149,8 @@ class UsageViewTests(test.TestCase):
                            start, end).AndRaise(self.exceptions.nova)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
-
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))
@@ -122,6 +162,7 @@ class UsageViewTests(test.TestCase):
         usage_obj = api.nova.NovaUsage(self.usages.first())
         self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
@@ -129,6 +170,8 @@ class UsageViewTests(test.TestCase):
                            start, end).AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
                            .AndRaise(self.exceptions.nova)
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))
@@ -140,6 +183,7 @@ class UsageViewTests(test.TestCase):
         usage_obj = api.nova.NovaUsage(self.usages.first())
         self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
@@ -147,8 +191,41 @@ class UsageViewTests(test.TestCase):
                            start, end).AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))
         self.assertTemplateUsed(res, 'project/overview/usage.html')
         self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))
+
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    def test_usage_with_neutron_floating_ips(self):
+        now = timezone.now()
+        usage_obj = api.nova.NovaUsage(self.usages.first())
+        self.mox.StubOutWithMock(api.nova, 'usage_get')
+        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
+        self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
+        self.mox.StubOutWithMock(api.neutron, 'tenant_quota_get')
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
+        end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
+        api.nova.usage_get(IsA(http.HttpRequest),
+                           self.tenant.id,
+                           start, end).AndReturn(usage_obj)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+            .AndReturn(self.limits['absolute'])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
+                           .AndReturn(True)
+        api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
+                           .AndReturn(self.neutron_quotas.first())
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.floating_ips.list())
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:project:overview:index'))
+        self.assertContains(res, 'Floating IPs')
+
+        # Make sure the floating IPs limit comes from Neutron (50 vs. 10)
+        max_floating_ips = res.context['usage'].limits['maxTotalFloatingIps']
+        self.assertEqual(max_floating_ips, 50)
