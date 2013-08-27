@@ -1,0 +1,69 @@
+@min_height_fullscreen_chart: 300px;
+@min_width_fullscreen_chart: 400px;
+@min_width_fullscreen_chart_legend: 90px;
+
+.chart_container {
+    position: relative;
+    min-height: @min_height_fullscreen_chart;
+    min-width: @min_width_fullscreen_chart;
+
+    .chart {
+        position: relative;
+        min-height: @min_height_fullscreen_chart;
+        min-width: @min_width_fullscreen_chart;
+        .rickshaw_graph .detail {
+            .x_label { display: none }
+            .item { line-height: 1.4; padding: 0.5em }
+            .date { color: #a0a0a0 }
+        }
+        .modal-backdrop {
+            position: absolute;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            min-height: @min_height_fullscreen_chart;
+            min-width: @min_width_fullscreen_chart;
+        }
+        svg {
+            padding: 0 0 5px 0
+        }
+    }
+
+    .detail_swatch {
+        float: right;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 4px 0 0;
+    }
+}
+
+.legend_container {
+    min-width: @min_width_fullscreen_chart_legend;
+    margin-left: 20px;
+
+    .swatch {
+        float: right;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 4px 0 0;
+    }
+    .modal-backdrop {
+        position: absolute;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        min-width: 90px;
+    }
+    .rickshaw_legend.disabled {
+        padding: 0;
+    }
+}
+
+.spinner_wrapper {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
