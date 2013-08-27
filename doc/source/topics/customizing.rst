@@ -148,3 +148,78 @@ button:
 Additionally, the site-wide default button classes can be configured by
 setting ``ACTION_CSS_CLASSES`` to a tuple of the classes you wish to appear
 on all action buttons in your ``local_settings.py`` file.
+
+
+Custom Stylesheets
+==================
+
+It is possible to define custom stylesheets for your dashboards. Horizon's base
+template ``horizon/templates/horizon/base.html`` defines multiple blocks that
+can be overriden.
+
+To define custom css files that apply only to a specific dashboard, create
+a base template in your dashboard's templates folder, which extends Horizon's
+base template e.g. ``openstack_dashboard/dashboards/my_custom_dashboard/
+templates/my_custom_dashboard/base.html``.
+
+In this template, redefine ``block css``. (Don't forget to include
+``_stylesheets.html`` which includes all Horizon's default stylesheets.)::
+
+    {% extends 'base.html' %}
+
+    {% block css %}
+      {% include "_stylesheets.html" %}
+
+      {% load compress %}
+      {% compress css %}
+      <link href='{{ STATIC_URL }}my_custom_dashboard/less/my_custom_dashboard.less' type='text/less' media='screen' rel='stylesheet' />
+      {% endcompress %}
+    {% endblock %}
+
+The custom stylesheets then reside in the dashboard's own ``static`` folder
+``openstack_dashboard/dashboards/my_custom_dashboard/static/
+my_custom_dashboard/less/my_custom_dashboard.less``.
+
+All dashboard's templates have to inherit from dashboard's base.html::
+
+    {% extends 'my_custom_dashboard/base.html' %}
+    ...
+
+
+Custom Javascript
+=================
+
+Similarly to adding custom styling (see above), it is possible to include
+custom javascript files.
+
+All Horizon's javascript files are listed in the ``horizon/_scripts.html``
+partial template, which is included in Horizon's base template in ``block js``.
+
+To add custom javascript files, create an ``_scripts.html`` partial template in
+your dashboard ``openstack_dashboard/dashboards/my_custom_dashboard/
+templates/my_custom_dashboard/_scripts.html`` which extends
+``horizon/_scripts.html.``. In this template override the
+``block custom_js_files`` including your custom javascript files::
+
+    {% extends 'horizon/_scripts.html' %}
+
+    {% block custom_js_files %}
+        <script src='{{ STATIC_URL }}my_custom_dashboard/js/my_custom_js.js' type='text/javascript' charset='utf-8'></script>
+    {% endblock %}
+
+
+In your dashboard's own base template ``openstack_dashboard/dashboards/
+my_custom_dashboard/templates/my_custom_dashboard/base.html`` override
+``block js`` with inclusion of dashboard's own ``_scripts.html``::
+
+    {% block js %}
+        {% include "my_custom_dashboard/_scripts.html" %}
+    {% endblock %}
+
+The result is a single compressed js file consisting both Horizon and
+dashboard's custom scripts.
+
+
+
+
+
