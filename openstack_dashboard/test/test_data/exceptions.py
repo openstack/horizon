@@ -19,7 +19,7 @@ from neutronclient.common import exceptions as neutron_exceptions
 from novaclient import exceptions as nova_exceptions
 from swiftclient import client as swift_exceptions
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
+from openstack_dashboard.test.test_data import utils
 
 
 def create_stubbed_exception(cls, status_code=500):
@@ -43,7 +43,7 @@ def create_stubbed_exception(cls, status_code=500):
 
 
 def data(TEST):
-    TEST.exceptions = TestDataContainer()
+    TEST.exceptions = utils.TestDataContainer()
 
     unauth = keystone_exceptions.Unauthorized
     TEST.exceptions.keystone_unauthorized = create_stubbed_exception(unauth)

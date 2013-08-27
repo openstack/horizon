@@ -26,7 +26,7 @@ from django.utils import timezone
 
 from mox import IsA  # noqa
 
-from horizon.templatetags.sizeformat import mbformat  # noqa
+from horizon.templatetags import sizeformat
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -73,7 +73,7 @@ class UsageViewTests(test.BaseAdminViewTests):
                             '<td class="sortable normal_column">%.2f</td>' %
                             (usage_obj.vcpus,
                              usage_obj.disk_gb_hours,
-                             mbformat(usage_obj.memory_mb),
+                             sizeformat.mbformat(usage_obj.memory_mb),
                              usage_obj.vcpu_hours,
                              usage_obj.total_local_gb_usage))
 

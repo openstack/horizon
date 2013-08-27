@@ -21,8 +21,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import messages
 from horizon import tables
-from horizon.utils.filters import parse_isotime  # noqa
-from horizon.utils.filters import replace_underscores  # noqa
+from horizon.utils import filters
 
 from heatclient import exc
 
@@ -77,12 +76,12 @@ class StacksTable(tables.DataTable):
                          link="horizon:project:stacks:detail",)
     created = tables.Column("creation_time",
                             verbose_name=_("Created"),
-                            filters=(parse_isotime, timesince))
+                            filters=(filters.parse_isotime, timesince))
     updated = tables.Column("updated_time",
                             verbose_name=_("Updated"),
-                            filters=(parse_isotime, timesince))
+                            filters=(filters.parse_isotime, timesince))
     status = tables.Column("stack_status",
-                           filters=(title, replace_underscores),
+                           filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
                            status_choices=STATUS_CHOICES)
@@ -109,9 +108,9 @@ class EventsTable(tables.DataTable):
                                       link=mappings.resource_to_url)
     timestamp = tables.Column('event_time',
                               verbose_name=_("Time Since Event"),
-                              filters=(parse_isotime, timesince))
+                              filters=(filters.parse_isotime, timesince))
     status = tables.Column("resource_status",
-                           filters=(title, replace_underscores),
+                           filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),)
 
     statusreason = tables.Column("resource_status_reason",
@@ -155,9 +154,9 @@ class ResourcesTable(tables.DataTable):
                            verbose_name=_("Stack Resource Type"),)
     updated_time = tables.Column('updated_time',
                               verbose_name=_("Date Updated"),
-                              filters=(parse_isotime, timesince))
+                              filters=(filters.parse_isotime, timesince))
     status = tables.Column("resource_status",
-                           filters=(title, replace_underscores),
+                           filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
                            status_choices=STATUS_CHOICES)

@@ -20,7 +20,7 @@ import urlparse
 from django.core.urlresolvers import reverse  # noqa
 from django.template.defaultfilters import register  # noqa
 
-from openstack_dashboard.api.swift import FOLDER_DELIMITER  # noqa
+from openstack_dashboard.api import swift
 
 LOG = logging.getLogger(__name__)
 
@@ -50,7 +50,7 @@ resource_urls = {
         'link': 'horizon:project:networks:subnets:detail'},
     "OS::Swift::Container": {
         'link': 'horizon:project:containers:index',
-        'format_pattern': '%s' + FOLDER_DELIMITER},
+        'format_pattern': '%s' + swift.FOLDER_DELIMITER},
 }
 
 

@@ -22,49 +22,12 @@ from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
-from horizon.utils.filters import parse_isotime  # noqa
-from horizon.utils.filters import replace_underscores  # noqa
+from horizon.utils import filters
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances \
     import tables as project_tables
-#        ACTIVE_STATES
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        ConfirmResize
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        ConsoleLink
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        CreateSnapshot
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        EditInstance
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        get_ips
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        get_power_state
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        get_size
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        is_deleting
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        LogLink
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        RebootInstance
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        RevertResize
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        SoftRebootInstance
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        STATUS_DISPLAY_CHOICES
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        TASK_DISPLAY_CHOICES
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        TerminateInstance
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        TogglePause
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        ToggleSuspend
-#from openstack_dashboard.dashboards.project.instances.tables import \
-#        UpdateRow
+
 LOG = logging.getLogger(__name__)
 
 
@@ -141,7 +104,7 @@ class AdminInstancesTable(tables.DataTable):
                          classes=('nowrap-col',),
                          attrs={'data-type': 'size'})
     status = tables.Column("status",
-                           filters=(title, replace_underscores),
+                           filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
                            status_choices=STATUS_CHOICES,
@@ -149,16 +112,16 @@ class AdminInstancesTable(tables.DataTable):
                                project_tables.STATUS_DISPLAY_CHOICES)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
-                         filters=(title, replace_underscores),
+                         filters=(title, filters.replace_underscores),
                          status=True,
                          status_choices=TASK_STATUS_CHOICES,
                          display_choices=project_tables.TASK_DISPLAY_CHOICES)
     state = tables.Column(project_tables.get_power_state,
-                          filters=(title, replace_underscores),
+                          filters=(title, filters.replace_underscores),
                           verbose_name=_("Power State"))
     created = tables.Column("created",
                             verbose_name=_("Uptime"),
-                            filters=(parse_isotime, timesince))
+                            filters=(filters.parse_isotime, timesince))
 
     class Meta:
         name = "instances"

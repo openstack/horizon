@@ -21,7 +21,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import fields
-from horizon.utils.validators import validate_port_range  # noqa
+from horizon.utils import validators
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -129,7 +129,7 @@ class AddVipAction(workflows.Action):
     protocol_port = forms.IntegerField(label=_("Protocol Port"), min_value=1,
                               help_text=_("Enter an integer value "
                                           "between 1 and 65535."),
-                              validators=[validate_port_range])
+                              validators=[validators.validate_port_range])
     protocol = forms.ChoiceField(label=_("Protocol"))
     session_persistence = forms.ChoiceField(
         required=False, initial={}, label=_("Session Persistence"))
@@ -265,7 +265,7 @@ class AddMemberAction(workflows.Action):
     protocol_port = forms.IntegerField(label=_("Protocol Port"), min_value=1,
                               help_text=_("Enter an integer value "
                                           "between 1 and 65535."),
-                              validators=[validate_port_range])
+                              validators=[validators.validate_port_range])
     admin_state_up = forms.BooleanField(label=_("Admin State"),
                                         initial=True, required=False)
 

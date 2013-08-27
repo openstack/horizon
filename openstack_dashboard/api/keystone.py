@@ -28,7 +28,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 from keystoneclient.exceptions import ClientException  # noqa
 
-from openstack_auth.backend import KEYSTONE_CLIENT_ATTR  # noqa
+from openstack_auth import backend
 
 from horizon import exceptions
 from horizon import messages
@@ -154,7 +154,8 @@ def keystoneclient(request, admin=False):
 
     # Take care of client connection caching/fetching a new client.
     # Admin vs. non-admin clients are cached separately for token matching.
-    cache_attr = "_keystoneclient_admin" if admin else KEYSTONE_CLIENT_ATTR
+    cache_attr = "_keystoneclient_admin" if admin \
+        else backend.KEYSTONE_CLIENT_ATTR
     if hasattr(request, cache_attr) and (not user.token.id
             or getattr(request, cache_attr).auth_token == user.token.id):
         LOG.debug("Using cached client for token: %s" % user.token.id)

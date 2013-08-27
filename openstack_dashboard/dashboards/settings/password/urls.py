@@ -17,8 +17,8 @@
 from django.conf.urls.defaults import patterns  # noqa
 from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.settings.password.views import PasswordView  # noqa
+from openstack_dashboard.dashboards.settings.password import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', PasswordView.as_view(), name='index'))
+    url(r'^$', views.PasswordView.as_view(), name='index'))

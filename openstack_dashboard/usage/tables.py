@@ -4,7 +4,7 @@ from django.template.defaultfilters import timesince  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
-from horizon.templatetags.sizeformat import mbformat  # noqa
+from horizon.templatetags import sizeformat
 
 
 class CSVSummary(tables.LinkAction):
@@ -21,7 +21,7 @@ class BaseUsageTable(tables.DataTable):
     disk = tables.Column('local_gb', verbose_name=_("Disk"))
     memory = tables.Column('memory_mb',
                            verbose_name=_("RAM"),
-                           filters=(mbformat,),
+                           filters=(sizeformat.mbformat,),
                            attrs={"data-type": "size"})
     hours = tables.Column('vcpu_hours', verbose_name=_("VCPU Hours"),
                           filters=(lambda v: floatformat(v, 2),))

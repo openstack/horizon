@@ -1,7 +1,7 @@
 import logging
 
 from horizon import tables
-from openstack_dashboard.usage.base import BaseUsage  # noqa
+from openstack_dashboard.usage import base
 
 
 LOG = logging.getLogger(__name__)
@@ -13,7 +13,7 @@ class UsageView(tables.DataTableView):
 
     def __init__(self, *args, **kwargs):
         super(UsageView, self).__init__(*args, **kwargs)
-        if not issubclass(self.usage_class, BaseUsage):
+        if not issubclass(self.usage_class, base.BaseUsage):
             raise AttributeError("You must specify a usage_class attribute "
                                  "which is a subclass of BaseUsage.")
 

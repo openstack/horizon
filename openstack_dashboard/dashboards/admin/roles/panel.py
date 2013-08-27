@@ -18,7 +18,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 import horizon
 
-from openstack_dashboard.api.keystone import VERSIONS as IDENTITY_VERSIONS  # noqa
+from openstack_dashboard.api import keystone
 from openstack_dashboard.dashboards.admin import dashboard
 
 
@@ -26,5 +26,5 @@ class Roles(horizon.Panel):
     name = _("Roles")
     slug = 'roles'
 
-if IDENTITY_VERSIONS.active >= 3:
+if keystone.VERSIONS.active >= 3:
     dashboard.Admin.register(Roles)

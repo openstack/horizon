@@ -16,8 +16,8 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-from horizon.utils.fields import SelectWidget  # noqa
-from horizon.utils.functions import bytes_to_gigabytes  # noqa
+from horizon.utils import fields
+from horizon.utils import functions
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard import api
@@ -38,7 +38,7 @@ class CreateForm(forms.SelfHandlingForm):
     volume_source_type = forms.ChoiceField(label=_("Volume Source"),
                                            required=False)
     snapshot_source = forms.ChoiceField(label=_("Use snapshot as a source"),
-                                        widget=SelectWidget(
+                                        widget=fields.SelectWidget(
                                           attrs={'class': 'snapshot-selector'},
                                           data_attrs=('size', 'display_name'),
                                           transform=lambda x:
@@ -46,7 +46,7 @@ class CreateForm(forms.SelfHandlingForm):
                                                                 x.size))),
                                         required=False)
     image_source = forms.ChoiceField(label=_("Use image as a source"),
-                                     widget=SelectWidget(
+                                     widget=fields.SelectWidget(
                                          attrs={'class': 'image-selector'},
                                          data_attrs=('size', 'name'),
                                          transform=lambda x:
@@ -109,7 +109,8 @@ class CreateForm(forms.SelfHandlingForm):
                                        request.GET["image_id"])
                 image.bytes = image.size
                 self.fields['name'].initial = image.name
-                self.fields['size'].initial = bytes_to_gigabytes(image.size)
+                self.fields['size'].initial = functions.bytes_to_gigabytes(
+                    image.size)
                 self.fields['image_source'].choices = ((image.id, image),)
                 self.fields['size'].help_text = _('Volume size must be equal '
                                 'to or greater than the image size (%s)'
@@ -143,7 +144,7 @@ class CreateForm(forms.SelfHandlingForm):
                 choices = [('', _("Choose an image"))]
                 for image in images:
                     image.bytes = image.size
-                    image.size = bytes_to_gigabytes(image.bytes)
+                    image.size = functions.bytes_to_gigabytes(image.bytes)
                     choices.append((image.id, image))
                 self.fields['image_source'].choices = choices
             else:
@@ -189,7 +190,7 @@ class CreateForm(forms.SelfHandlingForm):
                 image = self.get_image(request,
                                        data["image_source"])
                 image_id = image.id
-                image_size = bytes_to_gigabytes(image.size)
+                image_size = functions.bytes_to_gigabytes(image.size)
                 if (data['size'] < image_size):
                     error_message = _('The volume size cannot be less than '
                                       'the image size (%s)' %
