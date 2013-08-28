@@ -1,3 +1,4 @@
+{% load shellfilter %}
 #!/bin/bash
 
 # With the addition of Keystone, to use an openstack cloud you should
@@ -12,11 +13,11 @@ export OS_AUTH_URL={{ auth_url }}
 # With the addition of Keystone we have standardized on the term **tenant**
 # as the entity that owns the resources.
 export OS_TENANT_ID={{ tenant_id }}
-export OS_TENANT_NAME="{{ tenant_name }}"
+export OS_TENANT_NAME="{{ tenant_name|shellfilter }}"
 
 # In addition to the owning entity (tenant), openstack stores the entity
 # performing the action as the **user**.
-export OS_USERNAME={{ user.username }}
+export OS_USERNAME="{{ user.username|shellfilter }}"
 
 # With Keystone you pass the keystone password.
 echo "Please enter your OpenStack Password: "
