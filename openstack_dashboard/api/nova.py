@@ -343,6 +343,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
 def novaclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     LOG.debug('novaclient connection created using token "%s" and url "%s"' %
               (request.user.token.id, base.url_for(request, 'compute')))
     c = nova_client.Client(request.user.username,
@@ -350,6 +351,7 @@ def novaclient(request):
                            project_id=request.user.tenant_id,
                            auth_url=base.url_for(request, 'compute'),
                            insecure=insecure,
+                           cacert=cacert,
                            http_log_debug=settings.DEBUG)
     c.client.auth_token = request.user.token.id
     c.client.management_url = base.url_for(request, 'compute')

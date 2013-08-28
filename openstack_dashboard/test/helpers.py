@@ -334,6 +334,7 @@ class APITestCase(TestCase):
                                         None,
                                         preauthtoken=mox.IgnoreArg(),
                                         preauthurl=mox.IgnoreArg(),
+                                        cacert=None,
                                         auth_version="2.0") \
                             .AndReturn(self.swiftclient)
                 expected_calls -= 1

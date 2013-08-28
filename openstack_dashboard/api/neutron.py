@@ -386,13 +386,14 @@ def get_ipver_str(ip_version):
 
 def neutronclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     LOG.debug('neutronclient connection created using token "%s" and url "%s"'
               % (request.user.token.id, base.url_for(request, 'network')))
     LOG.debug('user_id=%(user)s, tenant_id=%(tenant)s' %
               {'user': request.user.id, 'tenant': request.user.tenant_id})
     c = neutron_client.Client(token=request.user.token.id,
                               endpoint_url=base.url_for(request, 'network'),
-                              insecure=insecure)
+                              insecure=insecure, ca_cert=cacert)
     return c
 
 

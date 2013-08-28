@@ -92,6 +92,7 @@ def _objectify(items, container_name):
 
 def swift_api(request):
     endpoint = base.url_for(request, 'object-store')
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     LOG.debug('Swift connection created using token "%s" and url "%s"'
               % (request.user.token.id, endpoint))
     return swiftclient.client.Connection(None,
@@ -99,6 +100,7 @@ def swift_api(request):
                                          None,
                                          preauthtoken=request.user.token.id,
                                          preauthurl=endpoint,
+                                         cacert=cacert,
                                          auth_version="2.0")
 
 
