@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -10,18 +10,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
-"POT-Creation-Date: 2013-03-12 04:08+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-28 14:34+0800\n"
 "PO-Revision-Date: 2013-04-29 08:33+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
+"Language-Team: English (http://www.transifex.com/projects/p/openstack/"
+"language/en/)\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:424
+#: base.py:429
 msgid "Other"
 msgstr "Other"
 
@@ -34,7 +35,12 @@ msgstr "Please log in to continue."
 msgid "You are not authorized to access %s"
 msgstr "You are not authorized to access %s"
 
-#: exceptions.py:283
+#: exceptions.py:281
+#, python-format
+msgid "Unauthorized: %s"
+msgstr ""
+
+#: exceptions.py:284
 msgid "Unauthorized. Please try logging in again."
 msgstr "Unauthorized. Please try logging in again."
 
@@ -51,73 +57,75 @@ msgstr ""
 msgid "Password is not accepted"
 msgstr "Password is not accepted"
 
-#: tables/actions.py:349
+#: tables/actions.py:350
+#: templates/horizon/common/_data_table_table_actions.html:13
 msgid "Filter"
 msgstr "Filter"
 
-#: tables/actions.py:527
+#: tables/actions.py:529
 #, python-format
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:561
+#: tables/actions.py:563
 msgid "N/A"
 msgstr ""
 
-#: tables/actions.py:589
+#: tables/actions.py:591
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr "You do not have permission to %(action)s: %(objs)s"
 
-#: tables/actions.py:595
+#: tables/actions.py:597
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Unable to %(action)s: %(objs)s"
 
-#: tables/actions.py:601
+#: tables/actions.py:603
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:611
+#: tables/actions.py:613
 msgid "Delete"
 msgstr "Delete"
 
-#: tables/actions.py:612
+#: tables/actions.py:614
 msgid "Deleted"
 msgstr "Deleted"
 
-#: tables/base.py:275
+#: tables/base.py:287
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "The attribute %(attr)s doesn't exist on %(obj)s."
 
-#: tables/base.py:748
+#: tables/base.py:766
 msgid "No items to display."
 msgstr "No items to display."
 
-#: tables/base.py:852
+#: tables/base.py:870
 msgid "Actions"
 msgstr "Actions"
 
-#: tables/base.py:1035
+#: tables/base.py:1063
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "No match returned for the id \"%s\"."
 
-#: tables/base.py:1165
+#: tables/base.py:1193
 msgid "Please select a row before taking that action."
 msgstr "Please select a row before taking that action."
 
-#: templates/_header.html:3
-msgid "Logged in as"
+#: templates/_header.html:4
+#, python-format
+msgid "Logged in as: %(username)s"
 msgstr ""
 
-#: templates/_header.html:5
+#: templates/_header.html:6
 msgid "Help"
 msgstr ""
 
-#: templates/_header.html:7
+#: templates/_header.html:8
 msgid "Sign Out"
 msgstr ""
 
@@ -125,23 +133,23 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: templates/auth/_login.html:4
+#: templates/auth/_login.html:5
 msgid "Log In"
 msgstr ""
 
-#: templates/auth/_login.html:14
+#: templates/auth/_login.html:15
 msgid "You don't have permissions to access:"
 msgstr ""
 
-#: templates/auth/_login.html:16
+#: templates/auth/_login.html:17
 msgid "Login as different user or go back to"
 msgstr ""
 
-#: templates/auth/_login.html:17
+#: templates/auth/_login.html:18
 msgid "home page"
 msgstr ""
 
-#: templates/auth/_login.html:27
+#: templates/auth/_login.html:28
 msgid "Sign In"
 msgstr ""
 
@@ -176,44 +184,43 @@ msgstr[1] "Displaying %(counter)s items"
 msgid "More"
 msgstr ""
 
-#: templates/horizon/common/_quota_summary.html:4
-msgid "Quota Summary"
+#: templates/horizon/common/_limit_summary.html:4
+#, fuzzy
+msgid "Limit Summary"
+msgstr "Summary"
+
+#: templates/horizon/common/_limit_summary.html:7
+#, fuzzy
+msgid "Instances"
+msgstr "Instance"
+
+#: templates/horizon/common/_limit_summary.html:8
+#: templates/horizon/common/_limit_summary.html:15
+#: templates/horizon/common/_limit_summary.html:29
+#: templates/horizon/common/_limit_summary.html:36
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr ""
 
-#: templates/horizon/common/_quota_summary.html:5
-#: templates/horizon/common/_quota_summary.html:8
-#: templates/horizon/common/_quota_summary.html:11
-#: templates/horizon/common/_quota_summary.html:15
-#: templates/horizon/common/_quota_summary.html:18
-msgid "Used"
+#: templates/horizon/common/_limit_summary.html:14
+msgid "VCPUs"
 msgstr ""
 
-#: templates/horizon/common/_quota_summary.html:5
-#: templates/horizon/common/_quota_summary.html:8
-#: templates/horizon/common/_quota_summary.html:11
-#: templates/horizon/common/_quota_summary.html:15
-#: templates/horizon/common/_quota_summary.html:18
-msgid "of"
+#: templates/horizon/common/_limit_summary.html:21
+msgid "RAM"
 msgstr ""
 
-#: templates/horizon/common/_quota_summary.html:5
-msgid "Available Instances"
+#: templates/horizon/common/_limit_summary.html:22
+#, python-format
+msgid "Used <span> %(used)s MB </span> of <span> %(available)s MB </span>"
 msgstr ""
 
-#: templates/horizon/common/_quota_summary.html:8
-msgid "Available vCPUs"
+#: templates/horizon/common/_limit_summary.html:28
+msgid "Floating IPs"
 msgstr ""
 
-#: templates/horizon/common/_quota_summary.html:11
-msgid "Available RAM"
-msgstr ""
-
-#: templates/horizon/common/_quota_summary.html:15
-msgid "Available volumes"
-msgstr ""
-
-#: templates/horizon/common/_quota_summary.html:18
-msgid "Available volume storage"
+#: templates/horizon/common/_limit_summary.html:35
+msgid "Security Groups"
 msgstr ""
 
 #: templates/horizon/common/_resource_browser.html:10
@@ -230,17 +237,31 @@ msgid_plural "Displaying %(content_items)s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/horizon/common/_sidebar.html:14
+#: templates/horizon/common/_sidebar.html:15
 msgid "Current Project"
 msgstr "Current Project"
 
+#: templates/horizon/common/_sidebar.html:39
+msgid "Managing Region"
+msgstr ""
+
 #: templates/horizon/common/_usage_summary.html:5
-msgid "Select a month to query its usage"
+#, fuzzy
+msgid "Select a period of time to query its usage"
 msgstr "Select a month to query its usage"
 
-#: templates/horizon/common/_usage_summary.html:9
+#: templates/horizon/common/_usage_summary.html:7
+#, python-format
+msgid "<span>From: %(start)s </span><span>To: %(end)s </span>"
+msgstr ""
+
+#: templates/horizon/common/_usage_summary.html:8
 msgid "Submit"
 msgstr "Submit"
+
+#: templates/horizon/common/_usage_summary.html:9
+msgid "The date should be in YYYY-mm-dd format."
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
@@ -251,14 +272,16 @@ msgid "Active RAM"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:16
-msgid "This Month's VCPU-Hours"
+#, fuzzy
+msgid "This Period's VCPU-Hours"
 msgstr "This Month's VCPU-Hours"
 
 #: templates/horizon/common/_usage_summary.html:17
-msgid "This Month's GB-Hours"
+#, fuzzy
+msgid "This Period's GB-Hours"
 msgstr "This Month's GB-Hours"
 
-#: templates/horizon/common/_workflow.html:33
+#: templates/horizon/common/_workflow.html:36
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -266,11 +289,11 @@ msgstr "Cancel"
 msgid "Horizon"
 msgstr ""
 
-#: templatetags/horizon.py:109
+#: templatetags/horizon.py:92
 msgid "No Limit"
 msgstr "No Limit"
 
-#: templatetags/horizon.py:111 templatetags/horizon.py:113
+#: templatetags/horizon.py:94 templatetags/horizon.py:96
 msgid "Available"
 msgstr "Available"
 
@@ -313,9 +336,14 @@ msgstr "%s TB"
 msgid "%s PB"
 msgstr "%s PB"
 
-#: test/settings.py:114
+#: test/settings.py:117
 msgid "Password must be between 8 and 18 characters."
 msgstr "Password must be between 8 and 18 characters."
+
+#: test/customization/cust_test1.py:7
+#, fuzzy
+msgid "WildCats"
+msgstr "Cats"
 
 #: test/test_dashboards/cats/dashboard.py:8
 msgid "Cute Cats"
@@ -325,7 +353,7 @@ msgstr "Cute Cats"
 msgid "Fierce Cats"
 msgstr "Fierce Cats"
 
-#: test/test_dashboards/cats/dashboard.py:19
+#: test/test_dashboards/cats/dashboard.py:19 test/tests/base.py:317
 msgid "Cats"
 msgstr "Cats"
 
@@ -351,15 +379,15 @@ msgstr "Dogs"
 msgid "Puppies"
 msgstr "Puppies"
 
-#: test/tests/base.py:39
+#: test/tests/base.py:40
 msgid "My Dashboard"
 msgstr "My Dashboard"
 
-#: test/tests/base.py:45
+#: test/tests/base.py:46
 msgid "My Panel"
 msgstr "My Panel"
 
-#: test/tests/base.py:51
+#: test/tests/base.py:52
 msgid "Admin Panel"
 msgstr "Admin Panel"
 
@@ -411,27 +439,27 @@ msgstr ""
 msgid "Single Table"
 msgstr ""
 
-#: test/tests/tabs.py:36
+#: test/tests/tabs.py:37
 msgid "Tab One"
 msgstr "Tab One"
 
-#: test/tests/tabs.py:42
+#: test/tests/tabs.py:43
 msgid "Delayed Tab"
 msgstr "Delayed Tab"
 
-#: test/tests/tabs.py:49
+#: test/tests/tabs.py:50
 msgid "Disabled Tab"
 msgstr "Disabled Tab"
 
-#: test/tests/tabs.py:58
+#: test/tests/tabs.py:59
 msgid "Disallowed Tab"
 msgstr "Disallowed Tab"
 
-#: test/tests/tabs.py:76
+#: test/tests/tabs.py:77
 msgid "Tab With My Table"
 msgstr "Tab With My Table"
 
-#: test/tests/tabs.py:85
+#: test/tests/tabs.py:86
 msgid "Recoverable Error Tab"
 msgstr "Recoverable Error Tab"
 
@@ -467,48 +495,48 @@ msgstr "Admin"
 msgid "Admin Action"
 msgstr "Admin Action"
 
-#: utils/fields.py:46
+#: utils/fields.py:48
 msgid "Incorrect format for IP address"
 msgstr "Incorrect format for IP address"
 
-#: utils/fields.py:47
+#: utils/fields.py:49
 msgid "Invalid version for IP address"
 msgstr "Invalid version for IP address"
 
-#: utils/fields.py:48
+#: utils/fields.py:50
 msgid "Invalid subnet mask"
 msgstr "Invalid subnet mask"
 
-#: workflows/base.py:71
+#: workflows/base.py:72
 msgid "Processing..."
 msgstr "Processing..."
 
-#: workflows/base.py:467
+#: workflows/base.py:482
 msgid "All available"
 msgstr ""
 
-#: workflows/base.py:468
+#: workflows/base.py:483
 msgid "Members"
 msgstr ""
 
-#: workflows/base.py:469
+#: workflows/base.py:484
 msgid "None available."
 msgstr ""
 
-#: workflows/base.py:470
+#: workflows/base.py:485
 msgid "No members."
 msgstr ""
 
-#: workflows/base.py:569
+#: workflows/base.py:590
 msgid "Save"
 msgstr "Save"
 
-#: workflows/base.py:570
+#: workflows/base.py:591
 #, python-format
 msgid "%s completed successfully."
 msgstr "%s completed successfully."
 
-#: workflows/base.py:571
+#: workflows/base.py:592
 #, python-format
 msgid "%s did not complete."
 msgstr "%s did not complete."

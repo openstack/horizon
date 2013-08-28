@@ -336,7 +336,7 @@ function run_makemessages {
   ${command_wrapper} $root/manage.py makemessages -d djangojs --all --no-obsolete
   HORIZON_JS_RESULT=$?
   cd ../openstack_dashboard
-  ${command_wrapper} $root/manage.py makemessages --all --no-obsolete
+  ${command_wrapper} $root/manage.py makemessages --all --ignore=openstack/common/* --no-obsolete
   DASHBOARD_RESULT=$?
   cd ..
   exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT))
