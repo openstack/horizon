@@ -100,9 +100,9 @@ class StacksTable(tables.DataTable):
 
 class EventsTable(tables.DataTable):
 
-    logical_resource = tables.Column('logical_resource_id',
+    logical_resource = tables.Column('resource_name',
                                      verbose_name=_("Stack Resource"),
-                                     link=lambda d: d.logical_resource_id,)
+                                     link=lambda d: d.resource_name,)
     physical_resource = tables.Column('physical_resource_id',
                                       verbose_name=_("Resource"),
                                       link=mappings.resource_to_url)
@@ -144,9 +144,9 @@ class ResourcesTable(tables.DataTable):
         ("Create Failed", False),
     )
 
-    logical_resource = tables.Column('logical_resource_id',
+    logical_resource = tables.Column('resource_name',
                                      verbose_name=_("Stack Resource"),
-                                     link=lambda d: d.logical_resource_id)
+                                     link=lambda d: d.resource_name)
     physical_resource = tables.Column('physical_resource_id',
                                      verbose_name=_("Resource"),
                                      link=mappings.resource_to_url)
@@ -171,7 +171,7 @@ class ResourcesTable(tables.DataTable):
         self.stack = kwargs['stack']
 
     def get_object_id(self, datum):
-        return datum.logical_resource_id
+        return datum.resource_name
 
     class Meta:
         name = "resources"

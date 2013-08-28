@@ -61,7 +61,7 @@ def d3_data(request, stack_id=''):
             else:
                 in_progress = False
             resource_node = {
-                'name': resource.logical_resource_id,
+                'name': resource.resource_name,
                 'status': resource.resource_status,
                 'image': resource_image,
                 'required_by': resource.required_by,
