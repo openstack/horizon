@@ -33,7 +33,7 @@ from openstack_dashboard.usage import quotas
 class QuotaTests(test.APITestCase):
 
     def get_usages(self, with_volume=True):
-        quotas = {'injected_file_content_bytes': {'quota': 1},
+        usages = {'injected_file_content_bytes': {'quota': 1},
                   'metadata_items': {'quota': 1},
                   'injected_files': {'quota': 1},
                   'security_groups': {'quota': 10},
@@ -44,25 +44,25 @@ class QuotaTests(test.APITestCase):
                   'instances': {'available': 8, 'used': 2, 'quota': 10},
                   'cores': {'available': 8, 'used': 2, 'quota': 10}}
         if with_volume:
-            quotas.update({'volumes': {'available': 0, 'used': 3, 'quota': 1},
+            usages.update({'volumes': {'available': 0, 'used': 3, 'quota': 1},
                            'snapshots': {'available': 0, 'used': 3,
                                          'quota': 1},
                            'gigabytes': {'available': 920, 'used': 80,
                                          'quota': 1000}})
-        return quotas
+        return usages
 
     @test.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
                                    'tenant_quota_get',),
                         api.network: ('tenant_floating_ip_list',),
-                        quotas: ('is_service_enabled',),
+                        api.base: ('is_service_enabled',),
                         cinder: ('volume_list', 'volume_snapshot_list',
                                  'tenant_quota_get',)})
     def test_tenant_quota_usages(self):
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
 
-        quotas.is_service_enabled(IsA(http.HttpRequest),
+        api.base.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -91,12 +91,12 @@ class QuotaTests(test.APITestCase):
                                    'flavor_list',
                                    'tenant_quota_get',),
                         api.network: ('tenant_floating_ip_list',),
-                        quotas: ('is_service_enabled',)})
+                        api.base: ('is_service_enabled',)})
     def test_tenant_quota_usages_without_volume(self):
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
 
-        quotas.is_service_enabled(IsA(http.HttpRequest),
+        api.base.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(False)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -119,9 +119,9 @@ class QuotaTests(test.APITestCase):
                                    'flavor_list',
                                    'tenant_quota_get',),
                         api.network: ('tenant_floating_ip_list',),
-                        quotas: ('is_service_enabled',)})
+                        api.base: ('is_service_enabled',)})
     def test_tenant_quota_usages_no_instances_running(self):
-        quotas.is_service_enabled(IsA(http.HttpRequest),
+        api.base.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(False)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
@@ -149,7 +149,7 @@ class QuotaTests(test.APITestCase):
                                    'flavor_list',
                                    'tenant_quota_get',),
                         api.network: ('tenant_floating_ip_list',),
-                        quotas: ('is_service_enabled',),
+                        api.base: ('is_service_enabled',),
                         cinder: ('volume_list', 'volume_snapshot_list',
                                  'tenant_quota_get',)})
     def test_tenant_quota_usages_unlimited_quota(self):
@@ -158,7 +158,7 @@ class QuotaTests(test.APITestCase):
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
 
-        quotas.is_service_enabled(IsA(http.HttpRequest),
+        api.base.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
