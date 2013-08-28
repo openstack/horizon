@@ -36,8 +36,6 @@ LOG = logging.getLogger(__name__)
 class CreateNetworkInfoAction(workflows.Action):
     net_name = forms.CharField(max_length=255,
                                label=_("Network Name"),
-                               help_text=_("Network Name. This field is "
-                                           "optional."),
                                required=False)
     admin_state = forms.BooleanField(label=_("Admin State"),
                                      initial=True, required=False)
@@ -59,8 +57,6 @@ class CreateSubnetInfoAction(workflows.Action):
                                      initial=True, required=False)
     subnet_name = forms.CharField(max_length=255,
                                   label=_("Subnet Name"),
-                                  help_text=_("Subnet Name. This field is "
-                                           "optional."),
                                   required=False)
     cidr = fields.IPField(label=_("Network Address"),
                           required=False,
@@ -72,7 +68,7 @@ class CreateSubnetInfoAction(workflows.Action):
     ip_version = forms.ChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
                                    label=_("IP Version"))
     gateway_ip = fields.IPField(
-                    label=_("Gateway IP (optional)"),
+                    label=_("Gateway IP"),
                     required=False,
                     initial="",
                     help_text=_("IP address of Gateway (e.g. 192.168.0.254) "

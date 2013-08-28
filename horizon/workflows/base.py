@@ -139,6 +139,7 @@ class Action(forms.Form):
                                  % self.__class__.__name__)
         self.request = request
         self._populate_choices(request, context)
+        self.required_css_class = 'required'
 
     def __unicode__(self):
         return force_unicode(self.name)
@@ -444,6 +445,16 @@ class Step(object):
         Adds an error to the Step based on API issues.
         """
         self.action.add_error(message)
+
+    def has_required_fields(self):
+        """
+        Returns True if action contains any required fields
+        """
+        for key in self.contributes:
+            field = self.action.fields.get(key, None)
+            if (field and field.required):
+                return True
+        return False
 
 
 class WorkflowMetaclass(type):
