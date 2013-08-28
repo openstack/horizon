@@ -21,6 +21,7 @@
 
 from django.core.urlresolvers import reverse  # noqa
 from django import http
+from django.test.utils import override_settings  # noqa
 
 from mox import IsA  # noqa
 
@@ -175,3 +176,43 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
     def tearDown(self):
         self.floating_ips = self._floating_ips_orig
         super(FloatingIpViewTests, self).tearDown()
+
+    @test.create_stubs({api.nova: ('tenant_quota_get', 'flavor_list',
+                                   'server_list'),
+                        api.cinder: ('tenant_quota_get', 'volume_list',
+                                     'volume_snapshot_list',),
+                        api.network: ('floating_ip_pools_list',
+                                      'tenant_floating_ip_list'),
+                        api.neutron: ('is_extension_supported',
+                                      'tenant_quota_get')})
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    def test_correct_quotas_displayed(self):
+        servers = [s for s in self.servers.list()
+                   if s.tenant_id == self.request.user.tenant_id]
+
+        api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
+            .AndReturn(self.quotas.first())
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.server_list(IsA(http.HttpRequest)) \
+            .AndReturn([servers, False])
+        api.cinder.volume_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.volumes.list())
+        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.snapshots.list())
+        api.cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
+            .AndReturn(self.cinder_quotas.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
+            .AndReturn(True)
+        api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(self.neutron_quotas.first())
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(self.floating_ips.list())
+        api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.pools.list())
+        self.mox.ReplayAll()
+
+        url = reverse('%s:allocate' % NAMESPACE)
+        res = self.client.get(url)
+        self.assertEqual(res.context['usages']['floating_ips']['quota'],
+                         self.neutron_quotas.first().get('floatingip').limit)

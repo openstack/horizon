@@ -608,6 +608,11 @@ def tenant_quota_get(request, tenant_id):
     return base.QuotaSet(neutronclient(request).show_quota(tenant_id)['quota'])
 
 
+def tenant_quota_update(request, tenant_id, **kwargs):
+    quotas = {'quota': kwargs}
+    return neutronclient(request).update_quota(tenant_id, quotas)
+
+
 def list_extensions(request):
     extensions_list = neutronclient(request).list_extensions()
     if 'extensions' in extensions_list:
@@ -622,5 +627,14 @@ def is_extension_supported(request, extension_alias):
     for extension in extensions:
         if extension['alias'] == extension_alias:
             return True
+    else:
+        return False
+
+
+def is_quotas_extension_supported(request):
+    network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+    if network_config.get('enable_quotas', False) and \
+            is_extension_supported(request, 'quotas'):
+        return True
     else:
         return False

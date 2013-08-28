@@ -64,6 +64,8 @@ class QuotaTests(test.APITestCase):
 
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                  'network').AndReturn(False)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -98,6 +100,8 @@ class QuotaTests(test.APITestCase):
 
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                  'network').AndReturn(False)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -123,6 +127,8 @@ class QuotaTests(test.APITestCase):
     def test_tenant_quota_usages_no_instances_running(self):
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                  'network').AndReturn(False)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -160,6 +166,8 @@ class QuotaTests(test.APITestCase):
 
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                   'volume').AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                  'network').AndReturn(False)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \

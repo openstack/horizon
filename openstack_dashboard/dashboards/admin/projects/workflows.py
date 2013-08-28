@@ -63,6 +63,13 @@ class UpdateProjectQuotaAction(workflows.Action):
     security_group_rules = forms.IntegerField(min_value=-1,
                                               label=_("Security Group Rules"))
 
+    # Neutron
+    floatingip = forms.IntegerField(min_value=-1, label=_("Floating IPs"))
+    network = forms.IntegerField(min_value=-1, label=_("Networks"))
+    port = forms.IntegerField(min_value=-1, label=_("Ports"))
+    router = forms.IntegerField(min_value=-1, label=_("Routers"))
+    subnet = forms.IntegerField(min_value=-1, label=_("Subnets"))
+
     def __init__(self, request, *args, **kwargs):
         super(UpdateProjectQuotaAction, self).__init__(request,
                                                        *args,
@@ -418,6 +425,14 @@ class CreateProject(workflows.Workflow):
                 cinder.tenant_quota_update(request,
                                            project_id,
                                            **cinder_data)
+
+            if api.base.is_service_enabled(request, 'network') and \
+                    api.neutron.is_quotas_extension_supported(request):
+                neutron_data = dict([(key, data[key]) for key in
+                                     quotas.NEUTRON_QUOTA_FIELDS])
+                api.neutron.tenant_quota_update(request,
+                                                project_id,
+                                                **neutron_data)
         except Exception:
             exceptions.handle(request, _('Unable to set project quotas.'))
         return True
@@ -667,6 +682,14 @@ class UpdateProject(workflows.Workflow):
                 cinder.tenant_quota_update(request,
                                            project_id,
                                            **cinder_data)
+
+            if api.base.is_service_enabled(request, 'network') and \
+                    api.neutron.is_quotas_extension_supported(request):
+                neutron_data = dict([(key, data[key]) for key in
+                                     quotas.NEUTRON_QUOTA_FIELDS])
+                api.neutron.tenant_quota_update(request,
+                                                project_id,
+                                                **neutron_data)
             return True
         except Exception:
             exceptions.handle(request, _('Modified project information and '

@@ -96,7 +96,7 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
                 .AndReturn(True)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
-                .AndReturn(False)
+                .MultipleTimes().AndReturn(False)
 
         api.nova.default_quota_get(IsA(http.HttpRequest),
                                    self.tenant.id).AndReturn(self.quotas.nova)

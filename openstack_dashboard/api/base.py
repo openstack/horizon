@@ -176,6 +176,19 @@ class QuotaSet(Sequence):
     def __getitem__(self, index):
         return self.items[index]
 
+    def __add__(self, other):
+        '''Merge another QuotaSet into this one. Existing quotas are
+        not overriden.'''
+        if not isinstance(other, QuotaSet):
+            msg = "Can only add QuotaSet to QuotaSet, " \
+                  "but received %s instead" % type(other)
+            raise ValueError(msg)
+
+        for item in other:
+            if self.get(item.name).limit is None:
+                self.items.append(item)
+        return self
+
     def __len__(self):
         return len(self.items)
 
@@ -185,6 +198,9 @@ class QuotaSet(Sequence):
     def get(self, key, default=None):
         match = [quota for quota in self.items if quota.name == key]
         return match.pop() if len(match) else Quota(key, default)
+
+    def add(self, other):
+        return self.__add__(other)
 
 
 def get_service_from_catalog(catalog, service_type):

@@ -18,6 +18,7 @@ import logging
 
 from django.core.urlresolvers import reverse  # noqa
 from django import http
+from django.test.utils import override_settings  # noqa
 
 from mox import IsA  # noqa
 
@@ -84,11 +85,14 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
     def _get_quota_info(self, quota):
         cinder_quota = self.cinder_quotas.first()
+        neutron_quota = self.neutron_quotas.first()
         quota_data = {}
         for field in quotas.NOVA_QUOTA_FIELDS:
             quota_data[field] = int(quota.get(field).limit)
         for field in quotas.CINDER_QUOTA_FIELDS:
             quota_data[field] = int(cinder_quota.get(field).limit)
+        for field in quotas.NEUTRON_QUOTA_FIELDS:
+            quota_data[field] = int(neutron_quota.get(field).limit)
         return quota_data
 
     def _get_workflow_data(self, project, quota):
@@ -147,6 +151,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.get(url)
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertContains(res, '<input type="hidden" name="subnet" '
+                            'id="id_subnet" />', html=True)
 
         workflow = res.context['workflow']
         self.assertEqual(res.context['workflow'].name,
@@ -167,6 +173,52 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.setSessionValues(domain_context=domain.id,
                               domain_context_name=domain.name)
         self.test_add_project_get()
+
+    @test.create_stubs({api.keystone: ('get_default_role',
+                                       'user_list',
+                                       'group_list',
+                                       'role_list'),
+                        api.neutron: ('is_extension_supported',
+                                      'tenant_quota_get'),
+                        quotas: ('get_default_quota_data',)})
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    def test_add_project_get_with_neutron(self):
+        quota = self.quotas.first()
+        neutron_quotas = self.neutron_quotas.first()
+
+        quotas.get_default_quota_data(IsA(http.HttpRequest)) \
+            .AndReturn(quota)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.tenant_quota_get(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id) \
+            .AndReturn(neutron_quotas)
+        api.keystone.get_default_role(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(self.roles.first())
+        api.keystone.user_list(IsA(http.HttpRequest), domain=None) \
+            .AndReturn(self.users.list())
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.roles.list())
+        api.keystone.group_list(IsA(http.HttpRequest), domain=None) \
+            .AndReturn(self.groups.list())
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.roles.list())
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:admin:projects:create'))
+
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertContains(res, '<input name="subnet" id="id_subnet" '
+                            'value="10" type="text" />', html=True)
+
+        workflow = res.context['workflow']
+        self.assertEqual(res.context['workflow'].name,
+                         workflows.CreateProject.name)
+
+        step = workflow.get_step("createprojectinfoaction")
+        self.assertEqual(step.action.initial['ram'], quota.get('ram').limit)
+        self.assertEqual(step.action.initial['subnet'],
+                         neutron_quotas.get('subnet').limit)
 
     @test.create_stubs({api.keystone: ('get_default_role',
                                        'add_tenant_user_role',
@@ -248,6 +300,21 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         domain = self.domains.get(id="1")
         self.setSessionValues(domain_context=domain.id,
                               domain_context_name=domain.name)
+        self.test_add_project_post()
+
+    @test.create_stubs({api.neutron: ('is_extension_supported',
+                                      'tenant_quota_update')})
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    def test_add_project_post_with_neutron(self):
+        quota_data = self.neutron_quotas.first()
+        neutron_updated_quota = dict([(key, quota_data.get(key).limit)
+                                      for key in quotas.NEUTRON_QUOTA_FIELDS])
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.tenant_quota_update(IsA(http.HttpRequest),
+                                        self.tenant.id,
+                                        **neutron_updated_quota)
         self.test_add_project_post()
 
     @test.create_stubs({api.keystone: ('user_list',
@@ -539,11 +606,14 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
     def _get_quota_info(self, quota):
         cinder_quota = self.cinder_quotas.first()
+        neutron_quota = self.neutron_quotas.first()
         quota_data = {}
         for field in quotas.NOVA_QUOTA_FIELDS:
             quota_data[field] = int(quota.get(field).limit)
         for field in quotas.CINDER_QUOTA_FIELDS:
             quota_data[field] = int(cinder_quota.get(field).limit)
+        for field in quotas.NEUTRON_QUOTA_FIELDS:
+            quota_data[field] = int(neutron_quota.get(field).limit)
         return quota_data
 
     def _get_domain_id(self):
@@ -843,6 +913,25 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         domain = self.domains.get(id="1")
         self.setSessionValues(domain_context=domain.id,
                               domain_context_name=domain.name)
+        self.test_update_project_save()
+
+    @test.create_stubs({api.neutron: ('is_extension_supported',
+                                      'tenant_quota_get',
+                                      'tenant_quota_update')})
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    def test_update_project_save_with_neutron(self):
+        quota_data = self.neutron_quotas.first()
+        neutron_updated_quota = dict([(key, quota_data.get(key).limit)
+                                      for key in quotas.NEUTRON_QUOTA_FIELDS])
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.tenant_quota_get(IsA(http.HttpRequest),
+                                     tenant_id=self.tenant.id) \
+            .AndReturn(quota_data)
+        api.neutron.tenant_quota_update(IsA(http.HttpRequest),
+                                        self.tenant.id,
+                                        **neutron_updated_quota)
         self.test_update_project_save()
 
     @test.create_stubs({api.keystone: ('tenant_get',)})
