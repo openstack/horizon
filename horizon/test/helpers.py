@@ -60,14 +60,14 @@ class RequestFactoryWithMessages(RequestFactory):
     def get(self, *args, **kwargs):
         req = super(RequestFactoryWithMessages, self).get(*args, **kwargs)
         req.user = User()
-        req.session = []
+        req.session = {}
         req._messages = default_storage(req)
         return req
 
     def post(self, *args, **kwargs):
         req = super(RequestFactoryWithMessages, self).post(*args, **kwargs)
         req.user = User()
-        req.session = []
+        req.session = {}
         req._messages = default_storage(req)
         return req
 

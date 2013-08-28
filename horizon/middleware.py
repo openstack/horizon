@@ -34,9 +34,10 @@ from django.http import HttpResponseRedirect  # noqa
 from django import shortcuts
 from django.utils.encoding import iri_to_uri  # noqa
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
-
+from horizon.utils import functions as utils
 
 LOG = logging.getLogger(__name__)
 
@@ -62,7 +63,10 @@ class HorizonMiddleware(object):
         timestamp = datetime.datetime.now()
         if last_activity and (timestamp - last_activity).seconds > timeout:
             request.session.pop('last_activity')
-            return HttpResponseRedirect(settings.LOGOUT_URL)
+            response = HttpResponseRedirect(settings.LOGOUT_URL)
+            reason = _("Session timed out.")
+            utils.add_logout_reason(request, response, reason)
+            return response
         request.session['last_activity'] = timestamp
 
         request.horizon = {'dashboard': None,
@@ -86,12 +90,13 @@ class HorizonMiddleware(object):
             response = redirect_to_login(next_url, login_url=login_url,
                                          redirect_field_name=field_name)
 
-            # TODO(gabriel): Find a way to display an appropriate message to
-            # the user *on* the login form...
             if request.is_ajax():
                 response_401 = http.HttpResponse(status=401)
                 response_401['X-Horizon-Location'] = response['location']
                 return response_401
+            else:
+                utils.add_logout_reason(request, response, _("Unauthorized."))
+
             return response
 
         # If an internal "NotFound" error gets this far, return a real 404.

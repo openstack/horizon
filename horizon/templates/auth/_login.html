@@ -18,6 +18,11 @@
         <a href="{% url 'horizon:user_home' %}">{% trans "home page" %}</a></p>
       </span>
     </div>
+    {% endif  %}
+    {% if request.COOKIES.logout_reason %}
+    <div class="control-group clearfix error">
+      <span class="help-inline"><p>{{ request.COOKIES.logout_reason }}</p></span>
+    </div>
     {% endif %}
     {% if next %}<input type="hidden" name="{{ redirect_field_name }}" value="{{ next }}" />{% endif %}
     {% include "horizon/common/_form_fields.html" %}
