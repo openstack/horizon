@@ -5,9 +5,15 @@ horizon.forms = {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
-      $volName.val($option.data("display_name"));
+      if (_.isEmpty($volName.val())) {
+        $volName.val($option.data("display_name"));
+      }
       var $volSize = $form.find('input#id_size');
-      $volSize.val($option.data("size"));
+      var volSize = parseInt($volSize.val(), 10) || -1;
+      var dataSize = parseInt($option.data("size"), 10) || -1;
+      if (volSize < dataSize) {
+        $volSize.val(dataSize);
+      }
     });
   },
 
@@ -16,9 +22,15 @@ horizon.forms = {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
-      $volName.val($option.data("name"));
+      if (_.isEmpty($volName.val())) {
+        $volName.val($option.data("name"));
+      }
       var $volSize = $form.find('input#id_size');
-      $volSize.val($option.data("size"));
+      var volSize = parseInt($volSize.val(), 10) || -1;
+      var dataSize = parseInt($option.data("size"), 10) || -1;
+      if (volSize < dataSize) {
+        $volSize.val(dataSize);
+      }
     });
   },
 
