@@ -1,0 +1,180 @@
+{% load i18n %}
+{% load url from future %}
+
+<div id="samples_url" url="{% url "horizon:admin:metering:samples" %}"></div>
+<div id="ceilometer-stats">
+  <form class="form-horizontal"
+        id="linechart_general_form">
+
+    <div class="control-group">
+      <label for="meter" class="control-label">{% trans "Metric" %}:&nbsp;</label>
+      <div class="controls line_chart_time_picker">
+        <select data-line-chart-command="select_box_change"
+                name="meter" id="meter" class="span2 example">
+          <optgroup label='{% trans "Compute (Nova)" %}'>
+            {% for meter in meters %}
+            <option title="{{ meter.title }}"  value="{{ meter.name }}" data-unit="">
+            {{ meter.name }}
+            </option>
+            {% endfor %}
+          </optgroup>
+
+          <optgroup label='{% trans "Network (Neutron)" %}'>
+            <option title='{% trans "Duration of network" %}' value="network" data-unit="">network</option>
+            <option title='{% trans "Creation requests for this network" %}' value="network.create" data-unit="">network.create</option>
+            <option title='{% trans "Update requests for this network" %}' value="network.update" data-unit="">network.update</option>
+            <option title='{% trans "Duration of subnet" %}' value="subnet" data-unit="">subnet</option>
+            <option title='{% trans "Creation requests for this subnet" %}' value="subnet.create" data-unit="">subnet.create</option>
+            <option title='{% trans "Update requests for this subnet" %}' value="subnet.update" data-unit="">subnet.update</option>
+            <option title='{% trans "Creation requests for this port" %}' value="port.create" data-unit="">port.create</option>
+            <option title='{% trans "Update requests for this port" %}' value="port.update" data-unit="">port.update</option>
+            <option title='{% trans "Duration of router" %}' value="router" data-unit="">router</option>
+            <option title='{% trans "Creation requests for this router" %}' value="router.create" data-unit="">router.create</option>
+            <option title='{% trans "Update requests for this router" %}' value="router.update" data-unit="">router.update</option>
+            <option title='{% trans "Duration of floating ip" %}' value="ip.floating" data-unit="">ip.floating</option>
+            <option title='{% trans "Creation requests for this floating ip" %}' value="ip.floating.create" data-unit="">ip.floating.create</option>
+            <option title='{% trans "Update requests for this floating ip" %}' value="ip.floating.update" data-unit="">ip.floating.update</option>
+          </optgroup>
+
+          <optgroup label='{% trans "Image (Glance)" %}'>
+            <option title='{% trans "Uploaded image size" %}' value="image.size" data-unit="">image.size</option>
+            <option title='{% trans "Number of update on the image" %}' value="image.update " data-unit="">image.update </option>
+            <option title='{% trans "Number of upload of the image" %}' value="image.upload " data-unit="">image.upload </option>
+            <option title='{% trans "Number of delete on the image" %}' value="image.delete " data-unit="">image.delete </option>
+            <option title='{% trans "Image is downloaded" %}' value="image.download" data-unit="">image.download</option>
+            <option title='{% trans "Image is served out" %}' value="image.serve" data-unit="">image.serve</option>
+          </optgroup>
+
+          <optgroup label='{% trans "Volume (Cinder)" %}'>
+            <option title='{% trans "Duration of volume" %}' value="volume" data-unit="">volume</option>
+            <option title='{% trans "Size of volume" %}' value="volume.size" data-unit="">volume.size</option>
+          </optgroup>
+
+          <optgroup label='{% trans "Object Storage (Swift)" %}'>
+            <option title='{% trans "Number of objects" %}' value="storage.objects" data-unit="">storage.objects</option>
+            <option title='{% trans "Total size of stored objects" %}' value="storage.objects.size" data-unit="">storage.objects.size</option>
+            <option title='{% trans "Number of containers" %}' value="" data-unit="storage.objects.containers">storage.objects.containers</option>
+            <option title='{% trans "Number of incoming bytes" %}' value="storage.objects.incoming.bytes" data-unit="">storage.objects.incoming.bytes</option>
+            <option title='{% trans "Number of outgoing bytes" %}' value="storage.objects.outgoing.bytes" data-unit="">storage.objects.outgoing.bytes</option>
+            <option title='{% trans "Number of API requests against swift" %}' value="storage.api.request" data-unit="">storage.api.request</option>
+          </optgroup>
+
+          <optgroup label='{% trans "Energy (Kwapi)" %}'>
+            <option title='{% trans "Amount of energy" %}' value="energy" data-unit="">energy</option>
+            <option title='{% trans "Power consumption" %}' value="power" data-unit="">power</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="group_by" class="control-label">{% trans "Group by" %}:&nbsp;</label>
+      <div class="controls">
+        <select data-line-chart-command="select_box_change"
+                id="group_by" name="group_by" class="span2">
+          <option value="" selected="selected">{% trans "--" %}</option>
+          <option selected="selected" value="project" selected>{% trans "Project" %}</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label for="stats_attr" class="control-label">{% trans "Value" %}:&nbsp;</label>
+      <div class="controls">
+        <select data-line-chart-command="select_box_change"
+                id="stats_attr" name="stats_attr" class="span2">
+
+          <option selected="selected" value="avg">{% trans "Avg." %}</option>
+          <option value="min">{% trans "Min." %}</option>
+          <option value="max">{% trans "Max." %}</option>
+          <option value="sum">{% trans "Sum." %}</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label for="date_options" class="control-label">{% trans "Period" %}:&nbsp;</label>
+      <div class="controls">
+        <select data-line-chart-command="select_box_change"
+                id="date_options" name="date_options" class="span2">
+          <option value="1">{% trans "Last day" %}</option>
+          <option value="7" selected="selected">{% trans "Last week" %}</option>
+          <option value="15">{% trans "Last 15 days" %}</option>
+          <option value="30">{% trans "Last 30 days" %}</option>
+          <option value="365">{% trans "Last year" %}</option>
+          <option value="other">{% trans "Other" %}</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group" id="date_from">
+      <label for="date_from" class="control-label">{% trans "From" %}:&nbsp;</label>
+      <div class="controls">
+        <input data-line-chart-command="date_picker_change"
+               type="text" id="date_from" name="date_from" class="span2 example"/>
+      </div>
+    </div>
+    <div class="control-group" id="date_to">
+      <label for="date_to" class="control-label">{% trans "To" %}:&nbsp;</label>
+      <div class="controls">
+        <input data-line-chart-command="date_picker_change"
+               type="text" name="date_to" class="span2 example"/>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div class="info row-fluid detail">
+  <div class="span12">
+    <h4>{% trans "Statistics of all resources" %}</h4>
+    <hr class="header_rule" />
+    <div class="info row-fluid detail">
+      <div class="span9 chart_container">
+          <div class="chart"
+               data-chart-type="line_chart"
+               data-url="{% url 'horizon:admin:metering:samples'%}"
+               data-form-selector='#linechart_general_form'
+               data-legend-selector="#legend"
+               data-smoother-selector="#smoother"
+               data-slider-selector="#slider">
+          </div>
+          <div id="slider"></div>
+        </div>
+        <div class="span3 legend_container">
+          <div id="smoother" title="Smoothing"></div>
+          <div id="legend"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  if (typeof horizon.d3_line_chart !== 'undefined') {
+    horizon.d3_line_chart.init("div[data-chart-type='line_chart']");
+  }
+
+  if (typeof $ !== 'undefined') {
+    show_hide_datepickers();
+  } else {
+    addHorizonLoadEvent(function() {
+      show_hide_datepickers();
+    });
+  }
+
+  function show_hide_datepickers() {
+    $("#date_options").change(function(evt) {
+        // Enhancing behaviour of selectbox, on 'other' value selected, I don't
+        // want to refresh, but show hide the date fields
+        if ($(this).find("option:selected").val() == "other"){
+          evt.stopPropagation();
+          $("#date_from, #date_to").show();
+        } else {
+          $("#date_from, #date_to").hide();
+        }
+    });
+    if ($("#date_options").find("option:selected").val() == "other"){
+      $("#date_from, #date_to").show();
+    } else {
+      $("#date_from, #date_to").hide();
+    }
+  }
+</script>

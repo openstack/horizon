@@ -36,6 +36,7 @@ def data(TEST):
     TEST.global_network_usages = utils.TestDataContainer()
     TEST.global_network_traffic_usages = utils.TestDataContainer()
     TEST.global_object_store_usages = utils.TestDataContainer()
+    TEST.statistics_array = utils.TestDataContainer()
 
     # users
     ceilometer_user_dict1 = {'id': "1",
@@ -93,6 +94,7 @@ def data(TEST):
         user_id="fake_user_id",
         timestamp='2012-07-02T10:42:00.000000',
         metadata={'tag': 'self.counter3', 'display_name': 'test-server'},
+        links=[{'url': 'test_url', 'rel': 'storage.objects'}],
     )
     resource_dict_2 = dict(
         resource_id='fake_resource_id2',
@@ -100,6 +102,7 @@ def data(TEST):
         user_id="fake_user_id",
         timestamp='2012-07-02T10:42:00.000000',
         metadata={'tag': 'self.counter3', 'display_name': 'test-server'},
+        links=[{'url': 'test_url', 'rel': 'storage.objects'}],
     )
     resource_1 = resources.Resource(resources.ResourceManager(None),
                                     resource_dict_1)
