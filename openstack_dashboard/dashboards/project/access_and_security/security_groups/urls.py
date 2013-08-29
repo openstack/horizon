@@ -32,5 +32,8 @@ urlpatterns = patterns('',
         name='detail'),
     url(r'^(?P<security_group_id>[^/]+)/add_rule/$',
         views.AddRuleView.as_view(),
-        name='add_rule')
+        name='add_rule'),
+    url(r'^(?P<security_group_id>[^/]+)/update/$',
+        views.UpdateView.as_view(),
+        name='update')
 )

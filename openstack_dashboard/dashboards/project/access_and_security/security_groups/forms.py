@@ -66,6 +66,33 @@ class CreateGroup(forms.SelfHandlingForm):
                               redirect=redirect)
 
 
+class UpdateGroup(forms.SelfHandlingForm):
+    id = forms.CharField(widget=forms.HiddenInput())
+    name = forms.CharField(label=_("Name"),
+                           error_messages={
+                            'required': _('This field is required.'),
+                            'invalid': _("The string may only contain"
+                                         " ASCII characters and numbers.")},
+                           validators=[validators.validate_slug])
+    description = forms.CharField(label=_("Description"))
+
+    def handle(self, request, data):
+        try:
+            sg = api.network.security_group_update(request,
+                                                   data['id'],
+                                                   data['name'],
+                                                   data['description'])
+            messages.success(request,
+                             _('Successfully updated security group: %s')
+                               % data['name'])
+            return sg
+        except Exception:
+            redirect = reverse("horizon:project:access_and_security:index")
+            exceptions.handle(request,
+                              _('Unable to update security group.'),
+                              redirect=redirect)
+
+
 class AddRule(forms.SelfHandlingForm):
     id = forms.CharField(widget=forms.HiddenInput())
     rule_menu = forms.ChoiceField(label=_('Rule'),

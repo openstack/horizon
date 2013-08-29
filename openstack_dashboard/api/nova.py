@@ -199,6 +199,10 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
     def create(self, name, desc):
         return SecurityGroup(self.client.security_groups.create(name, desc))
 
+    def update(self, sg_id, name, desc):
+        return SecurityGroup(self.client.security_groups.update(sg_id,
+                                                                name, desc))
+
     def delete(self, security_group_id):
         self.client.security_groups.delete(security_group_id)
 

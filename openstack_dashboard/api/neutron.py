@@ -213,6 +213,12 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
         secgroup = self.client.create_security_group(body)
         return SecurityGroup(secgroup.get('security_group'))
 
+    def update(self, sg_id, name, desc):
+        body = {'security_group': {'name': name,
+                                   'description': desc}}
+        secgroup = self.client.update_security_group(sg_id, body)
+        return SecurityGroup(secgroup.get('security_group'))
+
     def delete(self, sg_id):
         self.client.delete_security_group(sg_id)
 

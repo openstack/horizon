@@ -55,6 +55,45 @@ class SecurityGroupsViewTests(test.TestCase):
                                 'security_groups:add_rule',
                                 args=[sec_group.id])
 
+    @test.create_stubs({api.network: ('security_group_get',)})
+    def test_update_security_groups_get(self):
+        sec_group = self.security_groups.first()
+        api.network.security_group_get(IsA(http.HttpRequest),
+                                        sec_group.id).AndReturn(sec_group)
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:project:access_and_security:'
+                                      'security_groups:update',
+                                      args=[sec_group.id]))
+        self.assertTemplateUsed(res,
+                'project/access_and_security/security_groups/_update.html')
+        self.assertEqual(res.context['security_group'].name,
+                         sec_group.name)
+
+    @test.create_stubs({api.network: ('security_group_update',
+                                      'security_group_get')})
+    def test_update_security_groups_post(self):
+        sec_group = self.security_groups.get(name="other_group")
+        api.network.security_group_update(IsA(http.HttpRequest),
+                                       str(sec_group.id),
+                                       sec_group.name,
+                                       sec_group.description) \
+            .AndReturn(sec_group)
+        api.network.security_group_get(IsA(http.HttpRequest),
+                                        sec_group.id).AndReturn(sec_group)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateGroup',
+                    'id': sec_group.id,
+                    'name': sec_group.name,
+                    'description': sec_group.description}
+
+        update_url = reverse('horizon:project:access_and_security:'
+                             'security_groups:update',
+                             args=[sec_group.id])
+        res = self.client.post(update_url, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     def test_create_security_groups_get(self):
         res = self.client.get(SG_CREATE_URL)
         self.assertTemplateUsed(res,

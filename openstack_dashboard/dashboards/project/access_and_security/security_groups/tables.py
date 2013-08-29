@@ -49,6 +49,18 @@ class CreateGroup(tables.LinkAction):
     classes = ("ajax-modal", "btn-create")
 
 
+class EditGroup(tables.LinkAction):
+    name = "edit"
+    verbose_name = _("Edit Security Group")
+    url = "horizon:project:access_and_security:security_groups:update"
+    classes = ("ajax-modal", "btn-edit")
+
+    def allowed(self, request, security_group=None):
+        if not security_group:
+            return True
+        return security_group.name != 'default'
+
+
 class EditRules(tables.LinkAction):
     name = "edit_rules"
     verbose_name = _("Edit Rules")
@@ -67,7 +79,7 @@ class SecurityGroupsTable(tables.DataTable):
         name = "security_groups"
         verbose_name = _("Security Groups")
         table_actions = (CreateGroup, DeleteGroup)
-        row_actions = (EditRules, DeleteGroup)
+        row_actions = (EditRules, EditGroup, DeleteGroup)
 
 
 class CreateRule(tables.LinkAction):
