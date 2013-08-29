@@ -58,6 +58,7 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
                                   '<Service: object-store>',
                                   '<Service: network>',
                                   '<Service: ec2>',
+                                  '<Service: metering>',
                                   '<Service: orchestration>'])
 
         quotas_tab = res.context['tab_group'].get_tab('quotas')
@@ -125,6 +126,7 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
                                   '<Service: object-store>',
                                   '<Service: network>',
                                   '<Service: ec2>',
+                                  '<Service: metering>',
                                   '<Service: orchestration>'])
 
         quotas_tab = res.context['tab_group'].get_tab('quotas')
