@@ -17,6 +17,8 @@
 import logging
 
 from django.conf import settings  # noqa
+from django.core.urlresolvers import reverse  # noqa
+from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from keystoneclient import exceptions
@@ -30,6 +32,19 @@ from openstack_dashboard.dashboards.admin.domains import constants
 
 
 LOG = logging.getLogger(__name__)
+
+
+class ViewGroupsLink(tables.LinkAction):
+    name = "groups"
+    verbose_name = _("Modify Groups")
+    url = "horizon:admin:domains:update"
+    classes = ("ajax-modal", "btn-edit")
+
+    def get_link_url(self, domain):
+        step = 'update_group_members'
+        base_url = reverse(self.url, args=[domain.id])
+        param = urlencode({"step": step})
+        return "?".join([base_url, param])
 
 
 class CreateDomainLink(tables.LinkAction):
@@ -152,6 +167,7 @@ class DomainsTable(tables.DataTable):
     class Meta:
         name = "domains"
         verbose_name = _("Domains")
-        row_actions = (SetDomainContext, EditDomainLink, DeleteDomainsAction)
+        row_actions = (SetDomainContext, ViewGroupsLink, EditDomainLink,
+                       DeleteDomainsAction)
         table_actions = (DomainFilterAction, CreateDomainLink,
                          DeleteDomainsAction, UnsetDomainContext)
