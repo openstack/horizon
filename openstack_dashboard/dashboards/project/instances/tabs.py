@@ -79,7 +79,15 @@ class ConsoleTab(tabs.Tab):
                         getattr(instance, "name", ""),
                         instance.id)
                 except Exception:
-                    console_url = None
+                    try:
+                        console = api.nova.server_rdp_console(request,
+                                                              instance.id)
+                        console_url = "%s&title=%s(%s)" % (
+                            console.url,
+                            getattr(instance, "name", ""),
+                            instance.id)
+                    except Exception:
+                        console_url = None
         elif console_type == 'VNC':
             try:
                 console = api.nova.server_vnc_console(request, instance.id)
@@ -92,6 +100,15 @@ class ConsoleTab(tabs.Tab):
         elif console_type == 'SPICE':
             try:
                 console = api.nova.server_spice_console(request, instance.id)
+                console_url = "%s&title=%s(%s)" % (
+                    console.url,
+                    getattr(instance, "name", ""),
+                    instance.id)
+            except Exception:
+                console_url = None
+        elif console_type == 'RDP':
+            try:
+                console = api.nova.server_rdp_console(request, instance.id)
                 console_url = "%s&title=%s(%s)" % (
                     console.url,
                     getattr(instance, "name", ""),

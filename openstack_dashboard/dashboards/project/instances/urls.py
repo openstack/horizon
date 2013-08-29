@@ -38,5 +38,6 @@ urlpatterns = patterns(VIEW_MOD,
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
     url(INSTANCES % 'spice', 'spice', name='spice'),
+    url(INSTANCES % 'rdp', 'rdp', name='rdp'),
     url(INSTANCES % 'resize', views.ResizeView.as_view(), name='resize'),
 )

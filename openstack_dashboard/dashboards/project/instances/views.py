@@ -164,6 +164,18 @@ def spice(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+def rdp(request, instance_id):
+    try:
+        console = api.nova.server_rdp_console(request, instance_id)
+        instance = api.nova.server_get(request, instance_id)
+        return shortcuts.redirect(console.url +
+                ("&title=%s(%s)" % (instance.name, instance_id)))
+    except Exception:
+        redirect = reverse("horizon:project:instances:index")
+        msg = _('Unable to get RDP console for instance "%s".') % instance_id
+        exceptions.handle(request, msg, redirect=redirect)
+
+
 class UpdateView(workflows.WorkflowView):
     workflow_class = project_workflows.UpdateInstance
     success_url = reverse_lazy("horizon:project:instances:index")
