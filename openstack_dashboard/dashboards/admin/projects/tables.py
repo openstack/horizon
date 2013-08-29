@@ -9,7 +9,6 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.api import keystone
 
-
 LOG = logging.getLogger(__name__)
 
 
@@ -18,6 +17,8 @@ class ViewMembersLink(tables.LinkAction):
     verbose_name = _("Modify Users")
     url = "horizon:admin:projects:update"
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (("identity", "identity:list_users"),
+                    ("identity", "identity:list_roles"))
 
     def get_link_url(self, project):
         step = 'update_members'
@@ -47,6 +48,7 @@ class UsageLink(tables.LinkAction):
     verbose_name = _("View Usage")
     url = "horizon:admin:projects:usage"
     classes = ("btn-stats",)
+    policy_rules = (("compute", "compute_extension:simple_tenant_usage:show"),)
 
 
 class CreateProject(tables.LinkAction):
@@ -54,6 +56,7 @@ class CreateProject(tables.LinkAction):
     verbose_name = _("Create Project")
     url = "horizon:admin:projects:create"
     classes = ("btn-launch", "ajax-modal",)
+    policy_rules = (('identity', 'identity:create_project'),)
 
     def allowed(self, request, project):
         return api.keystone.keystone_can_edit_project()
@@ -64,6 +67,7 @@ class UpdateProject(tables.LinkAction):
     verbose_name = _("Edit Project")
     url = "horizon:admin:projects:update"
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (('identity', 'identity:update_project'),)
 
     def allowed(self, request, project):
         return api.keystone.keystone_can_edit_project()
@@ -74,6 +78,7 @@ class ModifyQuotas(tables.LinkAction):
     verbose_name = "Modify Quotas"
     url = "horizon:admin:projects:update"
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (('compute', "compute_extension:quotas:update"),)
 
     def get_link_url(self, project):
         step = 'update_quotas'
@@ -85,6 +90,7 @@ class ModifyQuotas(tables.LinkAction):
 class DeleteTenantsAction(tables.DeleteAction):
     data_type_singular = _("Project")
     data_type_plural = _("Projects")
+    policy_rules = (("identity", "identity:delete_project"),)
 
     def allowed(self, request, project):
         return api.keystone.keystone_can_edit_project()

@@ -251,6 +251,23 @@ Default: ``20``
 Similar to ``API_RESULT_LIMIT``. This setting currently only controls the
 Glance image list page size. It will be removed in a future version.
 
+``POLICY_FILES_PATH``
+---------------------
+
+Default:  ``os.path.join(ROOT_PATH, "conf")``
+
+Specifies where service based policy files are located.  These are used to
+define the policy rules actions are verified against.
+
+``POLICY_FILES``
+----------------
+
+Default: { 'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}
+
+This should essentially be the mapping of the contents of ``POLICY_FILES_PATH``
+to service types.  When policy.json files are added to ``POLICY_FILES_PATH``,
+they should be included here too.
+
 Django Settings (Partial)
 =========================
 

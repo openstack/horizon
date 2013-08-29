@@ -195,6 +195,19 @@ TIME_ZONE = "UTC"
 #     'reverse': False,
 # }
 
+# The Horizon Policy Enforcement engine uses these values to load per service
+# policy rule files. The content of these files should match the files the
+# OpenStack services are using to determine role based access control in the
+# target installation.
+
+# Path to directory containing policy.json files
+#POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
+# Map of local copy of service policy files
+#POLICY_FILES = {
+#    'identity': 'keystone_policy.json',
+#    'compute': 'nova_policy.json'
+#}
+
 LOGGING = {
     'version': 1,
     # When set to True this will disable all logging except

@@ -127,3 +127,30 @@ require data, such as :meth:`~horizon.tables.DataTable.get_object_display` or
 actions is that you can avoid having to do all the processing, API calls, etc.
 associated with loading data into the table for actions which don't require
 access to that information.
+
+Policy checks on actions
+------------------------
+
+The :attr:`~horizon.tables.Action.policy_rules` attribute, when set, will
+validate access to the action using the policy rules specified.  The attribute
+is a list of scope/rule pairs.  Where the scope is the service type defining
+the rule and the rule is a rule from the corresponding service policy.json
+file.  The format of :attr:`horizon.tables.Action.policy_rules` looks like::
+
+    (("identity", "identity:get_user"),)
+
+Multiple checks can be made for the same action by merely adding more tuples
+to the list.  The policy check will use information stored in the session
+about the user and the result of
+:meth:`~horizon.tables.Action.get_policy_target` (which can be overridden in
+the derived action class) to determine if the user
+can execute the action.  If the user does not have access to the action, the
+action is not added to the table.
+
+If :attr:`~horizon.tables.Action.policy_rules` is not set, no policy checks
+will be made to determine if the action should be visible and will be
+displayed solely based on the result of
+:meth:`~horizon.tables.Action.allowed`.
+
+For more information on policy based Role Based Access Control see:
+:doc:`Horizon Policy Enforcement (RBAC: Role Based Access Control) </topics/policy>`.

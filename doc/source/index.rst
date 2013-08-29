@@ -73,6 +73,7 @@ the following topic guides.
    :maxdepth: 1
 
    topics/tables
+   topics/policy
    topics/testing
 
 API Reference
@@ -94,6 +95,7 @@ In-depth documentation for Horizon and its APIs.
    ref/decorators
    ref/exceptions
    ref/test
+   ref/policy
 
 Source Code Reference
 ---------------------

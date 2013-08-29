@@ -52,6 +52,7 @@ class CreateDomainLink(tables.LinkAction):
     verbose_name = _("Create Domain")
     url = constants.DOMAINS_CREATE_URL
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (('identity', 'identity:create_domain'),)
 
     def allowed(self, request, domain):
         return api.keystone.keystone_can_edit_domain()
@@ -62,6 +63,7 @@ class EditDomainLink(tables.LinkAction):
     verbose_name = _("Edit")
     url = constants.DOMAINS_UPDATE_URL
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (('identity', 'identity:update_domain'),)
 
     def allowed(self, request, domain):
         return api.keystone.keystone_can_edit_domain()
@@ -71,6 +73,7 @@ class DeleteDomainsAction(tables.DeleteAction):
     name = "delete"
     data_type_singular = _("Domain")
     data_type_plural = _("Domains")
+    policy_rules = (('identity', 'identity:delete_domain'),)
 
     def allowed(self, request, datum):
         return api.keystone.keystone_can_edit_domain()
@@ -111,6 +114,7 @@ class SetDomainContext(tables.Action):
     verbose_name = _("Set Domain Context")
     url = constants.DOMAINS_INDEX_URL
     preempt = True
+    policy_rules = (('identity', 'admin_required'),)
 
     def allowed(self, request, datum):
         multidomain_support = getattr(settings,
@@ -145,6 +149,7 @@ class UnsetDomainContext(tables.Action):
     url = constants.DOMAINS_INDEX_URL
     preempt = True
     requires_input = False
+    policy_rules = (('identity', 'admin_required'),)
 
     def allowed(self, request, datum):
         ctx = request.session.get("domain_context", None)

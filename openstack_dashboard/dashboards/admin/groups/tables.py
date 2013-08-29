@@ -40,6 +40,7 @@ class CreateGroupLink(tables.LinkAction):
     verbose_name = _("Create Group")
     url = constants.GROUPS_CREATE_URL
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("identity", "identity:create_group"),)
 
     def allowed(self, request, group):
         return api.keystone.keystone_can_edit_group()
@@ -50,6 +51,7 @@ class EditGroupLink(tables.LinkAction):
     verbose_name = _("Edit Group")
     url = constants.GROUPS_UPDATE_URL
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (("identity", "identity:update_group"),)
 
     def allowed(self, request, group):
         return api.keystone.keystone_can_edit_group()
@@ -59,6 +61,7 @@ class DeleteGroupsAction(tables.DeleteAction):
     name = "delete"
     data_type_singular = _("Group")
     data_type_plural = _("Groups")
+    policy_rules = (("identity", "identity:delete_group"),)
 
     def allowed(self, request, datum):
         return api.keystone.keystone_can_edit_group()
@@ -73,6 +76,8 @@ class ManageUsersLink(tables.LinkAction):
     verbose_name = _("Modify Users")
     url = constants.GROUPS_MANAGE_URL
     classes = ("btn-edit")
+    policy_rules = (("identity", "identity:get_group"),
+                    ("identity", "identity:list_users"),)
 
     def allowed(self, request, datum):
         return api.keystone.keystone_can_edit_group()
@@ -120,6 +125,7 @@ class RemoveMembers(tables.DeleteAction):
     action_past = _("Removed")
     data_type_singular = _("User")
     data_type_plural = _("Users")
+    policy_rules = (("identity", "identity:remove_user_from_group"),)
 
     def allowed(self, request, user=None):
         return api.keystone.keystone_can_edit_group()
@@ -142,6 +148,8 @@ class AddMembersLink(tables.LinkAction):
     verbose_name = _("Add...")
     classes = ("ajax-modal", "btn-create")
     url = constants.GROUPS_ADD_MEMBER_URL
+    policy_rules = (("identity", "identity:list_users"),
+                    ("identity", "identity:add_user_to_group"),)
 
     def allowed(self, request, user=None):
         return api.keystone.keystone_can_edit_group()
@@ -177,6 +185,7 @@ class AddMembers(tables.BatchAction):
     classes = ("btn-create", )
     requires_input = True
     success_url = constants.GROUPS_MANAGE_URL
+    policy_rules = (("identity", "identity:add_user_to_group"),)
 
     def allowed(self, request, user=None):
         return api.keystone.keystone_can_edit_group()
