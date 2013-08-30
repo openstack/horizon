@@ -84,7 +84,20 @@ class UpdateView(forms.ModalFormView):
 
     def get_initial(self):
         user = self.get_object()
-        return {'id': user.id,
+        domain_id = getattr(user, "domain_id", None)
+        domain_name = ''
+        # Retrieve the domain name where the project belong
+        if api.keystone.VERSIONS.active >= 3:
+            try:
+                domain = api.keystone.domain_get(self.request,
+                                                    domain_id)
+                domain_name = domain.name
+            except Exception:
+                exceptions.handle(self.request,
+                    _('Unable to retrieve project domain.'))
+        return {'domain_id': domain_id,
+                'domain_name': domain_name,
+                'id': user.id,
                 'name': user.name,
                 'project': user.project_id,
                 'email': user.email}
@@ -114,5 +127,9 @@ class CreateView(forms.ModalFormView):
         return kwargs
 
     def get_initial(self):
+        # Set the domain of the user
+        domain = api.keystone.get_default_domain(self.request)
         default_role = api.keystone.get_default_role(self.request)
-        return {'role_id': getattr(default_role, "id", None)}
+        return {'domain_id': domain.id,
+                'domain_name': domain.name,
+                'role_id': getattr(default_role, "id", None)}
