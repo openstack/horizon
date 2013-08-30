@@ -1,5 +1,28 @@
+# vim: tabstop=4 shiftwidth=4 softtabstop=4
+
+# Copyright 2012 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Copyright 2012 Nebula, Inc.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
 import logging
 
+from django.core.urlresolvers import reverse  # noqa
+from django.template import defaultfilters as filters
+from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
@@ -25,10 +48,10 @@ class CreateFlavor(tables.LinkAction):
     classes = ("ajax-modal", "btn-create")
 
 
-class EditFlavor(tables.LinkAction):
-    name = "edit"
+class UpdateFlavor(tables.LinkAction):
+    name = "update"
     verbose_name = _("Edit Flavor")
-    url = "horizon:admin:flavors:edit"
+    url = "horizon:admin:flavors:update"
     classes = ("ajax-modal", "btn-edit")
 
 
@@ -37,6 +60,30 @@ class ViewFlavorExtras(tables.LinkAction):
     verbose_name = _("View Extra Specs")
     url = "horizon:admin:flavors:extras:index"
     classes = ("btn-edit",)
+
+
+class ModifyAccess(tables.LinkAction):
+    name = "projects"
+    verbose_name = "Modify Access"
+    url = "horizon:admin:flavors:update"
+    classes = ("ajax-modal", "btn-edit")
+
+    def get_link_url(self, flavor):
+        step = 'update_flavor_access'
+        base_url = reverse(self.url, args=[flavor.id])
+        param = urlencode({"step": step})
+        return "?".join([base_url, param])
+
+
+class FlavorFilterAction(tables.FilterAction):
+    def filter(self, table, flavors, filter_string):
+        """ Really naive case-insensitive search. """
+        q = filter_string.lower()
+
+        def comp(flavor):
+            return q in flavor.name.lower()
+
+        return filter(comp, flavors)
 
 
 def get_size(flavor):
@@ -60,9 +107,16 @@ class FlavorsTable(tables.DataTable):
                          verbose_name=_('Swap Disk'),
                          attrs={'data-type': 'size'})
     flavor_id = tables.Column('id', verbose_name=('ID'))
+    public = tables.Column("is_public",
+                           verbose_name=_("Public"),
+                           empty_value=False,
+                           filters=(filters.yesno, filters.capfirst))
 
     class Meta:
         name = "flavors"
         verbose_name = _("Flavors")
-        table_actions = (CreateFlavor, DeleteFlavor)
-        row_actions = (EditFlavor, ViewFlavorExtras, DeleteFlavor)
+        table_actions = (FlavorFilterAction, CreateFlavor, DeleteFlavor)
+        row_actions = (UpdateFlavor,
+                       ModifyAccess,
+                       ViewFlavorExtras,
+                       DeleteFlavor)
