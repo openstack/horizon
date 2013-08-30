@@ -22,11 +22,36 @@
 from django.conf.urls.defaults import patterns  # noqa
 from django.conf.urls.defaults import url  # noqa
 
-from openstack_dashboard.dashboards.project.network_topology import views
+from openstack_dashboard.dashboards.project.network_topology.views import\
+    InstanceView  # noqa
+from openstack_dashboard.dashboards.project.network_topology.views import\
+    JSONView  # noqa
+from openstack_dashboard.dashboards.project.network_topology.views import\
+    NetworkTopologyView  # noqa
+from openstack_dashboard.dashboards.project.network_topology.views import\
+    NTCreateNetworkView  # noqa
+from openstack_dashboard.dashboards.project.network_topology.views import\
+    NTCreateRouterView  # noqa
+from openstack_dashboard.dashboards.project.network_topology.views import\
+    NTLaunchInstanceView  # noqa
+from openstack_dashboard.dashboards.project.network_topology.views import\
+    RouterDetailView  # noqa
+from openstack_dashboard.dashboards.project.network_topology.views import\
+    RouterView  # noqa
 
 
 urlpatterns = patterns(
     'openstack_dashboard.dashboards.project.network_topology.views',
-    url(r'^$', views.NetworkTopology.as_view(), name='index'),
-    url(r'^json$', views.JSONView.as_view(), name='json'),
+    url(r'^$', NetworkTopologyView.as_view(), name='index'),
+    url(r'^router$', RouterView.as_view(), name='router'),
+    url(r'^instance$', InstanceView.as_view(), name='instance'),
+    url(r'^router/(?P<router_id>[^/]+)/$', RouterDetailView.as_view(),
+        name='detail'),
+    url(r'^json$', JSONView.as_view(), name='json'),
+    url(r'^launchinstance$', NTLaunchInstanceView.as_view(),
+        name='launchinstance'),
+    url(r'^createnetwork$', NTCreateNetworkView.as_view(),
+        name='createnetwork'),
+    url(r'^createrouter$', NTCreateRouterView.as_view(),
+        name='createrouter'),
 )

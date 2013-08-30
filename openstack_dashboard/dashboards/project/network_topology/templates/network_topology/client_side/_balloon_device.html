@@ -1,0 +1,24 @@
+{% extends "horizon/client_side/template.html" %}
+{% load horizon %}
+
+{% block id %}balloon_device{% endblock %}
+
+{% block template %}
+{% jstemplate %}
+<table class="detaiInfoTable">
+  <caption>[[name]]</caption>
+  <tbody>
+    <tr>
+      <th class="device">ID</th>
+      <td>[[id]]</td>
+    </tr>
+    <tr>
+      <th class="device">STATUS</th>
+      <td>
+        <span class="[[status_class]]">[[status]]</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{% endjstemplate %}
+{% endblock %}

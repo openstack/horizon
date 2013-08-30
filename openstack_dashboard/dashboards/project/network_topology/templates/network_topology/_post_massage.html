@@ -1,0 +1,27 @@
+<script type='text/javascript'>
+(function(){
+  $(window).on('message',function(e){
+    var message = JSON.parse(e.originalEvent.data);
+    var id = message.id;
+    $('button[id*="' + id + '"]').click();
+  });
+
+  $('.messages .alert').each(function(){
+    var $this = $(this);
+    var message = {};
+    message.action = "alert";
+    message.iframe_id = $(window.frameElement).attr('id');
+    message.type = 
+      ($this.hasClass('alert-info')) ?    'info' :
+      ($this.hasClass('alert-warning')) ? 'warning' :
+      ($this.hasClass('alert-success')) ? 'success' :
+      ($this.hasClass('alert-error')) ?   'error' :
+      null;
+    message.message = $this.children('p')
+      .html()
+      .replace(/<strong>(.*?)<\/strong>/g,'');
+    var target = (parent.postMessage ? parent : (parent.document.postMessage ? parent.document : undefined));
+    target.postMessage(JSON.stringify(message, null, 2), '*');
+  });
+})();
+</script>

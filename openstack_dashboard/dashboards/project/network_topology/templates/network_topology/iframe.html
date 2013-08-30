@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.min.js' type='text/javascript' charset="utf-8"></script>
+  </head>
+  <body>
+    {% include "horizon/_messages.html" %}
+    {% firstof table.render interfaces_table.render %}
+    {% include "project/network_topology/_post_massage.html" %}
+  </body>
+</html>
