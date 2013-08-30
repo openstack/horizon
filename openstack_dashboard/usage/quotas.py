@@ -26,6 +26,9 @@ NOVA_QUOTA_FIELDS = ("metadata_items",
                      "security_groups",
                      "security_group_rules",)
 
+MISSING_QUOTA_FIELDS = ("key_pairs",
+                        "injected_file_path_bytes",)
+
 CINDER_QUOTA_FIELDS = ("volumes",
                        "snapshots",
                        "gigabytes",)

@@ -1,10 +1,6 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
-# Copyright 2012 Nebula, Inc.
+# Copyright 2013 Kylin, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -25,9 +21,9 @@ import horizon
 from openstack_dashboard.dashboards.admin import dashboard
 
 
-class Info(horizon.Panel):
-    name = _("System Info")
-    slug = 'info'
+class Defaults(horizon.Panel):
+    name = _("Defaults")
+    slug = 'defaults'
 
 
-dashboard.Admin.register(Info)
+dashboard.Admin.register(Defaults)

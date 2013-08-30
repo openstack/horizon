@@ -11,40 +11,6 @@ from horizon.utils.filters import parse_isotime  # noqa
 LOG = logging.getLogger(__name__)
 
 
-class QuotaFilterAction(tables.FilterAction):
-    def filter(self, table, tenants, filter_string):
-        q = filter_string.lower()
-
-        def comp(tenant):
-            if q in tenant.name.lower():
-                return True
-            return False
-
-        return filter(comp, tenants)
-
-
-def get_quota_name(quota):
-    if quota.name == "cores":
-        return _('VCPUs')
-    if quota.name == "floating_ips":
-        return _('Floating IPs')
-    return quota.name.replace("_", " ").title()
-
-
-class QuotasTable(tables.DataTable):
-    name = tables.Column(get_quota_name, verbose_name=_('Quota Name'))
-    limit = tables.Column("limit", verbose_name=_('Limit'))
-
-    def get_object_id(self, obj):
-        return obj.name
-
-    class Meta:
-        name = "quotas"
-        verbose_name = _("Quotas")
-        table_actions = (QuotaFilterAction,)
-        multi_select = False
-
-
 class ServiceFilterAction(tables.FilterAction):
     def filter(self, table, services, filter_string):
         q = filter_string.lower()
