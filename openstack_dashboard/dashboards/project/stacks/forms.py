@@ -31,21 +31,28 @@ LOG = logging.getLogger(__name__)
 def exception_to_validation_msg(e):
     '''
     Extracts a validation message to display to the user.
-    This needs to be a pattern matching approach until the Heat
-    API returns exception data in a parsable format.
     '''
-    validation_patterns = [
-        "Remote error: \w* {'Error': '(.*?)'}",
-        'Remote error: \w* (.*?) \[',
-        '400 Bad Request\n\nThe server could not comply with the request '
-        'since it is either malformed or otherwise incorrect.\n\n (.*)',
-        '(ParserError: .*)'
-    ]
+    try:
+        error = json.loads(str(e))
+        # NOTE(jianingy): if no message exists, we just return 'None'
+        # and let the caller to deciede what to show
+        return error['error'].get('message', None)
+    except Exception:
+        # NOTE(jianingy): fallback to legacy message parsing approach
+        # either if error message isn't a json nor the json isn't in
+        # valid format.
+        validation_patterns = [
+            "Remote error: \w* {'Error': '(.*?)'}",
+            'Remote error: \w* (.*?) \[',
+            '400 Bad Request\n\nThe server could not comply with the request '
+            'since it is either malformed or otherwise incorrect.\n\n (.*)',
+            '(ParserError: .*)'
+        ]
 
-    for pattern in validation_patterns:
-        match = re.search(pattern, str(e))
-        if match:
-            return match.group(1)
+        for pattern in validation_patterns:
+            match = re.search(pattern, str(e))
+            if match:
+                return match.group(1)
 
 
 class TemplateForm(forms.SelfHandlingForm):
