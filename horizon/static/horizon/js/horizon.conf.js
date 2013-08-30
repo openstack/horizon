@@ -26,6 +26,15 @@ horizon.conf = {
       color:  '#000',
       speed:  0.8,
       trail:  50
+    },
+    line_chart: {
+      lines:  10,
+      length: 15,
+      width:  4,
+      radius: 11,
+      color:  '#000',
+      speed:  0.8,
+      trail:  50
     }
   }
 };
