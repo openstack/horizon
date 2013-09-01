@@ -159,7 +159,7 @@ class CreateSubnetDetailAction(workflows.Action):
         label=_("Host Routes"),
         help_text=_("Additional routes announced to the hosts. "
                     "Each entry is &lt;destination_cidr&gt;,&lt;nexthop&gt; "
-                    "(e.g., 192.168.200.0/24,10.56.1.254)"
+                    "(e.g., 192.168.200.0/24,10.56.1.254) "
                     "and one entry per line."),
         required=False)
 
