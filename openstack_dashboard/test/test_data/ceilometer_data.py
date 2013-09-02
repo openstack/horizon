@@ -22,20 +22,20 @@ from ceilometerclient.v2 import statistics
 from keystoneclient.v2_0 import tenants
 from keystoneclient.v2_0 import users
 
-from openstack_dashboard.test.test_data.utils import TestDataContainer  # noqa
+from openstack_dashboard.test.test_data import utils
 
 
 def data(TEST):
-    TEST.ceilometer_users = TestDataContainer()
-    TEST.ceilometer_tenants = TestDataContainer()
-    TEST.resources = TestDataContainer()
-    TEST.samples = TestDataContainer()
-    TEST.meters = TestDataContainer()
-    TEST.statistics = TestDataContainer()
-    TEST.global_disk_usages = TestDataContainer()
-    TEST.global_network_usages = TestDataContainer()
-    TEST.global_network_traffic_usages = TestDataContainer()
-    TEST.global_object_store_usages = TestDataContainer()
+    TEST.ceilometer_users = utils.TestDataContainer()
+    TEST.ceilometer_tenants = utils.TestDataContainer()
+    TEST.resources = utils.TestDataContainer()
+    TEST.samples = utils.TestDataContainer()
+    TEST.meters = utils.TestDataContainer()
+    TEST.statistics = utils.TestDataContainer()
+    TEST.global_disk_usages = utils.TestDataContainer()
+    TEST.global_network_usages = utils.TestDataContainer()
+    TEST.global_network_traffic_usages = utils.TestDataContainer()
+    TEST.global_object_store_usages = utils.TestDataContainer()
 
     # users
     ceilometer_user_dict1 = {'id': "1",

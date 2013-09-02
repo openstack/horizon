@@ -22,8 +22,7 @@ from horizon.workflows import views
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.networks.tests \
-    import form_data_subnet  # noqa
+from openstack_dashboard.dashboards.project.networks import tests
 from openstack_dashboard.test import helpers as test
 
 
@@ -408,7 +407,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             .AndReturn(subnet)
         self.mox.ReplayAll()
 
-        form_data = form_data_subnet(subnet)
+        form_data = tests.form_data_subnet(subnet)
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -428,7 +427,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
-        form_data = form_data_subnet(subnet, allocation_pools=[])
+        form_data = tests.form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -461,7 +460,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
-        form_data = form_data_subnet(subnet, allocation_pools=[])
+        form_data = tests.form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -481,7 +480,8 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         # dummy IPv6 address
         cidr = '2001:0DB8:0:CD30:123:4567:89AB:CDEF/60'
-        form_data = form_data_subnet(subnet, cidr=cidr, allocation_pools=[])
+        form_data = tests.form_data_subnet(
+            subnet, cidr=cidr, allocation_pools=[])
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -500,7 +500,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
-        form_data = form_data_subnet(subnet, gateway_ip=gateway_ip,
+        form_data = tests.form_data_subnet(subnet, gateway_ip=gateway_ip,
                                      allocation_pools=[])
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
@@ -523,7 +523,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             .AndReturn(subnet)
         self.mox.ReplayAll()
 
-        form_data = form_data_subnet(subnet, allocation_pools=[])
+        form_data = tests.form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:admin:networks:editsubnet',
                       args=[subnet.network_id, subnet.id])
         res = self.client.post(url, form_data)
@@ -542,7 +542,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
-        form_data = form_data_subnet(subnet, gateway_ip=gateway_ip,
+        form_data = tests.form_data_subnet(subnet, gateway_ip=gateway_ip,
                                      allocation_pools=[])
         url = reverse('horizon:admin:networks:editsubnet',
                       args=[subnet.network_id, subnet.id])

@@ -21,7 +21,7 @@ import uuid
 from django import http
 from mox import IsA  # noqa
 
-from novaclient.v1_1.floating_ip_pools import FloatingIPPool  # noqa
+from novaclient.v1_1 import floating_ip_pools
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -38,7 +38,8 @@ class NetworkApiNovaTestBase(test.APITestCase):
 class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
     def test_floating_ip_pools_list(self):
         pool_names = ['pool1', 'pool2']
-        pools = [FloatingIPPool(None, {'name': pool}) for pool in pool_names]
+        pools = [floating_ip_pools.FloatingIPPool(
+            None, {'name': pool}) for pool in pool_names]
         novaclient = self.stub_novaclient()
         novaclient.floating_ip_pools = self.mox.CreateMockAnything()
         novaclient.floating_ip_pools.list().AndReturn(pools)

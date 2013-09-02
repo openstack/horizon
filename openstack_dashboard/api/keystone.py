@@ -26,7 +26,7 @@ from django.conf import settings  # noqa
 from django.contrib.auth import logout  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
-from keystoneclient.exceptions import ClientException  # noqa
+from keystoneclient import exceptions as keystone_exceptions
 
 from openstack_auth import backend
 
@@ -315,8 +315,8 @@ def user_update(request, user, **data):
     error = None
 
     if not keystone_can_edit_user():
-        raise ClientException(405, _("Identity service does not allow "
-                                     "editing user data."))
+        raise keystone_exceptions.ClientException(405, _("Identity service "
+                                    "does not allow editing user data."))
 
     # The v2 API updates user model, password and default project separately
     if VERSIONS.active < 3:

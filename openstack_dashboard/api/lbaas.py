@@ -16,19 +16,19 @@
 
 from __future__ import absolute_import
 
-from openstack_dashboard.api.neutron import NeutronAPIDictWrapper  # noqa
-from openstack_dashboard.api.neutron import neutronclient  # noqa
-from openstack_dashboard.api.neutron import subnet_get  # noqa
+from openstack_dashboard.api import neutron
+
+neutronclient = neutron.neutronclient
 
 
-class Vip(NeutronAPIDictWrapper):
+class Vip(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron load balancer vip"""
 
     def __init__(self, apiresource):
         super(Vip, self).__init__(apiresource)
 
 
-class Pool(NeutronAPIDictWrapper):
+class Pool(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron load balancer pool"""
 
     def __init__(self, apiresource):
@@ -49,7 +49,7 @@ class Pool(NeutronAPIDictWrapper):
                       'health_monitors': self.health_monitors}
         try:
             pFormatted['subnet_id'] = self.subnet_id
-            pFormatted['subnet_name'] = subnet_get(
+            pFormatted['subnet_name'] = neutron.subnet_get(
                 request, self.subnet_id).cidr
         except Exception:
             pFormatted['subnet_id'] = self.subnet_id
@@ -70,7 +70,7 @@ class Pool(NeutronAPIDictWrapper):
         return self.AttributeDict(pFormatted)
 
 
-class Member(NeutronAPIDictWrapper):
+class Member(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron load balancer member"""
 
     def __init__(self, apiresource):
@@ -98,14 +98,14 @@ class Member(NeutronAPIDictWrapper):
         return self.AttributeDict(mFormatted)
 
 
-class PoolStats(NeutronAPIDictWrapper):
+class PoolStats(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron load balancer pool stats"""
 
     def __init__(self, apiresource):
         super(PoolStats, self).__init__(apiresource)
 
 
-class PoolMonitor(NeutronAPIDictWrapper):
+class PoolMonitor(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron load balancer pool health monitor"""
 
     def __init__(self, apiresource):

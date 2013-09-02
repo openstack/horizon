@@ -28,12 +28,12 @@ from django.views.generic import View  # noqa
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.network_topology.instances.tables\
-    import InstancesTable  # noqa
-from openstack_dashboard.dashboards.project.network_topology.ports.tables\
-    import PortsTable  # noqa
-from openstack_dashboard.dashboards.project.network_topology.routers.tables\
-    import RoutersTable  # noqa
+from openstack_dashboard.dashboards.project.network_topology.instances \
+    import tables as instances_tables
+from openstack_dashboard.dashboards.project.network_topology.ports \
+    import tables as ports_tables
+from openstack_dashboard.dashboards.project.network_topology.routers \
+    import tables as routers_tables
 
 from openstack_dashboard.dashboards.project.instances import\
     views as i_views
@@ -73,17 +73,17 @@ class NTLaunchInstanceView (i_views.LaunchInstanceView):
 
 
 class InstanceView (i_views.IndexView):
-    table_class = InstancesTable
+    table_class = instances_tables.InstancesTable
     template_name = 'project/network_topology/iframe.html'
 
 
 class RouterView (r_views.IndexView):
-    table_class = RoutersTable
+    table_class = routers_tables.RoutersTable
     template_name = 'project/network_topology/iframe.html'
 
 
 class RouterDetailView (r_views.DetailView):
-    table_classes = (PortsTable, )
+    table_classes = (ports_tables.PortsTable, )
     template_name = 'project/network_topology/iframe.html'
 
 

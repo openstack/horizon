@@ -28,13 +28,12 @@ from django.conf import settings  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from novaclient.v1_1 import client as nova_client
-from novaclient.v1_1.contrib.list_extensions import ListExtManager  # noqa
+from novaclient.v1_1.contrib import list_extensions as nova_list_extensions
 from novaclient.v1_1 import security_group_rules as nova_rules
-from novaclient.v1_1.security_groups import SecurityGroup as NovaSecurityGroup  # noqa
-from novaclient.v1_1.servers import REBOOT_HARD  # noqa
-from novaclient.v1_1.servers import REBOOT_SOFT  # noqa
+from novaclient.v1_1 import security_groups as nova_security_groups
+from novaclient.v1_1 import servers as nova_servers
 
-from horizon.conf import HORIZON_CONFIG  # noqa
+from horizon import conf
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
@@ -233,8 +232,8 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
                                         % instance_id)
         if body:
             # Wrap data in SG objects as novaclient would.
-            sg_objs = [NovaSecurityGroup(nclient.security_groups, sg,
-                                         loaded=True)
+            sg_objs = [nova_security_groups.SecurityGroup(
+                nclient.security_groups, sg, loaded=True)
                        for sg in body.get('security_groups', [])]
             # Then wrap novaclient's object with our own. Yes, sadly wrapping
             # with two layers of objects is necessary.
@@ -339,7 +338,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
         return instance_id
 
     def is_simple_associate_supported(self):
-        return HORIZON_CONFIG["simple_ip_management"]
+        return conf.HORIZON_CONFIG["simple_ip_management"]
 
 
 def novaclient(request):
@@ -507,9 +506,9 @@ def server_resume(request, instance_id):
 
 
 def server_reboot(request, instance_id, soft_reboot=False):
-    hardness = REBOOT_HARD
+    hardness = nova_servers.REBOOT_HARD
     if soft_reboot:
-        hardness = REBOOT_SOFT
+        hardness = nova_servers.REBOOT_SOFT
     novaclient(request).servers.reboot(instance_id, hardness)
 
 
@@ -644,7 +643,7 @@ def aggregate_list(request):
 
 @memoized
 def list_extensions(request):
-    return ListExtManager(novaclient(request)).show_all()
+    return nova_list_extensions.ListExtManager(novaclient(request)).show_all()
 
 
 @memoized

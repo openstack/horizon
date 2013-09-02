@@ -5,7 +5,7 @@ from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
-from horizon.utils.filters import parse_isotime  # noqa
+from horizon.utils import filters as utils_filters
 
 
 LOG = logging.getLogger(__name__)
@@ -110,7 +110,8 @@ class NovaServicesTable(tables.DataTable):
     state = tables.Column('state', verbose_name=_('State'))
     updated_at = tables.Column('updated_at',
                                verbose_name=_('Updated At'),
-                               filters=(parse_isotime, filters.timesince))
+                               filters=(utils_filters.parse_isotime,
+                                        filters.timesince))
 
     def get_object_id(self, obj):
         return "%s-%s-%s" % (obj.binary, obj.host, obj.zone)
