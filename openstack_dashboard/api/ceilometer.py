@@ -13,6 +13,7 @@
 # under the License.
 
 import logging
+import threading
 
 from ceilometerclient import client as ceilometer_client
 from django.conf import settings  # noqa
@@ -31,43 +32,41 @@ def is_iterable(var):
         issubclass(var.__class__, (list, tuple)))
 
 
-def make_query(user_id=None, tenant_id=None, resource_id=None):
+def make_query(user_id=None, tenant_id=None, resource_id=None,
+        user_ids=None, tenant_ids=None, resource_ids=None):
     """ Returns query built form given parameters.
 
     This query can be then used for querying resources, meters and
     statistics.
 
     :Parameters:
-      - `user_id`: user_id or list of user_ids
-      - `tenant_id`: tenant_id or list of tenant_ids
-      - `resource_id`: resource_id or list of resource_ids
+      - `user_id`: user_id, has a priority over list of ids
+      - `tenant_id`: tenant_id, has a priority over list of ids
+      - `resource_id`: resource_id, has a priority over list of ids
+      - `user_ids`: list of user_ids
+      - `tenant_ids`: list of tenant_ids
+      - `resource_ids`: list of resource_ids
     """
+    user_ids = user_ids or []
+    tenant_ids = tenant_ids or []
+    resource_ids = resource_ids or []
 
     query = []
-    if user_id and user_id != 'None':
-        if is_iterable(user_id):
-            for u_id in user_id:
-                query.append({"field": "user_id", "op": "eq", "value": u_id})
-        else:
-            query.append({"field": "user_id", "op": "eq", "value": user_id})
+    if user_id:
+        user_ids = [user_id]
+    for u_id in user_ids:
+        query.append({"field": "user_id", "op": "eq", "value": u_id})
 
-    if tenant_id and tenant_id != 'None':
-        if is_iterable(tenant_id):
-            for t_id in tenant_id:
-                query.append({"field": "project_id", "op": "eq",
-                              "value": t_id})
-        else:
-            query.append({"field": "project_id", "op": "eq",
-                          "value": tenant_id})
+    if tenant_id:
+        tenant_ids = [tenant_id]
+    for t_id in tenant_ids:
+        query.append({"field": "project_id", "op": "eq", "value": t_id})
 
-    if resource_id and resource_id != 'None':
-        if is_iterable(resource_id):
-            for r_id in resource_id:
-                query.append({"field": "resource_id", "op": "eq",
-                              "value": r_id})
-        else:
-            query.append({"field": "resource_id", "op": "eq",
-                          "value": resource_id})
+    if resource_id:
+        resource_ids = [resource_id]
+    for r_id in resource_ids:
+        query.append({"field": "resource_id", "op": "eq", "value": r_id})
+
     return query
 
 
@@ -87,12 +86,18 @@ class Resource(base.APIResourceWrapper):
     def __init__(self, apiresource, ceilometer_usage=None):
         super(Resource, self).__init__(apiresource)
 
-        # TODO(lsmola) make parallel obtaining of tenant and user
-        # make the threading here, thread join into resource_list
+        # Save empty strings to IDs rather then None, sop it gets
+        # serialized correctly. We don't want 'None' strings.
+        self.project_id = self.project_id or ""
+        self.user_id = self.user_id or ""
+        self.resource_id = self.resource_id or ""
+
         self._id = "%s__%s__%s" % (self.project_id,
                                    self.user_id,
                                    self.resource_id)
 
+        # TODO(lsmola) make parallel obtaining of tenant and user
+        # make the threading here, thread join into resource_list
         if ceilometer_usage and self.project_id:
             self._tenant = ceilometer_usage.get_tenant(self.project_id)
         else:
@@ -150,6 +155,7 @@ class ResourceAggregate(Resource):
     """
 
     def __init__(self, tenant_id=None, user_id=None, resource_id=None,
+                 tenant_ids=None, user_ids=None, resource_ids=None,
                  ceilometer_usage=None, query=None, identifier=None):
 
         self._id = identifier
@@ -159,31 +165,28 @@ class ResourceAggregate(Resource):
         self.resource_id = None
 
         if query:
-
             self._query = query
         else:
             # TODO(lsmola) make parallel obtaining of tenant and user
             # make the threading here, thread join into resource_list
-            if (ceilometer_usage and tenant_id and
-                    not is_iterable(tenant_id)):
+            if (ceilometer_usage and tenant_id):
                 self.tenant_id = tenant_id
                 self._tenant = ceilometer_usage.get_tenant(tenant_id)
             else:
                 self._tenant = None
 
-            if (ceilometer_usage and user_id and
-                    not is_iterable(user_id)):
+            if (ceilometer_usage and user_id):
                 self.user_id = user_id
                 self._user = ceilometer_usage.get_user(user_id)
             else:
                 self._user = None
 
-            if not is_iterable(resource_id):
+            if (resource_id):
                 self.resource_id = resource_id
 
-            self._query = make_query(tenant_id=tenant_id,
-                                     user_id=user_id,
-                                     resource_id=resource_id)
+            self._query = make_query(tenant_id=tenant_id, user_id=user_id,
+                resource_id=resource_id, tenant_ids=tenant_ids,
+                user_ids=user_ids, resource_ids=resource_ids)
 
     @property
     def id(self):
@@ -353,6 +356,73 @@ def statistic_list(request, meter_name, query=None, period=None):
     return [Statistic(s) for s in statistics]
 
 
+class ThreadedUpdateResourceWithStatistics(threading.Thread):
+    """ Multithread wrapper for update_with_statistics method of
+        resource_usage.
+
+    A join logic is placed in process_list class method. All resources
+    will have its statistics attribute filled in separate threads.
+
+    The resource_usage object is shared between threads. Each thread is
+    updating one Resource.
+
+    :Parameters:
+      - `resource`: Resource or ResourceAggregate object, that will
+                    be filled by statistic data.
+      - `resources`: List of Resource or ResourceAggregate object,
+                     that will be filled by statistic data.
+      - `resource_usage`: Wrapping resource usage object, that holds
+                          all statistics data.
+      - `meter_names`: List of meter names of the statistics we want.
+      - `period`: In seconds. If no period is given, only one aggregate
+                  statistic is returned. If given, a faceted result will be
+                  returned, divided into given periods. Periods with no
+                  data are ignored.
+      - `stats_attr`: String representing the attribute name of the stats.
+                      E.g. (avg, max, min...) If None is given, whole
+                      statistic object is returned,
+      - `additional_query`: Additional query for the statistics.
+                            E.g. timespan, etc.
+    """
+    # TODO(lsmola) Can be removed once Ceilometer supports sample-api
+    # and group-by, so all of this optimization will not be necessary.
+    # It is planned somewhere to I.
+
+    def __init__(self, resource_usage, resource, meter_names=None,
+                 period=None, filter_func=None, stats_attr=None,
+                 additional_query=None):
+        super(ThreadedUpdateResourceWithStatistics, self).__init__()
+        self.resource_usage = resource_usage
+        self.resource = resource
+        self.meter_names = meter_names
+        self.period = period
+        self.stats_attr = stats_attr
+        self.additional_query = additional_query
+
+    def run(self):
+        # Run the job
+        self.resource_usage.update_with_statistics(self.resource,
+            meter_names=self.meter_names, period=self.period,
+            stats_attr=self.stats_attr, additional_query=self.additional_query)
+
+    @classmethod
+    def process_list(cls, resource_usage, resources, meter_names=None,
+                 period=None, filter_func=None, stats_attr=None,
+                 additional_query=None):
+        threads = []
+
+        for resource in resources:
+            # add statistics data into resource
+            thread = cls(resource_usage, resource, meter_names=meter_names,
+                period=period, stats_attr=stats_attr,
+                additional_query=additional_query)
+            thread.start()
+            threads.append(thread)
+
+        for thread in threads:
+            thread.join()
+
+
 class CeilometerUsage(object):
     """ Represents wrapper of any Ceilometer queries.
 
@@ -362,6 +432,10 @@ class CeilometerUsage(object):
 
     This class also wraps Ceilometer API calls and provides parallel
     HTTP calls to API.
+
+    This class should also serve as reasonable abstraction, that will
+    cover huge amount of optimization due to optimization of Ceilometer
+    service, without changing of the interface.
     """
 
     def __init__(self, request):
@@ -419,11 +493,11 @@ class CeilometerUsage(object):
         tenants by separate API get calls.
         """
 
-        tenants = keystone.tenant_list(self._request)
+        tenants, more = keystone.tenant_list(self._request)
         # Cache all tenants on right indexes, this is more effective than to
         # obtain large number of tenants one by one by keystone.tenant_get
         for t in tenants:
-            self._users[t.id] = t
+            self._tenants[t.id] = t
 
     def global_data_get(self, used_cls=None, query=None,
                         with_statistics=False, additional_query=None,
@@ -434,21 +508,21 @@ class CeilometerUsage(object):
         in used_cls class.
 
         :Parameters:
-          - `user_cls`: Class wrapper from global data. It acts as wrapper for
+          - `user_cls`: Class wrapper for usage data. It acts as wrapper for
                         settings needed. See the call of this method for
                         details.
-          - `query`: Explicit query definition for fetching a resources. if
-                     no query is provided, it takes default_query from
+          - `query`: Explicit query definition for fetching the resources. If
+                     no query is provided, it takes a default_query from
                      used_cls. If no default query is provided, it fetches
                      all the resources and filters them by meters defined
                      in used_cls.
           - `with_statistic`: Define whether statistics data from the meters
                               defined in used_cls should be fetched.
                               Can be used to first obtain only the pure
-                              resources, then fetch the statistics data by
+                              resources, then with the statistics data by
                               AJAX.
           - `additional_query`: Additional query for the statistics.
-                                Eg. timespan, etc.
+                                E.g. timespan, etc.
           - `with_users_and_tenants`: If true a user and a tenant object will
                                       be added to each resource object.
         """
@@ -523,6 +597,9 @@ class CeilometerUsage(object):
                                   additional_query=None):
         """  Wrapper for specific call of global_data_get.
         """
+        # TODO(lsmola) This call uses all tenants now. When ajax pagination
+        # is added, it needs to obtain only paginated tenants.
+        # self.preload_all_tenants()
 
         return self.global_data_get(used_cls=GlobalObjectStoreUsage,
                                     query=query,
@@ -533,8 +610,8 @@ class CeilometerUsage(object):
         """ Obtaining a query from resource id.
 
         Query can be then used to identify a resource in resources or meters
-        calls. ID is being built in the Resource initializer, or returned by
-        Datatable into UpdateRow functionality.
+        API calls. ID is being built in the Resource initializer, or returned
+        by Datatable into UpdateRow functionality.
         """
         try:
             tenant_id, user_id, resource_id = object_id.split("__")
@@ -544,12 +621,12 @@ class CeilometerUsage(object):
         return make_query(tenant_id=tenant_id, user_id=user_id,
                           resource_id=resource_id)
 
-    def update_with_statistics(self, resource, meter_names, period=None,
+    def update_with_statistics(self, resource, meter_names=None, period=None,
                                stats_attr=None, additional_query=None):
         """ Adding statistical data into one Resource or ResourceAggregate.
 
-        It adds each statistic of each meter into the resource attributes.
-        Attribute name is the meter name with replaced '.' to '_'.
+        It adds each statistic of each meter_names into the resource
+        attributes. Attribute name is the meter name with replaced '.' to '_'.
 
         :Parameters:
           - `resource`: Resource or ResourceAggregate object, that will
@@ -560,12 +637,18 @@ class CeilometerUsage(object):
                       statistic is returned. If given a faceted result will be
                       returned, dividend into given periods. Periods with no
                       data are ignored.
-          - `stats_attr`: String representing the attribute name of the stats.
-                          Eg. (avg, max, min...) If None is given, whole
-                          statistic object is returned,
+          - `stats_attr`: String representing the specific name of the stats.
+                          E.g. (avg, max, min...) If defined, meter attribute
+                          will contain just the one value. If None is given,
+                          meter attribute will contain the whole Statistic
+                          object.
           - `additional_query`: Additional query for the statistics.
-                                Eg. timespan, etc.
+                                E.g. timespan, etc.
         """
+
+        if not meter_names:
+            raise ValueError("meter_names and resource must be defined to be"
+                             "able to obtain the statistics.")
 
         # query for identifying one resource in meters
         query = resource.query
@@ -575,9 +658,11 @@ class CeilometerUsage(object):
                                  " conditions. See the docs for format.")
             query = query + additional_query
 
-        # TODO(lsmola) maybe a thread for each meter?
-        # will have to test what has the best performance, when lot of
-        # resources and meters are involved.
+        # TODO(lsmola) thread for each meter will be probably overkill
+        # but I should test lets say thread pool with 100 of threads
+        # and apply it only to this code.
+        # Though I do expect Ceilometer will support bulk requests,
+        # so all of this optimization will not be necessary.
         for meter in meter_names:
             statistics = statistic_list(self._request, meter,
                                         query=query, period=period)
@@ -597,10 +682,10 @@ class CeilometerUsage(object):
 
     def resources(self, query=None, filter_func=None,
                   with_users_and_tenants=False):
-        """ Obtaining resources with to query or filter_func.
+        """ Obtaining resources with the query or filter_func.
 
         Obtains resources and also fetch tenants and users associated
-        with those resources.
+        with those resources if with_users_and_tenants flag is true.
 
         :Parameters:
           - `query`: Query for fetching the Ceilometer Resources.
@@ -634,27 +719,27 @@ class CeilometerUsage(object):
           - `meter_names`: List of meter names of which we want the
                            statistics.
           - `period`: In seconds. If no period is given, only one aggregate
-                      statistic is returned. If given a faceted result will be
-                      returned, dividend into given periods. Periods with no
-                      data are ignored.
-          - `stats_attr`: String representing the attribute name of the stats.
-                          Eg. (avg, max, min...) If None is given, whole
-                          statistic object is returned,
+                      statistic is returned. If given, a faceted result will
+                      be returned, divided into given periods. Periods with
+                      no data are ignored.
+          - `stats_attr`: String representing the specific name of the stats.
+                          E.g. (avg, max, min...) If defined, meter attribute
+                          will contain just the one value. If None is given,
+                          meter attribute will contain the whole Statistic
+                          object.
           - `additional_query`: Additional query for the statistics.
-                                Eg. timespan, etc.
+                                E.g. timespan, etc.
           - `with_users_and_tenants`: If true a user and a tenant object will
                                       be added to each resource object.
         """
 
         resources = self.resources(query, filter_func=filter_func,
             with_users_and_tenants=with_users_and_tenants)
-        for resource in resources:
-            # add statistics data into resource
-            # TODO(lsmola) make this parallel, thread join can be below this
-            # cycle. It can either create thread for each resource, or for
-            # each meter. Resource will be probably better.
-            self.update_with_statistics(resource, meter_names, period,
-                                        stats_attr, additional_query, )
+
+        ThreadedUpdateResourceWithStatistics.process_list(self, resources,
+            meter_names=meter_names, period=period, stats_attr=stats_attr,
+            additional_query=additional_query)
+
         return resources
 
     def resource_aggregates(self, queries=None):
@@ -666,8 +751,6 @@ class CeilometerUsage(object):
         :Parameters:
           - `queries`: Dictionary of named queries that defines a bulk of
                        resource aggregates.
-
-
         """
         resource_aggregates = []
         for identifier, query in queries.items():
@@ -687,23 +770,21 @@ class CeilometerUsage(object):
           - `meter_names`: List of meter names of which we want the
                            statistics.
           - `period`: In seconds. If no period is given, only one aggregate
-                      statistic is returned. If given a faceted result will be
-                      returned, dividend into given periods. Periods with no
-                      data are ignored.
-          - `stats_attr`: String representing the attribute name of the stats.
-                          Eg. (avg, max, min...) If None is given, whole
-                          statistic object is returned,
+                      statistic is returned. If given, a faceted result will
+                      be returned, divided into given periods. Periods with
+                      no data are ignored.
+          - `stats_attr`: String representing the specific name of the stats.
+                          E.g. (avg, max, min...) If defined, meter attribute
+                          will contain just the one value. If None is given,
+                          meter attribute will contain the whole Statistic
+                          object.
           - `additional_query`: Additional query for the statistics.
-                                Eg. timespan, etc.
+                                E.g. timespan, etc.
         """
-
         resource_aggregates = self.resource_aggregates(queries)
-        for resource_aggregate in resource_aggregates:
-            # add statistics data into resource
-            # TODO(lsmola) make this parallel, thread join can be below this
-            # cycle. It can either create thread for each resource, or for
-            # each meter. Resource will be probably better.
-            self.update_with_statistics(resource_aggregate, meter_names,
-                                        period, stats_attr,
-                                        additional_query)
+
+        ThreadedUpdateResourceWithStatistics.process_list(self,
+            resource_aggregates, meter_names=meter_names, period=period,
+            stats_attr=stats_attr, additional_query=additional_query)
+
         return resource_aggregates
