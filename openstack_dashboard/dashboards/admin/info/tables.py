@@ -165,16 +165,16 @@ class NetworkAgentsFilterAction(tables.FilterAction):
 
 def get_network_agent_status(agent):
     if agent.admin_state_up:
-        return 'enabled'
+        return _('Enabled')
 
-    return 'disabled'
+    return _('Disabled')
 
 
 def get_network_agent_state(agent):
     if agent.alive:
-        return 'up'
+        return _('Up')
 
-    return 'down'
+    return _('Down')
 
 
 class NetworkAgentsTable(tables.DataTable):
