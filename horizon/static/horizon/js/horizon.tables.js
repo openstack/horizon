@@ -264,6 +264,7 @@ $(parent).find("table.datatable").each(function () {
     });
     $table.tablesorter({
       headers: header_options,
+      widgets: ['zebra'],
       selectorHeaders: "thead th[class!='table_header']",
       cancelSelection: false
     });
