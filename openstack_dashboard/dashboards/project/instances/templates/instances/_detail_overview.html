@@ -94,18 +94,24 @@
 </div>
 
 <div class="volumes row-fluid detail">
-  <h4>{% trans "Volumes Attached" %}</h4>
-  <hr class="header_rule">
+    <h4>{% trans "Volumes Attached" %}</h4>
+    <hr class="header_rule">
     <dl>
-      {% for volume in instance.volumes %}
+    {% for volume in instance.volumes %}
         <dt>{% trans "Attached To" %}</dt>
         <dd>
-          <a href="{% url 'horizon:project:volumes:detail' volume.volumeId %}">{{ volume.name }}</a><span> {% trans "on" %} {{ volume.device }}</span>
+            <a href="{% url 'horizon:project:volumes:detail' volume.volumeId %}">
+            {% if volume.name %}
+                {{ volume.name }}
+            {%  else %}
+                {{ volume.volumeId }}
+            {% endif %}
+            </a>
+            <span> {% trans "on" %} {{ volume.device }}</span>
         </dd>
         {% empty %}
-          <dt>{% trans "Volume" %}</dt>
-          <dd><em>{% trans "No volumes attached." %}</em></dd>
-      {% endfor %}
+        <dt>{% trans "Volume" %}</dt>
+        <dd><em>{% trans "No volumes attached." %}</em></dd>
+    {% endfor %}
     </dl>
-  </dl>
 </div>
