@@ -251,7 +251,9 @@ def tenant_delete(request, project):
 
 def tenant_list(request, paginate=False, marker=None, domain=None, user=None):
     manager = VERSIONS.get_project_manager(request, admin=True)
-    page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+    page_size = request.session.get('horizon_pagesize',
+                                    getattr(settings, 'API_RESULT_PAGE_SIZE',
+                                            20))
     limit = None
     if paginate:
         limit = page_size + 1

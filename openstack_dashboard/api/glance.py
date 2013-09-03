@@ -59,7 +59,9 @@ def image_get(request, image_id):
 
 def image_list_detailed(request, marker=None, filters=None, paginate=False):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-    page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+    page_size = request.session.get('horizon_pagesize',
+                                    getattr(settings, 'API_RESULT_PAGE_SIZE',
+                                            20))
 
     if paginate:
         request_size = page_size + 1
