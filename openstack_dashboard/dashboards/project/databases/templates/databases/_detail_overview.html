@@ -1,0 +1,34 @@
+{% load i18n sizeformat %}
+
+<h3>{% trans "Instance Overview" %}</h3>
+
+<div class="status row-fluid detail">
+  <h4>{% trans "Info" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ instance.name }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ instance.id }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ instance.status|title }}</dd>
+    <dt>{% trans "RAM" %}</dt>
+    <dd>{{ instance.full_flavor.ram|mbformat }}</dd>
+  </dl>
+</div>
+
+<div class="addresses row-fluid detail">
+  <h4>{% trans "Connection Info" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    {% with instance.ip.0 as ipaddress %}
+    <dt>{% trans "Instance IP Address" %}</dt>
+    <dd>{{ ipaddress }}</dd>
+    <dt>{% trans "Database Port" %}</dt>
+    <dd>3306</dd> {# TODO: This should be a config #}
+    <dt>{% trans "Connection Examples" %}</dt>
+    <dd>mysql -h {{ ipaddress }} -u USERNAME -p</dd>
+    <dd>mysql://USERNAME:PASSWORD@{{ ipaddress }}:3306/DATABASE</dd>
+    {% endwith %}
+  </dl>
+</div>

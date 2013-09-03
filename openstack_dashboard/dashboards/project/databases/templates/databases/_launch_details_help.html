@@ -1,0 +1,53 @@
+{% load i18n horizon humanize %}
+
+<p>{% blocktrans %}Specify the details for launching an instance.{% endblocktrans %}</p>
+<p>{% blocktrans %}The chart below shows the resources used by this project in relation to the project's quotas.{% endblocktrans %}</p>
+
+<h4>{% trans "Flavor Details" %}</h4>
+<table class="flavor_table table-striped">
+  <tbody>
+    <tr><td class="flavor_name">{% trans "Name" %}</td><td><span id="flavor_name"></span></td></tr>
+    <tr><td class="flavor_name">{% trans "VCPUs" %}</td><td><span id="flavor_vcpus"></span></td></tr>
+    <tr><td class="flavor_name">{% trans "Root Disk" %}</td><td><span id="flavor_disk"> </span> {% trans "GB" %}</td></tr>
+    <tr><td class="flavor_name">{% trans "Ephemeral Disk" %}</td><td><span id="flavor_ephemeral"></span> {% trans "GB" %}</td></tr>
+    <tr><td class="flavor_name">{% trans "Total Disk" %}</td><td><span id="flavor_disk_total"></span> {% trans "GB" %}</td></tr>
+    <tr><td class="flavor_name">{% trans "RAM" %}</td><td><span id="flavor_ram"></span> {% trans "MB" %}</td></tr>
+  </tbody>
+</table>
+
+<div class="quota-dynamic">
+  <h4>{% trans "Project Quotas" %}</h4>
+  <div class="quota_title clearfix">
+    <strong>{% trans "Number of Instances" %} <span>({{ usages.instances.used|intcomma }})</span></strong>
+    <p>{{ usages.instances.available|quota|intcomma }}</p>
+  </div>
+  <div id="quota_instances" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.instances.quota }}" data-quota-used="{{ usages.instances.used }}">
+    {% horizon_progress_bar usages.instances.used usages.instances.quota %}
+  </div>
+
+  <div class="quota_title clearfix">
+    <strong>{% trans "Number of VCPUs" %} <span>({{ usages.cores.used|intcomma }})</span></strong>
+    <p>{{ usages.cores.available|quota|intcomma }}</p>
+  </div>
+  <div id="quota_vcpus" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.cores.quota }}" data-quota-used="{{ usages.cores.used }}">
+    {% horizon_progress_bar usages.cores.used usages.cores.quota %}
+  </div>
+
+  <div class="quota_title clearfix">
+    <strong>{% trans "Total RAM" %} <span>({{ usages.ram.used|intcomma }} {% trans "MB" %})</span></strong>
+    <p>{{ usages.ram.available|quota:"MB"|intcomma }}</p>
+  </div>
+  <div id="quota_ram" data-progress-indicator-flavor data-quota-limit="{{ usages.ram.quota }}" data-quota-used="{{ usages.ram.used }}" class="quota_bar">
+    {% horizon_progress_bar usages.ram.used usages.ram.quota %}
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  if(typeof horizon.Quota !== 'undefined') {
+    horizon.Quota.initWithFlavors({{ flavors|safe|default:"{}" }});
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.Quota.initWithFlavors({{ flavors|safe|default:"{}" }});
+    });
+  }
+</script>

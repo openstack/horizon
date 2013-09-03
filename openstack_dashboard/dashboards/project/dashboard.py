@@ -50,11 +50,22 @@ class OrchestrationPanels(horizon.PanelGroup):
     panels = ('stacks',)
 
 
+class DatabasePanels(horizon.PanelGroup):
+    name = _("Manage Databases")
+    slug = "database"
+    panels = ('databases',
+              'database_backups',)
+
+
 class Project(horizon.Dashboard):
     name = _("Project")
     slug = "project"
     panels = (
-        BasePanels, NetworkPanels, ObjectStorePanels, OrchestrationPanels)
+        BasePanels,
+        NetworkPanels,
+        ObjectStorePanels,
+        OrchestrationPanels,
+        DatabasePanels,)
     default_panel = 'overview'
     supports_tenants = True
 
