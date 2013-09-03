@@ -36,6 +36,8 @@ class SelfHandlingForm(SelfHandlingMixin, forms.Form):
     A base :class:`Form <django:django.forms.Form>` class which includes
     processing logic in its subclasses.
     """
+    required_css_class = 'required'
+
     def api_error(self, message):
         """
         Adds an error to the form's error dictionary after validation

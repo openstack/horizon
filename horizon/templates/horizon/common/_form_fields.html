@@ -7,7 +7,7 @@
   </div>
 {% endif %}
 {% for field in form.visible_fields %}
-  <div class="control-group form-field clearfix{% if field.errors %} error{% endif %}">
+  <div class="control-group form-field clearfix{% if field.errors %} error{% endif %} {{ field.css_classes }}">
     {{ field.label_tag }}
     {% if field.errors %}
       {% for error in field.errors %}
