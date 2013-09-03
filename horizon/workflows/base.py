@@ -144,7 +144,7 @@ class Action(forms.Form):
         return force_unicode(self.name)
 
     def __repr__(self):
-        return "<%s: %s>" % (self.__class__.__name_get_step_, self.slug)
+        return "<%s: %s>" % (self.__class__.__name__, self.slug)
 
     def _populate_choices(self, request, context):
         for field_name, bound_field in self.fields.items():

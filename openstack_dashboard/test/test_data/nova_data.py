@@ -18,6 +18,7 @@ import uuid
 from novaclient.v1_1 import aggregates
 from novaclient.v1_1 import availability_zones
 from novaclient.v1_1 import certs
+from novaclient.v1_1 import flavor_access
 from novaclient.v1_1 import flavors
 from novaclient.v1_1 import floating_ips
 from novaclient.v1_1 import hypervisors
@@ -149,6 +150,7 @@ USAGE_DATA = """
 def data(TEST):
     TEST.servers = utils.TestDataContainer()
     TEST.flavors = utils.TestDataContainer()
+    TEST.flavor_access = utils.TestDataContainer()
     TEST.keypairs = utils.TestDataContainer()
     TEST.security_groups = utils.TestDataContainer()
     TEST.security_groups_uuid = utils.TestDataContainer()
@@ -228,6 +230,7 @@ def data(TEST):
                                'ram': 512,
                                'swap': 0,
                                'extra_specs': {},
+                               'os-flavor-access:is_public': True,
                                'OS-FLV-EXT-DATA:ephemeral': 0})
     flavor_2 = flavors.Flavor(flavors.FlavorManager(None),
                               {'id': "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
@@ -237,8 +240,28 @@ def data(TEST):
                                'ram': 10000,
                                'swap': 0,
                                'extra_specs': {'Trusted': True, 'foo': 'bar'},
+                               'os-flavor-access:is_public': True,
                                'OS-FLV-EXT-DATA:ephemeral': 2048})
-    TEST.flavors.add(flavor_1, flavor_2)
+    flavor_3 = flavors.Flavor(flavors.FlavorManager(None),
+                              {'id': "dddddddd-dddd-dddd-dddd-dddddddddddd",
+                               'name': 'm1.secret',
+                               'vcpus': 1000,
+                               'disk': 1024,
+                               'ram': 10000,
+                               'swap': 0,
+                               'extra_specs': {},
+                               'os-flavor-access:is_public': False,
+                               'OS-FLV-EXT-DATA:ephemeral': 2048})
+    TEST.flavors.add(flavor_1, flavor_2, flavor_3)
+
+    flavor_access_manager = flavor_access.FlavorAccessManager(None)
+    flavor_access_1 = flavor_access.FlavorAccess(flavor_access_manager,
+            {"tenant_id": "1",
+             "flavor_id": "dddddddd-dddd-dddd-dddd-dddddddddddd"})
+    flavor_access_2 = flavor_access.FlavorAccess(flavor_access_manager,
+            {"tenant_id": "2",
+             "flavor_id": "dddddddd-dddd-dddd-dddd-dddddddddddd"})
+    TEST.flavor_access.add(flavor_access_1, flavor_access_2)
 
     # Keypairs
     keypair = keypairs.Keypair(keypairs.KeypairManager(None),

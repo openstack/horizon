@@ -367,11 +367,11 @@ def server_spice_console(request, instance_id, console_type='spice-html5'):
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavorid='auto',
-                  ephemeral=0, swap=0, metadata=None):
+                  ephemeral=0, swap=0, metadata=None, is_public=True):
     flavor = novaclient(request).flavors.create(name, memory, vcpu, disk,
                                                 flavorid=flavorid,
                                                 ephemeral=ephemeral,
-                                                swap=swap)
+                                                swap=swap, is_public=is_public)
     if (metadata):
         flavor_extra_set(request, flavor.id, metadata)
     return flavor
@@ -386,9 +386,27 @@ def flavor_get(request, flavor_id):
 
 
 @memoized
-def flavor_list(request):
+def flavor_list(request, is_public=True):
     """Get the list of available instance sizes (flavors)."""
-    return novaclient(request).flavors.list()
+    return novaclient(request).flavors.list(is_public=is_public)
+
+
+@memoized
+def flavor_access_list(request, flavor=None):
+    """Get the list of access instance sizes (flavors)."""
+    return novaclient(request).flavor_access.list(flavor=flavor)
+
+
+def add_tenant_to_flavor(request, flavor, tenant):
+    """Add a tenant to the given flavor access list."""
+    return novaclient(request).flavor_access.add_tenant_access(
+            flavor=flavor, tenant=tenant)
+
+
+def remove_tenant_from_flavor(request, flavor, tenant):
+    """Remove a tenant from the given flavor access list."""
+    return novaclient(request).flavor_access.remove_tenant_access(
+            flavor=flavor, tenant=tenant)
 
 
 def flavor_get_extras(request, flavor_id, raw=False):

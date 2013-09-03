@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block form_id %}edit_flavor_form{% endblock %}
-{% block form_action %}{% url 'horizon:admin:flavors:edit' flavor_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:flavors:update' flavor_id %}{% endblock %}
 
 {% block modal_id %}edit_flavor_modal{% endblock %}
 {% block modal-header %}{% trans "Edit Flavor" %}{% endblock %}
