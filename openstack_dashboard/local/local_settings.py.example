@@ -131,6 +131,9 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 # Disable SSL certificate checks (useful for self-signed certificates):
 # OPENSTACK_SSL_NO_VERIFY = True
 
+# The CA certificate to use to verify SSL connections
+# OPENSTACK_SSL_CACERT = '/path/to/cacert.pem'
+
 # The OPENSTACK_KEYSTONE_BACKEND settings can be used to identify the
 # capabilities of the auth backend for Keystone.
 # If Keystone has been configured to use LDAP as the auth backend then set

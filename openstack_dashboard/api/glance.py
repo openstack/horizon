@@ -39,10 +39,11 @@ def glanceclient(request):
     o = urlparse.urlparse(base.url_for(request, 'image'))
     url = "://".join((o.scheme, o.netloc))
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     LOG.debug('glanceclient connection created using token "%s" and url "%s"'
               % (request.user.token.id, url))
     return glance_client.Client('1', url, token=request.user.token.id,
-                                insecure=insecure)
+                                insecure=insecure, cacert=cacert)
 
 
 def image_delete(request, image_id):

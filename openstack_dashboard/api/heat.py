@@ -32,12 +32,14 @@ def format_parameters(params):
 def heatclient(request, password=None):
     api_version = "1"
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     endpoint = base.url_for(request, 'orchestration')
     LOG.debug('heatclient connection created using token "%s" and url "%s"' %
               (request.user.token.id, endpoint))
     kwargs = {
         'token': request.user.token.id,
         'insecure': insecure,
+        'ca_file': cacert,
         'username': request.user.username,
         'password': password
         #'timeout': args.timeout,

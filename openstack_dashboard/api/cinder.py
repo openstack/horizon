@@ -44,6 +44,7 @@ DEFAULT_QUOTA_NAME = 'default'
 
 def cinderclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     cinder_url = ""
     try:
         cinder_url = base.url_for(request, 'volume')
@@ -57,6 +58,7 @@ def cinderclient(request):
                              project_id=request.user.tenant_id,
                              auth_url=cinder_url,
                              insecure=insecure,
+                             cacert=cacert,
                              http_log_debug=settings.DEBUG)
     c.client.auth_token = request.user.token.id
     c.client.management_url = cinder_url
