@@ -91,6 +91,21 @@ OPENSTACK_HYPERVISOR_FEATURES = {
     'can_set_mount_point': True,
 }
 
+OPENSTACK_IMAGE_BACKEND = {
+    'image_formats': [
+        ('', ''),
+        ('aki', _('AKI - Amazon Kernel Image')),
+        ('ami', _('AMI - Amazon Machine Image')),
+        ('ari', _('ARI - Amazon Ramdisk Image')),
+        ('iso', _('ISO - Optical Disk Image')),
+        ('qcow2', _('QCOW2 - QEMU Emulator')),
+        ('raw', _('Raw')),
+        ('vdi', _('VDI')),
+        ('vhd', _('VHD')),
+        ('vmdk', _('VMDK'))
+    ]
+}
+
 LOGGING['loggers']['openstack_dashboard'] = {
     'handlers': ['test'],
     'propagate': False,

@@ -36,6 +36,10 @@ from horizon import messages
 from openstack_dashboard import api
 
 
+IMAGE_BACKEND_SETTINGS = getattr(settings, 'OPENSTACK_IMAGE_BACKEND', {})
+IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
+
+
 LOG = logging.getLogger(__name__)
 
 
@@ -71,24 +75,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                                  required=False)
     disk_format = forms.ChoiceField(label=_('Format'),
                                     required=True,
-                                    choices=[('', ''),
-                                             ('aki',
-                                                _('AKI - Amazon Kernel '
-                                                        'Image')),
-                                             ('ami',
-                                                _('AMI - Amazon Machine '
-                                                        'Image')),
-                                             ('ari',
-                                                _('ARI - Amazon Ramdisk '
-                                                        'Image')),
-                                             ('iso',
-                                                _('ISO - Optical Disk Image')),
-                                             ('qcow2',
-                                                _('QCOW2 - QEMU Emulator')),
-                                             ('raw', 'Raw'),
-                                             ('vdi', 'VDI'),
-                                             ('vhd', 'VHD'),
-                                             ('vmdk', 'VMDK')],
+                                    choices=[],
                                     widget=forms.Select(attrs={'class':
                                                                'switchable'}))
     minimum_disk = forms.IntegerField(label=_("Minimum Disk (GB)"),
@@ -112,6 +99,7 @@ class CreateImageForm(forms.SelfHandlingForm):
         super(CreateImageForm, self).__init__(*args, **kwargs)
         if not settings.HORIZON_IMAGES_ALLOW_UPLOAD:
             self.fields['image_file'].widget = HiddenInput()
+        self.fields['disk_format'].choices = IMAGE_FORMAT_CHOICES
 
     def clean(self):
         data = super(CreateImageForm, self).clean()
