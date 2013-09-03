@@ -37,6 +37,10 @@ def data(TEST):
     TEST.members = utils.TestDataContainer()
     TEST.monitors = utils.TestDataContainer()
     TEST.neutron_quotas = utils.TestDataContainer()
+    TEST.net_profiles = utils.TestDataContainer()
+    TEST.policy_profiles = utils.TestDataContainer()
+    TEST.network_profile_binding = utils.TestDataContainer()
+    TEST.policy_profile_binding = utils.TestDataContainer()
 
     # data return by neutronclient
     TEST.api_agents = utils.TestDataContainer()
@@ -52,6 +56,10 @@ def data(TEST):
     TEST.api_members = utils.TestDataContainer()
     TEST.api_monitors = utils.TestDataContainer()
     TEST.api_extensions = utils.TestDataContainer()
+    TEST.api_net_profiles = utils.TestDataContainer()
+    TEST.api_policy_profiles = utils.TestDataContainer()
+    TEST.api_network_profile_binding = utils.TestDataContainer()
+    TEST.api_policy_profile_binding = utils.TestDataContainer()
 
     #------------------------------------------------------------
     # 1st network
@@ -84,6 +92,44 @@ def data(TEST):
     network['subnets'] = [subnet]
     TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
+
+    # network profile for network when using the cisco n1k plugin
+    net_profile_dict = {'name': 'net_profile_test1',
+                        'segment_type': 'vlan',
+                        'physical_network': 'phys1',
+                        'segment_range': '3000-31000',
+                        'id':
+                        '00000000-1111-1111-1111-000000000000',
+                        'tenant_id': network_dict['tenant_id']}
+
+    TEST.api_net_profiles.add(net_profile_dict)
+    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
+
+    # policy profile for port when using the cisco n1k plugin
+    policy_profile_dict = {'name': 'policy_profile_test1',
+                           'id':
+                           '00000000-9999-9999-9999-000000000000'}
+
+    TEST.api_policy_profiles.add(policy_profile_dict)
+    TEST.policy_profiles.add(neutron.Profile(policy_profile_dict))
+
+    # network profile binding
+    network_profile_binding_dict = {'profile_id':
+                                    '00000000-1111-1111-1111-000000000000',
+                                    'tenant_id': network_dict['tenant_id']}
+
+    TEST.api_network_profile_binding.add(network_profile_binding_dict)
+    TEST.network_profile_binding.add(neutron.Profile(
+            network_profile_binding_dict))
+
+    # policy profile binding
+    policy_profile_binding_dict = {'profile_id':
+                                   '00000000-9999-9999-9999-000000000000',
+                                   'tenant_id': network_dict['tenant_id']}
+
+    TEST.api_policy_profile_binding.add(policy_profile_binding_dict)
+    TEST.policy_profile_binding.add(neutron.Profile(
+            policy_profile_binding_dict))
 
     # ports on 1st network
     port_dict = {'admin_state_up': True,

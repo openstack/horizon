@@ -486,6 +486,11 @@ class SetNetworkAction(workflows.Action):
                                                 " be specified.")},
                                         help_text=_("Launch instance with"
                                                     " these networks"))
+    if api.neutron.is_port_profiles_supported():
+        profile = forms.ChoiceField(label=_("Policy Profiles"),
+                                    required=False,
+                                    help_text=_("Launch instance with "
+                                                "this policy profile"))
 
     class Meta:
         name = _("Networking")
@@ -505,11 +510,26 @@ class SetNetworkAction(workflows.Action):
                               _('Unable to retrieve networks.'))
         return network_list
 
+    def populate_profile_choices(self, request, context):
+        try:
+            profiles = api.neutron.profile_list(request, 'policy')
+            profile_list = [(profile.id, profile.name) for profile in profiles]
+        except Exception:
+            profile_list = []
+            exceptions.handle(request, _("Unable to retrieve profiles."))
+        return profile_list
+
 
 class SetNetwork(workflows.Step):
     action_class = SetNetworkAction
-    template_name = "project/instances/_update_networks.html"
-    contributes = ("network_id",)
+    # Disabling the template drag/drop only in the case port profiles
+    # are used till the issue with the drag/drop affecting the
+    # profile_id detection is fixed.
+    if api.neutron.is_port_profiles_supported():
+        contributes = ("network_id", "profile_id",)
+    else:
+        template_name = "project/instances/_update_networks.html"
+        contributes = ("network_id",)
 
     def contribute(self, data, context):
         if data:
@@ -519,6 +539,9 @@ class SetNetwork(workflows.Step):
             networks = [n for n in networks if n != '']
             if networks:
                 context['network_id'] = networks
+
+            if api.neutron.is_port_profiles_supported():
+                context['profile_id'] = data.get('profile', None)
         return context
 
 
@@ -582,6 +605,26 @@ class LaunchInstance(workflows.Workflow):
             nics = None
 
         avail_zone = context.get('availability_zone', None)
+
+        # Create port with Network Name and Port Profile
+        # for the use with the plugin supporting port profiles.
+        # neutron port-create <Network name> --n1kv:profile <Port Profile ID>
+        # for net_id in context['network_id']:
+        ## HACK for now use first network
+        if api.neutron.is_port_profiles_supported():
+            net_id = context['network_id'][0]
+            LOG.debug(_("Horizon->Create Port with %(netid)s %(profile_id)s"),
+                      {'netid': net_id, 'profile_id': context['profile_id']})
+            try:
+                port = api.neutron.port_create(request, net_id,
+                                               policy_profile_id=
+                                               context['profile_id'])
+            except Exception:
+                msg = (_('Port not created for profile-id (%s).') %
+                       context['profile_id'])
+                exceptions.handle(request, msg)
+            if port and port.id:
+                nics = [{"port-id": port.id}]
 
         try:
             api.nova.server_create(request,

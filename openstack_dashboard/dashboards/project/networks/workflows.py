@@ -37,8 +37,34 @@ class CreateNetworkInfoAction(workflows.Action):
     net_name = forms.CharField(max_length=255,
                                label=_("Network Name"),
                                required=False)
+    if api.neutron.is_port_profiles_supported():
+        net_profile_id = forms.ChoiceField(label=_("Network Profile"))
     admin_state = forms.BooleanField(label=_("Admin State"),
                                      initial=True, required=False)
+
+    if api.neutron.is_port_profiles_supported():
+        def __init__(self, request, *args, **kwargs):
+            super(CreateNetworkInfoAction, self).__init__(request,
+                                                          *args, **kwargs)
+            self.fields['net_profile_id'].choices = (
+                self.get_network_profile_choices(request))
+
+        def get_network_profile_choices(self, request):
+            profile_choices = [('', _("Select a profile"))]
+            for profile in self._get_profiles(request, 'network'):
+                profile_choices.append((profile.id, profile.name))
+            return profile_choices
+
+        def _get_profiles(self, request, type_p):
+            try:
+                profiles = api.neutron.profile_list(request, type_p)
+            except Exception:
+                profiles = []
+                msg = _('Network Profiles could not be retrieved.')
+                exceptions.handle(request, msg)
+            return profiles
+    # TODO(absubram): Add ability to view network profile information
+    # in the network detail if a profile is used.
 
     class Meta:
         name = _("Network")
@@ -49,7 +75,10 @@ class CreateNetworkInfoAction(workflows.Action):
 
 class CreateNetworkInfo(workflows.Step):
     action_class = CreateNetworkInfoAction
-    contributes = ("net_name", "admin_state")
+    if api.neutron.is_port_profiles_supported():
+        contributes = ("net_name", "admin_state", "net_profile_id")
+    else:
+        contributes = ("net_name", "admin_state")
 
 
 class CreateSubnetInfoAction(workflows.Action):
@@ -257,6 +286,8 @@ class CreateNetwork(workflows.Workflow):
         try:
             params = {'name': data['net_name'],
                       'admin_state_up': data['admin_state']}
+            if api.neutron.is_port_profiles_supported():
+                params['net_profile_id'] = data['net_profile_id']
             network = api.neutron.network_create(request, **params)
             network.set_id_as_name_if_empty()
             self.context['net_id'] = network.id

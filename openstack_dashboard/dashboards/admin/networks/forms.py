@@ -17,6 +17,7 @@
 import logging
 
 from django.core.urlresolvers import reverse  # noqa
+from django.utils import datastructures  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
@@ -34,6 +35,8 @@ class CreateNetwork(forms.SelfHandlingForm):
                            label=_("Name"),
                            required=False)
     tenant_id = forms.ChoiceField(label=_("Project"))
+    if api.neutron.is_port_profiles_supported():
+        net_profile_id = forms.ChoiceField(label=_("Network Profile"))
     admin_state = forms.BooleanField(label=_("Admin State"),
                                      initial=True, required=False)
     shared = forms.BooleanField(label=_("Shared"),
@@ -54,6 +57,25 @@ class CreateNetwork(forms.SelfHandlingForm):
                 tenant_choices.append((tenant.id, tenant.name))
         self.fields['tenant_id'].choices = tenant_choices
 
+        if api.neutron.is_port_profiles_supported():
+            self.fields['net_profile_id'].choices = (
+                self.get_network_profile_choices(request))
+
+    def get_network_profile_choices(self, request):
+        profile_choices = [('', _("Select a profile"))]
+        for profile in self._get_profiles(request, 'network'):
+            profile_choices.append((profile.id, profile.name))
+        return profile_choices
+
+    def _get_profiles(self, request, type_p):
+        profiles = []
+        try:
+            profiles = api.neutron.profile_list(request, type_p)
+        except Exception:
+            msg = _('Network Profiles could not be retrieved.')
+            exceptions.handle(request, msg)
+        return profiles
+
     def handle(self, request, data):
         try:
             params = {'name': data['name'],
@@ -61,6 +83,8 @@ class CreateNetwork(forms.SelfHandlingForm):
                       'admin_state_up': data['admin_state'],
                       'shared': data['shared'],
                       'router:external': data['external']}
+            if api.neutron.is_port_profiles_supported():
+                params['net_profile_id'] = data['net_profile_id']
             network = api.neutron.network_create(request, **params)
             msg = _('Network %s was successfully created.') % data['name']
             LOG.debug(msg)

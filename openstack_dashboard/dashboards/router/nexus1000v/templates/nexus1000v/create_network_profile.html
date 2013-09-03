@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Create Network Profile" %}{% endblock %}
+
+{% block page_header %}
+    {% include "horizon/common/_page_header.html" with title=_("Create Network Profile") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include "router/nexus1000v/_create_network_profile.html" %}
+{% endblock %}

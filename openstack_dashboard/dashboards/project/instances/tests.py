@@ -813,7 +813,8 @@ class InstanceTests(test.TestCase):
                         api.network: ('security_group_list',),
                         cinder: ('volume_snapshot_list',
                                  'volume_list',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list',),
                         api.glance: ('image_list_detailed',)})
     def test_launch_instance_get(self):
         image = self.images.first()
@@ -837,6 +838,13 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'policy').AndReturn(policy_profiles)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
                 .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -878,7 +886,9 @@ class InstanceTests(test.TestCase):
                              '<PostCreationStep: customizeaction>'])
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list',
+                                      'port_create',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'availability_zone_list',
@@ -921,6 +931,20 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            policy_profile_id = self.policy_profiles.first().id
+            port = self.ports.first()
+            api.neutron.profile_list(
+                IsA(http.HttpRequest),
+                'policy').AndReturn(policy_profiles)
+            api.neutron.port_create(
+                IsA(http.HttpRequest),
+                network_id=self.networks.first().id,
+                policy_profile_id=policy_profile_id).AndReturn(port)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn([])
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -970,7 +994,8 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'availability_zone_list',
@@ -1016,6 +1041,21 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            policy_profile_id = self.policy_profiles.first().id
+            port = self.ports.first()
+            api.neutron.profile_list(
+                IsA(http.HttpRequest),
+                'policy').AndReturn(policy_profiles)
+            api.neutron.port_create(
+                IsA(http.HttpRequest),
+                network_id=self.networks.first().id,
+                policy_profile_id=policy_profile_id).AndReturn(port)
+            nics = [{"port-id": port.id}]
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1067,7 +1107,9 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list',
+                                      'port_create'),
                         api.nova: ('server_create',
                                    'flavor_list',
                                    'keypair_list',
@@ -1115,6 +1157,21 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            policy_profile_id = self.policy_profiles.first().id
+            port = self.ports.first()
+            api.neutron.profile_list(
+                IsA(http.HttpRequest),
+                'policy').AndReturn(policy_profiles)
+            api.neutron.port_create(
+                IsA(http.HttpRequest),
+                network_id=self.networks.first().id,
+                policy_profile_id=policy_profile_id).AndReturn(port)
+            nics = [{"port-id": port.id}]
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1168,7 +1225,8 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'availability_zone_list',
@@ -1205,6 +1263,13 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'policy').AndReturn(policy_profiles)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
@@ -1252,7 +1317,8 @@ class InstanceTests(test.TestCase):
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list',),
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         api.network: ('security_group_list',),
@@ -1280,6 +1346,13 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'policy').AndReturn(policy_profiles)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
            .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1309,7 +1382,9 @@ class InstanceTests(test.TestCase):
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list',
+                                      'port_create',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'availability_zone_list',
@@ -1352,6 +1427,21 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            policy_profile_id = self.policy_profiles.first().id
+            port = self.ports.first()
+            api.neutron.profile_list(
+                IsA(http.HttpRequest),
+                'policy').AndReturn(policy_profiles)
+            api.neutron.port_create(
+                IsA(http.HttpRequest),
+                network_id=self.networks.first().id,
+                policy_profile_id=policy_profile_id).AndReturn(port)
+            nics = [{"port-id": port.id}]
         cinder.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
@@ -1403,7 +1493,8 @@ class InstanceTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list',),
                         api.nova: ('flavor_list',
                                    'keypair_list',
                                    'tenant_absolute_limits',
@@ -1448,6 +1539,13 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'policy').AndReturn(policy_profiles)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1551,7 +1649,8 @@ class InstanceTests(test.TestCase):
                         api.network: ('security_group_list',),
                         cinder: ('volume_snapshot_list',
                                  'volume_list',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list'),
                         api.glance: ('image_list_detailed',)})
     def test_select_default_keypair_if_only_one(self):
         keypair = self.keypairs.first()
@@ -1575,6 +1674,13 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'policy').AndReturn(policy_profiles)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
            .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \

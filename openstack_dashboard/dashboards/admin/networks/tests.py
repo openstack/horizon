@@ -149,11 +149,19 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertItemsEqual(subnets, [self.subnets.first()])
         self.assertEqual(len(ports), 0)
 
-    @test.create_stubs({api.keystone: ('tenant_list',)})
+    @test.create_stubs({api.neutron: ('profile_list',),
+                        api.keystone: ('tenant_list',)})
     def test_network_create_get(self):
         tenants = self.tenants.list()
-        api.keystone.tenant_list(IsA(http.HttpRequest))\
-            .AndReturn([tenants, False])
+        api.keystone.tenant_list(IsA(
+                http.HttpRequest)).AndReturn([tenants, False])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            net_profiles = self.net_profiles.list()
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'network').AndReturn(net_profiles)
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:networks:create')
@@ -161,7 +169,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, 'admin/networks/create.html')
 
-    @test.create_stubs({api.neutron: ('network_create',),
+    @test.create_stubs({api.neutron: ('network_create',
+                                      'profile_list',),
                         api.keystone: ('tenant_list',)})
     def test_network_create_post(self):
         tenants = self.tenants.list()
@@ -174,6 +183,15 @@ class NetworkTests(test.BaseAdminViewTests):
                   'admin_state_up': network.admin_state_up,
                   'router:external': True,
                   'shared': True}
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            net_profiles = self.net_profiles.list()
+            net_profile_id = self.net_profiles.first().id
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'network').AndReturn(net_profiles)
+            params['net_profile_id'] = net_profile_id
         api.neutron.network_create(IsA(http.HttpRequest), **params)\
             .AndReturn(network)
         self.mox.ReplayAll()
@@ -183,13 +201,16 @@ class NetworkTests(test.BaseAdminViewTests):
                      'admin_state': network.admin_state_up,
                      'external': True,
                      'shared': True}
+        if api.neutron.is_port_profiles_supported():
+            form_data['net_profile_id'] = net_profile_id
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_create',),
+    @test.create_stubs({api.neutron: ('network_create',
+                                      'profile_list',),
                         api.keystone: ('tenant_list',)})
     def test_network_create_post_network_exception(self):
         tenants = self.tenants.list()
@@ -202,6 +223,15 @@ class NetworkTests(test.BaseAdminViewTests):
                   'admin_state_up': network.admin_state_up,
                   'router:external': True,
                   'shared': False}
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            net_profiles = self.net_profiles.list()
+            net_profile_id = self.net_profiles.first().id
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'network').AndReturn(net_profiles)
+            params['net_profile_id'] = net_profile_id
         api.neutron.network_create(IsA(http.HttpRequest), **params)\
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
@@ -211,6 +241,8 @@ class NetworkTests(test.BaseAdminViewTests):
                      'admin_state': network.admin_state_up,
                      'external': True,
                      'shared': False}
+        if api.neutron.is_port_profiles_supported():
+            form_data['net_profile_id'] = net_profile_id
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
 
